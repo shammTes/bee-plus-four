@@ -1,28 +1,19 @@
 # 4 — Highschool offline curriculum + study coach
 
-## Exam extraction status
+## Exam bank v4 (accuracy-first)
 
-| Source | Parsed stems | Solved (explanations + unit links) |
-|--------|-------------:|-----------------------------------:|
-| Matriculation ESECE 2023 (OCR) | pages batch | **15** |
-| School model 2017/18 (Warsay Yikealo) | **269** | **15** |
-| School semester finals | **~100** | **7** |
-| **In-app bank** | | **37** |
+| Type | Solved |
+|------|-------:|
+| Matriculation (ESECE OCR) | 15 |
+| School model 2017/18 | 30 |
+| School semester | 7 |
+| **Total** | **52** |
 
-Each solved item: answer, step-by-step, unit links, similar practice where applicable.
+Subjects: Physics 26 · Chemistry 11 · Biology 7 · Math 7 · Business 1  
+Unit index keys: 29
 
-### Download full pack
-[bee_plus_four_exam_extraction_latest.tar.gz](https://drive.google.com/file/d/1mDBolDyFbJmbPh5yy8UaA3nJ8nWlzb2a/view)
+Each solved item: step-by-step explanation, unit links, similar practice where applicable.
 
-Contains `matric_questions.json`, `exam_catalog.json`, exam UI sources, parsed stem queues.
+**Download:** [exam_bank_v4](https://drive.google.com/file/d/REPLACE/view) — place `matric_questions.json` + `exam_catalog.json` in `assets/content/`.
 
-### Pipeline
-1. **Text PDFs** (model + school) — full text extract + MCQ parse
-2. **Scanned matric** — OCR page batches (Physics/Chem/Math/Bio 2023 underway)
-3. Only curriculum-verified answers enter the solved bank
-4. Unit index groups questions under notes for systematic practice
-
-### App
-- Exams → catalogue + matric bank + adaptive sessions
-- Notes → unit → linked matric/model items
-- Coach → exam practice (offline intents only)
+269 model stems parsed; remaining solved only when verified.
