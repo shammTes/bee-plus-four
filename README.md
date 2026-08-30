@@ -1,6 +1,6 @@
 # 4 — Highschool offline curriculum + study coach
 
-## Exam bank v6 (accuracy-first, auto pipeline)
+## Exam bank v6 (accuracy-first)
 
 | Type | Solved |
 |------|-------:|
@@ -9,11 +9,9 @@
 | School semester | 7 |
 | **Total** | **75** |
 
-**Subjects:** Physics 26 · Math 11 · Chemistry 11 · Biology 8 · Business 7 · History 7 · Geography 5  
-**Unit index:** 31 keys
+Physics 26 · Math 11 · Chemistry 11 · Biology 8 · Business 7 · History 7 · Geography 5  
+Unit index: 31 keys · Split assets: `matric_index.json` + `matric_<subject>.json`
 
-Assets load via `matric_index.json` + per-subject `matric_*.json` packs.
+**Pack:** [bee_plus_four_exam_bank_v6.tar.gz](https://drive.google.com/file/d/1Lp_QYGxsPybDVNK3DgJ30Nam_wbPUV7H/view)
 
-269 model stems parsed; items enter the solved bank only when verified.
-
-Drive packs: search Drive for `bee_plus_four_exam_bank`.
+Pipeline continues: verify → explain → unit-link → push.
