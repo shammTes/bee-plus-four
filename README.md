@@ -1,21 +1,19 @@
 # 4 — Highschool offline curriculum + study coach
 
-## Exam bank v4 (accuracy-first)
+## Exam bank v6 (accuracy-first, auto pipeline)
 
 | Type | Solved |
 |------|-------:|
-| Matriculation (ESECE OCR) | 15 |
-| School model 2017/18 | 30 |
+| Matriculation | 15 |
+| School model | 53 |
 | School semester | 7 |
-| **Total** | **52** |
+| **Total** | **75** |
 
-**By subject:** Physics 26 · Chemistry 11 · Biology 7 · Math 7 · Business 1  
-**Unit index:** 29 keys (Notes → unit → linked exam practice)
+**Subjects:** Physics 26 · Math 11 · Chemistry 11 · Biology 8 · Business 7 · History 7 · Geography 5  
+**Unit index:** 31 keys
 
-Each solved item includes step-by-step explanation, unit links, and similar practice where applicable.
+Assets load via `matric_index.json` + per-subject `matric_*.json` packs.
 
-**Pack:** [bee_plus_four_exam_bank_v4.tar.gz](https://drive.google.com/file/d/1Mt-lcOxX1ZQ3VNKKZ2Jfi8iWREu5SrQK/view)
+269 model stems parsed; items enter the solved bank only when verified.
 
-Merge `matric_questions.json` and `exam_catalog.json` into `assets/content/`.
-
-269 model stems are parsed; further items are added only after verification.
+Drive packs: search Drive for `bee_plus_four_exam_bank`.
