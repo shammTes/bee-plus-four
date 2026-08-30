@@ -11,6 +11,8 @@
 
 Physics 30 · Chemistry 19 · Biology 18 · Math 16 · Business 16 · History 11 · Geography 7
 
-**Pack:** [bee_plus_four_exam_bank_v9.tar.gz](https://drive.google.com/file/d/PLACEHOLDER/view)
+**Pack:** [bee_plus_four_exam_bank_v9.tar.gz](https://drive.google.com/file/d/1SZ8HtoykzX-mPM70_LYki1cKC4EPKdYI/view)
 
-Assets: `matric_index.json` + `matric_<subject>.json`
+Merge into `assets/content/`: `matric_index.json` + `matric_<subject>.json`.
+
+Only verified answers with step-by-step explanations and unit links.
