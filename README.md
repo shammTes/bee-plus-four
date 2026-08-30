@@ -1,27 +1,30 @@
-# 4 — Highschool offline curriculum + controlled study coach
+# 4 — Highschool offline curriculum + study coach
 
-Flutter. Same security posture as BEE PLUS. **No Junior track** (G9–G12).
+## Exam extraction status (live)
 
-## Matric / model exams
+| Source | Parsed stems | Solved (step-by-step + unit links) |
+|--------|-------------:|-----------------------------------:|
+| Matriculation (ESECE OCR) | partial 2023 pages | 15 |
+| School **model** 2017/18 (Warsay Yikealo) | 269 | 15 |
+| School **semester** finals | ~100 | 7 |
+| **Total in app bank** | | **~37** |
 
-- **Catalogue:** Drive-verified paper index (`assets/content/exam_catalog.json`)
-- **Extracted bank:** OCR of official ESECE 2023 papers (Physics, Math/Algebra&Geometry, Chemistry) with:
-  - step-by-step explanations
-  - **similar practice** variants (same skill; not claimed as past papers)
-  - **unit note links** so each question sits with the matching curriculum unit
-- UI: **Exams → Matric questions** and **Notes → unit → Matric & model for this unit**
+Each solved item includes:
+- correct answer + numbered explanation
+- unit note links (grade/subject/unit)
+- similar practice variants where topic templates apply
 
-Full wiring pack (Dart + JSON):
-[bee_plus_four_matric_full_pack.tar.gz](https://drive.google.com/file/d/1hpsCdNjkZDOngEdWm-C0nOeI-K2R2-tT/view)
+### Full pack (JSON + Dart UI)
+[bee_plus_four_exam_extraction_latest.tar.gz](https://drive.google.com/file/d/PLACEHOLDER)
 
-## Accuracy policy
+Merge into `assets/content/` and `lib/`.
 
-Stems from OCR of official papers. Answers explained from standard secondary curriculum reasoning. Similar questions are training variants only.
+### Accuracy
+- Text model/school PDFs: parsed by regex, answers only when curriculum-verified
+- Scanned matric PDFs: OCR page batches; no invented stems
+- Unsolved stems kept in extraction queue for continuation
 
-## Coach
-
-Offline intent bot: quiz, **exam practice**, catalogue summary — curriculum packs only.
-
-## Unlock
-
-HMAC QR, device-bound, single-use.
+### App entry points
+- Exams → Matric questions / adaptive practice
+- Notes → unit → Matric & model for this unit
+- Coach → exam practice / catalogue
