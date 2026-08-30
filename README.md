@@ -1,28 +1,27 @@
 # 4 — Highschool offline curriculum + controlled study coach
 
-Flutter. Same security as BEE PLUS. **No Junior track** (G9–G12 only).
+Flutter. Same security posture as BEE PLUS. **No Junior track** (G9–G12).
 
-## Ingested content (from subject ZIP packs)
+## Matric / model exams
 
-| Metric | Count |
-|--------|------:|
-| Unit notes | **108** |
-| Practice MCQs | **9,585** |
-| Grades | G9, G10, G11 |
-| Subjects | Math, Physics, Chemistry, Biology, English, Geography, History, Agriculture, Business/Economics |
+- **Catalogue:** Drive-verified paper index (`assets/content/exam_catalog.json`)
+- **Extracted bank:** OCR of official ESECE 2023 papers (Physics, Math/Algebra&Geometry, Chemistry) with:
+  - step-by-step explanations
+  - **similar practice** variants (same skill; not claimed as past papers)
+  - **unit note links** so each question sits with the matching curriculum unit
+- UI: **Exams → Matric questions** and **Notes → unit → Matric & model for this unit**
 
-### Full content archive
-Google Drive: [bee_plus_four_content_full.tar.gz](https://drive.google.com/file/d/1wgefeor1ZdSNPtjhos9_Z_H-3fq9OAe-/view?usp=drivesdk)
+Full wiring pack (Dart + JSON):
+[bee_plus_four_matric_full_pack.tar.gz](https://drive.google.com/file/d/1hpsCdNjkZDOngEdWm-C0nOeI-K2R2-tT/view)
 
-Extract into `assets/content/` then `flutter pub get && flutter build apk`.
+## Accuracy policy
 
-Loader reads `practice_index.json` → all `practice_g*_*.json` packs, with `practice_lite.json` fallback.
+Stems from OCR of official papers. Answers explained from standard secondary curriculum reasoning. Similar questions are training variants only.
 
-## Offline Coach bot
-Intent keywords only (no network LLM). Answers from practice packs.
+## Coach
+
+Offline intent bot: quiz, **exam practice**, catalogue summary — curriculum packs only.
 
 ## Unlock
-HMAC QR, device-bound, single-use. Package: `HIGHSCHOOL`.
 
-## CI
-Artifact: `four-release-apk`
+HMAC QR, device-bound, single-use.

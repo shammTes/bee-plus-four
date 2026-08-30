@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/services.dart';
 
 import '../models/content_models.dart';
+import '../models/exam_models.dart';
 
 /// Loads curriculum + exam catalogue. Fail-soft + session cache.
 class ContentRepository {
@@ -14,10 +15,11 @@ class ContentRepository {
   List<PracticeQuestion>? _questions;
   Map<String, List<IllustratedSlide>>? _slides;
   ExamCatalog? _exams;
+  MatricBundle? _matric;
   final _rng = Random();
 
   Future<void> preload() async {
-    await Future.wait([notes(), questions(), allSlides(), examCatalog()]);
+    await Future.wait([notes(), questions(), allSlides(), examCatalog(), matricBundle()]);
   }
 
   Future<List<UnitNote>> notes() async {
@@ -79,6 +81,37 @@ class ContentRepository {
     return _exams!;
   }
 
+  Future<MatricBundle> matricBundle() async {
+    if (_matric != null) return _matric!;
+    try {
+      final raw = await rootBundle.loadString('assets/content/matric_questions.json');
+      _matric = MatricBundle.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+    } catch (_) {
+      _matric = const MatricBundle(accuracyPolicy: '', questions: [], unitIndex: {});
+    }
+    return _matric!;
+  }
+
+  Future<List<MatricQuestion>> matricForSubject(String subject) async {
+    final b = await matricBundle();
+    return b.questions.where((q) => q.subject == subject).toList();
+  }
+
+  Future<List<MatricQuestion>> matricForUnit(String grade, String subject, int unitNumber) async {
+    final b = await matricBundle();
+    final key = '$grade|$subject|$unitNumber';
+    final ids = b.unitIndex[key] ?? const [];
+    if (ids.isEmpty) {
+      return b.questions
+          .where((q) =>
+              q.subject == subject &&
+              q.unitLinks.any((u) => u.grade == grade && u.unitNumber == unitNumber))
+          .toList();
+    }
+    final map = {for (final q in b.questions) q.id: q};
+    return [for (final id in ids) if (map[id] != null) map[id]!];
+  }
+
   Future<List<UnitNote>> notesFor(String grade, String subject) async {
     final all = await notes();
     return all.where((n) => n.grade == grade && n.subject == subject).toList()
@@ -92,8 +125,6 @@ class ContentRepository {
     return all.where((q) => q.grade == grade).toList();
   }
 
-  /// Adaptive exam set: prioritizes higher grades for subject, shuffles, size-limited.
-  /// Accuracy: only real curriculum MCQs — never invents paper items.
   Future<List<PracticeQuestion>> adaptiveExamQuestions({
     required String subject,
     int count = 20,
@@ -118,7 +149,9 @@ class ContentRepository {
       final slice = pool.where((q) => q.grade == g && !used.contains(q.id)).toList()
         ..shuffle(_rng);
       final need = (count - selected.length).clamp(0, count);
-      final take = (slice.length < need) ? slice.length : (need > 0 ? (need * 0.5).ceil().clamp(1, need) : 0);
+      final take = (slice.length < need)
+          ? slice.length
+          : (need > 0 ? (need * 0.5).ceil().clamp(1, need) : 0);
       for (final q in slice.take(take)) {
         selected.add(q);
         used.add(q.id);
