@@ -1,9 +1,11 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/services.dart';
 
 import '../models/content_models.dart';
 
+/// Loads curriculum + exam catalogue. Fail-soft + session cache.
 class ContentRepository {
   ContentRepository._();
   static final instance = ContentRepository._();
@@ -11,9 +13,11 @@ class ContentRepository {
   List<UnitNote>? _notes;
   List<PracticeQuestion>? _questions;
   Map<String, List<IllustratedSlide>>? _slides;
+  ExamCatalog? _exams;
+  final _rng = Random();
 
   Future<void> preload() async {
-    await Future.wait([notes(), questions(), allSlides()]);
+    await Future.wait([notes(), questions(), allSlides(), examCatalog()]);
   }
 
   Future<List<UnitNote>> notes() async {
@@ -60,6 +64,21 @@ class ContentRepository {
     return _slides!;
   }
 
+  Future<ExamCatalog> examCatalog() async {
+    if (_exams != null) return _exams!;
+    try {
+      final raw = await rootBundle.loadString('assets/content/exam_catalog.json');
+      _exams = ExamCatalog.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+    } catch (_) {
+      _exams = const ExamCatalog(
+        accuracyNote: 'Exam catalogue not loaded.',
+        matriculation: [],
+        modelYears: [],
+      );
+    }
+    return _exams!;
+  }
+
   Future<List<UnitNote>> notesFor(String grade, String subject) async {
     final all = await notes();
     return all.where((n) => n.grade == grade && n.subject == subject).toList()
@@ -73,9 +92,58 @@ class ContentRepository {
     return all.where((q) => q.grade == grade).toList();
   }
 
-  Future<List<IllustratedSlide>> slidesFor(String id) async => (await allSlides())[id] ?? const [];
+  /// Adaptive exam set: prioritizes higher grades for subject, shuffles, size-limited.
+  /// Accuracy: only real curriculum MCQs — never invents paper items.
+  Future<List<PracticeQuestion>> adaptiveExamQuestions({
+    required String subject,
+    int count = 20,
+    List<String> gradesPriority = const ['G11', 'G10', 'G9'],
+  }) async {
+    final all = await questions();
+    final pool = all.where((q) => q.subject == subject).toList();
+    if (pool.isEmpty) {
+      final any = List<PracticeQuestion>.from(all)..shuffle(_rng);
+      return any.take(count).toList();
+    }
+    pool.sort((a, b) {
+      final ai = gradesPriority.indexOf(a.grade);
+      final bi = gradesPriority.indexOf(b.grade);
+      final aa = ai < 0 ? 99 : ai;
+      final bb = bi < 0 ? 99 : bi;
+      return aa.compareTo(bb);
+    });
+    final selected = <PracticeQuestion>[];
+    final used = <String>{};
+    for (final g in gradesPriority) {
+      final slice = pool.where((q) => q.grade == g && !used.contains(q.id)).toList()
+        ..shuffle(_rng);
+      final need = (count - selected.length).clamp(0, count);
+      final take = (slice.length < need) ? slice.length : (need > 0 ? (need * 0.5).ceil().clamp(1, need) : 0);
+      for (final q in slice.take(take)) {
+        selected.add(q);
+        used.add(q.id);
+        if (selected.length >= count) break;
+      }
+      if (selected.length >= count) break;
+    }
+    if (selected.length < count) {
+      final rest = pool.where((q) => !used.contains(q.id)).toList()..shuffle(_rng);
+      for (final q in rest) {
+        selected.add(q);
+        if (selected.length >= count) break;
+      }
+    }
+    selected.shuffle(_rng);
+    return selected.take(count).toList();
+  }
 
-  Future<List<T>> _loadList<T>(String asset, T Function(Map<String, dynamic>) fromJson) async {
+  Future<List<IllustratedSlide>> slidesFor(String id) async =>
+      (await allSlides())[id] ?? const [];
+
+  Future<List<T>> _loadList<T>(
+    String asset,
+    T Function(Map<String, dynamic>) fromJson,
+  ) async {
     try {
       final raw = await rootBundle.loadString(asset);
       final list = jsonDecode(raw) as List;
