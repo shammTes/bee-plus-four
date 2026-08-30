@@ -9,11 +9,13 @@
 | School semester | 7 |
 | **Total** | **52** |
 
-Subjects: Physics 26 · Chemistry 11 · Biology 7 · Math 7 · Business 1  
-Unit index keys: 29
+**By subject:** Physics 26 · Chemistry 11 · Biology 7 · Math 7 · Business 1  
+**Unit index:** 29 keys (Notes → unit → linked exam practice)
 
-Each solved item: step-by-step explanation, unit links, similar practice where applicable.
+Each solved item includes step-by-step explanation, unit links, and similar practice where applicable.
 
-**Download:** [exam_bank_v4](https://drive.google.com/file/d/REPLACE/view) — place `matric_questions.json` + `exam_catalog.json` in `assets/content/`.
+**Pack:** [bee_plus_four_exam_bank_v4.tar.gz](https://drive.google.com/file/d/1Mt-lcOxX1ZQ3VNKKZ2Jfi8iWREu5SrQK/view)
 
-269 model stems parsed; remaining solved only when verified.
+Merge `matric_questions.json` and `exam_catalog.json` into `assets/content/`.
+
+269 model stems are parsed; further items are added only after verification.
