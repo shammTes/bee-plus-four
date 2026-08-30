@@ -9,17 +9,10 @@
 | School semester | 8 |
 | **Total** | **80** |
 
-| Subject | Count |
-|---------|------:|
-| Physics | 26 |
-| Math | 12 |
-| Chemistry | 11 |
-| Biology | 8 |
-| Business | 8 |
-| History | 9 |
-| Geography | 6 |
+Physics 26 · Math 12 · Chemistry 11 · Biology 8 · Business 8 · History 9 · Geography 6
 
-**Pack:** [bee_plus_four_exam_bank_v7.tar.gz](https://drive.google.com/file/d/DRIVE_ID/view)
+**Pack:** [bee_plus_four_exam_bank_v7.tar.gz](https://drive.google.com/file/d/15k3cyZtJZeO3Nw2BJI2ItoFa4ihGFaH7/view)
 
-Assets: `matric_index.json` + `matric_<subject>.json`  
-Only verified answers with step-by-step explanations and unit links.
+Merge into `assets/content/`: `matric_index.json`, `matric_<subject>.json`, `exam_catalog.json`.
+
+Loader prefers split packs. Only verified answers with explanations + unit links.
