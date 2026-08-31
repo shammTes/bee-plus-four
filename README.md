@@ -2,7 +2,7 @@
 
 ## Exam bank v15 — Chemistry & Biology focus
 
-Other subjects deferred to Claude extraction.
+Other subjects deferred to Claude.
 
 | Subject | Verified |
 |---------|---------:|
@@ -10,8 +10,8 @@ Other subjects deferred to Claude extraction.
 | **Biology** | **41** |
 | Full bank total | 206 |
 
-**Pack (Chem+Bio):** [bee_plus_four_chem_bio_bank_v15.tar.gz](https://drive.google.com/file/d/PLACE/view)
+**Pack:** [bee_plus_four_chem_bio_bank_v15.tar.gz](https://drive.google.com/file/d/1BD2Q7HMBam7bqAr7kPPf3vRnQmW9lrfZ/view)
 
-Includes model + school genetics/stoichiometry/metallurgy/organic items with step-by-step explanations and unit links.
+Model + school items with explanations and unit links.
 
-Remaining Chem/Bio gaps: table/figure-dependent rate questions (model Q14–15) and a few unreadable OCR stems.
+Still open on Chem/Bio: table/figure rate questions (e.g. model Q14–15) and a few OCR-broken stems only.
