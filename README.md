@@ -1,19 +1,10 @@
-# 4 — Exam bank v22
+# 4 — Exam bank v23
 
-## DeepSeek Biology multi-year merge
+## Math 2000 merge
+- Algebra & Commercial: 8 items
+- Algebra & Geometry: 4 items
+- Answer fixes applied (Q1 none/10.34, Q2 7+4√3, Q6 {-1/2,2}, Q7 none, Q8 x=5 only)
 
-| Year | Matric Bio items |
-|------|-----------------:|
-| 1998 | 28 |
-| 2001 | 19 |
-| 2002 | 13 |
-| 2010 | 19 |
-| 2017 | 10 |
-| 2023 | 8 |
+**MATH total: 32** · Matriculation **198** · Full bank **435**
 
-Incoming 86 (85 solved) · replaced 8 · added 78  
-**Biology 156** · Matriculation **186** · Full bank **423**
-
-**Pack:** [bee_plus_four_matric_bio_multiyear_v22.tar.gz](https://drive.google.com/file/d/1Ipa5yneRmxwMkysP4tiXKrEH2ZhIaSfb/view)
-
-Papers still partial — upload remaining question ranges from DeepSeek to complete each year.
+**Pack:** [bee_plus_four_matric_math2000_v23.tar.gz](https://drive.google.com/file/d/PLACE/view)
