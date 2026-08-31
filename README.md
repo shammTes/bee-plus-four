@@ -2,17 +2,16 @@
 
 ## DeepSeek merge: ESECE Chemistry 2023
 
-- **75 questions** from DeepSeek pack (73–74 solved + similars + unit links)
-- Merged into bank: **replaced 13** prior OCR items, **added 62** new
-- Matric Chemistry 2023 now **complete (75/75)** in bank
+- **75 questions** merged (solved + step-by-step + similar practice + unit links)
+- Replaced 13 prior OCR items · added 62 new
+- **Matric Chemistry 2023: 75/75 in bank**
 
 | Metric | Count |
 |--------|------:|
-| Chemistry (all sources) | **146** |
-| Biology | 78+ |
+| Chemistry (all) | **146** |
 | Matriculation total | **108** |
 | Full bank | **345** |
 
-**Pack:** [bee_plus_four_matric_chem2023_merged_v21.tar.gz](https://drive.google.com/file/d/PLACE/view)
+**Pack:** [bee_plus_four_matric_chem2023_merged_v21.tar.gz](https://drive.google.com/file/d/1oJzgcrbQOpbh75MqfWWfPpLom0K7S997/view)
 
-Note: Q2 answer keyed to protons (atomic number definition). Q69 dilution kept from source with medium confidence.
+Upload more DeepSeek JSON (other years/subjects) the same way to merge.
