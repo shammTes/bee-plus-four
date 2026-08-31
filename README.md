@@ -1,17 +1,20 @@
-# 4 — Exam bank v21
+# 4 — Exam bank v22
 
-## DeepSeek merge: ESECE Chemistry 2023
+## DeepSeek Biology multi-year merge
 
-- **75 questions** merged (solved + step-by-step + similar practice + unit links)
-- Replaced 13 prior OCR items · added 62 new
-- **Matric Chemistry 2023: 75/75 in bank**
+| Year | Matric Bio items |
+|------|-----------------:|
+| 1998 | 28 |
+| 2001 | 19 |
+| 2002 | 13 |
+| 2010 | 19 |
+| 2017 | 10 |
+| 2023 | 8 |
 
-| Metric | Count |
-|--------|------:|
-| Chemistry (all) | **146** |
-| Matriculation total | **108** |
-| Full bank | **345** |
+- Incoming: 86 questions (85 solved, 1 unreadable)
+- Replaced 8 · added 78
+- **Biology total: 156** · Matriculation total: **186** · Full bank: **423**
 
-**Pack:** [bee_plus_four_matric_chem2023_merged_v21.tar.gz](https://drive.google.com/file/d/1oJzgcrbQOpbh75MqfWWfPpLom0K7S997/view)
+**Pack:** [bee_plus_four_matric_bio_multiyear_v22.tar.gz](https://drive.google.com/file/d/PLACE/view)
 
-Upload more DeepSeek JSON (other years/subjects) the same way to merge.
+Note: Papers are still partial (DeepSeek batches). Upload remaining Q ranges to complete each year.
