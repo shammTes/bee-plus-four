@@ -1,17 +1,20 @@
-# 4 — Highschool offline curriculum + study coach
+# 4 — Exam bank v18 (Chemistry & Biology)
 
-## Exam bank v15 — Chemistry & Biology focus
+## Coverage
 
-Other subjects deferred to Claude.
+| Paper | Solved |
+|-------|--------|
+| Model Biology 2017/18 | **35/35 (100%)** |
+| School Biology 2017 | **24/24 (100%)** |
+| Model Chemistry 2017/18 | **29/32** |
+| School Chemistry 2017 | **27/33** |
 
-| Subject | Verified |
-|---------|---------:|
-| **Chemistry** | **44** |
-| **Biology** | **41** |
-| Full bank total | 206 |
+**Bank counts:** Chemistry **72** · Biology **59**
 
-**Pack:** [bee_plus_four_chem_bio_bank_v15.tar.gz](https://drive.google.com/file/d/1BD2Q7HMBam7bqAr7kPPf3vRnQmW9lrfZ/view)
+### Unsolved (figure/structure only)
+- Model Chem Q14, Q15 (reaction table), Q49 (P–V curve)
+- School Chem Q6, Q13, Q14, Q24, Q26, Q32 (structure diagrams)
 
-Model + school items with explanations and unit links.
+**Pack:** [bee_plus_four_chem_bio_bank_v18.tar.gz](https://drive.google.com/file/d/FILE/view)
 
-Still open on Chem/Bio: table/figure rate questions (e.g. model Q14–15) and a few OCR-broken stems only.
+Matric Chem/Bio multi-year OCR remains for Claude.
