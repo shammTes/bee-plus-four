@@ -1,14 +1,18 @@
-# 4 — Matric Chemistry & Biology (multi-year)
+# 4 — Exam bank v21
 
-## Bank v20
+## DeepSeek merge: ESECE Chemistry 2023
 
-| Subject | Total verified |
-|---------|---------------:|
-| Chemistry | **84** |
-| Biology | **78** |
+- **75 questions** from DeepSeek pack (73–74 solved + similars + unit links)
+- Merged into bank: **replaced 13** prior OCR items, **added 62** new
+- Matric Chemistry 2023 now **complete (75/75)** in bank
 
-Matric ESECE Chem/Bio: 2023 (13+8), 2010 (4+11), 2017 chem (1) — more years/pages in progress.
+| Metric | Count |
+|--------|------:|
+| Chemistry (all sources) | **146** |
+| Biology | 78+ |
+| Matriculation total | **108** |
+| Full bank | **345** |
 
-**Pack:** [bee_plus_four_matric_chem_bio_v20.tar.gz](https://drive.google.com/file/d/1sHuDUqO2FeJ1Q0aH-siVsKlYNBQeRErj/view)
+**Pack:** [bee_plus_four_matric_chem2023_merged_v21.tar.gz](https://drive.google.com/file/d/PLACE/view)
 
-Also includes completed model/school Bio and near-complete model/school Chem.
+Note: Q2 answer keyed to protons (atomic number definition). Q69 dilution kept from source with medium confidence.
