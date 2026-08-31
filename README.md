@@ -1,16 +1,11 @@
 # 4 — Highschool offline curriculum + study coach
 
-## Exam bank v12 (accuracy-first)
+## Exam bank v13 (accuracy-first)
 
-| Type | Solved |
-|------|-------:|
-| Matriculation | 15 |
-| School model | 140 |
-| School semester | 9 |
-| **Total** | **164** |
+**Total verified: 175** (matric 15 · model 151 · school 9)
 
-Physics 33 · Biology 30 · Chemistry 24 · History 22 · Math 20 · Business 16 · Geography 12 · English 7
+Physics 33 · Biology 30 · Chemistry 24 · History 22 · Geography 21 · Math 20 · Business 17 · English 8
 
-**Pack:** [bee_plus_four_exam_bank_v12.tar.gz](https://drive.google.com/file/d/1Buxum9jKwMX7Xqt7oN6iJCB6mL71Sb4U/view)
+**Pack:** [bee_plus_four_exam_bank_v13.tar.gz](https://drive.google.com/file/d/1PLACE/view)
 
-Model nearly complete for Physics & Biology; Math/English/Chem remaining mostly figure/table/OCR-hard items.
+Remaining gaps: figure/table questions, messy OCR, full multi-year matric (use Claude prompt).
