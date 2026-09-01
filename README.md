@@ -1,22 +1,13 @@
-# 4 (BEE PLUS high-school) — content release
+# 4 — Highschool BEE PLUS
 
-## Full content packs (Google Drive)
+## UI polish
 
-| Pack | Link |
-|------|------|
-| **four_content_full.tar.gz** (practice packs + unit_notes + illustrated_slides) | https://drive.google.com/file/d/1bjdxFoj8ajvMMON9Qwyr7FBQMX5aDVq2/view |
-| **four_content_illustrated_release.tar.gz** (content JSON + g6_math illustrated webp) | https://drive.google.com/file/d/1zhFgJmQNDVhhtlo2oX6RBdqdPtBU7xM0/view |
-| Matric Chem/Bio/Math bank v25 | https://drive.google.com/file/d/1wC7joco_cK5_F2HtSasNHlY9PhRL-b5u/view |
-
-## Repo layout
-
-- `assets/content/` — unit notes, practice packs, matric bank JSON, illustrated index
-- `assets/content/illustrated/g6_math_ch1_webp/` — sample illustrated slides (webp)
-
-Extract release into project root before building:
+- **Illustrated notes deck** — full-screen swipeable slides with webp images
+- Notes hub — featured illustrated card + themed unit list
+- `FourTheme.highschool()` teal theme
+- Home: Notes & illustrated quick action
 
 ```bash
 tar xzf four_content_illustrated_release.tar.gz
+# ensure assets/content/illustrated/g6_math_ch1_webp/ before build
 ```
-
-Original PPTX illustrated sources stay on Drive (large binaries not committed).
