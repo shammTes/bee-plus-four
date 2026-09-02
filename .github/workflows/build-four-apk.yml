@@ -1,42 +1,55 @@
 name: Build 4 APK
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
+
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
-      - run: flutter pub get
-      - name: Icons
+
+      - name: Flutter pub get
+        run: flutter pub get
+
+      - name: Generate launcher icons
         run: |
           python3 - <<'PY'
-import struct,zlib,os
-def png(w,h,rgb=(13,148,136)):
-    def chunk(t,d):
-        return struct.pack('>I',len(d))+t+d+struct.pack('>I',zlib.crc32(t+d)&0xffffffff)
-    raw=b''.join(b'\x00'+bytes(rgb)*w for _ in range(h))
-    return b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',w,h,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(raw))+chunk(b'IEND',b'')
-base='android/app/src/main/res'
-for dens,s in [('mipmap-mdpi',48),('mipmap-hdpi',72),('mipmap-xhdpi',96),('mipmap-xxhdpi',144),('mipmap-xxxhdpi',192)]:
-    d=f'{base}/{dens}'; os.makedirs(d,exist_ok=True)
-    open(f'{d}/ic_launcher.png','wb').write(png(s,s))
-PY
-      - name: Build
+          import struct, zlib, os
+          def png(w, h, rgb=(13, 148, 136)):
+              def chunk(t, d):
+                  return struct.pack('>I', len(d)) + t + d + struct.pack('>I', zlib.crc32(t + d) & 0xffffffff)
+              raw = b''.join(b'\x00' + bytes(rgb) * w for _ in range(h))
+              return b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', struct.pack('>IIBBBBB', w, h, 8, 2, 0, 0, 0)) + chunk(b'IDAT', zlib.compress(raw, 9)) + chunk(b'IEND', b'')
+          base = 'android/app/src/main/res'
+          for dens, s in [('mipmap-mdpi', 48), ('mipmap-hdpi', 72), ('mipmap-xhdpi', 96), ('mipmap-xxhdpi', 144), ('mipmap-xxxhdpi', 192)]:
+              d = f'{base}/{dens}'
+              os.makedirs(d, exist_ok=True)
+              open(f'{d}/ic_launcher.png', 'wb').write(png(s, s))
+          print('icons ok')
+          PY
+
+      - name: Build release APK
         run: |
           KEY="${{ secrets.BEE_HMAC_KEY }}"
           if [ -z "$KEY" ]; then KEY="BEE_PLUS_ERITREA_OFFLINE_HMAC_V1_CHANGE_IN_RELEASE"; fi
           flutter build apk --release --dart-define=BEE_HMAC_KEY="$KEY"
-      - uses: actions/upload-artifact@v4
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
         with:
           name: four-release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 30
