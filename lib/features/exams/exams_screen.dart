@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/content/content_repository.dart';
+import '../../core/models/content_models.dart';
 import '../../core/models/exam_models.dart';
 import '../../core/theme/four_theme.dart';
 import 'matric_practice_screen.dart';
@@ -117,7 +118,7 @@ class _ExamsScreenState extends State<ExamsScreen> {
                         ),
                         title: Text(p.title,
                             style: const TextStyle(fontWeight: FontWeight.w600)),
-                        subtitle: Text('${p.subject} · ${p.source}'),
+                        subtitle: Text(p.subject + ' · ' + p.source),
                         trailing: const Icon(Icons.play_circle_outline,
                             color: FourTheme.primary),
                         onTap: () => Navigator.of(context).push(
