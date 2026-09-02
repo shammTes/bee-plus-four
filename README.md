@@ -1,26 +1,18 @@
 # 4 — Highschool BEE PLUS
 
-Offline study app: notes, illustrated decks, practice MCQs, matric/model exams, coach bot, tools.
+## Build APK (GitHub Actions)
 
-## Build APK on GitHub (one click)
+1. **Actions** → **Build 4 APK** → **Run workflow**
+2. Download artifact **four-release-apk** when green
 
-1. Open **Actions** → **Build 4 APK**
-2. Click **Run workflow** → **Run workflow**
-3. When green, open the run → **Artifacts** → download **four-release-apk**
+## Embedded content (`assets/content/`)
 
-Every push to `main` also builds an APK.
+- Unit notes, illustrated slides index
+- Practice packs G9–G11 (math, science, social, etc.)
+- Matric bank (split by subject + index)
+- Exam catalog
 
-## Local (Mac)
+Full offline pack also on Drive if a large file is missing from git:
+https://drive.google.com/file/d/1H3BNzAlp0rXS3IwgaMJLbgmq3T_7VN3d/view
 
-```bash
-chmod +x ONE_CLICK_SETUP.sh
-./ONE_CLICK_SETUP.sh
-flutter build apk --release
-```
-
-## Contents
-
-- `lib/` — Home, Notes, Practice, Coach, Exams, Tools, Unlock
-- `assets/content/` — unit notes, practice, matric bank, illustrated index
-
-App ID: `com.four.student` · minSdk 23 (Android 6)
+App ID: `com.four.student` · minSdk 23
