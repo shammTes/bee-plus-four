@@ -1,18 +1,17 @@
 # 4 — Highschool BEE PLUS
 
-## Build APK (GitHub Actions)
+## One-click APK
 
-1. **Actions** → **Build 4 APK** → **Run workflow**
-2. Download artifact **four-release-apk** when green
+1. Open **Actions** → **Build 4 APK**
+2. **Run workflow**
+3. Download **four-release-apk** when the run is green
 
-## Embedded content (`assets/content/`)
+The workflow pulls the full content pack (notes, practice MCQs, matric bank, illustrated slides) into `assets/content/` before building, so the APK includes everything.
 
-- Unit notes, illustrated slides index
-- Practice packs G9–G11 (math, science, social, etc.)
-- Matric bank (split by subject + index)
-- Exam catalog
+## Content sources
 
-Full offline pack also on Drive if a large file is missing from git:
-https://drive.google.com/file/d/1H3BNzAlp0rXS3IwgaMJLbgmq3T_7VN3d/view
+- Repo `assets/content/` indexes + small packs
+- Full pack (auto-downloaded in CI): [Drive](https://drive.google.com/file/d/1H3BNzAlp0rXS3IwgaMJLbgmq3T_7VN3d/view)
+- Illustrated pack: [Drive](https://drive.google.com/file/d/1zhFgJmQNDVhhtlo2oX6RBdqdPtBU7xM0/view)
 
-App ID: `com.four.student` · minSdk 23
+App ID: `com.four.student` · Android 6+ (minSdk 23)
