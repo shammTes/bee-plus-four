@@ -2,16 +2,19 @@
 
 ## One-click APK
 
-1. Open **Actions** → **Build 4 APK**
-2. **Run workflow**
-3. Download **four-release-apk** when the run is green
+**Actions** → **Build 4 APK** → **Run workflow** → download **four-release-apk**
 
-The workflow pulls the full content pack (notes, practice MCQs, matric bank, illustrated slides) into `assets/content/` before building, so the APK includes everything.
+## Linked content library (your Drive)
 
-## Content sources
+[Bee Winner folder](https://drive.google.com/drive/folders/1vWg1HJ0-Y7aAPkP4n1rgXiwqoLcEFftq?usp=sharing)
 
-- Repo `assets/content/` indexes + small packs
-- Full pack (auto-downloaded in CI): [Drive](https://drive.google.com/file/d/1H3BNzAlp0rXS3IwgaMJLbgmq3T_7VN3d/view)
-- Illustrated pack: [Drive](https://drive.google.com/file/d/1zhFgJmQNDVhhtlo2oX6RBdqdPtBU7xM0/view)
+| Folder | Contents |
+|--------|----------|
+| Matric_2018–2021 | Full subject PDFs (Math, Bio, Chem, English, Geo, …) |
+| EXAMS | School exams 2006–2014 |
+| Bee Worksheets | G9–G11 worksheets, practice exams, notes |
+| PRE TEST / WYSS | Pre-tests and WYSS 2008–2020 |
 
-App ID: `com.four.student` · Android 6+ (minSdk 23)
+Catalog: `assets/content/exam_catalog.json`
+
+Offline interactive MCQs remain in `matric_*.json` / practice packs.
