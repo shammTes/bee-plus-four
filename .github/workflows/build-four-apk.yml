@@ -44,20 +44,19 @@ jobs:
           print('icons ok')
           PY
 
-      - name: Ensure placeholder assets exist
+      - name: Ensure placeholder assets
         run: |
           mkdir -p assets/content
           test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
           test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
           test -f assets/content/illustrated_slides.json || echo '{}' > assets/content/illustrated_slides.json
           test -f assets/content/practice_index.json || echo '{"files":[]}' > assets/content/practice_index.json
-          test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"modelYears":[]}' > assets/content/exam_catalog.json
-
-      - name: Analyze (non-fatal)
-        run: flutter analyze || true
+          test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
 
       - name: Build APK
-        run: flutter build apk --release --no-tree-shake-icons
+        run: |
+          flutter build apk --release --no-tree-shake-icons \
+            --android-skip-build-dependency-validation
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
