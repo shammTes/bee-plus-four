@@ -178,7 +178,7 @@ class _NotesScreenState extends State<NotesScreen> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Unit notes · ${'${'}widget.grade} · ${'${'}widget.subject}',
+                'Unit notes · ' + widget.grade + ' · ' + widget.subject,
                 style: const TextStyle(
                     fontWeight: FontWeight.w800,
                     fontSize: 15,
@@ -215,7 +215,7 @@ class _NotesScreenState extends State<NotesScreen> {
                         child: ListTile(
                           leading: CircleAvatar(
                             backgroundColor: FourTheme.primarySoft,
-                            child: Text('${'${'}n.unitNumber}',
+                            child: Text('${n.unitNumber}',
                                 style: const TextStyle(
                                     fontWeight: FontWeight.w800,
                                     color: FourTheme.primaryDark)),
@@ -225,7 +225,7 @@ class _NotesScreenState extends State<NotesScreen> {
                                   const TextStyle(fontWeight: FontWeight.w600)),
                           subtitle: Text(
                             n.summary.isEmpty
-                                ? '${'${'}n.subject} · ${'${'}n.grade}'
+                                ? (n.subject + ' · ' + n.grade)
                                 : n.summary,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -262,7 +262,7 @@ class _NoteDetail extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          Text('${'${'}note.grade} · ${'${'}note.subject} · Unit ${'${'}note.unitNumber}',
+          Text(note.grade + ' · ' + note.subject + ' · Unit ${note.unitNumber}',
               style: const TextStyle(color: FourTheme.muted)),
           const SizedBox(height: 12),
           Text(note.summary.isEmpty ? 'No summary text yet.' : note.summary,
@@ -275,7 +275,7 @@ class _NoteDetail extends StatelessWidget {
                   subjectFilter: note.subject,
                   grade: note.grade,
                   unitNumber: note.unitNumber,
-                  title: 'Matric · ${'${'}note.title}',
+                  title: 'Matric · ' + note.title,
                 ),
               ),
             ),
@@ -402,7 +402,7 @@ class _IllustratedDeckPageState extends State<IllustratedDeckPage> {
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
                 child: Row(
                   children: [
-                    Text('${'${'}index + 1} / ${'${'}slides.length}',
+                    Text('${index + 1} / ${slides.length}',
                         style: const TextStyle(color: Colors.white70)),
                     const SizedBox(width: 12),
                     Expanded(
