@@ -1,13 +1,14 @@
 # 4 — Highschool BEE PLUS
 
-## UI polish
+## One-click
 
-- **Illustrated notes deck** — full-screen swipeable slides with webp images
-- Notes hub — featured illustrated card + themed unit list
-- `FourTheme.highschool()` teal theme
-- Home: Notes & illustrated quick action
+Everything is already under `assets/content/` (notes, practice, matric, illustrated slides).
 
 ```bash
-tar xzf four_content_illustrated_release.tar.gz
-# ensure assets/content/illustrated/g6_math_ch1_webp/ before build
+./ONE_CLICK_SETUP.sh
+flutter build apk --release
 ```
+
+Or open in **Android Studio** → Run.
+
+No tar. No Drive step for illustrated notes.
