@@ -21,12 +21,15 @@ jobs:
           channel: stable
           cache: true
 
-      - name: Flutter pub get
+      - name: Flutter doctor
+        run: flutter doctor -v
+
+      - name: Pub get
         run: flutter pub get
 
-      - name: Generate launcher icons
+      - name: Generate icons
         run: |
-          python3 - <<'PY'
+          python3 << 'PY'
           import struct, zlib, os
           def png(w, h, rgb=(13, 148, 136)):
               def chunk(t, d):
@@ -41,15 +44,25 @@ jobs:
           print('icons ok')
           PY
 
-      - name: Build release APK
+      - name: Ensure placeholder assets exist
         run: |
-          KEY="${{ secrets.BEE_HMAC_KEY }}"
-          if [ -z "$KEY" ]; then KEY="BEE_PLUS_ERITREA_OFFLINE_HMAC_V1_CHANGE_IN_RELEASE"; fi
-          flutter build apk --release --dart-define=BEE_HMAC_KEY="$KEY"
+          mkdir -p assets/content
+          test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
+          test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
+          test -f assets/content/illustrated_slides.json || echo '{}' > assets/content/illustrated_slides.json
+          test -f assets/content/practice_index.json || echo '{"files":[]}' > assets/content/practice_index.json
+          test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"modelYears":[]}' > assets/content/exam_catalog.json
 
-      - name: Upload APK artifact
+      - name: Analyze (non-fatal)
+        run: flutter analyze || true
+
+      - name: Build APK
+        run: flutter build apk --release --no-tree-shake-icons
+
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: four-release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
           retention-days: 30
