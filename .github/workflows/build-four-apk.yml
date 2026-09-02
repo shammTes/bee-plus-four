@@ -28,13 +28,12 @@ jobs:
         run: |
           set -e
           mkdir -p assets/content
-          # Full app/content snapshot (includes assets/content JSON packs)
+          # Latest full snapshot
           curl -L --fail -o /tmp/four_content.tgz \
-            "https://drive.google.com/uc?export=download&id=1H3BNzAlp0rXS3IwgaMJLbgmq3T_7VN3d" || true
-          if file /tmp/four_content.tgz | grep -qi 'gzip\|tar'; then
+            "https://drive.google.com/uc?export=download&id=1vKjPcbQDOPae1Re81SHDNRqSLHR_lI_5" || true
+          if file /tmp/four_content.tgz 2>/dev/null | grep -qi 'gzip\|tar\|data'; then
             mkdir -p /tmp/four_extract
-            tar xzf /tmp/four_content.tgz -C /tmp/four_extract || true
-            # Merge any assets/content found into project
+            tar xzf /tmp/four_content.tgz -C /tmp/four_extract 2>/dev/null || true
             if [ -d /tmp/four_extract/bee-plus-four/assets/content ]; then
               cp -a /tmp/four_extract/bee-plus-four/assets/content/. assets/content/
             elif [ -d /tmp/four_extract/assets/content ]; then
@@ -44,25 +43,15 @@ jobs:
             fi
             echo "Content pack merged"
           else
-            echo "Drive pack not a tar (may need confirm link); using repo assets only"
+            echo "Drive pack download may need public sharing; using repo assets"
           fi
-          # Illustrated release as fallback
-          curl -L --fail -o /tmp/illustrated.tgz \
-            "https://drive.google.com/uc?export=download&id=1zhFgJmQNDVhhtlo2oX6RBdqdPtBU7xM0" || true
-          if file /tmp/illustrated.tgz | grep -qi 'gzip\|tar'; then
-            mkdir -p /tmp/ill
-            tar xzf /tmp/illustrated.tgz -C /tmp/ill || true
-            if [ -d /tmp/ill/assets/content ]; then cp -a /tmp/ill/assets/content/. assets/content/; fi
-            if [ -d /tmp/ill/content ]; then cp -a /tmp/ill/content/. assets/content/; fi
-          fi
-          # Placeholders so pubspec never breaks
           test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
           test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
           test -f assets/content/illustrated_slides.json || echo '{}' > assets/content/illustrated_slides.json
           test -f assets/content/practice_index.json || echo '{"files":[]}' > assets/content/practice_index.json
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
-          echo "=== assets/content listing ==="
-          find assets/content -type f | head -80
+          echo "=== assets/content ==="
+          find assets/content -type f | head -100
           du -sh assets/content
 
       - name: Generate icons
