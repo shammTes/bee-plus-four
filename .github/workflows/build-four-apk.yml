@@ -24,52 +24,52 @@ jobs:
       - name: Flutter doctor
         run: flutter doctor -v
 
-      - name: Download full content pack (Drive — share as Anyone with the link)
+      - name: Download content pack + G10 textbooks from Drive
         run: |
           set -e
-          mkdir -p assets/content
-          PACK_ID="10yTnb1p3fo0fpHI0OSMGZXYMvKX2mx1t"
+          mkdir -p assets/content/textbooks assets/content/illustrated assets/content/illustrated/g6_math_ch1_webp assets/content/illustrated_pdf
           pip install -q gdown
+
+          # Full content pack (practice, notes, matric, unit PDFs)
+          PACK_ID="10yTnb1p3fo0fpHI0OSMGZXYMvKX2mx1t"
           echo "Downloading content pack $PACK_ID …"
           gdown --fuzzy "https://drive.google.com/file/d/${PACK_ID}/view" -O /tmp/four_content.tgz || \
           gdown "https://drive.google.com/uc?id=${PACK_ID}" -O /tmp/four_content.tgz || true
-
           if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
             mkdir -p /tmp/four_extract
             tar xzf /tmp/four_content.tgz -C /tmp/four_extract
             if [ -d /tmp/four_extract/assets/content ]; then
               cp -a /tmp/four_extract/assets/content/. assets/content/
-            elif [ -d /tmp/four_extract/bee-plus-four/assets/content ]; then
-              cp -a /tmp/four_extract/bee-plus-four/assets/content/. assets/content/
-            elif [ -d /tmp/four_extract/content ]; then
-              cp -a /tmp/four_extract/content/. assets/content/
-            else
-              find /tmp/four_extract -type f \( -name '*.json' -o -name '*.webp' -o -name '*.pdf' \) | while read f; do
-                bn=$(basename "$f")
-                cp -n "$f" assets/content/ 2>/dev/null || true
-              done
             fi
             echo "Content pack extracted OK"
           else
-            echo "::warning::Drive pack not downloadable. Share as Anyone with the link → Viewer"
-            echo "https://drive.google.com/file/d/${PACK_ID}/view"
+            echo "::warning::Content pack not downloadable — share Anyone with the link"
           fi
+
+          # G10 textbook PDFs (~54 MB). Each file must be shared Anyone with the link.
+          download_pdf() {
+            local id="$1" out="$2"
+            echo "gdown textbook $out"
+            gdown --fuzzy "https://drive.google.com/file/d/${id}/view" -O "$out" || \
+            gdown "https://drive.google.com/uc?id=${id}" -O "$out" || \
+            echo "::warning::Failed $id"
+          }
+          download_pdf 1K4NMizllBAIJWLN4pqFLJeDAAwPnO4h5 assets/content/textbooks/G10_AGRICULTURE.pdf
+          download_pdf 1VRKGJzQ4zJjhpmP4mu1RmcdrGGYovIBE assets/content/textbooks/G10_BIOLOGY.pdf
+          download_pdf 1XcjQx1oYauhGsLRga2obvOPADPodFt6A assets/content/textbooks/G10_BUSINESS_ECONOMICS.pdf
+          download_pdf 1xJmAtAFehHqLNNh8xhDNRPvll8wrqR0S assets/content/textbooks/G10_CHEMISTRY.pdf
+          download_pdf 16C8nnT_PkQ-j5HXla8Tv6eGTkHLwjIb3 assets/content/textbooks/G10_ENGLISH.pdf
+          download_pdf 12SmdDj-RT89t1YiX16FVc8qwhWI9coq- assets/content/textbooks/G10_GEOGRAPHY.pdf
+          download_pdf 1HbsEZFua38nBDpLpe3o1vrWhCU7LVUf2 assets/content/textbooks/G10_MATH.pdf
+          download_pdf 1ATLRgNxPShRGdb7EdONBcH78gfPh_wgA assets/content/textbooks/G10_PHYSICS.pdf
 
           test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
-          test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
-          test -f assets/content/illustrated_slides.json || echo '{}' > assets/content/illustrated_slides.json
           test -f assets/content/practice_index.json || echo '{"files":["practice_lite.json"],"lite":"practice_lite.json"}' > assets/content/practice_index.json
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
-          mkdir -p assets/content/illustrated/g6_math_ch1_webp assets/content/illustrated_pdf
 
-          echo "=== assets/content summary ==="
+          echo "=== content summary ==="
           find assets/content -type f | wc -l
-          du -sh assets/content
-          BYTES=$(du -sb assets/content | cut -f1)
-          echo "Content bytes: $BYTES"
-          if [ "$BYTES" -lt 50000 ]; then
-            echo "::warning::Content still thin ($BYTES bytes). Share the Drive pack and re-run."
-          fi
+          du -sh assets/content assets/content/textbooks 2>/dev/null || true
 
       - name: Generate icons
         run: |
