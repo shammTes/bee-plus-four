@@ -28,7 +28,7 @@ jobs:
         run: |
           set -e
           mkdir -p assets/content
-          PACK_ID="1Pp6n2ENxbvgNQMV_u0n8hDFhXKhJfMQG"
+          PACK_ID="10yTnb1p3fo0fpHI0OSMGZXYMvKX2mx1t"
           pip install -q gdown
           echo "Downloading content pack $PACK_ID …"
           gdown --fuzzy "https://drive.google.com/file/d/${PACK_ID}/view" -O /tmp/four_content.tgz || \
@@ -44,28 +44,31 @@ jobs:
             elif [ -d /tmp/four_extract/content ]; then
               cp -a /tmp/four_extract/content/. assets/content/
             else
-              find /tmp/four_extract -type f \( -name '*.json' -o -name '*.webp' \) -exec cp -n {} assets/content/ \; || true
+              find /tmp/four_extract -type f \( -name '*.json' -o -name '*.webp' -o -name '*.pdf' \) | while read f; do
+                bn=$(basename "$f")
+                cp -n "$f" assets/content/ 2>/dev/null || true
+              done
             fi
             echo "Content pack extracted OK"
           else
-            echo "::warning::Drive pack not downloadable. Open this file in Drive → Share → Anyone with the link → Viewer"
+            echo "::warning::Drive pack not downloadable. Share as Anyone with the link → Viewer"
             echo "https://drive.google.com/file/d/${PACK_ID}/view"
           fi
 
           test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
           test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
           test -f assets/content/illustrated_slides.json || echo '{}' > assets/content/illustrated_slides.json
-          test -f assets/content/practice_index.json || echo '{"files":[],"lite":"practice_lite.json"}' > assets/content/practice_index.json
+          test -f assets/content/practice_index.json || echo '{"files":["practice_lite.json"],"lite":"practice_lite.json"}' > assets/content/practice_index.json
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
+          mkdir -p assets/content/illustrated/g6_math_ch1_webp assets/content/illustrated_pdf
 
           echo "=== assets/content summary ==="
           find assets/content -type f | wc -l
           du -sh assets/content
-          find assets/content -type f | head -80
           BYTES=$(du -sb assets/content | cut -f1)
           echo "Content bytes: $BYTES"
           if [ "$BYTES" -lt 50000 ]; then
-            echo "::warning::Content still thin ($BYTES bytes). Share the Drive pack and re-run workflow."
+            echo "::warning::Content still thin ($BYTES bytes). Share the Drive pack and re-run."
           fi
 
       - name: Generate icons
