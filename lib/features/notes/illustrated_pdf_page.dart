@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pdfrx/pdfrx.dart';
 
 import '../../core/theme/four_theme.dart';
 
-/// Offline illustrated-notes PDF viewer (assets or file path).
+/// Placeholder offline notes viewer (PDF binaries embed next).
 class IllustratedPdfPage extends StatelessWidget {
   const IllustratedPdfPage({
     super.key,
@@ -34,10 +33,31 @@ class IllustratedPdfPage extends StatelessWidget {
           ],
         ),
       ),
-      body: PdfViewer.asset(
-        assetPath,
-        params: const PdfViewerParams(
-          backgroundColor: Color(0xFFF1F5F9),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: FourTheme.glassPanel(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.picture_as_pdf,
+                    size: 48, color: FourTheme.primaryDark),
+                const SizedBox(height: 12),
+                Text(title,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w800, fontSize: 16)),
+                const SizedBox(height: 8),
+                Text(
+                  assetPath.isEmpty
+                      ? 'PDF not linked yet.'
+                      : 'Ready for embed:\n$assetPath\n\nAdd compressed PDF under assets/content/illustrated_pdf/ and rebuild.',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(color: FourTheme.muted, height: 1.4),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
