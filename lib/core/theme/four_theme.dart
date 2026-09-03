@@ -1,120 +1,149 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-/// High-school visual system — teal primary, soft surfaces, rounded cards.
+/// High-contrast glass theme for BEE PLUS 4 (highschool).
 class FourTheme {
-  static const Color primary = Color(0xFF0D9488);
-  static const Color primaryDark = Color(0xFF0F766E);
-  static const Color primarySoft = Color(0xFFCCFBF1);
+  FourTheme._();
+
+  static const Color primary = Color(0xFF06B6D4);
+  static const Color primaryDark = Color(0xFF0891B2);
+  static const Color primarySoft = Color(0xFFCFFAFE);
+  static const Color accent = Color(0xFFFBBF24);
+  static const Color accentDeep = Color(0xFFF59E0B);
+  static const Color violet = Color(0xFF8B5CF6);
+  static const Color rose = Color(0xFFF43F5E);
+  static const Color mint = Color(0xFF34D399);
+
   static const Color ink = Color(0xFF0F172A);
+  static const Color inkSoft = Color(0xFF1E293B);
   static const Color muted = Color(0xFF64748B);
-  static const Color surface = Color(0xFFF0FDFA);
-  static const Color card = Color(0xFFFFFFFF);
-  static const Color accent = Color(0xFFF59E0B);
+  static const Color surface = Color(0xFFF0F9FF);
+  static const Color surfaceAlt = Color(0xFFE0F2FE);
+  static const Color glass = Color(0xCCFFFFFF);
+  static const Color glassDark = Color(0x990F172A);
 
-  static ThemeData highschool() {
-    final base = ColorScheme.fromSeed(
-      seedColor: primary,
-      brightness: Brightness.light,
-      primary: primary,
-      onPrimary: Colors.white,
-      secondary: primaryDark,
-      surface: card,
-      onSurface: ink,
-    );
+  static const LinearGradient heroGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xFF0E7490), Color(0xFF4F46E5), Color(0xFF7C3AED)],
+  );
 
-    return ThemeData(
+  static const LinearGradient cardGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xFF06B6D4), Color(0xFF6366F1)],
+  );
+
+  static ThemeData get highschool {
+    final base = ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      colorScheme: base,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: primary,
+        primary: primaryDark,
+        secondary: accentDeep,
+        tertiary: violet,
+        surface: surface,
+        error: rose,
+        brightness: Brightness.light,
+      ),
       scaffoldBackgroundColor: surface,
+    );
+    return base.copyWith(
       appBarTheme: const AppBarTheme(
-        backgroundColor: surface,
-        foregroundColor: primaryDark,
+        backgroundColor: Colors.transparent,
+        foregroundColor: ink,
         elevation: 0,
         centerTitle: false,
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
         titleTextStyle: TextStyle(
-          color: primaryDark,
-          fontSize: 20,
-          fontWeight: FontWeight.w700,
+          color: ink,
+          fontSize: 18,
+          fontWeight: FontWeight.w800,
         ),
       ),
       cardTheme: CardThemeData(
-        color: card,
+        color: glass,
         elevation: 0,
-        margin: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(18),
-          side: const BorderSide(color: Color(0x140D9488)),
-        ),
-      ),
-      chipTheme: ChipThemeData(
-        backgroundColor: primarySoft,
-        selectedColor: primary,
-        labelStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        margin: EdgeInsets.zero,
+      ),
+      chipTheme: base.chipTheme.copyWith(
+        labelStyle: const TextStyle(fontWeight: FontWeight.w700, fontSize: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.white.withOpacity(0.92),
         indicatorColor: primarySoft,
-        elevation: 8,
-        height: 68,
         labelTextStyle: WidgetStateProperty.resolveWith((s) {
           final selected = s.contains(WidgetState.selected);
           return TextStyle(
             fontSize: 11,
-            fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+            fontWeight: selected ? FontWeight.w800 : FontWeight.w600,
             color: selected ? primaryDark : muted,
           );
         }),
         iconTheme: WidgetStateProperty.resolveWith((s) {
           final selected = s.contains(WidgetState.selected);
           return IconThemeData(
-            color: selected ? primary : muted,
+            color: selected ? primaryDark : muted,
             size: 24,
           );
         }),
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: primary,
-          foregroundColor: Colors.white,
-          elevation: 0,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-          textStyle: const TextStyle(fontWeight: FontWeight.w700),
-        ),
+        height: 68,
+        elevation: 8,
+        shadowColor: Colors.black26,
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
-          backgroundColor: primary,
+          backgroundColor: primaryDark,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+          textStyle: const TextStyle(fontWeight: FontWeight.w800),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: Colors.white,
+        fillColor: Colors.white.withOpacity(0.9),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: Color(0x260D9488)),
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide.none,
         ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: Color(0x260D9488)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: primary, width: 1.5),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      ),
+    );
+  }
+
+  static Widget glassPanel({
+    required Widget child,
+    EdgeInsetsGeometry padding = const EdgeInsets.all(14),
+    BorderRadius? radius,
+    Color? tint,
+  }) {
+    final r = radius ?? BorderRadius.circular(20);
+    return ClipRRect(
+      borderRadius: r,
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 14, sigmaY: 14),
+        child: Container(
+          padding: padding,
+          decoration: BoxDecoration(
+            color: tint ?? glass,
+            borderRadius: r,
+            border: Border.all(color: Colors.white.withOpacity(0.55)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.06),
+                blurRadius: 18,
+                offset: const Offset(0, 8),
+              ),
+            ],
+          ),
+          child: child,
         ),
       ),
-      listTileTheme: ListTileThemeData(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      ),
-      progressIndicatorTheme: const ProgressIndicatorThemeData(color: primary),
     );
   }
 }

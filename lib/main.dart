@@ -14,14 +14,16 @@ Future<void> main() async {
   runApp(const FourApp());
 }
 
+/// App 4 — Highschool curriculum only + offline controlled bot.
 class FourApp extends StatelessWidget {
   const FourApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '4',
+      title: 'BEE PLUS 4',
       debugShowCheckedModeBanner: false,
-      theme: FourTheme.highschool(),
+      theme: FourTheme.highschool,
       home: const AppShell(),
     );
   }
