@@ -12,6 +12,7 @@ class HomeScreen extends StatelessWidget {
     required this.onOpenPractice,
     required this.onOpenBot,
     required this.onOpenExams,
+    this.onOpenTools,
   });
 
   final String grade;
@@ -20,8 +21,9 @@ class HomeScreen extends StatelessWidget {
   final VoidCallback onOpenPractice;
   final VoidCallback onOpenBot;
   final VoidCallback onOpenExams;
+  final VoidCallback? onOpenTools;
 
-  static const grades = ['G9', 'G10', 'G11'];
+  static const grades = ['G9', 'G10', 'G11', 'G12'];
 
   @override
   Widget build(BuildContext context) {
@@ -42,159 +44,174 @@ class HomeScreen extends StatelessWidget {
         final slideDecks =
             snap.hasData ? (snap.data![3] as Map).length : '—';
 
-        return CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [Color(0xFF0D9488), Color(0xFF0F766E)],
-                  ),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(28),
-                    bottomRight: Radius.circular(28),
-                  ),
-                ),
-                padding: EdgeInsets.fromLTRB(
-                  20,
-                  MediaQuery.paddingOf(context).top + 16,
-                  20,
-                  28,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 44,
-                          height: 44,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(14),
-                          ),
-                          child: const Icon(Icons.school_rounded, color: Colors.white),
-                        ),
-                        const SizedBox(width: 12),
-                        const Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                '4 · BEE PLUS',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w800,
-                                ),
-                              ),
-                              Text(
-                                'Highschool · Offline study',
-                                style: TextStyle(color: Color(0xFFCCFBF1), fontSize: 13),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+        return Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xFFE0F2FE), Color(0xFFF5F3FF), Color(0xFFF8FAFC)],
+            ),
+          ),
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Container(
+                  decoration: const BoxDecoration(
+                    gradient: FourTheme.heroGradient,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(28),
+                      bottomRight: Radius.circular(28),
                     ),
-                    const SizedBox(height: 20),
-                    const Text('Choose your grade',
-                        style: TextStyle(color: Colors.white70, fontSize: 12)),
-                    const SizedBox(height: 8),
-                    Row(
-                      children: grades.map((g) {
-                        final selected = g == grade;
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 8),
-                          child: ChoiceChip(
+                  ),
+                  padding: EdgeInsets.fromLTRB(
+                    20,
+                    MediaQuery.paddingOf(context).top + 16,
+                    20,
+                    26,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: 48,
+                            height: 48,
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.2),
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(color: Colors.white54),
+                            ),
+                            child: const Icon(Icons.school_rounded,
+                                color: Colors.white, size: 28),
+                          ),
+                          const SizedBox(width: 12),
+                          const Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('BEE PLUS 4',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.w900)),
+                                Text('Highschool · offline',
+                                    style: TextStyle(
+                                        color: Color(0xFFCCFBF1), fontSize: 13)),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 18),
+                      const Text('Your grade',
+                          style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600)),
+                      const SizedBox(height: 8),
+                      Wrap(
+                        spacing: 8,
+                        children: grades.map((g) {
+                          final selected = g == grade;
+                          return ChoiceChip(
                             label: Text(g),
                             selected: selected,
                             onSelected: (_) => onGrade(g),
-                            selectedColor: Colors.white,
+                            selectedColor: FourTheme.accent,
                             labelStyle: TextStyle(
-                              color: selected ? FourTheme.primaryDark : Colors.white,
-                              fontWeight: FontWeight.w700,
+                              color: selected ? FourTheme.ink : Colors.white,
+                              fontWeight: FontWeight.w800,
                             ),
-                            backgroundColor: Colors.white.withOpacity(0.15),
-                            side: BorderSide.none,
-                          ),
-                        );
-                      }).toList(),
+                            backgroundColor: Colors.white.withOpacity(0.14),
+                            side: BorderSide(
+                              color: selected ? FourTheme.accent : Colors.white24,
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SliverToBoxAdapter(child: SizedBox(height: 16)),
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                sliver: SliverGrid(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 1.55,
+                  ),
+                  delegate: SliverChildListDelegate([
+                    _StatTile('$noteCount', 'Notes', Icons.menu_book_rounded,
+                        FourTheme.primary),
+                    _StatTile(
+                        '$qCount', 'MCQs', Icons.quiz_rounded, FourTheme.violet),
+                    _StatTile('$matricCount', 'Matric',
+                        Icons.assignment_rounded, FourTheme.accentDeep),
+                    _StatTile('$slideDecks', 'Decks', Icons.slideshow_rounded,
+                        FourTheme.mint),
+                  ]),
+                ),
+              ),
+              const SliverToBoxAdapter(
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(20, 22, 20, 10),
+                  child: Text('Study',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900,
+                          color: FourTheme.ink)),
+                ),
+              ),
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                sliver: SliverList.list(
+                  children: [
+                    _ActionCard(
+                      title: 'Notes',
+                      subtitle: 'Units · PDF packs',
+                      icon: Icons.auto_stories_rounded,
+                      color: const Color(0xFF0E7490),
+                      onTap: onOpenNotes,
                     ),
+                    _ActionCard(
+                      title: 'Practice',
+                      subtitle: 'MCQs · feedback',
+                      icon: Icons.quiz_rounded,
+                      color: const Color(0xFF6366F1),
+                      onTap: onOpenPractice,
+                    ),
+                    _ActionCard(
+                      title: 'Coach',
+                      subtitle: 'Offline quiz bot',
+                      icon: Icons.smart_toy_rounded,
+                      color: const Color(0xFF8B5CF6),
+                      onTap: onOpenBot,
+                    ),
+                    _ActionCard(
+                      title: 'Exams',
+                      subtitle: 'Matric · model',
+                      icon: Icons.assignment_rounded,
+                      color: const Color(0xFFD97706),
+                      onTap: onOpenExams,
+                    ),
+                    if (onOpenTools != null)
+                      _ActionCard(
+                        title: 'Tools',
+                        subtitle: 'Labs · utilities',
+                        icon: Icons.handyman_rounded,
+                        color: const Color(0xFF059669),
+                        onTap: onOpenTools!,
+                      ),
+                    const SizedBox(height: 28),
                   ],
                 ),
               ),
-            ),
-            const SliverToBoxAdapter(child: SizedBox(height: 16)),
-            SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              sliver: SliverGrid(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                  childAspectRatio: 1.55,
-                ),
-                delegate: SliverChildListDelegate([
-                  _StatTile('$noteCount', 'Unit notes', Icons.menu_book_rounded),
-                  _StatTile('$qCount', 'Practice Qs', Icons.quiz_rounded),
-                  _StatTile('$matricCount', 'Matric items', Icons.assignment_rounded),
-                  _StatTile('$slideDecks', 'Illustrations', Icons.slideshow_rounded),
-                ]),
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(20, 24, 20, 10),
-                child: Text(
-                  'Continue studying',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w800,
-                    color: FourTheme.ink,
-                  ),
-                ),
-              ),
-            ),
-            SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              sliver: SliverList.list(
-                children: [
-                  _ActionCard(
-                    title: 'Notes & illustrated',
-                    subtitle: 'Unit summaries · swipeable decks',
-                    icon: Icons.auto_stories_rounded,
-                    color: const Color(0xFF0D9488),
-                    onTap: onOpenNotes,
-                  ),
-                  _ActionCard(
-                    title: 'Practice MCQs',
-                    subtitle: 'Explanations · similar questions',
-                    icon: Icons.quiz_rounded,
-                    color: const Color(0xFF2563EB),
-                    onTap: onOpenPractice,
-                  ),
-                  _ActionCard(
-                    title: 'Study coach',
-                    subtitle: 'Offline hints · controlled Q&A',
-                    icon: Icons.smart_toy_rounded,
-                    color: const Color(0xFF7C3AED),
-                    onTap: onOpenBot,
-                  ),
-                  _ActionCard(
-                    title: 'Matric & model exams',
-                    subtitle: 'Catalogue · step-by-step solutions',
-                    icon: Icons.assignment_rounded,
-                    color: const Color(0xFFD97706),
-                    onTap: onOpenExams,
-                  ),
-                  const SizedBox(height: 24),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );
@@ -202,27 +219,32 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _StatTile extends StatelessWidget {
-  const _StatTile(this.value, this.label, this.icon);
+  const _StatTile(this.value, this.label, this.icon, this.color);
   final String value;
   final String label;
   final IconData icon;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(14),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Icon(icon, size: 20, color: FourTheme.primary),
-            const Spacer(),
-            Text(value,
-                style: const TextStyle(
-                    fontSize: 22, fontWeight: FontWeight.w800, color: FourTheme.ink)),
-            Text(label, style: const TextStyle(fontSize: 12, color: FourTheme.muted)),
-          ],
-        ),
+    return FourTheme.glassPanel(
+      padding: const EdgeInsets.all(12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, color: color, size: 22),
+          const Spacer(),
+          Text(value,
+              style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w900,
+                  color: FourTheme.ink)),
+          Text(label,
+              style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                  color: FourTheme.muted)),
+        ],
       ),
     );
   }
@@ -248,46 +270,59 @@ class _ActionCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: Material(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
+        color: Colors.transparent,
         child: InkWell(
+          borderRadius: BorderRadius.circular(20),
           onTap: onTap,
-          borderRadius: BorderRadius.circular(18),
-          child: Container(
-            padding: const EdgeInsets.all(16),
+          child: Ink(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(18),
-              border: Border.all(color: color.withOpacity(0.12)),
-            ),
-            child: Row(
-              children: [
-                Container(
-                  width: 48,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    color: color.withOpacity(0.12),
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                  child: Icon(icon, color: color),
+              borderRadius: BorderRadius.circular(20),
+              gradient: LinearGradient(
+                colors: [color, color.withOpacity(0.82)],
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: color.withOpacity(0.28),
+                  blurRadius: 14,
+                  offset: const Offset(0, 6),
                 ),
-                const SizedBox(width: 14),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(title,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 15,
-                              color: FourTheme.ink)),
-                      const SizedBox(height: 2),
-                      Text(subtitle,
-                          style: const TextStyle(fontSize: 12, color: FourTheme.muted)),
-                    ],
-                  ),
-                ),
-                Icon(Icons.chevron_right_rounded, color: color.withOpacity(0.5)),
               ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  Container(
+                    width: 46,
+                    height: 46,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: Icon(icon, color: Colors.white, size: 26),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(title,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w900)),
+                        Text(subtitle,
+                            style: TextStyle(
+                                color: Colors.white.withOpacity(0.88),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600)),
+                      ],
+                    ),
+                  ),
+                  const Icon(Icons.arrow_forward_ios_rounded,
+                      color: Colors.white70, size: 16),
+                ],
+              ),
             ),
           ),
         ),
