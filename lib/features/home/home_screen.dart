@@ -54,166 +54,206 @@ class HomeScreen extends StatelessWidget {
           ),
           child: CustomScrollView(
             slivers: [
-              SliverToBoxAdapter(
-                child: Container(
-                  decoration: const BoxDecoration(
-                    gradient: FourTheme.heroGradient,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(28),
-                      bottomRight: Radius.circular(28),
-                    ),
-                  ),
-                  padding: EdgeInsets.fromLTRB(
-                    20,
-                    MediaQuery.paddingOf(context).top + 16,
-                    20,
-                    26,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                            width: 48,
-                            height: 48,
-                            decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.2),
-                              borderRadius: BorderRadius.circular(16),
-                              border: Border.all(color: Colors.white54),
-                            ),
-                            child: const Icon(Icons.school_rounded,
-                                color: Colors.white, size: 28),
-                          ),
-                          const SizedBox(width: 12),
-                          const Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('BEE PLUS 4',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.w900)),
-                                Text('Highschool · offline',
-                                    style: TextStyle(
-                                        color: Color(0xFFCCFBF1), fontSize: 13)),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 18),
-                      const Text('Your grade',
-                          style: TextStyle(
-                              color: Colors.white70,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600)),
-                      const SizedBox(height: 8),
-                      Wrap(
-                        spacing: 8,
-                        children: grades.map((g) {
-                          final selected = g == grade;
-                          return ChoiceChip(
-                            label: Text(g),
-                            selected: selected,
-                            onSelected: (_) => onGrade(g),
-                            selectedColor: FourTheme.accent,
-                            labelStyle: TextStyle(
-                              color: selected ? FourTheme.ink : Colors.white,
-                              fontWeight: FontWeight.w800,
-                            ),
-                            backgroundColor: Colors.white.withOpacity(0.14),
-                            side: BorderSide(
-                              color: selected ? FourTheme.accent : Colors.white24,
-                            ),
-                          );
-                        }).toList(),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SliverToBoxAdapter(child: SizedBox(height: 16)),
-              SliverPadding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                sliver: SliverGrid(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: 1.55,
-                  ),
-                  delegate: SliverChildListDelegate([
-                    _StatTile('$noteCount', 'Notes', Icons.menu_book_rounded,
-                        FourTheme.primary),
-                    _StatTile(
-                        '$qCount', 'MCQs', Icons.quiz_rounded, FourTheme.violet),
-                    _StatTile('$matricCount', 'Matric',
-                        Icons.assignment_rounded, FourTheme.accentDeep),
-                    _StatTile('$slideDecks', 'Decks', Icons.slideshow_rounded,
-                        FourTheme.mint),
-                  ]),
-                ),
-              ),
-              const SliverToBoxAdapter(
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(20, 22, 20, 10),
-                  child: Text('Study',
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w900,
-                          color: FourTheme.ink)),
-                ),
-              ),
-              SliverPadding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                sliver: SliverList.list(
-                  children: [
-                    _ActionCard(
-                      title: 'Notes',
-                      subtitle: 'Units · PDF packs',
-                      icon: Icons.auto_stories_rounded,
-                      color: const Color(0xFF0E7490),
-                      onTap: onOpenNotes,
-                    ),
-                    _ActionCard(
-                      title: 'Practice',
-                      subtitle: 'MCQs · feedback',
-                      icon: Icons.quiz_rounded,
-                      color: const Color(0xFF6366F1),
-                      onTap: onOpenPractice,
-                    ),
-                    _ActionCard(
-                      title: 'Coach',
-                      subtitle: 'Offline quiz bot',
-                      icon: Icons.smart_toy_rounded,
-                      color: const Color(0xFF8B5CF6),
-                      onTap: onOpenBot,
-                    ),
-                    _ActionCard(
-                      title: 'Exams',
-                      subtitle: 'Matric · model',
-                      icon: Icons.assignment_rounded,
-                      color: const Color(0xFFD97706),
-                      onTap: onOpenExams,
-                    ),
-                    if (onOpenTools != null)
-                      _ActionCard(
-                        title: 'Tools',
-                        subtitle: 'Labs · utilities',
-                        icon: Icons.handyman_rounded,
-                        color: const Color(0xFF059669),
-                        onTap: onOpenTools!,
-                      ),
-                    const SizedBox(height: 28),
-                  ],
-                ),
+              ConcurrentlyHomeHero(
+                grade: grade,
+                onGrade: onGrade,
+                noteCount: '$noteCount',
+                qCount: '$qCount',
+                matricCount: '$matricCount',
+                slideDecks: '$slideDecks',
+                onOpenNotes: onOpenNotes,
+                onOpenPractice: onOpenPractice,
+                onOpenBot: onOpenBot,
+                onOpenExams: onOpenExams,
+                onOpenTools: onOpenTools,
               ),
             ],
           ),
         );
       },
+    );
+  }
+}
+
+// Inline hero+body kept as one widget tree without ConcurrentlyHomeHero - rewrite simple
+class ConcurrentlyHomeHero extends StatelessWidget {
+  const ConcurrentlyHomeHero({
+    super.key,
+    required this.grade,
+    required this.onGrade,
+    required this.noteCount,
+    required this.qCount,
+    required this.matricCount,
+    required this.slideDecks,
+    required this.onOpenNotes,
+    required this.onOpenPractice,
+    required this.onOpenBot,
+    required this.onOpenExams,
+    this.onOpenTools,
+  });
+  final String grade;
+  final ValueChanged<String> onGrade;
+  final String noteCount, qCount, matricCount, slideDecks;
+  final VoidCallback onOpenNotes, onOpenPractice, onOpenBot, onOpenExams;
+  final VoidCallback? onOpenTools;
+
+  static const grades = ['G9', 'G10', 'G11', 'G12'];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            gradient: FourTheme.heroGradient,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(28),
+              bottomRight: Radius.circular(28),
+            ),
+          ),
+          padding: EdgeInsets.fromLTRB(
+            20,
+            MediaQuery.paddingOf(context).top + 16,
+            20,
+            26,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: Colors.white54),
+                    ),
+                    child: const Icon(Icons.school_rounded,
+                        color: Colors.white, size: 28),
+                  ),
+                  const SizedBox(width: 12),
+                  const Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('BEE PLUS 4',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                                fontWeight: FontWeight.w900)),
+                        Text('Highschool · offline',
+                            style: TextStyle(
+                                color: Color(0xFFCCFBF1), fontSize: 13)),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 18),
+              const Text('Your grade',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700)),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                children: grades.map((g) {
+                  final selected = g == grade;
+                  return ChoiceChip(
+                    label: Text(g),
+                    selected: selected,
+                    onSelected: (_) => onGrade(g),
+                    selectedColor: const Color(0xFFFBBF24),
+                    labelStyle: const TextStyle(
+                      color: Color(0xFF0F172A),
+                      fontWeight: FontWeight.w900,
+                      fontSize: 13,
+                    ),
+                    backgroundColor: Colors.white,
+                    side: const BorderSide(color: Color(0xFFE2E8F0)),
+                  );
+                }).toList(),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+          child: GridView.count(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            crossAxisCount: 2,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            childAspectRatio: 1.55,
+            children: [
+              _StatTile(noteCount, 'Notes', Icons.menu_book_rounded, FourTheme.primary),
+              _StatTile(qCount, 'MCQs', Icons.quiz_rounded, FourTheme.violet),
+              _StatTile(matricCount, 'Matric', Icons.assignment_rounded, FourTheme.accentDeep),
+              _StatTile(slideDecks, 'Decks', Icons.slideshow_rounded, FourTheme.mint),
+            ],
+          ),
+        ),
+        const Padding(
+          padding: EdgeInsets.fromLTRB(20, 22, 20, 10),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Text('Study',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                    color: FourTheme.ink)),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              _ActionCard(
+                title: 'Notes',
+                subtitle: 'Units · PDF packs',
+                icon: Icons.auto_stories_rounded,
+                color: const Color(0xFF0E7490),
+                onTap: onOpenNotes,
+              ),
+              _ActionCard(
+                title: 'Practice',
+                subtitle: 'MCQs · feedback',
+                icon: Icons.quiz_rounded,
+                color: const Color(0xFF6366F1),
+                onTap: onOpenPractice,
+              ),
+              _ActionCard(
+                title: 'Coach',
+                subtitle: 'Offline quiz bot',
+                icon: Icons.smart_toy_rounded,
+                color: const Color(0xFF8B5CF6),
+                onTap: onOpenBot,
+              ),
+              _ActionCard(
+                title: 'Exams',
+                subtitle: 'Matric · model',
+                icon: Icons.assignment_rounded,
+                color: const Color(0xFFD97706),
+                onTap: onOpenExams,
+              ),
+              if (onOpenTools != null)
+                _ActionCard(
+                  title: 'Tools',
+                  subtitle: 'Labs · utilities',
+                  icon: Icons.handyman_rounded,
+                  color: const Color(0xFF059669),
+                  onTap: onOpenTools!,
+                ),
+              const SizedBox(height: 28),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
