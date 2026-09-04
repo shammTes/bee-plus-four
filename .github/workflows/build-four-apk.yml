@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "17"
+          java-version: '17'
 
       - uses: subosito/flutter-action@v2
         with:
@@ -29,14 +29,11 @@ jobs:
           set -e
           mkdir -p assets/content/textbooks assets/content/illustrated assets/content/illustrated/g6_math_ch1_webp assets/content/illustrated_pdf
           pip install -q gdown
-
           PACK_IDS="1Bf_eqJ1BJkwOj-SSNBjmO8Om0e1TGI3B 1QrhYo3cnzTfaGuoLNEEAjrSyRAu59sZm 1J41cz00pHXvvaC1FSe_WZIHhGaCU4xUq 10yTnb1p3fo0fpHI0OSMGZXYMvKX2mx1t"
           DOWNLOADED=0
-
           for id in $PACK_IDS; do
             echo "Trying pack $id"
             rm -f /tmp/four_content.tgz
-
             if python3 -m gdown "https://drive.google.com/uc?id=${id}" -O /tmp/four_content.tgz; then
               if gzip -t /tmp/four_content.tgz 2>/dev/null; then
                 DOWNLOADED=1
@@ -44,7 +41,6 @@ jobs:
                 break
               fi
             fi
-
             rm -f /tmp/four_content.tgz
             if python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_content.tgz; then
               if gzip -t /tmp/four_content.tgz 2>/dev/null; then
@@ -53,10 +49,9 @@ jobs:
                 break
               fi
             fi
-
             rm -f /tmp/cj /tmp/four_content.tgz /tmp/drive_landing.html
             curl -sSL -c /tmp/cj -b /tmp/cj "https://drive.google.com/uc?export=download&id=${id}" -o /tmp/drive_landing.html || true
-            CONFIRM=$(grep -oE 'confirm=[0-9A-Za-z_]+' /tmp/drive_landing.html 2>/dev/null | head -1 | cut -d= -f2)
+            CONFIRM=$(grep -oE 'confirm=[0-9A-Za-z_]+' /tmp/drive_landing.html 2>/dev/null | head -1 | cut -d= -f2 || true)
             if [ -z "$CONFIRM" ]; then CONFIRM=t; fi
             curl -sSL -c /tmp/cj -b /tmp/cj -L "https://drive.google.com/uc?export=download&confirm=${CONFIRM}&id=${id}" -o /tmp/four_content.tgz || true
             if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
@@ -65,7 +60,6 @@ jobs:
               break
             fi
           done
-
           if [ "$DOWNLOADED" = "1" ]; then
             echo "Pack size: $(du -h /tmp/four_content.tgz | cut -f1)"
             mkdir -p /tmp/four_extract
@@ -82,7 +76,6 @@ jobs:
             echo "::warning::Drive pack not downloadable. Share as Anyone with the link."
             echo "https://drive.google.com/file/d/1Bf_eqJ1BJkwOj-SSNBjmO8Om0e1TGI3B/view"
           fi
-
           test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
           test -f assets/content/practice_index.json || echo '{"files":["practice_lite.json"],"lite":"practice_lite.json"}' > assets/content/practice_index.json
           test -f assets/content/practice_lite.json || echo '[]' > assets/content/practice_lite.json
@@ -94,30 +87,20 @@ jobs:
           for g in g9 g10 g11 g12; do
             test -f assets/content/illustrated_catalog_${g}.json || echo '{"decks":[],"deck_count":0}' > assets/content/illustrated_catalog_${g}.json
           done
-
           echo "Content bytes: $(du -sb assets/content | cut -f1)"
           find assets/content -type f | wc -l
           du -sh assets/content || true
 
       - name: Generate icons
         run: |
-          python3 -c "import struct,zlib,os
-def png(w,h,rgb=(13,148,136)):
- def chunk(t,d): return struct.pack('>I',len(d))+t+d+struct.pack('>I',zlib.crc32(t+d)&0xffffffff)
- raw=b''.join(b'\\x00'+bytes(rgb)*w for _ in range(h))
- return b'\\x89PNG\\r\\n\\x1a\\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',w,h,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(raw,9))+chunk(b'IEND',b'')
-base='android/app/src/main/res'
-for dens,s in [('mipmap-mdpi',48),('mipmap-hdpi',72),('mipmap-xhdpi',96),('mipmap-xxhdpi',144),('mipmap-xxxhdpi',192)]:
- d=f'{base}/{dens}'; os.makedirs(d,exist_ok=True); open(f'{d}/ic_launcher.png','wb').write(png(s,s))
-print('icons ok')"
+          mkdir -p android/app/src/main/res/mipmap-hdpi
+          python3 -c 'import struct,zlib,os;exec("def chunk(t,d):\n return struct.pack(\">I\",len(d))+t+d+struct.pack(\">I\",zlib.crc32(t+d)&0xffffffff)\ndef png(w,h,rgb=(13,148,136)):\n raw=b\"\".join(b\"\\x00\"+bytes(rgb)*w for _ in range(h))\n return b\"\\x89PNG\\r\\n\\x1a\\n\"+chunk(b\"IHDR\",struct.pack(\">IIBBBBB\",w,h,8,2,0,0,0))+chunk(b\"IDAT\",zlib.compress(raw,9))+chunk(b\"IEND\",b\"\")\nbase=\"android/app/src/main/res\"\nfor dens,s in [(\"mipmap-mdpi\",48),(\"mipmap-hdpi\",72),(\"mipmap-xhdpi\",96),(\"mipmap-xxhdpi\",144),(\"mipmap-xxxhdpi\",192)]:\n d=f\"{base}/{dens}\";os.makedirs(d,exist_ok=True);open(f\"{d}/ic_launcher.png\",\"wb\").write(png(s,s))\nprint(\"icons ok\")")'
 
       - name: Pub get
         run: flutter pub get
 
       - name: Build APK
-        run: |
-          flutter build apk --release --no-tree-shake-icons \
-            --android-skip-build-dependency-validation
+        run: flutter build apk --release --no-tree-shake-icons --android-skip-build-dependency-validation
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
