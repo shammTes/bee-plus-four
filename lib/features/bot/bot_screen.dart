@@ -1,305 +1,307 @@
 import 'package:flutter/material.dart';
 
 import '../../core/bot/offline_bot.dart';
+import '../../core/content/content_repository.dart';
 import '../../core/models/content_models.dart';
 import '../../core/theme/four_theme.dart';
 
 class BotScreen extends StatefulWidget {
-  const BotScreen({super.key});
+  const BotScreen({super.key, this.initialGrade = 'G10'});
+  final String initialGrade;
 
   @override
   State<BotScreen> createState() => _BotScreenState();
 }
 
 class _BotScreenState extends State<BotScreen> {
-  final bot = OfflineBot();
-  final controller = TextEditingController();
-  final scroll = ScrollController();
-  final messages = <_ChatLine>[];
-  List<QuickAction> quick = const [];
-  PracticeQuestion? activeQ;
+  final _bot = OfflineBot();
+  final _ctrl = TextEditingController();
+  final _scroll = ScrollController();
+  final _messages = <_Msg>[];
   bool busy = false;
+
+  String grade = 'G10';
+  String subject = 'MATH';
+  String mode = 'quiz'; // quiz | notes
+
+  static const grades = ['G9', 'G10', 'G11', 'G12'];
+  static const subjects = [
+    'MATH',
+    'PHYSICS',
+    'CHEMISTRY',
+    'BIOLOGY',
+    'ENGLISH',
+    'GEOGRAPHY',
+    'HISTORY',
+    'AGRICULTURE',
+    'BUSINESS_ECONOMICS',
+  ];
 
   @override
   void initState() {
     super.initState();
-    messages.add(const _ChatLine(
-      bot: true,
-      text:
-          'Study Coach — offline only.\nG9–G12 · quizzes · exam practice.\n\nPick a subject or tap Start quiz.',
+    grade = widget.initialGrade;
+    _bot.grade = grade;
+    _bot.subject = subject;
+    _messages.add(_Msg(
+      false,
+      'Coach ready offline.\n\n'
+      '1) Pick grade + subject\n'
+      '2) Choose Quiz or Notes\n'
+      '3) Tap Start\n\n'
+      'You can also type: start quiz, hint, explain, notes, progress.',
     ));
-    quick = const [
-      QuickAction('Start quiz', BotAction.start),
-      QuickAction('Subjects', BotAction.newTopic),
-      QuickAction('Help', BotAction.help),
-    ];
   }
 
   @override
   void dispose() {
-    controller.dispose();
-    scroll.dispose();
+    _ctrl.dispose();
+    _scroll.dispose();
     super.dispose();
   }
 
   Future<void> _send(String text) async {
-    if (text.trim().isEmpty || busy) return;
+    final t = text.trim();
+    if (t.isEmpty || busy) return;
     setState(() {
       busy = true;
-      messages.add(_ChatLine(bot: false, text: text.trim()));
-      controller.clear();
+      _messages.add(_Msg(true, t));
+      _ctrl.clear();
     });
-    BotReply reply;
+    _bot.grade = grade;
+    _bot.subject = subject;
     try {
-      reply = await bot.handle(text);
+      final reply = mode == 'notes' &&
+              (t.toLowerCase().contains('start') || t.toLowerCase() == 'notes')
+          ? await _bot.notesBrief()
+          : await _bot.handle(t);
+      if (!mounted) return;
+      setState(() {
+        _messages.add(_Msg(false, reply.text,
+            question: reply.question, quick: reply.quick));
+        busy = false;
+      });
     } catch (e) {
-      reply = BotReply(
-        'Coach error. Try Help or Start quiz.\n($e)',
-        quick: const [
-          QuickAction('Start quiz', BotAction.start),
-          QuickAction('Help', BotAction.help),
-        ],
-      );
+      if (!mounted) return;
+      setState(() {
+        _messages.add(_Msg(false, 'Coach error: $e'));
+        busy = false;
+      });
     }
-    if (!mounted) return;
-    setState(() {
-      messages.add(_ChatLine(bot: true, text: reply.text));
-      quick = reply.quick;
-      activeQ = reply.question;
-      busy = false;
-    });
-    await Future<void>.delayed(const Duration(milliseconds: 40));
-    if (scroll.hasClients) {
-      scroll.animateTo(
-        scroll.position.maxScrollExtent + 80,
-        duration: const Duration(milliseconds: 220),
-        curve: Curves.easeOut,
-      );
+    await Future<void>.delayed(const Duration(milliseconds: 50));
+    if (_scroll.hasClients) {
+      _scroll.animateTo(_scroll.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 250), curve: Curves.easeOut);
     }
   }
 
-  Future<void> _quick(QuickAction a) async {
-    if (a.action == BotAction.subject && a.value != null) {
-      bot.activeSubject = a.value;
-      await _send(a.value!);
-      return;
-    }
-    const map = {
-      BotAction.start: 'start quiz',
-      BotAction.hint: 'hint',
-      BotAction.explain: 'explain',
-      BotAction.skip: 'skip',
-      BotAction.progress: 'progress',
-      BotAction.newTopic: 'change subject',
-      BotAction.help: 'help',
-    };
-    await _send(map[a.action] ?? a.label);
-  }
-
-  Future<void> _pickOption(int i) async {
-    if (busy || activeQ == null) return;
-    setState(() {
-      busy = true;
-      messages.add(_ChatLine(bot: false, text: String.fromCharCode(65 + i)));
-    });
-    BotReply reply;
-    try {
-      reply = await bot.answerIndex(i);
-    } catch (e) {
-      reply = BotReply('Could not grade. Try Next.\n($e)');
-    }
-    if (!mounted) return;
-    setState(() {
-      messages.add(_ChatLine(bot: true, text: reply.text));
-      quick = reply.quick.isEmpty
-          ? const [
-              QuickAction('Next', BotAction.start),
-              QuickAction('Subjects', BotAction.newTopic),
-            ]
-          : reply.quick;
-      activeQ = null;
-      busy = false;
-    });
+  Widget _chip(String label, bool selected, VoidCallback onTap) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 6),
+      child: ChoiceChip(
+        label: Text(label),
+        selected: selected,
+        onSelected: (_) => onTap(),
+        selectedColor: const Color(0xFFFBBF24),
+        backgroundColor: Colors.white,
+        labelStyle: const TextStyle(
+          color: Color(0xFF0F172A),
+          fontWeight: FontWeight.w900,
+          fontSize: 12,
+        ),
+        side: const BorderSide(color: Color(0xFFE2E8F0)),
+        visualDensity: VisualDensity.compact,
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final top = MediaQuery.paddingOf(context).top;
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Color(0xFFE0F2FE), Color(0xFFF5F3FF), Color(0xFFF0F9FF)],
-        ),
-      ),
-      child: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.fromLTRB(16, top + 10, 16, 14),
-            decoration: const BoxDecoration(
-              gradient: FourTheme.heroGradient,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(24),
-                bottomRight: Radius.circular(24),
-              ),
+    return Column(
+      children: [
+        Container(
+          width: double.infinity,
+          padding: EdgeInsets.fromLTRB(16, top + 10, 16, 12),
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFF7C3AED), Color(0xFF6D28D9)],
             ),
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(24),
+              bottomRight: Radius.circular(24),
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Coach',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w900)),
+              const Text('Offline · quiz + unit notes',
+                  style: TextStyle(color: Color(0xFFE9D5FF), fontSize: 13)),
+              const SizedBox(height: 10),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: grades
+                      .map((g) => _chip(g, g == grade, () {
+                            setState(() => grade = g);
+                            _bot.grade = g;
+                          }))
+                      .toList(),
+                ),
+              ),
+              const SizedBox(height: 6),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: subjects.map((s) {
+                    final label = s == 'BUSINESS_ECONOMICS'
+                        ? 'Business'
+                        : s[0] + s.substring(1).toLowerCase();
+                    return _chip(label, s == subject, () {
+                      setState(() => subject = s);
+                      _bot.subject = s;
+                    });
+                  }).toList(),
+                ),
+              ),
+              const SizedBox(height: 6),
+              Row(
+                children: [
+                  _chip('Quiz', mode == 'quiz', () => setState(() => mode = 'quiz')),
+                  _chip('Notes', mode == 'notes', () => setState(() => mode = 'notes')),
+                  const Spacer(),
+                  FilledButton(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: const Color(0xFFFBBF24),
+                      foregroundColor: const Color(0xFF0F172A),
+                    ),
+                    onPressed: busy
+                        ? null
+                        : () => _send(mode == 'notes' ? 'notes' : 'start quiz'),
+                    child: Text(mode == 'notes' ? 'Show notes' : 'Start quiz',
+                        style: const TextStyle(fontWeight: FontWeight.w900)),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: ListView.builder(
+            controller: _scroll,
+            padding: const EdgeInsets.all(12),
+            itemCount: _messages.length,
+            itemBuilder: (context, i) {
+              final m = _messages[i];
+              return Align(
+                alignment:
+                    m.mine ? Alignment.centerRight : Alignment.centerLeft,
+                child: Container(
+                  margin: const EdgeInsets.only(bottom: 8),
+                  padding: const EdgeInsets.all(12),
+                  constraints: BoxConstraints(
+                      maxWidth: MediaQuery.sizeOf(context).width * 0.88),
+                  decoration: BoxDecoration(
+                    color: m.mine ? const Color(0xFFDDD6FE) : Colors.white,
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(color: const Color(0xFFE2E8F0)),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(m.text,
+                          style: const TextStyle(
+                              color: Color(0xFF0F172A), height: 1.35)),
+                      if (m.question != null) ...[
+                        const SizedBox(height: 10),
+                        ...List.generate(m.question!.options.length, (oi) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 6),
+                            child: OutlinedButton(
+                              onPressed: busy
+                                  ? null
+                                  : () => _send('${String.fromCharCode(65 + oi)}'),
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  '${String.fromCharCode(65 + oi)}. ${m.question!.options[oi]}',
+                                  style: const TextStyle(
+                                      color: Color(0xFF0F172A),
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+                      ],
+                      if (m.quick != null && m.quick!.isNotEmpty) ...[
+                        const SizedBox(height: 8),
+                        Wrap(
+                          spacing: 6,
+                          children: m.quick!
+                              .map((q) => ActionChip(
+                                    label: Text(q.label,
+                                        style: const TextStyle(
+                                            color: Color(0xFF0F172A),
+                                            fontWeight: FontWeight.w800,
+                                            fontSize: 12)),
+                                    backgroundColor: Colors.white,
+                                    side: const BorderSide(
+                                        color: Color(0xFFCBD5E1)),
+                                    onPressed: busy
+                                        ? null
+                                        : () => _send(q.label),
+                                  ))
+                              .toList(),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+        SafeArea(
+          top: false,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(12, 0, 12, 10),
+            child: Row(
               children: [
-                Text('Coach',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w800)),
-                SizedBox(height: 2),
-                Text('Offline · quiz · tips',
-                    style: TextStyle(color: Color(0xFFCCFBF1), fontSize: 13)),
+                Expanded(
+                  child: TextField(
+                    controller: _ctrl,
+                    decoration: const InputDecoration(
+                      hintText: 'Type: start quiz · notes · hint · A/B/C/D',
+                      border: OutlineInputBorder(),
+                      isDense: true,
+                    ),
+                    onSubmitted: _send,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                IconButton.filled(
+                  onPressed: busy ? null : () => _send(_ctrl.text),
+                  icon: const Icon(Icons.send),
+                ),
               ],
             ),
           ),
-          Expanded(
-            child: ListView.builder(
-              controller: scroll,
-              padding: const EdgeInsets.fromLTRB(12, 12, 12, 8),
-              itemCount: messages.length + (busy ? 1 : 0),
-              itemBuilder: (context, i) {
-                if (busy && i == messages.length) {
-                  return const Padding(
-                    padding: EdgeInsets.all(12),
-                    child: Text('Thinking…', style: TextStyle(color: FourTheme.muted)),
-                  );
-                }
-                final m = messages[i];
-                return Align(
-                  alignment: m.bot ? Alignment.centerLeft : Alignment.centerRight,
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5),
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
-                    constraints: BoxConstraints(
-                      maxWidth: MediaQuery.of(context).size.width * 0.86,
-                    ),
-                    decoration: BoxDecoration(
-                      gradient: m.bot ? null : FourTheme.cardGradient,
-                      color: m.bot ? Colors.white.withOpacity(0.9) : null,
-                      borderRadius: BorderRadius.only(
-                        topLeft: const Radius.circular(18),
-                        topRight: const Radius.circular(18),
-                        bottomLeft: Radius.circular(m.bot ? 4 : 18),
-                        bottomRight: Radius.circular(m.bot ? 18 : 4),
-                      ),
-                      border: m.bot ? Border.all(color: Colors.white) : null,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.06),
-                          blurRadius: 12,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                    child: Text(
-                      m.text,
-                      style: TextStyle(
-                        color: m.bot ? FourTheme.ink : Colors.white,
-                        height: 1.35,
-                        fontWeight: m.bot ? FontWeight.w500 : FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-          if (activeQ != null)
-            Padding(
-              padding: const EdgeInsets.fromLTRB(12, 0, 12, 6),
-              child: FourTheme.glassPanel(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(activeQ!.prompt,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w700, fontSize: 13)),
-                    const SizedBox(height: 8),
-                    Wrap(
-                      spacing: 6,
-                      runSpacing: 6,
-                      children: List.generate(activeQ!.options.length, (i) {
-                        return ActionChip(
-                          label: Text(
-                            '${String.fromCharCode(65 + i)}. ${activeQ!.options[i]}',
-                            style: const TextStyle(fontSize: 12),
-                          ),
-                          onPressed: busy ? null : () => _pickOption(i),
-                          backgroundColor: FourTheme.primarySoft,
-                        );
-                      }),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          if (quick.isNotEmpty)
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 6),
-              child: Row(
-                children: quick
-                    .map((q) => Padding(
-                          padding: const EdgeInsets.only(right: 6),
-                          child: ActionChip(
-                            label: Text(q.label,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.w700, fontSize: 12)),
-                            onPressed: busy ? null : () => _quick(q),
-                            backgroundColor: Colors.white,
-                          ),
-                        ))
-                    .toList(),
-              ),
-            ),
-          SafeArea(
-            top: false,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-              child: FourTheme.glassPanel(
-                padding: const EdgeInsets.fromLTRB(8, 6, 6, 6),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TextField(
-                        controller: controller,
-                        decoration: const InputDecoration(
-                          hintText: 'Ask coach…',
-                          border: InputBorder.none,
-                          isDense: true,
-                        ),
-                        onSubmitted: _send,
-                      ),
-                    ),
-                    FilledButton(
-                      onPressed: busy ? null : () => _send(controller.text),
-                      style: FilledButton.styleFrom(
-                        shape: const CircleBorder(),
-                        padding: const EdgeInsets.all(12),
-                      ),
-                      child: const Icon(Icons.send_rounded, size: 20),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
 
-class _ChatLine {
-  final bool bot;
+class _Msg {
+  _Msg(this.mine, this.text, {this.question, this.quick});
+  final bool mine;
   final String text;
-  const _ChatLine({required this.bot, required this.text});
+  final PracticeQuestion? question;
+  final List<QuickAction>? quick;
 }
