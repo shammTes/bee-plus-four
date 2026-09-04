@@ -30,30 +30,30 @@ jobs:
           mkdir -p assets/content/textbooks assets/content/illustrated assets/content/illustrated/g6_math_ch1_webp assets/content/illustrated_pdf
           pip install -q gdown
 
-          # Prefer newest pack; fall back to previous IDs if needed
-          PACK_IDS="1QrhYo3cnzTfaGuoLNEEAjrSyRAu59sZm 1J41cz00pHXvvaC1FSe_WZIHhGaCU4xUq 10yTnb1p3fo0fpHI0OSMGZXYMvKX2mx1t"
+          PACK_IDS="1Bf_eqJ1BJkwOj-SSNBjmO8Om0e1TGI3B 1QrhYo3cnzTfaGuoLNEEAjrSyRAu59sZm 1J41cz00pHXvvaC1FSe_WZIHhGaCU4xUq 10yTnb1p3fo0fpHI0OSMGZXYMvKX2mx1t"
           DOWNLOADED=0
 
           download_pack() {
             local id="$1"
             echo "Trying pack $id …"
             rm -f /tmp/four_content.tgz
-            # Method 1: gdown
-            python3 -m gdown "https://drive.google.com/uc?id=${id}" -O /tmp/four_content.tgz && return 0
-            # Method 2: gdown with confirm redirect handled by --continue
-            python3 -m gdown --continue "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_content.tgz && return 0
-            # Method 3: curl cookie/confirm flow for large Drive files
-            rm -f /tmp/cj /tmp/four_content.tgz
-            curl -fsSL -c /tmp/cj -b /tmp/cj \
+            python3 -m gdown "https://drive.google.com/uc?id=${id}" -O /tmp/four_content.tgz 2>/tmp/gdown.err && return 0
+            cat /tmp/gdown.err || true
+            python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_content.tgz 2>/tmp/gdown.err && return 0
+            rm -f /tmp/cj /tmp/four_content.tgz /tmp/drive_landing.html
+            curl -sSL -c /tmp/cj -b /tmp/cj \
               "https://drive.google.com/uc?export=download&id=${id}" -o /tmp/drive_landing.html || true
             CONFIRM=$(python3 - <<'PY'
 import re
-html=open('/tmp/drive_landing.html','r',errors='ignore').read()
+try:
+ html=open('/tmp/drive_landing.html','r',errors='ignore').read()
+except Exception:
+ html=''
 m=re.search(r'confirm=([0-9A-Za-z_]+)', html)
 print(m.group(1) if m else 't')
 PY
 )
-            curl -fsSL -c /tmp/cj -b /tmp/cj -L \
+            curl -sSL -c /tmp/cj -b /tmp/cj -L \
               "https://drive.google.com/uc?export=download&confirm=${CONFIRM}&id=${id}" \
               -o /tmp/four_content.tgz || true
             if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
@@ -64,9 +64,9 @@ PY
 
           for id in $PACK_IDS; do
             if download_pack "$id"; then
-              if gzip -t /tmp/four_content.tgz 2>/dev/null; then
+              if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
                 DOWNLOADED=1
-                echo "Downloaded pack $id OK"
+                echo "Downloaded pack $id OK ($(du -h /tmp/four_content.tgz | cut -f1))"
                 break
               fi
             fi
@@ -84,11 +84,10 @@ PY
               find /tmp/four_extract | head -40
             fi
           else
-            echo "::warning::Could not download Drive pack (share as Anyone with the link). Building with repo assets only."
-            echo "Share: https://drive.google.com/file/d/1QrhYo3cnzTfaGuoLNEEAjrSyRAu59sZm/view"
+            echo "::warning::Drive pack not downloadable from Actions. Share as Anyone with the link → Viewer."
+            echo "https://drive.google.com/file/d/1Bf_eqJ1BJkwOj-SSNBjmO8Om0e1TGI3B/view"
           fi
 
-          # Minimal stubs so Flutter asset validation never fails
           test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
           test -f assets/content/practice_index.json || echo '{"files":["practice_lite.json"],"lite":"practice_lite.json"}' > assets/content/practice_index.json
           test -f assets/content/practice_lite.json || echo '[]' > assets/content/practice_lite.json
