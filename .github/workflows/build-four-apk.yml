@@ -33,46 +33,41 @@ jobs:
           PACK_IDS="1Bf_eqJ1BJkwOj-SSNBjmO8Om0e1TGI3B 1QrhYo3cnzTfaGuoLNEEAjrSyRAu59sZm 1J41cz00pHXvvaC1FSe_WZIHhGaCU4xUq 10yTnb1p3fo0fpHI0OSMGZXYMvKX2mx1t"
           DOWNLOADED=0
 
-          download_pack() {
-            local id="$1"
-            echo "Trying pack $id …"
-            rm -f /tmp/four_content.tgz
-            python3 -m gdown "https://drive.google.com/uc?id=${id}" -O /tmp/four_content.tgz 2>/tmp/gdown.err && return 0
-            cat /tmp/gdown.err || true
-            python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_content.tgz 2>/tmp/gdown.err && return 0
-            rm -f /tmp/cj /tmp/four_content.tgz /tmp/drive_landing.html
-            curl -sSL -c /tmp/cj -b /tmp/cj \
-              "https://drive.google.com/uc?export=download&id=${id}" -o /tmp/drive_landing.html || true
-            CONFIRM=$(python3 - <<'PY'
-import re
-try:
- html=open('/tmp/drive_landing.html','r',errors='ignore').read()
-except Exception:
- html=''
-m=re.search(r'confirm=([0-9A-Za-z_]+)', html)
-print(m.group(1) if m else 't')
-PY
-)
-            curl -sSL -c /tmp/cj -b /tmp/cj -L \
-              "https://drive.google.com/uc?export=download&confirm=${CONFIRM}&id=${id}" \
-              -o /tmp/four_content.tgz || true
-            if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
-              return 0
-            fi
-            return 1
-          }
-
           for id in $PACK_IDS; do
-            if download_pack "$id"; then
-              if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
+            echo "Trying pack $id"
+            rm -f /tmp/four_content.tgz
+
+            if python3 -m gdown "https://drive.google.com/uc?id=${id}" -O /tmp/four_content.tgz; then
+              if gzip -t /tmp/four_content.tgz 2>/dev/null; then
                 DOWNLOADED=1
-                echo "Downloaded pack $id OK ($(du -h /tmp/four_content.tgz | cut -f1))"
+                echo "gdown OK for $id"
                 break
               fi
+            fi
+
+            rm -f /tmp/four_content.tgz
+            if python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_content.tgz; then
+              if gzip -t /tmp/four_content.tgz 2>/dev/null; then
+                DOWNLOADED=1
+                echo "gdown confirm OK for $id"
+                break
+              fi
+            fi
+
+            rm -f /tmp/cj /tmp/four_content.tgz /tmp/drive_landing.html
+            curl -sSL -c /tmp/cj -b /tmp/cj "https://drive.google.com/uc?export=download&id=${id}" -o /tmp/drive_landing.html || true
+            CONFIRM=$(grep -oE 'confirm=[0-9A-Za-z_]+' /tmp/drive_landing.html 2>/dev/null | head -1 | cut -d= -f2)
+            if [ -z "$CONFIRM" ]; then CONFIRM=t; fi
+            curl -sSL -c /tmp/cj -b /tmp/cj -L "https://drive.google.com/uc?export=download&confirm=${CONFIRM}&id=${id}" -o /tmp/four_content.tgz || true
+            if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
+              DOWNLOADED=1
+              echo "curl OK for $id"
+              break
             fi
           done
 
           if [ "$DOWNLOADED" = "1" ]; then
+            echo "Pack size: $(du -h /tmp/four_content.tgz | cut -f1)"
             mkdir -p /tmp/four_extract
             tar xzf /tmp/four_content.tgz -C /tmp/four_extract
             if [ -d /tmp/four_extract/assets/content ]; then
@@ -84,7 +79,7 @@ PY
               find /tmp/four_extract | head -40
             fi
           else
-            echo "::warning::Drive pack not downloadable from Actions. Share as Anyone with the link → Viewer."
+            echo "::warning::Drive pack not downloadable. Share as Anyone with the link."
             echo "https://drive.google.com/file/d/1Bf_eqJ1BJkwOj-SSNBjmO8Om0e1TGI3B/view"
           fi
 
@@ -100,27 +95,21 @@ PY
             test -f assets/content/illustrated_catalog_${g}.json || echo '{"decks":[],"deck_count":0}' > assets/content/illustrated_catalog_${g}.json
           done
 
-          BYTES=$(du -sb assets/content | cut -f1)
-          echo "Content bytes: $BYTES"
+          echo "Content bytes: $(du -sb assets/content | cut -f1)"
           find assets/content -type f | wc -l
           du -sh assets/content || true
 
       - name: Generate icons
         run: |
-          python3 << 'PY'
-          import struct, zlib, os
-          def png(w, h, rgb=(13, 148, 136)):
-              def chunk(t, d):
-                  return struct.pack('>I', len(d)) + t + d + struct.pack('>I', zlib.crc32(t + d) & 0xffffffff)
-              raw = b''.join(b'\x00' + bytes(rgb) * w for _ in range(h))
-              return b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', struct.pack('>IIBBBBB', w, h, 8, 2, 0, 0, 0)) + chunk(b'IDAT', zlib.compress(raw, 9)) + chunk(b'IEND', b'')
-          base = 'android/app/src/main/res'
-          for dens, s in [('mipmap-mdpi', 48), ('mipmap-hdpi', 72), ('mipmap-xhdpi', 96), ('mipmap-xxhdpi', 144), ('mipmap-xxxhdpi', 192)]:
-              d = f'{base}/{dens}'
-              os.makedirs(d, exist_ok=True)
-              open(f'{d}/ic_launcher.png', 'wb').write(png(s, s))
-          print('icons ok')
-          PY
+          python3 -c "import struct,zlib,os
+def png(w,h,rgb=(13,148,136)):
+ def chunk(t,d): return struct.pack('>I',len(d))+t+d+struct.pack('>I',zlib.crc32(t+d)&0xffffffff)
+ raw=b''.join(b'\\x00'+bytes(rgb)*w for _ in range(h))
+ return b'\\x89PNG\\r\\n\\x1a\\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',w,h,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(raw,9))+chunk(b'IEND',b'')
+base='android/app/src/main/res'
+for dens,s in [('mipmap-mdpi',48),('mipmap-hdpi',72),('mipmap-xhdpi',96),('mipmap-xxhdpi',144),('mipmap-xxxhdpi',192)]:
+ d=f'{base}/{dens}'; os.makedirs(d,exist_ok=True); open(f'{d}/ic_launcher.png','wb').write(png(s,s))
+print('icons ok')"
 
       - name: Pub get
         run: flutter pub get
