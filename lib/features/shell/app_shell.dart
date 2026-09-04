@@ -26,14 +26,14 @@ class _AppShellState extends State<AppShell> {
   @override
   void initState() {
     super.initState();
-    ContentRepository.instance.preload().then((_) {
+    ContentRepository.instance.preload().whenComplete(() {
       if (mounted) setState(() => ready = true);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final pages = [
+    final pages = <Widget>[
       HomeScreen(
         grade: grade,
         onGrade: (g) => setState(() => grade = g),
@@ -55,18 +55,21 @@ class _AppShellState extends State<AppShell> {
         onGrade: (g) => setState(() => grade = g),
         onSubject: (s) => setState(() => subject = s),
       ),
-      const BotScreen(),
+      BotScreen(initialGrade: grade),
       const ExamsScreen(),
       const ToolsScreen(),
       const UnlockScreen(),
     ];
+
+    // Bottom nav only shows first 5; tools/unlock open from Home cards.
+    final navIndex = index <= 4 ? index : 0;
 
     return Scaffold(
       body: ready
           ? AnimatedSwitcher(
               duration: const Duration(milliseconds: 220),
               child: KeyedSubtree(
-                key: ValueKey(index),
+                key: ValueKey('$index-$grade-$subject'),
                 child: pages[index.clamp(0, pages.length - 1)],
               ),
             )
@@ -82,7 +85,7 @@ class _AppShellState extends State<AppShell> {
               ),
             ),
       bottomNavigationBar: NavigationBar(
-        selectedIndex: index > 4 ? 0 : index,
+        selectedIndex: navIndex,
         onDestinationSelected: (i) => setState(() => index = i),
         destinations: const [
           NavigationDestination(
