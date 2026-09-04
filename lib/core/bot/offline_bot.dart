@@ -1,93 +1,183 @@
 import 'dart:math';
+
 import '../content/content_repository.dart';
 import '../models/content_models.dart';
 
-/// Controlled offline study bot — no network, no free-form LLM.
-/// Intent keywords + curriculum pack answers only (Adaptive Exam Prep style).
+/// Controlled offline study bot — no network, curriculum packs only.
 class OfflineBot {
-  OfflineBot({ContentRepository? repo}) : _repo = repo ?? ContentRepository.instance;
+  OfflineBot({ContentRepository? repo})
+      : _repo = repo ?? ContentRepository.instance;
   final ContentRepository _repo;
   final _rng = Random();
+
+  /// Bound from Coach UI selectors.
+  String grade = 'G10';
+  String subject = 'MATH';
+
   String? activeSubject;
   String? activeGrade;
   PracticeQuestion? currentQuestion;
   int correct = 0, answered = 0, hintLevel = 0;
 
   String get progressSummary {
-    if (answered == 0) return 'No questions answered yet. Say “start quiz” to begin.';
+    if (answered == 0) {
+      return 'No questions answered yet. Pick grade/subject and start a quiz.';
+    }
     final pct = ((correct / answered) * 100).round();
-    return 'Session: $correct / $answered correct ($pct%). Subject: ${activeSubject ?? "not set"}. Grade: ${activeGrade ?? "G10"}.';
+    return 'Session: $correct / $answered correct ($pct%). '
+        'Subject: ${activeSubject ?? subject}. Grade: ${activeGrade ?? grade}.';
+  }
+
+  /// Short offline unit-note briefings for current grade/subject.
+  Future<BotReply> notesBrief() async {
+    activeGrade = grade;
+    activeSubject = subject;
+    final notes = await _repo.notesFor(grade, subject);
+    if (notes.isEmpty) {
+      final any = (await _repo.notes()).where((n) => n.grade == grade).toList();
+      if (any.isEmpty) {
+        return BotReply(
+          'No unit notes found for $grade. Try another grade.',
+          quick: _defaultQuick(),
+        );
+      }
+      final buf = StringBuffer('Unit notes for $grade (all subjects):\n\n');
+      for (final n in any.take(8)) {
+        buf.writeln('• ${n.subject} U${n.unitNumber}: ${n.title}');
+        if (n.summary.isNotEmpty) {
+          final s = n.summary.length > 160
+              ? '${n.summary.substring(0, 160)}…'
+              : n.summary;
+          buf.writeln('  $s');
+        }
+        buf.writeln();
+      }
+      buf.writeln('Open Notes tab for full text + textbooks.');
+      return BotReply(buf.toString(), quick: [
+        QuickAction('Start quiz', BotAction.start),
+        QuickAction('Progress', BotAction.progress),
+      ]);
+    }
+    final buf = StringBuffer('Unit notes · $grade · $subject\n\n');
+    for (final n in notes.take(10)) {
+      buf.writeln('Unit ${n.unitNumber}: ${n.title}');
+      if (n.summary.isNotEmpty) {
+        final s = n.summary.length > 220
+            ? '${n.summary.substring(0, 220)}…'
+            : n.summary;
+        buf.writeln(s);
+      }
+      if (n.keyTerms.isNotEmpty) {
+        buf.writeln('Terms: ${n.keyTerms.take(6).join(', ')}');
+      }
+      buf.writeln();
+    }
+    buf.writeln('Tip: open Notes → Unit notes for full cards, or start a quiz.');
+    return BotReply(buf.toString(), quick: [
+      QuickAction('Start quiz', BotAction.start),
+      QuickAction('More subjects', BotAction.newTopic),
+      QuickAction('Progress', BotAction.progress),
+    ]);
   }
 
   Future<BotReply> handle(String raw) async {
     final text = raw.trim();
-    if (text.isEmpty) return BotReply('Type a message, or pick a quick action.', quick: _defaultQuick());
+    if (text.isEmpty) {
+      return BotReply('Type a message, or pick a quick action.',
+          quick: _defaultQuick());
+    }
+    final lower = text.toLowerCase();
+    if (lower == 'notes' || lower.contains('show notes') || lower == 'note') {
+      return notesBrief();
+    }
+
     final intent = BotNlp.analyze(text);
     if (intent.isGreeting) {
       return BotReply(
-        'Hi — offline study coach for highschool (G9–G12).\n'
-        'I only answer from curriculum packs.\nChoose a subject or say “start quiz”.',
+        'Hi — offline coach for G9–G12.\n'
+        'Use the chips for grade + subject, then Start quiz or Notes.',
         quick: _subjectQuick(),
       );
     }
     if (intent.action == BotAction.help) {
       return BotReply(
-        'Offline only:\n• Start a quiz\n• Hint / explain / skip\n• Session progress\n'
-        'I will not invent topics outside your JSON content.',
+        'Offline only:\n'
+        '• Grade + subject chips\n'
+        '• Quiz mode: practice MCQs with hints\n'
+        '• Notes mode: unit summaries from packs\n'
+        '• Answer with A/B/C/D\n',
         quick: _defaultQuick(),
       );
     }
-    if (intent.action == BotAction.progress) return BotReply(progressSummary, quick: _defaultQuick());
+    if (intent.action == BotAction.progress) {
+      return BotReply(progressSummary, quick: _defaultQuick());
+    }
     if (intent.subject != null) {
       activeSubject = intent.subject;
-      return BotReply('Subject set to $activeSubject. Say “start quiz”.', quick: [
-        QuickAction('Start quiz', BotAction.start),
-        QuickAction('Change subject', BotAction.newTopic),
-        QuickAction('Progress', BotAction.progress),
-      ]);
+      subject = intent.subject!;
+      return BotReply('Subject set to $activeSubject. Say “start quiz” or “notes”.',
+          quick: [
+            QuickAction('Start quiz', BotAction.start),
+            QuickAction('Notes', BotAction.help),
+            QuickAction('Progress', BotAction.progress),
+          ]);
     }
     if (intent.action == BotAction.newTopic) {
-      activeSubject = null; currentQuestion = null;
+      activeSubject = null;
+      currentQuestion = null;
       return BotReply('Choose a subject:', quick: _subjectQuick());
     }
     if (intent.action == BotAction.hint) return _hint();
     if (intent.action == BotAction.explain) return _explain();
-    if (intent.action == BotAction.skip || intent.action == BotAction.start) return _askQuestion();
-    final letter = RegExp(r'^[A-Da-d]$').firstMatch(text);
-    if (letter != null && currentQuestion != null) {
-      return _gradeAnswer(letter.group(0)!.toUpperCase().codeUnitAt(0) - 65);
+    if (intent.action == BotAction.skip || intent.action == BotAction.start) {
+      return _askQuestion();
     }
-    final num = int.tryParse(text);
-    if (num != null && currentQuestion != null && num >= 1 && num <= currentQuestion!.options.length) {
-      return _gradeAnswer(num - 1);
+
+    final letter = RegExp(r'^[A-Da-d]$').firstMatch(text);
+    if (letter != null) {
+      final idx = letter.group(0)!.toUpperCase().codeUnitAt(0) - 65;
+      return _gradeAnswer(idx);
+    }
+    final numAns = int.tryParse(text);
+    if (numAns != null && numAns >= 1 && numAns <= 4) {
+      return _gradeAnswer(numAns - 1);
+    }
+
+    // Fallback: treat as soft start
+    if (lower.contains('quiz') || lower.contains('practice')) {
+      return _askQuestion();
     }
     return BotReply(
-      'I only respond to study intents (subject, start quiz, hint, explain, skip, progress).\nTry: “physics”, “start quiz”, or “help”.',
+      'I can run quizzes or show unit notes from your packs.\n'
+      'Try: start quiz · notes · hint · progress',
       quick: _defaultQuick(),
     );
   }
 
-  Future<BotReply> answerIndex(int index) => _gradeAnswer(index);
-
   Future<BotReply> _askQuestion() async {
-    final grade = activeGrade ?? 'G10';
-    final subject = activeSubject ?? 'MATH';
-    var list = await _repo.questionsFor(grade, subject);
-    if (list.isEmpty) {
-      final all = await _repo.questions();
-      list = all.where((q) => ['G9','G10','G11','G12'].contains(q.grade)).toList();
-    }
-    if (list.isEmpty) {
-      return BotReply('No highschool practice questions in packs yet. Upload JSON and rebuild.', quick: _subjectQuick());
-    }
-    currentQuestion = list[_rng.nextInt(list.length)];
+    activeGrade = grade;
+    activeSubject = subject;
     hintLevel = 0;
-    final q = currentQuestion!;
-    final buf = StringBuffer()..writeln('**${q.subject} · ${q.grade}**')..writeln(q.prompt)..writeln();
-    for (var i = 0; i < q.options.length; i++) {
-      buf.writeln('${String.fromCharCode(65 + i)}. ${q.options[i]}');
+    final pool = await _repo.questionsFor(grade, subject);
+    if (pool.isEmpty) {
+      final any = await _repo.questions();
+      if (any.isEmpty) {
+        return BotReply(
+          'No practice questions loaded. Content pack may be missing.',
+          quick: _defaultQuick(),
+        );
+      }
+      currentQuestion = any[_rng.nextInt(any.length)];
+    } else {
+      currentQuestion = pool[_rng.nextInt(pool.length)];
     }
-    buf.writeln('\nReply with A–D, or ask for a hint.');
+    final q = currentQuestion!;
+    final buf = StringBuffer()
+      ..writeln('${q.grade} · ${q.subject}')
+      ..writeln()
+      ..writeln(q.prompt)
+      ..writeln()
+      ..writeln('Reply A/B/C/D or tap an option.');
     return BotReply(buf.toString(), question: q, quick: [
       QuickAction('Hint', BotAction.hint),
       QuickAction('Skip', BotAction.skip),
@@ -97,29 +187,36 @@ class OfflineBot {
 
   Future<BotReply> _gradeAnswer(int index) async {
     final q = currentQuestion;
-    if (q == null) return BotReply('No active question. Say “start quiz”.', quick: _defaultQuick());
+    if (q == null) {
+      return BotReply('No active question. Start a quiz first.',
+          quick: _defaultQuick());
+    }
     answered++;
     final ok = index == q.correctIndex;
     if (ok) correct++;
     final msg = ok
         ? 'Correct!\n\n${q.explanation}'
-        : 'Not quite. Correct: ${String.fromCharCode(65 + q.correctIndex)}. ${q.options[q.correctIndex]}\n\n${q.explanation}';
+        : 'Not quite. Correct: ${String.fromCharCode(65 + q.correctIndex)}. '
+            '${q.options[q.correctIndex]}\n\n${q.explanation}';
     currentQuestion = null;
     return BotReply(msg, quick: [
       QuickAction('Next question', BotAction.start),
-      QuickAction('Change subject', BotAction.newTopic),
+      QuickAction('Notes', BotAction.help),
       QuickAction('Progress', BotAction.progress),
     ]);
   }
 
   Future<BotReply> _hint() async {
     final q = currentQuestion;
-    if (q == null) return BotReply('No active question. Start a quiz first.', quick: _defaultQuick());
+    if (q == null) {
+      return BotReply('No active question. Start a quiz first.',
+          quick: _defaultQuick());
+    }
     hintLevel = (hintLevel + 1).clamp(1, 3);
     const hints = [
       'Focus on the key idea in the question stem.',
       'Eliminate options that contradict the definition or formula.',
-      'The pack explanation names the exact rule after you answer.',
+      'Check units, signs, and definitions carefully before choosing.',
     ];
     return BotReply('Hint $hintLevel/3: ${hints[hintLevel - 1]}', quick: [
       QuickAction('Another hint', BotAction.hint),
@@ -130,67 +227,98 @@ class OfflineBot {
 
   Future<BotReply> _explain() async {
     final q = currentQuestion;
-    if (q == null) return BotReply('No active question. Start a quiz first.', quick: _defaultQuick());
+    if (q == null) {
+      return BotReply('No active question. Start a quiz first.',
+          quick: _defaultQuick());
+    }
     return BotReply(
-      'Full explanation (from pack):\n${q.explanation}\n\nCorrect: ${String.fromCharCode(65 + q.correctIndex)}. ${q.options[q.correctIndex]}',
-      quick: [QuickAction('Next question', BotAction.start), QuickAction('Progress', BotAction.progress)],
+      'Full explanation:\n${q.explanation}\n\n'
+      'Correct: ${String.fromCharCode(65 + q.correctIndex)}. ${q.options[q.correctIndex]}',
+      quick: [
+        QuickAction('Next question', BotAction.start),
+        QuickAction('Progress', BotAction.progress),
+      ],
     );
   }
 
   List<QuickAction> _defaultQuick() => [
-    QuickAction('Start quiz', BotAction.start),
-    QuickAction('Subjects', BotAction.newTopic),
-    QuickAction('Progress', BotAction.progress),
-    QuickAction('Help', BotAction.help),
-  ];
+        QuickAction('Start quiz', BotAction.start),
+        QuickAction('Subjects', BotAction.newTopic),
+        QuickAction('Progress', BotAction.progress),
+        QuickAction('Help', BotAction.help),
+      ];
 
   List<QuickAction> _subjectQuick() => [
-    QuickAction('Math', BotAction.subject, value: 'MATH'),
-    QuickAction('Physics', BotAction.subject, value: 'PHYSICS'),
-    QuickAction('Chemistry', BotAction.subject, value: 'CHEMISTRY'),
-    QuickAction('Biology', BotAction.subject, value: 'BIOLOGY'),
-    QuickAction('English', BotAction.subject, value: 'ENGLISH'),
-  ];
+        QuickAction('Math', BotAction.subject, value: 'MATH'),
+        QuickAction('Physics', BotAction.subject, value: 'PHYSICS'),
+        QuickAction('Chemistry', BotAction.subject, value: 'CHEMISTRY'),
+        QuickAction('Biology', BotAction.subject, value: 'BIOLOGY'),
+        QuickAction('English', BotAction.subject, value: 'ENGLISH'),
+        QuickAction('Geography', BotAction.subject, value: 'GEOGRAPHY'),
+        QuickAction('History', BotAction.subject, value: 'HISTORY'),
+      ];
 }
 
-enum BotAction { hint, explain, skip, progress, newTopic, help, start, subject, none }
+enum BotAction {
+  hint,
+  explain,
+  skip,
+  progress,
+  newTopic,
+  help,
+  start,
+  subject,
+  none
+}
 
 class BotIntent {
   final String? subject;
   final BotAction action;
   final bool isGreeting;
-  const BotIntent({this.subject, this.action = BotAction.none, this.isGreeting = false});
+  const BotIntent(
+      {this.subject, this.action = BotAction.none, this.isGreeting = false});
 }
 
 class BotNlp {
   static const subjectKeywords = {
-    'MATH': ['math', 'mathematics', 'algebra', 'geometry', 'calculus', 'equation'],
-    'PHYSICS': ['physics', 'mechanics', 'electricity', 'force', 'motion', 'energy', 'optics'],
-    'CHEMISTRY': ['chemistry', 'chemical', 'atom', 'molecule', 'acid', 'base', 'element'],
-    'BIOLOGY': ['biology', 'bio', 'cell', 'genetics', 'dna', 'organism'],
-    'ENGLISH': ['english', 'grammar', 'vocabulary', 'literature', 'writing'],
+    'MATH': ['math', 'mathematics', 'algebra', 'geometry', 'calculus'],
+    'PHYSICS': ['physics', 'mechanics', 'force', 'motion', 'energy'],
+    'CHEMISTRY': ['chemistry', 'chemical', 'atom', 'acid', 'base'],
+    'BIOLOGY': ['biology', 'bio', 'cell', 'genetics'],
+    'ENGLISH': ['english', 'grammar', 'vocabulary'],
+    'GEOGRAPHY': ['geography', 'map', 'climate'],
+    'HISTORY': ['history', 'historical'],
   };
   static const actionKeywords = {
-    BotAction.hint: ['hint', 'clue', 'help me', 'stuck', 'give hint'],
-    BotAction.explain: ['explain', 'explanation', 'why', 'clarify'],
-    BotAction.skip: ['skip', 'next', 'pass', 'another question'],
-    BotAction.progress: ['progress', 'stats', 'score', 'how am i doing'],
-    BotAction.newTopic: ['new topic', 'change subject', 'switch', 'subjects'],
-    BotAction.help: ['help', 'how to', 'guide', 'what can you do'],
-    BotAction.start: ['start', 'begin', 'quiz', 'question', 'study', 'practice', 'test'],
+    BotAction.hint: ['hint', 'clue', 'stuck'],
+    BotAction.explain: ['explain', 'explanation', 'why'],
+    BotAction.skip: ['skip', 'next', 'pass'],
+    BotAction.progress: ['progress', 'stats', 'score'],
+    BotAction.newTopic: ['new topic', 'change subject', 'subjects'],
+    BotAction.help: ['help', 'guide', 'what can you'],
+    BotAction.start: ['start', 'begin', 'quiz', 'practice', 'test'],
   };
   static BotIntent analyze(String text) {
     final lower = text.toLowerCase();
-    final greeting = RegExp(r'^(hi|hello|hey|greetings|good morning|good afternoon|good evening)\b').hasMatch(lower);
+    final greeting = RegExp(
+            r'^(hi|hello|hey|greetings|good morning|good afternoon|good evening)\b')
+        .hasMatch(lower);
     String? subject;
     for (final e in subjectKeywords.entries) {
-      if (e.value.any((k) => lower.contains(k))) { subject = e.key; break; }
+      if (e.value.any((k) => lower.contains(k))) {
+        subject = e.key;
+        break;
+      }
     }
     var action = BotAction.none;
     for (final e in actionKeywords.entries) {
-      if (e.value.any((k) => lower.contains(k))) { action = e.key; break; }
+      if (e.value.any((k) => lower.contains(k))) {
+        action = e.key;
+        break;
+      }
     }
-    return BotIntent(subject: subject, action: action, isGreeting: greeting);
+    return BotIntent(
+        subject: subject, action: action, isGreeting: greeting);
   }
 }
 
