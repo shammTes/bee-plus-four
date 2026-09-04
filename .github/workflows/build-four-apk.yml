@@ -24,30 +24,29 @@ jobs:
       - name: Flutter doctor
         run: flutter doctor -v
 
-      - name: Download full offline content pack (~205MB)
+      - name: Download full offline content pack v3
         run: |
           set -e
           mkdir -p assets/content/textbooks assets/content/illustrated assets/content/illustrated/g6_math_ch1_webp assets/content/illustrated_pdf
           pip install -q gdown
-          PACK_ID="1J41cz00pHXvvaC1FSe_WZIHhGaCU4xUq"
+          PACK_ID="1QrhYo3cnzTfaGuoLNEEAjrSyRAu59sZm"
           echo "Downloading pack $PACK_ID"
-          python3 -m gdown "https://drive.google.com/uc?id=${PACK_ID}" -O /tmp/four_content.tgz || true
-          if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
-            mkdir -p /tmp/four_extract
-            tar xzf /tmp/four_content.tgz -C /tmp/four_extract
-            if [ -d /tmp/four_extract/assets/content ]; then
-              cp -a /tmp/four_extract/assets/content/. assets/content/
-            elif [ -d /tmp/four_extract/content ]; then
-              cp -a /tmp/four_extract/content/. assets/content/
-            fi
-            echo "Pack extracted"
+          python3 -m gdown "https://drive.google.com/uc?id=${PACK_ID}" -O /tmp/four_content.tgz
+          gzip -t /tmp/four_content.tgz
+          mkdir -p /tmp/four_extract
+          tar xzf /tmp/four_content.tgz -C /tmp/four_extract
+          if [ -d /tmp/four_extract/assets/content ]; then
+            cp -a /tmp/four_extract/assets/content/. assets/content/
           else
-            echo "::warning::Share pack Anyone with the link: https://drive.google.com/file/d/${PACK_ID}/view"
+            echo "Pack structure unexpected" && find /tmp/four_extract | head -40 && exit 1
           fi
-          test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
-          test -f assets/content/practice_index.json || echo '{"files":[],"lite":"practice_lite.json"}' > assets/content/practice_index.json
+          BYTES=$(du -sb assets/content | cut -f1)
+          echo "Content bytes: $BYTES"
           find assets/content -type f | wc -l
-          du -sh assets/content || true
+          if [ "$BYTES" -lt 50000000 ]; then
+            echo "Content too thin ($BYTES). Share pack Anyone with the link."
+            exit 1
+          fi
 
       - name: Generate icons
         run: |

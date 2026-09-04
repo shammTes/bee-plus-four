@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pdfrx/pdfrx.dart';
 
 import '../../core/theme/four_theme.dart';
 
-/// Placeholder offline notes viewer (PDF binaries embed next).
+/// Offline PDF viewer for textbooks and illustrated notes.
 class IllustratedPdfPage extends StatelessWidget {
   const IllustratedPdfPage({
     super.key,
@@ -17,6 +18,10 @@ class IllustratedPdfPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final path = assetPath.startsWith('assets/')
+        ? assetPath
+        : 'assets/content/$assetPath';
+
     return Scaffold(
       backgroundColor: FourTheme.surface,
       appBar: AppBar(
@@ -26,40 +31,22 @@ class IllustratedPdfPage extends StatelessWidget {
             Text(title,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                style: const TextStyle(
+                    fontSize: 16, fontWeight: FontWeight.w800)),
             if (subtitle.isNotEmpty)
               Text(subtitle,
                   style: const TextStyle(fontSize: 11, color: FourTheme.muted)),
           ],
         ),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: FourTheme.glassPanel(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.picture_as_pdf,
-                    size: 48, color: FourTheme.primaryDark),
-                const SizedBox(height: 12),
-                Text(title,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w800, fontSize: 16)),
-                const SizedBox(height: 8),
-                Text(
-                  assetPath.isEmpty
-                      ? 'PDF not linked yet.'
-                      : 'Ready for embed:\n$assetPath\n\nAdd compressed PDF under assets/content/illustrated_pdf/ and rebuild.',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: FourTheme.muted, height: 1.4),
-                ),
-              ],
+      body: path.isEmpty
+          ? const Center(child: Text('No PDF path'))
+          : PdfViewer.asset(
+              path,
+              params: const PdfViewerParams(
+                margin: 8,
+              ),
             ),
-          ),
-        ),
-      ),
     );
   }
 }
