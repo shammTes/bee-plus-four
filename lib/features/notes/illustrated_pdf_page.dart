@@ -28,25 +28,23 @@ class IllustratedPdfPage extends StatelessWidget {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                    fontSize: 16, fontWeight: FontWeight.w800)),
+            Text(
+              title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+            ),
             if (subtitle.isNotEmpty)
-              Text(subtitle,
-                  style: const TextStyle(fontSize: 11, color: FourTheme.muted)),
+              Text(
+                subtitle,
+                style: const TextStyle(fontSize: 11, color: FourTheme.muted),
+              ),
           ],
         ),
       ),
       body: path.isEmpty
           ? const Center(child: Text('No PDF path'))
-          : PdfViewer.asset(
-              path,
-              params: const PdfViewerParams(
-                margin: 8,
-              ),
-            ),
+          : PdfViewer.asset(path),
     );
   }
 }
