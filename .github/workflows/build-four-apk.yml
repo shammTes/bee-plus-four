@@ -24,7 +24,7 @@ jobs:
       - name: Flutter doctor
         run: flutter doctor -v
 
-      - name: Download full offline content pack v4
+      - name: Download full offline content pack
         run: |
           set -e
           mkdir -p assets/content/textbooks assets/content/illustrated assets/content/illustrated/g6_math_ch1_webp assets/content/illustrated_pdf
@@ -49,8 +49,7 @@ jobs:
                 break
               fi
             fi
-            CONFIRM=t
-            curl -sSL -c /tmp/cj -b /tmp/cj -L "https://drive.google.com/uc?export=download&confirm=${CONFIRM}&id=${id}" -o /tmp/four_content.tgz || true
+            curl -sSL -c /tmp/cj -b /tmp/cj -L "https://drive.google.com/uc?export=download&confirm=t&id=${id}" -o /tmp/four_content.tgz || true
             if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
               DOWNLOADED=1
               echo "curl OK for $id"
@@ -88,10 +87,34 @@ jobs:
           find assets/content -type f | wc -l
           du -sh assets/content || true
 
-      - name: Generate icons
+      - name: Generate launcher icons
         run: |
-          mkdir -p android/app/src/main/res/mipmap-hdpi
-          python3 -c 'print("icons skipped - using defaults")'
+          python3 << 'ICON'
+          import struct, zlib, os
+          def chunk(tag, data):
+              return struct.pack('>I', len(data)) + tag + data + struct.pack('>I', zlib.crc32(tag + data) & 0xffffffff)
+          def png(w, h, rgb=(13, 148, 136)):
+              raw = b''.join(b'\x00' + bytes(rgb) * w for _ in range(h))
+              return (
+                  b'\x89PNG\r\n\x1a\n'
+                  + chunk(b'IHDR', struct.pack('>IIBBBBB', w, h, 8, 2, 0, 0, 0))
+                  + chunk(b'IDAT', zlib.compress(raw, 9))
+                  + chunk(b'IEND', b'')
+              )
+          base = 'android/app/src/main/res'
+          for dens, size in [
+              ('mipmap-mdpi', 48),
+              ('mipmap-hdpi', 72),
+              ('mipmap-xhdpi', 96),
+              ('mipmap-xxhdpi', 144),
+              ('mipmap-xxxhdpi', 192),
+          ]:
+              d = os.path.join(base, dens)
+              os.makedirs(d, exist_ok=True)
+              with open(os.path.join(d, 'ic_launcher.png'), 'wb') as f:
+                  f.write(png(size, size))
+          print('icons ok')
+          ICON
 
       - name: Pub get
         run: flutter pub get
