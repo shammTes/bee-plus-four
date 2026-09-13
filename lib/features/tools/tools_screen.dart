@@ -1,18 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../core/l10n/app_strings.dart';
+import '../../core/settings/app_settings.dart';
 import '../../core/theme/four_theme.dart';
+import '../study/study_features_screen.dart';
 
 class ToolsScreen extends StatefulWidget {
-  const ToolsScreen({super.key});
+  const ToolsScreen({super.key, this.grade = 'G10', this.subject = 'MATH'});
+  final String grade;
+  final String subject;
 
   @override
   State<ToolsScreen> createState() => _ToolsScreenState();
 }
 
-class _ToolsScreenState extends State<ToolsScreen> {
+class _ToolsScreenState extends State<ToolsScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabs;
   String _expr = '';
   String _result = '0';
+
+  @override
+  void initState() {
+    super.initState();
+    _tabs = TabController(length: 3, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabs.dispose();
+    super.dispose();
+  }
 
   void _tap(String k) {
     HapticFeedback.selectionClick();
@@ -46,11 +65,8 @@ class _ToolsScreenState extends State<ToolsScreen> {
     try {
       var s = raw.replaceAll('×', '*').replaceAll('÷', '/').replaceAll('−', '-');
       if (s.isEmpty) return '0';
-      // Support chained simple ops left-to-right for one operator family at a time
-      final ops = ['+', '-', '*', '/'];
-      for (final op in ops) {
+      for (final op in ['+', '-', '*', '/']) {
         if (!s.contains(op)) continue;
-        // avoid matching leading minus
         final parts = <String>[];
         final buf = StringBuffer();
         for (var i = 0; i < s.length; i++) {
@@ -70,17 +86,13 @@ class _ToolsScreenState extends State<ToolsScreen> {
           switch (op) {
             case '+':
               acc += b;
-              break;
             case '-':
               acc -= b;
-              break;
             case '*':
               acc *= b;
-              break;
             case '/':
               if (b == 0) return '∞';
               acc /= b;
-              break;
           }
         }
         return acc == acc.roundToDouble()
@@ -93,8 +105,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
     }
   }
 
-  Widget _key(String label,
-      {Color? bg, Color? fg, int flex = 1, double height = 58}) {
+  Widget _key(String label, {Color? bg, Color? fg, int flex = 1}) {
     return Expanded(
       flex: flex,
       child: Padding(
@@ -102,21 +113,18 @@ class _ToolsScreenState extends State<ToolsScreen> {
         child: Material(
           color: bg ?? const Color(0xFF1E293B),
           borderRadius: BorderRadius.circular(16),
-          elevation: 2,
           child: InkWell(
             borderRadius: BorderRadius.circular(16),
             onTap: () => _tap(label),
             child: SizedBox(
-              height: height,
+              height: 56,
               child: Center(
-                child: Text(
-                  label,
-                  style: TextStyle(
-                    color: fg ?? Colors.white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
+                child: Text(label,
+                    style: TextStyle(
+                      color: fg ?? Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w800,
+                    )),
               ),
             ),
           ),
@@ -128,93 +136,152 @@ class _ToolsScreenState extends State<ToolsScreen> {
   @override
   Widget build(BuildContext context) {
     final top = MediaQuery.paddingOf(context).top;
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Color(0xFF0F172A), Color(0xFF1E293B)],
+    return Column(
+      children: [
+        Container(
+          width: double.infinity,
+          padding: EdgeInsets.fromLTRB(16, top + 10, 16, 0),
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFF0F172A), Color(0xFF1E293B)],
+            ),
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20),
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(AppStrings.tools,
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w900)),
+              TabBar(
+                controller: _tabs,
+                labelColor: Colors.white,
+                unselectedLabelColor: Colors.white60,
+                indicatorColor: const Color(0xFFFBBF24),
+                tabs: [
+                  Tab(text: AppStrings.tools),
+                  const Tab(text: 'Study'),
+                  Tab(text: AppStrings.settings),
+                ],
+              ),
+            ],
+          ),
         ),
-      ),
-      child: ListView(
-        padding: EdgeInsets.fromLTRB(16, top + 12, 16, 24),
-        children: [
-          const Text('Calculator',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w900)),
-          const SizedBox(height: 16),
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: const Color(0xFF020617),
-              borderRadius: BorderRadius.circular(24),
-              border: Border.all(color: const Color(0xFF334155)),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  _expr.isEmpty ? ' ' : _expr,
-                  style: const TextStyle(
-                    color: Color(0xFF94A3B8),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  _result,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 42,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-              ],
-            ),
+        Expanded(
+          child: TabBarView(
+            controller: _tabs,
+            children: [
+              _calculator(),
+              StudyFeaturesScreen(
+                  grade: widget.grade, subject: widget.subject),
+              _settings(),
+            ],
           ),
-          const SizedBox(height: 16),
-          Row(children: [
-            _key('C', bg: const Color(0xFF334155)),
-            _key('±', bg: const Color(0xFF334155)),
-            _key('⌫', bg: const Color(0xFF334155)),
-            _key('÷', bg: FourTheme.primary, fg: Colors.white),
-          ]),
-          Row(children: [
-            _key('7'),
-            _key('8'),
-            _key('9'),
-            _key('×', bg: FourTheme.primary),
-          ]),
-          Row(children: [
-            _key('4'),
-            _key('5'),
-            _key('6'),
-            _key('−', bg: FourTheme.primary),
-          ]),
-          Row(children: [
-            _key('1'),
-            _key('2'),
-            _key('3'),
-            _key('+', bg: FourTheme.primary),
-          ]),
-          Row(children: [
-            _key('0', flex: 2),
-            _key('.'),
-            _key('=', bg: const Color(0xFFFBBF24), fg: const Color(0xFF0F172A)),
-          ]),
-          const SizedBox(height: 20),
-          FourTheme.glassPanel(
-            child: const Text(
-              'Tip: Use Practice + Coach for exam prep. Labs are under Home → Virtual labs.',
-              style: TextStyle(color: FourTheme.ink, height: 1.4),
-            ),
+        ),
+      ],
+    );
+  }
+
+  Widget _calculator() {
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: [
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: const Color(0xFF020617),
+            borderRadius: BorderRadius.circular(24),
+            border: Border.all(color: const Color(0xFF334155)),
           ),
-        ],
-      ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(_expr.isEmpty ? ' ' : _expr,
+                  style: const TextStyle(
+                      color: Color(0xFF94A3B8), fontSize: 18)),
+              Text(_result,
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 40,
+                      fontWeight: FontWeight.w900)),
+            ],
+          ),
+        ),
+        const SizedBox(height: 12),
+        Row(children: [
+          _key('C', bg: const Color(0xFF334155)),
+          _key('±', bg: const Color(0xFF334155)),
+          _key('⌫', bg: const Color(0xFF334155)),
+          _key('÷', bg: FourTheme.primary),
+        ]),
+        Row(children: [
+          _key('7'),
+          _key('8'),
+          _key('9'),
+          _key('×', bg: FourTheme.primary),
+        ]),
+        Row(children: [
+          _key('4'),
+          _key('5'),
+          _key('6'),
+          _key('−', bg: FourTheme.primary),
+        ]),
+        Row(children: [
+          _key('1'),
+          _key('2'),
+          _key('3'),
+          _key('+', bg: FourTheme.primary),
+        ]),
+        Row(children: [
+          _key('0', flex: 2),
+          _key('.'),
+          _key('=', bg: const Color(0xFFFBBF24), fg: const Color(0xFF0F172A)),
+        ]),
+      ],
+    );
+  }
+
+  Widget _settings() {
+    final s = AppSettings.instance;
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: [
+        SwitchListTile(
+          title: Text(AppStrings.darkMode,
+              style: const TextStyle(fontWeight: FontWeight.w800)),
+          value: s.darkMode,
+          onChanged: (v) async {
+            await s.setDark(v);
+            setState(() {});
+          },
+        ),
+        const Divider(),
+        Text(AppStrings.language,
+            style: const TextStyle(fontWeight: FontWeight.w800)),
+        const SizedBox(height: 8),
+        SegmentedButton<bool>(
+          segments: [
+            ButtonSegment(value: false, label: Text(AppStrings.english)),
+            ButtonSegment(value: true, label: Text(AppStrings.tigrinyaLabel)),
+          ],
+          selected: {s.tigrinya},
+          onSelectionChanged: (set) async {
+            await s.setTigrinya(set.first);
+            setState(() {});
+          },
+        ),
+        const SizedBox(height: 24),
+        Text(AppStrings.about,
+            style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 16)),
+        const SizedBox(height: 8),
+        Text(AppStrings.developedBy, style: const TextStyle(height: 1.5)),
+      ],
     );
   }
 }

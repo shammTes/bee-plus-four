@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../core/content/content_repository.dart';
+import '../../core/l10n/app_strings.dart';
+import '../../core/settings/app_settings.dart';
 import '../../core/theme/four_theme.dart';
 import '../bot/bot_screen.dart';
 import '../exams/exams_screen.dart';
@@ -30,6 +32,17 @@ class _AppShellState extends State<AppShell> {
     ContentRepository.instance.preload().whenComplete(() {
       if (mounted) setState(() => ready = true);
     });
+    AppSettings.instance.addListener(_onSettings);
+  }
+
+  void _onSettings() {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  void dispose() {
+    AppSettings.instance.removeListener(_onSettings);
+    super.dispose();
   }
 
   @override
@@ -60,7 +73,7 @@ class _AppShellState extends State<AppShell> {
       BotScreen(initialGrade: grade),
       const ExamsScreen(),
       const VirtualLabScreen(),
-      const ToolsScreen(),
+      ToolsScreen(grade: grade, subject: subject),
       const UnlockScreen(),
     ];
 
@@ -71,49 +84,49 @@ class _AppShellState extends State<AppShell> {
           ? AnimatedSwitcher(
               duration: const Duration(milliseconds: 220),
               child: KeyedSubtree(
-                key: ValueKey('$index-$grade-$subject'),
+                key: ValueKey('$index-$grade-$subject-${AppSettings.instance.tigrinya}'),
                 child: pages[index.clamp(0, pages.length - 1)],
               ),
             )
-          : const Center(
+          : Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  CircularProgressIndicator(),
-                  SizedBox(height: 16),
-                  Text('Loading study content…',
-                      style: TextStyle(color: FourTheme.muted)),
+                  const CircularProgressIndicator(),
+                  const SizedBox(height: 16),
+                  Text(AppStrings.loading,
+                      style: const TextStyle(color: FourTheme.muted)),
                 ],
               ),
             ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: navIndex,
         onDestinationSelected: (i) => setState(() => index = i),
-        destinations: const [
+        destinations: [
           NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home_rounded),
-            label: 'Home',
+            icon: const Icon(Icons.home_outlined),
+            selectedIcon: const Icon(Icons.home_rounded),
+            label: AppStrings.home,
           ),
           NavigationDestination(
-            icon: Icon(Icons.auto_stories_outlined),
-            selectedIcon: Icon(Icons.auto_stories),
-            label: 'Notes',
+            icon: const Icon(Icons.auto_stories_outlined),
+            selectedIcon: const Icon(Icons.auto_stories),
+            label: AppStrings.notes,
           ),
           NavigationDestination(
-            icon: Icon(Icons.quiz_outlined),
-            selectedIcon: Icon(Icons.quiz),
-            label: 'Practice',
+            icon: const Icon(Icons.quiz_outlined),
+            selectedIcon: const Icon(Icons.quiz),
+            label: AppStrings.practice,
           ),
           NavigationDestination(
-            icon: Icon(Icons.smart_toy_outlined),
-            selectedIcon: Icon(Icons.smart_toy),
-            label: 'Coach',
+            icon: const Icon(Icons.smart_toy_outlined),
+            selectedIcon: const Icon(Icons.smart_toy),
+            label: AppStrings.coach,
           ),
           NavigationDestination(
-            icon: Icon(Icons.assignment_outlined),
-            selectedIcon: Icon(Icons.assignment),
-            label: 'Exams',
+            icon: const Icon(Icons.assignment_outlined),
+            selectedIcon: const Icon(Icons.assignment),
+            label: AppStrings.exams,
           ),
         ],
       ),
