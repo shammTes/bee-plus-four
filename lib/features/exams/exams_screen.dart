@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../core/content/content_repository.dart';
-import '../../core/models/content_models.dart';
 import '../../core/models/exam_models.dart';
 import '../../core/theme/four_theme.dart';
 import 'matric_practice_screen.dart';
@@ -17,6 +16,7 @@ class _ExamsScreenState extends State<ExamsScreen> {
   ExamCatalog? catalog;
   MatricBundle? bank;
   bool loading = true;
+  String subjectFilter = 'ALL';
 
   @override
   void initState() {
@@ -35,9 +35,20 @@ class _ExamsScreenState extends State<ExamsScreen> {
     });
   }
 
+  List<ExamPaper> get papers {
+    final list = catalog?.matriculation ?? const <ExamPaper>[];
+    if (subjectFilter == 'ALL') return list;
+    return list.where((p) => p.mappedSubject == subjectFilter).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     final top = MediaQuery.paddingOf(context).top;
+    final subjects = <String>{
+      'ALL',
+      ...?catalog?.matriculation.map((p) => p.mappedSubject),
+    }.toList();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -52,17 +63,47 @@ class _ExamsScreenState extends State<ExamsScreen> {
               bottomRight: Radius.circular(24),
             ),
           ),
-          child: const Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Exams',
+              const Text('Exams',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w800)),
-              SizedBox(height: 4),
-              Text('Matric · model · school catalogue',
-                  style: TextStyle(color: Color(0xFFFFEDD5), fontSize: 13)),
+              const SizedBox(height: 4),
+              Text(
+                '${bank?.questions.length ?? 0} questions · subject + year',
+                style: const TextStyle(color: Color(0xFFFFEDD5), fontSize: 13),
+              ),
+              const SizedBox(height: 10),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: subjects.map((s) {
+                    final label = s == 'ALL'
+                        ? 'All'
+                        : s.replaceAll('_', ' ');
+                    final sel = s == subjectFilter;
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 6),
+                      child: ChoiceChip(
+                        label: Text(label),
+                        selected: sel,
+                        onSelected: (_) =>
+                            setState(() => subjectFilter = s),
+                        selectedColor: const Color(0xFFFBBF24),
+                        backgroundColor: Colors.white,
+                        labelStyle: const TextStyle(
+                          color: Color(0xFF0F172A),
+                          fontWeight: FontWeight.w900,
+                          fontSize: 12,
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
             ],
           ),
         ),
@@ -73,39 +114,16 @@ class _ExamsScreenState extends State<ExamsScreen> {
             child: ListView(
               padding: const EdgeInsets.all(16),
               children: [
-                const Text('Interactive matric bank',
+                const Text('Matriculation',
                     style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w800,
                         color: FourTheme.ink)),
+                const SizedBox(height: 4),
+                const Text('Titles show Subject and Year only',
+                    style: TextStyle(color: FourTheme.muted, fontSize: 12)),
                 const SizedBox(height: 10),
-                Card(
-                  child: ListTile(
-                    leading: const CircleAvatar(
-                      backgroundColor: Color(0xFFFFEDD5),
-                      child: Icon(Icons.bolt, color: Color(0xFFD97706)),
-                    ),
-                    title: Text(
-                      '${bank?.questions.length ?? 0} verified questions',
-                      style: const TextStyle(fontWeight: FontWeight.w700),
-                    ),
-                    subtitle: const Text('Step-by-step · similar practice'),
-                    trailing: const Icon(Icons.chevron_right),
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => const MatricPracticeScreen(),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                const Text('Matriculation papers',
-                    style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w800,
-                        color: FourTheme.ink)),
-                const SizedBox(height: 10),
-                ...?catalog?.matriculation.map((p) => Card(
+                ...papers.map((p) => Card(
                       margin: const EdgeInsets.only(bottom: 8),
                       child: ListTile(
                         leading: CircleAvatar(
@@ -116,35 +134,56 @@ class _ExamsScreenState extends State<ExamsScreen> {
                                   color: FourTheme.primaryDark,
                                   fontSize: 12)),
                         ),
-                        title: Text(p.title,
-                            style: const TextStyle(fontWeight: FontWeight.w600)),
-                        subtitle: Text(p.subject + ' · ' + p.source),
+                        // ONLY subject + year
+                        title: Text(
+                          p.shortTitle,
+                          style: const TextStyle(fontWeight: FontWeight.w800),
+                        ),
+                        subtitle: Text(
+                          p.questionCount > 0
+                              ? '${p.questionCount} questions'
+                              : 'Interactive',
+                        ),
                         trailing: const Icon(Icons.play_circle_outline,
                             color: FourTheme.primary),
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (_) => MatricPracticeScreen(
                               subjectFilter: p.mappedSubject,
-                              title: p.title,
+                              yearFilter: p.year,
+                              title: p.shortTitle,
                             ),
                           ),
                         ),
                       ),
                     )),
                 const SizedBox(height: 20),
-                const Text('Years & folders',
+                const Text('Model & school exams',
                     style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w800,
                         color: FourTheme.ink)),
+                const SizedBox(height: 4),
+                const Text(
+                  'Catalogue folders — interactive JSON continues to grow as papers are parsed',
+                  style: TextStyle(color: FourTheme.muted, fontSize: 12),
+                ),
                 const SizedBox(height: 10),
                 ...?catalog?.modelYears.map((y) => Card(
                       margin: const EdgeInsets.only(bottom: 8),
                       child: ListTile(
-                        leading: const Icon(Icons.folder_special_outlined,
-                            color: FourTheme.primary),
+                        leading: Icon(
+                          y.type == 'school'
+                              ? Icons.school_outlined
+                              : Icons.folder_special_outlined,
+                          color: FourTheme.primary,
+                        ),
                         title: Text(y.label,
-                            style: const TextStyle(fontWeight: FontWeight.w600)),
+                            style:
+                                const TextStyle(fontWeight: FontWeight.w700)),
+                        subtitle: Text(y.type == 'school'
+                            ? 'School exam'
+                            : 'Model exam year'),
                       ),
                     )),
                 const SizedBox(height: 24),
