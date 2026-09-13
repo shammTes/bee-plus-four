@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../core/content/content_repository.dart';
+import '../../core/licensing/unlock_store.dart';
 import '../../core/theme/four_theme.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
     required this.grade,
@@ -13,6 +15,7 @@ class HomeScreen extends StatelessWidget {
     required this.onOpenBot,
     required this.onOpenExams,
     this.onOpenTools,
+    this.onOpenLabs,
   });
 
   final String grade;
@@ -22,27 +25,100 @@ class HomeScreen extends StatelessWidget {
   final VoidCallback onOpenBot;
   final VoidCallback onOpenExams;
   final VoidCallback? onOpenTools;
+  final VoidCallback? onOpenLabs;
 
-  static const grades = ['G9', 'G10', 'G11', 'G12'];
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  String deviceId = '…';
+
+  @override
+  void initState() {
+    super.initState();
+    UnlockStore.instance.deviceId().then((id) {
+      if (mounted) setState(() => deviceId = id);
+    });
+    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeOnboard());
+  }
+
+  Future<void> _maybeOnboard() async {
+    if (UnlockStore.instance.seenOnboarding) return;
+    if (!mounted) return;
+    await showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Welcome to 4'),
+        content: const Text(
+          'Quick path:\n'
+          '1) Pick your grade on Home\n'
+          '2) Notes → unit cards (read · illustrated · practice)\n'
+          '3) Practice → grade · subject · unit (adaptive)\n'
+          '4) Coach → notes or quiz by unit, or Matric mode\n'
+          '5) Labs → Physics · Chemistry · Biology\n\n'
+          'Your Device ID is shown on Home — you will need it later for Bee Seller unlock.',
+        ),
+        actions: [
+          FilledButton(
+            onPressed: () async {
+              await UnlockStore.instance.markOnboardingSeen();
+              if (ctx.mounted) Navigator.pop(ctx);
+            },
+            child: const Text('Got it'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showAbout() {
+    showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (ctx) => Padding(
+        padding: const EdgeInsets.fromLTRB(24, 8, 24, 32),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('About 4',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900)),
+            const SizedBox(height: 12),
+            const Text(
+              'Developed by SHAMM TESFALEM\nPhone: 07162947',
+              style: TextStyle(height: 1.5, fontSize: 15),
+            ),
+            const SizedBox(height: 16),
+            Text('Device ID: $deviceId',
+                style: const TextStyle(
+                    fontWeight: FontWeight.w800, letterSpacing: 0.5)),
+            const SizedBox(height: 8),
+            const Text(
+              'Offline high-school study · G9–G12 · Eritrea curriculum focus.',
+              style: TextStyle(color: FourTheme.muted),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final repo = ContentRepository.instance;
-
     return FutureBuilder(
       future: Future.wait([
         repo.notes(),
         repo.questions(),
         repo.matricBundle(),
-        repo.allSlides(),
       ]),
       builder: (context, snap) {
         final noteCount = snap.hasData ? (snap.data![0] as List).length : '—';
         final qCount = snap.hasData ? (snap.data![1] as List).length : '—';
         final matricCount =
             snap.hasData ? (snap.data![2] as dynamic).questions.length : '—';
-        final slideDecks =
-            snap.hasData ? (snap.data![3] as Map).length : '—';
 
         return Container(
           decoration: const BoxDecoration(
@@ -66,7 +142,7 @@ class HomeScreen extends StatelessWidget {
                   20,
                   MediaQuery.paddingOf(context).top + 16,
                   20,
-                  26,
+                  22,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,88 +154,110 @@ class HomeScreen extends StatelessWidget {
                           height: 48,
                           decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(16),
-                            border: Border.all(color: Colors.white54),
+                            borderRadius: BorderRadius.circular(14),
                           ),
-                          child: const Icon(Icons.school_rounded,
-                              color: Colors.white, size: 28),
+                          alignment: Alignment.center,
+                          child: const Text('4',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.w900)),
                         ),
-                        const SizedBox(width: 12),
-                        const Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('BEE PLUS 4',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.w900)),
-                              Text('Highschool · offline',
-                                  style: TextStyle(
-                                      color: Color(0xFFCCFBF1), fontSize: 13)),
-                            ],
-                          ),
+                        const Spacer(),
+                        IconButton(
+                          onPressed: _showAbout,
+                          icon: const Icon(Icons.info_outline,
+                              color: Colors.white),
+                          tooltip: 'About',
                         ),
                       ],
                     ),
-                    const SizedBox(height: 18),
-                    const Text('Your grade',
+                    const SizedBox(height: 14),
+                    const Text('4',
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700)),
-                    const SizedBox(height: 8),
-                    Wrap(
-                      spacing: 8,
-                      children: grades.map((g) {
-                        final selected = g == grade;
-                        return ChoiceChip(
-                          label: Text(g),
-                          selected: selected,
-                          onSelected: (_) => onGrade(g),
-                          selectedColor: const Color(0xFFFBBF24),
-                          labelStyle: const TextStyle(
-                            color: Color(0xFF0F172A),
+                            fontSize: 34,
                             fontWeight: FontWeight.w900,
-                            fontSize: 13,
-                          ),
-                          backgroundColor: Colors.white,
-                          side: const BorderSide(color: Color(0xFFE2E8F0)),
+                            letterSpacing: -0.5)),
+                    const SizedBox(height: 4),
+                    const Text('Study · Practice · Master',
+                        style: TextStyle(
+                            color: Color(0xFFCCFBF1),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600)),
+                    const SizedBox(height: 12),
+                    // Device ID — required for Bee Seller unlock later
+                    GestureDetector(
+                      onTap: () {
+                        Clipboard.setData(ClipboardData(text: deviceId));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Device ID copied')),
                         );
-                      }).toList(),
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: Colors.white24),
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.fingerprint,
+                                color: Colors.white70, size: 18),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text('ID  $deviceId',
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w800,
+                                      letterSpacing: 1.1,
+                                      fontSize: 13)),
+                            ),
+                            const Icon(Icons.copy,
+                                color: Colors.white70, size: 16),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 14),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: ['G9', 'G10', 'G11', 'G12'].map((g) {
+                          final sel = g == widget.grade;
+                          return Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: ChoiceChip(
+                              label: Text(g),
+                              selected: sel,
+                              onSelected: (_) => widget.onGrade(g),
+                              selectedColor: const Color(0xFFFBBF24),
+                              backgroundColor: Colors.white,
+                              labelStyle: const TextStyle(
+                                color: Color(0xFF0F172A),
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                  childAspectRatio: 1.55,
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+                child: Row(
                   children: [
-                    _StatTile('$noteCount', 'Notes', Icons.menu_book_rounded,
-                        FourTheme.primary),
-                    _StatTile('$qCount', 'MCQs', Icons.quiz_rounded,
-                        FourTheme.violet),
-                    _StatTile('$matricCount', 'Matric',
-                        Icons.assignment_rounded, FourTheme.accentDeep),
-                    _StatTile('$slideDecks', 'Decks', Icons.slideshow_rounded,
-                        FourTheme.mint),
+                    _StatTile(label: 'Notes', value: '$noteCount'),
+                    const SizedBox(width: 8),
+                    _StatTile(label: 'Practice', value: '$qCount'),
+                    const SizedBox(width: 8),
+                    _StatTile(label: 'Matric', value: '$matricCount'),
                   ],
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(20, 22, 20, 10),
-                child: Text('Study',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900,
-                        color: FourTheme.ink)),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -167,44 +265,52 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     _ActionCard(
                       title: 'Notes',
-                      subtitle: 'Units · PDF packs',
+                      subtitle: 'Units · illustrated · practice link',
                       icon: Icons.auto_stories_rounded,
-                      color: const Color(0xFF0E7490),
-                      onTap: onOpenNotes,
+                      color: FourTheme.primary,
+                      onTap: widget.onOpenNotes,
                     ),
                     _ActionCard(
                       title: 'Practice',
-                      subtitle: 'MCQs · feedback',
+                      subtitle: 'Pick unit · adaptive mastery',
                       icon: Icons.quiz_rounded,
-                      color: const Color(0xFF6366F1),
-                      onTap: onOpenPractice,
+                      color: FourTheme.violet,
+                      onTap: widget.onOpenPractice,
                     ),
                     _ActionCard(
                       title: 'Coach',
-                      subtitle: 'Offline quiz bot',
+                      subtitle: 'Notes · quiz · matric mode',
                       icon: Icons.smart_toy_rounded,
-                      color: const Color(0xFF8B5CF6),
-                      onTap: onOpenBot,
+                      color: FourTheme.accentDeep,
+                      onTap: widget.onOpenBot,
                     ),
                     _ActionCard(
                       title: 'Exams',
-                      subtitle: 'Matric · model',
+                      subtitle: 'Matriculation · model papers',
                       icon: Icons.assignment_rounded,
-                      color: const Color(0xFFD97706),
-                      onTap: onOpenExams,
+                      color: FourTheme.mint,
+                      onTap: widget.onOpenExams,
                     ),
-                    if (onOpenTools != null)
+                    if (widget.onOpenLabs != null)
+                      _ActionCard(
+                        title: 'Virtual labs',
+                        subtitle: 'Physics · Chemistry · Biology',
+                        icon: Icons.science_rounded,
+                        color: const Color(0xFF0EA5E9),
+                        onTap: widget.onOpenLabs!,
+                      ),
+                    if (widget.onOpenTools != null)
                       _ActionCard(
                         title: 'Tools',
-                        subtitle: 'Labs · utilities',
-                        icon: Icons.handyman_rounded,
-                        color: const Color(0xFF059669),
-                        onTap: onOpenTools!,
+                        subtitle: 'Calculator · utilities',
+                        icon: Icons.calculate_rounded,
+                        color: const Color(0xFFF59E0B),
+                        onTap: widget.onOpenTools!,
                       ),
-                    const SizedBox(height: 28),
                   ],
                 ),
               ),
+              const SizedBox(height: 24),
             ],
           ),
         );
@@ -214,32 +320,28 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _StatTile extends StatelessWidget {
-  const _StatTile(this.value, this.label, this.icon, this.color);
-  final String value;
+  const _StatTile({required this.label, required this.value});
   final String label;
-  final IconData icon;
-  final Color color;
+  final String value;
 
   @override
   Widget build(BuildContext context) {
-    return FourTheme.glassPanel(
-      padding: const EdgeInsets.all(12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, color: color, size: 22),
-          const Spacer(),
-          Text(value,
-              style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w900,
-                  color: FourTheme.ink)),
-          Text(label,
-              style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
-                  color: FourTheme.muted)),
-        ],
+    return Expanded(
+      child: FourTheme.glassPanel(
+        child: Column(
+          children: [
+            Text(value,
+                style: const TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 18,
+                    color: FourTheme.ink)),
+            Text(label,
+                style: const TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w700,
+                    color: FourTheme.muted)),
+          ],
+        ),
       ),
     );
   }
@@ -267,18 +369,18 @@ class _ActionCard extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          borderRadius: BorderRadius.circular(20),
           onTap: onTap,
+          borderRadius: BorderRadius.circular(18),
           child: Ink(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
               gradient: LinearGradient(
-                colors: [color, color.withOpacity(0.82)],
+                colors: [color, color.withOpacity(0.85)],
               ),
+              borderRadius: BorderRadius.circular(18),
               boxShadow: [
                 BoxShadow(
-                  color: color.withOpacity(0.28),
-                  blurRadius: 14,
+                  color: color.withOpacity(0.25),
+                  blurRadius: 12,
                   offset: const Offset(0, 6),
                 ),
               ],
@@ -288,13 +390,13 @@ class _ActionCard extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
-                    width: 46,
-                    height: 46,
+                    width: 44,
+                    height: 44,
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Icon(icon, color: Colors.white, size: 26),
+                    child: Icon(icon, color: Colors.white),
                   ),
                   const SizedBox(width: 14),
                   Expanded(
@@ -308,7 +410,7 @@ class _ActionCard extends StatelessWidget {
                                 fontWeight: FontWeight.w900)),
                         Text(subtitle,
                             style: TextStyle(
-                                color: Colors.white.withOpacity(0.88),
+                                color: Colors.white.withOpacity(0.9),
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600)),
                       ],
