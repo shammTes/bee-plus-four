@@ -24,7 +24,7 @@ class FourApp extends StatelessWidget {
     return MaterialApp(
       title: '4',
       debugShowCheckedModeBanner: false,
-      theme: FourTheme.highschool(),
+      theme: FourTheme.highschool,
       home: const AppShell(),
     );
   }

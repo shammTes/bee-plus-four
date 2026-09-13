@@ -22,19 +22,15 @@ class _BotScreenState extends State<BotScreen> {
 
   String grade = 'G10';
   String subject = 'MATH';
-  String mode = 'quiz'; // quiz | notes
+  int? unit;
+  /// quiz | notes | matric
+  String mode = 'quiz';
+  List<UnitNote> units = [];
 
   static const grades = ['G9', 'G10', 'G11', 'G12'];
   static const subjects = [
-    'MATH',
-    'PHYSICS',
-    'CHEMISTRY',
-    'BIOLOGY',
-    'ENGLISH',
-    'GEOGRAPHY',
-    'HISTORY',
-    'AGRICULTURE',
-    'BUSINESS_ECONOMICS',
+    'MATH', 'PHYSICS', 'CHEMISTRY', 'BIOLOGY', 'ENGLISH',
+    'GEOGRAPHY', 'HISTORY', 'AGRICULTURE', 'BUSINESS_ECONOMICS',
   ];
 
   @override
@@ -43,21 +39,24 @@ class _BotScreenState extends State<BotScreen> {
     grade = widget.initialGrade;
     _bot.grade = grade;
     _bot.subject = subject;
+    _loadUnits();
     _messages.add(_Msg(
       false,
-      'Coach ready offline.\n\n'
-      '1) Pick grade + subject\n'
-      '2) Choose Quiz or Notes\n'
-      '3) Tap Start\n\n'
-      'You can also type: start quiz, hint, explain, notes, progress.',
+      'Coach offline.\n\n'
+      '• Pick grade · subject · unit\n'
+      '• Modes: Quiz · Notes · Matric\n'
+      '• Start when ready',
     ));
   }
 
-  @override
-  void dispose() {
-    _ctrl.dispose();
-    _scroll.dispose();
-    super.dispose();
+  Future<void> _loadUnits() async {
+    final list =
+        await ContentRepository.instance.notesFor(grade, subject);
+    if (!mounted) return;
+    setState(() {
+      units = list;
+      unit = list.isEmpty ? null : list.first.unitNumber;
+    });
   }
 
   Future<void> _send(String text) async {
@@ -71,10 +70,24 @@ class _BotScreenState extends State<BotScreen> {
     _bot.grade = grade;
     _bot.subject = subject;
     try {
-      final reply = mode == 'notes' &&
-              (t.toLowerCase().contains('start') || t.toLowerCase() == 'notes')
-          ? await _bot.notesBrief()
-          : await _bot.handle(t);
+      BotReply reply;
+      final low = t.toLowerCase();
+      if (mode == 'matric' || low.contains('matric')) {
+        reply = await _bot.handle('start quiz');
+        // Prefer matric pool via repo if available — fall back to quiz
+        final matric = await ContentRepository.instance.matricForSubject(subject);
+        if (matric.isNotEmpty) {
+          final q = matric.first;
+          reply = BotReply(
+            'Matric mode · $subject\n\n${q.prompt}\n\nReply A/B/C/D',
+            // reuse practice-shaped flow via handle letters
+          );
+        }
+      } else if (mode == 'notes' || low == 'notes' || low.contains('show notes')) {
+        reply = await _bot.notesBrief();
+      } else {
+        reply = await _bot.handle(t);
+      }
       if (!mounted) return;
       setState(() {
         _messages.add(_Msg(false, reply.text,
@@ -88,7 +101,7 @@ class _BotScreenState extends State<BotScreen> {
         busy = false;
       });
     }
-    await Future<void>.delayed(const Duration(milliseconds: 50));
+    await Future<void>.delayed(const Duration(milliseconds: 40));
     if (_scroll.hasClients) {
       _scroll.animateTo(_scroll.position.maxScrollExtent,
           duration: const Duration(milliseconds: 250), curve: Curves.easeOut);
@@ -110,7 +123,6 @@ class _BotScreenState extends State<BotScreen> {
           fontSize: 12,
         ),
         side: const BorderSide(color: Color(0xFFE2E8F0)),
-        visualDensity: VisualDensity.compact,
       ),
     );
   }
@@ -140,16 +152,21 @@ class _BotScreenState extends State<BotScreen> {
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w900)),
-              const Text('Offline · quiz + unit notes',
-                  style: TextStyle(color: Color(0xFFE9D5FF), fontSize: 13)),
-              const SizedBox(height: 10),
+              Text(
+                unit == null
+                    ? '$grade · $subject'
+                    : '$grade · $subject · Unit $unit',
+                style: const TextStyle(color: Color(0xFFE9D5FF), fontSize: 13),
+              ),
+              const SizedBox(height: 8),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: grades
-                      .map((g) => _chip(g, g == grade, () {
+                      .map((g) => _chip(g, g == grade, () async {
                             setState(() => grade = g);
                             _bot.grade = g;
+                            await _loadUnits();
                           }))
                       .toList(),
                 ),
@@ -162,18 +179,36 @@ class _BotScreenState extends State<BotScreen> {
                     final label = s == 'BUSINESS_ECONOMICS'
                         ? 'Business'
                         : s[0] + s.substring(1).toLowerCase();
-                    return _chip(label, s == subject, () {
+                    return _chip(label, s == subject, () async {
                       setState(() => subject = s);
                       _bot.subject = s;
+                      await _loadUnits();
                     });
                   }).toList(),
                 ),
               ),
-              const SizedBox(height: 6),
+              if (units.isNotEmpty) ...[
+                const SizedBox(height: 6),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: units
+                        .map((u) => _chip(
+                              'U${u.unitNumber}',
+                              unit == u.unitNumber,
+                              () => setState(() => unit = u.unitNumber),
+                            ))
+                        .toList(),
+                  ),
+                ),
+              ],
+              const SizedBox(height: 8),
               Row(
                 children: [
                   _chip('Quiz', mode == 'quiz', () => setState(() => mode = 'quiz')),
                   _chip('Notes', mode == 'notes', () => setState(() => mode = 'notes')),
+                  _chip('Matric', mode == 'matric',
+                      () => setState(() => mode = 'matric')),
                   const Spacer(),
                   FilledButton(
                     style: FilledButton.styleFrom(
@@ -182,9 +217,19 @@ class _BotScreenState extends State<BotScreen> {
                     ),
                     onPressed: busy
                         ? null
-                        : () => _send(mode == 'notes' ? 'notes' : 'start quiz'),
-                    child: Text(mode == 'notes' ? 'Show notes' : 'Start quiz',
-                        style: const TextStyle(fontWeight: FontWeight.w900)),
+                        : () => _send(mode == 'notes'
+                            ? 'notes'
+                            : mode == 'matric'
+                                ? 'matric'
+                                : 'start quiz'),
+                    child: Text(
+                      mode == 'notes'
+                          ? 'Show notes'
+                          : mode == 'matric'
+                              ? 'Matric Q'
+                              : 'Start',
+                      style: const TextStyle(fontWeight: FontWeight.w900),
+                    ),
                   ),
                 ],
               ),
@@ -225,7 +270,8 @@ class _BotScreenState extends State<BotScreen> {
                             child: OutlinedButton(
                               onPressed: busy
                                   ? null
-                                  : () => _send('${String.fromCharCode(65 + oi)}'),
+                                  : () => _send(
+                                      String.fromCharCode(65 + oi)),
                               child: Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
@@ -251,8 +297,6 @@ class _BotScreenState extends State<BotScreen> {
                                             fontWeight: FontWeight.w800,
                                             fontSize: 12)),
                                     backgroundColor: Colors.white,
-                                    side: const BorderSide(
-                                        color: Color(0xFFCBD5E1)),
                                     onPressed: busy
                                         ? null
                                         : () => _send(q.label),
@@ -277,7 +321,7 @@ class _BotScreenState extends State<BotScreen> {
                   child: TextField(
                     controller: _ctrl,
                     decoration: const InputDecoration(
-                      hintText: 'Type: start quiz · notes · hint · A/B/C/D',
+                      hintText: 'start quiz · notes · matric · A/B/C/D',
                       border: OutlineInputBorder(),
                       isDense: true,
                     ),
