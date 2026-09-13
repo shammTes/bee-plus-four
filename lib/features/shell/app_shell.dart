@@ -5,6 +5,7 @@ import '../../core/theme/four_theme.dart';
 import '../bot/bot_screen.dart';
 import '../exams/exams_screen.dart';
 import '../home/home_screen.dart';
+import '../labs/virtual_lab_screen.dart';
 import '../notes/notes_screen.dart';
 import '../practice/practice_screen.dart';
 import '../tools/tools_screen.dart';
@@ -41,7 +42,8 @@ class _AppShellState extends State<AppShell> {
         onOpenPractice: () => setState(() => index = 2),
         onOpenBot: () => setState(() => index = 3),
         onOpenExams: () => setState(() => index = 4),
-        onOpenTools: () => setState(() => index = 5),
+        onOpenLabs: () => setState(() => index = 5),
+        onOpenTools: () => setState(() => index = 6),
       ),
       NotesScreen(
         grade: grade,
@@ -57,11 +59,11 @@ class _AppShellState extends State<AppShell> {
       ),
       BotScreen(initialGrade: grade),
       const ExamsScreen(),
+      const VirtualLabScreen(),
       const ToolsScreen(),
       const UnlockScreen(),
     ];
 
-    // Bottom nav only shows first 5; tools/unlock open from Home cards.
     final navIndex = index <= 4 ? index : 0;
 
     return Scaffold(
