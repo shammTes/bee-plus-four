@@ -5,6 +5,7 @@ import '../../core/curriculum/streams.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/mastery_store.dart';
 import '../../core/theme/four_theme.dart';
+import 'multi_practice_page.dart';
 
 /// Adaptive unit practice — grade · subject · unit.
 /// Pool = curriculum practice + school/model/matric items linked to that unit.
@@ -149,6 +150,25 @@ class _PracticeScreenState extends State<PracticeScreen> {
                       fontWeight: FontWeight.w900)),
               const Text('Unit mastery · includes school exam items',
                   style: TextStyle(color: Color(0xFFE9D5FF), fontSize: 13)),
+              const SizedBox(height: 8),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: ActionChip(
+                  avatar: const Icon(Icons.layers,
+                      size: 18, color: Color(0xFF0F172A)),
+                  label: const Text('Multi units / subjects',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          color: Color(0xFF0F172A))),
+                  backgroundColor: const Color(0xFFFBBF24),
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) =>
+                          MultiPracticePage(initialGrade: widget.grade),
+                    ),
+                  ),
+                ),
+              ),
               const SizedBox(height: 10),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
