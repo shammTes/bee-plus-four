@@ -5,8 +5,7 @@ import '../../core/models/exam_models.dart';
 import '../../core/theme/four_theme.dart';
 import 'matric_practice_screen.dart';
 
-/// Matriculation + Model full papers.
-/// School exam items live in unit Practice (linked by unit).
+/// Matriculation + Model full papers with year chips.
 class ExamsScreen extends StatefulWidget {
   const ExamsScreen({super.key});
 
@@ -18,6 +17,7 @@ class _ExamsScreenState extends State<ExamsScreen> {
   ExamCatalog? catalog;
   MatricBundle? bank;
   String? subjectFilter;
+  int? yearFilter;
   bool loading = true;
 
   @override
@@ -47,10 +47,21 @@ class _ExamsScreenState extends State<ExamsScreen> {
       ...model.map((p) => p.mappedSubject),
     }.where((s) => s.isNotEmpty).toList()
       ..sort();
+    final years = <int>{
+      ...matric.map((p) => p.year),
+      ...model.map((p) => p.year),
+    }.where((y) => y > 0).toList()
+      ..sort((a, b) => b.compareTo(a));
 
     List<ExamPaper> filter(List<ExamPaper> list) {
-      if (subjectFilter == null) return list;
-      return list.where((p) => p.mappedSubject == subjectFilter).toList();
+      var out = list;
+      if (subjectFilter != null) {
+        out = out.where((p) => p.mappedSubject == subjectFilter).toList();
+      }
+      if (yearFilter != null) {
+        out = out.where((p) => p.year == yearFilter).toList();
+      }
+      return out;
     }
 
     return Column(
@@ -78,48 +89,35 @@ class _ExamsScreenState extends State<ExamsScreen> {
               Text(
                 loading
                     ? 'Loading…'
-                    : '${bank?.questions.length ?? 0} in bank · ${matric.length} matric · ${model.length} model',
+                    : '${bank?.questions.length ?? 0} questions · ${matric.length} matric papers · ${model.length} model',
                 style: const TextStyle(color: Color(0xFFFED7AA), fontSize: 13),
-              ),
-              const SizedBox(height: 4),
-              const Text(
-                'School exam items are inside unit Practice',
-                style: TextStyle(color: Color(0xFFFED7AA), fontSize: 11),
               ),
               const SizedBox(height: 10),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 6),
-                      child: ChoiceChip(
-                        label: const Text('All'),
-                        selected: subjectFilter == null,
-                        onSelected: (_) =>
-                            setState(() => subjectFilter = null),
-                        selectedColor: const Color(0xFFFBBF24),
-                        backgroundColor: Colors.white,
-                        labelStyle: const TextStyle(
-                          color: Color(0xFF0F172A),
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ),
-                    ...subjects.map((s) => Padding(
-                          padding: const EdgeInsets.only(right: 6),
-                          child: ChoiceChip(
-                            label: Text(s.replaceAll('_', ' ')),
-                            selected: subjectFilter == s,
-                            onSelected: (_) =>
-                                setState(() => subjectFilter = s),
-                            selectedColor: const Color(0xFFFBBF24),
-                            backgroundColor: Colors.white,
-                            labelStyle: const TextStyle(
-                              color: Color(0xFF0F172A),
-                              fontWeight: FontWeight.w900,
-                            ),
-                          ),
+                    _chip('All subjects', subjectFilter == null,
+                        () => setState(() => subjectFilter = null)),
+                    ...subjects.map((s) => _chip(
+                          s.replaceAll('_', ' '),
+                          subjectFilter == s,
+                          () => setState(() => subjectFilter = s),
+                        )),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 6),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    _chip('All years', yearFilter == null,
+                        () => setState(() => yearFilter = null)),
+                    ...years.map((y) => _chip(
+                          '$y',
+                          yearFilter == y,
+                          () => setState(() => yearFilter = y),
                         )),
                   ],
                 ),
@@ -139,8 +137,17 @@ class _ExamsScreenState extends State<ExamsScreen> {
                         fontSize: 16,
                         fontWeight: FontWeight.w900,
                         color: FourTheme.ink)),
+                const SizedBox(height: 4),
+                Text(
+                  'Years in bank: ${matric.map((p) => p.year).toSet().toList()..sort((a, b) => b.compareTo(a))}',
+                  style: const TextStyle(color: FourTheme.muted, fontSize: 11),
+                ),
                 const SizedBox(height: 8),
-                ...filter(matric).map((p) => _PaperTile(paper: p)),
+                if (filter(matric).isEmpty)
+                  const Text('No matric papers for this filter.',
+                      style: TextStyle(color: FourTheme.muted))
+                else
+                  ...filter(matric).map((p) => _PaperTile(paper: p)),
                 const SizedBox(height: 20),
                 const Text('Model exams',
                     style: TextStyle(
@@ -148,11 +155,11 @@ class _ExamsScreenState extends State<ExamsScreen> {
                         fontWeight: FontWeight.w900,
                         color: FourTheme.ink)),
                 const SizedBox(height: 4),
-                const Text('Subject + year · full paper practice',
+                const Text('Subject + year · full paper',
                     style: TextStyle(color: FourTheme.muted, fontSize: 12)),
                 const SizedBox(height: 8),
                 if (filter(model).isEmpty)
-                  const Text('No model papers in filter.',
+                  const Text('No model papers for this filter.',
                       style: TextStyle(color: FourTheme.muted))
                 else
                   ...filter(model).map((p) => _PaperTile(paper: p)),
@@ -161,6 +168,24 @@ class _ExamsScreenState extends State<ExamsScreen> {
             ),
           ),
       ],
+    );
+  }
+
+  Widget _chip(String label, bool sel, VoidCallback onTap) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 6),
+      child: ChoiceChip(
+        label: Text(label),
+        selected: sel,
+        onSelected: (_) => onTap(),
+        selectedColor: const Color(0xFFFBBF24),
+        backgroundColor: Colors.white,
+        labelStyle: const TextStyle(
+          color: Color(0xFF0F172A),
+          fontWeight: FontWeight.w900,
+          fontSize: 12,
+        ),
+      ),
     );
   }
 }
@@ -187,8 +212,8 @@ class _PaperTile extends StatelessWidget {
         ),
         subtitle: Text(
           paper.questionCount > 0
-              ? '${paper.questionCount} questions'
-              : 'Interactive',
+              ? '${paper.questionCount} questions · ${paper.year}'
+              : 'Interactive · ${paper.year}',
         ),
         trailing: Icon(Icons.play_circle_outline, color: color),
         onTap: () => Navigator.of(context).push(
