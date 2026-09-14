@@ -39,7 +39,6 @@ class ContentRepository {
 
   Future<List<PracticeQuestion>> questions() async {
     if (_questions != null) return _questions!;
-    // Prefer index if present
     try {
       final idxRaw =
           await rootBundle.loadString('assets/content/practice_index.json');
@@ -106,36 +105,65 @@ class ContentRepository {
 
   Future<MatricBundle> matricBundle() async {
     if (_matric != null) return _matric!;
+    final byId = <String, MatricQuestion>{};
+
+    Future<void> ingest(dynamic decoded) async {
+      final b = MatricBundle.fromJson(decoded);
+      for (final q in b.questions) {
+        // Prefer entries with verified keys over no-key duplicates
+        final prev = byId[q.id];
+        if (prev == null) {
+          byId[q.id] = q;
+        } else if (prev.correctIndex < 0 && q.correctIndex >= 0) {
+          byId[q.id] = q;
+        }
+      }
+    }
+
+    // Primary unified bank (from CI pack or repo)
     try {
       final raw =
           await rootBundle.loadString('assets/content/matric_questions.json');
-      _matric = MatricBundle.fromJson(jsonDecode(raw));
-    } catch (_) {
-      // Merge subject files if unified bank missing
-      final merged = <MatricQuestion>[];
-      for (final name in [
-        'matric_biology.json',
-        'matric_chemistry.json',
-        'matric_math.json',
-        'matric_physics.json',
-        'matric_english.json',
-        'matric_geography.json',
-        'matric_history.json',
-        'matric_business_economics.json',
-      ]) {
-        try {
-          final raw = await rootBundle.loadString('assets/content/$name');
-          final decoded = jsonDecode(raw);
-          final b = MatricBundle.fromJson(decoded);
-          merged.addAll(b.questions);
-        } catch (_) {}
-      }
-      _matric = MatricBundle(
-        accuracyPolicy: 'merged_subject_files',
-        questions: merged,
-        unitIndex: const {},
-      );
+      await ingest(jsonDecode(raw));
+    } catch (_) {}
+
+    // Subject + year packs (accuracy-first incremental parses)
+    const packs = [
+      'matric_biology.json',
+      'matric_chemistry.json',
+      'matric_math.json',
+      'matric_physics.json',
+      'matric_physics_2000.json',
+      'matric_physics_2002.json',
+      'matric_physics_2009.json',
+      'matric_physics_2010.json',
+      'matric_english.json',
+      'matric_geography.json',
+      'matric_history.json',
+      'matric_business_economics.json',
+    ];
+    for (final name in packs) {
+      try {
+        final raw = await rootBundle.loadString('assets/content/$name');
+        await ingest(jsonDecode(raw));
+      } catch (_) {}
     }
+
+    final list = byId.values.toList()
+      ..sort((a, b) {
+        final y = b.year.compareTo(a.year);
+        if (y != 0) return y;
+        final s = a.subject.compareTo(b.subject);
+        if (s != 0) return s;
+        return a.number.compareTo(b.number);
+      });
+
+    _matric = MatricBundle(
+      accuracyPolicy:
+          'merged_bank_accuracy_first: verified keys preferred; -1 = awaiting key',
+      questions: list,
+      unitIndex: const {},
+    );
     return _matric!;
   }
 
