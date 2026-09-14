@@ -38,7 +38,6 @@ class ContentRepository {
       final list = await _loadList(path, (e) => UnitNote.fromJson(e));
       for (final n in list) {
         final k = '${n.grade}|${n.subject}|${n.unitNumber}';
-        // Prefer longer summary if duplicate
         final prev = byKey[k];
         if (prev == null || n.summary.length > prev.summary.length) {
           byKey[k] = n;
@@ -47,7 +46,6 @@ class ContentRepository {
     }
 
     await ingest('assets/content/unit_notes.json');
-    // Supplemental accuracy packs (G12 fill-in, English G9, etc.)
     for (final pack in [
       'assets/content/unit_notes_g12.json',
       'assets/content/unit_notes_g9_english.json',
@@ -125,6 +123,70 @@ class ContentRepository {
       );
     }
     return _questions!;
+  }
+
+  /// Practice pool for one unit: curriculum practice + school/model/matric
+  /// questions linked to this unit (via unit_links).
+  Future<List<PracticeQuestion>> questionsForUnit({
+    required String grade,
+    required String subject,
+    required int unitNumber,
+  }) async {
+    final byId = <String, PracticeQuestion>{};
+
+    final practice = await questions();
+    for (final q in practice) {
+      if (q.subject != subject) continue;
+      if (q.grade == grade &&
+          (q.unitNumber == unitNumber || q.unitNumber == 0)) {
+        byId[q.id] = q;
+      }
+    }
+    // Same subject other grades only if unit matched and pool thin
+    if (byId.length < 5) {
+      for (final q in practice) {
+        if (q.subject == subject &&
+            (q.unitNumber == unitNumber || q.unitNumber == 0)) {
+          byId.putIfAbsent(q.id, () => q);
+        }
+      }
+    }
+
+    final matric = await matricBundle();
+    final subj = subject.toUpperCase();
+    for (final m in matric.questions) {
+      if (m.subject != subj) continue;
+      if (m.options.length < 3) continue;
+      final linked = m.unitLinks.any((u) =>
+          u.unitNumber == unitNumber &&
+          (u.grade.isEmpty ||
+              u.grade == grade ||
+              u.subject == subj));
+      // Also accept same subject + unit_number on any grade for school/model
+      final linkedLoose = m.unitLinks.any((u) => u.unitNumber == unitNumber);
+      if (!linked && !linkedLoose) continue;
+      final exp = m.explanationJoined;
+      byId.putIfAbsent(
+        m.id,
+        () => PracticeQuestion(
+          id: m.id,
+          grade: grade,
+          subject: subject,
+          unitNumber: unitNumber,
+          prompt: m.prompt,
+          options: m.options,
+          correctIndex: m.correctIndex < 0 ? 0 : m.correctIndex,
+          explanation: exp.isEmpty
+              ? (m.correctIndex < 0
+                  ? 'Answer key not verified yet — discuss with your teacher.'
+                  : '')
+              : exp,
+        ),
+      );
+    }
+
+    final list = byId.values.toList()..shuffle(_rng);
+    return list;
   }
 
   Future<Map<String, List<IllustratedSlide>>> allSlides() async {
@@ -217,7 +279,7 @@ class ContentRepository {
 
     _matric = MatricBundle(
       accuracyPolicy:
-          'merged_bank_accuracy_first: verified keys preferred; -1 = awaiting key',
+          'merged_bank_accuracy_first: school/model linked to units for Practice',
       questions: list,
       unitIndex: const {},
     );

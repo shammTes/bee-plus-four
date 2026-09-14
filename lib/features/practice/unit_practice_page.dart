@@ -6,7 +6,7 @@ import '../../core/progress/mastery_store.dart';
 import '../../core/progress/study_log.dart';
 import '../../core/theme/four_theme.dart';
 
-/// Opens practice for ONE unit directly (from Notes unit hub).
+/// Practice for ONE unit: curriculum + school/model questions linked to unit.
 class UnitPracticePage extends StatefulWidget {
   const UnitPracticePage({
     super.key,
@@ -41,23 +41,11 @@ class _UnitPracticePageState extends State<UnitPracticePage> {
   }
 
   Future<void> _load() async {
-    final all = await ContentRepository.instance.questions();
-    var filtered = all
-        .where((q) =>
-            q.grade == widget.grade &&
-            q.subject == widget.subject &&
-            (q.unitNumber == widget.unitNumber || q.unitNumber == 0))
-        .toList();
-    if (filtered.isEmpty) {
-      filtered = all
-          .where((q) =>
-              q.grade == widget.grade && q.subject == widget.subject)
-          .toList();
-    }
-    if (filtered.isEmpty) {
-      filtered = all.where((q) => q.subject == widget.subject).toList();
-    }
-    filtered.shuffle();
+    final filtered = await ContentRepository.instance.questionsForUnit(
+      grade: widget.grade,
+      subject: widget.subject,
+      unitNumber: widget.unitNumber,
+    );
     if (!mounted) return;
     setState(() {
       pool = filtered;
@@ -107,7 +95,7 @@ class _UnitPracticePageState extends State<UnitPracticePage> {
                   child: Padding(
                     padding: EdgeInsets.all(24),
                     child: Text(
-                      'No practice questions for this unit yet.\nTry Coach or Exams for related items.',
+                      'No questions linked to this unit yet.\nTry another unit or Exams → Matriculation.',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: FourTheme.muted),
                     ),
@@ -121,9 +109,19 @@ class _UnitPracticePageState extends State<UnitPracticePage> {
                             fontWeight: FontWeight.w800, fontSize: 15)),
                     const SizedBox(height: 6),
                     Text(
-                        '${widget.grade} · ${widget.subject} · $level · session $sessionCorrect/$sessionTotal',
-                        style: const TextStyle(
-                            color: FourTheme.muted, fontSize: 12)),
+                      '${widget.grade} · ${widget.subject} · $level · '
+                      '${pool.length} questions · session $sessionCorrect/$sessionTotal',
+                      style: const TextStyle(
+                          color: FourTheme.muted, fontSize: 12),
+                    ),
+                    const SizedBox(height: 4),
+                    const Text(
+                      'Includes curriculum + school/model items for this unit',
+                      style: TextStyle(
+                          color: FourTheme.muted,
+                          fontSize: 11,
+                          fontStyle: FontStyle.italic),
+                    ),
                     const SizedBox(height: 8),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8),
