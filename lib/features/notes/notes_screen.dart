@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/content/content_repository.dart';
+import '../../core/curriculum/streams.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/mastery_store.dart';
 import '../../core/theme/four_theme.dart';
 import '../exams/matric_practice_screen.dart';
+import '../practice/unit_practice_page.dart';
 import 'illustrated_pdf_page.dart';
 
 class NotesScreen extends StatefulWidget {
@@ -17,23 +19,22 @@ class NotesScreen extends StatefulWidget {
     required this.subject,
     required this.onGrade,
     required this.onSubject,
+    this.stream = CurriculumStreams.science,
+    this.onStream,
   });
 
   final String grade;
   final String subject;
+  final String stream;
   final ValueChanged<String> onGrade;
   final ValueChanged<String> onSubject;
+  final ValueChanged<String>? onStream;
 
   @override
   State<NotesScreen> createState() => _NotesScreenState();
 }
 
 class _NotesScreenState extends State<NotesScreen> {
-  static const subjects = [
-    'MATH', 'PHYSICS', 'CHEMISTRY', 'BIOLOGY', 'ENGLISH',
-    'GEOGRAPHY', 'HISTORY', 'AGRICULTURE', 'BUSINESS_ECONOMICS',
-  ];
-
   Widget _chip(String label, bool sel, VoidCallback onTap) {
     return Padding(
       padding: const EdgeInsets.only(right: 6),
@@ -53,13 +54,13 @@ class _NotesScreenState extends State<NotesScreen> {
     );
   }
 
-  String _subjLabel(String s) => s == 'BUSINESS_ECONOMICS'
-      ? 'Business'
-      : s[0] + s.substring(1).toLowerCase();
-
   @override
   Widget build(BuildContext context) {
     final top = MediaQuery.paddingOf(context).top;
+    final subjects =
+        CurriculumStreams.subjectsFor(widget.grade, stream: widget.stream);
+    final showStream = widget.grade == 'G11' || widget.grade == 'G12';
+
     return Column(
       children: [
         Container(
@@ -82,7 +83,7 @@ class _NotesScreenState extends State<NotesScreen> {
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w900)),
-              const Text('Textbook units · cards · practice links',
+              const Text('Unit · Illustrated · Practice · Matric',
                   style:
                       TextStyle(color: Color(0xFFCCFBF1), fontSize: 13)),
               const SizedBox(height: 10),
@@ -90,17 +91,40 @@ class _NotesScreenState extends State<NotesScreen> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: ['G9', 'G10', 'G11', 'G12']
-                      .map((g) => _chip(g, g == widget.grade, () => widget.onGrade(g)))
+                      .map((g) =>
+                          _chip(g, g == widget.grade, () => widget.onGrade(g)))
                       .toList(),
                 ),
               ),
+              if (showStream) ...[
+                const SizedBox(height: 6),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      _chip(
+                        'Science',
+                        widget.stream == CurriculumStreams.science,
+                        () => widget.onStream
+                            ?.call(CurriculumStreams.science),
+                      ),
+                      _chip(
+                        'Arts',
+                        widget.stream == CurriculumStreams.arts,
+                        () =>
+                            widget.onStream?.call(CurriculumStreams.arts),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
               const SizedBox(height: 6),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: subjects
                       .map((s) => _chip(
-                            _subjLabel(s),
+                            CurriculumStreams.label(s),
                             s == widget.subject,
                             () => widget.onSubject(s),
                           ))
@@ -118,222 +142,259 @@ class _NotesScreenState extends State<NotesScreen> {
               if (!snap.hasData) {
                 return const Center(child: CircularProgressIndicator());
               }
-              var list = snap.data!;
+              final list = snap.data!;
               if (list.isEmpty) {
-                return FutureBuilder<List<UnitNote>>(
-                  future: ContentRepository.instance.notes().then(
-                        (all) => all
-                            .where((n) => n.grade == widget.grade)
-                            .toList(),
-                      ),
-                  builder: (context, s2) {
-                    final all = s2.data ?? [];
-                    if (all.isEmpty) {
-                      return const Center(
-                          child: Text('No unit notes for this filter.',
-                              style: TextStyle(color: FourTheme.muted)));
-                    }
-                    return _unitGrid(all);
-                  },
+                return Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: Text(
+                      widget.grade == 'G12'
+                          ? 'Grade 12 unit notes are not in the bank yet.\nTextbooks & illustrated packs still open from Tools/catalog when available.\nWe are filling G12 notes accuracy-first.'
+                          : 'No unit notes for ${widget.grade} · ${CurriculumStreams.label(widget.subject)} yet.',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(color: FourTheme.muted),
+                    ),
+                  ),
                 );
               }
-              return _unitGrid(list);
+              final sorted = [...list]
+                ..sort((a, b) => a.unitNumber.compareTo(b.unitNumber));
+              return ListView.builder(
+                padding: const EdgeInsets.all(16),
+                itemCount: sorted.length + 1,
+                itemBuilder: (context, i) {
+                  if (i == 0) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 12),
+                      child: Text(
+                        '${widget.grade} · ${CurriculumStreams.label(widget.subject)} · ${sorted.length} units',
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w800,
+                            color: FourTheme.muted),
+                      ),
+                    );
+                  }
+                  final n = sorted[i - 1];
+                  return _UnitCard(note: n);
+                },
+              );
             },
           ),
         ),
       ],
     );
   }
-
-  Widget _unitGrid(List<UnitNote> list) {
-    list = [...list]..sort((a, b) => a.unitNumber.compareTo(b.unitNumber));
-    return ListView.builder(
-      padding: const EdgeInsets.all(16),
-      itemCount: list.length + 1,
-      itemBuilder: (context, i) {
-        if (i == 0) {
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: Text(
-              '${widget.grade} · ${_subjLabel(widget.subject)} · ${list.length} units',
-              style: const TextStyle(
-                  fontWeight: FontWeight.w800, color: FourTheme.muted),
-            ),
-          );
-        }
-        final n = list[i - 1];
-        final level = MasteryStore.instance
-            .levelLabel(n.grade, n.subject, n.unitNumber);
-        final colors = [
-          const Color(0xFF0D9488),
-          const Color(0xFF7C3AED),
-          const Color(0xFF0284C7),
-          const Color(0xFFEA580C),
-          const Color(0xFFDB2777),
-        ];
-        final c = colors[n.unitNumber % colors.length];
-        return Padding(
-          padding: const EdgeInsets.only(bottom: 12),
-          child: Material(
-            color: Colors.white,
-            elevation: 2,
-            shadowColor: c.withOpacity(0.25),
-            borderRadius: BorderRadius.circular(20),
-            child: InkWell(
-              borderRadius: BorderRadius.circular(20),
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => _UnitHub(note: n)),
-              ),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: c.withOpacity(0.25)),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [c, c.withOpacity(0.8)],
-                        ),
-                        borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(20)),
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 6),
-                            decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.2),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Text('Unit ${n.unitNumber}',
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w900)),
-                          ),
-                          const Spacer(),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 4),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Text(level,
-                                style: TextStyle(
-                                    color: c,
-                                    fontWeight: FontWeight.w900,
-                                    fontSize: 11)),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(n.title,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w900,
-                                  fontSize: 16,
-                                  height: 1.25)),
-                          const SizedBox(height: 8),
-                          Text(
-                            n.summary.isEmpty
-                                ? 'Open for notes · illustrated · practice'
-                                : n.summary,
-                            maxLines: 3,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                                color: FourTheme.muted, height: 1.35),
-                          ),
-                          const SizedBox(height: 12),
-                          Row(
-                            children: const [
-                              _MiniTag(Icons.menu_book, 'Notes'),
-                              SizedBox(width: 6),
-                              _MiniTag(Icons.slideshow, 'Illustrated'),
-                              SizedBox(width: 6),
-                              _MiniTag(Icons.quiz, 'Practice'),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
 }
 
-class _MiniTag extends StatelessWidget {
-  const _MiniTag(this.icon, this.label);
-  final IconData icon;
-  final String label;
+class _UnitCard extends StatelessWidget {
+  const _UnitCard({required this.note});
+  final UnitNote note;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color: const Color(0xFFF1F5F9),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 12, color: FourTheme.ink),
-          const SizedBox(width: 4),
-          Text(label,
-              style: const TextStyle(
-                  fontSize: 10,
-                  fontWeight: FontWeight.w800,
-                  color: FourTheme.ink)),
-        ],
+    final level = MasteryStore.instance
+        .levelLabel(note.grade, note.subject, note.unitNumber);
+    final colors = [
+      const Color(0xFF0D9488),
+      const Color(0xFF7C3AED),
+      const Color(0xFF0284C7),
+      const Color(0xFFEA580C),
+      const Color(0xFFDB2777),
+    ];
+    final c = colors[note.unitNumber % colors.length];
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Material(
+        color: Colors.white,
+        elevation: 2,
+        shadowColor: c.withOpacity(0.25),
+        borderRadius: BorderRadius.circular(20),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => UnitHubPage(note: note)),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: c.withOpacity(0.25)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Container(
+                  padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [c, c.withOpacity(0.8)]),
+                    borderRadius:
+                        const BorderRadius.vertical(top: Radius.circular(20)),
+                  ),
+                  child: Row(
+                    children: [
+                      Text('Unit ${note.unitNumber}',
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w900)),
+                      const Spacer(),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(level,
+                            style: TextStyle(
+                                color: c,
+                                fontWeight: FontWeight.w900,
+                                fontSize: 11)),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(note.title,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w900,
+                              fontSize: 16,
+                              height: 1.25)),
+                      const SizedBox(height: 8),
+                      Text(
+                        note.summary.isEmpty
+                            ? 'Open for notes · illustrated · practice'
+                            : note.summary,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                            color: FourTheme.muted, height: 1.35),
+                      ),
+                      const SizedBox(height: 12),
+                      // Direct action buttons — no hunting
+                      Row(
+                        children: [
+                          _ActionBtn(
+                            icon: Icons.menu_book,
+                            label: 'Notes',
+                            onTap: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (_) => UnitHubPage(note: note)),
+                            ),
+                          ),
+                          const SizedBox(width: 6),
+                          _ActionBtn(
+                            icon: Icons.slideshow,
+                            label: 'Slides',
+                            onTap: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (_) => UnitHubPage(
+                                        note: note,
+                                        initialTab: 1,
+                                      )),
+                            ),
+                          ),
+                          const SizedBox(width: 6),
+                          _ActionBtn(
+                            icon: Icons.quiz,
+                            label: 'Practice',
+                            onTap: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => UnitPracticePage(
+                                  grade: note.grade,
+                                  subject: note.subject,
+                                  unitNumber: note.unitNumber,
+                                  unitTitle: note.title,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
 }
 
-/// Hub for one textbook unit: Notes · Illustrated · Practice · Matric.
-class _UnitHub extends StatelessWidget {
-  const _UnitHub({required this.note});
+class _ActionBtn extends StatelessWidget {
+  const _ActionBtn(
+      {required this.icon, required this.label, required this.onTap});
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Material(
+        color: const Color(0xFFF1F5F9),
+        borderRadius: BorderRadius.circular(10),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(10),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Column(
+              children: [
+                Icon(icon, size: 18, color: FourTheme.ink),
+                const SizedBox(height: 2),
+                Text(label,
+                    style: const TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w800,
+                        color: FourTheme.ink)),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Unit detail with Notes / Illustrated / Practice / Matric.
+class UnitHubPage extends StatelessWidget {
+  const UnitHubPage({super.key, required this.note, this.initialTab = 0});
   final UnitNote note;
+  final int initialTab;
 
   Future<List<Map<String, dynamic>>> _illustrated() async {
     try {
       final raw = await rootBundle.loadString(
           'assets/content/illustrated_catalog_${note.grade.toLowerCase()}.json');
       final map = jsonDecode(raw) as Map<String, dynamic>;
-      final decks = (map['decks'] as List? ?? [])
+      final all = (map['decks'] as List? ?? [])
           .map((e) => Map<String, dynamic>.from(e as Map))
-          .where((d) =>
-              d['subject'] == note.subject &&
-              ((d['unit_number'] as num?)?.toInt() == note.unitNumber ||
-                  '${d['title']}'.toLowerCase().contains(note.title
-                      .toLowerCase()
-                      .split(' ')
-                      .take(2)
-                      .join(' '))))
+          .where((d) => d['subject'] == note.subject)
           .toList();
-      if (decks.isEmpty) {
-        return (map['decks'] as List? ?? [])
-            .map((e) => Map<String, dynamic>.from(e as Map))
-            .where((d) => d['subject'] == note.subject)
-            .take(5)
-            .toList();
-      }
-      return decks;
+      // Prefer exact unit match only — do NOT show unrelated subject decks
+      final exact = all
+          .where((d) =>
+              (d['unit_number'] as num?)?.toInt() == note.unitNumber)
+          .toList();
+      if (exact.isNotEmpty) return exact;
+      // Title overlap fallback within same subject only
+      final words = note.title
+          .toLowerCase()
+          .split(RegExp(r'\W+'))
+          .where((w) => w.length > 3)
+          .take(3)
+          .toList();
+      final soft = all.where((d) {
+        final t = '${d['title']}'.toLowerCase();
+        return words.any((w) => t.contains(w));
+      }).toList();
+      return soft;
     } catch (_) {
       return [];
     }
@@ -356,8 +417,46 @@ class _UnitHub extends StatelessWidget {
           const SizedBox(height: 6),
           Text('${note.grade} · ${note.subject}',
               style: const TextStyle(color: FourTheme.muted)),
+          const SizedBox(height: 14),
+          // Sticky-style action row
+          Row(
+            children: [
+              Expanded(
+                child: FilledButton.icon(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => UnitPracticePage(
+                        grade: note.grade,
+                        subject: note.subject,
+                        unitNumber: note.unitNumber,
+                        unitTitle: note.title,
+                      ),
+                    ),
+                  ),
+                  icon: const Icon(Icons.quiz),
+                  label: const Text('Practice'),
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => MatricPracticeScreen(
+                        subjectFilter: note.subject,
+                        grade: note.grade,
+                        unitNumber: note.unitNumber,
+                        title: '${note.subject} · Unit ${note.unitNumber}',
+                      ),
+                    ),
+                  ),
+                  icon: const Icon(Icons.assignment),
+                  label: const Text('Matric'),
+                ),
+              ),
+            ],
+          ),
           const SizedBox(height: 16),
-          // Engaging summary card
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -408,82 +507,45 @@ class _UnitHub extends StatelessWidget {
             ),
           ],
           const SizedBox(height: 18),
-          const Text('Study this unit',
+          const Text('Illustrated for this unit',
               style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16)),
-          const SizedBox(height: 10),
+          const SizedBox(height: 8),
           FutureBuilder<List<Map<String, dynamic>>>(
             future: _illustrated(),
             builder: (context, snap) {
               final decks = snap.data ?? [];
+              if (decks.isEmpty) {
+                return const Text(
+                  'No illustrated deck matched this unit yet (accuracy filter).',
+                  style: TextStyle(color: FourTheme.muted),
+                );
+              }
               return Column(
-                children: [
-                  if (decks.isNotEmpty)
-                    ...decks.map((d) {
-                      final path = '${d['pdf_asset'] ?? ''}';
-                      return Card(
-                        child: ListTile(
-                          leading: const Icon(Icons.slideshow,
-                              color: FourTheme.primaryDark),
-                          title: Text('${d['title']}',
-                              maxLines: 2,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w700)),
-                          subtitle: const Text('Illustrated PDF'),
-                          trailing: const Icon(Icons.chevron_right),
-                          onTap: path.isEmpty
-                              ? null
-                              : () => Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (_) => IllustratedPdfPage(
-                                        title: '${d['title']}',
-                                        subtitle:
-                                            '${note.grade} · ${note.subject}',
-                                        assetPath: path,
-                                      ),
-                                    ),
+                children: decks.map((d) {
+                  final path = '${d['pdf_asset'] ?? ''}';
+                  return Card(
+                    child: ListTile(
+                      leading: const Icon(Icons.slideshow,
+                          color: FourTheme.primaryDark),
+                      title: Text('${d['title']}',
+                          maxLines: 2,
+                          style: const TextStyle(fontWeight: FontWeight.w700)),
+                      trailing: const Icon(Icons.chevron_right),
+                      onTap: path.isEmpty
+                          ? null
+                          : () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => IllustratedPdfPage(
+                                    title: '${d['title']}',
+                                    subtitle:
+                                        '${note.grade} · ${note.subject}',
+                                    assetPath: path,
                                   ),
-                        ),
-                      );
-                    }),
-                  Card(
-                    child: ListTile(
-                      leading: const Icon(Icons.quiz,
-                          color: FourTheme.violet),
-                      title: const Text('Practice this unit',
-                          style: TextStyle(fontWeight: FontWeight.w800)),
-                      subtitle:
-                          const Text('Adaptive questions · mastery tracking'),
-                      trailing: const Icon(Icons.chevron_right),
-                      onTap: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text(
-                                'Open Practice tab and select this unit (U#).'),
-                          ),
-                        );
-                      },
+                                ),
+                              ),
                     ),
-                  ),
-                  Card(
-                    child: ListTile(
-                      leading: const Icon(Icons.assignment,
-                          color: Color(0xFFEA580C)),
-                      title: const Text('Matric for this unit',
-                          style: TextStyle(fontWeight: FontWeight.w800)),
-                      trailing: const Icon(Icons.chevron_right),
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => MatricPracticeScreen(
-                            subjectFilter: note.subject,
-                            grade: note.grade,
-                            unitNumber: note.unitNumber,
-                            title: 'Matric · ${note.title}',
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                  );
+                }).toList(),
               );
             },
           ),
