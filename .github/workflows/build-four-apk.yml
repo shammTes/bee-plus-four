@@ -70,14 +70,30 @@ jobs:
             fi
           else
             echo "::warning::Drive pack not downloadable. Share as Anyone with the link."
-            echo "https://drive.google.com/file/d/1zWHWp6S8R6KwZZLY1A1EwlulIe2Zx9Xa/view"
           fi
+          # Overlay latest exam bank + notes packs (JSON)
+          BANK_IDS="1iW_W13FvQ5t1TgWDOoXFHkY_Yuu86-x2 1vPElVBoHpAbwGtamCfV4VdQIQ8luxPId 1NT-WewVM8MLhTrUCZ_hmKPoOullU2fZR"
+          for id in $BANK_IDS; do
+            rm -f /tmp/four_bank.tgz
+            python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_bank.tgz 2>/dev/null || \
+              curl -sSL -L "https://drive.google.com/uc?export=download&confirm=t&id=${id}" -o /tmp/four_bank.tgz || true
+            if [ -f /tmp/four_bank.tgz ] && gzip -t /tmp/four_bank.tgz 2>/dev/null; then
+              echo "Bank overlay OK $id ($(du -h /tmp/four_bank.tgz | cut -f1))"
+              mkdir -p /tmp/bank_extract
+              tar xzf /tmp/four_bank.tgz -C /tmp/bank_extract
+              # files may be at root or under content/
+              find /tmp/bank_extract -type f -name '*.json' -exec cp -f {} assets/content/ \;
+              break
+            fi
+          done
           test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
           test -f assets/content/practice_index.json || echo '{"files":["practice_lite.json"],"lite":"practice_lite.json"}' > assets/content/practice_index.json
           test -f assets/content/practice_lite.json || echo '[]' > assets/content/practice_lite.json
           test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
           test -f assets/content/illustrated_slides.json || echo '{}' > assets/content/illustrated_slides.json
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
+          test -f assets/content/matric_questions.json || echo '[]' > assets/content/matric_questions.json
+          test -f assets/content/flashcards.json || echo '[]' > assets/content/flashcards.json
           test -f assets/content/textbooks_catalog.json || echo '{"book_count":0,"books":[]}' > assets/content/textbooks_catalog.json
           test -f assets/content/illustrated_catalog_hs.json || echo '{"deck_count":0,"decks":[]}' > assets/content/illustrated_catalog_hs.json
           for g in g9 g10 g11 g12; do
@@ -86,6 +102,7 @@ jobs:
           echo "Content bytes: $(du -sb assets/content | cut -f1)"
           find assets/content -type f | wc -l
           du -sh assets/content || true
+          ls -la assets/content/*.json 2>/dev/null | head -30
 
       - name: Generate launcher icons
         run: |
@@ -126,6 +143,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: four-release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
-          if-no-files-found: error
-          retention-days: 30
+          path: build/app/outputs/flutter-apk/*.apk
