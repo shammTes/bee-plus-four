@@ -5,6 +5,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 import '../../core/content/content_repository.dart';
 import '../../core/licensing/unlock_store.dart';
 import '../../core/theme/four_theme.dart';
+import '../settings/settings_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
@@ -59,7 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
           '3) Practice → unit mastery\n'
           '4) Coach → quiz / notes / matric\n'
           '5) Labs · Tools\n\n'
-          'Show your Device QR to Bee Seller to unlock.',
+          'Show your Device QR to Bee Seller to unlock.\n'
+          'Settings (gear) for dark mode and language.',
         ),
         actions: [
           FilledButton(
@@ -179,6 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final repo = ContentRepository.instance;
+    final dark = Theme.of(context).brightness == Brightness.dark;
     return FutureBuilder(
       future: Future.wait([
         repo.notes(),
@@ -192,19 +195,31 @@ class _HomeScreenState extends State<HomeScreen> {
             snap.hasData ? (snap.data![2] as dynamic).questions.length : '—';
 
         return Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Color(0xFFE0F2FE), Color(0xFFF5F3FF), Color(0xFFF8FAFC)],
+              colors: dark
+                  ? const [
+                      Color(0xFF0B1220),
+                      Color(0xFF111827),
+                      Color(0xFF0B1220)
+                    ]
+                  : const [
+                      Color(0xFFE0F2FE),
+                      Color(0xFFF5F3FF),
+                      Color(0xFFF8FAFC)
+                    ],
             ),
           ),
           child: ListView(
             children: [
               Container(
-                decoration: const BoxDecoration(
-                  gradient: FourTheme.heroGradient,
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  gradient: dark
+                      ? FourTheme.heroGradientDark
+                      : FourTheme.heroGradient,
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(28),
                     bottomRight: Radius.circular(28),
                   ),
@@ -241,6 +256,15 @@ class _HomeScreenState extends State<HomeScreen> {
                           tooltip: 'Device QR',
                         ),
                         IconButton(
+                          onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (_) => const SettingsPage()),
+                          ),
+                          icon: const Icon(Icons.settings_outlined,
+                              color: Colors.white),
+                          tooltip: 'Settings',
+                        ),
+                        IconButton(
                           onPressed: _showAbout,
                           icon: const Icon(Icons.info_outline,
                               color: Colors.white),
@@ -262,7 +286,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 14,
                             fontWeight: FontWeight.w600)),
                     const SizedBox(height: 12),
-                    // Device ID row — tap opens QR
                     GestureDetector(
                       onTap: _showDeviceQr,
                       child: Container(
@@ -371,7 +394,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     _ActionCard(
                       title: 'Practice',
-                      subtitle: 'Pick unit · adaptive mastery',
+                      subtitle: 'Unit · multi · mastery',
                       icon: Icons.quiz_rounded,
                       color: FourTheme.violet,
                       onTap: widget.onOpenPractice,
@@ -401,8 +424,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     if (widget.onOpenTools != null)
                       _ActionCard(
                         title: 'Tools',
-                        subtitle: 'Calculator · study tools',
-                        icon: Icons.calculate_rounded,
+                        subtitle: 'Study · Calculator',
+                        icon: Icons.handyman_rounded,
                         color: const Color(0xFFF59E0B),
                         onTap: widget.onOpenTools!,
                       ),
@@ -425,20 +448,22 @@ class _StatTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = Theme.of(context).brightness == Brightness.dark;
     return Expanded(
       child: FourTheme.glassPanel(
+        dark: dark,
         child: Column(
           children: [
             Text(value,
-                style: const TextStyle(
+                style: TextStyle(
                     fontWeight: FontWeight.w900,
                     fontSize: 18,
-                    color: FourTheme.ink)),
+                    color: dark ? FourTheme.darkText : FourTheme.ink)),
             Text(label,
-                style: const TextStyle(
+                style: TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.w700,
-                    color: FourTheme.muted)),
+                    color: dark ? FourTheme.darkMuted : FourTheme.muted)),
           ],
         ),
       ),
