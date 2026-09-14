@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../core/content/content_repository.dart';
+import '../../core/curriculum/streams.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/mastery_store.dart';
 import '../../core/theme/four_theme.dart';
 
-/// Adaptive unit practice — student picks grade · subject · unit.
+/// Adaptive unit practice — grade · subject · unit.
+/// Pool = curriculum practice + school/model/matric items linked to that unit.
 class PracticeScreen extends StatefulWidget {
   const PracticeScreen({
     super.key,
@@ -25,11 +27,6 @@ class PracticeScreen extends StatefulWidget {
 }
 
 class _PracticeScreenState extends State<PracticeScreen> {
-  static const subjects = [
-    'MATH', 'PHYSICS', 'CHEMISTRY', 'BIOLOGY', 'ENGLISH',
-    'GEOGRAPHY', 'HISTORY', 'AGRICULTURE', 'BUSINESS_ECONOMICS',
-  ];
-
   int? unit;
   List<UnitNote> units = [];
   List<PracticeQuestion> pool = [];
@@ -68,25 +65,11 @@ class _PracticeScreenState extends State<PracticeScreen> {
 
   Future<void> _loadPool() async {
     if (unit == null) return;
-    final all = await ContentRepository.instance.questions();
-    var filtered = all
-        .where((q) =>
-            q.grade == widget.grade &&
-            q.subject == widget.subject &&
-            (q.unitNumber == unit || q.unitNumber == 0))
-        .toList();
-    if (filtered.isEmpty) {
-      filtered = all
-          .where((q) =>
-              q.grade == widget.grade && q.subject == widget.subject)
-          .toList();
-    }
-    if (filtered.isEmpty) {
-      filtered =
-          all.where((q) => q.subject == widget.subject).toList();
-    }
-    // Adaptive order: interleave weaker emphasis — shuffle but prefer unseen
-    filtered.shuffle();
+    final filtered = await ContentRepository.instance.questionsForUnit(
+      grade: widget.grade,
+      subject: widget.subject,
+      unitNumber: unit!,
+    );
     if (!mounted) return;
     setState(() {
       pool = filtered;
@@ -140,20 +123,13 @@ class _PracticeScreenState extends State<PracticeScreen> {
   @override
   Widget build(BuildContext context) {
     final top = MediaQuery.paddingOf(context).top;
-    final mastery = unit == null
-        ? 0.0
-        : MasteryStore.instance
-            .mastery(widget.grade, widget.subject, unit!);
-    final level = unit == null
-        ? '—'
-        : MasteryStore.instance
-            .levelLabel(widget.grade, widget.subject, unit!);
+    final subjects = CurriculumStreams.subjectsFor(widget.grade);
 
     return Column(
       children: [
         Container(
           width: double.infinity,
-          padding: EdgeInsets.fromLTRB(16, top + 10, 16, 12),
+          padding: EdgeInsets.fromLTRB(16, top + 10, 16, 14),
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [Color(0xFF7C3AED), Color(0xFF6D28D9)],
@@ -171,17 +147,15 @@ class _PracticeScreenState extends State<PracticeScreen> {
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w900)),
-              const Text('Exam prep · topic mastery',
-                  style:
-                      TextStyle(color: Color(0xFFE9D5FF), fontSize: 13)),
+              const Text('Unit mastery · includes school exam items',
+                  style: TextStyle(color: Color(0xFFE9D5FF), fontSize: 13)),
               const SizedBox(height: 10),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: ['G9', 'G10', 'G11', 'G12']
-                      .map((g) => _chip(g, g == widget.grade, () {
-                            widget.onGrade(g);
-                          }))
+                      .map((g) =>
+                          _chip(g, g == widget.grade, () => widget.onGrade(g)))
                       .toList(),
                 ),
               ),
@@ -189,196 +163,131 @@ class _PracticeScreenState extends State<PracticeScreen> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: subjects.map((s) {
-                    final label = s == 'BUSINESS_ECONOMICS'
-                        ? 'Business'
-                        : s[0] + s.substring(1).toLowerCase();
-                    return _chip(label, s == widget.subject, () {
-                      widget.onSubject(s);
-                    });
-                  }).toList(),
+                  children: subjects
+                      .map((s) => _chip(
+                            CurriculumStreams.label(s),
+                            s == widget.subject,
+                            () => widget.onSubject(s),
+                          ))
+                      .toList(),
                 ),
               ),
-              const SizedBox(height: 6),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: units.isEmpty
-                      ? [
-                          _chip('All units', true, () {}),
-                        ]
-                      : units
-                          .map((u) => _chip(
-                                'U${u.unitNumber}',
-                                unit == u.unitNumber,
-                                () async {
-                                  setState(() => unit = u.unitNumber);
-                                  await _loadPool();
-                                },
-                              ))
-                          .toList(),
-                ),
-              ),
-              if (unit != null) ...[
-                const SizedBox(height: 10),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: LinearProgressIndicator(
-                          value: mastery,
-                          minHeight: 8,
-                          backgroundColor: Colors.white24,
-                          color: const Color(0xFFFBBF24),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Text(level,
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w800)),
-                  ],
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  sessionTotal == 0
-                      ? 'Answer to build mastery for this unit'
-                      : 'Session $sessionCorrect / $sessionTotal correct',
-                  style: const TextStyle(
-                      color: Color(0xFFE9D5FF), fontSize: 12),
+              if (units.isNotEmpty) ...[
+                const SizedBox(height: 6),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: units.map((u) {
+                      final sel = unit == u.unitNumber;
+                      return _chip(
+                        'U${u.unitNumber}',
+                        sel,
+                        () async {
+                          setState(() => unit = u.unitNumber);
+                          await _loadPool();
+                        },
+                      );
+                    }).toList(),
+                  ),
                 ),
               ],
             ],
           ),
         ),
-        Expanded(child: _buildBody()),
-      ],
-    );
-  }
-
-  Widget _buildBody() {
-    if (current == null) {
-      return const Center(
-        child: Padding(
-          padding: EdgeInsets.all(24),
-          child: Text(
-            'No questions for this filter yet.\nTry another unit or subject.',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: FourTheme.muted),
-          ),
-        ),
-      );
-    }
-    final q = current!;
-    final unitTitle = units
-        .where((u) => u.unitNumber == unit)
-        .map((u) => u.title)
-        .cast<String?>()
-        .firstWhere((_) => true, orElse: () => null);
-
-    return ListView(
-      padding: const EdgeInsets.all(16),
-      children: [
-        if (unitTitle != null)
-          Text(unitTitle,
-              style: const TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontSize: 15,
-                  color: FourTheme.ink)),
-        const SizedBox(height: 8),
-        Text(q.prompt,
-            style: const TextStyle(
-                fontSize: 16, height: 1.4, fontWeight: FontWeight.w600)),
-        const SizedBox(height: 16),
-        ...List.generate(q.options.length, (i) {
-          final isSel = selected == i;
-          final isCorrect = revealed && i == q.correctIndex;
-          final isWrong = revealed && isSel && i != q.correctIndex;
-          Color border = const Color(0xFFE2E8F0);
-          Color bg = Colors.white;
-          if (isCorrect) {
-            border = const Color(0xFF10B981);
-            bg = const Color(0xFFECFDF5);
-          } else if (isWrong) {
-            border = const Color(0xFFEF4444);
-            bg = const Color(0xFFFEF2F2);
-          } else if (isSel) {
-            border = FourTheme.violet;
-            bg = const Color(0xFFF5F3FF);
-          }
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 8),
-            child: Material(
-              color: bg,
-              borderRadius: BorderRadius.circular(14),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(14),
-                onTap: revealed
-                    ? null
-                    : () => setState(() => selected = i),
-                child: Container(
-                  padding: const EdgeInsets.all(14),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
-                    border: Border.all(color: border, width: 1.5),
+        Expanded(
+          child: current == null
+              ? Center(
+                  child: Text(
+                    units.isEmpty
+                        ? 'No units for this subject yet'
+                        : 'No questions for this unit yet',
+                    style: const TextStyle(color: FourTheme.muted),
                   ),
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 14,
-                        backgroundColor: border.withOpacity(0.2),
-                        child: Text(String.fromCharCode(65 + i),
-                            style: TextStyle(
-                                fontWeight: FontWeight.w900,
-                                fontSize: 12,
-                                color: FourTheme.ink)),
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Text(q.options[i],
-                            style: const TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: FourTheme.ink)),
+                )
+              : ListView(
+                  padding: const EdgeInsets.all(16),
+                  children: [
+                    Text(
+                      '${pool.length} questions · session $sessionCorrect/$sessionTotal',
+                      style: const TextStyle(
+                          color: FourTheme.muted,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    const SizedBox(height: 12),
+                    Text(current!.prompt,
+                        style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            height: 1.4)),
+                    const SizedBox(height: 14),
+                    ...List.generate(current!.options.length, (i) {
+                      final isSel = selected == i;
+                      final isCorrect =
+                          revealed && i == current!.correctIndex;
+                      final isWrong =
+                          revealed && isSel && i != current!.correctIndex;
+                      Color border = const Color(0xFFE2E8F0);
+                      Color bg = Colors.white;
+                      if (isCorrect) {
+                        border = const Color(0xFF10B981);
+                        bg = const Color(0xFFECFDF5);
+                      } else if (isWrong) {
+                        border = const Color(0xFFEF4444);
+                        bg = const Color(0xFFFEF2F2);
+                      } else if (isSel) {
+                        border = FourTheme.violet;
+                        bg = const Color(0xFFF5F3FF);
+                      }
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: Material(
+                          color: bg,
+                          borderRadius: BorderRadius.circular(14),
+                          child: InkWell(
+                            borderRadius: BorderRadius.circular(14),
+                            onTap: revealed
+                                ? null
+                                : () => setState(() => selected = i),
+                            child: Container(
+                              padding: const EdgeInsets.all(14),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(14),
+                                border:
+                                    Border.all(color: border, width: 1.5),
+                              ),
+                              child: Text(
+                                '${String.fromCharCode(65 + i)}. ${current!.options[i]}',
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                    const SizedBox(height: 12),
+                    if (!revealed)
+                      FilledButton(
+                        onPressed: selected == null
+                            ? null
+                            : () => setState(() => revealed = true),
+                        child: const Text('Check answer'),
+                      )
+                    else ...[
+                      if (current!.explanation.isNotEmpty)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 12),
+                          child: Text(current!.explanation,
+                              style: const TextStyle(height: 1.4)),
+                        ),
+                      FilledButton(
+                        onPressed: () => _next(record: true),
+                        child: const Text('Next question'),
                       ),
                     ],
-                  ),
+                  ],
                 ),
-              ),
-            ),
-          );
-        }),
-        const SizedBox(height: 12),
-        if (!revealed)
-          FilledButton(
-            onPressed: selected == null
-                ? null
-                : () => setState(() => revealed = true),
-            child: const Text('Check answer'),
-          )
-        else ...[
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(14),
-            decoration: BoxDecoration(
-              color: const Color(0xFFF8FAFC),
-              borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: const Color(0xFFE2E8F0)),
-            ),
-            child: Text(
-              q.explanation.isEmpty
-                  ? 'Correct option: ${String.fromCharCode(65 + q.correctIndex)}'
-                  : q.explanation,
-              style: const TextStyle(height: 1.4),
-            ),
-          ),
-          const SizedBox(height: 12),
-          FilledButton(
-            onPressed: () => _next(record: true),
-            child: const Text('Next question'),
-          ),
-        ],
+        ),
       ],
     );
   }

@@ -5,6 +5,8 @@ import '../../core/models/exam_models.dart';
 import '../../core/theme/four_theme.dart';
 import 'matric_practice_screen.dart';
 
+/// Matriculation + Model full papers.
+/// School exam items live in unit Practice (linked by unit).
 class ExamsScreen extends StatefulWidget {
   const ExamsScreen({super.key});
 
@@ -40,11 +42,9 @@ class _ExamsScreenState extends State<ExamsScreen> {
     final top = MediaQuery.paddingOf(context).top;
     final matric = catalog?.matriculation ?? const <ExamPaper>[];
     final model = catalog?.model ?? const <ExamPaper>[];
-    final school = catalog?.school ?? const <ExamPaper>[];
     final subjects = <String>{
       ...matric.map((p) => p.mappedSubject),
       ...model.map((p) => p.mappedSubject),
-      ...school.map((p) => p.mappedSubject),
     }.where((s) => s.isNotEmpty).toList()
       ..sort();
 
@@ -78,8 +78,13 @@ class _ExamsScreenState extends State<ExamsScreen> {
               Text(
                 loading
                     ? 'Loading…'
-                    : '${bank?.questions.length ?? 0} questions · ${matric.length} matric · ${model.length} model · ${school.length} school',
+                    : '${bank?.questions.length ?? 0} in bank · ${matric.length} matric · ${model.length} model',
                 style: const TextStyle(color: Color(0xFFFED7AA), fontSize: 13),
+              ),
+              const SizedBox(height: 4),
+              const Text(
+                'School exam items are inside unit Practice',
+                style: TextStyle(color: Color(0xFFFED7AA), fontSize: 11),
               ),
               const SizedBox(height: 10),
               SingleChildScrollView(
@@ -129,11 +134,21 @@ class _ExamsScreenState extends State<ExamsScreen> {
             child: ListView(
               padding: const EdgeInsets.all(16),
               children: [
-                _sectionTitle('Matriculation'),
+                const Text('Matriculation',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w900,
+                        color: FourTheme.ink)),
+                const SizedBox(height: 8),
                 ...filter(matric).map((p) => _PaperTile(paper: p)),
-                const SizedBox(height: 16),
-                _sectionTitle('Model exams'),
-                const Text('Subject + year · interactive',
+                const SizedBox(height: 20),
+                const Text('Model exams',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w900,
+                        color: FourTheme.ink)),
+                const SizedBox(height: 4),
+                const Text('Subject + year · full paper practice',
                     style: TextStyle(color: FourTheme.muted, fontSize: 12)),
                 const SizedBox(height: 8),
                 if (filter(model).isEmpty)
@@ -141,16 +156,6 @@ class _ExamsScreenState extends State<ExamsScreen> {
                       style: TextStyle(color: FourTheme.muted))
                 else
                   ...filter(model).map((p) => _PaperTile(paper: p)),
-                const SizedBox(height: 16),
-                _sectionTitle('School exams'),
-                const Text('Semester · pretest · exercise',
-                    style: TextStyle(color: FourTheme.muted, fontSize: 12)),
-                const SizedBox(height: 8),
-                if (filter(school).isEmpty)
-                  const Text('No school papers in filter.',
-                      style: TextStyle(color: FourTheme.muted))
-                else
-                  ...filter(school).map((p) => _PaperTile(paper: p)),
                 const SizedBox(height: 24),
               ],
             ),
@@ -158,15 +163,6 @@ class _ExamsScreenState extends State<ExamsScreen> {
       ],
     );
   }
-
-  Widget _sectionTitle(String t) => Padding(
-        padding: const EdgeInsets.only(bottom: 8),
-        child: Text(t,
-            style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w900,
-                color: FourTheme.ink)),
-      );
 }
 
 class _PaperTile extends StatelessWidget {
@@ -177,18 +173,12 @@ class _PaperTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = paper.type == 'model'
         ? const Color(0xFF7C3AED)
-        : paper.type == 'school'
-            ? const Color(0xFF0EA5E9)
-            : FourTheme.primary;
+        : FourTheme.primary;
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
       child: ListTile(
         leading: Icon(
-          paper.type == 'model'
-              ? Icons.folder_special
-              : paper.type == 'school'
-                  ? Icons.school
-                  : Icons.assignment,
+          paper.type == 'model' ? Icons.folder_special : Icons.assignment,
           color: color,
         ),
         title: Text(
