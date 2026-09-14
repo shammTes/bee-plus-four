@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../core/content/content_repository.dart';
 import '../../core/licensing/unlock_store.dart';
@@ -54,11 +55,11 @@ class _HomeScreenState extends State<HomeScreen> {
         content: const Text(
           'Quick path:\n'
           '1) Pick your grade on Home\n'
-          '2) Notes → unit cards (read · illustrated · practice)\n'
-          '3) Practice → grade · subject · unit (adaptive)\n'
-          '4) Coach → notes or quiz by unit, or Matric mode\n'
-          '5) Labs → Physics · Chemistry · Biology\n\n'
-          'Your Device ID is shown on Home — you will need it later for Bee Seller unlock.',
+          '2) Notes → unit cards\n'
+          '3) Practice → unit mastery\n'
+          '4) Coach → quiz / notes / matric\n'
+          '5) Labs · Tools\n\n'
+          'Show your Device QR to Bee Seller to unlock.',
         ),
         actions: [
           FilledButton(
@@ -69,6 +70,76 @@ class _HomeScreenState extends State<HomeScreen> {
             child: const Text('Got it'),
           ),
         ],
+      ),
+    );
+  }
+
+  void _showDeviceQr() {
+    showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      isScrollControlled: true,
+      builder: (ctx) => Padding(
+        padding: const EdgeInsets.fromLTRB(24, 8, 24, 32),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('Device ID',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900)),
+            const SizedBox(height: 8),
+            const Text(
+              'Show this QR to Bee Seller to unlock the app.',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: FourTheme.muted),
+            ),
+            const SizedBox(height: 16),
+            if (deviceId.length > 2)
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: const Color(0xFFE2E8F0)),
+                ),
+                child: QrImageView(
+                  data: deviceId,
+                  version: QrVersions.auto,
+                  size: 200,
+                  backgroundColor: Colors.white,
+                  eyeStyle: const QrEyeStyle(
+                    eyeShape: QrEyeShape.square,
+                    color: Color(0xFF0F172A),
+                  ),
+                  dataModuleStyle: const QrDataModuleStyle(
+                    dataModuleShape: QrDataModuleShape.square,
+                    color: Color(0xFF0F172A),
+                  ),
+                ),
+              )
+            else
+              const CircularProgressIndicator(),
+            const SizedBox(height: 12),
+            SelectableText(
+              deviceId,
+              style: const TextStyle(
+                fontWeight: FontWeight.w800,
+                letterSpacing: 1.2,
+                fontSize: 13,
+              ),
+            ),
+            const SizedBox(height: 12),
+            OutlinedButton.icon(
+              onPressed: () {
+                Clipboard.setData(ClipboardData(text: deviceId));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Device ID copied')),
+                );
+              },
+              icon: const Icon(Icons.copy),
+              label: const Text('Copy ID'),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -165,6 +236,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         const Spacer(),
                         IconButton(
+                          onPressed: _showDeviceQr,
+                          icon: const Icon(Icons.qr_code_2, color: Colors.white),
+                          tooltip: 'Device QR',
+                        ),
+                        IconButton(
                           onPressed: _showAbout,
                           icon: const Icon(Icons.info_outline,
                               color: Colors.white),
@@ -186,37 +262,60 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 14,
                             fontWeight: FontWeight.w600)),
                     const SizedBox(height: 12),
-                    // Device ID — required for Bee Seller unlock later
+                    // Device ID row — tap opens QR
                     GestureDetector(
-                      onTap: () {
-                        Clipboard.setData(ClipboardData(text: deviceId));
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Device ID copied')),
-                        );
-                      },
+                      onTap: _showDeviceQr,
                       child: Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 8),
+                            horizontal: 12, vertical: 10),
                         decoration: BoxDecoration(
                           color: Colors.black.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(14),
                           border: Border.all(color: Colors.white24),
                         ),
                         child: Row(
                           children: [
-                            const Icon(Icons.fingerprint,
-                                color: Colors.white70, size: 18),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Text('ID  $deviceId',
-                                  style: const TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w800,
-                                      letterSpacing: 1.1,
-                                      fontSize: 13)),
+                            Container(
+                              width: 44,
+                              height: 44,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              padding: const EdgeInsets.all(4),
+                              child: deviceId.length > 2
+                                  ? QrImageView(
+                                      data: deviceId,
+                                      version: QrVersions.auto,
+                                      size: 36,
+                                      padding: EdgeInsets.zero,
+                                      backgroundColor: Colors.white,
+                                    )
+                                  : const SizedBox.shrink(),
                             ),
-                            const Icon(Icons.copy,
-                                color: Colors.white70, size: 16),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text('Device QR',
+                                      style: TextStyle(
+                                          color: Colors.white70,
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.w700)),
+                                  Text(deviceId,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w800,
+                                          letterSpacing: 0.8,
+                                          fontSize: 12)),
+                                ],
+                              ),
+                            ),
+                            const Icon(Icons.fullscreen,
+                                color: Colors.white70, size: 20),
                           ],
                         ),
                       ),
@@ -265,7 +364,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     _ActionCard(
                       title: 'Notes',
-                      subtitle: 'Units · illustrated · practice link',
+                      subtitle: 'Units · illustrated · practice',
                       icon: Icons.auto_stories_rounded,
                       color: FourTheme.primary,
                       onTap: widget.onOpenNotes,
@@ -302,7 +401,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     if (widget.onOpenTools != null)
                       _ActionCard(
                         title: 'Tools',
-                        subtitle: 'Calculator · utilities',
+                        subtitle: 'Calculator · study tools',
                         icon: Icons.calculate_rounded,
                         color: const Color(0xFFF59E0B),
                         onTap: widget.onOpenTools!,
