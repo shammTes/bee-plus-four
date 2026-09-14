@@ -16,6 +16,7 @@ class ContentRepository {
   Map<String, List<IllustratedSlide>>? _slides;
   ExamCatalog? _exams;
   MatricBundle? _matric;
+  List<Map<String, dynamic>>? _flashcards;
   final _rng = Random();
 
   Future<void> preload() async {
@@ -25,16 +26,75 @@ class ContentRepository {
       allSlides(),
       examCatalog(),
       matricBundle(),
+      flashcards(),
     ]);
   }
 
   Future<List<UnitNote>> notes() async {
     if (_notes != null) return _notes!;
-    _notes = await _loadList(
-      'assets/content/unit_notes.json',
-      (e) => UnitNote.fromJson(e),
-    );
+    final byKey = <String, UnitNote>{};
+
+    Future<void> ingest(String path) async {
+      final list = await _loadList(path, (e) => UnitNote.fromJson(e));
+      for (final n in list) {
+        final k = '${n.grade}|${n.subject}|${n.unitNumber}';
+        // Prefer longer summary if duplicate
+        final prev = byKey[k];
+        if (prev == null || n.summary.length > prev.summary.length) {
+          byKey[k] = n;
+        }
+      }
+    }
+
+    await ingest('assets/content/unit_notes.json');
+    // Supplemental accuracy packs (G12 fill-in, English G9, etc.)
+    for (final pack in [
+      'assets/content/unit_notes_g12.json',
+      'assets/content/unit_notes_g9_english.json',
+      'assets/content/unit_notes_extra.json',
+    ]) {
+      try {
+        await ingest(pack);
+      } catch (_) {}
+    }
+
+    _notes = byKey.values.toList()
+      ..sort((a, b) {
+        final g = a.grade.compareTo(b.grade);
+        if (g != 0) return g;
+        final s = a.subject.compareTo(b.subject);
+        if (s != 0) return s;
+        return a.unitNumber.compareTo(b.unitNumber);
+      });
     return _notes!;
+  }
+
+  Future<List<Map<String, dynamic>>> flashcards() async {
+    if (_flashcards != null) return _flashcards!;
+    try {
+      final raw =
+          await rootBundle.loadString('assets/content/flashcards.json');
+      final decoded = jsonDecode(raw);
+      if (decoded is List) {
+        _flashcards = decoded
+            .whereType<Map>()
+            .map((e) => Map<String, dynamic>.from(e))
+            .toList();
+      } else {
+        _flashcards = [];
+      }
+    } catch (_) {
+      _flashcards = [];
+    }
+    return _flashcards!;
+  }
+
+  Future<List<Map<String, dynamic>>> flashcardsFor(
+      String grade, String subject) async {
+    final all = await flashcards();
+    return all
+        .where((c) => c['grade'] == grade && c['subject'] == subject)
+        .toList();
   }
 
   Future<List<PracticeQuestion>> questions() async {
@@ -110,7 +170,6 @@ class ContentRepository {
     Future<void> ingest(dynamic decoded) async {
       final b = MatricBundle.fromJson(decoded);
       for (final q in b.questions) {
-        // Prefer entries with verified keys over no-key duplicates
         final prev = byId[q.id];
         if (prev == null) {
           byId[q.id] = q;
@@ -120,14 +179,12 @@ class ContentRepository {
       }
     }
 
-    // Primary unified bank (from CI pack or repo)
     try {
       final raw =
           await rootBundle.loadString('assets/content/matric_questions.json');
       await ingest(jsonDecode(raw));
     } catch (_) {}
 
-    // Subject + year packs (accuracy-first incremental parses)
     const packs = [
       'matric_biology.json',
       'matric_chemistry.json',
