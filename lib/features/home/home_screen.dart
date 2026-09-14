@@ -6,6 +6,7 @@ import '../../core/content/content_repository.dart';
 import '../../core/licensing/unlock_store.dart';
 import '../../core/theme/four_theme.dart';
 import '../settings/settings_page.dart';
+import '../textbooks/textbooks_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
@@ -57,9 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
           'Quick path:\n'
           '1) Pick your grade on Home\n'
           '2) Notes → unit cards\n'
-          '3) Practice → unit mastery\n'
-          '4) Coach → quiz / notes / matric\n'
-          '5) Labs · Tools\n\n'
+          '3) Textbooks → full PDF books\n'
+          '4) Practice → unit mastery\n'
+          '5) Coach · Labs · Tools\n\n'
           'Show your Device QR to Bee Seller to unlock.\n'
           'Settings (gear) for dark mode and language.',
         ),
@@ -393,6 +394,19 @@ class _HomeScreenState extends State<HomeScreen> {
                       onTap: widget.onOpenNotes,
                     ),
                     _ActionCard(
+                      title: 'Textbooks',
+                      subtitle: 'G9–G12 offline PDF library',
+                      icon: Icons.menu_book_rounded,
+                      color: const Color(0xFF0F766E),
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => TextbooksScreen(
+                            initialGrade: widget.grade,
+                          ),
+                        ),
+                      ),
+                    ),
+                    _ActionCard(
                       title: 'Practice',
                       subtitle: 'Unit · multi · mastery',
                       icon: Icons.quiz_rounded,
@@ -416,7 +430,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     if (widget.onOpenLabs != null)
                       _ActionCard(
                         title: 'Virtual labs',
-                        subtitle: 'Physics · Chemistry · Biology',
+                        subtitle: 'PhET offline · Physics · Chem · Bio · Math',
                         icon: Icons.science_rounded,
                         color: const Color(0xFF0EA5E9),
                         onTap: widget.onOpenLabs!,
@@ -518,7 +532,7 @@ class _ActionCard extends StatelessWidget {
                     height: 44,
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(12),
+ imp: BorderRadius.circular(12),
                     ),
                     child: Icon(icon, color: Colors.white),
                   ),
