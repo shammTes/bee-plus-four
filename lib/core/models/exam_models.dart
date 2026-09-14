@@ -1,4 +1,4 @@
-/// Matric / model extracted question with explanations, unit links, similars.
+/// Matric / model / school extracted questions.
 class MatricQuestion {
   final String id;
   final String paperId;
@@ -260,6 +260,7 @@ class ExamCatalog {
   final String accuracyNote;
   final List<ExamPaper> matriculation;
   final List<ExamPaper> model;
+  final List<ExamPaper> school;
   final List<ModelExamYear> modelYears;
   final int defaultQuestionCount;
   final int secondsPerQuestion;
@@ -269,6 +270,7 @@ class ExamCatalog {
     required this.accuracyNote,
     required this.matriculation,
     this.model = const [],
+    this.school = const [],
     required this.modelYears,
     this.defaultQuestionCount = 20,
     this.secondsPerQuestion = 90,
@@ -287,6 +289,10 @@ class ExamCatalog {
           .whereType<Map>()
           .map((e) => ExamPaper.fromJson(Map<String, dynamic>.from(e)))
           .toList(),
+      school: ((j['school'] as List?) ?? const [])
+          .whereType<Map>()
+          .map((e) => ExamPaper.fromJson(Map<String, dynamic>.from(e)))
+          .toList(),
       modelYears: ((j['model_exam_years'] as List?) ?? const [])
           .map((e) => ModelExamYear.fromJson(e))
           .toList(),
@@ -294,9 +300,10 @@ class ExamCatalog {
           (defaults['question_count'] as num?)?.toInt() ?? 20,
       secondsPerQuestion:
           (defaults['seconds_per_question'] as num?)?.toInt() ?? 90,
-      gradesPriority: ((j['grades_priority'] as List?) ?? const ['G11', 'G10', 'G9'])
-          .map((e) => '$e')
-          .toList(),
+      gradesPriority:
+          ((j['grades_priority'] as List?) ?? const ['G11', 'G10', 'G9'])
+              .map((e) => '$e')
+              .toList(),
     );
   }
 }
