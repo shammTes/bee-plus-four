@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import '../../core/theme/four_theme.dart';
 import 'phet_sim_page.dart';
 
-/// PhET HTML5 labs for Physics · Chemistry · Biology · Math · Earth.
+/// Offline PhET HTML5 labs for Physics · Chemistry · Biology · Math · Earth.
 class VirtualLabScreen extends StatefulWidget {
   const VirtualLabScreen({super.key});
 
@@ -38,24 +38,21 @@ class _VirtualLabScreenState extends State<VirtualLabScreen>
       final raw =
           await rootBundle.loadString('assets/content/phet_catalog.json');
       final map = jsonDecode(raw) as Map<String, dynamic>;
-      final base = map['base_url'] as String? ??
-          'https://phet.colorado.edu/sims/html';
       final list = <_PhetSubject>[];
       for (final s in (map['subjects'] as List? ?? const [])) {
         final m = Map<String, dynamic>.from(s as Map);
         final sims = <_PhetSim>[];
         for (final sim in (m['sims'] as List? ?? const [])) {
           final sm = Map<String, dynamic>.from(sim as Map);
-          final id = '${sm['id']}';
+          final asset = '${sm['asset'] ?? ''}';
+          if (asset.isEmpty) continue;
           sims.add(_PhetSim(
-            id: id,
+            id: '${sm['id']}',
             title: '${sm['title']}',
-            topics: ((sm['topics'] as List?) ?? const [])
-                .map((e) => '$e')
-                .toList(),
-            url: '$base/$id/latest/${id}_en.html',
+            assetPath: asset,
           ));
         }
+        if (sims.isEmpty) continue;
         list.add(_PhetSubject(
           id: '${m['id']}',
           label: '${m['label']}',
@@ -81,7 +78,8 @@ class _VirtualLabScreenState extends State<VirtualLabScreen>
   void _open(_PhetSim sim) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) => PhetSimPage(title: sim.title, url: sim.url),
+        builder: (_) =>
+            PhetSimPage(title: sim.title, assetPath: sim.assetPath),
       ),
     );
   }
@@ -115,11 +113,15 @@ class _VirtualLabScreenState extends State<VirtualLabScreen>
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w900)),
-              const Text('PhET HTML5 · Physics · Chem · Bio · Math',
-                  style: TextStyle(color: Color(0xFFCCFBF1), fontSize: 13)),
-              const SizedBox(height: 4),
+              Text(
+                loading
+                    ? 'Loading PhET…'
+                    : 'Offline PhET HTML5 · ${subjects.fold<int>(0, (a, s) => a + s.sims.length)} sims',
+                style: const TextStyle(color: Color(0xFFCCFBF1), fontSize: 13),
+              ),
+              const SizedBox(height: 2),
               const Text(
-                'Internet needed to load sims (PhET Colorado)',
+                'Fully offline · no internet required',
                 style: TextStyle(color: Color(0xFF99F6E4), fontSize: 11),
               ),
               if (_tabs != null && subjects.isNotEmpty)
@@ -158,7 +160,7 @@ class _VirtualLabScreenState extends State<VirtualLabScreen>
                       return Padding(
                         padding: const EdgeInsets.fromLTRB(4, 4, 4, 12),
                         child: Text(
-                          '${subj.sims.length} PhET simulations · tap to open',
+                          '${subj.sims.length} offline simulations · tap to open',
                           style: TextStyle(
                             fontWeight: FontWeight.w700,
                             color: dark
@@ -173,18 +175,15 @@ class _VirtualLabScreenState extends State<VirtualLabScreen>
                       margin: const EdgeInsets.only(bottom: 8),
                       child: ListTile(
                         leading: CircleAvatar(
-                          backgroundColor: _colorFor(subj.id).withOpacity(0.15),
+                          backgroundColor:
+                              _colorFor(subj.id).withOpacity(0.15),
                           child: Icon(Icons.science,
                               color: _colorFor(subj.id), size: 20),
                         ),
                         title: Text(sim.title,
                             style:
                                 const TextStyle(fontWeight: FontWeight.w800)),
-                        subtitle: Text(
-                          sim.topics.join(' · '),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
+                        subtitle: const Text('Offline PhET HTML5'),
                         trailing: const Icon(Icons.play_circle_outline),
                         onTap: () => _open(sim),
                       ),
@@ -225,11 +224,9 @@ class _PhetSim {
   _PhetSim({
     required this.id,
     required this.title,
-    required this.topics,
-    required this.url,
+    required this.assetPath,
   });
   final String id;
   final String title;
-  final List<String> topics;
-  final String url;
+  final String assetPath;
 }

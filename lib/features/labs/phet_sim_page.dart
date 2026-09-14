@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-/// Full-screen PhET HTML5 simulation (needs network for first load).
+/// Offline PhET HTML5 simulation loaded from Flutter assets.
 class PhetSimPage extends StatefulWidget {
   const PhetSimPage({
     super.key,
     required this.title,
-    required this.url,
+    required this.assetPath,
   });
 
   final String title;
-  final String url;
+  /// e.g. assets/content/phet/ohms-law_all.html
+  final String assetPath;
 
   @override
   State<PhetSimPage> createState() => _PhetSimPageState();
@@ -29,18 +30,42 @@ class _PhetSimPageState extends State<PhetSimPage> {
       ..setBackgroundColor(const Color(0xFF0B1220))
       ..setNavigationDelegate(
         NavigationDelegate(
-          onPageStarted: (_) => setState(() {
-            _loading = true;
-            _error = null;
-          }),
-          onPageFinished: (_) => setState(() => _loading = false),
-          onWebResourceError: (e) => setState(() {
-            _loading = false;
-            _error = e.description;
-          }),
+          onPageStarted: (_) {
+            if (mounted) {
+              setState(() {
+                _loading = true;
+                _error = null;
+              });
+            }
+          },
+          onPageFinished: (_) {
+            if (mounted) setState(() => _loading = false);
+          },
+          onWebResourceError: (e) {
+            if (mounted) {
+              setState(() {
+                _loading = false;
+                _error = e.description;
+              });
+            }
+          },
         ),
-      )
-      ..loadRequest(Uri.parse(widget.url));
+      );
+    _loadAsset();
+  }
+
+  Future<void> _loadAsset() async {
+    try {
+      // Single-file PhET builds are self-contained HTML.
+      await _controller.loadFlutterAsset(widget.assetPath);
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _loading = false;
+          _error = 'Could not load offline sim.\n$e';
+        });
+      }
+    }
   }
 
   @override
@@ -52,7 +77,7 @@ class _PhetSimPageState extends State<PhetSimPage> {
         actions: [
           IconButton(
             tooltip: 'Reload',
-            onPressed: () => _controller.reload(),
+            onPressed: _loadAsset,
             icon: const Icon(Icons.refresh),
           ),
         ],
@@ -66,19 +91,15 @@ class _PhetSimPageState extends State<PhetSimPage> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.wifi_off, size: 48),
+                    const Icon(Icons.error_outline, size: 48),
                     const SizedBox(height: 12),
-                    const Text(
-                      'PhET needs internet the first time.\n'
-                      'Connect and tap Reload.',
+                    Text(
+                      _error!,
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 8),
-                    Text(_error!, textAlign: TextAlign.center,
-                        style: const TextStyle(fontSize: 12)),
                     const SizedBox(height: 16),
                     FilledButton(
-                      onPressed: () => _controller.reload(),
+                      onPressed: _loadAsset,
                       child: const Text('Retry'),
                     ),
                   ],
