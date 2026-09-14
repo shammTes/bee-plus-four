@@ -27,7 +27,7 @@ jobs:
       - name: Download full offline content pack
         run: |
           set -e
-          mkdir -p assets/content/textbooks assets/content/illustrated assets/content/illustrated/g6_math_ch1_webp assets/content/illustrated_pdf
+          mkdir -p assets/content/textbooks assets/content/illustrated assets/content/illustrated/g6_math_ch1_webp assets/content/illustrated_pdf assets/content/phet
           pip install -q gdown
           PACK_IDS="1zWHWp6S8R6KwZZLY1A1EwlulIe2Zx9Xa 1Bf_eqJ1BJkwOj-SSNBjmO8Om0e1TGI3B 1QrhYo3cnzTfaGuoLNEEAjrSyRAu59sZm 1J41cz00pHXvvaC1FSe_WZIHhGaCU4xUq"
           DOWNLOADED=0
@@ -84,6 +84,19 @@ jobs:
               break
             fi
           done
+          # Offline PhET HTML5 pack (~43MB compressed / ~130MB raw)
+          PHET_ID="1XF_Mkp2dsegVqe99Sh8IGEjpnWnJMLci"
+          rm -f /tmp/four_phet.tgz
+          python3 -m gdown "https://drive.google.com/uc?id=${PHET_ID}&confirm=t" -O /tmp/four_phet.tgz 2>/dev/null || \
+            curl -sSL -L "https://drive.google.com/uc?export=download&confirm=t&id=${PHET_ID}" -o /tmp/four_phet.tgz || true
+          if [ -f /tmp/four_phet.tgz ] && gzip -t /tmp/four_phet.tgz 2>/dev/null; then
+            echo "PhET pack OK ($(du -h /tmp/four_phet.tgz | cut -f1))"
+            mkdir -p assets/content
+            tar xzf /tmp/four_phet.tgz -C assets/content
+            ls assets/content/phet 2>/dev/null | wc -l
+          else
+            echo "::warning::PhET offline pack not downloaded — share Drive file as Anyone with the link"
+          fi
           test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
           test -f assets/content/practice_index.json || echo '{"files":["practice_lite.json"],"lite":"practice_lite.json"}' > assets/content/practice_index.json
           test -f assets/content/practice_lite.json || echo '[]' > assets/content/practice_lite.json
@@ -94,6 +107,7 @@ jobs:
           test -f assets/content/flashcards.json || echo '[]' > assets/content/flashcards.json
           test -f assets/content/textbooks_catalog.json || echo '{"book_count":0,"books":[]}' > assets/content/textbooks_catalog.json
           test -f assets/content/illustrated_catalog_hs.json || echo '{"deck_count":0,"decks":[]}' > assets/content/illustrated_catalog_hs.json
+          test -f assets/content/phet_catalog.json || echo '{"subjects":[]}' > assets/content/phet_catalog.json
           for g in g9 g10 g11 g12; do
             test -f assets/content/illustrated_catalog_${g}.json || echo '{"decks":[],"deck_count":0}' > assets/content/illustrated_catalog_${g}.json
           done
