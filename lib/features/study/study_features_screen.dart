@@ -8,6 +8,7 @@ import '../../core/models/content_models.dart';
 import '../../core/progress/mastery_store.dart';
 import '../../core/progress/study_log.dart';
 import '../../core/theme/four_theme.dart';
+import 'flashcards_page.dart';
 
 /// Hub for Daily 10, weakness, flashcards, Pomodoro, progress calendar.
 class StudyFeaturesScreen extends StatelessWidget {
@@ -62,13 +63,13 @@ class StudyFeaturesScreen extends StatelessWidget {
           context,
           Icons.style,
           AppStrings.flashcards,
-          AppStrings.flashcardsSub,
+          'Key terms · unit ideas · flip to study',
           FourTheme.violet,
           () => Navigator.push(
             context,
             MaterialPageRoute(
               builder: (_) =>
-                  FlashcardsScreen(grade: grade, subject: subject),
+                  FlashcardsPage(grade: grade, subject: subject),
             ),
           ),
         ),
@@ -226,9 +227,7 @@ class _Daily10ScreenState extends State<Daily10Screen> {
               child: ListTile(
                 title: Text(
                     '${String.fromCharCode(65 + oi)}. ${q.options[oi]}'),
-                onTap: revealed
-                    ? null
-                    : () => setState(() => sel = oi),
+                onTap: revealed ? null : () => setState(() => sel = oi),
                 selected: sel == oi,
               ),
             );
@@ -254,8 +253,7 @@ class _Daily10ScreenState extends State<Daily10Screen> {
             )
           else ...[
             if (q.explanation.isNotEmpty)
-              Text(q.explanation,
-                  style: const TextStyle(height: 1.4)),
+              Text(q.explanation, style: const TextStyle(height: 1.4)),
             const SizedBox(height: 8),
             FilledButton(
               onPressed: () => setState(() {
@@ -289,7 +287,9 @@ class WeaknessScreen extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(title: Text(AppStrings.weakness)),
           body: weak.isEmpty
-              ? Center(child: Text(AppStrings.loading))
+              ? const Center(
+                  child: Text('Practice more to build a weakness report.',
+                      style: TextStyle(color: FourTheme.muted)))
               : ListView.builder(
                   padding: const EdgeInsets.all(16),
                   itemCount: weak.length,
@@ -328,108 +328,6 @@ class WeaknessScreen extends StatelessWidget {
                 ),
         );
       },
-    );
-  }
-}
-
-class FlashcardsScreen extends StatefulWidget {
-  const FlashcardsScreen(
-      {super.key, required this.grade, required this.subject});
-  final String grade;
-  final String subject;
-
-  @override
-  State<FlashcardsScreen> createState() => _FlashcardsScreenState();
-}
-
-class _FlashcardsScreenState extends State<FlashcardsScreen> {
-  List<UnitNote> notes = [];
-  int i = 0;
-  bool back = false;
-
-  @override
-  void initState() {
-    super.initState();
-    ContentRepository.instance.notesFor(widget.grade, widget.subject).then((n) {
-      if (mounted) setState(() => notes = n);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(AppStrings.flashcards)),
-      body: notes.isEmpty
-          ? const Center(child: CircularProgressIndicator())
-          : GestureDetector(
-              onTap: () => setState(() => back = !back),
-              child: Padding(
-                padding: const EdgeInsets.all(24),
-                child: Column(
-                  children: [
-                    Text('${i + 1} / ${notes.length}'),
-                    const Spacer(),
-                    Container(
-                      width: double.infinity,
-                      height: 280,
-                      padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: back
-                              ? [const Color(0xFF0D9488), const Color(0xFF115E59)]
-                              : [const Color(0xFF7C3AED), const Color(0xFF5B21B6)],
-                        ),
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                      child: Center(
-                        child: Text(
-                          back
-                              ? (notes[i].summary.isEmpty
-                                  ? notes[i].title
-                                  : notes[i].summary)
-                              : 'U${notes[i].unitNumber}\n${notes[i].title}',
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w800,
-                            height: 1.35,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Spacer(),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: OutlinedButton(
-                            onPressed: i == 0
-                                ? null
-                                : () => setState(() {
-                                      i--;
-                                      back = false;
-                                    }),
-                            child: const Text('←'),
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: FilledButton(
-                            onPressed: i >= notes.length - 1
-                                ? null
-                                : () => setState(() {
-                                      i++;
-                                      back = false;
-                                    }),
-                            child: Text(AppStrings.next),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
     );
   }
 }
@@ -574,7 +472,7 @@ class _TimedMockScreenState extends State<TimedMockScreen> {
   List<PracticeQuestion> qs = [];
   int i = 0;
   int? sel;
-  int remaining = 90 * 60; // 90 min
+  int remaining = 90 * 60;
   Timer? t;
   int correct = 0;
   bool done = false;
@@ -599,7 +497,9 @@ class _TimedMockScreenState extends State<TimedMockScreen> {
         .where((q) =>
             q.grade == widget.grade && q.subject == widget.subject)
         .toList();
-    if (pool.isEmpty) pool = all.where((q) => q.subject == widget.subject).toList();
+    if (pool.isEmpty) {
+      pool = all.where((q) => q.subject == widget.subject).toList();
+    }
     pool.shuffle();
     setState(() => qs = pool.take(40).toList());
   }
@@ -615,7 +515,7 @@ class _TimedMockScreenState extends State<TimedMockScreen> {
     final mm = (remaining ~/ 60).toString().padLeft(2, '0');
     final ss = (remaining % 60).toString().padLeft(2, '0');
     if (done || (qs.isNotEmpty && i >= qs.length)) {
-      StudyLog.instance.markStudied(minutes: 30);
+      StudyLog.instance.markStudied(minutes: 90);
       return Scaffold(
         appBar: AppBar(title: Text(AppStrings.timedMock)),
         body: Center(
@@ -633,15 +533,13 @@ class _TimedMockScreenState extends State<TimedMockScreen> {
     }
     final q = qs[i];
     return Scaffold(
-      appBar: AppBar(
-        title: Text('$mm:$ss · ${i + 1}/${qs.length}'),
-      ),
+      appBar: AppBar(title: Text('$mm:$ss · ${i + 1}/${qs.length}')),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
           Text(q.prompt,
               style: const TextStyle(
-                  fontWeight: FontWeight.w700, fontSize: 16)),
+                  fontSize: 16, fontWeight: FontWeight.w700)),
           const SizedBox(height: 12),
           ...List.generate(q.options.length, (oi) {
             return Card(
