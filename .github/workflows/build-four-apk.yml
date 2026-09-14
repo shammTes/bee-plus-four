@@ -71,7 +71,7 @@ jobs:
           else
             echo "::warning::Drive pack not downloadable."
           fi
-          BANK_IDS="12lkX9Xr51qT2f4kxJyd8XfRR8tld0lPk 1iW_W13FvQ5t1TgWDOoXFHkY_Yuu86-x2 1vPElVBoHpAbwGtamCfV4VdQIQ8luxPId 1NT-WewVM8MLhTrUCZ_hmKPoOullU2fZR"
+          BANK_IDS="12L2lbcwQK5WVDytwRarbp99hMS_SkOGr 12lkX9Xr51qT2f4kxJyd8XfRR8tld0lPk 1iW_W13FvQ5t1TgWDOoXFHkY_Yuu86-x2 1vPElVBoHpAbwGtamCfV4VdQIQ8luxPId"
           for id in $BANK_IDS; do
             rm -f /tmp/four_bank.tgz
             python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_bank.tgz 2>/dev/null || \
