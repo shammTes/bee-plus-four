@@ -69,10 +69,9 @@ jobs:
               find /tmp/four_extract | head -40
             fi
           else
-            echo "::warning::Drive pack not downloadable. Share as Anyone with the link."
+            echo "::warning::Drive pack not downloadable."
           fi
-          # Overlay latest exam bank + notes packs (JSON)
-          BANK_IDS="1iW_W13FvQ5t1TgWDOoXFHkY_Yuu86-x2 1vPElVBoHpAbwGtamCfV4VdQIQ8luxPId 1NT-WewVM8MLhTrUCZ_hmKPoOullU2fZR"
+          BANK_IDS="12lkX9Xr51qT2f4kxJyd8XfRR8tld0lPk 1iW_W13FvQ5t1TgWDOoXFHkY_Yuu86-x2 1vPElVBoHpAbwGtamCfV4VdQIQ8luxPId 1NT-WewVM8MLhTrUCZ_hmKPoOullU2fZR"
           for id in $BANK_IDS; do
             rm -f /tmp/four_bank.tgz
             python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_bank.tgz 2>/dev/null || \
@@ -81,7 +80,6 @@ jobs:
               echo "Bank overlay OK $id ($(du -h /tmp/four_bank.tgz | cut -f1))"
               mkdir -p /tmp/bank_extract
               tar xzf /tmp/four_bank.tgz -C /tmp/bank_extract
-              # files may be at root or under content/
               find /tmp/bank_extract -type f -name '*.json' -exec cp -f {} assets/content/ \;
               break
             fi
