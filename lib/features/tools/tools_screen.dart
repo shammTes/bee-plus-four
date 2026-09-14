@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/l10n/app_strings.dart';
-import '../../core/settings/app_settings.dart';
 import '../../core/theme/four_theme.dart';
 import '../study/study_features_screen.dart';
 
@@ -24,7 +23,8 @@ class _ToolsScreenState extends State<ToolsScreen>
   @override
   void initState() {
     super.initState();
-    _tabs = TabController(length: 3, vsync: this);
+    // Study first, then Calculator
+    _tabs = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -63,7 +63,8 @@ class _ToolsScreenState extends State<ToolsScreen>
 
   String _eval(String raw) {
     try {
-      var s = raw.replaceAll('×', '*').replaceAll('÷', '/').replaceAll('−', '-');
+      var s =
+          raw.replaceAll('×', '*').replaceAll('÷', '/').replaceAll('−', '-');
       if (s.isEmpty) return '0';
       for (final op in ['+', '-', '*', '/']) {
         if (!s.contains(op)) continue;
@@ -97,7 +98,7 @@ class _ToolsScreenState extends State<ToolsScreen>
         }
         return acc == acc.roundToDouble()
             ? acc.toInt().toString()
-            : acc.toStringAsFixed(6).replaceAll(RegExp(r'\.?0+\$'), '');
+            : acc.toStringAsFixed(6).replaceAll(RegExp(r'\.?0+$'), '');
       }
       return double.parse(s).toString();
     } catch (_) {
@@ -106,16 +107,18 @@ class _ToolsScreenState extends State<ToolsScreen>
   }
 
   Widget _key(String label, {Color? bg, Color? fg, int flex = 1}) {
+    final dark = Theme.of(context).brightness == Brightness.dark;
     return Expanded(
       flex: flex,
       child: Padding(
-        padding: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(4),
         child: Material(
-          color: bg ?? const Color(0xFF1E293B),
-          borderRadius: BorderRadius.circular(16),
+          color: bg ??
+              (dark ? const Color(0xFF1A2332) : const Color(0xFF1E293B)),
+          borderRadius: BorderRadius.circular(14),
           child: InkWell(
-            borderRadius: BorderRadius.circular(16),
             onTap: () => _tap(label),
+            borderRadius: BorderRadius.circular(14),
             child: SizedBox(
               height: 56,
               child: Center(
@@ -136,37 +139,40 @@ class _ToolsScreenState extends State<ToolsScreen>
   @override
   Widget build(BuildContext context) {
     final top = MediaQuery.paddingOf(context).top;
+    final dark = Theme.of(context).brightness == Brightness.dark;
+
     return Column(
       children: [
         Container(
           width: double.infinity,
-          padding: EdgeInsets.fromLTRB(16, top + 10, 16, 0),
-          decoration: const BoxDecoration(
+          padding: EdgeInsets.fromLTRB(16, top + 10, 16, 8),
+          decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF0F172A), Color(0xFF1E293B)],
+              colors: dark
+                  ? const [Color(0xFF083344), Color(0xFF312E81)]
+                  : const [Color(0xFF0F766E), Color(0xFF0E7490)],
             ),
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(24),
+              bottomRight: Radius.circular(24),
             ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(AppStrings.tools,
-                  style: const TextStyle(
+              const Text('Tools',
+                  style: TextStyle(
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w900)),
               TabBar(
                 controller: _tabs,
                 labelColor: Colors.white,
-                unselectedLabelColor: Colors.white60,
+                unselectedLabelColor: Colors.white70,
                 indicatorColor: const Color(0xFFFBBF24),
-                tabs: [
-                  Tab(text: AppStrings.tools),
-                  const Tab(text: 'Study'),
-                  Tab(text: AppStrings.settings),
+                tabs: const [
+                  Tab(text: 'Study'),
+                  Tab(text: 'Calculator'),
                 ],
               ),
             ],
@@ -176,10 +182,9 @@ class _ToolsScreenState extends State<ToolsScreen>
           child: TabBarView(
             controller: _tabs,
             children: [
-              _calculator(),
               StudyFeaturesScreen(
                   grade: widget.grade, subject: widget.subject),
-              _settings(),
+              _calculator(),
             ],
           ),
         ),
@@ -188,16 +193,22 @@ class _ToolsScreenState extends State<ToolsScreen>
   }
 
   Widget _calculator() {
+    final dark = Theme.of(context).brightness == Brightness.dark;
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
+        const Text('Calculator',
+            style: TextStyle(fontWeight: FontWeight.w900, fontSize: 18)),
+        const SizedBox(height: 12),
         Container(
           width: double.infinity,
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: const Color(0xFF020617),
-            borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: const Color(0xFF334155)),
+            color: dark ? const Color(0xFF0B1220) : const Color(0xFF0F172A),
+            borderRadius: BorderRadius.circular(18),
+            border: dark
+                ? Border.all(color: FourTheme.darkBorder)
+                : null,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -243,44 +254,6 @@ class _ToolsScreenState extends State<ToolsScreen>
           _key('.'),
           _key('=', bg: const Color(0xFFFBBF24), fg: const Color(0xFF0F172A)),
         ]),
-      ],
-    );
-  }
-
-  Widget _settings() {
-    final s = AppSettings.instance;
-    return ListView(
-      padding: const EdgeInsets.all(16),
-      children: [
-        SwitchListTile(
-          title: Text(AppStrings.darkMode,
-              style: const TextStyle(fontWeight: FontWeight.w800)),
-          value: s.darkMode,
-          onChanged: (v) async {
-            await s.setDark(v);
-            setState(() {});
-          },
-        ),
-        const Divider(),
-        Text(AppStrings.language,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
-        const SizedBox(height: 8),
-        SegmentedButton<bool>(
-          segments: [
-            ButtonSegment(value: false, label: Text(AppStrings.english)),
-            ButtonSegment(value: true, label: Text(AppStrings.tigrinyaLabel)),
-          ],
-          selected: {s.tigrinya},
-          onSelectionChanged: (set) async {
-            await s.setTigrinya(set.first);
-            setState(() {});
-          },
-        ),
-        const SizedBox(height: 24),
-        Text(AppStrings.about,
-            style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 16)),
-        const SizedBox(height: 8),
-        Text(AppStrings.developedBy, style: const TextStyle(height: 1.5)),
       ],
     );
   }
