@@ -11,12 +11,17 @@ import 'features/shell/app_shell.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Hive.initFlutter();
+  await AppSettings.instance.init();
   await UnlockStore.instance.init();
   await MasteryStore.instance.init();
   await StudyLog.instance.init();
-  await AppSettings.instance.init();
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
+    ),
+  );
   runApp(const FourApp());
 }
 
@@ -33,14 +38,7 @@ class FourApp extends StatelessWidget {
           title: '4',
           debugShowCheckedModeBanner: false,
           theme: FourTheme.highschool,
-          darkTheme: ThemeData(
-            useMaterial3: true,
-            brightness: Brightness.dark,
-            colorScheme: ColorScheme.fromSeed(
-              seedColor: FourTheme.primary,
-              brightness: Brightness.dark,
-            ),
-          ),
+          darkTheme: FourTheme.highschoolDark,
           themeMode: dark ? ThemeMode.dark : ThemeMode.light,
           home: const AppShell(),
         );

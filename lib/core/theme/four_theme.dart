@@ -23,10 +23,27 @@ class FourTheme {
   static const Color glass = Color(0xCCFFFFFF);
   static const Color glassDark = Color(0x990F172A);
 
+  // Modern dark palette (not muddy gray)
+  static const Color darkBg = Color(0xFF0B1220);
+  static const Color darkSurface = Color(0xFF111827);
+  static const Color darkCard = Color(0xFF1A2332);
+  static const Color darkBorder = Color(0xFF2A3648);
+  static const Color darkText = Color(0xFFF1F5F9);
+  static const Color darkMuted = Color(0xFF94A3B8);
+  static const Color darkCyan = Color(0xFF22D3EE);
+  static const Color darkViolet = Color(0xFFA78BFA);
+  static const Color darkAmber = Color(0xFFFBBF24);
+
   static const LinearGradient heroGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [Color(0xFF0E7490), Color(0xFF4F46E5), Color(0xFF7C3AED)],
+  );
+
+  static const LinearGradient heroGradientDark = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xFF083344), Color(0xFF312E81), Color(0xFF4C1D95)],
   );
 
   static const LinearGradient cardGradient = LinearGradient(
@@ -69,9 +86,16 @@ class FourTheme {
         margin: EdgeInsets.zero,
       ),
       chipTheme: base.chipTheme.copyWith(
-        labelStyle: const TextStyle(fontWeight: FontWeight.w700, fontSize: 12),
+        labelStyle: const TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 12,
+          color: Color(0xFF0F172A),
+        ),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        side: const BorderSide(color: Color(0xFFE2E8F0)),
+        selectedColor: const Color(0xFFFBBF24),
+        backgroundColor: Colors.white,
       ),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: Colors.white.withOpacity(0.92),
@@ -80,7 +104,7 @@ class FourTheme {
           final selected = s.contains(WidgetState.selected);
           return TextStyle(
             fontSize: 11,
-            fontWeight: selected ? FontWeight.w800 : FontWeight.w600,
+            fontWeight: FontWeight.w800,
             color: selected ? primaryDark : muted,
           );
         }),
@@ -88,30 +112,122 @@ class FourTheme {
           final selected = s.contains(WidgetState.selected);
           return IconThemeData(
             color: selected ? primaryDark : muted,
-            size: 24,
           );
         }),
-        height: 68,
-        elevation: 8,
-        shadowColor: Colors.black26,
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           backgroundColor: primaryDark,
           foregroundColor: Colors.white,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
           textStyle: const TextStyle(fontWeight: FontWeight.w800),
         ),
       ),
-      inputDecorationTheme: InputDecorationTheme(
-        filled: true,
-        fillColor: Colors.white.withOpacity(0.9),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide.none,
+    );
+  }
+
+  /// Modern dark — deep navy + cyan/violet accents (not flat gray).
+  static ThemeData get highschoolDark {
+    final base = ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.dark,
+      colorScheme: const ColorScheme.dark(
+        primary: darkCyan,
+        onPrimary: Color(0xFF083344),
+        secondary: darkAmber,
+        onSecondary: Color(0xFF0F172A),
+        tertiary: darkViolet,
+        surface: darkSurface,
+        onSurface: darkText,
+        error: Color(0xFFFB7185),
+        outline: darkBorder,
+      ),
+      scaffoldBackgroundColor: darkBg,
+    );
+    return base.copyWith(
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
+        foregroundColor: darkText,
+        elevation: 0,
+        centerTitle: false,
+        titleTextStyle: TextStyle(
+          color: darkText,
+          fontSize: 18,
+          fontWeight: FontWeight.w800,
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      ),
+      cardTheme: CardThemeData(
+        color: darkCard,
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: const BorderSide(color: darkBorder),
+        ),
+        margin: EdgeInsets.zero,
+      ),
+      chipTheme: base.chipTheme.copyWith(
+        labelStyle: const TextStyle(
+          fontWeight: FontWeight.w800,
+          fontSize: 12,
+          color: darkText,
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        side: const BorderSide(color: darkBorder),
+        selectedColor: const Color(0xFF155E75),
+        backgroundColor: darkCard,
+        checkmarkColor: darkCyan,
+      ),
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: const Color(0xEE0B1220),
+        indicatorColor: const Color(0xFF164E63),
+        labelTextStyle: WidgetStateProperty.resolveWith((s) {
+          final selected = s.contains(WidgetState.selected);
+          return TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.w800,
+            color: selected ? darkCyan : darkMuted,
+          );
+        }),
+        iconTheme: WidgetStateProperty.resolveWith((s) {
+          final selected = s.contains(WidgetState.selected);
+          return IconThemeData(
+            color: selected ? darkCyan : darkMuted,
+          );
+        }),
+      ),
+      filledButtonTheme: FilledButtonThemeData(
+        style: FilledButton.styleFrom(
+          backgroundColor: darkCyan,
+          foregroundColor: const Color(0xFF083344),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+          textStyle: const TextStyle(fontWeight: FontWeight.w900),
+        ),
+      ),
+      dialogTheme: DialogThemeData(
+        backgroundColor: darkCard,
+        titleTextStyle: const TextStyle(
+          color: darkText,
+          fontWeight: FontWeight.w900,
+          fontSize: 18,
+        ),
+      ),
+      switchTheme: SwitchThemeData(
+        thumbColor: WidgetStateProperty.resolveWith(
+            (s) => s.contains(WidgetState.selected) ? darkCyan : darkMuted),
+        trackColor: WidgetStateProperty.resolveWith((s) =>
+            s.contains(WidgetState.selected)
+                ? const Color(0xFF155E75)
+                : darkBorder),
+      ),
+      dividerColor: darkBorder,
+      listTileTheme: const ListTileThemeData(
+        textColor: darkText,
+        iconColor: darkCyan,
       ),
     );
   }
@@ -119,27 +235,20 @@ class FourTheme {
   static Widget glassPanel({
     required Widget child,
     EdgeInsetsGeometry padding = const EdgeInsets.all(14),
-    BorderRadius? radius,
-    Color? tint,
+    bool dark = false,
   }) {
-    final r = radius ?? BorderRadius.circular(20);
     return ClipRRect(
-      borderRadius: r,
+      borderRadius: BorderRadius.circular(18),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 14, sigmaY: 14),
+        filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
         child: Container(
           padding: padding,
           decoration: BoxDecoration(
-            color: tint ?? glass,
-            borderRadius: r,
-            border: Border.all(color: Colors.white.withOpacity(0.55)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.06),
-                blurRadius: 18,
-                offset: const Offset(0, 8),
-              ),
-            ],
+            color: dark ? const Color(0x661A2332) : glass,
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(
+              color: dark ? darkBorder : const Color(0x66FFFFFF),
+            ),
           ),
           child: child,
         ),
