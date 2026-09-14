@@ -15,8 +15,8 @@ class ExamsScreen extends StatefulWidget {
 class _ExamsScreenState extends State<ExamsScreen> {
   ExamCatalog? catalog;
   MatricBundle? bank;
+  String? subjectFilter;
   bool loading = true;
-  String subjectFilter = 'ALL';
 
   @override
   void initState() {
@@ -35,28 +35,32 @@ class _ExamsScreenState extends State<ExamsScreen> {
     });
   }
 
-  List<ExamPaper> get papers {
-    final list = catalog?.matriculation ?? const <ExamPaper>[];
-    if (subjectFilter == 'ALL') return list;
-    return list.where((p) => p.mappedSubject == subjectFilter).toList();
-  }
-
   @override
   Widget build(BuildContext context) {
     final top = MediaQuery.paddingOf(context).top;
+    final matric = catalog?.matriculation ?? const <ExamPaper>[];
+    final model = catalog?.model ?? const <ExamPaper>[];
     final subjects = <String>{
-      'ALL',
-      ...?catalog?.matriculation.map((p) => p.mappedSubject),
-    }.toList();
+      ...matric.map((p) => p.mappedSubject),
+      ...model.map((p) => p.mappedSubject),
+    }.where((s) => s.isNotEmpty).toList()
+      ..sort();
+
+    List<ExamPaper> filter(List<ExamPaper> list) {
+      if (subjectFilter == null) return list;
+      return list
+          .where((p) => p.mappedSubject == subjectFilter)
+          .toList();
+    }
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Container(
-          padding: EdgeInsets.fromLTRB(20, top + 12, 20, 16),
+          width: double.infinity,
+          padding: EdgeInsets.fromLTRB(16, top + 10, 16, 14),
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFFD97706), Color(0xFFB45309)],
+              colors: [Color(0xFFEA580C), Color(0xFFC2410C)],
             ),
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(24),
@@ -70,38 +74,49 @@ class _ExamsScreenState extends State<ExamsScreen> {
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 22,
-                      fontWeight: FontWeight.w800)),
-              const SizedBox(height: 4),
+                      fontWeight: FontWeight.w900)),
               Text(
-                '${bank?.questions.length ?? 0} questions · subject + year',
-                style: const TextStyle(color: Color(0xFFFFEDD5), fontSize: 13),
+                loading
+                    ? 'Loading…'
+                    : '${bank?.questions.length ?? 0} questions · ${matric.length} matric · ${model.length} model',
+                style: const TextStyle(color: Color(0xFFFED7AA), fontSize: 13),
               ),
               const SizedBox(height: 10),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: subjects.map((s) {
-                    final label = s == 'ALL'
-                        ? 'All'
-                        : s.replaceAll('_', ' ');
-                    final sel = s == subjectFilter;
-                    return Padding(
+                  children: [
+                    Padding(
                       padding: const EdgeInsets.only(right: 6),
                       child: ChoiceChip(
-                        label: Text(label),
-                        selected: sel,
+                        label: const Text('All'),
+                        selected: subjectFilter == null,
                         onSelected: (_) =>
-                            setState(() => subjectFilter = s),
+                            setState(() => subjectFilter = null),
                         selectedColor: const Color(0xFFFBBF24),
                         backgroundColor: Colors.white,
                         labelStyle: const TextStyle(
                           color: Color(0xFF0F172A),
                           fontWeight: FontWeight.w900,
-                          fontSize: 12,
                         ),
                       ),
-                    );
-                  }).toList(),
+                    ),
+                    ...subjects.map((s) => Padding(
+                          padding: const EdgeInsets.only(right: 6),
+                          child: ChoiceChip(
+                            label: Text(s.replaceAll('_', ' ')),
+                            selected: subjectFilter == s,
+                            onSelected: (_) =>
+                                setState(() => subjectFilter = s),
+                            selectedColor: const Color(0xFFFBBF24),
+                            backgroundColor: Colors.white,
+                            labelStyle: const TextStyle(
+                              color: Color(0xFF0F172A),
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                        )),
+                  ],
                 ),
               ),
             ],
@@ -116,81 +131,73 @@ class _ExamsScreenState extends State<ExamsScreen> {
               children: [
                 const Text('Matriculation',
                     style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w800,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w900,
                         color: FourTheme.ink)),
-                const SizedBox(height: 4),
-                const Text('Titles show Subject and Year only',
-                    style: TextStyle(color: FourTheme.muted, fontSize: 12)),
-                const SizedBox(height: 10),
-                ...papers.map((p) => Card(
-                      margin: const EdgeInsets.only(bottom: 8),
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: FourTheme.primarySoft,
-                          child: Text('${p.year % 100}',
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  color: FourTheme.primaryDark,
-                                  fontSize: 12)),
-                        ),
-                        // ONLY subject + year
-                        title: Text(
-                          p.shortTitle,
-                          style: const TextStyle(fontWeight: FontWeight.w800),
-                        ),
-                        subtitle: Text(
-                          p.questionCount > 0
-                              ? '${p.questionCount} questions'
-                              : 'Interactive',
-                        ),
-                        trailing: const Icon(Icons.play_circle_outline,
-                            color: FourTheme.primary),
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (_) => MatricPracticeScreen(
-                              subjectFilter: p.mappedSubject,
-                              yearFilter: p.year,
-                              title: p.shortTitle,
-                            ),
-                          ),
-                        ),
-                      ),
-                    )),
+                const SizedBox(height: 8),
+                ...filter(matric).map((p) => _PaperTile(paper: p)),
                 const SizedBox(height: 20),
-                const Text('Model & school exams',
+                const Text('Model exams',
                     style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w800,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w900,
                         color: FourTheme.ink)),
                 const SizedBox(height: 4),
                 const Text(
-                  'Catalogue folders — interactive JSON continues to grow as papers are parsed',
+                  'Subject + year · interactive practice',
                   style: TextStyle(color: FourTheme.muted, fontSize: 12),
                 ),
-                const SizedBox(height: 10),
-                ...?catalog?.modelYears.map((y) => Card(
-                      margin: const EdgeInsets.only(bottom: 8),
-                      child: ListTile(
-                        leading: Icon(
-                          y.type == 'school'
-                              ? Icons.school_outlined
-                              : Icons.folder_special_outlined,
-                          color: FourTheme.primary,
-                        ),
-                        title: Text(y.label,
-                            style:
-                                const TextStyle(fontWeight: FontWeight.w700)),
-                        subtitle: Text(y.type == 'school'
-                            ? 'School exam'
-                            : 'Model exam year'),
-                      ),
-                    )),
+                const SizedBox(height: 8),
+                if (filter(model).isEmpty)
+                  const Text('Model papers still loading into pack.',
+                      style: TextStyle(color: FourTheme.muted))
+                else
+                  ...filter(model).map((p) => _PaperTile(paper: p)),
                 const SizedBox(height: 24),
               ],
             ),
           ),
       ],
+    );
+  }
+}
+
+class _PaperTile extends StatelessWidget {
+  const _PaperTile({required this.paper});
+  final ExamPaper paper;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 8),
+      child: ListTile(
+        leading: Icon(
+          paper.type == 'model' ? Icons.folder_special : Icons.assignment,
+          color: paper.type == 'model'
+              ? const Color(0xFF7C3AED)
+              : FourTheme.primary,
+        ),
+        title: Text(
+          paper.shortTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
+        subtitle: Text(
+          paper.questionCount > 0
+              ? '${paper.questionCount} questions'
+              : 'Interactive',
+        ),
+        trailing: const Icon(Icons.play_circle_outline,
+            color: FourTheme.primary),
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => MatricPracticeScreen(
+              subjectFilter: paper.mappedSubject,
+              yearFilter: paper.year,
+              title: paper.shortTitle,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
