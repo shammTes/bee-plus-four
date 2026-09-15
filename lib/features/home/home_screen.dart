@@ -532,7 +532,7 @@ class _ActionCard extends StatelessWidget {
                     height: 44,
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.2),
- imp: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12),
                     ),
                     child: Icon(icon, color: Colors.white),
                   ),
