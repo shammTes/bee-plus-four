@@ -6,8 +6,9 @@ import '../../core/content/content_repository.dart';
 import '../../core/licensing/unlock_store.dart';
 import '../../core/theme/four_theme.dart';
 import '../settings/settings_page.dart';
-import '../textbooks/textbooks_screen.dart';
 
+/// Home focuses on: pick grade + open Matriculation exams.
+/// Other features stay one tap away in a compact row.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
@@ -55,14 +56,11 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (ctx) => AlertDialog(
         title: const Text('Welcome to 4'),
         content: const Text(
-          'Quick path:\n'
-          '1) Pick your grade on Home\n'
-          '2) Notes → unit cards\n'
-          '3) Textbooks → full PDF books\n'
-          '4) Practice → unit mastery\n'
-          '5) Coach · Labs · Tools\n\n'
-          'Show your Device QR to Bee Seller to unlock.\n'
-          'Settings (gear) for dark mode and language.',
+          'Fast path:\n'
+          '1) Pick your grade\n'
+          '2) Open Matriculation exams\n'
+          '3) Or Notes / Practice from the bottom row\n\n'
+          'Show your Device QR to Bee Seller to unlock.',
         ),
         actions: [
           FilledButton(
@@ -168,11 +166,6 @@ class _HomeScreenState extends State<HomeScreen> {
             Text('Device ID: $deviceId',
                 style: const TextStyle(
                     fontWeight: FontWeight.w800, letterSpacing: 0.5)),
-            const SizedBox(height: 8),
-            const Text(
-              'Offline high-school study · G9–G12 · Eritrea curriculum focus.',
-              style: TextStyle(color: FourTheme.muted),
-            ),
           ],
         ),
       ),
@@ -183,17 +176,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final repo = ContentRepository.instance;
     final dark = Theme.of(context).brightness == Brightness.dark;
+
     return FutureBuilder(
-      future: Future.wait([
-        repo.notes(),
-        repo.questions(),
-        repo.matricBundle(),
-      ]),
+      future: repo.matricBundle(),
       builder: (context, snap) {
-        final noteCount = snap.hasData ? (snap.data![0] as List).length : '—';
-        final qCount = snap.hasData ? (snap.data![1] as List).length : '—';
         final matricCount =
-            snap.hasData ? (snap.data![2] as dynamic).questions.length : '—';
+            snap.hasData ? (snap.data as dynamic).questions.length : '—';
 
         return Container(
           decoration: BoxDecoration(
@@ -215,6 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           child: ListView(
             children: [
+              // Hero
               Container(
                 decoration: BoxDecoration(
                   gradient: dark
@@ -273,180 +262,257 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 14),
+                    const SizedBox(height: 16),
                     const Text('4',
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 34,
+                            fontSize: 36,
                             fontWeight: FontWeight.w900,
                             letterSpacing: -0.5)),
-                    const SizedBox(height: 4),
-                    const Text('Study · Practice · Master',
+                    const Text('Pick grade · open matric exams',
                         style: TextStyle(
                             color: Color(0xFFCCFBF1),
                             fontSize: 14,
                             fontWeight: FontWeight.w600)),
-                    const SizedBox(height: 12),
+                    const SizedBox(height: 14),
+                    // Compact device QR strip
                     GestureDetector(
                       onTap: _showDeviceQr,
                       child: Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 10),
+                            horizontal: 12, vertical: 8),
                         decoration: BoxDecoration(
                           color: Colors.black.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(14),
+                          borderRadius: BorderRadius.circular(12),
                           border: Border.all(color: Colors.white24),
                         ),
                         child: Row(
                           children: [
-                            Container(
-                              width: 44,
-                              height: 44,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              padding: const EdgeInsets.all(4),
-                              child: deviceId.length > 2
-                                  ? QrImageView(
-                                      data: deviceId,
-                                      version: QrVersions.auto,
-                                      size: 36,
-                                      padding: EdgeInsets.zero,
-                                      backgroundColor: Colors.white,
-                                    )
-                                  : const SizedBox.shrink(),
-                            ),
-                            const SizedBox(width: 12),
+                            const Icon(Icons.qr_code_2,
+                                color: Colors.white, size: 22),
+                            const SizedBox(width: 10),
                             Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text('Device QR',
-                                      style: TextStyle(
-                                          color: Colors.white70,
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.w700)),
-                                  Text(deviceId,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w800,
-                                          letterSpacing: 0.8,
-                                          fontSize: 12)),
-                                ],
+                              child: Text(
+                                deviceId,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 12,
+                                    letterSpacing: 0.6),
                               ),
                             ),
-                            const Icon(Icons.fullscreen,
-                                color: Colors.white70, size: 20),
+                            const Text('Unlock',
+                                style: TextStyle(
+                                    color: Color(0xFFFBBF24),
+                                    fontWeight: FontWeight.w900,
+                                    fontSize: 12)),
                           ],
                         ),
                       ),
                     ),
-                    const SizedBox(height: 14),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: ['G9', 'G10', 'G11', 'G12'].map((g) {
-                          final sel = g == widget.grade;
-                          return Padding(
-                            padding: const EdgeInsets.only(right: 8),
-                            child: ChoiceChip(
-                              label: Text(g),
-                              selected: sel,
-                              onSelected: (_) => widget.onGrade(g),
-                              selectedColor: const Color(0xFFFBBF24),
-                              backgroundColor: Colors.white,
-                              labelStyle: const TextStyle(
-                                color: Color(0xFF0F172A),
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                          );
-                        }).toList(),
-                      ),
-                    ),
                   ],
                 ),
               ),
+
+              // Grades — primary
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-                child: Row(
-                  children: [
-                    _StatTile(label: 'Notes', value: '$noteCount'),
-                    const SizedBox(width: 8),
-                    _StatTile(label: 'Practice', value: '$qCount'),
-                    const SizedBox(width: 8),
-                    _StatTile(label: 'Matric', value: '$matricCount'),
-                  ],
+                padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
+                child: Text(
+                  'Your grade',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 15,
+                    color: dark ? FourTheme.darkText : FourTheme.ink,
+                  ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Column(
-                  children: [
-                    _ActionCard(
-                      title: 'Notes',
-                      subtitle: 'Units · illustrated · practice',
-                      icon: Icons.auto_stories_rounded,
-                      color: FourTheme.primary,
-                      onTap: widget.onOpenNotes,
-                    ),
-                    _ActionCard(
-                      title: 'Textbooks',
-                      subtitle: 'G9–G12 offline PDF library',
-                      icon: Icons.menu_book_rounded,
-                      color: const Color(0xFF0F766E),
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => TextbooksScreen(
-                            initialGrade: widget.grade,
+                child: Row(
+                  children: ['G9', 'G10', 'G11', 'G12'].map((g) {
+                    final sel = g == widget.grade;
+                    return Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        child: Material(
+                          color: sel
+                              ? const Color(0xFFFBBF24)
+                              : (dark
+                                  ? const Color(0xFF1E293B)
+                                  : Colors.white),
+                          borderRadius: BorderRadius.circular(16),
+                          elevation: sel ? 2 : 0,
+                          child: InkWell(
+                            borderRadius: BorderRadius.circular(16),
+                            onTap: () => widget.onGrade(g),
+                            child: Container(
+                              height: 64,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                border: Border.all(
+                                  color: sel
+                                      ? const Color(0xFFF59E0B)
+                                      : (dark
+                                          ? Colors.white12
+                                          : const Color(0xFFE2E8F0)),
+                                ),
+                              ),
+                              child: Text(
+                                g,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w900,
+                                  color: sel
+                                      ? const Color(0xFF0F172A)
+                                      : (dark
+                                          ? Colors.white
+                                          : const Color(0xFF0F172A)),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
+                    );
+                  }).toList(),
+                ),
+              ),
+
+              // Matriculation — primary CTA
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
+                child: Text(
+                  'Matriculation exams',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 15,
+                    color: dark ? FourTheme.darkText : FourTheme.ink,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(22),
+                    onTap: widget.onOpenExams,
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [Color(0xFF7C3AED), Color(0xFF4F46E5)],
+                        ),
+                        borderRadius: BorderRadius.circular(22),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFF7C3AED).withOpacity(0.35),
+                            blurRadius: 16,
+                            offset: const Offset(0, 8),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 22, 20, 22),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 56,
+                              height: 56,
+                              decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              child: const Icon(Icons.assignment_rounded,
+                                  color: Colors.white, size: 30),
+                            ),
+                            const SizedBox(width: 16),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    'Matriculation',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w900,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    '$matricCount questions · subject · year',
+                                    style: const TextStyle(
+                                      color: Color(0xFFE9D5FF),
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                  const Text(
+                                    'Tap to browse papers',
+                                    style: TextStyle(
+                                      color: Color(0xFFC4B5FD),
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const Icon(Icons.arrow_forward_ios,
+                                color: Colors.white, size: 18),
+                          ],
+                        ),
+                      ),
                     ),
-                    _ActionCard(
-                      title: 'Practice',
-                      subtitle: 'Unit · multi · mastery',
-                      icon: Icons.quiz_rounded,
-                      color: FourTheme.violet,
-                      onTap: widget.onOpenPractice,
-                    ),
-                    _ActionCard(
-                      title: 'Coach',
-                      subtitle: 'Notes · quiz · matric mode',
-                      icon: Icons.smart_toy_rounded,
-                      color: FourTheme.accentDeep,
-                      onTap: widget.onOpenBot,
-                    ),
-                    _ActionCard(
-                      title: 'Exams',
-                      subtitle: 'Matriculation · model papers',
-                      icon: Icons.assignment_rounded,
-                      color: FourTheme.mint,
-                      onTap: widget.onOpenExams,
-                    ),
+                  ),
+                ),
+              ),
+
+              // Secondary row — still available, not cluttered
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 22, 16, 8),
+                child: Text(
+                  'Also',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 13,
+                    color: dark ? FourTheme.darkMuted : FourTheme.muted,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 0, 12, 28),
+                child: Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    _MiniChip(
+                        icon: Icons.auto_stories_rounded,
+                        label: 'Notes',
+                        onTap: widget.onOpenNotes),
+                    _MiniChip(
+                        icon: Icons.quiz_rounded,
+                        label: 'Practice',
+                        onTap: widget.onOpenPractice),
+                    _MiniChip(
+                        icon: Icons.smart_toy_rounded,
+                        label: 'Coach',
+                        onTap: widget.onOpenBot),
                     if (widget.onOpenLabs != null)
-                      _ActionCard(
-                        title: 'Virtual labs',
-                        subtitle: 'PhET offline · Physics · Chem · Bio · Math',
-                        icon: Icons.science_rounded,
-                        color: const Color(0xFF0EA5E9),
-                        onTap: widget.onOpenLabs!,
-                      ),
+                      _MiniChip(
+                          icon: Icons.science_rounded,
+                          label: 'Labs',
+                          onTap: widget.onOpenLabs!),
                     if (widget.onOpenTools != null)
-                      _ActionCard(
-                        title: 'Tools',
-                        subtitle: 'Study · Calculator',
-                        icon: Icons.handyman_rounded,
-                        color: const Color(0xFFF59E0B),
-                        onTap: widget.onOpenTools!,
-                      ),
+                      _MiniChip(
+                          icon: Icons.handyman_rounded,
+                          label: 'Tools',
+                          onTap: widget.onOpenTools!),
                   ],
                 ),
               ),
-              const SizedBox(height: 24),
             ],
           ),
         );
@@ -455,110 +521,46 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class _StatTile extends StatelessWidget {
-  const _StatTile({required this.label, required this.value});
-  final String label;
-  final String value;
-
-  @override
-  Widget build(BuildContext context) {
-    final dark = Theme.of(context).brightness == Brightness.dark;
-    return Expanded(
-      child: FourTheme.glassPanel(
-        dark: dark,
-        child: Column(
-          children: [
-            Text(value,
-                style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    fontSize: 18,
-                    color: dark ? FourTheme.darkText : FourTheme.ink)),
-            Text(label,
-                style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w700,
-                    color: dark ? FourTheme.darkMuted : FourTheme.muted)),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _ActionCard extends StatelessWidget {
-  const _ActionCard({
-    required this.title,
-    required this.subtitle,
+class _MiniChip extends StatelessWidget {
+  const _MiniChip({
     required this.icon,
-    required this.color,
+    required this.label,
     required this.onTap,
   });
 
-  final String title;
-  final String subtitle;
   final IconData icon;
-  final Color color;
+  final String label;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(18),
-          child: Ink(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [color, color.withOpacity(0.85)],
-              ),
-              borderRadius: BorderRadius.circular(18),
-              boxShadow: [
-                BoxShadow(
-                  color: color.withOpacity(0.25),
-                  blurRadius: 12,
-                  offset: const Offset(0, 6),
-                ),
-              ],
+    final dark = Theme.of(context).brightness == Brightness.dark;
+    return Material(
+      color: dark ? const Color(0xFF1E293B) : Colors.white,
+      borderRadius: BorderRadius.circular(14),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(14),
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(
+              color: dark ? Colors.white12 : const Color(0xFFE2E8F0),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                children: [
-                  Container(
-                    width: 44,
-                    height: 44,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Icon(icon, color: Colors.white),
-                  ),
-                  const SizedBox(width: 14),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(title,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w900)),
-                        Text(subtitle,
-                            style: TextStyle(
-                                color: Colors.white.withOpacity(0.9),
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600)),
-                      ],
-                    ),
-                  ),
-                  const Icon(Icons.arrow_forward_ios_rounded,
-                      color: Colors.white70, size: 16),
-                ],
-              ),
-            ),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(icon, size: 18, color: FourTheme.primary),
+              const SizedBox(width: 8),
+              Text(label,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 13,
+                    color: dark ? Colors.white : const Color(0xFF0F172A),
+                  )),
+            ],
           ),
         ),
       ),
