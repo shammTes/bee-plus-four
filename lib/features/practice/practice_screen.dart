@@ -7,7 +7,7 @@ import '../../core/theme/four_theme.dart';
 import 'multi_practice_page.dart';
 import 'practice_list_session.dart';
 
-/// Pick grade · subject · unit, then open a scrollable question list.
+/// Pick grade · subject · unit, then show a full scrollable question list.
 class PracticeScreen extends StatefulWidget {
   const PracticeScreen({
     super.key,
@@ -95,6 +95,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
   }
 
   Widget _chip(String label, bool sel, VoidCallback onTap) {
+    final dark = Theme.of(context).brightness == Brightness.dark;
     return Padding(
       padding: const EdgeInsets.only(right: 6),
       child: ChoiceChip(
@@ -102,13 +103,12 @@ class _PracticeScreenState extends State<PracticeScreen> {
         selected: sel,
         onSelected: (_) => onTap(),
         selectedColor: const Color(0xFFFBBF24),
-        backgroundColor: Colors.white,
-        labelStyle: const TextStyle(
-          color: Color(0xFF0F172A),
+        backgroundColor: dark ? const Color(0xFF1E293B) : Colors.white,
+        labelStyle: TextStyle(
+          color: dark ? Colors.white : const Color(0xFF0F172A),
           fontWeight: FontWeight.w900,
           fontSize: 12,
         ),
-        side: const BorderSide(color: Color(0xFFE2E8F0)),
       ),
     );
   }
@@ -116,10 +116,12 @@ class _PracticeScreenState extends State<PracticeScreen> {
   @override
   Widget build(BuildContext context) {
     final top = MediaQuery.paddingOf(context).top;
-    final subjects = CurriculumStreams.subjectsFor(widget.grade);
+    final dark = Theme.of(context).brightness == Brightness.dark;
+    final subjects =
+        CurriculumStreams.subjectsFor(widget.grade, stream: CurriculumStreams.science);
     final unitTitle = units
         .where((u) => u.unitNumber == unit)
-        .map((u) => u.title)
+        .map((u) => 'Unit ${u.unitNumber}: ${u.title}')
         .firstOrNull;
 
     return Column(
@@ -129,7 +131,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
           padding: EdgeInsets.fromLTRB(16, top + 10, 16, 14),
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF7C3AED), Color(0xFF6D28D9)],
+              colors: [Color(0xFF7C3AED), Color(0xFF5B21B6)],
             ),
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(24),
@@ -144,34 +146,16 @@ class _PracticeScreenState extends State<PracticeScreen> {
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w900)),
-              const Text('Pick unit · open question list',
+              const Text('Pick unit · questions listed below',
                   style: TextStyle(color: Color(0xFFE9D5FF), fontSize: 13)),
-              const SizedBox(height: 8),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: ActionChip(
-                  avatar: const Icon(Icons.layers,
-                      size: 18, color: Color(0xFF0F172A)),
-                  label: const Text('Multi units / subjects',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w900,
-                          color: Color(0xFF0F172A))),
-                  backgroundColor: const Color(0xFFFBBF24),
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) =>
-                          MultiPracticePage(initialGrade: widget.grade),
-                    ),
-                  ),
-                ),
-              ),
               const SizedBox(height: 10),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: ['G9', 'G10', 'G11', 'G12']
-                      .map((g) =>
-                          _chip(g, g == widget.grade, () => widget.onGrade(g)))
+                      .map((g) => _chip(g, g == widget.grade, () {
+                            widget.onGrade(g);
+                          }))
                       .toList(),
                 ),
               ),
@@ -194,19 +178,32 @@ class _PracticeScreenState extends State<PracticeScreen> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: units.map((u) {
-                      final sel = unit == u.unitNumber;
-                      return _chip(
-                        'U${u.unitNumber}',
-                        sel,
-                        () async {
-                          setState(() => unit = u.unitNumber);
-                          await _loadPool();
-                        },
-                      );
+                      final sel = u.unitNumber == unit;
+                      return _chip('U${u.unitNumber}', sel, () async {
+                        setState(() => unit = u.unitNumber);
+                        await _loadPool();
+                      });
                     }).toList(),
                   ),
                 ),
               ],
+              const SizedBox(height: 8),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton.icon(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => MultiPracticePage(
+                        initialGrade: widget.grade,
+                      ),
+                    ),
+                  ),
+                  icon: const Icon(Icons.library_add_check, color: Colors.white),
+                  label: const Text('Multi-unit practice',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.w800)),
+                ),
+              ),
             ],
           ),
         ),
@@ -224,45 +221,50 @@ class _PracticeScreenState extends State<PracticeScreen> {
                     Text(
                       pool.isEmpty
                           ? 'No questions for this unit yet'
-                          : '${pool.length} questions ready — scrollable list',
-                      style: const TextStyle(
-                          color: FourTheme.muted, fontWeight: FontWeight.w600),
-                    ),
-                    const SizedBox(height: 16),
-                    FilledButton.icon(
-                      onPressed: pool.isEmpty ? null : _openList,
-                      icon: const Icon(Icons.list_alt),
-                      label: const Text('Open question list'),
+                          : '${pool.length} questions — scroll the list below',
+                      style: TextStyle(
+                          color: dark
+                              ? FourTheme.darkMuted
+                              : FourTheme.muted,
+                          fontWeight: FontWeight.w600),
                     ),
                     const SizedBox(height: 12),
                     if (pool.isNotEmpty)
+                      FilledButton.icon(
+                        onPressed: _openList,
+                        icon: const Icon(Icons.play_arrow),
+                        label: Text('Start session · ${pool.length} Qs'),
+                      ),
+                    const SizedBox(height: 12),
+                    if (pool.isNotEmpty)
                       ...List.generate(
-                        pool.length.clamp(0, 8),
+                        pool.length,
                         (i) => Card(
                           margin: const EdgeInsets.only(bottom: 6),
                           child: ListTile(
                             dense: true,
                             leading: CircleAvatar(
                               radius: 14,
+                              backgroundColor:
+                                  FourTheme.primary.withOpacity(0.15),
                               child: Text('${i + 1}',
                                   style: const TextStyle(
                                       fontSize: 11,
-                                      fontWeight: FontWeight.w900)),
+                                      fontWeight: FontWeight.w900,
+                                      color: FourTheme.primaryDark)),
                             ),
                             title: Text(
                               pool[i].prompt,
-                              maxLines: 2,
+                              maxLines: 3,
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(fontSize: 13),
+                              style: const TextStyle(
+                                  fontSize: 13, fontWeight: FontWeight.w600),
                             ),
+                            trailing:
+                                const Icon(Icons.chevron_right, size: 18),
                             onTap: _openList,
                           ),
                         ),
-                      ),
-                    if (pool.length > 8)
-                      TextButton(
-                        onPressed: _openList,
-                        child: Text('See all ${pool.length} questions'),
                       ),
                   ],
                 ),
