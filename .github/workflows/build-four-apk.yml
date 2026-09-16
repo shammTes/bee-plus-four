@@ -55,8 +55,8 @@ jobs:
               cp -a /tmp/four_extract/content/. assets/content/
             fi
           fi
-          # Bank v8 first — 2636 matric, 749 model, explanations on answered
-          BANK_IDS="1-wlqP8rsnxWyzSTIRKNU1T62CIaKAhS8 1jB9EXrJtjvx_PHLmN6sS4xcNg-bbbLWt 1h-JMBnojAkfq0wpL7W32-YN8K1TaQD6f"
+          # Bank v8b — 2702 matric (OCR Chem/Bio 2023), 749 model, 984 explained
+          BANK_IDS="1H_zEb-41mAmnikk6SkNX_p06LO_4ZQrA 1-wlqP8rsnxWyzSTIRKNU1T62CIaKAhS8 1jB9EXrJtjvx_PHLmN6sS4xcNg-bbbLWt"
           for id in $BANK_IDS; do
             rm -f /tmp/four_bank.tgz
             python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_bank.tgz 2>/dev/null || \
