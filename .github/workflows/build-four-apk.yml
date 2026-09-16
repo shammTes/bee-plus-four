@@ -55,8 +55,8 @@ jobs:
               cp -a /tmp/four_extract/content/. assets/content/
             fi
           fi
-          # Bank v7 first — 178 notes, strict illustrated maps, multi-year matric
-          BANK_IDS="1jB9EXrJtjvx_PHLmN6sS4xcNg-bbbLWt 1h-JMBnojAkfq0wpL7W32-YN8K1TaQD6f 12L2lbcwQK5WVDytwRarbp99hMS_SkOGr"
+          # Bank v8 first — 2636 matric, 749 model, explanations on answered
+          BANK_IDS="1-wlqP8rsnxWyzSTIRKNU1T62CIaKAhS8 1jB9EXrJtjvx_PHLmN6sS4xcNg-bbbLWt 1h-JMBnojAkfq0wpL7W32-YN8K1TaQD6f"
           for id in $BANK_IDS; do
             rm -f /tmp/four_bank.tgz
             python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_bank.tgz 2>/dev/null || \
@@ -89,12 +89,13 @@ jobs:
           test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
           test -f assets/content/matric_questions.json || echo '{"questions":[]}' > assets/content/matric_questions.json
+          test -f assets/content/model_questions.json || echo '{"questions":[]}' > assets/content/model_questions.json
           test -f assets/content/flashcards.json || echo '[]' > assets/content/flashcards.json
           test -f assets/content/textbooks_catalog.json || echo '{"book_count":0,"books":[]}' > assets/content/textbooks_catalog.json
           test -f assets/content/phet_catalog.json || echo '{"subjects":[]}' > assets/content/phet_catalog.json
           echo "Content bytes: $(du -sb assets/content | cut -f1)"
-          python3 -c "import json; n=json.load(open('assets/content/unit_notes.json')); print('notes', len(n) if isinstance(n,list) else n)"
-          python3 -c "import json; print('flash', len(json.load(open('assets/content/flashcards.json'))))"
+          python3 -c "import json; d=json.load(open('assets/content/matric_questions.json')); q=d.get('questions',d); print('matric', len(q) if isinstance(q,list) else q)"
+          python3 -c "import json; d=json.load(open('assets/content/model_questions.json')); q=d.get('questions',d); print('model', len(q) if isinstance(q,list) else q)"
           du -sh assets/content assets/content/textbooks assets/content/phet 2>/dev/null || true
 
       - name: Generate launcher icons
