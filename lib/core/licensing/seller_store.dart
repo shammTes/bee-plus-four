@@ -22,15 +22,11 @@ class SellerStore {
     _box = await Hive.openBox(_boxName);
   }
 
-  Future<String> deviceId() => DeviceIdService.instance.getOrCreate();
+  Future<String> deviceId() => DeviceIdProvider.getId();
 
   int get quotaRemaining => (_box?.get(_quotaKey) as int?) ?? 0;
 
   bool get isWholesale => (_box?.get(_wholesaleKey) as bool?) ?? false;
-
-  bool get canIssueStudent => quotaRemaining > 0;
-
-  bool get canIssueSeller => isWholesale && quotaRemaining > 0;
 
   List<Map<String, dynamic>> get history {
     final raw = _box?.get(_historyKey);
@@ -55,7 +51,6 @@ class SellerStore {
     await _box?.put(_usedNoncesKey, s.toList());
   }
 
-  /// Redeem Master wholesale code OR another seller's SELLER grant.
   Future<String> redeemAuthCode(String raw) async {
     final p = QrPayload.tryParse(raw.trim());
     if (p == null) return 'Invalid code format.';
@@ -76,14 +71,12 @@ class SellerStore {
     }
     if (p.isSellerGrant) {
       await _box?.put(_quotaKey, quotaRemaining + q);
-      // sub-sellers do not automatically get wholesale privilege
       await _markNonce(p.nonce);
       return 'Seller credit added. +$q student unlocks.';
     }
     return 'Not a wholesale or seller code.';
   }
 
-  /// Issue student unlock QR for a student device id. Consumes 1 quota.
   Future<({String? code, String? error})> issueStudentUnlock(
       String studentDeviceId) async {
     final sid = studentDeviceId.trim();
@@ -107,7 +100,6 @@ class SellerStore {
     return (code: payload.encode(), error: null);
   }
 
-  /// Wholesale seller issues SELLER:quota for another seller device.
   Future<({String? code, String? error})> issueSellerCode({
     required String targetSellerDeviceId,
     required int grantQuota,

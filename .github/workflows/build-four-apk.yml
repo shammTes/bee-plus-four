@@ -55,8 +55,8 @@ jobs:
               cp -a /tmp/four_extract/content/. assets/content/
             fi
           fi
-          # Bank v9 first — 190 notes, 1309 matric with answers/explanations/similar
-          BANK_IDS="1lZD555pGTss45q_XqSAgBV-8_7XmULl9 1H_zEb-41mAmnikk6SkNX_p06LO_4ZQrA 1-wlqP8rsnxWyzSTIRKNU1T62CIaKAhS8"
+          # Bank v10 first — 211 notes incl G9 Geo/History/Business
+          BANK_IDS="10aOcI0A5Ms2jdHOJbMD3CDmzeSpXjPWP 1lZD555pGTss45q_XqSAgBV-8_7XmULl9 1H_zEb-41mAmnikk6SkNX_p06LO_4ZQrA"
           for id in $BANK_IDS; do
             rm -f /tmp/four_bank.tgz
             python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_bank.tgz 2>/dev/null || \
@@ -93,10 +93,9 @@ jobs:
           test -f assets/content/flashcards.json || echo '[]' > assets/content/flashcards.json
           test -f assets/content/textbooks_catalog.json || echo '{"book_count":0,"books":[]}' > assets/content/textbooks_catalog.json
           test -f assets/content/phet_catalog.json || echo '{"subjects":[]}' > assets/content/phet_catalog.json
-          echo "Content bytes: $(du -sb assets/content | cut -f1)"
           python3 -c "import json; n=json.load(open('assets/content/unit_notes.json')); print('notes', len(n) if isinstance(n,list) else n)"
           python3 -c "import json; d=json.load(open('assets/content/matric_questions.json')); q=d.get('questions',d); print('matric', len(q) if isinstance(q,list) else q)"
-          du -sh assets/content assets/content/textbooks assets/content/phet 2>/dev/null || true
+          du -sh assets/content 2>/dev/null || true
 
       - name: Generate branded launcher icons
         run: |
@@ -136,11 +135,35 @@ jobs:
       - name: Pub get
         run: flutter pub get
 
-      - name: Build APK
-        run: flutter build apk --release --no-tree-shake-icons --android-skip-build-dependency-validation
+      - name: Build student APK (4)
+        run: flutter build apk --release --no-tree-shake-icons --android-skip-build-dependency-validation -t lib/main.dart
 
-      - name: Upload APK
+      - name: Upload student APK
         uses: actions/upload-artifact@v4
         with:
           name: four-release-apk
           path: build/app/outputs/flutter-apk/*.apk
+
+      - name: Build Bee Seller APK
+        run: |
+          flutter build apk --release --no-tree-shake-icons --android-skip-build-dependency-validation -t lib/seller_main.dart
+          mkdir -p /tmp/seller_apk
+          cp build/app/outputs/flutter-apk/*.apk /tmp/seller_apk/bee-seller.apk
+
+      - name: Upload Bee Seller APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: bee-seller-apk
+          path: /tmp/seller_apk/*.apk
+
+      - name: Build Master Shamm APK
+        run: |
+          flutter build apk --release --no-tree-shake-icons --android-skip-build-dependency-validation -t lib/master_main.dart
+          mkdir -p /tmp/master_apk
+          cp build/app/outputs/flutter-apk/*.apk /tmp/master_apk/shamm-master.apk
+
+      - name: Upload Master Shamm APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: shamm-master-apk
+          path: /tmp/master_apk/*.apk
