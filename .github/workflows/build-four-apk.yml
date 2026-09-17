@@ -28,7 +28,7 @@ jobs:
         run: |
           set -e
           mkdir -p assets/content/textbooks assets/content/illustrated assets/content/illustrated/g6_math_ch1_webp assets/content/illustrated_pdf assets/content/phet assets/content/textbook_covers
-          pip install -q gdown
+          pip install -q gdown pillow
           PACK_IDS="1zWHWp6S8R6KwZZLY1A1EwlulIe2Zx9Xa 1Bf_eqJ1BJkwOj-SSNBjmO8Om0e1TGI3B 1QrhYo3cnzTfaGuoLNEEAjrSyRAu59sZm 1J41cz00pHXvvaC1FSe_WZIHhGaCU4xUq"
           DOWNLOADED=0
           for id in $PACK_IDS; do
@@ -55,8 +55,8 @@ jobs:
               cp -a /tmp/four_extract/content/. assets/content/
             fi
           fi
-          # Bank v8b — 2702 matric (OCR Chem/Bio 2023), 749 model, 984 explained
-          BANK_IDS="1H_zEb-41mAmnikk6SkNX_p06LO_4ZQrA 1-wlqP8rsnxWyzSTIRKNU1T62CIaKAhS8 1jB9EXrJtjvx_PHLmN6sS4xcNg-bbbLWt"
+          # Bank v9 first — 190 notes, 1309 matric with answers/explanations/similar
+          BANK_IDS="1lZD555pGTss45q_XqSAgBV-8_7XmULl9 1H_zEb-41mAmnikk6SkNX_p06LO_4ZQrA 1-wlqP8rsnxWyzSTIRKNU1T62CIaKAhS8"
           for id in $BANK_IDS; do
             rm -f /tmp/four_bank.tgz
             python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_bank.tgz 2>/dev/null || \
@@ -94,24 +94,15 @@ jobs:
           test -f assets/content/textbooks_catalog.json || echo '{"book_count":0,"books":[]}' > assets/content/textbooks_catalog.json
           test -f assets/content/phet_catalog.json || echo '{"subjects":[]}' > assets/content/phet_catalog.json
           echo "Content bytes: $(du -sb assets/content | cut -f1)"
+          python3 -c "import json; n=json.load(open('assets/content/unit_notes.json')); print('notes', len(n) if isinstance(n,list) else n)"
           python3 -c "import json; d=json.load(open('assets/content/matric_questions.json')); q=d.get('questions',d); print('matric', len(q) if isinstance(q,list) else q)"
-          python3 -c "import json; d=json.load(open('assets/content/model_questions.json')); q=d.get('questions',d); print('model', len(q) if isinstance(q,list) else q)"
           du -sh assets/content assets/content/textbooks assets/content/phet 2>/dev/null || true
 
-      - name: Generate launcher icons
+      - name: Generate branded launcher icons
         run: |
           python3 << 'ICON'
-          import struct, zlib, os
-          def chunk(tag, data):
-              return struct.pack('>I', len(data)) + tag + data + struct.pack('>I', zlib.crc32(tag + data) & 0xffffffff)
-          def png(w, h, rgb=(13, 148, 136)):
-              raw = b''.join(b'\x00' + bytes(rgb) * w for _ in range(h))
-              return (
-                  b'\x89PNG\r\n\x1a\n'
-                  + chunk(b'IHDR', struct.pack('>IIBBBBB', w, h, 8, 2, 0, 0, 0))
-                  + chunk(b'IDAT', zlib.compress(raw, 9))
-                  + chunk(b'IEND', b'')
-              )
+          import os
+          from PIL import Image, ImageDraw, ImageFont
           base = 'android/app/src/main/res'
           for dens, size in [
               ('mipmap-mdpi', 48), ('mipmap-hdpi', 72), ('mipmap-xhdpi', 96),
@@ -119,8 +110,27 @@ jobs:
           ]:
               d = os.path.join(base, dens)
               os.makedirs(d, exist_ok=True)
-              with open(os.path.join(d, 'ic_launcher.png'), 'wb') as f:
-                  f.write(png(size, size))
+              img = Image.new('RGBA', (size, size), (0, 0, 0, 0))
+              draw = ImageDraw.Draw(img)
+              m = max(1, size // 16)
+              draw.rounded_rectangle([m, m, size - m - 1, size - m - 1],
+                                    radius=size // 5, fill=(13, 148, 136, 255))
+              m2 = m + size // 12
+              draw.rounded_rectangle([m2, m2, size - m2 - 1, size - m2 - 1],
+                                    radius=size // 6, fill=(15, 118, 110, 255))
+              try:
+                  font = ImageFont.truetype(
+                      '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',
+                      int(size * 0.55))
+              except Exception:
+                  font = ImageFont.load_default()
+              bbox = draw.textbbox((0, 0), '4', font=font)
+              tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+              x = (size - tw) / 2 - bbox[0]
+              y = (size - th) / 2 - bbox[1] - size * 0.02
+              draw.text((x, y), '4', font=font, fill=(255, 255, 255, 255))
+              img.save(os.path.join(d, 'ic_launcher.png'))
+          print('icons ok')
           ICON
 
       - name: Pub get
