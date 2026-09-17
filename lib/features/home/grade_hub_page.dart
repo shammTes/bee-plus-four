@@ -10,16 +10,20 @@ import '../notes/notes_screen.dart';
 import '../practice/practice_screen.dart';
 import '../textbooks/textbooks_screen.dart';
 
-/// Dedicated page for one grade: Notes · Textbooks · Practice · Matric · Labs.
+/// Dedicated page for one grade (+ stream for G11/G12).
 class GradeHubPage extends StatefulWidget {
   const GradeHubPage({
     super.key,
     required this.grade,
+    this.stream = CurriculumStreams.science,
     this.onGradeSelected,
+    this.onStreamSelected,
   });
 
   final String grade;
+  final String stream;
   final ValueChanged<String>? onGradeSelected;
+  final ValueChanged<String>? onStreamSelected;
 
   @override
   State<GradeHubPage> createState() => _GradeHubPageState();
@@ -27,15 +31,25 @@ class GradeHubPage extends StatefulWidget {
 
 class _GradeHubPageState extends State<GradeHubPage> {
   late String subject;
-  String stream = CurriculumStreams.science;
+  late String stream;
 
   @override
   void initState() {
     super.initState();
+    stream = widget.stream;
     final allowed =
         CurriculumStreams.subjectsFor(widget.grade, stream: stream);
     subject = allowed.contains('MATH') ? 'MATH' : allowed.first;
     widget.onGradeSelected?.call(widget.grade);
+    widget.onStreamSelected?.call(stream);
+  }
+
+  String get _title {
+    if (widget.grade == 'G11' || widget.grade == 'G12') {
+      final st = stream == CurriculumStreams.arts ? 'Arts' : 'Science';
+      return '${widget.grade} $st';
+    }
+    return widget.grade;
   }
 
   Color get _accent {
@@ -45,9 +59,13 @@ class _GradeHubPageState extends State<GradeHubPage> {
       case 'G10':
         return const Color(0xFF0284C7);
       case 'G11':
-        return const Color(0xFF7C3AED);
+        return stream == CurriculumStreams.arts
+            ? const Color(0xFFDB2777)
+            : const Color(0xFF7C3AED);
       case 'G12':
-        return const Color(0xFFEA580C);
+        return stream == CurriculumStreams.arts
+            ? const Color(0xFFEA580C)
+            : const Color(0xFFD97706);
       default:
         return FourTheme.primary;
     }
@@ -101,12 +119,11 @@ class _GradeHubPageState extends State<GradeHubPage> {
   }
 
   void _openMatric() {
-    // Matric is national — show all papers; subject list for this grade as shortcut.
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => Scaffold(
           appBar: AppBar(
-            title: Text('${widget.grade} · Matriculation',
+            title: Text('$_title · Matriculation',
                 style: const TextStyle(fontWeight: FontWeight.w800)),
           ),
           body: const ExamsScreen(),
@@ -145,7 +162,6 @@ class _GradeHubPageState extends State<GradeHubPage> {
     final dark = Theme.of(context).brightness == Brightness.dark;
     final subjects =
         CurriculumStreams.subjectsFor(widget.grade, stream: stream);
-    final showStream = widget.grade == 'G11' || widget.grade == 'G12';
 
     return Scaffold(
       body: Container(
@@ -167,21 +183,26 @@ class _GradeHubPageState extends State<GradeHubPage> {
               foregroundColor: Colors.white,
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
-                  widget.grade,
+                  _title,
                   style: const TextStyle(
                       fontWeight: FontWeight.w900, color: Colors.white),
                 ),
                 background: Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [_accent, Color.lerp(_accent, Colors.black, 0.25)!],
+                      colors: [
+                        _accent,
+                        Color.lerp(_accent, Colors.black, 0.25)!
+                      ],
                     ),
                   ),
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 48),
                   alignment: Alignment.bottomLeft,
-                  child: const Text(
-                    'Notes · textbooks · practice · matric · labs',
-                    style: TextStyle(
+                  child: Text(
+                    stream == CurriculumStreams.arts
+                        ? 'Arts · Notes · textbooks · practice · matric'
+                        : 'Science · Notes · textbooks · practice · labs',
+                    style: const TextStyle(
                         color: Colors.white70,
                         fontWeight: FontWeight.w600,
                         fontSize: 13),
@@ -189,64 +210,29 @@ class _GradeHubPageState extends State<GradeHubPage> {
                 ),
               ),
             ),
-            if (showStream)
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-                  child: Row(
-                    children: [
-                      ChoiceChip(
-                        label: const Text('Science'),
-                        selected: stream == CurriculumStreams.science,
-                        onSelected: (_) => setState(() {
-                          stream = CurriculumStreams.science;
-                          final a = CurriculumStreams.subjectsFor(
-                              widget.grade,
-                              stream: stream);
-                          if (!a.contains(subject)) subject = a.first;
-                        }),
-                        selectedColor: const Color(0xFFFBBF24),
-                        labelStyle: const TextStyle(
-                            fontWeight: FontWeight.w900,
-                            color: Color(0xFF0F172A)),
-                      ),
-                      const SizedBox(width: 8),
-                      ChoiceChip(
-                        label: const Text('Arts'),
-                        selected: stream == CurriculumStreams.arts,
-                        onSelected: (_) => setState(() {
-                          stream = CurriculumStreams.arts;
-                          final a = CurriculumStreams.subjectsFor(
-                              widget.grade,
-                              stream: stream);
-                          if (!a.contains(subject)) subject = a.first;
-                        }),
-                        selectedColor: const Color(0xFFFBBF24),
-                        labelStyle: const TextStyle(
-                            fontWeight: FontWeight.w900,
-                            color: Color(0xFF0F172A)),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+            // Subjects for this stream
+            // ignore: prefer_const_constructors
+            // Subjects chips
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-              sliver: SliverToBoxAdapter(
-                child: Text(
-                  'Study tools',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    fontSize: 14,
-                    color: dark ? FourTheme.darkMuted : FourTheme.muted,
-                  ),
-                ),
+              padding: const EdgeInsets.fromLTRB(16, 14, 16, 4),
+              sliver: SliVerToBoxAdapterSubjects(
+                subjects: subjects,
+                subject: subject,
+                dark: dark,
+                onSelect: (s) => setState(() => subject = s),
+              ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
+              sliver: SliVerLabel(
+                text: 'Study tools',
+                dark: dark,
               ),
             ),
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               sliver: SliverList(
-                delegate: SliverChildListDelegate([
+                delegate: SliVerChildListDelegate([
                   _HubCard(
                     title: 'Notes',
                     subtitle: 'Unit notes · illustrated slides',
@@ -275,28 +261,20 @@ class _GradeHubPageState extends State<GradeHubPage> {
                     color: const Color(0xFF4F46E5),
                     onTap: _openMatric,
                   ),
-                  _HubCard(
-                    title: 'Virtual labs',
-                    subtitle: 'PhET offline · Physics · Chem · Bio · Math',
-                    icon: Icons.science_rounded,
-                    color: const Color(0xFF0EA5E9),
-                    onTap: _openLabs,
-                  ),
+                  if (stream == CurriculumStreams.science)
+                    _HubCard(
+                      title: 'Virtual labs',
+                      subtitle: 'PhET offline · Physics · Chem · Bio · Math',
+                      icon: Icons.science_rounded,
+                      color: const Color(0xFF0EA5E9),
+                      onTap: _openLabs,
+                    ),
                 ]),
               ),
             ),
             SliverPadding(
               padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
-              sliver: SliverToBoxAdapter(
-                child: Text(
-                  'Matric by subject',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    fontSize: 14,
-                    color: dark ? FourTheme.darkMuted : FourTheme.muted,
-                  ),
-                ),
-              ),
+              sliver: SliVerLabel(text: 'Matric by subject', dark: dark),
             ),
             SliverPadding(
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
@@ -306,7 +284,8 @@ class _GradeHubPageState extends State<GradeHubPage> {
                   builder: (context, snap) {
                     final counts = <String, int>{};
                     if (snap.hasData) {
-                      for (final q in (snap.data as dynamic).questions as List) {
+                      for (final q
+                          in (snap.data as dynamic).questions as List) {
                         final s = q.subject as String;
                         counts[s] = (counts[s] ?? 0) + 1;
                       }
@@ -345,6 +324,75 @@ class _GradeHubPageState extends State<GradeHubPage> {
       ),
     );
   }
+}
+
+// Small helpers to keep build clean
+class SliVerLabel extends StatelessWidget {
+  const SliVerLabel({super.key, required this.text, required this.dark});
+  final String text;
+  final bool dark;
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: Text(
+        text,
+        style: TextStyle(
+          fontWeight: FontWeight.w900,
+          fontSize: 14,
+          color: dark ? FourTheme.darkMuted : FourTheme.muted,
+        ),
+      ),
+    );
+  }
+}
+
+class SliVerToBoxAdapterSubjects extends StatelessWidget {
+  const SliVerToBoxAdapterSubjects({
+    super.key,
+    required this.subjects,
+    required this.subject,
+    required this.dark,
+    required this.onSelect,
+  });
+  final List<String> subjects;
+  final String subject;
+  final bool dark;
+  final ValueChanged<String> onSelect;
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: subjects.map((s) {
+            final sel = s == subject;
+            return Padding(
+              padding: const EdgeInsets.only(right: 6),
+              child: ChoiceChip(
+                label: Text(CurriculumStreams.label(s)),
+                selected: sel,
+                onSelected: (_) => onSelect(s),
+                selectedColor: const Color(0xFFFBBF24),
+                backgroundColor:
+                    dark ? const Color(0xFF1E293B) : Colors.white,
+                labelStyle: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 12,
+                  color: dark && !sel ? Colors.white : const Color(0xFF0F172A),
+                ),
+              ),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+}
+
+// Fix typo: SliverChildListDelegate alias
+class SliVerChildListDelegate extends SliverChildListDelegate {
+  SliVerChildListDelegate(List<Widget> children) : super(children);
 }
 
 class _HubCard extends StatelessWidget {
