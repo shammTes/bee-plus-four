@@ -6,9 +6,10 @@ import '../../core/content/content_repository.dart';
 import '../../core/licensing/unlock_store.dart';
 import '../../core/theme/four_theme.dart';
 import '../settings/settings_page.dart';
+import 'grade_hub_page.dart';
 
 /// Home focuses on: pick grade + open Matriculation exams.
-/// Other features stay one tap away in a compact row.
+/// Tapping a grade opens that grade's study hub.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
@@ -57,9 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Welcome to 4'),
         content: const Text(
           'Fast path:\n'
-          '1) Pick your grade\n'
-          '2) Open Matriculation exams\n'
-          '3) Or Notes / Practice from the bottom row\n\n'
+          '1) Tap your grade (G9–G12)\n'
+          '2) Open Notes, Textbooks, Practice, Matric or Labs\n'
+          '3) Or use Matriculation on Home\n\n'
           'Show your Device QR to Bee Seller to unlock.',
         ),
         actions: [
@@ -71,6 +72,18 @@ class _HomeScreenState extends State<HomeScreen> {
             child: const Text('Got it'),
           ),
         ],
+      ),
+    );
+  }
+
+  void _openGrade(String g) {
+    widget.onGrade(g);
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => GradeHubPage(
+          grade: g,
+          onGradeSelected: widget.onGrade,
+        ),
       ),
     );
   }
@@ -203,7 +216,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           child: ListView(
             children: [
-              // Hero
               Container(
                 decoration: BoxDecoration(
                   gradient: dark
@@ -269,13 +281,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 36,
                             fontWeight: FontWeight.w900,
                             letterSpacing: -0.5)),
-                    const Text('Pick grade · open matric exams',
+                    const Text('Tap a grade to open its study page',
                         style: TextStyle(
                             color: Color(0xFFCCFBF1),
                             fontSize: 14,
                             fontWeight: FontWeight.w600)),
                     const SizedBox(height: 14),
-                    // Compact device QR strip
                     GestureDetector(
                       onTap: _showDeviceQr,
                       child: Container(
@@ -316,7 +327,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              // Grades — primary
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
                 child: Text(
@@ -346,7 +356,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           elevation: sel ? 2 : 0,
                           child: InkWell(
                             borderRadius: BorderRadius.circular(16),
-                            onTap: () => widget.onGrade(g),
+                            onTap: () => _openGrade(g),
                             child: Container(
                               height: 64,
                               alignment: Alignment.center,
@@ -381,7 +391,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              // Matriculation — primary CTA
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
                 child: Text(
@@ -470,7 +479,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              // Secondary row — still available, not cluttered
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 22, 16, 8),
                 child: Text(
