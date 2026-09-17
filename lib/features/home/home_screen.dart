@@ -3,18 +3,20 @@ import 'package:flutter/services.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../core/content/content_repository.dart';
+import '../../core/curriculum/streams.dart';
 import '../../core/licensing/unlock_store.dart';
 import '../../core/theme/four_theme.dart';
 import '../settings/settings_page.dart';
 import 'grade_hub_page.dart';
 
-/// Home focuses on: pick grade + open Matriculation exams.
-/// Tapping a grade opens that grade's study hub.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
     required this.grade,
+    required this.stream,
     required this.onGrade,
+    required this.onStream,
+    required this.onGradeAndStream,
     required this.onOpenNotes,
     required this.onOpenPractice,
     required this.onOpenBot,
@@ -24,7 +26,10 @@ class HomeScreen extends StatefulWidget {
   });
 
   final String grade;
+  final String stream;
   final ValueChanged<String> onGrade;
+  final ValueChanged<String> onStream;
+  final void Function(String grade, String stream) onGradeAndStream;
   final VoidCallback onOpenNotes;
   final VoidCallback onOpenPractice;
   final VoidCallback onOpenBot;
@@ -58,9 +63,9 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Welcome to 4'),
         content: const Text(
           'Fast path:\n'
-          '1) Tap your grade (G9–G12)\n'
-          '2) Open Notes, Textbooks, Practice, Matric or Labs\n'
-          '3) Or use Matriculation on Home\n\n'
+          '1) Tap G9 or G10\n'
+          '2) Or G11/G12 Science or Arts\n'
+          '3) Open Notes, Textbooks, Practice, Matric or Labs\n\n'
           'Show your Device QR to Bee Seller to unlock.',
         ),
         actions: [
@@ -76,13 +81,15 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void _openGrade(String g) {
-    widget.onGrade(g);
+  void _openTrack(String grade, String stream) {
+    widget.onGradeAndStream(grade, stream);
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => GradeHubPage(
-          grade: g,
+          grade: grade,
+          stream: stream,
           onGradeSelected: widget.onGrade,
+          onStreamSelected: widget.onStream,
         ),
       ),
     );
@@ -185,6 +192,55 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Widget _gradeTile({
+    required String label,
+    required String grade,
+    required String stream,
+    required bool selected,
+    required bool dark,
+  }) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(4),
+        child: Material(
+          color: selected
+              ? const Color(0xFFFBBF24)
+              : (dark ? const Color(0xFF1E293B) : Colors.white),
+          borderRadius: BorderRadius.circular(16),
+          elevation: selected ? 2 : 0,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(16),
+            onTap: () => _openTrack(grade, stream),
+            child: Container(
+              height: 64,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(
+                  color: selected
+                      ? const Color(0xFFF59E0B)
+                      : (dark ? Colors.white12 : const Color(0xFFE2E8F0)),
+                ),
+              ),
+              child: Text(
+                label,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: label.length > 4 ? 13 : 20,
+                  fontWeight: FontWeight.w900,
+                  height: 1.15,
+                  color: selected
+                      ? const Color(0xFF0F172A)
+                      : (dark ? Colors.white : const Color(0xFF0F172A)),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final repo = ContentRepository.instance;
@@ -281,7 +337,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 36,
                             fontWeight: FontWeight.w900,
                             letterSpacing: -0.5)),
-                    const Text('Tap a grade to open its study page',
+                    const Text('Pick grade · Science or Arts for G11/G12',
                         style: TextStyle(
                             color: Color(0xFFCCFBF1),
                             fontSize: 14,
@@ -327,67 +383,109 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
+              // G9 · G10
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
+                padding: const EdgeInsets.fromLTRB(16, 20, 16, 6),
                 child: Text(
-                  'Your grade',
+                  'Junior',
                   style: TextStyle(
                     fontWeight: FontWeight.w900,
-                    fontSize: 15,
-                    color: dark ? FourTheme.darkText : FourTheme.ink,
+                    fontSize: 13,
+                    color: dark ? FourTheme.darkMuted : FourTheme.muted,
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: Row(
-                  children: ['G9', 'G10', 'G11', 'G12'].map((g) {
-                    final sel = g == widget.grade;
-                    return Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        child: Material(
-                          color: sel
-                              ? const Color(0xFFFBBF24)
-                              : (dark
-                                  ? const Color(0xFF1E293B)
-                                  : Colors.white),
-                          borderRadius: BorderRadius.circular(16),
-                          elevation: sel ? 2 : 0,
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(16),
-                            onTap: () => _openGrade(g),
-                            child: Container(
-                              height: 64,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
-                                border: Border.all(
-                                  color: sel
-                                      ? const Color(0xFFF59E0B)
-                                      : (dark
-                                          ? Colors.white12
-                                          : const Color(0xFFE2E8F0)),
-                                ),
-                              ),
-                              child: Text(
-                                g,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w900,
-                                  color: sel
-                                      ? const Color(0xFF0F172A)
-                                      : (dark
-                                          ? Colors.white
-                                          : const Color(0xFF0F172A)),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  }).toList(),
+                  children: [
+                    _gradeTile(
+                      label: 'G9',
+                      grade: 'G9',
+                      stream: CurriculumStreams.science,
+                      selected: widget.grade == 'G9',
+                      dark: dark,
+                    ),
+                    _gradeTile(
+                      label: 'G10',
+                      grade: 'G10',
+                      stream: CurriculumStreams.science,
+                      selected: widget.grade == 'G10',
+                      dark: dark,
+                    ),
+                  ],
+                ),
+              ),
+
+              // G11 Science · G11 Arts
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 6),
+                child: Text(
+                  'Grade 11',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 13,
+                    color: dark ? FourTheme.darkMuted : FourTheme.muted,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Row(
+                  children: [
+                    _gradeTile(
+                      label: '11 Science',
+                      grade: 'G11',
+                      stream: CurriculumStreams.science,
+                      selected: widget.grade == 'G11' &&
+                          widget.stream == CurriculumStreams.science,
+                      dark: dark,
+                    ),
+                    _gradeTile(
+                      label: '11 Arts',
+                      grade: 'G11',
+                      stream: CurriculumStreams.arts,
+                      selected: widget.grade == 'G11' &&
+                          widget.stream == CurriculumStreams.arts,
+                      dark: dark,
+                    ),
+                  ],
+                ),
+              ),
+
+              // G12 Science · G12 Arts
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 6),
+                child: Text(
+                  'Grade 12',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 13,
+                    color: dark ? FourTheme.darkMuted : FourTheme.muted,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Row(
+                  children: [
+                    _gradeTile(
+                      label: '12 Science',
+                      grade: 'G12',
+                      stream: CurriculumStreams.science,
+                      selected: widget.grade == 'G12' &&
+                          widget.stream == CurriculumStreams.science,
+                      dark: dark,
+                    ),
+                    _gradeTile(
+                      label: '12 Arts',
+                      grade: 'G12',
+                      stream: CurriculumStreams.arts,
+                      selected: widget.grade == 'G12' &&
+                          widget.stream == CurriculumStreams.arts,
+                      dark: dark,
+                    ),
+                  ],
                 ),
               ),
 
@@ -457,13 +555,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: Color(0xFFE9D5FF),
                                       fontWeight: FontWeight.w600,
                                       fontSize: 13,
-                                    ),
-                                  ),
-                                  const Text(
-                                    'Tap to browse papers',
-                                    style: TextStyle(
-                                      color: Color(0xFFC4B5FD),
-                                      fontSize: 12,
                                     ),
                                   ),
                                 ],
