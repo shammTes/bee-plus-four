@@ -58,12 +58,36 @@ class _AppShellState extends State<AppShell> {
     });
   }
 
+  void _setStream(String st) {
+    setState(() {
+      stream = st;
+      final allowed = CurriculumStreams.subjectsFor(grade, stream: st);
+      if (!allowed.contains(subject)) {
+        subject = allowed.first;
+      }
+    });
+  }
+
+  void _setGradeAndStream(String g, String st) {
+    setState(() {
+      grade = g;
+      stream = st;
+      final allowed = CurriculumStreams.subjectsFor(g, stream: st);
+      if (!allowed.contains(subject)) {
+        subject = allowed.first;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final pages = <Widget>[
       HomeScreen(
         grade: grade,
+        stream: stream,
         onGrade: _setGrade,
+        onStream: _setStream,
+        onGradeAndStream: _setGradeAndStream,
         onOpenNotes: () => setState(() => index = 1),
         onOpenPractice: () => setState(() => index = 2),
         onOpenBot: () => setState(() => index = 3),
@@ -77,11 +101,7 @@ class _AppShellState extends State<AppShell> {
         stream: stream,
         onGrade: _setGrade,
         onSubject: (s) => setState(() => subject = s),
-        onStream: (st) => setState(() {
-          stream = st;
-          final allowed = CurriculumStreams.subjectsFor(grade, stream: st);
-          if (!allowed.contains(subject)) subject = allowed.first;
-        }),
+        onStream: _setStream,
       ),
       PracticeScreen(
         grade: grade,
@@ -102,7 +122,6 @@ class _AppShellState extends State<AppShell> {
       canPop: false,
       onPopInvokedWithResult: (didPop, result) async {
         if (didPop) return;
-        // Prefer leaving secondary pages (labs/tools/unlock) first
         if (index > 4) {
           setState(() => index = 0);
           return;
@@ -111,7 +130,6 @@ class _AppShellState extends State<AppShell> {
           setState(() => index = 0);
           return;
         }
-        // On home: confirm exit
         final leave = await showDialog<bool>(
           context: context,
           builder: (ctx) => AlertDialog(
@@ -128,7 +146,6 @@ class _AppShellState extends State<AppShell> {
           ),
         );
         if (leave == true && context.mounted) {
-          // Allow system back to finish
           Navigator.of(context).maybePop();
         }
       },
