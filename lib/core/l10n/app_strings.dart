@@ -1,5 +1,6 @@
 /// UI strings: English + Tigrinya (ትግርኛ).
 /// Keep Ge'ez orthography accurate for common school-app terms.
+/// About / developer credit stays English always.
 class AppStrings {
   AppStrings._();
 
@@ -96,9 +97,9 @@ class AppStrings {
         'መለለዪ መሳርሒ ኣብ መእተዊ ይርከብ።',
       );
 
+  /// Always English — do not translate developer credit.
   static String get developedBy =>
-      _s('Developed by SHAMM TESFALEM\nPhone: 07162947',
-          'ዝተዳለወ ብ SHAMM TESFALEM\nተ.ቁ: 07162947');
+      'Developed by SHAMM TESFALEM\nPhone: 07162947';
 
   static String get newLevel => _s('New', 'ሓድሽ');
   static String get weak => _s('Weak', 'ድኹም');
