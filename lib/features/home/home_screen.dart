@@ -50,35 +50,6 @@ class _HomeScreenState extends State<HomeScreen> {
     UnlockStore.instance.deviceId().then((id) {
       if (mounted) setState(() => deviceId = id);
     });
-    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeOnboard());
-  }
-
-  Future<void> _maybeOnboard() async {
-    if (UnlockStore.instance.seenOnboarding) return;
-    if (!mounted) return;
-    await showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (ctx) => AlertDialog(
-        title: const Text('Welcome to 4'),
-        content: const Text(
-          'Fast path:\n'
-          '1) Tap G9 or G10\n'
-          '2) Or G11/G12 Science or Arts\n'
-          '3) Open Notes, Textbooks, Practice, Matric or Labs\n\n'
-          'Show your Device QR to Bee Seller to unlock.',
-        ),
-        actions: [
-          FilledButton(
-            onPressed: () async {
-              await UnlockStore.instance.markOnboardingSeen();
-              if (ctx.mounted) Navigator.pop(ctx);
-            },
-            child: const Text('Got it'),
-          ),
-        ],
-      ),
-    );
   }
 
   void _openTrack(String grade, String stream) {
@@ -382,8 +353,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-
-              // G9 · G10
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 20, 16, 6),
                 child: Text(
@@ -416,8 +385,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-
-              // G11 Science · G11 Arts
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 6),
                 child: Text(
@@ -452,8 +419,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-
-              // G12 Science · G12 Arts
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 6),
                 child: Text(
@@ -488,7 +453,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
                 child: Text(
@@ -569,7 +533,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 22, 16, 8),
                 child: Text(
