@@ -28,11 +28,10 @@ class QrPayload {
 
   String get canonical => '$version|$packageCode|$deviceId|$nonce';
 
-  /// Student unlock or other simple package codes.
   static QrPayload issue({
     required String packageCode,
     required String deviceId,
-    required this.nonce,
+    required String nonce,
   }) {
     final body = '$version|$packageCode|$deviceId|$nonce';
     return QrPayload(
@@ -43,7 +42,6 @@ class QrPayload {
     );
   }
 
-  /// Wholesale code: authorises a Bee Seller device to issue student unlocks.
   static QrPayload issueWholesale({
     required String sellerDeviceId,
     required int quota,
@@ -59,7 +57,6 @@ class QrPayload {
     );
   }
 
-  /// Sub-seller code: a wholesale Bee Seller grants another seller quota.
   static QrPayload issueSeller({
     required String sellerDeviceId,
     required int quota,
