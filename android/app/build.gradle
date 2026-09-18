@@ -46,6 +46,7 @@ android {
 
     buildTypes {
         release {
+            // Debug signing for CI beta; turn off minify for reliable builds
             signingConfig = signingConfigs.debug
             minifyEnabled = false
             shrinkResources = false
