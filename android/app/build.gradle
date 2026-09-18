@@ -25,6 +25,25 @@ android {
         versionName = flutter.versionName
     }
 
+    flavorDimensions "app"
+    productFlavors {
+        student {
+            dimension "app"
+            applicationId "com.four.student"
+            resValue "string", "app_name", "4"
+        }
+        seller {
+            dimension "app"
+            applicationId "com.bee.seller"
+            resValue "string", "app_name", "Bee Seller"
+        }
+        master {
+            dimension "app"
+            applicationId "com.shamm.master"
+            resValue "string", "app_name", "Shamm Master"
+        }
+    }
+
     buildTypes {
         release {
             signingConfig = signingConfigs.debug
