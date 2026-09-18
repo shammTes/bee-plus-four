@@ -7,7 +7,7 @@ import '../../core/theme/four_theme.dart';
 import 'multi_practice_page.dart';
 import 'practice_list_session.dart';
 
-/// Pick grade · subject · unit, then show a full scrollable question list.
+/// Pick grade · subject · unit — questions listed; tap opens that question.
 class PracticeScreen extends StatefulWidget {
   const PracticeScreen({
     super.key,
@@ -74,7 +74,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
     });
   }
 
-  void _openList() {
+  void _openQuestion(int index) {
     if (pool.isEmpty) return;
     final title = units
             .where((u) => u.unitNumber == unit)
@@ -89,6 +89,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
           subject: widget.subject,
           unitNumber: unit ?? 1,
           pool: List.of(pool),
+          initialIndex: index,
         ),
       ),
     );
@@ -117,8 +118,8 @@ class _PracticeScreenState extends State<PracticeScreen> {
   Widget build(BuildContext context) {
     final top = MediaQuery.paddingOf(context).top;
     final dark = Theme.of(context).brightness == Brightness.dark;
-    final subjects =
-        CurriculumStreams.subjectsFor(widget.grade, stream: CurriculumStreams.science);
+    final subjects = CurriculumStreams.subjectsFor(widget.grade,
+        stream: CurriculumStreams.science);
     final unitTitle = units
         .where((u) => u.unitNumber == unit)
         .map((u) => 'Unit ${u.unitNumber}: ${u.title}')
@@ -146,7 +147,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w900)),
-              const Text('Pick unit · questions listed below',
+              const Text('Tap any question to answer now',
                   style: TextStyle(color: Color(0xFFE9D5FF), fontSize: 13)),
               const SizedBox(height: 10),
               SingleChildScrollView(
@@ -187,24 +188,66 @@ class _PracticeScreenState extends State<PracticeScreen> {
                   ),
                 ),
               ],
-              const SizedBox(height: 8),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: TextButton.icon(
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => MultiPracticePage(
-                        initialGrade: widget.grade,
-                      ),
-                    ),
+            ],
+          ),
+        ),
+        // Multi-unit practice — high visibility
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(18),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => MultiPracticePage(
+                    initialGrade: widget.grade,
                   ),
-                  icon: const Icon(Icons.library_add_check, color: Colors.white),
-                  label: const Text('Multi-unit practice',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.w800)),
                 ),
               ),
-            ],
+              child: Ink(
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFFF59E0B), Color(0xFFEA580C)],
+                  ),
+                  borderRadius: BorderRadius.circular(18),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFFEA580C).withOpacity(0.35),
+                      blurRadius: 12,
+                      offset: const Offset(0, 6),
+                    ),
+                  ],
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                  child: Row(
+                    children: [
+                      Icon(Icons.library_add_check_rounded,
+                          color: Colors.white, size: 28),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Multi-unit practice',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w900,
+                                    fontSize: 16)),
+                            Text('Mix units · matric or mixed · exam prep',
+                                style: TextStyle(
+                                    color: Color(0xFFFFEDD5), fontSize: 12)),
+                          ],
+                        ),
+                      ),
+                      Icon(Icons.arrow_forward_ios,
+                          color: Colors.white, size: 16),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
         Expanded(
@@ -221,35 +264,28 @@ class _PracticeScreenState extends State<PracticeScreen> {
                     Text(
                       pool.isEmpty
                           ? 'No questions for this unit yet'
-                          : '${pool.length} questions — scroll the list below',
+                          : '${pool.length} questions — tap to open',
                       style: TextStyle(
-                          color: dark
-                              ? FourTheme.darkMuted
-                              : FourTheme.muted,
+                          color:
+                              dark ? FourTheme.darkMuted : FourTheme.muted,
                           fontWeight: FontWeight.w600),
                     ),
-                    const SizedBox(height: 12),
-                    if (pool.isNotEmpty)
-                      FilledButton.icon(
-                        onPressed: _openList,
-                        icon: const Icon(Icons.play_arrow),
-                        label: Text('Start session · ${pool.length} Qs'),
-                      ),
                     const SizedBox(height: 12),
                     if (pool.isNotEmpty)
                       ...List.generate(
                         pool.length,
                         (i) => Card(
-                          margin: const EdgeInsets.only(bottom: 6),
+                          margin: const EdgeInsets.only(bottom: 8),
+                          elevation: 1,
                           child: ListTile(
-                            dense: true,
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 14, vertical: 6),
                             leading: CircleAvatar(
-                              radius: 14,
                               backgroundColor:
                                   FourTheme.primary.withOpacity(0.15),
                               child: Text('${i + 1}',
                                   style: const TextStyle(
-                                      fontSize: 11,
+                                      fontSize: 13,
                                       fontWeight: FontWeight.w900,
                                       color: FourTheme.primaryDark)),
                             ),
@@ -258,11 +294,15 @@ class _PracticeScreenState extends State<PracticeScreen> {
                               maxLines: 3,
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
-                                  fontSize: 13, fontWeight: FontWeight.w600),
+                                  fontSize: 14, fontWeight: FontWeight.w700),
                             ),
-                            trailing:
-                                const Icon(Icons.chevron_right, size: 18),
-                            onTap: _openList,
+                            subtitle: Text(
+                              '${pool[i].options.length} choices · tap to answer',
+                              style: const TextStyle(fontSize: 11),
+                            ),
+                            trailing: const Icon(Icons.play_circle_fill,
+                                color: Color(0xFF7C3AED)),
+                            onTap: () => _openQuestion(i),
                           ),
                         ),
                       ),

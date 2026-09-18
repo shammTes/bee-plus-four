@@ -5,6 +5,7 @@ import '../../core/progress/mastery_store.dart';
 import '../../core/theme/four_theme.dart';
 
 /// Scrollable list of questions → open one → answer → back to list.
+/// [initialIndex] opens that question immediately (tap-to-answer).
 class PracticeListSession extends StatefulWidget {
   const PracticeListSession({
     super.key,
@@ -13,6 +14,7 @@ class PracticeListSession extends StatefulWidget {
     required this.subject,
     required this.unitNumber,
     required this.pool,
+    this.initialIndex,
   });
 
   final String title;
@@ -20,6 +22,7 @@ class PracticeListSession extends StatefulWidget {
   final String subject;
   final int unitNumber;
   final List<PracticeQuestion> pool;
+  final int? initialIndex;
 
   @override
   State<PracticeListSession> createState() => _PracticeListSessionState();
@@ -31,6 +34,15 @@ class _PracticeListSessionState extends State<PracticeListSession> {
   bool revealed = false;
   final Set<String> done = {};
   final Set<String> correctIds = {};
+
+  @override
+  void initState() {
+    super.initState();
+    final i = widget.initialIndex;
+    if (i != null && i >= 0 && i < widget.pool.length) {
+      open = widget.pool[i];
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,8 +136,45 @@ class _PracticeListSessionState extends State<PracticeListSession> {
               if (q.explanation.isNotEmpty)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 12),
-                  child: Text(q.explanation, style: const TextStyle(height: 1.4)),
+                  child:
+                      Text(q.explanation, style: const TextStyle(height: 1.4)),
                 ),
+              // Similar questions — tappable
+              if (q.similar.isNotEmpty) ...[
+                const Text('Similar questions',
+                    style: TextStyle(fontWeight: FontWeight.w900)),
+                const SizedBox(height: 8),
+                ...q.similar.take(5).map((s) {
+                  final match = widget.pool.where((p) => p.id == s.id).toList();
+                  final target = match.isNotEmpty
+                      ? match.first
+                      : widget.pool.cast<PracticeQuestion?>().firstWhere(
+                            (p) =>
+                                p != null &&
+                                p.prompt.toLowerCase().contains(
+                                    s.prompt.toLowerCase().split(' ').take(4).join(' ')),
+                            orElse: () => null,
+                          );
+                  return Card(
+                    child: ListTile(
+                      title: Text(s.prompt,
+                          maxLines: 2, overflow: TextOverflow.ellipsis),
+                      subtitle: Text(s.topic),
+                      trailing: target != null
+                          ? const Icon(Icons.play_arrow)
+                          : null,
+                      onTap: target == null
+                          ? null
+                          : () => setState(() {
+                                open = target;
+                                selected = null;
+                                revealed = false;
+                              }),
+                    ),
+                  );
+                }),
+              ],
+              const SizedBox(height: 8),
               FilledButton(
                 onPressed: () => setState(() {
                   open = null;
@@ -195,11 +244,8 @@ class _PracticeListSessionState extends State<PracticeListSession> {
                             style:
                                 const TextStyle(fontWeight: FontWeight.w600),
                           ),
-                          subtitle: Text(
-                            '${q.options.length} options',
-                            style: const TextStyle(fontSize: 11),
-                          ),
-                          trailing: const Icon(Icons.chevron_right),
+                          trailing: const Icon(Icons.play_circle_fill,
+                              color: Color(0xFF7C3AED)),
                           onTap: () => setState(() {
                             open = q;
                             selected = null;
