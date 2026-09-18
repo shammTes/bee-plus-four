@@ -4,8 +4,7 @@ import '../../core/models/content_models.dart';
 import '../../core/progress/mastery_store.dart';
 import '../../core/theme/four_theme.dart';
 
-/// Scrollable list of questions → open one → answer → back to list.
-/// [initialIndex] opens that question immediately (tap-to-answer).
+/// Scrollable list → tap opens that question immediately.
 class PracticeListSession extends StatefulWidget {
   const PracticeListSession({
     super.key,
@@ -139,50 +138,35 @@ class _PracticeListSessionState extends State<PracticeListSession> {
                   child:
                       Text(q.explanation, style: const TextStyle(height: 1.4)),
                 ),
-              // Similar questions — tappable
-              if (q.similar.isNotEmpty) ...[
-                const Text('Similar questions',
-                    style: TextStyle(fontWeight: FontWeight.w900)),
-                const SizedBox(height: 8),
-                ...q.similar.take(5).map((s) {
-                  final match = widget.pool.where((p) => p.id == s.id).toList();
-                  final target = match.isNotEmpty
-                      ? match.first
-                      : widget.pool.cast<PracticeQuestion?>().firstWhere(
-                            (p) =>
-                                p != null &&
-                                p.prompt.toLowerCase().contains(
-                                    s.prompt.toLowerCase().split(' ').take(4).join(' ')),
-                            orElse: () => null,
-                          );
-                  return Card(
-                    child: ListTile(
-                      title: Text(s.prompt,
-                          maxLines: 2, overflow: TextOverflow.ellipsis),
-                      subtitle: Text(s.topic),
-                      trailing: target != null
-                          ? const Icon(Icons.play_arrow)
-                          : null,
-                      onTap: target == null
-                          ? null
-                          : () => setState(() {
-                                open = target;
-                                selected = null;
-                                revealed = false;
-                              }),
+              // Next question shortcut
+              Builder(builder: (context) {
+                final idx = widget.pool.indexWhere((p) => p.id == q.id);
+                final hasNext = idx >= 0 && idx + 1 < widget.pool.length;
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (hasNext)
+                      FilledButton.icon(
+                        onPressed: () => setState(() {
+                          open = widget.pool[idx + 1];
+                          selected = null;
+                          revealed = false;
+                        }),
+                        icon: const Icon(Icons.skip_next),
+                        label: const Text('Next question'),
+                      ),
+                    const SizedBox(height: 8),
+                    OutlinedButton(
+                      onPressed: () => setState(() {
+                        open = null;
+                        selected = null;
+                        revealed = false;
+                      }),
+                      child: const Text('Back to list'),
                     ),
-                  );
-                }),
-              ],
-              const SizedBox(height: 8),
-              FilledButton(
-                onPressed: () => setState(() {
-                  open = null;
-                  selected = null;
-                  revealed = false;
-                }),
-                child: const Text('Back to list'),
-              ),
+                  ],
+                );
+              }),
             ],
           ],
         ),
