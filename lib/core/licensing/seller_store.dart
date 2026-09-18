@@ -4,29 +4,23 @@ import 'package:uuid/uuid.dart';
 import 'device_id.dart';
 import 'qr_payload.dart';
 
-/// Local offline state for Bee Seller: quota remaining + history.
+/// Offline quota + code history for Bee Seller app.
 class SellerStore {
   SellerStore._();
   static final SellerStore instance = SellerStore._();
 
-  static const _boxName = 'bee_seller';
-  static const _quotaKey = 'quota_remaining';
-  static const _wholesaleKey = 'is_wholesale';
-  static const _historyKey = 'issue_history';
+  static const _boxName = 'seller_store_v1';
+  static const _quotaKey = 'remaining_quota';
+  static const _historyKey = 'history';
   static const _usedNoncesKey = 'used_nonces';
 
   Box? _box;
 
   Future<void> init() async {
-    await Hive.initFlutter();
     _box = await Hive.openBox(_boxName);
   }
 
-  Future<String> deviceId() => DeviceIdProvider.getId();
-
-  int get quotaRemaining => (_box?.get(_quotaKey) as int?) ?? 0;
-
-  bool get isWholesale => (_box?.get(_wholesaleKey) as bool?) ?? false;
+  int get remainingQuota => (_box?.get(_quotaKey) as int?) ?? 0;
 
   List<Map<String, dynamic>> get history {
     final raw = _box?.get(_historyKey);
@@ -42,101 +36,99 @@ class SellerStore {
 
   Set<String> get _usedNonces {
     final raw = _box?.get(_usedNoncesKey);
-    if (raw is List) return raw.map((e) => '$e').toSet();
+    if (raw is List) return raw.map((e) => e.toString()).toSet();
     return {};
   }
 
-  Future<void> _markNonce(String n) async {
-    final s = _usedNonces..add(n);
-    await _box?.put(_usedNoncesKey, s.toList());
+  Future<void> _saveUsedNonces(Set<String> nonces) async {
+    await _box?.put(_usedNoncesKey, nonces.toList());
   }
 
-  Future<String> redeemAuthCode(String raw) async {
-    final p = QrPayload.tryParse(raw.trim());
-    if (p == null) return 'Invalid code format.';
-    if (!p.isSignatureValid) return 'Invalid signature.';
-    final id = await deviceId();
-    if (!p.matchesDevice(id)) {
-      return 'Code is bound to another seller device.\nThis device: $id';
-    }
-    if (_usedNonces.contains(p.nonce)) return 'This code was already used.';
-    final q = p.quota;
-    if (q == null || q < 1) return 'Invalid quota on code.';
+  Future<bool> redeemAuthCode(String raw) async {
+    final payload = QrPayload.tryParse(raw);
+    if (payload == null || !payload.isSignatureValid) return false;
 
-    if (p.isWholesale) {
-      await _box?.put(_quotaKey, quotaRemaining + q);
-      await _box?.put(_wholesaleKey, true);
-      await _markNonce(p.nonce);
-      return 'Wholesale activated. +$q unlocks. You can issue student QR and seller codes.';
+    final type = payload.packageCode;
+    if (!type.startsWith('WHOLESALE:') && !type.startsWith('SELLER:')) {
+      return false;
     }
-    if (p.isSellerGrant) {
-      await _box?.put(_quotaKey, quotaRemaining + q);
-      await _markNonce(p.nonce);
-      return 'Seller credit added. +$q student unlocks.';
-    }
-    return 'Not a wholesale or seller code.';
+
+    final myId = await DeviceIdProvider.getId();
+    if (!payload.matchesDevice(myId)) return false;
+
+    final nonces = _usedNonces;
+    if (nonces.contains(payload.nonce)) return false;
+
+    final quota = payload.quota ?? 0;
+    if (quota <= 0) return false;
+
+    nonces.add(payload.nonce);
+    await _saveUsedNonces(nonces);
+
+    final current = remainingQuota;
+    await _box?.put(_quotaKey, current + quota);
+
+    final hist = List<Map<String, dynamic>>.from(
+      (_box?.get(_historyKey) as List?)
+              ?.map((e) => Map<String, dynamic>.from(e as Map)) ??
+          [],
+    );
+    hist.add({
+      'type': 'redeem',
+      'code': type,
+      'quota': quota,
+      'at': DateTime.now().toIso8601String(),
+    });
+    await _box?.put(_historyKey, hist);
+    return true;
   }
 
-  Future<({String? code, String? error})> issueStudentUnlock(
-      String studentDeviceId) async {
-    final sid = studentDeviceId.trim();
-    if (sid.isEmpty) return (code: null, error: 'Enter student Device ID.');
-    if (quotaRemaining < 1) {
-      return (code: null, error: 'No quota left. Redeem a wholesale/seller code.');
-    }
+  Future<String?> issueStudentUnlock(String studentDeviceId) async {
+    if (remainingQuota < 1) return null;
     final nonce = const Uuid().v4().replaceAll('-', '').substring(0, 12);
     final payload = QrPayload.issue(
       packageCode: 'HIGHSCHOOL',
-      deviceId: sid,
+      deviceId: studentDeviceId,
       nonce: nonce,
     );
-    await _box?.put(_quotaKey, quotaRemaining - 1);
-    await _appendHistory({
-      'type': 'STUDENT',
-      'target': sid,
+    await _box?.put(_quotaKey, remainingQuota - 1);
+
+    final hist = List<Map<String, dynamic>>.from(
+      (_box?.get(_historyKey) as List?)
+              ?.map((e) => Map<String, dynamic>.from(e as Map)) ??
+          [],
+    );
+    hist.add({
+      'type': 'student',
+      'target': studentDeviceId,
       'at': DateTime.now().toIso8601String(),
-      'code': payload.encode(),
     });
-    return (code: payload.encode(), error: null);
+    await _box?.put(_historyKey, hist);
+    return payload.encode();
   }
 
-  Future<({String? code, String? error})> issueSellerCode({
-    required String targetSellerDeviceId,
-    required int grantQuota,
-  }) async {
-    if (!isWholesale) {
-      return (code: null, error: 'Only wholesale sellers can grant seller codes.');
-    }
-    final tid = targetSellerDeviceId.trim();
-    if (tid.isEmpty) return (code: null, error: 'Enter target seller Device ID.');
-    final q = grantQuota.clamp(1, 10000);
-    if (quotaRemaining < q) {
-      return (code: null, error: 'Not enough quota (have $quotaRemaining).');
-    }
+  Future<String?> issueSellerCode(String subSellerDeviceId, int quota) async {
+    if (quota <= 0 || remainingQuota < quota) return null;
     final nonce = const Uuid().v4().replaceAll('-', '').substring(0, 12);
-    final payload = QrPayload.issueSeller(
-      sellerDeviceId: tid,
-      quota: q,
+    final payload = QrPayload.issue(
+      packageCode: 'SELLER:$quota',
+      deviceId: subSellerDeviceId,
       nonce: nonce,
     );
-    await _box?.put(_quotaKey, quotaRemaining - q);
-    await _appendHistory({
-      'type': 'SELLER',
-      'target': tid,
-      'quota': q,
-      'at': DateTime.now().toIso8601String(),
-      'code': payload.encode(),
-    });
-    return (code: payload.encode(), error: null);
-  }
+    await _box?.put(_quotaKey, remainingQuota - quota);
 
-  Future<void> _appendHistory(Map<String, dynamic> row) async {
-    final list = List<Map<String, dynamic>>.from(
-      (_box?.get(_historyKey) as List? ?? []).map(
-        (e) => Map<String, dynamic>.from(e as Map),
-      ),
+    final hist = List<Map<String, dynamic>>.from(
+      (_box?.get(_historyKey) as List?)
+              ?.map((e) => Map<String, dynamic>.from(e as Map)) ??
+          [],
     );
-    list.add(row);
-    await _box?.put(_historyKey, list);
+    hist.add({
+      'type': 'sub_seller',
+      'target': subSellerDeviceId,
+      'quota': quota,
+      'at': DateTime.now().toIso8601String(),
+    });
+    await _box?.put(_historyKey, hist);
+    return payload.encode();
   }
 }
