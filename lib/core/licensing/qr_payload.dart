@@ -1,12 +1,13 @@
 import 'dart:convert';
+
 import 'package:crypto/crypto.dart';
 
-/// Offline signed payloads shared by 4 (student), Bee Seller, and Master (Shamm).
-///
-/// Formats (pipe-separated):
-/// - Student unlock:  BEE1|HIGHSCHOOL|{deviceId}|{nonce}|{sig}
-/// - Wholesale auth:  BEE1|WHOLESALE:{quota}|{sellerDeviceId}|{nonce}|{sig}
-/// - Sub-seller auth: BEE1|SELLER:{quota}|{sellerDeviceId}|{nonce}|{sig}
+/// Offline QR unlock payload — HMAC-SHA256 signed.
+/// Format (v1): BEE1|<type>|<deviceId>|<nonce>|<sigHex>
+/// Types:
+///   HIGHSCHOOL          — permanent student unlock (single-use nonce)
+///   WHOLESALE:<quota>   — Master → Seller grant of student unlock quota
+///   SELLER:<quota>      — Seller → sub-seller grant of student unlock quota
 class QrPayload {
   static const version = 'BEE1';
   static const _signingKey = String.fromEnvironment(
@@ -34,11 +35,12 @@ class QrPayload {
     required String nonce,
   }) {
     final body = '$version|$packageCode|$deviceId|$nonce';
+    final sig = _hmac(body);
     return QrPayload(
       packageCode: packageCode,
       deviceId: deviceId,
       nonce: nonce,
-      signature: _hmac(body),
+      signature: sig,
     );
   }
 
@@ -47,28 +49,22 @@ class QrPayload {
     required int quota,
     required String nonce,
   }) {
-    final code = 'WHOLESALE:${quota.clamp(1, 100000)}';
-    final body = '$version|$code|$sellerDeviceId|$nonce';
-    return QrPayload(
-      packageCode: code,
+    return issue(
+      packageCode: 'WHOLESALE:$quota',
       deviceId: sellerDeviceId,
       nonce: nonce,
-      signature: _hmac(body),
     );
   }
 
   static QrPayload issueSeller({
-    required String sellerDeviceId,
+    required String subSellerDeviceId,
     required int quota,
     required String nonce,
   }) {
-    final code = 'SELLER:${quota.clamp(1, 100000)}';
-    final body = '$version|$code|$sellerDeviceId|$nonce';
-    return QrPayload(
-      packageCode: code,
-      deviceId: sellerDeviceId,
+    return issue(
+      packageCode: 'SELLER:$quota',
+      deviceId: subSellerDeviceId,
       nonce: nonce,
-      signature: _hmac(body),
     );
   }
 
@@ -76,7 +72,8 @@ class QrPayload {
 
   static QrPayload? tryParse(String raw) {
     final parts = raw.trim().split('|');
-    if (parts.length != 5 || parts[0] != version) return null;
+    if (parts.length != 5) return null;
+    if (parts[0] != version) return null;
     return QrPayload(
       packageCode: parts[1],
       deviceId: parts[2],
@@ -85,26 +82,35 @@ class QrPayload {
     );
   }
 
-  bool get isSignatureValid =>
-      _constantTimeEquals(_hmac(canonical), signature);
+  bool get isSignatureValid {
+    final expected = _hmac(canonical);
+    return _constantTimeEquals(expected, signature);
+  }
 
   bool matchesDevice(String currentDeviceId) =>
       deviceId.isNotEmpty && deviceId == currentDeviceId;
 
-  bool get isWholesale => packageCode.toUpperCase().startsWith('WHOLESALE');
-  bool get isSellerGrant => packageCode.toUpperCase().startsWith('SELLER:');
-  bool get isStudentUnlock =>
-      packageCode.toUpperCase() == 'HIGHSCHOOL' ||
-      packageCode.toUpperCase() == 'JUNIOR';
-
   int? get quota {
-    final p = packageCode.split(':');
-    if (p.length != 2) return null;
-    return int.tryParse(p[1]);
+    final upper = packageCode.toUpperCase();
+    if (upper.startsWith('WHOLESALE:')) {
+      return int.tryParse(upper.substring('WHOLESALE:'.length));
+    }
+    if (upper.startsWith('SELLER:')) {
+      return int.tryParse(upper.substring('SELLER:'.length));
+    }
+    return null;
   }
 
-  static String _hmac(String body) =>
-      Hmac(sha256, utf8.encode(_signingKey)).convert(utf8.encode(body)).toString();
+  bool get isStudentUnlock => packageCode.toUpperCase() == 'HIGHSCHOOL';
+  bool get isWholesale => packageCode.toUpperCase().startsWith('WHOLESALE:');
+  bool get isSellerGrant => packageCode.toUpperCase().startsWith('SELLER:');
+
+  static String _hmac(String body) {
+    final key = utf8.encode(_signingKey);
+    final bytes = utf8.encode(body);
+    final dig = Hmac(sha256, key).convert(bytes);
+    return dig.toString();
+  }
 
   static bool _constantTimeEquals(String a, String b) {
     if (a.length != b.length) return false;
