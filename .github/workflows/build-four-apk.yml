@@ -55,14 +55,13 @@ jobs:
               cp -a /tmp/four_extract/content/. assets/content/
             fi
           fi
-          # Bank v10 first — 211 notes incl G9 Geo/History/Business
           BANK_IDS="10aOcI0A5Ms2jdHOJbMD3CDmzeSpXjPWP 1lZD555pGTss45q_XqSAgBV-8_7XmULl9 1H_zEb-41mAmnikk6SkNX_p06LO_4ZQrA"
           for id in $BANK_IDS; do
             rm -f /tmp/four_bank.tgz
             python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_bank.tgz 2>/dev/null || \
               curl -sSL -L "https://drive.google.com/uc?export=download&confirm=t&id=${id}" -o /tmp/four_bank.tgz || true
             if [ -f /tmp/four_bank.tgz ] && gzip -t /tmp/four_bank.tgz 2>/dev/null; then
-              echo "Bank pack OK $id ($(du -h /tmp/four_bank.tgz | cut -f1))"
+              echo "Bank pack OK $id"
               mkdir -p /tmp/bank_extract
               tar xzf /tmp/four_bank.tgz -C /tmp/bank_extract
               find /tmp/bank_extract -type f -name '*.json' -exec cp -f {} assets/content/ \;
@@ -71,18 +70,14 @@ jobs:
           done
           TEXTBOOKS_ID="12dWC68ayy9WmU4ZX9JQeiyWcWKjtJznu"
           rm -f /tmp/four_tb.tgz
-          python3 -m gdown "https://drive.google.com/uc?id=${TEXTBOOKS_ID}&confirm=t" -O /tmp/four_tb.tgz 2>/dev/null || \
-            curl -sSL -L "https://drive.google.com/uc?export=download&confirm=t&id=${TEXTBOOKS_ID}" -o /tmp/four_tb.tgz || true
+          python3 -m gdown "https://drive.google.com/uc?id=${TEXTBOOKS_ID}&confirm=t" -O /tmp/four_tb.tgz 2>/dev/null || true
           if [ -f /tmp/four_tb.tgz ] && gzip -t /tmp/four_tb.tgz 2>/dev/null; then
-            echo "Textbooks pack OK"
             tar xzf /tmp/four_tb.tgz -C assets/content
           fi
           PHET_ID="1XF_Mkp2dsegVqe99Sh8IGEjpnWnJMLci"
           rm -f /tmp/four_phet.tgz
-          python3 -m gdown "https://drive.google.com/uc?id=${PHET_ID}&confirm=t" -O /tmp/four_phet.tgz 2>/dev/null || \
-            curl -sSL -L "https://drive.google.com/uc?export=download&confirm=t&id=${PHET_ID}" -o /tmp/four_phet.tgz || true
+          python3 -m gdown "https://drive.google.com/uc?id=${PHET_ID}&confirm=t" -O /tmp/four_phet.tgz 2>/dev/null || true
           if [ -f /tmp/four_phet.tgz ] && gzip -t /tmp/four_phet.tgz 2>/dev/null; then
-            echo "PhET pack OK"
             tar xzf /tmp/four_phet.tgz -C assets/content
           fi
           test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
@@ -95,60 +90,56 @@ jobs:
           test -f assets/content/phet_catalog.json || echo '{"subjects":[]}' > assets/content/phet_catalog.json
           python3 -c "import json; n=json.load(open('assets/content/unit_notes.json')); print('notes', len(n) if isinstance(n,list) else n)"
           python3 -c "import json; d=json.load(open('assets/content/matric_questions.json')); q=d.get('questions',d); print('matric', len(q) if isinstance(q,list) else q)"
-          du -sh assets/content 2>/dev/null || true
-
-      - name: Generate branded launcher icons
-        run: |
-          python3 << 'ICON'
-          import os
-          from PIL import Image, ImageDraw, ImageFont
-          base = 'android/app/src/main/res'
-          for dens, size in [
-              ('mipmap-mdpi', 48), ('mipmap-hdpi', 72), ('mipmap-xhdpi', 96),
-              ('mipmap-xxhdpi', 144), ('mipmap-xxxhdpi', 192),
-          ]:
-              d = os.path.join(base, dens)
-              os.makedirs(d, exist_ok=True)
-              img = Image.new('RGBA', (size, size), (0, 0, 0, 0))
-              draw = ImageDraw.Draw(img)
-              m = max(1, size // 16)
-              draw.rounded_rectangle([m, m, size - m - 1, size - m - 1],
-                                    radius=size // 5, fill=(13, 148, 136, 255))
-              m2 = m + size // 12
-              draw.rounded_rectangle([m2, m2, size - m2 - 1, size - m2 - 1],
-                                    radius=size // 6, fill=(15, 118, 110, 255))
-              try:
-                  font = ImageFont.truetype(
-                      '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',
-                      int(size * 0.55))
-              except Exception:
-                  font = ImageFont.load_default()
-              bbox = draw.textbbox((0, 0), '4', font=font)
-              tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
-              x = (size - tw) / 2 - bbox[0]
-              y = (size - th) / 2 - bbox[1] - size * 0.02
-              draw.text((x, y), '4', font=font, fill=(255, 255, 255, 255))
-              img.save(os.path.join(d, 'ic_launcher.png'))
-          print('icons ok')
-          ICON
 
       - name: Pub get
         run: flutter pub get
 
       - name: Build student APK (4)
-        run: flutter build apk --release --no-tree-shake-icons --android-skip-build-dependency-validation -t lib/main.dart
+        run: |
+          python3 << 'ICON'
+          import os
+          from PIL import Image, ImageDraw, ImageFont
+          def make_icon(label, rgb, path_prefix):
+              for dens, size in [('mipmap-mdpi',48),('mipmap-hdpi',72),('mipmap-xhdpi',96),('mipmap-xxhdpi',144),('mipmap-xxxhdpi',192)]:
+                  d=os.path.join(path_prefix, dens); os.makedirs(d, exist_ok=True)
+                  img=Image.new('RGBA',(size,size),(0,0,0,0)); draw=ImageDraw.Draw(img)
+                  m=max(1,size//16)
+                  draw.rounded_rectangle([m,m,size-m-1,size-m-1], radius=size//5, fill=rgb+(255,))
+                  try: font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', int(size*0.42))
+                  except: font=ImageFont.load_default()
+                  bb=draw.textbbox((0,0),label,font=font); tw,th=bb[2]-bb[0],bb[3]-bb[1]
+                  draw.text(((size-tw)/2-bb[0], (size-th)/2-bb[1]), label, font=font, fill=(255,255,255,255))
+                  img.save(os.path.join(d,'ic_launcher.png'))
+          make_icon('4', (13,148,136), 'android/app/src/main/res')
+          ICON
+          flutter build apk --release --flavor student -t lib/main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
 
       - name: Upload student APK
         uses: actions/upload-artifact@v4
         with:
           name: four-release-apk
-          path: build/app/outputs/flutter-apk/*.apk
+          path: build/app/outputs/flutter-apk/*student*.apk
 
       - name: Build Bee Seller APK
         run: |
-          flutter build apk --release --no-tree-shake-icons --android-skip-build-dependency-validation -t lib/seller_main.dart
+          python3 << 'ICON'
+          import os
+          from PIL import Image, ImageDraw, ImageFont
+          for dens, size in [('mipmap-mdpi',48),('mipmap-hdpi',72),('mipmap-xhdpi',96),('mipmap-xxhdpi',144),('mipmap-xxxhdpi',192)]:
+              d=os.path.join('android/app/src/main/res', dens); os.makedirs(d, exist_ok=True)
+              img=Image.new('RGBA',(size,size),(0,0,0,0)); draw=ImageDraw.Draw(img)
+              m=max(1,size//16)
+              draw.rounded_rectangle([m,m,size-m-1,size-m-1], radius=size//5, fill=(5,150,105,255))
+              try: font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', int(size*0.35))
+              except: font=ImageFont.load_default()
+              label='BS'
+              bb=draw.textbbox((0,0),label,font=font); tw,th=bb[2]-bb[0],bb[3]-bb[1]
+              draw.text(((size-tw)/2-bb[0], (size-th)/2-bb[1]), label, font=font, fill=(255,255,255,255))
+              img.save(os.path.join(d,'ic_launcher.png'))
+          ICON
+          flutter build apk --release --flavor seller -t lib/seller_main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
           mkdir -p /tmp/seller_apk
-          cp build/app/outputs/flutter-apk/*.apk /tmp/seller_apk/bee-seller.apk
+          cp build/app/outputs/flutter-apk/*seller*.apk /tmp/seller_apk/bee-seller.apk || cp build/app/outputs/flutter-apk/*.apk /tmp/seller_apk/bee-seller.apk
 
       - name: Upload Bee Seller APK
         uses: actions/upload-artifact@v4
@@ -156,13 +147,28 @@ jobs:
           name: bee-seller-apk
           path: /tmp/seller_apk/*.apk
 
-      - name: Build Master Shamm APK
+      - name: Build Shamm Master APK
         run: |
-          flutter build apk --release --no-tree-shake-icons --android-skip-build-dependency-validation -t lib/master_main.dart
+          python3 << 'ICON'
+          import os
+          from PIL import Image, ImageDraw, ImageFont
+          for dens, size in [('mipmap-mdpi',48),('mipmap-hdpi',72),('mipmap-xhdpi',96),('mipmap-xxhdpi',144),('mipmap-xxxhdpi',192)]:
+              d=os.path.join('android/app/src/main/res', dens); os.makedirs(d, exist_ok=True)
+              img=Image.new('RGBA',(size,size),(0,0,0,0)); draw=ImageDraw.Draw(img)
+              m=max(1,size//16)
+              draw.rounded_rectangle([m,m,size-m-1,size-m-1], radius=size//5, fill=(124,58,237,255))
+              try: font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', int(size*0.35))
+              except: font=ImageFont.load_default()
+              label='SM'
+              bb=draw.textbbox((0,0),label,font=font); tw,th=bb[2]-bb[0],bb[3]-bb[1]
+              draw.text(((size-tw)/2-bb[0], (size-th)/2-bb[1]), label, font=font, fill=(255,255,255,255))
+              img.save(os.path.join(d,'ic_launcher.png'))
+          ICON
+          flutter build apk --release --flavor master -t lib/master_main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
           mkdir -p /tmp/master_apk
-          cp build/app/outputs/flutter-apk/*.apk /tmp/master_apk/shamm-master.apk
+          cp build/app/outputs/flutter-apk/*master*.apk /tmp/master_apk/shamm-master.apk || cp build/app/outputs/flutter-apk/*.apk /tmp/master_apk/shamm-master.apk
 
-      - name: Upload Master Shamm APK
+      - name: Upload Shamm Master APK
         uses: actions/upload-artifact@v4
         with:
           name: shamm-master-apk
