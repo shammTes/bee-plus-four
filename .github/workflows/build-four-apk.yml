@@ -1,4 +1,4 @@
-name: Build 4 APK
+name: Build 4 APKs (student / seller / master)
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: "17"
 
       - uses: subosito/flutter-action@v2
         with:
@@ -24,152 +24,116 @@ jobs:
       - name: Flutter doctor
         run: flutter doctor -v
 
-      - name: Download full offline content pack
+      - name: Download full content pack (Drive — must be shared Anyone with link)
         run: |
           set -e
-          mkdir -p assets/content/textbooks assets/content/illustrated assets/content/illustrated/g6_math_ch1_webp assets/content/illustrated_pdf assets/content/phet assets/content/textbook_covers
-          pip install -q gdown pillow
-          PACK_IDS="1zWHWp6S8R6KwZZLY1A1EwlulIe2Zx9Xa 1Bf_eqJ1BJkwOj-SSNBjmO8Om0e1TGI3B 1QrhYo3cnzTfaGuoLNEEAjrSyRAu59sZm 1J41cz00pHXvvaC1FSe_WZIHhGaCU4xUq"
-          DOWNLOADED=0
-          for id in $PACK_IDS; do
-            echo "Trying pack $id"
-            rm -f /tmp/four_content.tgz
-            if python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_content.tgz; then
-              if gzip -t /tmp/four_content.tgz 2>/dev/null; then
-                DOWNLOADED=1
-                break
-              fi
-            fi
-            curl -sSL -c /tmp/cj -b /tmp/cj -L "https://drive.google.com/uc?export=download&confirm=t&id=${id}" -o /tmp/four_content.tgz || true
-            if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
-              DOWNLOADED=1
-              break
-            fi
-          done
-          if [ "$DOWNLOADED" = "1" ]; then
+          mkdir -p assets/content
+          PACK_ID="1Pp6n2ENxbvgNQMV_u0n8hDFhXKhJfMQG"
+          pip install -q gdown
+          echo "Downloading content pack $PACK_ID …"
+          gdown --fuzzy "https://drive.google.com/file/d/${PACK_ID}/view" -O /tmp/four_content.tgz || \
+          gdown "https://drive.google.com/uc?id=${PACK_ID}" -O /tmp/four_content.tgz || true
+
+          if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
             mkdir -p /tmp/four_extract
             tar xzf /tmp/four_content.tgz -C /tmp/four_extract
             if [ -d /tmp/four_extract/assets/content ]; then
               cp -a /tmp/four_extract/assets/content/. assets/content/
+            elif [ -d /tmp/four_extract/bee-plus-four/assets/content ]; then
+              cp -a /tmp/four_extract/bee-plus-four/assets/content/. assets/content/
             elif [ -d /tmp/four_extract/content ]; then
               cp -a /tmp/four_extract/content/. assets/content/
+            else
+              find /tmp/four_extract -type f \( -name '*.json' -o -name '*.webp' -o -name '*.pdf' \) -exec cp -n {} assets/content/ \; || true
             fi
+            echo "Content pack extracted OK"
+          else
+            echo "::warning::Drive pack not downloadable (set sharing to Anyone with the link)."
           fi
-          BANK_IDS="10aOcI0A5Ms2jdHOJbMD3CDmzeSpXjPWP 1lZD555pGTss45q_XqSAgBV-8_7XmULl9 1H_zEb-41mAmnikk6SkNX_p06LO_4ZQrA"
-          for id in $BANK_IDS; do
-            rm -f /tmp/four_bank.tgz
-            python3 -m gdown "https://drive.google.com/uc?id=${id}&confirm=t" -O /tmp/four_bank.tgz 2>/dev/null || \
-              curl -sSL -L "https://drive.google.com/uc?export=download&confirm=t&id=${id}" -o /tmp/four_bank.tgz || true
-            if [ -f /tmp/four_bank.tgz ] && gzip -t /tmp/four_bank.tgz 2>/dev/null; then
-              echo "Bank pack OK $id"
-              mkdir -p /tmp/bank_extract
-              tar xzf /tmp/four_bank.tgz -C /tmp/bank_extract
-              find /tmp/bank_extract -type f -name '*.json' -exec cp -f {} assets/content/ \;
-              break
-            fi
-          done
-          TEXTBOOKS_ID="12dWC68ayy9WmU4ZX9JQeiyWcWKjtJznu"
-          rm -f /tmp/four_tb.tgz
-          python3 -m gdown "https://drive.google.com/uc?id=${TEXTBOOKS_ID}&confirm=t" -O /tmp/four_tb.tgz 2>/dev/null || true
-          if [ -f /tmp/four_tb.tgz ] && gzip -t /tmp/four_tb.tgz 2>/dev/null; then
-            tar xzf /tmp/four_tb.tgz -C assets/content
-          fi
-          PHET_ID="1XF_Mkp2dsegVqe99Sh8IGEjpnWnJMLci"
-          rm -f /tmp/four_phet.tgz
-          python3 -m gdown "https://drive.google.com/uc?id=${PHET_ID}&confirm=t" -O /tmp/four_phet.tgz 2>/dev/null || true
-          if [ -f /tmp/four_phet.tgz ] && gzip -t /tmp/four_phet.tgz 2>/dev/null; then
-            tar xzf /tmp/four_phet.tgz -C assets/content
-          fi
+
           test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
           test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
+          test -f assets/content/illustrated_slides.json || echo '{}' > assets/content/illustrated_slides.json
+          test -f assets/content/practice_index.json || echo '{"files":[],"lite":"practice_lite.json"}' > assets/content/practice_index.json
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
-          test -f assets/content/matric_questions.json || echo '{"questions":[]}' > assets/content/matric_questions.json
-          test -f assets/content/model_questions.json || echo '{"questions":[]}' > assets/content/model_questions.json
-          test -f assets/content/flashcards.json || echo '[]' > assets/content/flashcards.json
           test -f assets/content/textbooks_catalog.json || echo '{"book_count":0,"books":[]}' > assets/content/textbooks_catalog.json
-          test -f assets/content/phet_catalog.json || echo '{"subjects":[]}' > assets/content/phet_catalog.json
-          python3 -c "import json; n=json.load(open('assets/content/unit_notes.json')); print('notes', len(n) if isinstance(n,list) else n)"
-          python3 -c "import json; d=json.load(open('assets/content/matric_questions.json')); q=d.get('questions',d); print('matric', len(q) if isinstance(q,list) else q)"
+
+          echo "=== assets/content summary ==="
+          find assets/content -type f | wc -l
+          du -sh assets/content
+          BYTES=$(du -sb assets/content | cut -f1)
+          if [ "$BYTES" -lt 50000 ]; then
+            echo "::error::Content pack too small ($BYTES bytes)."
+            exit 1
+          fi
+          echo "Content size OK: $BYTES bytes"
+
+      - name: Generate branded icons
+        run: |
+          python3 << 'PY'
+          try:
+              from PIL import Image, ImageDraw, ImageFont
+          except ImportError:
+              import subprocess, sys
+              subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-q', 'pillow'])
+              from PIL import Image, ImageDraw, ImageFont
+          import os
+
+          def make_icon(path, label, bg=(13, 148, 136), size=192):
+              img = Image.new('RGB', (size, size), bg)
+              d = ImageDraw.Draw(img)
+              r = size // 6
+              d.rounded_rectangle([0, 0, size-1, size-1], radius=r, fill=bg)
+              try:
+                  font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', size // 3)
+              except Exception:
+                  font = ImageFont.load_default()
+              bbox = d.textbbox((0, 0), label, font=font)
+              tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+              d.text(((size - tw) / 2, (size - th) / 2 - 4), label, fill=(255, 255, 255), font=font)
+              os.makedirs(os.path.dirname(path), exist_ok=True)
+              img.save(path, 'PNG')
+
+          base = 'android/app/src/main/res'
+          for dens, s in [('mipmap-mdpi', 48), ('mipmap-hdpi', 72), ('mipmap-xhdpi', 96),
+                          ('mipmap-xxhdpi', 144), ('mipmap-xxxhdpi', 192)]:
+              make_icon(f'{base}/{dens}/ic_launcher.png', '4', size=s)
+          print('icons ok')
+          PY
 
       - name: Pub get
         run: flutter pub get
 
       - name: Build student APK (4)
         run: |
-          python3 << 'ICON'
-          import os
-          from PIL import Image, ImageDraw, ImageFont
-          def make_icon(label, rgb, path_prefix):
-              for dens, size in [('mipmap-mdpi',48),('mipmap-hdpi',72),('mipmap-xhdpi',96),('mipmap-xxhdpi',144),('mipmap-xxxhdpi',192)]:
-                  d=os.path.join(path_prefix, dens); os.makedirs(d, exist_ok=True)
-                  img=Image.new('RGBA',(size,size),(0,0,0,0)); draw=ImageDraw.Draw(img)
-                  m=max(1,size//16)
-                  draw.rounded_rectangle([m,m,size-m-1,size-m-1], radius=size//5, fill=rgb+(255,))
-                  try: font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', int(size*0.42))
-                  except: font=ImageFont.load_default()
-                  bb=draw.textbbox((0,0),label,font=font); tw,th=bb[2]-bb[0],bb[3]-bb[1]
-                  draw.text(((size-tw)/2-bb[0], (size-th)/2-bb[1]), label, font=font, fill=(255,255,255,255))
-                  img.save(os.path.join(d,'ic_launcher.png'))
-          make_icon('4', (13,148,136), 'android/app/src/main/res')
-          ICON
-          flutter build apk --release --flavor student -t lib/main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
+          flutter build apk --release --flavor student --target lib/main.dart \
+            --no-tree-shake-icons --android-skip-build-dependency-validation
 
-      - name: Upload student APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: four-release-apk
-          path: build/app/outputs/flutter-apk/*student*.apk
-
-      - name: Build Bee Seller APK
+      - name: Build seller APK (Bee Seller)
         run: |
-          python3 << 'ICON'
-          import os
-          from PIL import Image, ImageDraw, ImageFont
-          for dens, size in [('mipmap-mdpi',48),('mipmap-hdpi',72),('mipmap-xhdpi',96),('mipmap-xxhdpi',144),('mipmap-xxxhdpi',192)]:
-              d=os.path.join('android/app/src/main/res', dens); os.makedirs(d, exist_ok=True)
-              img=Image.new('RGBA',(size,size),(0,0,0,0)); draw=ImageDraw.Draw(img)
-              m=max(1,size//16)
-              draw.rounded_rectangle([m,m,size-m-1,size-m-1], radius=size//5, fill=(5,150,105,255))
-              try: font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', int(size*0.35))
-              except: font=ImageFont.load_default()
-              label='BS'
-              bb=draw.textbbox((0,0),label,font=font); tw,th=bb[2]-bb[0],bb[3]-bb[1]
-              draw.text(((size-tw)/2-bb[0], (size-th)/2-bb[1]), label, font=font, fill=(255,255,255,255))
-              img.save(os.path.join(d,'ic_launcher.png'))
-          ICON
-          flutter build apk --release --flavor seller -t lib/seller_main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
-          mkdir -p /tmp/seller_apk
-          cp build/app/outputs/flutter-apk/*seller*.apk /tmp/seller_apk/bee-seller.apk || cp build/app/outputs/flutter-apk/*.apk /tmp/seller_apk/bee-seller.apk
+          flutter build apk --release --flavor seller --target lib/seller_main.dart \
+            --no-tree-shake-icons --android-skip-build-dependency-validation
 
-      - name: Upload Bee Seller APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: bee-seller-apk
-          path: /tmp/seller_apk/*.apk
-
-      - name: Build Shamm Master APK
+      - name: Build master APK (Shamm Master)
         run: |
-          python3 << 'ICON'
-          import os
-          from PIL import Image, ImageDraw, ImageFont
-          for dens, size in [('mipmap-mdpi',48),('mipmap-hdpi',72),('mipmap-xhdpi',96),('mipmap-xxhdpi',144),('mipmap-xxxhdpi',192)]:
-              d=os.path.join('android/app/src/main/res', dens); os.makedirs(d, exist_ok=True)
-              img=Image.new('RGBA',(size,size),(0,0,0,0)); draw=ImageDraw.Draw(img)
-              m=max(1,size//16)
-              draw.rounded_rectangle([m,m,size-m-1,size-m-1], radius=size//5, fill=(124,58,237,255))
-              try: font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', int(size*0.35))
-              except: font=ImageFont.load_default()
-              label='SM'
-              bb=draw.textbbox((0,0),label,font=font); tw,th=bb[2]-bb[0],bb[3]-bb[1]
-              draw.text(((size-tw)/2-bb[0], (size-th)/2-bb[1]), label, font=font, fill=(255,255,255,255))
-              img.save(os.path.join(d,'ic_launcher.png'))
-          ICON
-          flutter build apk --release --flavor master -t lib/master_main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
-          mkdir -p /tmp/master_apk
-          cp build/app/outputs/flutter-apk/*master*.apk /tmp/master_apk/shamm-master.apk || cp build/app/outputs/flutter-apk/*.apk /tmp/master_apk/shamm-master.apk
+          flutter build apk --release --flavor master --target lib/master_main.dart \
+            --no-tree-shake-icons --android-skip-build-dependency-validation
 
-      - name: Upload Shamm Master APK
+      - name: Collect APKs
+        run: |
+          mkdir -p dist
+          cp build/app/outputs/flutter-apk/app-student-release.apk dist/4-student.apk || true
+          cp build/app/outputs/flutter-apk/app-seller-release.apk dist/Bee-Seller.apk || true
+          cp build/app/outputs/flutter-apk/app-master-release.apk dist/Shamm-Master.apk || true
+          ls -lh dist/ || true
+          ls -lh build/app/outputs/flutter-apk/ || true
+
+      - name: Upload APKs
         uses: actions/upload-artifact@v4
         with:
-          name: shamm-master-apk
-          path: /tmp/master_apk/*.apk
+          name: four-three-apks
+          path: |
+            dist/
+            build/app/outputs/flutter-apk/*.apk
+          if-no-files-found: error
+          retention-days: 30
