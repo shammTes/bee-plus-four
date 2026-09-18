@@ -3,7 +3,7 @@ import 'package:pdfrx/pdfrx.dart';
 
 import '../../core/theme/four_theme.dart';
 
-/// Offline PDF viewer for textbooks and illustrated notes.
+/// Offline illustrated-notes / textbook PDF viewer (assets or file path).
 class IllustratedPdfPage extends StatelessWidget {
   const IllustratedPdfPage({
     super.key,
@@ -18,33 +18,28 @@ class IllustratedPdfPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final path = assetPath.startsWith('assets/')
-        ? assetPath
-        : 'assets/content/$assetPath';
-
     return Scaffold(
       backgroundColor: FourTheme.surface,
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
-            ),
+            Text(title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
             if (subtitle.isNotEmpty)
-              Text(
-                subtitle,
-                style: const TextStyle(fontSize: 11, color: FourTheme.muted),
-              ),
+              Text(subtitle,
+                  style: const TextStyle(fontSize: 11, color: FourTheme.muted)),
           ],
         ),
       ),
-      body: path.isEmpty
-          ? const Center(child: Text('No PDF path'))
-          : PdfViewer.asset(path),
+      body: PdfViewer.asset(
+        assetPath,
+        params: const PdfViewerParams(
+          backgroundColor: Color(0xFFF1F5F9),
+        ),
+      ),
     );
   }
 }
