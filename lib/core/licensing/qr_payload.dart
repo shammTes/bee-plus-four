@@ -8,14 +8,22 @@ import 'package:crypto/crypto.dart';
 ///   HIGHSCHOOL          — permanent student unlock (single-use nonce)
 ///   WHOLESALE:<quota>   — Master → Seller grant of student unlock quota
 ///   SELLER:<quota>      — Seller → sub-seller grant of student unlock quota
+///
+/// Security rules (non-negotiable):
+/// - Signature required (tamper-evident)
+/// - Bound to deviceId
+/// - Nonce single-use (enforced by UnlockStore / SellerStore)
+/// - Package permanent once applied
 class QrPayload {
   static const version = 'BEE1';
+  /// Compile-time app secret for HMAC. In production rotate via build flavors
+  /// and never log. Seller/Master apps share the same signing key offline.
   static const _signingKey = String.fromEnvironment(
     'BEE_HMAC_KEY',
     defaultValue: 'BEE_PLUS_ERITREA_OFFLINE_HMAC_V1_CHANGE_IN_RELEASE',
   );
 
-  final String packageCode;
+  final String packageCode; // HIGHSCHOOL | WHOLESALE:N | SELLER:N
   final String deviceId;
   final String nonce;
   final String signature;
@@ -27,8 +35,10 @@ class QrPayload {
     required this.signature,
   });
 
-  String get canonical => '$version|$packageCode|$deviceId|$nonce';
+  String get canonical =>
+      '$version|$packageCode|$deviceId|$nonce';
 
+  /// Create a signed student unlock payload (Seller app).
   static QrPayload issue({
     required String packageCode,
     required String deviceId,
@@ -44,6 +54,7 @@ class QrPayload {
     );
   }
 
+  /// Master issues wholesale quota to a Seller device.
   static QrPayload issueWholesale({
     required String sellerDeviceId,
     required int quota,
@@ -56,6 +67,7 @@ class QrPayload {
     );
   }
 
+  /// Seller issues sub-seller quota.
   static QrPayload issueSeller({
     required String subSellerDeviceId,
     required int quota,
@@ -90,6 +102,7 @@ class QrPayload {
   bool matchesDevice(String currentDeviceId) =>
       deviceId.isNotEmpty && deviceId == currentDeviceId;
 
+  /// Parsed quota if this is a WHOLESALE:N or SELLER:N payload, else null.
   int? get quota {
     final upper = packageCode.toUpperCase();
     if (upper.startsWith('WHOLESALE:')) {
@@ -109,7 +122,7 @@ class QrPayload {
     final key = utf8.encode(_signingKey);
     final bytes = utf8.encode(body);
     final dig = Hmac(sha256, key).convert(bytes);
-    return dig.toString();
+    return dig.toString(); // hex
   }
 
   static bool _constantTimeEquals(String a, String b) {
