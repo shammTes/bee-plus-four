@@ -44,6 +44,7 @@ class SellerStore {
     await _box?.put(_usedNoncesKey, nonces.toList());
   }
 
+  /// Redeem Master WHOLESALE:N or peer Bee Seller SELLER:N grant.
   Future<bool> redeemAuthCode(String raw) async {
     final payload = QrPayload.tryParse(raw);
     if (payload == null || !payload.isSignatureValid) return false;
@@ -107,6 +108,7 @@ class SellerStore {
     return payload.encode();
   }
 
+  /// Transfer part of this seller's quota to another Bee Seller (SELLER:N grant).
   Future<String?> issueSellerCode(String subSellerDeviceId, int quota) async {
     if (quota <= 0 || remainingQuota < quota) return null;
     final nonce = const Uuid().v4().replaceAll('-', '').substring(0, 12);
