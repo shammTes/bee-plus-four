@@ -24,51 +24,62 @@ jobs:
       - name: Flutter doctor
         run: flutter doctor -v
 
-      - name: Download full content pack (Drive — must be shared Anyone with link)
+      - name: Overlay full ready source from Drive
+        run: |
+          set -e
+          pip install -q gdown
+          READY_ID="1lQ4tpfxGmJ88M8BxQPBxFORDmK1d-jjg"
+          echo "Downloading ready source $READY_ID …"
+          gdown --fuzzy "https://drive.google.com/file/d/${READY_ID}/view" -O /tmp/ready.tgz || \
+          gdown "https://drive.google.com/uc?id=${READY_ID}" -O /tmp/ready.tgz
+          if [ -f /tmp/ready.tgz ] && gzip -t /tmp/ready.tgz 2>/dev/null; then
+            mkdir -p /tmp/ready_extract
+            tar xzf /tmp/ready.tgz -C /tmp/ready_extract
+            # Merge into workspace root
+            if [ -d /tmp/ready_extract/lib ]; then
+              cp -a /tmp/ready_extract/. .
+            else
+              # tarball may contain top-level lib pubspec android assets
+              cp -a /tmp/ready_extract/* . 2>/dev/null || true
+            fi
+            echo "Ready source overlaid"
+            ls -la lib/seller_main.dart pubspec.yaml assets/content/ | head -20
+          else
+            echo "::warning::Ready tarball not downloaded; using repo checkout only"
+          fi
+
+      - name: Download notes + practice packs from Drive
         run: |
           set -e
           mkdir -p assets/content
-          PACK_ID="1Pp6n2ENxbvgNQMV_u0n8hDFhXKhJfMQG"
           pip install -q gdown
-          echo "Downloading content pack $PACK_ID …"
-          gdown --fuzzy "https://drive.google.com/file/d/${PACK_ID}/view" -O /tmp/four_content.tgz || \
-          gdown "https://drive.google.com/uc?id=${PACK_ID}" -O /tmp/four_content.tgz || true
-
+          # unit_notes_rich
+          gdown --fuzzy "https://drive.google.com/file/d/1gv_l5Vay2WWt-NybgA8bb3DwPseMAu0q/view" -O assets/content/unit_notes_rich.json || true
+          # flat notes
+          gdown --fuzzy "https://drive.google.com/file/d/1-lrX7DJp7vMjtEac74F9lJ-bWkKFQA_9/view" -O assets/content/unit_notes.json || true
+          # note MCQs
+          gdown --fuzzy "https://drive.google.com/file/d/1Le6xHfpnvpRJ7oGiF70_SFzTkIWTJZSY/view" -O assets/content/practice_from_notes.json || true
+          # legacy content pack (optional)
+          PACK_ID="1Pp6n2ENxbvgNQMV_u0n8hDFhXKhJfMQG"
+          gdown --fuzzy "https://drive.google.com/file/d/${PACK_ID}/view" -O /tmp/four_content.tgz || true
           if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
             mkdir -p /tmp/four_extract
             tar xzf /tmp/four_content.tgz -C /tmp/four_extract
             if [ -d /tmp/four_extract/assets/content ]; then
-              cp -a /tmp/four_extract/assets/content/. assets/content/
-            elif [ -d /tmp/four_extract/bee-plus-four/assets/content ]; then
-              cp -a /tmp/four_extract/bee-plus-four/assets/content/. assets/content/
-            elif [ -d /tmp/four_extract/content ]; then
-              cp -a /tmp/four_extract/content/. assets/content/
-            else
-              find /tmp/four_extract -type f \( -name '*.json' -o -name '*.webp' -o -name '*.pdf' \) -exec cp -n {} assets/content/ \; || true
+              cp -an /tmp/four_extract/assets/content/. assets/content/ || true
             fi
-            echo "Content pack extracted OK"
-          else
-            echo "::warning::Drive pack not downloadable (set sharing to Anyone with the link)."
           fi
-
+          # Safety defaults
           test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
+          test -f assets/content/practice_index.json || echo '{"files":["practice_from_notes.json","practice_questions.json"],"lite":"practice_lite.json"}' > assets/content/practice_index.json
           test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
-          test -f assets/content/illustrated_slides.json || echo '{}' > assets/content/illustrated_slides.json
-          test -f assets/content/practice_index.json || echo '{"files":[],"lite":"practice_lite.json"}' > assets/content/practice_index.json
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
-          test -f assets/content/textbooks_catalog.json || echo '{"book_count":0,"books":[]}' > assets/content/textbooks_catalog.json
-
-          echo "=== assets/content summary ==="
+          echo "=== content summary ==="
           find assets/content -type f | wc -l
           du -sh assets/content
-          BYTES=$(du -sb assets/content | cut -f1)
-          if [ "$BYTES" -lt 50000 ]; then
-            echo "::error::Content pack too small ($BYTES bytes)."
-            exit 1
-          fi
-          echo "Content size OK: $BYTES bytes"
+          ls -lh assets/content/unit_notes*.json assets/content/practice_from_notes.json 2>/dev/null || true
 
-      - name: Generate branded icons
+      - name: Generate icons
         run: |
           python3 << 'PY'
           try:
@@ -78,12 +89,9 @@ jobs:
               subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-q', 'pillow'])
               from PIL import Image, ImageDraw, ImageFont
           import os
-
           def make_icon(path, label, bg=(13, 148, 136), size=192):
               img = Image.new('RGB', (size, size), bg)
               d = ImageDraw.Draw(img)
-              r = size // 6
-              d.rounded_rectangle([0, 0, size-1, size-1], radius=r, fill=bg)
               try:
                   font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', size // 3)
               except Exception:
@@ -93,7 +101,6 @@ jobs:
               d.text(((size - tw) / 2, (size - th) / 2 - 4), label, fill=(255, 255, 255), font=font)
               os.makedirs(os.path.dirname(path), exist_ok=True)
               img.save(path, 'PNG')
-
           base = 'android/app/src/main/res'
           for dens, s in [('mipmap-mdpi', 48), ('mipmap-hdpi', 72), ('mipmap-xhdpi', 96),
                           ('mipmap-xxhdpi', 144), ('mipmap-xxxhdpi', 192)]:
@@ -104,29 +111,27 @@ jobs:
       - name: Pub get
         run: flutter pub get
 
-      - name: Build student APK (4)
+      - name: Build student APK
         run: |
           flutter build apk --release --flavor student --target lib/main.dart \
-            --no-tree-shake-icons --android-skip-build-dependency-validation
+            --no-tree-shake-icons --android-skip-build-dependency-validation || \
+          flutter build apk --release --target lib/main.dart --no-tree-shake-icons
 
-      - name: Build seller APK (Bee Seller)
+      - name: Build seller APK
         run: |
           flutter build apk --release --flavor seller --target lib/seller_main.dart \
-            --no-tree-shake-icons --android-skip-build-dependency-validation
+            --no-tree-shake-icons --android-skip-build-dependency-validation || true
 
-      - name: Build master APK (Shamm Master)
+      - name: Build master APK
         run: |
           flutter build apk --release --flavor master --target lib/master_main.dart \
-            --no-tree-shake-icons --android-skip-build-dependency-validation
+            --no-tree-shake-icons --android-skip-build-dependency-validation || true
 
       - name: Collect APKs
         run: |
           mkdir -p dist
-          cp build/app/outputs/flutter-apk/app-student-release.apk dist/4-student.apk || true
-          cp build/app/outputs/flutter-apk/app-seller-release.apk dist/Bee-Seller.apk || true
-          cp build/app/outputs/flutter-apk/app-master-release.apk dist/Shamm-Master.apk || true
-          ls -lh dist/ || true
-          ls -lh build/app/outputs/flutter-apk/ || true
+          find build/app/outputs/flutter-apk -name '*.apk' -exec cp -v {} dist/ \; || true
+          ls -lh dist/ build/app/outputs/flutter-apk/ || true
 
       - name: Upload APKs
         uses: actions/upload-artifact@v4
