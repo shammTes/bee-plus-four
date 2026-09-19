@@ -5,6 +5,10 @@ class UnitNote {
   final String title;
   final String summary;
   final List<String> keyTerms;
+  final List<String> keyIdeas;
+  final List<NoteSection> sections;
+  final List<NoteExample> examples;
+  final List<NoteExercise> exercises;
 
   const UnitNote({
     required this.grade,
@@ -13,15 +17,73 @@ class UnitNote {
     required this.title,
     required this.summary,
     this.keyTerms = const [],
+    this.keyIdeas = const [],
+    this.sections = const [],
+    this.examples = const [],
+    this.exercises = const [],
   });
 
   factory UnitNote.fromJson(Map<String, dynamic> j) => UnitNote(
-        grade: j['grade'] as String,
-        subject: j['subject'] as String,
-        unitNumber: j['unit_number'] as int,
-        title: j['title'] as String,
+        grade: '${j['grade'] ?? ''}',
+        subject: '${j['subject'] ?? ''}',
+        unitNumber: (j['unit_number'] as num?)?.toInt() ?? 0,
+        title: '${j['title'] ?? ''}',
         summary: j['summary'] as String? ?? '',
-        keyTerms: (j['key_terms'] as List?)?.cast<String>() ?? const [],
+        keyTerms: (j['key_terms'] as List?)?.map((e) => '$e').toList() ?? const [],
+        keyIdeas: (j['key_ideas'] as List?)?.map((e) => '$e').toList() ?? const [],
+        sections: ((j['sections'] as List?) ?? const [])
+            .map((e) => NoteSection.fromJson(e as Map<String, dynamic>))
+            .toList(),
+        examples: ((j['examples'] as List?) ?? const [])
+            .map((e) => NoteExample.fromJson(e as Map<String, dynamic>))
+            .toList(),
+        exercises: ((j['exercises'] as List?) ?? const [])
+            .map((e) => NoteExercise.fromJson(e as Map<String, dynamic>))
+            .toList(),
+      );
+}
+
+class NoteSection {
+  final String heading;
+  final String explanation;
+  const NoteSection({required this.heading, required this.explanation});
+  factory NoteSection.fromJson(Map<String, dynamic> j) => NoteSection(
+        heading: '${j['heading'] ?? ''}',
+        explanation: '${j['explanation'] ?? ''}',
+      );
+}
+
+class NoteExample {
+  final String id;
+  final String prompt;
+  final String solution;
+  const NoteExample({required this.id, required this.prompt, required this.solution});
+  factory NoteExample.fromJson(Map<String, dynamic> j) => NoteExample(
+        id: '${j['id'] ?? ''}',
+        prompt: '${j['prompt'] ?? ''}',
+        solution: '${j['solution'] ?? ''}',
+      );
+}
+
+class NoteExercise {
+  final String id;
+  final String type;
+  final String prompt;
+  final String answer;
+  final String explanation;
+  const NoteExercise({
+    required this.id,
+    required this.type,
+    required this.prompt,
+    required this.answer,
+    required this.explanation,
+  });
+  factory NoteExercise.fromJson(Map<String, dynamic> j) => NoteExercise(
+        id: '${j['id'] ?? ''}',
+        type: '${j['type'] ?? 'practice'}',
+        prompt: '${j['prompt'] ?? ''}',
+        answer: '${j['answer'] ?? ''}',
+        explanation: '${j['explanation'] ?? ''}',
       );
 }
 
@@ -88,10 +150,9 @@ class IllustratedSlide {
       );
 }
 
-/// Official paper index entry (matriculation / model). Verified against Drive files.
 class ExamPaper {
   final String id;
-  final String type; // matriculation | model | semester
+  final String type;
   final String subject;
   final int year;
   final String title;
