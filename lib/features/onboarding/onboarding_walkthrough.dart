@@ -9,6 +9,22 @@ class OnboardingWalkthrough extends StatefulWidget {
 
   final VoidCallback onFinished;
 
+  /// True after user finishes or skips onboarding.
+  static Future<bool> isDone() async {
+    try {
+      await UnlockStore.instance.init();
+      return UnlockStore.instance.seenOnboarding;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  static Future<void> markDone() async {
+    try {
+      await UnlockStore.instance.markOnboardingSeen();
+    } catch (_) {}
+  }
+
   @override
   State<OnboardingWalkthrough> createState() => _OnboardingWalkthroughState();
 }
@@ -23,101 +39,58 @@ class _OnboardingWalkthroughState extends State<OnboardingWalkthrough>
   static const _steps = <_Step>[
     _Step(
       emoji: '👋',
-      title: 'እንቋዕ ናብ 4 መጻእኩም',
+      title: 'Welcome to 4',
       body:
-          '4 ን ኤርትራዊ ልዕሊ ደረጃ ትምህርቲ (G9–G12) ንኽትመሃሩ ዝተዳለየ ኦፍላይን መተግበሪ እዩ።\n\n'
-          'ኣብዚ ሓጺር መምርሒ ብኢድኩም ከመይ ከም እትጥቀሙሉ ንርእየኩም።',
-      tip: 'ንቐጻሊ ጠውቁ',
+          'Offline highschool study (G9–G12).\nNotes · Practice · Matric · Coach.',
+      tip: 'Tap Next',
       color: Color(0xFF0D9488),
       icon: Icons.school_rounded,
     ),
     _Step(
       emoji: '📚',
-      title: '1) ክፍልኹም ምረጹ',
-      body:
-          'ኣብ መእተዊ ገጽ፡\n'
-          '• G9 ወይ G10 ምረጹ\n'
-          '• ን G11 / G12፡ 11 Science · 11 Arts · 12 Science · 12 Arts\n\n'
-          'እቲ ጠውቒ ናብ ናይቲ ክፍሊ መዘኻኸሪ፣ መጽሓፍ፣ ምልምማድን ማትሪክን የብጽሓኩም።',
-      tip: 'ክፍሊ ምረጽ → ክፍቱ ገጽ ይኸፍት',
+      title: 'Pick your grade',
+      body: 'Choose G9–G12 on Home. Switch anytime.',
+      tip: 'Grade chips on Home',
       color: Color(0xFF0284C7),
       icon: Icons.grid_view_rounded,
     ),
     _Step(
       emoji: '📝',
-      title: '2) መዘኻኸሪን ስእላዊን',
-      body:
-          'ኣብ ናይ ክፍሊ ገጽ «Notes» ጠውቁ።\n\n'
-          '• ክፍለ-ትምህርቲ (Unit) ምረጹ\n'
-          '• ጽሑፋዊ መዘኻኸሪ ኣንብቡ\n'
-          '• Illustrated / slides እንተሃልዩ ክፈቱ\n'
-          '• Textbooks ንሙሉእ መጽሓፍ PDF',
-      tip: 'Unit → Notes / Slides',
+      title: 'Notes & illustrated',
+      body: 'Open Units → notes, illustrated decks, textbook at unit.',
+      tip: 'Notes tab',
       color: Color(0xFF0F766E),
       icon: Icons.auto_stories_rounded,
     ),
     _Step(
       emoji: '✅',
-      title: '3) ምልምማድ (Practice)',
-      body:
-          '«Practice» ጠውቁ፣ ድሕሪኡ፡\n'
-          '• ትምህርትን ክፍለ-ትምህርትን ምረጹ\n'
-          '• ሕቶታት ብዝርዝር ትርእዩ\n'
-          '• መልሲ ኣረጋግጹን ምስራሕኹም ተኸታተሉ\n\n'
-          'ብቕዓት (mastery) ድኹም ክፍለ-ትምህርቲ የርእየኩም።',
-      tip: 'Grade → Subject → Unit → ሕቶታት',
+      title: 'Practice',
+      body: 'MCQs with answers & explanations. List any question.',
+      tip: 'Practice tab',
       color: Color(0xFF7C3AED),
       icon: Icons.quiz_rounded,
     ),
     _Step(
       emoji: '📋',
-      title: '4) ማትሪኩሌሽን ፈተና',
-      body:
-          'ኣብ መእተዊ «Matriculation» ዓቢ ቁልፊ ጠውቁ።\n\n'
-          '• ትምህርቲ + ዓመት ምረጹ (ኣብነት Chemistry 2018)\n'
-          '• ሕቶታት ብዝርዝር ኣንብቡ\n'
-          '• መግለጺን ተመሳሳሊ ሕቶታትን እንተሃልዩ ተጠቐሙ\n\n'
-          'ማትሪክ ንሃገራዊ ፈተና እዩ — ምስ unit practice ይተሓሓዝ።',
-      tip: 'Subject · Year → ሕቶ',
+      title: 'Matric & model exams',
+      body: 'Past papers + explanations + similar practice.',
+      tip: 'Exams tab',
       color: Color(0xFF4F46E5),
       icon: Icons.assignment_rounded,
     ),
     _Step(
-      emoji: '🔬',
-      title: '5) ላብ · ኣሰልጣኒ · መሳርሒ',
-      body:
-          '• Virtual labs — PhET ኦፍላይን (ፊዚክስ · ኬሚስትሪ · ባዮ)\n'
-          '• Coach — ብክፍሊ/ትምህርቲ ሕቶ ወይ መዘኻኸሪ\n'
-          '• Tools — ኣሃዚ፣ ሰዓት፣ ካርድ\n\n'
-          'ኩሉ ብዘይ ኢንተርነት ይሰርሕ።',
-      tip: 'Also / Labs / Coach ኣብ መእተዊ',
-      color: Color(0xFF0EA5E9),
-      icon: Icons.science_rounded,
-    ),
-    _Step(
       emoji: '📱',
-      title: '6) መኽፈቲ QR (Bee Seller)',
-      body:
-          'ኣብ መእተዊ Device ID / QR ኣሎ።\n\n'
-          '1) እቲ QR ን Bee Seller ኣርእዩ\n'
-          '2) ሸጣኢ unlock QR የውጽእ\n'
-          '3) ኣብ 4 እቲ ኮድ ስካን ወይ ለጥፉ\n\n'
-          'ሓደ ግዜ ዝኽፈተ መሳርሒ ብቐጻሊ ይኽፈት።',
-      tip: 'Home → QR → Bee Seller',
+      title: 'Unlock with Bee Seller',
+      body: 'Show Device ID or scan the seller QR to unlock.',
+      tip: 'Unlock / Scan QR',
       color: Color(0xFFEA580C),
       icon: Icons.qr_code_2_rounded,
     ),
     _Step(
       emoji: '🚀',
-      title: 'ተዳልዩኹም — ጀምሩ!',
-      body:
-          'ሕጂ፡\n'
-          '✓ ክፍልኹም ምረጹ\n'
-          '✓ መዘኻኸሪ ኣንብቡ\n'
-          '✓ ምልምማድ ስረሑ\n'
-          '✓ ማትሪክ ለምምዱ\n\n'
-          'ዕውት ይግበረልኩም!',
-      tip: 'ጀምር → ናብ መእተዊ',
+      title: 'Ready — start!',
+      body: 'Study offline. Good luck!',
+      tip: 'Start',
       color: Color(0xFF059669),
       icon: Icons.rocket_launch_rounded,
     ),
@@ -145,7 +118,7 @@ class _OnboardingWalkthroughState extends State<OnboardingWalkthrough>
   }
 
   Future<void> _finish() async {
-    await UnlockStore.instance.markOnboardingSeen();
+    await OnboardingWalkthrough.markDone();
     widget.onFinished();
   }
 
@@ -190,7 +163,6 @@ class _OnboardingWalkthroughState extends State<OnboardingWalkthrough>
         child: SafeArea(
           child: Column(
             children: [
-              // Top bar
               Padding(
                 padding: const EdgeInsets.fromLTRB(8, 4, 8, 0),
                 child: Row(
@@ -198,7 +170,7 @@ class _OnboardingWalkthroughState extends State<OnboardingWalkthrough>
                     TextButton(
                       onPressed: _finish,
                       child: const Text(
-                        'ዝለል',
+                        'Skip',
                         style: TextStyle(
                           color: Colors.white70,
                           fontWeight: FontWeight.w800,
@@ -217,7 +189,6 @@ class _OnboardingWalkthroughState extends State<OnboardingWalkthrough>
                   ],
                 ),
               ),
-              // Progress dots
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                 child: Row(
@@ -231,9 +202,7 @@ class _OnboardingWalkthroughState extends State<OnboardingWalkthrough>
                         height: 4,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
-                          color: active || done
-                              ? Colors.white
-                              : Colors.white24,
+                          color: active || done ? Colors.white : Colors.white24,
                         ),
                       ),
                     );
@@ -256,7 +225,6 @@ class _OnboardingWalkthroughState extends State<OnboardingWalkthrough>
                   },
                 ),
               ),
-              // Bottom actions
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 20),
                 child: Row(
@@ -270,7 +238,7 @@ class _OnboardingWalkthroughState extends State<OnboardingWalkthrough>
                           padding: const EdgeInsets.symmetric(
                               horizontal: 18, vertical: 14),
                         ),
-                        child: const Text('ዝሓለፈ',
+                        child: const Text('Back',
                             style: TextStyle(fontWeight: FontWeight.w800)),
                       )
                     else
@@ -291,7 +259,7 @@ class _OnboardingWalkthroughState extends State<OnboardingWalkthrough>
                           elevation: 4,
                         ),
                         child: Text(
-                          last ? 'ጀምር' : 'ቐጻሊ',
+                          last ? 'Start' : 'Next',
                           style: const TextStyle(
                             fontWeight: FontWeight.w900,
                             fontSize: 16,
@@ -348,16 +316,12 @@ class _StepPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const SizedBox(height: 12),
-          // Animated icon badge
           Center(
             child: AnimatedBuilder(
               animation: float,
               builder: (context, child) {
                 final dy = isActive ? (float.value - 0.5) * 12 : 0.0;
-                return Transform.translate(
-                  offset: Offset(0, dy),
-                  child: child,
-                );
+                return Transform.translate(offset: Offset(0, dy), child: child);
               },
               child: Container(
                 width: 110,
@@ -366,13 +330,6 @@ class _StepPage extends StatelessWidget {
                   color: Colors.white.withOpacity(0.18),
                   borderRadius: BorderRadius.circular(32),
                   border: Border.all(color: Colors.white30, width: 2),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      blurRadius: 24,
-                      offset: const Offset(0, 12),
-                    ),
-                  ],
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -420,7 +377,6 @@ class _StepPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          // Hands-on tip chip
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
             decoration: BoxDecoration(
