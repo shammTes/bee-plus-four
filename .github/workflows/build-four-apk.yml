@@ -27,15 +27,13 @@ jobs:
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
 
-      - name: Download notes + practice packs from Drive (optional)
+      - name: Optional Drive content overlay
         continue-on-error: true
         run: |
           set +e
           mkdir -p assets/content
           pip install -q 'gdown>=5.0' || pip install -q gdown
           gdown "https://drive.google.com/uc?id=1gv_l5Vay2WWt-NybgA8bb3DwPseMAu0q&export=download" -O assets/content/unit_notes_rich.json || true
-          gdown "https://drive.google.com/uc?id=1-lrX7DJp7vMjtEac74F9lJ-bWkKFQA_9&export=download" -O assets/content/unit_notes.json || true
-          gdown "https://drive.google.com/uc?id=1Le6xHfpnvpRJ7oGiF70_SFzTkIWTJZSY&export=download" -O assets/content/practice_from_notes.json || true
           PACK_ID="1Pp6n2ENxbvgNQMV_u0n8hDFhXKhJfMQG"
           gdown "https://drive.google.com/uc?id=${PACK_ID}&export=download" -O /tmp/four_content.tgz || true
           if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
@@ -45,11 +43,17 @@ jobs:
               cp -an /tmp/four_extract/assets/content/. assets/content/ || true
             fi
           fi
-          test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
-          test -f assets/content/practice_index.json || echo '{"files":["practice_from_notes.json","practice_questions.json"],"lite":"practice_lite.json"}' > assets/content/practice_index.json
-          test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
+
+      - name: Generate full G9–G12 unit notes + illustrated slides
+        run: |
+          mkdir -p assets/content
+          python3 tools/generate_curriculum_notes.py
+          echo "=== content after generator ==="
+          python3 -c "import json; n=json.load(open('assets/content/unit_notes.json')); print('notes', len(n)); s=json.load(open('assets/content/illustrated_slides.json')); print('slide_decks', len(s))"
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
+          test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
           find assets/content -type f | wc -l
+          du -sh assets/content
 
       - name: Generate icons
         run: |
