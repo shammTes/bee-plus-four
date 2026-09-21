@@ -24,27 +24,8 @@ jobs:
       - name: Flutter doctor
         run: flutter doctor -v
 
-      - name: Overlay full ready source from Drive (optional)
-        continue-on-error: true
-        run: |
-          set +e
-          pip install -q 'gdown>=5.0' || pip install -q gdown
-          READY_ID="1lQ4tpfxGmJ88M8BxQPBxFORDmK1d-jjg"
-          echo "Downloading ready source $READY_ID …"
-          gdown "https://drive.google.com/uc?id=${READY_ID}&export=download" -O /tmp/ready.tgz
-          if [ -f /tmp/ready.tgz ] && gzip -t /tmp/ready.tgz 2>/dev/null; then
-            mkdir -p /tmp/ready_extract
-            tar xzf /tmp/ready.tgz -C /tmp/ready_extract
-            if [ -d /tmp/ready_extract/lib ]; then
-              cp -a /tmp/ready_extract/. .
-            else
-              cp -a /tmp/ready_extract/* . 2>/dev/null || true
-            fi
-            echo "Ready source overlaid"
-            ls -la lib/seller_main.dart pubspec.yaml assets/content/ | head -20
-          else
-            echo "::warning::Ready tarball not downloaded; using repo checkout only"
-          fi
+      - name: Accept Android licenses
+        run: yes | flutter doctor --android-licenses || true
 
       - name: Download notes + practice packs from Drive (optional)
         continue-on-error: true
@@ -68,9 +49,7 @@ jobs:
           test -f assets/content/practice_index.json || echo '{"files":["practice_from_notes.json","practice_questions.json"],"lite":"practice_lite.json"}' > assets/content/practice_index.json
           test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
-          echo "=== content summary ==="
           find assets/content -type f | wc -l
-          du -sh assets/content || true
 
       - name: Generate icons
         run: |

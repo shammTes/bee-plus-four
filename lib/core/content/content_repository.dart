@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/services.dart';
 
 import '../models/content_models.dart';
-import '../models/exam_models.dart' hide ExamCatalog, ExamPaper, ModelExamYear;
+import '../models/exam_models.dart';
 
 /// Loads curriculum + exam catalogue. Fail-soft + session cache.
 class ContentRepository {
@@ -132,7 +132,6 @@ class ContentRepository {
     required int unitNumber,
   }) async {
     final byId = <String, PracticeQuestion>{};
-
     final practice = await questions();
     for (final q in practice) {
       if (q.subject != subject) continue;
@@ -173,13 +172,12 @@ class ContentRepository {
           correctIndex: m.correctIndex < 0 ? 0 : m.correctIndex,
           explanation: exp.isEmpty
               ? (m.correctIndex < 0
-                  ? 'Answer key not verified yet — discuss with your teacher.'
+                  ? 'Answer key not verified yet.'
                   : '')
               : exp,
         ),
       );
     }
-
     final list = byId.values.toList()..shuffle(_rng);
     return list;
   }
@@ -273,8 +271,7 @@ class ContentRepository {
       });
 
     _matric = MatricBundle(
-      accuracyPolicy:
-          'merged_bank_accuracy_first: school/model linked to units for Practice',
+      accuracyPolicy: 'merged_bank',
       questions: list,
       unitIndex: const {},
     );

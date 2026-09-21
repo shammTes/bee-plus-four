@@ -1,4 +1,4 @@
-/// Matric / model / school extracted questions.
+/// Matric / model extracted questions (no ExamCatalog — lives in content_models).
 class MatricQuestion {
   final String id;
   final String paperId;
@@ -34,26 +34,26 @@ class MatricQuestion {
     required this.similarQuestions,
   });
 
-  String get displayTitle {
-    final s = subject.replaceAll('_', ' ');
-    final pretty = s.isEmpty
-        ? subject
-        : s
-            .split(' ')
-            .map((w) => w.isEmpty
-                ? w
-                : '${w[0].toUpperCase()}${w.substring(1).toLowerCase()}')
-            .join(' ');
-    return '$pretty $year';
-  }
-
   factory MatricQuestion.fromJson(Map<String, dynamic> j) {
     final steps = j['explanation_steps'];
     List<String> exp = const [];
     if (steps is List) {
       exp = steps.map((e) => '$e').toList();
     } else if (j['explanation'] is String) {
-      exp = [j['explanation'] as String];
+      final s = (j['explanation'] as String).trim();
+      if (s.isNotEmpty) exp = [s];
+    }
+    final opts = ((j['options'] as List?) ?? const []).map((e) => '$e').toList();
+    var ci = (j['correct_index'] as num?)?.toInt() ?? -1;
+    if (ci < 0 || (opts.isNotEmpty && ci >= opts.length)) {
+      if (ci < 0) ci = -1;
+      else ci = 0;
+    }
+    if (exp.isEmpty && ci >= 0 && opts.isNotEmpty) {
+      exp = [
+        'Correct option is (${String.fromCharCode(65 + ci)}) ${opts[ci]}.',
+        'Review the related unit notes for this topic.',
+      ];
     }
     return MatricQuestion(
       id: '${j['id'] ?? ''}',
@@ -64,10 +64,11 @@ class MatricQuestion {
       section: j['section'] as String? ?? '',
       number: (j['number'] as num?)?.toInt() ?? 0,
       prompt: j['prompt'] as String? ?? j['question'] as String? ?? '',
-      options: ((j['options'] as List?) ?? const []).map((e) => '$e').toList(),
-      correctIndex: (j['correct_index'] as num?)?.toInt() ?? -1,
+      options: opts,
+      correctIndex: ci,
       explanationSteps: exp,
-      correctAnswerText: j['correct_answer_text'] as String? ?? '',
+      correctAnswerText: j['correct_answer_text'] as String? ??
+          (ci >= 0 && opts.isNotEmpty ? opts[ci] : ''),
       unitLinks: ((j['unit_links'] as List?) ?? const [])
           .whereType<Map>()
           .map((e) => UnitLink.fromJson(Map<String, dynamic>.from(e)))
@@ -174,136 +175,6 @@ class MatricBundle {
           .map((e) => MatricQuestion.fromJson(Map<String, dynamic>.from(e)))
           .toList(),
       unitIndex: idx,
-    );
-  }
-}
-
-class ExamPaper {
-  final String id;
-  final String type;
-  final String subject;
-  final int year;
-  final String title;
-  final String driveFileId;
-  final String source;
-  final bool interactive;
-  final String mappedSubject;
-  final int questionCount;
-
-  const ExamPaper({
-    required this.id,
-    required this.type,
-    required this.subject,
-    required this.year,
-    required this.title,
-    required this.driveFileId,
-    required this.source,
-    required this.interactive,
-    required this.mappedSubject,
-    required this.questionCount,
-  });
-
-  String get shortTitle {
-    final s = subject.replaceAll('_', ' ');
-    final pretty = s
-        .split(' ')
-        .map((w) => w.isEmpty
-            ? w
-            : '${w[0].toUpperCase()}${w.substring(1).toLowerCase()}')
-        .join(' ');
-    final base = '$pretty $year';
-    if (type == 'model') return '$base (Model)';
-    if (type == 'school') return '$base (School)';
-    return base;
-  }
-
-  factory ExamPaper.fromJson(Map<String, dynamic> j) => ExamPaper(
-        id: j['id'] as String? ?? '',
-        type: j['type'] as String? ?? 'matriculation',
-        subject: j['subject'] as String? ?? '',
-        year: (j['year'] as num?)?.toInt() ?? 0,
-        title: j['title'] as String? ?? '',
-        driveFileId: j['drive_file_id'] as String? ?? '',
-        source: j['source'] as String? ?? '',
-        interactive: j['interactive'] as bool? ?? true,
-        mappedSubject:
-            j['mapped_subject'] as String? ?? j['subject'] as String? ?? '',
-        questionCount: (j['question_count'] as num?)?.toInt() ?? 0,
-      );
-}
-
-class ModelExamYear {
-  final String label;
-  final String folderId;
-  final String type;
-
-  const ModelExamYear({
-    required this.label,
-    required this.folderId,
-    this.type = 'model',
-  });
-
-  factory ModelExamYear.fromJson(dynamic j) {
-    if (j is num || j is String) {
-      return ModelExamYear(label: '$j', folderId: '', type: 'model');
-    }
-    final m = Map<String, dynamic>.from(j as Map);
-    return ModelExamYear(
-      label: m['label'] as String? ?? '${m['year'] ?? ''}',
-      folderId: m['folder_id'] as String? ?? '',
-      type: m['type'] as String? ?? 'model',
-    );
-  }
-}
-
-class ExamCatalog {
-  final String accuracyNote;
-  final List<ExamPaper> matriculation;
-  final List<ExamPaper> model;
-  final List<ExamPaper> school;
-  final List<ModelExamYear> modelYears;
-  final int defaultQuestionCount;
-  final int secondsPerQuestion;
-  final List<String> gradesPriority;
-
-  const ExamCatalog({
-    required this.accuracyNote,
-    required this.matriculation,
-    this.model = const [],
-    this.school = const [],
-    required this.modelYears,
-    this.defaultQuestionCount = 20,
-    this.secondsPerQuestion = 90,
-    this.gradesPriority = const ['G11', 'G10', 'G9'],
-  });
-
-  factory ExamCatalog.fromJson(Map<String, dynamic> j) {
-    final defaults = j['adaptive_defaults'] as Map<String, dynamic>? ?? {};
-    return ExamCatalog(
-      accuracyNote: j['accuracy_note'] as String? ?? '',
-      matriculation: ((j['matriculation'] as List?) ?? const [])
-          .whereType<Map>()
-          .map((e) => ExamPaper.fromJson(Map<String, dynamic>.from(e)))
-          .toList(),
-      model: ((j['model'] as List?) ?? const [])
-          .whereType<Map>()
-          .map((e) => ExamPaper.fromJson(Map<String, dynamic>.from(e)))
-          .toList(),
-      school: ((j['school'] as List?) ?? const [])
-          .whereType<Map>()
-          .map((e) => ExamPaper.fromJson(Map<String, dynamic>.from(e)))
-          .toList(),
-      modelYears: ((j['model_exam_years'] as List?) ?? const [])
-          .map((e) => ModelExamYear.fromJson(e))
-          .toList(),
-      defaultQuestionCount:
-          (defaults['question_count'] as num?)?.toInt() ?? 20,
-      secondsPerQuestion:
-          (defaults['seconds_per_question'] as num?)?.toInt() ?? 90,
-      gradesPriority:
-          ((j['grades_priority'] as List?) ?? const ['G11', 'G10', 'G9'])
-              .map((e) => '$e')
-              .toList(),
     );
   }
 }
