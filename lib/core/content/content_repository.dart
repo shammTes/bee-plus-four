@@ -212,6 +212,7 @@ class ContentRepository {
       _exams = const ExamCatalog(
         accuracyNote: '',
         matriculation: [],
+        model: [],
         modelYears: [],
       );
     }

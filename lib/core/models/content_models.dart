@@ -32,13 +32,13 @@ class UnitNote {
         keyTerms: (j['key_terms'] as List?)?.map((e) => '$e').toList() ?? const [],
         keyIdeas: (j['key_ideas'] as List?)?.map((e) => '$e').toList() ?? const [],
         sections: ((j['sections'] as List?) ?? const [])
-            .map((e) => NoteSection.fromJson(e as Map<String, dynamic>))
+            .map((e) => NoteSection.fromJson(Map<String, dynamic>.from(e as Map)))
             .toList(),
         examples: ((j['examples'] as List?) ?? const [])
-            .map((e) => NoteExample.fromJson(e as Map<String, dynamic>))
+            .map((e) => NoteExample.fromJson(Map<String, dynamic>.from(e as Map)))
             .toList(),
         exercises: ((j['exercises'] as List?) ?? const [])
-            .map((e) => NoteExercise.fromJson(e as Map<String, dynamic>))
+            .map((e) => NoteExercise.fromJson(Map<String, dynamic>.from(e as Map)))
             .toList(),
       );
 }
@@ -151,93 +151,6 @@ class IllustratedSlide {
         body: j['body'] as String? ?? '',
         image: j['image'] as String?,
       );
-}
-
-class ExamPaper {
-  final String id;
-  final String type;
-  final String subject;
-  final int year;
-  final String title;
-  final String driveFileId;
-  final String source;
-  final bool interactive;
-  final String mappedSubject;
-
-  const ExamPaper({
-    required this.id,
-    required this.type,
-    required this.subject,
-    required this.year,
-    required this.title,
-    required this.driveFileId,
-    required this.source,
-    required this.interactive,
-    required this.mappedSubject,
-  });
-
-  factory ExamPaper.fromJson(Map<String, dynamic> j) => ExamPaper(
-        id: j['id'] as String? ?? '',
-        type: j['type'] as String? ?? 'matriculation',
-        subject: j['subject'] as String? ?? '',
-        year: (j['year'] as num?)?.toInt() ?? 0,
-        title: j['title'] as String? ?? '',
-        driveFileId: j['drive_file_id'] as String? ?? '',
-        source: j['source'] as String? ?? '',
-        interactive: j['interactive'] as bool? ?? true,
-        mappedSubject: j['mapped_subject'] as String? ?? j['subject'] as String? ?? '',
-      );
-}
-
-class ModelExamYear {
-  final String label;
-  final String folderId;
-
-  const ModelExamYear({required this.label, required this.folderId});
-
-  factory ModelExamYear.fromJson(Map<String, dynamic> j) => ModelExamYear(
-        label: j['label'] as String? ?? '',
-        folderId: j['folder_id'] as String? ?? '',
-      );
-}
-
-class ExamCatalog {
-  final String accuracyNote;
-  final List<ExamPaper> matriculation;
-  final List<ModelExamYear> modelYears;
-  final int defaultQuestionCount;
-  final int secondsPerQuestion;
-  final List<String> gradesPriority;
-
-  const ExamCatalog({
-    required this.accuracyNote,
-    required this.matriculation,
-    required this.modelYears,
-    this.defaultQuestionCount = 20,
-    this.secondsPerQuestion = 90,
-    this.gradesPriority = const ['G11', 'G10', 'G9'],
-  });
-
-  factory ExamCatalog.fromJson(Map<String, dynamic> j) {
-    final defaults = j['adaptive_defaults'] as Map<String, dynamic>? ?? {};
-    return ExamCatalog(
-      accuracyNote: j['accuracy_note'] as String? ?? '',
-      matriculation: ((j['matriculation'] as List?) ?? const [])
-          .map((e) => ExamPaper.fromJson(Map<String, dynamic>.from(e as Map)))
-          .toList(),
-      modelYears: ((j['model_exam_years'] as List?) ?? const [])
-          .map((e) {
-            if (e is Map) return ModelExamYear.fromJson(Map<String, dynamic>.from(e));
-            return ModelExamYear(label: '$e', folderId: '');
-          })
-          .toList(),
-      defaultQuestionCount: (defaults['question_count'] as num?)?.toInt() ?? 20,
-      secondsPerQuestion: (defaults['seconds_per_question'] as num?)?.toInt() ?? 90,
-      gradesPriority:
-          (defaults['grades_priority'] as List?)?.map((e) => '$e').toList() ??
-              const ['G11', 'G10', 'G9'],
-    );
-  }
 }
 
 class TextbookBook {
