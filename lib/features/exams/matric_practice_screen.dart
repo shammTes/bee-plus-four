@@ -45,7 +45,6 @@ class _MatricPracticeScreenState extends State<MatricPracticeScreen> {
       if (widget.yearFilter != null) {
         list = list.where((q) => q.year == widget.yearFilter).toList();
       }
-      // Prefer unit-linked questions when unit specified
       if (widget.unitNumber != null) {
         final unitHit = list
             .where((q) => q.unitLinks
@@ -70,7 +69,6 @@ class _MatricPracticeScreenState extends State<MatricPracticeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Title is always Subject + Year when provided
     final title = widget.title ??
         (
           widget.subjectFilter != null && widget.yearFilter != null
@@ -168,12 +166,61 @@ class _QuestionDetail extends StatelessWidget {
             const Text('Similar questions',
                 style: TextStyle(fontWeight: FontWeight.w900)),
             const SizedBox(height: 8),
-            ...q.similarQuestions.map((s) => Card(
-                  child: ListTile(
-                    title: Text(s.prompt, maxLines: 3),
-                    subtitle: Text(s.topic),
+            ...q.similarQuestions.map((s) {
+              final letter = (s.correctIndex >= 0 && s.correctIndex < 26)
+                  ? String.fromCharCode(65 + s.correctIndex)
+                  : '?';
+              final ans = (s.correctIndex >= 0 &&
+                      s.correctIndex < s.options.length)
+                  ? s.options[s.correctIndex]
+                  : '';
+              return Card(
+                margin: const EdgeInsets.only(bottom: 10),
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(s.prompt,
+                          style: const TextStyle(fontWeight: FontWeight.w700)),
+                      if (s.topic.isNotEmpty) ...[
+                        const SizedBox(height: 4),
+                        Text(s.topic,
+                            style: const TextStyle(
+                                color: Color(0xFF64748B), fontSize: 12)),
+                      ],
+                      const SizedBox(height: 8),
+                      ...List.generate(s.options.length, (i) {
+                        final sel = i == s.correctIndex;
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 4),
+                          child: Text(
+                            '${String.fromCharCode(65 + i)}. ${s.options[i]}',
+                            style: TextStyle(
+                              fontWeight:
+                                  sel ? FontWeight.w900 : FontWeight.w500,
+                              color: sel
+                                  ? const Color(0xFF0D9488)
+                                  : const Color(0xFF0F172A),
+                            ),
+                          ),
+                        );
+                      }),
+                      const SizedBox(height: 6),
+                      Text('Answer: ($letter) $ans',
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w900,
+                              color: Color(0xFF0D9488))),
+                      if (s.explanation.isNotEmpty) ...[
+                        const SizedBox(height: 4),
+                        Text('Explanation: ${s.explanation}',
+                            style: const TextStyle(height: 1.35)),
+                      ],
+                    ],
                   ),
-                )),
+                ),
+              );
+            }),
           ],
           if (q.unitLinks.isNotEmpty) ...[
             const SizedBox(height: 16),
