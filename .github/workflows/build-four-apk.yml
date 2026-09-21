@@ -27,12 +27,21 @@ jobs:
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
 
-      - name: Optional Drive content overlay
+      - name: Install Noto Sans Ethiopic (Tigrinya / Ge'ez — fixes □ glyphs)
+        run: |
+          mkdir -p assets/fonts
+          curl -sL -o assets/fonts/NotoSansEthiopic-Regular.ttf \
+            "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf"
+          ls -lh assets/fonts/
+          test -s assets/fonts/NotoSansEthiopic-Regular.ttf
+
+      - name: Optional Drive content overlay (rich notes / packs)
         continue-on-error: true
         run: |
           set +e
           mkdir -p assets/content
           pip install -q 'gdown>=5.0' || pip install -q gdown
+          # Prefer rich textbook-derived notes when available
           gdown "https://drive.google.com/uc?id=1gv_l5Vay2WWt-NybgA8bb3DwPseMAu0q&export=download" -O assets/content/unit_notes_rich.json || true
           PACK_ID="1Pp6n2ENxbvgNQMV_u0n8hDFhXKhJfMQG"
           gdown "https://drive.google.com/uc?id=${PACK_ID}&export=download" -O /tmp/four_content.tgz || true
@@ -44,16 +53,65 @@ jobs:
             fi
           fi
 
-      - name: Generate full G9–G12 unit notes + illustrated slides
+      - name: Download illustrated PDFs from Drive catalog
+        continue-on-error: true
+        run: |
+          set +e
+          pip install -q 'gdown>=5.0' || true
+          python3 tools/download_illustrated_from_drive.py || true
+          find assets/content/illustrated_pdf -type f -name '*.pdf' 2>/dev/null | wc -l
+
+      - name: Generate curriculum notes (fills gaps only — does not wipe rich notes)
         run: |
           mkdir -p assets/content
+          # Snapshot rich notes if present
+          if [ -f assets/content/unit_notes_rich.json ]; then
+            cp assets/content/unit_notes_rich.json /tmp/unit_notes_rich.json
+          fi
+          if [ -f assets/content/unit_notes.json ]; then
+            cp assets/content/unit_notes.json /tmp/unit_notes_before.json
+          fi
           python3 tools/generate_curriculum_notes.py
-          echo "=== content after generator ==="
-          python3 -c "import json; n=json.load(open('assets/content/unit_notes.json')); print('notes', len(n)); s=json.load(open('assets/content/illustrated_slides.json')); print('slide_decks', len(s))"
+          # Merge: keep longer textbook-derived notes over generator stubs
+          python3 << 'PY'
+import json
+from pathlib import Path
+
+def load(p):
+    try:
+        return json.loads(Path(p).read_text(encoding='utf-8'))
+    except Exception:
+        return []
+
+def key(n):
+    return (n.get('grade'), n.get('subject'), int(n.get('unit_number') or 0))
+
+def score(n):
+    s = len(n.get('summary') or '')
+    s += sum(len(x.get('explanation') or '') for x in (n.get('sections') or []))
+    s += sum(len(x.get('solution') or '') for x in (n.get('examples') or []))
+    s += 50 * len(n.get('key_ideas') or [])
+    return s
+
+base = {}
+for path in ['/tmp/unit_notes_before.json', '/tmp/unit_notes_rich.json', 'assets/content/unit_notes.json']:
+    for n in load(path):
+        if not isinstance(n, dict): continue
+        k = key(n)
+        if k not in base or score(n) > score(base[k]):
+            base[k] = n
+notes = sorted(base.values(), key=lambda n: (n.get('grade'), n.get('subject'), int(n.get('unit_number') or 0)))
+Path('assets/content/unit_notes.json').write_text(json.dumps(notes, ensure_ascii=False), encoding='utf-8')
+for g in ['G9','G10','G11','G12']:
+    sub = [n for n in notes if n.get('grade')==g]
+    Path(f'assets/content/unit_notes_{g.lower()}.json').write_text(json.dumps(sub, ensure_ascii=False), encoding='utf-8')
+print('merged notes', len(notes))
+PY
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
           test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
+          python3 -c "import json; print('notes', len(json.load(open('assets/content/unit_notes.json')))); print('slides', len(json.load(open('assets/content/illustrated_slides.json'))))"
           find assets/content -type f | wc -l
-          du -sh assets/content
+          du -sh assets/content assets/fonts
 
       - name: Generate icons
         run: |
@@ -107,7 +165,7 @@ jobs:
         run: |
           mkdir -p dist
           find build/app/outputs/flutter-apk -name '*.apk' -exec cp -v {} dist/ \; || true
-          ls -lh dist/ build/app/outputs/flutter-apk/ || true
+          ls -lh dist/ || true
 
       - name: Upload APKs
         uses: actions/upload-artifact@v4
