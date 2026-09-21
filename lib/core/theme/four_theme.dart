@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 class FourTheme {
   FourTheme._();
 
+  static const String ethiopicFont = 'NotoSansEthiopic';
+
   static const Color primary = Color(0xFF06B6D4);
   static const Color primaryDark = Color(0xFF0891B2);
   static const Color primarySoft = Color(0xFFCFFAFE);
@@ -23,7 +25,6 @@ class FourTheme {
   static const Color glass = Color(0xCCFFFFFF);
   static const Color glassDark = Color(0x990F172A);
 
-  // Modern dark palette (not muddy gray)
   static const Color darkBg = Color(0xFF0B1220);
   static const Color darkSurface = Color(0xFF111827);
   static const Color darkCard = Color(0xFF1A2332);
@@ -56,6 +57,7 @@ class FourTheme {
     final base = ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
+      fontFamily: ethiopicFont,
       colorScheme: ColorScheme.fromSeed(
         seedColor: primary,
         primary: primaryDark,
@@ -77,6 +79,7 @@ class FourTheme {
           color: ink,
           fontSize: 18,
           fontWeight: FontWeight.w800,
+          fontFamily: ethiopicFont,
         ),
       ),
       cardTheme: CardThemeData(
@@ -85,149 +88,19 @@ class FourTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         margin: EdgeInsets.zero,
       ),
-      chipTheme: base.chipTheme.copyWith(
-        labelStyle: const TextStyle(
-          fontWeight: FontWeight.w700,
-          fontSize: 12,
-          color: Color(0xFF0F172A),
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        side: const BorderSide(color: Color(0xFFE2E8F0)),
-        selectedColor: const Color(0xFFFBBF24),
-        backgroundColor: Colors.white,
-      ),
-      navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: Colors.white.withOpacity(0.92),
-        indicatorColor: primarySoft,
-        labelTextStyle: WidgetStateProperty.resolveWith((s) {
-          final selected = s.contains(WidgetState.selected);
-          return TextStyle(
-            fontSize: 11,
-            fontWeight: FontWeight.w800,
-            color: selected ? primaryDark : muted,
-          );
-        }),
-        iconTheme: WidgetStateProperty.resolveWith((s) {
-          final selected = s.contains(WidgetState.selected);
-          return IconThemeData(
-            color: selected ? primaryDark : muted,
-          );
-        }),
-      ),
+      textTheme: base.textTheme.apply(fontFamily: ethiopicFont),
+      primaryTextTheme: base.primaryTextTheme.apply(fontFamily: ethiopicFont),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           backgroundColor: primaryDark,
           foregroundColor: Colors.white,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
-          textStyle: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-      ),
-    );
-  }
-
-  /// Modern dark — deep navy + cyan/violet accents (not flat gray).
-  static ThemeData get highschoolDark {
-    final base = ThemeData(
-      useMaterial3: true,
-      brightness: Brightness.dark,
-      colorScheme: const ColorScheme.dark(
-        primary: darkCyan,
-        onPrimary: Color(0xFF083344),
-        secondary: darkAmber,
-        onSecondary: Color(0xFF0F172A),
-        tertiary: darkViolet,
-        surface: darkSurface,
-        onSurface: darkText,
-        error: Color(0xFFFB7185),
-        outline: darkBorder,
-      ),
-      scaffoldBackgroundColor: darkBg,
-    );
-    return base.copyWith(
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.transparent,
-        foregroundColor: darkText,
-        elevation: 0,
-        centerTitle: false,
-        titleTextStyle: TextStyle(
-          color: darkText,
-          fontSize: 18,
-          fontWeight: FontWeight.w800,
-        ),
-      ),
-      cardTheme: CardThemeData(
-        color: darkCard,
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: darkBorder),
-        ),
-        margin: EdgeInsets.zero,
-      ),
-      chipTheme: base.chipTheme.copyWith(
-        labelStyle: const TextStyle(
-          fontWeight: FontWeight.w800,
-          fontSize: 12,
-          color: darkText,
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        side: const BorderSide(color: darkBorder),
-        selectedColor: const Color(0xFF155E75),
-        backgroundColor: darkCard,
-        checkmarkColor: darkCyan,
-      ),
-      navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: const Color(0xEE0B1220),
-        indicatorColor: const Color(0xFF164E63),
-        labelTextStyle: WidgetStateProperty.resolveWith((s) {
-          final selected = s.contains(WidgetState.selected);
-          return TextStyle(
-            fontSize: 11,
+          textStyle: const TextStyle(
             fontWeight: FontWeight.w800,
-            color: selected ? darkCyan : darkMuted,
-          );
-        }),
-        iconTheme: WidgetStateProperty.resolveWith((s) {
-          final selected = s.contains(WidgetState.selected);
-          return IconThemeData(
-            color: selected ? darkCyan : darkMuted,
-          );
-        }),
-      ),
-      filledButtonTheme: FilledButtonThemeData(
-        style: FilledButton.styleFrom(
-          backgroundColor: darkCyan,
-          foregroundColor: const Color(0xFF083344),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
-          textStyle: const TextStyle(fontWeight: FontWeight.w900),
+            fontFamily: ethiopicFont,
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         ),
-      ),
-      dialogTheme: DialogThemeData(
-        backgroundColor: darkCard,
-        titleTextStyle: const TextStyle(
-          color: darkText,
-          fontWeight: FontWeight.w900,
-          fontSize: 18,
-        ),
-      ),
-      switchTheme: SwitchThemeData(
-        thumbColor: WidgetStateProperty.resolveWith(
-            (s) => s.contains(WidgetState.selected) ? darkCyan : darkMuted),
-        trackColor: WidgetStateProperty.resolveWith((s) =>
-            s.contains(WidgetState.selected)
-                ? const Color(0xFF155E75)
-                : darkBorder),
-      ),
-      dividerColor: darkBorder,
-      listTileTheme: const ListTileThemeData(
-        textColor: darkText,
-        iconColor: darkCyan,
       ),
     );
   }
