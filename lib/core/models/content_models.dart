@@ -91,6 +91,7 @@ class PracticeQuestion {
   final String id;
   final String grade;
   final String subject;
+  final int unitNumber;
   final String prompt;
   final List<String> options;
   final int correctIndex;
@@ -100,6 +101,7 @@ class PracticeQuestion {
     required this.id,
     required this.grade,
     required this.subject,
+    this.unitNumber = 0,
     required this.prompt,
     required this.options,
     required this.correctIndex,
@@ -120,6 +122,7 @@ class PracticeQuestion {
       id: '${j['id'] ?? j['question_id'] ?? 'q_${j.hashCode}'}',
       grade: '${j['grade'] ?? 'G10'}',
       subject: '${j['subject'] ?? 'MATH'}',
+      unitNumber: (j['unit_number'] as num?)?.toInt() ?? 0,
       prompt: '${j['prompt'] ?? j['question'] ?? ''}',
       options: opts,
       correctIndex: ci,
@@ -174,15 +177,15 @@ class ExamPaper {
   });
 
   factory ExamPaper.fromJson(Map<String, dynamic> j) => ExamPaper(
-        id: j['id'] as String,
+        id: j['id'] as String? ?? '',
         type: j['type'] as String? ?? 'matriculation',
-        subject: j['subject'] as String,
-        year: j['year'] as int,
-        title: j['title'] as String,
+        subject: j['subject'] as String? ?? '',
+        year: (j['year'] as num?)?.toInt() ?? 0,
+        title: j['title'] as String? ?? '',
         driveFileId: j['drive_file_id'] as String? ?? '',
         source: j['source'] as String? ?? '',
         interactive: j['interactive'] as bool? ?? true,
-        mappedSubject: j['mapped_subject'] as String? ?? j['subject'] as String,
+        mappedSubject: j['mapped_subject'] as String? ?? j['subject'] as String? ?? '',
       );
 }
 
@@ -193,7 +196,7 @@ class ModelExamYear {
   const ModelExamYear({required this.label, required this.folderId});
 
   factory ModelExamYear.fromJson(Map<String, dynamic> j) => ModelExamYear(
-        label: j['label'] as String,
+        label: j['label'] as String? ?? '',
         folderId: j['folder_id'] as String? ?? '',
       );
 }
@@ -220,15 +223,18 @@ class ExamCatalog {
     return ExamCatalog(
       accuracyNote: j['accuracy_note'] as String? ?? '',
       matriculation: ((j['matriculation'] as List?) ?? const [])
-          .map((e) => ExamPaper.fromJson(e as Map<String, dynamic>))
+          .map((e) => ExamPaper.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
       modelYears: ((j['model_exam_years'] as List?) ?? const [])
-          .map((e) => ModelExamYear.fromJson(e as Map<String, dynamic>))
+          .map((e) {
+            if (e is Map) return ModelExamYear.fromJson(Map<String, dynamic>.from(e));
+            return ModelExamYear(label: '$e', folderId: '');
+          })
           .toList(),
-      defaultQuestionCount: defaults['question_count'] as int? ?? 20,
-      secondsPerQuestion: defaults['seconds_per_question'] as int? ?? 90,
+      defaultQuestionCount: (defaults['question_count'] as num?)?.toInt() ?? 20,
+      secondsPerQuestion: (defaults['seconds_per_question'] as num?)?.toInt() ?? 90,
       gradesPriority:
-          (defaults['grades_priority'] as List?)?.cast<String>() ??
+          (defaults['grades_priority'] as List?)?.map((e) => '$e').toList() ??
               const ['G11', 'G10', 'G9'],
     );
   }

@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/services.dart';
 
 import '../models/content_models.dart';
-import '../models/exam_models.dart';
+import '../models/exam_models.dart' hide ExamCatalog, ExamPaper, ModelExamYear;
 
 /// Loads curriculum + exam catalogue. Fail-soft + session cache.
 class ContentRepository {
@@ -50,6 +50,7 @@ class ContentRepository {
       'assets/content/unit_notes_g12.json',
       'assets/content/unit_notes_g9_english.json',
       'assets/content/unit_notes_extra.json',
+      'assets/content/unit_notes_rich.json',
     ]) {
       try {
         await ingest(pack);
@@ -125,8 +126,6 @@ class ContentRepository {
     return _questions!;
   }
 
-  /// Practice pool for one unit: curriculum practice + school/model/matric
-  /// questions linked to this unit (via unit_links).
   Future<List<PracticeQuestion>> questionsForUnit({
     required String grade,
     required String subject,
@@ -142,7 +141,6 @@ class ContentRepository {
         byId[q.id] = q;
       }
     }
-    // Same subject other grades only if unit matched and pool thin
     if (byId.length < 5) {
       for (final q in practice) {
         if (q.subject == subject &&
@@ -159,10 +157,7 @@ class ContentRepository {
       if (m.options.length < 3) continue;
       final linked = m.unitLinks.any((u) =>
           u.unitNumber == unitNumber &&
-          (u.grade.isEmpty ||
-              u.grade == grade ||
-              u.subject == subj));
-      // Also accept same subject + unit_number on any grade for school/model
+          (u.grade.isEmpty || u.grade == grade || u.subject == subj));
       final linkedLoose = m.unitLinks.any((u) => u.unitNumber == unitNumber);
       if (!linked && !linkedLoose) continue;
       final exp = m.explanationJoined;
@@ -331,6 +326,7 @@ class ContentRepository {
   Future<List<PracticeQuestion>> adaptiveExamQuestions({
     required String subject,
     int count = 20,
+    List<String> gradesPriority = const ['G11', 'G10', 'G9'],
   }) async {
     final all = await questions();
     final pool = all.where((q) => q.subject == subject).toList()..shuffle(_rng);
@@ -357,6 +353,12 @@ class ContentRepository {
       }
       if (decoded is Map && decoded['items'] is List) {
         return (decoded['items'] as List)
+            .whereType<Map>()
+            .map((e) => map(Map<String, dynamic>.from(e)))
+            .toList();
+      }
+      if (decoded is Map && decoded['questions'] is List) {
+        return (decoded['questions'] as List)
             .whereType<Map>()
             .map((e) => map(Map<String, dynamic>.from(e)))
             .toList();
