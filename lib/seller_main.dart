@@ -4,6 +4,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 import 'core/licensing/seller_store.dart';
 import 'core/theme/four_theme.dart';
+import 'features/scan/qr_scan_page.dart';
 
 /// Bee Seller app entry — issue student unlock QR + wholesale sub-seller codes.
 Future<void> main() async {
@@ -54,7 +55,32 @@ class _SellerHomePageState extends State<SellerHomePage> {
     });
   }
 
+  @override
+  void dispose() {
+    redeemCtrl.dispose();
+    studentCtrl.dispose();
+    sellerCtrl.dispose();
+    quotaCtrl.dispose();
+    super.dispose();
+  }
+
   Future<void> _refresh() async => setState(() {});
+
+  Future<void> _openScan({
+    required String title,
+    required String hint,
+    required ValueChanged<String> onResult,
+  }) async {
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => QrScanPage(
+          title: title,
+          hint: hint,
+          onScan: onResult,
+        ),
+      ),
+    );
+  }
 
   Future<void> _redeem() async {
     final msg = await store.redeemAuthCode(redeemCtrl.text);
@@ -100,119 +126,173 @@ class _SellerHomePageState extends State<SellerHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final quota = store.quota;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bee Seller',
-            style: TextStyle(fontWeight: FontWeight.w900)),
-        backgroundColor: const Color(0xFF0D9488),
-        foregroundColor: Colors.white,
+        title: const Text('Bee Seller'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: Center(
+              child: Text(
+                'Quota: $quota',
+                style: const TextStyle(fontWeight: FontWeight.w900),
+              ),
+            ),
+          ),
+        ],
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          Text('Your seller Device ID',
+              style: Theme.of(context).textTheme.titleSmall),
           Card(
             child: ListTile(
-              title: const Text('Seller Device ID',
-                  style: TextStyle(fontWeight: FontWeight.w800)),
-              subtitle: SelectableText(deviceId),
+              title: SelectableText(
+                deviceId,
+                style: const TextStyle(fontWeight: FontWeight.w700),
+              ),
               trailing: IconButton(
                 icon: const Icon(Icons.copy),
-                onPressed: () {
-                  Clipboard.setData(ClipboardData(text: deviceId));
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Copied seller Device ID')),
-                  );
-                },
-              ),
-            ),
-          ),
-          const SizedBox(height: 8),
-          Card(
-            color: const Color(0xFFECFDF5),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Quota: ${store.quotaRemaining}',
-                            style: const TextStyle(
-                                fontSize: 22, fontWeight: FontWeight.w900)),
-                        Text(
-                          store.isWholesale
-                              ? 'Wholesale · can grant seller codes'
-                              : 'Standard seller',
-                          style: const TextStyle(color: FourTheme.muted),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Icon(Icons.qr_code_2, size: 40, color: Color(0xFF0D9488)),
-                ],
+                onPressed: () =>
+                    Clipboard.setData(ClipboardData(text: deviceId)),
               ),
             ),
           ),
           const SizedBox(height: 16),
-          const Text('1) Redeem Master / wholesale code',
+          const Text('1) Redeem Master / parent grant',
               style: TextStyle(fontWeight: FontWeight.w900)),
           const SizedBox(height: 6),
           TextField(
             controller: redeemCtrl,
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Paste WHOLESALE or SELLER code',
-            ),
             maxLines: 2,
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(),
+              hintText: 'Paste WHOLESALE/SELLER code or scan QR',
+              suffixIcon: IconButton(
+                tooltip: 'Scan QR',
+                icon: const Icon(Icons.qr_code_scanner),
+                onPressed: () => _openScan(
+                  title: 'Scan grant QR',
+                  hint: 'Scan Master or parent-seller grant QR',
+                  onResult: (v) => setState(() => redeemCtrl.text = v),
+                ),
+              ),
+            ),
           ),
           const SizedBox(height: 8),
-          FilledButton(onPressed: _redeem, child: const Text('Redeem code')),
+          Row(
+            children: [
+              Expanded(
+                child: FilledButton(
+                  onPressed: _redeem,
+                  child: const Text('Redeem grant'),
+                ),
+              ),
+              const SizedBox(width: 8),
+              FilledButton.tonalIcon(
+                onPressed: () => _openScan(
+                  title: 'Scan grant QR',
+                  hint: 'Scan Master or parent-seller grant QR',
+                  onResult: (v) async {
+                    setState(() => redeemCtrl.text = v);
+                    await _redeem();
+                  },
+                ),
+                icon: const Icon(Icons.qr_code_scanner),
+                label: const Text('Scan'),
+              ),
+            ],
+          ),
           const SizedBox(height: 20),
-          const Text('2) Unlock a student device',
+          const Text('2) Unlock a student',
               style: TextStyle(fontWeight: FontWeight.w900)),
+          const SizedBox(height: 4),
+          const Text(
+            'Scan the student Device ID QR from app 4, or type it.',
+            style: TextStyle(color: FourTheme.muted, fontSize: 13),
+          ),
           const SizedBox(height: 6),
           TextField(
             controller: studentCtrl,
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Student Device ID from app Home QR',
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(),
+              hintText: 'Student Device ID',
+              suffixIcon: IconButton(
+                tooltip: 'Scan student QR',
+                icon: const Icon(Icons.qr_code_scanner),
+                onPressed: () => _openScan(
+                  title: 'Scan student Device ID',
+                  hint: 'Scan the Device ID QR on the student phone',
+                  onResult: (v) => setState(() => studentCtrl.text = v),
+                ),
+              ),
             ),
           ),
           const SizedBox(height: 8),
-          FilledButton(
-              onPressed: _issueStudent,
-              child: const Text('Generate student unlock QR')),
-          if (store.isWholesale) ...[
-            const SizedBox(height: 20),
-            const Text('3) Wholesale · grant another seller',
-                style: TextStyle(fontWeight: FontWeight.w900)),
-            const Text(
-              'Creates a SELLER code bound to their Device ID. Uses your quota.',
-              style: TextStyle(color: FourTheme.muted, fontSize: 13),
-            ),
-            const SizedBox(height: 6),
-            TextField(
-              controller: sellerCtrl,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Other seller Device ID',
+          Row(
+            children: [
+              Expanded(
+                child: FilledButton(
+                  onPressed: _issueStudent,
+                  child: const Text('Generate student unlock QR'),
+                ),
+              ),
+              const SizedBox(width: 8),
+              FilledButton.tonalIcon(
+                onPressed: () => _openScan(
+                  title: 'Scan student Device ID',
+                  hint: 'Scan the Device ID QR on the student phone',
+                  onResult: (v) async {
+                    setState(() => studentCtrl.text = v);
+                    await _issueStudent();
+                  },
+                ),
+                icon: const Icon(Icons.qr_code_scanner),
+                label: const Text('Scan'),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          const Text('3) Wholesale to another seller',
+              style: TextStyle(fontWeight: FontWeight.w900)),
+          const SizedBox(height: 4),
+          const Text(
+            'Scan their seller Device ID QR, set quota, generate grant.',
+            style: TextStyle(color: FourTheme.muted, fontSize: 13),
+          ),
+          const SizedBox(height: 6),
+          TextField(
+            controller: sellerCtrl,
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(),
+              hintText: 'Other seller Device ID',
+              suffixIcon: IconButton(
+                tooltip: 'Scan seller QR',
+                icon: const Icon(Icons.qr_code_scanner),
+                onPressed: () => _openScan(
+                  title: 'Scan seller Device ID',
+                  hint: 'Scan the other seller Device ID QR',
+                  onResult: (v) => setState(() => sellerCtrl.text = v),
+                ),
               ),
             ),
-            const SizedBox(height: 8),
-            TextField(
-              controller: quotaCtrl,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Quota to grant',
-              ),
+          ),
+          const SizedBox(height: 8),
+          TextField(
+            controller: quotaCtrl,
+            keyboardType: TextInputType.number,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Quota to grant',
             ),
-            const SizedBox(height: 8),
-            FilledButton.tonal(
-                onPressed: _issueSeller,
-                child: const Text('Generate seller code QR')),
-          ],
+          ),
+          const SizedBox(height: 8),
+          FilledButton.tonal(
+            onPressed: _issueSeller,
+            child: const Text('Generate seller code QR'),
+          ),
           if (status.isNotEmpty) ...[
             const SizedBox(height: 16),
             Text(status, style: const TextStyle(fontWeight: FontWeight.w700)),
@@ -231,8 +311,7 @@ class _SellerHomePageState extends State<SellerHomePage> {
               ),
             ),
             const SizedBox(height: 8),
-            SelectableText(lastCode!,
-                style: const TextStyle(fontSize: 11)),
+            SelectableText(lastCode!, style: const TextStyle(fontSize: 11)),
             OutlinedButton.icon(
               onPressed: () {
                 Clipboard.setData(ClipboardData(text: lastCode!));
@@ -244,11 +323,13 @@ class _SellerHomePageState extends State<SellerHomePage> {
           const SizedBox(height: 24),
           const Text('Recent issues',
               style: TextStyle(fontWeight: FontWeight.w900)),
-          ...store.history.take(12).map((h) => ListTile(
-                dense: true,
-                title: Text('${h['type']} → ${h['target']}'),
-                subtitle: Text('${h['at']}'),
-              )),
+          ...store.history.take(12).map(
+                (h) => ListTile(
+                  dense: true,
+                  title: Text('${h['type']} → ${h['target']}'),
+                  subtitle: Text('${h['at']}'),
+                ),
+              ),
         ],
       ),
     );
