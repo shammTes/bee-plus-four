@@ -27,6 +27,9 @@ jobs:
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
 
+      - name: Patch illustrated matching (exact unit only)
+        run: python3 tools/patch_exact_illustrated.py || true
+
       - name: Install Noto Sans Ethiopic (Tigrinya)
         run: |
           mkdir -p assets/fonts
@@ -43,7 +46,6 @@ jobs:
           gdown "https://drive.google.com/uc?id=1gv_l5Vay2WWt-NybgA8bb3DwPseMAu0q&export=download" -O assets/content/unit_notes_rich.json || true
           gdown "https://drive.google.com/uc?id=1BPqrDcoC63zyQ1A16VKGtIssBKT1Tcqf&export=download" -O assets/content/notes_ALL_BOOKS_v2_polished.json || true
           gdown "https://drive.google.com/uc?id=1Le6xHfpnvpRJ7oGiF70_SFzTkIWTJZSY&export=download" -O assets/content/practice_from_notes.json || true
-          gdown "https://drive.google.com/uc?id=1-lrX7DJp7vMjtEac74F9lJ-bWkKFQA_9&export=download" -O assets/content/unit_notes_flat_v2.json || true
           ls -lh assets/content/*.json 2>/dev/null | head -20
 
       - name: Download illustrated PDFs from Drive catalog
@@ -53,10 +55,9 @@ jobs:
           python3 tools/download_illustrated_from_drive.py || true
           find assets/content/illustrated_pdf -type f 2>/dev/null | wc -l
 
-      - name: Polish ALL textbook notes (G9–G12, every subject)
+      - name: Polish ALL textbook notes (G9–G12)
         run: |
           python3 tools/polish_notes_from_textbook.py
-          # Optional gap-fill only for missing keys (never preferred over rich)
           python3 tools/generate_curriculum_notes.py || true
           python3 << 'PY'
 import json
@@ -87,12 +88,7 @@ for path in ['assets/content/unit_notes_rich.json','assets/content/unit_notes.js
             base[k]=n
 notes=sorted(base.values(), key=key)
 Path('assets/content/unit_notes.json').write_text(json.dumps(notes, ensure_ascii=False), encoding='utf-8')
-print('FINAL notes', len(notes))
-print('thin', sum(1 for n in notes if len(n.get('sections') or [])<2))
-from collections import Counter
-c=Counter((n.get('grade'), n.get('subject')) for n in notes)
-for k,v in sorted(c.items()):
-    print(f'  {k[0]} {k[1]}: {v}')
+print('FINAL notes', len(notes), 'thin', sum(1 for n in notes if len(n.get('sections') or [])<2))
 PY
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
           test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
