@@ -24,22 +24,20 @@ jobs:
       - name: Flutter doctor
         run: flutter doctor -v
 
-      - name: Overlay full ready source from Drive
+      - name: Overlay full ready source from Drive (optional)
+        continue-on-error: true
         run: |
-          set -e
-          pip install -q gdown
+          set +e
+          pip install -q 'gdown>=5.0' || pip install -q gdown
           READY_ID="1lQ4tpfxGmJ88M8BxQPBxFORDmK1d-jjg"
           echo "Downloading ready source $READY_ID …"
-          gdown --fuzzy "https://drive.google.com/file/d/${READY_ID}/view" -O /tmp/ready.tgz || \
-          gdown "https://drive.google.com/uc?id=${READY_ID}" -O /tmp/ready.tgz
+          gdown "https://drive.google.com/uc?id=${READY_ID}&export=download" -O /tmp/ready.tgz
           if [ -f /tmp/ready.tgz ] && gzip -t /tmp/ready.tgz 2>/dev/null; then
             mkdir -p /tmp/ready_extract
             tar xzf /tmp/ready.tgz -C /tmp/ready_extract
-            # Merge into workspace root
             if [ -d /tmp/ready_extract/lib ]; then
               cp -a /tmp/ready_extract/. .
             else
-              # tarball may contain top-level lib pubspec android assets
               cp -a /tmp/ready_extract/* . 2>/dev/null || true
             fi
             echo "Ready source overlaid"
@@ -48,20 +46,17 @@ jobs:
             echo "::warning::Ready tarball not downloaded; using repo checkout only"
           fi
 
-      - name: Download notes + practice packs from Drive
+      - name: Download notes + practice packs from Drive (optional)
+        continue-on-error: true
         run: |
-          set -e
+          set +e
           mkdir -p assets/content
-          pip install -q gdown
-          # unit_notes_rich
-          gdown --fuzzy "https://drive.google.com/file/d/1gv_l5Vay2WWt-NybgA8bb3DwPseMAu0q/view" -O assets/content/unit_notes_rich.json || true
-          # flat notes
-          gdown --fuzzy "https://drive.google.com/file/d/1-lrX7DJp7vMjtEac74F9lJ-bWkKFQA_9/view" -O assets/content/unit_notes.json || true
-          # note MCQs
-          gdown --fuzzy "https://drive.google.com/file/d/1Le6xHfpnvpRJ7oGiF70_SFzTkIWTJZSY/view" -O assets/content/practice_from_notes.json || true
-          # legacy content pack (optional)
+          pip install -q 'gdown>=5.0' || pip install -q gdown
+          gdown "https://drive.google.com/uc?id=1gv_l5Vay2WWt-NybgA8bb3DwPseMAu0q&export=download" -O assets/content/unit_notes_rich.json || true
+          gdown "https://drive.google.com/uc?id=1-lrX7DJp7vMjtEac74F9lJ-bWkKFQA_9&export=download" -O assets/content/unit_notes.json || true
+          gdown "https://drive.google.com/uc?id=1Le6xHfpnvpRJ7oGiF70_SFzTkIWTJZSY&export=download" -O assets/content/practice_from_notes.json || true
           PACK_ID="1Pp6n2ENxbvgNQMV_u0n8hDFhXKhJfMQG"
-          gdown --fuzzy "https://drive.google.com/file/d/${PACK_ID}/view" -O /tmp/four_content.tgz || true
+          gdown "https://drive.google.com/uc?id=${PACK_ID}&export=download" -O /tmp/four_content.tgz || true
           if [ -f /tmp/four_content.tgz ] && gzip -t /tmp/four_content.tgz 2>/dev/null; then
             mkdir -p /tmp/four_extract
             tar xzf /tmp/four_content.tgz -C /tmp/four_extract
@@ -69,15 +64,13 @@ jobs:
               cp -an /tmp/four_extract/assets/content/. assets/content/ || true
             fi
           fi
-          # Safety defaults
           test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
           test -f assets/content/practice_index.json || echo '{"files":["practice_from_notes.json","practice_questions.json"],"lite":"practice_lite.json"}' > assets/content/practice_index.json
           test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
           echo "=== content summary ==="
           find assets/content -type f | wc -l
-          du -sh assets/content
-          ls -lh assets/content/unit_notes*.json assets/content/practice_from_notes.json 2>/dev/null || true
+          du -sh assets/content || true
 
       - name: Generate icons
         run: |
