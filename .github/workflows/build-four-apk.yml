@@ -30,10 +30,9 @@ jobs:
       - name: Ensure content asset dirs exist
         run: |
           mkdir -p assets/content/textbooks assets/content/illustrated_pdf assets/fonts
-          # placeholder so empty dirs are valid if needed
           touch assets/content/textbooks/.gitkeep assets/content/illustrated_pdf/.gitkeep
 
-      - name: Download textbook-derived notes + practice (public Drive)
+      - name: Download textbook-derived notes + practice
         continue-on-error: true
         run: |
           set +e
@@ -43,96 +42,54 @@ jobs:
           gdown "https://drive.google.com/uc?id=1Le6xHfpnvpRJ7oGiF70_SFzTkIWTJZSY&export=download" -O assets/content/practice_from_notes.json || true
           ls -lh assets/content/*.json 2>/dev/null | head -20
 
-      - name: Download illustrated PDFs from Drive catalog
+      - name: Download illustrated PDFs
         continue-on-error: true
         run: |
           set +e
           python3 tools/download_illustrated_from_drive.py || true
           find assets/content/illustrated_pdf -type f 2>/dev/null | wc -l
 
-      - name: Polish textbook notes
+      - name: Polish and merge notes
         run: |
           python3 tools/polish_notes_from_textbook.py || true
           python3 tools/generate_curriculum_notes.py || true
-          python3 << 'PY'
-import json
-from pathlib import Path
-
-def load(p):
-    try:
-        d=json.loads(Path(p).read_text(encoding='utf-8'))
-        return d if isinstance(d, list) else []
-    except Exception:
-        return []
-
-def key(n):
-    return (str(n.get('grade','')).upper(), str(n.get('subject','')).upper(), int(n.get('unit_number') or 0))
-
-def score(n):
-    return (len(n.get('summary') or '')
-            + sum(len(x.get('explanation') or '') for x in (n.get('sections') or []))
-            + 20*len(n.get('examples') or [])
-            + 10*len(n.get('exercises') or []))
-
-base={}
-for path in ['assets/content/unit_notes_rich.json','assets/content/unit_notes.json']:
-    for n in load(path):
-        if not isinstance(n, dict): continue
-        k=key(n)
-        if k not in base or score(n) > score(base[k]):
-            base[k]=n
-if not base:
-    Path('assets/content/unit_notes.json').write_text('[]', encoding='utf-8')
-else:
-    notes=sorted(base.values(), key=key)
-    Path('assets/content/unit_notes.json').write_text(json.dumps(notes, ensure_ascii=False), encoding='utf-8')
-    print('FINAL notes', len(notes))
-PY
-          test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
-          test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
-          test -f assets/content/practice_index.json || echo '{"files":["practice_from_notes.json","practice_questions.json"],"lite":"practice_lite.json"}' > assets/content/practice_index.json
-          test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
+          python3 tools/merge_notes.py
           du -sh assets/content || true
 
       - name: Generate icons
         run: |
-          python3 << 'PY'
-          try:
-              from PIL import Image, ImageDraw, ImageFont
-          except ImportError:
-              import subprocess, sys
-              subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-q', 'pillow'])
-              from PIL import Image, ImageDraw, ImageFont
-          import os
-          def make_icon(path, label, bg=(13, 148, 136), size=192):
-              img = Image.new('RGB', (size, size), bg)
-              d = ImageDraw.Draw(img)
-              try:
-                  font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', size // 3)
-              except Exception:
-                  font = ImageFont.load_default()
-              bbox = d.textbbox((0, 0), label, font=font)
-              tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
-              d.text(((size - tw) / 2, (size - th) / 2 - 4), label, fill=(255, 255, 255), font=font)
-              os.makedirs(os.path.dirname(path), exist_ok=True)
-              img.save(path, 'PNG')
-          base = 'android/app/src/main/res'
-          for dens, s in [('mipmap-mdpi', 48), ('mipmap-hdpi', 72), ('mipmap-xhdpi', 96),
-                          ('mipmap-xxhdpi', 144), ('mipmap-xxxhdpi', 192)]:
-              make_icon(f'{base}/{dens}/ic_launcher.png', '4', size=s)
-          print('icons ok')
-          PY
+          python3 -c "
+import os, subprocess, sys
+try:
+    from PIL import Image, ImageDraw, ImageFont
+except ImportError:
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-q', 'pillow'])
+    from PIL import Image, ImageDraw, ImageFont
+
+def make_icon(path, label, bg=(13, 148, 136), size=192):
+    img = Image.new('RGB', (size, size), bg)
+    d = ImageDraw.Draw(img)
+    try:
+        font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', size // 3)
+    except Exception:
+        font = ImageFont.load_default()
+    bbox = d.textbbox((0, 0), label, font=font)
+    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    d.text(((size - tw) / 2, (size - th) / 2 - 4), label, fill=(255, 255, 255), font=font)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    img.save(path, 'PNG')
+
+base = 'android/app/src/main/res'
+for dens, s in [('mipmap-mdpi', 48), ('mipmap-hdpi', 72), ('mipmap-xhdpi', 96), ('mipmap-xxhdpi', 144), ('mipmap-xxxhdpi', 192)]:
+    make_icon(f'{base}/{dens}/ic_launcher.png', '4', size=s)
+print('icons ok')
+"
 
       - name: Pub get
         run: flutter pub get
 
-      - name: Analyze (non-fatal)
-        continue-on-error: true
-        run: flutter analyze || true
-
       - name: Build student APK
         run: |
-          set -e
           flutter build apk --release --flavor student --target lib/main.dart \
             --no-tree-shake-icons --android-skip-build-dependency-validation
 
@@ -159,8 +116,6 @@ PY
         uses: actions/upload-artifact@v4
         with:
           name: four-three-apks
-          path: |
-            dist/
-            build/app/outputs/flutter-apk/*.apk
+          path: dist/
           if-no-files-found: error
           retention-days: 30
