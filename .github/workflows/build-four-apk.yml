@@ -34,30 +34,29 @@ jobs:
             "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf"
           test -s assets/fonts/NotoSansEthiopic-Regular.ttf
 
-      - name: Download textbook-derived notes + practice from public Drive
+      - name: Download textbook-derived notes + practice (public Drive)
         continue-on-error: true
         run: |
           set +e
           mkdir -p assets/content assets/content/illustrated_pdf
           pip install -q 'gdown>=5.0' || pip install -q gdown
-          # Primary textbook-based packs (folder 1Qy4TuxVMvlMurxQkdaFa-P-HJOqZFZm3)
           gdown "https://drive.google.com/uc?id=1gv_l5Vay2WWt-NybgA8bb3DwPseMAu0q&export=download" -O assets/content/unit_notes_rich.json || true
           gdown "https://drive.google.com/uc?id=1BPqrDcoC63zyQ1A16VKGtIssBKT1Tcqf&export=download" -O assets/content/notes_ALL_BOOKS_v2_polished.json || true
           gdown "https://drive.google.com/uc?id=1Le6xHfpnvpRJ7oGiF70_SFzTkIWTJZSY&export=download" -O assets/content/practice_from_notes.json || true
           gdown "https://drive.google.com/uc?id=1-lrX7DJp7vMjtEac74F9lJ-bWkKFQA_9&export=download" -O assets/content/unit_notes_flat_v2.json || true
           ls -lh assets/content/*.json 2>/dev/null | head -20
 
-      - name: Download illustrated PDFs (Drive folder 1r3YaWzIc8BuBiWEDzHhdw7wWztMYzuXq)
+      - name: Download illustrated PDFs from Drive catalog
         continue-on-error: true
         run: |
           set +e
           python3 tools/download_illustrated_from_drive.py || true
           find assets/content/illustrated_pdf -type f 2>/dev/null | wc -l
 
-      - name: Polish textbook notes (G9 Math worked examples first)
+      - name: Polish ALL textbook notes (G9–G12, every subject)
         run: |
-          python3 tools/polish_notes_from_textbook.py || true
-          # Gap-fill only if still thin
+          python3 tools/polish_notes_from_textbook.py
+          # Optional gap-fill only for missing keys (never preferred over rich)
           python3 tools/generate_curriculum_notes.py || true
           python3 << 'PY'
 import json
@@ -66,14 +65,7 @@ from pathlib import Path
 def load(p):
     try:
         d=json.loads(Path(p).read_text(encoding='utf-8'))
-        if isinstance(d, list): return d
-        if isinstance(d, dict):
-            if 'books' in d:
-                out=[]
-                for b in d['books']:
-                    out.extend(b.get('units') or b.get('notes') or [])
-                return out
-            return d.get('notes') or d.get('units') or []
+        return d if isinstance(d, list) else []
     except Exception:
         return []
 
@@ -81,37 +73,29 @@ def key(n):
     return (str(n.get('grade','')).upper(), str(n.get('subject','')).upper(), int(n.get('unit_number') or 0))
 
 def score(n):
-    s = len(n.get('summary') or '')
-    s += sum(len((x.get('explanation') or '')) for x in (n.get('sections') or []))
-    s += 20 * len(n.get('examples') or [])
-    s += 10 * len(n.get('exercises') or [])
-    return s
+    return (len(n.get('summary') or '')
+            + sum(len(x.get('explanation') or '') for x in (n.get('sections') or []))
+            + 20*len(n.get('examples') or [])
+            + 10*len(n.get('exercises') or []))
 
 base={}
-for path in [
-    'assets/content/unit_notes_rich.json',
-    'assets/content/unit_notes.json',
-    'assets/content/notes_ALL_BOOKS_v2_polished.json',
-    'assets/content/unit_notes_flat_v2.json',
-]:
+for path in ['assets/content/unit_notes_rich.json','assets/content/unit_notes.json']:
     for n in load(path):
         if not isinstance(n, dict): continue
         k=key(n)
         if k not in base or score(n) > score(base[k]):
             base[k]=n
-notes=sorted(base.values(), key=lambda n: key(n))
+notes=sorted(base.values(), key=key)
 Path('assets/content/unit_notes.json').write_text(json.dumps(notes, ensure_ascii=False), encoding='utf-8')
-for g in ['G9','G10','G11','G12']:
-    sub=[n for n in notes if str(n.get('grade','')).upper()==g]
-    Path(f'assets/content/unit_notes_{g.lower()}.json').write_text(json.dumps(sub, ensure_ascii=False), encoding='utf-8')
-g9m=[n for n in notes if str(n.get('grade')).upper()=='G9' and 'MATH' in str(n.get('subject','')).upper()]
-print('TOTAL notes', len(notes), 'G9 MATH', len(g9m))
-for n in sorted(g9m, key=lambda x: int(x.get('unit_number') or 0)):
-    print(' ', n.get('unit_number'), n.get('title'), 'sec', len(n.get('sections') or []), 'ex', len(n.get('examples') or []))
+print('FINAL notes', len(notes))
+print('thin', sum(1 for n in notes if len(n.get('sections') or [])<2))
+from collections import Counter
+c=Counter((n.get('grade'), n.get('subject')) for n in notes)
+for k,v in sorted(c.items()):
+    print(f'  {k[0]} {k[1]}: {v}')
 PY
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
           test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
-          test -f assets/content/practice_index.json || echo '{"files":["practice_from_notes.json","practice_questions.json"],"lite":"practice_lite.json"}' > assets/content/practice_index.json
           du -sh assets/content assets/fonts
 
       - name: Generate icons
