@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../core/content/content_repository.dart';
 import '../../core/curriculum/streams.dart';
@@ -25,7 +26,6 @@ class _AppShellState extends State<AppShell> {
   int index = 0;
   String grade = 'G10';
   String subject = 'MATH';
-  /// SCIENCE or ARTS — only matters for G11/G12
   String stream = CurriculumStreams.science;
   bool ready = false;
 
@@ -68,15 +68,8 @@ class _AppShellState extends State<AppShell> {
     });
   }
 
-  void _setGradeAndStream(String g, String st) {
-    setState(() {
-      grade = g;
-      stream = st;
-      final allowed = CurriculumStreams.subjectsFor(g, stream: st);
-      if (!allowed.contains(subject)) {
-        subject = allowed.first;
-      }
-    });
+  void _setSubject(String s) {
+    setState(() => subject = s);
   }
 
   @override
@@ -87,32 +80,36 @@ class _AppShellState extends State<AppShell> {
         stream: stream,
         onGrade: _setGrade,
         onStream: _setStream,
-        onGradeAndStream: _setGradeAndStream,
+        onSubject: _setSubject,
         onOpenNotes: () => setState(() => index = 1),
         onOpenPractice: () => setState(() => index = 2),
-        onOpenBot: () => setState(() => index = 3),
-        onOpenExams: () => setState(() => index = 4),
-        onOpenLabs: () => setState(() => index = 5),
-        onOpenTools: () => setState(() => index = 6),
+        onOpenExams: () => setState(() => index = 3),
+        onOpenBot: () => setState(() => index = 5),
       ),
       NotesScreen(
         grade: grade,
         subject: subject,
         stream: stream,
         onGrade: _setGrade,
-        onSubject: (s) => setState(() => subject = s),
+        onSubject: _setSubject,
         onStream: _setStream,
       ),
       PracticeScreen(
         grade: grade,
         subject: subject,
+        stream: stream,
         onGrade: _setGrade,
-        onSubject: (s) => setState(() => subject = s),
+        onSubject: _setSubject,
+        onStream: _setStream,
       ),
-      BotScreen(initialGrade: grade),
-      const ExamsScreen(),
-      const VirtualLabScreen(),
+      ExamsScreen(
+        grade: grade,
+        subject: subject,
+        onGrade: _setGrade,
+        onSubject: _setSubject,
+      ),
       ToolsScreen(grade: grade, subject: subject),
+      BotScreen(initialGrade: grade),
       const UnlockScreen(),
     ];
 
@@ -146,7 +143,7 @@ class _AppShellState extends State<AppShell> {
           ),
         );
         if (leave == true && context.mounted) {
-          Navigator.of(context).maybePop();
+          SystemNavigator.pop();
         }
       },
       child: Scaffold(
@@ -159,47 +156,22 @@ class _AppShellState extends State<AppShell> {
                   child: pages[index.clamp(0, pages.length - 1)],
                 ),
               )
-            : Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const CircularProgressIndicator(),
-                    const SizedBox(height: 16),
-                    Text(AppStrings.loading,
-                        style: const TextStyle(color: FourTheme.muted)),
-                  ],
-                ),
-              ),
+            : const Center(child: CircularProgressIndicator()),
         bottomNavigationBar: NavigationBar(
           selectedIndex: navIndex,
           onDestinationSelected: (i) => setState(() => index = i),
-          destinations: [
-            NavigationDestination(
-              icon: const Icon(Icons.home_outlined),
-              selectedIcon: const Icon(Icons.home_rounded),
-              label: AppStrings.home,
-            ),
-            NavigationDestination(
-              icon: const Icon(Icons.auto_stories_outlined),
-              selectedIcon: const Icon(Icons.auto_stories),
-              label: AppStrings.notes,
-            ),
-            NavigationDestination(
-              icon: const Icon(Icons.quiz_outlined),
-              selectedIcon: const Icon(Icons.quiz),
-              label: AppStrings.practice,
-            ),
-            NavigationDestination(
-              icon: const Icon(Icons.smart_toy_outlined),
-              selectedIcon: const Icon(Icons.smart_toy),
-              label: AppStrings.coach,
-            ),
-            NavigationDestination(
-              icon: const Icon(Icons.assignment_outlined),
-              selectedIcon: const Icon(Icons.assignment),
-              label: AppStrings.exams,
-            ),
+          destinations: const [
+            NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Home'),
+            NavigationDestination(icon: Icon(Icons.menu_book_outlined), selectedIcon: Icon(Icons.menu_book), label: 'Notes'),
+            NavigationDestination(icon: Icon(Icons.quiz_outlined), selectedIcon: Icon(Icons.quiz), label: 'Practice'),
+            NavigationDestination(icon: Icon(Icons.assignment_outlined), selectedIcon: Icon(Icons.assignment), label: 'Exams'),
+            NavigationDestination(icon: Icon(Icons.handyman_outlined), selectedIcon: Icon(Icons.handyman), label: 'Tools'),
           ],
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () => setState(() => index = 5),
+          icon: const Icon(Icons.smart_toy),
+          label: const Text('Coach'),
         ),
       ),
     );
