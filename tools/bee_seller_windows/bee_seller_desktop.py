@@ -28,10 +28,9 @@ from pathlib import Path
 from tkinter import messagebox, ttk
 from typing import Any
 
-# Optional QR rendering
 try:
     import qrcode
-    from PIL import Image, ImageTk
+    from PIL import ImageTk
 
     HAS_QR = True
 except ImportError:
@@ -59,7 +58,6 @@ def save_store(data: dict[str, Any]) -> None:
 
 
 def hmac_hex(body: str) -> str:
-    """Full hex HMAC-SHA256 — matches Dart crypto Hmac(sha256).convert(...).toString()."""
     return hmac.new(
         SIGNING_KEY.encode("utf-8"),
         body.encode("utf-8"),
@@ -68,7 +66,6 @@ def hmac_hex(body: str) -> str:
 
 
 def build_payload(package_code: str, device_id: str, nonce: str | None = None) -> str:
-    """Return encoded BEE1|package|deviceId|nonce|sig."""
     nonce = nonce or secrets.token_hex(8)
     device_id = device_id.strip()
     package_code = package_code.strip()
@@ -114,7 +111,6 @@ class BeeSellerApp(tk.Tk):
         self._refresh_quota()
 
     def _build_ui(self) -> None:
-        pad = {"padx": 16, "pady": 4}
         tk.Label(
             self,
             text="Bee Seller (Windows)",
@@ -138,7 +134,6 @@ class BeeSellerApp(tk.Tk):
         card = tk.Frame(self, bg="#0F3D3D", padx=12, pady=12)
         card.pack(fill="both", expand=True, padx=16, pady=8)
 
-        # --- Redeem wholesale / master grant ---
         tk.Label(
             card,
             text="1) Redeem wholesale / master grant",
@@ -163,7 +158,6 @@ class BeeSellerApp(tk.Tk):
 
         ttk.Separator(card, orient="horizontal").pack(fill="x", pady=10)
 
-        # --- Issue student unlock ---
         tk.Label(
             card,
             text="2) Issue student unlock (HIGHSCHOOL)",
@@ -188,7 +182,6 @@ class BeeSellerApp(tk.Tk):
 
         ttk.Separator(card, orient="horizontal").pack(fill="x", pady=10)
 
-        # --- Issue sub-seller grant ---
         tk.Label(
             card,
             text="3) Issue seller grant (SELLER:N)",
@@ -197,10 +190,8 @@ class BeeSellerApp(tk.Tk):
             font=("Segoe UI", 11, "bold"),
             anchor="w",
         ).pack(fill="x")
-        row = tk.Frame(card, bg="#0F3D3D")
-        row.pack(fill="x", pady=2)
-        tk.Label(row, text="Sub-seller device ID", fg="white", bg="#0F3D3D").pack(
-            side="left"
+        tk.Label(card, text="Sub-seller device ID", fg="white", bg="#0F3D3D").pack(
+            anchor="w"
         )
         self.sub_id = ttk.Entry(card, font=("Consolas", 11))
         self.sub_id.pack(fill="x", pady=2)
@@ -216,7 +207,6 @@ class BeeSellerApp(tk.Tk):
 
         ttk.Separator(card, orient="horizontal").pack(fill="x", pady=10)
 
-        # --- Output ---
         tk.Label(
             card,
             text="Generated code (scan or copy into student / seller app)",
@@ -245,9 +235,14 @@ class BeeSellerApp(tk.Tk):
                 font=("Segoe UI", 9),
             ).pack()
 
+        key_src = (
+            "BEE_HMAC_KEY env"
+            if os.environ.get("BEE_HMAC_KEY") or os.environ.get("BEE_HMAC_SECRET")
+            else "default (dev)"
+        )
         tk.Label(
             self,
-            text=f"Key source: {'BEE_HMAC_KEY env' if os.environ.get('BEE_HMAC_KEY') or os.environ.get('BEE_HMAC_SECRET') else 'default (dev)'}",
+            text=f"Key source: {key_src}",
             fg="#64748B",
             bg="#0A2F2F",
             font=("Segoe UI", 8),
@@ -301,7 +296,6 @@ class BeeSellerApp(tk.Tk):
             )
             return
         pkg = p["package"].upper()
-        quota = None
         if pkg.startswith("WHOLESALE:"):
             quota = int(pkg.split(":", 1)[1] or 0)
         elif pkg.startswith("SELLER:"):
@@ -335,7 +329,9 @@ class BeeSellerApp(tk.Tk):
         save_store(self.store)
         self._refresh_quota()
         self.redeem_entry.delete("1.0", "end")
-        messagebox.showinfo("OK", f"Added +{quota} quota.\nNew total: {self.store['quota']}")
+        messagebox.showinfo(
+            "OK", f"Added +{quota} quota.\nNew total: {self.store['quota']}"
+        )
 
     def issue_student(self) -> None:
         sid = self.student_id.get().strip()
@@ -345,8 +341,8 @@ class BeeSellerApp(tk.Tk):
         if int(self.store.get("quota", 0)) < 1:
             messagebox.showerror(
                 "Error",
-                "No quota left. Redeem a WHOLESALE/SELLER grant first,
-                or set quota manually in ~/.bee_seller_desktop.json for testing.",
+                "No quota left. Redeem a WHOLESALE/SELLER grant first, "
+                "or set quota in %USERPROFILE%\\.bee_seller_desktop.json for testing.",
             )
             return
         code = build_payload("HIGHSCHOOL", sid)
@@ -354,11 +350,7 @@ class BeeSellerApp(tk.Tk):
         hist = list(self.store.get("history") or [])
         hist.insert(
             0,
-            {
-                "type": "student",
-                "device_id": sid,
-                "ts": int(time.time()),
-            },
+            {"type": "student", "device_id": sid, "ts": int(time.time())},
         )
         self.store["history"] = hist[:100]
         save_store(self.store)
@@ -379,7 +371,8 @@ class BeeSellerApp(tk.Tk):
             return
         if int(self.store.get("quota", 0)) < q:
             messagebox.showerror(
-                "Error", f"Not enough quota (have {self.store.get('quota', 0)}, need {q})."
+                "Error",
+                f"Not enough quota (have {self.store.get('quota', 0)}, need {q}).",
             )
             return
         code = build_payload(f"SELLER:{q}", sid)
