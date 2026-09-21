@@ -54,6 +54,7 @@ jobs:
           python3 tools/polish_notes_from_textbook.py || true
           python3 tools/generate_curriculum_notes.py || true
           python3 tools/merge_notes.py
+          python3 tools/enrich_matric_bank.py || true
           du -sh assets/content || true
 
       - name: Generate icons
