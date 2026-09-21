@@ -27,21 +27,16 @@ jobs:
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
 
-      - name: Patch illustrated matching (exact unit only)
-        run: python3 tools/patch_exact_illustrated.py || true
-
-      - name: Install Noto Sans Ethiopic (Tigrinya)
+      - name: Ensure content asset dirs exist
         run: |
-          mkdir -p assets/fonts
-          curl -sL -o assets/fonts/NotoSansEthiopic-Regular.ttf \
-            "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf"
-          test -s assets/fonts/NotoSansEthiopic-Regular.ttf
+          mkdir -p assets/content/textbooks assets/content/illustrated_pdf assets/fonts
+          # placeholder so empty dirs are valid if needed
+          touch assets/content/textbooks/.gitkeep assets/content/illustrated_pdf/.gitkeep
 
       - name: Download textbook-derived notes + practice (public Drive)
         continue-on-error: true
         run: |
           set +e
-          mkdir -p assets/content assets/content/illustrated_pdf
           pip install -q 'gdown>=5.0' || pip install -q gdown
           gdown "https://drive.google.com/uc?id=1gv_l5Vay2WWt-NybgA8bb3DwPseMAu0q&export=download" -O assets/content/unit_notes_rich.json || true
           gdown "https://drive.google.com/uc?id=1BPqrDcoC63zyQ1A16VKGtIssBKT1Tcqf&export=download" -O assets/content/notes_ALL_BOOKS_v2_polished.json || true
@@ -55,9 +50,9 @@ jobs:
           python3 tools/download_illustrated_from_drive.py || true
           find assets/content/illustrated_pdf -type f 2>/dev/null | wc -l
 
-      - name: Polish ALL textbook notes (G9–G12)
+      - name: Polish textbook notes
         run: |
-          python3 tools/polish_notes_from_textbook.py
+          python3 tools/polish_notes_from_textbook.py || true
           python3 tools/generate_curriculum_notes.py || true
           python3 << 'PY'
 import json
@@ -86,13 +81,18 @@ for path in ['assets/content/unit_notes_rich.json','assets/content/unit_notes.js
         k=key(n)
         if k not in base or score(n) > score(base[k]):
             base[k]=n
-notes=sorted(base.values(), key=key)
-Path('assets/content/unit_notes.json').write_text(json.dumps(notes, ensure_ascii=False), encoding='utf-8')
-print('FINAL notes', len(notes), 'thin', sum(1 for n in notes if len(n.get('sections') or [])<2))
+if not base:
+    Path('assets/content/unit_notes.json').write_text('[]', encoding='utf-8')
+else:
+    notes=sorted(base.values(), key=key)
+    Path('assets/content/unit_notes.json').write_text(json.dumps(notes, ensure_ascii=False), encoding='utf-8')
+    print('FINAL notes', len(notes))
 PY
           test -f assets/content/exam_catalog.json || echo '{"matriculation":[],"model_exam_years":[]}' > assets/content/exam_catalog.json
           test -f assets/content/practice_questions.json || echo '[]' > assets/content/practice_questions.json
-          du -sh assets/content assets/fonts
+          test -f assets/content/practice_index.json || echo '{"files":["practice_from_notes.json","practice_questions.json"],"lite":"practice_lite.json"}' > assets/content/practice_index.json
+          test -f assets/content/unit_notes.json || echo '[]' > assets/content/unit_notes.json
+          du -sh assets/content || true
 
       - name: Generate icons
         run: |
@@ -126,27 +126,34 @@ PY
       - name: Pub get
         run: flutter pub get
 
+      - name: Analyze (non-fatal)
+        continue-on-error: true
+        run: flutter analyze || true
+
       - name: Build student APK
         run: |
+          set -e
           flutter build apk --release --flavor student --target lib/main.dart \
-            --no-tree-shake-icons --android-skip-build-dependency-validation || \
-          flutter build apk --release --target lib/main.dart --no-tree-shake-icons
+            --no-tree-shake-icons --android-skip-build-dependency-validation
 
       - name: Build seller APK
+        continue-on-error: true
         run: |
           flutter build apk --release --flavor seller --target lib/seller_main.dart \
-            --no-tree-shake-icons --android-skip-build-dependency-validation || true
+            --no-tree-shake-icons --android-skip-build-dependency-validation
 
       - name: Build master APK
+        continue-on-error: true
         run: |
           flutter build apk --release --flavor master --target lib/master_main.dart \
-            --no-tree-shake-icons --android-skip-build-dependency-validation || true
+            --no-tree-shake-icons --android-skip-build-dependency-validation
 
       - name: Collect APKs
         run: |
           mkdir -p dist
           find build/app/outputs/flutter-apk -name '*.apk' -exec cp -v {} dist/ \; || true
           ls -lh dist/ || true
+          test -n "$(ls -A dist 2>/dev/null)"
 
       - name: Upload APKs
         uses: actions/upload-artifact@v4

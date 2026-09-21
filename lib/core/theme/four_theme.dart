@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 class FourTheme {
   FourTheme._();
 
-  static const String ethiopicFont = 'NotoSansEthiopic';
-
   static const Color primary = Color(0xFF06B6D4);
   static const Color primaryDark = Color(0xFF0891B2);
   static const Color primarySoft = Color(0xFFCFFAFE);
@@ -57,7 +55,6 @@ class FourTheme {
     final base = ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      fontFamily: ethiopicFont,
       colorScheme: ColorScheme.fromSeed(
         seedColor: primary,
         primary: primaryDark,
@@ -79,7 +76,6 @@ class FourTheme {
           color: ink,
           fontSize: 18,
           fontWeight: FontWeight.w800,
-          fontFamily: ethiopicFont,
         ),
       ),
       cardTheme: CardThemeData(
@@ -88,16 +84,11 @@ class FourTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         margin: EdgeInsets.zero,
       ),
-      textTheme: base.textTheme.apply(fontFamily: ethiopicFont),
-      primaryTextTheme: base.primaryTextTheme.apply(fontFamily: ethiopicFont),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           backgroundColor: primaryDark,
           foregroundColor: Colors.white,
-          textStyle: const TextStyle(
-            fontWeight: FontWeight.w800,
-            fontFamily: ethiopicFont,
-          ),
+          textStyle: const TextStyle(fontWeight: FontWeight.w800),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         ),
