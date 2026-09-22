@@ -37,7 +37,6 @@ jobs:
           curl -sL -o assets/fonts/NotoSansEthiopic-Regular.ttf \
             "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf"
           test -s assets/fonts/NotoSansEthiopic-Regular.ttf
-          ls -lh assets/fonts/
 
       - name: Download textbook-derived notes + practice
         run: |
@@ -46,9 +45,14 @@ jobs:
           gdown "https://drive.google.com/uc?id=1gv_l5Vay2WWt-NybgA8bb3DwPseMAu0q&export=download" -O assets/content/unit_notes_rich.json \
             || curl -sL "https://drive.google.com/uc?export=download&id=1gv_l5Vay2WWt-NybgA8bb3DwPseMAu0q" -o assets/content/unit_notes_rich.json
           gdown "https://drive.google.com/uc?id=1BPqrDcoC63zyQ1A16VKGtIssBKT1Tcqf&export=download" -O assets/content/notes_ALL_BOOKS_v2_polished.json || true
-          gdown "https://drive.google.com/uc?id=1Le6xHfpnvpRJ7oGiF70_SFzTkIWTJZSY&export=download" -O assets/content/practice_from_notes.json || true
+          # Full 1412 practice bank (prefer this)
+          gdown "https://drive.google.com/uc?id=1N1IMP0KAcdhq2rfB5OwYKBc8UQNO4eSd&export=download" -O assets/content/practice_from_notes.json || true
+          # Fallback older Drive id
+          if [ ! -s assets/content/practice_from_notes.json ]; then
+            gdown "https://drive.google.com/uc?id=1Le6xHfpnvpRJ7oGiF70_SFzTkIWTJZSY&export=download" -O assets/content/practice_from_notes.json || true
+          fi
           python3 tools/merge_practice_parts.py || true
-          ls -lh assets/content/*.json 2>/dev/null | head -20
+          ls -lh assets/content/practice*.json 2>/dev/null | head -20
           python3 tools/assert_rich_notes.py
 
       - name: Download illustrated PDFs
@@ -56,7 +60,6 @@ jobs:
         run: |
           set +e
           python3 tools/download_illustrated_from_drive.py || true
-          find assets/content/illustrated_pdf -type f 2>/dev/null | wc -l
 
       - name: Download offline PhET labs
         continue-on-error: true
