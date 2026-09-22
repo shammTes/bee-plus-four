@@ -49,6 +49,8 @@ class ContentRepository {
     for (final pack in [
       'assets/content/unit_notes_g12.json',
       'assets/content/unit_notes_g9_english.json',
+      'assets/content/unit_notes_english_grammar.json',
+      'assets/content/unit_notes_g10_chemistry_clean.json',
       'assets/content/unit_notes_extra.json',
       'assets/content/unit_notes_rich.json',
     ]) {
@@ -365,6 +367,12 @@ class ContentRepository {
       }
       if (decoded is Map && decoded['questions'] is List) {
         return (decoded['questions'] as List)
+            .whereType<Map>()
+            .map((e) => map(Map<String, dynamic>.from(e)))
+            .toList();
+      }
+      if (decoded is Map && decoded['notes'] is List) {
+        return (decoded['notes'] as List)
             .whereType<Map>()
             .map((e) => map(Map<String, dynamic>.from(e)))
             .toList();
