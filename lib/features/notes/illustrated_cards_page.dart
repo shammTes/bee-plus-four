@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/theme/four_theme.dart';
-
-/// Colorful card-style illustrated lesson (used when PDF pack is missing).
+/// Neon / study-poster style illustrated lesson cards.
 class IllustratedCardsPage extends StatefulWidget {
   const IllustratedCardsPage({
     super.key,
@@ -29,29 +27,73 @@ class _IllustratedCardsPageState extends State<IllustratedCardsPage> {
     super.dispose();
   }
 
+  Color _accent(Map<String, dynamic> s) {
+    final raw = (s['accent'] as String? ?? '#22D3EE').replaceFirst('#', '');
+    try {
+      return Color(int.parse('FF$raw', radix: 16));
+    } catch (_) {
+      return const Color(0xFF22D3EE);
+    }
+  }
+
+  bool _isFormula(String text) {
+    final t = text.trim();
+    if (t.length > 48) return false;
+    return t.contains('=') ||
+        t.contains('→') ||
+        t.contains('∝') ||
+        RegExp(r'\b(F|V|I|P|KE|PE|pH|sin|cos|log)\b').hasMatch(t);
+  }
+
   @override
   Widget build(BuildContext context) {
     final slides = widget.slides;
     return Scaffold(
-      backgroundColor: FourTheme.surface,
+      backgroundColor: const Color(0xFF0B1020),
       appBar: AppBar(
-        title: Text(widget.title,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        backgroundColor: const Color(0xFF0B1020),
+        foregroundColor: Colors.white,
+        elevation: 0,
+        title: Text(
+          widget.title,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(fontWeight: FontWeight.w900, letterSpacing: 0.3),
+        ),
       ),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+            padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
             child: Row(
               children: [
                 Expanded(
-                  child: Text(widget.subtitle,
-                      style: const TextStyle(color: FourTheme.muted)),
+                  child: Text(
+                    widget.subtitle,
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.55),
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
-                Text('${page + 1}/${slides.length}',
-                    style: const TextStyle(fontWeight: FontWeight.w800)),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF22D3EE).withOpacity(0.15),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                        color: const Color(0xFF22D3EE).withOpacity(0.4)),
+                  ),
+                  child: Text(
+                    '${page + 1} / ${slides.length}',
+                    style: const TextStyle(
+                      color: Color(0xFF22D3EE),
+                      fontWeight: FontWeight.w900,
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -62,34 +104,35 @@ class _IllustratedCardsPageState extends State<IllustratedCardsPage> {
               onPageChanged: (i) => setState(() => page = i),
               itemBuilder: (context, i) {
                 final s = slides[i];
-                final accent = Color(
-                  int.parse((s['accent'] as String? ?? '#0D9488')
-                      .replaceFirst('#', '0xFF')),
-                );
+                final accent = _accent(s);
+                final heading = '${s['heading'] ?? s['title'] ?? 'Key idea'}';
+                final body = '${s['body'] ?? s['text'] ?? ''}';
+                final formula = _isFormula(body) || _isFormula(heading);
                 return Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.fromLTRB(14, 4, 14, 12),
                   child: Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          accent.withOpacity(0.15),
-                          Colors.white,
-                          const Color(0xFFFDF4FF),
+                          const Color(0xFF121A2F),
+                          Color.lerp(const Color(0xFF121A2F), accent, 0.12)!,
+                          const Color(0xFF0B1020),
                         ],
                       ),
-                      borderRadius: BorderRadius.circular(24),
-                      border: Border.all(color: accent.withOpacity(0.4), width: 1.5),
+                      borderRadius: BorderRadius.circular(28),
+                      border: Border.all(
+                          color: accent.withOpacity(0.55), width: 1.6),
                       boxShadow: [
                         BoxShadow(
-                          color: accent.withOpacity(0.12),
-                          blurRadius: 20,
-                          offset: const Offset(0, 10),
+                          color: accent.withOpacity(0.22),
+                          blurRadius: 28,
+                          offset: const Offset(0, 12),
                         ),
                       ],
                     ),
-                    padding: const EdgeInsets.all(22),
+                    padding: const EdgeInsets.all(20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -97,29 +140,85 @@ class _IllustratedCardsPageState extends State<IllustratedCardsPage> {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 12, vertical: 6),
                           decoration: BoxDecoration(
-                            color: accent,
-                            borderRadius: BorderRadius.circular(20),
+                            color: accent.withOpacity(0.18),
+                            borderRadius: BorderRadius.circular(999),
+                            border: Border.all(color: accent.withOpacity(0.7)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: accent.withOpacity(0.35),
+                                blurRadius: 12,
+                              ),
+                            ],
                           ),
-                          child: Text('Card ${s['n'] ?? i + 1}',
-                              style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w900)),
+                          child: Text(
+                            heading.toUpperCase(),
+                            style: TextStyle(
+                              color: accent,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 12,
+                              letterSpacing: 1.1,
+                            ),
+                          ),
                         ),
-                        const SizedBox(height: 16),
-                        Text('${s['heading']}',
-                            style: const TextStyle(
-                                fontSize: 22,
+                        const SizedBox(height: 18),
+                        if (formula) ...[
+                          Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 14),
+                            decoration: BoxDecoration(
+                              color: Colors.black.withOpacity(0.35),
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(
+                                  color: accent.withOpacity(0.5), width: 1.2),
+                            ),
+                            child: Text(
+                              body.isEmpty ? heading : body,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: accent,
                                 fontWeight: FontWeight.w900,
-                                height: 1.25)),
-                        const SizedBox(height: 14),
+                                fontSize: 22,
+                                height: 1.25,
+                                letterSpacing: 0.4,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                        ],
                         Expanded(
                           child: SingleChildScrollView(
-                            child: Text('${s['body']}',
-                                style: const TextStyle(
-                                    fontSize: 16.5,
-                                    height: 1.5,
-                                    fontWeight: FontWeight.w600)),
+                            child: Text(
+                              formula && body.isNotEmpty && body != heading
+                                  ? body
+                                  : (body.isEmpty ? heading : body),
+                              style: TextStyle(
+                                color: Colors.white.withOpacity(0.92),
+                                fontSize: formula ? 15 : 17,
+                                height: 1.45,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
                           ),
+                        ),
+                        const SizedBox(height: 12),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(slides.length, (di) {
+                            final on = di == page;
+                            return AnimatedContainer(
+                              duration: const Duration(milliseconds: 200),
+                              margin: const EdgeInsets.symmetric(horizontal: 3),
+                              width: on ? 18 : 7,
+                              height: 7,
+                              decoration: BoxDecoration(
+                                color: on
+                                    ? accent
+                                    : Colors.white.withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(99),
+                              ),
+                            );
+                          }),
                         ),
                       ],
                     ),
@@ -129,29 +228,47 @@ class _IllustratedCardsPageState extends State<IllustratedCardsPage> {
             ),
           ),
           SafeArea(
+            top: false,
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
               child: Row(
                 children: [
                   Expanded(
-                    child: OutlinedButton(
+                    child: OutlinedButton.icon(
                       onPressed: page == 0
                           ? null
                           : () => _ctrl.previousPage(
-                              duration: const Duration(milliseconds: 250),
-                              curve: Curves.easeOut),
-                      child: const Text('Back'),
+                                duration: const Duration(milliseconds: 280),
+                                curve: Curves.easeOut,
+                              ),
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        side: BorderSide(
+                            color: Colors.white.withOpacity(0.25)),
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                      ),
+                      icon: const Icon(Icons.chevron_left),
+                      label: const Text('Back'),
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  const SizedBox(width: 12),
                   Expanded(
-                    child: FilledButton(
+                    child: FilledButton.icon(
                       onPressed: page >= slides.length - 1
-                          ? () => Navigator.pop(context)
+                          ? () => Navigator.of(context).maybePop()
                           : () => _ctrl.nextPage(
-                              duration: const Duration(milliseconds: 250),
-                              curve: Curves.easeOut),
-                      child: Text(
+                                duration: const Duration(milliseconds: 280),
+                                curve: Curves.easeOut,
+                              ),
+                      style: FilledButton.styleFrom(
+                        backgroundColor: const Color(0xFF22D3EE),
+                        foregroundColor: const Color(0xFF0B1020),
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                      ),
+                      icon: Icon(page >= slides.length - 1
+                          ? Icons.check
+                          : Icons.chevron_right),
+                      label: Text(
                           page >= slides.length - 1 ? 'Done' : 'Next'),
                     ),
                   ),
