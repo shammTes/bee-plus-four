@@ -51,7 +51,6 @@ class ContentRepository {
       'assets/content/unit_notes_g9_english.json',
       'assets/content/unit_notes_extra.json',
       'assets/content/unit_notes_rich.json',
-      'assets/content/notes_ALL_BOOKS_v2_polished.json',
     ]) {
       try {
         await ingest(pack);
@@ -92,39 +91,38 @@ class ContentRepository {
   Future<List<Map<String, dynamic>>> flashcardsFor(
       String grade, String subject) async {
     final all = await flashcards();
-    final g = grade.toUpperCase();
-    final s = subject.toUpperCase();
     return all
-        .where((c) =>
-            '${c['grade']}'.toUpperCase() == g &&
-            '${c['subject']}'.toUpperCase() == s)
+        .where((c) => c['grade'] == grade && c['subject'] == subject)
         .toList();
   }
 
   Future<List<PracticeQuestion>> questions() async {
     if (_questions != null) return _questions!;
-    final out = <PracticeQuestion>[];
     try {
       final idxRaw =
           await rootBundle.loadString('assets/content/practice_index.json');
       final idx = jsonDecode(idxRaw) as Map<String, dynamic>;
-      final files = (idx['files'] as List? ?? []).map((e) => '$e').toList();
+      final files = ((idx['files'] as List?) ?? const []).map((e) => '$e');
+      final all = <PracticeQuestion>[];
       for (final f in files) {
-        out.addAll(await _loadList(
-            'assets/content/$f', (e) => PracticeQuestion.fromJson(e)));
+        final path = f.startsWith('assets/') ? f : 'assets/content/$f';
+        all.addAll(await _loadList(path, (e) => PracticeQuestion.fromJson(e)));
+      }
+      if (all.isNotEmpty) {
+        _questions = all;
+        return _questions!;
       }
     } catch (_) {}
-    for (final name in [
+    _questions = await _loadList(
       'assets/content/practice_questions.json',
-      'assets/content/practice_lite.json',
-      'assets/content/practice_from_notes.json',
-    ]) {
-      try {
-        out.addAll(
-            await _loadList(name, (e) => PracticeQuestion.fromJson(e)));
-      } catch (_) {}
+      (e) => PracticeQuestion.fromJson(e),
+    );
+    if (_questions!.isEmpty) {
+      _questions = await _loadList(
+        'assets/content/practice_lite.json',
+        (e) => PracticeQuestion.fromJson(e),
+      );
     }
-    _questions = out;
     return _questions!;
   }
 
@@ -133,15 +131,55 @@ class ContentRepository {
     required String subject,
     required int unitNumber,
   }) async {
-    final all = await questions();
-    final g = grade.toUpperCase();
-    final s = subject.toUpperCase();
-    return all
-        .where((q) =>
-            q.grade.toUpperCase() == g &&
-            q.subject.toUpperCase() == s &&
-            q.unitNumber == unitNumber)
-        .toList();
+    final byId = <String, PracticeQuestion>{};
+    final practice = await questions();
+    for (final q in practice) {
+      if (q.subject != subject) continue;
+      if (q.grade == grade &&
+          (q.unitNumber == unitNumber || q.unitNumber == 0)) {
+        byId[q.id] = q;
+      }
+    }
+    if (byId.length < 5) {
+      for (final q in practice) {
+        if (q.subject == subject &&
+            (q.unitNumber == unitNumber || q.unitNumber == 0)) {
+          byId.putIfAbsent(q.id, () => q);
+        }
+      }
+    }
+
+    final matric = await matricBundle();
+    final subj = subject.toUpperCase();
+    for (final m in matric.questions) {
+      if (m.subject != subj) continue;
+      if (m.options.length < 3) continue;
+      final linked = m.unitLinks.any((u) =>
+          u.unitNumber == unitNumber &&
+          (u.grade.isEmpty || u.grade == grade || u.subject == subj));
+      final linkedLoose = m.unitLinks.any((u) => u.unitNumber == unitNumber);
+      if (!linked && !linkedLoose) continue;
+      final exp = m.explanationJoined;
+      byId.putIfAbsent(
+        m.id,
+        () => PracticeQuestion(
+          id: m.id,
+          grade: grade,
+          subject: subject,
+          unitNumber: unitNumber,
+          prompt: m.prompt,
+          options: m.options,
+          correctIndex: m.correctIndex < 0 ? 0 : m.correctIndex,
+          explanation: exp.isEmpty
+              ? (m.correctIndex < 0
+                  ? 'Answer key not verified yet.'
+                  : '')
+              : exp,
+        ),
+      );
+    }
+    final list = byId.values.toList()..shuffle(_rng);
+    return list;
   }
 
   Future<Map<String, List<IllustratedSlide>>> allSlides() async {
@@ -150,16 +188,14 @@ class ContentRepository {
       final raw =
           await rootBundle.loadString('assets/content/illustrated_slides.json');
       final map = jsonDecode(raw) as Map<String, dynamic>;
-      final out = <String, List<IllustratedSlide>>{};
-      map.forEach((k, v) {
-        if (v is List) {
-          out[k] = v
-              .whereType<Map>()
-              .map((e) => IllustratedSlide.fromJson(Map<String, dynamic>.from(e)))
-              .toList();
-        }
-      });
-      _slides = out;
+      _slides = map.map((k, v) => MapEntry(
+            k,
+            ((v as List?) ?? const [])
+                .whereType<Map>()
+                .map((e) =>
+                    IllustratedSlide.fromJson(Map<String, dynamic>.from(e)))
+                .toList(),
+          ));
     } catch (_) {
       _slides = {};
     }
@@ -173,11 +209,11 @@ class ContentRepository {
           await rootBundle.loadString('assets/content/exam_catalog.json');
       _exams = ExamCatalog.fromJson(jsonDecode(raw) as Map<String, dynamic>);
     } catch (_) {
-      _exams = ExamCatalog(
+      _exams = const ExamCatalog(
         accuracyNote: '',
-        matriculation: const [],
-        model: const [],
-        modelExamYears: const [],
+        matriculation: [],
+        model: [],
+        modelYears: [],
       );
     }
     return _exams!;
@@ -264,40 +300,38 @@ class ContentRepository {
       String grade, String subject, int unitNumber) async {
     final b = await matricBundle();
     return b.questions
-        .where((q) => q.unitLinks.any((u) =>
-            u.grade.toUpperCase() == grade.toUpperCase() &&
-            u.subject.toUpperCase() == subject.toUpperCase() &&
-            u.unitNumber == unitNumber))
+        .where((q) =>
+            q.subject == subject.toUpperCase() &&
+            q.unitLinks.any((u) =>
+                u.unitNumber == unitNumber &&
+                (u.grade.isEmpty || u.grade == grade)))
         .toList();
   }
 
   Future<List<UnitNote>> notesFor(String grade, String subject) async {
     final all = await notes();
-    final g = grade.toUpperCase();
-    final s = subject.toUpperCase();
     return all
-        .where((n) => n.grade.toUpperCase() == g && n.subject.toUpperCase() == s)
-        .toList();
+        .where((n) => n.grade == grade && n.subject == subject)
+        .toList()
+      ..sort((a, b) => a.unitNumber.compareTo(b.unitNumber));
   }
 
   Future<List<PracticeQuestion>> questionsFor(
       String grade, String subject) async {
     final all = await questions();
-    final g = grade.toUpperCase();
-    final s = subject.toUpperCase();
     return all
-        .where((q) => q.grade.toUpperCase() == g && q.subject.toUpperCase() == s)
+        .where((q) => q.grade == grade && q.subject == subject)
         .toList();
   }
 
   Future<List<PracticeQuestion>> adaptiveExamQuestions({
-    required String grade,
     required String subject,
-    int limit = 20,
+    int count = 20,
+    List<String> gradesPriority = const ['G11', 'G10', 'G9'],
   }) async {
-    final list = await questionsFor(grade, subject);
-    list.shuffle(_rng);
-    return list.take(limit).toList();
+    final all = await questions();
+    final pool = all.where((q) => q.subject == subject).toList()..shuffle(_rng);
+    return pool.take(count).toList();
   }
 
   Future<List<IllustratedSlide>> slidesFor(String id) async {
@@ -306,26 +340,31 @@ class ContentRepository {
   }
 
   Future<List<T>> _loadList<T>(
-    String path,
+    String assetPath,
     T Function(Map<String, dynamic>) map,
   ) async {
     try {
-      final raw = await rootBundle.loadString(path);
+      final raw = await rootBundle.loadString(assetPath);
       final decoded = jsonDecode(raw);
-      final list = decoded is List
-          ? decoded
-          : (decoded is Map
-              ? (decoded['questions'] as List? ??
-                  decoded['notes'] as List? ??
-                  decoded['items'] as List? ??
-                  const [])
-              : const []);
-      return list
-          .whereType<Map>()
-          .map((e) => map(Map<String, dynamic>.from(e)))
-          .toList();
-    } catch (_) {
-      return [];
-    }
+      if (decoded is List) {
+        return decoded
+            .whereType<Map>()
+            .map((e) => map(Map<String, dynamic>.from(e)))
+            .toList();
+      }
+      if (decoded is Map && decoded['items'] is List) {
+        return (decoded['items'] as List)
+            .whereType<Map>()
+            .map((e) => map(Map<String, dynamic>.from(e)))
+            .toList();
+      }
+      if (decoded is Map && decoded['questions'] is List) {
+        return (decoded['questions'] as List)
+            .whereType<Map>()
+            .map((e) => map(Map<String, dynamic>.from(e)))
+            .toList();
+      }
+    } catch (_) {}
+    return [];
   }
 }
