@@ -9,6 +9,7 @@ import '../../core/theme/four_theme.dart';
 import '../exams/matric_practice_screen.dart';
 import '../practice/unit_practice_page.dart';
 import 'illustrated_pdf_page.dart';
+import 'illustrated_cards_page.dart';
 
 class NotesScreen extends StatefulWidget {
   const NotesScreen({
@@ -78,13 +79,16 @@ class _NotesScreenState extends State<NotesScreen> {
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w900)),
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: ['G9', 'G10', 'G11', 'G12']
-                      .map((g) =>
-                          _chip(g, g == widget.grade, () => widget.onGrade(g)))
+                      .map((g) => _chip(
+                            g,
+                            widget.grade == g,
+                            () => widget.onGrade(g),
+                          ))
                       .toList(),
                 ),
               ),
@@ -94,10 +98,16 @@ class _NotesScreenState extends State<NotesScreen> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      _chip('Science', widget.stream == CurriculumStreams.science,
-                          () => widget.onStream?.call(CurriculumStreams.science)),
-                      _chip('Arts', widget.stream == CurriculumStreams.arts,
-                          () => widget.onStream?.call(CurriculumStreams.arts)),
+                      _chip(
+                        'Science',
+                        widget.stream == CurriculumStreams.science,
+                        () => widget.onStream?.call(CurriculumStreams.science),
+                      ),
+                      _chip(
+                        'Arts',
+                        widget.stream == CurriculumStreams.arts,
+                        () => widget.onStream?.call(CurriculumStreams.arts),
+                      ),
                     ],
                   ),
                 ),
@@ -108,8 +118,8 @@ class _NotesScreenState extends State<NotesScreen> {
                 child: Row(
                   children: subjects
                       .map((s) => _chip(
-                            CurriculumStreams.label(s),
-                            s == widget.subject,
+                            s,
+                            widget.subject == s,
                             () => widget.onSubject(s),
                           ))
                       .toList(),
@@ -120,26 +130,59 @@ class _NotesScreenState extends State<NotesScreen> {
         ),
         Expanded(
           child: FutureBuilder<List<UnitNote>>(
-            future: ContentRepository.instance.notesFor(widget.grade, widget.subject),
+            future: ContentRepository.instance
+                .notesFor(widget.grade, widget.subject),
             builder: (context, snap) {
-              if (!snap.hasData) {
+              if (snap.connectionState != ConnectionState.done) {
                 return const Center(child: CircularProgressIndicator());
               }
-              final list = snap.data!;
-              if (list.isEmpty) {
-                return Center(
-                  child: Text(
-                    'No unit notes for ${widget.grade} yet.',
-                    style: const TextStyle(color: FourTheme.muted),
-                  ),
+              final notes = snap.data ?? [];
+              if (notes.isEmpty) {
+                return const Center(
+                  child: Text('No notes for this grade/subject yet.',
+                      style: TextStyle(color: FourTheme.muted)),
                 );
               }
-              final sorted = [...list]
-                ..sort((a, b) => a.unitNumber.compareTo(b.unitNumber));
-              return ListView.builder(
+              return ListView.separated(
                 padding: const EdgeInsets.all(16),
-                itemCount: sorted.length,
-                itemBuilder: (context, i) => _UnitCard(note: sorted[i]),
+                itemCount: notes.length,
+                separatorBuilder: (_, __) => const SizedBox(height: 8),
+                itemBuilder: (context, i) {
+                  final n = notes[i];
+                  return Card(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: FourTheme.primarySoft,
+                        child: Text('U${n.unitNumber}',
+                            style: const TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w900,
+                                color: FourTheme.primaryDark)),
+                      ),
+                      title: Text(n.title,
+                          style: const TextStyle(fontWeight: FontWeight.w800)),
+                      subtitle: Text(
+                        (n.summary.isEmpty
+                                ? 'Open unit notes, illustrated, practice'
+                                : n.summary)
+                            .length >
+                            100
+                            ? '${n.summary.substring(0, 100)}…'
+                            : (n.summary.isEmpty
+                                ? 'Open unit notes, illustrated, practice'
+                                : n.summary),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      trailing: const Icon(Icons.chevron_right),
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => _UnitHub(note: n),
+                        ),
+                      ),
+                    ),
+                  );
+                },
               );
             },
           ),
@@ -149,32 +192,12 @@ class _NotesScreenState extends State<NotesScreen> {
   }
 }
 
-class _UnitCard extends StatelessWidget {
-  const _UnitCard({required this.note});
+class _UnitHub extends StatelessWidget {
+  const _UnitHub({required this.note});
   final UnitNote note;
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: 12),
-      child: ListTile(
-        title: Text('Unit ${note.unitNumber}: ${note.title}',
-            style: const TextStyle(fontWeight: FontWeight.w800)),
-        subtitle: Text(note.summary, maxLines: 2, overflow: TextOverflow.ellipsis),
-        trailing: const Icon(Icons.chevron_right),
-        onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => UnitHubPage(note: note)),
-        ),
-      ),
-    );
-  }
-}
-
-class UnitHubPage extends StatelessWidget {
-  const UnitHubPage({super.key, required this.note, this.initialTab = 0});
-  final UnitNote note;
-  final int initialTab;
 
   Future<List<Map<String, dynamic>>> _illustrated() async {
+    final out = <Map<String, dynamic>>[];
     try {
       final raw = await rootBundle.loadString(
           'assets/content/illustrated_catalog_${note.grade.toLowerCase()}.json');
@@ -183,32 +206,51 @@ class UnitHubPage extends StatelessWidget {
           .map((e) => Map<String, dynamic>.from(e as Map))
           .where((d) => d['subject'] == note.subject)
           .toList();
-      return all
-          .where((d) => (d['unit_number'] as num?)?.toInt() == note.unitNumber)
+      out.addAll(all.where((d) =>
+          (d['unit_number'] as num?)?.toInt() == note.unitNumber));
+    } catch (_) {}
+    try {
+      final raw = await rootBundle.loadString(
+          'assets/content/illustrated_cards_${note.grade.toLowerCase()}.json');
+      final map = jsonDecode(raw) as Map<String, dynamic>;
+      final all = (map['decks'] as List? ?? [])
+          .map((e) => Map<String, dynamic>.from(e as Map))
+          .where((d) => d['subject'] == note.subject)
           .toList();
-    } catch (_) {
-      return [];
-    }
+      out.addAll(all.where((d) =>
+          (d['unit_number'] as num?)?.toInt() == note.unitNumber));
+    } catch (_) {}
+    return out;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Unit ${note.unitNumber}')),
+      appBar: AppBar(
+        title: Text('Unit ${note.unitNumber} · ${note.title}',
+            maxLines: 1, overflow: TextOverflow.ellipsis),
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          Text(note.title,
-              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900)),
-          const SizedBox(height: 8),
-          Text(note.summary, style: const TextStyle(height: 1.4)),
-          const SizedBox(height: 12),
-          if (note.keyTerms.isNotEmpty)
+          if (note.summary.isNotEmpty) ...[
+            Text(note.summary,
+                style: const TextStyle(fontSize: 15, height: 1.4)),
+            const SizedBox(height: 12),
+          ],
+          if (note.keyTerms.isNotEmpty) ...[
+            const Text('Key terms',
+                style: TextStyle(fontWeight: FontWeight.w900)),
+            const SizedBox(height: 6),
             Wrap(
               spacing: 6,
-              children: note.keyTerms.map((t) => Chip(label: Text(t))).toList(),
+              runSpacing: 6,
+              children: note.keyTerms
+                  .map((t) => Chip(label: Text(t)))
+                  .toList(),
             ),
-          const SizedBox(height: 16),
+            const SizedBox(height: 12),
+          ],
           FilledButton.icon(
             onPressed: () => Navigator.of(context).push(
               MaterialPageRoute(
@@ -216,12 +258,12 @@ class UnitHubPage extends StatelessWidget {
                   grade: note.grade,
                   subject: note.subject,
                   unitNumber: note.unitNumber,
-                  unitTitle: note.title,
+                  title: note.title,
                 ),
               ),
             ),
             icon: const Icon(Icons.quiz),
-            label: const Text('Practice'),
+            label: const Text('Practice this unit'),
           ),
           const SizedBox(height: 8),
           OutlinedButton.icon(
@@ -235,8 +277,8 @@ class UnitHubPage extends StatelessWidget {
                 ),
               ),
             ),
-            icon: const Icon(Icons.assignment),
-            label: const Text('Matric'),
+            icon: const Icon(Icons.school),
+            label: const Text('Related matric questions'),
           ),
           const SizedBox(height: 16),
           const Text('Illustrated for this unit',
@@ -257,19 +299,48 @@ class UnitHubPage extends StatelessWidget {
                   final path = '${d['pdf_asset'] ?? ''}';
                   return Card(
                     child: ListTile(
-                      leading: const Icon(Icons.slideshow),
-                      title: Text('${d['title']}'),
-                      onTap: path.isEmpty
-                          ? null
-                          : () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (_) => IllustratedPdfPage(
-                                    title: '${d['title']}',
-                                    subtitle: '${note.grade} · ${note.subject}',
-                                    assetPath: path,
-                                  ),
-                                ),
+                      leading: const Icon(Icons.slideshow, color: Color(0xFF7C3AED)),
+                      title: Text('${d['title']}',
+                          style: const TextStyle(fontWeight: FontWeight.w800)),
+                      subtitle: Text(
+                        d['type'] == 'illustrated_cards'
+                            ? 'Colorful cards · tap to open'
+                            : 'Illustrated pack',
+                      ),
+                      trailing: const Icon(Icons.chevron_right),
+                      onTap: () {
+                        final isCards = d['type'] == 'illustrated_cards' ||
+                            (d['slides'] is List &&
+                                (d['slides'] as List).isNotEmpty);
+                        if (isCards) {
+                          final slides = ((d['slides'] as List?) ?? const [])
+                              .map((e) =>
+                                  Map<String, dynamic>.from(e as Map))
+                              .toList();
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => IllustratedCardsPage(
+                                title: '${d['title']}',
+                                subtitle:
+                                    '${note.grade} · ${note.subject}',
+                                slides: slides,
                               ),
+                            ),
+                          );
+                          return;
+                        }
+                        if (path.isEmpty) return;
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => IllustratedPdfPage(
+                              title: '${d['title']}',
+                              subtitle:
+                                  '${note.grade} · ${note.subject}',
+                              assetPath: path,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   );
                 }).toList(),
