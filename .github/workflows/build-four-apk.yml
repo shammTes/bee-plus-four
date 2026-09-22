@@ -27,6 +27,9 @@ jobs:
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
 
+      - name: Patch home button sizes
+        run: python3 tools/patch_home_sizes.py || true
+
       - name: Ensure dirs + Noto Sans Ethiopic font
         run: |
           mkdir -p assets/content/textbooks assets/content/illustrated_pdf assets/fonts
