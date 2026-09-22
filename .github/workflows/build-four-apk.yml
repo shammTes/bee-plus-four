@@ -27,20 +27,25 @@ jobs:
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
 
-      - name: Ensure content asset dirs exist
+      - name: Ensure dirs + Noto Sans Ethiopic font
         run: |
           mkdir -p assets/content/textbooks assets/content/illustrated_pdf assets/fonts
           touch assets/content/textbooks/.gitkeep assets/content/illustrated_pdf/.gitkeep
+          curl -sL -o assets/fonts/NotoSansEthiopic-Regular.ttf \
+            "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf"
+          test -s assets/fonts/NotoSansEthiopic-Regular.ttf
+          ls -lh assets/fonts/
 
       - name: Download textbook-derived notes + practice
-        continue-on-error: true
         run: |
-          set +e
+          set -e
           pip install -q 'gdown>=5.0' || pip install -q gdown
-          gdown "https://drive.google.com/uc?id=1gv_l5Vay2WWt-NybgA8bb3DwPseMAu0q&export=download" -O assets/content/unit_notes_rich.json || true
+          gdown "https://drive.google.com/uc?id=1gv_l5Vay2WWt-NybgA8bb3DwPseMAu0q&export=download" -O assets/content/unit_notes_rich.json \
+            || curl -sL "https://drive.google.com/uc?export=download&id=1gv_l5Vay2WWt-NybgA8bb3DwPseMAu0q" -o assets/content/unit_notes_rich.json
           gdown "https://drive.google.com/uc?id=1BPqrDcoC63zyQ1A16VKGtIssBKT1Tcqf&export=download" -O assets/content/notes_ALL_BOOKS_v2_polished.json || true
           gdown "https://drive.google.com/uc?id=1Le6xHfpnvpRJ7oGiF70_SFzTkIWTJZSY&export=download" -O assets/content/practice_from_notes.json || true
           ls -lh assets/content/*.json 2>/dev/null | head -20
+          python3 tools/assert_rich_notes.py
 
       - name: Download illustrated PDFs
         continue-on-error: true
@@ -49,12 +54,13 @@ jobs:
           python3 tools/download_illustrated_from_drive.py || true
           find assets/content/illustrated_pdf -type f 2>/dev/null | wc -l
 
-      - name: Polish and merge notes
+      - name: Polish and merge notes + enrich matric
         run: |
           python3 tools/polish_notes_from_textbook.py || true
           python3 tools/generate_curriculum_notes.py || true
           python3 tools/merge_notes.py
           python3 tools/enrich_matric_bank.py || true
+          python3 tools/assert_rich_notes.py --final
           du -sh assets/content || true
 
       - name: Generate icons
