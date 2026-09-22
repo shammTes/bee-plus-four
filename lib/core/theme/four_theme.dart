@@ -55,6 +55,8 @@ class FourTheme {
     final base = ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
+      // Ethiopic for Tigrinya; platform fallback for Latin
+      fontFamily: 'NotoSansEthiopic',
       colorScheme: ColorScheme.fromSeed(
         seedColor: primary,
         primary: primaryDark,
