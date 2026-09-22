@@ -258,7 +258,7 @@ class _UnitHub extends StatelessWidget {
                   grade: note.grade,
                   subject: note.subject,
                   unitNumber: note.unitNumber,
-                  title: note.title,
+                  unitTitle: note.title,
                 ),
               ),
             ),
@@ -299,7 +299,8 @@ class _UnitHub extends StatelessWidget {
                   final path = '${d['pdf_asset'] ?? ''}';
                   return Card(
                     child: ListTile(
-                      leading: const Icon(Icons.slideshow, color: Color(0xFF7C3AED)),
+                      leading: const Icon(Icons.slideshow,
+                          color: Color(0xFF7C3AED)),
                       title: Text('${d['title']}',
                           style: const TextStyle(fontWeight: FontWeight.w800)),
                       subtitle: Text(
