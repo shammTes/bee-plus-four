@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/content/content_repository.dart';
+import '../../core/curriculum/streams.dart';
+import '../../core/l10n/app_strings.dart';
+import '../../core/settings/app_settings.dart';
 import '../../core/theme/four_theme.dart';
 import '../bot/bot_screen.dart';
 import '../exams/exams_screen.dart';
 import '../home/home_screen.dart';
+import '../labs/virtual_lab_screen.dart';
 import '../notes/notes_screen.dart';
 import '../practice/practice_screen.dart';
 import '../tools/tools_screen.dart';
@@ -22,127 +26,178 @@ class _AppShellState extends State<AppShell> {
   int index = 0;
   String grade = 'G12';
   String subject = 'MATH';
+  String stream = CurriculumStreams.science;
   bool ready = false;
 
   @override
   void initState() {
     super.initState();
-    ContentRepository.instance.preload().then((_) {
+    ContentRepository.instance.preload().whenComplete(() {
       if (mounted) setState(() => ready = true);
+    });
+    AppSettings.instance.addListener(_onSettings);
+  }
+
+  void _onSettings() {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  void dispose() {
+    AppSettings.instance.removeListener(_onSettings);
+    super.dispose();
+  }
+
+  void _setGrade(String g) {
+    setState(() {
+      grade = g;
+      final allowed = CurriculumStreams.subjectsFor(g, stream: stream);
+      if (!allowed.contains(subject)) {
+        subject = allowed.first;
+      }
     });
   }
 
-  Future<bool> _onWillPop() async {
-    final leave = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: const Text('Leave BEE PLUS 4?'),
-        content: const Text('Do you want to stay or close the app?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Stay'),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(ctx, true),
-            child: const Text('Leave'),
-          ),
-        ],
-      ),
-    );
-    if (leave == true) {
-      await SystemNavigator.pop();
-      return true;
-    }
-    return false;
+  void _setStream(String st) {
+    setState(() {
+      stream = st;
+      final allowed = CurriculumStreams.subjectsFor(grade, stream: st);
+      if (!allowed.contains(subject)) {
+        subject = allowed.first;
+      }
+    });
+  }
+
+  void _setGradeAndStream(String g, String st) {
+    setState(() {
+      grade = g;
+      stream = st;
+      final allowed = CurriculumStreams.subjectsFor(g, stream: st);
+      if (!allowed.contains(subject)) {
+        subject = allowed.first;
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    final pages = [
+    final pages = <Widget>[
       HomeScreen(
         grade: grade,
-        onGrade: (g) => setState(() => grade = g),
+        stream: stream,
+        onGrade: _setGrade,
+        onStream: _setStream,
+        onGradeAndStream: _setGradeAndStream,
         onOpenNotes: () => setState(() => index = 1),
         onOpenPractice: () => setState(() => index = 2),
         onOpenBot: () => setState(() => index = 3),
         onOpenExams: () => setState(() => index = 4),
-        onOpenTools: () => setState(() => index = 5),
+        onOpenLabs: () => setState(() => index = 5),
+        onOpenTools: () => setState(() => index = 6),
       ),
       NotesScreen(
         grade: grade,
         subject: subject,
-        onGrade: (g) => setState(() => grade = g),
+        stream: stream,
+        onGrade: _setGrade,
         onSubject: (s) => setState(() => subject = s),
+        onStream: _setStream,
       ),
       PracticeScreen(
         grade: grade,
         subject: subject,
-        onGrade: (g) => setState(() => grade = g),
+        onGrade: _setGrade,
         onSubject: (s) => setState(() => subject = s),
       ),
-      const BotScreen(),
+      BotScreen(initialGrade: grade),
       const ExamsScreen(),
-      const ToolsScreen(),
+      const VirtualLabScreen(),
+      ToolsScreen(grade: grade, subject: subject),
       const UnlockScreen(),
     ];
 
+    final navIndex = index <= 4 ? index : 0;
+
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult: (didPop, _) async {
+      onPopInvokedWithResult: (didPop, result) async {
         if (didPop) return;
-        await _onWillPop();
+        if (index > 4) {
+          setState(() => index = 0);
+          return;
+        }
+        if (index != 0) {
+          setState(() => index = 0);
+          return;
+        }
+        final leave = await showDialog<bool>(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: const Text('Leave 4?'),
+            content: const Text('Close the app?'),
+            actions: [
+              TextButton(
+                  onPressed: () => Navigator.pop(ctx, false),
+                  child: const Text('Stay')),
+              FilledButton(
+                  onPressed: () => Navigator.pop(ctx, true),
+                  child: const Text('Exit')),
+            ],
+          ),
+        );
+        if (leave == true && context.mounted) {
+          SystemNavigator.pop();
+        }
       },
       child: Scaffold(
         body: ready
             ? AnimatedSwitcher(
                 duration: const Duration(milliseconds: 220),
                 child: KeyedSubtree(
-                  key: ValueKey('$index-$grade-$subject'),
+                  key: ValueKey(
+                      '$index-$grade-$subject-$stream-${AppSettings.instance.tigrinya}'),
                   child: pages[index.clamp(0, pages.length - 1)],
                 ),
               )
-            : const Center(
+            : Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    CircularProgressIndicator(),
-                    SizedBox(height: 16),
-                    Text('Loading study content…',
-                        style: TextStyle(color: FourTheme.muted)),
+                    const CircularProgressIndicator(),
+                    const SizedBox(height: 16),
+                    Text(AppStrings.loading,
+                        style: const TextStyle(color: FourTheme.muted)),
                   ],
                 ),
               ),
         bottomNavigationBar: NavigationBar(
-          selectedIndex: index > 4 ? 0 : index,
+          selectedIndex: navIndex,
           onDestinationSelected: (i) => setState(() => index = i),
-          height: 68,
-          labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
-          destinations: const [
+          destinations: [
             NavigationDestination(
-              icon: Icon(Icons.home_outlined, size: 28),
-              selectedIcon: Icon(Icons.home_rounded, size: 28),
-              label: 'Home',
+              icon: const Icon(Icons.home_outlined),
+              selectedIcon: const Icon(Icons.home_rounded),
+              label: AppStrings.home,
             ),
             NavigationDestination(
-              icon: Icon(Icons.auto_stories_outlined, size: 28),
-              selectedIcon: Icon(Icons.auto_stories, size: 28),
-              label: 'Notes',
+              icon: const Icon(Icons.auto_stories_outlined),
+              selectedIcon: const Icon(Icons.auto_stories),
+              label: AppStrings.notes,
             ),
             NavigationDestination(
-              icon: Icon(Icons.quiz_outlined, size: 28),
-              selectedIcon: Icon(Icons.quiz, size: 28),
-              label: 'Practice',
+              icon: const Icon(Icons.quiz_outlined),
+              selectedIcon: const Icon(Icons.quiz),
+              label: AppStrings.practice,
             ),
             NavigationDestination(
-              icon: Icon(Icons.smart_toy_outlined, size: 28),
-              selectedIcon: Icon(Icons.smart_toy, size: 28),
-              label: 'Coach',
+              icon: const Icon(Icons.smart_toy_outlined),
+              selectedIcon: const Icon(Icons.smart_toy),
+              label: AppStrings.coach,
             ),
             NavigationDestination(
-              icon: Icon(Icons.assignment_outlined, size: 28),
-              selectedIcon: Icon(Icons.assignment, size: 28),
-              label: 'Exams',
+              icon: const Icon(Icons.assignment_outlined),
+              selectedIcon: const Icon(Icons.assignment),
+              label: AppStrings.exams,
             ),
           ],
         ),
