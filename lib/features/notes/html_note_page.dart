@@ -33,21 +33,92 @@ class _HtmlNotePageState extends State<HtmlNotePage> {
     _init();
   }
 
+  Future<String> _assetOrEmpty(String path) async {
+    try {
+      return await rootBundle.loadString(path);
+    } catch (_) {
+      return '';
+    }
+  }
+
+  Future<String> _fontFace(String family, String file,
+      {String style = 'normal', String weight = 'normal'}) async {
+    try {
+      final data = await rootBundle.load('assets/content/vendor/katex/fonts/$file');
+      final b64 = base64Encode(data.buffer.asUint8List());
+      return "@font-face{font-family:'$family';src:url(data:font/woff2;base64,$b64) format('woff2');font-weight:$weight;font-style:$style;font-display:swap;}";
+    } catch (_) {
+      return '';
+    }
+  }
+
+  Future<String> _offlineHtml(String raw) async {
+    var html = raw;
+    html = html.replaceAll(RegExp(r'<link[^>]+fonts\.googleapis\.com[^>]*>', caseSensitive: false), '');
+    html = html.replaceAll(RegExp(r'<link[^>]+katex[^>]*>', caseSensitive: false), '');
+    html = html.replaceAll(RegExp(r'<script[^>]+katex[^>]*></script>', caseSensitive: false), '');
+    html = html.replaceAll(RegExp(r'<script[^>]+auto-render[\s\S]*?</script>', caseSensitive: false), '');
+
+    final katexCss = await _assetOrEmpty('assets/content/vendor/katex/katex.min.css');
+    final katexJs = await _assetOrEmpty('assets/content/vendor/katex/katex.min.js');
+    final autoJs = await _assetOrEmpty('assets/content/vendor/katex/auto-render.min.js');
+
+    final faces = StringBuffer();
+    faces.write(await _fontFace('KaTeX_Main', 'KaTeX_Main-Regular.woff2'));
+    faces.write(await _fontFace('KaTeX_Main', 'KaTeX_Main-Bold.woff2', weight: 'bold'));
+    faces.write(await _fontFace('KaTeX_Math', 'KaTeX_Math-Italic.woff2', style: 'italic'));
+    faces.write(await _fontFace('KaTeX_Math', 'KaTeX_Math-BoldItalic.woff2', style: 'italic', weight: 'bold'));
+    faces.write(await _fontFace('KaTeX_Size1', 'KaTeX_Size1-Regular.woff2'));
+    faces.write(await _fontFace('KaTeX_Size2', 'KaTeX_Size2-Regular.woff2'));
+    faces.write(await _fontFace('KaTeX_Size4', 'KaTeX_Size4-Regular.woff2'));
+    faces.write(await _fontFace('KaTeX_AMS', 'KaTeX_AMS-Regular.woff2'));
+
+    const fallbackCss = 'html,body{font-family:Georgia,Times New Roman,serif !important;}h1,h2,h3,.kicker,nav a,summary{font-family:system-ui,sans-serif !important;}.katex-display{overflow-x:auto;}';
+
+    final inject = '<style>' + faces.toString() + katexCss + fallbackCss + '</style>'
+        '<script>' + katexJs + '</script>'
+        '<script>' + autoJs + '</script>'
+        r'''<script>
+function fourRenderMath(){
+  try{
+    if(window.renderMathInElement){
+      renderMathInElement(document.body,{
+        delimiters:[
+          {left:'$$',right:'$$',display:true},
+          {left:'$',right:'$',display:false}
+        ],
+        throwOnError:false,
+        strict:false
+      });
+    }
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', fourRenderMath);
+window.addEventListener('load', fourRenderMath);
+setTimeout(fourRenderMath, 80);
+setTimeout(fourRenderMath, 400);
+</script>''';
+
+    if (html.contains('</head>')) {
+      html = html.replaceFirst('</head>', '$inject</head>');
+    } else {
+      html = inject + html;
+    }
+    if (!html.toLowerCase().contains('charset')) {
+      html = html.replaceFirst('<head>', '<head><meta charset="UTF-8">');
+    }
+    return html;
+  }
+
   Future<void> _init() async {
     try {
-      await rootBundle.load(widget.assetPath);
+      final raw = await rootBundle.loadString(widget.assetPath);
+      final html = await _offlineHtml(raw);
       final c = WebViewController()
         ..setJavaScriptMode(JavaScriptMode.unrestricted)
         ..setBackgroundColor(const Color(0xFFF3EAD8))
-        ..enableZoom(true)
-        ..setNavigationDelegate(
-          NavigationDelegate(
-            onPageFinished: (_) {
-              if (mounted) setState(() => _loading = false);
-            },
-          ),
-        );
-      await c.loadFlutterAsset(widget.assetPath);
+        ..enableZoom(true);
+      await c.loadHtmlString(html);
       if (!mounted) return;
       setState(() {
         _controller = c;
@@ -56,7 +127,7 @@ class _HtmlNotePageState extends State<HtmlNotePage> {
     } catch (e) {
       if (!mounted) return;
       setState(() {
-        _error = 'Note HTML missing:\n${widget.assetPath}\n\n$e';
+        _error = 'Could not open notes:\n${widget.assetPath}\n$e';
         _loading = false;
       });
     }
@@ -65,27 +136,17 @@ class _HtmlNotePageState extends State<HtmlNotePage> {
   @override
   Widget build(BuildContext context) {
     final body = _error != null
-        ? Center(
-            child: Padding(
-              padding: const EdgeInsets.all(24),
-              child: Text(_error!, textAlign: TextAlign.center),
-            ),
-          )
-        : Stack(
-            children: [
-              if (_controller != null) WebViewWidget(controller: _controller!),
-              if (_loading) const Center(child: CircularProgressIndicator()),
-            ],
-          );
+        ? Center(child: Padding(padding: const EdgeInsets.all(24), child: Text(_error!, textAlign: TextAlign.center)))
+        : Stack(children: [
+            if (_controller != null) WebViewWidget(controller: _controller!),
+            if (_loading) const Center(child: CircularProgressIndicator()),
+          ]);
     if (widget.embedded) {
       return ColoredBox(color: const Color(0xFFF3EAD8), child: body);
     }
     return Scaffold(
       backgroundColor: const Color(0xFFF3EAD8),
-      appBar: AppBar(
-        title: Text(widget.title,
-            maxLines: 1, overflow: TextOverflow.ellipsis),
-      ),
+      appBar: AppBar(title: Text(widget.title, maxLines: 1, overflow: TextOverflow.ellipsis)),
       body: body,
     );
   }
@@ -112,24 +173,18 @@ class HtmlNotesIndex {
       'BUSINESS_ECONOMICS': 'Business_Economics',
     };
     final nice = names[s] ?? s;
-    final gradeNum = g.replaceAll('G', 'Grade');
-    final guesses = [
-      'assets/content/interactive_notes/${gradeNum}_${nice}_Interactive_Notes.html',
-      'assets/content/interactive_notes/${g}_${s}_Interactive_Notes.html',
-    ];
-    for (final guess in guesses) {
-      try {
-        await rootBundle.load(guess);
-        return guess;
-      } catch (_) {}
+    final guess = 'assets/content/interactive_notes/Grade${g.replaceAll('G', '')}_${nice}_Interactive_Notes.html';
+    try {
+      await rootBundle.load(guess);
+      return guess;
+    } catch (_) {
+      return null;
     }
-    return null;
   }
 
   static Future<Map<String, String>> _load() async {
     try {
-      final raw = await rootBundle
-          .loadString('assets/content/interactive_notes/index.json');
+      final raw = await rootBundle.loadString('assets/content/interactive_notes/index.json');
       final j = jsonDecode(raw);
       final map = <String, String>{};
       final list = (j is Map ? j['notes'] : j) as List? ?? const [];
