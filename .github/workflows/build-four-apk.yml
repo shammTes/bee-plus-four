@@ -1,4 +1,4 @@
-name: Build 4 APKs (student / seller / master)
+name: Build student APK
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Overlay fixed Dart sources from Drive
+      - name: Overlay Dart sources from Drive
         continue-on-error: true
         run: |
           pip install -q 'gdown>=5.0' || true
@@ -20,7 +20,6 @@ jobs:
           gdown "https://drive.google.com/uc?id=1EbzotleniCL9tIGBxwwg2hJ9VrBhAgY_&export=download" -O lib/features/practice/practice_screen.dart || true
           gdown "https://drive.google.com/uc?id=1n_cunps3Ca-YeZ0-0kR0j3gRATF0hKlv&export=download" -O lib/features/exams/matric_practice_screen.dart || true
           gdown "https://drive.google.com/uc?id=12JyFda57EqcvvyhnEJuAOBrWv4IYQD62&export=download" -O lib/features/notes/html_note_page.dart || true
-          gdown "https://drive.google.com/uc?id=1kvTI7Vatme6mCowCzNnBf_TSO_MfukQj&export=download" -O lib/features/notes/zoomable_deck_page.dart || true
           gdown "https://drive.google.com/uc?id=1M04HJll3dpbpA8Q1833DohVGUotxITby&export=download" -O lib/features/notes/notes_screen.dart || true
           gdown "https://drive.google.com/uc?id=1CZFM8pxNYdW65yJlXj3lgysYJp5qCCtR&export=download" -O lib/core/bot/offline_bot.dart || true
 
@@ -40,50 +39,29 @@ jobs:
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
 
-      - name: Ensure dirs + Noto Sans Ethiopic font
+      - name: Ensure dirs + font + unpack interactive notes pack
         run: |
           mkdir -p assets/content/textbooks assets/content/illustrated_pdf assets/fonts assets/content/phet assets/content/interactive_notes
-          touch assets/content/textbooks/.gitkeep assets/content/illustrated_pdf/.gitkeep assets/content/phet/.gitkeep assets/content/interactive_notes/.gitkeep
           curl -sL -o assets/fonts/NotoSansEthiopic-Regular.ttf \
             "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf" || true
-
-      - name: Download practice + matric + G12 interactive notes
-        run: |
-          set +e
-          pip install -q 'gdown>=5.0' || pip install -q gdown
-          gdown "https://drive.google.com/uc?id=1N1IMP0KAcdhq2rfB5OwYKBc8UQNO4eSd&export=download" -O assets/content/practice_from_notes.json || true
-          gdown "https://drive.google.com/uc?id=14w-T8UC9xY6QIdseMTM5zaiJQmgp7Kz0&export=download" -O /tmp/practice_subject_packs.tgz || true
-          if [ -s /tmp/practice_subject_packs.tgz ]; then
-            tar -xzf /tmp/practice_subject_packs.tgz -C assets/content/ || true
-          fi
-          gdown "https://drive.google.com/uc?id=1iC-vCTaWluPtYMAlZ3tDgQlWPjhRznvE&export=download" -O assets/content/matric_questions.json || true
-          gdown "https://drive.google.com/uc?id=1JQ4LaohqHuDVd6mIBtN6QDHuf7JqYH5e&export=download" -O assets/content/model_exam_questions.json || true
+          pip install -q 'gdown>=5.0' || true
           gdown "https://drive.google.com/uc?id=1Rqgmbgq-mebq-tsDO0qROa8hSUI6dA5d&export=download" -O /tmp/interactive_notes_g12.tgz || true
           if [ -s /tmp/interactive_notes_g12.tgz ]; then
-            tar -xzf /tmp/interactive_notes_g12.tgz -C assets/content/ || true
+            tar -xzf /tmp/interactive_notes_g12.tgz -C assets/content/
           fi
+          echo "interactive notes:"
+          ls -la assets/content/interactive_notes || true
+
+      - name: Download practice + matric
+        continue-on-error: true
+        run: |
+          pip install -q 'gdown>=5.0' || true
+          gdown "https://drive.google.com/uc?id=1N1IMP0KAcdhq2rfB5OwYKBc8UQNO4eSd&export=download" -O assets/content/practice_from_notes.json || true
+          gdown "https://drive.google.com/uc?id=14w-T8UC9xY6QIdseMTM5zaiJQmgp7Kz0&export=download" -O /tmp/practice_subject_packs.tgz || true
+          if [ -s /tmp/practice_subject_packs.tgz ]; then tar -xzf /tmp/practice_subject_packs.tgz -C assets/content/ || true; fi
+          gdown "https://drive.google.com/uc?id=1iC-vCTaWluPtYMAlZ3tDgQlWPjhRznvE&export=download" -O assets/content/matric_questions.json || true
+          gdown "https://drive.google.com/uc?id=1JQ4LaohqHuDVd6mIBtN6QDHuf7JqYH5e&export=download" -O assets/content/model_exam_questions.json || true
           python3 tools/merge_practice_parts.py || true
-
-      - name: Download illustrated PDFs only
-        continue-on-error: true
-        run: |
-          set +e
-          gdown "https://drive.google.com/uc?id=1-Mt7hBaWcWP7EiJo5qDAaSaQTSABe1wH&export=download" -O /tmp/illustrated_release.tar.gz || true
-          if [ -s /tmp/illustrated_release.tar.gz ]; then
-            mkdir -p /tmp/ill_extract
-            tar -xzf /tmp/illustrated_release.tar.gz -C /tmp/ill_extract || true
-            find /tmp/ill_extract -name '*.pdf' -exec cp -f {} assets/content/illustrated_pdf/ \; 2>/dev/null || true
-          fi
-
-      - name: Download offline PhET labs (starter)
-        continue-on-error: true
-        run: |
-          mkdir -p assets/content/phet /tmp/phet_extract
-          gdown "https://drive.google.com/uc?id=1Qbdm0o_CqPflmpSQDVNpUEIs9DoVP1Ec&export=download" -O /tmp/four_phet_offline.tgz || true
-          if [ -s /tmp/four_phet_offline.tgz ]; then
-            tar -xzf /tmp/four_phet_offline.tgz -C /tmp/phet_extract || true
-            find /tmp/phet_extract -name '*.html' -exec cp -f {} assets/content/phet/ \; 2>/dev/null || true
-          fi
 
       - name: Generate icons
         run: python3 tools/generate_icons.py || true
@@ -94,25 +72,17 @@ jobs:
       - name: Build student APK
         run: flutter build apk --release --flavor student --target lib/main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
 
-      - name: Build seller APK
-        continue-on-error: true
-        run: flutter build apk --release --flavor seller --target lib/seller_main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
-
-      - name: Build master APK
-        continue-on-error: true
-        run: flutter build apk --release --flavor master --target lib/master_main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
-
-      - name: Collect APKs
+      - name: Collect student APK
         run: |
           mkdir -p dist
-          find build/app/outputs/flutter-apk -name '*.apk' -exec cp -v {} dist/ \; || true
-          ls -lh dist/ || true
+          find build/app/outputs/flutter-apk -name '*student*.apk' -exec cp -v {} dist/ \;
+          ls -lh dist/
           test -n "$(ls -A dist 2>/dev/null)"
 
-      - name: Upload APKs
+      - name: Upload student APK
         uses: actions/upload-artifact@v4
         with:
-          name: four-three-apks
+          name: four-student-apk
           path: dist/
           if-no-files-found: error
           retention-days: 30
