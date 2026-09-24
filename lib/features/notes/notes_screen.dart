@@ -1,15 +1,9 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../../core/content/content_repository.dart';
 import '../../core/curriculum/streams.dart';
 import '../../core/models/content_models.dart';
-import '../../core/progress/mastery_store.dart';
 import '../../core/theme/four_theme.dart';
-import '../exams/matric_practice_screen.dart';
-import '../practice/unit_practice_page.dart';
-import 'illustrated_pdf_page.dart';
-import 'illustrated_cards_page.dart';
+import 'html_note_page.dart';
 
 class NotesScreen extends StatefulWidget {
   const NotesScreen({
@@ -51,6 +45,28 @@ class _NotesScreenState extends State<NotesScreen> {
     );
   }
 
+  Future<void> _openNote(BuildContext context, UnitNote n) async {
+    final path = await HtmlNotesIndex.assetFor(n.grade, n.subject, n.unitNumber);
+    if (!context.mounted) return;
+    if (path == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Interactive HTML for this subject is not in the APK yet.'),
+        ),
+      );
+      return;
+    }
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => HtmlNotePage(
+          title: n.title,
+          assetPath: path,
+          subtitle: '${n.grade} · ${n.subject}',
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final top = MediaQuery.paddingOf(context).top;
@@ -84,11 +100,7 @@ class _NotesScreenState extends State<NotesScreen> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: ['G9', 'G10', 'G11', 'G12']
-                      .map((g) => _chip(
-                            g,
-                            widget.grade == g,
-                            () => widget.onGrade(g),
-                          ))
+                      .map((g) => _chip(g, widget.grade == g, () => widget.onGrade(g)))
                       .toList(),
                 ),
               ),
@@ -118,7 +130,7 @@ class _NotesScreenState extends State<NotesScreen> {
                 child: Row(
                   children: subjects
                       .map((s) => _chip(
-                            s,
+                            CurriculumStreams.label(s),
                             widget.subject == s,
                             () => widget.onSubject(s),
                           ))
@@ -138,9 +150,17 @@ class _NotesScreenState extends State<NotesScreen> {
               }
               final notes = snap.data ?? [];
               if (notes.isEmpty) {
-                return const Center(
-                  child: Text('No notes for this grade/subject yet.',
-                      style: TextStyle(color: FourTheme.muted)),
+                return Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: Text(
+                      widget.grade == 'G12'
+                          ? 'No pack for this subject yet. Try Math, Biology, Chemistry, Physics, Geography, History, Agriculture or Business.'
+                          : 'Interactive notes for ${widget.grade} are not in the app yet. Open G12.',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(color: FourTheme.muted),
+                    ),
+                  ),
                 );
               }
               return ListView.separated(
@@ -153,33 +173,14 @@ class _NotesScreenState extends State<NotesScreen> {
                     child: ListTile(
                       leading: CircleAvatar(
                         backgroundColor: FourTheme.primarySoft,
-                        child: Text('U${n.unitNumber}',
-                            style: const TextStyle(
-                                fontSize: 11,
-                                fontWeight: FontWeight.w900,
-                                color: FourTheme.primaryDark)),
+                        child: const Icon(Icons.auto_stories,
+                            color: FourTheme.primaryDark),
                       ),
                       title: Text(n.title,
                           style: const TextStyle(fontWeight: FontWeight.w800)),
-                      subtitle: Text(
-                        (n.summary.isEmpty
-                                ? 'Open unit notes, illustrated, practice'
-                                : n.summary)
-                            .length >
-                            100
-                            ? '${n.summary.substring(0, 100)}…'
-                            : (n.summary.isEmpty
-                                ? 'Open unit notes, illustrated, practice'
-                                : n.summary),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
+                      subtitle: const Text('Interactive HTML notes · tap to open'),
                       trailing: const Icon(Icons.chevron_right),
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => _UnitHub(note: n),
-                        ),
-                      ),
+                      onTap: () => _openNote(context, n),
                     ),
                   );
                 },
@@ -188,168 +189,6 @@ class _NotesScreenState extends State<NotesScreen> {
           ),
         ),
       ],
-    );
-  }
-}
-
-class _UnitHub extends StatelessWidget {
-  const _UnitHub({required this.note});
-  final UnitNote note;
-
-  Future<List<Map<String, dynamic>>> _illustrated() async {
-    final out = <Map<String, dynamic>>[];
-    try {
-      final raw = await rootBundle.loadString(
-          'assets/content/illustrated_catalog_${note.grade.toLowerCase()}.json');
-      final map = jsonDecode(raw) as Map<String, dynamic>;
-      final all = (map['decks'] as List? ?? [])
-          .map((e) => Map<String, dynamic>.from(e as Map))
-          .where((d) => d['subject'] == note.subject)
-          .toList();
-      out.addAll(all.where((d) =>
-          (d['unit_number'] as num?)?.toInt() == note.unitNumber));
-    } catch (_) {}
-    try {
-      final raw = await rootBundle.loadString(
-          'assets/content/illustrated_cards_${note.grade.toLowerCase()}.json');
-      final map = jsonDecode(raw) as Map<String, dynamic>;
-      final all = (map['decks'] as List? ?? [])
-          .map((e) => Map<String, dynamic>.from(e as Map))
-          .where((d) => d['subject'] == note.subject)
-          .toList();
-      out.addAll(all.where((d) =>
-          (d['unit_number'] as num?)?.toInt() == note.unitNumber));
-    } catch (_) {}
-    return out;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Unit ${note.unitNumber} · ${note.title}',
-            maxLines: 1, overflow: TextOverflow.ellipsis),
-      ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          if (note.summary.isNotEmpty) ...[
-            Text(note.summary,
-                style: const TextStyle(fontSize: 15, height: 1.4)),
-            const SizedBox(height: 12),
-          ],
-          if (note.keyTerms.isNotEmpty) ...[
-            const Text('Key terms',
-                style: TextStyle(fontWeight: FontWeight.w900)),
-            const SizedBox(height: 6),
-            Wrap(
-              spacing: 6,
-              runSpacing: 6,
-              children: note.keyTerms
-                  .map((t) => Chip(label: Text(t)))
-                  .toList(),
-            ),
-            const SizedBox(height: 12),
-          ],
-          FilledButton.icon(
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (_) => UnitPracticePage(
-                  grade: note.grade,
-                  subject: note.subject,
-                  unitNumber: note.unitNumber,
-                  unitTitle: note.title,
-                ),
-              ),
-            ),
-            icon: const Icon(Icons.quiz),
-            label: const Text('Practice this unit'),
-          ),
-          const SizedBox(height: 8),
-          OutlinedButton.icon(
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (_) => MatricPracticeScreen(
-                  subjectFilter: note.subject,
-                  grade: note.grade,
-                  unitNumber: note.unitNumber,
-                  title: '${note.subject} · Unit ${note.unitNumber}',
-                ),
-              ),
-            ),
-            icon: const Icon(Icons.school),
-            label: const Text('Related matric questions'),
-          ),
-          const SizedBox(height: 16),
-          const Text('Illustrated for this unit',
-              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16)),
-          FutureBuilder<List<Map<String, dynamic>>>(
-            future: _illustrated(),
-            builder: (context, snap) {
-              final decks = snap.data ?? [];
-              if (decks.isEmpty) {
-                return const Padding(
-                  padding: EdgeInsets.only(top: 8),
-                  child: Text('No illustrated deck for this unit yet.',
-                      style: TextStyle(color: FourTheme.muted)),
-                );
-              }
-              return Column(
-                children: decks.map((d) {
-                  final path = '${d['pdf_asset'] ?? ''}';
-                  return Card(
-                    child: ListTile(
-                      leading: const Icon(Icons.slideshow,
-                          color: Color(0xFF7C3AED)),
-                      title: Text('${d['title']}',
-                          style: const TextStyle(fontWeight: FontWeight.w800)),
-                      subtitle: Text(
-                        d['type'] == 'illustrated_cards'
-                            ? 'Colorful cards · tap to open'
-                            : 'Illustrated pack',
-                      ),
-                      trailing: const Icon(Icons.chevron_right),
-                      onTap: () {
-                        final isCards = d['type'] == 'illustrated_cards' ||
-                            (d['slides'] is List &&
-                                (d['slides'] as List).isNotEmpty);
-                        if (isCards) {
-                          final slides = ((d['slides'] as List?) ?? const [])
-                              .map((e) =>
-                                  Map<String, dynamic>.from(e as Map))
-                              .toList();
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => IllustratedCardsPage(
-                                title: '${d['title']}',
-                                subtitle:
-                                    '${note.grade} · ${note.subject}',
-                                slides: slides,
-                              ),
-                            ),
-                          );
-                          return;
-                        }
-                        if (path.isEmpty) return;
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (_) => IllustratedPdfPage(
-                              title: '${d['title']}',
-                              subtitle:
-                                  '${note.grade} · ${note.subject}',
-                              assetPath: path,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  );
-                }).toList(),
-              );
-            },
-          ),
-        ],
-      ),
     );
   }
 }
