@@ -15,10 +15,14 @@ jobs:
         continue-on-error: true
         run: |
           pip install -q 'gdown>=5.0' || true
+          mkdir -p lib/features/notes lib/features/practice lib/features/exams lib/core/content
           gdown "https://drive.google.com/uc?id=1UiElq8-f5e5i7HHbrUF9O6lbD1_mlpNw&export=download" -O lib/core/content/content_repository.dart || true
           gdown "https://drive.google.com/uc?id=1EbzotleniCL9tIGBxwwg2hJ9VrBhAgY_&export=download" -O lib/features/practice/practice_screen.dart || true
           gdown "https://drive.google.com/uc?id=1n_cunps3Ca-YeZ0-0kR0j3gRATF0hKlv&export=download" -O lib/features/exams/matric_practice_screen.dart || true
-          wc -l lib/core/content/content_repository.dart lib/features/practice/practice_screen.dart lib/features/exams/matric_practice_screen.dart || true
+          gdown "https://drive.google.com/uc?id=16FkbS0nEJ4xv6jL2EgIfFLFcBh1UinFI&export=download" -O lib/features/notes/html_note_page.dart || true
+          gdown "https://drive.google.com/uc?id=1kvTI7Vatme6mCowCzNnBf_TSO_MfukQj&export=download" -O lib/features/notes/zoomable_deck_page.dart || true
+          gdown "https://drive.google.com/uc?id=1ggCyb3JGzeppQ4Xq3mWHQcnYYHCPHqnM&export=download" -O lib/features/notes/notes_screen.dart || true
+          wc -l lib/core/content/content_repository.dart lib/features/practice/practice_screen.dart lib/features/exams/matric_practice_screen.dart lib/features/notes/*.dart || true
 
       - uses: actions/setup-java@v4
         with:
@@ -38,7 +42,7 @@ jobs:
 
       - name: Ensure dirs + Noto Sans Ethiopic font
         run: |
-          mkdir -p assets/content/textbooks assets/content/illustrated_pdf assets/fonts assets/content/phet
+          mkdir -p assets/content/textbooks assets/content/illustrated_pdf assets/fonts assets/content/phet assets/content/notes_html/vendor/fonts
           touch assets/content/textbooks/.gitkeep assets/content/illustrated_pdf/.gitkeep assets/content/phet/.gitkeep
           curl -sL -o assets/fonts/NotoSansEthiopic-Regular.ttf \
             "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf" || true
@@ -55,7 +59,6 @@ jobs:
           fi
           gdown "https://drive.google.com/uc?id=1ziK1z_fBLWI2MmY_0wCSqxp3u7YanYrf&export=download" -O assets/content/matric_questions.json || true
           python3 tools/merge_practice_parts.py || true
-          ls -lh assets/content/practice*.json assets/content/matric*.json 2>/dev/null | head -40
 
       - name: Download illustrated PDFs (compressed)
         continue-on-error: true
@@ -66,34 +69,41 @@ jobs:
             mkdir -p /tmp/ill_extract
             tar -xzf /tmp/illustrated_release.tar.gz -C /tmp/ill_extract || true
             find /tmp/ill_extract -name '*.pdf' -exec cp -f {} assets/content/illustrated_pdf/ \; 2>/dev/null || true
-            find /tmp/ill_extract -name 'illustrated_*.json' -exec cp -f {} assets/content/ \; 2>/dev/null || true
-            echo "Illustrated PDFs: $(ls assets/content/illustrated_pdf/*.pdf 2>/dev/null | wc -l)"
           fi
           python3 tools/download_illustrated_from_drive.py || true
 
-      - name: Download offline PhET labs
+      - name: Download offline PhET labs (starter)
         continue-on-error: true
         run: |
-          pip install -q 'gdown>=5.0' || true
           mkdir -p assets/content/phet /tmp/phet_extract
           gdown "https://drive.google.com/uc?id=1Qbdm0o_CqPflmpSQDVNpUEIs9DoVP1Ec&export=download" -O /tmp/four_phet_offline.tgz || true
           if [ -s /tmp/four_phet_offline.tgz ]; then
             tar -xzf /tmp/four_phet_offline.tgz -C /tmp/phet_extract || true
-            if [ -d /tmp/phet_extract/phet ]; then
-              cp -f /tmp/phet_extract/phet/*.html assets/content/phet/ 2>/dev/null || true
-            fi
             find /tmp/phet_extract -name '*.html' -exec cp -f {} assets/content/phet/ \; 2>/dev/null || true
-            echo "PhET html count: $(ls assets/content/phet/*.html 2>/dev/null | wc -l)"
           else
             echo '<html><body><p>PhET pack not downloaded</p></body></html>' > assets/content/phet/placeholder.html
           fi
 
-      - name: Polish and merge notes + enrich matric
+      - name: Generate / restore HTML notes (KaTeX)
+        continue-on-error: true
+        run: |
+          mkdir -p assets/content/notes_html/vendor/fonts
+          gdown "https://drive.google.com/uc?id=1TCjfqUiwbw7MHv4cmAqR0RpbE9zC_gdi&export=download" -O /tmp/notes_html_pack.tgz || true
+          if [ -s /tmp/notes_html_pack.tgz ]; then
+            tar -xzf /tmp/notes_html_pack.tgz -C assets/content/ || true
+          fi
+          if [ ! -s assets/content/notes_html/vendor/katex.min.js ]; then
+            curl -sL -o assets/content/notes_html/vendor/katex.min.css "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" || true
+            curl -sL -o assets/content/notes_html/vendor/katex.min.js "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" || true
+            curl -sL -o assets/content/notes_html/vendor/auto-render.min.js "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" || true
+          fi
+          python3 tools/generate_html_notes.py || true
+          echo "HTML notes: $(ls assets/content/notes_html/*.html 2>/dev/null | wc -l)"
+
+      - name: Polish and merge notes
         run: |
           python3 tools/polish_notes_from_textbook.py || true
-          python3 tools/generate_curriculum_notes.py || true
           python3 tools/merge_notes.py || true
-          python3 tools/enrich_matric_bank.py || true
           du -sh assets/content || true
 
       - name: Generate icons
@@ -103,18 +113,15 @@ jobs:
         run: flutter pub get
 
       - name: Build student APK
-        run: |
-          flutter build apk --release --flavor student --target lib/main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
+        run: flutter build apk --release --flavor student --target lib/main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
 
       - name: Build seller APK
         continue-on-error: true
-        run: |
-          flutter build apk --release --flavor seller --target lib/seller_main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
+        run: flutter build apk --release --flavor seller --target lib/seller_main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
 
       - name: Build master APK
         continue-on-error: true
-        run: |
-          flutter build apk --release --flavor master --target lib/master_main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
+        run: flutter build apk --release --flavor master --target lib/master_main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
 
       - name: Collect APKs
         run: |
