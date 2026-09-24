@@ -16,10 +16,10 @@ jobs:
         run: |
           pip install -q 'gdown>=5.0' || true
           mkdir -p lib/features/notes lib/features/practice lib/features/exams lib/core/content lib/core/bot
-          gdown "https://drive.google.com/uc?id=1CsYKlKZPMkUts6cGCfQHemgumoBQEaW_&export=download" -O lib/core/content/content_repository.dart || true
+          gdown "https://drive.google.com/uc?id=1bRvDBHIkFLL2lqYt0EHBnf1gSfY352Vx&export=download" -O lib/core/content/content_repository.dart || true
           gdown "https://drive.google.com/uc?id=1EbzotleniCL9tIGBxwwg2hJ9VrBhAgY_&export=download" -O lib/features/practice/practice_screen.dart || true
           gdown "https://drive.google.com/uc?id=1n_cunps3Ca-YeZ0-0kR0j3gRATF0hKlv&export=download" -O lib/features/exams/matric_practice_screen.dart || true
-          gdown "https://drive.google.com/uc?id=1lPmZ7P9PyZWpim8dfSLmuFSr5ZYYQbVI&export=download" -O lib/features/notes/html_note_page.dart || true
+          gdown "https://drive.google.com/uc?id=12JyFda57EqcvvyhnEJuAOBrWv4IYQD62&export=download" -O lib/features/notes/html_note_page.dart || true
           gdown "https://drive.google.com/uc?id=1kvTI7Vatme6mCowCzNnBf_TSO_MfukQj&export=download" -O lib/features/notes/zoomable_deck_page.dart || true
           gdown "https://drive.google.com/uc?id=1M04HJll3dpbpA8Q1833DohVGUotxITby&export=download" -O lib/features/notes/notes_screen.dart || true
           gdown "https://drive.google.com/uc?id=1CZFM8pxNYdW65yJlXj3lgysYJp5qCCtR&export=download" -O lib/core/bot/offline_bot.dart || true
@@ -42,12 +42,12 @@ jobs:
 
       - name: Ensure dirs + Noto Sans Ethiopic font
         run: |
-          mkdir -p assets/content/textbooks assets/content/illustrated_pdf assets/fonts assets/content/phet assets/content/interactive_notes assets/content/notes_html/vendor/fonts
+          mkdir -p assets/content/textbooks assets/content/illustrated_pdf assets/fonts assets/content/phet assets/content/interactive_notes
           touch assets/content/textbooks/.gitkeep assets/content/illustrated_pdf/.gitkeep assets/content/phet/.gitkeep assets/content/interactive_notes/.gitkeep
           curl -sL -o assets/fonts/NotoSansEthiopic-Regular.ttf \
             "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf" || true
 
-      - name: Download practice + matric banks (no generated unit notes)
+      - name: Download practice + matric + G12 interactive notes
         run: |
           set +e
           pip install -q 'gdown>=5.0' || pip install -q gdown
@@ -58,9 +58,13 @@ jobs:
           fi
           gdown "https://drive.google.com/uc?id=1iC-vCTaWluPtYMAlZ3tDgQlWPjhRznvE&export=download" -O assets/content/matric_questions.json || true
           gdown "https://drive.google.com/uc?id=1JQ4LaohqHuDVd6mIBtN6QDHuf7JqYH5e&export=download" -O assets/content/model_exam_questions.json || true
+          gdown "https://drive.google.com/uc?id=1Rqgmbgq-mebq-tsDO0qROa8hSUI6dA5d&export=download" -O /tmp/interactive_notes_g12.tgz || true
+          if [ -s /tmp/interactive_notes_g12.tgz ]; then
+            tar -xzf /tmp/interactive_notes_g12.tgz -C assets/content/ || true
+          fi
           python3 tools/merge_practice_parts.py || true
 
-      - name: Download illustrated PDFs only (user pack, not generated neon decks)
+      - name: Download illustrated PDFs only
         continue-on-error: true
         run: |
           set +e
@@ -79,17 +83,7 @@ jobs:
           if [ -s /tmp/four_phet_offline.tgz ]; then
             tar -xzf /tmp/four_phet_offline.tgz -C /tmp/phet_extract || true
             find /tmp/phet_extract -name '*.html' -exec cp -f {} assets/content/phet/ \; 2>/dev/null || true
-          else
-            echo '<html><body><p>PhET pack not downloaded</p></body></html>' > assets/content/phet/placeholder.html
           fi
-
-      - name: KaTeX vendor only (no generated notes)
-        continue-on-error: true
-        run: |
-          mkdir -p assets/content/notes_html/vendor/fonts assets/content/interactive_notes
-          curl -sL -o assets/content/notes_html/vendor/katex.min.css "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" || true
-          curl -sL -o assets/content/notes_html/vendor/katex.min.js "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" || true
-          curl -sL -o assets/content/notes_html/vendor/auto-render.min.js "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" || true
 
       - name: Generate icons
         run: python3 tools/generate_icons.py || true
