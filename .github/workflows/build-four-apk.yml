@@ -11,18 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Overlay Dart sources from Drive
-        continue-on-error: true
-        run: |
-          pip install -q 'gdown>=5.0' || true
-          mkdir -p lib/features/notes lib/features/practice lib/features/exams lib/core/content lib/core/bot
-          gdown "https://drive.google.com/uc?id=1bRvDBHIkFLL2lqYt0EHBnf1gSfY352Vx&export=download" -O lib/core/content/content_repository.dart || true
-          gdown "https://drive.google.com/uc?id=1EbzotleniCL9tIGBxwwg2hJ9VrBhAgY_&export=download" -O lib/features/practice/practice_screen.dart || true
-          gdown "https://drive.google.com/uc?id=1n_cunps3Ca-YeZ0-0kR0j3gRATF0hKlv&export=download" -O lib/features/exams/matric_practice_screen.dart || true
-          gdown "https://drive.google.com/uc?id=12JyFda57EqcvvyhnEJuAOBrWv4IYQD62&export=download" -O lib/features/notes/html_note_page.dart || true
-          gdown "https://drive.google.com/uc?id=1M04HJll3dpbpA8Q1833DohVGUotxITby&export=download" -O lib/features/notes/notes_screen.dart || true
-          gdown "https://drive.google.com/uc?id=1CZFM8pxNYdW65yJlXj3lgysYJp5qCCtR&export=download" -O lib/core/bot/offline_bot.dart || true
-
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -39,9 +27,9 @@ jobs:
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
 
-      - name: Ensure dirs + font + unpack interactive notes pack
+      - name: Font + G12 interactive HTML pack
         run: |
-          mkdir -p assets/content/textbooks assets/content/illustrated_pdf assets/fonts assets/content/phet assets/content/interactive_notes
+          mkdir -p assets/fonts assets/content/interactive_notes assets/content/phet assets/content/illustrated_pdf assets/content/textbooks
           curl -sL -o assets/fonts/NotoSansEthiopic-Regular.ttf \
             "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf" || true
           pip install -q 'gdown>=5.0' || true
@@ -49,8 +37,8 @@ jobs:
           if [ -s /tmp/interactive_notes_g12.tgz ]; then
             tar -xzf /tmp/interactive_notes_g12.tgz -C assets/content/
           fi
-          echo "interactive notes:"
           ls -la assets/content/interactive_notes || true
+          test -s assets/content/unit_notes.json
 
       - name: Download practice + matric
         continue-on-error: true
