@@ -27,7 +27,7 @@ jobs:
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
 
-      - name: Font + KaTeX + G12 HTML pack
+      - name: Font + KaTeX + interactive notes G10-G12
         run: |
           mkdir -p assets/fonts assets/content/interactive_notes assets/content/phet assets/content/illustrated_pdf assets/content/textbooks assets/content/vendor/katex/fonts
           curl -sL -o assets/fonts/NotoSansEthiopic-Regular.ttf \
@@ -39,11 +39,11 @@ jobs:
             curl -fsSL -o assets/content/vendor/katex/fonts/$f https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/fonts/$f || true
           done
           pip install -q 'gdown>=5.0' || true
-          gdown "https://drive.google.com/uc?id=1Rqgmbgq-mebq-tsDO0qROa8hSUI6dA5d&export=download" -O /tmp/interactive_notes_g12.tgz || true
-          if [ -s /tmp/interactive_notes_g12.tgz ]; then
-            tar -xzf /tmp/interactive_notes_g12.tgz -C assets/content/
+          gdown "https://drive.google.com/uc?id=1G9CRWf1fjUNDeOIYo9HlYo3ULWZRfJCE&export=download" -O /tmp/interactive_notes_all.tgz || true
+          if [ -s /tmp/interactive_notes_all.tgz ]; then
+            tar -xzf /tmp/interactive_notes_all.tgz -C assets/content/
           fi
-          ls -la assets/content/vendor/katex assets/content/interactive_notes || true
+          ls assets/content/interactive_notes | wc -l
 
       - name: Download practice + matric
         continue-on-error: true
