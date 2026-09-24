@@ -68,7 +68,6 @@ class _AppShellState extends State<AppShell> {
         onOpenBot: () => setState(() => index = 3),
         onOpenExams: () => setState(() => index = 4),
         onOpenTools: () => setState(() => index = 5),
-        onOpenUnlock: () => setState(() => index = 6),
       ),
       NotesScreen(
         grade: grade,
