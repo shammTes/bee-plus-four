@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'phet_sim_page.dart';
 
 class ToolsScreen extends StatefulWidget {
-  const ToolsScreen({super.key});
+  /// Optional grade/subject for app_shell compat (subject-scoped tools later).
+  const ToolsScreen({super.key, this.grade, this.subject});
+
+  final String? grade;
+  final String? subject;
 
   @override
   State<ToolsScreen> createState() => _ToolsScreenState();
