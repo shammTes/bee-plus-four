@@ -15,14 +15,14 @@ jobs:
         continue-on-error: true
         run: |
           pip install -q 'gdown>=5.0' || true
-          mkdir -p lib/features/notes lib/features/practice lib/features/exams lib/core/content
-          gdown "https://drive.google.com/uc?id=1UiElq8-f5e5i7HHbrUF9O6lbD1_mlpNw&export=download" -O lib/core/content/content_repository.dart || true
+          mkdir -p lib/features/notes lib/features/practice lib/features/exams lib/core/content lib/core/bot
+          gdown "https://drive.google.com/uc?id=1OiH6gwrlS1UnfVf2ltKcUhSvtEAF1aDl&export=download" -O lib/core/content/content_repository.dart || true
           gdown "https://drive.google.com/uc?id=1EbzotleniCL9tIGBxwwg2hJ9VrBhAgY_&export=download" -O lib/features/practice/practice_screen.dart || true
           gdown "https://drive.google.com/uc?id=1n_cunps3Ca-YeZ0-0kR0j3gRATF0hKlv&export=download" -O lib/features/exams/matric_practice_screen.dart || true
           gdown "https://drive.google.com/uc?id=16FkbS0nEJ4xv6jL2EgIfFLFcBh1UinFI&export=download" -O lib/features/notes/html_note_page.dart || true
           gdown "https://drive.google.com/uc?id=1kvTI7Vatme6mCowCzNnBf_TSO_MfukQj&export=download" -O lib/features/notes/zoomable_deck_page.dart || true
-          gdown "https://drive.google.com/uc?id=1ggCyb3JGzeppQ4Xq3mWHQcnYYHCPHqnM&export=download" -O lib/features/notes/notes_screen.dart || true
-          wc -l lib/core/content/content_repository.dart lib/features/practice/practice_screen.dart lib/features/exams/matric_practice_screen.dart lib/features/notes/*.dart || true
+          gdown "https://drive.google.com/uc?id=1Jy_HLM1nRlxPO-JEWvbCl71-wQO471cB&export=download" -O lib/features/notes/notes_screen.dart || true
+          gdown "https://drive.google.com/uc?id=1CZFM8pxNYdW65yJlXj3lgysYJp5qCCtR&export=download" -O lib/core/bot/offline_bot.dart || true
 
       - uses: actions/setup-java@v4
         with:
@@ -57,7 +57,9 @@ jobs:
           if [ -s /tmp/practice_subject_packs.tgz ]; then
             tar -xzf /tmp/practice_subject_packs.tgz -C assets/content/ || true
           fi
-          gdown "https://drive.google.com/uc?id=1ziK1z_fBLWI2MmY_0wCSqxp3u7YanYrf&export=download" -O assets/content/matric_questions.json || true
+          gdown "https://drive.google.com/uc?id=1iC-vCTaWluPtYMAlZ3tDgQlWPjhRznvE&export=download" -O assets/content/matric_questions.json || true
+          gdown "https://drive.google.com/uc?id=1JQ4LaohqHuDVd6mIBtN6QDHuf7JqYH5e&export=download" -O assets/content/model_exam_questions.json || true
+          gdown "https://drive.google.com/uc?id=18VtCQCVuF0bDiW5Er2wL33Rh2_3k6Dx0&export=download" -O assets/content/illustrated_cards_all.json || true
           python3 tools/merge_practice_parts.py || true
 
       - name: Download illustrated PDFs (compressed)
@@ -98,7 +100,6 @@ jobs:
             curl -sL -o assets/content/notes_html/vendor/auto-render.min.js "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" || true
           fi
           python3 tools/generate_html_notes.py || true
-          echo "HTML notes: $(ls assets/content/notes_html/*.html 2>/dev/null | wc -l)"
 
       - name: Polish and merge notes
         run: |
