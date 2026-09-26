@@ -30,6 +30,7 @@ jobs:
       - name: Font + KaTeX + interactive notes G10-G12
         run: |
           mkdir -p assets/fonts assets/content/interactive_notes assets/content/phet assets/content/illustrated_pdf assets/content/textbooks assets/content/vendor/katex/fonts
+          cp assets/content/interactive_notes/index.json /tmp/notes_index.json || true
           curl -sL -o assets/fonts/NotoSansEthiopic-Regular.ttf \
             "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf" || true
           curl -fsSL -o assets/content/vendor/katex/katex.min.js https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
@@ -42,6 +43,9 @@ jobs:
           gdown "https://drive.google.com/uc?id=1G9CRWf1fjUNDeOIYo9HlYo3ULWZRfJCE&export=download" -O /tmp/interactive_notes_all.tgz || true
           if [ -s /tmp/interactive_notes_all.tgz ]; then
             tar -xzf /tmp/interactive_notes_all.tgz -C assets/content/
+          fi
+          if [ -s /tmp/notes_index.json ]; then
+            cp /tmp/notes_index.json assets/content/interactive_notes/index.json
           fi
           ls assets/content/interactive_notes | wc -l
 
