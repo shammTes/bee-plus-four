@@ -60,7 +60,7 @@ jobs:
           ls assets/content/interactive_notes | wc -l
           test -f assets/content/interactive_notes/Grade9_Mathematics_Interactive_Notes.html || echo "WARN missing G9 math html"
 
-      - name: Download practice + matric
+      - name: Download practice + matric + examprep
         continue-on-error: true
         run: |
           pip install -q 'gdown>=5.0' || true
@@ -69,6 +69,9 @@ jobs:
           if [ -s /tmp/practice_subject_packs.tgz ]; then tar -xzf /tmp/practice_subject_packs.tgz -C assets/content/ || true; fi
           gdown "https://drive.google.com/uc?id=1iC-vCTaWluPtYMAlZ3tDgQlWPjhRznvE&export=download" -O assets/content/matric_questions.json || true
           gdown "https://drive.google.com/uc?id=1JQ4LaohqHuDVd6mIBtN6QDHuf7JqYH5e&export=download" -O assets/content/model_exam_questions.json || true
+          gdown "https://drive.google.com/uc?id=1aap5ssxiDb7ugBGNiXg-PV0yktqnScbW&export=download" -O /tmp/examprep_converted.tgz || true
+          if [ -s /tmp/examprep_converted.tgz ]; then tar -xzf /tmp/examprep_converted.tgz -C assets/content/ || true; fi
+          ls assets/content/examprep_*.json 2>/dev/null | wc -l || true
           python3 tools/merge_practice_parts.py || true
 
       - name: Generate icons
