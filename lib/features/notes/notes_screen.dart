@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../../core/content/content_repository.dart';
 import '../../core/curriculum/streams.dart';
 import '../../core/models/content_models.dart';
@@ -26,6 +29,40 @@ class NotesScreen extends StatefulWidget {
 }
 
 class _NotesScreenState extends State<NotesScreen> {
+  Future<List<UnitNote>> _notes() async {
+    final fromRepo = await ContentRepository.instance
+        .notesFor(widget.grade, widget.subject);
+    if (fromRepo.isNotEmpty &&
+        fromRepo.any((n) => n.htmlAsset.isNotEmpty || n.unitNumber > 0)) {
+      final hasUnits = fromRepo.any((n) => n.unitNumber > 0);
+      if (hasUnits) {
+        return fromRepo.where((n) => n.unitNumber > 0).toList();
+      }
+      return fromRepo;
+    }
+    try {
+      final raw = await rootBundle
+          .loadString('assets/content/interactive_notes/index.json');
+      final decoded = jsonDecode(raw);
+      final list = (decoded is Map ? decoded['notes'] : decoded) as List? ?? [];
+      final g = widget.grade.toUpperCase();
+      final s = widget.subject.toUpperCase();
+      final notes = <UnitNote>[];
+      for (final e in list) {
+        if (e is! Map) continue;
+        final m = Map<String, dynamic>.from(e);
+        if ('${m['grade']}'.toUpperCase() != g) continue;
+        if ('${m['subject']}'.toUpperCase() != s) continue;
+        notes.add(UnitNote.fromJson(m));
+      }
+      final units = notes.where((n) => n.unitNumber > 0).toList()
+        ..sort((a, b) => a.unitNumber.compareTo(b.unitNumber));
+      return units.isNotEmpty ? units : notes;
+    } catch (_) {
+      return fromRepo;
+    }
+  }
+
   Widget _chip(String label, bool sel, VoidCallback onTap) {
     return Padding(
       padding: const EdgeInsets.only(right: 8),
@@ -35,7 +72,7 @@ class _NotesScreenState extends State<NotesScreen> {
         onSelected: (_) => onTap(),
         selectedColor: FourTheme.butterMid,
         backgroundColor: FourTheme.surface,
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
           color: FourTheme.ink,
           fontWeight: FontWeight.w800,
           fontSize: 13,
@@ -155,8 +192,7 @@ class _NotesScreenState extends State<NotesScreen> {
         ),
         Expanded(
           child: FutureBuilder<List<UnitNote>>(
-            future: ContentRepository.instance
-                .notesFor(widget.grade, widget.subject),
+            future: _notes(),
             builder: (context, snap) {
               if (snap.connectionState != ConnectionState.done) {
                 return const Center(child: CircularProgressIndicator());
@@ -169,7 +205,7 @@ class _NotesScreenState extends State<NotesScreen> {
                     padding: const EdgeInsets.all(24),
                     child: Text(
                       missingEnglish
-                          ? 'Grade ${widget.grade.replaceAll('G', '')} English interactive notes are not in this drop yet. Grammar pack comes next.'
+                          ? 'Grade ${widget.grade.replaceAll('G', '')} English interactive notes are not in this drop yet.'
                           : widget.grade == 'G9'
                               ? 'No Grade 9 pack for this subject yet.'
                               : 'Interactive notes for ${widget.grade} ${CurriculumStreams.label(widget.subject)} are not listed yet.',
