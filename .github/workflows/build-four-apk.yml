@@ -33,6 +33,13 @@ jobs:
           cp assets/content/interactive_notes/index.json /tmp/notes_index.json || true
           curl -sL -o assets/fonts/NotoSansEthiopic-Regular.ttf \
             "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf" || true
+          curl -sL -o assets/fonts/NotoSans-Regular.ttf \
+            "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSans/NotoSans-Regular.ttf" || true
+          curl -sL -o assets/fonts/Nunito-VariableFont_wght.ttf \
+            "https://github.com/google/fonts/raw/main/ofl/nunito/Nunito%5Bwght%5D.ttf" || \
+          curl -sL -o assets/fonts/Nunito-VariableFont_wght.ttf \
+            "https://github.com/googlefonts/nunito/raw/main/fonts/variable/Nunito%5Bwght%5D.ttf" || true
+          ls -lh assets/fonts || true
           curl -fsSL -o assets/content/vendor/katex/katex.min.js https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
           curl -fsSL -o assets/content/vendor/katex/katex.min.css https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
           curl -fsSL -o assets/content/vendor/katex/auto-render.min.js https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js

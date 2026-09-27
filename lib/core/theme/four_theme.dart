@@ -37,7 +37,6 @@ class FourTheme {
   static const Color mintMid = Color(0xFF9FD6CB);
   static const Color mintDeep = Color(0xFF3C8C7D);
 
-  // Back-compat aliases so existing screens keep compiling.
   static const Color primary = sageDeep;
   static const Color primaryDark = sageDeep;
   static const Color primarySoft = sageTile;
@@ -85,7 +84,7 @@ class FourTheme {
   static List<BoxShadow> clay({bool small = false}) => small
       ? [
           BoxShadow(
-            color: tint.withValues(alpha: 0.30),
+            color: tint.withOpacity(0.30),
             offset: const Offset(0, 6),
             blurRadius: 12,
             spreadRadius: -6,
@@ -93,13 +92,13 @@ class FourTheme {
         ]
       : [
           BoxShadow(
-            color: tint.withValues(alpha: 0.28),
+            color: tint.withOpacity(0.28),
             offset: const Offset(0, 12),
             blurRadius: 24,
             spreadRadius: -10,
           ),
           BoxShadow(
-            color: tint.withValues(alpha: 0.10),
+            color: tint.withOpacity(0.10),
             offset: const Offset(0, 3),
             blurRadius: 7,
             spreadRadius: -2,
@@ -112,10 +111,13 @@ class FourTheme {
         return sageTile;
       case 'BUSINESS_ECONOMICS':
       case 'BUSINESS':
+      case 'HISTORY':
         return peachTile;
       case 'AGRICULTURE':
         return butterTile;
       case 'GEOGRAPHY':
+      case 'MATH':
+      case 'MATHEMATICS':
         return blueTile;
       case 'CHEMISTRY':
         return lilacTile;
@@ -124,11 +126,6 @@ class FourTheme {
       case 'PHYSICS':
       case 'ICT':
         return mintTile;
-      case 'HISTORY':
-        return peachTile;
-      case 'MATH':
-      case 'MATHEMATICS':
-        return blueTile;
       default:
         return surface2;
     }
@@ -140,10 +137,13 @@ class FourTheme {
         return sageDeep;
       case 'BUSINESS_ECONOMICS':
       case 'BUSINESS':
+      case 'HISTORY':
         return peachDeep;
       case 'AGRICULTURE':
         return butterDeep;
       case 'GEOGRAPHY':
+      case 'MATH':
+      case 'MATHEMATICS':
         return blueDeep;
       case 'CHEMISTRY':
         return lilacDeep;
@@ -152,11 +152,6 @@ class FourTheme {
       case 'PHYSICS':
       case 'ICT':
         return mintDeep;
-      case 'HISTORY':
-        return peachDeep;
-      case 'MATH':
-      case 'MATHEMATICS':
-        return blueDeep;
       default:
         return ink;
     }
@@ -179,6 +174,7 @@ class FourTheme {
       useMaterial3: true,
       brightness: Brightness.light,
       fontFamily: 'Nunito',
+      fontFamilyFallback: const ['NotoSansEthiopic', 'NotoSans'],
       textTheme: text,
       primaryTextTheme: text,
       colorScheme: const ColorScheme.light(
@@ -209,7 +205,6 @@ class FourTheme {
       cardTheme: CardThemeData(
         color: surface,
         elevation: 0,
-        shadowColor: tint.withValues(alpha: 0.28),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         margin: EdgeInsets.zero,
       ),
@@ -251,7 +246,8 @@ class FourTheme {
           textStyle: const TextStyle(
               fontFamily: 'Nunito', fontWeight: FontWeight.w800, fontSize: 15),
           padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 16),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(999)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(999)),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
