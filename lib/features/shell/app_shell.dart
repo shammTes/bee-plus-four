@@ -24,7 +24,7 @@ class AppShell extends StatefulWidget {
 
 class _AppShellState extends State<AppShell> {
   int index = 0;
-  String grade = 'G12';
+  String grade = 'G9';
   String subject = 'MATH';
   String stream = CurriculumStreams.science;
   bool ready = false;

@@ -27,7 +27,7 @@ jobs:
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
 
-      - name: Font + KaTeX + interactive notes G10-G12
+      - name: Font + KaTeX + interactive notes G9 first
         run: |
           mkdir -p assets/fonts assets/content/interactive_notes assets/content/phet assets/content/illustrated_pdf assets/content/textbooks assets/content/vendor/katex/fonts
           cp assets/content/interactive_notes/index.json /tmp/notes_index.json || true
@@ -47,7 +47,10 @@ jobs:
             curl -fsSL -o assets/content/vendor/katex/fonts/$f https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/fonts/$f || true
           done
           pip install -q 'gdown>=5.0' || true
-          gdown "https://drive.google.com/uc?id=1G9CRWf1fjUNDeOIYo9HlYo3ULWZRfJCE&export=download" -O /tmp/interactive_notes_all.tgz || true
+          gdown "https://drive.google.com/uc?id=1XoY8NjPMT6VYq1aZ4mYknXJTIn5ykCSK&export=download" -O /tmp/interactive_notes_all.tgz || true
+          if [ ! -s /tmp/interactive_notes_all.tgz ]; then
+            gdown "https://drive.google.com/uc?id=1G9CRWf1fjUNDeOIYo9HlYo3ULWZRfJCE&export=download" -O /tmp/interactive_notes_all.tgz || true
+          fi
           if [ -s /tmp/interactive_notes_all.tgz ]; then
             tar -xzf /tmp/interactive_notes_all.tgz -C assets/content/
           fi
@@ -55,6 +58,7 @@ jobs:
             cp /tmp/notes_index.json assets/content/interactive_notes/index.json
           fi
           ls assets/content/interactive_notes | wc -l
+          test -f assets/content/interactive_notes/Grade9_Mathematics_Interactive_Notes.html || echo "WARN missing G9 math html"
 
       - name: Download practice + matric
         continue-on-error: true
