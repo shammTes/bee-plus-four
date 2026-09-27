@@ -28,27 +28,29 @@ class NotesScreen extends StatefulWidget {
 class _NotesScreenState extends State<NotesScreen> {
   Widget _chip(String label, bool sel, VoidCallback onTap) {
     return Padding(
-      padding: const EdgeInsets.only(right: 6),
+      padding: const EdgeInsets.only(right: 8),
       child: ChoiceChip(
         label: Text(label),
         selected: sel,
         onSelected: (_) => onTap(),
-        selectedColor: const Color(0xFFFBBF24),
-        backgroundColor: Colors.white,
-        labelStyle: const TextStyle(
-          color: Color(0xFF0F172A),
-          fontWeight: FontWeight.w900,
-          fontSize: 12,
+        selectedColor: FourTheme.butterMid,
+        backgroundColor: FourTheme.surface,
+        labelStyle: TextStyle(
+          color: FourTheme.ink,
+          fontWeight: FontWeight.w800,
+          fontSize: 13,
         ),
-        side: const BorderSide(color: Color(0xFFE2E8F0)),
+        side: BorderSide(color: sel ? FourTheme.butterDeep : FourTheme.line),
       ),
     );
   }
 
   Future<void> _openNote(BuildContext context, UnitNote n) async {
-    final path = await HtmlNotesIndex.assetFor(n.grade, n.subject, n.unitNumber);
+    final path = n.htmlAsset.isNotEmpty
+        ? n.htmlAsset
+        : await HtmlNotesIndex.assetFor(n.grade, n.subject, n.unitNumber);
     if (!context.mounted) return;
-    if (path == null) {
+    if (path == null || path.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Interactive HTML for this subject is not in the APK yet.'),
@@ -56,12 +58,16 @@ class _NotesScreenState extends State<NotesScreen> {
       );
       return;
     }
+    final anchor = n.anchor.isNotEmpty
+        ? n.anchor
+        : (n.unitNumber > 0 ? 'u${n.unitNumber}' : '');
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => HtmlNotePage(
           title: n.title,
           assetPath: path,
           subtitle: '${n.grade} · ${n.subject}',
+          anchor: anchor,
         ),
       ),
     );
@@ -77,25 +83,32 @@ class _NotesScreenState extends State<NotesScreen> {
       children: [
         Container(
           width: double.infinity,
-          padding: EdgeInsets.fromLTRB(16, top + 10, 16, 14),
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFF0D9488), Color(0xFF0F766E)],
+          padding: EdgeInsets.fromLTRB(16, top + 10, 16, 16),
+          decoration: BoxDecoration(
+            color: FourTheme.surface,
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(28),
+              bottomRight: Radius.circular(28),
             ),
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(24),
-              bottomRight: Radius.circular(24),
-            ),
+            boxShadow: FourTheme.clay(small: true),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text('Notes',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: FourTheme.ink,
                       fontSize: 22,
                       fontWeight: FontWeight.w900)),
-              const SizedBox(height: 8),
+              const SizedBox(height: 4),
+              Text(
+                widget.grade == 'G9'
+                    ? 'Grade 9 units — tap a unit to open that section'
+                    : 'Tap a unit to open that section',
+                style: const TextStyle(
+                    color: FourTheme.ink2, fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(height: 10),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -150,13 +163,16 @@ class _NotesScreenState extends State<NotesScreen> {
               }
               final notes = snap.data ?? [];
               if (notes.isEmpty) {
+                final missingEnglish = widget.subject == 'ENGLISH';
                 return Center(
                   child: Padding(
                     padding: const EdgeInsets.all(24),
                     child: Text(
-                      widget.grade == 'G12'
-                          ? 'No pack for this subject yet. Try Math, Biology, Chemistry, Physics, Geography, History, Agriculture or Business.'
-                          : 'Interactive notes for ${widget.grade} are not in the app yet. Open G12.',
+                      missingEnglish
+                          ? 'Grade ${widget.grade.replaceAll('G', '')} English interactive notes are not in this drop yet. Grammar pack comes next.'
+                          : widget.grade == 'G9'
+                              ? 'No Grade 9 pack for this subject yet.'
+                              : 'Interactive notes for ${widget.grade} ${CurriculumStreams.label(widget.subject)} are not listed yet.',
                       textAlign: TextAlign.center,
                       style: const TextStyle(color: FourTheme.muted),
                     ),
@@ -166,20 +182,32 @@ class _NotesScreenState extends State<NotesScreen> {
               return ListView.separated(
                 padding: const EdgeInsets.all(16),
                 itemCount: notes.length,
-                separatorBuilder: (_, __) => const SizedBox(height: 8),
+                separatorBuilder: (_, __) => const SizedBox(height: 10),
                 itemBuilder: (context, i) {
                   final n = notes[i];
-                  return Card(
+                  final tone = FourTheme.subjectTile(n.subject);
+                  final deep = FourTheme.subjectDeep(n.subject);
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: FourTheme.surface,
+                      borderRadius: BorderRadius.circular(24),
+                      boxShadow: FourTheme.clay(small: true),
+                    ),
                     child: ListTile(
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 8),
                       leading: CircleAvatar(
-                        backgroundColor: FourTheme.primarySoft,
-                        child: const Icon(Icons.auto_stories,
-                            color: FourTheme.primaryDark),
+                        backgroundColor: tone,
+                        child: Text(
+                          n.unitNumber == 0 ? 'All' : '${n.unitNumber}',
+                          style: TextStyle(
+                              color: deep, fontWeight: FontWeight.w900),
+                        ),
                       ),
                       title: Text(n.title,
                           style: const TextStyle(fontWeight: FontWeight.w800)),
-                      subtitle: const Text('Interactive HTML notes · tap to open'),
-                      trailing: const Icon(Icons.chevron_right),
+                      subtitle: const Text('Opens at this unit'),
+                      trailing: Icon(Icons.chevron_right, color: deep),
                       onTap: () => _openNote(context, n),
                     ),
                   );
