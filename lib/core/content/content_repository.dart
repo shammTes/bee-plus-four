@@ -48,6 +48,7 @@ class ContentRepository {
     }
 
     await ingest('assets/content/interactive_notes/index.json');
+    await ingest('assets/content/interactive_notes/g10_units.json');
     await ingest('assets/content/unit_notes.json');
     for (final pack in [
       'assets/content/unit_notes_g12.json',
