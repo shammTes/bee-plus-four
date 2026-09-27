@@ -32,6 +32,34 @@ class _HtmlNotePageState extends State<HtmlNotePage> {
   static String? _injectCache;
   static final Map<String, String> _htmlCache = {};
 
+  static const String _mathJs = r'''
+<script>
+function fourRenderMath(){
+  try{
+    if(window.renderMathInElement){
+      renderMathInElement(document.body,{
+        delimiters:[
+          {left:'$$',right:'$$',display:true},
+          {left:'$',right:'$',display:false},
+          {left:'\(',right:'\)',display:false},
+          {left:'\[',right:'\]',display:true}
+        ],
+        throwOnError:false,
+        strict:false
+      });
+    }
+  }catch(e){}
+}
+function fourJump(id){
+  if(!id) return;
+  var el = document.getElementById(id);
+  if(el){ el.scrollIntoView({behavior:'instant', block:'start'}); }
+}
+document.addEventListener('DOMContentLoaded', fourRenderMath);
+window.addEventListener('load', fourRenderMath);
+</script>
+''';
+
   @override
   void initState() {
     super.initState();
@@ -72,50 +100,25 @@ class _HtmlNotePageState extends State<HtmlNotePage> {
     faces.write(await _fontFace('KaTeX_Size2', 'KaTeX_Size2-Regular.woff2'));
     faces.write(await _fontFace('KaTeX_Size4', 'KaTeX_Size4-Regular.woff2'));
     faces.write(await _fontFace('KaTeX_AMS', 'KaTeX_AMS-Regular.woff2'));
-    const fallbackCss = '''
+    const fallbackCss = r'''
       html,body{font-family:Georgia,"Noto Serif","Times New Roman",serif !important;}
       h1,h2,h3,h4,.kicker,nav.bar a,summary{font-family:system-ui,-apple-system,"Segoe UI",sans-serif !important;}
       .hand,.sticky{font-family:"Segoe Script","Comic Sans MS",cursive !important;}
       .katex-display{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
       [id^="u"],section[id]{scroll-margin-top:12px;}
     ''';
-    _injectCache = '''
-<style>${faces.toString()}$katexCss$fallbackCss</style>
-<script>$katexJs</script>
-<script>$autoJs</script>
-<script>
-function fourRenderMath(){
-  try{
-    if(window.renderMathInElement){
-      renderMathInElement(document.body,{
-        delimiters:[
-          {left:'\\$\\$',right:'\\$\\$',display:true},
-          {left:'\\$',right:'\\$',display:false},
-          {left:'\\\\(',right:'\\\\)',display:false},
-          {left:'\\\\[',right:'\\\\]',display:true}
-        ],
-        throwOnError:false,
-        strict:false
-      });
-    }
-  }catch(e){}
-}
-function fourJump(id){
-  if(!id) return;
-  var el = document.getElementById(id);
-  if(el){ el.scrollIntoView({behavior:'instant', block:'start'}); }
-}
-document.addEventListener('DOMContentLoaded', fourRenderMath);
-window.addEventListener('load', fourRenderMath);
-</script>
-''';
+    _injectCache =
+        '<style>${faces.toString()}$katexCss$fallbackCss</style>'
+        '<script>$katexJs</script>'
+        '<script>$autoJs</script>'
+        '$_mathJs';
     return _injectCache!;
   }
 
   Future<String> _offlineHtml(String raw) async {
     var html = raw;
     html = html.replaceAll(
-      RegExp(r'<link[^>]+fonts\\.googleapis\\.com[^>]*>', caseSensitive: false),
+      RegExp(r'<link[^>]+fonts\.googleapis\.com[^>]*>', caseSensitive: false),
       '',
     );
     html = html.replaceAll(
@@ -127,7 +130,7 @@ window.addEventListener('load', fourRenderMath);
       '',
     );
     html = html.replaceAll(
-      RegExp(r'<script[^>]+auto-render[\\s\\S]*?</script>', caseSensitive: false),
+      RegExp(r'<script[^>]+auto-render[\s\S]*?</script>', caseSensitive: false),
       '',
     );
     final inject = await _buildInject();
