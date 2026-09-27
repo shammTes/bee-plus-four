@@ -69,7 +69,10 @@ jobs:
           if [ -s /tmp/practice_subject_packs.tgz ]; then tar -xzf /tmp/practice_subject_packs.tgz -C assets/content/ || true; fi
           gdown "https://drive.google.com/uc?id=1iC-vCTaWluPtYMAlZ3tDgQlWPjhRznvE&export=download" -O assets/content/matric_questions.json || true
           gdown "https://drive.google.com/uc?id=1JQ4LaohqHuDVd6mIBtN6QDHuf7JqYH5e&export=download" -O assets/content/model_exam_questions.json || true
-          gdown "https://drive.google.com/uc?id=1aap5ssxiDb7ugBGNiXg-PV0yktqnScbW&export=download" -O /tmp/examprep_converted.tgz || true
+          gdown "https://drive.google.com/uc?id=1zinaHYznP_bRDgRw_GdZnVZF71ICUzbB&export=download" -O /tmp/examprep_converted.tgz || true
+          if [ ! -s /tmp/examprep_converted.tgz ]; then
+            gdown "https://drive.google.com/uc?id=1aap5ssxiDb7ugBGNiXg-PV0yktqnScbW&export=download" -O /tmp/examprep_converted.tgz || true
+          fi
           if [ -s /tmp/examprep_converted.tgz ]; then tar -xzf /tmp/examprep_converted.tgz -C assets/content/ || true; fi
           ls assets/content/examprep_*.json 2>/dev/null | wc -l || true
           python3 tools/merge_practice_parts.py || true
