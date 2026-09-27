@@ -145,7 +145,7 @@ window.addEventListener('load', fourRenderMath);
   Future<void> _jump(WebViewController c) async {
     final id = widget.anchor.trim();
     if (id.isEmpty) return;
-    final safe = id.replaceAll(RegExp(r"[^A-Za-z0-9_-]"), '');
+    final safe = id.replaceAll(RegExp(r'[^A-Za-z0-9_-]'), '');
     await c.runJavaScript(
       "fourJump('$safe'); setTimeout(function(){ fourJump('$safe'); }, 80); setTimeout(function(){ fourJump('$safe'); fourRenderMath(); }, 240);",
     );
@@ -157,18 +157,18 @@ window.addEventListener('load', fourRenderMath);
       final html = cached ??
           await _offlineHtml(await rootBundle.loadString(widget.assetPath));
       _htmlCache[widget.assetPath] = html;
-      final c = WebViewController()
-        ..setJavaScriptMode(JavaScriptMode.unrestricted)
-        ..setBackgroundColor(const Color(0xFFF3EAD8))
-        ..enableZoom(true)
-        ..setNavigationDelegate(
-          NavigationDelegate(
-            onPageFinished: (_) {
-              _jump(c);
-              if (mounted) setState(() => _loading = false);
-            },
-          ),
-        );
+      final c = WebViewController();
+      c.setJavaScriptMode(JavaScriptMode.unrestricted);
+      c.setBackgroundColor(const Color(0xFFF3EAD8));
+      c.enableZoom(true);
+      c.setNavigationDelegate(
+        NavigationDelegate(
+          onPageFinished: (_) {
+            _jump(c);
+            if (mounted) setState(() => _loading = false);
+          },
+        ),
+      );
       await c.loadHtmlString(html);
       if (!mounted) return;
       setState(() {
@@ -179,7 +179,7 @@ window.addEventListener('load', fourRenderMath);
     } catch (e) {
       if (!mounted) return;
       setState(() {
-        _error = 'Could not open notes:\\n${widget.assetPath}\\n$e';
+        _error = 'Could not open notes:\n${widget.assetPath}\n$e';
         _loading = false;
       });
     }
