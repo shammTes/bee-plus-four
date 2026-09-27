@@ -97,6 +97,7 @@ class PracticeQuestion {
   final String id;
   final String grade;
   final String subject;
+  final int unitNumber;
   final String prompt;
   final List<String> options;
   final int correctIndex;
@@ -110,6 +111,7 @@ class PracticeQuestion {
     required this.options,
     required this.correctIndex,
     required this.explanation,
+    this.unitNumber = 0,
   });
 
   factory PracticeQuestion.fromJson(Map<String, dynamic> j) {
@@ -126,6 +128,7 @@ class PracticeQuestion {
       id: '${j['id'] ?? j['question_id'] ?? 'q_${j.hashCode}'}',
       grade: '${j['grade'] ?? 'G10'}',
       subject: '${j['subject'] ?? 'MATH'}',
+      unitNumber: (j['unit_number'] as num?)?.toInt() ?? 0,
       prompt: '${j['prompt'] ?? j['question'] ?? ''}',
       options: opts,
       correctIndex: ci,
