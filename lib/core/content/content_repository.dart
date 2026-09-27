@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/services.dart';
 
-import '../models/content_models.dart';
+import '../models/content_models.dart' hide ExamCatalog, ExamPaper, ModelExamYear;
 import '../models/exam_models.dart';
 
 /// Loads curriculum + exam catalogue. Fail-soft + session cache.
@@ -39,12 +39,15 @@ class ContentRepository {
       for (final n in list) {
         final k = '${n.grade}|${n.subject}|${n.unitNumber}';
         final prev = byKey[k];
-        if (prev == null || n.summary.length > prev.summary.length) {
+        if (prev == null ||
+            n.htmlAsset.length > prev.htmlAsset.length ||
+            n.summary.length > prev.summary.length) {
           byKey[k] = n;
         }
       }
     }
 
+    await ingest('assets/content/interactive_notes/index.json');
     await ingest('assets/content/unit_notes.json');
     for (final pack in [
       'assets/content/unit_notes_g12.json',
@@ -58,6 +61,14 @@ class ContentRepository {
         await ingest(pack);
       } catch (_) {}
     }
+
+    final hasUnits = <String>{};
+    for (final n in byKey.values) {
+      if (n.unitNumber > 0) hasUnits.add('${n.grade}|${n.subject}');
+    }
+    byKey.removeWhere(
+      (k, n) => n.unitNumber == 0 && hasUnits.contains('${n.grade}|${n.subject}'),
+    );
 
     _notes = byKey.values.toList()
       ..sort((a, b) {
