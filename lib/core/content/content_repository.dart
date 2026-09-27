@@ -49,6 +49,9 @@ class ContentRepository {
 
     await ingest('assets/content/interactive_notes/index.json');
     await ingest('assets/content/interactive_notes/g10_units.json');
+    await ingest('assets/content/interactive_notes/g11_units.json');
+    await ingest('assets/content/interactive_notes/g12_units.json');
+    await ingest('assets/content/interactive_notes/g11_g12_extra_units.json');
     await ingest('assets/content/unit_notes.json');
     for (final pack in [
       'assets/content/unit_notes_g12.json',
@@ -256,6 +259,12 @@ class ContentRepository {
     } catch (_) {}
 
     const packs = [
+      'examprep_all.json',
+      'examprep_chemistry_2017-18_matric.json',
+      'examprep_chemistry_2018-19_model_sem2.json',
+      'examprep_biology_2018-19_model_sem2.json',
+      'examprep_business_economics_2018-19_model.json',
+      'model_exam_questions.json',
       'matric_biology.json',
       'matric_biology_2010.json',
       'matric_biology_2017.json',
