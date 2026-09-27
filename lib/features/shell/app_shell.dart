@@ -150,9 +150,11 @@ class _AppShellState extends State<AppShell> {
         }
       },
       child: Scaffold(
+        backgroundColor: FourTheme.bg,
         body: ready
             ? AnimatedSwitcher(
-                duration: const Duration(milliseconds: 220),
+                duration: const Duration(milliseconds: 280),
+                switchInCurve: Curves.easeOutCubic,
                 child: KeyedSubtree(
                   key: ValueKey(
                       '$index-$grade-$subject-$stream-${AppSettings.instance.tigrinya}'),
@@ -163,43 +165,54 @@ class _AppShellState extends State<AppShell> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const CircularProgressIndicator(),
+                    CircularProgressIndicator(color: FourTheme.coral),
                     const SizedBox(height: 16),
                     Text(AppStrings.loading,
-                        style: const TextStyle(color: FourTheme.muted)),
+                        style: const TextStyle(
+                            color: FourTheme.ink2,
+                            fontWeight: FontWeight.w700)),
                   ],
                 ),
               ),
-        bottomNavigationBar: NavigationBar(
-          selectedIndex: navIndex,
-          onDestinationSelected: (i) => setState(() => index = i),
-          destinations: [
-            NavigationDestination(
-              icon: const Icon(Icons.home_outlined),
-              selectedIcon: const Icon(Icons.home_rounded),
-              label: AppStrings.home,
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.fromLTRB(14, 0, 14, 14),
+          child: Material(
+            color: FourTheme.surface,
+            elevation: 0,
+            shadowColor: FourTheme.tint.withValues(alpha: 0.3),
+            borderRadius: BorderRadius.circular(26),
+            child: NavigationBar(
+              selectedIndex: navIndex,
+              onDestinationSelected: (i) => setState(() => index = i),
+              destinations: [
+                NavigationDestination(
+                  icon: const Icon(Icons.home_outlined),
+                  selectedIcon: const Icon(Icons.home_rounded),
+                  label: AppStrings.home,
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.auto_stories_outlined),
+                  selectedIcon: const Icon(Icons.auto_stories),
+                  label: AppStrings.notes,
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.quiz_outlined),
+                  selectedIcon: const Icon(Icons.quiz),
+                  label: AppStrings.practice,
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.smart_toy_outlined),
+                  selectedIcon: const Icon(Icons.smart_toy),
+                  label: AppStrings.coach,
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.assignment_outlined),
+                  selectedIcon: const Icon(Icons.assignment),
+                  label: AppStrings.exams,
+                ),
+              ],
             ),
-            NavigationDestination(
-              icon: const Icon(Icons.auto_stories_outlined),
-              selectedIcon: const Icon(Icons.auto_stories),
-              label: AppStrings.notes,
-            ),
-            NavigationDestination(
-              icon: const Icon(Icons.quiz_outlined),
-              selectedIcon: const Icon(Icons.quiz),
-              label: AppStrings.practice,
-            ),
-            NavigationDestination(
-              icon: const Icon(Icons.smart_toy_outlined),
-              selectedIcon: const Icon(Icons.smart_toy),
-              label: AppStrings.coach,
-            ),
-            NavigationDestination(
-              icon: const Icon(Icons.assignment_outlined),
-              selectedIcon: const Icon(Icons.assignment),
-              label: AppStrings.exams,
-            ),
-          ],
+          ),
         ),
       ),
     );

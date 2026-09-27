@@ -1,98 +1,274 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
-/// High-contrast glass theme for BEE PLUS 4 (highschool).
+/// Examprep clay design — used everywhere in 4.
 class FourTheme {
   FourTheme._();
 
-  static const Color primary = Color(0xFF06B6D4);
-  static const Color primaryDark = Color(0xFF0891B2);
-  static const Color primarySoft = Color(0xFFCFFAFE);
-  static const Color accent = Color(0xFFFBBF24);
-  static const Color accentDeep = Color(0xFFF59E0B);
-  static const Color violet = Color(0xFF8B5CF6);
-  static const Color rose = Color(0xFFF43F5E);
-  static const Color mint = Color(0xFF34D399);
+  static const Color bg = Color(0xFFF7F0E5);
+  static const Color surface = Color(0xFFFFFAF2);
+  static const Color surface2 = Color(0xFFF3EADC);
+  static const Color ink = Color(0xFF3E3129);
+  static const Color ink2 = Color(0xFF6F6055);
+  static const Color ink3 = Color(0xFFA3938A);
+  static const Color line = Color(0x1A785A3C);
+  static const Color coral = Color(0xFFEE7B5F);
+  static const Color coralTop = Color(0xFFF59A7F);
+  static const Color tint = Color(0xFF785537);
 
-  static const Color ink = Color(0xFF0F172A);
-  static const Color inkSoft = Color(0xFF1E293B);
-  static const Color muted = Color(0xFF64748B);
-  static const Color surface = Color(0xFFF0F9FF);
-  static const Color surfaceAlt = Color(0xFFE0F2FE);
-  static const Color glass = Color(0xCCFFFFFF);
-  static const Color glassDark = Color(0x990F172A);
+  static const Color sageTile = Color(0xFFDCEBD5);
+  static const Color sageMid = Color(0xFFA9CBA4);
+  static const Color sageDeep = Color(0xFF5B8C63);
+  static const Color peachTile = Color(0xFFFADAD0);
+  static const Color peachMid = Color(0xFFF4A58E);
+  static const Color peachDeep = Color(0xFFD56A50);
+  static const Color butterTile = Color(0xFFFBEBC1);
+  static const Color butterMid = Color(0xFFF5D27A);
+  static const Color butterDeep = Color(0xFFB08316);
+  static const Color blueTile = Color(0xFFDCE7F2);
+  static const Color blueMid = Color(0xFFA8C4E0);
+  static const Color blueDeep = Color(0xFF4F7BA6);
+  static const Color lilacTile = Color(0xFFE8DFF4);
+  static const Color lilacMid = Color(0xFFC6B3E3);
+  static const Color lilacDeep = Color(0xFF8466B5);
+  static const Color roseTile = Color(0xFFF8DCE3);
+  static const Color roseMid = Color(0xFFEDAFBF);
+  static const Color roseDeep = Color(0xFFBD5577);
+  static const Color mintTile = Color(0xFFD5EEE9);
+  static const Color mintMid = Color(0xFF9FD6CB);
+  static const Color mintDeep = Color(0xFF3C8C7D);
 
-  static const Color darkBg = Color(0xFF0B1220);
-  static const Color darkSurface = Color(0xFF111827);
-  static const Color darkCard = Color(0xFF1A2332);
-  static const Color darkBorder = Color(0xFF2A3648);
-  static const Color darkText = Color(0xFFF1F5F9);
-  static const Color darkMuted = Color(0xFF94A3B8);
-  static const Color darkCyan = Color(0xFF22D3EE);
-  static const Color darkViolet = Color(0xFFA78BFA);
-  static const Color darkAmber = Color(0xFFFBBF24);
+  // Back-compat aliases so existing screens keep compiling.
+  static const Color primary = sageDeep;
+  static const Color primaryDark = sageDeep;
+  static const Color primarySoft = sageTile;
+  static const Color accent = butterMid;
+  static const Color accentDeep = butterDeep;
+  static const Color violet = lilacDeep;
+  static const Color rose = peachDeep;
+  static const Color mint = mintDeep;
+  static const Color inkSoft = ink2;
+  static const Color muted = ink2;
+  static const Color surfaceAlt = surface2;
+  static const Color glass = surface;
+  static const Color glassDark = Color(0x99211C18);
+  static const Color darkBg = Color(0xFF211C18);
+  static const Color darkSurface = Color(0xFF2C2621);
+  static const Color darkCard = Color(0xFF362F29);
+  static const Color darkBorder = Color(0x12FFEBD2);
+  static const Color darkText = Color(0xFFF4EADC);
+  static const Color darkMuted = Color(0xFFCDBFB0);
+  static const Color darkCyan = mintMid;
+  static const Color darkViolet = lilacMid;
+  static const Color darkAmber = butterMid;
 
   static const LinearGradient heroGradient = LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    colors: [Color(0xFF0E7490), Color(0xFF4F46E5), Color(0xFF7C3AED)],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [coralTop, coral],
   );
-
   static const LinearGradient heroGradientDark = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
-    colors: [Color(0xFF083344), Color(0xFF312E81), Color(0xFF4C1D95)],
+    colors: [Color(0xFF4B3530), Color(0xFF3E3549)],
   );
-
   static const LinearGradient cardGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
-    colors: [Color(0xFF06B6D4), Color(0xFF6366F1)],
+    colors: [sageTile, mintTile],
+  );
+  static const LinearGradient ctaGradient = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [coralTop, coral],
   );
 
+  static List<BoxShadow> clay({bool small = false}) => small
+      ? [
+          BoxShadow(
+            color: tint.withValues(alpha: 0.30),
+            offset: const Offset(0, 6),
+            blurRadius: 12,
+            spreadRadius: -6,
+          ),
+        ]
+      : [
+          BoxShadow(
+            color: tint.withValues(alpha: 0.28),
+            offset: const Offset(0, 12),
+            blurRadius: 24,
+            spreadRadius: -10,
+          ),
+          BoxShadow(
+            color: tint.withValues(alpha: 0.10),
+            offset: const Offset(0, 3),
+            blurRadius: 7,
+            spreadRadius: -2,
+          ),
+        ];
+
+  static Color subjectTile(String subject) {
+    switch (subject.toUpperCase()) {
+      case 'BIOLOGY':
+        return sageTile;
+      case 'BUSINESS_ECONOMICS':
+      case 'BUSINESS':
+        return peachTile;
+      case 'AGRICULTURE':
+        return butterTile;
+      case 'GEOGRAPHY':
+        return blueTile;
+      case 'CHEMISTRY':
+        return lilacTile;
+      case 'ENGLISH':
+        return roseTile;
+      case 'PHYSICS':
+      case 'ICT':
+        return mintTile;
+      case 'HISTORY':
+        return peachTile;
+      case 'MATH':
+      case 'MATHEMATICS':
+        return blueTile;
+      default:
+        return surface2;
+    }
+  }
+
+  static Color subjectDeep(String subject) {
+    switch (subject.toUpperCase()) {
+      case 'BIOLOGY':
+        return sageDeep;
+      case 'BUSINESS_ECONOMICS':
+      case 'BUSINESS':
+        return peachDeep;
+      case 'AGRICULTURE':
+        return butterDeep;
+      case 'GEOGRAPHY':
+        return blueDeep;
+      case 'CHEMISTRY':
+        return lilacDeep;
+      case 'ENGLISH':
+        return roseDeep;
+      case 'PHYSICS':
+      case 'ICT':
+        return mintDeep;
+      case 'HISTORY':
+        return peachDeep;
+      case 'MATH':
+      case 'MATHEMATICS':
+        return blueDeep;
+      default:
+        return ink;
+    }
+  }
+
   static ThemeData get highschool {
+    const text = TextTheme(
+      titleLarge: TextStyle(
+          fontSize: 20, fontWeight: FontWeight.w900, color: ink, height: 1.2),
+      titleMedium: TextStyle(
+          fontSize: 16.5, fontWeight: FontWeight.w900, color: ink),
+      bodyLarge: TextStyle(
+          fontSize: 15.5, fontWeight: FontWeight.w700, color: ink, height: 1.55),
+      bodyMedium: TextStyle(
+          fontSize: 14, fontWeight: FontWeight.w600, color: ink2, height: 1.55),
+      labelLarge: TextStyle(
+          fontSize: 13, fontWeight: FontWeight.w800, color: ink),
+    );
     final base = ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      // Ethiopic for Tigrinya; platform fallback for Latin
-      fontFamily: 'NotoSansEthiopic',
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: primary,
-        primary: primaryDark,
-        secondary: accentDeep,
-        tertiary: violet,
+      fontFamily: 'Nunito',
+      textTheme: text,
+      primaryTextTheme: text,
+      colorScheme: const ColorScheme.light(
+        primary: sageDeep,
+        onPrimary: Colors.white,
+        secondary: coral,
+        onSecondary: Colors.white,
+        tertiary: lilacDeep,
         surface: surface,
-        error: rose,
-        brightness: Brightness.light,
+        onSurface: ink,
+        error: peachDeep,
       ),
-      scaffoldBackgroundColor: surface,
+      scaffoldBackgroundColor: bg,
     );
     return base.copyWith(
       appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.transparent,
+        backgroundColor: bg,
         foregroundColor: ink,
         elevation: 0,
         centerTitle: false,
         titleTextStyle: TextStyle(
+          fontFamily: 'Nunito',
           color: ink,
-          fontSize: 18,
-          fontWeight: FontWeight.w800,
+          fontSize: 20,
+          fontWeight: FontWeight.w900,
         ),
       ),
       cardTheme: CardThemeData(
-        color: glass,
+        color: surface,
         elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shadowColor: tint.withValues(alpha: 0.28),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         margin: EdgeInsets.zero,
+      ),
+      chipTheme: ChipThemeData(
+        backgroundColor: surface,
+        selectedColor: butterMid,
+        labelStyle: const TextStyle(
+          fontFamily: 'Nunito',
+          fontWeight: FontWeight.w800,
+          fontSize: 13,
+          color: ink,
+        ),
+        side: const BorderSide(color: line),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(999)),
+      ),
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: surface,
+        indicatorColor: sageTile,
+        elevation: 0,
+        height: 70,
+        labelTextStyle: WidgetStateProperty.resolveWith((s) {
+          final on = s.contains(WidgetState.selected);
+          return TextStyle(
+            fontFamily: 'Nunito',
+            fontSize: 11.5,
+            fontWeight: FontWeight.w800,
+            color: on ? sageDeep : ink3,
+          );
+        }),
+        iconTheme: WidgetStateProperty.resolveWith((s) {
+          final on = s.contains(WidgetState.selected);
+          return IconThemeData(color: on ? sageDeep : ink3, size: 24);
+        }),
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
-          backgroundColor: primaryDark,
+          backgroundColor: coral,
           foregroundColor: Colors.white,
-          textStyle: const TextStyle(fontWeight: FontWeight.w800),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          textStyle: const TextStyle(
+              fontFamily: 'Nunito', fontWeight: FontWeight.w800, fontSize: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 16),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(999)),
+        ),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          foregroundColor: sageDeep,
+          textStyle: const TextStyle(
+              fontFamily: 'Nunito', fontWeight: FontWeight.w800),
+        ),
+      ),
+      dialogTheme: DialogThemeData(
+        backgroundColor: surface,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+        titleTextStyle: const TextStyle(
+          fontFamily: 'Nunito',
+          fontSize: 18,
+          fontWeight: FontWeight.w900,
+          color: ink,
         ),
       ),
     );
@@ -100,25 +276,18 @@ class FourTheme {
 
   static Widget glassPanel({
     required Widget child,
-    EdgeInsetsGeometry padding = const EdgeInsets.all(14),
+    EdgeInsetsGeometry padding = const EdgeInsets.all(16),
     bool dark = false,
   }) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(18),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
-        child: Container(
-          padding: padding,
-          decoration: BoxDecoration(
-            color: dark ? const Color(0x661A2332) : glass,
-            borderRadius: BorderRadius.circular(18),
-            border: Border.all(
-              color: dark ? darkBorder : const Color(0x66FFFFFF),
-            ),
-          ),
-          child: child,
-        ),
+    return Container(
+      padding: padding,
+      decoration: BoxDecoration(
+        color: dark ? darkCard : surface,
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: clay(),
+        border: Border.all(color: dark ? darkBorder : line),
       ),
+      child: child,
     );
   }
 }
