@@ -111,9 +111,11 @@ class FourTheme {
         return sageTile;
       case 'BUSINESS_ECONOMICS':
       case 'BUSINESS':
-      case 'HISTORY':
+      case 'SOCIAL_STUDIES':
         return peachTile;
+      case 'HISTORY':
       case 'AGRICULTURE':
+      case 'GENERAL_KNOWLEDGE':
         return butterTile;
       case 'GEOGRAPHY':
       case 'MATH':
@@ -125,6 +127,7 @@ class FourTheme {
         return roseTile;
       case 'PHYSICS':
       case 'ICT':
+      case 'GENERAL_SCIENCE':
         return mintTile;
       default:
         return surface2;
@@ -137,9 +140,11 @@ class FourTheme {
         return sageDeep;
       case 'BUSINESS_ECONOMICS':
       case 'BUSINESS':
-      case 'HISTORY':
+      case 'SOCIAL_STUDIES':
         return peachDeep;
+      case 'HISTORY':
       case 'AGRICULTURE':
+      case 'GENERAL_KNOWLEDGE':
         return butterDeep;
       case 'GEOGRAPHY':
       case 'MATH':
@@ -151,6 +156,7 @@ class FourTheme {
         return roseDeep;
       case 'PHYSICS':
       case 'ICT':
+      case 'GENERAL_SCIENCE':
         return mintDeep;
       default:
         return ink;
