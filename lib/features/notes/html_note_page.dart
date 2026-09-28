@@ -41,8 +41,8 @@ function fourRenderMath(){
         delimiters:[
           {left:'$$',right:'$$',display:true},
           {left:'$',right:'$',display:false},
-          {left:'\(',right:'\)',display:false},
-          {left:'\[',right:'\]',display:true}
+          {left:'\\(',right:'\\)',display:false},
+          {left:'\\[',right:'\\]',display:true}
         ],
         throwOnError:false,
         strict:false
@@ -101,9 +101,33 @@ window.addEventListener('load', fourRenderMath);
     faces.write(await _fontFace('KaTeX_Size4', 'KaTeX_Size4-Regular.woff2'));
     faces.write(await _fontFace('KaTeX_AMS', 'KaTeX_AMS-Regular.woff2'));
     const fallbackCss = r'''
-      html,body{font-family:Georgia,"Noto Serif","Times New Roman",serif !important;}
-      h1,h2,h3,h4,.kicker,nav.bar a,summary{font-family:system-ui,-apple-system,"Segoe UI",sans-serif !important;}
-      .hand,.sticky{font-family:"Segoe Script","Comic Sans MS",cursive !important;}
+      html,body{
+        font-family:Nunito,"Noto Sans","Segoe UI",sans-serif !important;
+        background:#F7F0E5 !important;
+        color:#3E3129 !important;
+      }
+      h1,h2,h3,h4,.kicker,nav.bar a,summary{
+        font-family:Nunito,system-ui,sans-serif !important;
+        color:#3E3129 !important;
+        font-weight:800 !important;
+      }
+      .card,section,article,.panel,.unit,.note-card,.block{
+        background:#FFFAF2 !important;
+        border-radius:24px !important;
+        border:1px solid rgba(120,90,60,.10) !important;
+        box-shadow:0 12px 24px -10px rgba(120,85,55,.28),0 3px 7px -2px rgba(120,85,55,.10) !important;
+      }
+      button,.btn,.cta,a.btn{
+        background:#EE7B5F !important;
+        color:#fff !important;
+        border:0 !important;
+        border-radius:999px !important;
+        font-weight:800 !important;
+      }
+      .chip,nav a,.pill{
+        border-radius:999px !important;
+      }
+      .hand,.sticky{font-family:Nunito,sans-serif !important;}
       .katex-display{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
       [id^="u"],section[id]{scroll-margin-top:12px;}
     ''';
@@ -162,7 +186,7 @@ window.addEventListener('load', fourRenderMath);
       _htmlCache[widget.assetPath] = html;
       final c = WebViewController();
       c.setJavaScriptMode(JavaScriptMode.unrestricted);
-      c.setBackgroundColor(const Color(0xFFF3EAD8));
+      c.setBackgroundColor(const Color(0xFFF7F0E5));
       c.enableZoom(true);
       c.setNavigationDelegate(
         NavigationDelegate(
