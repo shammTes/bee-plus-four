@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-/// Offline HTML notes. Inlines KaTeX so math renders with no network.
+/// Offline HTML notes. Inlines KaTeX + Warsay clay skin.
 class HtmlNotePage extends StatefulWidget {
   const HtmlNotePage({
     super.key,
@@ -41,8 +41,8 @@ function fourRenderMath(){
         delimiters:[
           {left:'$$',right:'$$',display:true},
           {left:'$',right:'$',display:false},
-          {left:'\\(',right:'\\)',display:false},
-          {left:'\\[',right:'\\]',display:true}
+          {left:'\(',right:'\)',display:false},
+          {left:'\[',right:'\]',display:true}
         ],
         throwOnError:false,
         strict:false
@@ -101,31 +101,92 @@ window.addEventListener('load', fourRenderMath);
     faces.write(await _fontFace('KaTeX_Size4', 'KaTeX_Size4-Regular.woff2'));
     faces.write(await _fontFace('KaTeX_AMS', 'KaTeX_AMS-Regular.woff2'));
     const fallbackCss = r'''
+      :root{
+        --bg:#F7F0E5 !important; --ink:#3E3129 !important; --muted:#6F6055 !important;
+        --ok:#DCEBD5 !important; --bad:#FADAD0 !important;
+        --surface:#FFFAF2 !important; --coral:#EE7B5F !important;
+      }
       html,body{
         font-family:Nunito,"Noto Sans","Segoe UI",sans-serif !important;
         background:#F7F0E5 !important;
+        background-image:radial-gradient(circle at 12% 18%,rgba(250,218,208,.55) 0,transparent 28%),radial-gradient(circle at 88% 80%,rgba(220,235,213,.55) 0,transparent 30%) !important;
         color:#3E3129 !important;
+      }
+      header{
+        background:#FFFAF2 !important;
+        border-bottom:0 !important;
+        border-radius:0 0 28px 28px !important;
+        box-shadow:0 12px 24px -10px rgba(120,85,55,.22) !important;
       }
       h1,h2,h3,h4,.kicker,nav.bar a,summary{
         font-family:Nunito,system-ui,sans-serif !important;
         color:#3E3129 !important;
         font-weight:800 !important;
       }
-      .card,section,article,.panel,.unit,.note-card,.block{
+      h2{border-bottom:0 !important;}
+      nav.bar{background:transparent !important;}
+      nav.bar a{
+        background:#FFFAF2 !important;
+        color:#3E3129 !important;
+        border:1px solid rgba(120,90,60,.10) !important;
+        border-radius:999px !important;
+        box-shadow:0 6px 12px -6px rgba(120,85,55,.28) !important;
+      }
+      .card,.wrap .card,section,article,.panel,.unit,.note-card,.block,details,details.q20{
         background:#FFFAF2 !important;
         border-radius:24px !important;
         border:1px solid rgba(120,90,60,.10) !important;
         box-shadow:0 12px 24px -10px rgba(120,85,55,.28),0 3px 7px -2px rgba(120,85,55,.10) !important;
       }
-      button,.btn,.cta,a.btn{
-        background:#EE7B5F !important;
-        color:#fff !important;
-        border:0 !important;
-        border-radius:999px !important;
-        font-weight:800 !important;
+      .mnemo{background:#FBEBC1 !important;border:0 !important;border-radius:22px !important;}
+      .ex{background:#DCE7F2 !important;border:0 !important;border-radius:22px !important;}
+      .lab{background:#D5EEE9 !important;border:0 !important;border-radius:22px !important;}
+      .formula{
+        background:#E8DFF4 !important;
+        color:#3E3129 !important;
+        border-radius:22px !important;
+        box-shadow:0 8px 16px -10px rgba(120,85,55,.28) !important;
+        font-family:Nunito,ui-monospace,monospace !important;
       }
-      .chip,nav a,.pill{
-        border-radius:999px !important;
+      .formula small{color:#6F6055 !important;}
+      .errlog{background:#FADAD0 !important;border-left:6px solid #D56A50 !important;}
+      .fc{
+        background:#FFFAF2 !important;
+        border:1px solid rgba(120,90,60,.10) !important;
+        border-radius:22px !important;
+        box-shadow:0 6px 12px -6px rgba(120,85,55,.28) !important;
+      }
+      .quiz-q{
+        background:#FFFAF2 !important;
+        border-radius:24px !important;
+        padding:12px !important;
+        margin:12px 0 !important;
+        box-shadow:0 12px 24px -10px rgba(120,85,55,.22) !important;
+      }
+      button.opt{
+        display:block !important; width:100% !important; text-align:left !important;
+        background:#F3EADC !important; color:#3E3129 !important;
+        border:0 !important; border-radius:18px !important;
+        font-weight:700 !important; min-height:48px !important;
+      }
+      button.opt.correct{background:#DCEBD5 !important; color:#5B8C63 !important;}
+      button.opt.wrong{background:#FADAD0 !important; color:#D56A50 !important;}
+      .pair button{
+        background:#FFFAF2 !important; color:#3E3129 !important;
+        border:1px solid rgba(120,90,60,.10) !important; border-radius:999px !important;
+      }
+      .pair button.on{background:#FBEBC1 !important;}
+      .pair button.ok{background:#DCEBD5 !important;}
+      .pair button.no{background:#FADAD0 !important;}
+      .fab{background:#EE7B5F !important; color:#fff !important; border-radius:999px !important;}
+      button.btn,.cta,a.btn,.fab{
+        background:#EE7B5F !important; color:#fff !important; border:0 !important;
+        border-radius:999px !important; font-weight:800 !important;
+      }
+      svg{max-width:100%; height:auto;}
+      .card svg, .wrap svg{
+        background:#FFFAF2;
+        border-radius:18px;
       }
       .hand,.sticky{font-family:Nunito,sans-serif !important;}
       .katex-display{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
@@ -228,10 +289,10 @@ window.addEventListener('load', fourRenderMath);
             ],
           );
     if (widget.embedded) {
-      return ColoredBox(color: const Color(0xFFF3EAD8), child: body);
+      return ColoredBox(color: const Color(0xFFF7F0E5), child: body);
     }
     return Scaffold(
-      backgroundColor: const Color(0xFFF3EAD8),
+      backgroundColor: const Color(0xFFF7F0E5),
       appBar: AppBar(
         title: Text(widget.title, maxLines: 1, overflow: TextOverflow.ellipsis),
       ),
