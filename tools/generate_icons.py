@@ -9,6 +9,7 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "-q", "pillow"])
     from PIL import Image, ImageDraw, ImageFont
 
+
 def make_icon(path, label, bg=(13, 148, 136), size=192):
     img = Image.new("RGB", (size, size), bg)
     d = ImageDraw.Draw(img)
@@ -24,8 +25,8 @@ def make_icon(path, label, bg=(13, 148, 136), size=192):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     img.save(path, "PNG")
 
-def main():
-    base = "android/app/src/main/res"
+
+def write_set(base, label, bg):
     for dens, s in [
         ("mipmap-mdpi", 48),
         ("mipmap-hdpi", 72),
@@ -33,8 +34,16 @@ def main():
         ("mipmap-xxhdpi", 144),
         ("mipmap-xxxhdpi", 192),
     ]:
-        make_icon(f"{base}/{dens}/ic_launcher.png", "4", size=s)
+        make_icon(f"{base}/{dens}/ic_launcher.png", label, bg=bg, size=s)
+
+
+def main():
+    write_set("android/app/src/main/res", "4", (13, 148, 136))
+    write_set("android/app/src/student/res", "4", (13, 148, 136))
+    write_set("android/app/src/seller/res", "S", (13, 148, 136))
+    write_set("android/app/src/master/res", "M", (15, 23, 42))
     print("icons ok")
+
 
 if __name__ == "__main__":
     main()
