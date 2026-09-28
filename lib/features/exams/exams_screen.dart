@@ -5,7 +5,7 @@ import '../../core/models/exam_models.dart';
 import '../../core/theme/four_theme.dart';
 import 'matric_practice_screen.dart';
 
-/// Matriculation + Model full papers with year chips.
+/// Matriculation + Model papers. Catalog + live bank, clay UI.
 class ExamsScreen extends StatefulWidget {
   const ExamsScreen({super.key});
 
@@ -37,11 +37,69 @@ class _ExamsScreenState extends State<ExamsScreen> {
     });
   }
 
+  List<ExamPaper> _merged(String type) {
+    final fromCat = type == 'model'
+        ? (catalog?.model ?? const <ExamPaper>[])
+        : (catalog?.matriculation ?? const <ExamPaper>[]);
+    final byKey = <String, ExamPaper>{};
+    for (final p in fromCat) {
+      byKey['${p.mappedSubject}|${p.year}|${p.type}'] = p;
+    }
+    final qs = bank?.questions ?? const <MatricQuestion>[];
+    final counts = <String, int>{};
+    for (final q in qs) {
+      final t = (q.examType == 'model') ? 'model' : 'matriculation';
+      if (t != type) continue;
+      final k = '${q.subject}|${q.year}|$t';
+      counts[k] = (counts[k] ?? 0) + 1;
+    }
+    for (final e in counts.entries) {
+      final parts = e.key.split('|');
+      final subject = parts[0];
+      final year = int.tryParse(parts[1]) ?? 0;
+      final existing = byKey[e.key];
+      if (existing == null) {
+        byKey[e.key] = ExamPaper(
+          id: '${subject.toLowerCase()}-$year-$type',
+          type: type,
+          subject: subject,
+          year: year,
+          title: '$subject $year',
+          driveFileId: '',
+          source: 'bank',
+          interactive: true,
+          mappedSubject: subject,
+          questionCount: e.value,
+        );
+      } else if (existing.questionCount < e.value) {
+        byKey[e.key] = ExamPaper(
+          id: existing.id,
+          type: existing.type,
+          subject: existing.subject,
+          year: existing.year,
+          title: existing.title,
+          driveFileId: existing.driveFileId,
+          source: existing.source,
+          interactive: existing.interactive,
+          mappedSubject: existing.mappedSubject,
+          questionCount: e.value,
+        );
+      }
+    }
+    final list = byKey.values.toList()
+      ..sort((a, b) {
+        final y = b.year.compareTo(a.year);
+        if (y != 0) return y;
+        return a.mappedSubject.compareTo(b.mappedSubject);
+      });
+    return list;
+  }
+
   @override
   Widget build(BuildContext context) {
     final top = MediaQuery.paddingOf(context).top;
-    final matric = catalog?.matriculation ?? const <ExamPaper>[];
-    final model = catalog?.model ?? const <ExamPaper>[];
+    final matric = _merged('matriculation');
+    final model = _merged('model');
     final subjects = <String>{
       ...matric.map((p) => p.mappedSubject),
       ...model.map((p) => p.mappedSubject),
@@ -64,126 +122,133 @@ class _ExamsScreenState extends State<ExamsScreen> {
       return out;
     }
 
-    return Column(
-      children: [
-        Container(
-          width: double.infinity,
-          padding: EdgeInsets.fromLTRB(16, top + 10, 16, 14),
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFFEA580C), Color(0xFFC2410C)],
+    return ColoredBox(
+      color: FourTheme.bg,
+      child: Column(
+        children: [
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.fromLTRB(16, top + 10, 16, 16),
+            decoration: BoxDecoration(
+              color: FourTheme.surface,
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(28),
+                bottomRight: Radius.circular(28),
+              ),
+              boxShadow: FourTheme.clay(small: true),
             ),
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(24),
-              bottomRight: Radius.circular(24),
-            ),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text('Exams',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w900)),
-              Text(
-                loading
-                    ? 'Loading…'
-                    : '${bank?.questions.length ?? 0} questions · ${matric.length} matric papers · ${model.length} model',
-                style: const TextStyle(color: Color(0xFFFED7AA), fontSize: 13),
-              ),
-              const SizedBox(height: 10),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    _chip('All subjects', subjectFilter == null,
-                        () => setState(() => subjectFilter = null)),
-                    ...subjects.map((s) => _chip(
-                          s.replaceAll('_', ' '),
-                          subjectFilter == s,
-                          () => setState(() => subjectFilter = s),
-                        )),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 6),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    _chip('All years', yearFilter == null,
-                        () => setState(() => yearFilter = null)),
-                    ...years.map((y) => _chip(
-                          '$y',
-                          yearFilter == y,
-                          () => setState(() => yearFilter = y),
-                        )),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        if (loading)
-          const Expanded(child: Center(child: CircularProgressIndicator()))
-        else
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Matriculation',
+                const Text('Exams',
                     style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w900,
-                        color: FourTheme.ink)),
-                const SizedBox(height: 4),
+                        color: FourTheme.ink,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w900)),
                 Text(
-                  'Years in bank: ${matric.map((p) => p.year).toSet().toList()..sort((a, b) => b.compareTo(a))}',
-                  style: const TextStyle(color: FourTheme.muted, fontSize: 11),
+                  loading
+                      ? 'Loading…'
+                      : '${bank?.questions.length ?? 0} questions · ${matric.length} matric · ${model.length} model',
+                  style: const TextStyle(color: FourTheme.ink2, fontSize: 13),
+                ),
+                const SizedBox(height: 10),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      _chip('All subjects', subjectFilter == null,
+                          () => setState(() => subjectFilter = null)),
+                      ...subjects.map((s) => _chip(
+                            s.replaceAll('_', ' '),
+                            subjectFilter == s,
+                            () => setState(() => subjectFilter = s),
+                          )),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 8),
-                if (filter(matric).isEmpty)
-                  const Text('No matric papers for this filter.',
-                      style: TextStyle(color: FourTheme.muted))
-                else
-                  ...filter(matric).map((p) => _PaperTile(paper: p)),
-                const SizedBox(height: 20),
-                const Text('Model exams',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w900,
-                        color: FourTheme.ink)),
-                const SizedBox(height: 4),
-                const Text('Subject + year · full paper',
-                    style: TextStyle(color: FourTheme.muted, fontSize: 12)),
-                const SizedBox(height: 8),
-                if (filter(model).isEmpty)
-                  const Text('No model papers for this filter.',
-                      style: TextStyle(color: FourTheme.muted))
-                else
-                  ...filter(model).map((p) => _PaperTile(paper: p)),
-                const SizedBox(height: 24),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      _chip('All years', yearFilter == null,
+                          () => setState(() => yearFilter = null)),
+                      ...years.map((y) => _chip(
+                            '$y',
+                            yearFilter == y,
+                            () => setState(() => yearFilter = y),
+                          )),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
-      ],
+          if (loading)
+            const Expanded(child: Center(child: CircularProgressIndicator()))
+          else
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.all(16),
+                children: [
+                  const Text('Matriculation',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w900,
+                          color: FourTheme.ink)),
+                  const SizedBox(height: 4),
+                  Text(
+                    years.isEmpty
+                        ? 'No papers in this build yet.'
+                        : 'Years ${years.join(', ')}',
+                    style: const TextStyle(color: FourTheme.muted, fontSize: 12),
+                  ),
+                  const SizedBox(height: 10),
+                  if (filter(matric).isEmpty)
+                    const Text('No matric papers for this filter.',
+                        style: TextStyle(color: FourTheme.muted))
+                  else
+                    ...filter(matric).map((p) => _PaperTile(paper: p)),
+                  const SizedBox(height: 20),
+                  const Text('Model exams',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w900,
+                          color: FourTheme.ink)),
+                  const SizedBox(height: 10),
+                  if (filter(model).isEmpty)
+                    const Text('No model papers for this filter.',
+                        style: TextStyle(color: FourTheme.muted))
+                  else
+                    ...filter(model).map((p) => _PaperTile(paper: p)),
+                  const SizedBox(height: 24),
+                ],
+              ),
+            ),
+        ],
+      ),
     );
   }
 
   Widget _chip(String label, bool sel, VoidCallback onTap) {
     return Padding(
-      padding: const EdgeInsets.only(right: 6),
-      child: ChoiceChip(
-        label: Text(label),
-        selected: sel,
-        onSelected: (_) => onTap(),
-        selectedColor: const Color(0xFFFBBF24),
-        backgroundColor: Colors.white,
-        labelStyle: const TextStyle(
-          color: Color(0xFF0F172A),
-          fontWeight: FontWeight.w900,
-          fontSize: 12,
+      padding: const EdgeInsets.only(right: 8),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+          decoration: BoxDecoration(
+            color: sel ? FourTheme.coral : FourTheme.surface2,
+            borderRadius: BorderRadius.circular(999),
+          ),
+          child: Text(
+            label,
+            style: TextStyle(
+              color: sel ? Colors.white : FourTheme.ink,
+              fontWeight: FontWeight.w800,
+              fontSize: 12,
+            ),
+          ),
         ),
       ),
     );
@@ -196,32 +261,74 @@ class _PaperTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = paper.type == 'model'
-        ? const Color(0xFF7C3AED)
-        : FourTheme.primary;
-    return Card(
-      margin: const EdgeInsets.only(bottom: 8),
-      child: ListTile(
-        leading: Icon(
-          paper.type == 'model' ? Icons.folder_special : Icons.assignment,
-          color: color,
-        ),
-        title: Text(
-          paper.shortTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-        subtitle: Text(
-          paper.questionCount > 0
-              ? '${paper.questionCount} questions · ${paper.year}'
-              : 'Interactive · ${paper.year}',
-        ),
-        trailing: Icon(Icons.play_circle_outline, color: color),
-        onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (_) => MatricPracticeScreen(
-              subjectFilter: paper.mappedSubject,
-              yearFilter: paper.year,
-              title: paper.shortTitle,
+    final tile = FourTheme.subjectTile(paper.mappedSubject);
+    final deep = FourTheme.subjectDeep(paper.mappedSubject);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Material(
+        color: FourTheme.surface,
+        borderRadius: BorderRadius.circular(22),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(22),
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => MatricPracticeScreen(
+                subjectFilter: paper.mappedSubject,
+                yearFilter: paper.year,
+                title: paper.shortTitle,
+              ),
+            ),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(22),
+              boxShadow: FourTheme.clay(small: true),
+              border: Border.all(color: FourTheme.line),
+            ),
+            padding: const EdgeInsets.all(14),
+            child: Row(
+              children: [
+                Container(
+                  width: 48,
+                  height: 48,
+                  decoration: BoxDecoration(
+                    color: tile,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Icon(
+                    paper.type == 'model'
+                        ? Icons.folder_special_rounded
+                        : Icons.assignment_rounded,
+                    color: deep,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        paper.shortTitle,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w900,
+                          color: FourTheme.ink,
+                        ),
+                      ),
+                      Text(
+                        paper.questionCount > 0
+                            ? '${paper.questionCount} questions · ${paper.year}'
+                            : 'Paper · ${paper.year}',
+                        style: const TextStyle(
+                          color: FourTheme.ink2,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const Icon(Icons.play_circle_fill_rounded, color: FourTheme.coral),
+              ],
             ),
           ),
         ),
