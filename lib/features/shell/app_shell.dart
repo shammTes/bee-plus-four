@@ -9,6 +9,7 @@ import '../../core/theme/four_theme.dart';
 import '../bot/bot_screen.dart';
 import '../exams/examprep_engine.dart';
 import '../exams/exams_screen.dart';
+import '../exams/warsay_overlay.dart';
 import '../home/home_screen.dart';
 import '../labs/virtual_lab_screen.dart';
 import '../notes/notes_screen.dart';
@@ -29,6 +30,7 @@ class _AppShellState extends State<AppShell> {
   String subject = 'MATH';
   String stream = CurriculumStreams.science;
   bool ready = false;
+  WarsayStage warsay = WarsayStage.hidden;
 
   @override
   void initState() {
@@ -54,9 +56,7 @@ class _AppShellState extends State<AppShell> {
     setState(() {
       grade = g;
       final allowed = CurriculumStreams.subjectsFor(g, stream: stream);
-      if (!allowed.contains(subject)) {
-        subject = allowed.first;
-      }
+      if (!allowed.contains(subject)) subject = allowed.first;
     });
   }
 
@@ -64,9 +64,7 @@ class _AppShellState extends State<AppShell> {
     setState(() {
       stream = st;
       final allowed = CurriculumStreams.subjectsFor(grade, stream: st);
-      if (!allowed.contains(subject)) {
-        subject = allowed.first;
-      }
+      if (!allowed.contains(subject)) subject = allowed.first;
     });
   }
 
@@ -75,9 +73,7 @@ class _AppShellState extends State<AppShell> {
       grade = g;
       stream = st;
       final allowed = CurriculumStreams.subjectsFor(g, stream: st);
-      if (!allowed.contains(subject)) {
-        subject = allowed.first;
-      }
+      if (!allowed.contains(subject)) subject = allowed.first;
     });
   }
 
@@ -112,23 +108,25 @@ class _AppShellState extends State<AppShell> {
         onSubject: (s) => setState(() => subject = s),
       ),
       BotScreen(initialGrade: grade),
-      const ExamsScreen(),
+      ExamsScreen(onOpenWarsay: () {
+        ExamPrepEngine.instance.preload();
+        setState(() => warsay = WarsayStage.open);
+      }),
       const VirtualLabScreen(),
       ToolsScreen(grade: grade, subject: subject),
       const UnlockScreen(),
     ];
 
     final navIndex = index <= 4 ? index : 0;
-    final hideNav = index == 4;
 
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) async {
         if (didPop) return;
-        if (index == 4) {
+        if (warsay == WarsayStage.open) {
           final handled = await ExamPrepEngine.instance.handleBack();
           if (handled) return;
-          setState(() => index = 0);
+          setState(() => warsay = WarsayStage.mini);
           return;
         }
         if (index > 4) {
@@ -154,25 +152,22 @@ class _AppShellState extends State<AppShell> {
             ],
           ),
         );
-        if (leave == true && context.mounted) {
-          SystemNavigator.pop();
-        }
+        if (leave == true && context.mounted) SystemNavigator.pop();
       },
       child: Scaffold(
         backgroundColor: FourTheme.bg,
         body: ready
             ? Stack(
                 children: [
-                  Offstage(
-                    offstage: index != 4,
-                    child: const ExamsScreen(),
+                  KeyedSubtree(
+                    key: ValueKey(
+                        '$index-$grade-$subject-$stream-${AppSettings.instance.tigrinya}'),
+                    child: pages[index.clamp(0, pages.length - 1)],
                   ),
-                  if (index != 4)
-                    KeyedSubtree(
-                      key: ValueKey(
-                          '$index-$grade-$subject-$stream-${AppSettings.instance.tigrinya}'),
-                      child: pages[index.clamp(0, pages.length - 1)],
-                    ),
+                  WarsayOverlay(
+                    stage: warsay,
+                    onStage: (s) => setState(() => warsay = s),
+                  ),
                 ],
               )
             : const Center(
@@ -188,48 +183,46 @@ class _AppShellState extends State<AppShell> {
                   ],
                 ),
               ),
-        bottomNavigationBar: hideNav
-            ? null
-            : Padding(
-                padding: const EdgeInsets.fromLTRB(14, 0, 14, 14),
-                child: Material(
-                  color: FourTheme.surface,
-                  elevation: 0,
-                  shadowColor: FourTheme.tint.withValues(alpha: 0.3),
-                  borderRadius: BorderRadius.circular(26),
-                  child: NavigationBar(
-                    selectedIndex: navIndex,
-                    onDestinationSelected: (i) => setState(() => index = i),
-                    destinations: [
-                      NavigationDestination(
-                        icon: const Icon(Icons.home_outlined),
-                        selectedIcon: const Icon(Icons.home_rounded),
-                        label: AppStrings.home,
-                      ),
-                      NavigationDestination(
-                        icon: const Icon(Icons.auto_stories_outlined),
-                        selectedIcon: const Icon(Icons.auto_stories),
-                        label: AppStrings.notes,
-                      ),
-                      NavigationDestination(
-                        icon: const Icon(Icons.quiz_outlined),
-                        selectedIcon: const Icon(Icons.quiz),
-                        label: AppStrings.practice,
-                      ),
-                      NavigationDestination(
-                        icon: const Icon(Icons.smart_toy_outlined),
-                        selectedIcon: const Icon(Icons.smart_toy),
-                        label: AppStrings.coach,
-                      ),
-                      NavigationDestination(
-                        icon: const Icon(Icons.assignment_outlined),
-                        selectedIcon: const Icon(Icons.assignment),
-                        label: AppStrings.exams,
-                      ),
-                    ],
-                  ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.fromLTRB(14, 0, 14, 14),
+          child: Material(
+            color: FourTheme.surface,
+            elevation: 0,
+            shadowColor: FourTheme.tint.withValues(alpha: 0.3),
+            borderRadius: BorderRadius.circular(26),
+            child: NavigationBar(
+              selectedIndex: navIndex,
+              onDestinationSelected: (i) => setState(() => index = i),
+              destinations: [
+                NavigationDestination(
+                  icon: const Icon(Icons.home_outlined),
+                  selectedIcon: const Icon(Icons.home_rounded),
+                  label: AppStrings.home,
                 ),
-              ),
+                NavigationDestination(
+                  icon: const Icon(Icons.auto_stories_outlined),
+                  selectedIcon: const Icon(Icons.auto_stories),
+                  label: AppStrings.notes,
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.quiz_outlined),
+                  selectedIcon: const Icon(Icons.quiz),
+                  label: AppStrings.practice,
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.smart_toy_outlined),
+                  selectedIcon: const Icon(Icons.smart_toy),
+                  label: AppStrings.coach,
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.assignment_outlined),
+                  selectedIcon: const Icon(Icons.assignment),
+                  label: AppStrings.exams,
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
