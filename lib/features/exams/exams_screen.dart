@@ -78,7 +78,7 @@ class _Tile extends StatelessWidget {
     required this.title,
     required this.subtitle,
     this.onTap,
-    this.tone = FourTheme.ok,
+    this.tone = FourTheme.sageTile,
   });
   final IconData icon;
   final String title;
@@ -92,7 +92,6 @@ class _Tile extends StatelessWidget {
       color: FourTheme.surface,
       elevation: 0,
       borderRadius: BorderRadius.circular(24),
-      shadowColor: FourTheme.tint.withValues(alpha: 0.3),
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(24),
@@ -105,7 +104,7 @@ class _Tile extends StatelessWidget {
           child: Row(
             children: [
               CircleAvatar(
-                backgroundColor: tone.withValues(alpha: 0.25),
+                backgroundColor: tone.withValues(alpha: 0.35),
                 child: Icon(icon, color: FourTheme.ink),
               ),
               const SizedBox(width: 12),
