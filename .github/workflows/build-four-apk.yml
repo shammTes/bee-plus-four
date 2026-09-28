@@ -112,6 +112,15 @@ jobs:
           cache: true
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
+      - name: Stub pubspec assets for seller flavor
+        run: |
+          mkdir -p assets/fonts assets/content/phet assets/content/vendor/katex/fonts assets/content/examprep_preview assets/content/interactive_notes assets/content/illustrated_pdf assets/content/textbooks
+          curl -sL -o assets/fonts/Nunito-VariableFont_wght.ttf \
+            "https://github.com/google/fonts/raw/main/ofl/nunito/Nunito%5Bwght%5D.ttf" || \
+          curl -sL -o assets/fonts/Nunito-VariableFont_wght.ttf \
+            "https://github.com/googlefonts/nunito/raw/main/fonts/variable/Nunito%5Bwght%5D.ttf"
+          test -s assets/fonts/Nunito-VariableFont_wght.ttf
+          touch assets/content/phet/.keep assets/content/vendor/katex/.keep assets/content/vendor/katex/fonts/.keep
       - name: Generate icons
         run: python3 tools/generate_icons.py || true
       - name: Pub get
