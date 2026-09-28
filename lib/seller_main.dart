@@ -6,7 +6,6 @@ import 'core/licensing/seller_store.dart';
 import 'core/theme/four_theme.dart';
 import 'features/scan/qr_scan_page.dart';
 
-/// Bee Seller app entry — issue student unlock QR + wholesale sub-seller codes.
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SellerStore.instance.init();
@@ -40,6 +39,7 @@ class SellerHomePage extends StatefulWidget {
 class _SellerHomePageState extends State<SellerHomePage> {
   final store = SellerStore.instance;
   String deviceId = '…';
+  String product = 'JUNIOR';
   final redeemCtrl = TextEditingController();
   final studentCtrl = TextEditingController();
   final sellerCtrl = TextEditingController();
@@ -89,7 +89,10 @@ class _SellerHomePageState extends State<SellerHomePage> {
   }
 
   Future<void> _issueStudent() async {
-    final r = await store.issueStudentUnlock(studentCtrl.text);
+    final r = await store.issueStudentUnlock(
+      studentCtrl.text,
+      packageCode: product,
+    );
     if (r.error != null) {
       setState(() {
         status = r.error!;
@@ -98,7 +101,7 @@ class _SellerHomePageState extends State<SellerHomePage> {
     } else {
       setState(() {
         lastCode = r.code;
-        status = 'Student unlock QR ready.';
+        status = '$product unlock QR ready.';
       });
     }
     await _refresh();
@@ -134,10 +137,8 @@ class _SellerHomePageState extends State<SellerHomePage> {
           Padding(
             padding: const EdgeInsets.only(right: 12),
             child: Center(
-              child: Text(
-                'Quota: $quota',
-                style: const TextStyle(fontWeight: FontWeight.w900),
-              ),
+              child: Text('Quota: $quota',
+                  style: const TextStyle(fontWeight: FontWeight.w900)),
             ),
           ),
         ],
@@ -149,10 +150,8 @@ class _SellerHomePageState extends State<SellerHomePage> {
               style: Theme.of(context).textTheme.titleSmall),
           Card(
             child: ListTile(
-              title: SelectableText(
-                deviceId,
-                style: const TextStyle(fontWeight: FontWeight.w700),
-              ),
+              title: SelectableText(deviceId,
+                  style: const TextStyle(fontWeight: FontWeight.w700)),
               trailing: IconButton(
                 icon: const Icon(Icons.copy),
                 onPressed: () =>
@@ -171,7 +170,6 @@ class _SellerHomePageState extends State<SellerHomePage> {
               border: const OutlineInputBorder(),
               hintText: 'Paste WHOLESALE/SELLER code or scan QR',
               suffixIcon: IconButton(
-                tooltip: 'Scan QR',
                 icon: const Icon(Icons.qr_code_scanner),
                 onPressed: () => _openScan(
                   title: 'Scan grant QR',
@@ -182,45 +180,33 @@ class _SellerHomePageState extends State<SellerHomePage> {
             ),
           ),
           const SizedBox(height: 8),
-          Row(
-            children: [
-              Expanded(
-                child: FilledButton(
-                  onPressed: _redeem,
-                  child: const Text('Redeem grant'),
-                ),
-              ),
-              const SizedBox(width: 8),
-              FilledButton.tonalIcon(
-                onPressed: () => _openScan(
-                  title: 'Scan grant QR',
-                  hint: 'Scan Master or parent-seller grant QR',
-                  onResult: (v) async {
-                    setState(() => redeemCtrl.text = v);
-                    await _redeem();
-                  },
-                ),
-                icon: const Icon(Icons.qr_code_scanner),
-                label: const Text('Scan'),
-              ),
-            ],
-          ),
+          FilledButton(onPressed: _redeem, child: const Text('Redeem grant')),
           const SizedBox(height: 20),
           const Text('2) Unlock a student',
               style: TextStyle(fontWeight: FontWeight.w900)),
-          const SizedBox(height: 4),
-          const Text(
-            'Scan the student Device ID QR from app 4, or type it.',
-            style: TextStyle(color: FourTheme.muted, fontSize: 13),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            children: [
+              ChoiceChip(
+                label: const Text('Bee Plus (JUNIOR)'),
+                selected: product == 'JUNIOR',
+                onSelected: (_) => setState(() => product = 'JUNIOR'),
+              ),
+              ChoiceChip(
+                label: const Text('4 (HIGHSCHOOL)'),
+                selected: product == 'HIGHSCHOOL',
+                onSelected: (_) => setState(() => product = 'HIGHSCHOOL'),
+              ),
+            ],
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: 8),
           TextField(
             controller: studentCtrl,
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               hintText: 'Student Device ID',
               suffixIcon: IconButton(
-                tooltip: 'Scan student QR',
                 icon: const Icon(Icons.qr_code_scanner),
                 onPressed: () => _openScan(
                   title: 'Scan student Device ID',
@@ -231,52 +217,18 @@ class _SellerHomePageState extends State<SellerHomePage> {
             ),
           ),
           const SizedBox(height: 8),
-          Row(
-            children: [
-              Expanded(
-                child: FilledButton(
-                  onPressed: _issueStudent,
-                  child: const Text('Generate student unlock QR'),
-                ),
-              ),
-              const SizedBox(width: 8),
-              FilledButton.tonalIcon(
-                onPressed: () => _openScan(
-                  title: 'Scan student Device ID',
-                  hint: 'Scan the Device ID QR on the student phone',
-                  onResult: (v) async {
-                    setState(() => studentCtrl.text = v);
-                    await _issueStudent();
-                  },
-                ),
-                icon: const Icon(Icons.qr_code_scanner),
-                label: const Text('Scan'),
-              ),
-            ],
+          FilledButton(
+            onPressed: _issueStudent,
+            child: const Text('Generate student unlock QR'),
           ),
           const SizedBox(height: 20),
           const Text('3) Wholesale to another seller',
               style: TextStyle(fontWeight: FontWeight.w900)),
-          const SizedBox(height: 4),
-          const Text(
-            'Scan their seller Device ID QR, set quota, generate grant.',
-            style: TextStyle(color: FourTheme.muted, fontSize: 13),
-          ),
-          const SizedBox(height: 6),
           TextField(
             controller: sellerCtrl,
-            decoration: InputDecoration(
-              border: const OutlineInputBorder(),
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
               hintText: 'Other seller Device ID',
-              suffixIcon: IconButton(
-                tooltip: 'Scan seller QR',
-                icon: const Icon(Icons.qr_code_scanner),
-                onPressed: () => _openScan(
-                  title: 'Scan seller Device ID',
-                  hint: 'Scan the other seller Device ID QR',
-                  onResult: (v) => setState(() => sellerCtrl.text = v),
-                ),
-              ),
             ),
           ),
           const SizedBox(height: 8),
@@ -304,32 +256,11 @@ class _SellerHomePageState extends State<SellerHomePage> {
                 padding: const EdgeInsets.all(12),
                 color: Colors.white,
                 child: QrImageView(
-                  data: lastCode!,
-                  size: 220,
-                  backgroundColor: Colors.white,
-                ),
+                    data: lastCode!, size: 220, backgroundColor: Colors.white),
               ),
             ),
-            const SizedBox(height: 8),
             SelectableText(lastCode!, style: const TextStyle(fontSize: 11)),
-            OutlinedButton.icon(
-              onPressed: () {
-                Clipboard.setData(ClipboardData(text: lastCode!));
-              },
-              icon: const Icon(Icons.copy),
-              label: const Text('Copy code'),
-            ),
           ],
-          const SizedBox(height: 24),
-          const Text('Recent issues',
-              style: TextStyle(fontWeight: FontWeight.w900)),
-          ...store.history.take(12).map(
-                (h) => ListTile(
-                  dense: true,
-                  title: Text('${h['type']} → ${h['target']}'),
-                  subtitle: Text('${h['at']}'),
-                ),
-              ),
         ],
       ),
     );
