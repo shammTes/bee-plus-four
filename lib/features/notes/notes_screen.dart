@@ -66,18 +66,25 @@ class _NotesScreenState extends State<NotesScreen> {
   Widget _chip(String label, bool sel, VoidCallback onTap) {
     return Padding(
       padding: const EdgeInsets.only(right: 8),
-      child: ChoiceChip(
-        label: Text(label),
-        selected: sel,
-        onSelected: (_) => onTap(),
-        selectedColor: FourTheme.butterMid,
-        backgroundColor: FourTheme.surface,
-        labelStyle: const TextStyle(
-          color: FourTheme.ink,
-          fontWeight: FontWeight.w800,
-          fontSize: 13,
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+          decoration: BoxDecoration(
+            color: sel ? FourTheme.coral : FourTheme.surface,
+            borderRadius: BorderRadius.circular(999),
+            boxShadow: sel ? FourTheme.clay(small: true) : null,
+            border: Border.all(color: sel ? FourTheme.coral : FourTheme.line),
+          ),
+          child: Text(
+            label,
+            style: TextStyle(
+              color: sel ? Colors.white : FourTheme.ink,
+              fontWeight: FontWeight.w800,
+              fontSize: 13,
+            ),
+          ),
         ),
-        side: BorderSide(color: sel ? FourTheme.butterDeep : FourTheme.line),
       ),
     );
   }
@@ -138,11 +145,9 @@ class _NotesScreenState extends State<NotesScreen> {
                       fontSize: 22,
                       fontWeight: FontWeight.w900)),
               const SizedBox(height: 4),
-              Text(
-                widget.grade == 'G9'
-                    ? 'Grade 9 units — tap a unit to open that section'
-                    : 'Tap a unit to open that section',
-                style: const TextStyle(
+              const Text(
+                'Tap a unit to open that section',
+                style: TextStyle(
                     color: FourTheme.ink2, fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 10),
