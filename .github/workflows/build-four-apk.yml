@@ -29,7 +29,7 @@ jobs:
 
       - name: Font + KaTeX + interactive notes G9 first
         run: |
-          mkdir -p assets/fonts assets/content/interactive_notes assets/content/phet assets/content/illustrated_pdf assets/content/textbooks assets/content/vendor/katex/fonts
+          mkdir -p assets/fonts assets/content/interactive_notes assets/content/phet assets/content/illustrated_pdf assets/content/textbooks assets/content/vendor/katex/fonts assets/content/examprep_preview
           cp assets/content/interactive_notes/index.json /tmp/notes_index.json || true
           curl -sL -o assets/fonts/NotoSansEthiopic-Regular.ttf \
             "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf" || true
@@ -60,7 +60,27 @@ jobs:
           ls assets/content/interactive_notes | wc -l
           test -f assets/content/interactive_notes/Grade9_Mathematics_Interactive_Notes.html || echo "WARN missing G9 math html"
 
-      - name: Download practice + matric + examprep
+      - name: Download ExamPrep preview zip EXACTLY
+        run: |
+          pip install -q 'gdown>=5.0' || true
+          mkdir -p assets/content/examprep_preview /tmp/examprep_zip
+          gdown "https://drive.google.com/uc?id=1kZPrIqiJDE5vQlwXphPzPwEcZZPgp_cF&export=download" -O /tmp/ExamPrep-preview.zip
+          ls -lh /tmp/ExamPrep-preview.zip
+          test -s /tmp/ExamPrep-preview.zip
+          unzip -o /tmp/ExamPrep-preview.zip -d /tmp/examprep_zip
+          if [ -f /tmp/examprep_zip/ExamPrep-preview/index.html ]; then
+            cp -f /tmp/examprep_zip/ExamPrep-preview/index.html assets/content/examprep_preview/index.html
+            cp -f /tmp/examprep_zip/ExamPrep-preview/teacher-review.html assets/content/examprep_preview/teacher-review.html || true
+          elif [ -f /tmp/examprep_zip/index.html ]; then
+            cp -f /tmp/examprep_zip/index.html assets/content/examprep_preview/index.html
+          else
+            find /tmp/examprep_zip -name index.html
+            exit 1
+          fi
+          wc -c assets/content/examprep_preview/index.html
+          test $(wc -c < assets/content/examprep_preview/index.html) -gt 1000000
+
+      - name: Download practice + matric banks
         continue-on-error: true
         run: |
           pip install -q 'gdown>=5.0' || true
@@ -69,12 +89,6 @@ jobs:
           if [ -s /tmp/practice_subject_packs.tgz ]; then tar -xzf /tmp/practice_subject_packs.tgz -C assets/content/ || true; fi
           gdown "https://drive.google.com/uc?id=1iC-vCTaWluPtYMAlZ3tDgQlWPjhRznvE&export=download" -O assets/content/matric_questions.json || true
           gdown "https://drive.google.com/uc?id=1JQ4LaohqHuDVd6mIBtN6QDHuf7JqYH5e&export=download" -O assets/content/model_exam_questions.json || true
-          gdown "https://drive.google.com/uc?id=1zinaHYznP_bRDgRw_GdZnVZF71ICUzbB&export=download" -O /tmp/examprep_converted.tgz || true
-          if [ ! -s /tmp/examprep_converted.tgz ]; then
-            gdown "https://drive.google.com/uc?id=1aap5ssxiDb7ugBGNiXg-PV0yktqnScbW&export=download" -O /tmp/examprep_converted.tgz || true
-          fi
-          if [ -s /tmp/examprep_converted.tgz ]; then tar -xzf /tmp/examprep_converted.tgz -C assets/content/ || true; fi
-          ls assets/content/examprep_*.json 2>/dev/null | wc -l || true
           python3 tools/merge_practice_parts.py || true
 
       - name: Generate icons
