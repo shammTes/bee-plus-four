@@ -6,27 +6,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  student:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
-
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
-
-      - name: Flutter doctor
-        run: flutter doctor -v
-
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
-
       - name: Font + KaTeX + interactive notes G9 first
         run: |
           mkdir -p assets/fonts assets/content/interactive_notes assets/content/phet assets/content/illustrated_pdf assets/content/textbooks assets/content/vendor/katex/fonts assets/content/examprep_preview
@@ -39,7 +32,6 @@ jobs:
             "https://github.com/google/fonts/raw/main/ofl/nunito/Nunito%5Bwght%5D.ttf" || \
           curl -sL -o assets/fonts/Nunito-VariableFont_wght.ttf \
             "https://github.com/googlefonts/nunito/raw/main/fonts/variable/Nunito%5Bwght%5D.ttf" || true
-          ls -lh assets/fonts || true
           curl -fsSL -o assets/content/vendor/katex/katex.min.js https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
           curl -fsSL -o assets/content/vendor/katex/katex.min.css https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
           curl -fsSL -o assets/content/vendor/katex/auto-render.min.js https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
@@ -57,9 +49,6 @@ jobs:
           if [ -s /tmp/notes_index.json ]; then
             cp /tmp/notes_index.json assets/content/interactive_notes/index.json
           fi
-          ls assets/content/interactive_notes | wc -l
-          test -f assets/content/interactive_notes/Grade9_Mathematics_Interactive_Notes.html || echo "WARN missing G9 math html"
-
       - name: Download ExamPrep preview zip EXACTLY
         run: |
           pip install -q 'gdown>=5.0' || true
@@ -79,7 +68,6 @@ jobs:
           fi
           wc -c assets/content/examprep_preview/index.html
           test $(wc -c < assets/content/examprep_preview/index.html) -gt 1000000
-
       - name: Download practice + matric banks
         continue-on-error: true
         run: |
@@ -90,27 +78,56 @@ jobs:
           gdown "https://drive.google.com/uc?id=1iC-vCTaWluPtYMAlZ3tDgQlWPjhRznvE&export=download" -O assets/content/matric_questions.json || true
           gdown "https://drive.google.com/uc?id=1JQ4LaohqHuDVd6mIBtN6QDHuf7JqYH5e&export=download" -O assets/content/model_exam_questions.json || true
           python3 tools/merge_practice_parts.py || true
-
       - name: Generate icons
         run: python3 tools/generate_icons.py || true
-
       - name: Pub get
         run: flutter pub get
-
       - name: Build student APK
         run: flutter build apk --release --flavor student --target lib/main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
-
       - name: Collect student APK
         run: |
           mkdir -p dist
           find build/app/outputs/flutter-apk -name '*student*.apk' -exec cp -v {} dist/ \;
           ls -lh dist/
           test -n "$(ls -A dist 2>/dev/null)"
-
       - name: Upload student APK
         uses: actions/upload-artifact@v4
         with:
           name: four-student-apk
+          path: dist/
+          if-no-files-found: error
+          retention-days: 30
+
+  seller:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Accept Android licenses
+        run: yes | flutter doctor --android-licenses || true
+      - name: Generate icons
+        run: python3 tools/generate_icons.py || true
+      - name: Pub get
+        run: flutter pub get
+      - name: Build seller APK
+        run: flutter build apk --release --flavor seller --target lib/seller_main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
+      - name: Collect seller APK
+        run: |
+          mkdir -p dist
+          find build/app/outputs/flutter-apk -name '*seller*.apk' -exec cp -v {} dist/ \;
+          ls -lh dist/
+          test -n "$(ls -A dist 2>/dev/null)"
+      - name: Upload seller APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: bee-seller-apk
           path: dist/
           if-no-files-found: error
           retention-days: 30
