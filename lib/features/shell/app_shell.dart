@@ -7,6 +7,7 @@ import '../../core/l10n/app_strings.dart';
 import '../../core/settings/app_settings.dart';
 import '../../core/theme/four_theme.dart';
 import '../bot/bot_screen.dart';
+import '../exams/examprep_engine.dart';
 import '../exams/exams_screen.dart';
 import '../home/home_screen.dart';
 import '../labs/virtual_lab_screen.dart';
@@ -32,6 +33,7 @@ class _AppShellState extends State<AppShell> {
   @override
   void initState() {
     super.initState();
+    ExamPrepEngine.instance.preload();
     ContentRepository.instance.preload().whenComplete(() {
       if (mounted) setState(() => ready = true);
     });
@@ -117,11 +119,18 @@ class _AppShellState extends State<AppShell> {
     ];
 
     final navIndex = index <= 4 ? index : 0;
+    final hideNav = index == 4;
 
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) async {
         if (didPop) return;
+        if (index == 4) {
+          final handled = await ExamPrepEngine.instance.handleBack();
+          if (handled) return;
+          setState(() => index = 0);
+          return;
+        }
         if (index > 4) {
           setState(() => index = 0);
           return;
@@ -152,68 +161,75 @@ class _AppShellState extends State<AppShell> {
       child: Scaffold(
         backgroundColor: FourTheme.bg,
         body: ready
-            ? AnimatedSwitcher(
-                duration: const Duration(milliseconds: 280),
-                switchInCurve: Curves.easeOutCubic,
-                child: KeyedSubtree(
-                  key: ValueKey(
-                      '$index-$grade-$subject-$stream-${AppSettings.instance.tigrinya}'),
-                  child: pages[index.clamp(0, pages.length - 1)],
-                ),
+            ? Stack(
+                children: [
+                  Offstage(
+                    offstage: index != 4,
+                    child: const ExamsScreen(),
+                  ),
+                  if (index != 4)
+                    KeyedSubtree(
+                      key: ValueKey(
+                          '$index-$grade-$subject-$stream-${AppSettings.instance.tigrinya}'),
+                      child: pages[index.clamp(0, pages.length - 1)],
+                    ),
+                ],
               )
-            : Center(
+            : const Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     CircularProgressIndicator(color: FourTheme.coral),
-                    const SizedBox(height: 16),
-                    Text(AppStrings.loading,
-                        style: const TextStyle(
+                    SizedBox(height: 16),
+                    Text('Loading…',
+                        style: TextStyle(
                             color: FourTheme.ink2,
                             fontWeight: FontWeight.w700)),
                   ],
                 ),
               ),
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.fromLTRB(14, 0, 14, 14),
-          child: Material(
-            color: FourTheme.surface,
-            elevation: 0,
-            shadowColor: FourTheme.tint.withValues(alpha: 0.3),
-            borderRadius: BorderRadius.circular(26),
-            child: NavigationBar(
-              selectedIndex: navIndex,
-              onDestinationSelected: (i) => setState(() => index = i),
-              destinations: [
-                NavigationDestination(
-                  icon: const Icon(Icons.home_outlined),
-                  selectedIcon: const Icon(Icons.home_rounded),
-                  label: AppStrings.home,
+        bottomNavigationBar: hideNav
+            ? null
+            : Padding(
+                padding: const EdgeInsets.fromLTRB(14, 0, 14, 14),
+                child: Material(
+                  color: FourTheme.surface,
+                  elevation: 0,
+                  shadowColor: FourTheme.tint.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(26),
+                  child: NavigationBar(
+                    selectedIndex: navIndex,
+                    onDestinationSelected: (i) => setState(() => index = i),
+                    destinations: [
+                      NavigationDestination(
+                        icon: const Icon(Icons.home_outlined),
+                        selectedIcon: const Icon(Icons.home_rounded),
+                        label: AppStrings.home,
+                      ),
+                      NavigationDestination(
+                        icon: const Icon(Icons.auto_stories_outlined),
+                        selectedIcon: const Icon(Icons.auto_stories),
+                        label: AppStrings.notes,
+                      ),
+                      NavigationDestination(
+                        icon: const Icon(Icons.quiz_outlined),
+                        selectedIcon: const Icon(Icons.quiz),
+                        label: AppStrings.practice,
+                      ),
+                      NavigationDestination(
+                        icon: const Icon(Icons.smart_toy_outlined),
+                        selectedIcon: const Icon(Icons.smart_toy),
+                        label: AppStrings.coach,
+                      ),
+                      NavigationDestination(
+                        icon: const Icon(Icons.assignment_outlined),
+                        selectedIcon: const Icon(Icons.assignment),
+                        label: AppStrings.exams,
+                      ),
+                    ],
+                  ),
                 ),
-                NavigationDestination(
-                  icon: const Icon(Icons.auto_stories_outlined),
-                  selectedIcon: const Icon(Icons.auto_stories),
-                  label: AppStrings.notes,
-                ),
-                NavigationDestination(
-                  icon: const Icon(Icons.quiz_outlined),
-                  selectedIcon: const Icon(Icons.quiz),
-                  label: AppStrings.practice,
-                ),
-                NavigationDestination(
-                  icon: const Icon(Icons.smart_toy_outlined),
-                  selectedIcon: const Icon(Icons.smart_toy),
-                  label: AppStrings.coach,
-                ),
-                NavigationDestination(
-                  icon: const Icon(Icons.assignment_outlined),
-                  selectedIcon: const Icon(Icons.assignment),
-                  label: AppStrings.exams,
-                ),
-              ],
-            ),
-          ),
-        ),
+              ),
       ),
     );
   }
