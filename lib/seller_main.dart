@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import 'core/licensing/seller_store.dart';
-import 'core/theme/four_theme.dart';
 import 'features/scan/qr_scan_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
   await SellerStore.instance.init();
   runApp(const BeeSellerApp());
 }
@@ -39,7 +40,7 @@ class SellerHomePage extends StatefulWidget {
 class _SellerHomePageState extends State<SellerHomePage> {
   final store = SellerStore.instance;
   String deviceId = '…';
-  String product = 'JUNIOR';
+  String product = 'HIGHSCHOOL';
   final redeemCtrl = TextEditingController();
   final studentCtrl = TextEditingController();
   final sellerCtrl = TextEditingController();
@@ -182,23 +183,29 @@ class _SellerHomePageState extends State<SellerHomePage> {
           const SizedBox(height: 8),
           FilledButton(onPressed: _redeem, child: const Text('Redeem grant')),
           const SizedBox(height: 20),
-          const Text('2) Unlock a student',
+          const Text('2) Unlock a student — pick the app first',
               style: TextStyle(fontWeight: FontWeight.w900)),
           const SizedBox(height: 8),
           Wrap(
             spacing: 8,
             children: [
               ChoiceChip(
-                label: const Text('Bee Plus (JUNIOR)'),
-                selected: product == 'JUNIOR',
-                onSelected: (_) => setState(() => product = 'JUNIOR'),
-              ),
-              ChoiceChip(
                 label: const Text('4 (HIGHSCHOOL)'),
                 selected: product == 'HIGHSCHOOL',
                 onSelected: (_) => setState(() => product = 'HIGHSCHOOL'),
               ),
+              ChoiceChip(
+                label: const Text('Bee Plus / Junior'),
+                selected: product == 'JUNIOR',
+                onSelected: (_) => setState(() => product = 'JUNIOR'),
+              ),
             ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            product == 'JUNIOR'
+                ? 'Scan the Device ID QR on Bee Plus (Junior).'
+                : 'Scan the Device ID QR on 4 (high school).',
           ),
           const SizedBox(height: 8),
           TextField(
@@ -219,16 +226,37 @@ class _SellerHomePageState extends State<SellerHomePage> {
           const SizedBox(height: 8),
           FilledButton(
             onPressed: _issueStudent,
-            child: const Text('Generate student unlock QR'),
+            child: Text('Generate $product unlock QR'),
+          ),
+          const SizedBox(height: 8),
+          FilledButton.tonalIcon(
+            onPressed: () => _openScan(
+              title: 'Scan student Device ID',
+              hint: 'Scan the Device ID QR on the student phone',
+              onResult: (v) async {
+                setState(() => studentCtrl.text = v);
+                await _issueStudent();
+              },
+            ),
+            icon: const Icon(Icons.qr_code_scanner),
+            label: const Text('Scan + generate'),
           ),
           const SizedBox(height: 20),
           const Text('3) Wholesale to another seller',
               style: TextStyle(fontWeight: FontWeight.w900)),
           TextField(
             controller: sellerCtrl,
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(),
               hintText: 'Other seller Device ID',
+              suffixIcon: IconButton(
+                icon: const Icon(Icons.qr_code_scanner),
+                onPressed: () => _openScan(
+                  title: 'Scan seller Device ID',
+                  hint: 'Scan the other seller Device ID QR',
+                  onResult: (v) => setState(() => sellerCtrl.text = v),
+                ),
+              ),
             ),
           ),
           const SizedBox(height: 8),
@@ -260,6 +288,13 @@ class _SellerHomePageState extends State<SellerHomePage> {
               ),
             ),
             SelectableText(lastCode!, style: const TextStyle(fontSize: 11)),
+            OutlinedButton.icon(
+              onPressed: () {
+                Clipboard.setData(ClipboardData(text: lastCode!));
+              },
+              icon: const Icon(Icons.copy),
+              label: const Text('Copy code'),
+            ),
           ],
         ],
       ),
