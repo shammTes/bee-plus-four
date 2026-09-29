@@ -59,8 +59,18 @@ class _HighScreenState extends State<HighScreen> {
     final s = _s;
     if (s == null) {
       return ColoredBox(
-        color: Palette.light.bg,
-        child: Center(child: _err != null ? Text('Could not load content\n$_err', textDirection: TextDirection.ltr) : const SizedBox()),
+        color: const Color(0xFFF7F0E5),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Text(
+              _err != null ? 'Could not open 4\n$_err' : 'Opening 4…',
+              textDirection: TextDirection.ltr,
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: Color(0xFF3E3129), fontWeight: FontWeight.w800, fontSize: 18),
+            ),
+          ),
+        ),
       );
     }
     final dark = MediaQuery.maybePlatformBrightnessOf(context) == Brightness.dark;
@@ -211,7 +221,7 @@ class Enter extends StatefulWidget {
 const enterCurve = Cubic(.2, .8, .2, 1);
 
 class _EnterState extends State<Enter> with SingleTickerProviderStateMixin {
-  late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(milliseconds: 420))..forward();
+  late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(milliseconds: 420))..value = 1;
   @override
   void dispose() {
     _c.dispose();

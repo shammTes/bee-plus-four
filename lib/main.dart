@@ -1,10 +1,11 @@
 import 'package:flutter/widgets.dart';
 
-import 'high/high.dart';
+import 'high/app.dart';
 import 'licensing/lock_screen.dart';
 import 'licensing/unlock_store.dart';
 
 /// 4. Locked until Bee Seller issues a HIGHSCHOOL code for this phone.
+/// One WidgetsApp for the whole process — swapping in a second one leaves a blank screen.
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final unlock = UnlockStore();
@@ -25,17 +26,19 @@ class _FourRootState extends State<FourRoot> {
 
   @override
   Widget build(BuildContext context) {
-    if (_open) return const HighApp();
     return WidgetsApp(
       title: '4',
       color: const Color(0xFFE88A6E),
       debugShowCheckedModeBanner: false,
-      builder: (_, _) => LockScreen(
-        unlock: widget.unlock,
-        onUnlocked: () {
-          if (mounted) setState(() => _open = true);
-        },
-      ),
+      pageRouteBuilder: <T>(RouteSettings s, WidgetBuilder b) => PageRouteBuilder<T>(settings: s, pageBuilder: (c, _, _) => b(c)),
+      home: _open
+          ? const HighScreen()
+          : LockScreen(
+              unlock: widget.unlock,
+              onUnlocked: () {
+                if (mounted) setState(() => _open = true);
+              },
+            ),
     );
   }
 }

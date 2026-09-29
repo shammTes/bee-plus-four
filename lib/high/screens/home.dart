@@ -87,7 +87,7 @@ class _StaggerState extends State<Stagger> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _c = AnimationController(vsync: this, duration: Duration(milliseconds: 500 + _d.round()))..forward();
+    _c = AnimationController(vsync: this, duration: Duration(milliseconds: 500 + _d.round()))..value = 1;
   }
 
   @override
