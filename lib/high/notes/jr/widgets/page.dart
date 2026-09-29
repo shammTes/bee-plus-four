@@ -84,14 +84,19 @@ class PageShell extends StatelessWidget {
   const PageShell({super.key, required this.top, required this.body});
   final Widget top;
   final Widget body;
+  /// High: readable centred column on wide (landscape tablet / TV) screens
+  static const maxWidth = 860.0;
   @override
-  Widget build(BuildContext context) => Column(
-    crossAxisAlignment: CrossAxisAlignment.stretch,
-    children: [
-      top,
-      Expanded(child: body),
-    ],
-  );
+  Widget build(BuildContext context) {
+    final col = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        top,
+        Expanded(child: body),
+      ],
+    );
+    return MediaQuery.sizeOf(context).width <= maxWidth ? col : Center(child: SizedBox(width: maxWidth, child: col));
+  }
 }
 
 /// h2.title (30px/900) and h3.title (26px/900)

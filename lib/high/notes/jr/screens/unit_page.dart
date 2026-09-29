@@ -27,6 +27,8 @@ import '../../../screens/routes.dart' as hr;
 import '../../../widgets/page.dart' as hp;
 import '../data/repository.dart';
 import '../../concept_map.dart';
+import '../../../teacher/presenter.dart';
+import '../../../widgets/kit.dart' as hc;
 
 class UnitPage extends StatefulWidget with hp.NoNav {
   const UnitPage({super.key, required this.bookId, required this.unitId, this.focus, this.section});
@@ -182,7 +184,16 @@ class UnitPageState extends State<UnitPage> {
   Widget build(BuildContext context) {
     final k = Kit.of(context), u = unit;
     final ib = _s.repo.byId(widget.bookId);
-    final top = hp.TopBar(title: u == null ? '' : 'Unit ${u.number}', sub: ib?.title, onBack: () => Shell.of(context).pop(), tab: false);
+    final top = hp.TopBar(
+      title: u == null ? '' : 'Unit ${u.number}',
+      sub: ib?.title,
+      onBack: () => Shell.of(context).pop(),
+      tab: false,
+      actions: [
+        // High: present this unit's notes on a TV, one card per step
+        if (u != null) hc.CBtn('play', label: 'Present', onTap: () => hp.HighNav.of(context).push(PresenterPage(slides: [NotesSlide(u, widget.bookId, _s.repo.svgPath)]))),
+      ],
+    );
     if (!_ready || u == null) return PageShell(top: top, body: const SizedBox.shrink());
     return PageShell(
       top: top,

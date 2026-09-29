@@ -14,6 +14,7 @@ import '../widgets/kit.dart';
 import '../widgets/page.dart';
 import '../widgets/rich.dart';
 import 'routes.dart';
+import '../teacher/teacher.dart' show ClassCodeCard;
 
 int _g = 9;
 const kExerciseSet = 20;
@@ -65,6 +66,7 @@ class _ExercisePageState extends State<ExercisePage> {
             margin: const EdgeInsets.only(top: 6),
             child: Wrap(spacing: 8, runSpacing: 8, children: [for (final g in gs) ChipX('Grade $g', tone: gradeTone(g), on: g == _g, onTap: () => setState(() => _g = g))]),
           ),
+          const ClassCodeCard(),
           SectionLabel('Grade $_g', n: total > 0 ? '$total questions' : '${subs.length} subjects', icon: 'pen'),
           for (final x in subs)
             () {

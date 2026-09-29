@@ -8,6 +8,7 @@ import '../theme/tokens.dart';
 import '../widgets/clay_widgets.dart';
 import '../widgets/tx.dart';
 import 'diagram.dart';
+import '../../../media/media.dart' show MediaCardView;
 import 'rich.dart';
 import 'session.dart';
 import 'ui.dart';
@@ -149,6 +150,8 @@ class _NoteCardViewState extends State<NoteCardView> {
         return _worked(k, p, c, paras, pg);
       case GraphCard():
         return _graph(k, p, c, paras, pg);
+      case MediaCard():
+        return MediaCardView(c: c, unitId: u.id, ckey: widget.ckey);
       case TextCard():
         return base([CardTitle(c.title), paras(c.body), pg]);
     }

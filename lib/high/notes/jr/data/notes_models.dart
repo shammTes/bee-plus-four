@@ -183,8 +183,17 @@ sealed class NoteCard {
     'model' => ModelCard(j),
     'worked' => WorkedCard(j),
     'graph' => GraphCard(j),
+    'media' => MediaCard(j),
     final t => throw FormatException('${j.where}: unknown card type "$t"'),
   };
+}
+
+/// High media / interactive card (injected from assets/high/media/placements.json):
+/// kind photo | model | sim | quick | label | match; everything else stays in [m]
+class MediaCard extends NoteCard {
+  final String kind;
+  final Map<String, dynamic> m;
+  MediaCard(J j) : kind = j.str('kind'), m = Map<String, dynamic>.from(j.m), super(j);
 }
 
 class TextCard extends NoteCard {

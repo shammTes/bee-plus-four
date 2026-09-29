@@ -827,6 +827,10 @@ final _txCache = <String, (String, Map<String, String>?)>{};
   return (src.substring(0, pos[0]).trim(), opts);
 });
 String _texStem(Question q) => _tx(q).$1;
+
+/// stem / options with TeX split out (shared with the homework sheet)
+String texStem(Question q) => q.stemTex != null ? _tx(q).$1 : q.stem;
+Map<String, String>? texOpts(Question q) => q.stemTex != null ? _tx(q).$2 : null;
 Map<String, String>? _texOpts(Question q) => _tx(q).$2;
 
 // ---------------------------------------------------------------- matching card (session state as the web MPICK / MREVEAL / MRESET)

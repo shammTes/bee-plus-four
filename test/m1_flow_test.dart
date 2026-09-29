@@ -93,6 +93,8 @@ void main() {
     expect(s.name, 'Abeba');
     s.answers['x'] = {'c': 'A', 'ok': true, 't': 1};
     await t.scrollUntilVisible(find.text('Reset'), 200, scrollable: find.byType(Scrollable).first);
+    await t.drag(find.byType(Scrollable).first, const Offset(0, -400)); // clear of the floating nav
+    await t.pumpAndSettle();
     await t.tap(find.text('Reset'));
     await t.pumpAndSettle();
     await t.tap(find.text('Tap again'));

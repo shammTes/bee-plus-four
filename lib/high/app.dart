@@ -7,13 +7,13 @@ import 'screens/exercise.dart';
 import 'screens/tutor.dart';
 import 'notes/jr/state/app_state.dart' as jr;
 import 'screens/notes_home.dart';
+import 'screens/tour.dart';
 import 'state/app_state.dart';
 import 'theme/tokens.dart';
 import 'widgets/art.dart';
 import 'widgets/kit.dart';
 import 'widgets/page.dart';
 import 'high.dart';
-import 'screens/tour.dart';
 
 /// Standalone app (use in main.dart). Loads content + state, then shows [HighScreen].
 class HighApp extends StatelessWidget {
@@ -22,7 +22,7 @@ class HighApp extends StatelessWidget {
   final HighTab initialTab;
   @override
   Widget build(BuildContext context) => WidgetsApp(
-    title: 'High',
+    title: '4',
     color: const Color(0xFFE88A6E),
     debugShowCheckedModeBanner: false,
     pageRouteBuilder: <T>(RouteSettings s, WidgetBuilder b) => PageRouteBuilder<T>(settings: s, pageBuilder: (c, _, _) => b(c)),
@@ -59,18 +59,8 @@ class _HighScreenState extends State<HighScreen> {
     final s = _s;
     if (s == null) {
       return ColoredBox(
-        color: const Color(0xFFF7F0E5),
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: Text(
-              _err != null ? 'Could not open 4\n$_err' : 'Opening 4…',
-              textDirection: TextDirection.ltr,
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: Color(0xFF3E3129), fontWeight: FontWeight.w800, fontSize: 18),
-            ),
-          ),
-        ),
+        color: Palette.light.bg,
+        child: Center(child: _err != null ? Text('Could not open 4\n$_err', textDirection: TextDirection.ltr) : const Text('Opening 4…', textDirection: TextDirection.ltr)),
       );
     }
     final dark = MediaQuery.maybePlatformBrightnessOf(context) == Brightness.dark;
@@ -86,7 +76,7 @@ class _HighScreenState extends State<HighScreen> {
             textDirection: TextDirection.ltr,
             child: DefaultTextStyle(
               style: ts(15, w600, p.ink),
-              child: ColoredBox(color: p.bg, child: HighShell(initialTab: widget.initialTab)),
+              child: ColoredBox(color: p.bg, child: BigScreen(child: HighShell(initialTab: widget.initialTab))),
             ),
           );
         },
@@ -377,3 +367,29 @@ class _SheetLayerState extends State<SheetLayer> with SingleTickerProviderStateM
 
 /// access to the shell's sheet API
 VoidCallback showSheet(BuildContext context, Widget child, {bool lock = false, bool bare = false}) => context.findAncestorStateOfType<HighShellState>()!.sheet(child, lock: lock, bare: bare);
+
+/// Tablets / TVs (e.g. 1920×1080 Smart View): lay the UI out on a smaller logical canvas and scale it up, so type,
+/// clay and images grow with the screen instead of stretching thin. Phones are untouched.
+class BigScreen extends StatelessWidget {
+  const BigScreen({super.key, required this.child});
+  final Widget child;
+
+  /// scale for a logical screen size (1 on phones; ~1.4 on a 1920×1080 TV at dpr 1)
+  static double scaleFor(Size s) => s.shortestSide < 700 ? 1 : (s.shortestSide / 760).clamp(1.0, 2.0);
+
+  @override
+  Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context), f = scaleFor(mq.size);
+    if (f == 1) return child;
+    final sz = mq.size / f;
+    return FittedBox(
+      fit: BoxFit.fill,
+      alignment: Alignment.topLeft,
+      child: SizedBox(
+        width: sz.width,
+        height: sz.height,
+        child: MediaQuery(data: mq.copyWith(size: sz, padding: mq.padding / f, viewPadding: mq.viewPadding / f, viewInsets: mq.viewInsets / f), child: child),
+      ),
+    );
+  }
+}

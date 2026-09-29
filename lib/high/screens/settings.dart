@@ -4,8 +4,10 @@ import 'package:flutter/widgets.dart';
 import '../data/models.dart';
 import '../state/app_state.dart';
 import '../theme/tokens.dart';
+import '../media/media.dart' show CreditsPage, MediaLib;
 import '../widgets/kit.dart';
 import '../widgets/page.dart';
+import '../teacher/teacher.dart' show TeacherPage;
 import 'home.dart' show Stagger;
 import 'toast.dart';
 
@@ -104,6 +106,25 @@ class _SettingsPageState extends State<SettingsPage> {
               onPick: (t) => s.setTheme(t == 'auto' ? null : t),
             ),
           ),
+          const SectionLabel('Teacher'),
+          Panel(
+            padding: const EdgeInsets.all(12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              spacing: 10,
+              children: [
+                Seg(
+                  current: s.teacher ? 'on' : 'off',
+                  items: const [
+                    (id: 'off', label: 'Student', icon: 'user', count: null, tone: 'sage', enabled: true),
+                    (id: 'on', label: 'Teacher mode', icon: 'grid', count: null, tone: 'sage', enabled: true),
+                  ],
+                  onPick: (v) => s.setTeacher(v == 'on'),
+                ),
+                if (s.teacher) Btn('Open teacher tools', icon: 'grid', kind: BtnKind.soft, block: true, onTap: () => HighNav.of(context).open('teacher', () => const TeacherPage())),
+              ],
+            ),
+          ),
           const SectionLabel('Your progress'),
           kvCard([
             ('Questions answered', '${st.answered}'),
@@ -119,7 +140,9 @@ class _SettingsPageState extends State<SettingsPage> {
             ('Categories', kCats.map((c) => '${r.catExams(c.id).length} ${c.label.toLowerCase()}').join(' · ')),
             ('Questions', thousands(nQ)),
             ('Notes', 'Grade 9–12 · 8 subjects'),
+            ('Pictures & 3D', '${MediaLib.credits.length} openly licensed items'),
           ]),
+          Btn('Credits (pictures and 3D models)', icon: 'book', kind: BtnKind.soft, block: true, onTap: () => HighNav.of(context).open('credits', () => const CreditsPage())),
           Panel(
             child: Row(
               spacing: 12,

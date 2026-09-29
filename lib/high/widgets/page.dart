@@ -175,14 +175,19 @@ class NoGlow extends ScrollBehavior {
 class PageShell extends StatelessWidget {
   const PageShell({super.key, required this.top, required this.body});
   final Widget top, body;
+  /// on wide (landscape / TV) screens pages keep a readable column width, centred
+  static const maxWidth = 860.0;
   @override
-  Widget build(BuildContext context) => Column(
-    crossAxisAlignment: CrossAxisAlignment.stretch,
-    children: [
-      top,
-      Expanded(child: body),
-    ],
-  );
+  Widget build(BuildContext context) {
+    final col = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        top,
+        Expanded(child: body),
+      ],
+    );
+    return MediaQuery.sizeOf(context).width <= maxWidth ? col : Center(child: SizedBox(width: maxWidth, child: col));
+  }
 }
 
 /// `.hd` card header: h3 (16.5/900) + small, trailing widget

@@ -102,16 +102,88 @@ class HighState extends ChangeNotifier {
 
   /// First-run walkthrough. Null once finished.
   int? tourStep;
-
   static const tourActs = ['name', 'grade9', 'subject', 'back', 'back', 'notes', 'exercise', 'matric', 'tutor', 'home', 'settings', 'finish'];
-
   bool tourWants(String act) => tourStep != null && tourStep! >= 0 && tourStep! < tourActs.length && tourActs[tourStep!] == act;
-
   void tourAct(String act) {
     if (!tourWants(act)) return;
     final next = tourStep! + 1;
     tourStep = next >= tourActs.length ? null : next;
     changed();
+  }
+
+  /// teacher mode (Settings) + the teacher's selected question ids; recent homework sets [{code, ids, t}]
+  bool teacher = false;
+  List<String> basket = [];
+  List<Map<String, dynamic>> homework = [];
+
+  void setTeacher(bool v) {
+    teacher = v;
+    changed();
+  }
+
+  void toggleBasket(String id) {
+    basket = basket.contains(id) ? (basket.where((x) => x != id).toList()) : [...basket, id];
+    changed();
+  }
+
+  void clearBasket() {
+    basket = [];
+    changed();
+  }
+
+  /// remember an opened homework set (newest first, max 12)
+  void saveHomework(String code, List<String> ids) {
+    homework = [{'code': code, 'ids': ids, 't': nowMs()}, ...homework.where((h) => h['code'] != code)].take(12).toList();
+    changed();
+  }
+
+  /// gamification: {xp, days:{dayKey: xp}, done:{key: 1}, stars:{unitId: 0-3}, cnt:{kind: n}}
+  Map<String, dynamic> game = {};
+  int get xp => (game['xp'] as num?)?.toInt() ?? 0;
+  int starsOf(String unitId) => ((game['stars'] as Map?)?[unitId] as num?)?.toInt() ?? 0;
+  int get totalStars => ((game['stars'] as Map?)?.values ?? const []).fold(0, (a, b) => a + (b as num).toInt());
+  int count(String kind) => ((game['cnt'] as Map?)?[kind] as num?)?.toInt() ?? 0;
+  int get level => 1 + (math.sqrt(xp / 25)).floor();
+
+  /// award XP once per [key] (a quick check, game or sim card); [stars] only ever go up. Returns the XP given.
+  int award(String key, int pts, {String? unit, int stars = 0, String? kind, int? t}) {
+    final done = (game['done'] as Map?)?.cast<String, dynamic>() ?? <String, dynamic>{};
+    final st = (game['stars'] as Map?)?.cast<String, dynamic>() ?? <String, dynamic>{};
+    var gave = 0;
+    if (!done.containsKey(key)) {
+      done[key] = 1;
+      gave = pts;
+      final days = (game['days'] as Map?)?.cast<String, dynamic>() ?? <String, dynamic>{};
+      final dk = dayKey(t ?? nowMs());
+      days[dk] = ((days[dk] as num?) ?? 0) + pts;
+      game['days'] = days;
+      game['xp'] = xp + pts;
+      if (kind != null) game['cnt'] = {...?(game['cnt'] as Map?)?.cast<String, dynamic>(), kind: count(kind) + 1};
+    }
+    if (unit != null && stars > starsOf(unit)) st[unit] = stars.clamp(0, 3);
+    game['done'] = done;
+    game['stars'] = st;
+    changed();
+    return gave;
+  }
+
+  /// earned badge ids (see media/game.dart for names)
+  Set<String> get badges {
+    final st = streak();
+    return {
+      if (xp >= 10) 'first',
+      if (xp >= 100) 'xp100',
+      if (xp >= 500) 'xp500',
+      if (xp >= 1500) 'xp1500',
+      if (st.best >= 3) 'streak3',
+      if (st.best >= 7) 'streak7',
+      if (st.best >= 30) 'streak30',
+      if (count('label') >= 5) 'labeler',
+      if (count('match') >= 5) 'matcher',
+      if (count('sim') >= 10) 'explorer',
+      if (count('quick') >= 10) 'checker',
+      if (totalStars >= 15) 'stars15',
+    };
   }
 
   /// platform brightness for theme == null
@@ -169,6 +241,10 @@ class HighState extends ChangeNotifier {
     attempts = [for (final r in (o['attempts'] as List? ?? const [])) if (r is Map) Map<String, dynamic>.from(r)];
     daily = Map<String, dynamic>.from(o['daily'] as Map? ?? {});
     notes = Map<String, dynamic>.from(o['notes'] as Map? ?? {});
+    teacher = o['teacher'] == true;
+    basket = strs(o['basket']);
+    homework = [for (final r in (o['homework'] as List? ?? const [])) if (r is Map) Map<String, dynamic>.from(r)];
+    game = Map<String, dynamic>.from(o['game'] as Map? ?? {});
     tourStep = o['tourDone'] == true ? null : ((o['tourStep'] as num?)?.toInt() ?? 0);
     if (!kCats.any((c) => c.id == cat) || (repo.loaded && repo.catExams(cat).isEmpty)) cat = 'matric';
   }
@@ -187,6 +263,10 @@ class HighState extends ChangeNotifier {
     'attempts': attempts,
     'daily': daily,
     'notes': notes,
+    'teacher': teacher,
+    'basket': basket,
+    'homework': homework,
+    'game': game,
     'tourDone': tourStep == null,
     'tourStep': tourStep,
   };
@@ -282,6 +362,7 @@ class HighState extends ChangeNotifier {
     if (!q.exam.isExercise) touchRecent(q.exam.id, t);
     changed();
     final after = streak(t).cur;
+    if (ok) award('q:${q.id}', 2, t: t);
     return (ok: ok, streakUp: after > before && after >= 2 ? after : 0);
   }
 
@@ -296,7 +377,7 @@ class HighState extends ChangeNotifier {
 
   ({int cur, int best}) streak([int? now]) {
     now ??= nowMs();
-    final days = {for (final e in ev) dayKey((e[0] as num).toInt())};
+    final days = {for (final e in ev) dayKey((e[0] as num).toInt()), ...?(game['days'] as Map?)?.keys.cast<String>()};
     var cur = 0, d = now;
     if (!days.contains(dayKey(d))) d -= kDay;
     while (days.contains(dayKey(d))) {

@@ -4,6 +4,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/widgets.dart';
 
+import '../media/game_ui.dart' show GameCard;
 import '../data/models.dart';
 import '../state/app_state.dart';
 import '../theme/clay.dart';
@@ -15,6 +16,7 @@ import '../notes/jr/data/subjects.dart';
 import '../notes/jr/state/app_state.dart' as jr;
 import 'notes_home.dart';
 import 'routes.dart';
+import '../teacher/teacher.dart';
 
 /// descent of the 16px Nunito strut under an inline `<svg>` (web line box)
 const kSvgDescent = 16 * .353;
@@ -53,6 +55,9 @@ class HomePage extends StatelessWidget {
         children: Stagger.wrap([
           _Hero(name: name, sub: sub, cta: st.fresh ? 'Start studying' : 'Continue studying'),
           const _Grades(),
+          const TeacherCard(),
+          const GameCard(),
+          const ClassCodeCard(),
           const _Cats(),
           _StatGrid(st: st),
           _Weekly(st: st),
@@ -87,7 +92,7 @@ class _StaggerState extends State<Stagger> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _c = AnimationController(vsync: this, duration: Duration(milliseconds: 500 + _d.round()))..value = 1;
+    _c = AnimationController(vsync: this, duration: Duration(milliseconds: 500 + _d.round()))..forward();
   }
 
   @override

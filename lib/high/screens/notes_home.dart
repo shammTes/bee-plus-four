@@ -140,7 +140,7 @@ class NotesSubjectPage extends StatelessWidget {
   }
 }
 
-/// opened from the Grade tiles on Home: subjects first, then units. Grades 11 and 12 pick Science or Art.
+/// opened from the Grade tiles on Home: subjects first. Grades 11 and 12 pick Science or Art.
 class GradePage extends StatefulWidget {
   const GradePage({super.key, required this.grade});
   final int grade;
@@ -176,20 +176,8 @@ class _GradePageState extends State<GradePage> {
       body: ScreenList(
         children: [
           if (split && _stream == null) ...[
-            _StreamCard(
-              title: 'Science',
-              ti: 'ሳይንስ',
-              sub: 'Mathematics, Physics, Chemistry, Biology, Agriculture',
-              tone: 'mint',
-              onTap: () => setState(() => _stream = 'science'),
-            ),
-            _StreamCard(
-              title: 'Art',
-              ti: 'ኪነት',
-              sub: 'Mathematics, History, Geography, Business, Agriculture',
-              tone: 'butter',
-              onTap: () => setState(() => _stream = 'art'),
-            ),
+            _StreamCard(title: 'Science', ti: 'ሳይንስ', sub: 'Mathematics, Physics, Chemistry, Biology, Agriculture', tone: 'mint', onTap: () => setState(() => _stream = 'science')),
+            _StreamCard(title: 'Art', ti: 'ኪነት', sub: 'Mathematics, History, Geography, Business, Agriculture', tone: 'butter', onTap: () => setState(() => _stream = 'art')),
           ] else ...[
             Panel(
               tone: gradeTone(widget.grade),
@@ -223,7 +211,7 @@ class _GradePageState extends State<GradePage> {
                 child: Row(
                   spacing: 12,
                   children: [
-                    Badge(b.look.tone, b.look.art, s: 46),
+                    Badge(b.look.tone, 'book', s: 46),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -233,11 +221,6 @@ class _GradePageState extends State<GradePage> {
                         ],
                       ),
                     ),
-                    if (s.tourWants('subject'))
-                      DecoratedBox(
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), border: Border.all(color: p.coral, width: 2.5)),
-                        child: Padding(padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4), child: Text('ጠውቕ', style: ts(12, w900, p.coral))),
-                      ),
                   ],
                 ),
               ),

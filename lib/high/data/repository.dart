@@ -6,6 +6,7 @@ import 'dart:isolate';
 import 'package:flutter/services.dart';
 
 import 'models.dart';
+import '../teacher/codes.dart';
 
 String exerciseSubjectLabel(String key) => const {
   'mathematics': 'Mathematics', 'business_economics': 'Business & Economics', 'biology': 'Biology', 'chemistry': 'Chemistry',
@@ -31,6 +32,9 @@ class ExamRepo {
   final Map<String, String> topicTitleMap = {}, topicParent = {};
   final Map<String, List<String>> topicQs = {};
   final List<Concept> concepts = [];
+
+  /// board codes (assets/high/codes.json); null if not bundled
+  QCodes? codes;
   List<String> media = [];
   bool loaded = false;
 
@@ -112,6 +116,7 @@ class ExamRepo {
       }
     }
     await _loadExercises();
+    codes = await QCodes.load(_bundle);
     loaded = true;
   }
 
