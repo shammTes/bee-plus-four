@@ -59,7 +59,7 @@ class SellerStore {
     if (payload == null || !payload.isSignatureValid) {
       return 'Invalid grant code.';
     }
-    final type = payload.packageCode;
+    final type = payload.packageCode.toUpperCase();
     if (!type.startsWith('WHOLESALE:') && !type.startsWith('SELLER:')) {
       return 'Not a seller grant.';
     }
@@ -73,7 +73,7 @@ class SellerStore {
     await _saveUsedNonces(nonces);
     await _box?.put(_quotaKey, quota + q);
     await _hist('redeem', type);
-    return 'Added $q unlocks. Quota now ${quota}.';
+    return 'Added $q unlocks for 4 and Bee Plus. Quota now ${quota}.';
   }
 
   Future<IssueResult> issueStudentUnlock(
@@ -82,15 +82,19 @@ class SellerStore {
   }) async {
     final id = studentDeviceId.trim();
     if (id.isEmpty) return const IssueResult.fail('Enter or scan a device ID.');
+    final pkg = packageCode.toUpperCase();
+    if (pkg != 'HIGHSCHOOL' && pkg != 'JUNIOR') {
+      return const IssueResult.fail('Pick 4 or Bee Plus.');
+    }
     if (quota < 1) return const IssueResult.fail('No quota left.');
     final nonce = const Uuid().v4().replaceAll('-', '').substring(0, 12);
     final payload = QrPayload.issue(
-      packageCode: packageCode.toUpperCase(),
+      packageCode: pkg,
       deviceId: id,
       nonce: nonce,
     );
     await _box?.put(_quotaKey, quota - 1);
-    await _hist('student:$packageCode', id);
+    await _hist('student:$pkg', id);
     return IssueResult.ok(payload.encode());
   }
 
@@ -98,17 +102,19 @@ class SellerStore {
     required String targetSellerDeviceId,
     required int grantQuota,
   }) async {
-    if (grantQuota <= 0 || quota < grantQuota) {
-      return const IssueResult.fail('Not enough quota.');
-    }
+    final id = targetSellerDeviceId.trim();
+    if (id.isEmpty) return const IssueResult.fail('Enter or scan the other seller Device ID.');
+    if (grantQuota <= 0) return const IssueResult.fail('Enter a quota greater than 0.');
+    if (quota < grantQuota) return const IssueResult.fail('Not enough quota.');
     final nonce = const Uuid().v4().replaceAll('-', '').substring(0, 12);
+    // One shared pool. The other seller spends it on 4 (HIGHSCHOOL) or Bee Plus (JUNIOR).
     final payload = QrPayload.issue(
       packageCode: 'SELLER:$grantQuota',
-      deviceId: targetSellerDeviceId.trim(),
+      deviceId: id,
       nonce: nonce,
     );
     await _box?.put(_quotaKey, quota - grantQuota);
-    await _hist('sub_seller', targetSellerDeviceId);
+    await _hist('wholesale:$grantQuota', id);
     return IssueResult.ok(payload.encode());
   }
 

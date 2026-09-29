@@ -65,6 +65,18 @@ class _SellerHomePageState extends State<SellerHomePage> {
     super.dispose();
   }
 
+  Future<void> _pasteInto(TextEditingController target) async {
+    final data = await Clipboard.getData(Clipboard.kTextPlain);
+    final text = data?.text?.trim() ?? '';
+    if (!mounted) return;
+    if (text.isEmpty) {
+      setState(() => status = 'Clipboard is empty.');
+      return;
+    }
+    target.text = text;
+    setState(() {});
+  }
+
   Future<void> _refresh() async => setState(() {});
 
   Future<void> _openScan({
@@ -122,7 +134,7 @@ class _SellerHomePageState extends State<SellerHomePage> {
     } else {
       setState(() {
         lastCode = r.code;
-        status = 'Seller code QR ready.';
+        status = 'Wholesale QR ready. This quota unlocks both 4 and Bee Plus.';
       });
     }
     await _refresh();
@@ -170,13 +182,22 @@ class _SellerHomePageState extends State<SellerHomePage> {
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               hintText: 'Paste WHOLESALE/SELLER code or scan QR',
-              suffixIcon: IconButton(
-                icon: const Icon(Icons.qr_code_scanner),
-                onPressed: () => _openScan(
-                  title: 'Scan grant QR',
-                  hint: 'Scan Master or parent-seller grant QR',
-                  onResult: (v) => setState(() => redeemCtrl.text = v),
-                ),
+              suffixIcon: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.paste),
+                    onPressed: () => _pasteInto(redeemCtrl),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.qr_code_scanner),
+                    onPressed: () => _openScan(
+                      title: 'Scan grant QR',
+                      hint: 'Scan Master or parent-seller grant QR',
+                      onResult: (v) => setState(() => redeemCtrl.text = v),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -212,14 +233,23 @@ class _SellerHomePageState extends State<SellerHomePage> {
             controller: studentCtrl,
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
-              hintText: 'Student Device ID',
-              suffixIcon: IconButton(
-                icon: const Icon(Icons.qr_code_scanner),
-                onPressed: () => _openScan(
-                  title: 'Scan student Device ID',
-                  hint: 'Scan the Device ID QR on the student phone',
-                  onResult: (v) => setState(() => studentCtrl.text = v),
-                ),
+              hintText: 'Student Device ID — type, paste, or scan',
+              suffixIcon: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.paste),
+                    onPressed: () => _pasteInto(studentCtrl),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.qr_code_scanner),
+                    onPressed: () => _openScan(
+                      title: 'Scan student Device ID',
+                      hint: 'Scan the Device ID QR on the student phone',
+                      onResult: (v) => setState(() => studentCtrl.text = v),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -244,18 +274,32 @@ class _SellerHomePageState extends State<SellerHomePage> {
           const SizedBox(height: 20),
           const Text('3) Wholesale to another seller',
               style: TextStyle(fontWeight: FontWeight.w900)),
+          const SizedBox(height: 6),
+          const Text(
+            'The quota you send works for both 4 and Bee Plus. The other seller picks the app when they unlock a phone.',
+          ),
+          const SizedBox(height: 8),
           TextField(
             controller: sellerCtrl,
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
-              hintText: 'Other seller Device ID',
-              suffixIcon: IconButton(
-                icon: const Icon(Icons.qr_code_scanner),
-                onPressed: () => _openScan(
-                  title: 'Scan seller Device ID',
-                  hint: 'Scan the other seller Device ID QR',
-                  onResult: (v) => setState(() => sellerCtrl.text = v),
-                ),
+              hintText: 'Other seller Device ID — type, paste, or scan',
+              suffixIcon: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.paste),
+                    onPressed: () => _pasteInto(sellerCtrl),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.qr_code_scanner),
+                    onPressed: () => _openScan(
+                      title: 'Scan seller Device ID',
+                      hint: 'Scan the other seller Device ID QR',
+                      onResult: (v) => setState(() => sellerCtrl.text = v),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -271,7 +315,7 @@ class _SellerHomePageState extends State<SellerHomePage> {
           const SizedBox(height: 8),
           FilledButton.tonal(
             onPressed: _issueSeller,
-            child: const Text('Generate seller code QR'),
+            child: const Text('Generate wholesale QR for 4 and Bee Plus'),
           ),
           if (status.isNotEmpty) ...[
             const SizedBox(height: 16),
@@ -296,6 +340,12 @@ class _SellerHomePageState extends State<SellerHomePage> {
               label: const Text('Copy code'),
             ),
           ],
+          const SizedBox(height: 28),
+          const Text(
+            'Developed by Shamm Tesfalem 07162947',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontWeight: FontWeight.w800),
+          ),
         ],
       ),
     );
