@@ -5,7 +5,7 @@ import '../theme/tokens.dart';
 import '../widgets/kit.dart';
 import '../widgets/page.dart';
 
-/// First-run walkthrough. The student must tap the real control named in each step.
+/// First-run walkthrough in simple English. Tap the real button named in each step.
 class TourCard extends StatefulWidget {
   const TourCard({super.key});
   @override
@@ -39,20 +39,20 @@ class _TourCardState extends State<TourCard> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(c.$1, style: _gz(18, FontWeight.w900, p.ink)),
+              Text(c.$1, style: ts(18, w900, p.ink)),
               const SizedBox(height: 6),
-              Text(c.$2, style: _gz(15, FontWeight.w700, const Color(0xFF5C4A3A))),
+              Text(c.$2, style: ts(15, w700, const Color(0xFF5C4A3A))),
               if (s.tourWants('name')) ...[
                 const SizedBox(height: 10),
-                Field(controller: _name, placeholder: 'ስምካ', maxLength: 24, onSubmitted: (_) => _saveName(s)),
+                Field(controller: _name, placeholder: 'Your name', maxLength: 24, onSubmitted: (_) => _saveName(s)),
                 const SizedBox(height: 8),
-                Btn('ቀጽል', icon: 'play', block: true, onTap: () => _saveName(s)),
+                Btn('Continue', icon: 'play', block: true, onTap: () => _saveName(s)),
               ],
               if (s.tourWants('finish')) ...[
                 const SizedBox(height: 8),
                 Text('Developed by Shamm Tesfalem, 07162947', style: ts(12.5, w800, p.ink3)),
                 const SizedBox(height: 8),
-                Btn('ወዲእ', icon: 'check', block: true, onTap: () => s.tourAct('finish')),
+                Btn('Done', icon: 'check', block: true, onTap: () => s.tourAct('finish')),
               ],
             ],
           ),
@@ -67,26 +67,17 @@ class _TourCardState extends State<TourCard> {
   }
 }
 
-TextStyle _gz(double size, FontWeight w, Color color) => TextStyle(
-      fontFamily: 'HighGeez',
-      fontFamilyFallback: const ['HighNunito', 'HighGeez'],
-      fontSize: size,
-      fontWeight: w,
-      color: color,
-      height: 1.45,
-    );
-
 const _copy = <(String, String)>[
-  ('ሰላም', 'እዚ መተግበሪ 4 እዩ። ንክፍሊ 9 ክሳብ 12፣ ብዘይ ኢንተርነት። ስምካ ጽሓፍ እሞ «ቀጽል» ጠውቕ።'),
-  ('ክፍልታት', 'እዞም ኣርባዕተ ቁልፊ ክፍሊ 9፣ 10፣ 11ን 12ን እዮም። ክፍሊ 11ን 12ን ሳይንስን ኪነትን ኣለዎም። ናይ ክፍሊ 9 ቁልፊ ጠውቕ።'),
-  ('ትምህርቲ', 'ኣብዚ ትምህርትታት ብዝርዝር ኣለዉ። ሓደ ትምህርቲ ጠውቕ፣ ንኣሃዱታት ክትሪኢ።'),
-  ('ኣሃዱታት', 'እዚ ናይቲ ትምህርቲ ኣሃዱታት እዩ። ማስታወሻ፣ ልምምድን ማትሪክን ካብዚ ትኸፍት። ሕጂ ናይ ድሕሪት ቁልፊ ጠውቕ።'),
-  ('ተመለስ', 'ጽቡቕ። ደጊምካ ናይ ድሕሪት ቁልፊ ጠውቕ፣ ናብ መጀመርታ ገጽ ክትምለስ።'),
-  ('ማስታወሻ', 'ኣብ ታሕቲ ዘሎ «Notes» ናይ መጽሓፍ ማስታወሻ እዩ። ነቲ ቁልፊ ጠውቕ።'),
-  ('ልምምድ', 'እዚ ናይ ልምምድ ገጽ እዩ። ሕቶታት ብክፍልን ትምህርትን ኣለዉ። ሕጂ «Exercise» ጠውቕ።'),
-  ('ማትሪክ', 'እዚ ናይ ፈተና ማትሪክን ሞዴልን እዩ። መልሲን መግለጺን ኣሎ። «Matric» ጠውቕ።'),
-  ('መምህር', 'እዚ 4 ንሕቶታትካ ካብ መጽሓፍ የብርህ። ኢንተርነት ኣየድልን። «Tutor» ጠውቕ።'),
-  ('መጀመርታ', 'ናብ መጀመርታ ገጽ ንምምላስ «Home» ጠውቕ።'),
-  ('ስንድኦት', 'ኣብ ላዕሊ ናይ ስእሊ መለለዪ ኣሎ። ጠውቕዎ፣ ስንድኦትን ብዛዕባን ክትከፍት።'),
-  ('ተዛዚሙ', 'ኩሉ ነገር ኣብዚ ስልኪ እዩ። ካብ ሕጂ ብቕልጡፍ ትመሃር። «ወዲእ» ጠውቕ።'),
+  ('Hello', 'This app is 4. It is for Grade 9 to 12. It works with no internet. Type your name, then tap Continue.'),
+  ('Grades', 'These four buttons are Grade 9, 10, 11 and 12. Grade 11 and 12 split into Science and Art. Tap Grade 9.'),
+  ('Subjects', 'This page lists the subjects. Tap one subject to open its units.'),
+  ('Units', 'These are the units for that subject. Notes, practice and matric start here. Now tap the back button.'),
+  ('Go back', 'Good. Tap back again to return to the home page.'),
+  ('Notes', 'The Notes button at the bottom opens the textbooks. Tap Notes.'),
+  ('Practice', 'This is practice. Questions are grouped by grade and subject. Now tap Exercise.'),
+  ('Matric', 'This is matric and model exams. Each question has an answer and an explanation. Tap Matric.'),
+  ('Tutor', '4 can explain a topic from the books on this phone. Tap Tutor.'),
+  ('Home', 'Tap Home to go back to the first page.'),
+  ('Settings', 'Tap the round picture at the top to open Settings and About.'),
+  ('You are ready', 'Everything stays on this phone. No internet is needed. Tap Done.'),
 ];
