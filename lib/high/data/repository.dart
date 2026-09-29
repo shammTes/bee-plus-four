@@ -19,7 +19,7 @@ class Concept {
 }
 
 class ExamRepo {
-  ExamRepo({this.useIsolate = true, AssetBundle? bundle}) : _bundle = bundle ?? rootBundle;
+  ExamRepo({this.useIsolate = false, AssetBundle? bundle}) : _bundle = bundle ?? rootBundle;
   final bool useIsolate;
   final AssetBundle _bundle;
   static const root = 'assets/high/exams';

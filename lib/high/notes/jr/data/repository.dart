@@ -49,7 +49,7 @@ class BookExtras {
 }
 
 class NotesRepo {
-  NotesRepo({AssetBundle? bundle, this.useIsolate = true}) : bundle = bundle ?? rootBundle;
+  NotesRepo({AssetBundle? bundle, this.useIsolate = false}) : bundle = bundle ?? rootBundle;
   final AssetBundle bundle;
   final bool useIsolate;
   static const base = 'assets/high/notes/notes';
