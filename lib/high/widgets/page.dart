@@ -25,10 +25,11 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final k = Kit.of(context), p = k.p;
+    final status = MediaQuery.paddingOf(context).top;
     return ConstrainedBox(
       constraints: const BoxConstraints(minHeight: 66),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(18, 16, 18, 8),
+        padding: EdgeInsets.fromLTRB(18, 10 + status, 18, 8),
         child: Row(
           spacing: 10,
           children: [

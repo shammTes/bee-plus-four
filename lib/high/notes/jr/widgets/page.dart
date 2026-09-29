@@ -14,7 +14,7 @@ class TopBar extends StatelessWidget {
   Widget build(BuildContext context) => ConstrainedBox(
     constraints: const BoxConstraints(minHeight: 76),
     child: Padding(
-      padding: const EdgeInsets.fromLTRB(20, 14, 20, 6),
+      padding: EdgeInsets.fromLTRB(20, 10 + MediaQuery.paddingOf(context).top, 20, 6),
       child: Row(crossAxisAlignment: CrossAxisAlignment.center, spacing: 12, children: children),
     ),
   );
