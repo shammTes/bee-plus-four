@@ -14,7 +14,8 @@ import 'widgets/art.dart';
 import 'widgets/kit.dart';
 import 'widgets/page.dart';
 import 'high.dart';
-import 'shell_ui.dart';
+import 'shell_nav.dart';
+import 'shell_rest.dart';
 
 /// Standalone app (use in main.dart). Loads content + state, then shows [HighScreen].
 class HighApp extends StatelessWidget {
