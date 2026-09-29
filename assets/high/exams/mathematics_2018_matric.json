@@ -1,0 +1,4172 @@
+{
+  "schema_version": "1.0",
+  "exam": {
+    "id": "math-2018-matric",
+    "year": "2018",
+    "subject": "Mathematics",
+    "grade": 12,
+    "school": "Eritrean Secondary Education Certificate Examination (national)",
+    "type": "matriculation",
+    "semester": null,
+    "title": "ESSCE 2018 – Algebra and Geometry (Mathematics)",
+    "exam_code": "02",
+    "duration": "3 hours",
+    "duration_minutes": 180,
+    "total_points": 100,
+    "parts": [
+      {
+        "part": 1,
+        "title": "Part I – Multiple Choice Questions (A. Algebra 1–35, B. Geometry 36–50)",
+        "question_type": "mcq",
+        "question_count": 50,
+        "points": 75,
+        "instructions": "Part I contains 50 questions; each carries 1.5 points. There is only one best answer for each question. Blacken the letter of your choice on the answer sheet with a pencil."
+      },
+      {
+        "part": 2,
+        "title": "Part II – Completion and Workout Questions",
+        "question_type": "completion + workout",
+        "question_count": 9,
+        "points": 25,
+        "instructions": "Part II contains five completion questions (A1–A5, 2 points each, no work needed) and four workout questions (B1–B4, show all necessary steps). In this bank A1–A5 are numbered 1–5 and B1–B4 are numbered 6–9."
+      }
+    ],
+    "source": {
+      "document": "Algebra_and_Geometry_matric_2018.pdf",
+      "pages": 14,
+      "prepared_by": "Ministry of Education, Eritrea – ESSCE 2018",
+      "official_answer_key": false,
+      "note": "Scanned paper; every item was transcribed from the page images (OCR of the mathematics is unreliable). The scan contains a previous candidate's pencil marks, which were ignored. The printed direction says 'Three Hours'; the paper code printed on every page is 02."
+    },
+    "answer_key_note": "No official key exists. All answers were solved independently, every calculation (including the similar questions) was checked with sympy/numpy (tools/src_matric/mathematics_2018/verify.py), and the method follows the Eritrean MoE Mathematics textbooks Grades 9–12. See confidence and review_flag on each question.",
+    "notation": "unicode",
+    "textbooks": [
+      {
+        "subject": "mathematics",
+        "grade": 9,
+        "file": "textbook_mathematics_9.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "mathematics",
+        "grade": 10,
+        "file": "textbook_mathematics_10.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 6
+      },
+      {
+        "subject": "mathematics",
+        "grade": 11,
+        "file": "textbook_mathematics_11.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "mathematics",
+        "grade": 12,
+        "file": "textbook_mathematics_12.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 6
+      }
+    ],
+    "content_version": "1.0.0",
+    "language": "en"
+  },
+  "questions": [
+    {
+      "id": "math-2018-matric-p1-q01",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 1,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Let A = {1, 2, 3, 4, a, b}, B = {2, 3, 4, 6, c, b} and C = {1, 3, 4, 5, 7}; then the set (A ∩ B) − C is equal to",
+      "options": {
+        "A": "{2, b}",
+        "B": "{2, 3, 4, b}",
+        "C": "{3, 4}",
+        "D": "{1, 2, 3, 6, b}",
+        "E": "{1, 2, 3, 4, 6, a, b}"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "A ∩ B = elements in both A and B = {2, 3, 4, b}.",
+        "(A ∩ B) − C removes every element that is also in C = {1, 3, 4, 5, 7}: 3 and 4 are removed.",
+        "(A ∩ B) − C = {2, b}. Answer: A."
+      ],
+      "tips": [
+        "Work inside the brackets first, then take the difference.",
+        "X − Y = {x : x ∈ X and x ∉ Y} – only elements of X can appear."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Let P = {1, 2, 5, 7, x}, Q = {2, 5, 8, x, y} and S = {2, 8, 9}. Then (P ∩ Q) − S is",
+          "options": {
+            "A": "{5, x}",
+            "B": "{2, 5, x}",
+            "C": "{2, 8}",
+            "D": "{1, 7}",
+            "E": "{5, 8, x, y}"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "P ∩ Q = {2, 5, x}.",
+            "Remove the elements of S (only 2 is common): {5, x}. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "sets-operations"
+      ],
+      "keywords": [
+        "intersection",
+        "set difference",
+        "sets"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Set Theory",
+        "section": "1.5.2 Difference of Sets",
+        "page": "13",
+        "pdf_page": 21,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 9,
+          "unit": "Unit 1 – Set Theory",
+          "section": "1.4.2 Intersection of Sets",
+          "page": "10",
+          "pdf_page": 18,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q02",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 2,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If f = {(1, 2), (2, −1), (3, 4)} and g = {(1, −1), (2, 2), (3, −2)}, then f + g is equal to",
+      "options": {
+        "A": "{(1, 2), (2, 1), (3, −2)}",
+        "B": "{(2, −1), (6, −2), (4, 2)}",
+        "C": "{(2, 1), (4, 1), (6, 2)}",
+        "D": "{(1, 1), (3, 2), (2, 1)}",
+        "E": "{(1, 2), (2, −1), (3, 4)}"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "(f + g)(x) = f(x) + g(x) for every x in the common domain {1, 2, 3}.",
+        "(f + g)(1) = 2 + (−1) = 1; (f + g)(2) = −1 + 2 = 1; (f + g)(3) = 4 + (−2) = 2.",
+        "f + g = {(1, 1), (2, 1), (3, 2)} – the order in which the pairs are listed does not matter, so this is option D."
+      ],
+      "tips": [
+        "Add the SECOND coordinates (the outputs); the inputs (first coordinates) stay the same.",
+        "Option C is the trap: it adds the first coordinates too."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If f = {(0, 3), (1, 5), (2, −2)} and g = {(0, −1), (1, 1), (2, 4)}, then f − g is",
+          "options": {
+            "A": "{(0, 4), (1, 4), (2, −6)}",
+            "B": "{(0, 2), (1, 6), (2, 2)}",
+            "C": "{(0, 4), (1, 6), (2, 6)}",
+            "D": "{(0, 2), (2, 4), (4, 2)}",
+            "E": "{(0, −4), (1, −4), (2, 6)}"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "(f − g)(0) = 3 − (−1) = 4; (f − g)(1) = 5 − 1 = 4; (f − g)(2) = −2 − 4 = −6.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "functions-inverse"
+      ],
+      "keywords": [
+        "sum of functions",
+        "ordered pairs",
+        "function operations"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Foundations for Functions",
+        "section": "1.1.2 Functions (functions as sets of ordered pairs)",
+        "page": "5",
+        "pdf_page": 11,
+        "verified_in_text": false,
+        "note": "The sum f + g is not treated explicitly in the G9–G12 books; the definition (f + g)(x) = f(x) + g(x) is standard."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q03",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 3,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Let A and B be non-empty subsets of a universal set U, then which of the following is false?",
+      "options": {
+        "A": "(A ∩ B) ∪ A′ = B",
+        "B": "(A ∩ B) ∩ A′ = ∅",
+        "C": "(A ∪ B′) ∪ A′ = U",
+        "D": "(A ∪ B) ∩ B′ = A − B",
+        "E": "(A ∩ B′) ∪ B = A ∪ B"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "A: (A ∩ B) ∪ A′ = (A ∪ A′) ∩ (B ∪ A′) = U ∩ (B ∪ A′) = B ∪ A′, which is not B in general (e.g. U = {1, 2, 3}, A = {1}, B = {1, 2}: B ∪ A′ = {1, 2, 3} ≠ B). FALSE.",
+        "B: A ∩ B ⊆ A, and nothing is in both A and A′, so the result is ∅. True.",
+        "C: A ∪ A′ = U already, so (A ∪ B′) ∪ A′ = U. True.",
+        "D: (A ∪ B) ∩ B′ = (A ∩ B′) ∪ (B ∩ B′) = A ∩ B′ = A − B. True.",
+        "E: (A ∩ B′) ∪ B = (A ∪ B) ∩ (B′ ∪ B) = A ∪ B. True. Answer: A."
+      ],
+      "tips": [
+        "Test identities with a small example (Venn diagram or U = {1, 2, 3, 4}); one counter-example proves a statement false.",
+        "A − B = A ∩ B′."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For subsets A and B of U, which statement is always true?",
+          "options": {
+            "A": "A − B = B − A",
+            "B": "(A ∪ B)′ = A′ ∪ B′",
+            "C": "A ∩ (A ∪ B) = A",
+            "D": "A ∪ A′ = ∅",
+            "E": "(A − B) ∩ A = B"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "A ∩ (A ∪ B) = A (absorption law): every element of A is in A ∪ B.",
+            "A − B ≠ B − A in general; De Morgan gives (A ∪ B)′ = A′ ∩ B′; A ∪ A′ = U; (A − B) ∩ A = A − B. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "sets-operations"
+      ],
+      "keywords": [
+        "complement",
+        "set identities",
+        "De Morgan",
+        "Venn diagram"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Set Theory",
+        "section": "1.5.1 Complement of a Set",
+        "page": "12",
+        "pdf_page": 20,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 9,
+          "unit": "Unit 1 – Set Theory",
+          "section": "1.4.3 Venn Diagrams",
+          "page": "10",
+          "pdf_page": 18,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q04",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 4,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If a and b are two real numbers such that |a + b| = |a| + |b|, then which of the following is false?",
+      "options": {
+        "A": "a ≥ 0 and b ≥ 0",
+        "B": "a ≤ 0 and b ≤ 0",
+        "C": "a = b",
+        "D": "a > 0 and b < 0",
+        "E": "None of the above"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "|a + b| = |a| + |b| holds exactly when a and b do not have opposite signs, i.e. when ab ≥ 0.",
+        "A (both ≥ 0), B (both ≤ 0) and C (a = b gives ab = a² ≥ 0) are all consistent with the equation.",
+        "D: a > 0 and b < 0 gives ab < 0, e.g. a = 2, b = −1: |1| = 1 but |2| + |−1| = 3. So D cannot happen – it is the false statement. Answer: D."
+      ],
+      "tips": [
+        "Triangle inequality: |a + b| ≤ |a| + |b|, with equality only when a and b have the same sign (or one is 0)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For which pair of numbers is |a + b| < |a| + |b|?",
+          "options": {
+            "A": "a = 3, b = 5",
+            "B": "a = −2, b = −7",
+            "C": "a = 4, b = −1",
+            "D": "a = 0, b = −6",
+            "E": "a = −3, b = −3"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "|a + b| < |a| + |b| exactly when a and b have opposite signs.",
+            "a = 4, b = −1: |3| = 3 < 5. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "absolute-value-radicals"
+      ],
+      "keywords": [
+        "absolute value",
+        "triangle inequality"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Foundation of Functions",
+        "section": "2.4.1 Absolute Values of Numbers",
+        "page": "43",
+        "pdf_page": 51,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q05",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 5,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The age of Selam's father is 3 times her age plus 5. If x represents Selam's age and y her father's age, then the equation that describes the given relationship is",
+      "options": {
+        "A": "x = 3y + 5",
+        "B": "y = 3x + 5",
+        "C": "x = 3y − 5",
+        "D": "y = 5x + 3",
+        "E": "y = x + 8"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Father's age = 3 × (Selam's age) + 5.",
+        "y = 3x + 5. Answer: B."
+      ],
+      "tips": [
+        "Translate word by word: 'is' → '=', '3 times her age' → 3x, 'plus 5' → + 5."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A taxi charges 10 Nakfa plus 4 Nakfa per km. If C is the cost for d km, then",
+          "options": {
+            "A": "C = 10d + 4",
+            "B": "C = 4d + 10",
+            "C": "d = 4C + 10",
+            "D": "C = 14d",
+            "E": "C = 4(d + 10)"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Cost = fixed charge + rate × distance = 10 + 4d.",
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "linear-equations"
+      ],
+      "keywords": [
+        "word problem",
+        "linear equation",
+        "translating words to equations"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Foundation of Functions",
+        "section": "2.1.3 Describing Relationships using Equations",
+        "page": "28",
+        "pdf_page": 36,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q06",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 6,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If x = −4 and y = 3 + √10, then |x − y| is equal to",
+      "options": {
+        "A": "7 + √10",
+        "B": "7 − √10",
+        "C": "√10 − 7",
+        "D": "√10",
+        "E": "7"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "x − y = −4 − (3 + √10) = −7 − √10, which is negative.",
+        "|x − y| = 7 + √10. Answer: A."
+      ],
+      "tips": [
+        "|negative number| = its opposite.",
+        "Check the sign before removing the absolute value bars."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If a = 2 and b = 5 + √3, then |a − b| is",
+          "options": {
+            "A": "3 − √3",
+            "B": "3 + √3",
+            "C": "√3 − 3",
+            "D": "7 + √3",
+            "E": "√3"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "a − b = 2 − 5 − √3 = −3 − √3 < 0.",
+            "|a − b| = 3 + √3. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "absolute-value-radicals"
+      ],
+      "keywords": [
+        "absolute value",
+        "surds",
+        "radicals"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Foundation of Functions",
+        "section": "2.4.1 Absolute Values of Numbers",
+        "page": "43",
+        "pdf_page": 51,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q07",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 7,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If f(x) = (x − 1)/(x + 2), then f⁻¹(3) is equal to",
+      "stem_tex": "If $f(x)=\\dfrac{x-1}{x+2}$, then $f^{-1}(3)$ is equal to",
+      "options": {
+        "A": "7/2",
+        "B": "−7/2",
+        "C": "−2/7",
+        "D": "2/7",
+        "E": "2/5"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "f⁻¹(3) is the x for which f(x) = 3.",
+        "(x − 1)/(x + 2) = 3 ⇒ x − 1 = 3x + 6 ⇒ −2x = 7 ⇒ x = −7/2.",
+        "Check: f(−7/2) = (−9/2)/(−3/2) = 3 ✓. Answer: B."
+      ],
+      "tips": [
+        "You do not need the formula of f⁻¹: solve f(x) = 3.",
+        "Option E is f(3) = 2/5 – a common mistake."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If g(x) = (2x + 1)/(x − 3), then g⁻¹(1) is",
+          "options": {
+            "A": "−4",
+            "B": "4",
+            "C": "1/2",
+            "D": "−1/2",
+            "E": "3"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Solve (2x + 1)/(x − 3) = 1: 2x + 1 = x − 3 ⇒ x = −4.",
+            "Check: g(−4) = −7/−7 = 1 ✓. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "functions-inverse"
+      ],
+      "keywords": [
+        "inverse function",
+        "rational function"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Foundations for Functions",
+        "section": "1.2.2 Inverse of a Function",
+        "page": "21",
+        "pdf_page": 27,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q08",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 8,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The sum of the geometric series with first term 0.9 and common ratio 0.1 is",
+      "options": {
+        "A": "1",
+        "B": "1.1",
+        "C": "9",
+        "D": "0.99",
+        "E": "1.9"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "The series 0.9 + 0.09 + 0.009 + … is infinite with |r| = 0.1 < 1.",
+        "S = a₁/(1 − r) = 0.9/(1 − 0.1) = 0.9/0.9 = 1. Answer: A."
+      ],
+      "tips": [
+        "This is why 0.999… = 1.",
+        "The formula S = a₁/(1 − r) is valid only for |r| < 1."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The sum of the infinite geometric series 6 + 2 + 2/3 + … is",
+          "options": {
+            "A": "8",
+            "B": "9",
+            "C": "12",
+            "D": "26/3",
+            "E": "18"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "a₁ = 6, r = 2/6 = 1/3.",
+            "S = 6/(1 − 1/3) = 6/(2/3) = 9. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "sequences-series"
+      ],
+      "keywords": [
+        "infinite geometric series",
+        "sum to infinity",
+        "common ratio"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Sequence and Series",
+        "section": "1.5 Infinite Series",
+        "page": "35",
+        "pdf_page": 41,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q09",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 9,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If the point (m, n) lies on the graph of y = 2x, then which of the following points lies on the graph?",
+      "options": {
+        "A": "(m², n²)",
+        "B": "(m², 2n²)",
+        "C": "(2m, 2n)",
+        "D": "(2m, 4n)",
+        "E": "(4m, 2n)"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "(m, n) on y = 2x means n = 2m.",
+        "C: for x = 2m the line gives y = 4m = 2(2m) = 2n ✓.",
+        "A needs n² = 2m² (but n² = 4m²); B needs 2n² = 2m²; D needs 4n = 4m; E needs 2n = 8m – all fail unless m = 0. Answer: C."
+      ],
+      "tips": [
+        "Points on a line through the origin stay on it when both coordinates are multiplied by the same number."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If (p, q) lies on y = −3x, which point also lies on the line?",
+          "options": {
+            "A": "(3p, 3q)",
+            "B": "(p, 3q)",
+            "C": "(−p, q)",
+            "D": "(p², q²)",
+            "E": "(3p, q)"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "q = −3p. For x = 3p: y = −9p = 3q ✓.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "linear-functions-lines"
+      ],
+      "keywords": [
+        "linear function",
+        "point on a graph",
+        "direct variation"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Linear Functions",
+        "section": "3.1 Representing Linear Functions",
+        "page": "50",
+        "pdf_page": 58,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q10",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 10,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If the system of equations { kx + 2y = 4 ; 2x − 4y = −8 } has infinitely many solutions, then the possible value of k is",
+      "options": {
+        "A": "1",
+        "B": "0",
+        "C": "−1",
+        "D": "2",
+        "E": "−2"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Infinitely many solutions ⇔ the two equations are multiples of each other: k/2 = 2/(−4) = 4/(−8).",
+        "2/(−4) = −1/2 and 4/(−8) = −1/2, so k/2 = −1/2 ⇒ k = −1.",
+        "Check: −x + 2y = 4 multiplied by −2 gives 2x − 4y = −8 ✓. Answer: C."
+      ],
+      "tips": [
+        "a₁/a₂ = b₁/b₂ = c₁/c₂ → infinitely many solutions; a₁/a₂ = b₁/b₂ ≠ c₁/c₂ → no solution; a₁/a₂ ≠ b₁/b₂ → exactly one."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For what value of k does the system 3x + ky = 6, 6x + 4y = 12 have infinitely many solutions?",
+          "options": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4",
+            "E": "6"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "3/6 = k/4 = 6/12 = 1/2 ⇒ k = 2.",
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "linear-systems"
+      ],
+      "keywords": [
+        "system of linear equations",
+        "infinitely many solutions",
+        "dependent system"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Linear Functions",
+        "section": "3.5.4 Graphical Method",
+        "page": "77",
+        "pdf_page": 85,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 12,
+          "unit": "Unit 4 – Matrices and Determinants (2×2)",
+          "section": "4.2 Solving System of Equations Using Determinant",
+          "page": "168",
+          "pdf_page": 174,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q11",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 11,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If the lines Ax + By + C = 0 and ax + by + c = 0, where A, B, C, a, b and c are real numbers and B ≠ 0, b ≠ 0, are parallel, then which of the following is true?",
+      "options": {
+        "A": "Aa = Bb",
+        "B": "Ab = Ba",
+        "C": "AB = ab",
+        "D": "Aa + Bb = 0",
+        "E": "AB + ab = 0"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Slopes: first line −A/B, second line −a/b (B, b ≠ 0).",
+        "Parallel ⇔ equal slopes: −A/B = −a/b ⇒ Ab = aB, i.e. Ab = Ba. Answer: B."
+      ],
+      "tips": [
+        "Option D (Aa + Bb = 0) is the condition for PERPENDICULAR lines."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The lines 2x + ky − 5 = 0 and 4x − 6y + 1 = 0 are parallel. Find k.",
+          "options": {
+            "A": "3",
+            "B": "−3",
+            "C": "12",
+            "D": "−12",
+            "E": "4/3"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Slopes: −2/k and 4/6 = 2/3.",
+            "−2/k = 2/3 ⇒ k = −3. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "linear-functions-lines"
+      ],
+      "keywords": [
+        "parallel lines",
+        "slope",
+        "general form of a line"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 3 – Algebra and Geometry",
+        "section": "3.2.2 Parallel and Perpendicular Lines",
+        "page": "134",
+        "pdf_page": 140,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q12",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 12,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Which of the following is true about the graph of y = ax² + c, where a and c are real numbers and a ≠ 0?",
+      "options": {
+        "A": "If c > 0, then the graph opens upward.",
+        "B": "The vertex of the graph is the point (a, c).",
+        "C": "If a > 0, then the range is all real numbers greater than or equal to c.",
+        "D": "If c > 0, then the range is greater than 0.",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The vertex of y = ax² + c is (0, c) (B false).",
+        "The direction of opening depends on a, not c (A false).",
+        "If a > 0 the parabola opens upward and its lowest point is (0, c), so the range is {y : y ≥ c} – C is true.",
+        "D fails when a < 0 (e.g. y = −x² + 1 takes negative values). Answer: C."
+      ],
+      "tips": [
+        "a > 0 → opens up, minimum = c; a < 0 → opens down, maximum = c."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For y = −2x² + 5, which is true?",
+          "options": {
+            "A": "The range is y ≥ 5",
+            "B": "The vertex is (−2, 5)",
+            "C": "The range is y ≤ 5",
+            "D": "The graph opens upward",
+            "E": "The minimum value is 5"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "a = −2 < 0: opens downward, vertex (0, 5) is the highest point.",
+            "Range y ≤ 5. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "quadratic-functions"
+      ],
+      "keywords": [
+        "parabola",
+        "vertex",
+        "range",
+        "quadratic function"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 4 – Quadratic Functions",
+        "section": "4.3 Effects of Parametric Changes of Quadratic Functions",
+        "page": "88",
+        "pdf_page": 96,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 11,
+          "unit": "Unit 1 – Polynomial Function",
+          "section": "1.3 Graphs of Quadratic Functions",
+          "page": "30",
+          "pdf_page": 38,
+          "verified_in_text": false,
+          "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q13",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 13,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "In a city there are t football teams and each team is to play every other team once in one round. The total number of games played by all the teams in a single round play is (t² − t)/2. Then how many teams are present in the city if the total games played in a single round is 36?",
+      "stem_tex": "In a city there are $t$ football teams and each team is to play every other team once in one round. The total number of games played by all the teams in a single round play is $\\dfrac{t^{2}-t}{2}$. Then how many teams are present in the city if the total games played in a single round is 36?",
+      "options": {
+        "A": "8",
+        "B": "7",
+        "C": "6",
+        "D": "9",
+        "E": "12"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "(t² − t)/2 = 36 ⇒ t² − t − 72 = 0 ⇒ (t − 9)(t + 8) = 0.",
+        "t = 9 (t = −8 is impossible for a number of teams). Check: (81 − 9)/2 = 36 ✓. Answer: D."
+      ],
+      "tips": [
+        "Reject negative roots in real-life problems.",
+        "You can also test the options: 9 × 8 ÷ 2 = 36."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The number of diagonals of a polygon with n sides is n(n − 3)/2. How many sides has a polygon with 20 diagonals?",
+          "options": {
+            "A": "5",
+            "B": "6",
+            "C": "8",
+            "D": "10",
+            "E": "12"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "n(n − 3)/2 = 20 ⇒ n² − 3n − 40 = 0 ⇒ (n − 8)(n + 5) = 0.",
+            "n = 8. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "quadratic-equations"
+      ],
+      "keywords": [
+        "quadratic equation",
+        "factorization",
+        "word problem"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 4 – Quadratic Functions",
+        "section": "4.4.1 Solving Quadratic Equations by Factorization",
+        "page": "92",
+        "pdf_page": 100,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q14",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 14,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If 2ˣ = (0.25)ʸ = 8, then x − y is equal to",
+      "options": {
+        "A": "9/2",
+        "B": "1/3",
+        "C": "1/4",
+        "D": "8/3",
+        "E": "3/2"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "2ˣ = 8 = 2³ ⇒ x = 3.",
+        "(0.25)ʸ = (2⁻²)ʸ = 2⁻²ʸ = 2³ ⇒ −2y = 3 ⇒ y = −3/2.",
+        "x − y = 3 − (−3/2) = 9/2. Answer: A."
+      ],
+      "tips": [
+        "Write every number as a power of the same base (0.25 = 1/4 = 2⁻², 8 = 2³), then equate exponents."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If 3ᵃ = (1/9)ᵇ = 27, then a + b equals",
+          "options": {
+            "A": "3/2",
+            "B": "9/2",
+            "C": "−3/2",
+            "D": "3",
+            "E": "0"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "3ᵃ = 3³ ⇒ a = 3.",
+            "(1/9)ᵇ = 3⁻²ᵇ = 3³ ⇒ b = −3/2.",
+            "a + b = 3/2. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "exponential equation",
+        "laws of exponents",
+        "same base"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 5 – Exponential and Logarithmic Expressions",
+        "section": "5.1.9 Solving Exponential Equations",
+        "page": "114",
+        "pdf_page": 122,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q15",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 15,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "A shopkeeper bought coffee for 73 Nakfa per kg and pays 2 Nakfa per kg for transportation. If he wants to make a net profit of 10%, how much per kg should he sell the coffee?",
+      "options": {
+        "A": "80 Nakfa",
+        "B": "78 Nakfa",
+        "C": "83.50 Nakfa",
+        "D": "84.50 Nakfa",
+        "E": "82.50 Nakfa"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Total cost price per kg = 73 + 2 = 75 Nakfa.",
+        "Profit percent is on the cost price: profit = 10% × 75 = 7.50 Nakfa.",
+        "Selling price = 75 + 7.50 = 82.50 Nakfa. Answer: E."
+      ],
+      "tips": [
+        "Include ALL costs (transport) in the cost price before adding the profit.",
+        "Textbook: profit percent = (SP − CP)/CP × 100."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A trader buys sugar at 28 Nakfa per kg and spends 2 Nakfa per kg on transport. To gain 20%, the selling price per kg must be",
+          "options": {
+            "A": "33.60 Nakfa",
+            "B": "36 Nakfa",
+            "C": "35.60 Nakfa",
+            "D": "34 Nakfa",
+            "E": "32 Nakfa"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "CP = 28 + 2 = 30 Nakfa.",
+            "SP = 30 × 1.20 = 36 Nakfa. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "business-mathematics"
+      ],
+      "keywords": [
+        "profit",
+        "cost price",
+        "selling price",
+        "percentage"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 7 – Business Mathematics",
+        "section": "7.3 Profit and Loss",
+        "page": "164",
+        "pdf_page": 172,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q16",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 16,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Which of the following is false about any polynomial of degree 4?",
+      "options": {
+        "A": "It has at most four roots.",
+        "B": "It has exactly one x-intercept.",
+        "C": "Its domain is all real numbers.",
+        "D": "Its range cannot be all real numbers.",
+        "E": "May not have a root."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "A: a polynomial of degree n has at most n real roots – true.",
+        "B: false – e.g. x⁴ − 5x² + 4 = (x² − 1)(x² − 4) has four x-intercepts (±1, ±2) and x⁴ + 1 has none.",
+        "C: every polynomial is defined for all real x – true.",
+        "D: an even-degree polynomial has either a minimum or a maximum value, so its range is never all of ℝ – true.",
+        "E: x⁴ + 1 = 0 has no real root – true. Answer: B."
+      ],
+      "tips": [
+        "Even degree → both ends go the same way → range bounded on one side.",
+        "Odd degree → at least one real root."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which statement is true for every polynomial of degree 3?",
+          "options": {
+            "A": "It has exactly three real roots",
+            "B": "It has at least one real root",
+            "C": "Its range is y ≥ 0",
+            "D": "It has no x-intercept",
+            "E": "Its domain is x ≥ 0"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "An odd-degree polynomial goes to −∞ at one end and +∞ at the other, so it crosses the x-axis at least once.",
+            "It may have 1, 2 or 3 distinct real roots. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "polynomials"
+      ],
+      "keywords": [
+        "polynomial",
+        "degree",
+        "roots",
+        "x-intercepts",
+        "range"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 8 – Polynomials",
+        "section": "8.3 Graphs of Polynomial Functions",
+        "page": "186",
+        "pdf_page": 194,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 11,
+          "unit": "Unit 1 – Polynomial Function",
+          "section": "1.4 Polynomial Functions",
+          "page": "41",
+          "pdf_page": 49,
+          "verified_in_text": false,
+          "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q17",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 17,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "What will be the amount, in Nakfa, that you can get if you deposit 50,000 Nakfa in a bank for one year, at a rate of 6% per annum compounded semiannually?",
+      "options": {
+        "A": "53,000",
+        "B": "53,045",
+        "C": "53,180",
+        "D": "56,180",
+        "E": "56,000"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Semiannual compounding: rate per period = 6% ÷ 2 = 3%, number of periods = 1 × 2 = 2.",
+        "A = P(1 + i)ⁿ = 50,000 × (1.03)² = 50,000 × 1.0609 = 53,045 Nakfa. Answer: B."
+      ],
+      "tips": [
+        "Simple interest would give 53,000 (option A) – compounding gives a little more."
+      ],
+      "similar_questions": [
+        {
+          "stem": "8,000 Nakfa is deposited for 1 year at 10% per annum compounded semiannually. The amount is",
+          "options": {
+            "A": "8,800",
+            "B": "8,820",
+            "C": "8,840",
+            "D": "9,680",
+            "E": "8,400"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "i = 5% per half-year, n = 2.",
+            "A = 8,000 × 1.05² = 8,000 × 1.1025 = 8,820 Nakfa. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "business-mathematics"
+      ],
+      "keywords": [
+        "compound interest",
+        "semiannual",
+        "amount"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 6 – Business Mathematics",
+        "section": "6.1.2 Compound Interest",
+        "page": "202",
+        "pdf_page": 210,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q18",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 18,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Given the data 6, 5, 4, 7, 6, 5, 6, 10, 4, then which of the following is true?",
+      "options": {
+        "A": "The mode is greater than the median.",
+        "B": "The mean is equal to the mode.",
+        "C": "The mean is less than the median.",
+        "D": "The mode is less than the median.",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Ordered data (n = 9): 4, 4, 5, 5, 6, 6, 6, 7, 10.",
+        "Median = 5th value = 6. Mode = 6 (appears three times). Mean = 53 ÷ 9 ≈ 5.89.",
+        "Mean (5.89) < median (6) – C is true; mode = median so A and D are false; mean ≠ mode so B is false. Answer: C."
+      ],
+      "tips": [
+        "Always order the data before finding the median."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For the data 3, 8, 5, 3, 6, which is true?",
+          "options": {
+            "A": "mean > median",
+            "B": "mode > median",
+            "C": "mean = median",
+            "D": "median = mode",
+            "E": "mean < mode"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Ordered: 3, 3, 5, 6, 8. Median = 5, mode = 3, mean = 25/5 = 5.",
+            "mean = median = 5, mode = 3 is smaller than both. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "statistics"
+      ],
+      "keywords": [
+        "mean",
+        "median",
+        "mode",
+        "measures of central tendency"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Descriptive Statistics and Probability",
+        "section": "2.4.1 Measures of Central Tendency",
+        "page": "78",
+        "pdf_page": 84,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q19",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 19,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If a fair coin is tossed three times in succession, then what is the probability of getting at least two heads assuming one side of the coin is head and the other is tail?",
+      "options": {
+        "A": "0.30",
+        "B": "0.20",
+        "C": "0.33",
+        "D": "0.50",
+        "E": "0.25"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Sample space: 2³ = 8 equally likely outcomes.",
+        "At least two heads: HHT, HTH, THH, HHH → 4 outcomes.",
+        "P = 4/8 = 0.50. Answer: D."
+      ],
+      "tips": [
+        "'At least two' = exactly two OR exactly three.",
+        "Number of outcomes with k heads in n tosses = C(n, k)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A fair coin is tossed 4 times. The probability of getting at least three heads is",
+          "options": {
+            "A": "1/4",
+            "B": "5/16",
+            "C": "3/8",
+            "D": "1/2",
+            "E": "1/16"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "16 outcomes. Exactly 3 heads: C(4,3) = 4; exactly 4: 1.",
+            "P = 5/16. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "probability"
+      ],
+      "keywords": [
+        "probability",
+        "coin tossing",
+        "sample space",
+        "at least"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Descriptive Statistics and Probability",
+        "section": "2.5.4 Theoretical Probability",
+        "page": "100",
+        "pdf_page": 106,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q20",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 20,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Given the data 0, 1, 2, 3, 4, 4, 7. If 2 is added to each of the numbers, then which of the following is true?",
+      "options": {
+        "A": "The new mean is 2 times the original mean.",
+        "B": "The variance remains the same.",
+        "C": "The new range is greater than the original range.",
+        "D": "The new standard deviation is 2 times the original standard deviation.",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Adding a constant shifts every value and the mean by 2, so each deviation (xᵢ − x̄) is unchanged.",
+        "Hence the variance σ² = Σ(xᵢ − x̄)²/N and the standard deviation stay the same, and the range stays 7 − 0 = 7.",
+        "Original mean = 21/7 = 3, new mean = 5 (not 2 × 3). Answer: B."
+      ],
+      "tips": [
+        "Adding c: mean + c, spread unchanged. Multiplying by c: mean × c, SD × |c|, variance × c²."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Each value of a data set with mean 10 and standard deviation 3 is multiplied by 2. The new mean and standard deviation are",
+          "options": {
+            "A": "20 and 3",
+            "B": "12 and 5",
+            "C": "20 and 6",
+            "D": "10 and 6",
+            "E": "20 and 12"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Multiplying by 2 doubles the mean and the standard deviation.",
+            "New mean 20, new SD 6. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "statistics"
+      ],
+      "keywords": [
+        "variance",
+        "standard deviation",
+        "range",
+        "adding a constant"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Descriptive Statistics and Probability",
+        "section": "2.4.2 Measures of Dispersion (variance)",
+        "page": "89",
+        "pdf_page": 95,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q21",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 21,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If the determinant of the matrix\n⎛2   6 + k⎞\n⎝1   k − 1⎠\nfor k a real number is positive, then k is",
+      "stem_tex": "If the determinant of the matrix $\\begin{pmatrix}2 & 6+k\\\\ 1 & k-1\\end{pmatrix}$ for $k$ a real number is positive, then $k$ is",
+      "options": {
+        "A": "k ≥ 0",
+        "B": "k > 2",
+        "C": "k > 4",
+        "D": "k > 8",
+        "E": "k > 6"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "For a 2×2 matrix (a b; c d), det = ad − bc.",
+        "det = 2(k − 1) − 1·(6 + k) = 2k − 2 − 6 − k = k − 8.",
+        "k − 8 > 0 ⇒ k > 8. Answer: D."
+      ],
+      "tips": [
+        "Matrix rows written in text: row 1 = (2, 6 + k), row 2 = (1, k − 1)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For which values of m is the determinant of the matrix with rows (m, 3) and (2, m − 1) negative?",
+          "options": {
+            "A": "−2 < m < 3",
+            "B": "m > 3",
+            "C": "m < −2",
+            "D": "m > −2",
+            "E": "all real m"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "det = m(m − 1) − 6 = m² − m − 6 = (m − 3)(m + 2).",
+            "Negative between the roots: −2 < m < 3. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "matrices-determinants"
+      ],
+      "keywords": [
+        "determinant",
+        "2×2 matrix",
+        "inequality"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 4 – Matrices and Determinants (2×2)",
+        "section": "4.1.5 The Determinant of a Matrix",
+        "page": "166",
+        "pdf_page": 172,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q22",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 22,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Which of the following is a one to one function?",
+      "options": {
+        "A": "y = |x + 1|",
+        "B": "y = 8.5",
+        "C": "y = |9|",
+        "D": "y = 2x − 4",
+        "E": "y = x² − 4x"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "A function is one-to-one if different inputs always give different outputs (horizontal line test).",
+        "|x + 1| gives the same value for x = 0 and x = −2; y = 8.5 and y = |9| are constant; x² − 4x gives 0 at x = 0 and x = 4.",
+        "y = 2x − 4 is a non-horizontal line: 2x₁ − 4 = 2x₂ − 4 ⇒ x₁ = x₂. Answer: D."
+      ],
+      "tips": [
+        "Every non-constant linear function is one-to-one; quadratics, absolute-value and constant functions are not (on ℝ)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which function is one-to-one on the set of real numbers?",
+          "options": {
+            "A": "f(x) = x²",
+            "B": "f(x) = x³ + 1",
+            "C": "f(x) = |x|",
+            "D": "f(x) = 5",
+            "E": "f(x) = x² + 2x"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "x³ + 1 is strictly increasing, so it passes the horizontal line test.",
+            "The others take some value twice. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "functions-inverse"
+      ],
+      "keywords": [
+        "one-to-one function",
+        "horizontal line test"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Foundations for Functions",
+        "section": "1.2.1 One-to-one Function",
+        "page": "17",
+        "pdf_page": 23,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q23",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 23,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If 8 and 2 are the roots (solutions) of x² + bx + c = 0 and 3 is the only root of x² + dx + e = 0, where b, c, d and e are real numbers, then the roots of x² + bx + e = 0 are",
+      "options": {
+        "A": "1 and 9",
+        "B": "−1 and −9",
+        "C": "9 and −1",
+        "D": "9 and −2",
+        "E": "2 and 9"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Roots 8 and 2: x² + bx + c = (x − 8)(x − 2) = x² − 10x + 16, so b = −10.",
+        "Only root 3 (double root): x² + dx + e = (x − 3)² = x² − 6x + 9, so e = 9.",
+        "x² + bx + e = x² − 10x + 9 = (x − 1)(x − 9) = 0 ⇒ x = 1 or 9. Answer: A."
+      ],
+      "tips": [
+        "Sum of roots = −b, product = c (for x² + bx + c).",
+        "'Only one root' means a repeated root: discriminant = 0."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If −1 and 5 are the roots of x² + px + q = 0 and 2 is the only root of x² + rx + s = 0, then the roots of x² + px + s = 0 are",
+          "options": {
+            "A": "2 and 2",
+            "B": "−2 and 6",
+            "C": "4 and 1",
+            "D": "−1 and 4",
+            "E": "no real roots"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "p = −(−1 + 5) = −4; s = 2² = 4.",
+            "x² − 4x + 4 = (x − 2)² ⇒ x = 2 (double). Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "quadratic-equations"
+      ],
+      "keywords": [
+        "roots of quadratic",
+        "sum and product of roots",
+        "double root"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Polynomial Function",
+        "section": "1.2.1 Quadratic Equations",
+        "page": "6",
+        "pdf_page": 14,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q24",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 24,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The inverse of the function f(x) = √(x − 2) is",
+      "options": {
+        "A": "y = x² + 2",
+        "B": "y = x² − 2",
+        "C": "y = log(√(x − 2))",
+        "D": "y = x + 2",
+        "E": "y = log(x² + 2)"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Write y = √(x − 2) and interchange x and y: x = √(y − 2).",
+        "Square: x² = y − 2 ⇒ y = x² + 2.",
+        "Because the range of f is y ≥ 0, the inverse is y = x² + 2 restricted to x ≥ 0. Answer: A."
+      ],
+      "tips": [
+        "The domain of f⁻¹ = range of f. Strictly f⁻¹(x) = x² + 2, x ≥ 0 – the options omit the restriction."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The inverse of f(x) = √(x + 5), x ≥ −5, is",
+          "options": {
+            "A": "f⁻¹(x) = x² − 5, x ≥ 0",
+            "B": "f⁻¹(x) = x² + 5",
+            "C": "f⁻¹(x) = √(x − 5)",
+            "D": "f⁻¹(x) = x − 5",
+            "E": "f⁻¹(x) = (x − 5)²"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "x = √(y + 5) ⇒ y = x² − 5; the range of f is y ≥ 0, so x ≥ 0.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "functions-inverse"
+      ],
+      "keywords": [
+        "inverse function",
+        "square root function"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Square Root Functions",
+        "section": "2.4 Inverses of Square Root Functions",
+        "page": "69",
+        "pdf_page": 77,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q25",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 25,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The solution set of (x + 1)/(x − 1) + (x − 2)/(x + 2) = 3 is",
+      "stem_tex": "The solution set of $\\dfrac{x+1}{x-1}+\\dfrac{x-2}{x+2}=3$ is",
+      "options": {
+        "A": "{2, 5}",
+        "B": "{−1, −9}",
+        "C": "{−2, 5}",
+        "D": "{1, −9}",
+        "E": "{−5, 2}"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Domain: x ≠ 1, x ≠ −2. Multiply by (x − 1)(x + 2):",
+        "(x + 1)(x + 2) + (x − 2)(x − 1) = 3(x − 1)(x + 2) ⇒ 2x² + 4 = 3x² + 3x − 6.",
+        "x² + 3x − 10 = 0 ⇒ (x + 5)(x − 2) = 0 ⇒ x = −5 or x = 2; both are in the domain. Answer: E."
+      ],
+      "tips": [
+        "Always check the solutions against the excluded values (here 1 and −2)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Solve x/(x − 2) + 2/(x + 1) = 2.",
+          "options": {
+            "A": "{0, 5}",
+            "B": "{5}",
+            "C": "{−1, 2}",
+            "D": "{0}",
+            "E": "{2}"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "x ≠ 2, x ≠ −1. Multiply by (x − 2)(x + 1): x(x + 1) + 2(x − 2) = 2(x − 2)(x + 1).",
+            "x² + 3x − 4 = 2x² − 2x − 4 ⇒ x² − 5x = 0 ⇒ x = 0 or x = 5.",
+            "Check: x = 0 → 0 + 2 = 2 ✓; x = 5 → 5/3 + 1/3 = 2 ✓. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "rational-functions"
+      ],
+      "keywords": [
+        "rational equation",
+        "LCD",
+        "excluded values"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Rational Functions",
+        "section": "3.4.1 Solving Rational Equations",
+        "page": "127",
+        "pdf_page": 135,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q26",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 26,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The solution set of log₃(x − 1) < log₂(x − 1) is",
+      "options": {
+        "A": "{x | x > 2}",
+        "B": "{x | 0 < x < 2}",
+        "C": "{x | 1 < x < 2}",
+        "D": "{x | x < 5}",
+        "E": "{x | −1 < x < 0}"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Domain: x − 1 > 0 ⇒ x > 1. Let t = x − 1 > 0.",
+        "Change of base: log₃t = ln t/ln 3 and log₂t = ln t/ln 2, with ln 3 > ln 2 > 0.",
+        "So log₃t < log₂t ⇔ ln t·(1/ln 3 − 1/ln 2) < 0 ⇔ ln t > 0 (because 1/ln 3 − 1/ln 2 < 0) ⇔ t > 1.",
+        "x − 1 > 1 ⇒ x > 2. (For 1 < x < 2 the inequality is reversed; at x = 2 both sides are 0.) Answer: A."
+      ],
+      "tips": [
+        "Quick check with numbers: x = 9 → log₃8 ≈ 1.89 < log₂8 = 3 ✓; x = 1.5 → log₃0.5 ≈ −0.63 > log₂0.5 = −1 ✗.",
+        "For t > 1, the smaller base gives the larger logarithm."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The solution set of log₂(x + 3) > log₄(x + 3) is",
+          "options": {
+            "A": "{x | x > −2}",
+            "B": "{x | x > −3}",
+            "C": "{x | −3 < x < −2}",
+            "D": "{x | x > 1}",
+            "E": "{x | x < −2}"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Let t = x + 3 > 0. log₄t = ½ log₂t, so the inequality is log₂t > ½ log₂t ⇔ log₂t > 0 ⇔ t > 1.",
+            "x + 3 > 1 ⇒ x > −2. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "logarithmic inequality",
+        "change of base",
+        "domain of logarithm"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – Exponential and Logarithmic Functions",
+        "section": "4.2 Logarithmic Function",
+        "page": "152",
+        "pdf_page": 160,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q27",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 27,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The simplified form of (1/(x − 1) − 1/(x + 1)) ÷ (1/(x − 1) + 1/(x + 1)) in its domain is equal to",
+      "stem_tex": "The simplified form of $\\left(\\dfrac{1}{x-1}-\\dfrac{1}{x+1}\\right)\\div\\left(\\dfrac{1}{x-1}+\\dfrac{1}{x+1}\\right)$ in its domain is equal to",
+      "options": {
+        "A": "1/(x − 1)",
+        "B": "1/x",
+        "C": "1",
+        "D": "1/(x + 1)",
+        "E": "2"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "1/(x − 1) − 1/(x + 1) = [(x + 1) − (x − 1)]/(x² − 1) = 2/(x² − 1).",
+        "1/(x − 1) + 1/(x + 1) = [(x + 1) + (x − 1)]/(x² − 1) = 2x/(x² − 1).",
+        "Quotient = 2/(x² − 1) × (x² − 1)/(2x) = 1/x (x ≠ 0, ±1). Answer: B."
+      ],
+      "tips": [
+        "Combine each bracket over the common denominator (x − 1)(x + 1) = x² − 1 first; then 'divide = multiply by the reciprocal'."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Simplify (1/(x − 2) + 1/(x + 2)) ÷ (1/(x − 2) − 1/(x + 2)).",
+          "options": {
+            "A": "x/2",
+            "B": "2/x",
+            "C": "1",
+            "D": "x",
+            "E": "2x"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Sum = 2x/(x² − 4); difference = 4/(x² − 4).",
+            "Quotient = 2x/4 = x/2. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "rational-functions"
+      ],
+      "keywords": [
+        "rational expressions",
+        "simplification",
+        "complex fraction"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Rational Functions",
+        "section": "3.3.3 Multiplication and Division of Rational Expressions",
+        "page": "112",
+        "pdf_page": 120,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q28",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 28,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The solution of the quadratic inequality x² − 6x + 12 ≥ 0 is",
+      "options": {
+        "A": "{x | x ≥ 3}",
+        "B": "{x | x ≤ 3}",
+        "C": "The set of all real numbers.",
+        "D": "{x | x ≥ 12}",
+        "E": "{x | x ≥ 0}"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Discriminant: b² − 4ac = 36 − 48 = −12 < 0, and a = 1 > 0.",
+        "Completing the square: x² − 6x + 12 = (x − 3)² + 3 ≥ 3 > 0 for every x.",
+        "So the inequality holds for all real numbers. Answer: C."
+      ],
+      "tips": [
+        "a > 0 and Δ < 0 → the parabola is entirely above the x-axis."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The solution set of x² + 4x + 5 < 0 is",
+          "options": {
+            "A": "∅",
+            "B": "ℝ",
+            "C": "{x | x < −2}",
+            "D": "{x | x > −5}",
+            "E": "{x | −5 < x < 1}"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "x² + 4x + 5 = (x + 2)² + 1 ≥ 1 > 0 for all x.",
+            "It is never negative: solution set ∅. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "quadratic-equations"
+      ],
+      "keywords": [
+        "quadratic inequality",
+        "discriminant",
+        "completing the square"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Polynomial Function",
+        "section": "1.2.2 Quadratic Inequalities",
+        "page": "20",
+        "pdf_page": 28,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q29",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 29,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Which of the following is false about the rational function defined by f(x) = (x − 2)/(x² − 2x − 3)?",
+      "stem_tex": "Which of the following is false about the rational function defined by $f(x)=\\dfrac{x-2}{x^{2}-2x-3}$?",
+      "options": {
+        "A": "Its graph never crosses the x-axis.",
+        "B": "The lines x = −1 and x = 3 are vertical asymptotes of its graph.",
+        "C": "The line y = 0 is a horizontal asymptote of its graph.",
+        "D": "(1/4, 1) ∈ f⁻¹.",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "f(x) = (x − 2)/((x − 3)(x + 1)).",
+        "A: f(2) = 0, so the graph crosses the x-axis at (2, 0) – FALSE.",
+        "B: the denominator is 0 at x = 3 and x = −1 and the numerator is not – true.",
+        "C: degree of numerator (1) < degree of denominator (2) ⇒ y = 0 is the horizontal asymptote – true.",
+        "D: (1/4, 1) ∈ f⁻¹ means (1, 1/4) ∈ f: f(1) = (−1)/(1 − 2 − 3) = 1/4 – true. Answer: A."
+      ],
+      "tips": [
+        "x-intercepts come from zeros of the numerator (that are not zeros of the denominator)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which statement about f(x) = (x + 1)/(x² − 4) is false?",
+          "options": {
+            "A": "The graph crosses the x-axis at x = −1",
+            "B": "x = 2 and x = −2 are vertical asymptotes",
+            "C": "y = 1 is a horizontal asymptote",
+            "D": "f(0) = −1/4",
+            "E": "The domain excludes ±2"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "deg numerator < deg denominator ⇒ horizontal asymptote y = 0, not y = 1.",
+            "f(−1) = 0 ✓, denominator zero at ±2 ✓, f(0) = 1/(−4) ✓. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "rational-functions"
+      ],
+      "keywords": [
+        "rational function",
+        "asymptotes",
+        "x-intercept",
+        "inverse relation"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Rational Functions",
+        "section": "3.2.2 Asymptotes of Rational Functions",
+        "page": "87",
+        "pdf_page": 95,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q30",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 30,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If in an arithmetic progression the 24th term is twice the 10th term, then which of the following is true?",
+      "options": {
+        "A": "The 36th term is twice the 16th term.",
+        "B": "The 36th term is half of the 16th term.",
+        "C": "The 36th term is one third of the 16th term.",
+        "D": "The 36th term is four times the 16th term.",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "aₙ = a₁ + (n − 1)d. a₂₄ = 2a₁₀ ⇒ a₁ + 23d = 2(a₁ + 9d) ⇒ a₁ = 5d.",
+        "a₃₆ = a₁ + 35d = 40d and a₁₆ = a₁ + 15d = 20d.",
+        "a₃₆ = 2a₁₆. Answer: A."
+      ],
+      "tips": [
+        "Express everything in terms of d once you know the relation between a₁ and d."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In an AP the 12th term is three times the 4th term. Then the 20th term is",
+          "options": {
+            "A": "twice the 10th term",
+            "B": "half the 10th term",
+            "C": "equal to the 10th term",
+            "D": "three times the 10th term",
+            "E": "none of these"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "a₁ + 11d = 3(a₁ + 3d) ⇒ 2a₁ = 2d ⇒ a₁ = d, so aₙ = nd.",
+            "a₂₀ = 20d = 2 × 10d = 2a₁₀. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "sequences-series"
+      ],
+      "keywords": [
+        "arithmetic progression",
+        "nth term",
+        "common difference"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Sequence and Series",
+        "section": "1.2 Arithmetic Progression",
+        "page": "9",
+        "pdf_page": 15,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q31",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 31,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Given f(1) = 1 and f(n + 1) = 2f(n) + 1, for n > 1, then f(n) is equal to",
+      "options": {
+        "A": "2ⁿ + 1",
+        "B": "2ⁿ − 1",
+        "C": "2ⁿ − n",
+        "D": "2ⁿ⁻¹ − 1",
+        "E": "2ⁿ⁻¹ + 1"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Generate terms: f(1) = 1, f(2) = 2·1 + 1 = 3, f(3) = 7, f(4) = 15.",
+        "1, 3, 7, 15 = 2¹ − 1, 2² − 1, 2³ − 1, 2⁴ − 1, so f(n) = 2ⁿ − 1.",
+        "Check the recursion: 2(2ⁿ − 1) + 1 = 2ⁿ⁺¹ − 1 ✓. Answer: B."
+      ],
+      "tips": [
+        "Test the options with n = 1 and n = 2: only 2ⁿ − 1 gives 1 and 3."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Given a₁ = 2 and aₙ₊₁ = 3aₙ − 2 for n ≥ 1, then aₙ equals",
+          "options": {
+            "A": "3ⁿ⁻¹ + 1",
+            "B": "3ⁿ − 1",
+            "C": "2·3ⁿ⁻¹",
+            "D": "3ⁿ + 1",
+            "E": "n² + 1"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Terms: 2, 4, 10, 28 = 3⁰ + 1, 3¹ + 1, 3² + 1, 3³ + 1.",
+            "Check: 3(3ⁿ⁻¹ + 1) − 2 = 3ⁿ + 1 ✓. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "sequences-series"
+      ],
+      "keywords": [
+        "recursive sequence",
+        "general term",
+        "pattern"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Sequence and Series",
+        "section": "1.1 Basic Ideas of Sequence (recursively defined sequences)",
+        "page": "6",
+        "pdf_page": 12,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Minor typo: the recursion is stated 'for n > 1' but it must hold for n ≥ 1 (otherwise f(2) is undefined). The intended answer 2ⁿ − 1 is clear."
+    },
+    {
+      "id": "math-2018-matric-p1-q32",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 32,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "A salesman gets 3% commission from his total sales in addition to his monthly salary of 3,500 Nakfa. In a particular month if his total sale is 50,000 Nakfa, then his total income of the month, in Nakfa, will be",
+      "options": {
+        "A": "5,000",
+        "B": "4,000",
+        "C": "3,500",
+        "D": "1,500",
+        "E": "6,000"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Commission = 3% × 50,000 = 1,500 Nakfa.",
+        "Total income = 3,500 + 1,500 = 5,000 Nakfa. Answer: A."
+      ],
+      "tips": [
+        "Option D (1,500) is the commission only."
+      ],
+      "similar_questions": [
+        {
+          "stem": "An agent earns a salary of 2,800 Nakfa plus 5% commission on sales. If he sells goods worth 36,000 Nakfa, his income is",
+          "options": {
+            "A": "4,600 Nakfa",
+            "B": "1,800 Nakfa",
+            "C": "4,000 Nakfa",
+            "D": "3,800 Nakfa",
+            "E": "5,400 Nakfa"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Commission = 0.05 × 36,000 = 1,800.",
+            "Income = 2,800 + 1,800 = 4,600 Nakfa. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "business-mathematics"
+      ],
+      "keywords": [
+        "commission",
+        "salary",
+        "percentage"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 7 – Business Mathematics",
+        "section": "7.2.1 Commission",
+        "page": "160",
+        "pdf_page": 168,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q33",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 33,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The minimum value of the function given by f(x) = −2x² − 5x + 3 is equal to",
+      "options": {
+        "A": "49/8",
+        "B": "−5/4",
+        "C": "7",
+        "D": "−49/8",
+        "E": "−5/2"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "a = −2 < 0, so the parabola opens DOWNWARD: it has a maximum value and no minimum value.",
+        "Vertex: x = −b/(2a) = −(−5)/(2·(−2)) = −5/4.",
+        "f(−5/4) = −2(25/16) + 25/4 + 3 = −25/8 + 50/8 + 24/8 = 49/8.",
+        "The extreme (maximum) value is 49/8. The paper says 'minimum' – the intended answer is 49/8. Answer: A."
+      ],
+      "tips": [
+        "Extreme value of ax² + bx + c = c − b²/(4a) = 3 − 25/(−8) = 49/8.",
+        "a < 0 → maximum; a > 0 → minimum."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The maximum value of f(x) = −x² + 6x − 5 is",
+          "options": {
+            "A": "4",
+            "B": "−5",
+            "C": "3",
+            "D": "5",
+            "E": "9"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Vertex at x = −6/(2·(−1)) = 3.",
+            "f(3) = −9 + 18 − 5 = 4. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "quadratic-functions"
+      ],
+      "keywords": [
+        "maximum value",
+        "minimum value",
+        "vertex",
+        "quadratic function"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Polynomial Function",
+        "section": "1.3 Graphs of Quadratic Functions",
+        "page": "30",
+        "pdf_page": 38,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Error in the paper: f(x) = −2x² − 5x + 3 opens downward, so it has NO minimum; its MAXIMUM is 49/8. Keyed A (49/8, the vertex value the setter evidently intended). Teacher decision: accept A or void the item."
+    },
+    {
+      "id": "math-2018-matric-p1-q34",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 34,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "A man sold a car on an installment plan with down payment of 50,000 Nakfa. If he agreed to pay monthly 4000 Nakfa for 12 months, then the installment price of the car, in Nakfa, was",
+      "options": {
+        "A": "90,000",
+        "B": "140,000",
+        "C": "120,000",
+        "D": "98,000",
+        "E": "140,000"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Installment price = down payment + total of the installments.",
+        "= 50,000 + 12 × 4,000 = 50,000 + 48,000 = 98,000 Nakfa. Answer: D."
+      ],
+      "tips": [
+        "Installment price − cash price = finance (carrying) charge."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A fridge is bought with a down payment of 12,000 Nakfa and 18 monthly payments of 1,500 Nakfa. The installment price is",
+          "options": {
+            "A": "39,000 Nakfa",
+            "B": "27,000 Nakfa",
+            "C": "30,000 Nakfa",
+            "D": "13,500 Nakfa",
+            "E": "40,500 Nakfa"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "18 × 1,500 = 27,000.",
+            "12,000 + 27,000 = 39,000 Nakfa. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "business-mathematics"
+      ],
+      "keywords": [
+        "instalment plan",
+        "down payment",
+        "installment price"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 6 – Business Mathematics",
+        "section": "6.1.3 Instalment Plan",
+        "page": "211",
+        "pdf_page": 219,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Printing slip: options B and E are identical (140,000). It does not affect the answer (D)."
+    },
+    {
+      "id": "math-2018-matric-p1-q35",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 35,
+      "section": "A. Algebra",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If the graph of the function given by f(x) = x² is translated 2 units to the right and 3 units down, then the resulting function is given by",
+      "options": {
+        "A": "y = x² − 4x + 4",
+        "B": "y = x² − 4x − 3",
+        "C": "y = x² − 4x + 1",
+        "D": "y = x²",
+        "E": "y = x² − 2"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "2 units right: replace x by x − 2 → y = (x − 2)².",
+        "3 units down: subtract 3 → y = (x − 2)² − 3.",
+        "Expand: x² − 4x + 4 − 3 = x² − 4x + 1. Answer: C."
+      ],
+      "tips": [
+        "Right h units: x → x − h (inside). Up k units: + k (outside)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The graph of y = x² is moved 3 units to the left and 1 unit up. The new equation is",
+          "options": {
+            "A": "y = x² + 6x + 10",
+            "B": "y = x² − 6x + 10",
+            "C": "y = x² + 6x + 8",
+            "D": "y = x² + 3x + 1",
+            "E": "y = x² − 6x + 8"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Left 3: (x + 3)²; up 1: (x + 3)² + 1.",
+            "= x² + 6x + 10. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "quadratic-functions"
+      ],
+      "keywords": [
+        "translation of graphs",
+        "horizontal shift",
+        "vertical shift",
+        "parabola"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 4 – Quadratic Functions",
+        "section": "4.3 Effects of Parametric Changes of Quadratic Functions",
+        "page": "88",
+        "pdf_page": 96,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q36",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 36,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "In a triangle ABC, AB = c units, AC = b units and BC = a units, then the value of cos(∠ABC) is equal to",
+      "options": {
+        "A": "(a² + c² − b²)/(2ac)",
+        "B": "(b² + c² − a²)/(2bc)",
+        "C": "(a² + b² − c²)/(2ab)",
+        "D": "(a² − (c² + b²))/(2ac)",
+        "E": "(a² + c² + b²)/(2abc)"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "∠ABC is at vertex B; the side opposite B is AC = b, and the sides forming the angle are a (BC) and c (AB).",
+        "Law of cosines: b² = a² + c² − 2ac·cos B ⇒ cos B = (a² + c² − b²)/(2ac). Answer: A."
+      ],
+      "tips": [
+        "The side opposite the angle is the one SUBTRACTED; the denominator is 2 × (the two sides forming the angle)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In triangle ABC, a = 5, b = 7 and c = 8. Find m(∠B).",
+          "options": {
+            "A": "30°",
+            "B": "45°",
+            "C": "60°",
+            "D": "90°",
+            "E": "120°"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "cos B = (a² + c² − b²)/(2ac) = (25 + 64 − 49)/80 = 40/80 = 1/2.",
+            "∠B = 60°. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "trigonometry"
+      ],
+      "keywords": [
+        "law of cosines",
+        "cosine rule",
+        "triangle"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 6 – Right Angled Triangle and Trigonometric Ratios",
+        "section": "6.3.4 The Law of Cosines",
+        "page": "149",
+        "pdf_page": 157,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q37",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 37,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Suppose a student measures opposite angles of two intersecting lines and found out that the two measurements are equal. Then which of the following is a correct deduction based on the single observation of the student?",
+      "options": {
+        "A": "A theorem can be deduced \"Opposite angles of intersecting lines are congruent\".",
+        "B": "It can be taken as a proof for \"Opposite angles of intersecting lines are congruent\".",
+        "C": "It can be a basis for a conjecture \"Opposite angles of intersecting lines are congruent\".",
+        "D": "It can be a basis to formulate an axiom \"Opposite angles of intersecting lines are congruent\".",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "A single measurement (inductive observation) cannot prove a general statement, so it is neither a proof nor a theorem (A, B false).",
+        "An axiom is accepted without proof as a starting point of the system, not formed from one measurement (D false).",
+        "An observation that suggests a general statement not yet proved gives a CONJECTURE. Answer: C."
+      ],
+      "tips": [
+        "Conjecture = an educated guess based on observations; theorem = a statement proved from axioms, definitions and earlier theorems."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A statement that is accepted as true without proof in an axiomatic system is called",
+          "options": {
+            "A": "a theorem",
+            "B": "a conjecture",
+            "C": "an axiom (postulate)",
+            "D": "a corollary",
+            "E": "a counter-example"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Axioms (postulates) are the unproved starting statements; theorems are proved from them.",
+            "Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "geometric-reasoning"
+      ],
+      "keywords": [
+        "conjecture",
+        "theorem",
+        "axiom",
+        "proof",
+        "inductive reasoning"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Geometric Structure",
+        "section": "2.3 Conjectures",
+        "page": "46",
+        "pdf_page": 52,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 10,
+          "unit": "Unit 2 – Geometric Structure",
+          "section": "2.1 Axiomatic Systems",
+          "page": "30",
+          "pdf_page": 36,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q38",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 38,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Given a circle with center O. If the measure of minor arc AB = 100° and the measure of minor arc CD = 110°, then the measure of ∠AXD is equal to\n(Figure: chords AC and BD of the circle intersect at X; AC passes through the centre O; chord BC is also drawn.)",
+      "image": "media/mathematics-2018-matric-q38-circle-chords.jpg",
+      "image_alt": "Circle with centre O. Points A (upper left), B (left), D (right) and C (lower right) on the circle. Chord AC passes through O (a diameter). Chord BD crosses AC at X near D. Chord BC and chord AB are also drawn.",
+      "options": {
+        "A": "85°",
+        "B": "90°",
+        "C": "95°",
+        "D": "100°",
+        "E": "110°"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "X is the intersection of chords AC and BD. The angle formed by two chords intersecting inside a circle is half the sum of the intercepted arcs.",
+        "∠AXB (and its vertical angle ∠CXD) intercept arcs AB and CD: ∠AXB = ½(100° + 110°) = 105°.",
+        "∠AXD is supplementary to ∠AXB: ∠AXD = 180° − 105° = 75°. (Using the diameter AC: arc BC = 180° − 100° = 80°, arc AD = 180° − 110° = 70°, ∠AXD = ½(70° + 80°) = 75° – the same.)",
+        "75° is not among the options. The item is defective; A (85°) is only the nearest value and is keyed provisionally. Low confidence."
+      ],
+      "tips": [
+        "Chords intersecting inside: angle = ½(sum of the intercepted arcs). Secants meeting outside: angle = ½(difference of the arcs)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Chords AC and BD of a circle intersect at X. If arc AB = 80° and arc CD = 60°, then m(∠AXD) is",
+          "options": {
+            "A": "70°",
+            "B": "110°",
+            "C": "140°",
+            "D": "20°",
+            "E": "40°"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "∠AXB = ½(80° + 60°) = 70°.",
+            "∠AXD = 180° − 70° = 110°. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "circle-geometry"
+      ],
+      "keywords": [
+        "angle between chords",
+        "intercepted arcs",
+        "circle",
+        "diameter"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Geometric Patterns",
+        "section": "3.3.1 Lines Intersecting Inside the Circle",
+        "page": "97",
+        "pdf_page": 103,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "low",
+      "review_flag": "No option is correct: with arcs AB = 100° and CD = 110°, ∠AXB = 105° and ∠AXD = 75° (also obtained from the diameter AC). Keyed A (85°) only as the nearest value. Teacher decision needed (likely a misprinted arc measure; e.g. arc CD = 90° would give ∠AXD = 85°). Consider voiding."
+    },
+    {
+      "id": "math-2018-matric-p1-q39",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 39,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Which one of the following points is the nearest from the origin?",
+      "options": {
+        "A": "(2, −3)",
+        "B": "(2, −1)",
+        "C": "(5, 0)",
+        "D": "(1, 3)",
+        "E": "(3, −1)"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Distance from the origin d = √(x² + y²); compare x² + y².",
+        "A: 4 + 9 = 13; B: 4 + 1 = 5; C: 25; D: 1 + 9 = 10; E: 9 + 1 = 10.",
+        "Smallest: (2, −1), d = √5. Answer: B."
+      ],
+      "tips": [
+        "Compare squared distances – no need to take square roots."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which point is farthest from the origin?",
+          "options": {
+            "A": "(3, 4)",
+            "B": "(−5, 2)",
+            "C": "(0, −5)",
+            "D": "(4, −2)",
+            "E": "(1, 5)"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "x² + y²: 25, 29, 25, 20, 26.",
+            "Largest is (−5, 2), d = √29. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "coordinate-geometry"
+      ],
+      "keywords": [
+        "distance formula",
+        "origin",
+        "coordinates"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Dimensionality and Geometry of Location",
+        "section": "4.2.2 Distance between two Points",
+        "page": "125",
+        "pdf_page": 131,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q40",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 40,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If a translation takes the point (2, 3) to (3, −4), then the image of the point (−3, −5) under the same transformation is",
+      "options": {
+        "A": "(1, −7)",
+        "B": "(−4, −12)",
+        "C": "(−2, −12)",
+        "D": "(4, −2)",
+        "E": "(2, −3)"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Translation vector = (3 − 2, −4 − 3) = (1, −7).",
+        "(−3, −5) → (−3 + 1, −5 − 7) = (−2, −12). Answer: C."
+      ],
+      "tips": [
+        "A translation adds the same vector to every point."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A translation maps (1, −2) to (4, 3). The image of (−2, 5) is",
+          "options": {
+            "A": "(1, 10)",
+            "B": "(−5, 0)",
+            "C": "(2, 8)",
+            "D": "(1, 0)",
+            "E": "(−6, 3)"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Vector = (3, 5).",
+            "(−2 + 3, 5 + 5) = (1, 10). Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "transformations"
+      ],
+      "keywords": [
+        "translation",
+        "image of a point",
+        "transformation"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Dimensionality and Geometry of Location",
+        "section": "4.3.2 Translations",
+        "page": "138",
+        "pdf_page": 144,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q41",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 41,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The radii of two concentric circles are 13 cm and 8 cm, respectively. Segment AB is a diameter of the larger circle and BE is a tangent to the smaller circle at point D as shown in the figure below. Then AD is equal to\n(Figure: common centre O; A and B are ends of a diameter of the large circle; chord BE of the large circle touches the small circle at D; OD, AE and AD are drawn.)",
+      "image": "media/mathematics-2018-matric-q41-concentric-circles.jpg",
+      "image_alt": "Two concentric circles with centre O. AB is a diameter of the large circle (A upper right, B lower left). Chord BE of the large circle touches the small circle at D; segment OD is drawn to D, and AE and AD are drawn.",
+      "options": {
+        "A": "8 cm",
+        "B": "13 cm",
+        "C": "15 cm",
+        "D": "19 cm",
+        "E": "20 cm"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "OD ⟂ BE (radius ⟂ tangent), OD = 8, OB = 13 ⇒ BD = √(13² − 8²) = √105.",
+        "OD ⟂ chord BE of the large circle, so D is the midpoint of BE: DE = √105.",
+        "∠AEB = 90° (angle in a semicircle, AB is a diameter). In △ABE, O and D are midpoints of AB and BE, so AE = 2·OD = 16 cm (mid-segment).",
+        "In right △ADE: AD = √(AE² + DE²) = √(256 + 105) = √361 = 19 cm. Answer: D."
+      ],
+      "tips": [
+        "Useful facts: tangent ⟂ radius; perpendicular from the centre bisects a chord; angle in a semicircle = 90°; mid-segment = half the third side."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Two concentric circles have radii 10 cm and 6 cm. AB is a diameter of the larger circle and chord BE of the larger circle touches the smaller circle at D. Find AD.",
+          "options": {
+            "A": "4√13 cm",
+            "B": "12 cm",
+            "C": "16 cm",
+            "D": "2√13 cm",
+            "E": "20 cm"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "BD = √(100 − 36) = 8 = DE; AE = 2 × 6 = 12.",
+            "AD = √(12² + 8²) = √208 = 4√13 cm. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "circle-geometry"
+      ],
+      "keywords": [
+        "tangent",
+        "concentric circles",
+        "angle in a semicircle",
+        "Pythagoras"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Geometric Patterns",
+        "section": "3.2.3 Properties of Tangents in Circles",
+        "page": "88",
+        "pdf_page": 94,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 10,
+          "unit": "Unit 3 – Geometric Patterns",
+          "section": "3.2.1 Angles in a Circle",
+          "page": "75",
+          "pdf_page": 81,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q42",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 42,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If a cone and a cylinder have a radius of 4 cm and a height of 3 cm each, then the ratio of the lateral surface area of the cone to the lateral surface area of the cylinder is",
+      "options": {
+        "A": "2 : 3",
+        "B": "3 : 4",
+        "C": "4 : 5",
+        "D": "5 : 6",
+        "E": "1 : 2"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Slant height of the cone: l = √(r² + h²) = √(16 + 9) = 5 cm.",
+        "Cone: LSA = πrl = π·4·5 = 20π cm². Cylinder: LSA = 2πrh = 2π·4·3 = 24π cm².",
+        "Ratio = 20π : 24π = 5 : 6. Answer: D."
+      ],
+      "tips": [
+        "Use the SLANT height for the cone, the vertical height for the cylinder."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A cone and a cylinder both have radius 6 cm and height 8 cm. The ratio of their lateral surface areas (cone : cylinder) is",
+          "options": {
+            "A": "5 : 8",
+            "B": "3 : 4",
+            "C": "1 : 2",
+            "D": "5 : 6",
+            "E": "3 : 8"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "l = √(36 + 64) = 10. Cone: π·6·10 = 60π; cylinder: 2π·6·8 = 96π.",
+            "60 : 96 = 5 : 8. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "mensuration"
+      ],
+      "keywords": [
+        "lateral surface area",
+        "cone",
+        "cylinder",
+        "slant height"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Congruency and the Geometry of Size",
+        "section": "5.3.4 Surface Areas and Volumes of Cones",
+        "page": "215",
+        "pdf_page": 221,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 10,
+          "unit": "Unit 5 – Congruency and the Geometry of Size",
+          "section": "5.3.2 Surface Areas and Volumes of Cylinders",
+          "page": "206",
+          "pdf_page": 212,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q43",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 43,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "In the figure below the segments AB, CD and EF are all perpendicular to BF. If AB = 24 cm and EF = 40 cm, then CD is equal to\n(Figure: B, D, F on a line; AB, CD, EF perpendicular to BF; AF and BE meet at C.)",
+      "image": "media/mathematics-2018-matric-q43-perpendicular-segments.jpg",
+      "image_alt": "Horizontal segment BF with D between B and F. Vertical segments AB (left, shorter), CD (middle) and EF (right, taller) stand on BF with right-angle marks. Lines AF and BE cross at C, the top of CD.",
+      "options": {
+        "A": "15 cm",
+        "B": "15√3 cm",
+        "C": "64 cm",
+        "D": "8 cm",
+        "E": "25 cm"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "△BDC ~ △BFE (CD ∥ EF): CD/EF = BD/BF. △FDC ~ △FBA (CD ∥ AB): CD/AB = DF/BF.",
+        "Add: CD/40 + CD/24 = (BD + DF)/BF = 1.",
+        "CD(1/40 + 1/24) = 1 ⇒ CD = (24 × 40)/(24 + 40) = 960/64 = 15 cm. Answer: A."
+      ],
+      "tips": [
+        "Remember 1/CD = 1/AB + 1/EF – independent of the length BF."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In the same configuration, AB = 12 cm and EF = 6 cm. Then CD is",
+          "options": {
+            "A": "4 cm",
+            "B": "9 cm",
+            "C": "3 cm",
+            "D": "6 cm",
+            "E": "8 cm"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "CD = (12 × 6)/(12 + 6) = 72/18 = 4 cm.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "similar-triangles"
+      ],
+      "keywords": [
+        "similar triangles",
+        "parallel lines",
+        "proportion"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Similarity and the Geometry of Shape",
+        "section": "5.2.3 Methods for Similarity of Triangles",
+        "page": "180",
+        "pdf_page": 188,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q44",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 44,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "In a circle with center R, CD is tangent to the circle at point B. Point A is on the circle and RE ⟂ AB as shown in the figure below. If AB = 6√3 cm and RE = 6 cm, then m(∠ABC) is equal to\n(Figure: RE is a radius drawn perpendicular to chord AB, meeting the circle at E; the tangent line passes through B with C above and D below.)",
+      "image": "media/mathematics-2018-matric-q44-tangent-chord.jpg",
+      "image_alt": "Circle with centre R. Horizontal chord AB (A left, B right). A vertical segment from R down through the chord meets the circle at E, perpendicular to AB. A tangent line touches the circle at B, running from C (upper right) to D (lower left).",
+      "options": {
+        "A": "105°",
+        "B": "110°",
+        "C": "115°",
+        "D": "120°",
+        "E": "125°"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "In the figure E is on the circle, so RE = 6 cm is a radius: r = 6.",
+        "RE ⟂ AB bisects the chord: half-chord = 3√3. With r = 6: sin(½∠ARB) = 3√3/6 = √3/2 ⇒ ½∠ARB = 60° ⇒ central angle ∠ARB = 120°, so the minor arc AB (through E) = 120°.",
+        "Tangent–chord angle = ½ of the intercepted arc: ∠ABD (towards D, intercepting the minor arc AEB) = 60°.",
+        "∠ABC is its supplement (intercepts the major arc 240°): ∠ABC = 180° − 60° = 120°. Answer: D."
+      ],
+      "tips": [
+        "Angle between a tangent and a chord = half the arc it cuts off."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In a circle of radius 4 cm, chord AB = 4√2 cm and line CD is tangent at B. The acute angle between chord AB and the tangent is",
+          "options": {
+            "A": "30°",
+            "B": "45°",
+            "C": "60°",
+            "D": "90°",
+            "E": "135°"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Half-chord 2√2, sin(½∠AOB) = 2√2/4 = √2/2 ⇒ ∠AOB = 90° (minor arc AB = 90°).",
+            "Tangent–chord angle = ½ × 90° = 45°. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "circle-geometry"
+      ],
+      "keywords": [
+        "tangent-chord angle",
+        "chord",
+        "central angle",
+        "tangent"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Geometric Patterns",
+        "section": "3.3.2 Intersection of a Tangent Line and a Chord",
+        "page": "97",
+        "pdf_page": 103,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "The stem calls RE a segment perpendicular to AB, but the figure shows E on the circle, i.e. RE is a radius (6 cm). With that reading the answer is 120°. If RE meant the distance from R to AB (6 cm), r = √(36 + 27) = √63 and none of the options fits – so the radius reading is intended."
+    },
+    {
+      "id": "math-2018-matric-p1-q45",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 45,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The equation of a line which is a perpendicular bisector of the segment with end points (2, 4) and (6, 10) is",
+      "options": {
+        "A": "y − x = 2",
+        "B": "3y + 2x = 16",
+        "C": "3y + 2x = 29",
+        "D": "2y − 3x = 2",
+        "E": "y + x = 2"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Midpoint = ((2 + 6)/2, (4 + 10)/2) = (4, 7).",
+        "Slope of the segment = (10 − 4)/(6 − 2) = 3/2 ⇒ perpendicular slope = −2/3.",
+        "y − 7 = −(2/3)(x − 4) ⇒ 3y − 21 = −2x + 8 ⇒ 3y + 2x = 29. Answer: C."
+      ],
+      "tips": [
+        "Check: the midpoint (4, 7) must satisfy the answer: 21 + 8 = 29 ✓."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The perpendicular bisector of the segment joining (−1, 2) and (3, 6) is",
+          "options": {
+            "A": "x + y = 5",
+            "B": "y − x = 3",
+            "C": "x + y = 3",
+            "D": "y − x = 1",
+            "E": "2x + y = 6"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Midpoint (1, 4); slope of segment 1 ⇒ perpendicular slope −1.",
+            "y − 4 = −(x − 1) ⇒ x + y = 5. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "coordinate-geometry"
+      ],
+      "keywords": [
+        "perpendicular bisector",
+        "midpoint",
+        "slope",
+        "perpendicular lines"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 3 – Algebra and Geometry",
+        "section": "3.2.3 Equation of a Line",
+        "page": "139",
+        "pdf_page": 145,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 12,
+          "unit": "Unit 3 – Algebra and Geometry",
+          "section": "3.2.2 Parallel and Perpendicular Lines",
+          "page": "134",
+          "pdf_page": 140,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q46",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 46,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The perimeter of a regular hexagon inscribed in a circle of radius 5 cm is equal to",
+      "options": {
+        "A": "5 cm",
+        "B": "25√3/4 cm",
+        "C": "75√3/2 cm",
+        "D": "30 cm",
+        "E": "3√3/2 cm"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "The radii to the six vertices divide the hexagon into 6 equilateral triangles, so each side = radius = 5 cm.",
+        "Perimeter = 6 × 5 = 30 cm. (Textbook formula P = 2nr sin(180°/n) = 2·6·5·sin 30° = 30.) Answer: D."
+      ],
+      "tips": [
+        "Option C (75√3/2) is the AREA of the hexagon in cm² – a distractor."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The area of a regular hexagon inscribed in a circle of radius 4 cm is",
+          "options": {
+            "A": "24√3 cm²",
+            "B": "24 cm²",
+            "C": "48√3 cm²",
+            "D": "16√3 cm²",
+            "E": "12√3 cm²"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Six equilateral triangles of side 4: area = 6 × (√3/4) × 16 = 24√3 cm².",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "mensuration"
+      ],
+      "keywords": [
+        "regular hexagon",
+        "inscribed polygon",
+        "perimeter"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Congruency and the Geometry of Size",
+        "section": "5.2.1 Perimeter of Polygons",
+        "page": "174",
+        "pdf_page": 180,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q47",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 47,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "A circle is inscribed in △ABC having sides BC = 8 cm, AC = 10 cm and AB = 12 cm as shown in the figure below. Then BD is equal to\n(Figure: the incircle touches AB at D, AC at E and BC at F.)",
+      "image": "media/mathematics-2018-matric-q47-incircle.jpg",
+      "image_alt": "Triangle ABC with A at the top, B bottom left and C bottom right. A circle inside touches AB at D, AC at E and BC at F.",
+      "options": {
+        "A": "3 cm",
+        "B": "5 cm",
+        "C": "6 cm",
+        "D": "7 cm",
+        "E": "8 cm"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Tangent segments from an external point are equal: BD = BF = x, AD = AE = 12 − x, CF = CE = 8 − x.",
+        "AC = AE + CE ⇒ (12 − x) + (8 − x) = 10 ⇒ 20 − 2x = 10 ⇒ x = 5.",
+        "BD = 5 cm (= s − AC with s = 15). Answer: B."
+      ],
+      "tips": [
+        "Shortcut: tangent length from a vertex = semi-perimeter − opposite side."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A circle is inscribed in △ABC with AB = 9 cm, BC = 7 cm and AC = 6 cm; it touches AB at D. Find BD.",
+          "options": {
+            "A": "5 cm",
+            "B": "4 cm",
+            "C": "6 cm",
+            "D": "3 cm",
+            "E": "2 cm"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "s = (9 + 7 + 6)/2 = 11.",
+            "BD = s − AC = 11 − 6 = 5 cm. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "circle-geometry"
+      ],
+      "keywords": [
+        "inscribed circle",
+        "tangent segments",
+        "semi-perimeter"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Geometric Patterns",
+        "section": "3.2.3 Properties of Tangents in Circles",
+        "page": "88",
+        "pdf_page": 94,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q48",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 48,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If circle x² + y² − 2y = 0 and line y = x − 1 are given, then the line",
+      "options": {
+        "A": "does not intersect the circle.",
+        "B": "passes through the center of the circle.",
+        "C": "intersects the circle at two points.",
+        "D": "is tangent to the circle.",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "x² + (y − 1)² = 1: centre (0, 1), radius 1.",
+        "Distance from (0, 1) to x − y − 1 = 0: |0 − 1 − 1|/√2 = 2/√2 = √2 ≈ 1.41 > 1.",
+        "(Algebraically: x² + (x − 1)² − 2(x − 1) = 2x² − 4x + 3 = 0 has Δ = 16 − 24 < 0.) The line does not meet the circle. Answer: A."
+      ],
+      "tips": [
+        "d > r → no intersection; d = r → tangent; d < r → two points."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The line y = x and the circle x² + y² − 4x = 0",
+          "options": {
+            "A": "do not meet",
+            "B": "are tangent",
+            "C": "meet at two points",
+            "D": "meet only at the centre",
+            "E": "none of these"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Centre (2, 0), r = 2. Distance to x − y = 0: |2|/√2 = √2 < 2.",
+            "Two intersection points ((0, 0) and (2, 2)). Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "circle-equation"
+      ],
+      "keywords": [
+        "equation of a circle",
+        "line and circle",
+        "tangent",
+        "distance from a point to a line"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 3 – Algebra and Geometry",
+        "section": "3.3 Circle",
+        "page": "149",
+        "pdf_page": 155,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q49",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 49,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The image of the point (1, 2) under the line of reflection y = x − 2 is",
+      "options": {
+        "A": "(5/2, 1/2)",
+        "B": "(4, −1)",
+        "C": "(−1, 4)",
+        "D": "(−5/2, −1/2)",
+        "E": "(−1, −4)"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "The image P′ must make the line the perpendicular bisector of PP′.",
+        "Perpendicular through (1, 2) (slope −1): y = −x + 3. Intersection with y = x − 2: x − 2 = −x + 3 ⇒ x = 5/2, y = 1/2 (this is the midpoint, option A is the foot, not the image).",
+        "P′ = 2(5/2, 1/2) − (1, 2) = (4, −1). Answer: B."
+      ],
+      "tips": [
+        "Reflection in y = x + c maps (x, y) → (y − c, x + c): (1, 2) → (2 + 2, 1 − 2) = (4, −1)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The image of (3, 1) under reflection in the line y = x + 1 is",
+          "options": {
+            "A": "(0, 4)",
+            "B": "(1, 3)",
+            "C": "(2, 2)",
+            "D": "(−1, 4)",
+            "E": "(4, 0)"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Using (x, y) → (y − 1, x + 1): (1 − 1, 3 + 1) = (0, 4).",
+            "Check: midpoint (1.5, 2.5) lies on y = x + 1 ✓. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "transformations"
+      ],
+      "keywords": [
+        "reflection",
+        "line of reflection",
+        "perpendicular bisector"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Dimensionality and Geometry of Location",
+        "section": "4.3.1 Reflection",
+        "page": "133",
+        "pdf_page": 139,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p1-q50",
+      "exam_id": "math-2018-matric",
+      "part": 1,
+      "number": 50,
+      "section": "B. Geometry",
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The area of a sector bounded by an arc of 30° and radius 3√2 cm is",
+      "options": {
+        "A": "4.5π cm²",
+        "B": "3π cm²",
+        "C": "9π cm²",
+        "D": "1.5π cm²",
+        "E": "2π cm²"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Area of sector = (θ/360°) × πr² with r² = (3√2)² = 18.",
+        "= (30/360) × 18π = 1.5π cm². Answer: D."
+      ],
+      "tips": [
+        "(3√2)² = 9 × 2 = 18, not 9√2."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The area of a sector with central angle 60° in a circle of radius 6 cm is",
+          "options": {
+            "A": "6π cm²",
+            "B": "12π cm²",
+            "C": "3π cm²",
+            "D": "36π cm²",
+            "E": "2π cm²"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "(60/360) × π × 36 = 6π cm².",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "mensuration"
+      ],
+      "keywords": [
+        "area of sector",
+        "circle",
+        "central angle"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Congruency and the Geometry of Size",
+        "section": "5.2.3 Area and Perimeter of Sectors",
+        "page": "190",
+        "pdf_page": 196,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p2-q01",
+      "exam_id": "math-2018-matric",
+      "part": 2,
+      "number": 1,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 2,
+      "stem": "A1. The percent of 3 hours in one day is ______.",
+      "options": null,
+      "answer": "12.5 %",
+      "explanation_steps": [
+        "One day = 24 hours.",
+        "3/24 × 100 % = 12.5 %."
+      ],
+      "marking_points": [
+        "Correct answer: 12.5 % (2 points; no working required)"
+      ],
+      "tips": [
+        "Convert to the same unit before forming the fraction."
+      ],
+      "similar_questions": [
+        {
+          "stem": "What percent of one hour is 45 minutes?",
+          "options": null,
+          "answer": "75 %",
+          "explanation_steps": [
+            "1 hour = 60 min.",
+            "45/60 × 100 % = 75 %."
+          ]
+        }
+      ],
+      "topics": [
+        "business-mathematics"
+      ],
+      "keywords": [
+        "percentage",
+        "units of time"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 7 – Business Mathematics",
+        "section": "7.1.1 Percentage",
+        "page": "154",
+        "pdf_page": 162,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p2-q02",
+      "exam_id": "math-2018-matric",
+      "part": 2,
+      "number": 2,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 2,
+      "stem": "A2. If k + 1, 3k and 4k + 2 are three consecutive terms of an arithmetic progression, then the value of k is ______.",
+      "options": null,
+      "answer": "k = 3",
+      "explanation_steps": [
+        "For consecutive AP terms the middle term is the average of its neighbours: 2(3k) = (k + 1) + (4k + 2).",
+        "6k = 5k + 3 ⇒ k = 3.",
+        "Check: 4, 9, 14 – common difference 5 ✓."
+      ],
+      "marking_points": [
+        "Correct answer: k = 3 (2 points; no working required)"
+      ],
+      "tips": [
+        "a, b, c in AP ⇔ 2b = a + c; in GP ⇔ b² = ac."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If x − 2, 2x + 1 and 4x are consecutive terms of an AP, find x.",
+          "options": null,
+          "answer": "x = 4",
+          "explanation_steps": [
+            "2(2x + 1) = (x − 2) + 4x ⇒ 4x + 2 = 5x − 2 ⇒ x = 4.",
+            "Terms 2, 9, 16 (d = 7) ✓."
+          ]
+        }
+      ],
+      "topics": [
+        "sequences-series"
+      ],
+      "keywords": [
+        "arithmetic progression",
+        "arithmetic mean",
+        "consecutive terms"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Sequence and Series",
+        "section": "1.2 Arithmetic Progression",
+        "page": "9",
+        "pdf_page": 15,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p2-q03",
+      "exam_id": "math-2018-matric",
+      "part": 2,
+      "number": 3,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 2,
+      "stem": "A3. If log₃x × log(base y)3 × log₂y = 5, then the value of x is ______.",
+      "options": null,
+      "answer": "x = 32",
+      "explanation_steps": [
+        "Change of base: log₃x = ln x/ln 3, log(base y)3 = ln 3/ln y, log₂y = ln y/ln 2.",
+        "Product = (ln x/ln 3)(ln 3/ln y)(ln y/ln 2) = ln x/ln 2 = log₂x.",
+        "log₂x = 5 ⇒ x = 2⁵ = 32."
+      ],
+      "marking_points": [
+        "Correct answer: x = 32 (2 points; no working required)"
+      ],
+      "tips": [
+        "Chain rule of logarithms: logₐb × log(base b)c = logₐc – the middle bases cancel."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If log₅a × log(base a)7 × log₇b = 2, find b.",
+          "options": null,
+          "answer": "b = 25",
+          "explanation_steps": [
+            "The product telescopes to log₅b.",
+            "log₅b = 2 ⇒ b = 5² = 25."
+          ]
+        }
+      ],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "change of base",
+        "laws of logarithms"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 5 – Exponential and Logarithmic Expressions",
+        "section": "5.2.2 Laws of Logarithms",
+        "page": "117",
+        "pdf_page": 125,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 11,
+          "unit": "Unit 4 – Exponential and Logarithmic Functions",
+          "section": "4.2 Logarithmic Function",
+          "page": "152",
+          "pdf_page": 160,
+          "verified_in_text": false,
+          "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p2-q04",
+      "exam_id": "math-2018-matric",
+      "part": 2,
+      "number": 4,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 2,
+      "stem": "A4. The volume of a cube with diagonal 7√3 cm long is equal to ______.",
+      "options": null,
+      "answer": "343 cm³",
+      "explanation_steps": [
+        "The space diagonal of a cube with edge a is a√3.",
+        "a√3 = 7√3 ⇒ a = 7 cm.",
+        "V = a³ = 7³ = 343 cm³."
+      ],
+      "marking_points": [
+        "Correct answer: 343 cm³ (2 points; no working required)"
+      ],
+      "tips": [
+        "Face diagonal = a√2; space (body) diagonal = a√3."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The space diagonal of a cube is 4√3 cm. Find its total surface area.",
+          "options": null,
+          "answer": "96 cm²",
+          "explanation_steps": [
+            "a√3 = 4√3 ⇒ a = 4 cm.",
+            "Total surface area = 6a² = 6 × 16 = 96 cm²."
+          ]
+        }
+      ],
+      "topics": [
+        "mensuration"
+      ],
+      "keywords": [
+        "cube",
+        "space diagonal",
+        "volume"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Congruency and the Geometry of Size",
+        "section": "5.3.1 Surface Areas and Volumes of Prisms",
+        "page": "197",
+        "pdf_page": 203,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p2-q05",
+      "exam_id": "math-2018-matric",
+      "part": 2,
+      "number": 5,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 2,
+      "stem": "A5. If the mid point of a line segment with end points (−3, a) and (1, a + 1) is (−1, 1), then the value of a is ______.",
+      "options": null,
+      "answer": "a = 1/2",
+      "explanation_steps": [
+        "Midpoint = ((x₁ + x₂)/2, (y₁ + y₂)/2). x: (−3 + 1)/2 = −1 ✓.",
+        "y: (a + a + 1)/2 = 1 ⇒ 2a + 1 = 2 ⇒ a = 1/2."
+      ],
+      "marking_points": [
+        "Correct answer: a = 1/2 (2 points; no working required)"
+      ],
+      "tips": [
+        "Use the coordinate that contains the unknown."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The midpoint of the segment joining (2b, 5) and (4, b + 1) is (5, 9/2). Find b.",
+          "options": null,
+          "answer": "b = 3",
+          "explanation_steps": [
+            "x-coordinate: (2b + 4)/2 = 5 ⇒ 2b + 4 = 10 ⇒ b = 3.",
+            "Check with y: (5 + 3 + 1)/2 = 9/2 ✓."
+          ]
+        }
+      ],
+      "topics": [
+        "coordinate-geometry"
+      ],
+      "keywords": [
+        "midpoint formula"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Dimensionality and Geometry of Location",
+        "section": "4.2.3 Midpoint of a Line Segment",
+        "page": "128",
+        "pdf_page": 134,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p2-q06",
+      "exam_id": "math-2018-matric",
+      "part": 2,
+      "number": 6,
+      "section": "B. Workout",
+      "type": "workout",
+      "marks": 5,
+      "stem": "B1. Solve the following equation and inequality.\na) 2x − 7 = 8 − 3x (2 points)\nb) Solve (x − 1)(x + 2) / ((x + 3)(x − 4)) < 0 (3 points)",
+      "stem_tex": "B1. Solve the following equation and inequality. a) $2x-7=8-3x$ (2 points) b) Solve $\\dfrac{(x-1)(x+2)}{(x+3)(x-4)}<0$ (3 points)",
+      "options": null,
+      "answer": "a) x = 3.  b) Solution set: {x | −3 < x < −2 or 1 < x < 4} = (−3, −2) ∪ (1, 4).",
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "question": "2x − 7 = 8 − 3x",
+          "answer": "x = 3",
+          "steps": [
+            "5x = 15",
+            "x = 3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "question": "(x − 1)(x + 2)/((x + 3)(x − 4)) < 0",
+          "answer": "(−3, −2) ∪ (1, 4)",
+          "steps": [
+            "Critical numbers −3, −2, 1, 4",
+            "Sign chart: + − + − +",
+            "Negative on (−3, −2) and (1, 4)"
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "a) 2x + 3x = 8 + 7 ⇒ 5x = 15 ⇒ x = 3. Check: 6 − 7 = −1 = 8 − 9 ✓.",
+        "b) Critical numbers: zeros of the numerator x = 1, x = −2; zeros of the denominator x = −3, x = 4 (always excluded).",
+        "Sign chart on the intervals (−∞, −3), (−3, −2), (−2, 1), (1, 4), (4, ∞): the expression is +, −, +, −, + (each factor changes sign at its own zero).",
+        "The expression is negative on (−3, −2) and (1, 4). Endpoints are excluded (strict inequality; −3 and 4 make the denominator zero)."
+      ],
+      "marking_points": [
+        "a) collecting terms 5x = 15 (1), x = 3 (1)",
+        "b) critical numbers −3, −2, 1, 4 identified (1); correct sign chart / test values (1); solution (−3, −2) ∪ (1, 4) with open endpoints (1)"
+      ],
+      "tips": [
+        "Put ALL four critical numbers on the number line; test one value in each interval (e.g. x = 0: (−1)(2)/((3)(−4)) = 1/6 > 0).",
+        "Never multiply both sides of a rational inequality by an expression whose sign is unknown."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Solve (x + 1)/(x − 5) ≥ 0.",
+          "options": null,
+          "answer": "x ≤ −1 or x > 5, i.e. (−∞, −1] ∪ (5, ∞)",
+          "explanation_steps": [
+            "Critical numbers −1 (numerator, included) and 5 (denominator, excluded).",
+            "Signs: (−∞, −1) +, (−1, 5) −, (5, ∞) +.",
+            "Solution: (−∞, −1] ∪ (5, ∞)."
+          ]
+        }
+      ],
+      "topics": [
+        "rational-functions",
+        "linear-equations"
+      ],
+      "keywords": [
+        "linear equation",
+        "rational inequality",
+        "sign chart",
+        "critical numbers"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Rational Functions",
+        "section": "3.4.2 Solving Rational Inequalities",
+        "page": "133",
+        "pdf_page": 141,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 9,
+          "unit": "Unit 2 – Foundation of Functions",
+          "section": "2.2.2 Solving Linear Equations with Variables on Both Sides",
+          "page": "31",
+          "pdf_page": 39,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p2-q07",
+      "exam_id": "math-2018-matric",
+      "part": 2,
+      "number": 7,
+      "section": "B. Workout",
+      "type": "workout",
+      "marks": 3,
+      "stem": "B2. Given the polynomials x⁵ − x⁴ + x³ + x² − 1 and x² − 2x + 1, then using the long method of division of polynomials, divide x⁵ − x⁴ + x³ + x² − 1 by x² − 2x + 1 and find the quotient and the remainder. (3 points)",
+      "options": null,
+      "answer": "Quotient Q(x) = x³ + x² + 2x + 4; remainder R(x) = 6x − 5. So x⁵ − x⁴ + x³ + x² − 1 = (x² − 2x + 1)(x³ + x² + 2x + 4) + (6x − 5).",
+      "answer_tables": [
+        {
+          "title": "Long division layout",
+          "kind": "calculation",
+          "columns": [
+            "Step",
+            "Quotient term",
+            "Subtract",
+            "Remainder so far"
+          ],
+          "rows": [
+            [
+              "1",
+              "x³",
+              "x⁵ − 2x⁴ + x³",
+              "x⁴ + x²"
+            ],
+            [
+              "2",
+              "x²",
+              "x⁴ − 2x³ + x²",
+              "2x³"
+            ],
+            [
+              "3",
+              "2x",
+              "2x³ − 4x² + 2x",
+              "4x² − 2x − 1"
+            ],
+            [
+              "4",
+              "4",
+              "4x² − 8x + 4",
+              "6x − 5"
+            ]
+          ],
+          "align": [
+            "center",
+            "left",
+            "left",
+            "left"
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "Write the dividend with all powers: x⁵ − x⁴ + x³ + x² + 0x − 1.",
+        "x⁵ ÷ x² = x³; x³(x² − 2x + 1) = x⁵ − 2x⁴ + x³; subtract → x⁴ + 0x³ + x².",
+        "x⁴ ÷ x² = x²; x²(x² − 2x + 1) = x⁴ − 2x³ + x²; subtract → 2x³ + 0x² + 0x.",
+        "2x³ ÷ x² = 2x; 2x(x² − 2x + 1) = 2x³ − 4x² + 2x; subtract → 4x² − 2x − 1.",
+        "4x² ÷ x² = 4; 4(x² − 2x + 1) = 4x² − 8x + 4; subtract → 6x − 5 (degree 1 < 2, stop).",
+        "Check: (x² − 2x + 1)(x³ + x² + 2x + 4) + 6x − 5 = x⁵ − x⁴ + x³ + x² − 1 ✓ (verified with sympy)."
+      ],
+      "marking_points": [
+        "First two quotient terms x³ + x² with correct subtractions (1)",
+        "Quotient x³ + x² + 2x + 4 (1)",
+        "Remainder 6x − 5 (1)"
+      ],
+      "tips": [
+        "Insert 0 for missing powers (here 0x) so the columns line up.",
+        "Stop when the degree of the remainder is less than the degree of the divisor."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Divide x⁴ + 2x² − x + 3 by x² + x − 1 and give the quotient and remainder.",
+          "options": null,
+          "answer": "Quotient x² − x + 4; remainder −6x + 7",
+          "explanation_steps": [
+            "x⁴ ÷ x² = x² → subtract x⁴ + x³ − x² → −x³ + 3x² − x.",
+            "−x³ ÷ x² = −x → subtract −x³ − x² + x → 4x² − 2x + 3.",
+            "4x² ÷ x² = 4 → subtract 4x² + 4x − 4 → −6x + 7."
+          ]
+        }
+      ],
+      "topics": [
+        "polynomials"
+      ],
+      "keywords": [
+        "long division of polynomials",
+        "quotient",
+        "remainder",
+        "division algorithm"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 8 – Polynomials",
+        "section": "8.2.4 Division of Polynomials",
+        "page": "181",
+        "pdf_page": 189,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 11,
+          "unit": "Unit 1 – Polynomial Function",
+          "section": "1.4 Polynomial Functions",
+          "page": "41",
+          "pdf_page": 49,
+          "verified_in_text": false,
+          "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2018-matric-p2-q08",
+      "exam_id": "math-2018-matric",
+      "part": 2,
+      "number": 8,
+      "section": "B. Workout",
+      "type": "workout",
+      "marks": 3,
+      "stem": "B3. The square DEFG is inscribed in the right angled triangle ABC, where C is the right angle, as shown in the figure (D and E on AB, G on AC, F on BC). Then prove the following:\na) △ADG ~ △GCF (1 point)\nb) △ADG ~ △FEB (1 point)\nc) (DE)² = AD × EB (1 point)",
+      "image": "media/mathematics-2018-matric-p2-q3-square-in-triangle.jpg",
+      "image_alt": "Right triangle ABC with the right angle at C at the top and hypotenuse AB horizontal at the bottom. Square DEFG stands on AB: D and E on AB, G on side AC and F on side BC.",
+      "options": null,
+      "answer": "a) ∠ADG = 90° = ∠GCF and ∠AGD = ∠GFC (corresponding angles, GF ∥ AB), so △ADG ~ △GCF (AA). b) ∠ADG = 90° = ∠FEB and ∠DAG = ∠EFB (both equal 90° − ∠B, since ∠A + ∠B = 90°), so △ADG ~ △FEB (AA). c) From b): AD/FE = DG/EB ⇒ AD × EB = DG × FE = DE × DE = (DE)², because DG = FE = DE (sides of the square).",
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "question": "Prove △ADG ~ △GCF",
+          "answer": "AA: ∠ADG = ∠GCF = 90°, ∠AGD = ∠GFC",
+          "steps": [
+            "GF ∥ AB gives equal corresponding angles"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "question": "Prove △ADG ~ △FEB",
+          "answer": "AA: ∠ADG = ∠FEB = 90°, ∠DAG = ∠EFB (= 90° − ∠B)",
+          "steps": [
+            "∠A + ∠B = 90° in △ABC"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "question": "Prove (DE)² = AD × EB",
+          "answer": "AD/FE = DG/EB ⇒ AD·EB = DG·FE = DE²",
+          "steps": [
+            "DG = FE = DE (square)"
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "The symbol ≃ in the paper stands for 'is similar to' (~): the triangles have different sizes, so they cannot be congruent.",
+        "Facts about the square: DE = EF = FG = GD, all angles 90°, GF ∥ AB, GD ⟂ AB and FE ⟂ AB.",
+        "a) ∠ADG = 90° (GD ⟂ AB) and ∠GCF = 90° (given). GF ∥ AB with transversal AC gives ∠CGF = ∠CAB; in △ADG, ∠AGD = 90° − ∠A and in △GCF, ∠GFC = 90° − ∠CGF = 90° − ∠A. So two pairs of angles are equal ⇒ △ADG ~ △GCF (AA). [Correspondence A↔G, D↔C, G↔F.]",
+        "b) ∠ADG = ∠FEB = 90°. In right △ABC, ∠A + ∠B = 90°; in right △FEB, ∠EFB = 90° − ∠B = ∠A = ∠DAG. ⇒ △ADG ~ △FEB (AA). [A↔F, D↔E, G↔B.]",
+        "c) Corresponding sides are proportional: AD/FE = DG/EB. Cross-multiply: AD·EB = DG·FE. Since DG = FE = DE, (DE)² = AD × EB."
+      ],
+      "marking_points": [
+        "a) two pairs of equal angles with reasons, AA (1)",
+        "b) two pairs of equal angles with reasons, AA (1)",
+        "c) correct proportion from b) and substitution DG = FE = DE (1)"
+      ],
+      "tips": [
+        "Similarity proofs: name the equal angles with reasons (right angles, parallel lines, complementary angles) and state AA.",
+        "Write the correspondence in the right order before writing the ratio of sides."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In right △PQR (right angle at R), square KLMN has K and L on PQ, N on PR and M on QR. If PK = 4 cm and LQ = 9 cm, find the side of the square.",
+          "options": null,
+          "answer": "6 cm",
+          "explanation_steps": [
+            "As in the proof, △PKN ~ △MLQ gives PK/ML = KN/LQ, so (side)² = PK × LQ.",
+            "side² = 4 × 9 = 36 ⇒ side = 6 cm."
+          ]
+        }
+      ],
+      "topics": [
+        "similar-triangles"
+      ],
+      "keywords": [
+        "similar triangles",
+        "AA similarity",
+        "inscribed square",
+        "proof"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Similarity and the Geometry of Shape",
+        "section": "5.2.3 Methods for Similarity of Triangles",
+        "page": "180",
+        "pdf_page": 188,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 11,
+          "unit": "Unit 5 – Similarity and the Geometry of Shape",
+          "section": "5.2.1 Definition of Similarity",
+          "page": "172",
+          "pdf_page": 180,
+          "verified_in_text": false,
+          "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+        }
+      ],
+      "confidence": "high",
+      "review_flag": "The paper uses the symbol ≃ (usually 'congruent'); the triangles are only similar, so the proofs are for similarity (~)."
+    },
+    {
+      "id": "math-2018-matric-p2-q09",
+      "exam_id": "math-2018-matric",
+      "part": 2,
+      "number": 9,
+      "section": "B. Workout",
+      "type": "workout",
+      "marks": 4,
+      "stem": "B4. Given the function f(x) = 2ˣ⁺¹ − 4.\na) Find its domain and range (1 point)\nb) Find its intercepts and asymptote if there are any (1 point)\nc) Sketch the graph (2 points)",
+      "options": null,
+      "answer": "a) Domain: all real numbers ℝ; range: {y | y > −4} = (−4, ∞). b) y-intercept (0, −2); x-intercept (1, 0); horizontal asymptote y = −4 (no vertical asymptote). c) Increasing exponential curve: the graph of y = 2ˣ shifted 1 unit left and 4 units down; passes through (−1, −3), (0, −2), (1, 0), (2, 4); approaches y = −4 as x → −∞.",
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "question": "Domain and range",
+          "answer": "Domain ℝ; range (−4, ∞)",
+          "steps": [
+            "2ˣ⁺¹ > 0 for all x"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "question": "Intercepts and asymptote",
+          "answer": "(0, −2), (1, 0); asymptote y = −4",
+          "steps": [
+            "f(0) = −2",
+            "2ˣ⁺¹ = 4 ⇒ x = 1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "question": "Sketch",
+          "answer": "Increasing curve through (−1, −3), (0, −2), (1, 0), (2, 4), approaching y = −4 on the left",
+          "steps": [
+            "Draw the asymptote first",
+            "Plot at least 3 points"
+          ]
+        }
+      ],
+      "answer_tables": [
+        {
+          "title": "Table of values for f(x) = 2ˣ⁺¹ − 4",
+          "kind": "calculation",
+          "columns": [
+            "x",
+            "−3",
+            "−2",
+            "−1",
+            "0",
+            "1",
+            "2"
+          ],
+          "rows": [
+            [
+              "f(x)",
+              "−3.75",
+              "−3.5",
+              "−3",
+              "−2",
+              "0",
+              "4"
+            ]
+          ],
+          "align": [
+            "left",
+            "right",
+            "right",
+            "right",
+            "right",
+            "right",
+            "right"
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "a) 2ˣ⁺¹ is defined for every real x ⇒ domain ℝ. Since 2ˣ⁺¹ > 0, f(x) > −4, and every value above −4 is reached ⇒ range (−4, ∞).",
+        "b) y-intercept: f(0) = 2 − 4 = −2. x-intercept: 2ˣ⁺¹ = 4 = 2² ⇒ x + 1 = 2 ⇒ x = 1. As x → −∞, 2ˣ⁺¹ → 0, so y = −4 is a horizontal asymptote.",
+        "c) Table of values: x = −3, −2, −1, 0, 1, 2 gives y = −3.75, −3.5, −3, −2, 0, 4. Draw the dashed asymptote y = −4, plot the points and join them with a smooth increasing curve."
+      ],
+      "marking_points": [
+        "a) domain ℝ and range y > −4 (1)",
+        "b) both intercepts and the asymptote y = −4 (1)",
+        "c) asymptote drawn (½), correct intercepts plotted (½), correct increasing shape approaching the asymptote (1)"
+      ],
+      "tips": [
+        "f(x) = 2ˣ⁺¹ − 4 is y = 2ˣ translated 1 unit left and 4 units down – the asymptote moves from y = 0 to y = −4."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For g(x) = 3ˣ − 9 find the domain, range, intercepts and asymptote.",
+          "options": null,
+          "answer": "Domain ℝ; range (−9, ∞); y-intercept (0, −8); x-intercept (2, 0); horizontal asymptote y = −9.",
+          "explanation_steps": [
+            "3ˣ > 0 ⇒ g(x) > −9.",
+            "g(0) = 1 − 9 = −8; 3ˣ = 9 ⇒ x = 2.",
+            "As x → −∞, 3ˣ → 0 ⇒ y = −9."
+          ]
+        }
+      ],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "exponential function",
+        "domain and range",
+        "asymptote",
+        "intercepts",
+        "graph sketching"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – Exponential and Logarithmic Functions",
+        "section": "4.1 Exponential Functions",
+        "page": "142",
+        "pdf_page": 150,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    }
+  ]
+}

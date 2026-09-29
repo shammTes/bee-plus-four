@@ -1,35 +1,82 @@
-# 4 — Highschool BEE PLUS
+# High — Grade 9–12 notes + Eritrean matriculation prep (native Flutter module)
 
-Offline study app for Eritrean high school (G9–G12): unit notes, full textbooks, practice MCQs, matric/model exams, coach bot, tools.
+Offline, no WebView. Tabs: **Home · Notes · Exercise · Matric · Tutor** (Settings from the avatar on Home, Mistakes from
+the Home card or the Matric page).
 
-## Three apps (product flavors)
+- **Home**: greeting, 2×2 Grade 9–12 clay tiles (→ Grade page: subjects → units → notes, unit exercises, matric
+  questions per unit), matric & notes cards, stats, weekly chart, daily quiz, mistakes, recent, weak topics, tutor.
+- **Notes**: 29 textbook note books / 149 units (`assets/high/notes/notes`), rendered by the ported Junior notes stack
+  (`lib/high/notes/jr`): lessons, cards, diagrams, games, unit quiz, concept map, and "Matric questions" mapped by
+  `assets/high/notes/unit_questions.json`.
+- **Matric**: Matriculation + Model exams (`assets/high/exams`), practice player (MCQ, matching, written with model
+  answers / marking points, passages, stem/answer tables, figures), quizzes, subject page, mistakes & bookmarks, weak topics.
+- **Tutor**: Kokob, an offline BM25 tutor over the exam packs' concepts and questions.
 
-| Flavor | applicationId | Label | Entry |
-|--------|---------------|-------|-------|
-| student | com.four.student | **4** | `lib/main.dart` |
-| seller | com.bee.seller | **Bee Seller** | `lib/seller_main.dart` |
-| master | com.shamm.master | **Shamm Master** | `lib/master_main.dart` |
-
-## Build APKs on GitHub
-
-1. **Actions** → **Build 4 APKs (student / seller / master)**
-2. **Run workflow**
-3. Download artifact **four-three-apks**
-
-## Local build
-
-```bash
-flutter pub get
-flutter build apk --release --flavor student --target lib/main.dart
-flutter build apk --release --flavor seller --target lib/seller_main.dart
-flutter build apk --release --flavor master --target lib/master_main.dart
+## Run
 ```
+source /opt/sdk/env.sh       # Flutter 3.47.x
+flutter pub get && flutter run
+flutter analyze
+flutter test            # ~20 s; test/exercise_shots_test.dart writes compare/exercise_*.png
+```
+Content refresh: `bash tool/sync_assets.sh [exam_src] [notes_src]` (defaults /workspace/examprep/content,
+/workspace/high/content). If new notes books add SVG folders, list each `assets/high/notes/notes/svg/<book>/` in pubspec.
 
-## Content
+## Merge into a host app
+1. Copy `lib/high/` → `<host>/lib/high/` and `assets/high/` → `<host>/assets/high/`.
+2. pubspec: add deps `flutter_svg`, `flutter_math_fork`, `shared_preferences`; copy the `assets:` entries (all
+   `assets/high/...` lines) and the `fonts:` families `HighNunito`, `HighSymbols`, `HighSymbols2`, `HighSymbols3`.
+3. Open it:
+   ```dart
+   import 'package:<host>/high/high.dart';
+   await High.init();   // optional pre-warm
+   Navigator.push(context, PageRouteBuilder(pageBuilder: (_, _, _) => const HighScreen()));
+   ```
+   Saved progress lives in SharedPreferences key `high:v1`.
 
-- Compact official textbook PDFs (~70 MB catalog)
-- 194 unit notes (including WYSS Study Guide fills for G9 Geo/History/Business)
-- Practice + matric banks via CI Drive pack
-- Offline-first, device-bound HMAC unlock
+## Plugging in exercises (Exercise tab)
+The Exercise tab is a Grade → Subject → Unit browser (subjects from the notes index plus bank-only subjects such as
+English; each subject ends with a "General" row for questions without a confident unit). Two item sources feed it:
 
-minSdk 23 (Android 6.0+)
+### 1. Bundled bank (`assets/high/exercises`)
+Built from raw MCQ dumps by `python3 tools/clean_exercises.py [src_dir] [notes_dir]` (defaults `/workspace/exercises_src`,
+`/workspace/high/content/notes`). The script strips `A) ` labels and `[G9 MATH U4]` prefixes, re-verifies every answer key
+against its explanation (drops what it cannot verify, except in the trusted files), removes malformed and duplicate items,
+maps each question to a notes unit, and writes `<subject>_<grade>.json` + `index.json` + `docs/exercises_report.md`.
+
+File shape: `{"subject": "biology", "grade": 9, "questions": [{"id": "biology_9_practice_g9_biology_1", "unit": "bio9-u1" | null,
+"prompt": "…", "options": ["…", "…", "…", "…"], "answer": 1, "explanation": "…", "verified": "explanation" | "trusted",
+"src": "practice_g9_biology#12"}]}`; `index.json` has `grades.<g>.<subject> = {file, count, units: {unitId|general: n}}`.
+
+`ExamRepo` loads the bank at start-up as one synthetic exam per grade+subject (`Exam.isExercise`, not listed on Matric).
+Tapping a unit opens the standard quiz player with a set of 20 (unanswered first, then wrong), so answers count in stats,
+Mistakes and "Retry wrong". To add more, drop new raw files in the source folder and re-run the script (add a file stem
+to `TRUSTED` only if its keys are known good); new grades/subjects need no code changes.
+
+### 2. Host-provided source (`lib/high/exercise/source.dart`, exported by `high.dart`)
+```dart
+class MyExercises extends HighExerciseSource {
+  @override
+  Future<List<HighExercise>> exercisesFor({required int grade, required String subject, required String unitId}) async {
+    final raw = jsonDecode(await rootBundle.loadString('assets/my_ex/$unitId.json')) as List;
+    return [for (final j in raw) HighExercise.fromJson(j as Map<String, dynamic>)];
+  }
+  @override
+  int? countFor({required int grade, required String subject, required String unitId}) => null; // optional badge
+}
+
+void main() {
+  HighExercises.register(MyExercises());   // register once, before opening HighScreen
+  runApp(...);
+}
+```
+- `grade`: 9–12; `subject`: notes subject key (`biology`, `chemistry`, `physics`, `mathematics`, `agriculture`,
+  `geography`, `history`, `business_economics`, `english`); `unitId`: unit id from `assets/high/notes/notes/index.json`
+  (e.g. `bio9-u1`) or `general`.
+- Item JSON for `HighExercise.fromJson`:
+  `{"id": "x1", "prompt": "Text, $inline TeX$ ok", "options": {"A": "…", "B": "…"}, "answer": "A", "explanation": "…", "extra": {}}`
+  (omit `options` for a written item; `answer` is then the model answer shown on "Show answer").
+- Override `buildUnit(context, grade:, subject:, unitId:)` to return your own widget for a unit.
+- With a host source registered, a unit opens a page with a "Practise N bundled questions" button followed by the host
+  items; with none registered (default `EmptyExerciseSource`) bundled units open the quiz directly and units with nothing
+  show "Exercises coming soon".

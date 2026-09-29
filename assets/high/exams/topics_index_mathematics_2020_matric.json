@@ -1,0 +1,2460 @@
+{
+  "schema_version": "1.0",
+  "exam_ids": [
+    "math-2020-matric"
+  ],
+  "notation": "unicode",
+  "description": "Mathematics matriculation 2020: topic → subtopic → concept/keywords index mapped to question ids and textbook pages. Used by the offline search tutor.",
+  "topics": [
+    {
+      "id": "sets-logic",
+      "title": "Sets",
+      "grade": 9,
+      "unit": "G9 Unit 1 – Set Theory",
+      "pages": "G9 1-19",
+      "concept": "Sets are described by listing or set-builder notation; union, intersection, complement, difference and Cartesian product; Venn diagrams.",
+      "subtopics": [
+        {
+          "id": "sets-operations",
+          "title": "Set operations and identities",
+          "concept": "A ∪ B, A ∩ B, A′ = U − A, A − B = A ∩ B′. Laws: De Morgan (A ∪ B)′ = A′ ∩ B′, absorption A ∩ (A ∪ B) = A, A ∪ A′ = U, A ∩ A′ = ∅. Check identities with a Venn diagram or a counter-example.",
+          "keywords": [
+            "De Morgan's law",
+            "complement",
+            "element",
+            "empty set",
+            "intersection",
+            "subset"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q01",
+            "math-2020-matric-p1-q02"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 9,
+              "unit": "Unit 1 – Set Theory",
+              "section": "1.5.1 Complement of a Set",
+              "page": "12",
+              "verified_in_text": true
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 1 – Set Theory",
+              "section": "1.3 Subsets and Proper Subsets",
+              "page": "6",
+              "verified_in_text": true
+            }
+          ]
+        }
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q01",
+        "math-2020-matric-p1-q02"
+      ]
+    },
+    {
+      "id": "functions",
+      "title": "Relations and functions",
+      "grade": 10,
+      "unit": "G9 Unit 2; G10 Unit 1 – Foundations for Functions; G11 Units 2–3",
+      "pages": "G9 20-49; G10 1-29",
+      "concept": "Functions as sets of ordered pairs or rules; domain and range; one-to-one functions and inverses; operations on functions; absolute value.",
+      "subtopics": [
+        {
+          "id": "functions-inverse",
+          "title": "Function operations, one-to-one functions and inverses",
+          "concept": "(f ± g)(x) = f(x) ± g(x) on the common domain. f is one-to-one if f(x₁) = f(x₂) ⇒ x₁ = x₂ (horizontal line test). To find f⁻¹ interchange x and y and solve; f⁻¹(b) is the x with f(x) = b; domain of f⁻¹ = range of f.",
+          "keywords": [
+            "domain",
+            "inverse function",
+            "quadratic inequality",
+            "rational exponent",
+            "square root function"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q09",
+            "math-2020-matric-p2-q05"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 11,
+              "unit": "Unit 2 – Square Root Functions",
+              "section": "2.2 Domain and Range of Square Root Functions",
+              "page": "65",
+              "verified_in_text": false
+            },
+            {
+              "grade": 11,
+              "unit": "Unit 1 – Polynomial Function",
+              "section": "1.2.2 Quadratic Inequalities",
+              "page": "20",
+              "verified_in_text": false
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 1 – Foundations for Functions",
+              "section": "1.2.2 Inverse of a Function",
+              "page": "21",
+              "verified_in_text": true
+            }
+          ]
+        },
+        {
+          "id": "absolute-value-radicals",
+          "title": "Absolute value and radicals",
+          "concept": "|a| = a if a ≥ 0, −a if a < 0. |a + b| ≤ |a| + |b| with equality iff ab ≥ 0. Decide the sign before removing the bars.",
+          "keywords": [
+            "absolute value equation",
+            "extraneous root",
+            "quadratic in form",
+            "square root equation",
+            "substitution"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q05",
+            "math-2020-matric-p1-q13"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 9,
+              "unit": "Unit 2 – Foundation of Functions",
+              "section": "2.4.2 Absolute Value Equations",
+              "page": "45",
+              "verified_in_text": true
+            },
+            {
+              "grade": 11,
+              "unit": "Unit 2 – Square Root Functions",
+              "section": "2.3 Solving Square Root Equations",
+              "page": "67",
+              "verified_in_text": false
+            }
+          ]
+        },
+        {
+          "id": "linear-equations",
+          "title": "Linear equations and modelling",
+          "concept": "Translate words into equations ('is' → =). Solve by collecting like terms; check the solution.",
+          "keywords": [
+            "LCD",
+            "fractions",
+            "linear inequality"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q03"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 9,
+              "unit": "Unit 2 – Foundation of Functions",
+              "section": "2.2.4 Solving Linear Inequalities",
+              "page": "35",
+              "verified_in_text": true
+            }
+          ]
+        }
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q03",
+        "math-2020-matric-p1-q05",
+        "math-2020-matric-p1-q09",
+        "math-2020-matric-p1-q13",
+        "math-2020-matric-p2-q05"
+      ]
+    },
+    {
+      "id": "linear-functions",
+      "title": "Linear functions, lines and systems",
+      "grade": 9,
+      "unit": "G9 Unit 3 – Linear Functions; G12 3.2 Straight Lines; G12 Unit 4",
+      "pages": "G9 50-81; G12 130-148, 168",
+      "concept": "Slope, intercepts and equations of lines; parallel (equal slopes) and perpendicular (m₁m₂ = −1) lines; systems of linear equations.",
+      "subtopics": [
+        {
+          "id": "linear-functions-lines",
+          "title": "Lines: slope, parallel and perpendicular",
+          "concept": "Slope of Ax + By + C = 0 is −A/B. Parallel ⇔ equal slopes (Ab = aB); perpendicular ⇔ m₁m₂ = −1 (Aa + Bb = 0). Point-slope form y − y₁ = m(x − x₁).",
+          "keywords": [
+            "angle of inclination",
+            "graphing",
+            "intercept form",
+            "perpendicular lines",
+            "slope",
+            "solution region",
+            "system of linear inequalities",
+            "tangent"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q11",
+            "math-2020-matric-p2-q03",
+            "math-2020-matric-p2-q07"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 12,
+              "unit": "Unit 3 – Algebra and Geometry",
+              "section": "3.2 Straight Lines",
+              "page": "130-148",
+              "verified_in_text": true
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 3 – Linear Functions",
+              "section": "3.3 Slopes of Linear Functions",
+              "page": "61",
+              "verified_in_text": true
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 3 – Linear Functions",
+              "section": "3.2.2 Graphing Linear Inequalities",
+              "page": "56",
+              "verified_in_text": true
+            }
+          ]
+        },
+        {
+          "id": "linear-systems",
+          "title": "Systems of linear equations",
+          "concept": "a₁/a₂ = b₁/b₂ = c₁/c₂ → infinitely many solutions; a₁/a₂ = b₁/b₂ ≠ c₁/c₂ → none; otherwise exactly one. Solve by elimination, substitution, graphs or Cramer's rule.",
+          "keywords": [
+            "Cramer's rule",
+            "age problem",
+            "determinant",
+            "graphing",
+            "investment problem",
+            "rate problem",
+            "simple interest",
+            "solution region",
+            "system of equations",
+            "system of linear equations",
+            "system of linear inequalities",
+            "upstream downstream",
+            "word problem"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q10",
+            "math-2020-matric-p1-q24",
+            "math-2020-matric-p1-q30",
+            "math-2020-matric-p2-q07",
+            "math-2020-matric-p2-q09"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 9,
+              "unit": "Unit 3 – Linear Functions",
+              "section": "3.5 Solving Systems of Linear Equations",
+              "page": "72-77",
+              "verified_in_text": true
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 7 – Business Mathematics",
+              "section": "7.4 Simple Interest",
+              "page": "165",
+              "verified_in_text": true
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 3 – Linear Functions",
+              "section": "3.2.2 Graphing Linear Inequalities",
+              "page": "56",
+              "verified_in_text": true
+            },
+            {
+              "grade": 12,
+              "unit": "Unit 4 – Matrices and Determinants (2×2)",
+              "section": "4.2 Solving System of Equations Using Determinant",
+              "page": "168",
+              "verified_in_text": true
+            }
+          ]
+        }
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q10",
+        "math-2020-matric-p1-q11",
+        "math-2020-matric-p1-q24",
+        "math-2020-matric-p1-q30",
+        "math-2020-matric-p2-q03",
+        "math-2020-matric-p2-q07",
+        "math-2020-matric-p2-q09"
+      ]
+    },
+    {
+      "id": "quadratics-polynomials",
+      "title": "Quadratic and polynomial functions",
+      "grade": 11,
+      "unit": "G9 Units 4, 8; G11 Unit 1 – Polynomial Function",
+      "pages": "G9 82-102, 169-190; G11 1-61",
+      "concept": "Graphs of quadratics (vertex, opening, range, shifts), quadratic equations and inequalities, polynomial division and graphs.",
+      "subtopics": [
+        {
+          "id": "quadratic-equations",
+          "title": "Quadratic equations and inequalities",
+          "concept": "Solve by factorization or the formula; discriminant Δ = b² − 4ac (Δ = 0: one repeated root). Sum of roots −b/a, product c/a. Inequalities: sign chart; if a > 0 and Δ < 0 the quadratic is always positive.",
+          "keywords": [
+            "absolute value equation",
+            "domain",
+            "quadratic in form",
+            "quadratic inequality",
+            "root of quadratic",
+            "sign chart",
+            "square root function",
+            "substitution",
+            "sum and product of roots"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q05",
+            "math-2020-matric-p1-q09",
+            "math-2020-matric-p1-q12",
+            "math-2020-matric-p1-q19"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 9,
+              "unit": "Unit 2 – Foundation of Functions",
+              "section": "2.4.2 Absolute Value Equations",
+              "page": "45",
+              "verified_in_text": true
+            },
+            {
+              "grade": 11,
+              "unit": "Unit 2 – Square Root Functions",
+              "section": "2.2 Domain and Range of Square Root Functions",
+              "page": "65",
+              "verified_in_text": false
+            },
+            {
+              "grade": 11,
+              "unit": "Unit 1 – Polynomial Function",
+              "section": "1.2.2 Quadratic Inequalities",
+              "page": "20",
+              "verified_in_text": false
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 4 – Quadratic Functions",
+              "section": "4.4 Solving Quadratic Equations",
+              "page": "92",
+              "verified_in_text": true
+            }
+          ]
+        },
+        {
+          "id": "polynomials",
+          "title": "Polynomials: division, roots and graphs",
+          "concept": "Degree n ⇒ at most n real roots. Even degree: range bounded on one side; odd degree: at least one real root. Long division: dividend = divisor × quotient + remainder, deg R < deg divisor.",
+          "keywords": [
+            "algebraic identity",
+            "cubic equation",
+            "factor theorem",
+            "factorization",
+            "polynomial division",
+            "quadratic formula",
+            "remainder theorem",
+            "sum of cubes"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q07",
+            "math-2020-matric-p1-q25",
+            "math-2020-matric-p1-q27",
+            "math-2020-matric-p1-q29"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 11,
+              "unit": "Unit 1 – Polynomial Function",
+              "section": "1.4 Polynomial Functions (division, remainder theorem)",
+              "page": "41-61",
+              "verified_in_text": false
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 8 – Polynomials",
+              "section": "8.2.3 Multiplication of Polynomials",
+              "page": "176",
+              "verified_in_text": true
+            },
+            {
+              "grade": 11,
+              "unit": "Unit 1 – Polynomial Function",
+              "section": "1.4 Polynomial Functions",
+              "page": "41-61",
+              "verified_in_text": false
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 8 – Polynomials",
+              "section": "8.2 Operations on Polynomials",
+              "page": "173-181",
+              "verified_in_text": true
+            }
+          ]
+        }
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q05",
+        "math-2020-matric-p1-q07",
+        "math-2020-matric-p1-q09",
+        "math-2020-matric-p1-q12",
+        "math-2020-matric-p1-q19",
+        "math-2020-matric-p1-q25",
+        "math-2020-matric-p1-q27",
+        "math-2020-matric-p1-q29"
+      ]
+    },
+    {
+      "id": "rational",
+      "title": "Rational expressions, equations and functions",
+      "grade": 11,
+      "unit": "G11 Unit 3 – Rational Functions",
+      "pages": "G11 71-141",
+      "concept": "Simplify rational expressions, solve rational equations and inequalities, find asymptotes and intercepts of rational functions.",
+      "subtopics": [
+        {
+          "id": "rational-functions",
+          "title": "Rational expressions, equations, inequalities and graphs",
+          "concept": "Excluded values make a denominator zero. Vertical asymptotes at zeros of the denominator (not cancelled); horizontal asymptote y = 0 if deg N < deg D. Rational inequalities: sign chart with zeros of numerator and denominator.",
+          "keywords": [
+            "difference of squares",
+            "excluded value",
+            "extraneous root",
+            "factorization",
+            "intercepts",
+            "oblique asymptote",
+            "rational equation",
+            "rational function",
+            "simplifying rational expressions",
+            "vertical asymptote"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q14",
+            "math-2020-matric-p1-q23",
+            "math-2020-matric-p1-q36"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 11,
+              "unit": "Unit 3 – Rational Functions",
+              "section": "3.4.1 Solving Rational Equations",
+              "page": "127",
+              "verified_in_text": false
+            },
+            {
+              "grade": 11,
+              "unit": "Unit 3 – Rational Functions",
+              "section": "3.3.2 Simplifying Rational Expressions",
+              "page": "112",
+              "verified_in_text": false
+            },
+            {
+              "grade": 11,
+              "unit": "Unit 3 – Rational Functions",
+              "section": "3.2.2 Asymptotes of Rational Functions",
+              "page": "87",
+              "verified_in_text": false
+            }
+          ]
+        }
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q14",
+        "math-2020-matric-p1-q23",
+        "math-2020-matric-p1-q36"
+      ]
+    },
+    {
+      "id": "exp-log",
+      "title": "Exponents and logarithms",
+      "grade": 11,
+      "unit": "G9 Unit 5; G11 Unit 4 – Exponential and Logarithmic Functions",
+      "pages": "G9 103-129; G11 142-166",
+      "concept": "Laws of exponents and logarithms, exponential and logarithmic equations and inequalities, graphs of exponential functions.",
+      "subtopics": [
+        {
+          "id": "exponents-logarithms",
+          "title": "Exponents, logarithms and their functions",
+          "concept": "aˣ = aʸ ⇒ x = y. logₐx = ln x/ln a (change of base); logₐb·log(base b)c = logₐc. y = aˣ⁺ʰ + k has domain ℝ, range (k, ∞) and asymptote y = k.",
+          "keywords": [
+            "change of base",
+            "comparing logarithms",
+            "exponential equation",
+            "inverse function",
+            "laws of exponents",
+            "laws of logarithms",
+            "logarithmic equation",
+            "negative exponents",
+            "rational exponent",
+            "substitution"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q06",
+            "math-2020-matric-p1-q08",
+            "math-2020-matric-p1-q17",
+            "math-2020-matric-p1-q18",
+            "math-2020-matric-p2-q05",
+            "math-2020-matric-p2-q06"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 9,
+              "unit": "Unit 5 – Exponential and Logarithmic Expressions",
+              "section": "5.1.6 Power of a Power of Exponents; 5.1.7 Integral Exponents",
+              "page": "109-110",
+              "verified_in_text": true
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 5 – Exponential and Logarithmic Expressions",
+              "section": "5.1.9 Solving Exponential Equations",
+              "page": "114",
+              "verified_in_text": true
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 5 – Exponential and Logarithmic Expressions",
+              "section": "5.2.2 Laws of Logarithms",
+              "page": "117",
+              "verified_in_text": true
+            },
+            {
+              "grade": 11,
+              "unit": "Unit 4 – Exponential and Logarithmic Functions",
+              "section": "4.2 Logarithmic Function",
+              "page": "152",
+              "verified_in_text": false
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 1 – Foundations for Functions",
+              "section": "1.2.2 Inverse of a Function",
+              "page": "21",
+              "verified_in_text": true
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 5 – Exponential and Logarithmic Expressions",
+              "section": "5.2.3 Solving Simple Logarithmic Equations",
+              "page": "120",
+              "verified_in_text": true
+            }
+          ]
+        }
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q06",
+        "math-2020-matric-p1-q08",
+        "math-2020-matric-p1-q17",
+        "math-2020-matric-p1-q18",
+        "math-2020-matric-p2-q05",
+        "math-2020-matric-p2-q06"
+      ]
+    },
+    {
+      "id": "sequences",
+      "title": "Sequences and series",
+      "grade": 12,
+      "unit": "G12 Unit 1 – Sequence and Series",
+      "pages": "G12 1-39",
+      "concept": "Recursive and explicit sequences, arithmetic and geometric progressions, infinite geometric series.",
+      "subtopics": [
+        {
+          "id": "sequences-series",
+          "title": "Arithmetic and geometric progressions, series",
+          "concept": "AP: aₙ = a₁ + (n − 1)d, 2b = a + c. GP: aₙ = a₁rⁿ⁻¹. Infinite GP with |r| < 1: S = a₁/(1 − r).",
+          "keywords": [
+            "arithmetic mean",
+            "arithmetic progression",
+            "common ratio",
+            "geometric mean",
+            "geometric progression",
+            "harmonic mean",
+            "infinite geometric series",
+            "product of terms",
+            "recurrence relation",
+            "recursive sequence",
+            "sum to infinity"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q04",
+            "math-2020-matric-p1-q15",
+            "math-2020-matric-p1-q16",
+            "math-2020-matric-p1-q20",
+            "math-2020-matric-p1-q33"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 12,
+              "unit": "Unit 1 – Sequence and Series",
+              "section": "1.1 Basic Ideas of Sequence",
+              "page": "1-8",
+              "verified_in_text": true
+            },
+            {
+              "grade": 12,
+              "unit": "Unit 1 – Sequence and Series",
+              "section": "1.4 Harmonic Progression (harmonic mean)",
+              "page": "30-31",
+              "verified_in_text": true
+            },
+            {
+              "grade": 12,
+              "unit": "Unit 1 – Sequence and Series",
+              "section": "1.3 Geometric Progression",
+              "page": "19",
+              "verified_in_text": true
+            },
+            {
+              "grade": 12,
+              "unit": "Unit 1 – Sequence and Series",
+              "section": "1.3 Geometric Progression",
+              "page": "19-29",
+              "verified_in_text": true
+            },
+            {
+              "grade": 12,
+              "unit": "Unit 1 – Sequence and Series",
+              "section": "1.5 Infinite Series",
+              "page": "32",
+              "verified_in_text": true
+            }
+          ]
+        }
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q04",
+        "math-2020-matric-p1-q15",
+        "math-2020-matric-p1-q16",
+        "math-2020-matric-p1-q20",
+        "math-2020-matric-p1-q33"
+      ]
+    },
+    {
+      "id": "stat-prob",
+      "title": "Statistics and probability",
+      "grade": 12,
+      "unit": "G12 Unit 2 – Descriptive Statistics and Probability",
+      "pages": "G12 40-125",
+      "concept": "Mean, median, mode, range, variance and standard deviation; probability of events.",
+      "subtopics": [
+        {
+          "id": "statistics",
+          "title": "Measures of central tendency and dispersion",
+          "concept": "Order the data for the median. Variance σ² = Σ(xᵢ − x̄)²/N. Adding a constant shifts the mean but not the spread; multiplying by c multiplies the SD by |c|.",
+          "keywords": [
+            "combined mean",
+            "dispersion",
+            "mean",
+            "median",
+            "ordering data",
+            "percentage",
+            "scaling data",
+            "standard deviation",
+            "variance",
+            "weighted average"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q26",
+            "math-2020-matric-p1-q28",
+            "math-2020-matric-p1-q32",
+            "math-2020-matric-p1-q35"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 12,
+              "unit": "Unit 2 – Descriptive Statistics and Probability",
+              "section": "2.4 Statistical Analysis of Ungrouped Data – variance",
+              "page": "89",
+              "verified_in_text": true
+            },
+            {
+              "grade": 12,
+              "unit": "Unit 2 – Descriptive Statistics and Probability",
+              "section": "2.4 Statistical Analysis of Ungrouped Data – median",
+              "page": "80",
+              "verified_in_text": true
+            },
+            {
+              "grade": 12,
+              "unit": "Unit 2 – Descriptive Statistics and Probability",
+              "section": "2.4 Statistical Analysis of Ungrouped Data – mean",
+              "page": "78",
+              "verified_in_text": true
+            },
+            {
+              "grade": 12,
+              "unit": "Unit 2 – Descriptive Statistics and Probability",
+              "section": "2.4 Statistical Analysis of Ungrouped Data – measures of dispersion",
+              "page": "86-92",
+              "verified_in_text": true
+            }
+          ]
+        },
+        {
+          "id": "probability",
+          "title": "Probability",
+          "concept": "P(E) = favourable/total equally likely outcomes. n coin tosses: 2ⁿ outcomes, C(n, k) with exactly k heads.",
+          "keywords": [
+            "probability",
+            "sample space",
+            "two dice"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q22"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 12,
+              "unit": "Unit 2 – Descriptive Statistics and Probability",
+              "section": "2.5 Probability",
+              "page": "93",
+              "verified_in_text": true
+            }
+          ]
+        }
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q22",
+        "math-2020-matric-p1-q26",
+        "math-2020-matric-p1-q28",
+        "math-2020-matric-p1-q32",
+        "math-2020-matric-p1-q35"
+      ]
+    },
+    {
+      "id": "matrices",
+      "title": "Matrices and determinants",
+      "grade": 12,
+      "unit": "G12 Unit 4 – Matrices and Determinants (2×2)",
+      "pages": "G12 158-176",
+      "concept": "Operations on 2×2 matrices, determinants, inverses and Cramer's rule.",
+      "subtopics": [
+        {
+          "id": "matrices-determinants",
+          "title": "Determinants of 2×2 matrices",
+          "concept": "det(a b; c d) = ad − bc. A matrix is invertible iff det ≠ 0.",
+          "keywords": [
+            "Cramer's rule",
+            "determinant",
+            "system of equations"
+          ],
+          "question_ids": [
+            "math-2020-matric-p2-q09"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 12,
+              "unit": "Unit 4 – Matrices and Determinants (2×2)",
+              "section": "4.2 Solving System of Equations Using Determinant",
+              "page": "168",
+              "verified_in_text": true
+            }
+          ]
+        }
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q09"
+      ]
+    },
+    {
+      "id": "business",
+      "title": "Business mathematics",
+      "grade": 11,
+      "unit": "G9 Unit 7; G11 Unit 6 – Business Mathematics",
+      "pages": "G9 154-168; G11 201-230",
+      "concept": "Percentages, profit and loss, commission, simple and compound interest, instalment plans.",
+      "subtopics": [
+        {
+          "id": "business-mathematics",
+          "title": "Percentage, profit, commission, interest and instalments",
+          "concept": "Profit % is on cost price (include transport). Commission = rate × sales. Compound: A = P(1 + r/k)ᵏᵗ. Instalment price = down payment + sum of instalments.",
+          "keywords": [
+            "commission",
+            "investment problem",
+            "percentage",
+            "salary",
+            "simple interest"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q24",
+            "math-2020-matric-p2-q04"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 9,
+              "unit": "Unit 7 – Business Mathematics",
+              "section": "7.4 Simple Interest",
+              "page": "165",
+              "verified_in_text": true
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 7 – Business Mathematics",
+              "section": "7.2.1 Commission",
+              "page": "160",
+              "verified_in_text": true
+            }
+          ]
+        }
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q24",
+        "math-2020-matric-p2-q04"
+      ]
+    },
+    {
+      "id": "plane-geometry",
+      "title": "Plane geometry",
+      "grade": 10,
+      "unit": "G9 Unit 6; G10 Units 2–3, 5; G11 Unit 5",
+      "pages": "G9 130-153; G10 30-105; G11 167-200",
+      "concept": "Axiomatic reasoning, circle theorems, similar triangles and trigonometric laws.",
+      "subtopics": [
+        {
+          "id": "geometric-reasoning",
+          "title": "Axioms, conjectures, theorems and proofs",
+          "concept": "Axiom: accepted without proof. Conjecture: generalisation from observations, not yet proved. Theorem: proved statement.",
+          "keywords": [
+            "deductive reasoning",
+            "inductive reasoning"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q37"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 10,
+              "unit": "Unit 2 – Geometric Structure",
+              "section": "2.4 Understanding Mathematical Proofs",
+              "page": "48-50",
+              "verified_in_text": true
+            }
+          ]
+        },
+        {
+          "id": "circle-geometry",
+          "title": "Angles, chords and tangents of circles",
+          "concept": "Chords meeting inside: angle = ½(sum of arcs); outside: ½(difference). Tangent ⟂ radius; tangent–chord angle = ½ arc; tangents from a point are equal; angle in a semicircle = 90°.",
+          "keywords": [
+            "Pythagoras",
+            "angle in a semicircle",
+            "arc measure",
+            "area of segment",
+            "central angle",
+            "inscribed angle",
+            "right triangle",
+            "secant-secant theorem",
+            "sector",
+            "tangent"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q40",
+            "math-2020-matric-p1-q47",
+            "math-2020-matric-p1-q48"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 10,
+              "unit": "Unit 5 – Congruency and the Geometry of Size",
+              "section": "5.2.4 Area of Segments",
+              "page": "194",
+              "verified_in_text": true
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 3 – Geometric Patterns",
+              "section": "3.3.3 Chords Intersecting Outside of a Circle",
+              "page": "99",
+              "verified_in_text": true
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 3 – Geometric Patterns",
+              "section": "3.2.3 Properties of Tangents in Circles",
+              "page": "88",
+              "verified_in_text": true
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 3 – Geometric Patterns",
+              "section": "3.2.1 Angles in a Circle",
+              "page": "75",
+              "verified_in_text": true
+            }
+          ]
+        },
+        {
+          "id": "similar-triangles",
+          "title": "Similar triangles",
+          "concept": "AA, SAS, SSS similarity; corresponding sides proportional. Useful result: for AB, CD, EF ⟂ BF with C = AF ∩ BE, 1/CD = 1/AB + 1/EF.",
+          "keywords": [
+            "basic proportionality theorem",
+            "circumscribed",
+            "crossed ladders",
+            "inscribed",
+            "parallel lines",
+            "perpendicular segments",
+            "ratio of areas",
+            "regular hexagon",
+            "similar triangles",
+            "trapezium",
+            "triangle"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q39",
+            "math-2020-matric-p1-q41",
+            "math-2020-matric-p1-q45",
+            "math-2020-matric-p1-q46"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 11,
+              "unit": "Unit 5 – Similarity and the Geometry of Shape",
+              "section": "5.2.2 The Basic Proportionality Theorem",
+              "page": "174",
+              "verified_in_text": false
+            },
+            {
+              "grade": 11,
+              "unit": "Unit 5 – Similarity and the Geometry of Shape",
+              "section": "5.4.1 Areas of Similar Triangles",
+              "page": "194",
+              "verified_in_text": false
+            },
+            {
+              "grade": 11,
+              "unit": "Unit 5 – Similarity and the Geometry of Shape",
+              "section": "5.3.1 Applications of Similar Right Angle Triangles",
+              "page": "188-190",
+              "verified_in_text": false
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 5 – Congruency and the Geometry of Size",
+              "section": "5.2.2 Area of Polygons",
+              "page": "177-189",
+              "verified_in_text": true
+            },
+            {
+              "grade": 11,
+              "unit": "Unit 5 – Similarity and the Geometry of Shape",
+              "section": "5.4 Ratio of Similar Polygons",
+              "page": "194",
+              "verified_in_text": false
+            }
+          ]
+        },
+        {
+          "id": "polygons-congruence",
+          "title": "Polygons, triangle inequality and congruence",
+          "concept": "Interior-angle sum of an n-gon = (n − 2)·180°; each exterior angle of a regular n-gon = 360°/n. Any two sides of a triangle add to more than the third. Congruence tests SSS, SAS, ASA, AAS, RHS; corresponding parts of congruent triangles are congruent (CPCTC).",
+          "keywords": [
+            "Pythagoras",
+            "SAS",
+            "area",
+            "congruent triangles",
+            "diagonals",
+            "exterior angle",
+            "interior angle",
+            "kite",
+            "parallelogram",
+            "proof",
+            "rectangle",
+            "regular polygon",
+            "sides of a triangle",
+            "triangle inequality"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q34",
+            "math-2020-matric-p1-q49",
+            "math-2020-matric-p1-q50",
+            "math-2020-matric-p2-q01",
+            "math-2020-matric-p2-q08"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 10,
+              "unit": "Unit 5 – Congruency and the Geometry of Size",
+              "section": "5.1.3 Quadrilaterals and Congruency – Theorem 5.12 (triangle inequality)",
+              "page": "170",
+              "verified_in_text": true
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 5 – Congruency and the Geometry of Size",
+              "section": "5.1.3 Quadrilaterals and Congruency",
+              "page": "162",
+              "verified_in_text": true
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 5 – Congruency and the Geometry of Size",
+              "section": "5.2.2 Area of Polygons",
+              "page": "177",
+              "verified_in_text": true
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 3 – Geometric Patterns",
+              "section": "3.1.2 Sum of the Interior Angles of Polygons",
+              "page": "59",
+              "verified_in_text": true
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 3 – Geometric Patterns",
+              "section": "3.1.4 Sum of the Exterior Angles of Polygons",
+              "page": "70",
+              "verified_in_text": true
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 5 – Congruency and the Geometry of Size",
+              "section": "5.1.2 Methods for Congruence of Triangles",
+              "page": "145",
+              "verified_in_text": true
+            }
+          ]
+        },
+        {
+          "id": "trigonometry",
+          "title": "Trigonometric ratios and the laws of sines and cosines",
+          "concept": "Law of cosines: b² = a² + c² − 2ac cos B ⇒ cos B = (a² + c² − b²)/(2ac).",
+          "keywords": [
+            "30-60-90 triangle",
+            "Pythagoras",
+            "angle of depression",
+            "angle of inclination",
+            "cosine",
+            "heights and distances",
+            "right triangle",
+            "slope",
+            "special triangles",
+            "tangent",
+            "tangent ratio",
+            "trigonometric ratios"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q21",
+            "math-2020-matric-p1-q42",
+            "math-2020-matric-p1-q43",
+            "math-2020-matric-p2-q03"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 9,
+              "unit": "Unit 6 – Right Angled Triangle and Trigonometric Ratios",
+              "section": "6.3.2 Angle of Elevation and Angle of Depression",
+              "page": "141",
+              "verified_in_text": true
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 6 – Right Angled Triangle and Trigonometric Ratios",
+              "section": "6.3 Trigonometric Ratios and Their Applications",
+              "page": "136-140",
+              "verified_in_text": true
+            },
+            {
+              "grade": 11,
+              "unit": "Unit 5 – Similarity and the Geometry of Shape",
+              "section": "5.3.2 Trigonometric Ratios",
+              "page": "191",
+              "verified_in_text": false
+            },
+            {
+              "grade": 9,
+              "unit": "Unit 3 – Linear Functions",
+              "section": "3.3 Slopes of Linear Functions",
+              "page": "61",
+              "verified_in_text": true
+            }
+          ]
+        }
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q21",
+        "math-2020-matric-p1-q34",
+        "math-2020-matric-p1-q37",
+        "math-2020-matric-p1-q39",
+        "math-2020-matric-p1-q40",
+        "math-2020-matric-p1-q41",
+        "math-2020-matric-p1-q42",
+        "math-2020-matric-p1-q43",
+        "math-2020-matric-p1-q45",
+        "math-2020-matric-p1-q46",
+        "math-2020-matric-p1-q47",
+        "math-2020-matric-p1-q48",
+        "math-2020-matric-p1-q49",
+        "math-2020-matric-p1-q50",
+        "math-2020-matric-p2-q01",
+        "math-2020-matric-p2-q03",
+        "math-2020-matric-p2-q08"
+      ]
+    },
+    {
+      "id": "coordinate-geometry-t",
+      "title": "Coordinate geometry and transformations",
+      "grade": 10,
+      "unit": "G10 Unit 4 – Dimensionality and Geometry of Location; G12 Unit 3",
+      "pages": "G10 122-142; G12 126-157",
+      "concept": "Distance and midpoint formulas, equations of lines and circles, reflections and translations.",
+      "subtopics": [
+        {
+          "id": "coordinate-geometry",
+          "title": "Distance, midpoint and equations of lines",
+          "concept": "d = √((x₂ − x₁)² + (y₂ − y₁)²); midpoint ((x₁ + x₂)/2, (y₁ + y₂)/2). Perpendicular bisector: through the midpoint with slope −1/m.",
+          "keywords": [
+            "Pythagoras converse",
+            "distance formula",
+            "isosceles",
+            "right triangle"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q31"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 10,
+              "unit": "Unit 4 – Dimensionality and Geometry of Location",
+              "section": "4.2.2 Distance between two Points",
+              "page": "125-127",
+              "verified_in_text": true
+            }
+          ]
+        },
+        {
+          "id": "transformations",
+          "title": "Translations and reflections",
+          "concept": "A translation adds a fixed vector. Reflection in y = x + c: (x, y) → (y − c, x + c); the mirror line is the perpendicular bisector of PP′.",
+          "keywords": [
+            "reflection",
+            "rotation",
+            "translation"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q38"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 10,
+              "unit": "Unit 4 – Dimensionality and Geometry of Location",
+              "section": "4.3 Transformations (reflection, translation)",
+              "page": "131-140",
+              "verified_in_text": false
+            }
+          ]
+        }
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q31",
+        "math-2020-matric-p1-q38"
+      ]
+    },
+    {
+      "id": "mensuration-t",
+      "title": "Perimeter, area, surface area and volume",
+      "grade": 10,
+      "unit": "G10 Unit 5 – Congruency and the Geometry of Size",
+      "pages": "G10 171-225",
+      "concept": "Perimeters and areas of polygons and sectors; surface areas and volumes of prisms, cylinders, cones and spheres.",
+      "subtopics": [
+        {
+          "id": "mensuration",
+          "title": "Perimeter, area, surface area and volume",
+          "concept": "Regular hexagon in a circle: side = r. Sector area = (θ/360°)πr². Cone LSA = πrl with l = √(r² + h²); cylinder LSA = 2πrh. Cube: space diagonal a√3, V = a³.",
+          "keywords": [
+            "Pythagoras",
+            "area",
+            "area of segment",
+            "circumscribed",
+            "diagonals",
+            "hemisphere",
+            "inscribed",
+            "kite",
+            "ratio of areas",
+            "regular hexagon",
+            "right triangle",
+            "sector",
+            "sphere",
+            "volume",
+            "volume of cone",
+            "volume of cylinder"
+          ],
+          "question_ids": [
+            "math-2020-matric-p1-q40",
+            "math-2020-matric-p1-q44",
+            "math-2020-matric-p1-q46",
+            "math-2020-matric-p1-q50",
+            "math-2020-matric-p2-q02"
+          ],
+          "textbook_refs": [
+            {
+              "grade": 10,
+              "unit": "Unit 5 – Congruency and the Geometry of Size",
+              "section": "5.2.4 Area of Segments",
+              "page": "194",
+              "verified_in_text": true
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 5 – Congruency and the Geometry of Size",
+              "section": "5.3.2 Surface Areas and Volumes of Cylinders",
+              "page": "206",
+              "verified_in_text": true
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 5 – Congruency and the Geometry of Size",
+              "section": "5.3.4 Surface Areas and Volumes of Cones",
+              "page": "215",
+              "verified_in_text": true
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 5 – Congruency and the Geometry of Size",
+              "section": "5.2.2 Area of Polygons",
+              "page": "177-189",
+              "verified_in_text": true
+            },
+            {
+              "grade": 11,
+              "unit": "Unit 5 – Similarity and the Geometry of Shape",
+              "section": "5.4 Ratio of Similar Polygons",
+              "page": "194",
+              "verified_in_text": false
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 5 – Congruency and the Geometry of Size",
+              "section": "5.2.2 Area of Polygons",
+              "page": "177",
+              "verified_in_text": true
+            },
+            {
+              "grade": 10,
+              "unit": "Unit 5 – Congruency and the Geometry of Size",
+              "section": "5.3.5 Surface Areas and Volumes of Spheres",
+              "page": "219",
+              "verified_in_text": true
+            }
+          ]
+        }
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q40",
+        "math-2020-matric-p1-q44",
+        "math-2020-matric-p1-q46",
+        "math-2020-matric-p1-q50",
+        "math-2020-matric-p2-q02"
+      ]
+    }
+  ],
+  "keywords": {
+    "30-60-90 triangle": {
+      "topics": [
+        "trigonometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q42"
+      ]
+    },
+    "absolute value equation": {
+      "topics": [
+        "absolute-value-radicals",
+        "quadratic-equations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q05"
+      ]
+    },
+    "age problem": {
+      "topics": [
+        "linear-systems"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q10"
+      ]
+    },
+    "algebraic identity": {
+      "topics": [
+        "polynomials"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q25"
+      ]
+    },
+    "angle in a semicircle": {
+      "topics": [
+        "circle-geometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q47"
+      ]
+    },
+    "angle of depression": {
+      "topics": [
+        "trigonometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q21"
+      ]
+    },
+    "angle of inclination": {
+      "topics": [
+        "linear-functions-lines",
+        "trigonometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q03"
+      ]
+    },
+    "arc measure": {
+      "topics": [
+        "circle-geometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q48"
+      ]
+    },
+    "area": {
+      "topics": [
+        "mensuration",
+        "polygons-congruence"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q50"
+      ]
+    },
+    "area of segment": {
+      "topics": [
+        "circle-geometry",
+        "mensuration"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q40"
+      ]
+    },
+    "arithmetic mean": {
+      "topics": [
+        "sequences-series"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q15"
+      ]
+    },
+    "arithmetic progression": {
+      "topics": [
+        "sequences-series"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q20"
+      ]
+    },
+    "basic proportionality theorem": {
+      "topics": [
+        "similar-triangles"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q39"
+      ]
+    },
+    "central angle": {
+      "topics": [
+        "circle-geometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q48"
+      ]
+    },
+    "change of base": {
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q17",
+        "math-2020-matric-p1-q18"
+      ]
+    },
+    "circumscribed": {
+      "topics": [
+        "mensuration",
+        "similar-triangles"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q46"
+      ]
+    },
+    "combined mean": {
+      "topics": [
+        "statistics"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q32"
+      ]
+    },
+    "commission": {
+      "topics": [
+        "business-mathematics"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q04"
+      ]
+    },
+    "common ratio": {
+      "topics": [
+        "sequences-series"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q20"
+      ]
+    },
+    "comparing logarithms": {
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q18"
+      ]
+    },
+    "complement": {
+      "topics": [
+        "sets-operations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q01"
+      ]
+    },
+    "congruent triangles": {
+      "topics": [
+        "polygons-congruence"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q49",
+        "math-2020-matric-p2-q08"
+      ]
+    },
+    "cosine": {
+      "topics": [
+        "trigonometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q43"
+      ]
+    },
+    "cramer's rule": {
+      "topics": [
+        "linear-systems",
+        "matrices-determinants"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q09"
+      ]
+    },
+    "crossed ladders": {
+      "topics": [
+        "similar-triangles"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q45"
+      ]
+    },
+    "cubic equation": {
+      "topics": [
+        "polynomials"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q27"
+      ]
+    },
+    "de morgan's law": {
+      "topics": [
+        "sets-operations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q01"
+      ]
+    },
+    "deductive reasoning": {
+      "topics": [
+        "geometric-reasoning"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q37"
+      ]
+    },
+    "determinant": {
+      "topics": [
+        "linear-systems",
+        "matrices-determinants"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q09"
+      ]
+    },
+    "diagonals": {
+      "topics": [
+        "mensuration",
+        "polygons-congruence"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q50"
+      ]
+    },
+    "difference of squares": {
+      "topics": [
+        "rational-functions"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q23"
+      ]
+    },
+    "dispersion": {
+      "topics": [
+        "statistics"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q26"
+      ]
+    },
+    "distance formula": {
+      "topics": [
+        "coordinate-geometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q31"
+      ]
+    },
+    "domain": {
+      "topics": [
+        "functions-inverse",
+        "quadratic-equations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q09"
+      ]
+    },
+    "element": {
+      "topics": [
+        "sets-operations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q02"
+      ]
+    },
+    "empty set": {
+      "topics": [
+        "sets-operations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q02"
+      ]
+    },
+    "excluded value": {
+      "topics": [
+        "rational-functions"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q14"
+      ]
+    },
+    "exponential equation": {
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q08",
+        "math-2020-matric-p2-q06"
+      ]
+    },
+    "exterior angle": {
+      "topics": [
+        "polygons-congruence"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q01"
+      ]
+    },
+    "extraneous root": {
+      "topics": [
+        "absolute-value-radicals",
+        "rational-functions"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q13",
+        "math-2020-matric-p1-q14"
+      ]
+    },
+    "factor theorem": {
+      "topics": [
+        "polynomials"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q27"
+      ]
+    },
+    "factorization": {
+      "topics": [
+        "polynomials",
+        "rational-functions"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q23",
+        "math-2020-matric-p1-q29"
+      ]
+    },
+    "fractions": {
+      "topics": [
+        "linear-equations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q03"
+      ]
+    },
+    "geometric mean": {
+      "topics": [
+        "sequences-series"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q15"
+      ]
+    },
+    "geometric progression": {
+      "topics": [
+        "sequences-series"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q16",
+        "math-2020-matric-p1-q20"
+      ]
+    },
+    "graphing": {
+      "topics": [
+        "linear-functions-lines",
+        "linear-systems"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q07"
+      ]
+    },
+    "harmonic mean": {
+      "topics": [
+        "sequences-series"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q15"
+      ]
+    },
+    "heights and distances": {
+      "topics": [
+        "trigonometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q21"
+      ]
+    },
+    "hemisphere": {
+      "topics": [
+        "mensuration"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q02"
+      ]
+    },
+    "inductive reasoning": {
+      "topics": [
+        "geometric-reasoning"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q37"
+      ]
+    },
+    "infinite geometric series": {
+      "topics": [
+        "sequences-series"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q33"
+      ]
+    },
+    "inscribed": {
+      "topics": [
+        "mensuration",
+        "similar-triangles"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q46"
+      ]
+    },
+    "inscribed angle": {
+      "topics": [
+        "circle-geometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q48"
+      ]
+    },
+    "intercept form": {
+      "topics": [
+        "linear-functions-lines"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q11"
+      ]
+    },
+    "intercepts": {
+      "topics": [
+        "rational-functions"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q36"
+      ]
+    },
+    "interior angle": {
+      "topics": [
+        "polygons-congruence"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q01"
+      ]
+    },
+    "intersection": {
+      "topics": [
+        "sets-operations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q01"
+      ]
+    },
+    "inverse function": {
+      "topics": [
+        "exponents-logarithms",
+        "functions-inverse"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q05"
+      ]
+    },
+    "investment problem": {
+      "topics": [
+        "business-mathematics",
+        "linear-systems"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q24"
+      ]
+    },
+    "isosceles": {
+      "topics": [
+        "coordinate-geometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q31"
+      ]
+    },
+    "kite": {
+      "topics": [
+        "mensuration",
+        "polygons-congruence"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q50"
+      ]
+    },
+    "laws of exponents": {
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q06"
+      ]
+    },
+    "laws of logarithms": {
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q17",
+        "math-2020-matric-p2-q06"
+      ]
+    },
+    "lcd": {
+      "topics": [
+        "linear-equations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q03"
+      ]
+    },
+    "linear inequality": {
+      "topics": [
+        "linear-equations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q03"
+      ]
+    },
+    "logarithmic equation": {
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q06"
+      ]
+    },
+    "mean": {
+      "topics": [
+        "statistics"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q26"
+      ]
+    },
+    "median": {
+      "topics": [
+        "statistics"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q28"
+      ]
+    },
+    "negative exponents": {
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q06"
+      ]
+    },
+    "oblique asymptote": {
+      "topics": [
+        "rational-functions"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q36"
+      ]
+    },
+    "ordering data": {
+      "topics": [
+        "statistics"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q28"
+      ]
+    },
+    "parallel lines": {
+      "topics": [
+        "similar-triangles"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q39"
+      ]
+    },
+    "parallelogram": {
+      "topics": [
+        "polygons-congruence"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q49"
+      ]
+    },
+    "percentage": {
+      "topics": [
+        "business-mathematics",
+        "statistics"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q32",
+        "math-2020-matric-p2-q04"
+      ]
+    },
+    "perpendicular lines": {
+      "topics": [
+        "linear-functions-lines"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q11"
+      ]
+    },
+    "perpendicular segments": {
+      "topics": [
+        "similar-triangles"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q45"
+      ]
+    },
+    "polynomial division": {
+      "topics": [
+        "polynomials"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q07"
+      ]
+    },
+    "probability": {
+      "topics": [
+        "probability"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q22"
+      ]
+    },
+    "product of terms": {
+      "topics": [
+        "sequences-series"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q16"
+      ]
+    },
+    "proof": {
+      "topics": [
+        "polygons-congruence"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q08"
+      ]
+    },
+    "pythagoras": {
+      "topics": [
+        "circle-geometry",
+        "mensuration",
+        "polygons-congruence",
+        "trigonometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q42",
+        "math-2020-matric-p1-q47",
+        "math-2020-matric-p1-q50"
+      ]
+    },
+    "pythagoras converse": {
+      "topics": [
+        "coordinate-geometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q31"
+      ]
+    },
+    "quadratic formula": {
+      "topics": [
+        "polynomials"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q27"
+      ]
+    },
+    "quadratic in form": {
+      "topics": [
+        "absolute-value-radicals",
+        "quadratic-equations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q05"
+      ]
+    },
+    "quadratic inequality": {
+      "topics": [
+        "functions-inverse",
+        "quadratic-equations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q09",
+        "math-2020-matric-p1-q19"
+      ]
+    },
+    "rate problem": {
+      "topics": [
+        "linear-systems"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q30"
+      ]
+    },
+    "ratio of areas": {
+      "topics": [
+        "mensuration",
+        "similar-triangles"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q41",
+        "math-2020-matric-p1-q46"
+      ]
+    },
+    "rational equation": {
+      "topics": [
+        "rational-functions"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q14"
+      ]
+    },
+    "rational exponent": {
+      "topics": [
+        "exponents-logarithms",
+        "functions-inverse"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q05"
+      ]
+    },
+    "rational function": {
+      "topics": [
+        "rational-functions"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q36"
+      ]
+    },
+    "rectangle": {
+      "topics": [
+        "polygons-congruence"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q08"
+      ]
+    },
+    "recurrence relation": {
+      "topics": [
+        "sequences-series"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q04"
+      ]
+    },
+    "recursive sequence": {
+      "topics": [
+        "sequences-series"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q04"
+      ]
+    },
+    "reflection": {
+      "topics": [
+        "transformations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q38"
+      ]
+    },
+    "regular hexagon": {
+      "topics": [
+        "mensuration",
+        "similar-triangles"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q46"
+      ]
+    },
+    "regular polygon": {
+      "topics": [
+        "polygons-congruence"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q01"
+      ]
+    },
+    "remainder theorem": {
+      "topics": [
+        "polynomials"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q07"
+      ]
+    },
+    "right triangle": {
+      "topics": [
+        "circle-geometry",
+        "coordinate-geometry",
+        "mensuration",
+        "trigonometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q31",
+        "math-2020-matric-p1-q40",
+        "math-2020-matric-p1-q43"
+      ]
+    },
+    "root of quadratic": {
+      "topics": [
+        "quadratic-equations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q12"
+      ]
+    },
+    "rotation": {
+      "topics": [
+        "transformations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q38"
+      ]
+    },
+    "salary": {
+      "topics": [
+        "business-mathematics"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q04"
+      ]
+    },
+    "sample space": {
+      "topics": [
+        "probability"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q22"
+      ]
+    },
+    "sas": {
+      "topics": [
+        "polygons-congruence"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q49",
+        "math-2020-matric-p2-q08"
+      ]
+    },
+    "scaling data": {
+      "topics": [
+        "statistics"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q35"
+      ]
+    },
+    "secant-secant theorem": {
+      "topics": [
+        "circle-geometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q47"
+      ]
+    },
+    "sector": {
+      "topics": [
+        "circle-geometry",
+        "mensuration"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q40"
+      ]
+    },
+    "sides of a triangle": {
+      "topics": [
+        "polygons-congruence"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q34"
+      ]
+    },
+    "sign chart": {
+      "topics": [
+        "quadratic-equations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q19"
+      ]
+    },
+    "similar triangles": {
+      "topics": [
+        "similar-triangles"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q41",
+        "math-2020-matric-p1-q45"
+      ]
+    },
+    "simple interest": {
+      "topics": [
+        "business-mathematics",
+        "linear-systems"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q24"
+      ]
+    },
+    "simplifying rational expressions": {
+      "topics": [
+        "rational-functions"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q23"
+      ]
+    },
+    "slope": {
+      "topics": [
+        "linear-functions-lines",
+        "trigonometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q11",
+        "math-2020-matric-p2-q03"
+      ]
+    },
+    "solution region": {
+      "topics": [
+        "linear-functions-lines",
+        "linear-systems"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q07"
+      ]
+    },
+    "special triangles": {
+      "topics": [
+        "trigonometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q42"
+      ]
+    },
+    "sphere": {
+      "topics": [
+        "mensuration"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q02"
+      ]
+    },
+    "square root equation": {
+      "topics": [
+        "absolute-value-radicals"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q13"
+      ]
+    },
+    "square root function": {
+      "topics": [
+        "functions-inverse",
+        "quadratic-equations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q09"
+      ]
+    },
+    "standard deviation": {
+      "topics": [
+        "statistics"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q35"
+      ]
+    },
+    "subset": {
+      "topics": [
+        "sets-operations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q02"
+      ]
+    },
+    "substitution": {
+      "topics": [
+        "absolute-value-radicals",
+        "exponents-logarithms",
+        "quadratic-equations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q05",
+        "math-2020-matric-p1-q08"
+      ]
+    },
+    "sum and product of roots": {
+      "topics": [
+        "quadratic-equations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q12"
+      ]
+    },
+    "sum of cubes": {
+      "topics": [
+        "polynomials"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q25",
+        "math-2020-matric-p1-q29"
+      ]
+    },
+    "sum to infinity": {
+      "topics": [
+        "sequences-series"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q33"
+      ]
+    },
+    "system of equations": {
+      "topics": [
+        "linear-systems",
+        "matrices-determinants"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q30",
+        "math-2020-matric-p2-q09"
+      ]
+    },
+    "system of linear equations": {
+      "topics": [
+        "linear-systems"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q10"
+      ]
+    },
+    "system of linear inequalities": {
+      "topics": [
+        "linear-functions-lines",
+        "linear-systems"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q07"
+      ]
+    },
+    "tangent": {
+      "topics": [
+        "circle-geometry",
+        "linear-functions-lines",
+        "trigonometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q48",
+        "math-2020-matric-p2-q03"
+      ]
+    },
+    "tangent ratio": {
+      "topics": [
+        "trigonometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q21"
+      ]
+    },
+    "translation": {
+      "topics": [
+        "transformations"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q38"
+      ]
+    },
+    "trapezium": {
+      "topics": [
+        "similar-triangles"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q41"
+      ]
+    },
+    "triangle": {
+      "topics": [
+        "similar-triangles"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q39"
+      ]
+    },
+    "triangle inequality": {
+      "topics": [
+        "polygons-congruence"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q34"
+      ]
+    },
+    "trigonometric ratios": {
+      "topics": [
+        "trigonometry"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q43"
+      ]
+    },
+    "two dice": {
+      "topics": [
+        "probability"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q22"
+      ]
+    },
+    "upstream downstream": {
+      "topics": [
+        "linear-systems"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q30"
+      ]
+    },
+    "variance": {
+      "topics": [
+        "statistics"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q26",
+        "math-2020-matric-p1-q35"
+      ]
+    },
+    "vertical asymptote": {
+      "topics": [
+        "rational-functions"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q36"
+      ]
+    },
+    "volume": {
+      "topics": [
+        "mensuration"
+      ],
+      "question_ids": [
+        "math-2020-matric-p2-q02"
+      ]
+    },
+    "volume of cone": {
+      "topics": [
+        "mensuration"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q44"
+      ]
+    },
+    "volume of cylinder": {
+      "topics": [
+        "mensuration"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q44"
+      ]
+    },
+    "weighted average": {
+      "topics": [
+        "statistics"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q32"
+      ]
+    },
+    "word problem": {
+      "topics": [
+        "linear-systems"
+      ],
+      "question_ids": [
+        "math-2020-matric-p1-q10"
+      ]
+    }
+  },
+  "grades_used": [
+    9,
+    10,
+    11,
+    12
+  ]
+}

@@ -1,4 +1,4 @@
-name: Build student APK
+name: Build 4 APK
 
 on:
   push:
@@ -20,80 +20,14 @@ jobs:
           cache: true
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
-      - name: Font + KaTeX + interactive notes G9 first
-        run: |
-          mkdir -p assets/fonts assets/content/interactive_notes assets/content/phet assets/content/illustrated_pdf assets/content/textbooks assets/content/vendor/katex/fonts assets/content/examprep_preview
-          cp assets/content/interactive_notes/index.json /tmp/notes_index.json || true
-          curl -sL -o assets/fonts/NotoSansEthiopic-Regular.ttf \
-            "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf" || true
-          curl -sL -o assets/fonts/NotoSans-Regular.ttf \
-            "https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSans/NotoSans-Regular.ttf" || true
-          curl -sL -o assets/fonts/Nunito-VariableFont_wght.ttf \
-            "https://github.com/google/fonts/raw/main/ofl/nunito/Nunito%5Bwght%5D.ttf" || \
-          curl -sL -o assets/fonts/Nunito-VariableFont_wght.ttf \
-            "https://github.com/googlefonts/nunito/raw/main/fonts/variable/Nunito%5Bwght%5D.ttf" || true
-          curl -fsSL -o assets/content/vendor/katex/katex.min.js https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
-          curl -fsSL -o assets/content/vendor/katex/katex.min.css https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
-          curl -fsSL -o assets/content/vendor/katex/auto-render.min.js https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
-          for f in KaTeX_Main-Regular.woff2 KaTeX_Main-Bold.woff2 KaTeX_Math-Italic.woff2 KaTeX_Math-BoldItalic.woff2 KaTeX_Size1-Regular.woff2 KaTeX_Size2-Regular.woff2 KaTeX_Size4-Regular.woff2 KaTeX_AMS-Regular.woff2; do
-            curl -fsSL -o assets/content/vendor/katex/fonts/$f https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/fonts/$f || true
-          done
-          pip install -q 'gdown>=5.0' || true
-          gdown "https://drive.google.com/uc?id=1XoY8NjPMT6VYq1aZ4mYknXJTIn5ykCSK&export=download" -O /tmp/interactive_notes_all.tgz || true
-          if [ ! -s /tmp/interactive_notes_all.tgz ]; then
-            gdown "https://drive.google.com/uc?id=1G9CRWf1fjUNDeOIYo9HlYo3ULWZRfJCE&export=download" -O /tmp/interactive_notes_all.tgz || true
-          fi
-          if [ -s /tmp/interactive_notes_all.tgz ]; then
-            tar -xzf /tmp/interactive_notes_all.tgz -C assets/content/
-          fi
-          if [ -s /tmp/notes_index.json ]; then
-            cp /tmp/notes_index.json assets/content/interactive_notes/index.json
-          fi
-      - name: Download ExamPrep preview zip EXACTLY
-        run: |
-          pip install -q 'gdown>=5.0' || true
-          mkdir -p assets/content/examprep_preview /tmp/examprep_zip
-          gdown "https://drive.google.com/uc?id=1kZPrIqiJDE5vQlwXphPzPwEcZZPgp_cF&export=download" -O /tmp/ExamPrep-preview.zip
-          test -s /tmp/ExamPrep-preview.zip
-          unzip -o /tmp/ExamPrep-preview.zip -d /tmp/examprep_zip
-          if [ -f /tmp/examprep_zip/ExamPrep-preview/index.html ]; then
-            cp -f /tmp/examprep_zip/ExamPrep-preview/index.html assets/content/examprep_preview/index.html
-          elif [ -f /tmp/examprep_zip/index.html ]; then
-            cp -f /tmp/examprep_zip/index.html assets/content/examprep_preview/index.html
-          else
-            exit 1
-          fi
-      - name: Download practice + matric banks
-        continue-on-error: true
-        run: |
-          pip install -q 'gdown>=5.0' || true
-          gdown "https://drive.google.com/uc?id=1N1IMP0KAcdhq2rfB5OwYKBc8UQNO4eSd&export=download" -O assets/content/practice_from_notes.json || true
-          gdown "https://drive.google.com/uc?id=14w-T8UC9xY6QIdseMTM5zaiJQmgp7Kz0&export=download" -O /tmp/practice_subject_packs.tgz || true
-          if [ -s /tmp/practice_subject_packs.tgz ]; then tar -xzf /tmp/practice_subject_packs.tgz -C assets/content/ || true; fi
-          python3 tools/merge_practice_parts.py || true
-      - name: Generate icons
-        run: |
-          python3 tools/generate_icons.py
-          find android/app/src -name ic_launcher.png
-          test -f android/app/src/main/res/mipmap-hdpi/ic_launcher.png
-          test -f android/app/src/seller/res/mipmap-hdpi/ic_launcher.png
       - name: Pub get
         run: flutter pub get
-      - name: Build student APK
-        run: flutter build apk --release --flavor student --target lib/main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
-      - name: Upload student APK
+      - name: Build APK
+        run: flutter build apk --release --no-tree-shake-icons
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: four-student-apk
-          path: build/app/outputs/flutter-apk/*student*.apk
-          if-no-files-found: error
-          retention-days: 30
-      - name: Build seller APK
-        run: flutter build apk --release --flavor seller --target lib/seller_main.dart --no-tree-shake-icons --android-skip-build-dependency-validation
-      - name: Upload seller APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: bee-seller-apk
-          path: build/app/outputs/flutter-apk/*seller*.apk
+          name: four-apk
+          path: build/app/outputs/flutter-apk/*.apk
           if-no-files-found: error
           retention-days: 30

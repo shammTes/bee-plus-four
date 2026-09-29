@@ -1,0 +1,5503 @@
+{
+  "schema_version": "1.0",
+  "exam": {
+    "id": "chem-2020-matric",
+    "year": "2020",
+    "subject": "Chemistry",
+    "grade": 12,
+    "school": "Eritrean Secondary Education Certificate Examination (national)",
+    "type": "matriculation",
+    "semester": null,
+    "title": "Eritrean Secondary Education Certificate Examinations 2020 – Chemistry (0067)",
+    "exam_code": "0067",
+    "duration": "2 hours 30 minutes",
+    "duration_minutes": 150,
+    "total_points": 100,
+    "parts": [
+      {
+        "part": 1,
+        "title": "Part I – Multiple Choice Questions",
+        "question_type": "mcq",
+        "question_count": 75,
+        "points": 75,
+        "instructions": "Part I contains 75 questions. You must answer all of them. Each question carries 1 point. There is only one best answer for each question; blacken the letter of your choice on the Scantron answer sheet with a pencil."
+      },
+      {
+        "part": 2,
+        "title": "Part II – Work Out and Short Answer Questions",
+        "question_type": "workout/short answer",
+        "question_count": 7,
+        "points": 25,
+        "instructions": "Part II contains seven work out and short answer questions. You must answer all of them. This part carries twenty five points. Write your answers on the separate answer sheet provided."
+      }
+    ],
+    "source": {
+      "document": "/workspace/matric/raw/2020/Chemistry_matric._2020.pdf",
+      "pages": 21,
+      "scan": "CamScanner image PDF; text recovered by OCR and corrected against the 150-dpi page images",
+      "official_answer_key": false,
+      "media": [
+        "media/chemistry-2020-matric-q69-energy-diagram.png (Q69 enthalpy diagram, cropped from p.17)",
+        "media/chemistry-2020-matric-p2q1-separating-funnel.png (Part II Q1 separating funnel, cropped from p.19)"
+      ]
+    },
+    "answer_key_note": "No official key exists. All answers were solved independently, calculations were checked in Python (verify_calcs.py), and facts were checked against the Eritrean MoE Chemistry textbooks Grades 9–12. The Grade 11 PDF ends at p.129, so Gases (Unit 5) answers are checked against standard chemistry only. See confidence and review_flag on each question.",
+    "notation": "unicode",
+    "textbooks": [
+      {
+        "subject": "chemistry",
+        "grade": 9,
+        "file": "textbook_chemistry_9.pdf",
+        "publisher": "Eritrea Ministry of Education, 2011",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "chemistry",
+        "grade": 10,
+        "file": "textbook_chemistry_10.pdf",
+        "publisher": "Eritrea Ministry of Education, 2011",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "chemistry",
+        "grade": 11,
+        "file": "textbook_chemistry_11.pdf",
+        "publisher": "Eritrea Ministry of Education, 2011",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "chemistry",
+        "grade": 12,
+        "file": "textbook_chemistry_12.pdf",
+        "publisher": "Eritrea Ministry of Education, 2011",
+        "printed_page_offset": 6
+      }
+    ],
+    "content_version": "1.0.0",
+    "language": "en"
+  },
+  "questions": [
+    {
+      "id": "chem-2020-matric-p1-q01",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 1,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following symbols of elements is derived from a Latin name?",
+      "options": {
+        "A": "O",
+        "B": "C",
+        "C": "Na",
+        "D": "Ca",
+        "E": "Al"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Most symbols come from the English name of the element (O = oxygen, C = carbon, Ca = calcium, Al = aluminium).",
+        "The textbook's table of symbols from Latin names includes sodium Na (natrium), potassium K (kalium), copper Cu (cuprum), silver Ag (argentum), gold Au (aurum), iron Fe (ferrum), tin Sn, antimony Sb, mercury Hg and lead Pb.",
+        "Na comes from 'natrium'. Answer: C."
+      ],
+      "tips": [
+        "If the symbol does not match the English name (Na, K, Fe, Cu, Ag, Au, Pb, Hg, Sn, Sb), it comes from Latin."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The symbol of which element comes from its Latin name 'ferrum'?",
+          "options": {
+            "A": "Fluorine",
+            "B": "Iron",
+            "C": "Francium",
+            "D": "Fermium",
+            "E": "Phosphorus"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Ferrum → Fe = iron. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "formulas-names"
+      ],
+      "keywords": [
+        "chemical symbol",
+        "Latin name",
+        "natrium",
+        "sodium"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.1 Chemical symbols (symbols from Latin names)",
+        "page": "80-83",
+        "pdf_page": 88,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q02",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 2,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "An ion of an atom has a net charge of +1, 18 electrons and 18 neutrons. Its mass number is",
+      "options": {
+        "A": "17.",
+        "B": "18.",
+        "C": "19.",
+        "D": "38.",
+        "E": "39."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "A +1 ion has one electron fewer than protons: protons = 18 + 1 = 19 (Z = 19, potassium).",
+        "Mass number = protons + neutrons = 19 + 18 = 37.",
+        "37 is not among the options. C (19) is the atomic number, not the mass number; E (39) is the mass number of the common isotope ³⁹K (19 p, 20 n), which is probably what the setter had in mind.",
+        "Correct value 37 – no option is right; E is keyed as the most likely intended answer (teacher decision)."
+      ],
+      "tips": [
+        "Cation: protons = electrons + charge. Anion: protons = electrons − charge. Then A = protons + neutrons."
+      ],
+      "similar_questions": [
+        {
+          "stem": "An ion with charge 2− has 18 electrons and 16 neutrons. Its mass number is",
+          "options": {
+            "A": "16",
+            "B": "18",
+            "C": "20",
+            "D": "32",
+            "E": "34"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "Protons = 18 − 2 = 16 (sulphur); A = 16 + 16 = 32. Answer: D."
+          ]
+        }
+      ],
+      "topics": [
+        "atomic-particles"
+      ],
+      "keywords": [
+        "mass number",
+        "ion",
+        "protons",
+        "neutrons",
+        "electrons"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+        "section": "2.1.1–2.1.3 The atom, subatomic particles, atomic and mass number",
+        "page": "41-44",
+        "pdf_page": 49,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "low",
+      "review_flag": "No correct option: a +1 ion with 18 electrons has 19 protons, so with 18 neutrons A = 37, which is not offered. E (39, i.e. ³⁹K with 20 neutrons) is keyed as the probable intent. Teacher decision needed."
+    },
+    {
+      "id": "chem-2020-matric-p1-q03",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 3,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is not an example of matter?",
+      "options": {
+        "A": "Gold",
+        "B": "Carbon monoxide",
+        "C": "Heat",
+        "D": "Steam",
+        "E": "Brass"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Matter is anything that has mass and occupies space.",
+        "Gold (element), carbon monoxide (compound), steam (water vapour) and brass (alloy of Cu and Zn) all have mass and volume.",
+        "Heat is a form of energy – it has no mass and occupies no space. Answer: C."
+      ],
+      "tips": [
+        "Energy forms (heat, light, sound, electricity) are not matter."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is matter?",
+          "options": {
+            "A": "Light",
+            "B": "Sound",
+            "C": "Air",
+            "D": "Heat",
+            "E": "Electricity"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Air is a mixture of gases – it has mass and occupies space. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "properties-of-matter"
+      ],
+      "keywords": [
+        "matter",
+        "energy",
+        "heat",
+        "mass"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.1 What is matter?",
+        "page": "7",
+        "pdf_page": 15,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q04",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 4,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is a colligative property of a solution?",
+      "options": {
+        "A": "Partial pressure",
+        "B": "Atmospheric pressure",
+        "C": "Colour",
+        "D": "Osmotic pressure",
+        "E": "Solubility"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Colligative properties depend only on the number of solute particles, not on their identity: vapour-pressure lowering, boiling-point elevation, freezing-point depression and osmotic pressure.",
+        "Colour and solubility depend on the nature of the solute; partial and atmospheric pressure are properties of gases. Answer: D."
+      ],
+      "tips": [
+        "Four colligative properties: ΔP (vapour pressure), ΔTb, ΔTf, osmotic pressure."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Adding salt to water raises its boiling point. This is an example of",
+          "options": {
+            "A": "a chemical property",
+            "B": "a colligative property",
+            "C": "an intensive property of the solvent only",
+            "D": "solubility",
+            "E": "sublimation"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Boiling-point elevation depends on the number of dissolved particles – a colligative property. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "colligative-properties"
+      ],
+      "keywords": [
+        "colligative properties",
+        "osmotic pressure"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.3.3 Colligative properties of solutions",
+        "page": "101-104",
+        "pdf_page": 109,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q05",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 5,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is true about Dobereiner's triads?",
+      "options": {
+        "A": "Elements were arranged in the order of increasing atomic number.",
+        "B": "Elements with similar properties were arranged into groups of eight.",
+        "C": "Elements were arranged in the order of increasing atomic mass.",
+        "D": "All the elements were classified properly.",
+        "E": "No similarities were noticed among the known elements."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Döbereiner (1829) placed elements with similar properties in groups of three (triads).",
+        "Within a triad, written in order of increasing atomic mass, the middle element's atomic mass is roughly the average of the other two (Li 6.9, Na 23, K 39).",
+        "Atomic number was not known then (A is wrong); groups of eight are Newlands' octaves (B); only a few triads were found (D wrong); the triads were based on similarities (E wrong). Answer: C."
+      ],
+      "tips": [
+        "Döbereiner – triads (3); Newlands – octaves (8); Mendeleev – atomic mass table; Moseley – atomic number."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In the triad Ca (40), Sr (?), Ba (137), the predicted atomic mass of Sr is about",
+          "options": {
+            "A": "40",
+            "B": "88.5",
+            "C": "97",
+            "D": "137",
+            "E": "177"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Average = (40 + 137)/2 = 88.5 (actual 87.6). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "periodic-classification"
+      ],
+      "keywords": [
+        "Dobereiner",
+        "triads",
+        "atomic mass",
+        "classification of elements"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.1 Historical development – Döbereiner's triads",
+        "page": "2-3",
+        "pdf_page": 10,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q06",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 6,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The correct name of the compound MgSO₄ is",
+      "options": {
+        "A": "magnesium sulphide.",
+        "B": "magnesium tetrasulphide.",
+        "C": "magnesium sulphate.",
+        "D": "magnesium disulphide.",
+        "E": "magnesium sulphite."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "MgSO₄ contains Mg²⁺ and the polyatomic ion SO₄²⁻, which is sulphate.",
+        "Sulphide = S²⁻ (MgS); sulphite = SO₃²⁻ (MgSO₃). Prefixes such as 'tetra' are not used for ionic compounds. Answer: C."
+      ],
+      "tips": [
+        "-ide = single element anion; -ate = more oxygen; -ite = one oxygen fewer."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The formula of calcium sulphite is",
+          "options": {
+            "A": "CaS",
+            "B": "CaSO₄",
+            "C": "CaSO₃",
+            "D": "CaS₂",
+            "E": "Ca₂SO₃"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Sulphite = SO₃²⁻; Ca²⁺ + SO₃²⁻ → CaSO₃. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "formulas-names"
+      ],
+      "keywords": [
+        "naming compounds",
+        "sulphate",
+        "sulphite",
+        "magnesium sulphate"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.2 Polyatomic ions and naming",
+        "page": "90-91",
+        "pdf_page": 98,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q07",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 7,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The maximum number of electrons in the 4th energy level of an atom is",
+      "options": {
+        "A": "8.",
+        "B": "16.",
+        "C": "32.",
+        "D": "64.",
+        "E": "4."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The maximum number of electrons in shell n is 2n².",
+        "For n = 4 (the N shell): 2 × 4² = 32. Answer: C."
+      ],
+      "tips": [
+        "K = 2, L = 8, M = 18, N = 32 (2n²)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The maximum number of electrons that the M shell (n = 3) can hold is",
+          "options": {
+            "A": "8",
+            "B": "9",
+            "C": "18",
+            "D": "32",
+            "E": "6"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "2n² = 2 × 9 = 18. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "electron-configuration-ions"
+      ],
+      "keywords": [
+        "2n2",
+        "energy level",
+        "shell",
+        "maximum electrons"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.2 Electron configuration – maximum electrons per shell (2n²)",
+        "page": "17",
+        "pdf_page": 25,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q08",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 8,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The pH of a solution can be estimated with",
+      "options": {
+        "A": "a thermometer.",
+        "B": "a barometer.",
+        "C": "a manometer.",
+        "D": "calorimeter.",
+        "E": "indicators."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Acid–base indicators (litmus, methyl orange, phenolphthalein, universal indicator/pH paper) change colour over known pH ranges, so they estimate the pH.",
+        "A thermometer measures temperature, a barometer atmospheric pressure, a manometer gas pressure and a calorimeter heat. Answer: E."
+      ],
+      "tips": [
+        "Estimate pH with indicators / pH paper; measure it accurately with a pH meter."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A solution turns universal indicator red. Its pH is most likely",
+          "options": {
+            "A": "1–3",
+            "B": "7",
+            "C": "8–9",
+            "D": "11–12",
+            "E": "14"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Red on universal indicator = strongly acidic. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-properties"
+      ],
+      "keywords": [
+        "pH",
+        "indicators",
+        "universal indicator"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.5 The pH scale",
+        "page": "144-146",
+        "pdf_page": 152,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q09",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 9,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A 1 M solution of NaNO₃ and a 1 M solution of KCl have the same",
+      "options": {
+        "A": "mass of solute in 1 L of solution.",
+        "B": "volume of solute in 1 L of solution.",
+        "C": "percent by mass of solute in 1 L of solution.",
+        "D": "number of moles of solute in 1 L of solution.",
+        "E": "density."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Molarity = moles of solute ÷ litres of solution, so 1 M means 1 mol of solute per litre for both solutions.",
+        "The molar masses differ (NaNO₃ 85 g/mol, KCl 74.5 g/mol), so the masses, mass percentages and densities differ. Answer: D."
+      ],
+      "tips": [
+        "Equal molarity → equal moles per litre, not equal grams."
+      ],
+      "similar_questions": [
+        {
+          "stem": "How many moles of glucose are in 250 mL of a 2 M glucose solution?",
+          "options": {
+            "A": "0.25",
+            "B": "0.5",
+            "C": "2",
+            "D": "4",
+            "E": "8"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "n = M × V = 2 mol/L × 0.250 L = 0.5 mol. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "concentration"
+      ],
+      "keywords": [
+        "molarity",
+        "moles of solute",
+        "concentration"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.3 Molarity",
+        "page": "79-80",
+        "pdf_page": 87,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q10",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 10,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Group IA elements are also called",
+      "options": {
+        "A": "noble gases.",
+        "B": "alkali metals.",
+        "C": "alkaline earth metals.",
+        "D": "halogens.",
+        "E": "transition elements."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Group IA (Li, Na, K, Rb, Cs, Fr) = alkali metals; IIA = alkaline earth metals; VIIA = halogens; VIIIA (0) = noble gases; B groups = transition elements. Answer: B."
+      ],
+      "tips": [
+        "IA alkali, IIA alkaline earth, VIIA halogens, VIIIA noble gases."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Chlorine, bromine and iodine belong to the",
+          "options": {
+            "A": "alkali metals",
+            "B": "alkaline earth metals",
+            "C": "halogens",
+            "D": "noble gases",
+            "E": "transition metals"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "They are group VIIA – the halogens. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "periodic-classification"
+      ],
+      "keywords": [
+        "alkali metals",
+        "group IA",
+        "periodic table groups"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.2 The modern periodic table – groups and periods",
+        "page": "12-15",
+        "pdf_page": 20,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q11",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 11,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The energy produced due to the motion of the particles of a substance is an example of",
+      "options": {
+        "A": "solar energy.",
+        "B": "kinetic energy.",
+        "C": "mechanical energy.",
+        "D": "potential energy.",
+        "E": "thermal energy."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "The textbook: 'Kinetic energy is energy due to the motion of the particles of a substance. The different forms of kinetic energy include thermal energy and electrical energy.'",
+        "Potential energy is due to position/composition (chemical, gravitational). The stem matches the textbook definition of kinetic energy. Answer: B.",
+        "Thermal energy (E) is itself a form of kinetic energy, but the general term defined this way is kinetic energy."
+      ],
+      "tips": [
+        "Motion → kinetic (thermal, electrical); stored → potential (chemical, gravitational)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Chemical energy stored in food is a form of",
+          "options": {
+            "A": "kinetic energy",
+            "B": "thermal energy",
+            "C": "potential energy",
+            "D": "electrical energy",
+            "E": "sound energy"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Chemical energy is stored in bonds – potential energy. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "energy-forms-heat"
+      ],
+      "keywords": [
+        "kinetic energy",
+        "thermal energy",
+        "motion of particles"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.1 Energy transformation – kinetic and potential energy",
+        "page": "154",
+        "pdf_page": 162,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q12",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 12,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following chemical substances is not an organic compound?",
+      "options": {
+        "A": "Ethanol",
+        "B": "Calcium carbonate",
+        "C": "Acetic acid",
+        "D": "Benzene",
+        "E": "Methane"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Organic compounds are compounds of carbon, but a few carbon compounds – CO, CO₂ and carbonates such as CaCO₃ – are classed as inorganic.",
+        "Ethanol, acetic acid, benzene and methane are organic. Answer: B."
+      ],
+      "tips": [
+        "Carbon oxides, carbonates, hydrogencarbonates and cyanides are inorganic."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is an inorganic compound?",
+          "options": {
+            "A": "CH₄",
+            "B": "C₂H₅OH",
+            "C": "CO₂",
+            "D": "C₆H₁₂O₆",
+            "E": "CH₃COOH"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "CO₂ is one of the few inorganic carbon compounds. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "organic-intro"
+      ],
+      "keywords": [
+        "organic compounds",
+        "inorganic",
+        "calcium carbonate"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.1.1 Introduction – organic compounds are compounds of carbon",
+        "page": "25",
+        "pdf_page": 31,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q13",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 13,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "All of the following are properties of bases, except that they",
+      "options": {
+        "A": "neutralize acids.",
+        "B": "turn red litmus paper blue.",
+        "C": "turn blue litmus paper red.",
+        "D": "feel slippery.",
+        "E": "have bitter taste."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Bases neutralise acids, turn red litmus blue, feel slippery and taste bitter.",
+        "Turning blue litmus red is a property of ACIDS. Answer: C."
+      ],
+      "tips": [
+        "Base → Blue litmus (both start with B)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is a property of acids?",
+          "options": {
+            "A": "Bitter taste",
+            "B": "Slippery feel",
+            "C": "Turn red litmus blue",
+            "D": "Turn blue litmus red",
+            "E": "pH above 7"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "Acids turn blue litmus red. Answer: D."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-properties"
+      ],
+      "keywords": [
+        "properties of bases",
+        "litmus",
+        "bitter",
+        "slippery"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.2.4 General properties of bases",
+        "page": "127-129",
+        "pdf_page": 135,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q14",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 14,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is not a method of base preparation?",
+      "options": {
+        "A": "The reaction of very active metals with water",
+        "B": "Combination of a non-metal oxide and water",
+        "C": "The reaction of a metal oxide with water",
+        "D": "The direct combination of elements",
+        "E": "The reaction of potassium and water"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B",
+        "D"
+      ],
+      "explanation_steps": [
+        "Textbook methods of preparing bases (G10 p.127): 1. very active metal + water (e.g. 2K + 2H₂O → 2KOH + H₂ – so A and E are methods); 2. metal oxide (basic anhydride) + water (C); 3. salt + base.",
+        "A non-metal oxide + water gives an ACID (SO₃ + H₂O → H₂SO₄). Answer: B.",
+        "Note: 'direct combination of elements' (D) is also not a base method – the textbook lists it as a method for preparing ACIDS (H₂ + Cl₂ → 2HCl), so D is also defensible."
+      ],
+      "tips": [
+        "Non-metal oxides are acidic anhydrides; metal oxides are basic anhydrides."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which reaction produces a base?",
+          "options": {
+            "A": "SO₂ + H₂O",
+            "B": "CO₂ + H₂O",
+            "C": "Na₂O + H₂O",
+            "D": "H₂ + Cl₂",
+            "E": "P₄O₁₀ + H₂O"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Na₂O + H₂O → 2NaOH; the others give acids. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-preparation"
+      ],
+      "keywords": [
+        "preparation of bases",
+        "non-metal oxide",
+        "metal oxide",
+        "active metals"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.2.3 General methods of preparation of bases",
+        "page": "127",
+        "pdf_page": 135,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 10,
+          "unit": "Unit 4 – Acids, Bases and Salts",
+          "section": "4.1.3 General methods of preparation of acids",
+          "page": "119-121",
+          "pdf_page": 127,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "medium",
+      "review_flag": "Two options are not methods of preparing bases: B (non-metal oxide + water gives an acid, keyed) and D ('direct combination of elements' is listed in the textbook as a method for preparing ACIDS, p.121). Both accepted. Teacher decision needed."
+    },
+    {
+      "id": "chem-2020-matric-p1-q15",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 15,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following bonding types is not an intramolecular attraction force?",
+      "options": {
+        "A": "Ionic bonding",
+        "B": "Covalent bonding",
+        "C": "Coordinate covalent bonding",
+        "D": "Hydrogen bonding",
+        "E": "Metallic bonding"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Intramolecular forces (chemical bonds) hold atoms together within a molecule or crystal: ionic, covalent, coordinate covalent and metallic bonds.",
+        "Intermolecular forces act between molecules: dispersion forces, dipole–dipole forces and hydrogen bonds.",
+        "Hydrogen bonding is an intermolecular force. Answer: D."
+      ],
+      "tips": [
+        "'Intra' = within (bonds); 'inter' = between (molecules)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The forces that must be overcome when liquid water boils are mainly",
+          "options": {
+            "A": "covalent O–H bonds",
+            "B": "ionic bonds",
+            "C": "hydrogen bonds between water molecules",
+            "D": "metallic bonds",
+            "E": "coordinate bonds"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Boiling separates molecules; the O–H covalent bonds stay intact. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "intermolecular-forces"
+      ],
+      "keywords": [
+        "intramolecular",
+        "intermolecular",
+        "hydrogen bonding",
+        "chemical bonds"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Chemical Bonding and Forces of Attraction",
+        "section": "2.1 Forces of attraction (intra- and intermolecular)",
+        "page": "41-42",
+        "pdf_page": 49,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q16",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 16,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "What is the percentage composition of oxygen (O) in hydrogen peroxide (H₂O₂)? [At. Mass: H = 1, O = 16]",
+      "options": {
+        "A": "47.06%",
+        "B": "94.12%",
+        "C": "2.94%",
+        "D": "5.88%",
+        "E": "100%"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Formula mass of H₂O₂ = 2(1) + 2(16) = 34.",
+        "Mass of oxygen = 2 × 16 = 32.",
+        "% O = 32/34 × 100 = 94.12 %. Answer: B.",
+        "Trap: 47.06 % (A) uses only one O atom (16/34); 5.88 % (D) is the percentage of hydrogen."
+      ],
+      "tips": [
+        "Multiply the atomic mass by the number of atoms of that element in the formula."
+      ],
+      "similar_questions": [
+        {
+          "stem": "What is the percentage of oxygen in water, H₂O? [H = 1, O = 16]",
+          "options": {
+            "A": "11.11 %",
+            "B": "50 %",
+            "C": "88.89 %",
+            "D": "94.12 %",
+            "E": "16 %"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "16/18 × 100 = 88.89 %. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "mole-composition"
+      ],
+      "keywords": [
+        "percentage composition",
+        "hydrogen peroxide",
+        "formula mass"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.2.5 Percentage composition",
+        "page": "100-101",
+        "pdf_page": 108,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q17",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 17,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The electron configuration of Argon (Ar) is [At. Number: Ar = 18]",
+      "options": {
+        "A": "1s² 2s² 2p⁶ 3s² 3p⁶.",
+        "B": "1s² 2s² 2p⁶ 3s² 3p⁵.",
+        "C": "1s² 2s² 2p⁶ 3s² 3p⁶ 4s².",
+        "D": "1s² 2s² 2p⁶.",
+        "E": "1s² 2s² 2p⁶ 3s²."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Fill 18 electrons in order 1s, 2s, 2p, 3s, 3p: 2 + 2 + 6 + 2 + 6 = 18.",
+        "1s² 2s² 2p⁶ 3s² 3p⁶. B has 17 electrons (Cl), C 20 (Ca), D 10 (Ne), E 12 (Mg). Answer: A."
+      ],
+      "tips": [
+        "Add the superscripts – they must equal the atomic number (for a neutral atom)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which is the electron configuration of sodium (Z = 11)?",
+          "options": {
+            "A": "1s² 2s² 2p⁶",
+            "B": "1s² 2s² 2p⁶ 3s¹",
+            "C": "1s² 2s² 2p⁷",
+            "D": "1s² 2s² 2p⁶ 3s²",
+            "E": "1s² 2s¹"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "2 + 2 + 6 + 1 = 11. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "electron-configuration-ions"
+      ],
+      "keywords": [
+        "electron configuration",
+        "argon",
+        "subshells"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.2 Modern periodic table – electron configuration",
+        "page": "14-17",
+        "pdf_page": 22,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q18",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 18,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is not correct about the particles in the solid state of matter? The particles",
+      "options": {
+        "A": "do not have much space.",
+        "B": "vibrate at fixed position.",
+        "C": "are packed very closely together.",
+        "D": "move freely.",
+        "E": "occupy fixed position."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "In a solid the particles are packed closely in fixed positions with little space between them; they can only vibrate about those positions.",
+        "Particles that move freely describe a gas (and, to a lesser extent, a liquid). Answer: D."
+      ],
+      "tips": [
+        "Solid: fixed shape and volume – particles vibrate only."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In which state do particles have the greatest freedom of movement and the largest spaces between them?",
+          "options": {
+            "A": "Solid",
+            "B": "Liquid",
+            "C": "Gas",
+            "D": "Crystal",
+            "E": "Amorphous solid"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Gas particles are far apart and move randomly and freely. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "states-of-matter"
+      ],
+      "keywords": [
+        "solid state",
+        "particles",
+        "vibrate",
+        "kinetic theory of matter"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.2 States of matter",
+        "page": "10",
+        "pdf_page": 18,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q19",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 19,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The atoms of the isotopes of an element have the same number of",
+      "options": {
+        "A": "protons but differing numbers of neutrons.",
+        "B": "neutrons but differing numbers of electrons.",
+        "C": "electrons but differing numbers of protons.",
+        "D": "neutrons but differing numbers of protons.",
+        "E": "protons but differing numbers of electrons."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Isotopes are atoms of the same element (same atomic number = same number of protons) with different mass numbers because they have different numbers of neutrons (e.g. ¹²C, ¹³C, ¹⁴C). Answer: A."
+      ],
+      "tips": [
+        "Isotopes: same Z, different A."
+      ],
+      "similar_questions": [
+        {
+          "stem": "¹⁶O, ¹⁷O and ¹⁸O differ in their number of",
+          "options": {
+            "A": "protons",
+            "B": "electrons",
+            "C": "neutrons",
+            "D": "valence electrons",
+            "E": "atomic number"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "All have 8 protons; neutrons are 8, 9 and 10. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "atomic-particles"
+      ],
+      "keywords": [
+        "isotopes",
+        "protons",
+        "neutrons"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+        "section": "2.1.4 Isotopes",
+        "page": "47-48",
+        "pdf_page": 55,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q20",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 20,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The solid substance in which the atoms, ions or molecules are arranged in an orderly manner is called",
+      "options": {
+        "A": "crystal lattice.",
+        "B": "crystal.",
+        "C": "coordination number.",
+        "D": "unit cell.",
+        "E": "amorphous."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Textbook: 'A crystal or a crystalline solid is a solid substance in which the atoms, ions or molecules are arranged in an orderly, repeating' pattern.",
+        "The crystal lattice is the regularly spaced pattern (not the substance); the unit cell is the smallest repeating unit; an amorphous solid has no regular arrangement. Answer: B."
+      ],
+      "tips": [
+        "Crystal = the solid; lattice = the pattern; unit cell = the repeating box."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The smallest repeating unit from which a whole crystal can be built is the",
+          "options": {
+            "A": "crystal lattice",
+            "B": "unit cell",
+            "C": "coordination number",
+            "D": "amorphous solid",
+            "E": "molecule"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "The unit cell is repeated in three dimensions to build the crystal. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "crystals"
+      ],
+      "keywords": [
+        "crystal",
+        "crystal lattice",
+        "unit cell",
+        "crystalline solid"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Shapes of Simple Molecules and Crystals",
+        "section": "1.2 Crystals – crystal lattice and unit cell",
+        "page": "13-14",
+        "pdf_page": 19,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q21",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 21,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following compounds has the same molecular and empirical formula?",
+      "options": {
+        "A": "C₆H₆",
+        "B": "C₆H₁₂",
+        "C": "C₂H₆",
+        "D": "C₆H₁₂O₆",
+        "E": "CH₄"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "The empirical formula is the simplest whole-number ratio of atoms.",
+        "C₆H₆ → CH; C₆H₁₂ → CH₂; C₂H₆ → CH₃; C₆H₁₂O₆ → CH₂O.",
+        "CH₄ cannot be simplified, so its empirical and molecular formulas are the same. Answer: E."
+      ],
+      "tips": [
+        "If the subscripts share a common factor, divide it out to get the empirical formula."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The empirical formula of C₄H₁₀ is",
+          "options": {
+            "A": "CH",
+            "B": "C₂H₅",
+            "C": "CH₂",
+            "D": "C₄H₁₀",
+            "E": "CH₃"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Divide 4 and 10 by 2: C₂H₅. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "mole-composition"
+      ],
+      "keywords": [
+        "empirical formula",
+        "molecular formula"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.3 Empirical and molecular formulas",
+        "page": "104-107",
+        "pdf_page": 112,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q22",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 22,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following intermolecular forces exists between two adjacent HCl molecules?",
+      "options": {
+        "A": "Ion – Ion",
+        "B": "Ion – Dipole",
+        "C": "Dipole – Dipole",
+        "D": "London Dispersion",
+        "E": "Hydrogen Bonding"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "HCl is a polar molecule (Hδ⁺–Clδ⁻). The textbook: 'there is a small dipole-dipole force of attraction between adjacent HCl molecules.'",
+        "There are no ions in HCl gas; hydrogen bonds need H bonded to F, O or N. Dispersion forces exist between all molecules but the characteristic force for polar HCl is dipole–dipole. Answer: C."
+      ],
+      "tips": [
+        "Polar molecule without H–F/O–N bonds → dipole–dipole."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which pair of molecules attract each other mainly by hydrogen bonding?",
+          "options": {
+            "A": "HCl and HCl",
+            "B": "H₂ and H₂",
+            "C": "NH₃ and NH₃",
+            "D": "CH₄ and CH₄",
+            "E": "Cl₂ and Cl₂"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "N–H bonds allow hydrogen bonding between NH₃ molecules. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "intermolecular-forces"
+      ],
+      "keywords": [
+        "dipole-dipole",
+        "HCl",
+        "intermolecular forces"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Chemical Bonding and Forces of Attraction",
+        "section": "2.3.2 van der Waals forces – dipole-dipole interactions",
+        "page": "53",
+        "pdf_page": 61,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q23",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 23,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Hydrocarbons are organic compounds which contain",
+      "options": {
+        "A": "oxygen and carbon only.",
+        "B": "water and carbon only.",
+        "C": "carbon and hydrogen only.",
+        "D": "carbon only.",
+        "E": "hydrogen only."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Hydrocarbons (alkanes, alkenes, alkynes, aromatics) are compounds of carbon and hydrogen only. Answer: C."
+      ],
+      "tips": [
+        "Hydro-carbon = hydrogen + carbon."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is a hydrocarbon?",
+          "options": {
+            "A": "C₂H₅OH",
+            "B": "CH₃COOH",
+            "C": "C₃H₈",
+            "D": "CH₃Cl",
+            "E": "C₆H₁₂O₆"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Propane C₃H₈ contains only C and H. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "organic-intro"
+      ],
+      "keywords": [
+        "hydrocarbons",
+        "carbon",
+        "hydrogen"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.2 Hydrocarbons – saturated and unsaturated",
+        "page": "35-36",
+        "pdf_page": 41,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q24",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 24,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "According to the \"like dissolves like\" principle, which pair of substances is soluble in water?",
+      "options": {
+        "A": "Sugar and Benzene",
+        "B": "Oil and Benzene",
+        "C": "Sugar and Bromine",
+        "D": "KCl and Ethanol",
+        "E": "CO₂ and CCl₄"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Water is polar, so polar and ionic substances dissolve in it; non-polar substances do not.",
+        "KCl (ionic) and ethanol (polar, hydrogen-bonds with water) are both soluble in water.",
+        "Benzene, oil, bromine and CCl₄ are non-polar (sugar is soluble but its partner in A and C is not; CO₂ is only slightly soluble and CCl₄ is insoluble). Answer: D."
+      ],
+      "tips": [
+        "Polar/ionic dissolve in polar; non-polar dissolve in non-polar."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which substance dissolves best in hexane (non-polar)?",
+          "options": {
+            "A": "NaCl",
+            "B": "Sugar",
+            "C": "Iodine",
+            "D": "KNO₃",
+            "E": "Ethanol–water mixture"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Iodine is non-polar – like dissolves like. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "solubility"
+      ],
+      "keywords": [
+        "like dissolves like",
+        "polar",
+        "non-polar",
+        "solubility"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.3.1 Solubility of solutes in liquids – like dissolves like",
+        "page": "96-98",
+        "pdf_page": 104,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q25",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 25,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "All of the following species are isoelectronic, except [At. Number: O = 8, F = 9, Ne = 10, Mg = 12, Ar = 18]",
+      "options": {
+        "A": "O²⁻.",
+        "B": "Mg²⁺.",
+        "C": "F⁻.",
+        "D": "Ne.",
+        "E": "Ar."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Count electrons: O²⁻ = 8 + 2 = 10; Mg²⁺ = 12 − 2 = 10; F⁻ = 9 + 1 = 10; Ne = 10; Ar = 18.",
+        "Ar is the only species without 10 electrons. Answer: E."
+      ],
+      "tips": [
+        "Anion: add the charge to Z; cation: subtract it."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which ion is isoelectronic with argon (Z = 18)?",
+          "options": {
+            "A": "Na⁺",
+            "B": "Mg²⁺",
+            "C": "Cl⁻",
+            "D": "F⁻",
+            "E": "O²⁻"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Cl⁻ = 17 + 1 = 18 electrons. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "electron-configuration-ions"
+      ],
+      "keywords": [
+        "isoelectronic",
+        "ions",
+        "electrons"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.3 Periodic properties – ionic radius of isoelectronic ions",
+        "page": "27-28",
+        "pdf_page": 35,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q26",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 26,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "During photosynthesis",
+      "options": {
+        "A": "solar energy is changed to heat energy.",
+        "B": "chemical energy is changed to potential energy.",
+        "C": "electrical energy is changed to light and heat energies.",
+        "D": "light energy is changed to chemical energy.",
+        "E": "solar energy is changed to light energy."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "In photosynthesis green plants absorb sunlight and use it to make glucose from CO₂ and water: 6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂.",
+        "The light energy is stored as chemical energy in the glucose. Answer: D."
+      ],
+      "tips": [
+        "Photosynthesis: light → chemical. Respiration/combustion: chemical → heat (and light)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Burning of charcoal mainly converts",
+          "options": {
+            "A": "light energy to chemical energy",
+            "B": "chemical energy to heat and light energy",
+            "C": "heat energy to chemical energy",
+            "D": "electrical energy to heat",
+            "E": "nuclear energy to heat"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Combustion releases the stored chemical energy as heat and light. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "energy-forms-heat"
+      ],
+      "keywords": [
+        "photosynthesis",
+        "energy transformation",
+        "light energy",
+        "chemical energy"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.1 Energy transformation",
+        "page": "154",
+        "pdf_page": 162,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q27",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 27,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is not a property of ammonia? It",
+      "options": {
+        "A": "is colourless.",
+        "B": "has choking smell.",
+        "C": "is lighter than air.",
+        "D": "is soluble in water.",
+        "E": "is acidic."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Textbook: ammonia is a colourless gas with a characteristic choking (pungent) smell, lighter than air and very soluble in water; its water solution is weakly alkaline and turns red litmus blue.",
+        "Ammonia is basic, not acidic. Answer: E."
+      ],
+      "tips": [
+        "NH₃ is the common basic gas – it turns moist red litmus blue."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which test identifies ammonia gas?",
+          "options": {
+            "A": "It turns moist blue litmus red",
+            "B": "It turns moist red litmus blue",
+            "C": "It relights a glowing splint",
+            "D": "It turns lime water milky",
+            "E": "It burns with a pop"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Ammonia is alkaline and turns red litmus blue (and gives white fumes with HCl). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "ammonia-haber"
+      ],
+      "keywords": [
+        "ammonia",
+        "properties of ammonia",
+        "basic gas"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.3 Ammonia – properties",
+        "page": "91-92",
+        "pdf_page": 99,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q28",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 28,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A weak acid",
+      "options": {
+        "A": "completely dissociates in water solution.",
+        "B": "contains the highest percentage of hydronium ion.",
+        "C": "contains a higher concentration of ionized acid molecules.",
+        "D": "contains the highest number of hydronium ion.",
+        "E": "slightly dissociates in water solution."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "A weak acid (e.g. acetic acid) ionises only slightly (partially) in water; most of its molecules remain un-ionised.",
+        "Complete dissociation and a high hydronium concentration describe strong acids. Answer: E."
+      ],
+      "tips": [
+        "Strong = completely ionised; weak = slightly ionised (equilibrium ⇌)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is a strong acid?",
+          "options": {
+            "A": "CH₃COOH",
+            "B": "H₂CO₃",
+            "C": "HCl",
+            "D": "HF",
+            "E": "H₂S"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "HCl ionises completely in water. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-properties"
+      ],
+      "keywords": [
+        "weak acid",
+        "dissociation",
+        "hydronium ion"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.1 Strong and weak acids",
+        "page": "115-116",
+        "pdf_page": 123,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q29",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 29,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Esterification is the reaction between",
+      "options": {
+        "A": "alcohols and aldehydes.",
+        "B": "alcohols and carboxylic acids.",
+        "C": "aldehydes and ketones.",
+        "D": "esters and ethers.",
+        "E": "amines and amides."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "An ester forms when a carboxylic acid reacts with an alcohol (acid catalyst), eliminating water:",
+        "CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O (ethyl ethanoate). Answer: B."
+      ],
+      "tips": [
+        "Acid + alcohol → ester + water (esters smell fruity)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The ester formed from ethanoic acid and methanol is",
+          "options": {
+            "A": "ethyl methanoate",
+            "B": "methyl ethanoate",
+            "C": "ethyl ethanoate",
+            "D": "methyl methanoate",
+            "E": "propyl ethanoate"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Alkyl part from the alcohol (methyl), acid part becomes -oate (ethanoate). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "functional-groups"
+      ],
+      "keywords": [
+        "esterification",
+        "ester",
+        "carboxylic acid",
+        "alcohol"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.3.2 Carboxylic acids – esterification",
+        "page": "81",
+        "pdf_page": 87,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q30",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 30,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is not an example of an exothermic reaction?",
+      "options": {
+        "A": "Photosynthesis",
+        "B": "Freezing water into ice",
+        "C": "Burning a piece of wood",
+        "D": "Combustion reactions",
+        "E": "Condensation"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Exothermic processes release heat: burning wood, combustion, freezing and condensation (both give out latent heat).",
+        "Photosynthesis absorbs light energy – it is endothermic. Answer: A."
+      ],
+      "tips": [
+        "Changes that go to a more ordered state (gas → liquid → solid) release heat."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which process is endothermic?",
+          "options": {
+            "A": "Burning of methane",
+            "B": "Melting of ice",
+            "C": "Condensation of steam",
+            "D": "Neutralisation of HCl by NaOH",
+            "E": "Rusting of iron"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Melting absorbs heat from the surroundings. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "exo-endothermic"
+      ],
+      "keywords": [
+        "exothermic",
+        "endothermic",
+        "photosynthesis",
+        "freezing",
+        "condensation"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.1 Exothermic and endothermic reactions",
+        "page": "158-161",
+        "pdf_page": 166,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q31",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 31,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following pairs contains a weak base and a weak acid?",
+      "options": {
+        "A": "NaOH and KOH",
+        "B": "NH₃ and CH₃COOH",
+        "C": "NaOH and CH₃COOH",
+        "D": "HCl and HNO₃",
+        "E": "H₂SO₄ and NH₃"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Ammonia (NH₃) is a weak base; acetic acid (CH₃COOH) is a weak acid.",
+        "NaOH and KOH are strong bases; HCl, HNO₃ and H₂SO₄ are strong acids. Answer: B."
+      ],
+      "tips": [
+        "Strong acids: HCl, HBr, HI, HNO₃, H₂SO₄, HClO₄. Strong bases: group IA hydroxides (and Ca, Sr, Ba)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which pair contains a strong acid and a strong base?",
+          "options": {
+            "A": "CH₃COOH and NH₃",
+            "B": "HCl and NaOH",
+            "C": "H₂CO₃ and KOH",
+            "D": "HF and NH₃",
+            "E": "HNO₃ and NH₃"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "HCl and NaOH are both completely ionised. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-properties"
+      ],
+      "keywords": [
+        "weak base",
+        "weak acid",
+        "ammonia",
+        "acetic acid"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.1 Strong and weak acids",
+        "page": "115-116",
+        "pdf_page": 123,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q32",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 32,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The solubility of gases in water",
+      "options": {
+        "A": "increases with increased temperature and pressure.",
+        "B": "decreases with decreased temperature and pressure.",
+        "C": "decreases with decreased temperature and increased pressure.",
+        "D": "increases with decreased temperature and increased pressure.",
+        "E": "increases with decreased temperature and pressure."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Dissolving a gas is exothermic, so lowering the temperature increases gas solubility (cold water holds more O₂).",
+        "Henry's law: gas solubility increases with the pressure of the gas above the liquid (carbonated drinks are bottled under pressure).",
+        "So solubility increases with decreased temperature and increased pressure. Answer: D."
+      ],
+      "tips": [
+        "Cold and high pressure = more dissolved gas; opening a warm soda releases CO₂."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Why do bubbles form when a bottle of soda is opened?",
+          "options": {
+            "A": "The temperature suddenly rises",
+            "B": "The pressure above the liquid falls, so CO₂ becomes less soluble",
+            "C": "CO₂ reacts with water",
+            "D": "Sugar decomposes",
+            "E": "Water evaporates"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Lower pressure → lower gas solubility → CO₂ escapes. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "solubility"
+      ],
+      "keywords": [
+        "solubility of gases",
+        "temperature",
+        "pressure",
+        "Henry's law"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.3.2 Effect of temperature and pressure on solubility",
+        "page": "98-101",
+        "pdf_page": 106,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q33",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 33,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The most common form of energy transformation in chemical reactions is in the form of",
+      "options": {
+        "A": "light energy.",
+        "B": "solar energy.",
+        "C": "heat energy.",
+        "D": "chemical energy.",
+        "E": "electrical energy."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Chemical reactions may release or absorb light, electrical or heat energy, but by far the most common form of energy change is heat (exothermic and endothermic reactions). Answer: C."
+      ],
+      "tips": [
+        "Energy change in a reaction is usually measured as heat, ΔH."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The energy change of a reaction measured at constant pressure is called",
+          "options": {
+            "A": "activation energy",
+            "B": "enthalpy change (ΔH)",
+            "C": "kinetic energy",
+            "D": "bond length",
+            "E": "entropy"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Heat exchanged at constant pressure = ΔH. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "energy-forms-heat"
+      ],
+      "keywords": [
+        "energy change",
+        "heat",
+        "chemical reactions"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.1 Energy changes in chemical reactions",
+        "page": "154-158",
+        "pdf_page": 162,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q34",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 34,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The hydrogen atomic bomb is based on",
+      "options": {
+        "A": "chemical reactions.",
+        "B": "nuclear fission.",
+        "C": "decomposition of H₂.",
+        "D": "radioactive decay.",
+        "E": "nuclear fusion."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "The hydrogen bomb releases energy by fusing light hydrogen isotopes (deuterium, tritium) into helium – nuclear fusion (a fission bomb is used only as the trigger).",
+        "The ordinary atomic bomb (uranium-235/plutonium) is based on fission. Answer: E."
+      ],
+      "tips": [
+        "A-bomb = fission; H-bomb and the Sun = fusion."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The energy of the Sun comes from",
+          "options": {
+            "A": "nuclear fission of uranium",
+            "B": "fusion of hydrogen nuclei into helium",
+            "C": "combustion of hydrogen",
+            "D": "radioactive decay of carbon-14",
+            "E": "chemical reactions of oxygen"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Stars shine by nuclear fusion. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "fission-fusion"
+      ],
+      "keywords": [
+        "hydrogen bomb",
+        "nuclear fusion",
+        "fission"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 3 – Introduction to Nuclear Chemistry",
+        "section": "3.5 Nuclear fusion",
+        "page": "123-124",
+        "pdf_page": 129,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q35",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 35,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The bond angle in a tetrahedral electron pair arrangement is",
+      "options": {
+        "A": "180°.",
+        "B": "120°.",
+        "C": "90°.",
+        "D": "109.5°.",
+        "E": "360°."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Four electron pairs around a central atom point to the corners of a tetrahedron to minimise repulsion; the angle between them is 109.5° (e.g. CH₄). Answer: D."
+      ],
+      "tips": [
+        "2 pairs linear 180°; 3 pairs trigonal planar 120°; 4 pairs tetrahedral 109.5°."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The bond angle in BF₃ (three bonding pairs, no lone pair) is",
+          "options": {
+            "A": "90°",
+            "B": "107°",
+            "C": "109.5°",
+            "D": "120°",
+            "E": "180°"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "Trigonal planar arrangement → 120°. Answer: D."
+          ]
+        }
+      ],
+      "topics": [
+        "vsepr-shapes"
+      ],
+      "keywords": [
+        "tetrahedral",
+        "bond angle",
+        "VSEPR",
+        "109.5"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Shapes of Simple Molecules and Crystals",
+        "section": "1.1 VSEPR – shapes of molecules without non-bonding pairs",
+        "page": "5-8",
+        "pdf_page": 11,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q36",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 36,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A reaction in which one element replaces a less active element from a solution of a compound is called",
+      "options": {
+        "A": "combination reaction.",
+        "B": "combustion reaction.",
+        "C": "double replacement reaction.",
+        "D": "decomposition reaction.",
+        "E": "single replacement reaction."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Textbook: 'A reaction in which one element replaces a less active element in a compound is called a single replacement reaction', e.g. Zn + CuSO₄ → ZnSO₄ + Cu. Answer: E."
+      ],
+      "tips": [
+        "A + BC → AC + B (single); AB + CD → AD + CB (double)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Fe + CuSO₄ → FeSO₄ + Cu is an example of",
+          "options": {
+            "A": "combination",
+            "B": "decomposition",
+            "C": "single replacement",
+            "D": "double replacement",
+            "E": "combustion"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "The more active iron replaces copper. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "reaction-types"
+      ],
+      "keywords": [
+        "single replacement",
+        "displacement reaction",
+        "activity series"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.5.3 Single replacement reaction",
+        "page": "127-128",
+        "pdf_page": 135,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q37",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 37,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The temperature at which a pure substance changes from a solid to a liquid is called",
+      "options": {
+        "A": "freezing point.",
+        "B": "condensation.",
+        "C": "melting point.",
+        "D": "boiling point.",
+        "E": "sublimation."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Melting point = temperature at which a solid turns into a liquid (for a pure substance it is sharp and constant).",
+        "Freezing point is liquid → solid (same temperature, opposite direction); boiling point liquid → gas; sublimation solid → gas. Answer: C."
+      ],
+      "tips": [
+        "Melting: s → l; freezing: l → s; boiling: l → g; condensation: g → l; sublimation: s → g."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The change of a gas directly into a solid is called",
+          "options": {
+            "A": "condensation",
+            "B": "freezing",
+            "C": "deposition",
+            "D": "melting",
+            "E": "evaporation"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Gas → solid is deposition (the reverse of sublimation). Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "states-of-matter"
+      ],
+      "keywords": [
+        "melting point",
+        "change of state"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.2.3 Changes of state of matter",
+        "page": "10-13",
+        "pdf_page": 18,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q38",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 38,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following pair of atoms has the same number of valence electrons? [At. Number: N = 7, Na = 11, Mg = 12, K = 19]",
+      "options": {
+        "A": "N and Na",
+        "B": "Na and Mg",
+        "C": "Na and K",
+        "D": "N and K",
+        "E": "Mg and K"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Configurations: N 2,5 (5 valence e⁻); Na 2,8,1 (1); Mg 2,8,2 (2); K 2,8,8,1 (1).",
+        "Na and K both have 1 valence electron – both are group IA. Answer: C."
+      ],
+      "tips": [
+        "Same group = same number of valence electrons."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which element has the same number of valence electrons as oxygen (Z = 8)?",
+          "options": {
+            "A": "N (7)",
+            "B": "F (9)",
+            "C": "S (16)",
+            "D": "Cl (17)",
+            "E": "Ne (10)"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "O 2,6 and S 2,8,6 – both group VIA. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "electron-configuration-ions"
+      ],
+      "keywords": [
+        "valence electrons",
+        "group",
+        "electron configuration"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+        "section": "2.1.7 Arrangement of electrons in atoms",
+        "page": "52-53",
+        "pdf_page": 60,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q39",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 39,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is true about an acid? An acid",
+      "options": {
+        "A": "has a bitter taste.",
+        "B": "produces a hydroxide ion in an aqueous solution.",
+        "C": "donates a hydroxide ion.",
+        "D": "has a sour taste.",
+        "E": "liberates a hydroxide ion when it reacts with water."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "The word acid comes from Latin 'acidus' = sour; acids (lemon juice, vinegar) taste sour.",
+        "Acids produce H⁺ (H₃O⁺) ions in water and donate protons; producing or donating OH⁻ and a bitter taste are properties of bases. Answer: D."
+      ],
+      "tips": [
+        "Acid: sour, H⁺ donor. Base: bitter, OH⁻ producer / H⁺ acceptor."
+      ],
+      "similar_questions": [
+        {
+          "stem": "According to Arrhenius, a base is a substance that",
+          "options": {
+            "A": "donates a proton",
+            "B": "produces H⁺ in water",
+            "C": "produces OH⁻ in water",
+            "D": "accepts an electron pair",
+            "E": "tastes sour"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Arrhenius base = OH⁻ producer in aqueous solution. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-properties"
+      ],
+      "keywords": [
+        "acid",
+        "sour taste",
+        "Arrhenius",
+        "hydroxide ion"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.1 Acids – definitions and properties",
+        "page": "115, 121-122",
+        "pdf_page": 123,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q40",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 40,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "In a cubic unit cell, the angle between each of the axes is",
+      "options": {
+        "A": "120°.",
+        "B": "90°.",
+        "C": "180°.",
+        "D": "60°.",
+        "E": "45°."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Crystal systems are described by the edge lengths a, b, c and the axial angles α, β, γ of the unit cell.",
+        "Cubic: a = b = c and α = β = γ = 90°. Answer: B.",
+        "120° appears only in the hexagonal system (γ = 120°)."
+      ],
+      "tips": [
+        "Cubic: all edges equal, all angles 90°; tetragonal: a = b ≠ c, all 90°; orthorhombic: a ≠ b ≠ c, all 90°."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A unit cell has a = b ≠ c and α = β = γ = 90°. Its crystal system is",
+          "options": {
+            "A": "cubic",
+            "B": "tetragonal",
+            "C": "orthorhombic",
+            "D": "hexagonal",
+            "E": "triclinic"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Two equal edges, all right angles = tetragonal. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "crystals"
+      ],
+      "keywords": [
+        "cubic unit cell",
+        "crystal systems",
+        "axial angles"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Shapes of Simple Molecules and Crystals",
+        "section": "1.2.2 Crystal systems (Fig. 1.9)",
+        "page": "15-16",
+        "pdf_page": 21,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q41",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 41,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following reactions represents an oxidation reaction?",
+      "options": {
+        "A": "S(s) + H₂(g) → H₂S(g)",
+        "B": "H₂(g) + Cl₂(g) → 2HCl(g)",
+        "C": "S(s) + O₂(g) → SO₂(g)",
+        "D": "Cl₂(g) + 2e⁻ → 2Cl⁻(aq)",
+        "E": "S(s) + 2e⁻ → S²⁻(aq)"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Oxidation = addition of oxygen (or loss of electrons / increase in oxidation number).",
+        "In C, sulphur gains oxygen and its oxidation number rises from 0 to +4 – sulphur is oxidised.",
+        "D and E show gain of electrons (reduction). In A sulphur gains hydrogen (0 → −2, reduced) and in B chlorine gains hydrogen (reduced) – each is a whole redox reaction rather than an 'oxidation' of the named non-metal. Answer: C."
+      ],
+      "tips": [
+        "Gain of O or loss of H = oxidation; gain of H or gain of electrons = reduction."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which change is an oxidation?",
+          "options": {
+            "A": "CuO + H₂ → Cu + H₂O (for copper)",
+            "B": "Fe²⁺ → Fe³⁺ + e⁻",
+            "C": "Cl₂ + 2e⁻ → 2Cl⁻",
+            "D": "O₂ + 4e⁻ → 2O²⁻",
+            "E": "Ag⁺ + e⁻ → Ag"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Fe²⁺ loses an electron – oxidation. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "oxidation-numbers-agents"
+      ],
+      "keywords": [
+        "oxidation",
+        "addition of oxygen",
+        "reduction",
+        "electrons"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.1 Oxidation and reduction",
+        "page": "27-29",
+        "pdf_page": 35,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q42",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 42,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following synthetic polymers is made by condensation polymerization?",
+      "options": {
+        "A": "Wool",
+        "B": "Cotton",
+        "C": "Silk",
+        "D": "Nylon",
+        "E": "Starch"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Wool, cotton, silk and starch are natural polymers, not synthetic.",
+        "Nylon is a synthetic polymer made by condensation polymerisation of a diacid (adipic acid) and a diamine (1,6-diaminohexane), eliminating water. Answer: D."
+      ],
+      "tips": [
+        "Condensation polymers: nylon, polyester (lose H₂O). Addition polymers: polyethene, PVC, polystyrene."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Polyethene is made from ethene by",
+          "options": {
+            "A": "condensation polymerisation",
+            "B": "addition polymerisation",
+            "C": "esterification",
+            "D": "hydrolysis",
+            "E": "fermentation"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Ethene molecules add together without losing any small molecule. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "polymers"
+      ],
+      "keywords": [
+        "condensation polymerization",
+        "nylon",
+        "synthetic polymers"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.3.5 Organic polymers – condensation polymerisation and types",
+        "page": "92-95",
+        "pdf_page": 98,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q43",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 43,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The measure of tendency of an atom to attract shared electrons is called",
+      "options": {
+        "A": "metallic character.",
+        "B": "ionization energy.",
+        "C": "electronegativity.",
+        "D": "atomic radius.",
+        "E": "ionic radius."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Textbook: 'Electronegativity is a measure of the tendency of an atom to attract electrons' in a chemical bond (the shared pair).",
+        "Ionisation energy is the energy needed to remove an electron from a gaseous atom. Answer: C."
+      ],
+      "tips": [
+        "Fluorine is the most electronegative element."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The energy required to remove an electron from a neutral gaseous atom is",
+          "options": {
+            "A": "electron affinity",
+            "B": "electronegativity",
+            "C": "ionisation energy",
+            "D": "bond energy",
+            "E": "lattice energy"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Definition of ionisation energy. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "periodic-trends"
+      ],
+      "keywords": [
+        "electronegativity",
+        "shared electrons",
+        "periodic trends"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.3 Periodic properties – electronegativity",
+        "page": "30-31",
+        "pdf_page": 38,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q44",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 44,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Strong electrolytes",
+      "options": {
+        "A": "dissociate into ions partially when dissolved in water.",
+        "B": "conduct electricity slightly.",
+        "C": "have few number of ions present in the solution.",
+        "D": "represent covalently bonded compounds.",
+        "E": "dissociate into ions completely when dissolved in water."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Strong electrolytes (e.g. NaCl, HCl, NaOH) dissociate (ionise) completely in water, giving many ions, so their solutions conduct electricity well.",
+        "Partial dissociation, few ions and weak conduction describe weak electrolytes (acetic acid, ammonia). Answer: E."
+      ],
+      "tips": [
+        "Strong electrolyte → bright bulb; weak → dim; non-electrolyte (sugar) → no light."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which is a non-electrolyte?",
+          "options": {
+            "A": "NaCl solution",
+            "B": "HCl solution",
+            "C": "Sugar solution",
+            "D": "Acetic acid solution",
+            "E": "KOH solution"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Sugar dissolves as molecules – no ions. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "electrolysis"
+      ],
+      "keywords": [
+        "strong electrolytes",
+        "dissociation",
+        "ions"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.2 Electrolysis – strong and weak electrolytes (Table 2.1)",
+        "page": "40-41",
+        "pdf_page": 48,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q45",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 45,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "All solutions",
+      "options": {
+        "A": "contain dissolved solids.",
+        "B": "are homogeneous mixtures.",
+        "C": "are heterogeneous mixtures.",
+        "D": "are liquids.",
+        "E": "contain solute only."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "A solution is a homogeneous mixture of a solute and a solvent – uniform composition throughout.",
+        "Solutions can be gaseous (air), liquid (sea water) or solid (brass), and the solute can be a gas, liquid or solid. Answer: B."
+      ],
+      "tips": [
+        "Solution = homogeneous; suspension = heterogeneous."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is a solid solution?",
+          "options": {
+            "A": "Air",
+            "B": "Sea water",
+            "C": "Brass",
+            "D": "Muddy water",
+            "E": "Milk"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Brass (Cu + Zn) is a homogeneous solid mixture. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "solution-types"
+      ],
+      "keywords": [
+        "solutions",
+        "homogeneous mixture"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.1 Characteristics of solutions",
+        "page": "63",
+        "pdf_page": 71,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q46",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 46,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Industrially, sulphuric acid is prepared by a",
+      "options": {
+        "A": "Haber process.",
+        "B": "Contact process.",
+        "C": "Down's cell process.",
+        "D": "Ostwald process.",
+        "E": "Hall process."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Textbook: 'The Contact process is the most widely used industrial method for the preparation of sulphuric acid' – S → SO₂ → SO₃ (V₂O₅ catalyst) → H₂S₂O₇ (oleum) → H₂SO₄.",
+        "Haber = ammonia; Ostwald = nitric acid; Downs cell = sodium; Hall = aluminium. Answer: B."
+      ],
+      "tips": [
+        "Match: Haber–NH₃, Ostwald–HNO₃, Contact–H₂SO₄, Downs–Na, Hall–Al."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Nitric acid is manufactured industrially by the",
+          "options": {
+            "A": "Contact process",
+            "B": "Haber process",
+            "C": "Ostwald process",
+            "D": "Frasch process",
+            "E": "Solvay process"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Ostwald process: catalytic oxidation of ammonia. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "sulphuric-acid"
+      ],
+      "keywords": [
+        "Contact process",
+        "sulphuric acid",
+        "industrial preparation"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.4 Sulphur – manufacture of sulphuric acid (contact process)",
+        "page": "107-108",
+        "pdf_page": 115,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q47",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 47,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Atoms of one element are converted into atoms of another element",
+      "options": {
+        "A": "by strongly heating the element to decompose.",
+        "B": "by evaporating the solid element into gas.",
+        "C": "in a chemical reaction such as combustion.",
+        "D": "in photochemical reactions such as photosynthesis.",
+        "E": "in nuclear reactions."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "In chemical reactions and physical changes, atoms keep their identity; only electrons are rearranged.",
+        "Changing the number of protons (transmutation) happens only in nuclear reactions, e.g. ²³⁸U → ²³⁴Th + ⁴He. Answer: E."
+      ],
+      "tips": [
+        "Chemical reactions involve electrons; nuclear reactions involve the nucleus."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of these changes produces a new element?",
+          "options": {
+            "A": "Burning of magnesium",
+            "B": "Electrolysis of water",
+            "C": "Alpha decay of radium-226",
+            "D": "Dissolving NaCl in water",
+            "E": "Rusting of iron"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "²²⁶Ra → ²²²Rn + α: the atomic number changes. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "nuclear-reactions-decay"
+      ],
+      "keywords": [
+        "transmutation",
+        "nuclear reactions",
+        "chemical reactions"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 3 – Introduction to Nuclear Chemistry",
+        "section": "Introduction – Table 3.1 Comparison of chemical and nuclear reactions",
+        "page": "105-106",
+        "pdf_page": 111,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q48",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 48,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The main factor that affects stability of a nucleus is the",
+      "options": {
+        "A": "neutron-proton ratio.",
+        "B": "number of neutrons which is less than 20.",
+        "C": "number of protons which is less than 20.",
+        "D": "number of electrons which is less than 20.",
+        "E": "atomic mass of the atom."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Textbook: 'The main factor that affects the stability of nuclei is the ratio of neutrons to protons (n/p).'",
+        "Light stable nuclei have n/p ≈ 1; the ratio of stable nuclei rises gradually to about 1.5 for heavy elements. Answer: A."
+      ],
+      "tips": [
+        "Nuclei outside the 'belt of stability' decay (β⁻ if too many neutrons, β⁺/electron capture if too few)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The n/p ratio of ¹²₆C is",
+          "options": {
+            "A": "0.5",
+            "B": "1.0",
+            "C": "1.2",
+            "D": "2.0",
+            "E": "6"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "n = 12 − 6 = 6; 6/6 = 1.0. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "nuclear-reactions-decay"
+      ],
+      "keywords": [
+        "nuclear stability",
+        "neutron-proton ratio"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 3 – Introduction to Nuclear Chemistry",
+        "section": "3.1.2 Nuclear stability",
+        "page": "108-109",
+        "pdf_page": 114,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q49",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 49,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Standard temperature is exactly",
+      "options": {
+        "A": "20°C.",
+        "B": "100 °C.",
+        "C": "273 °C.",
+        "D": "0°C.",
+        "E": "0K."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Standard temperature and pressure (STP) are 0 °C (273.15 K) and 1 atm (760 mmHg).",
+        "273 °C (C) confuses the kelvin value with Celsius; 0 K is absolute zero. Answer: D."
+      ],
+      "tips": [
+        "STP: 0 °C = 273 K, 1 atm; one mole of gas occupies 22.4 L at STP."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Standard pressure is",
+          "options": {
+            "A": "0 atm",
+            "B": "1 atm (760 mmHg)",
+            "C": "273 atm",
+            "D": "22.4 atm",
+            "E": "100 atm"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Standard pressure = 1 atm = 760 mmHg. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gas-laws"
+      ],
+      "keywords": [
+        "standard temperature",
+        "STP",
+        "0 °C",
+        "273 K"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Behaviour of Gases",
+        "section": "5.2 Gas laws – standard temperature and pressure",
+        "page": "170-175",
+        "pdf_page": null,
+        "verified_in_text": false,
+        "note": "Grade 11 Unit 5 (Behaviour of Gases, printed pp.162-190) is missing from the supplied PDF (it ends at p.129); page taken from the book's table of contents, text not verified."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Gases unit (Grade 11 Unit 5) is missing from the supplied PDF; answer checked against standard chemistry only."
+    },
+    {
+      "id": "chem-2020-matric-p1-q50",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 50,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "All of the following factors affect the industrial preparation of ammonia, except",
+      "options": {
+        "A": "temperature.",
+        "B": "catalyst.",
+        "C": "concentration.",
+        "D": "pressure.",
+        "E": "light."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "In the Haber process, N₂ + 3H₂ ⇌ 2NH₃ (exothermic), the yield and rate are controlled by temperature (~450 °C), pressure (~200 atm), concentration of reactants/removal of NH₃ and an iron catalyst.",
+        "Light plays no part. Answer: E."
+      ],
+      "tips": [
+        "Haber conditions: Fe catalyst, ~450 °C, ~200 atm, remove NH₃ as it forms."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Increasing the pressure in the Haber process increases the yield of ammonia because",
+          "options": {
+            "A": "the reaction is endothermic",
+            "B": "the product side has fewer moles of gas",
+            "C": "the catalyst works better",
+            "D": "nitrogen becomes more reactive",
+            "E": "the temperature falls"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "4 mol gas → 2 mol gas; higher pressure favours fewer moles. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "ammonia-haber"
+      ],
+      "keywords": [
+        "Haber process",
+        "ammonia",
+        "factors",
+        "catalyst"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.3 Ammonia – Haber process",
+        "page": "90-91",
+        "pdf_page": 98,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q51",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 51,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The process of coating iron sheets with a thin coat of zinc to prevent from rusting is called",
+      "options": {
+        "A": "corrosion.",
+        "B": "galvanization.",
+        "C": "metal extraction.",
+        "D": "electroplating.",
+        "E": "roasting."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Coating iron or steel with zinc (by dipping in molten zinc) is galvanisation. Zinc is more active than iron, so it protects the iron even when scratched (sacrificial protection) – the corrugated iron sheets used for roofs are galvanised.",
+        "Corrosion is the damage itself; electroplating uses electrolysis to deposit a metal (e.g. silver, chromium); roasting heats sulphide ores in air. Answer: B."
+      ],
+      "tips": [
+        "Galvanising = zinc on iron; tinning = tin on iron (food cans)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Why does zinc protect iron from rusting even where the zinc coating is scratched?",
+          "options": {
+            "A": "Zinc is less reactive than iron",
+            "B": "Zinc is more reactive, so it corrodes in preference to iron",
+            "C": "Zinc is a non-metal",
+            "D": "Zinc does not conduct electricity",
+            "E": "Zinc reacts with rust"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "The more active zinc is oxidised instead of iron (sacrificial protection). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "electrochemical-series"
+      ],
+      "keywords": [
+        "galvanization",
+        "zinc coating",
+        "rusting",
+        "corrosion"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.2.5 Applications of electrolysis; Exercise – protecting Fe from corrosion",
+        "page": "56, 66",
+        "pdf_page": 64,
+        "verified_in_text": false,
+        "note": "The term 'galvanization' is not found in the extracted textbook text; p.66 asks which metals protect iron from corrosion."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q52",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 52,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Electrolysis includes all of the following components, except",
+      "options": {
+        "A": "anode electrode.",
+        "B": "cathode electrode.",
+        "C": "electrolyte.",
+        "D": "bunsen burner.",
+        "E": "ammeter."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "An electrolytic cell consists of a DC source, two electrodes (anode and cathode) dipped in an electrolyte, connecting wires, and usually an ammeter or bulb to show that current flows (textbook set-ups, p.39–42).",
+        "A Bunsen burner is not a component of electrolysis (it is only needed to melt a solid electrolyte such as PbBr₂ beforehand). Answer: D."
+      ],
+      "tips": [
+        "Electrolysis = electrical energy driving a non-spontaneous redox reaction."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In electrolysis the anode is",
+          "options": {
+            "A": "the negative electrode where reduction occurs",
+            "B": "the positive electrode where oxidation occurs",
+            "C": "the electrolyte",
+            "D": "the power source",
+            "E": "the electrode that attracts cations"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Anode = positive, oxidation; cathode = negative, reduction. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "electrolysis"
+      ],
+      "keywords": [
+        "electrolysis",
+        "electrolytic cell",
+        "anode",
+        "cathode",
+        "ammeter"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.2 Electrolysis – electrolytic cell",
+        "page": "38-42",
+        "pdf_page": 46,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q53",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 53,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following human activities does not cause an increase in the amount of carbon dioxide in the atmosphere?",
+      "options": {
+        "A": "Cutting down of a forest",
+        "B": "Burning of fuel",
+        "C": "Burning of charcoal",
+        "D": "Planting of more trees",
+        "E": "Burning of coal gas"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Burning fuel, charcoal and coal gas releases CO₂; cutting forests removes the plants that absorb CO₂ (and burning them adds more).",
+        "Planting trees removes CO₂ from the air by photosynthesis. Answer: D."
+      ],
+      "tips": [
+        "Carbon cycle: combustion/respiration add CO₂; photosynthesis removes it."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which process removes carbon dioxide from the atmosphere?",
+          "options": {
+            "A": "Respiration",
+            "B": "Combustion of petrol",
+            "C": "Photosynthesis",
+            "D": "Decay of organisms",
+            "E": "Volcanic eruption"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Green plants use CO₂ in photosynthesis. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "carbon-compounds"
+      ],
+      "keywords": [
+        "carbon dioxide",
+        "carbon cycle",
+        "deforestation",
+        "planting trees"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.2.3 Carbon dioxide – uses and the carbon cycle",
+        "page": "78-80",
+        "pdf_page": 86,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q54",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 54,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "When a crystal of salt is added to a salt solution in a beaker, the crystal increases at the bottom of the container, then the solution must be",
+      "options": {
+        "A": "unsaturated.",
+        "B": "saturated.",
+        "C": "supersaturated.",
+        "D": "dilute.",
+        "E": "concentrated."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Unsaturated: the added crystal dissolves (gets smaller). Saturated: the crystal neither dissolves nor grows.",
+        "Supersaturated: the solution holds more solute than it can at equilibrium; a seed crystal makes the excess crystallise out onto it, so the crystal grows (textbook p.67). Answer: C."
+      ],
+      "tips": [
+        "Seed-crystal test: dissolves → unsaturated; unchanged → saturated; grows → supersaturated."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A crystal of sugar added to a sugar solution stays the same size. The solution is",
+          "options": {
+            "A": "unsaturated",
+            "B": "saturated",
+            "C": "supersaturated",
+            "D": "dilute",
+            "E": "colloidal"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "No net dissolving or crystallising = saturated. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "solution-types"
+      ],
+      "keywords": [
+        "supersaturated",
+        "saturated",
+        "seed crystal"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.1.2 Unsaturated, saturated and supersaturated solutions",
+        "page": "66-67",
+        "pdf_page": 74,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q55",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 55,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements describes the chemical property of silver?",
+      "options": {
+        "A": "Silver is a soft metal.",
+        "B": "Silver has a shiny appearance.",
+        "C": "Silver is a good conductor of electricity.",
+        "D": "Silver shows no reaction with dilute hydrochloric acid.",
+        "E": "Silver is insoluble in water."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "A chemical property describes how a substance reacts (or does not react) with other substances.",
+        "Not reacting with dilute HCl is a chemical property (silver is below hydrogen in the activity series).",
+        "Softness, lustre, conductivity and solubility are physical properties. Answer: D."
+      ],
+      "tips": [
+        "Chemical property = behaviour in a reaction (burning, reacting with acid, rusting)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which is a chemical property of iron?",
+          "options": {
+            "A": "It is attracted by a magnet",
+            "B": "It melts at 1538 °C",
+            "C": "It rusts in moist air",
+            "D": "It conducts heat",
+            "E": "It is grey"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Rusting forms a new substance. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "properties-of-matter"
+      ],
+      "keywords": [
+        "chemical property",
+        "physical property",
+        "silver"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.3 Physical and chemical properties",
+        "page": "17-19",
+        "pdf_page": 25,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 10,
+          "unit": "Unit 4 – Acids, Bases and Salts",
+          "section": "4.1.4 Action of acids on metals (inactive metals)",
+          "page": "123",
+          "pdf_page": 131,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q56",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 56,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A sample contains 5.85 g of sodium chloride (NaCl). Calculate the number of NaCl particles in the sample. [At. Mass: Na = 23, Cl = 35.5]",
+      "options": {
+        "A": "6.023 × 10²³ particles",
+        "B": "0.6023 × 10²² particles",
+        "C": "6.023 × 10²⁴ particles",
+        "D": "6.023 × 10²² particles",
+        "E": "60.23 × 10²¹ particles"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D",
+        "E"
+      ],
+      "explanation_steps": [
+        "Molar mass of NaCl = 23 + 35.5 = 58.5 g/mol.",
+        "n = 5.85 g ÷ 58.5 g/mol = 0.100 mol.",
+        "Number of formula units = 0.100 × 6.023 × 10²³ = 6.023 × 10²² particles. Answer: D.",
+        "Note: E, 60.23 × 10²¹, is the same number written differently (= 6.023 × 10²²), so E is also correct."
+      ],
+      "tips": [
+        "Particles = (mass ÷ molar mass) × 6.023 × 10²³."
+      ],
+      "similar_questions": [
+        {
+          "stem": "How many formula units are in 11.7 g of NaCl? [Na = 23, Cl = 35.5]",
+          "options": {
+            "A": "6.023 × 10²²",
+            "B": "1.20 × 10²³",
+            "C": "6.023 × 10²³",
+            "D": "1.20 × 10²⁴",
+            "E": "3.01 × 10²²"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "n = 11.7/58.5 = 0.200 mol; 0.200 × 6.023 × 10²³ = 1.20 × 10²³. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "mole-composition"
+      ],
+      "keywords": [
+        "mole",
+        "Avogadro's number",
+        "number of particles",
+        "sodium chloride"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.3 Formula mass and the mole",
+        "page": "100-101",
+        "pdf_page": 108,
+        "verified_in_text": false,
+        "note": "The mole concept is not located in the extracted G9 text; checked with standard chemistry."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Defective options: D (6.023 × 10²²) and E (60.23 × 10²¹) are the same number, so two options are correct. D is keyed in standard scientific notation; E is also accepted."
+    },
+    {
+      "id": "chem-2020-matric-p1-q57",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 57,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is not correct?",
+      "options": {
+        "A": "Corrosion of copper takes place by contact with air and water.",
+        "B": "The melting point and the boiling point of metals are low.",
+        "C": "Carbonate containing ores are converted to metal oxide by calcination.",
+        "D": "A more reactive metal displaces a less reactive metal from its solution.",
+        "E": "The most active metals, like: K, Na and Ca are obtained by electrolysis."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Metals generally have HIGH melting and boiling points (strong metallic bonding) – B is false.",
+        "A: copper corrodes slowly in moist air (green coating). C: calcination converts carbonate ores to oxides (ZnCO₃ → ZnO + CO₂). D: displacement follows the activity series. E: K, Na, Ca are extracted by electrolysis of their molten compounds. Answer: B."
+      ],
+      "tips": [
+        "Exceptions (Hg liquid, Na/K low melting) do not change the general rule."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which ore treatment converts a sulphide ore into an oxide?",
+          "options": {
+            "A": "Calcination",
+            "B": "Roasting",
+            "C": "Leaching",
+            "D": "Electrolysis",
+            "E": "Froth flotation"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Roasting = heating a sulphide ore in excess air: 2ZnS + 3O₂ → 2ZnO + 2SO₂. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "metallurgy"
+      ],
+      "keywords": [
+        "properties of metals",
+        "calcination",
+        "electrolysis",
+        "corrosion"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – Chemistry of Some Metals and Their Compounds",
+        "section": "4.1 General properties of metals",
+        "page": "117-121",
+        "pdf_page": 125,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 11,
+          "unit": "Unit 4 – Chemistry of Some Metals and Their Compounds",
+          "section": "4.2 Metallurgy – roasting and calcination",
+          "page": "127",
+          "pdf_page": 135,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q58",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 58,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "When the temperature of a gas increases within a closed container, pressure increases because",
+      "options": {
+        "A": "the frequency of collisions between molecules and the container walls decreases.",
+        "B": "the frequency of collisions between molecules and the container walls increases.",
+        "C": "the spaces between the molecules of gas decrease.",
+        "D": "of the compressible property of gases.",
+        "E": "gas turns into a liquid."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Kinetic theory: gas pressure comes from molecules colliding with the walls.",
+        "At higher temperature the molecules move faster, so they hit the walls more often and with more force → higher pressure (volume fixed, so spacing is unchanged). Answer: B."
+      ],
+      "tips": [
+        "T ↑ → average kinetic energy ↑ → more frequent, harder collisions → P ↑ (Gay-Lussac's law)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "According to kinetic theory, the average kinetic energy of gas molecules depends only on",
+          "options": {
+            "A": "pressure",
+            "B": "volume",
+            "C": "absolute temperature",
+            "D": "molar mass",
+            "E": "number of moles"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "KE(avg) ∝ T (kelvin). Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "kinetic-theory"
+      ],
+      "keywords": [
+        "kinetic molecular theory",
+        "gas pressure",
+        "collisions",
+        "temperature"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Behaviour of Gases",
+        "section": "5.3 Kinetic molecular theory of gases",
+        "page": "180-184",
+        "pdf_page": null,
+        "verified_in_text": false,
+        "note": "Grade 11 Unit 5 (Behaviour of Gases, printed pp.162-190) is missing from the supplied PDF (it ends at p.129); page taken from the book's table of contents, text not verified."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Gases unit (Grade 11 Unit 5) is missing from the supplied PDF; answer checked against standard chemistry only."
+    },
+    {
+      "id": "chem-2020-matric-p1-q59",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 59,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Hydrohalogenation involves the addition of",
+      "options": {
+        "A": "hydrogen chloride to alkenes.",
+        "B": "hydrogen to alkenes.",
+        "C": "sodium hydroxide to alkenes.",
+        "D": "a carboxylic acid to alkenes.",
+        "E": "carbon dioxide to alkenes."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Textbook: hydrohalogenation is the addition of halogen acids (HCl, HBr, HI) to alkenes, forming alkyl halides: CH₂=CH₂ + HCl → CH₃CH₂Cl.",
+        "Addition of hydrogen is hydrogenation (B). Answer: A."
+      ],
+      "tips": [
+        "Hydrogenation (+H₂), halogenation (+X₂), hydrohalogenation (+HX), hydration (+H₂O)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Ethene + bromine → 1,2-dibromoethane is an example of",
+          "options": {
+            "A": "hydrogenation",
+            "B": "halogenation",
+            "C": "hydrohalogenation",
+            "D": "substitution",
+            "E": "esterification"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Adding Br₂ across the double bond = halogenation. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "hydrocarbon-reactions"
+      ],
+      "keywords": [
+        "hydrohalogenation",
+        "addition reactions",
+        "alkenes",
+        "alkyl halide"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.2.3 The alkene series – hydrohalogenation",
+        "page": "56-58",
+        "pdf_page": 62,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q60",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 60,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Solubility is",
+      "options": {
+        "A": "the amount of solvent that will dissolve in a given amount of a solute at any temperature.",
+        "B": "the amount of solute that will dissolve in a given amount of solvent at any temperature.",
+        "C": "the process of dissolving a solute in a solvent.",
+        "D": "the amount of solute that will dissolve in a given amount of solvent at a specific temperature.",
+        "E": "the amount of solvent that will dissolve in a given amount of solute at a specific temperature."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Solubility is the maximum amount of solute that dissolves in a given amount of solvent (e.g. g per 100 g water) at a specific temperature.",
+        "Solubility changes with temperature, so 'at any temperature' is wrong; C describes dissolution. Answer: D."
+      ],
+      "tips": [
+        "Always quote solubility with its temperature (KNO₃: 13 g/100 mL at 0 °C, 247 g/100 mL at 100 °C)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The solubility of KNO₃ is 64 g per 100 g water at 40 °C. How much KNO₃ dissolves in 50 g of water at 40 °C?",
+          "options": {
+            "A": "16 g",
+            "B": "32 g",
+            "C": "64 g",
+            "D": "128 g",
+            "E": "50 g"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Half the water dissolves half the solute: 32 g. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "solubility"
+      ],
+      "keywords": [
+        "solubility",
+        "definition",
+        "temperature"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.1.3 Solubility and solubility curve",
+        "page": "69-71",
+        "pdf_page": 77,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q61",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 61,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following compounds is diprotic?",
+      "options": {
+        "A": "Hydrofluoric acid",
+        "B": "Carbonic acid",
+        "C": "Phosphoric acid",
+        "D": "Hydrochloric acid",
+        "E": "Perchloric acid"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Diprotic acids have two acidic hydrogens per molecule.",
+        "Carbonic acid H₂CO₃ ⇌ H⁺ + HCO₃⁻ ⇌ 2H⁺ + CO₃²⁻ – diprotic.",
+        "HF, HCl and HClO₄ are monoprotic; phosphoric acid H₃PO₄ is triprotic. Answer: B."
+      ],
+      "tips": [
+        "Mono-: HCl, HNO₃, CH₃COOH; di-: H₂SO₄, H₂CO₃; tri-: H₃PO₄."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which acid is triprotic?",
+          "options": {
+            "A": "H₂SO₄",
+            "B": "HNO₃",
+            "C": "H₃PO₄",
+            "D": "CH₃COOH",
+            "E": "HCl"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "H₃PO₄ has three acidic hydrogens. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-properties"
+      ],
+      "keywords": [
+        "diprotic",
+        "polyprotic acids",
+        "carbonic acid"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.1 Classification of acids – monoprotic and polyprotic",
+        "page": "118",
+        "pdf_page": 126,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q62",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 62,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Sitting on a cold iron metal bench feels cold because",
+      "options": {
+        "A": "heat is transferred from the bench to the ground.",
+        "B": "no heat is transferred, so it feels cold.",
+        "C": "heat is transferred from the bench into your hand.",
+        "D": "heat is transferred from your body to the bench.",
+        "E": "heat is transferred from the ground to the bench."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Heat always flows from the hotter object to the colder one.",
+        "Your body is warmer than the bench, so heat flows from your body into the iron (a good conductor carries it away quickly), and you feel cold. Answer: D."
+      ],
+      "tips": [
+        "'Cold' is not transferred – heat leaves the warmer body."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A hot cup of tea left in a room cools because",
+          "options": {
+            "A": "cold flows into the tea",
+            "B": "heat flows from the tea to the cooler surroundings",
+            "C": "heat flows from the room into the tea",
+            "D": "the tea loses mass only",
+            "E": "no energy is transferred"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Heat flows from hot to cold until temperatures are equal. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "energy-forms-heat"
+      ],
+      "keywords": [
+        "heat transfer",
+        "heat flow",
+        "temperature",
+        "conductor"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.1 Energy – heat and temperature",
+        "page": "154-155",
+        "pdf_page": 162,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q63",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 63,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "All of the following materials show property of electrical conductivity, except",
+      "options": {
+        "A": "iron.",
+        "B": "graphite.",
+        "C": "aluminium.",
+        "D": "silver.",
+        "E": "diamond."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Metals (iron, aluminium, silver) conduct because of delocalised electrons; graphite conducts because each C uses only three electrons in bonding, leaving one free.",
+        "In diamond every carbon uses all four valence electrons in covalent bonds – no free electrons – so diamond is an electrical insulator. Answer: E."
+      ],
+      "tips": [
+        "Graphite is the non-metal conductor (used for electrodes); diamond is an insulator."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Graphite is used for electrodes because it",
+          "options": {
+            "A": "is very hard",
+            "B": "conducts electricity",
+            "C": "is transparent",
+            "D": "has a high density",
+            "E": "reacts with acids"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Graphite has delocalised electrons and conducts electricity. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "carbon-compounds"
+      ],
+      "keywords": [
+        "electrical conductivity",
+        "diamond",
+        "graphite",
+        "metals"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.2 Carbon – allotropic forms (Table 3.1)",
+        "page": "71-74",
+        "pdf_page": 79,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q64",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 64,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Sulphuric acid can be used in all of the following, except in the",
+      "options": {
+        "A": "manufacturing of dyes.",
+        "B": "production of detergents.",
+        "C": "preparation of brine solution.",
+        "D": "making of fertilizers.",
+        "E": "refining of petroleum."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Uses of sulphuric acid: fertilisers (ammonium sulphate, superphosphate), dyes, paints, detergents, petroleum refining, batteries, dehydrating agent.",
+        "Brine is simply a concentrated solution of sodium chloride in water – no sulphuric acid is used. Answer: C."
+      ],
+      "tips": [
+        "Over half of all H₂SO₄ goes into fertilisers."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Most of the sulphuric acid produced in the world is used to make",
+          "options": {
+            "A": "fertilisers",
+            "B": "brine",
+            "C": "glass",
+            "D": "soap",
+            "E": "table salt"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "More than half is used for fertilisers. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "sulphuric-acid"
+      ],
+      "keywords": [
+        "uses of sulphuric acid",
+        "fertilizers",
+        "detergents",
+        "brine"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.4 Sulphuric acid – uses",
+        "page": "111",
+        "pdf_page": 119,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q65",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 65,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following metals reacts vigorously with water?",
+      "options": {
+        "A": "Potassium",
+        "B": "Calcium",
+        "C": "Magnesium",
+        "D": "Lead",
+        "E": "Aluminium"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Activity series: potassium is at the top and reacts violently with cold water (2K + 2H₂O → 2KOH + H₂, the hydrogen ignites).",
+        "Calcium reacts steadily with cold water, magnesium only with hot water/steam, aluminium with steam (slowly, oxide layer) and lead not at all. Answer: A."
+      ],
+      "tips": [
+        "K > Na > Ca > Mg > Al > Zn > Fe > Pb > (H) > Cu > Ag > Au."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which metal does NOT react with water or steam?",
+          "options": {
+            "A": "Sodium",
+            "B": "Calcium",
+            "C": "Iron",
+            "D": "Copper",
+            "E": "Magnesium"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "Copper is below hydrogen and does not react with water. Answer: D."
+          ]
+        }
+      ],
+      "topics": [
+        "activity-series-uses"
+      ],
+      "keywords": [
+        "activity series",
+        "potassium",
+        "reaction with water"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – Chemistry of Some Metals and Their Compounds",
+        "section": "4.1.2 Chemical properties – reaction with water",
+        "page": "122",
+        "pdf_page": 130,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q66",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 66,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The corresponding salt for phosphoric acid is",
+      "options": {
+        "A": "H₃PO₄.",
+        "B": "K₂SO₄.",
+        "C": "K₃PO₄.",
+        "D": "KOH.",
+        "E": "H₃PO₃."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "A salt is formed when the acidic hydrogen of an acid is replaced by a metal (or ammonium) ion.",
+        "Phosphoric acid H₃PO₄ → phosphate PO₄³⁻; with K⁺ the salt is K₃PO₄ (potassium phosphate).",
+        "H₃PO₄ is the acid itself, H₃PO₃ another acid, KOH a base and K₂SO₄ the salt of sulphuric acid. Answer: C."
+      ],
+      "tips": [
+        "Replace every H of the acid by a metal ion: H₂SO₄ → Na₂SO₄, H₃PO₄ → Na₃PO₄."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which is a salt of nitric acid?",
+          "options": {
+            "A": "HNO₃",
+            "B": "NaNO₃",
+            "C": "NaOH",
+            "D": "Na₂CO₃",
+            "E": "NH₃"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "NO₃⁻ comes from HNO₃. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-preparation"
+      ],
+      "keywords": [
+        "salts",
+        "phosphoric acid",
+        "potassium phosphate"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.4 Salts – solubility and preparation",
+        "page": "141-142",
+        "pdf_page": 149,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q67",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 67,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A current of 2.4 A was passed through two electrolytes in 6 minutes. Calculate the quantity of electricity that passes through the cells.",
+      "options": {
+        "A": "14.4 C",
+        "B": "1.44 C",
+        "C": "864 C",
+        "D": "86.4 C",
+        "E": "144 C"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Quantity of electricity Q = I × t, with t in seconds.",
+        "t = 6 min × 60 s/min = 360 s.",
+        "Q = 2.4 A × 360 s = 864 C (the same charge passes through both cells in series). Answer: C.",
+        "Trap: 2.4 × 6 = 14.4 (A) forgets to convert minutes to seconds."
+      ],
+      "tips": [
+        "Always convert time to seconds: 1 C = 1 A × 1 s."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A current of 0.5 A flows for 10 minutes. What quantity of electricity passes?",
+          "options": {
+            "A": "5 C",
+            "B": "30 C",
+            "C": "300 C",
+            "D": "3000 C",
+            "E": "0.05 C"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Q = 0.5 × 600 = 300 C. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "electrolysis"
+      ],
+      "keywords": [
+        "quantity of electricity",
+        "Q = It",
+        "coulomb",
+        "electrolysis"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.2.6 Quantitative aspects of electrolysis (Q = I × t)",
+        "page": "59-61",
+        "pdf_page": 67,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q68",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 68,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "One of the following cations has the highest tendency of gaining electrons.",
+      "options": {
+        "A": "K⁺",
+        "B": "Ca²⁺",
+        "C": "Na⁺",
+        "D": "Al³⁺",
+        "E": "Pt²⁺"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Gaining electrons = being reduced to the metal. The less active the metal, the more easily its cation is reduced (electrochemical series).",
+        "K, Ca, Na and Al are very active metals, so their ions hold on to their positive charge; platinum is a noble, very unreactive metal, so Pt²⁺ gains electrons most readily. Answer: E."
+      ],
+      "tips": [
+        "Order of discharge at the cathode is the reverse of the activity series: Au³⁺/Pt²⁺ > Ag⁺ > Cu²⁺ > H⁺ > … > Na⁺ > K⁺."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which cation is discharged first at the cathode from a solution containing Cu²⁺, Zn²⁺ and Na⁺ at equal concentration?",
+          "options": {
+            "A": "Na⁺",
+            "B": "Zn²⁺",
+            "C": "Cu²⁺",
+            "D": "All at once",
+            "E": "None"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Copper is the least active, so Cu²⁺ is reduced first. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "electrochemical-series"
+      ],
+      "keywords": [
+        "electrochemical series",
+        "reduction",
+        "cations",
+        "platinum"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.2.3 Selective discharge – position of ions in the electrochemical series",
+        "page": "47-48",
+        "pdf_page": 55,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q69",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 69,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is correct about the energy diagram? (Diagram: enthalpy (0–1000) against reaction progress. The reactants A₂(g) + X₂(g) start at 650; the curve rises to a peak at about 950 and falls to the products 2AX(g) at 100.)",
+      "image": "media/chemistry-2020-matric-q69-energy-diagram.png",
+      "image_alt": "Enthalpy diagram on a grid: vertical axis 'Enthalpy' from 0 to 1000 in steps of 100, horizontal axis 'Reaction Progress'. A flat line labelled A₂(g) + X₂(g) at 650 rises in a hump to a maximum at about 950, then falls steeply to a flat line labelled 2AX(g) at about 100.",
+      "options": {
+        "A": "The reaction is exothermic with ΔH = −300 kJ.",
+        "B": "The reaction is endothermic with ΔH = 850 kJ.",
+        "C": "The reaction is exothermic with ΔH = 550 kJ.",
+        "D": "The reaction is exothermic with ΔH = −850 kJ.",
+        "E": "The reaction is exothermic with ΔH = −550 kJ."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Read the graph: H(reactants, A₂ + X₂) ≈ 650 kJ; H(products, 2AX) ≈ 100 kJ; peak ≈ 950 kJ.",
+        "ΔH = H(products) − H(reactants) = 100 − 650 = −550 kJ.",
+        "Products are lower than reactants, so heat is released – exothermic with ΔH = −550 kJ. Answer: E.",
+        "Traps: 300 kJ (A) is the activation energy (950 − 650); +550 (C) has the wrong sign for an exothermic reaction; 850 (B, D) is peak − products."
+      ],
+      "tips": [
+        "Exothermic ⇔ products below reactants ⇔ ΔH negative."
+      ],
+      "similar_questions": [
+        {
+          "stem": "On an energy diagram the reactants are at 200 kJ, the peak at 350 kJ and the products at 280 kJ. The reaction is",
+          "options": {
+            "A": "exothermic, ΔH = −80 kJ",
+            "B": "endothermic, ΔH = +80 kJ",
+            "C": "endothermic, ΔH = +150 kJ",
+            "D": "exothermic, ΔH = −70 kJ",
+            "E": "endothermic, ΔH = +350 kJ"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "ΔH = 280 − 200 = +80 kJ (products higher → endothermic); Ea = 150 kJ. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "exo-endothermic"
+      ],
+      "keywords": [
+        "energy diagram",
+        "enthalpy change",
+        "exothermic",
+        "activation energy"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.2 Energy diagrams of exothermic and endothermic reactions",
+        "page": "162-163",
+        "pdf_page": 170,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 11,
+          "unit": "Unit 1 – Rate of a Chemical Reaction and Factors Affecting it",
+          "section": "1.2 Activation energy",
+          "page": "6-7",
+          "pdf_page": 14,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q70",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 70,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which statement is correct when a solute dissolves in a solvent?",
+      "options": {
+        "A": "The solute-solute attractions are greater than the solvent-solvent attractions.",
+        "B": "The solute-solute attractions are less than the solvent-solvent attractions.",
+        "C": "The solute-solvent attraction is greater than the sum of the solute-solute and solvent-solvent attraction.",
+        "D": "There is a strong attraction between solute and solvent molecules.",
+        "E": "The solvent-solvent attraction is greater than the sum of the solute-solute and solvent-solvent attraction."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C",
+        "D"
+      ],
+      "explanation_steps": [
+        "To dissolve, solute particles must be separated (breaking solute–solute attractions) and solvent molecules pushed apart (breaking solvent–solvent attractions); new solute–solvent attractions then form and release energy.",
+        "Dissolving is favoured when the solute–solvent attractions are strong enough to overcome both – the setter's intended statement is C (and when they are larger the dissolution is exothermic).",
+        "D ('a strong attraction between solute and solvent') expresses the same idea less precisely and is also acceptable; A, B compare the wrong forces and E is self-contradictory. Answer: C."
+      ],
+      "tips": [
+        "Like dissolves like: similar intermolecular forces make strong solute–solvent attractions possible."
+      ],
+      "similar_questions": [
+        {
+          "stem": "When a solute dissolves and the solution becomes warmer, the process is",
+          "options": {
+            "A": "endothermic – solute–solvent attractions are weaker than those broken",
+            "B": "exothermic – solute–solvent attractions release more energy than was needed to separate the particles",
+            "C": "a physical change with no energy change",
+            "D": "a nuclear change",
+            "E": "always a chemical reaction"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Warming means net heat release: energy of new attractions > energy to break old ones. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "solubility"
+      ],
+      "keywords": [
+        "dissolution",
+        "solute-solvent attraction",
+        "intermolecular forces"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.3.1 Solubility of solutes in liquids; 3.3.2 heat of dissolution",
+        "page": "96-98",
+        "pdf_page": 104,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Ambiguous item: C (solute–solvent attraction greater than the sum of solute–solute and solvent–solvent) is keyed as the setter's evident intent, but it is not strictly required (endothermic dissolving also occurs); D (strong solute–solvent attraction) is also defensible and accepted. Teacher decision needed."
+    },
+    {
+      "id": "chem-2020-matric-p1-q71",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 71,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following salts is soluble in water?",
+      "options": {
+        "A": "PbCl₂",
+        "B": "Na₂SO₄",
+        "C": "CaSO₄",
+        "D": "CaCO₃",
+        "E": "BaSO₄"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Solubility rules: all sodium, potassium and ammonium salts are soluble – Na₂SO₄ dissolves readily.",
+        "PbCl₂ is insoluble in cold water; CaSO₄ is only slightly soluble; CaCO₃ and BaSO₄ are insoluble. Answer: B."
+      ],
+      "tips": [
+        "Na⁺, K⁺, NH₄⁺ and NO₃⁻ salts are always soluble. Insoluble sulphates: Ba, Pb, (Ca slightly)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which salt is insoluble in water?",
+          "options": {
+            "A": "KNO₃",
+            "B": "NaCl",
+            "C": "AgCl",
+            "D": "NH₄Cl",
+            "E": "Na₂CO₃"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "AgCl is an insoluble chloride (white precipitate). Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "solubility"
+      ],
+      "keywords": [
+        "solubility rules",
+        "sodium sulphate",
+        "insoluble salts"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.4 Salts – solubility and preparation",
+        "page": "141-142",
+        "pdf_page": 149,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q72",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 72,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is not true?",
+      "options": {
+        "A": "Na and H have similar properties.",
+        "B": "S²⁻ has smaller ionic radius than Cl⁻.",
+        "C": "Ionization energy of an atom is influenced by nuclear charge.",
+        "D": "Si and P have different properties.",
+        "E": "F⁻ and Cl⁻ ions have similar chemical properties."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B",
+        "A"
+      ],
+      "explanation_steps": [
+        "S²⁻ and Cl⁻ are isoelectronic (18 electrons); S has 16 protons and Cl has 17, so the S²⁻ electron cloud is held less tightly and S²⁻ is LARGER (textbook Table 1.12: S²⁻ 1.84 Å; Cl⁻ 1.81 Å). B is false.",
+        "C is true (greater nuclear charge → higher ionisation energy); D is true (Si and P are in different groups); E is true (both are halide ions of group VIIA).",
+        "A is questionable: H and Na both have one valence electron and form +1 ions (that is why H is placed in group IA), but hydrogen is a non-metallic gas, so their properties are largely different. B is the clearly false statement. Answer: B."
+      ],
+      "tips": [
+        "Isoelectronic ions: the fewer the protons, the bigger the ion (S²⁻ > Cl⁻ > K⁺ > Ca²⁺)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which ion is the largest?",
+          "options": {
+            "A": "Na⁺",
+            "B": "Mg²⁺",
+            "C": "F⁻",
+            "D": "O²⁻",
+            "E": "Al³⁺"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "All have 10 electrons; O²⁻ has the fewest protons (8). Answer: D."
+          ]
+        }
+      ],
+      "topics": [
+        "periodic-trends"
+      ],
+      "keywords": [
+        "ionic radius",
+        "isoelectronic ions",
+        "ionization energy",
+        "hydrogen position"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.3 Periodic properties – ionic radius (Table 1.12)",
+        "page": "27-28",
+        "pdf_page": 35,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Two statements are arguably untrue: B (S²⁻ is larger than Cl⁻ – keyed) and A ('Na and H have similar properties' – H is a non-metal gas, though both have one valence electron). Both accepted. Teacher decision needed."
+    },
+    {
+      "id": "chem-2020-matric-p1-q73",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 73,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "In the hypothetical reaction: X₂ + Y₂ → 2XY + Heat",
+      "options": {
+        "A": "ΔH is positive and the reaction is endothermic.",
+        "B": "ΔH is positive and the reaction is exothermic.",
+        "C": "ΔH is negative and the reaction is endothermic.",
+        "D": "ΔH is negative and the reaction is exothermic.",
+        "E": "ΔH may be positive or negative."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Heat written on the product side means heat is released to the surroundings – the reaction is exothermic.",
+        "The products have less enthalpy than the reactants, so ΔH is negative. Answer: D."
+      ],
+      "tips": [
+        "Heat as a product → exothermic, ΔH < 0; heat as a reactant → endothermic, ΔH > 0."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For CaCO₃ + heat → CaO + CO₂, which is true?",
+          "options": {
+            "A": "ΔH < 0, exothermic",
+            "B": "ΔH > 0, endothermic",
+            "C": "ΔH = 0",
+            "D": "ΔH < 0, endothermic",
+            "E": "ΔH > 0, exothermic"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Heat is absorbed (a reactant): endothermic, ΔH positive. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "exo-endothermic"
+      ],
+      "keywords": [
+        "thermochemical equation",
+        "exothermic",
+        "enthalpy change"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.1.9 Thermochemical equations",
+        "page": "170",
+        "pdf_page": 178,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q74",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 74,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following compounds have the same number of moles? [At. Mass: H = 1, O = 16, Cl = 35.5, K = 39]",
+      "options": {
+        "A": "3.65 g of HCl and 74.5 g of KCl",
+        "B": "0.18 g of H₂O and 3.4 g H₂O₂",
+        "C": "36.5 g of HCl and 7.45 g of KCl",
+        "D": "18 g of H₂O and 0.34 g H₂O₂",
+        "E": "1.8 g of H₂O and 3.4 g H₂O₂"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Molar masses: HCl 36.5, KCl 74.5, H₂O 18, H₂O₂ 34 g/mol.",
+        "A: 0.1 and 1 mol. B: 0.01 and 0.1 mol. C: 1 and 0.1 mol. D: 1 and 0.01 mol.",
+        "E: 1.8/18 = 0.1 mol and 3.4/34 = 0.1 mol – equal. Answer: E."
+      ],
+      "tips": [
+        "n = m ÷ M; compare the ratios mass : molar mass."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which sample contains exactly 0.1 mol? [C = 12, O = 16, S = 32]",
+          "options": {
+            "A": "4.4 g CO₂",
+            "B": "44 g CO₂",
+            "C": "0.32 g O₂",
+            "D": "32 g S",
+            "E": "12 g C"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "A: 4.4/44 = 0.1 mol. B: 1 mol. C: 0.01 mol. D: 1 mol. E: 1 mol. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "mole-composition"
+      ],
+      "keywords": [
+        "mole",
+        "molar mass",
+        "number of moles"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.3 Formula mass and molecular mass",
+        "page": "100-101",
+        "pdf_page": 108,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p1-q75",
+      "exam_id": "chem-2020-matric",
+      "part": 1,
+      "number": 75,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "An alloy of Zn and Cu is dissolved in dilute HCl and hydrogen gas is evolved. In this evolution of gas",
+      "options": {
+        "A": "only zinc reacts with dilute HCl.",
+        "B": "only copper reacts with dilute HCl.",
+        "C": "both zinc and copper react with dilute HCl.",
+        "D": "only copper reacts with water.",
+        "E": "both zinc and copper react with water."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Metals above hydrogen in the activity series displace H₂ from dilute acids: Zn + 2HCl → ZnCl₂ + H₂.",
+        "Copper is below hydrogen and does not react with dilute HCl; neither metal reacts with cold water. Answer: A."
+      ],
+      "tips": [
+        "Inactive metals (Cu, Ag, Au, Pt) do not react with dilute non-oxidising acids."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which metal liberates hydrogen from dilute sulphuric acid?",
+          "options": {
+            "A": "Copper",
+            "B": "Silver",
+            "C": "Gold",
+            "D": "Magnesium",
+            "E": "Platinum"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "Mg is above H in the activity series. Answer: D."
+          ]
+        }
+      ],
+      "topics": [
+        "activity-series-uses"
+      ],
+      "keywords": [
+        "activity series",
+        "zinc",
+        "copper",
+        "dilute acid",
+        "hydrogen gas"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – Chemistry of Some Metals and Their Compounds",
+        "section": "4.1 Activity series of metals",
+        "page": "120-121",
+        "pdf_page": 128,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 10,
+          "unit": "Unit 4 – Acids, Bases and Salts",
+          "section": "4.1.4 Action of acids on metals",
+          "page": "123",
+          "pdf_page": 131,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p2-q01",
+      "exam_id": "chem-2020-matric",
+      "part": 2,
+      "number": 1,
+      "type": "workout",
+      "marks": 5,
+      "stem": "Answer questions 1.1 to 1.5 based on the following diagram. (5 points)\nHint: C and D are layers of water and oil.\n(Diagram: a pear-shaped glass funnel held in a stand. B labels the stopper at the top; C labels the upper liquid layer; D labels the lower liquid layer; E labels the tap at the bottom.)\n1.1 The name of the apparatus is ______.\n1.2 The part of the apparatus used for closing while shaking the mixture is labelled by ___ and is called ______.\n1.3 The part of the apparatus that allows the separation of the liquids is labelled by ___ and is called ______.\n1.4 C is the ______ layer.\n1.5 D is the ______ layer.",
+      "image": "media/chemistry-2020-matric-p2q1-separating-funnel.png",
+      "image_alt": "Separating funnel clamped beside a vertical stand rod. Label lines: B points to the round glass stopper at the top; C to the dark upper liquid layer; D to the lighter lower liquid layer in the cone; E to the tap (stopcock) at the bottom above the stem.",
+      "options": null,
+      "answer": "1.1 Separating funnel; 1.2 B – stopper; 1.3 E – tap (stopcock); 1.4 C is the oil layer; 1.5 D is the water layer.",
+      "subparts": [
+        {
+          "label": "1.1",
+          "marks": 1,
+          "question": "Name of the apparatus",
+          "answer": "Separating funnel",
+          "steps": [
+            "Used for immiscible liquids."
+          ]
+        },
+        {
+          "label": "1.2",
+          "marks": 1,
+          "question": "Part for closing while shaking (label and name)",
+          "answer": "B – stopper",
+          "steps": [
+            "Closes the top of the funnel."
+          ]
+        },
+        {
+          "label": "1.3",
+          "marks": 1,
+          "question": "Part that allows separation (label and name)",
+          "answer": "E – tap (stopcock)",
+          "steps": [
+            "Opened to let the lower layer run out."
+          ]
+        },
+        {
+          "label": "1.4",
+          "marks": 1,
+          "question": "C is the ___ layer",
+          "answer": "Oil",
+          "steps": [
+            "Oil is less dense – top layer."
+          ]
+        },
+        {
+          "label": "1.5",
+          "marks": 1,
+          "question": "D is the ___ layer",
+          "answer": "Water",
+          "steps": [
+            "Water is denser – bottom layer."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "A separating funnel separates immiscible liquids such as oil and water (textbook Activity 1.15, Fig. 1.13).",
+        "The stopper (B) closes the top while the mixture is shaken; the tap or stopcock (E) at the bottom is opened to run off the lower layer.",
+        "Oil is less dense than water and does not mix with it, so oil floats as the upper layer (C) and water forms the lower layer (D)."
+      ],
+      "marking_points": [
+        "1 point each: separating funnel; B = stopper; E = tap/stopcock; C = oil; D = water",
+        "1.2 and 1.3: both label and name needed for the full point (½ each)"
+      ],
+      "tips": [
+        "The denser liquid is always the lower layer; open the stopper before opening the tap so the liquid runs out smoothly."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Kerosene (density 0.8 g/cm³) and water are shaken in a separating funnel. (a) Which liquid forms the lower layer? (b) Which liquid is run out first through the tap?",
+          "options": null,
+          "answer": "(a) Water; (b) water (the lower layer drains first).",
+          "explanation_steps": [
+            "Water (1.0 g/cm³) is denser than kerosene, so it sinks and leaves the funnel first."
+          ]
+        }
+      ],
+      "topics": [
+        "separation-methods"
+      ],
+      "keywords": [
+        "separating funnel",
+        "immiscible liquids",
+        "stopper",
+        "tap",
+        "oil and water"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.4.3 Separation of mixtures – separating funnel (Activity 1.15, Fig. 1.13)",
+        "page": "33-34",
+        "pdf_page": 41,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p2-q02",
+      "exam_id": "chem-2020-matric",
+      "part": 2,
+      "number": 2,
+      "type": "workout",
+      "marks": 3,
+      "stem": "Consider the following notation: ²⁷₁₃Al³⁺ (3 points)\n2.1 The atomic number of Al is ______.\n2.2 The mass number of Al is ______.\n2.3 The number of electrons of Al (in Al³⁺) is ______.",
+      "options": null,
+      "answer": "2.1 13; 2.2 27; 2.3 10.",
+      "subparts": [
+        {
+          "label": "2.1",
+          "marks": 1,
+          "question": "Atomic number of Al",
+          "answer": "13",
+          "steps": [
+            "Lower (subscript) number."
+          ]
+        },
+        {
+          "label": "2.2",
+          "marks": 1,
+          "question": "Mass number of Al",
+          "answer": "27",
+          "steps": [
+            "Upper (superscript) number."
+          ]
+        },
+        {
+          "label": "2.3",
+          "marks": 1,
+          "question": "Number of electrons (Al³⁺)",
+          "answer": "10",
+          "steps": [
+            "13 − 3 = 10."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "In the notation ᴬ_ZX, the lower number is the atomic number Z (protons) and the upper number is the mass number A (protons + neutrons).",
+        "Z = 13 and A = 27 (so neutrons = 27 − 13 = 14).",
+        "The charge 3+ means three electrons have been lost: electrons = 13 − 3 = 10."
+      ],
+      "marking_points": [
+        "1 point each: 13; 27; 10",
+        "2.3: accept 13 only if the student clearly answers for the neutral atom and the teacher reads the item that way (the notation shows Al³⁺, so 10 is expected)"
+      ],
+      "tips": [
+        "Cation: electrons = Z − charge; anion: electrons = Z + |charge|."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For ³²₁₆S²⁻ give (a) the number of protons, (b) neutrons, (c) electrons.",
+          "options": null,
+          "answer": "(a) 16; (b) 16; (c) 18.",
+          "explanation_steps": [
+            "Protons = Z = 16; neutrons = 32 − 16 = 16; electrons = 16 + 2 = 18."
+          ]
+        }
+      ],
+      "topics": [
+        "atomic-particles"
+      ],
+      "keywords": [
+        "atomic number",
+        "mass number",
+        "ion",
+        "electrons",
+        "aluminium ion"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+        "section": "2.1.1–2.1.3 The atom, subatomic particles, atomic and mass number",
+        "page": "41-44",
+        "pdf_page": 49,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p2-q03",
+      "exam_id": "chem-2020-matric",
+      "part": 2,
+      "number": 3,
+      "type": "workout",
+      "marks": 2,
+      "stem": "Given the equilibrium reaction below, indicate the effect of the following changes based on Le Chatelier's principle. (2 points)\nN₂(g) + 3H₂(g) ⇌ 2NH₃(g)\n3.1 Increase in pressure – shifts the equilibrium toward ______\n3.2 Increase in volume – shifts the equilibrium toward ______",
+      "options": null,
+      "answer": "3.1 Toward the right (products, NH₃ – fewer gas molecules). 3.2 Toward the left (reactants, N₂ and H₂ – more gas molecules).",
+      "subparts": [
+        {
+          "label": "3.1",
+          "marks": 1,
+          "question": "Increase in pressure",
+          "answer": "Toward the products (right, NH₃)",
+          "steps": [
+            "Fewer moles of gas on the right (2 < 4)."
+          ]
+        },
+        {
+          "label": "3.2",
+          "marks": 1,
+          "question": "Increase in volume",
+          "answer": "Toward the reactants (left, N₂ + H₂)",
+          "steps": [
+            "More moles of gas on the left."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "Le Chatelier: a system at equilibrium shifts to oppose a change imposed on it.",
+        "Left side: 1 + 3 = 4 mol of gas; right side: 2 mol of gas.",
+        "Increasing the pressure is opposed by reducing the number of gas molecules → shift to the right (more NH₃).",
+        "Increasing the volume lowers the pressure; the system opposes this by making more gas molecules → shift to the left (reactants)."
+      ],
+      "marking_points": [
+        "1 point each: 3.1 right/forward/toward NH₃; 3.2 left/backward/toward N₂ and H₂"
+      ],
+      "tips": [
+        "Pressure ↑ / volume ↓ → side with fewer gas moles; pressure ↓ / volume ↑ → side with more gas moles."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For 2SO₂(g) + O₂(g) ⇌ 2SO₃(g), which way does the equilibrium shift when (a) pressure is decreased, (b) SO₃ is removed?",
+          "options": null,
+          "answer": "(a) To the left (3 mol gas side); (b) to the right (to replace SO₃).",
+          "explanation_steps": [
+            "3 mol gas ⇌ 2 mol gas; removing a product pulls the equilibrium toward the products."
+          ]
+        }
+      ],
+      "topics": [
+        "le-chatelier"
+      ],
+      "keywords": [
+        "Le Chatelier's principle",
+        "pressure",
+        "volume",
+        "Haber equilibrium"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Rate of a Chemical Reaction and Factors Affecting it",
+        "section": "1.2.2 Le Chatelier's principle",
+        "page": "22-24",
+        "pdf_page": 30,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p2-q04",
+      "exam_id": "chem-2020-matric",
+      "part": 2,
+      "number": 4,
+      "type": "workout",
+      "marks": 3,
+      "stem": "Mention any three common forms of amorphous carbon. (3 points)",
+      "options": null,
+      "answer": "Any three of: coke, wood charcoal, animal (bone) charcoal, carbon black (lampblack/soot).",
+      "subparts": [
+        {
+          "label": "4.1",
+          "marks": 1,
+          "question": "First form",
+          "answer": "Coke",
+          "steps": [
+            "From coal heated without air."
+          ]
+        },
+        {
+          "label": "4.2",
+          "marks": 1,
+          "question": "Second form",
+          "answer": "Wood charcoal",
+          "steps": [
+            "From wood heated with little air."
+          ]
+        },
+        {
+          "label": "4.3",
+          "marks": 1,
+          "question": "Third form",
+          "answer": "Carbon black (or animal charcoal)",
+          "steps": [
+            "Lampblack/soot; bone charcoal."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "The textbook lists the common forms of amorphous carbon: 1. coke (coal heated without air), 2. wood charcoal (wood heated in almost complete absence of air), 3. animal charcoal (from bones), 4. carbon black (lampblack, from burning hydrocarbons in limited air).",
+        "Diamond, graphite and fullerene are crystalline allotropes and do not score."
+      ],
+      "marking_points": [
+        "1 point for each correct form (maximum 3): coke, wood charcoal, animal charcoal, carbon black/lampblack/soot",
+        "No credit for diamond, graphite or fullerene (crystalline)"
+      ],
+      "tips": [
+        "Amorphous = no regular crystal structure; they are impure forms of carbon."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Name the three crystalline allotropes of carbon and state which one conducts electricity.",
+          "options": null,
+          "answer": "Diamond, graphite and fullerene; graphite conducts electricity.",
+          "explanation_steps": [
+            "Graphite has one delocalised electron per carbon atom."
+          ]
+        }
+      ],
+      "topics": [
+        "carbon-compounds"
+      ],
+      "keywords": [
+        "amorphous carbon",
+        "coke",
+        "charcoal",
+        "carbon black"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.2 Carbon – amorphous forms of carbon",
+        "page": "72-73",
+        "pdf_page": 80,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p2-q05",
+      "exam_id": "chem-2020-matric",
+      "part": 2,
+      "number": 5,
+      "type": "workout",
+      "marks": 4,
+      "stem": "5.1 Complete the following reaction: (1 point)\nZn(s) + 2HCl(aq) → ___a___ + ___b___\n5.2 Given the metals: Iron, Sodium, and Gold, match them against their type of activity with air. (3 points)\nType of activity: Unreactive – a); Moderately reactive – b); Very reactive – c)",
+      "options": null,
+      "answer": "5.1 a = ZnCl₂(aq), b = H₂(g). 5.2 a) Unreactive – gold; b) Moderately reactive – iron; c) Very reactive – sodium.",
+      "subparts": [
+        {
+          "label": "5.1",
+          "marks": 1,
+          "question": "Zn(s) + 2HCl(aq) → a + b",
+          "answer": "a = ZnCl₂, b = H₂",
+          "steps": [
+            "Single replacement of hydrogen by zinc."
+          ]
+        },
+        {
+          "label": "5.2a",
+          "marks": 1,
+          "question": "Unreactive",
+          "answer": "Gold",
+          "steps": [
+            "Does not react with air."
+          ]
+        },
+        {
+          "label": "5.2b",
+          "marks": 1,
+          "question": "Moderately reactive",
+          "answer": "Iron",
+          "steps": [
+            "Reacts slowly (rusting)."
+          ]
+        },
+        {
+          "label": "5.2c",
+          "marks": 1,
+          "question": "Very reactive",
+          "answer": "Sodium",
+          "steps": [
+            "Reacts rapidly; stored under kerosene."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "5.1: Zinc is above hydrogen in the activity series, so it displaces hydrogen from dilute hydrochloric acid: Zn(s) + 2HCl(aq) → ZnCl₂(aq) + H₂(g) (single replacement).",
+        "5.2: Sodium reacts so vigorously with oxygen that it is stored under kerosene (very reactive); iron reacts slowly (rusts in moist air, burns only when strongly heated – moderately reactive); gold does not react with air at all (unreactive, stays shiny)."
+      ],
+      "marking_points": [
+        "5.1: ½ point each for ZnCl₂ and H₂",
+        "5.2: 1 point each – gold (unreactive), iron (moderately reactive), sodium (very reactive)"
+      ],
+      "tips": [
+        "Activity with air follows the activity series: K, Na ≫ Ca, Mg > Al, Zn, Fe > Pb, Cu > Ag, Au, Pt."
+      ],
+      "similar_questions": [
+        {
+          "stem": "(a) Complete: Mg(s) + H₂SO₄(aq) → ? (b) Arrange copper, potassium and zinc in order of increasing reactivity with air.",
+          "options": null,
+          "answer": "(a) MgSO₄(aq) + H₂(g); (b) copper < zinc < potassium.",
+          "explanation_steps": [
+            "Mg displaces hydrogen from the acid; potassium is at the top of the activity series and copper near the bottom."
+          ]
+        }
+      ],
+      "topics": [
+        "activity-series-uses",
+        "reaction-types"
+      ],
+      "keywords": [
+        "zinc and hydrochloric acid",
+        "activity series",
+        "reaction with air",
+        "gold",
+        "sodium",
+        "iron"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – Chemistry of Some Metals and Their Compounds",
+        "section": "4.1.2 Chemical properties – reaction with oxygen (air)",
+        "page": "121",
+        "pdf_page": 129,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 10,
+          "unit": "Unit 4 – Acids, Bases and Salts",
+          "section": "4.1.4 Action of acids on metals",
+          "page": "123",
+          "pdf_page": 131,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2020-matric-p2-q06",
+      "exam_id": "chem-2020-matric",
+      "part": 2,
+      "number": 6,
+      "type": "workout",
+      "marks": 4,
+      "stem": "6.1 In a cold morning at −13 °C, the air pressure in an automobile tire is 1.5 atm at a fixed volume. Calculate the pressure after the tire warmed to 15 °C. (2 points)\n6.2 For a given amount of a gas, the relationship between (2 points)\na) pressure and temperature at constant volume is ______ proportional.\nb) volume and temperature at constant pressure is ______ proportional.",
+      "options": null,
+      "answer": "6.1 P₂ = 1.5 atm × 288 K / 260 K = 1.66 atm. 6.2 a) directly; b) directly.",
+      "subparts": [
+        {
+          "label": "6.1",
+          "marks": 2,
+          "question": "Pressure after warming to 15 °C",
+          "answer": "1.66 atm",
+          "steps": [
+            "T₁ = 260 K, T₂ = 288 K",
+            "P₂ = 1.5 × 288/260 = 1.66 atm"
+          ]
+        },
+        {
+          "label": "6.2a",
+          "marks": 1,
+          "question": "P and T at constant V",
+          "answer": "Directly proportional",
+          "steps": [
+            "Gay-Lussac's law, P/T = constant."
+          ]
+        },
+        {
+          "label": "6.2b",
+          "marks": 1,
+          "question": "V and T at constant P",
+          "answer": "Directly proportional",
+          "steps": [
+            "Charles's law, V/T = constant."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "6.1: At constant volume (Gay-Lussac's law) P₁/T₁ = P₂/T₂, with temperatures in kelvin.",
+        "T₁ = −13 + 273 = 260 K; T₂ = 15 + 273 = 288 K.",
+        "P₂ = P₁ × T₂/T₁ = 1.5 atm × 288/260 = 1.66 atm (pressure rises as the air warms).",
+        "6.2 a) At constant volume P ∝ T (kelvin) – directly proportional (Gay-Lussac). b) At constant pressure V ∝ T – directly proportional (Charles's law)."
+      ],
+      "marking_points": [
+        "6.1: 1 point for converting to kelvin and using P₁/T₁ = P₂/T₂; 1 point for 1.66 atm (accept 1.65–1.7 atm)",
+        "No credit for an answer using °C (1.5 × 15/−13)",
+        "6.2: 1 point each – directly; directly"
+      ],
+      "tips": [
+        "Never put °C into a gas law – always convert to kelvin first. Only Boyle's law (P–V) is an inverse proportion."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A sealed gas cylinder at 0 °C has a pressure of 2.0 atm. What is its pressure at 100 °C (volume constant)?",
+          "options": null,
+          "answer": "2.73 atm",
+          "explanation_steps": [
+            "P₂ = 2.0 × 373/273 = 2.73 atm."
+          ]
+        }
+      ],
+      "topics": [
+        "gas-laws"
+      ],
+      "keywords": [
+        "Gay-Lussac's law",
+        "pressure-temperature",
+        "Charles's law",
+        "kelvin",
+        "directly proportional"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Behaviour of Gases",
+        "section": "5.2 Gas laws – Charles's law and the pressure–temperature law",
+        "page": "170-175",
+        "pdf_page": null,
+        "verified_in_text": false,
+        "note": "Grade 11 Unit 5 (Behaviour of Gases, printed pp.162-190) is missing from the supplied PDF (it ends at p.129); page taken from the book's table of contents, text not verified."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Gases unit (Grade 11 Unit 5) is missing from the supplied PDF; answer checked against standard chemistry only."
+    },
+    {
+      "id": "chem-2020-matric-p2-q07",
+      "exam_id": "chem-2020-matric",
+      "part": 2,
+      "number": 7,
+      "type": "workout",
+      "marks": 4,
+      "stem": "Compare and contrast inorganic and organic compounds based on the given properties under the first column. (4 points)\nProperty | Inorganic compounds | Organic compounds\nUsually the type of bond is | 7.1 | 7.5\nMelting point | 7.2 | 7.6\nSolubility in water | 7.3 | 7.7\nUsually the particles are | 7.4 | 7.8",
+      "options": null,
+      "answer": "Inorganic: 7.1 ionic; 7.2 high; 7.3 (usually) soluble in water; 7.4 ions. Organic: 7.5 covalent; 7.6 low; 7.7 (generally) insoluble in water (soluble in non-polar solvents); 7.8 molecules.",
+      "subparts": [
+        {
+          "label": "7.1",
+          "marks": 0.5,
+          "question": "Inorganic – type of bond",
+          "answer": "Ionic",
+          "steps": [
+            "Many are ionic."
+          ]
+        },
+        {
+          "label": "7.2",
+          "marks": 0.5,
+          "question": "Inorganic – melting point",
+          "answer": "High",
+          "steps": [
+            "Mostly solids with high melting points."
+          ]
+        },
+        {
+          "label": "7.3",
+          "marks": 0.5,
+          "question": "Inorganic – solubility in water",
+          "answer": "Soluble",
+          "steps": [
+            "Water soluble, insoluble in non-polar solvents."
+          ]
+        },
+        {
+          "label": "7.4",
+          "marks": 0.5,
+          "question": "Inorganic – particles",
+          "answer": "Ions",
+          "steps": [
+            "Ionic lattices."
+          ]
+        },
+        {
+          "label": "7.5",
+          "marks": 0.5,
+          "question": "Organic – type of bond",
+          "answer": "Covalent",
+          "steps": [
+            "Mostly covalent."
+          ]
+        },
+        {
+          "label": "7.6",
+          "marks": 0.5,
+          "question": "Organic – melting point",
+          "answer": "Low",
+          "steps": [
+            "Gases, liquids or low-melting solids."
+          ]
+        },
+        {
+          "label": "7.7",
+          "marks": 0.5,
+          "question": "Organic – solubility in water",
+          "answer": "Insoluble (soluble in non-polar solvents)",
+          "steps": [
+            "Generally insoluble in water."
+          ]
+        },
+        {
+          "label": "7.8",
+          "marks": 0.5,
+          "question": "Organic – particles",
+          "answer": "Molecules",
+          "steps": [
+            "Discrete molecules."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "Textbook Table 2.2 compares the two classes:",
+        "Type of bond: many inorganic compounds are ionic; organic compounds are mostly covalent.",
+        "Melting point: inorganic compounds are mostly solids with high melting points; organic compounds are gases, liquids or low-melting solids.",
+        "Solubility: inorganic compounds are generally water-soluble but insoluble in non-polar solvents; organic compounds are generally insoluble in water but soluble in non-polar solvents.",
+        "Particles: inorganic – ions; organic – molecules."
+      ],
+      "marking_points": [
+        "½ point for each correct cell (8 cells × ½ = 4 points)",
+        "Accept 'mostly/generally' qualifiers; accept 'electrovalent' for ionic"
+      ],
+      "tips": [
+        "Think of NaCl (ionic, high m.p., dissolves in water) versus wax (covalent molecules, low m.p., insoluble in water)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Give two further differences between organic and inorganic compounds (other than bond type, melting point, solubility and particles).",
+          "options": null,
+          "answer": "Reactions: inorganic generally fast, organic generally slow. Electrical conductivity: inorganic conduct when molten or dissolved; organic generally do not conduct.",
+          "explanation_steps": [
+            "Both come from textbook Table 2.2; the number of known organic compounds (millions) is also far greater."
+          ]
+        }
+      ],
+      "topics": [
+        "organic-intro"
+      ],
+      "keywords": [
+        "organic compounds",
+        "inorganic compounds",
+        "ionic",
+        "covalent",
+        "melting point",
+        "solubility"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.1.2 Some differences between organic and inorganic compounds (Table 2.2)",
+        "page": "27",
+        "pdf_page": 33,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    }
+  ]
+}

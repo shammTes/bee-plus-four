@@ -1,0 +1,105 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "high-notes-index-v1",
+ "title": "content/notes/index.json: quick-access unit list, grade -> subject -> units -> topics (with card ids)",
+ "type": "object",
+ "required": [
+  "grades"
+ ],
+ "properties": {
+  "about": {
+   "type": "string"
+  },
+  "grades": {
+   "type": "object",
+   "patternProperties": {
+    "^(9|10|11|12)$": {
+     "type": "object",
+     "additionalProperties": {
+      "type": "object",
+      "required": [
+       "book",
+       "file",
+       "title",
+       "units"
+      ],
+      "properties": {
+       "book": {
+        "type": "string"
+       },
+       "file": {
+        "type": "string"
+       },
+       "title": {
+        "type": "string"
+       },
+       "units": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "required": [
+          "id",
+          "number",
+          "title",
+          "pages",
+          "topics"
+         ],
+         "properties": {
+          "id": {
+           "type": "string"
+          },
+          "number": {
+           "type": "integer"
+          },
+          "title": {
+           "type": "string"
+          },
+          "pages": {
+           "type": "array"
+          },
+          "questions": {
+           "type": "integer"
+          },
+          "topics": {
+           "type": "array",
+           "items": {
+            "type": "object",
+            "required": [
+             "id",
+             "number",
+             "title",
+             "cards"
+            ],
+            "properties": {
+             "id": {
+              "type": "string"
+             },
+             "number": {
+              "type": "string"
+             },
+             "title": {
+              "type": "string"
+             },
+             "page": {
+              "type": "integer"
+             },
+             "cards": {
+              "type": "array",
+              "items": {
+               "type": "string"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "additionalProperties": false
+  }
+ }
+}

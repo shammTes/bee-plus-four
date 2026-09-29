@@ -1,0 +1,4319 @@
+{
+  "schema_version": "1.0",
+  "exam": {
+    "id": "phys-2021-matric",
+    "year": "2021",
+    "subject": "Physics",
+    "grade": 12,
+    "school": "Eritrean Secondary Education Certificate Examination (national)",
+    "type": "matriculation",
+    "semester": null,
+    "title": "Eritrean Secondary Education Certificate Examinations 2021 – Physics (1044)",
+    "exam_code": "1044",
+    "duration": "2 hours 30 minutes",
+    "duration_minutes": 150,
+    "total_points": 100,
+    "parts": [
+      {
+        "part": 1,
+        "title": "Part I – Multiple Choice Questions",
+        "question_type": "mcq",
+        "question_count": 50,
+        "points": 70,
+        "instructions": "Part I contains 50 questions. You must answer all of them. Each question carries 1.4 points. There is only one best answer for each question; blacken the letter of your choice on the Scantron answer sheet with a pencil. Use the values of the constants given on the paper: g = 10 m/s², c = 3 × 10⁸ m/s, e = 1.60 × 10⁻¹⁹ C, k = 9 × 10⁹ N·m²/C², G = 6.67 × 10⁻¹¹ N·m²/kg², c(iron) = 460 J/(kg·°C), n(ethyl alcohol) = 1.36, n(glycerine) = 1.47, n(water) = 1.33, μ₀ = 4π × 10⁻⁷ T·m/A, mₑ = 9.11 × 10⁻³¹ kg, mₚ = 1.67 × 10⁻²⁷ kg, speed of sound in air at 0 °C v₀ = 331 m/s, I₀ = 10⁻¹² W/m², h = 6.63 × 10⁻³⁴ J·s, sin 30° = cos 60° = 0.50, sin 45° = cos 45° = 0.71."
+      },
+      {
+        "part": 2,
+        "title": "Part II – Completion and Work Out Questions",
+        "question_type": "completion + workout",
+        "question_count": 15,
+        "points": 30,
+        "instructions": "Part II contains ten completion questions (A1–A10, 1 point each) and five work out questions (B1–B5, 4 points each; show your work). The whole part carries thirty points. Write your answers on the separate answer sheet provided. In this bank A1–A10 are numbered 1–10 and B1–B5 are numbered 11–15."
+      }
+    ],
+    "source": {
+      "document": "/workspace/matric/raw/2021/Physics_Matric_2021.pdf",
+      "pages": 19,
+      "scan": "CamScanner image PDF (page 1 is a scanner credit page); every item was re-typed from the 150-dpi page images because the OCR of exponents, units and Greek letters is unreliable",
+      "official_answer_key": false,
+      "media": [
+        "media/physics-2021-matric-q08-velocity-time-graphs.png (Q8 graphs A–E, cropped from p.5)",
+        "media/physics-2021-matric-q13-curved-wire.png (Q13 Figure 1, cropped from p.7)",
+        "media/physics-2021-matric-q24-resistor-circuit.png (Q24 Figure 2, cropped from p.9)",
+        "media/physics-2021-matric-p2q13-two-charges.png (Part II B3 Figure 3, cropped from p.18)"
+      ]
+    },
+    "answer_key_note": "No official key exists. All answers were solved independently with the constants printed on the paper, every calculation (including the similar questions) was checked in Python (tools/src_matric/physics_2021/verify_calcs.py), and facts and formulas were checked against the Eritrean MoE Physics textbooks Grades 9–12. See confidence and review_flag on each question.",
+    "notation": "unicode",
+    "textbooks": [
+      {
+        "subject": "physics",
+        "grade": 9,
+        "file": "textbook_physics_9.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 7
+      },
+      {
+        "subject": "physics",
+        "grade": 10,
+        "file": "textbook_physics_10.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "physics",
+        "grade": 11,
+        "file": "textbook_physics_11.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 4
+      },
+      {
+        "subject": "physics",
+        "grade": 12,
+        "file": "textbook_physics_12.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 6
+      }
+    ],
+    "content_version": "1.0.0",
+    "language": "en"
+  },
+  "questions": [
+    {
+      "id": "phys-2021-matric-p1-q01",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 1,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The fundamental unit of length in the MKS system of units is",
+      "options": {
+        "A": "meter.",
+        "B": "kilometre.",
+        "C": "centimetre.",
+        "D": "millimetre.",
+        "E": "decimetre."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "MKS stands for metre–kilogram–second: its fundamental units of length, mass and time are the metre, the kilogram and the second (G9 p.6–7).",
+        "The kilometre, centimetre, millimetre and decimetre are multiples or sub-multiples of the metre, not the base unit. (The centimetre is the length unit of the CGS system.) Answer: A."
+      ],
+      "tips": [
+        "MKS = metre, kilogram, second; CGS = centimetre, gram, second."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The fundamental unit of mass in the CGS system is the",
+          "options": {
+            "A": "kilogram.",
+            "B": "gram.",
+            "C": "milligram.",
+            "D": "tonne.",
+            "E": "newton."
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "CGS = centimetre–gram–second, so the mass unit is the gram. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-units-prefixes"
+      ],
+      "keywords": [
+        "MKS system",
+        "fundamental unit",
+        "metre",
+        "length"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Physical Quantities and Measurements",
+        "section": "1.1.2 Systems of measurement (MKS, CGS, SI)",
+        "page": "6-7",
+        "pdf_page": 13,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q02",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 2,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The surface area of a rectangular box is 0.00692 m². In scientific notation, this is represented as",
+      "stem_tex": "The surface area of a rectangular box is $0.00692\\ \\mathrm{m^2}$. In scientific notation, this is represented as",
+      "options": {
+        "A": "0.692 × 10⁻² m².",
+        "B": "0.7 × 10⁻³ m².",
+        "C": "6.92 × 10⁻¹ m².",
+        "D": "6.92 × 10⁻³ m².",
+        "E": "6.92 × 10⁻² m²."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "In scientific notation a number is written as a × 10ⁿ with 1 ≤ a < 10 (G9 p.31).",
+        "Move the decimal point 3 places to the right: 0.00692 = 6.92 × 10⁻³ m².",
+        "A has the right value but 0.692 is not between 1 and 10; B loses significant figures and has the wrong power; C and E have the wrong power of ten. Answer: D."
+      ],
+      "tips": [
+        "Count how many places the decimal point moves: to the right → negative power of ten."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Express 0.000 305 kg in scientific notation.",
+          "options": {
+            "A": "3.05 × 10⁻⁴ kg",
+            "B": "3.05 × 10⁻³ kg",
+            "C": "30.5 × 10⁻⁵ kg",
+            "D": "3.05 × 10⁴ kg",
+            "E": "0.305 × 10⁻³ kg"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "The decimal point moves 4 places to the right: 3.05 × 10⁻⁴ kg (C and E have the right value but are not in standard form). Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-instruments-errors"
+      ],
+      "keywords": [
+        "scientific notation",
+        "standard form",
+        "powers of ten"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Physical Quantities and Measurements",
+        "section": "1.2.2 Scientific notation",
+        "page": "31-33",
+        "pdf_page": 38,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q03",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 3,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The correct prefix to two decimal places of 0.000486 mm is",
+      "options": {
+        "A": "486 μm.",
+        "B": "4.86 μm.",
+        "C": "0.49 μm.",
+        "D": "0.50 μm.",
+        "E": "0.486 μm."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "1 mm = 10⁻³ m and 1 μm = 10⁻⁶ m, so 1 mm = 1000 μm (G9 p.23, metric prefixes).",
+        "0.000486 mm × 1000 μm/mm = 0.486 μm.",
+        "Rounded to two decimal places (G9 p.38): 0.486 → 0.49 μm (the third decimal, 6, is ≥ 5, so round up).",
+        "E is the exact value but has three decimal places; A and B are wrong conversions; D is rounded to one decimal place. Answer: C."
+      ],
+      "tips": [
+        "Convert first, round last. 'Two decimal places' counts digits after the decimal point."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Express 0.003 72 m in millimetres to one decimal place.",
+          "options": {
+            "A": "3.7 mm",
+            "B": "3.72 mm",
+            "C": "37.2 mm",
+            "D": "0.4 mm",
+            "E": "4.0 mm"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "0.00372 m × 1000 mm/m = 3.72 mm.",
+            "To one decimal place: 3.7 mm. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-units-prefixes",
+        "phys-instruments-errors"
+      ],
+      "keywords": [
+        "prefixes",
+        "micrometre",
+        "unit conversion",
+        "rounding",
+        "decimal places"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Physical Quantities and Measurements",
+        "section": "1.1.3 Metric (SI) prefixes; 1.1.4 Unit conversions",
+        "page": "23-26",
+        "pdf_page": 30,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 9,
+          "unit": "Unit 1 – Physical Quantities and Measurements",
+          "section": "1.2.4 Rounding off numbers",
+          "page": "38-40",
+          "pdf_page": 45,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q04",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 4,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "Two vectors A and B are said to be equal if, and only if they have",
+      "options": {
+        "A": "the same magnitude but different directions.",
+        "B": "the same magnitude.",
+        "C": "different magnitudes but the same direction.",
+        "D": "the same direction.",
+        "E": "the same magnitude and the same direction."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "The textbook (G9 p.49, 'Equality of vectors'): two vectors A and B are said to be equal if, and only if, they have the same magnitude and the same direction.",
+        "Same magnitude alone (B) or same direction alone (D) is not enough. Answer: E."
+      ],
+      "tips": [
+        "A vector is fully described by magnitude AND direction – both must match."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Vector P = 5 N due east and vector Q = 5 N due west. Which statement is correct?",
+          "options": {
+            "A": "P = Q",
+            "B": "P = −Q",
+            "C": "P and Q are equal because their magnitudes are equal",
+            "D": "P + Q = 10 N east",
+            "E": "P − Q = 0"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Same magnitude, opposite direction → Q is the negative of P: P = −Q (so P + Q = 0 and P − Q = 10 N east). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-vectors"
+      ],
+      "keywords": [
+        "equal vectors",
+        "magnitude",
+        "direction",
+        "vector"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Physical Quantities and Measurements",
+        "section": "1.3.2 Position and displacement vectors – equality of vectors",
+        "page": "49",
+        "pdf_page": 56,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q05",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 5,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A student walked 6 km to the north and then walked 4 km to south. The displacement walked by the student is",
+      "options": {
+        "A": "4 km, south.",
+        "B": "6 km, north.",
+        "C": "2 km, north.",
+        "D": "10 km, south.",
+        "E": "2 km, south."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Displacement is a vector: the straight-line change of position with direction (G9 p.70).",
+        "Take north as positive: +6 km + (−4 km) = +2 km, i.e. 2 km north of the starting point.",
+        "10 km is the distance travelled, not the displacement. Answer: C. (Option D is printed as '10 k, south' in the paper.)"
+      ],
+      "tips": [
+        "Distance adds sizes; displacement adds with signs (directions)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A car moves 9 km east and then 12 km west. Its displacement is",
+          "options": {
+            "A": "21 km east",
+            "B": "3 km west",
+            "C": "3 km east",
+            "D": "21 km west",
+            "E": "15 km west"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "East positive: +9 − 12 = −3 km → 3 km west. The distance is 21 km. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-speed-velocity",
+        "phys-vectors"
+      ],
+      "keywords": [
+        "displacement",
+        "distance",
+        "vector addition"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Motion in One Dimension",
+        "section": "2.1.2 Distance and displacement",
+        "page": "70-71",
+        "pdf_page": 77,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q06",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 6,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A teacher with a motorbike travelled 40 km for 1 h along a straight road. He took 20 min rest and again travelled 20 km for 2 h along the same straight road. The teacher's average speed, in km/h, is",
+      "options": {
+        "A": "9.",
+        "B": "18.",
+        "C": "20.",
+        "D": "30.",
+        "E": "50."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Average speed = total distance ÷ total time taken (G9 p.72–73).",
+        "Total distance = 40 km + 20 km = 60 km.",
+        "Total time = 1 h + 20 min + 2 h = 3 h 20 min = 3⅓ h (the rest time counts – the clock keeps running).",
+        "Average speed = 60 ÷ 3.333 = 18 km/h. Answer: B. (Ignoring the rest gives 60 ÷ 3 = 20 km/h – option C, a common trap.)"
+      ],
+      "tips": [
+        "Include stops in the total time for average speed."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A cyclist rides 30 km in 1.5 h, rests 30 min, then rides 10 km in 1 h. Her average speed is",
+          "options": {
+            "A": "13.3 km/h",
+            "B": "16 km/h",
+            "C": "20 km/h",
+            "D": "10 km/h",
+            "E": "26.7 km/h"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Total distance 40 km; total time 1.5 + 0.5 + 1 = 3 h.",
+            "40 ÷ 3 = 13.3 km/h. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-speed-velocity"
+      ],
+      "keywords": [
+        "average speed",
+        "total distance",
+        "total time"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Motion in One Dimension",
+        "section": "2.1.3 Speed and velocity – average speed",
+        "page": "72-73",
+        "pdf_page": 79,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q07",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 7,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A 1 kg mass of cotton, a 2 kg mass of feather and a 3 kg mass of iron are released from a tower of 20 m height at the same time. Neglecting air resistance which one will hit the ground first?",
+      "options": {
+        "A": "Cotton",
+        "B": "Feather",
+        "C": "Iron",
+        "D": "Cotton and feather",
+        "E": "All hit at the same time."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Without air resistance every body falls with the same acceleration g, independent of its mass (G9 p.92).",
+        "All start from rest at the same height, so h = ½gt² gives the same time for all: t = √(2h/g) = √(2 × 20/10) = 2 s. Answer: E."
+      ],
+      "tips": [
+        "In free fall mass does not matter; only air resistance makes a feather fall slowly."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A stone is dropped from rest from a height of 45 m (g = 10 m/s², no air resistance). How long does it take to reach the ground?",
+          "options": {
+            "A": "2 s",
+            "B": "3 s",
+            "C": "4.5 s",
+            "D": "9 s",
+            "E": "1.5 s"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "h = ½gt² → t = √(2h/g) = √(90/10) = 3 s. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-free-fall"
+      ],
+      "keywords": [
+        "free fall",
+        "acceleration due to gravity",
+        "air resistance",
+        "mass independence"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Motion in One Dimension",
+        "section": "2.1.7 Freely falling objects",
+        "page": "92-97",
+        "pdf_page": 99,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q08",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 8,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A bullet is fired vertically with a certain initial velocity. Which one of the following graphs best represents the velocity of the bullet plotted against time?\n(Graphs, velocity v against time t: A – a straight line starting at a positive v and sloping down through the t-axis to negative values; B – a curved hump rising from zero and falling back to zero; C – a V shape: v falls linearly to zero, then rises again; D – a triangle rising linearly from zero to a peak and falling back to zero; E – two horizontal lines, one above and one below the t-axis.)",
+      "image": "media/physics-2021-matric-q08-velocity-time-graphs.png",
+      "image_alt": "Five velocity–time graphs A–E: A straight line sloping down through the time axis; B curved hump; C V shape touching the axis; D triangle; E two horizontal lines.",
+      "options": {
+        "A": "Graph A",
+        "B": "Graph B",
+        "C": "Graph C",
+        "D": "Graph D",
+        "E": "Graph E"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Fired upward with speed u, the bullet has a constant acceleration −g (taking up as positive), so v = u − gt: a straight line with negative slope (G9 p.92–97, p.101–104).",
+        "At the top v = 0 (the line crosses the t-axis); on the way down the velocity is negative (downward) and its size grows at the same rate – the line continues straight below the axis.",
+        "C shows the SPEED (magnitude), not the velocity; B and D would need a changing or reversed acceleration; E is constant velocity. Answer: A."
+      ],
+      "tips": [
+        "The slope of a v–t graph is the acceleration; for anything thrown up it is −g the whole time, even at the top."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A ball is thrown straight up at 20 m/s (g = 10 m/s²). What is its velocity 3 s later?",
+          "options": {
+            "A": "10 m/s upward",
+            "B": "10 m/s downward",
+            "C": "30 m/s downward",
+            "D": "0",
+            "E": "50 m/s downward"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "v = u − gt = 20 − 10 × 3 = −10 m/s.",
+            "Negative = downward: 10 m/s downward (it passed the top at 2 s). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-motion-graphs",
+        "phys-free-fall"
+      ],
+      "keywords": [
+        "velocity-time graph",
+        "vertical projection",
+        "slope",
+        "acceleration due to gravity"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Motion in One Dimension",
+        "section": "2.2 Graphs of motion – velocity-time graphs",
+        "page": "98-104",
+        "pdf_page": 105,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 9,
+          "unit": "Unit 2 – Motion in One Dimension",
+          "section": "2.1.7 Freely falling objects",
+          "page": "92-97",
+          "pdf_page": 99,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q09",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 9,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "Three forces of 5 N (west), 3 N (east) and 1 N (west) act concurrently on a box at the same time. The magnitude of the net force on the box, in newtons, is",
+      "options": {
+        "A": "9.",
+        "B": "8.",
+        "C": "7.",
+        "D": "3.",
+        "E": "1."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Forces along one line add with signs; take west as positive (G9 p.118–123).",
+        "Net force = 5 + 1 − 3 = 3 N (towards the west). Answer: D."
+      ],
+      "tips": [
+        "Choose one direction as positive and subtract the forces pointing the other way."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Forces of 8 N (north), 2 N (south) and 4 N (south) act on a body. The net force is",
+          "options": {
+            "A": "14 N north",
+            "B": "2 N north",
+            "C": "2 N south",
+            "D": "6 N north",
+            "E": "10 N south"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "North positive: 8 − 2 − 4 = +2 N → 2 N north. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-force-effects"
+      ],
+      "keywords": [
+        "net force",
+        "resultant force",
+        "collinear forces"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Force and Motion",
+        "section": "3.1.1 The concept of force – net force",
+        "page": "118-123",
+        "pdf_page": 125,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q10",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 10,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "Which of the following statements is not an effect of a force exerted on an object?",
+      "options": {
+        "A": "Change in shape of the object",
+        "B": "Change in velocity of the object",
+        "C": "Change in size of the object",
+        "D": "Change in direction of motion of the object",
+        "E": "Change in mass of the object"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "A force can change the shape or size of a body, start or stop it, change its speed (velocity) or change its direction of motion (G9 p.118–124).",
+        "Mass is the quantity of matter in the body; pushing or pulling does not change it. Answer: E."
+      ],
+      "tips": [
+        "Force → deformation or acceleration, never a change of mass."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Squeezing a rubber ball in your hand mainly changes its",
+          "options": {
+            "A": "mass",
+            "B": "shape",
+            "C": "chemical composition",
+            "D": "weight",
+            "E": "inertia"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "The force deforms the ball – its shape changes; its mass, weight and inertia stay the same. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-force-effects"
+      ],
+      "keywords": [
+        "effects of force",
+        "shape",
+        "velocity",
+        "mass"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Force and Motion",
+        "section": "3.1.1 The concept of force – effects of a force",
+        "page": "118-124",
+        "pdf_page": 125,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q11",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 11,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "Two uniform metallic spheres of mass 50 kg and 18 kg are 3 m apart. The gravitational force between the spheres, in newtons, is\n[G = 6.67 × 10⁻¹¹ N·m²/kg²]",
+      "stem_tex": "Two uniform metallic spheres of mass 50 kg and 18 kg are 3 m apart. The gravitational force between the spheres, in newtons, is $\\left[G = 6.67\\times10^{-11}\\ \\mathrm{N\\,m^2/kg^2}\\right]$",
+      "options": {
+        "A": "6.67 × 10⁻¹².",
+        "B": "1.33 × 10¹⁰.",
+        "C": "6.67 × 10⁻⁹.",
+        "D": "3.33 × 10¹².",
+        "E": "6.67 × 10¹³."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Newton's law of universal gravitation: F = Gm₁m₂/r² (G9 p.161–164).",
+        "F = 6.67 × 10⁻¹¹ × 50 × 18 / 3² = 6.67 × 10⁻¹¹ × 900 / 9 = 6.67 × 10⁻¹¹ × 100.",
+        "F = 6.67 × 10⁻⁹ N. Answer: C."
+      ],
+      "tips": [
+        "Square the distance; for uniform spheres r is measured between the centres."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Two masses of 40 kg and 25 kg are 5 m apart. Find the gravitational force between them (G = 6.67 × 10⁻¹¹ N·m²/kg²).",
+          "options": null,
+          "answer": "2.67 × 10⁻⁹ N",
+          "explanation_steps": [
+            "F = Gm₁m₂/r² = 6.67 × 10⁻¹¹ × 40 × 25 / 25 = 6.67 × 10⁻¹¹ × 40 = 2.67 × 10⁻⁹ N."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-gravitation"
+      ],
+      "keywords": [
+        "universal gravitation",
+        "gravitational constant",
+        "inverse square law"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Force and Motion",
+        "section": "3.1.5 Newton's law of universal gravitation",
+        "page": "161-164",
+        "pdf_page": 168,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q12",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 12,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "Which of the following statements concerning friction is wrong?",
+      "options": {
+        "A": "Friction is reduced when surfaces are highly polished by oil, grease or graphite.",
+        "B": "Friction is reduced when one body rolls over the surface of another body.",
+        "C": "Static friction between two surfaces of bodies is larger than sliding friction.",
+        "D": "Coefficient of friction is the ratio of frictional force to the normal reaction force.",
+        "E": "The larger the value of the coefficient of friction, the smaller is the friction present."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Lubricants (oil, grease, graphite) and rolling (ball bearings, wheels) reduce friction (G9 p.175–177) – A and B are correct.",
+        "Maximum static friction is larger than sliding (kinetic) friction (G9 p.177–179) – C is correct.",
+        "μ = f/N (G9 p.180–183) – D is correct; so f = μN: a LARGER μ means MORE friction. E is wrong. Answer: E."
+      ],
+      "tips": [
+        "f = μN – friction is directly proportional to μ."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A 20 N force is needed to slide a box steadily when the normal force is 50 N. The coefficient of kinetic friction is",
+          "options": {
+            "A": "0.4",
+            "B": "2.5",
+            "C": "1000",
+            "D": "0.04",
+            "E": "30"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "μ = f/N = 20/50 = 0.4. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-friction"
+      ],
+      "keywords": [
+        "friction",
+        "coefficient of friction",
+        "static friction",
+        "lubrication",
+        "rolling friction"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Force and Motion",
+        "section": "3.2.3–3.2.5 Reducing friction, types of friction, laws of friction",
+        "page": "175-183",
+        "pdf_page": 182,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q13",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 13,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A 0.500 kg ball slides on a curved wire, starting from rest at point 'a' as shown in Figure 1. If the wire is frictionless, the speed of the ball at point 'b', in m/s, is\n(Figure 1: point a is 3.3 m and point b is 1.5 m above the lowest level of the wire.) [g = 10 m/s²]",
+      "image": "media/physics-2021-matric-q13-curved-wire.png",
+      "image_alt": "A ball at point a, 3.3 m above a dashed base line, on a curved wire that dips to the base line and rises to point b, 1.5 m above the base line.",
+      "options": {
+        "A": "3.6.",
+        "B": "4.0.",
+        "C": "6.0.",
+        "D": "8.5.",
+        "E": "9.6."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "No friction → mechanical energy is conserved (G9 p.227–232): mg·h(a) = mg·h(b) + ½m·v(b)² (the ball starts from rest).",
+        "The mass cancels: v = √(2gΔh) with Δh = 3.3 m − 1.5 m = 1.8 m.",
+        "v = √(2 × 10 × 1.8) = √36 = 6.0 m/s. Answer: C. (The mass 0.500 kg is not needed.)"
+      ],
+      "tips": [
+        "Only the height DIFFERENCE matters on a frictionless track, not the shape of the path."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A bead starts from rest at a height of 5.0 m on a frictionless wire. Find its speed when it is 1.8 m above the ground (g = 10 m/s²).",
+          "options": {
+            "A": "8.0 m/s",
+            "B": "6.0 m/s",
+            "C": "10 m/s",
+            "D": "3.2 m/s",
+            "E": "64 m/s"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Δh = 5.0 − 1.8 = 3.2 m.",
+            "v = √(2 × 10 × 3.2) = √64 = 8.0 m/s. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-energy-conservation"
+      ],
+      "keywords": [
+        "conservation of mechanical energy",
+        "potential energy",
+        "kinetic energy",
+        "frictionless"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 4 – Work, Energy, and Power",
+        "section": "4.2.4 Mechanical energy – conservation of mechanical energy",
+        "page": "227-232",
+        "pdf_page": 234,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "The figure caption in the paper reads 'Figure 1: system of two charges' – a misprint (the figure shows a ball on a curved wire). The question is unaffected."
+    },
+    {
+      "id": "phys-2021-matric-p1-q14",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 14,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The ratio of work output to work input of a machine in terms of percentage is",
+      "options": {
+        "A": "energy.",
+        "B": "work done.",
+        "C": "power.",
+        "D": "efficiency.",
+        "E": "momentum."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Efficiency = (work output ÷ work input) × 100 % (G9 p.243). Answer: D."
+      ],
+      "tips": [
+        "Real machines always have efficiency below 100 % because of friction."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A machine does 600 J of useful work when 800 J of work is put into it. Its efficiency is",
+          "options": {
+            "A": "75 %",
+            "B": "133 %",
+            "C": "25 %",
+            "D": "48 %",
+            "E": "80 %"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Efficiency = 600/800 × 100 % = 75 %. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-power-efficiency"
+      ],
+      "keywords": [
+        "efficiency",
+        "work output",
+        "work input",
+        "machines"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 4 – Work, Energy, and Power",
+        "section": "4.3 Power – efficiency",
+        "page": "243",
+        "pdf_page": 250,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q15",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 15,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "An artillery shell is fired with an initial speed of 400 m/s at an angle of 30° above the horizontal following a parabolic path. Neglecting air resistance, the maximum height it will reach, in metres, is\n[g = 10 m/s², sin 30° = 0.50]",
+      "stem_tex": "An artillery shell is fired with an initial speed of 400 m/s at an angle of $30^\\circ$ above the horizontal following a parabolic path. Neglecting air resistance, the maximum height it will reach, in metres, is $\\left[g = 10\\ \\mathrm{m/s^2},\\ \\sin 30^\\circ = 0.50\\right]$",
+      "options": {
+        "A": "4,000.",
+        "B": "3,000.",
+        "C": "2,000.",
+        "D": "1,600.",
+        "E": "1,000."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Vertical component of the initial velocity: u sin θ = 400 × 0.50 = 200 m/s (G10 p.7–11).",
+        "At the maximum height the vertical velocity is zero: H = (u sin θ)² / 2g = 200² / (2 × 10) = 40 000 / 20.",
+        "H = 2000 m. Answer: C."
+      ],
+      "tips": [
+        "Use only the vertical component for the height; the horizontal component stays constant."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A ball is kicked at 20 m/s at 30° above the horizontal (g = 10 m/s²). Find its maximum height.",
+          "options": {
+            "A": "5 m",
+            "B": "10 m",
+            "C": "20 m",
+            "D": "2.5 m",
+            "E": "15 m"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "u sin θ = 20 × 0.5 = 10 m/s.",
+            "H = 10²/(2 × 10) = 5 m. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-projectile"
+      ],
+      "keywords": [
+        "projectile motion",
+        "maximum height",
+        "vertical component"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Motion in Two Dimensions",
+        "section": "1.1.2 Projectile thrown at an angle",
+        "page": "7-11",
+        "pdf_page": 15,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q16",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 16,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "When the resultant force acting on a body is zero, the body is in translational equilibrium. Related to Newton's first law this is a statement of",
+      "options": {
+        "A": "principle of moments.",
+        "B": "first condition of equilibrium.",
+        "C": "second condition of equilibrium.",
+        "D": "rotational equilibrium.",
+        "E": "circular equilibrium."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "The textbook (G10 p.36): when the resultant force on a body is zero it is in translational equilibrium – the first condition of equilibrium; when the resultant moment is zero it is in rotational equilibrium – the second condition (principle of moments, G10 p.30).",
+        "A, C and D all describe the moment (rotational) condition. Answer: B."
+      ],
+      "tips": [
+        "1st condition: ΣF = 0 (no linear acceleration). 2nd condition: Στ = 0 (no angular acceleration)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A uniform metre rule balances on a pivot at its centre with a 2 N weight at the 20 cm mark. Which condition of equilibrium is used to find where a 4 N weight must hang?",
+          "options": {
+            "A": "First condition",
+            "B": "Second condition (principle of moments)",
+            "C": "Newton's third law",
+            "D": "Conservation of energy",
+            "E": "Pascal's principle"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Balancing turning effects uses the principle of moments: 2 N × 30 cm = 4 N × d → d = 15 cm on the other side (the 65 cm mark). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-moments-equilibrium"
+      ],
+      "keywords": [
+        "first condition of equilibrium",
+        "translational equilibrium",
+        "resultant force",
+        "Newton's first law"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Motion in Two Dimensions",
+        "section": "1.4 Moment of a force – conditions of equilibrium",
+        "page": "30, 36",
+        "pdf_page": 38,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q17",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 17,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A truck is travelling at a speed of 65 km/h in the west direction along a straight road and a bus is traveling directly towards the truck at a speed of 45 km/h in the same road in east direction. The velocity of the truck with respect to the bus when they cross each other, is",
+      "options": {
+        "A": "110 km/h towards west.",
+        "B": "110 km/h towards east.",
+        "C": "20 km/h towards west.",
+        "D": "20 km/h towards east.",
+        "E": "55 km/h towards west."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Relative velocity: v(truck relative to bus) = v(truck) − v(bus) (G10 p.19–23).",
+        "Take west as positive: v(truck) = +65 km/h, v(bus) = −45 km/h (east).",
+        "v(truck rel. bus) = 65 − (−45) = +110 km/h, i.e. 110 km/h towards the west. Answer: A."
+      ],
+      "tips": [
+        "Approaching each other → the relative speed is the SUM of the speeds; the direction is the direction of the body you are asked about."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Car A moves east at 80 km/h and car B moves east at 50 km/h on the same road. The velocity of A relative to B is",
+          "options": {
+            "A": "30 km/h east",
+            "B": "130 km/h east",
+            "C": "30 km/h west",
+            "D": "130 km/h west",
+            "E": "65 km/h east"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "East positive: 80 − 50 = +30 km/h → 30 km/h east. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-relative-motion"
+      ],
+      "keywords": [
+        "relative velocity",
+        "frame of reference"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Motion in Two Dimensions",
+        "section": "1.3.1 Relative velocity in a fixed frame of reference",
+        "page": "19-23",
+        "pdf_page": 27,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q18",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 18,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The two liquids used in glass thermometers are mercury and alcohol. The disadvantage of using liquid-in-glass thermometer is that",
+      "options": {
+        "A": "it can be modified for specific purposes.",
+        "B": "the glass is made thin so that heat to the liquid can pass easily.",
+        "C": "it gives a direct reading.",
+        "D": "it is suitable for very high and very low temperatures.",
+        "E": "it is simple and quick to use."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "The textbook (G10 p.51) lists the advantages of liquid-in-glass thermometers: they give a direct reading and are simple and quick to use (C, E; A is also an advantage). The thin-walled bulb (B) is a design feature that lets the liquid reach the temperature quickly – not a disadvantage.",
+        "Its listed disadvantages are: '(a) they are unsuitable for very high and very low temperatures; (b) the reading depends on the length of the exposed column.'",
+        "Option D is the only one about the temperature range; the paper prints 'suitable', evidently a misprint of the textbook's 'unsuitable'. Answer: D."
+      ],
+      "tips": [
+        "Mercury freezes at −39 °C and alcohol boils at 78 °C – so neither works at extreme temperatures."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Why is an alcohol thermometer, not a mercury thermometer, used in very cold places such as Antarctica?",
+          "options": {
+            "A": "Alcohol has a lower freezing point (−115 °C) than mercury (−39 °C)",
+            "B": "Alcohol is opaque",
+            "C": "Alcohol has a higher boiling point",
+            "D": "Alcohol does not expand",
+            "E": "Alcohol is more expensive"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Mercury solidifies at −39 °C; alcohol stays liquid down to about −115 °C (G10 p.52–53). Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-thermometers"
+      ],
+      "keywords": [
+        "liquid-in-glass thermometer",
+        "mercury",
+        "alcohol",
+        "disadvantages"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Temperature, Heat and the Laws of Thermodynamics",
+        "section": "2.1.3 Thermometers – liquid-in-glass thermometers",
+        "page": "51-53",
+        "pdf_page": 59,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "As printed no option is a disadvantage: D says 'it is suitable for very high and very low temperatures', the opposite of the textbook's disadvantage 'unsuitable for very high and very low temperatures'. Keyed D as the intended (misprinted) option."
+    },
+    {
+      "id": "phys-2021-matric-p1-q19",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 19,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The amount of heat energy absorbed in joules by 50 g of iron when its temperature is raised from 30 °C to 70 °C is\n[specific heat capacity of iron = 460 J/(kg·°C)]",
+      "options": {
+        "A": "700.",
+        "B": "920.",
+        "C": "460.",
+        "D": "230.",
+        "E": "350."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Q = mcΔT (G10 p.63–64), with m in kilograms: m = 50 g = 0.050 kg; ΔT = 70 − 30 = 40 °C.",
+        "Q = 0.050 × 460 × 40 = 920 J. Answer: B."
+      ],
+      "tips": [
+        "Convert grams to kilograms when c is in J/(kg·°C)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "How much heat is needed to raise the temperature of 200 g of water from 20 °C to 50 °C? (c = 4200 J/(kg·°C))",
+          "options": {
+            "A": "25 200 J",
+            "B": "2520 J",
+            "C": "42 000 J",
+            "D": "12 600 J",
+            "E": "8400 J"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Q = 0.200 × 4200 × 30 = 25 200 J. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-heat-capacity"
+      ],
+      "keywords": [
+        "specific heat capacity",
+        "heat",
+        "Q = mcΔT",
+        "iron"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Temperature, Heat and the Laws of Thermodynamics",
+        "section": "2.1.4–2.1.5 Heat and its units; specific heat capacity",
+        "page": "59-65",
+        "pdf_page": 67,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q20",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 20,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A thermodynamic process in which the pressure of the system remains constant is",
+      "options": {
+        "A": "adiabatic process.",
+        "B": "isochoric process.",
+        "C": "isothermal process.",
+        "D": "isometric process.",
+        "E": "isobaric process."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "G10 p.96–98: isothermal – constant temperature; isobaric – constant pressure; isochoric (isometric) – constant volume; adiabatic – no heat exchange (Q = 0). Answer: E."
+      ],
+      "tips": [
+        "iso-BAR-ic: 'bar' is a unit of pressure; iso-CHOR-ic/iso-METR-ic: volume; iso-THERM-al: temperature."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In which process is no work done by a gas?",
+          "options": {
+            "A": "Isobaric",
+            "B": "Isothermal",
+            "C": "Isochoric",
+            "D": "Adiabatic",
+            "E": "Cyclic"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "W = PΔV and ΔV = 0 at constant volume, so W = 0 in an isochoric process. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-thermodynamics"
+      ],
+      "keywords": [
+        "isobaric process",
+        "thermodynamic processes",
+        "constant pressure"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Temperature, Heat and the Laws of Thermodynamics",
+        "section": "2.3.2 Thermodynamic processes",
+        "page": "96-98",
+        "pdf_page": 104,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q21",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 21,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The two types of electric charges are",
+      "options": {
+        "A": "electrons and neutrons.",
+        "B": "protons and nucleus.",
+        "C": "neutrons and nucleus.",
+        "D": "electrons and protons.",
+        "E": "protons and neutrons."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "There are two kinds of electric charge, positive and negative (G10 p.108–109). The electron carries the negative charge and the proton the positive charge; the neutron is neutral.",
+        "Only D pairs a negative carrier with a positive one. Answer: D."
+      ],
+      "tips": [
+        "Neutrons are neutral, so any option containing a neutron is out."
+      ],
+      "similar_questions": [
+        {
+          "stem": "An object becomes positively charged when it",
+          "options": {
+            "A": "gains electrons",
+            "B": "loses electrons",
+            "C": "gains neutrons",
+            "D": "loses neutrons",
+            "E": "gains protons by rubbing"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Charging by rubbing transfers electrons; losing electrons leaves more protons than electrons → positive. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-electric-charge"
+      ],
+      "keywords": [
+        "electric charge",
+        "positive charge",
+        "negative charge",
+        "electrons",
+        "protons"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Electricity: Electrostatics",
+        "section": "3.1 Electric charge",
+        "page": "108-109",
+        "pdf_page": 116,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Wording: the two types of charge are strictly 'positive and negative'; the option keyed (electrons and protons) names the particles that carry them."
+    },
+    {
+      "id": "phys-2021-matric-p1-q22",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 22,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "Two point charges q₁ = 0.06 μC and q₂ = 0.04 μC are separated by 3.6 m. The electric potential in volts at a point midway between the charges is\n[k = 9 × 10⁹ N·m²/C²]",
+      "stem_tex": "Two point charges $q_1 = 0.06\\ \\mu\\mathrm{C}$ and $q_2 = 0.04\\ \\mu\\mathrm{C}$ are separated by 3.6 m. The electric potential in volts at a point midway between the charges is $\\left[k = 9\\times10^{9}\\ \\mathrm{N\\,m^2/C^2}\\right]$",
+      "options": {
+        "A": "800.",
+        "B": "600.",
+        "C": "500.",
+        "D": "400.",
+        "E": "100."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Potential is a scalar, so the potentials of the two charges simply add: V = kq₁/r + kq₂/r (G10 p.151–157).",
+        "Midway: r = 3.6/2 = 1.8 m for both charges.",
+        "V = 9 × 10⁹ × (0.06 + 0.04) × 10⁻⁶ / 1.8 = 900 / 1.8 = 500 V. Answer: C."
+      ],
+      "tips": [
+        "Potentials add as numbers (with sign); fields add as vectors."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Charges of +3 nC and −1 nC are 2.0 m apart. Find the electric potential midway between them (k = 9 × 10⁹ N·m²/C²).",
+          "options": {
+            "A": "18 V",
+            "B": "36 V",
+            "C": "9 V",
+            "D": "27 V",
+            "E": "0 V"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "r = 1.0 m; V = 9 × 10⁹ × (3 − 1) × 10⁻⁹ / 1.0 = 18 V. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-electric-potential"
+      ],
+      "keywords": [
+        "electric potential",
+        "point charges",
+        "scalar addition"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Electricity: Electrostatics",
+        "section": "3.7 Electrical potential energy and electric potential",
+        "page": "151-157",
+        "pdf_page": 159,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q23",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 23,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The electric meter, an instrument that is used to measure the flow of the electric current, is",
+      "options": {
+        "A": "voltmeter.",
+        "B": "ammeter.",
+        "C": "ohmmeter.",
+        "D": "wattmeter.",
+        "E": "potentiometer."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "An ammeter measures electric current and is connected in series (G10 p.177). A voltmeter measures potential difference, an ohmmeter resistance and a wattmeter power. Answer: B."
+      ],
+      "tips": [
+        "Ammeter – amperes – in series; voltmeter – volts – in parallel."
+      ],
+      "similar_questions": [
+        {
+          "stem": "How is a voltmeter connected to measure the potential difference across a lamp?",
+          "options": {
+            "A": "In series with the lamp",
+            "B": "In parallel with the lamp",
+            "C": "Instead of the lamp",
+            "D": "In series with the cell only",
+            "E": "It does not matter"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "A voltmeter is always connected in parallel (across) the component. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-current-meters"
+      ],
+      "keywords": [
+        "ammeter",
+        "electric current",
+        "measuring instruments"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Electricity: Direct Current Circuits",
+        "section": "4.5.1 Ammeters and voltmeters",
+        "page": "177-178",
+        "pdf_page": 185,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q24",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 24,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "All of the resistances of the resistors in Figure 2 are in ohms. If a current of 2 A flows from point 'a' to point 'b', the potential difference (voltage) in the 5 Ω resistor, in volts, is\n(Figure 2: between a and b, a branch of 3 Ω and 5 Ω in series is connected in parallel with a single 8 Ω resistor.)",
+      "image": "media/physics-2021-matric-q24-resistor-circuit.png",
+      "image_alt": "Circuit between points a and b: an upper branch with 3 Ω and 5 Ω resistors in series, in parallel with a lower branch containing an 8 Ω resistor; current I enters at a and leaves at b.",
+      "options": {
+        "A": "5.",
+        "B": "4.",
+        "C": "3.",
+        "D": "2.",
+        "E": "1."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Upper branch: 3 Ω + 5 Ω = 8 Ω in series; it is in parallel with the 8 Ω lower branch (G10 p.184–190).",
+        "Two equal parallel branches share the current equally: 2 A ÷ 2 = 1 A through each (check: R(ab) = 4 Ω, V(ab) = 2 × 4 = 8 V, I = 8 V/8 Ω = 1 A).",
+        "V across the 5 Ω resistor = IR = 1 A × 5 Ω = 5 V. Answer: A."
+      ],
+      "tips": [
+        "In parallel the voltage is the same; the current divides inversely to the branch resistances."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A 6 Ω resistor in series with a 6 Ω resistor is connected in parallel with a 4 Ω resistor. A total current of 4 A enters the combination. Find the current in the 4 Ω resistor.",
+          "options": {
+            "A": "3 A",
+            "B": "1 A",
+            "C": "2 A",
+            "D": "4 A",
+            "E": "0.75 A"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Upper branch 12 Ω, lower branch 4 Ω; R = 12 × 4/16 = 3 Ω; V = 4 × 3 = 12 V.",
+            "I(4 Ω) = 12/4 = 3 A (and 1 A through the 12 Ω branch). Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-resistor-networks"
+      ],
+      "keywords": [
+        "series and parallel",
+        "Ohm's law",
+        "current division",
+        "potential difference"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Electricity: Direct Current Circuits",
+        "section": "4.5.3 Resistors in series and in parallel",
+        "page": "184-190",
+        "pdf_page": 192,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q25",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 25,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "An electric heater is connected to a 120 V source. The current generated is 4.0 A. The power of the electric heater, in watts, is",
+      "options": {
+        "A": "240.",
+        "B": "200.",
+        "C": "480.",
+        "D": "100.",
+        "E": "500."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Electric power P = VI (G10 p.195–196).",
+        "P = 120 V × 4.0 A = 480 W. Answer: C."
+      ],
+      "tips": [
+        "P = VI = I²R = V²/R – pick the form that uses the data given."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A 60 W lamp works on 240 V. What current does it draw?",
+          "options": {
+            "A": "0.25 A",
+            "B": "4 A",
+            "C": "14 400 A",
+            "D": "0.5 A",
+            "E": "2.5 A"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "I = P/V = 60/240 = 0.25 A. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-electric-power"
+      ],
+      "keywords": [
+        "electric power",
+        "P = VI",
+        "heater"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Electricity: Direct Current Circuits",
+        "section": "4.6 Electrical energy and power in circuits",
+        "page": "195-196",
+        "pdf_page": 203,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q26",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 26,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A diminished virtual image can be produced by a",
+      "options": {
+        "A": "concave mirror.",
+        "B": "convex mirror.",
+        "C": "plane mirror.",
+        "D": "convex lens.",
+        "E": "pinhole camera."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "A convex mirror always forms a virtual, erect and diminished image, whatever the object distance (G10 p.239).",
+        "A concave mirror or convex lens gives a virtual image only when the object is inside F – and then it is magnified; a plane mirror gives a virtual image of the same size; a pinhole camera gives a real, inverted image. Answer: B."
+      ],
+      "tips": [
+        "Convex mirror (e.g. a car's side mirror): wide field of view, small upright images."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following forms a virtual, erect and MAGNIFIED image?",
+          "options": {
+            "A": "A concave mirror with the object between F and the mirror",
+            "B": "A convex mirror",
+            "C": "A plane mirror",
+            "D": "A concave mirror with the object beyond C",
+            "E": "A pinhole camera"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "A concave mirror used as a shaving/make-up mirror (object inside F) gives a virtual, upright, enlarged image. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-spherical-mirrors"
+      ],
+      "keywords": [
+        "convex mirror",
+        "virtual image",
+        "diminished image"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Geometrical Optics Part I: Reflection of Light and Mirrors",
+        "section": "5.5.3 Formation of images by spherical mirrors",
+        "page": "234-239",
+        "pdf_page": 242,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q27",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 27,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A 5 cm tall object is placed 20 cm in front of a spherical mirror and the magnification produced by the mirror is −2.50. The size of the image and the focal length of the mirror are, respectively, in cm,",
+      "options": {
+        "A": "10.0 and 15.5.",
+        "B": "14.5 and 50.",
+        "C": "12.5 and 50.",
+        "D": "12.5 and 14.3.",
+        "E": "12.5 and 24.5."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Magnification m = hᵢ/hₒ = −dᵢ/dₒ (G10 p.242–243). Image size: |hᵢ| = 2.50 × 5 cm = 12.5 cm (negative m → inverted, real).",
+        "Image distance: dᵢ = −m·dₒ = 2.50 × 20 = 50 cm (positive → real image in front of the mirror).",
+        "Mirror equation: 1/f = 1/dₒ + 1/dᵢ = 1/20 + 1/50 = 7/100 → f = 14.3 cm (positive → concave mirror).",
+        "Answer: D. (C gives the image distance 50 cm instead of the focal length.)"
+      ],
+      "tips": [
+        "Negative magnification = real, inverted image; find dᵢ first, then use the mirror equation."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A 4 cm tall object stands 30 cm in front of a concave mirror, and the magnification is −0.50. Find the image height and the focal length.",
+          "options": {
+            "A": "2 cm and 10 cm",
+            "B": "8 cm and 10 cm",
+            "C": "2 cm and 15 cm",
+            "D": "2 cm and 20 cm",
+            "E": "8 cm and 60 cm"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "hᵢ = 0.50 × 4 = 2 cm (inverted); dᵢ = 0.50 × 30 = 15 cm.",
+            "1/f = 1/30 + 1/15 = 3/30 → f = 10 cm. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-spherical-mirrors"
+      ],
+      "keywords": [
+        "mirror equation",
+        "magnification",
+        "focal length",
+        "image size"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Geometrical Optics Part I: Reflection of Light and Mirrors",
+        "section": "5.5.4 The mirror equation; 5.5.5 Sign convention for mirrors",
+        "page": "240-246",
+        "pdf_page": 248,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q28",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 28,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The refractive index of ethyl alcohol relative to glycerine is\n[n(ethyl alcohol) = 1.36, n(glycerine) = 1.47]",
+      "options": {
+        "A": "0.93.",
+        "B": "1.08.",
+        "C": "2.83.",
+        "D": "0.11.",
+        "E": "1.99."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "The refractive index of medium 2 relative to medium 1 is n₂/n₁ (G11 p.7–10).",
+        "n(alcohol relative to glycerine) = n(alcohol)/n(glycerine) = 1.36/1.47 = 0.925 ≈ 0.93. Answer: A.",
+        "B (1.08) is the inverse, glycerine relative to alcohol; C is the sum and D the difference."
+      ],
+      "tips": [
+        "'X relative to Y' = n(X) ÷ n(Y). A value below 1 means light speeds up going from Y into X."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Find the refractive index of water (n = 1.33) relative to glass (n = 1.50).",
+          "options": {
+            "A": "0.89",
+            "B": "1.13",
+            "C": "2.83",
+            "D": "0.17",
+            "E": "1.99"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "n(water)/n(glass) = 1.33/1.50 = 0.887 ≈ 0.89. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-refractive-index"
+      ],
+      "keywords": [
+        "relative refractive index",
+        "ethyl alcohol",
+        "glycerine"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Geometrical Optics Part II: Refraction of Light and Lenses",
+        "section": "1.1.3 Refractive index – relative refractive index",
+        "page": "7-10",
+        "pdf_page": 11,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q29",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 29,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A cone located at a depth of 20 cm in water appears to be found at a depth of\n[n(water) = 1.33]",
+      "options": {
+        "A": "26.60 cm.",
+        "B": "18.93 cm.",
+        "C": "12.54 cm.",
+        "D": "15.04 cm.",
+        "E": "17.86 cm."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Viewed from above (near-normal viewing), n = real depth ÷ apparent depth (G11 p.11–14).",
+        "Apparent depth = 20 cm ÷ 1.33 = 15.04 cm. Answer: D.",
+        "A (26.60 cm) wrongly multiplies by n – objects in water look SHALLOWER, not deeper."
+      ],
+      "tips": [
+        "Apparent depth = real depth ÷ n (always smaller for an object in a denser medium)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A coin lies at the bottom of a pool 60 cm deep (n(water) = 1.33). How deep does it appear when viewed from directly above?",
+          "options": {
+            "A": "45.1 cm",
+            "B": "79.8 cm",
+            "C": "60 cm",
+            "D": "30 cm",
+            "E": "40.5 cm"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Apparent depth = 60/1.33 = 45.1 cm. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-refractive-index"
+      ],
+      "keywords": [
+        "real depth",
+        "apparent depth",
+        "refraction",
+        "refractive index of water"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Geometrical Optics Part II: Refraction of Light and Lenses",
+        "section": "1.1.4 Real and apparent depth",
+        "page": "11-14",
+        "pdf_page": 15,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q30",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 30,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "Mirage is formed by",
+      "options": {
+        "A": "reflection.",
+        "B": "refraction.",
+        "C": "total internal reflection.",
+        "D": "diffraction.",
+        "E": "dispersion."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C",
+        "B"
+      ],
+      "explanation_steps": [
+        "The textbook (G11 p.19–20, 1.1.6 Mirages): on a hot day the air near the road is hotter and optically less dense than the air above. Rays from the sky travel from optically denser into rarer layers and bend away from the normal (refraction); the bending continues until the angle of incidence exceeds the critical angle and total internal reflection takes place, so the sky appears as a 'pool of water' on the road.",
+        "The final step that turns the rays back up to the eye is total internal reflection, and the textbook places mirages right after total internal reflection. Answer: C.",
+        "Because the gradual bending is refraction, B (refraction) is also defensible and is accepted."
+      ],
+      "tips": [
+        "Mirage = continuous refraction through air layers + total internal reflection near the hot ground."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which two conditions are needed for total internal reflection?",
+          "options": {
+            "A": "Light goes from a denser to a less dense medium and the angle of incidence exceeds the critical angle",
+            "B": "Light goes from a less dense to a denser medium at any angle",
+            "C": "The angle of incidence is zero",
+            "D": "The two media have the same refractive index",
+            "E": "The light is monochromatic"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "TIR happens only for light travelling towards an optically less dense medium at an angle of incidence greater than the critical angle. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-refractive-index"
+      ],
+      "keywords": [
+        "mirage",
+        "total internal reflection",
+        "refraction",
+        "hot air"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Geometrical Optics Part II: Refraction of Light and Lenses",
+        "section": "1.1.6 Mirages",
+        "page": "19-20",
+        "pdf_page": 23,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Both B (refraction) and C (total internal reflection) describe the mirage mechanism in the textbook (bending by refraction until total internal reflection occurs). Keyed C, B accepted."
+    },
+    {
+      "id": "phys-2021-matric-p1-q31",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 31,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A person with myopia can see far objects clearly by wearing eye glasses of",
+      "options": {
+        "A": "convex mirror.",
+        "B": "convex lens.",
+        "C": "concave mirror.",
+        "D": "concave lens.",
+        "E": "plane mirror."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Myopia (short sight): the eye focuses distant objects in front of the retina (G11 p.46–48).",
+        "A concave (diverging) lens spreads the rays slightly so that they focus on the retina. Answer: D. (Mirrors are never used as spectacles; a convex lens corrects long sight.)"
+      ],
+      "tips": [
+        "Short sight → concave (diverging) lens; long sight → convex (converging) lens."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A long-sighted (hypermetropic) person cannot read small print clearly. The defect is corrected with",
+          "options": {
+            "A": "a convex lens",
+            "B": "a concave lens",
+            "C": "a plane mirror",
+            "D": "a prism",
+            "E": "a concave mirror"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "In hypermetropia near objects focus behind the retina; a converging (convex) lens corrects it. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-eye-instruments"
+      ],
+      "keywords": [
+        "myopia",
+        "short sight",
+        "concave lens",
+        "defects of vision"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Geometrical Optics Part II: Refraction of Light and Lenses",
+        "section": "1.3.6 The human eye and defects of vision",
+        "page": "44-48",
+        "pdf_page": 48,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q32",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 32,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "Light travels in glass at a speed of 1.90 × 10⁸ m/s. The refractive index of the glass is\n[c = 3 × 10⁸ m/s]",
+      "stem_tex": "Light travels in glass at a speed of $1.90\\times10^{8}$ m/s. The refractive index of the glass is $\\left[c = 3\\times10^{8}\\ \\mathrm{m/s}\\right]$",
+      "options": {
+        "A": "1.80.",
+        "B": "1.60.",
+        "C": "1.70.",
+        "D": "1.40.",
+        "E": "1.30."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Absolute refractive index n = c/v (G11 p.7–8).",
+        "n = 3.00 × 10⁸ / 1.90 × 10⁸ = 1.579 ≈ 1.60 (to the precision of the options). Answer: B."
+      ],
+      "tips": [
+        "n = c/v is always greater than 1 for a material medium."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The refractive index of diamond is 2.42. Find the speed of light in diamond (c = 3 × 10⁸ m/s).",
+          "options": {
+            "A": "1.24 × 10⁸ m/s",
+            "B": "7.26 × 10⁸ m/s",
+            "C": "2.42 × 10⁸ m/s",
+            "D": "0.81 × 10⁸ m/s",
+            "E": "3.0 × 10⁸ m/s"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "v = c/n = 3 × 10⁸ / 2.42 = 1.24 × 10⁸ m/s. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-refractive-index"
+      ],
+      "keywords": [
+        "refractive index",
+        "speed of light",
+        "n = c/v"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Geometrical Optics Part II: Refraction of Light and Lenses",
+        "section": "1.1.3 Refractive index",
+        "page": "7-8",
+        "pdf_page": 11,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q33",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 33,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The direction that a compass needle points to in a magnetic field is the direction of the",
+      "options": {
+        "A": "rotation of the compass needle.",
+        "B": "rotation of the Earth.",
+        "C": "magnetic force on south pole of the compass needle.",
+        "D": "magnetic flux through the compass needle.",
+        "E": "magnetic force on the north pole of the compass needle."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "The direction of a magnetic field at a point is the direction of the force on a north pole placed there – the direction in which the north pole of a compass needle points (G11 p.69–77).",
+        "The force on the south pole is opposite to the field (C). Answer: E."
+      ],
+      "tips": [
+        "Field lines run from N to S outside a magnet – the way a compass N-pole is pushed."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Outside a bar magnet, magnetic field lines",
+          "options": {
+            "A": "go from the north pole to the south pole",
+            "B": "go from the south pole to the north pole",
+            "C": "cross each other near the poles",
+            "D": "are strongest midway between the poles",
+            "E": "form straight lines only"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Outside the magnet field lines leave the N pole and enter the S pole; they never cross. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-magnets"
+      ],
+      "keywords": [
+        "compass",
+        "magnetic field direction",
+        "north pole"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Magnetism",
+        "section": "2.1.1 Magnets and their properties – magnetic field and compass",
+        "page": "69-77",
+        "pdf_page": 73,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q34",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 34,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A long solenoid carrying a current of 5 A produces a magnetic field of 65 mT at its interior region. The number of turns in 20 cm length of the solenoid is\n[μ₀ = 4π × 10⁻⁷ T·m/A]",
+      "stem_tex": "A long solenoid carrying a current of 5 A produces a magnetic field of 65 mT at its interior region. The number of turns in 20 cm length of the solenoid is $\\left[\\mu_0 = 4\\pi\\times10^{-7}\\ \\mathrm{T\\,m/A}\\right]$",
+      "options": {
+        "A": "6,784.",
+        "B": "1,245.",
+        "C": "1,356.",
+        "D": "2,069.",
+        "E": "10,345."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Inside a long solenoid B = μ₀nI = μ₀NI/L (G11 p.83–85).",
+        "N = BL/(μ₀I) = (65 × 10⁻³ T × 0.20 m) / (4π × 10⁻⁷ × 5) = 0.013 / 6.283 × 10⁻⁶.",
+        "N = 2069 turns. Answer: D."
+      ],
+      "tips": [
+        "Convert mT → T and cm → m before substituting."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A solenoid 0.50 m long has 1000 turns and carries 2.0 A. Find the magnetic field inside it (μ₀ = 4π × 10⁻⁷ T·m/A).",
+          "options": {
+            "A": "5.0 × 10⁻³ T",
+            "B": "2.5 × 10⁻³ T",
+            "C": "1.0 × 10⁻² T",
+            "D": "1.3 × 10⁻³ T",
+            "E": "5.0 T"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "n = 1000/0.50 = 2000 turns/m.",
+            "B = 4π × 10⁻⁷ × 2000 × 2.0 = 5.03 × 10⁻³ T ≈ 5.0 × 10⁻³ T. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-field-of-currents"
+      ],
+      "keywords": [
+        "solenoid",
+        "magnetic field",
+        "number of turns",
+        "permeability of free space"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Magnetism",
+        "section": "2.2.3 Magnetic field around a current-carrying solenoid",
+        "page": "83-85",
+        "pdf_page": 87,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q35",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 35,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A beam of protons travels at a speed of 6 × 10⁶ m/s through a uniform magnetic field of 8 × 10⁻³ T at right angles to the field. The time, in μs, required for an alpha particle to travel the whole of its path is\n[mₚ = 1.67 × 10⁻²⁷ kg, e = 1.60 × 10⁻¹⁹ C]",
+      "stem_tex": "A beam of protons travels at a speed of $6\\times10^{6}$ m/s through a uniform magnetic field of $8\\times10^{-3}$ T at right angles to the field. The time, in $\\mu$s, required for an alpha particle to travel the whole of its path is $\\left[m_p = 1.67\\times10^{-27}\\ \\mathrm{kg},\\ e = 1.60\\times10^{-19}\\ \\mathrm{C}\\right]$",
+      "options": {
+        "A": "4.10.",
+        "B": "8.20.",
+        "C": "2.05.",
+        "D": "1.03.",
+        "E": "3.56."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "A charge moving at right angles to B moves in a circle: qvB = mv²/r → r = mv/(qB) (G11 p.90–92). The time for one whole circle is T = 2πr/v = 2πm/(qB) – independent of the speed.",
+        "For the protons: T = 2π × 1.67 × 10⁻²⁷ / (1.60 × 10⁻¹⁹ × 8 × 10⁻³) = 8.20 × 10⁻⁶ s = 8.20 μs. Answer: B.",
+        "The stem switches to 'an alpha particle'. An alpha particle (m = 4mₚ, q = 2e) would take twice as long, 16.4 μs – not an option – so the protons' full circle (8.20 μs) is the intended answer; 4.10 μs (A) is only half a circle."
+      ],
+      "tips": [
+        "Period in a magnetic field T = 2πm/(qB): speed cancels out."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A proton (m = 1.67 × 10⁻²⁷ kg, q = 1.6 × 10⁻¹⁹ C) moves at 2.0 × 10⁶ m/s perpendicular to a 0.50 T magnetic field. Find the radius of its circular path.",
+          "options": {
+            "A": "4.2 cm",
+            "B": "2.1 cm",
+            "C": "8.4 cm",
+            "D": "0.42 cm",
+            "E": "42 cm"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "r = mv/(qB) = 1.67 × 10⁻²⁷ × 2.0 × 10⁶ / (1.6 × 10⁻¹⁹ × 0.50) = 0.0418 m ≈ 4.2 cm. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-magnetic-force"
+      ],
+      "keywords": [
+        "moving charge in magnetic field",
+        "circular path",
+        "period",
+        "proton",
+        "alpha particle"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Magnetism",
+        "section": "2.3.2 Force on a moving charge in a magnetic field",
+        "page": "90-92",
+        "pdf_page": 94,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Stem mixes a beam of protons with 'an alpha particle'. Keyed B = one full circle for a proton (8.20 μs); for an alpha particle the period would be 16.4 μs (not offered)."
+    },
+    {
+      "id": "phys-2021-matric-p1-q36",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 36,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The distance between a crest and an adjacent trough of a transverse wave of frequency 2,000 Hz is 40 cm. The speed of the wave, in m/s, is",
+      "options": {
+        "A": "1,250.",
+        "B": "2,500.",
+        "C": "800.",
+        "D": "1,600.",
+        "E": "5,000."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "A crest and the adjacent trough are half a wavelength apart (G11 p.153–157): λ/2 = 0.40 m → λ = 0.80 m.",
+        "v = fλ = 2000 × 0.80 = 1600 m/s (G11 p.161). Answer: D. (C, 800 m/s, uses λ = 0.40 m.)"
+      ],
+      "tips": [
+        "Crest to crest = λ; crest to next trough = λ/2."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The distance between a crest and the next trough of a water wave is 25 cm and its frequency is 50 Hz. Find the wave speed.",
+          "options": {
+            "A": "25 m/s",
+            "B": "12.5 m/s",
+            "C": "50 m/s",
+            "D": "2 m/s",
+            "E": "200 m/s"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "λ = 2 × 0.25 = 0.50 m; v = 50 × 0.50 = 25 m/s. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-wave-properties"
+      ],
+      "keywords": [
+        "wavelength",
+        "crest",
+        "trough",
+        "wave speed",
+        "v = fλ"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Waves and Sound",
+        "section": "3.1.3 Terminologies in waves; 3.1.4 Velocity of a wave",
+        "page": "153-163",
+        "pdf_page": 157,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q37",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 37,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The speed of water waves depends on the",
+      "options": {
+        "A": "volume of the water.",
+        "B": "direction of propagation of the waves.",
+        "C": "wavelength of the waves.",
+        "D": "frequency of the waves.",
+        "E": "depth of the water."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "The textbook (G11 p.169, refraction of water waves): 'The speed of water waves depends on the depth of the water' – waves slow down as they move into shallower water, which is why they refract at a change of depth. Answer: E."
+      ],
+      "tips": [
+        "Ripple-tank refraction is made by placing a glass plate to make the water shallower."
+      ],
+      "similar_questions": [
+        {
+          "stem": "When water waves pass from deep water into shallow water, which quantity stays the same?",
+          "options": {
+            "A": "Frequency",
+            "B": "Speed",
+            "C": "Wavelength",
+            "D": "Direction",
+            "E": "Amplitude and speed"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "The frequency is fixed by the source; the speed and wavelength change (v = fλ) and the direction bends. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-wave-properties"
+      ],
+      "keywords": [
+        "water waves",
+        "wave speed",
+        "depth",
+        "refraction of waves"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Waves and Sound",
+        "section": "3.1.5 The behaviour of waves – refraction",
+        "page": "169",
+        "pdf_page": 173,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q38",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 38,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A sound wave of frequency 5,000 Hz has a speed of 361 m/s in air. The air temperature, in °C, is\n[speed of sound in air at 0 °C = 331 m/s]",
+      "options": {
+        "A": "15.",
+        "B": "20.",
+        "C": "50.",
+        "D": "45.",
+        "E": "30."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The speed of sound in air rises by about 0.6 m/s for each 1 °C rise in temperature: v = 331 + 0.6t (G11 p.186; at 20 °C this gives 343 m/s).",
+        "361 = 331 + 0.6t → t = 30/0.6 = 50 °C. Answer: C. (The frequency does not affect the speed.)",
+        "Check with v = 331√(T/273): T = 273 × (361/331)² = 324.7 K ≈ 52 °C – also closest to 50 °C."
+      ],
+      "tips": [
+        "v(air) ≈ 331 + 0.6t m/s with t in °C."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Find the speed of sound in air at 25 °C (v₀ = 331 m/s).",
+          "options": {
+            "A": "346 m/s",
+            "B": "356 m/s",
+            "C": "331 m/s",
+            "D": "340 m/s",
+            "E": "316 m/s"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "v = 331 + 0.6 × 25 = 346 m/s. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-sound"
+      ],
+      "keywords": [
+        "speed of sound",
+        "temperature",
+        "air"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Waves and Sound",
+        "section": "3.2.3 The speed of sound",
+        "page": "185-187",
+        "pdf_page": 189,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q39",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 39,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "In general, people are more sensitive to sounds of frequencies",
+      "options": {
+        "A": "below 20 Hz.",
+        "B": "between 20 Hz and 20,000 Hz.",
+        "C": "between 1,000 Hz and 5,000 Hz.",
+        "D": "above 10,000 Hz.",
+        "E": "above 20,000 Hz."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The textbook (G11 p.189): the audible range is about 20 Hz to 20 000 Hz, and people are most sensitive to sounds with frequencies between 1000 Hz and 5000 Hz. Answer: C.",
+        "B is the whole audible range, not the most sensitive band; A (infrasound) and E (ultrasound) are inaudible."
+      ],
+      "tips": [
+        "Audible 20 Hz–20 kHz; most sensitive 1–5 kHz; older people lose the high frequencies first."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Sound of frequency 30 000 Hz is called",
+          "options": {
+            "A": "ultrasound",
+            "B": "infrasound",
+            "C": "audible sound",
+            "D": "noise",
+            "E": "an echo"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Above 20 000 Hz = ultrasound; below 20 Hz = infrasound. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-sound"
+      ],
+      "keywords": [
+        "audible range",
+        "sensitivity of the ear",
+        "frequency"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Waves and Sound",
+        "section": "3.2.4 Audible and inaudible frequencies",
+        "page": "189",
+        "pdf_page": 193,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q40",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 40,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A sound of intensity level 60 dB has an intensity, in W/m², of\n[I₀ = 10⁻¹² W/m²]",
+      "stem_tex": "A sound of intensity level 60 dB has an intensity, in $\\mathrm{W/m^2}$, of $\\left[I_0 = 10^{-12}\\ \\mathrm{W/m^2}\\right]$",
+      "options": {
+        "A": "10⁻⁸.",
+        "B": "10⁻⁶.",
+        "C": "10⁻⁵.",
+        "D": "10⁻².",
+        "E": "10⁻⁴."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Intensity level β = 10 log(I/I₀) dB (G11 p.201–203).",
+        "60 = 10 log(I/10⁻¹²) → log(I/10⁻¹²) = 6 → I = 10⁶ × 10⁻¹² = 10⁻⁶ W/m². Answer: B."
+      ],
+      "tips": [
+        "Every 10 dB = one power of ten in intensity above I₀ = 10⁻¹² W/m²."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A sound has an intensity of 10⁻⁵ W/m². Its intensity level is (I₀ = 10⁻¹² W/m²)",
+          "options": {
+            "A": "70 dB",
+            "B": "50 dB",
+            "C": "7 dB",
+            "D": "120 dB",
+            "E": "17 dB"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "β = 10 log(10⁻⁵/10⁻¹²) = 10 × 7 = 70 dB. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-sound-intensity"
+      ],
+      "keywords": [
+        "intensity level",
+        "decibel",
+        "sound intensity"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Waves and Sound",
+        "section": "3.4.1 Intensity level of sound",
+        "page": "201-203",
+        "pdf_page": 205,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q41",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 41,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "In an electromagnetic wave, the electric and magnetic fields oscillate",
+      "options": {
+        "A": "parallel to each other.",
+        "B": "at the same frequency and in phase with each other.",
+        "C": "at different frequencies.",
+        "D": "parallel to the direction of propagation of the wave.",
+        "E": "at 45° with each other."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "In an electromagnetic wave the electric and magnetic fields oscillate at the same frequency and in phase, perpendicular to each other and to the direction of propagation (transverse wave) (G11 p.213). Answer: B."
+      ],
+      "tips": [
+        "E ⊥ B ⊥ direction of travel; same frequency, in phase."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which statement about electromagnetic waves is true?",
+          "options": {
+            "A": "They all travel at 3 × 10⁸ m/s in a vacuum",
+            "B": "They need a medium",
+            "C": "They are longitudinal",
+            "D": "Radio waves travel faster than light in a vacuum",
+            "E": "They cannot be reflected"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "All EM waves travel at c = 3 × 10⁸ m/s in a vacuum; they are transverse and need no medium. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-em-waves"
+      ],
+      "keywords": [
+        "electromagnetic wave",
+        "electric field",
+        "magnetic field",
+        "in phase"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Waves and Sound",
+        "section": "3.7.1 Properties of electromagnetic (EM) waves",
+        "page": "213",
+        "pdf_page": 217,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q42",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 42,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "When a solid object is fully submerged in water,",
+      "options": {
+        "A": "density of the solid decreases.",
+        "B": "mass of the solid increases.",
+        "C": "the water exerts an outward normal force on the object.",
+        "D": "volume of the object decreases.",
+        "E": "the pressure exerted by water at any point on the object is the same."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "A, B and D are false: submerging does not change a (rigid) solid's density, mass or volume.",
+        "E is false: liquid pressure increases with depth (p = hρg), so the bottom of the object has a greater pressure than the top – that difference is the upthrust (G12 p.15–20, p.65).",
+        "A fluid at rest exerts its pressure force perpendicular (normal) to every surface it touches (G12 p.11–15). C is the only option describing this, although the force of the water on the object is directed inward (onto the object's surface); 'outward' must be read as 'from the water, normal to the surface'. Answer: C."
+      ],
+      "tips": [
+        "Fluid pressure always acts at right angles to the surface in contact."
+      ],
+      "similar_questions": [
+        {
+          "stem": "What is the pressure due to water at a depth of 5 m? (ρ = 1000 kg/m³, g = 10 m/s²)",
+          "options": {
+            "A": "5 × 10⁴ Pa",
+            "B": "5 × 10³ Pa",
+            "C": "2 × 10³ Pa",
+            "D": "5 × 10⁵ Pa",
+            "E": "50 Pa"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "p = hρg = 5 × 1000 × 10 = 5 × 10⁴ Pa. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-pressure"
+      ],
+      "keywords": [
+        "liquid pressure",
+        "normal force",
+        "submerged object",
+        "pressure increases with depth"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Fluid Mechanics",
+        "section": "1.2.1 Pressure and its units; 1.2.2 Liquid pressure",
+        "page": "11-20",
+        "pdf_page": 17,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 12,
+          "unit": "Unit 1 – Fluid Mechanics",
+          "section": "1.4 Buoyancy and Archimedes' principle",
+          "page": "65-70",
+          "pdf_page": 71,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "medium",
+      "review_flag": "Option C says the water exerts an 'outward' normal force; the pressure force of the water on the object is actually directed inward, normal to its surface. C is keyed as the only option that is not clearly false."
+    },
+    {
+      "id": "phys-2021-matric-p1-q43",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 43,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A block floats in a liquid with 4.6 cm of its side submerged. When the block is placed in water, it also floats but with 5.8 cm submerged. The density of the liquid, in kg/m³, is\n[density of water = 1000 kg/m³]",
+      "options": {
+        "A": "793.",
+        "B": "1781.",
+        "C": "1320.",
+        "D": "1536.",
+        "E": "1261."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "A floating body displaces its own weight of liquid (principle of flotation, G12 p.77–80). For a block of uniform cross-section A: ρ(liquid)·A·4.6 cm·g = weight = ρ(water)·A·5.8 cm·g.",
+        "ρ(liquid) = 1000 × 5.8/4.6 = 1261 kg/m³. Answer: E.",
+        "It sinks less in the liquid, so the liquid is denser than water; A (793) inverts the ratio."
+      ],
+      "tips": [
+        "Submerged depth ∝ 1/density for the same floating block."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A wooden block floats in water with 6.0 cm submerged and in oil with 7.5 cm submerged. Find the density of the oil (ρ(water) = 1000 kg/m³).",
+          "options": {
+            "A": "800 kg/m³",
+            "B": "1250 kg/m³",
+            "C": "750 kg/m³",
+            "D": "450 kg/m³",
+            "E": "1500 kg/m³"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "ρ(oil) × 7.5 = 1000 × 6.0 → ρ(oil) = 800 kg/m³. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-buoyancy-flotation"
+      ],
+      "keywords": [
+        "flotation",
+        "floating block",
+        "density of liquid",
+        "Archimedes' principle"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Fluid Mechanics",
+        "section": "1.5 Principle of flotation",
+        "page": "77-80",
+        "pdf_page": 83,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q44",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 44,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A hydraulic jack works on the basis of",
+      "options": {
+        "A": "Archimedes principle.",
+        "B": "Bernoulli's principle.",
+        "C": "Principle of conservation of energy.",
+        "D": "Pascal's principle.",
+        "E": "Newtonian mechanics."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Pascal's principle: pressure applied to an enclosed fluid is transmitted undiminished to every part of the fluid. The hydraulic jack, hydraulic press and hydraulic brakes are its applications (G12 p.55–60). Answer: D."
+      ],
+      "tips": [
+        "Hydraulic = Pascal; floating/upthrust = Archimedes."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In a hydraulic press, a force of 50 N is applied to a small piston of area 10 cm². What force acts on the large piston of area 500 cm²?",
+          "options": {
+            "A": "2500 N",
+            "B": "250 N",
+            "C": "1 N",
+            "D": "5000 N",
+            "E": "500 N"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Equal pressure: F₂ = F₁ × A₂/A₁ = 50 × 500/10 = 2500 N. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-pascal"
+      ],
+      "keywords": [
+        "hydraulic jack",
+        "Pascal's principle",
+        "hydraulic machines"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Fluid Mechanics",
+        "section": "1.3.1 Applications of Pascal's principle – hydraulic jack",
+        "page": "55-60",
+        "pdf_page": 61,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q45",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 45,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A cylindrical aluminium cup of radius 10 cm and of mass 500 g is completely filled with water. The pressure, in pascals, exerted by water at the bottom of the cup is\n[g = 10 m/s²]",
+      "options": {
+        "A": "125.4.",
+        "B": "159.2.",
+        "C": "180.3.",
+        "D": "168.7.",
+        "E": "148.3."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "The height of the cup is not given, so p = hρg cannot be used directly. The options fit only if the 500 g is the mass of the WATER in the cup.",
+        "For a cylinder, the water's weight rests on the base: p = F/A = mg/(πr²) (G12 p.11–17).",
+        "A = π × 0.10² = 0.03142 m²; p = 0.500 × 10 / 0.03142 = 159.2 Pa. Answer: B.",
+        "Equivalently: V = 0.500 kg ÷ 1000 kg/m³ = 5.0 × 10⁻⁴ m³, h = V/A = 0.0159 m, p = hρg = 0.0159 × 1000 × 10 = 159.2 Pa."
+      ],
+      "tips": [
+        "For a vertical-sided container, pressure on the base = weight of liquid ÷ base area = hρg."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A cylindrical glass of radius 5.0 cm contains 0.50 kg of water. Find the pressure of the water on the bottom (g = 10 m/s², π = 3.14).",
+          "options": {
+            "A": "637 Pa",
+            "B": "159 Pa",
+            "C": "318 Pa",
+            "D": "1274 Pa",
+            "E": "64 Pa"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "A = 3.14 × 0.050² = 7.85 × 10⁻³ m².",
+            "p = 0.50 × 10 / 7.85 × 10⁻³ = 637 Pa. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-pressure"
+      ],
+      "keywords": [
+        "liquid pressure",
+        "pressure = force/area",
+        "cylinder"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Fluid Mechanics",
+        "section": "1.2.1 Pressure and its units; 1.2.2 Liquid pressure",
+        "page": "11-17",
+        "pdf_page": 17,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Missing/misattributed data: the cup's height is not given and 500 g is stated as the mass of the cup. The options (159.2 Pa) fit only if 500 g is the mass of the water, p = mg/(πr²)."
+    },
+    {
+      "id": "phys-2021-matric-p1-q46",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 46,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The model of an atom in which electrons and protons are uniformly mixed in the atom is the",
+      "options": {
+        "A": "Rutherford model.",
+        "B": "Plum pudding model.",
+        "C": "Nuclear model.",
+        "D": "Planetary model.",
+        "E": "Chadwick model."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "J.J. Thomson's 'plum pudding' model pictured the atom as a sphere of positive charge with the electrons spread uniformly through it, like plums in a pudding (G12 p.94).",
+        "Rutherford's nuclear (planetary) model replaced it after the gold-foil experiment: a tiny dense positive nucleus with electrons around it (G12 p.94–96). Answer: B."
+      ],
+      "tips": [
+        "Thomson = pudding (uniform mix); Rutherford = nucleus; Bohr = energy levels."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In Rutherford's gold-foil experiment most alpha particles passed straight through the foil. This showed that",
+          "options": {
+            "A": "most of the atom is empty space",
+            "B": "the atom is a uniform sphere of positive charge",
+            "C": "electrons are heavier than protons",
+            "D": "the nucleus is negatively charged",
+            "E": "neutrons exist"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Most particles were undeflected → the atom is mostly empty space; the few large deflections showed a small dense positive nucleus. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-atomic-models"
+      ],
+      "keywords": [
+        "plum pudding model",
+        "Thomson",
+        "atomic models",
+        "Rutherford"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Quantum Physics",
+        "section": "2.1 The structure of the atom – atomic models",
+        "page": "92-96",
+        "pdf_page": 98,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q47",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 47,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "Interference of light is described by",
+      "options": {
+        "A": "quantum theory of light.",
+        "B": "geometrical optics.",
+        "C": "theory of electromagnetism.",
+        "D": "special theory of relativity.",
+        "E": "wave theory of light."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Interference (and diffraction) are wave phenomena explained by the wave theory of light; the photoelectric effect needs the particle (quantum) theory (G12 p.99–100; G11 p.173–177). Answer: E."
+      ],
+      "tips": [
+        "Interference, diffraction → waves; photoelectric effect → photons."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which phenomenon is best explained by the particle (photon) theory of light?",
+          "options": {
+            "A": "Photoelectric effect",
+            "B": "Interference",
+            "C": "Diffraction",
+            "D": "Refraction",
+            "E": "Polarisation"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "The photoelectric effect depends on the frequency of light, not its intensity – explained only by photons. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-photons",
+        "phys-wave-properties"
+      ],
+      "keywords": [
+        "interference",
+        "wave theory of light",
+        "dual nature of light"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Quantum Physics",
+        "section": "2.2.1 The dual nature of light",
+        "page": "99-100",
+        "pdf_page": 105,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 11,
+          "unit": "Unit 3 – Waves and Sound",
+          "section": "3.1.5 The behaviour of waves – interference",
+          "page": "173-177",
+          "pdf_page": 177,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q48",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 48,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "The momentum, in kg·m/s, of a photon of light of frequency 8 × 10¹⁴ Hz is\n[h = 6.63 × 10⁻³⁴ J·s, c = 3 × 10⁸ m/s]",
+      "stem_tex": "The momentum, in kg$\\cdot$m/s, of a photon of light of frequency $8\\times10^{14}$ Hz is $\\left[h = 6.63\\times10^{-34}\\ \\mathrm{J\\,s},\\ c = 3\\times10^{8}\\ \\mathrm{m/s}\\right]$",
+      "options": {
+        "A": "8.84 × 10⁻²⁸.",
+        "B": "1.77 × 10⁻²⁷.",
+        "C": "5.30 × 10⁻¹⁹.",
+        "D": "1.59 × 10⁻¹⁰.",
+        "E": "6.68 × 10⁻²²."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Photon momentum p = hf/c = h/λ (G12 p.101).",
+        "p = 6.63 × 10⁻³⁴ × 8 × 10¹⁴ / 3 × 10⁸ = 1.77 × 10⁻²⁷ kg·m/s. Answer: B.",
+        "C (5.30 × 10⁻¹⁹) is the photon ENERGY in joules, hf."
+      ],
+      "tips": [
+        "E = hf; p = E/c = hf/c."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Find the momentum of a photon of wavelength 500 nm (h = 6.63 × 10⁻³⁴ J·s).",
+          "options": {
+            "A": "1.33 × 10⁻²⁷ kg·m/s",
+            "B": "3.98 × 10⁻¹⁹ kg·m/s",
+            "C": "3.32 × 10⁻⁴¹ kg·m/s",
+            "D": "1.33 × 10⁻³⁶ kg·m/s",
+            "E": "7.54 × 10²⁶ kg·m/s"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "p = h/λ = 6.63 × 10⁻³⁴ / 5.00 × 10⁻⁷ = 1.33 × 10⁻²⁷ kg·m/s. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-photons"
+      ],
+      "keywords": [
+        "photon momentum",
+        "Planck's constant",
+        "p = hf/c"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Quantum Physics",
+        "section": "2.2.2 Energy of a photon (energy and momentum)",
+        "page": "101",
+        "pdf_page": 107,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q49",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 49,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "A laser source emits light of frequency 8 × 10¹⁴ Hz at a rate of 300 J/min. The average number of photons per second emitted by the source is\n[h = 6.63 × 10⁻³⁴ J·s]",
+      "stem_tex": "A laser source emits light of frequency $8\\times10^{14}$ Hz at a rate of 300 J/min. The average number of photons per second emitted by the source is $\\left[h = 6.63\\times10^{-34}\\ \\mathrm{J\\,s}\\right]$",
+      "options": {
+        "A": "4.42 × 10¹⁸.",
+        "B": "7.52 × 10¹⁸.",
+        "C": "5.3 × 10¹⁹.",
+        "D": "9.43 × 10¹⁸.",
+        "E": "6.25 × 10¹⁵."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Power: 300 J/min ÷ 60 s = 5.0 J/s (5.0 W).",
+        "Energy of one photon: E = hf = 6.63 × 10⁻³⁴ × 8 × 10¹⁴ = 5.30 × 10⁻¹⁹ J (G12 p.101–103).",
+        "Photons per second = 5.0 / 5.30 × 10⁻¹⁹ = 9.43 × 10¹⁸. Answer: D."
+      ],
+      "tips": [
+        "Number of photons per second = power ÷ energy per photon; change per-minute to per-second first."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A 1.0 W lamp emits light of frequency 5.0 × 10¹⁴ Hz. How many photons does it emit per second? (h = 6.63 × 10⁻³⁴ J·s)",
+          "options": {
+            "A": "3.0 × 10¹⁸",
+            "B": "3.3 × 10⁻¹⁹",
+            "C": "1.5 × 10¹⁸",
+            "D": "6.0 × 10¹⁹",
+            "E": "3.0 × 10¹⁵"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "E = 6.63 × 10⁻³⁴ × 5.0 × 10¹⁴ = 3.32 × 10⁻¹⁹ J.",
+            "N = 1.0 / 3.32 × 10⁻¹⁹ = 3.0 × 10¹⁸ per second. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-photons"
+      ],
+      "keywords": [
+        "number of photons",
+        "photon energy",
+        "power",
+        "laser"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Quantum Physics",
+        "section": "2.2.2 Energy of a photon",
+        "page": "101-103",
+        "pdf_page": 107,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p1-q50",
+      "exam_id": "phys-2021-matric",
+      "part": 1,
+      "number": 50,
+      "type": "mcq",
+      "marks": 1.4,
+      "stem": "When a negatively charged zinc plate is illuminated by ultraviolet light, it loses its",
+      "options": {
+        "A": "mass.",
+        "B": "weight.",
+        "C": "charge.",
+        "D": "energy.",
+        "E": "strength."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Ultraviolet light ejects electrons from the zinc surface (photoelectric effect). A negatively charged plate has excess electrons, so it gradually loses its (negative) charge – the leaves of an electroscope attached to it collapse (G12 p.104–107). Answer: C.",
+        "The mass of the escaping electrons is negligible, so 'mass' and 'weight' are not the intended answers."
+      ],
+      "tips": [
+        "Negative zinc + UV → electrons emitted → discharges. Positive zinc + UV → no discharge (electrons are held back)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Light of frequency lower than the threshold frequency falls on a metal. Increasing the intensity of this light will",
+          "options": {
+            "A": "still not release any electrons",
+            "B": "release faster electrons",
+            "C": "release more electrons",
+            "D": "raise the work function",
+            "E": "lower the threshold frequency"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Below the threshold frequency each photon has too little energy (hf < W₀), so no electrons are emitted however bright the light. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-photoelectric"
+      ],
+      "keywords": [
+        "photoelectric effect",
+        "zinc plate",
+        "ultraviolet light",
+        "electroscope"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Quantum Physics",
+        "section": "2.2.3 Photoelectric effect",
+        "page": "104-107",
+        "pdf_page": 110,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q01",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 1,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 1,
+      "stem": "A1. The two readings of a vernier calliper are the main scale reading and the ______ scale reading.",
+      "options": null,
+      "answer": "vernier",
+      "accepted_answers": [
+        "vernier",
+        "vernier scale",
+        "sliding (vernier) scale"
+      ],
+      "explanation_steps": [
+        "A vernier calliper has a fixed main scale and a sliding vernier scale (G9 p.10–13).",
+        "Reading = main-scale reading + (number of the vernier division that coincides × least count, 0.1 mm)."
+      ],
+      "marking_points": [
+        "Correct term: vernier (1 point); also accept: vernier scale, sliding (vernier) scale"
+      ],
+      "tips": [
+        "Main scale gives the whole millimetres; the vernier scale gives the tenths."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A vernier calliper shows a main-scale reading of 2.3 cm and the 6th vernier division coincides with a main-scale mark (least count 0.01 cm). What is the reading?",
+          "options": null,
+          "answer": "2.36 cm",
+          "explanation_steps": [
+            "Reading = 2.3 cm + 6 × 0.01 cm = 2.36 cm."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-instruments-errors"
+      ],
+      "keywords": [
+        "vernier calliper",
+        "main scale",
+        "vernier scale"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Physical Quantities and Measurements",
+        "section": "1.1.2 Systems of measurement – measuring length with a vernier calliper",
+        "page": "10-13",
+        "pdf_page": 17,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q02",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 2,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 1,
+      "stem": "A2. The velocity-time graph for motion with uniform velocity is a ______ line.",
+      "options": null,
+      "answer": "horizontal straight",
+      "accepted_answers": [
+        "horizontal straight",
+        "horizontal",
+        "straight line parallel to the time axis",
+        "straight horizontal"
+      ],
+      "explanation_steps": [
+        "Uniform velocity means the velocity does not change with time, so v–t is a straight line parallel to the time axis, with zero slope (zero acceleration) (G9 p.100–101)."
+      ],
+      "marking_points": [
+        "Correct term: horizontal straight (1 point); also accept: horizontal, straight line parallel to the time axis, straight horizontal"
+      ],
+      "tips": [
+        "On a v–t graph: horizontal = constant velocity; sloping straight line = constant acceleration."
+      ],
+      "similar_questions": [
+        {
+          "stem": "What does the area under a velocity–time graph represent?",
+          "options": null,
+          "answer": "The displacement (distance travelled in a straight line)",
+          "explanation_steps": [
+            "Area = velocity × time = displacement."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-motion-graphs"
+      ],
+      "keywords": [
+        "velocity-time graph",
+        "uniform velocity",
+        "horizontal line"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Motion in One Dimension",
+        "section": "2.2.2 Velocity-time graph for motion with uniform velocity",
+        "page": "100-101",
+        "pdf_page": 107,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q03",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 3,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 1,
+      "stem": "A3. ______ law states that for every action there is an equal and opposite reaction.",
+      "options": null,
+      "answer": "Newton's third",
+      "accepted_answers": [
+        "Newton's third",
+        "Newton's third law",
+        "third law of Newton"
+      ],
+      "explanation_steps": [
+        "Newton's third law of motion: for every action there is an equal and opposite reaction; the two forces act on different bodies (G9 p.157–159)."
+      ],
+      "marking_points": [
+        "Correct term: Newton's third (1 point); also accept: Newton's third law, third law of Newton"
+      ],
+      "tips": [
+        "Action–reaction pairs never cancel because they act on different bodies."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of Newton's laws explains why a gun recoils when fired?",
+          "options": null,
+          "answer": "Newton's third law (the bullet pushes back on the gun with an equal and opposite force)",
+          "explanation_steps": [
+            "Action on the bullet forward, reaction on the gun backward."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-newton-laws"
+      ],
+      "keywords": [
+        "Newton's third law",
+        "action and reaction"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Force and Motion",
+        "section": "3.1.4 Newton's third law of motion",
+        "page": "157-159",
+        "pdf_page": 164,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q04",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 4,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 1,
+      "stem": "A4. The transfer of heat from one end of a uniform metal rod at higher temperature to the other end of the rod at lower temperature is by ______.",
+      "options": null,
+      "answer": "conduction",
+      "explanation_steps": [
+        "In a solid, heat passes from particle to particle (and by free electrons in metals) without the material itself moving: conduction (G10 p.73–75).",
+        "Convection needs a moving fluid; radiation needs no medium."
+      ],
+      "marking_points": [
+        "Correct term: conduction (1 point)"
+      ],
+      "tips": [
+        "Solids – conduction; liquids and gases – convection; vacuum – radiation."
+      ],
+      "similar_questions": [
+        {
+          "stem": "How does heat from the Sun reach the Earth?",
+          "options": null,
+          "answer": "By radiation",
+          "explanation_steps": [
+            "Space is (almost) a vacuum, so neither conduction nor convection is possible."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-heat-transfer"
+      ],
+      "keywords": [
+        "conduction",
+        "heat transfer",
+        "metal rod"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Temperature, Heat and the Laws of Thermodynamics",
+        "section": "2.2.1 Conduction",
+        "page": "73-75",
+        "pdf_page": 81,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q05",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 5,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 1,
+      "stem": "A5. The electric field is ______ everywhere inside a charged conductor.",
+      "options": null,
+      "answer": "zero",
+      "accepted_answers": [
+        "zero",
+        "0"
+      ],
+      "explanation_steps": [
+        "In electrostatic equilibrium the free charges of a conductor stop moving; if there were a field inside, the charges would feel a force and move. So E = 0 everywhere inside, the excess charge sits on the surface and the field just outside is perpendicular to the surface (G10 p.146)."
+      ],
+      "marking_points": [
+        "Correct term: zero (1 point); also accept: 0"
+      ],
+      "tips": [
+        "Charge on a conductor lives on the outer surface; inside, E = 0."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Where does the excess charge reside on a charged hollow metal sphere?",
+          "options": null,
+          "answer": "On its outer surface",
+          "explanation_steps": [
+            "Like charges repel and move as far apart as possible – to the outer surface."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-coulomb-field"
+      ],
+      "keywords": [
+        "electric field inside conductor",
+        "electrostatic equilibrium"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Electricity: Electrostatics",
+        "section": "3.6 Electric field lines – field of a conductor",
+        "page": "146",
+        "pdf_page": 154,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q06",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 6,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 1,
+      "stem": "A6. A real image of an object can be formed between center of curvature C and focus F of a concave mirror if the object is located at ______.",
+      "options": null,
+      "answer": "beyond C (farther than the centre of curvature)",
+      "accepted_answers": [
+        "beyond C (farther than the centre of curvature)",
+        "beyond C",
+        "beyond the centre of curvature",
+        "a distance greater than 2f (R)"
+      ],
+      "explanation_steps": [
+        "Concave mirror (G10 p.234–236): object beyond C → real, inverted, diminished image between F and C; object at C → image at C; object between C and F → image beyond C."
+      ],
+      "marking_points": [
+        "Correct term: beyond C (farther than the centre of curvature) (1 point); also accept: beyond C, beyond the centre of curvature, a distance greater than 2f (R)"
+      ],
+      "tips": [
+        "Object and image swap: beyond C ↔ between F and C."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Where must an object be placed in front of a concave mirror to get a real image of the same size?",
+          "options": null,
+          "answer": "At the centre of curvature C",
+          "explanation_steps": [
+            "Object at C gives a real, inverted, same-size image at C."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-spherical-mirrors"
+      ],
+      "keywords": [
+        "concave mirror",
+        "centre of curvature",
+        "real image"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Geometrical Optics Part I: Reflection of Light and Mirrors",
+        "section": "5.5.3 Formation of images by spherical mirrors",
+        "page": "234-236",
+        "pdf_page": 242,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q07",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 7,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 1,
+      "stem": "A7. A material whose magnetization persists after being removed from an external magnetic field is called ______.",
+      "options": null,
+      "answer": "a permanent magnet (hard magnetic material)",
+      "accepted_answers": [
+        "a permanent magnet (hard magnetic material)",
+        "permanent magnet",
+        "hard magnetic material",
+        "ferromagnetic (hard) material"
+      ],
+      "explanation_steps": [
+        "The textbook (G11 p.71): a permanent magnet is one that holds its magnetic properties over a long period of time; such hard magnetic materials (steel, alnico – alloys of iron, nickel and cobalt) keep their magnetism when the magnetizing field is removed. Soft iron loses it (temporary magnet)."
+      ],
+      "marking_points": [
+        "Correct term: a permanent magnet (hard magnetic material) (1 point); also accept: permanent magnet, hard magnetic material, ferromagnetic (hard) material"
+      ],
+      "tips": [
+        "Steel → permanent; soft iron → temporary (electromagnet cores)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Why is soft iron, not steel, used as the core of an electromagnet?",
+          "options": null,
+          "answer": "Soft iron magnetises easily and loses its magnetism when the current is switched off (temporary magnet)",
+          "explanation_steps": [
+            "The magnet can then be turned on and off."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-magnets"
+      ],
+      "keywords": [
+        "permanent magnet",
+        "hard magnetic material",
+        "magnetization"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Magnetism",
+        "section": "2.1.2 Types of magnet – permanent and temporary",
+        "page": "71-72",
+        "pdf_page": 75,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q08",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 8,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 1,
+      "stem": "A8. All waves are produced by ______ of objects.",
+      "options": null,
+      "answer": "vibrations (oscillations)",
+      "accepted_answers": [
+        "vibrations (oscillations)",
+        "vibrations",
+        "vibration",
+        "oscillations"
+      ],
+      "explanation_steps": [
+        "A wave is a disturbance that transfers energy; every wave starts from a vibrating (oscillating) source (G11 p.143–144; sound from vibrating objects, G11 p.180)."
+      ],
+      "marking_points": [
+        "Correct term: vibrations (oscillations) (1 point); also accept: vibrations, vibration, oscillations"
+      ],
+      "tips": [
+        "No vibration, no wave."
+      ],
+      "similar_questions": [
+        {
+          "stem": "What is transferred by a wave?",
+          "options": null,
+          "answer": "Energy (not matter)",
+          "explanation_steps": [
+            "The particles of the medium only vibrate about their rest positions."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-wave-properties"
+      ],
+      "keywords": [
+        "vibration",
+        "wave production",
+        "oscillation"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Waves and Sound",
+        "section": "3.1.1 Wave motion",
+        "page": "143-144",
+        "pdf_page": 147,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q09",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 9,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 1,
+      "stem": "A9. A syringe and rubber sucker function by means of ______.",
+      "options": null,
+      "answer": "atmospheric pressure",
+      "accepted_answers": [
+        "atmospheric pressure",
+        "air pressure"
+      ],
+      "explanation_steps": [
+        "Pulling the piston of a syringe (or pressing the air out of a rubber sucker) lowers the pressure inside; the greater atmospheric pressure outside pushes the liquid in (or holds the sucker on the wall) (G12 p.43–46)."
+      ],
+      "marking_points": [
+        "Correct term: atmospheric pressure (1 point); also accept: air pressure"
+      ],
+      "tips": [
+        "Suckers, syringes, drinking straws, siphons – all use atmospheric pressure."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Why does a drinking straw work?",
+          "options": null,
+          "answer": "Sucking lowers the air pressure in the straw and atmospheric pressure on the drink pushes it up",
+          "explanation_steps": [
+            "The liquid is pushed, not pulled, up the straw."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-pressure"
+      ],
+      "keywords": [
+        "atmospheric pressure",
+        "syringe",
+        "rubber sucker"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Fluid Mechanics",
+        "section": "1.2.4 Applications of liquid and atmospheric pressure",
+        "page": "43-46",
+        "pdf_page": 49,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q10",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 10,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 1,
+      "stem": "A10. The electric charge of a photon is ______.",
+      "options": null,
+      "answer": "zero",
+      "accepted_answers": [
+        "zero",
+        "0",
+        "neutral (zero)"
+      ],
+      "explanation_steps": [
+        "The textbook (G12 p.102): photons are electrically neutral and are not deflected by electric and magnetic fields."
+      ],
+      "marking_points": [
+        "Correct term: zero (1 point); also accept: 0, neutral (zero)"
+      ],
+      "tips": [
+        "Photon: no charge, no rest mass, energy hf, momentum h/λ."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Why are photons not deflected by a magnetic field?",
+          "options": null,
+          "answer": "They carry no electric charge",
+          "explanation_steps": [
+            "F = qvB = 0 when q = 0."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-photons"
+      ],
+      "keywords": [
+        "photon",
+        "electric charge",
+        "neutral"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Quantum Physics",
+        "section": "2.2.2 Energy of a photon – properties of photons",
+        "page": "102",
+        "pdf_page": 108,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q11",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 11,
+      "section": "B. Work out",
+      "type": "workout",
+      "marks": 4,
+      "stem": "B1. The following table shows the change in velocities of a lorry and a train along a horizontal road.\nTime (s): 0, 1, 2, 3, 4\nVelocity of lorry (m/s): 0, 4, 8, 12, 16\nVelocity of train (m/s): 12, 12, 12, 12, 12\n(a) Find the accelerations of the lorry and the train for the time interval '0 – 4' s. (2 points)\n(b) Which one, the lorry or the train, will move longer distance in 4 s? (2 points)",
+      "stem_tables": [
+        {
+          "title": "Velocities of a lorry and a train",
+          "kind": "data",
+          "columns": [
+            "Time (s)",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "rows": [
+            [
+              "Velocity of lorry (m/s)",
+              "0",
+              "4",
+              "8",
+              "12",
+              "16"
+            ],
+            [
+              "Velocity of train (m/s)",
+              "12",
+              "12",
+              "12",
+              "12",
+              "12"
+            ]
+          ],
+          "align": [
+            "left",
+            "right",
+            "right",
+            "right",
+            "right",
+            "right"
+          ]
+        }
+      ],
+      "options": null,
+      "answer": "(a) Lorry: a = (16 − 0)/4 = 4 m/s²; train: a = (12 − 12)/4 = 0. (b) The train: it covers 12 × 4 = 48 m, the lorry only ½ × 4 × 4² = 32 m.",
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "question": "Accelerations of the lorry and the train for 0–4 s",
+          "answer": "Lorry 4 m/s²; train 0 m/s²",
+          "steps": [
+            "a = Δv/Δt: lorry (16 − 0)/4 = 4 m/s²; train (12 − 12)/4 = 0."
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "question": "Which moves the longer distance in 4 s?",
+          "answer": "The train (48 m against 32 m)",
+          "steps": [
+            "Lorry: ½ × 4 × 16 = 32 m; train: 12 × 4 = 48 m."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "Acceleration = change in velocity ÷ time (G9 p.79–82).",
+        "Lorry: a = (16 − 0) m/s ÷ 4 s = 4 m/s² (constant: +4 m/s every second).",
+        "Train: velocity stays 12 m/s, so a = 0 (uniform velocity).",
+        "Distance of the lorry (from rest, uniform acceleration): s = ut + ½at² = 0 + ½ × 4 × 4² = 32 m (= area under its v–t line, ½ × 4 × 16).",
+        "Distance of the train: s = vt = 12 × 4 = 48 m.",
+        "48 m > 32 m, so the train moves the longer distance in the 4 s (although the lorry is faster at the end)."
+      ],
+      "marking_points": [
+        "(a) Lorry a = 4 m/s² with working Δv/Δt (1 point); train a = 0 (1 point)",
+        "(b) Lorry distance 32 m (½ point); train distance 48 m (½ point); correct conclusion 'the train' (1 point)",
+        "Allow the area-under-graph method; the conclusion without supporting distances earns at most 1 point"
+      ],
+      "tips": [
+        "Distance = area under the v–t graph: triangle for the lorry, rectangle for the train."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A car starts from rest and reaches 20 m/s in 5 s; a bus moves at a steady 15 m/s. (a) Find the car's acceleration. (b) Which covers more distance in the 5 s?",
+          "options": null,
+          "answer": "(a) 4 m/s²; (b) the bus (75 m vs 50 m)",
+          "explanation_steps": [
+            "a = 20/5 = 4 m/s².",
+            "Car: ½ × 4 × 5² = 50 m; bus: 15 × 5 = 75 m → the bus."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-accelerated-motion",
+        "phys-motion-graphs"
+      ],
+      "keywords": [
+        "acceleration",
+        "uniform velocity",
+        "distance",
+        "velocity-time table"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Motion in One Dimension",
+        "section": "2.1.4 Acceleration; 2.1.6 Equations of uniformly accelerated motion",
+        "page": "79-90",
+        "pdf_page": 86,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 9,
+          "unit": "Unit 2 – Motion in One Dimension",
+          "section": "2.2 Graphs of motion",
+          "page": "98-104",
+          "pdf_page": 105,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q12",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 12,
+      "section": "B. Work out",
+      "type": "workout",
+      "marks": 4,
+      "stem": "B2. An object 'X' of mass 20.0 kg moving to the right at 5.0 m/s makes an elastic head-on collision on a straight horizontal road with an object 'Y' of the same mass 20.0 kg that is initially at rest. Neglecting friction on the surface calculate the\n(a) velocities of objects 'X' and 'Y' after the collision. (2 points)\n(b) change in kinetic energy of the system involving objects of 'X' and 'Y'. (2 points)",
+      "options": null,
+      "answer": "(a) X stops (v(X) = 0) and Y moves off at 5.0 m/s to the right. (b) ΔKE = 0 (250 J before and 250 J after) – kinetic energy is conserved in an elastic collision.",
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "question": "Velocities of X and Y after the collision",
+          "answer": "v(X) = 0; v(Y) = 5.0 m/s to the right",
+          "steps": [
+            "Conservation of momentum and of kinetic energy (or v(X) = (m₁ − m₂)u/(m₁ + m₂), v(Y) = 2m₁u/(m₁ + m₂))."
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "question": "Change in kinetic energy of the system",
+          "answer": "0 J (KE before = KE after = 250 J)",
+          "steps": [
+            "½ × 20 × 25 = 250 J before and after."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "In an elastic collision both momentum and kinetic energy are conserved (G9 p.188–193, p.231–233).",
+        "Momentum: 20 × 5.0 + 20 × 0 = 20·v(X) + 20·v(Y) → v(X) + v(Y) = 5.0.",
+        "Kinetic energy: ½ × 20 × 5.0² = ½ × 20·v(X)² + ½ × 20·v(Y)² → v(X)² + v(Y)² = 25.",
+        "Solving: v(X)·v(Y) = 0; the non-trivial solution is v(X) = 0, v(Y) = 5.0 m/s (equal masses exchange velocities). Formula check: v(X) = (m₁ − m₂)u/(m₁ + m₂) = 0; v(Y) = 2m₁u/(m₁ + m₂) = 5.0 m/s.",
+        "KE before = ½ × 20 × 5.0² = 250 J; KE after = ½ × 20 × 0² + ½ × 20 × 5.0² = 250 J.",
+        "ΔKE = 250 − 250 = 0 J."
+      ],
+      "marking_points": [
+        "(a) Momentum and KE conservation equations written (1 point); v(X) = 0 and v(Y) = 5.0 m/s to the right (1 point)",
+        "(b) KE before = 250 J and KE after = 250 J (1 point); ΔKE = 0 (1 point)",
+        "Accept the statement 'KE is conserved in an elastic collision, so ΔKE = 0' with the 250 J values"
+      ],
+      "tips": [
+        "Equal masses, elastic, one at rest → the moving one stops and the other takes all its velocity (Newton's cradle)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A 2.0 kg trolley at 3.0 m/s collides with and sticks to a 1.0 kg trolley at rest. Find (a) their common velocity, (b) the kinetic energy lost.",
+          "options": null,
+          "answer": "(a) 2.0 m/s; (b) 3.0 J",
+          "explanation_steps": [
+            "Momentum: 2.0 × 3.0 = 3.0·v → v = 2.0 m/s.",
+            "KE before 9.0 J; after ½ × 3.0 × 2.0² = 6.0 J; loss 3.0 J (perfectly inelastic)."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-momentum-collisions"
+      ],
+      "keywords": [
+        "elastic collision",
+        "conservation of momentum",
+        "kinetic energy",
+        "equal masses"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Force and Motion",
+        "section": "3.3.3 Conservation of momentum – collisions",
+        "page": "188-193",
+        "pdf_page": 195,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 9,
+          "unit": "Unit 4 – Work, Energy, and Power",
+          "section": "4.2 Energy – elastic and inelastic collisions",
+          "page": "231-233",
+          "pdf_page": 238,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q13",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 13,
+      "section": "B. Work out",
+      "type": "workout",
+      "marks": 4,
+      "stem": "B3. Two charges of q₁ = +1.0 μC and q₂ = −2.0 μC are 0.2 m apart as shown in Figure 3 (point P is midway between q₁ and q₂). [k = 9 × 10⁹ N·m²/C²]\nFind:\n(a) The electric potential energy of the system of point charges. (2 points)\n(b) The net electric field at point P mid-way between the charges q₁ and q₂. (2 points)",
+      "stem_tex": "B3. Two charges of $q_1 = +1.0\\ \\mu\\mathrm{C}$ and $q_2 = -2.0\\ \\mu\\mathrm{C}$ are 0.2 m apart as shown in Figure 3 (point P is midway between $q_1$ and $q_2$). $\\left[k = 9\\times10^{9}\\ \\mathrm{N\\,m^2/C^2}\\right]$ Find: (a) The electric potential energy of the system of point charges. (2 points) (b) The net electric field at point P mid-way between the charges $q_1$ and $q_2$. (2 points)",
+      "image": "media/physics-2021-matric-p2q13-two-charges.png",
+      "image_alt": "Charge q₁ on the left and q₂ on the right joined by a line 0.2 m long, with point P at the midpoint.",
+      "options": null,
+      "answer": "(a) U = kq₁q₂/r = −0.09 J (−9.0 × 10⁻² J). (b) E = 2.7 × 10⁶ N/C, directed from q₁ towards q₂.",
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "question": "Electric potential energy of the system",
+          "answer": "U = −0.09 J",
+          "steps": [
+            "U = kq₁q₂/r = 9 × 10⁹ × 1.0 × 10⁻⁶ × (−2.0 × 10⁻⁶)/0.2 = −0.09 J."
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "question": "Net electric field at P",
+          "answer": "2.7 × 10⁶ N/C towards q₂",
+          "steps": [
+            "E₁ = 9.0 × 10⁵ N/C, E₂ = 1.8 × 10⁶ N/C, both towards q₂; E = 2.7 × 10⁶ N/C."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "(a) Electric potential energy of two point charges: U = kq₁q₂/r (G10 p.151–157).",
+        "U = 9 × 10⁹ × (1.0 × 10⁻⁶) × (−2.0 × 10⁻⁶) / 0.2 = −0.018/0.2 = −0.09 J. The negative sign shows the charges attract (work is needed to separate them).",
+        "(b) P is 0.1 m from each charge. Field of q₁ at P: E₁ = kq₁/r² = 9 × 10⁹ × 1.0 × 10⁻⁶ / 0.1² = 9.0 × 10⁵ N/C, pointing away from the positive q₁, i.e. towards q₂ (G10 p.135–140).",
+        "Field of q₂ at P: E₂ = 9 × 10⁹ × 2.0 × 10⁻⁶ / 0.01 = 1.8 × 10⁶ N/C, pointing towards the negative q₂ – the same direction.",
+        "Both fields point from q₁ to q₂, so they add: E = 9.0 × 10⁵ + 1.8 × 10⁶ = 2.7 × 10⁶ N/C towards q₂."
+      ],
+      "marking_points": [
+        "(a) Formula U = kq₁q₂/r (1 point); −0.09 J with the negative sign (1 point; ½ point if the sign is missing)",
+        "(b) E₁ = 9 × 10⁵ N/C and E₂ = 1.8 × 10⁶ N/C (1 point); net 2.7 × 10⁶ N/C with direction towards q₂ (1 point)",
+        "Using r = 0.2 m instead of 0.1 m in (b) loses the value point"
+      ],
+      "tips": [
+        "Between unlike charges the two fields point the same way (from + to −) and ADD; between like charges they subtract."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Charges of +3.0 μC and +1.0 μC are 0.40 m apart. Find (a) the electric potential energy of the pair, (b) the electric field midway between them (k = 9 × 10⁹ N·m²/C²).",
+          "options": null,
+          "answer": "(a) +0.0675 J; (b) 4.5 × 10⁵ N/C directed towards the +1.0 μC charge",
+          "explanation_steps": [
+            "U = 9 × 10⁹ × 3.0 × 10⁻⁶ × 1.0 × 10⁻⁶ / 0.40 = 0.0675 J.",
+            "At 0.20 m: E₁ = 9 × 10⁹ × 3.0 × 10⁻⁶/0.04 = 6.75 × 10⁵ N/C; E₂ = 2.25 × 10⁵ N/C, opposite directions → 4.5 × 10⁵ N/C away from the larger charge."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-electric-potential",
+        "phys-coulomb-field"
+      ],
+      "keywords": [
+        "electric potential energy",
+        "electric field",
+        "point charges",
+        "superposition"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Electricity: Electrostatics",
+        "section": "3.7 Electrical potential energy and electric potential",
+        "page": "151-157",
+        "pdf_page": 159,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 10,
+          "unit": "Unit 3 – Electricity: Electrostatics",
+          "section": "3.5 Electric field",
+          "page": "135-140",
+          "pdf_page": 143,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "phys-2021-matric-p2-q14",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 14,
+      "section": "B. Work out",
+      "type": "workout",
+      "marks": 4,
+      "stem": "B4. A triangular prism of refracting angle 60° gives a minimum angle of deviation of 30°. [sin 30° = 0.50, sin 45° = 0.71, c = 3 × 10⁸ m/s]\nFind:\n(a) The refractive index of the material of the prism. (2 points)\n(b) The wave length of light of frequency 4 × 10¹⁶ Hz in the prism. (2 points)",
+      "stem_tex": "B4. A triangular prism of refracting angle $60^\\circ$ gives a minimum angle of deviation of $30^\\circ$. $\\left[\\sin 30^\\circ = 0.50,\\ \\sin 45^\\circ = 0.71,\\ c = 3\\times10^{8}\\ \\mathrm{m/s}\\right]$ Find: (a) The refractive index of the material of the prism. (2 points) (b) The wave length of light of frequency $4\\times10^{16}$ Hz in the prism. (2 points)",
+      "options": null,
+      "answer": "(a) n = sin 45°/sin 30° = 0.71/0.50 = 1.42 (√2 ≈ 1.41). (b) λ = c/(nf) = 3 × 10⁸/(1.42 × 4 × 10¹⁶) = 5.3 × 10⁻⁹ m (5.3 nm).",
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "question": "Refractive index of the prism",
+          "answer": "n = 1.42 (≈ √2)",
+          "steps": [
+            "n = sin((A + Dm)/2)/sin(A/2) = sin 45°/sin 30° = 0.71/0.50 = 1.42."
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "question": "Wavelength of light of frequency 4 × 10¹⁶ Hz in the prism",
+          "answer": "λ ≈ 5.3 × 10⁻⁹ m",
+          "steps": [
+            "v = c/n = 2.11 × 10⁸ m/s; λ = v/f = 5.28 × 10⁻⁹ m."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "(a) At minimum deviation n = sin((A + Dm)/2) / sin(A/2) (G11 p.51).",
+        "n = sin((60° + 30°)/2) / sin(60°/2) = sin 45° / sin 30° = 0.71/0.50 = 1.42 (exactly √2 = 1.414).",
+        "(b) In the prism the speed is v = c/n = 3 × 10⁸/1.42 = 2.11 × 10⁸ m/s; the frequency does not change on refraction.",
+        "λ = v/f = 2.11 × 10⁸ / 4 × 10¹⁶ = 5.28 × 10⁻⁹ m ≈ 5.3 × 10⁻⁹ m (5.30 × 10⁻⁹ m with n = √2)."
+      ],
+      "marking_points": [
+        "(a) Correct minimum-deviation formula (1 point); n = 1.42 (accept 1.41–1.42) (1 point)",
+        "(b) v = c/n or λ = c/(nf) (1 point); λ ≈ 5.3 × 10⁻⁹ m (1 point); allow follow-through from (a)"
+      ],
+      "tips": [
+        "Frequency stays the same when light enters a new medium; speed and wavelength both divide by n."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A prism of refracting angle 60° has a minimum deviation of 40°. Find its refractive index (sin 50° = 0.766, sin 30° = 0.50) and the wavelength inside it of light of frequency 5.0 × 10¹⁴ Hz (c = 3 × 10⁸ m/s).",
+          "options": null,
+          "answer": "n = 1.53; λ = 3.9 × 10⁻⁷ m (392 nm)",
+          "explanation_steps": [
+            "n = sin 50°/sin 30° = 0.766/0.50 = 1.53.",
+            "λ = c/(nf) = 3 × 10⁸/(1.53 × 5.0 × 10¹⁴) = 3.92 × 10⁻⁷ m."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-prism-dispersion",
+        "phys-refractive-index"
+      ],
+      "keywords": [
+        "prism",
+        "minimum deviation",
+        "refractive index",
+        "wavelength in a medium"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Geometrical Optics Part II: Refraction of Light and Lenses",
+        "section": "1.4 Dispersion of light – refraction through a prism (minimum deviation)",
+        "page": "50-51",
+        "pdf_page": 54,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 11,
+          "unit": "Unit 1 – Geometrical Optics Part II: Refraction of Light and Lenses",
+          "section": "1.1.3 Refractive index",
+          "page": "7-8",
+          "pdf_page": 11,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "medium",
+      "review_flag": "B4(b): 4 × 10¹⁶ Hz is far outside the visible range (λ in vacuum 7.5 nm, soft X-ray/extreme UV) where a glass prism would not refract normally; probably 4 × 10¹⁴ Hz was intended (λ = 5.3 × 10⁻⁷ m). Answer given for the printed value; teachers may accept either."
+    },
+    {
+      "id": "phys-2021-matric-p2-q15",
+      "exam_id": "phys-2021-matric",
+      "part": 2,
+      "number": 15,
+      "section": "B. Work out",
+      "type": "workout",
+      "marks": 4,
+      "stem": "B5. In photoelectric experiment, the work function of a given photosensitive metal is 2.8 eV and the maximum speed of the emitted electrons is 6 × 10⁶ m/s. [mₑ = 9.11 × 10⁻³¹ kg, e = 1.60 × 10⁻¹⁹ C, h = 6.63 × 10⁻³⁴ J·s, c = 3 × 10⁸ m/s]\nDetermine the\n(a) Stopping potential. (2 points)\n(b) Wavelength of the incident radiation. (2 points)",
+      "stem_tex": "B5. In photoelectric experiment, the work function of a given photosensitive metal is 2.8 eV and the maximum speed of the emitted electrons is $6\\times10^{6}$ m/s. $\\left[m_e = 9.11\\times10^{-31}\\ \\mathrm{kg},\\ e = 1.60\\times10^{-19}\\ \\mathrm{C},\\ h = 6.63\\times10^{-34}\\ \\mathrm{J\\,s},\\ c = 3\\times10^{8}\\ \\mathrm{m/s}\\right]$ Determine the (a) Stopping potential. (2 points) (b) Wavelength of the incident radiation. (2 points)",
+      "options": null,
+      "answer": "(a) KEmax = ½mv² = 1.64 × 10⁻¹⁷ J, so V₀ = KEmax/e ≈ 102 V (102.5 V). (b) hf = W₀ + KEmax = 4.48 × 10⁻¹⁹ + 1.64 × 10⁻¹⁷ = 1.68 × 10⁻¹⁷ J, so λ = hc/E ≈ 1.18 × 10⁻⁸ m (11.8 nm).",
+      "subparts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "question": "Stopping potential",
+          "answer": "V₀ ≈ 102 V (102.5 V)",
+          "steps": [
+            "KEmax = ½ × 9.11 × 10⁻³¹ × (6 × 10⁶)² = 1.64 × 10⁻¹⁷ J; V₀ = KEmax/e = 102.5 V."
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "question": "Wavelength of the incident radiation",
+          "answer": "λ ≈ 1.18 × 10⁻⁸ m",
+          "steps": [
+            "E = W₀ + KEmax = 1.685 × 10⁻¹⁷ J; λ = hc/E = 1.18 × 10⁻⁸ m."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "(a) Maximum kinetic energy of the photoelectrons: KEmax = ½mₑv² = ½ × 9.11 × 10⁻³¹ × (6 × 10⁶)² = 1.64 × 10⁻¹⁷ J (G12 p.108–111).",
+        "The stopping potential just stops the fastest electrons: eV₀ = KEmax → V₀ = 1.64 × 10⁻¹⁷ / 1.60 × 10⁻¹⁹ = 102.5 V ≈ 102 V.",
+        "(b) Einstein's photoelectric equation: hf = W₀ + KEmax (G12 p.112–115). W₀ = 2.8 eV = 2.8 × 1.60 × 10⁻¹⁹ = 4.48 × 10⁻¹⁹ J.",
+        "Photon energy E = 4.48 × 10⁻¹⁹ + 1.640 × 10⁻¹⁷ = 1.685 × 10⁻¹⁷ J (= 105.3 eV).",
+        "λ = hc/E = 6.63 × 10⁻³⁴ × 3 × 10⁸ / 1.685 × 10⁻¹⁷ = 1.18 × 10⁻⁸ m (11.8 nm – extreme ultraviolet)."
+      ],
+      "marking_points": [
+        "(a) KEmax = ½mv² = 1.64 × 10⁻¹⁷ J (1 point); V₀ = KEmax/e ≈ 102 V (1 point)",
+        "(b) hf = W₀ + KEmax with W₀ converted to joules (1 point); λ ≈ 1.2 × 10⁻⁸ m (1 point); allow follow-through"
+      ],
+      "tips": [
+        "Work in joules throughout (1 eV = 1.60 × 10⁻¹⁹ J); the stopping potential in volts equals KEmax in eV."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Light of wavelength 300 nm falls on a metal of work function 2.5 eV. Find the maximum kinetic energy of the photoelectrons in eV and the stopping potential (h = 6.63 × 10⁻³⁴ J·s, c = 3 × 10⁸ m/s, e = 1.60 × 10⁻¹⁹ C).",
+          "options": null,
+          "answer": "KEmax ≈ 1.64 eV; V₀ ≈ 1.64 V",
+          "explanation_steps": [
+            "E = hc/λ = 6.63 × 10⁻³⁴ × 3 × 10⁸ / 3.00 × 10⁻⁷ = 6.63 × 10⁻¹⁹ J = 4.14 eV.",
+            "KEmax = 4.14 − 2.5 = 1.64 eV → V₀ = 1.64 V."
+          ]
+        }
+      ],
+      "topics": [
+        "phys-photoelectric"
+      ],
+      "keywords": [
+        "photoelectric effect",
+        "stopping potential",
+        "work function",
+        "wavelength",
+        "Einstein's equation"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Quantum Physics",
+        "section": "2.2.3 Photoelectric effect – stopping potential and work function",
+        "page": "108-115",
+        "pdf_page": 114,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "B5: with the printed speed 6 × 10⁶ m/s the photons are extreme-UV (λ ≈ 12 nm, V₀ ≈ 102 V), unusual for a school photoelectric problem; 6 × 10⁵ m/s may have been intended (V₀ ≈ 1.02 V, λ ≈ 3.2 × 10⁻⁷ m). Answer given for the printed value."
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+/* ================================================================ HIGH: 3D EMBOSSED CLAY LAYER (on top of the Warsay Prep template)
+   Ported from Junior's layer (junior/app/src/template.html) with Warsay Prep colours, sizes and typography.
+   Puffy panels: lighter-top gradient + tinted drop shadow + inset top-left highlight + inset tinted shade bottom-right.
+   Keys / buttons / icons: raised with a solid bottom "thickness" edge + top gloss; :active / selected = pushed in. */
+:root{
+  --hi:rgba(255,255,255,.78); --hi-2:rgba(255,255,255,.5); --lift:#fff; --shade:120,85,55;
+  --edge-n:#E5D5BF; --coral-edge:#C65A40; --avatar-edge:#467550;
+  --tone-edge:color-mix(in srgb,var(--mid,#D9C3A8) 55%,var(--deep,#8C6A4C));
+}
+[data-theme="dark"]{
+  --hi:rgba(255,236,214,.10); --hi-2:rgba(255,236,214,.06); --lift:#5A4E44; --shade:0,0,0;
+  --edge-n:#15110E; --coral-edge:#A85A44; --avatar-edge:#2F4A36;
+}
+.t-sage,.t-peach,.t-butter,.t-blue,.t-lilac,.t-rose,.t-mint{--tone-edge:color-mix(in srgb,var(--mid) 55%,var(--deep))}
+[data-theme="dark"] :is(.t-sage,.t-peach,.t-butter,.t-blue,.t-lilac,.t-rose,.t-mint){--tone-edge:color-mix(in srgb,var(--tile) 55%,#000)}
+.phone{background:linear-gradient(180deg,#FBF5EC 0%,#F7F0E5 45%,#F2E9DB 100%)}
+[data-theme="dark"] .phone{background:linear-gradient(180deg,#27211C 0%,#211C18 50%,#1B1714 100%)}
+/* ---- puffy raised clay panels */
+.card,.tile,.nav,.sheet,.timerbar,.msg.bot,.mini div{--c:var(--tile,var(--surface));--d:var(--deep,#9C7A5B);
+  box-shadow:0 18px 26px -16px color-mix(in srgb,var(--d) 55%,transparent),0 6px 12px -7px color-mix(in srgb,var(--d) 36%,transparent),
+    inset 5px 7px 11px -4px var(--hi),inset -6px -9px 14px -6px color-mix(in srgb,var(--d) 28%,transparent)}
+.card,.nav,.sheet,.timerbar,.msg.bot{--c:var(--surface)}
+.card,.tile:not(.hero):not(.banner),.nav,.timerbar,.msg.bot,.mini div{background:linear-gradient(180deg,color-mix(in srgb,var(--c) 58%,var(--lift)) 0%,var(--c) 52%,color-mix(in srgb,var(--c) 90%,var(--d)) 100%)}
+.sheet{background:linear-gradient(180deg,color-mix(in srgb,var(--bg) 60%,var(--lift)) 0%,var(--bg) 30%);box-shadow:0 -14px 30px -10px rgba(var(--shade),.35),inset 0 8px 12px -6px var(--hi)}
+.msg.bot.refuse{--c:var(--peach);--d:var(--peach-3)}
+.mini div{box-shadow:0 10px 16px -10px color-mix(in srgb,var(--d) 55%,transparent),inset 4px 5px 8px -3px var(--hi),inset -4px -6px 10px -5px color-mix(in srgb,var(--d) 28%,transparent)}
+.card.press:active,.tile.press:active,.rv:active{transform:translateY(3px) scale(.985);
+  box-shadow:0 8px 14px -10px color-mix(in srgb,var(--d) 55%,transparent),inset 5px 7px 11px -4px var(--hi),inset -5px -7px 12px -4px color-mix(in srgb,var(--d) 36%,transparent)}
+/* ---- raised keys & buttons with a thickness edge; pressed = pushed in */
+.btn,.opt,.cbtn,.playbtn,.bm,.chip,.pill,.seg button,.nav button,.palette button,.avatar,.mslot,.qlink,.composer button,.zoomv .zbar button,.cat .go{transition:transform .12s ease-out,box-shadow .12s ease-out,background .2s}
+.btn.coral,.composer button{background:radial-gradient(120% 70% at 50% -10%,rgba(255,255,255,.32),transparent 55%),linear-gradient(180deg,var(--coral-2),var(--coral));
+  box-shadow:0 5px 0 var(--coral-edge),0 12px 18px -8px color-mix(in srgb,var(--coral) 70%,transparent),inset 0 2px 1px rgba(255,255,255,.45),inset 0 -3px 5px rgba(0,0,0,.12)}
+.btn.coral:active,.composer button:active{transform:translateY(4px);box-shadow:0 1px 0 var(--coral-edge),0 4px 8px -4px var(--coral),inset 0 3px 8px rgba(0,0,0,.28)}
+.btn.tone{box-shadow:0 5px 0 var(--tone-edge),0 12px 16px -8px color-mix(in srgb,var(--deep) 70%,transparent),inset 0 2px 1px rgba(255,255,255,.45),inset 0 -3px 5px rgba(0,0,0,.12)}
+.btn.tone:active{transform:translateY(4px);box-shadow:0 1px 0 var(--tone-edge),inset 0 3px 8px rgba(0,0,0,.25)}
+.btn.soft{background:linear-gradient(180deg,color-mix(in srgb,var(--surface-2) 55%,var(--lift)),var(--surface-2));
+  box-shadow:0 5px 0 var(--edge-n),0 12px 16px -9px rgba(var(--shade),.4),inset 0 2px 1px var(--hi),inset 0 -3px 5px rgba(var(--shade),.08)}
+.btn.soft:active{transform:translateY(4px);box-shadow:0 1px 0 var(--edge-n),inset 0 3px 8px rgba(var(--shade),.25)}
+.btn[disabled]{opacity:1;background:var(--surface-2);color:var(--ink-3);text-shadow:none;transform:translateY(4px);box-shadow:0 1px 0 var(--edge-n),inset 0 3px 8px rgba(var(--shade),.18)}
+/* round buttons */
+.cbtn,.playbtn,.zoomv .zbar button{background:radial-gradient(circle at 35% 28%,var(--lift),var(--surface) 62%);
+  box-shadow:0 4px 0 var(--edge-n),0 10px 14px -7px rgba(var(--shade),.45),inset 0 -3px 5px rgba(var(--shade),.12),inset 0 2px 2px var(--hi)}
+.cbtn:active,.playbtn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--edge-n),inset 0 3px 6px rgba(var(--shade),.3)}
+.daily .ov .playbtn{box-shadow:0 4px 0 rgba(120,50,30,.35),0 10px 14px -7px rgba(80,30,10,.5),inset 0 -3px 5px rgba(var(--shade),.12),inset 0 2px 2px var(--hi)}
+.bm{background:radial-gradient(circle at 35% 28%,var(--lift),var(--surface-2) 66%);box-shadow:0 3px 0 var(--edge-n),0 7px 10px -6px rgba(var(--shade),.4),inset 0 2px 2px var(--hi)}
+.bm.on{background:radial-gradient(circle at 35% 28%,color-mix(in srgb,var(--butter) 50%,#fff),var(--butter) 66%);box-shadow:0 3px 0 var(--butter-2),0 7px 10px -6px rgba(var(--shade),.4),inset 0 2px 2px var(--hi)}
+.bm:active{transform:translateY(3px);box-shadow:0 0 0 var(--edge-n),inset 0 2px 5px rgba(var(--shade),.3)}
+.avatar{box-shadow:0 4px 0 var(--avatar-edge),0 10px 14px -7px rgba(var(--shade),.45),inset 0 2px 2px rgba(255,255,255,.35),inset 0 -3px 5px rgba(0,0,0,.12)}
+.avatar.press:active{transform:translateY(3px);box-shadow:0 1px 0 var(--avatar-edge),inset 0 3px 6px rgba(0,0,0,.3)}
+/* chips & pills */
+.chip,.pill{background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 50%,var(--lift)),var(--surface));
+  box-shadow:0 3px 0 var(--edge-n),0 7px 9px -6px rgba(var(--shade),.35),inset 0 2px 1px var(--hi)}
+.pill{background:linear-gradient(180deg,color-mix(in srgb,var(--surface-2) 50%,var(--lift)),var(--surface-2))}
+.chip.on{background:var(--ink);color:var(--bg);transform:translateY(3px);box-shadow:0 0 0 var(--edge-n),inset 2px 3px 6px rgba(0,0,0,.35)}
+.chip:active,.pill.press:active{transform:translateY(3px);box-shadow:0 0 0 var(--edge-n),inset 2px 3px 6px rgba(var(--shade),.25)}
+.chips{padding:4px 2px 12px}
+.suggbar .chip,.chip[style*="--tile"]{background:linear-gradient(180deg,color-mix(in srgb,var(--tile) 50%,var(--lift)),var(--tile));box-shadow:0 3px 0 var(--tone-edge),0 7px 9px -6px rgba(var(--shade),.35),inset 0 2px 1px var(--hi)}
+/* segmented controls: debossed track, raised keys, the chosen key pressed in */
+.seg{padding:5px 5px 9px;background:var(--surface-2);box-shadow:inset 3px 4px 8px rgba(var(--shade),.2),inset -2px -2px 5px var(--hi-2)}
+.seg button{background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 50%,var(--lift)),var(--surface));color:var(--ink-2);
+  box-shadow:0 4px 0 var(--edge-n),0 8px 10px -6px rgba(var(--shade),.35),inset 0 2px 1px var(--hi)}
+.seg button.on{background:var(--sage);color:var(--sage-3);transform:translateY(4px);box-shadow:inset 0 0 0 2px var(--sage-2),inset 2px 3px 6px color-mix(in srgb,var(--sage-3) 35%,transparent)}
+.seg button.on .c{background:var(--surface);color:var(--sage-3)}
+.catseg{padding:6px 6px 10px}
+.catseg button.on{background:var(--tile);color:var(--deep);box-shadow:inset 0 0 0 2px var(--mid),inset 2px 3px 6px color-mix(in srgb,var(--deep) 35%,transparent)}
+.catseg button.on .c{color:var(--deep)}
+.seg button:active{transform:translateY(4px)}
+/* bottom nav: raised clay bar; items raised keys, the current one pressed in */
+.nav{height:76px;padding:0 8px 4px;gap:6px;border-radius:28px}
+.nav button{height:56px;background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 45%,var(--lift)),var(--surface));
+  box-shadow:0 4px 0 var(--edge-n),0 8px 10px -8px rgba(var(--shade),.35),inset 0 2px 1px var(--hi);border-radius:18px;font-size:11px;padding:0}
+.nav button svg{width:22px;height:22px}
+.nav button.on{background:var(--sage);color:var(--sage-3);transform:translateY(4px);flex:1.25;
+  box-shadow:inset 0 0 0 2px var(--sage-2),inset 3px 4px 8px color-mix(in srgb,var(--sage-3) 32%,transparent)}
+.nav button:active{transform:translateY(4px)}
+.screen{padding-bottom:116px}
+/* answer options */
+.opt{background:linear-gradient(180deg,color-mix(in srgb,var(--surface-2) 50%,var(--lift)),var(--surface-2) 60%);
+  box-shadow:0 4px 0 var(--edge-n),0 10px 14px -8px rgba(var(--shade),.35),inset 3px 4px 7px -3px var(--hi),inset -3px -4px 7px -4px rgba(var(--shade),.10)}
+.opts{gap:12px}
+.opt:active{transform:translateY(4px);box-shadow:0 0 0 var(--edge-n),inset 3px 4px 8px rgba(var(--shade),.22)}
+.opt .l{background:radial-gradient(circle at 35% 28%,var(--lift),var(--surface) 70%);box-shadow:0 3px 0 var(--edge-n),0 5px 7px -4px rgba(var(--shade),.4),inset 0 2px 2px var(--hi)}
+.opt.sel{background:var(--blue);transform:translateY(4px);box-shadow:inset 0 0 0 2px var(--blue-2),inset 3px 5px 9px color-mix(in srgb,var(--blue-3) 30%,transparent)}
+.opt.correct{background:linear-gradient(180deg,color-mix(in srgb,var(--sage) 50%,var(--lift)),var(--sage) 60%);
+  box-shadow:0 4px 0 color-mix(in srgb,var(--sage-2) 55%,var(--sage-3)),0 10px 14px -8px color-mix(in srgb,var(--sage-3) 55%,transparent),inset 0 0 0 2px var(--sage-2),inset 3px 4px 7px -3px var(--hi)}
+.opt.wrong{background:var(--peach);transform:translateY(4px);box-shadow:inset 0 0 0 2px var(--peach-2),inset 3px 5px 9px color-mix(in srgb,var(--peach-3) 35%,transparent);animation:shake4 .4s}
+@keyframes shake4{0%,100%{transform:translateY(4px)}25%{transform:translate(-5px,4px)}75%{transform:translate(5px,4px)}}
+.opt.dim{box-shadow:0 2px 0 var(--edge-n),inset 0 1px 1px var(--hi)}
+.opt.correct .l,.opt.wrong .l,.opt.sel .l{--s:var(--blue-3);background:radial-gradient(circle at 35% 28%,color-mix(in srgb,var(--s) 55%,#fff),var(--s) 68%);box-shadow:0 3px 0 color-mix(in srgb,var(--s) 70%,#000),inset 0 2px 2px rgba(255,255,255,.35)}
+.opt.correct .l{--s:var(--sage-3)} .opt.wrong .l{--s:var(--peach-3)}
+/* glossy icon badges: a thickness edge under the gloss */
+.badge{box-shadow:inset 0 2px 2px rgba(255,255,255,.55),inset 0 -3px 5px rgba(0,0,0,.14),0 3px 0 color-mix(in srgb,var(--deep) 72%,#000),0 8px 12px -5px color-mix(in srgb,var(--deep) 55%,transparent)}
+[data-theme="dark"] .badge{box-shadow:inset 0 2px 2px rgba(255,255,255,.4),inset 0 -3px 5px rgba(0,0,0,.14),0 3px 0 color-mix(in srgb,var(--deep) 45%,#000),0 8px 12px -5px rgba(0,0,0,.55)}
+.thumb,.qnum,.mring{background:radial-gradient(circle at 35% 28%,color-mix(in srgb,var(--tile) 45%,var(--lift)),var(--tile) 66%);box-shadow:0 3px 0 var(--tone-edge),0 7px 10px -6px color-mix(in srgb,var(--deep,#9C7A5B) 45%,transparent),inset 0 2px 2px var(--hi)}
+.cat .go{background:radial-gradient(circle at 35% 28%,var(--lift),var(--surface) 62%);box-shadow:0 3px 0 var(--tone-edge),0 7px 10px -6px color-mix(in srgb,var(--deep) 45%,transparent),inset 0 2px 2px var(--hi)}
+.cat .cnts span{box-shadow:inset 0 1px 1px var(--hi),0 2px 0 color-mix(in srgb,var(--mid) 60%,transparent)}
+/* progress bars: debossed track + puffy raised fill */
+.bar{box-shadow:inset 1px 2px 4px rgba(var(--shade),.25),inset -1px -1px 2px var(--hi-2)}
+.bar i{background:linear-gradient(180deg,color-mix(in srgb,var(--mid) 55%,#fff),var(--mid) 55%,color-mix(in srgb,var(--mid) 70%,var(--deep)));box-shadow:inset 0 1px 1px rgba(255,255,255,.55),inset 0 -1px 2px color-mix(in srgb,var(--deep) 30%,transparent)}
+.chart .b{box-shadow:inset 3px 3px 3px -1px rgba(255,255,255,.6),inset -2px -4px 5px rgba(0,0,0,.10),0 3px 0 var(--tone-edge),0 8px 10px -6px var(--deep)}
+.chart .b.zero{box-shadow:inset 1px 2px 4px rgba(var(--shade),.2)}
+/* debossed wells */
+.search,.field,.acc,.mcolb{box-shadow:inset 2px 3px 7px rgba(var(--shade),.18),inset -2px -2px 4px var(--hi-2)}
+.palette button{background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 50%,var(--lift)),var(--surface));box-shadow:0 3px 0 var(--edge-n),inset 0 1px 1px var(--hi)}
+.palette button.done,.palette button.ok,.palette button.bad{box-shadow:0 3px 0 var(--edge-n),inset 0 1px 1px var(--hi)}
+.palette button.cur{transform:translateY(2px);box-shadow:inset 0 0 0 2px var(--blue-3)}
+.verdict{box-shadow:0 8px 14px -10px rgba(var(--shade),.5),inset 3px 4px 7px -3px var(--hi)}
+.steps li:before{box-shadow:0 2px 0 color-mix(in srgb,var(--sage-2) 60%,var(--sage-3)),inset 0 1px 1px var(--hi)}
+.tips li,.simq,.model,.note{box-shadow:0 3px 0 color-mix(in srgb,var(--edge-n) 70%,transparent),0 7px 10px -7px rgba(var(--shade),.35),inset 0 2px 1px var(--hi)}
+.mrow,.mch,.mslot,.qlink{box-shadow:0 3px 0 var(--edge-n),0 7px 10px -7px rgba(var(--shade),.35),inset 0 2px 1px var(--hi)}
+[data-theme="dark"] :is(.card,.tile,.nav,.timerbar,.msg.bot){box-shadow:0 18px 26px -14px rgba(0,0,0,.72),0 6px 12px -7px rgba(0,0,0,.5),inset 4px 6px 11px -4px var(--hi),inset -6px -9px 14px -6px rgba(0,0,0,.36)}
+[data-theme="dark"] :is(.card.press,.tile.press,.rv):active{box-shadow:0 8px 14px -10px rgba(0,0,0,.7),inset 4px 6px 11px -4px var(--hi),inset -5px -7px 12px -4px rgba(0,0,0,.45)}
+[data-theme="dark"] :is(.thumb,.qnum,.mring,.cat .go){box-shadow:0 3px 0 var(--tone-edge),0 7px 10px -6px rgba(0,0,0,.55),inset 0 2px 2px var(--hi)}
+[data-theme="dark"] .chart .b{box-shadow:inset 3px 3px 3px -1px rgba(255,255,255,.3),inset -2px -4px 5px rgba(0,0,0,.18),0 3px 0 var(--tone-edge),0 8px 10px -6px rgba(0,0,0,.6)}
+[data-theme="dark"] .bar i{background:linear-gradient(180deg,color-mix(in srgb,var(--mid) 70%,#fff),var(--mid) 60%,color-mix(in srgb,var(--mid) 75%,#000))}
+/* High additions: settings page */
+.setrow{display:flex;align-items:center;gap:12px}
+.setrow .t{flex:1;min-width:0}
+.setrow .t b{display:block;font-size:15px;font-weight:900}
+.setrow .t span{display:block;font-size:12.5px;color:var(--ink-3);font-weight:700}
+.prof{display:flex;align-items:center;gap:14px}
+.prof .avatar{width:64px;height:64px;font-size:27px}
+.prof b{display:block;font-size:19px;font-weight:900}
+.prof span{display:block;font-size:12.5px;color:var(--ink-3);font-weight:700;margin-top:2px}

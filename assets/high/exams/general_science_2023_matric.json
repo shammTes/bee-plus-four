@@ -1,0 +1,6149 @@
+{
+  "schema_version": "1.0",
+  "exam": {
+    "id": "gensci-2023-matric",
+    "year": "2023",
+    "subject": "General Science",
+    "grade": 12,
+    "school": "Eritrean Secondary Education Certificate Examination (national)",
+    "type": "matriculation",
+    "semester": null,
+    "title": "Eritrean Secondary Education Certificate Examinations 2023 – General Science (3077)",
+    "exam_code": "3077",
+    "duration": "2 hours",
+    "duration_minutes": 120,
+    "total_points": 100,
+    "parts": [
+      {
+        "part": 1,
+        "title": "Part I – Multiple Choice Questions",
+        "question_type": "mcq",
+        "question_count": 100,
+        "points": 100,
+        "instructions": "This examination paper contains 100 multiple choice questions only. You must answer all of them. Each question carries one point. There is only one best answer for each question; blacken the letter of your choice on the Scantron answer sheet with a pencil. Constants that you may require for questions 71-100 (table printed on p.15 after Q70): g = 10 m/s², c = 3 × 10⁸ m/s (light in air and free space), refractive index of air n(air) ≈ 1, e = 1.60 × 10⁻¹⁹ C, h = 6.63 × 10⁻³⁴ J·s, sin 30° = cos 60° = 0.50, sin 45° = cos 45° = 0.71."
+      }
+    ],
+    "source": {
+      "document": "/workspace/matric/raw/2023/general_2023.pdf",
+      "pages": 24,
+      "scan": "Nitro image PDF (no text layer); text recovered by OCR and re-typed from the 150 dpi page images wherever formulas, charges, exponents or options were garbled",
+      "official_answer_key": false,
+      "note": "Every page is headed 'GSC'; the cover gives GENERAL SCIENCE (3077). In the scan, printed pages 10 (Q47–51) and 11 (Q52–56) are in reverse order (scan p.13 and p.12); the questions are stored in number order. Figures: the table of constants on scan p.17 (printed page 15, after Q70), cropped to content/media/general-science-2023-matric-constants.png and attached to Q71 and to the items that use a constant (Q76, Q77, Q79, Q88, Q96, Q100); Figure 1 (projectile trajectory A–E, scan p.19) cropped to content/media/general-science-2023-matric-q80-projectile.png for Q80. The constants a stem needs are also written into the stem in brackets. Blocks: biology Q1–35, chemistry Q36–70 (Q62, respiration, is referenced to the Biology book), physics Q71–100."
+    },
+    "answer_key_note": "No official key exists. All answers were solved independently; every calculation (main items and similar questions) is checked in tools/src_matric/general_science_2023/verify_calcs.py. Biology items are checked against the Eritrean MoE Biology textbooks G9–12, chemistry items against the Chemistry textbooks G9–12, physics items against the Physics textbooks G9–12; each textbook ref names its series in 'subject' and was keyword-checked in the extracted text (verified_in_text). There is no General Science textbook. See confidence and review_flag on each question.",
+    "notation": "unicode",
+    "textbooks": [
+      {
+        "subject": "biology",
+        "grade": 9,
+        "file": "textbook_biology_9.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 6
+      },
+      {
+        "subject": "biology",
+        "grade": 10,
+        "file": "textbook_biology_10.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "biology",
+        "grade": 11,
+        "file": "textbook_biology_11.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 6
+      },
+      {
+        "subject": "biology",
+        "grade": 12,
+        "file": "textbook_biology_12.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 6
+      },
+      {
+        "subject": "chemistry",
+        "grade": 9,
+        "file": "textbook_chemistry_9.pdf",
+        "publisher": "Eritrea Ministry of Education, 2011",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "chemistry",
+        "grade": 10,
+        "file": "textbook_chemistry_10.pdf",
+        "publisher": "Eritrea Ministry of Education, 2011",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "chemistry",
+        "grade": 11,
+        "file": "textbook_chemistry_11.pdf",
+        "publisher": "Eritrea Ministry of Education, 2011",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "chemistry",
+        "grade": 12,
+        "file": "textbook_chemistry_12.pdf",
+        "publisher": "Eritrea Ministry of Education, 2011",
+        "printed_page_offset": 6
+      },
+      {
+        "subject": "physics",
+        "grade": 9,
+        "file": "textbook_physics_9.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 7
+      },
+      {
+        "subject": "physics",
+        "grade": 10,
+        "file": "textbook_physics_10.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "physics",
+        "grade": 11,
+        "file": "textbook_physics_11.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 4
+      },
+      {
+        "subject": "physics",
+        "grade": 12,
+        "file": "textbook_physics_12.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 6
+      }
+    ],
+    "content_version": "1.0.0",
+    "language": "en"
+  },
+  "questions": [
+    {
+      "id": "gensci-2023-matric-p1-q01",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 1,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Organelles such as plant chloroplast can only be observed under",
+      "options": {
+        "A": "hand lens.",
+        "B": "light microscope.",
+        "C": "electron microscope.",
+        "D": "primitive microscope.",
+        "E": "compound microscope."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Textbook (G9 p.7): 'An electron microscope examines smaller structures such as viruses or the internal structures of cells ... An electron microscope helps to identify organelles like ribosomes, chromosomes or chloroplasts.'",
+        "C is keyed as the textbook answer. Note that whole chloroplasts (green dots) can be seen with a good light (compound) microscope; their internal structure (grana, thylakoids) needs an electron microscope, so the word 'only' makes the item imprecise."
+      ],
+      "tips": [
+        "Light microscope: cells, nuclei, chloroplasts as green dots. Electron microscope: ribosomes, membranes, internal structure of organelles, viruses."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following can be seen only with an electron microscope?",
+          "options": {
+            "A": "A red blood cell",
+            "B": "An onion epidermal cell",
+            "C": "A virus",
+            "D": "A Paramecium",
+            "E": "A cheek cell nucleus"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Viruses (about 20–300 nm) are far below the resolution of a light microscope. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-cell"
+      ],
+      "keywords": [
+        "electron microscope",
+        "light microscope",
+        "chloroplast",
+        "organelles"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – The Cell",
+        "section": "1.1.3 Tools of biology – the electron microscope",
+        "page": "7",
+        "pdf_page": 13,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Keyed C from the textbook (EM identifies chloroplasts), but chloroplasts are visible under a light/compound microscope (B/E); 'can only be observed' is scientifically too strong. Teacher to decide."
+    },
+    {
+      "id": "gensci-2023-matric-p1-q02",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 2,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The ______ is the fluid region of a cell.",
+      "options": {
+        "A": "nucleus",
+        "B": "ribosome",
+        "C": "cell membrane",
+        "D": "golgi apparatus",
+        "E": "cytoplasm"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "The cytoplasm is the jelly-like fluid (cytosol) between the cell membrane and the nucleus, in which the organelles are suspended (G9 p.12).",
+        "Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The organelle that controls all the activities of the cell is the",
+          "options": {
+            "A": "cytoplasm",
+            "B": "nucleus",
+            "C": "ribosome",
+            "D": "vacuole",
+            "E": "cell wall"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "The nucleus contains the DNA and controls cell activities. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-cell"
+      ],
+      "keywords": [
+        "cytoplasm",
+        "cell structure",
+        "organelles"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – The Cell",
+        "section": "1.2.2 Structure of the cell – cytoplasm",
+        "page": "12",
+        "pdf_page": 18,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q03",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 3,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Bacteria attach to solid surfaces by their",
+      "options": {
+        "A": "flagella.",
+        "B": "pili.",
+        "C": "cell wall.",
+        "D": "cell membrane.",
+        "E": "peptidoglycan layer."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Textbook (G9 p.29): 'Pili are short, fine, hair-like appendages that are thinner than flagella and may serve as a means of attachment to solid surfaces.'",
+        "Flagella are used for swimming. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The long whip-like structures that help bacteria to swim are",
+          "options": {
+            "A": "pili",
+            "B": "flagella",
+            "C": "capsules",
+            "D": "ribosomes",
+            "E": "plasmids"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Flagella rotate to move the bacterium. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-cell",
+        "gs-diversity"
+      ],
+      "keywords": [
+        "pili",
+        "bacteria",
+        "flagella",
+        "attachment"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – The Cell",
+        "section": "1.4 Bacteria – flagella and pili",
+        "page": "29",
+        "pdf_page": 35,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q04",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 4,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Bacterial capsule is composed of",
+      "options": {
+        "A": "peptidoglycan.",
+        "B": "cellulose.",
+        "C": "lipid.",
+        "D": "polysaccharide.",
+        "E": "protein."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Textbook (G9 p.29): 'Some bacteria have a polysaccharide layer, called a capsule, which surrounds the cell membrane.' It protects the cell from the host's immune defences and helps attachment.",
+        "Peptidoglycan makes the bacterial cell wall; cellulose makes plant cell walls. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The bacterial cell wall is made mainly of",
+          "options": {
+            "A": "cellulose",
+            "B": "chitin",
+            "C": "peptidoglycan",
+            "D": "starch",
+            "E": "lipid only"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Peptidoglycan distinguishes bacterial walls from plant (cellulose) and fungal (chitin) walls. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-cell",
+        "gs-diversity"
+      ],
+      "keywords": [
+        "bacterial capsule",
+        "polysaccharide",
+        "peptidoglycan"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – The Cell",
+        "section": "1.4 Bacteria – capsule and cell wall",
+        "page": "29",
+        "pdf_page": 35,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q05",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 5,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The category genus is subdivided into",
+      "options": {
+        "A": "class.",
+        "B": "order.",
+        "C": "family.",
+        "D": "species.",
+        "E": "phylum."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Ranks from highest to lowest: kingdom, phylum, class, order, family, genus, species (G9 p.54).",
+        "A genus is divided into species. Answer: D. (Family is the rank above genus.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Several related families make up a(n)",
+          "options": {
+            "A": "genus",
+            "B": "species",
+            "C": "order",
+            "D": "class",
+            "E": "phylum"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Families are grouped into orders. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-diversity"
+      ],
+      "keywords": [
+        "classification",
+        "genus",
+        "species",
+        "taxonomic ranks"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Taxonomy",
+        "section": "2.1 The importance of classification – levels of classification",
+        "page": "54",
+        "pdf_page": 60,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q06",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 6,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Rust fungi",
+      "options": {
+        "A": "is a basidiomycota.",
+        "B": "is a plant parasite.",
+        "C": "attacks cereals.",
+        "D": "causes serious problems to farmers.",
+        "E": "All of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Textbook (G9 p.81): fungus-induced plant diseases cause tremendous economic losses in agriculture; 'Rust fungus belongs to the basidiomycota group. There are more than 250 rust fungi that attack crop cereals, such as wheat, barley, and oats.'",
+        "So A, B, C and D are all true. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Blight fungus, which attacks potatoes and tomatoes, belongs to",
+          "options": {
+            "A": "basidiomycota",
+            "B": "ascomycota",
+            "C": "zygomycota",
+            "D": "deuteromycota",
+            "E": "bryophyta"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "The textbook places blight fungus in zygomycota. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-diversity"
+      ],
+      "keywords": [
+        "rust fungi",
+        "basidiomycota",
+        "plant parasites",
+        "cereal diseases"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Taxonomy",
+        "section": "2.3.3 Kingdom Fungi – importance of fungi",
+        "page": "81",
+        "pdf_page": 87,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q07",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 7,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The parasitic protozoa, class sporozoa, have locomotory structures known as",
+      "options": {
+        "A": "cilia.",
+        "B": "flagella.",
+        "C": "pseudopodia.",
+        "D": "appendages.",
+        "E": "None of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Textbook (G9 p.70): 'Sporozoa: members of this group are almost all parasites. They are spore-forming protists without a locomotory structure' (e.g. Plasmodium).",
+        "Cilia – ciliophora (Paramecium); flagella – mastigophora (Trypanosoma); pseudopodia – sarcodina (Amoeba). Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which protozoan causes malaria?",
+          "options": {
+            "A": "Amoeba",
+            "B": "Paramecium",
+            "C": "Plasmodium",
+            "D": "Trypanosoma",
+            "E": "Euglena"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Plasmodium, a sporozoan transmitted by the female Anopheles mosquito. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-diversity"
+      ],
+      "keywords": [
+        "sporozoa",
+        "protozoa",
+        "Plasmodium",
+        "locomotory structures"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Taxonomy",
+        "section": "2.3.2 Kingdom Protista – sporozoa",
+        "page": "70",
+        "pdf_page": 76,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q08",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 8,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "One of the following is true of RNA.",
+      "options": {
+        "A": "It is double stranded.",
+        "B": "Its shape is helical.",
+        "C": "It is formed from DNA.",
+        "D": "It has no genetic information.",
+        "E": "It has identical nucleotides with DNA."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "RNA is made from a DNA template by transcription (G12 pp.4–12).",
+        "RNA is usually single-stranded (not a double helix), carries genetic information (mRNA carries the code) and has ribose and uracil instead of deoxyribose and thymine, so its nucleotides differ from DNA's. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which base is found in RNA but not in DNA?",
+          "options": {
+            "A": "Adenine",
+            "B": "Guanine",
+            "C": "Cytosine",
+            "D": "Thymine",
+            "E": "Uracil"
+          },
+          "answer": "E",
+          "explanation_steps": [
+            "RNA has uracil in place of thymine. Answer: E."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-genetics-cell-division",
+        "gs-biomolecules-energy"
+      ],
+      "keywords": [
+        "RNA",
+        "transcription",
+        "DNA",
+        "nucleic acids"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Nucleic Acids and Genetics",
+        "section": "1.1 Nucleic acids – DNA and RNA",
+        "page": "4-7",
+        "pdf_page": 10,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q09",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 9,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Cell organelle which is found only in animal cell is",
+      "options": {
+        "A": "plastid.",
+        "B": "protoplasm.",
+        "C": "cell wall.",
+        "D": "golgi apparatus.",
+        "E": "centriole."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Textbook (G9 p.14): 'Centrioles – these are barrel-shaped organelles found only in animal cells.'",
+        "Plastids and cell walls are found only in plant cells; the Golgi apparatus and protoplasm occur in both. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is found in plant cells but not in animal cells?",
+          "options": {
+            "A": "Mitochondria",
+            "B": "Ribosomes",
+            "C": "Chloroplasts",
+            "D": "Nucleus",
+            "E": "Cell membrane"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Chloroplasts (plastids) occur only in plant and algal cells. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-cell"
+      ],
+      "keywords": [
+        "centriole",
+        "animal cell",
+        "plant cell",
+        "organelles"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – The Cell",
+        "section": "1.2.2 Cell organelles – centrioles",
+        "page": "14",
+        "pdf_page": 20,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q10",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 10,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The most primitive vascular plants are",
+      "options": {
+        "A": "mosses.",
+        "B": "cycads.",
+        "C": "kelps.",
+        "D": "ferns.",
+        "E": "maize."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Mosses (bryophytes) are non-vascular; ferns (pteridophytes) are the simplest seedless vascular plants with true roots, stems and leaves (G9 p.83).",
+        "Cycads (gymnosperms) and maize (angiosperm) are seed plants, more advanced; kelps are algae. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which group of plants has seeds that are not enclosed in a fruit?",
+          "options": {
+            "A": "Bryophytes",
+            "B": "Pteridophytes",
+            "C": "Gymnosperms",
+            "D": "Angiosperms",
+            "E": "Algae"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Gymnosperm = 'naked seed' (e.g. pines, cycads). Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-diversity",
+        "gs-plants"
+      ],
+      "keywords": [
+        "vascular plants",
+        "ferns",
+        "pteridophytes",
+        "mosses"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Taxonomy",
+        "section": "2.3.4 Kingdom Plantae – pteridophyta",
+        "page": "83",
+        "pdf_page": 89,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q11",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 11,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "All are true of plasmolysis, except",
+      "options": {
+        "A": "plant cell membrane shrinks.",
+        "B": "plant cell wall shrinks.",
+        "C": "animal cell shrinks.",
+        "D": "animal cell dies.",
+        "E": "animal cell bursts."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B",
+        "E"
+      ],
+      "explanation_steps": [
+        "Textbook (G9 p.23): in a hypertonic solution water leaves the cell (plasmolysis). 'In a plant cell, the cell membrane shrinks and separates from the cell wall. In an animal cell, the cell shrinks and collapses, as there is no cell wall.'",
+        "The rigid cell wall does not shrink, so B is false. E is also false: bursting happens in a hypotonic solution, not in plasmolysis. B is keyed; E is also accepted.",
+        "A and C are textbook statements, and D (the collapsed animal cell dies) is consistent with 'shrinks and collapses'."
+      ],
+      "tips": [
+        "Hypertonic → shrink (plasmolysis/crenation); hypotonic → swell (plant cell turgid, animal cell bursts)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A plant cell placed in pure water becomes",
+          "options": {
+            "A": "plasmolysed",
+            "B": "flaccid",
+            "C": "turgid",
+            "D": "burst",
+            "E": "shrunken"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Water enters by osmosis; the wall resists bursting, so the cell becomes turgid. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-cell"
+      ],
+      "keywords": [
+        "plasmolysis",
+        "osmosis",
+        "hypertonic",
+        "cell wall"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – The Cell",
+        "section": "1.3.2 The transportation of molecules – osmosis",
+        "page": "22-23",
+        "pdf_page": 28,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Two options are false for plasmolysis: B (the cell wall does not shrink) and E (animal cells burst only in hypotonic solutions). B keyed, E accepted. Teacher to decide."
+    },
+    {
+      "id": "gensci-2023-matric-p1-q12",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 12,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Succulent plants like \"Cactus\" modify their leaves to spine in order to",
+      "options": {
+        "A": "reduce water loss.",
+        "B": "reduce sun light.",
+        "C": "increase water up take.",
+        "D": "store water.",
+        "E": "store solar energy."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Xerophytes such as cacti reduce their leaves to spines, which greatly reduces the surface for transpiration and so reduces water loss (G9 p.143); water is stored in the fleshy stem, and the green stem photosynthesises.",
+        "Answer: A. (Spines also protect against grazing animals.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is NOT an adaptation of xerophytes?",
+          "options": {
+            "A": "Thick waxy cuticle",
+            "B": "Sunken stomata",
+            "C": "Deep roots",
+            "D": "Large thin leaves with many stomata",
+            "E": "Water-storing tissue"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "Large thin leaves would lose much water; xerophytes have small leaves or spines. Answer: D."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-adaptation",
+        "gs-plants"
+      ],
+      "keywords": [
+        "xerophytes",
+        "cactus",
+        "spines",
+        "water loss"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 4 – Plants, Animals and the Environment",
+        "section": "4.2 Adaptations of plants to water – xerophytes",
+        "page": "143",
+        "pdf_page": 149,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q13",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 13,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "An organism adapted to a saline environment is called",
+      "options": {
+        "A": "xerophyte.",
+        "B": "hydrophyte.",
+        "C": "succulent.",
+        "D": "halophyte.",
+        "E": "epiphyte."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Halophytes are plants adapted to salty (saline) soils or water, e.g. mangroves on the Red Sea coast (G9 p.147).",
+        "Xerophytes – dry habitats; hydrophytes – water; epiphytes grow on other plants. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Mangrove trees on the Red Sea coast have roots that grow upward out of the mud to",
+          "options": {
+            "A": "store salt",
+            "B": "absorb oxygen for respiration",
+            "C": "absorb nitrogen",
+            "D": "attract pollinators",
+            "E": "store water"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Breathing roots (pneumatophores) take in air because the waterlogged mud has little oxygen. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-adaptation"
+      ],
+      "keywords": [
+        "halophyte",
+        "saline environment",
+        "mangroves"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 4 – Plants, Animals and the Environment",
+        "section": "4.2 Adaptations of plants – halophytes",
+        "page": "147",
+        "pdf_page": 153,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q14",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 14,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is the first enzyme to mix with food?",
+      "options": {
+        "A": "Trypsin",
+        "B": "Amylase",
+        "C": "Pepsin",
+        "D": "Cellulase",
+        "E": "Maltase"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Digestion begins in the mouth, where saliva adds salivary amylase (ptyalin), which starts breaking starch into maltose (G10 p.33).",
+        "Pepsin acts later in the stomach, trypsin and maltase in the small intestine; humans do not make cellulase. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Pepsin digests",
+          "options": {
+            "A": "starch in the mouth",
+            "B": "proteins in the stomach",
+            "C": "fats in the small intestine",
+            "D": "cellulose in the colon",
+            "E": "maltose in the ileum"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Pepsin is a protease active in the acidic stomach. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-nutrition-digestion"
+      ],
+      "keywords": [
+        "salivary amylase",
+        "digestion in the mouth",
+        "enzymes"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Food and Digestion",
+        "section": "1.2.2 Digestion in the mouth",
+        "page": "33",
+        "pdf_page": 41,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q15",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 15,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The use of mucous secreted by the stomach is to",
+      "options": {
+        "A": "protect the lining of the stomach.",
+        "B": "kill the germs in the food.",
+        "C": "digest protein.",
+        "D": "digest fat.",
+        "E": "digest carbohydrate."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Mucus coats the stomach wall and protects it from being digested by pepsin and damaged by hydrochloric acid (G10 pp.34–35).",
+        "HCl kills germs; pepsin digests protein. Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which substance in gastric juice kills bacteria in food?",
+          "options": {
+            "A": "Mucus",
+            "B": "Pepsin",
+            "C": "Hydrochloric acid",
+            "D": "Bile",
+            "E": "Lipase"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "The strongly acidic HCl kills most microorganisms. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-nutrition-digestion"
+      ],
+      "keywords": [
+        "mucus",
+        "stomach",
+        "gastric juice"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Food and Digestion",
+        "section": "1.2.4 Digestion in the stomach",
+        "page": "34-35",
+        "pdf_page": 42,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q16",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 16,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is incorrect of polysaccharides?",
+      "options": {
+        "A": "They can be stored in the body.",
+        "B": "They are insoluble in water.",
+        "C": "They lack sweetness.",
+        "D": "Enzymes can break them.",
+        "E": "They are soluble in water."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Polysaccharides (starch, glycogen, cellulose) are large molecules: insoluble in water, not sweet, suitable for storage (glycogen in liver and muscle) and hydrolysed by enzymes such as amylase (G9 p.120; G10 p.5).",
+        "So 'They are soluble in water' is incorrect. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which carbohydrate is a storage polysaccharide in animals?",
+          "options": {
+            "A": "Starch",
+            "B": "Cellulose",
+            "C": "Glycogen",
+            "D": "Sucrose",
+            "E": "Glucose"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Glycogen is stored in the liver and muscles. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-biomolecules-energy"
+      ],
+      "keywords": [
+        "polysaccharides",
+        "starch",
+        "glycogen",
+        "solubility"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Food and Digestion",
+        "section": "1.1.1 Carbohydrates – polysaccharides",
+        "page": "5",
+        "pdf_page": 13,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 9,
+          "unit": "Unit 3 – Metabolic Processes and Energy Transfers in Living Organisms",
+          "section": "3.1.1 Carbohydrates",
+          "page": "120",
+          "pdf_page": 126,
+          "verified_in_text": true,
+          "subject": "Biology"
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q17",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 17,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "One of the following is incorrect about red blood cells. They are",
+      "options": {
+        "A": "rigid in shape.",
+        "B": "unable to multiply.",
+        "C": "biconcave in nature.",
+        "D": "formed within the bone marrow.",
+        "E": "elastic in nature."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Mature red blood cells are biconcave, have no nucleus (so they cannot divide), are made in the red bone marrow and are flexible/elastic, so they can squeeze through narrow capillaries (G10 p.67).",
+        "They are not rigid. Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Why do mature human red blood cells have no nucleus?",
+          "options": {
+            "A": "To divide faster",
+            "B": "To make room for more haemoglobin",
+            "C": "To make antibodies",
+            "D": "To clot blood",
+            "E": "To make proteins"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Without a nucleus there is more space for haemoglobin to carry oxygen. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-circulation-defence"
+      ],
+      "keywords": [
+        "red blood cells",
+        "erythrocytes",
+        "biconcave"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – The Circulatory System",
+        "section": "2.3.2 Red blood cells",
+        "page": "67",
+        "pdf_page": 75,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q18",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 18,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "One of the following cannot be antigenic if transferred to a person.",
+      "options": {
+        "A": "Foreign tissue",
+        "B": "Blood",
+        "C": "Cell",
+        "D": "Bacteria",
+        "E": "Self-tissue"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "An antigen is a foreign substance that stimulates the immune system to produce antibodies (G10 pp.77–79). The immune system recognises the body's own ('self') tissues and does not attack them.",
+        "Foreign tissue, mismatched blood, foreign cells and bacteria are all antigenic. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Antibodies are produced by",
+          "options": {
+            "A": "red blood cells",
+            "B": "platelets",
+            "C": "B-lymphocytes",
+            "D": "neutrophils",
+            "E": "macrophages"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "B-lymphocytes (plasma cells) produce antibodies. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-circulation-defence"
+      ],
+      "keywords": [
+        "antigen",
+        "self-tissue",
+        "immune response"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – The Immune System",
+        "section": "4.1 The immune system – antigens and antibodies",
+        "page": "77-79",
+        "pdf_page": 85,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q19",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 19,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The type of immunity children acquire when they get infection from neighbours is",
+      "options": {
+        "A": "active natural.",
+        "B": "passive natural.",
+        "C": "antibody transfer.",
+        "D": "inborn immunity.",
+        "E": "active artificial."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Natural active immunity develops when the body makes its own antibodies after catching an infection naturally (G10 p.106).",
+        "Passive natural = antibodies from the mother (placenta, breast milk); active artificial = vaccination. Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "A baby receives antibodies from its mother's milk. This is",
+          "options": {
+            "A": "natural active immunity",
+            "B": "natural passive immunity",
+            "C": "artificial active immunity",
+            "D": "artificial passive immunity",
+            "E": "innate immunity"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Ready-made antibodies received naturally = natural passive immunity. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-circulation-defence"
+      ],
+      "keywords": [
+        "active natural immunity",
+        "acquired immunity",
+        "infection"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – The Immune System",
+        "section": "4.2 Types of immunity – acquired immunity",
+        "page": "106",
+        "pdf_page": 114,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q20",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 20,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Energy production through aerobic cellular respiration does not need the presence of",
+      "options": {
+        "A": "carbohydrate.",
+        "B": "protein.",
+        "C": "fat.",
+        "D": "oxygen.",
+        "E": "carbon dioxide."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Aerobic respiration: food (glucose; also fats and proteins) + O₂ → CO₂ + H₂O + energy (ATP) (G9 p.131).",
+        "Carbohydrates, fats and proteins can all be fuels and oxygen is essential; carbon dioxide is a product, not a requirement. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Where in the cell does most aerobic respiration take place?",
+          "options": {
+            "A": "Nucleus",
+            "B": "Ribosome",
+            "C": "Mitochondrion",
+            "D": "Chloroplast",
+            "E": "Golgi apparatus"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "The Krebs cycle and electron transport chain occur in the mitochondria. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-biomolecules-energy"
+      ],
+      "keywords": [
+        "aerobic respiration",
+        "carbon dioxide",
+        "oxygen"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Metabolic Processes and Energy Transfers in Living Organisms",
+        "section": "3.2 Cellular respiration – aerobic respiration",
+        "page": "131",
+        "pdf_page": 137,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q21",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 21,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is not a content of the lymphatic system?",
+      "options": {
+        "A": "Tissue fluids",
+        "B": "Small proteins",
+        "C": "Lymphocytes",
+        "D": "Red blood cells",
+        "E": "Absorbed fats"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Lymph is tissue fluid drained into lymph vessels; it contains water, small proteins, lymphocytes and, in the lacteals, absorbed fats (G10 pp.85–87).",
+        "Red blood cells stay inside the blood capillaries. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The lymph vessels in the villi that absorb fats are called",
+          "options": {
+            "A": "capillaries",
+            "B": "lacteals",
+            "C": "veins",
+            "D": "arterioles",
+            "E": "ducts"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Lacteals absorb fatty acids and glycerol (as fat droplets) into the lymph. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-circulation-defence"
+      ],
+      "keywords": [
+        "lymph",
+        "lymphatic system",
+        "red blood cells",
+        "lacteals"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – The Lymphatic System",
+        "section": "3.1 Lymph and lymphatic tissue",
+        "page": "85-87",
+        "pdf_page": 93,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q22",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 22,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "One of the following sequences represent a flow of air from the environment to the human body.",
+      "options": {
+        "A": "Nasal cavity → pharynx → trachea → bronchioles and alveoli",
+        "B": "Nasal cavity → pharynx → larynx → lung and alveoli",
+        "C": "Lung → pharynx → trachea and nasal cavity",
+        "D": "Alveoli → lung → pharynx → nostrils and oral cavity",
+        "E": "Nostril → alveoli → larynx → pharynx and lung"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A",
+        "B"
+      ],
+      "explanation_steps": [
+        "Air pathway (G10 pp.109–110): nostrils → nasal cavity → pharynx → larynx → trachea → bronchi → bronchioles → alveoli.",
+        "A lists the stages in the right order (it omits the larynx and bronchi). B is also in the right order (it omits the trachea and bronchi), so B is accepted too; C, D and E run in the wrong direction or jump about. A is keyed as the more complete path down to the alveoli."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which structure contains the vocal cords?",
+          "options": {
+            "A": "Pharynx",
+            "B": "Larynx",
+            "C": "Trachea",
+            "D": "Bronchus",
+            "E": "Epiglottis"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "The larynx (voice box) contains the vocal cords. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-respiration-breathing"
+      ],
+      "keywords": [
+        "air pathway",
+        "respiratory tract",
+        "alveoli"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – The Respiratory System",
+        "section": "5.1 The respiratory tract",
+        "page": "109-110",
+        "pdf_page": 117,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Both A (nasal cavity→pharynx→trachea→bronchioles and alveoli) and B (nasal cavity→pharynx→larynx→lung and alveoli) are correctly ordered but incomplete; A keyed, B accepted. Teacher to decide."
+    },
+    {
+      "id": "gensci-2023-matric-p1-q23",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 23,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Lymphatic region located in the armpits that drains lymph from the breasts is",
+      "options": {
+        "A": "cervical region.",
+        "B": "axillary region.",
+        "C": "inguinal region.",
+        "D": "pelvic cavity.",
+        "E": "abdominal cavity."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Lymph nodes are grouped in regions: cervical (neck), axillary (armpit – drains the arms and breasts), inguinal (groin), and nodes of the thoracic, abdominal and pelvic cavities (G10 p.90).",
+        "Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Lymph nodes in the neck belong to the",
+          "options": {
+            "A": "axillary region",
+            "B": "inguinal region",
+            "C": "cervical region",
+            "D": "pelvic region",
+            "E": "thoracic region"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Cervical = neck. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-circulation-defence"
+      ],
+      "keywords": [
+        "axillary lymph nodes",
+        "lymph nodes",
+        "armpit"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – The Lymphatic System",
+        "section": "3.2 Lymph nodes",
+        "page": "90",
+        "pdf_page": 98,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q24",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 24,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "If a patient's urine contains sugar, then probably his/her ______ is damaged.",
+      "options": {
+        "A": "kidney",
+        "B": "spleen",
+        "C": "liver",
+        "D": "pancreas",
+        "E": "bladder"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Glucose in the urine is the classic sign of diabetes mellitus, caused by too little insulin from the islets of Langerhans in the pancreas; blood glucose rises above what the kidney tubules can reabsorb (G11 pp.17–18).",
+        "Answer: D. (Kidney damage more typically lets protein into the urine.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Insulin lowers blood glucose by",
+          "options": {
+            "A": "converting glycogen to glucose",
+            "B": "stimulating cells to take up glucose and the liver to store it as glycogen",
+            "C": "increasing glucose excretion",
+            "D": "stopping digestion",
+            "E": "releasing adrenaline"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Insulin promotes glucose uptake and glycogen formation. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-homeostasis"
+      ],
+      "keywords": [
+        "diabetes mellitus",
+        "glucose in urine",
+        "pancreas",
+        "insulin"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – The Endocrine System",
+        "section": "1.3 Abnormal secretion of the pancreas – diabetes mellitus",
+        "page": "17-18",
+        "pdf_page": 23,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q25",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 25,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Anaerobic respiration cannot occur in",
+      "options": {
+        "A": "humans.",
+        "B": "bacteria.",
+        "C": "yeast.",
+        "D": "protozoa.",
+        "E": "None of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Anaerobic respiration releases energy without oxygen (G9 pp.132–133): yeast (alcoholic fermentation), many bacteria and protozoa, and human muscle cells during vigorous exercise (lactic acid fermentation).",
+        "It can occur in all of them. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The product of anaerobic respiration in human muscles is",
+          "options": {
+            "A": "ethanol",
+            "B": "lactic acid",
+            "C": "carbon dioxide and water",
+            "D": "glycogen",
+            "E": "oxygen"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Glucose → lactic acid + small amount of energy. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-biomolecules-energy"
+      ],
+      "keywords": [
+        "anaerobic respiration",
+        "fermentation",
+        "lactic acid"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Metabolic Processes and Energy Transfers in Living Organisms",
+        "section": "3.2 Cellular respiration – anaerobic respiration",
+        "page": "132-133",
+        "pdf_page": 138,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q26",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 26,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "All of the following are parts of the ear, except",
+      "options": {
+        "A": "choroid.",
+        "B": "ossicles.",
+        "C": "vestibule.",
+        "D": "malleus.",
+        "E": "stapes."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "The choroid is the pigmented, vascular middle layer of the eye (G10 p.148).",
+        "The ossicles (malleus, incus, stapes) are in the middle ear and the vestibule is part of the inner ear (G10 pp.155–156). Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The part of the inner ear concerned with hearing is the",
+          "options": {
+            "A": "semicircular canals",
+            "B": "cochlea",
+            "C": "Eustachian tube",
+            "D": "pinna",
+            "E": "ear drum"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "The cochlea contains the hearing receptors; the semicircular canals are for balance. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-body-systems"
+      ],
+      "keywords": [
+        "ear",
+        "choroid",
+        "ossicles",
+        "eye"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 7 – The Sense Organs",
+        "section": "7.2 The ear",
+        "page": "155-156",
+        "pdf_page": 163,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 10,
+          "unit": "Unit 7 – The Sense Organs",
+          "section": "7.1 The eye – choroid",
+          "page": "148",
+          "pdf_page": 156,
+          "verified_in_text": true,
+          "subject": "Biology"
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q27",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 27,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The structure of neuron which is responsible to transmit electrochemical signals from one neuron to the other is",
+      "options": {
+        "A": "dendrites.",
+        "B": "axon.",
+        "C": "cell body.",
+        "D": "myelin sheath.",
+        "E": "cell nucleus."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Dendrites carry impulses towards the cell body; the axon carries impulses away from the cell body to the next neuron (across a synapse) or to an effector (G10 pp.165–167).",
+        "Answer: B. (The myelin sheath insulates the axon and speeds conduction.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The junction between two neurons is called a",
+          "options": {
+            "A": "node of Ranvier",
+            "B": "synapse",
+            "C": "ganglion",
+            "D": "dendrite",
+            "E": "myelin"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Impulses cross the synapse by neurotransmitters. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-body-systems"
+      ],
+      "keywords": [
+        "neuron",
+        "axon",
+        "dendrites",
+        "nerve impulse"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 8 – The Nervous System",
+        "section": "8.1 The neuron",
+        "page": "165-167",
+        "pdf_page": 173,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Option D is printed 'mylen sheath' (myelin sheath)."
+    },
+    {
+      "id": "gensci-2023-matric-p1-q28",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 28,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "One of the following processes does not occur in a female's reproductive system.",
+      "options": {
+        "A": "Oogenesis",
+        "B": "Ovulation",
+        "C": "Menstruation",
+        "D": "Fertilization",
+        "E": "Spermatogenesis"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Spermatogenesis (sperm formation) takes place in the seminiferous tubules of the male testes (G11 pp.28–31).",
+        "Oogenesis, ovulation and menstruation occur in the female system, and fertilisation takes place in the oviduct. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The release of a mature egg from the ovary is called",
+          "options": {
+            "A": "menstruation",
+            "B": "fertilisation",
+            "C": "ovulation",
+            "D": "implantation",
+            "E": "oogenesis"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Ovulation happens around day 14 of the menstrual cycle. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-reproduction"
+      ],
+      "keywords": [
+        "spermatogenesis",
+        "female reproductive system",
+        "oogenesis",
+        "ovulation"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – The Reproductive System",
+        "section": "2.1 Gametogenesis – spermatogenesis",
+        "page": "28-31",
+        "pdf_page": 34,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q29",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 29,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The function that is not done by voluntary muscles is",
+      "options": {
+        "A": "movement.",
+        "B": "posture.",
+        "C": "facial expression.",
+        "D": "peristalsis.",
+        "E": "respiratory movement."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Voluntary (skeletal) muscles move the skeleton, maintain posture, make facial expressions and move the ribs and diaphragm in breathing (G11 pp.74–76).",
+        "Peristalsis is done by involuntary smooth muscle in the wall of the gut. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which type of muscle never tires and is found only in the heart?",
+          "options": {
+            "A": "Skeletal",
+            "B": "Smooth",
+            "C": "Cardiac",
+            "D": "Voluntary",
+            "E": "Striated skeletal"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Cardiac muscle contracts rhythmically throughout life. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-body-systems"
+      ],
+      "keywords": [
+        "voluntary muscles",
+        "skeletal muscle",
+        "peristalsis",
+        "smooth muscle"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – The Muscular System",
+        "section": "4.1 Types of muscles",
+        "page": "74-76",
+        "pdf_page": 80,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q30",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 30,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Cartilage is part of all the following structures, except",
+      "options": {
+        "A": "larynx.",
+        "B": "ear lobes.",
+        "C": "limb joints.",
+        "D": "skull.",
+        "E": "trachea."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Textbook (G11 p.57): 'the ear lobes and parts of the larynx are made of cartilage. Cartilage joins the ends of the ribs to the sternum and covers the ends of bones. It forms the lining of the trachea.'",
+        "The skull (cranium) is made of bone joined by immovable sutures. Answer: D.",
+        "Note: anatomically the soft earlobe (lobule) itself has no cartilage – the cartilage is in the rest of the pinna – but the paper follows the textbook wording."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Cartilage is gradually replaced by bone during development in a process called",
+          "options": {
+            "A": "calcification of teeth",
+            "B": "ossification",
+            "C": "osmosis",
+            "D": "fermentation",
+            "E": "regeneration"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Ossification converts the cartilage skeleton of the fetus into bone. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-body-systems"
+      ],
+      "keywords": [
+        "cartilage",
+        "skeleton",
+        "skull",
+        "connective tissue"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – The Skeletal System",
+        "section": "3.1.2 Cartilage and ligaments",
+        "page": "57",
+        "pdf_page": 63,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q31",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 31,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "One of the following steps is not part of translation.",
+      "options": {
+        "A": "RNA synthesis",
+        "B": "Ribosome assembly",
+        "C": "Initiation",
+        "D": "Elongation",
+        "E": "Termination"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Translation (protein synthesis at the ribosome) has initiation (the ribosome assembles on the mRNA with the first tRNA), elongation (amino acids are added) and termination (a stop codon releases the chain) (G12 pp.12–14).",
+        "RNA synthesis is transcription, which happens before translation, in the nucleus. Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "During translation, the anticodon is found on",
+          "options": {
+            "A": "DNA",
+            "B": "mRNA",
+            "C": "tRNA",
+            "D": "rRNA",
+            "E": "the amino acid"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "tRNA carries the anticodon that pairs with the mRNA codon. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-genetics-cell-division",
+        "gs-biomolecules-energy"
+      ],
+      "keywords": [
+        "translation",
+        "transcription",
+        "protein synthesis"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Nucleic Acids and Genetics",
+        "section": "1.2 Protein synthesis – translation",
+        "page": "12-14",
+        "pdf_page": 18,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q32",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 32,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The theory of \"natural selection\" considers all of the following factors, except",
+      "options": {
+        "A": "over production.",
+        "B": "survival of the fittest.",
+        "C": "variation.",
+        "D": "inheritance.",
+        "E": "mutation."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Textbook (G12 p.63): Darwin's theory of natural selection considers overproduction (fecundity), variation, struggle for existence, survival of the fittest and inheritance.",
+        "Darwin could not explain the source of variation; mutation was added later by Neo-Darwinism (the synthetic theory). Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Neo-Darwinism combines Darwin's natural selection with",
+          "options": {
+            "A": "Lamarck's theory",
+            "B": "genetics (mutation and recombination)",
+            "C": "spontaneous generation",
+            "D": "special creation",
+            "E": "catastrophism"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "The synthetic theory adds modern genetics to natural selection. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-evolution"
+      ],
+      "keywords": [
+        "natural selection",
+        "Darwinism",
+        "mutation",
+        "overproduction"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Evolution",
+        "section": "2.1.3 Darwinism – theory of natural selection",
+        "page": "63",
+        "pdf_page": 69,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q33",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 33,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Genetic isolation due to incompatibility of the reproductive structure of individuals is known as ______ isolation.",
+      "options": {
+        "A": "behavioral",
+        "B": "mechanical",
+        "C": "habitat",
+        "D": "gametic",
+        "E": "seasonal"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Mechanical isolation: the reproductive organs (genitalia or flower parts) of two species do not fit, so mating or pollination cannot take place (G12 pp.83–84).",
+        "Gametic isolation is when gametes meet but cannot fuse. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Two frog species breed in the same pond but one breeds in March and the other in June. This is",
+          "options": {
+            "A": "habitat isolation",
+            "B": "seasonal (temporal) isolation",
+            "C": "mechanical isolation",
+            "D": "gametic isolation",
+            "E": "behavioural isolation"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Different breeding times = seasonal isolation. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-evolution"
+      ],
+      "keywords": [
+        "mechanical isolation",
+        "isolating mechanisms",
+        "speciation"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Evolution",
+        "section": "2.3.5 Isolation",
+        "page": "83-84",
+        "pdf_page": 89,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q34",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 34,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The phosphorus cycle is essential to add phosphorus to life molecules such as",
+      "options": {
+        "A": "DNA and carbohydrate.",
+        "B": "RNA and protein.",
+        "C": "carbohydrate and protein.",
+        "D": "DNA and RNA.",
+        "E": "DNA and protein."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Phosphorus, released by the weathering of rocks, is taken up by plants and built into phosphate groups of nucleotides – DNA and RNA – as well as ATP and phospholipids (G12 pp.98–100).",
+        "Carbohydrates (C, H, O) and proteins (C, H, O, N, S) do not normally contain phosphorus. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The main natural reservoir of phosphorus is",
+          "options": {
+            "A": "the atmosphere",
+            "B": "rocks and sediments",
+            "C": "living animals",
+            "D": "clouds",
+            "E": "fossil fuels"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Unlike carbon and nitrogen, phosphorus has no significant gas phase; it is stored in rocks. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-ecology"
+      ],
+      "keywords": [
+        "phosphorus cycle",
+        "nucleic acids",
+        "DNA",
+        "RNA"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 3 – Ecology",
+        "section": "3.2 Natural cycles – phosphorus cycle",
+        "page": "98-100",
+        "pdf_page": 104,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q35",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 35,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Monohybrid cross between homozygous tall plant with a short plant (Tall = T and short = t) produces an offspring with the following genotype.",
+      "options": {
+        "A": "25% TT",
+        "B": "50% Tt",
+        "C": "100% Tt",
+        "D": "25% tt",
+        "E": "50% TT"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "TT × tt: every gamete of the tall parent carries T and every gamete of the short parent carries t (G12 pp.29–32).",
+        "All F₁ offspring are Tt (100%), and all are tall. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Two Tt plants are crossed. What fraction of the offspring is expected to be short (tt)?",
+          "options": null,
+          "answer": "1/4",
+          "explanation_steps": [
+            "Tt × Tt → 1 TT : 2 Tt : 1 tt, so 1/4 are tt (short)."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-genetics-cell-division"
+      ],
+      "keywords": [
+        "monohybrid cross",
+        "genotype",
+        "homozygous",
+        "Mendel"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Nucleic Acids and Genetics",
+        "section": "1.3 Mendelian genetics – monohybrid cross",
+        "page": "29-32",
+        "pdf_page": 35,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q36",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 36,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The central part of an atom is called a (n)",
+      "options": {
+        "A": "electron.",
+        "B": "proton.",
+        "C": "neutron.",
+        "D": "nucleus.",
+        "E": "positron."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "An atom has a tiny, dense, positively charged nucleus at its centre (protons and neutrons), surrounded by electrons (G9 pp.43–44).",
+        "Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Who discovered the nucleus with the gold-foil (alpha scattering) experiment?",
+          "options": {
+            "A": "Dalton",
+            "B": "Thomson",
+            "C": "Rutherford",
+            "D": "Bohr",
+            "E": "Chadwick"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Rutherford (1911) concluded that the mass and positive charge are concentrated in a small nucleus. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-atoms-periodic"
+      ],
+      "keywords": [
+        "nucleus",
+        "atomic structure"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+        "section": "2.1 Atomic structure – the nucleus",
+        "page": "43-44",
+        "pdf_page": 51,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q37",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 37,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is a metallic element?",
+      "options": {
+        "A": "Bromine",
+        "B": "Calcium",
+        "C": "Chlorine",
+        "D": "Oxygen",
+        "E": "Nitrogen"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Calcium is a group IIA (alkaline earth) metal (G9 p.23; G10 p.15).",
+        "Bromine and chlorine are halogens (non-metals); oxygen and nitrogen are non-metallic gases. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is a non-metal?",
+          "options": {
+            "A": "Magnesium",
+            "B": "Sulphur",
+            "C": "Iron",
+            "D": "Zinc",
+            "E": "Sodium"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Sulphur is a brittle yellow non-metal. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-atoms-periodic"
+      ],
+      "keywords": [
+        "metals",
+        "calcium",
+        "non-metals"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.3 Elements – metals and non-metals",
+        "page": "23",
+        "pdf_page": 31,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q38",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 38,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The chemical symbol for the metallic element which exists in the liquid state at room temperature is",
+      "options": {
+        "A": "Ag.",
+        "B": "Au.",
+        "C": "Pb.",
+        "D": "Hg.",
+        "E": "Sn."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Mercury is the only metal that is liquid at room temperature; its symbol Hg comes from the Latin 'hydrargyrum' (G9 pp.23, 82).",
+        "Ag – silver, Au – gold, Pb – lead, Sn – tin (all solids). Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The symbol of lead is Pb, from its Latin name",
+          "options": {
+            "A": "Plumbum",
+            "B": "Stannum",
+            "C": "Argentum",
+            "D": "Aurum",
+            "E": "Kalium"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Plumbum → Pb (tin = stannum → Sn). Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-atoms-periodic"
+      ],
+      "keywords": [
+        "mercury",
+        "liquid metal",
+        "chemical symbols"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.1 Chemical symbols – symbols from Latin names",
+        "page": "82",
+        "pdf_page": 90,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q39",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 39,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following scientists arranged elements on the bases of their atomic numbers?",
+      "options": {
+        "A": "Dobereiner",
+        "B": "Newlands",
+        "C": "Moseley",
+        "D": "Mendeleev",
+        "E": "A and B."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Henry Moseley (1913) used X-ray spectra to find atomic numbers and showed that the periodic properties depend on atomic number – the modern periodic law (G10 p.16).",
+        "Döbereiner (triads), Newlands (octaves) and Mendeleev all arranged elements by atomic mass. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Mendeleev arranged the elements in order of increasing",
+          "options": {
+            "A": "atomic number",
+            "B": "atomic mass",
+            "C": "number of neutrons",
+            "D": "electronegativity",
+            "E": "valency only"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Mendeleev's periodic law (1869) was based on atomic mass. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-atoms-periodic"
+      ],
+      "keywords": [
+        "Moseley",
+        "periodic law",
+        "atomic number",
+        "history of the periodic table"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.1 Development of the periodic table – Moseley",
+        "page": "16",
+        "pdf_page": 24,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q40",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 40,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The type of acid, which is useful for the digestion of food, is",
+      "options": {
+        "A": "HNO₃.",
+        "B": "H₂SO₄.",
+        "C": "HF.",
+        "D": "H₃PO₄.",
+        "E": "HCl."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Uses of common acids (G10 p.123): hydrochloric acid in the gastric juice of the stomach helps the digestion of food (it activates pepsin and kills germs).",
+        "Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which acid is found in car batteries?",
+          "options": {
+            "A": "HCl",
+            "B": "HNO₃",
+            "C": "H₂SO₄",
+            "D": "CH₃COOH",
+            "E": "H₂CO₃"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Lead–acid batteries contain dilute sulphuric acid. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-acids-bases"
+      ],
+      "keywords": [
+        "hydrochloric acid",
+        "digestion",
+        "uses of acids"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.1.5 Uses of common acids",
+        "page": "123",
+        "pdf_page": 131,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q41",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 41,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Carbon has an atomic number of",
+      "options": {
+        "A": "3.",
+        "B": "6.",
+        "C": "7.",
+        "D": "8.",
+        "E": "12."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Carbon has 6 protons, so Z = 6 (electron configuration 2, 4) (G9 p.44).",
+        "12 is its mass number (¹²₆C); 7 is nitrogen and 8 is oxygen. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "How many valence electrons does a carbon atom have?",
+          "options": null,
+          "answer": "4",
+          "explanation_steps": [
+            "Z = 6 → 2, 4: four electrons in the outer shell."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-atoms-periodic"
+      ],
+      "keywords": [
+        "carbon",
+        "atomic number"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+        "section": "2.1.3 Atomic number and mass number",
+        "page": "44",
+        "pdf_page": 52,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q42",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 42,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The amount of joules in 10 calories is equal to",
+      "options": {
+        "A": "10 J.",
+        "B": "4.2 J.",
+        "C": "0.42 J.",
+        "D": "42 J.",
+        "E": "100 J."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "1 cal = 4.184 J ≈ 4.2 J (G10 p.155).",
+        "10 cal = 10 × 4.184 = 41.84 J ≈ 42 J. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "How many calories are in 836.8 J? [1 cal = 4.184 J]",
+          "options": null,
+          "answer": "200 cal",
+          "explanation_steps": [
+            "836.8 / 4.184 = 200 cal."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-energy-rates-redox"
+      ],
+      "keywords": [
+        "calorie",
+        "joule",
+        "unit conversion"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.1 Units of heat energy – calorie and joule",
+        "page": "155",
+        "pdf_page": 163,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Exact value 41.84 J; option D (42 J) uses the rounded 1 cal ≈ 4.2 J."
+    },
+    {
+      "id": "gensci-2023-matric-p1-q43",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 43,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The rate of a reaction can be measured by the change in its",
+      "options": {
+        "A": "colour.",
+        "B": "temperature.",
+        "C": "pH.",
+        "D": "conductivity.",
+        "E": "All of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Textbook (G11 p.2): the rate of reaction can be followed by measuring a change in mass or gas volume, a change in colour, a change in pH, the change in temperature or the change in conductivity.",
+        "All four are listed. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which unit could be used for the rate of a reaction?",
+          "options": {
+            "A": "mol",
+            "B": "mol/L",
+            "C": "mol L⁻¹ s⁻¹",
+            "D": "L",
+            "E": "s"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Rate = change in concentration / time → mol/L per second. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-energy-rates-redox"
+      ],
+      "keywords": [
+        "rate of reaction",
+        "measuring reaction rate"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Rate of a Chemical Reaction and Factors Affecting it",
+        "section": "1.1 Rate of reaction – measuring rate",
+        "page": "2",
+        "pdf_page": 10,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q44",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 44,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The oxidation state of manganese in MnO₄⁻ ion is",
+      "options": {
+        "A": "+5.",
+        "B": "-3.",
+        "C": "+6.",
+        "D": "+7.",
+        "E": "+4."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "The sum of oxidation numbers in an ion equals its charge; O = −2 (G11 p.31).",
+        "x + 4(−2) = −1 → x = +7. Answer: D. (+6 is the value in MnO₄²⁻, manganate.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "What is the oxidation number of Cr in Cr₂O₇²⁻?",
+          "options": null,
+          "answer": "+6",
+          "explanation_steps": [
+            "2x + 7(−2) = −2 → 2x = 12 → x = +6."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-energy-rates-redox"
+      ],
+      "keywords": [
+        "oxidation state",
+        "permanganate",
+        "manganese"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.1 Oxidation numbers",
+        "page": "31",
+        "pdf_page": 39,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q45",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 45,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The most abundant substance in the atmosphere is",
+      "options": {
+        "A": "carbon monoxide.",
+        "B": "carbon dioxide.",
+        "C": "nitrogen.",
+        "D": "oxygen.",
+        "E": "carbon."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Dry air is about 78% nitrogen, 21% oxygen, 0.9% argon and 0.04% carbon dioxide by volume (G11 p.86).",
+        "Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Approximately what percentage of air by volume is oxygen?",
+          "options": {
+            "A": "78%",
+            "B": "21%",
+            "C": "1%",
+            "D": "0.04%",
+            "E": "50%"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "About 21% (one-fifth). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-elements-compounds-uses"
+      ],
+      "keywords": [
+        "atmosphere",
+        "nitrogen",
+        "composition of air"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.3 Nitrogen – occurrence",
+        "page": "86",
+        "pdf_page": 94,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "'athmosphere' is misspelt in the paper (atmosphere)."
+    },
+    {
+      "id": "gensci-2023-matric-p1-q46",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 46,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "______ is an alloy of iron.",
+      "options": {
+        "A": "Solder",
+        "B": "Steel",
+        "C": "Bronze",
+        "D": "Brass",
+        "E": "Duralumin"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Steel is iron with a small amount of carbon (and other metals) (G9 p.26; G10 p.64).",
+        "Solder = tin + lead; bronze = copper + tin; brass = copper + zinc; duralumin = aluminium + copper (+ Mg, Mn). Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Brass is an alloy of",
+          "options": {
+            "A": "copper and tin",
+            "B": "copper and zinc",
+            "C": "iron and carbon",
+            "D": "tin and lead",
+            "E": "aluminium and copper"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Brass = Cu + Zn. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-matter-mixtures",
+        "gs-elements-compounds-uses"
+      ],
+      "keywords": [
+        "alloys",
+        "steel",
+        "iron"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.3 Mixtures – alloys",
+        "page": "26",
+        "pdf_page": 34,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q47",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 47,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following properties are considered measurable properties of gases?",
+      "options": {
+        "A": "Number of moles",
+        "B": "Pressure",
+        "C": "Temperature",
+        "D": "Volume",
+        "E": "All of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "The state of a gas is described by four measurable variables: pressure P, volume V, temperature T and amount n (moles), related by the gas laws (PV = nRT) (Chemistry G11 Unit 5).",
+        "Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "At constant temperature, a gas has a volume of 2.0 L at 1.0 atm. What is its volume at 4.0 atm?",
+          "options": null,
+          "answer": "0.50 L",
+          "explanation_steps": [
+            "Boyle's law: P₁V₁ = P₂V₂ → V₂ = 1.0 × 2.0 / 4.0 = 0.50 L."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-gases"
+      ],
+      "keywords": [
+        "properties of gases",
+        "pressure",
+        "volume",
+        "temperature",
+        "moles"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Behaviour of Gases",
+        "section": "5.1 Measurable properties of gases",
+        "page": "162-164",
+        "pdf_page": null,
+        "verified_in_text": false,
+        "note": "Grade 11 Unit 5 (Behaviour of Gases, printed pp.162-190) is missing from the supplied PDF (it ends at p.129); page taken from the book's table of contents, text not verified.",
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q48",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 48,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The number of atoms bonded to a central atom in a linear molecular geometry are",
+      "options": {
+        "A": "4.",
+        "B": "2.",
+        "C": "1.",
+        "D": "6.",
+        "E": "5."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "In VSEPR theory a linear molecule has two atoms (bonding domains) around the central atom at 180°, e.g. BeCl₂, CO₂ (G12 pp.6–8).",
+        "Trigonal planar = 3, tetrahedral = 4, trigonal bipyramidal = 5, octahedral = 6. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "What is the shape of BF₃?",
+          "options": {
+            "A": "Linear",
+            "B": "Bent",
+            "C": "Trigonal planar",
+            "D": "Tetrahedral",
+            "E": "Octahedral"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Three bonding pairs and no lone pair on B → trigonal planar (120°). Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-bonding-shapes"
+      ],
+      "keywords": [
+        "linear geometry",
+        "VSEPR",
+        "molecular shape"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Shapes of Simple Molecules and Crystals",
+        "section": "1.1 Shapes of molecules – VSEPR theory",
+        "page": "6-8",
+        "pdf_page": 12,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q49",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 49,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following class of organic compounds are mainly used as medicines?",
+      "options": {
+        "A": "Soaps",
+        "B": "Cotton",
+        "C": "Insecticides",
+        "D": "Cosmetics",
+        "E": "Antibiotics"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Organic chemistry supplies many products: fuels, plastics, soaps, cosmetics, insecticides and medicines such as antibiotics (G12 p.26).",
+        "Antibiotics (e.g. penicillin) are drugs that kill or stop bacteria. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Penicillin was discovered by",
+          "options": {
+            "A": "Pasteur",
+            "B": "Fleming",
+            "C": "Koch",
+            "D": "Jenner",
+            "E": "Wöhler"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Alexander Fleming discovered penicillin in 1928. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-organic-nuclear"
+      ],
+      "keywords": [
+        "antibiotics",
+        "medicines",
+        "organic compounds"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.1 Importance of organic compounds",
+        "page": "26",
+        "pdf_page": 32,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q50",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 50,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following list of substances contain only compounds?",
+      "options": {
+        "A": "Carbon monoxide, table salt, ethanol, solder",
+        "B": "Water, benzene, bronze, glucose",
+        "C": "Carbon dioxide, naphthalene, isobutane, methanol",
+        "D": "Acetone, methane, steel, acetylene",
+        "E": "Brass, urea, soap, calcium carbonate"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "A compound is a pure substance of two or more elements chemically combined in fixed proportion; alloys are mixtures (G9 pp.20–26).",
+        "A contains solder, B bronze, D steel and E brass – all alloys (mixtures); soap is also usually a mixture. CO₂, naphthalene (C₁₀H₈), isobutane (C₄H₁₀) and methanol (CH₃OH) are all compounds. Answer: C."
+      ],
+      "tips": [
+        "Look for the alloy hidden in each list."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is an element?",
+          "options": {
+            "A": "Steel",
+            "B": "Brass",
+            "C": "Mercury",
+            "D": "Bronze",
+            "E": "Water"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Mercury (Hg) is an element; the others are alloys or a compound. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-matter-mixtures"
+      ],
+      "keywords": [
+        "compounds",
+        "mixtures",
+        "alloys"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.3 Compounds and mixtures",
+        "page": "20-26",
+        "pdf_page": 28,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q51",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 51,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The substance which is available abundantly in the Red Sea and the main additive in our daily food is",
+      "options": {
+        "A": "CaSO₄.",
+        "B": "MgCl₂.",
+        "C": "HCl.",
+        "D": "H₂SO₄.",
+        "E": "NaCl."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Sodium chloride (common salt) is the main dissolved salt in sea water; in Eritrea it is produced from Red Sea water at salt pans (e.g. Massawa, Assab) and used to season and preserve food (G10 p.143).",
+        "Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Salt is obtained from sea water mainly by",
+          "options": {
+            "A": "filtration",
+            "B": "evaporation",
+            "C": "distillation of the salt",
+            "D": "sublimation",
+            "E": "chromatography"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "The sun evaporates the water in salt pans, leaving the salt crystals. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-elements-compounds-uses"
+      ],
+      "keywords": [
+        "sodium chloride",
+        "common salt",
+        "Red Sea",
+        "uses of salts"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.4.5 Uses of common salts (Table 4.5)",
+        "page": "143",
+        "pdf_page": 151,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q52",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 52,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The Group VIIIA elements in the Periodic Table are called",
+      "options": {
+        "A": "carbon family.",
+        "B": "alkali metals.",
+        "C": "noble gases.",
+        "D": "halogens.",
+        "E": "oxygen family."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Group VIIIA (18): He, Ne, Ar, Kr, Xe, Rn – the noble (inert) gases with full outer shells (G10 p.15).",
+        "Halogens are group VIIA, alkali metals IA, oxygen family VIA, carbon family IVA. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Why are noble gases very unreactive?",
+          "options": {
+            "A": "They are metals",
+            "B": "Their outer electron shells are full",
+            "C": "They have no electrons",
+            "D": "They are radioactive",
+            "E": "They are liquids"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "A complete octet (duet for He) is very stable. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-atoms-periodic"
+      ],
+      "keywords": [
+        "noble gases",
+        "group VIIIA",
+        "periodic table"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.2 Modern periodic table – groups",
+        "page": "15",
+        "pdf_page": 23,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q53",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 53,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Carbon dioxide is",
+      "options": {
+        "A": "a colourful gas.",
+        "B": "not a useful chemical for plants.",
+        "C": "not important during photosynthesis.",
+        "D": "the main contributor to global warming.",
+        "E": "not applicable in industries."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "CO₂ is a colourless gas, a raw material of photosynthesis, used in fire extinguishers, soft drinks and dry ice; it is the main greenhouse gas causing global warming (G11 p.83).",
+        "Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Solid carbon dioxide used for refrigeration is called",
+          "options": {
+            "A": "dry ice",
+            "B": "limestone",
+            "C": "soda ash",
+            "D": "graphite",
+            "E": "quicklime"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Dry ice sublimes at −78 °C. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-elements-compounds-uses"
+      ],
+      "keywords": [
+        "carbon dioxide",
+        "global warming",
+        "photosynthesis"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.2 Carbon dioxide – uses and greenhouse effect",
+        "page": "83",
+        "pdf_page": 91,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q54",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 54,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A juice has a hydrogen ion concentration of 10⁻⁵ M. The pH of the solution is",
+      "options": {
+        "A": "-5.",
+        "B": "10⁻⁵.",
+        "C": "5.",
+        "D": "10.",
+        "E": "12."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "pH = −log[H⁺] (G10 pp.144–146).",
+        "pH = −log(10⁻⁵) = 5 (acidic, as expected for a juice). Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "What is the pH of a solution with [H⁺] = 1 × 10⁻¹¹ M, and is it acidic or basic?",
+          "options": null,
+          "answer": "pH 11, basic",
+          "explanation_steps": [
+            "pH = −log(10⁻¹¹) = 11 > 7, so the solution is basic."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-acids-bases"
+      ],
+      "keywords": [
+        "pH",
+        "hydrogen ion concentration",
+        "logarithm"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.5 The pH scale",
+        "page": "144-146",
+        "pdf_page": 152,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q55",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 55,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "All of the following substances are synthetic polymers, except",
+      "options": {
+        "A": "plastic.",
+        "B": "synthetic rubbers.",
+        "C": "nylon.",
+        "D": "wool.",
+        "E": "polyester."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Wool is a natural polymer (a protein, keratin) produced by sheep (G12 pp.94–97).",
+        "Plastics, synthetic rubbers, nylon and polyester are man-made. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is a natural polymer?",
+          "options": {
+            "A": "PVC",
+            "B": "Nylon",
+            "C": "Polythene",
+            "D": "Starch",
+            "E": "Polyester"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "Starch (a polysaccharide) is made by plants. Answer: D."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-organic-nuclear"
+      ],
+      "keywords": [
+        "synthetic polymers",
+        "natural polymers",
+        "wool",
+        "nylon"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.7 Polymers – natural and synthetic",
+        "page": "94-97",
+        "pdf_page": 100,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Option E is misspelt 'polyster' (polyester)."
+    },
+    {
+      "id": "gensci-2023-matric-p1-q56",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 56,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "When charcoal burns in a limited amount of oxygen, the poisonous gas produced is",
+      "options": {
+        "A": "carbon dioxide.",
+        "B": "phosphorus pentaoxide.",
+        "C": "sulphur trioxide.",
+        "D": "methane.",
+        "E": "carbon monoxide."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Incomplete combustion of carbon: 2C + O₂ → 2CO (G11 p.77). With plenty of oxygen, CO₂ forms instead.",
+        "CO binds to haemoglobin and prevents oxygen transport. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Complete combustion of methane produces",
+          "options": {
+            "A": "CO and H₂",
+            "B": "CO₂ and H₂O",
+            "C": "C and H₂O",
+            "D": "CO and H₂O only",
+            "E": "CH₃OH"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "CH₄ + 2O₂ → CO₂ + 2H₂O. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-elements-compounds-uses"
+      ],
+      "keywords": [
+        "carbon monoxide",
+        "incomplete combustion",
+        "charcoal"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.2 Carbon – oxides of carbon (carbon monoxide)",
+        "page": "77",
+        "pdf_page": 85,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q57",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 57,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "How many electrons are involved in the covalent bond that exists in a molecule of N₂?",
+      "options": {
+        "A": "2",
+        "B": "4",
+        "C": "6",
+        "D": "5",
+        "E": "8"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Each N atom (2, 5) needs three more electrons, so the two atoms share three pairs: a triple bond N≡N (G9 pp.75–76).",
+        "3 shared pairs = 6 electrons. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "How many electrons are shared in the O₂ molecule?",
+          "options": null,
+          "answer": "4 (a double bond)",
+          "explanation_steps": [
+            "Each O (2, 6) needs two more electrons; two shared pairs O=O = 4 electrons."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-bonding-shapes"
+      ],
+      "keywords": [
+        "covalent bond",
+        "triple bond",
+        "nitrogen molecule"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+        "section": "2.3 Covalent bonding – multiple bonds",
+        "page": "75-76",
+        "pdf_page": 83,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q58",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 58,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Sodium chloride salt is formed by the reaction of",
+      "options": {
+        "A": "hydrochloric acid and potassium hydroxide.",
+        "B": "nitric acid and ammonia.",
+        "C": "sulphuric acid and magnesium hydroxide.",
+        "D": "hydrochloric acid and sodium hydroxide.",
+        "E": "phosphoric acid and potassium hydroxide."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Neutralisation: acid + base → salt + water. The salt takes its cation from the base and its anion from the acid (G10 p.124).",
+        "HCl + NaOH → NaCl + H₂O. A gives KCl, B NH₄NO₃, C MgSO₄, E K₃PO₄. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Name the salt formed when sulphuric acid reacts with potassium hydroxide.",
+          "options": null,
+          "answer": "Potassium sulphate, K₂SO₄",
+          "explanation_steps": [
+            "H₂SO₄ + 2KOH → K₂SO₄ + 2H₂O."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-acids-bases"
+      ],
+      "keywords": [
+        "neutralisation",
+        "salt formation",
+        "sodium chloride"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.1 Acids – neutralisation",
+        "page": "124",
+        "pdf_page": 132,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q59",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 59,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "What is the mass (in grams) of a mole of benzene (C₆H₆)? [Atomic Mass: C = 12, H = 1]",
+      "options": {
+        "A": "26 g",
+        "B": "13 g",
+        "C": "39 g",
+        "D": "42 g",
+        "E": "78 g"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Molar mass = sum of atomic masses in grams (G9 pp.113–116).",
+        "C₆H₆: 6 × 12 + 6 × 1 = 72 + 6 = 78 g/mol. Answer: E. (13 g is the empirical-formula mass of CH.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "What is the molar mass of glucose, C₆H₁₂O₆? [C = 12, H = 1, O = 16]",
+          "options": null,
+          "answer": "180 g/mol",
+          "explanation_steps": [
+            "6 × 12 + 12 × 1 + 6 × 16 = 72 + 12 + 96 = 180 g/mol."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-stoichiometry-solutions"
+      ],
+      "keywords": [
+        "molar mass",
+        "benzene",
+        "mole"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.4 The mole concept – molar mass",
+        "page": "113-116",
+        "pdf_page": 121,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q60",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 60,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following metals is very reactive?",
+      "options": {
+        "A": "gold",
+        "B": "copper",
+        "C": "silver",
+        "D": "sodium",
+        "E": "lead"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Activity series: K > Na > Ca > Mg > Al > Zn > Fe > Pb > (H) > Cu > Ag > Au (G11 p.121).",
+        "Sodium reacts vigorously with water and air (it is stored under oil); gold, silver and copper are unreactive and lead only slightly reactive. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which metal is stored under paraffin oil because it reacts with air and water?",
+          "options": {
+            "A": "Copper",
+            "B": "Potassium",
+            "C": "Gold",
+            "D": "Aluminium",
+            "E": "Iron"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Potassium (like sodium) is a very reactive alkali metal. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-elements-compounds-uses"
+      ],
+      "keywords": [
+        "activity series",
+        "reactive metals",
+        "sodium"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – Chemistry of Some Metals and Their Compounds",
+        "section": "4.1 Metals – activity series",
+        "page": "121",
+        "pdf_page": 129,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q61",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 61,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The class of organic compound which are mainly tested by the police for the drink-driving drivers is",
+      "options": {
+        "A": "aldehydes.",
+        "B": "acids.",
+        "C": "alcohols.",
+        "D": "esters.",
+        "E": "ethers."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Breathalyser tests measure the ethanol (an alcohol) in the driver's breath; in the old test ethanol reduces orange dichromate to green chromium(III) (G12 pp.73–75).",
+        "Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The functional group of alcohols is",
+          "options": {
+            "A": "–COOH",
+            "B": "–CHO",
+            "C": "–OH",
+            "D": "–COO–",
+            "E": "–O–"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Alcohols contain the hydroxyl group –OH (e.g. ethanol C₂H₅OH). Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-organic-nuclear"
+      ],
+      "keywords": [
+        "alcohols",
+        "ethanol",
+        "breathalyser",
+        "drink-driving"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.4 Alcohols",
+        "page": "73-75",
+        "pdf_page": 79,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q62",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 62,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Respiration involves the",
+      "options": {
+        "A": "production of food in living things.",
+        "B": "breakdown of complex compounds.",
+        "C": "production of glucose.",
+        "D": "absorption of energy.",
+        "E": "production of oxygen."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Cellular respiration breaks down complex food molecules (glucose) into simpler ones (CO₂ and H₂O), releasing energy as ATP (Biology G9 p.131).",
+        "Making food and glucose, absorbing energy and producing oxygen describe photosynthesis. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which equation summarises aerobic respiration?",
+          "options": {
+            "A": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
+            "B": "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energy",
+            "C": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂",
+            "D": "2H₂ + O₂ → 2H₂O",
+            "E": "CH₄ + 2O₂ → CO₂ + 2H₂O"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Glucose is oxidised by oxygen to CO₂ and water with release of energy. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-biomolecules-energy",
+        "gs-energy-rates-redox"
+      ],
+      "keywords": [
+        "respiration",
+        "catabolism",
+        "breakdown of glucose"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Metabolic Processes and Energy Transfers in Living Organisms",
+        "section": "3.2 Cellular respiration",
+        "page": "131",
+        "pdf_page": 137,
+        "verified_in_text": true,
+        "subject": "Biology"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q63",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 63,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The molality of a solution prepared by dissolving 5.85 gram of sodium chloride in 100 gram of water is [Atomic Mass: Na = 23, Cl = 35.5]",
+      "options": {
+        "A": "0.1 m.",
+        "B": "100 m.",
+        "C": "10 m.",
+        "D": "1 m.",
+        "E": "0.001 m."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Molality m = moles of solute / kg of solvent (G10 pp.84–85).",
+        "M(NaCl) = 23 + 35.5 = 58.5 g/mol; n = 5.85 / 58.5 = 0.100 mol; solvent = 100 g = 0.100 kg.",
+        "m = 0.100 / 0.100 = 1 mol/kg. Answer: D. (0.1 m forgets to convert grams of water to kilograms.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "What is the molality of a solution of 9.0 g of glucose (M = 180 g/mol) in 250 g of water?",
+          "options": null,
+          "answer": "0.20 m",
+          "explanation_steps": [
+            "n = 9.0/180 = 0.050 mol; m = 0.050 / 0.250 kg = 0.20 mol/kg."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-stoichiometry-solutions"
+      ],
+      "keywords": [
+        "molality",
+        "sodium chloride",
+        "moles"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.3 Concentration – molality",
+        "page": "84-85",
+        "pdf_page": 92,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q64",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 64,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is true about strong electrolytes? They",
+      "options": {
+        "A": "partially dissociate into ions.",
+        "B": "contain low number of ions.",
+        "C": "slightly conduct electricity.",
+        "D": "contain high number of ions.",
+        "E": "show weak degree of dissociation."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Strong electrolytes (strong acids, strong bases, soluble salts) dissociate completely in water, so their solutions contain a high number of ions and conduct electricity well (G11 p.40).",
+        "A, B, C and E describe weak electrolytes. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is a weak electrolyte?",
+          "options": {
+            "A": "NaCl",
+            "B": "HCl",
+            "C": "CH₃COOH",
+            "D": "NaOH",
+            "E": "KNO₃"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Acetic acid ionises only partially. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-acids-bases"
+      ],
+      "keywords": [
+        "strong electrolytes",
+        "dissociation",
+        "ions"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.3 Electrolytes – strong and weak",
+        "page": "40",
+        "pdf_page": 48,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q65",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 65,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is true about sulphur dioxide? It has",
+      "options": {
+        "A": "lower density than air.",
+        "B": "a pleasant odour.",
+        "C": "an acidic nature.",
+        "D": "a basic nature.",
+        "E": "a weak reducing power."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "SO₂ is a colourless, poisonous gas with a sharp, choking smell, denser than air (M = 64 vs about 29) (G11 pp.103–104).",
+        "It is an acidic oxide: SO₂ + H₂O → H₂SO₃ (sulphurous acid), a cause of acid rain; it is also a good reducing (bleaching) agent. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Sulphur dioxide dissolves in water to form",
+          "options": {
+            "A": "sulphuric acid",
+            "B": "sulphurous acid",
+            "C": "hydrogen sulphide",
+            "D": "sulphur trioxide",
+            "E": "sodium sulphite"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "SO₂ + H₂O → H₂SO₃ (sulphurous acid). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-elements-compounds-uses",
+        "gs-acids-bases"
+      ],
+      "keywords": [
+        "sulphur dioxide",
+        "acidic oxide",
+        "acid rain"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.4.2 Sulphur dioxide",
+        "page": "103-104",
+        "pdf_page": 111,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q66",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 66,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The 5.0 L volume of a gas has 4.0 moles. Calculate the number of moles of the gas at 2.5 L.",
+      "options": {
+        "A": "0.2 moles",
+        "B": "20.0 moles",
+        "C": "10.0 moles",
+        "D": "2.0 moles",
+        "E": "0.1 moles"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Avogadro's law: at constant temperature and pressure, V ∝ n, so n₁/V₁ = n₂/V₂ (Chemistry G11 Unit 5).",
+        "n₂ = 4.0 × 2.5 / 5.0 = 2.0 mol. Answer: D. (The stem assumes constant T and P.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "At constant T and P, 2.0 mol of a gas occupies 44.8 L. What volume does 0.50 mol occupy?",
+          "options": null,
+          "answer": "11.2 L",
+          "explanation_steps": [
+            "V₂ = V₁ × n₂/n₁ = 44.8 × 0.50/2.0 = 11.2 L."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-gases"
+      ],
+      "keywords": [
+        "Avogadro's law",
+        "moles",
+        "gas volume"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Behaviour of Gases",
+        "section": "5.3 Avogadro's law",
+        "page": "175-177",
+        "pdf_page": null,
+        "verified_in_text": false,
+        "note": "Grade 11 Unit 5 (Behaviour of Gases, printed pp.162-190) is missing from the supplied PDF (it ends at p.129); page taken from the book's table of contents, text not verified.",
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "The stem does not state that temperature and pressure are constant (needed for Avogadro's law); assumed."
+    },
+    {
+      "id": "gensci-2023-matric-p1-q67",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 67,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "In winter, some countries spread calcium chloride on the icy roads. This is an application of the colligative property of",
+      "options": {
+        "A": "osmotic pressure.",
+        "B": "freezing point depression.",
+        "C": "boiling point elevation.",
+        "D": "vapour pressure lowering.",
+        "E": "B and C."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "A dissolved solute lowers the freezing point of water (colligative property) (G10 pp.103–106). The salt solution formed on the road freezes below 0 °C, so the ice melts.",
+        "CaCl₂ gives 3 ions per formula unit, so it is very effective. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Antifreeze (ethylene glycol) is added to car radiators to",
+          "options": {
+            "A": "raise the freezing point",
+            "B": "lower the freezing point and raise the boiling point",
+            "C": "lower the boiling point",
+            "D": "increase the vapour pressure",
+            "E": "make the water acidic"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "The solute depresses the freezing point and elevates the boiling point of the coolant. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-stoichiometry-solutions"
+      ],
+      "keywords": [
+        "colligative properties",
+        "freezing point depression",
+        "calcium chloride",
+        "de-icing"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.5 Colligative properties",
+        "page": "103-106",
+        "pdf_page": 111,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q68",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 68,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is not the use of copper? It is used for the manufacturing of",
+      "options": {
+        "A": "electrical wires.",
+        "B": "computer components.",
+        "C": "water pipes.",
+        "D": "currency.",
+        "E": "making of explosives."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Copper is an excellent conductor, ductile and corrosion-resistant: it is used for electrical wires and electronic (computer) components, water pipes and coins (alloys) (G11 p.55).",
+        "It is not used to make explosives. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Copper is used for electric wires mainly because it is",
+          "options": {
+            "A": "cheap and brittle",
+            "B": "a good conductor and ductile",
+            "C": "magnetic",
+            "D": "very reactive",
+            "E": "light"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "High electrical conductivity and ductility (can be drawn into wires). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-elements-compounds-uses"
+      ],
+      "keywords": [
+        "copper",
+        "uses of metals"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – Chemistry of Some Metals and Their Compounds",
+        "section": "4.3 Copper – uses",
+        "page": "55",
+        "pdf_page": 63,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q69",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 69,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "When a concentrated aqueous solution is diluted by adding a certain amount of water the",
+      "options": {
+        "A": "concentration of the solution is doubled.",
+        "B": "concentration of the solution remains unchanged.",
+        "C": "volume of the solution decreases.",
+        "D": "number of moles of the solute remains the same.",
+        "E": "volume of the solution remains the same."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Dilution adds solvent only: the amount of solute is unchanged while the volume increases, so the concentration decreases (M₁V₁ = M₂V₂) (G10 p.92).",
+        "Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "What volume of 2.0 M HCl is needed to make 500 mL of 0.40 M HCl?",
+          "options": null,
+          "answer": "100 mL",
+          "explanation_steps": [
+            "M₁V₁ = M₂V₂ → V₁ = 0.40 × 500 / 2.0 = 100 mL."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-stoichiometry-solutions"
+      ],
+      "keywords": [
+        "dilution",
+        "M1V1 = M2V2",
+        "moles of solute"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.4 Dilution of solutions",
+        "page": "92",
+        "pdf_page": 100,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q70",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 70,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Nuclear reactions are characterized by",
+      "options": {
+        "A": "low energy changes.",
+        "B": "effect of a catalyst.",
+        "C": "conversion of atoms of one element into atoms of another element.",
+        "D": "no loss of mass.",
+        "E": "reversible reaction."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "In nuclear reactions the nucleus changes, so one element is transmuted into another; they involve huge energy changes, a measurable loss of mass (E = mc²), are not affected by catalysts or temperature, and are irreversible (G12 pp.105–107).",
+        "Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which particle is emitted when ²³⁸₉₂U decays to ²³⁴₉₀Th?",
+          "options": {
+            "A": "Beta particle",
+            "B": "Alpha particle",
+            "C": "Gamma ray",
+            "D": "Neutron",
+            "E": "Positron"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Mass number −4 and atomic number −2 → alpha particle ⁴₂He. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-organic-nuclear"
+      ],
+      "keywords": [
+        "nuclear reactions",
+        "transmutation",
+        "mass defect"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 3 – Introduction to Nuclear Chemistry",
+        "section": "3.1 Nuclear reactions versus chemical reactions",
+        "page": "105-107",
+        "pdf_page": 111,
+        "verified_in_text": true,
+        "subject": "Chemistry"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q71",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 71,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is a vector quantity?",
+      "image": "media/general-science-2023-matric-constants.png",
+      "image_alt": "Table 'Constants that you may require for questions 71-100': acceleration due to gravity g = 10 m/s²; velocity of light in air and free space c = 3 × 10⁸ m/s; refractive index of air n(air) ≈ 1; elementary charge e = 1.60 × 10⁻¹⁹ C; Planck's constant h = 6.63 × 10⁻³⁴ J·s; sin 30° = cos 60° = 0.50; sin 45° = cos 45° = 0.71.",
+      "options": {
+        "A": "Distance",
+        "B": "Density",
+        "C": "Volume",
+        "D": "Velocity",
+        "E": "Energy"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "A vector quantity has both magnitude and direction (G9 pp.47–48).",
+        "Velocity (speed in a stated direction) is a vector; distance, density, volume and energy are scalars. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which pair contains only vector quantities?",
+          "options": {
+            "A": "Mass and force",
+            "B": "Displacement and acceleration",
+            "C": "Speed and time",
+            "D": "Work and power",
+            "E": "Distance and velocity"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Displacement and acceleration both have direction. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-units-vectors"
+      ],
+      "keywords": [
+        "vector quantity",
+        "scalar quantity",
+        "velocity"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Physical Quantities and Measurements",
+        "section": "1.3 Scalars and vectors",
+        "page": "47-48",
+        "pdf_page": 54,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q72",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 72,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The number of significant figures in 0.04050 is",
+      "options": {
+        "A": "three.",
+        "B": "four.",
+        "C": "five.",
+        "D": "six.",
+        "E": "two."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Rules (G9 pp.34–37): leading zeros are not significant; zeros between non-zero digits are significant; trailing zeros after the decimal point are significant.",
+        "0.04050: the zeros before 4 are not significant; 4, 0, 5 and the final 0 are → 4 significant figures. Answer: B."
+      ],
+      "tips": [
+        "Write it in scientific notation: 4.050 × 10⁻² – every digit shown is significant."
+      ],
+      "similar_questions": [
+        {
+          "stem": "How many significant figures are in 2.0300?",
+          "options": null,
+          "answer": "5",
+          "explanation_steps": [
+            "All digits after the first non-zero digit are significant, including the trailing zeros after the decimal point: 2, 0, 3, 0, 0 → 5."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-units-vectors"
+      ],
+      "keywords": [
+        "significant figures",
+        "measurement",
+        "precision"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Physical Quantities and Measurements",
+        "section": "1.2.3 Significant figures",
+        "page": "34-37",
+        "pdf_page": 41,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q73",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 73,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A man walks 70 m West, then 130 m East, and then 80 m South. What is the magnitude of the total displacement?",
+      "options": {
+        "A": "280 m",
+        "B": "140 m",
+        "C": "100 m",
+        "D": "120 m",
+        "E": "240 m"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "East–west: −70 + 130 = 60 m East. North–south: 80 m South (G9 pp.49–57).",
+        "The two components are perpendicular: d = √(60² + 80²) = √(3600 + 6400) = √10000 = 100 m. Answer: C. (280 m is the total distance walked.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "A girl walks 50 m North, 20 m South and then 40 m East. What is the magnitude of her displacement?",
+          "options": null,
+          "answer": "50 m",
+          "explanation_steps": [
+            "Net north = 30 m, east = 40 m; d = √(30² + 40²) = 50 m."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-units-vectors"
+      ],
+      "keywords": [
+        "displacement",
+        "resultant",
+        "Pythagoras",
+        "vectors"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Physical Quantities and Measurements",
+        "section": "1.3 Vector addition – resultant displacement",
+        "page": "54-57",
+        "pdf_page": 61,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q74",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 74,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A uniformly accelerated motion has a constant",
+      "options": {
+        "A": "speed.",
+        "B": "velocity.",
+        "C": "momentum.",
+        "D": "acceleration.",
+        "E": "kinetic energy."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "In uniformly accelerated motion the velocity changes by equal amounts in equal time intervals, so the acceleration is constant (G9 pp.81–82).",
+        "Because velocity changes, speed, momentum (mv) and kinetic energy also change. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "A car starts from rest with a uniform acceleration of 2 m/s². What is its velocity after 5 s?",
+          "options": null,
+          "answer": "10 m/s",
+          "explanation_steps": [
+            "v = u + at = 0 + 2 × 5 = 10 m/s."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-motion"
+      ],
+      "keywords": [
+        "uniform acceleration",
+        "constant acceleration"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Motion in One Dimension",
+        "section": "2.3 Acceleration – uniformly accelerated motion",
+        "page": "81-82",
+        "pdf_page": 88,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q75",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 75,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The force of gravity acting on an object is known as",
+      "options": {
+        "A": "impulse.",
+        "B": "torque.",
+        "C": "acceleration.",
+        "D": "weight.",
+        "E": "momentum."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Weight is the gravitational force exerted by the Earth on an object: W = mg, measured in newtons (G9 pp.145–147).",
+        "Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "What is the weight of a 50 kg student on Earth? [g = 10 m/s²]",
+          "options": null,
+          "answer": "500 N",
+          "explanation_steps": [
+            "W = mg = 50 × 10 = 500 N."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-motion"
+      ],
+      "keywords": [
+        "weight",
+        "gravity",
+        "W = mg"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Force and Motion",
+        "section": "3.5 Weight and mass",
+        "page": "145-147",
+        "pdf_page": 152,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q76",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 76,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A body is sliding down an inclined plane having a coefficient of friction of 0.5. If the normal force is twice the net force along the incline, the angle between the incline and the horizontal is",
+      "image": "media/general-science-2023-matric-constants.png",
+      "image_alt": "Table 'Constants that you may require for questions 71-100': acceleration due to gravity g = 10 m/s²; velocity of light in air and free space c = 3 × 10⁸ m/s; refractive index of air n(air) ≈ 1; elementary charge e = 1.60 × 10⁻¹⁹ C; Planck's constant h = 6.63 × 10⁻³⁴ J·s; sin 30° = cos 60° = 0.50; sin 45° = cos 45° = 0.71.",
+      "options": {
+        "A": "15°.",
+        "B": "30°.",
+        "C": "45°.",
+        "D": "60°.",
+        "E": "75°."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "On an incline of angle θ: normal force N = mg cos θ; net force down the incline F = mg sin θ − μ mg cos θ (G9 pp.177–181).",
+        "N = 2F → mg cos θ = 2(mg sin θ − 0.5 mg cos θ) = 2mg sin θ − mg cos θ → 2 cos θ = 2 sin θ → tan θ = 1.",
+        "θ = 45°. Answer: C. (Check with sin 45° = cos 45° = 0.71: F = 0.71mg − 0.355mg = 0.355mg and N = 0.71mg = 2F ✓.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "A block slides down a 30° incline with coefficient of kinetic friction 0.2. What is its acceleration? [g = 10 m/s², sin 30° = 0.50, cos 30° = 0.87]",
+          "options": null,
+          "answer": "about 3.3 m/s²",
+          "explanation_steps": [
+            "a = g(sin θ − μ cos θ) = 10(0.50 − 0.2 × 0.87) = 10 × 0.326 ≈ 3.3 m/s²."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-motion",
+        "gs-work-energy-momentum"
+      ],
+      "keywords": [
+        "inclined plane",
+        "friction",
+        "normal force",
+        "coefficient of friction"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Force and Motion",
+        "section": "3.2.4–3.2.5 Types of friction; laws of friction",
+        "page": "177-181",
+        "pdf_page": 184,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q77",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 77,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "What is the gravitational potential energy of a 0.15 kg ball resting at the edge of a roof that is 42 m above the ground? [g = 10 m/s²]",
+      "image": "media/general-science-2023-matric-constants.png",
+      "image_alt": "Table 'Constants that you may require for questions 71-100': acceleration due to gravity g = 10 m/s²; velocity of light in air and free space c = 3 × 10⁸ m/s; refractive index of air n(air) ≈ 1; elementary charge e = 1.60 × 10⁻¹⁹ C; Planck's constant h = 6.63 × 10⁻³⁴ J·s; sin 30° = cos 60° = 0.50; sin 45° = cos 45° = 0.71.",
+      "options": {
+        "A": "28 J",
+        "B": "36 J",
+        "C": "62 J",
+        "D": "63 J",
+        "E": "280 J"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "PE = mgh, taking the ground as the reference level (G9 pp.219–222).",
+        "PE = 0.15 × 10 × 42 = 63 J. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "A 2 kg book is lifted onto a shelf 1.5 m high. What is its gain in potential energy? [g = 10 m/s²]",
+          "options": null,
+          "answer": "30 J",
+          "explanation_steps": [
+            "PE = mgh = 2 × 10 × 1.5 = 30 J."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-work-energy-momentum"
+      ],
+      "keywords": [
+        "gravitational potential energy",
+        "mgh"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 4 – Work, Energy, and Power",
+        "section": "4.2.3 Potential energy",
+        "page": "219-222",
+        "pdf_page": 226,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q78",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 78,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The kinetic energy of a body of mass of 2 kg and momentum of 2 N is",
+      "options": {
+        "A": "4 J.",
+        "B": "6 J.",
+        "C": "1 J.",
+        "D": "3 J.",
+        "E": "2 J."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "KE = ½mv² and p = mv, so KE = p²/(2m) (G9 p.232).",
+        "KE = 2² / (2 × 2) = 4/4 = 1 J (v = p/m = 1 m/s, KE = ½ × 2 × 1² = 1 J). Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "A 4 kg object has 8 J of kinetic energy. What is its momentum?",
+          "options": null,
+          "answer": "8 kg·m/s",
+          "explanation_steps": [
+            "p = √(2mKE) = √(2 × 4 × 8) = √64 = 8 kg·m/s."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-work-energy-momentum"
+      ],
+      "keywords": [
+        "kinetic energy",
+        "momentum",
+        "KE = p²/2m"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 4 – Work, Energy, and Power",
+        "section": "4.4 Momentum and kinetic energy",
+        "page": "232",
+        "pdf_page": 239,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "The unit of momentum is printed 'N'; it should be N·s (kg·m/s). The intended value 2 kg·m/s is clear."
+    },
+    {
+      "id": "gensci-2023-matric-p1-q79",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 79,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A ball is given a horizontal velocity of 25 m/s from a height of 20 m. The horizontal distance covered when it strikes the ground is [g = 10 m/s²]",
+      "image": "media/general-science-2023-matric-constants.png",
+      "image_alt": "Table 'Constants that you may require for questions 71-100': acceleration due to gravity g = 10 m/s²; velocity of light in air and free space c = 3 × 10⁸ m/s; refractive index of air n(air) ≈ 1; elementary charge e = 1.60 × 10⁻¹⁹ C; Planck's constant h = 6.63 × 10⁻³⁴ J·s; sin 30° = cos 60° = 0.50; sin 45° = cos 45° = 0.71.",
+      "options": {
+        "A": "5 m.",
+        "B": "16 m.",
+        "C": "25 m.",
+        "D": "50 m.",
+        "E": "500 m."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Horizontal projection (G10 pp.2–8): vertical motion is free fall from rest, horizontal velocity stays constant.",
+        "Time of flight: h = ½gt² → t = √(2h/g) = √(2 × 20/10) = 2 s. Range x = vₓt = 25 × 2 = 50 m. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "A stone is thrown horizontally at 10 m/s from a cliff 45 m high. How far from the foot of the cliff does it land? [g = 10 m/s²]",
+          "options": null,
+          "answer": "30 m",
+          "explanation_steps": [
+            "t = √(2 × 45/10) = 3 s; x = 10 × 3 = 30 m."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-motion"
+      ],
+      "keywords": [
+        "horizontal projectile",
+        "time of flight",
+        "range"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Motion in Two Dimensions",
+        "section": "1.1.1 Projectile launched horizontally",
+        "page": "2-8",
+        "pdf_page": 10,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q80",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 80,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Figure 1 represents the trajectory of a projectile going from A to E. Air resistance is negligible. Which of the following is wrong? [Figure 1: launch point A and landing point E on the same horizontal level; B on the way up, C the highest point, D on the way down]",
+      "image": "media/general-science-2023-matric-q80-projectile.png",
+      "image_alt": "Figure 1: the parabolic trajectory of a projectile above a horizontal line. It is launched at A (on the ground, left), rises through B, reaches its highest point C, descends through D and lands at E (on the ground, right, at the same level as A).",
+      "options": {
+        "A": "The speed is lowest at point C.",
+        "B": "The speed is greatest at points A and E.",
+        "C": "The speed is the same at points A and E.",
+        "D": "The velocity is the same at points A and E.",
+        "E": "The acceleration is the same at points B and C."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Without air resistance the horizontal velocity is constant and the vertical velocity changes at g. At C the vertical velocity is zero, so the speed is lowest there (A true); A and E are at the same height, so the speeds there are equal and greatest (B, C true) (G10 pp.8–12).",
+        "The acceleration is g downward everywhere (E true).",
+        "At A the velocity points upward and at E it points downward, so the velocities are NOT the same (only their magnitudes are). D is wrong. Answer: D."
+      ],
+      "tips": [
+        "Same speed ≠ same velocity: velocity includes direction."
+      ],
+      "similar_questions": [
+        {
+          "stem": "At the highest point of a projectile's path, which quantity is zero?",
+          "options": {
+            "A": "Horizontal velocity",
+            "B": "Vertical velocity",
+            "C": "Acceleration",
+            "D": "Speed",
+            "E": "Kinetic energy"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Only the vertical component of velocity is zero at the top; the horizontal velocity and g remain. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-motion"
+      ],
+      "keywords": [
+        "projectile motion",
+        "trajectory",
+        "velocity",
+        "speed"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Motion in Two Dimensions",
+        "section": "1.1.2 Projectile launched at an angle",
+        "page": "8-12",
+        "pdf_page": 16,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q81",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 81,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "What is the name of a thermodynamic process in which no heat is transferred?",
+      "options": {
+        "A": "Isochoric",
+        "B": "Isentropic",
+        "C": "Isothermal",
+        "D": "Isobaric",
+        "E": "Adiabatic"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E",
+        "B"
+      ],
+      "explanation_steps": [
+        "Adiabatic process: Q = 0, no heat enters or leaves the system (G10 pp.94–95). Isothermal = constant temperature; isobaric = constant pressure; isochoric = constant volume.",
+        "E is keyed. B is also accepted: an isentropic process is a reversible adiabatic process, so it too involves no heat transfer (the term is not in the textbook)."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "In an isothermal expansion of an ideal gas, which quantity stays constant?",
+          "options": {
+            "A": "Pressure",
+            "B": "Volume",
+            "C": "Temperature",
+            "D": "Heat",
+            "E": "Work"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Isothermal = constant temperature (so ΔU = 0 and Q = W). Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-heat-matter"
+      ],
+      "keywords": [
+        "adiabatic process",
+        "thermodynamic processes",
+        "isothermal",
+        "isobaric",
+        "isochoric"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Temperature, Heat and the Laws of Thermodynamics",
+        "section": "2.6 Thermodynamic processes – adiabatic",
+        "page": "94-95",
+        "pdf_page": 102,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Adiabatic (E) keyed; isentropic (B) is a reversible adiabatic process with no heat transfer, so it is also accepted."
+    },
+    {
+      "id": "gensci-2023-matric-p1-q82",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 82,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The average temperature of a human body is 37°C. This temperature in Fahrenheit scale is",
+      "options": {
+        "A": "52.6.",
+        "B": "38.3.",
+        "C": "64.",
+        "D": "98.6.",
+        "E": "124.2."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "T(°F) = (9/5) T(°C) + 32 (G10 pp.45–46).",
+        "T = 1.8 × 37 + 32 = 66.6 + 32 = 98.6 °F. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Convert 212 °F to degrees Celsius.",
+          "options": null,
+          "answer": "100 °C",
+          "explanation_steps": [
+            "T(°C) = (212 − 32) × 5/9 = 180 × 5/9 = 100 °C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-heat-matter"
+      ],
+      "keywords": [
+        "temperature scales",
+        "Fahrenheit",
+        "Celsius"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Temperature, Heat and the Laws of Thermodynamics",
+        "section": "2.1 Temperature scales",
+        "page": "45-46",
+        "pdf_page": 53,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q83",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 83,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A negatively charged particle of mass 0.001 g and charge 3 μC, accelerates from East to West in a uniform electric field. What are the direction and the value of the electric field if the value of its acceleration is 0.003 m/s²?",
+      "options": {
+        "A": "West, 0.001 N/C",
+        "B": "East, 0.001 N/C",
+        "C": "West, 1 N/C",
+        "D": "East, 1 N/C",
+        "E": "North, 1000 N/C"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "F = ma with m = 0.001 g = 1 × 10⁻⁶ kg: F = 1 × 10⁻⁶ × 0.003 = 3 × 10⁻⁹ N (G10 pp.135–137).",
+        "E = F/q = 3 × 10⁻⁹ / 3 × 10⁻⁶ = 1 × 10⁻³ N/C = 0.001 N/C.",
+        "The particle is negative and accelerates towards the West, so the force on it is westward; the field points opposite to the force on a negative charge, i.e. East. Answer: B."
+      ],
+      "tips": [
+        "Convert g → kg and μC → C first; the field on a negative charge points opposite to its force."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A proton (q = 1.6 × 10⁻¹⁹ C) is in a field of 500 N/C pointing North. What force acts on it?",
+          "options": null,
+          "answer": "8 × 10⁻¹⁷ N, towards North",
+          "explanation_steps": [
+            "F = qE = 1.6 × 10⁻¹⁹ × 500 = 8 × 10⁻¹⁷ N, in the direction of the field because the charge is positive."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-electricity-magnetism"
+      ],
+      "keywords": [
+        "electric field",
+        "negative charge",
+        "F = qE",
+        "Newton's second law"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Electricity: Electrostatics",
+        "section": "3.4 Electric field",
+        "page": "135-137",
+        "pdf_page": 143,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q84",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 84,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Three resistances 14.5 Ω, 25.5 Ω and 60 Ω are connected in series across 200 V. What will be the voltage drop across 14.5 Ω?",
+      "options": {
+        "A": "29 V",
+        "B": "13.5 V",
+        "C": "14 V",
+        "D": "18 V",
+        "E": "51 V"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "In series R = R₁ + R₂ + R₃ and the same current flows through each resistor (G10 pp.179–182).",
+        "R = 14.5 + 25.5 + 60 = 100 Ω; I = 200/100 = 2 A; V = IR = 2 × 14.5 = 29 V. Answer: A. (51 V is across 25.5 Ω.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Resistors of 2 Ω and 3 Ω are in series with a 10 V battery. What is the voltage across the 3 Ω resistor?",
+          "options": null,
+          "answer": "6 V",
+          "explanation_steps": [
+            "I = 10/5 = 2 A; V = 2 × 3 = 6 V."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-electricity-magnetism"
+      ],
+      "keywords": [
+        "series circuit",
+        "voltage drop",
+        "Ohm's law"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Electricity: Direct Current Circuits",
+        "section": "4.3 Resistors in series",
+        "page": "179-182",
+        "pdf_page": 187,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q85",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 85,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is wrong?",
+      "options": {
+        "A": "In a plane mirror, the object and image distances are equal.",
+        "B": "The image formed by a plane mirror is real image.",
+        "C": "The magnification of a plane mirror is 1.",
+        "D": "A plane mirror can be considered as a spherical mirror with focal length of infinity.",
+        "E": "The size of the object and size of the image formed by a plane mirror are equal."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "A plane mirror forms a virtual, upright image of the same size, as far behind the mirror as the object is in front (G10 pp.223–226).",
+        "The reflected rays only appear to come from the image, which cannot be caught on a screen, so the image is virtual, not real. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "How many images are formed by two plane mirrors at 60° to each other?",
+          "options": null,
+          "answer": "5",
+          "explanation_steps": [
+            "n = 360°/θ − 1 = 360/60 − 1 = 5 images."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-optics"
+      ],
+      "keywords": [
+        "plane mirror",
+        "virtual image",
+        "magnification"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Geometrical Optics Part I: Reflection of Light and Mirrors",
+        "section": "5.4 Images formed by plane mirrors",
+        "page": "223-226",
+        "pdf_page": 231,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q86",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 86,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The focal length of a mirror that forms an image 6 cm behind the mirror of an object placed at 15 cm in front of the mirror is",
+      "options": {
+        "A": "− 4.29 cm.",
+        "B": "+ 4.29 cm.",
+        "C": "+ 10 cm.",
+        "D": "− 9.6 cm.",
+        "E": "− 10 cm."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Mirror equation (G10 pp.240–242): 1/f = 1/do + 1/di, with virtual images (behind the mirror) negative.",
+        "do = +15 cm, di = −6 cm: 1/f = 1/15 − 1/6 = (2 − 5)/30 = −1/10 → f = −10 cm (a convex mirror). Answer: E. (±4.29 cm comes from wrongly adding 1/15 + 1/6.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "An object is 30 cm in front of a concave mirror of focal length 10 cm. Where is the image?",
+          "options": null,
+          "answer": "15 cm in front of the mirror (real)",
+          "explanation_steps": [
+            "1/di = 1/10 − 1/30 = 2/30 → di = +15 cm (real, inverted)."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-optics"
+      ],
+      "keywords": [
+        "mirror equation",
+        "convex mirror",
+        "focal length",
+        "virtual image"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Geometrical Optics Part I: Reflection of Light and Mirrors",
+        "section": "5.6 The mirror equation",
+        "page": "240-242",
+        "pdf_page": 248,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q87",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 87,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A long-sighted person can",
+      "options": {
+        "A": "read materials less than 25 cm from the eye.",
+        "B": "see nearby objects between 10 cm and 20 cm from the eye.",
+        "C": "see distant objects further than 25 cm from the eye.",
+        "D": "read materials less than 5 cm from the eye.",
+        "E": "read materials comfortably between 5 cm and 25 cm from the eye."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Long sight (hypermetropia): distant objects are seen clearly, but the near point is farther than the normal 25 cm, so near objects appear blurred; it is corrected with a converging lens (G11 pp.47–48).",
+        "A, B, D and E describe seeing near objects clearly (short sight). Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Short sight (myopia) is corrected with a",
+          "options": {
+            "A": "converging lens",
+            "B": "diverging lens",
+            "C": "plane mirror",
+            "D": "prism",
+            "E": "cylindrical mirror"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "A diverging (concave) lens moves the image back onto the retina. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-optics"
+      ],
+      "keywords": [
+        "long sight",
+        "hypermetropia",
+        "near point",
+        "defects of vision"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Geometrical Optics Part II: Refraction of Light and Lenses",
+        "section": "1.6 Defects of vision – long sight",
+        "page": "47-48",
+        "pdf_page": 51,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q88",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 88,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "In an air-medium boundary, the refractive index of the medium is √2. What is the critical angle of the medium? [n(air) ≈ 1, sin 45° = 0.71]",
+      "image": "media/general-science-2023-matric-constants.png",
+      "image_alt": "Table 'Constants that you may require for questions 71-100': acceleration due to gravity g = 10 m/s²; velocity of light in air and free space c = 3 × 10⁸ m/s; refractive index of air n(air) ≈ 1; elementary charge e = 1.60 × 10⁻¹⁹ C; Planck's constant h = 6.63 × 10⁻³⁴ J·s; sin 30° = cos 60° = 0.50; sin 45° = cos 45° = 0.71.",
+      "options": {
+        "A": "30°",
+        "B": "45°",
+        "C": "60°",
+        "D": "90°",
+        "E": "15°"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Critical angle: sin c = n(air)/n(medium) = 1/n (G11 pp.16–17).",
+        "sin c = 1/√2 = 0.71 → c = 45°. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The critical angle of a glass is 30°. What is its refractive index? [sin 30° = 0.50]",
+          "options": null,
+          "answer": "2.0",
+          "explanation_steps": [
+            "n = 1/sin c = 1/0.50 = 2.0."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-optics"
+      ],
+      "keywords": [
+        "critical angle",
+        "refractive index",
+        "total internal reflection"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Geometrical Optics Part II: Refraction of Light and Lenses",
+        "section": "1.2 Total internal reflection – critical angle",
+        "page": "16-17",
+        "pdf_page": 20,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q89",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 89,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Substances which get strongly magnetized when placed in an external magnetic field and strongly attracted by a magnet are",
+      "options": {
+        "A": "paramagnetic.",
+        "B": "non-magnetic.",
+        "C": "diamagnetic.",
+        "D": "ferromagnetic.",
+        "E": "plastic."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Ferromagnetic materials (iron, nickel, cobalt) are strongly magnetised and strongly attracted; paramagnetic materials only weakly; diamagnetic materials are weakly repelled (G11 pp.68–70).",
+        "Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is diamagnetic (weakly repelled by a magnet)?",
+          "options": {
+            "A": "Iron",
+            "B": "Nickel",
+            "C": "Copper",
+            "D": "Cobalt",
+            "E": "Steel"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Copper (like bismuth and water) is diamagnetic. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-electricity-magnetism"
+      ],
+      "keywords": [
+        "ferromagnetic",
+        "paramagnetic",
+        "diamagnetic",
+        "magnetic materials"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Magnetism",
+        "section": "2.2 Magnetic materials",
+        "page": "68-70",
+        "pdf_page": 72,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q90",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 90,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The modern day Maglev (Magnetic levitation) trains use large",
+      "options": {
+        "A": "bar magnets.",
+        "B": "electromagnets.",
+        "C": "permanent magnets.",
+        "D": "horse shoe magnets.",
+        "E": "spherical magnets."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Textbook (G11 p.99): magnets on the undercarriage are attracted to the guideway to levitate the train, and 'once levitated, the Maglev train is then propelled forward by electromagnets along the track walls'.",
+        "Large (often superconducting) electromagnets can be switched and controlled. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The strength of an electromagnet can be increased by",
+          "options": {
+            "A": "using fewer turns",
+            "B": "reducing the current",
+            "C": "using a soft-iron core and more turns",
+            "D": "using a copper core",
+            "E": "removing the core"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "More turns, more current and a soft-iron core all increase the field. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-electricity-magnetism"
+      ],
+      "keywords": [
+        "Maglev",
+        "electromagnets",
+        "magnetic levitation"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Magnetism",
+        "section": "2.4 Applications of electromagnets – Maglev trains",
+        "page": "99",
+        "pdf_page": 103,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q91",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 91,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A step up transformer is used to have an output power of 60 W. If the input power is 80 W, the efficiency of the transformer will be",
+      "options": {
+        "A": "25%.",
+        "B": "85%.",
+        "C": "50%.",
+        "D": "40%.",
+        "E": "75%."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Efficiency = output power / input power × 100% (G11 pp.132–136).",
+        "η = 60/80 × 100% = 75%. Answer: E. (25% is the fraction lost.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "A transformer with 90% efficiency delivers 450 W. What is its input power?",
+          "options": null,
+          "answer": "500 W",
+          "explanation_steps": [
+            "P(in) = P(out)/η = 450/0.90 = 500 W."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-electricity-magnetism"
+      ],
+      "keywords": [
+        "transformer",
+        "efficiency",
+        "power"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Magnetism",
+        "section": "2.7 Transformers",
+        "page": "132-136",
+        "pdf_page": 136,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q92",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 92,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A student observes 160 waves pass-by in 20 seconds. The frequency of the wave in Hertz is",
+      "options": {
+        "A": "12.",
+        "B": "16.",
+        "C": "8.",
+        "D": "4.",
+        "E": "32."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Frequency = number of waves per second (G11 pp.153–156).",
+        "f = 160 / 20 s = 8 Hz. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "A wave has frequency 8 Hz and wavelength 0.5 m. What is its speed?",
+          "options": null,
+          "answer": "4 m/s",
+          "explanation_steps": [
+            "v = fλ = 8 × 0.5 = 4 m/s."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-waves"
+      ],
+      "keywords": [
+        "frequency",
+        "waves",
+        "hertz"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Waves and Sound",
+        "section": "3.2 Characteristics of waves – frequency",
+        "page": "153-156",
+        "pdf_page": 157,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q93",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 93,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Sound waves are mechanical and cannot travel through",
+      "options": {
+        "A": "air.",
+        "B": "water.",
+        "C": "solid.",
+        "D": "a vacuum.",
+        "E": "a metallic sphere."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Sound is a mechanical wave: it needs a material medium (solid, liquid or gas) whose particles vibrate (G11 pp.182–184).",
+        "There are no particles in a vacuum, so sound cannot travel through it (the bell-jar experiment). Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "In which medium does sound travel fastest?",
+          "options": {
+            "A": "Vacuum",
+            "B": "Air",
+            "C": "Water",
+            "D": "Steel",
+            "E": "Hydrogen gas"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "Sound is fastest in solids such as steel (about 5000 m/s). Answer: D."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-waves"
+      ],
+      "keywords": [
+        "sound",
+        "mechanical waves",
+        "vacuum"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Waves and Sound",
+        "section": "3.6 Sound – transmission of sound",
+        "page": "182-184",
+        "pdf_page": 186,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q94",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 94,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A wave in which the particles of the medium move in a direction parallel to the direction that the wave moves is a",
+      "options": {
+        "A": "longitudinal wave.",
+        "B": "surface water wave.",
+        "C": "wave of a vibrating string.",
+        "D": "transverse wave.",
+        "E": "electromagnetic wave."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Longitudinal waves (e.g. sound) have particle vibrations parallel to the direction of travel, forming compressions and rarefactions; in transverse waves the vibrations are perpendicular (G11 pp.149–150).",
+        "Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is a transverse wave?",
+          "options": {
+            "A": "Sound in air",
+            "B": "Light",
+            "C": "Compression wave in a spring",
+            "D": "Ultrasound",
+            "E": "Seismic P-wave"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Light (an electromagnetic wave) is transverse. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-waves"
+      ],
+      "keywords": [
+        "longitudinal wave",
+        "transverse wave",
+        "compressions"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Waves and Sound",
+        "section": "3.1 Types of waves – longitudinal and transverse",
+        "page": "149-150",
+        "pdf_page": 153,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q95",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 95,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "In addition to the three states of matter (solid, liquid and gas), the fourth state of matter is",
+      "options": {
+        "A": "fluid.",
+        "B": "plasma.",
+        "C": "acoustics.",
+        "D": "atmosphere.",
+        "E": "mercury."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Textbook (G12 p.2): 'In addition to the three states of matter, the fourth state of matter, plasma – a highly ionized state of matter' (found in stars, lightning and fluorescent lamps).",
+        "Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Liquids and gases are both called fluids because they",
+          "options": {
+            "A": "have a fixed shape",
+            "B": "can flow",
+            "C": "are incompressible",
+            "D": "have a fixed volume",
+            "E": "are always hot"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "A fluid is any substance that can flow. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-heat-matter",
+        "gs-fluids"
+      ],
+      "keywords": [
+        "plasma",
+        "states of matter",
+        "fourth state of matter"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Fluid Mechanics",
+        "section": "1.1 Fluids – states of matter",
+        "page": "2",
+        "pdf_page": 8,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q96",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 96,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A camel weighs 1200 kg. The area of each foot of the camel is 400 cm². If the weight of the camel is evenly distributed amongst the feet, the pressure acting on each foot, in pascals, is [g = 10 m/s²]",
+      "image": "media/general-science-2023-matric-constants.png",
+      "image_alt": "Table 'Constants that you may require for questions 71-100': acceleration due to gravity g = 10 m/s²; velocity of light in air and free space c = 3 × 10⁸ m/s; refractive index of air n(air) ≈ 1; elementary charge e = 1.60 × 10⁻¹⁹ C; Planck's constant h = 6.63 × 10⁻³⁴ J·s; sin 30° = cos 60° = 0.50; sin 45° = cos 45° = 0.71.",
+      "options": {
+        "A": "9,375.",
+        "B": "150,000.",
+        "C": "37,500.",
+        "D": "75,000.",
+        "E": "25,000."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Weight W = mg = 1200 × 10 = 12 000 N, shared equally by 4 feet → 3000 N per foot (G12 pp.11–13).",
+        "Area of one foot = 400 cm² = 0.04 m². p = F/A = 3000 / 0.04 = 75 000 Pa. Answer: D. (The same result follows from 12 000 N / 0.16 m².)"
+      ],
+      "tips": [
+        "Convert cm² to m²: divide by 10 000."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A 60 kg woman stands on one heel of area 1 cm². What pressure does she exert? [g = 10 m/s²]",
+          "options": null,
+          "answer": "6 × 10⁶ Pa",
+          "explanation_steps": [
+            "p = 600 N / 1 × 10⁻⁴ m² = 6 × 10⁶ Pa."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-fluids"
+      ],
+      "keywords": [
+        "pressure",
+        "force per unit area",
+        "unit conversion"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Fluid Mechanics",
+        "section": "1.2.1 Pressure",
+        "page": "11-13",
+        "pdf_page": 17,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "'Weighs 1200 kg' gives a mass, not a weight; the weight is 12 000 N with g = 10 m/s². The item assumes 4 feet."
+    },
+    {
+      "id": "gensci-2023-matric-p1-q97",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 97,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "According to pascal's principle, if an external force causes an increase in pressure at any point in a confined incompressible fluid, every point in the fluid experiences",
+      "options": {
+        "A": "increasing pressure change.",
+        "B": "the same pressure change.",
+        "C": "no pressure change.",
+        "D": "decreasing pressure change.",
+        "E": "increasing force change."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Pascal's principle: pressure applied to an enclosed incompressible fluid is transmitted undiminished to every part of the fluid and the container walls (G12 pp.51–55).",
+        "Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which device works on Pascal's principle?",
+          "options": {
+            "A": "Thermometer",
+            "B": "Hydraulic brake",
+            "C": "Barometer",
+            "D": "Hydrometer",
+            "E": "Pinhole camera"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Hydraulic brakes, lifts and presses transmit pressure through a liquid. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-fluids"
+      ],
+      "keywords": [
+        "Pascal's principle",
+        "hydraulics",
+        "pressure transmission"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Fluid Mechanics",
+        "section": "1.5 Pascal's principle",
+        "page": "51-55",
+        "pdf_page": 57,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q98",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 98,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The true nature of light includes both wave and particle characteristics. This character of light is a",
+      "options": {
+        "A": "single nature.",
+        "B": "dual nature.",
+        "C": "triple nature.",
+        "D": "quadruple nature.",
+        "E": "multiple nature."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Wave–particle duality: light shows wave properties (interference, diffraction) and particle properties (photons in the photoelectric effect) (G12 pp.91, 99).",
+        "Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which phenomenon shows the particle nature of light?",
+          "options": {
+            "A": "Interference",
+            "B": "Diffraction",
+            "C": "Photoelectric effect",
+            "D": "Polarisation",
+            "E": "Refraction"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "The photoelectric effect can only be explained with photons. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-quantum"
+      ],
+      "keywords": [
+        "dual nature of light",
+        "wave-particle duality",
+        "photons"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Quantum Physics",
+        "section": "2.1 Dual nature of light",
+        "page": "91",
+        "pdf_page": 97,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q99",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 99,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Photocell is a device used to convert light energy into",
+      "options": {
+        "A": "sound energy.",
+        "B": "mechanical energy.",
+        "C": "nuclear energy.",
+        "D": "atomic energy.",
+        "E": "electric energy."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "A photocell (photoelectric cell) uses the photoelectric effect: light falling on a cathode releases electrons, producing an electric current (G12 pp.116–118).",
+        "Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which of the following uses a photocell?",
+          "options": {
+            "A": "Electric kettle",
+            "B": "Automatic door opener / burglar alarm",
+            "C": "Transformer",
+            "D": "Loudspeaker",
+            "E": "Thermometer"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Interrupting the light beam changes the photocurrent and triggers the circuit. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-quantum"
+      ],
+      "keywords": [
+        "photocell",
+        "photoelectric effect",
+        "electric energy"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Quantum Physics",
+        "section": "2.4 Applications of the photoelectric effect – photocell",
+        "page": "116-118",
+        "pdf_page": 122,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "gensci-2023-matric-p1-q100",
+      "exam_id": "gensci-2023-matric",
+      "part": 1,
+      "number": 100,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The frequency of a light photon is 5 × 10¹⁸ Hz. The energy of the light in joules is [h = 6.63 × 10⁻³⁴ J·s]",
+      "image": "media/general-science-2023-matric-constants.png",
+      "image_alt": "Table 'Constants that you may require for questions 71-100': acceleration due to gravity g = 10 m/s²; velocity of light in air and free space c = 3 × 10⁸ m/s; refractive index of air n(air) ≈ 1; elementary charge e = 1.60 × 10⁻¹⁹ C; Planck's constant h = 6.63 × 10⁻³⁴ J·s; sin 30° = cos 60° = 0.50; sin 45° = cos 45° = 0.71.",
+      "options": {
+        "A": "3.32 × 10⁻¹⁵.",
+        "B": "6.64 × 10⁻¹⁷.",
+        "C": "6.64 × 10⁻¹⁵.",
+        "D": "3.32 × 10⁻¹⁷.",
+        "E": "15.5 nm."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Photon energy E = hf (G12 pp.100–102).",
+        "E = 6.63 × 10⁻³⁴ × 5 × 10¹⁸ = 3.315 × 10⁻¹⁵ ≈ 3.32 × 10⁻¹⁵ J. Answer: A. (Such a high frequency is in the X-ray region.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "What is the energy of a photon of wavelength 600 nm? [h = 6.63 × 10⁻³⁴ J·s, c = 3 × 10⁸ m/s]",
+          "options": null,
+          "answer": "3.3 × 10⁻¹⁹ J",
+          "explanation_steps": [
+            "E = hc/λ = 6.63 × 10⁻³⁴ × 3 × 10⁸ / 6.0 × 10⁻⁷ = 3.3 × 10⁻¹⁹ J."
+          ]
+        }
+      ],
+      "topics": [
+        "gs-quantum"
+      ],
+      "keywords": [
+        "photon energy",
+        "E = hf",
+        "Planck's constant"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Quantum Physics",
+        "section": "2.2 Planck's quantum theory – E = hf",
+        "page": "100-102",
+        "pdf_page": 106,
+        "verified_in_text": true,
+        "subject": "Physics"
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "The frequency is printed '5 × 1018 Hz' (superscript lost); read as 5 × 10¹⁸ Hz, which gives option A exactly. Option E (15.5 nm) is not an energy."
+    }
+  ]
+}

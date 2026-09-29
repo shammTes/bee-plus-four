@@ -1,0 +1,6196 @@
+{
+  "schema_version": "1.0",
+  "exam": {
+    "id": "busecon-2019-matric",
+    "year": "2019",
+    "subject": "Business and Economics",
+    "grade": 12,
+    "school": "Eritrean Secondary Education Certificate Examination (ESSCE) – national",
+    "type": "matriculation",
+    "exam_code": "9111",
+    "semester": null,
+    "title": "Eritrean Secondary Education Certificate Examinations 2019 – Business and Economics (9111)",
+    "duration": "3 hours",
+    "duration_minutes": 180,
+    "total_points": 100,
+    "parts": [
+      {
+        "part": 1,
+        "title": "Part I – Multiple Choice Questions",
+        "question_type": "mcq",
+        "question_count": 80,
+        "points": 80,
+        "instructions": "Part I contains 80 questions. You must answer all of them. Each question carries 1 point. There is only one best answer for each question; blacken the letter of your choice on the SCANTRON answer sheet with a pencil. (The paper has no printed section headings; items 1–40 are mostly Economics and 41–80 mostly Accounting – shown in each question's 'section' field; item 21 (cost of goods sold) is tagged Accounting and item 42 (balance of trade) Economics.)"
+      },
+      {
+        "part": 2,
+        "title": "Part II – Work Out and Short Answer Questions",
+        "question_type": "short answer/workout",
+        "question_count": 7,
+        "points": 20,
+        "instructions": "Part II contains seven work out and short answer questions. You must answer all of them. This part carries twenty points. Write your answers on the separate answer sheet provided."
+      }
+    ],
+    "source": {
+      "document": "Business_&_Economics_matric_2019.pdf",
+      "path": "matric/raw/2019/Business_&_Economics_matric_2019.pdf",
+      "drive_folder": "Matric_2019",
+      "pages": 22,
+      "prepared_by": "Ministry of Education, Eritrea – ESSCE 2019, Business & Economics, exam code 9111",
+      "official_answer_key": false,
+      "conversion_notes": "CamScanner scan; OCR text corrected against the page images. Figure 1 (demand and supply, item 15) was cropped from a 300-dpi render into content/media/; Table 1 (costs), Table 2 (utility), the income tax table (items 75–77), Table 3 (shoes) and the Part II depreciation and bank-reconciliation tables were re-keyed from the images. Underlined words in the paper (is correct, is not, except, will not, is incorrect, three, appropriate) are marked <u>…</u>."
+    },
+    "answer_key_note": "No official key exists. All answers were solved independently, every calculation was verified in Python (tools/src_matric/business_economics_2019/verify_calcs.py) and answers were checked against the Eritrean MoE Business and Economics textbooks Grades 10–12. See confidence and review_flag on each question.",
+    "notation": "unicode",
+    "textbooks": [
+      {
+        "grade": 10,
+        "file": "textbook_bussiness and economics_10.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 6
+      },
+      {
+        "grade": 11,
+        "file": "textbook_bussiness and economics_11.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 5
+      },
+      {
+        "grade": 12,
+        "file": "textbook_bussiness and economics_12.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 4
+      }
+    ],
+    "textbook_note": "No Grade 9 Business and Economics textbook was supplied. All exam content maps to Grades 10–12.",
+    "content_version": "1.0.0",
+    "language": "en"
+  },
+  "questions": [
+    {
+      "id": "busecon-2019-matric-p1-q01",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 1,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Economics is the study of how",
+      "options": {
+        "A": "to fully satisfy our unlimited wants.",
+        "B": "society manages its scarce resources.",
+        "C": "to reduce our wants until we are satisfied.",
+        "D": "to avoid having to make trade-offs.",
+        "E": "society manages its limited wants and unlimited resources."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Textbook: economics studies how individuals and societies choose to use scarce resources to satisfy unlimited wants.",
+        "Wants can never be fully satisfied (A), scarcity forces trade-offs (D), and E reverses ‘limited’ and ‘unlimited’. Answer: B."
+      ],
+      "tips": [
+        "Scarce resources + unlimited wants – watch for options that swap the two adjectives."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Scarcity means that",
+          "options": {
+            "A": "resources are limited relative to wants",
+            "B": "wants are limited",
+            "C": "all goods are free",
+            "D": "prices never change",
+            "E": "there is no choice"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-scarcity-choice"
+      ],
+      "keywords": [
+        "economics definition",
+        "scarce resources"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Basic Economics Concepts",
+        "section": "1.1 Definition of economics",
+        "page": "2",
+        "pdf_page": 8,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q02",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 2,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The three essential economic systems used to solve central economic questions are",
+      "options": {
+        "A": "production, income and spending.",
+        "B": "household, firms and government.",
+        "C": "command, market and mixed.",
+        "D": "local, regional and national governments.",
+        "E": "labour, capital and land."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Economic systems answer what, how and for whom to produce. The textbook lists traditional, command (planned), market (free enterprise) and mixed economies.",
+        "Of the options only C lists economic systems (B = economic agents, E = factors of production). Answer: C."
+      ],
+      "tips": [
+        "Don’t confuse economic systems with economic agents (households, firms, government) or factors of production."
+      ],
+      "similar_questions": [
+        {
+          "stem": "An economy in which the government owns most resources and decides what to produce is a",
+          "options": {
+            "A": "market economy",
+            "B": "command economy",
+            "C": "traditional economy",
+            "D": "mixed economy",
+            "E": "barter economy"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-economic-systems"
+      ],
+      "keywords": [
+        "economic systems",
+        "command",
+        "market",
+        "mixed"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Basic Economics Concepts",
+        "section": "1.1.5 Economic systems",
+        "page": "5-7",
+        "pdf_page": 11,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "The textbook also names the traditional economy (four systems); C is the only option that lists economic systems."
+    },
+    {
+      "id": "busecon-2019-matric-p1-q03",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 3,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The production possibility curve (PPC) shows",
+      "options": {
+        "A": "the maximum amount of resources that an economy possesses.",
+        "B": "the maximum amount of two goods that an economy can produce with fixed resources.",
+        "C": "the unlimited resources of an economy.",
+        "D": "all of the goods an economy can produce while leaving some resources idle.",
+        "E": "the maximum amount of goods an economy can consume."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "A PPC shows the maximum combinations of two goods an economy can produce when resources and technology are fixed and fully used.",
+        "Idle resources give points INSIDE the curve (D). Answer: B."
+      ],
+      "tips": [
+        "On the PPC = efficient (full use); inside = unemployment/inefficiency; outside = unattainable."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A point outside the PPC is",
+          "options": {
+            "A": "efficient",
+            "B": "inefficient",
+            "C": "unattainable with current resources",
+            "D": "the same as a point on the curve",
+            "E": "an idle-resource point"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-ppc"
+      ],
+      "keywords": [
+        "PPC",
+        "production possibilities"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Basic Economics Concepts",
+        "section": "1.1.3 Production possibilities curve",
+        "page": "11-12",
+        "pdf_page": 17,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q04",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 4,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A machine used to produce coffee cups would be considered",
+      "options": {
+        "A": "a final good.",
+        "B": "an intermediate good.",
+        "C": "a consumption good.",
+        "D": "a capital good.",
+        "E": "an inventory."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "A capital good is a man-made good used to produce other goods and services (machines, tools, buildings).",
+        "The machine is not used up in one cup and is not consumed. Answer: D."
+      ],
+      "tips": [
+        "Capital goods produce other goods; intermediate goods (flour, cloth) become part of other goods."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A tractor bought by a farmer is a",
+          "options": {
+            "A": "consumption good",
+            "B": "capital good",
+            "C": "free good",
+            "D": "intermediate good",
+            "E": "service"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-factors-of-production"
+      ],
+      "keywords": [
+        "capital good",
+        "factors of production"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Basic Economics Concepts",
+        "section": "1.1 Factors of production – capital goods",
+        "page": "11",
+        "pdf_page": 17,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q05",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 5,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements <u>is correct</u>?",
+      "options": {
+        "A": "Limited liability is an advantage of a corporation.",
+        "B": "Unlimited liability is an advantage of a partnership.",
+        "C": "Retention of profit is a disadvantage of a sole proprietorship.",
+        "D": "Double taxation is an advantage of a corporation.",
+        "E": "Unlimited liability is an advantage of a sole proprietorship."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Shareholders of a corporation can lose only what they invested – limited liability is its main advantage.",
+        "Unlimited liability is a DISADVANTAGE of sole proprietorships and partnerships; keeping all profit is an ADVANTAGE of a sole proprietorship; double taxation is a DISADVANTAGE of a corporation. Answer: A."
+      ],
+      "tips": [
+        "Check each statement for a swapped ‘advantage/disadvantage’."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A disadvantage of a sole proprietorship is",
+          "options": {
+            "A": "the owner keeps all profit",
+            "B": "easy to start",
+            "C": "unlimited liability",
+            "D": "quick decisions",
+            "E": "secrecy"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-business-organizations"
+      ],
+      "keywords": [
+        "limited liability",
+        "corporation",
+        "sole proprietorship"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Basic Economics Concepts",
+        "section": "1.2 Forms of business organization – Corporation",
+        "page": "19-20",
+        "pdf_page": 25,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q06",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 6,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements <u>is not</u> correct?",
+      "options": {
+        "A": "Transportation promotes price equalization.",
+        "B": "Transportation creates employment.",
+        "C": "Transportation facilitates isolation.",
+        "D": "Transportation promotes national unity.",
+        "E": "Transportation strengthens national security."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Transport links regions and people; it breaks isolation rather than facilitating it.",
+        "A, B, D and E are listed as importance of transport. Answer: C."
+      ],
+      "tips": [
+        "Look for the word that reverses a known benefit (isolation ↔ integration)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which is NOT a benefit of good communication networks?",
+          "options": {
+            "A": "faster business decisions",
+            "B": "wider markets",
+            "C": "more isolation of rural areas",
+            "D": "lower costs",
+            "E": "national integration"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-transport-communication"
+      ],
+      "keywords": [
+        "transportation",
+        "importance of transport"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Basic Economics Concepts",
+        "section": "1.3.1 Transportation – importance",
+        "page": "22-23",
+        "pdf_page": 28,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q07",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 7,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The one that distinguishes money from other assets is its function as a",
+      "options": {
+        "A": "medium of exchange.",
+        "B": "measure of value.",
+        "C": "standard of deferred payment.",
+        "D": "unit of account.",
+        "E": "store of value."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Other assets (land, gold, shares) can also store value, but only money is generally accepted in exchange for goods and services.",
+        "The medium-of-exchange function is the primary function that makes money ‘money’. Answer: A."
+      ],
+      "tips": [
+        "Store of value is shared with many assets; medium of exchange is unique to money."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Money removes the problem of double coincidence of wants because it serves as a",
+          "options": {
+            "A": "store of value",
+            "B": "medium of exchange",
+            "C": "unit of account",
+            "D": "standard of deferred payment",
+            "E": "measure of wealth"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-money"
+      ],
+      "keywords": [
+        "functions of money",
+        "medium of exchange"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Money and Financial Institutions",
+        "section": "2.1.2 Functions of money",
+        "page": "35-36",
+        "pdf_page": 41,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q08",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 8,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "All of the following are necessary criteria for a commodity to function as money <u>except</u> that it must",
+      "options": {
+        "A": "deteriorate quickly.",
+        "B": "be widely accepted.",
+        "C": "be easy to carry.",
+        "D": "be divisible.",
+        "E": "be hard to imitate."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Good money must be durable, acceptable, portable, divisible and hard to counterfeit (among others).",
+        "Deteriorating quickly is the opposite of durability. Answer: A."
+      ],
+      "tips": [
+        "Qualities of money: durable, portable, divisible, acceptable, homogeneous, scarce/hard to imitate, stable in value."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which is a desirable quality of money?",
+          "options": {
+            "A": "perishability",
+            "B": "durability",
+            "C": "heaviness",
+            "D": "easy to forge",
+            "E": "indivisibility"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-money"
+      ],
+      "keywords": [
+        "qualities of money",
+        "durability"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Money and Financial Institutions",
+        "section": "2.1 Qualities of good money",
+        "page": "37",
+        "pdf_page": 43,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q09",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 9,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following are the primary liabilities of a commercial bank?",
+      "options": {
+        "A": "Bonds",
+        "B": "Mortgages",
+        "C": "Commercial paper",
+        "D": "Deposits",
+        "E": "Stocks"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "A commercial bank accepts deposits from the public and must repay them on demand or at maturity – deposits are what the bank OWES.",
+        "Loans, mortgages and securities it holds are its assets. Answer: D."
+      ],
+      "tips": [
+        "For a bank: deposits = liabilities; loans = assets."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For a commercial bank, loans given to customers are",
+          "options": {
+            "A": "liabilities",
+            "B": "assets",
+            "C": "capital",
+            "D": "expenses",
+            "E": "revenues"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-banking"
+      ],
+      "keywords": [
+        "commercial bank",
+        "deposits",
+        "liabilities"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Money and Financial Institutions",
+        "section": "2.2 Functions of commercial banks",
+        "page": "46-48",
+        "pdf_page": 52,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q10",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 10,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following <u>is not</u> a function of the Bank of Eritrea?",
+      "options": {
+        "A": "Acts as lender of last resort",
+        "B": "Supervises financial institutions",
+        "C": "Accepts deposit and extends credit",
+        "D": "Controls money supply",
+        "E": "Issues currency"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The central bank ‘generally does not deal directly with the public; it deals with the public only indirectly through the commercial banks’ (G10 p.45).",
+        "Accepting deposits from and lending to the public is a commercial-bank function. The other four are central-bank functions. Answer: C."
+      ],
+      "tips": [
+        "Central bank = banker to government and banks; commercial banks = deposits and loans for the public."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which is a function of a central bank?",
+          "options": {
+            "A": "accepting savings deposits from farmers",
+            "B": "issuing bank notes",
+            "C": "giving car loans to the public",
+            "D": "opening current accounts for traders",
+            "E": "selling insurance"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-banking"
+      ],
+      "keywords": [
+        "central bank",
+        "Bank of Eritrea"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Money and Financial Institutions",
+        "section": "2.2 Central bank functions",
+        "page": "45",
+        "pdf_page": 51,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "The paper says ‘Bank of Eritrea’ here and ‘National Bank of Eritrea’ in item 40 (same institution)."
+    },
+    {
+      "id": "busecon-2019-matric-p1-q11",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 11,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "In a perfect competition, each individual seller faces _____ demand curve.",
+      "options": {
+        "A": "horizontal",
+        "B": "vertical",
+        "C": "downward sloping",
+        "D": "hyperbola-type",
+        "E": "upward sloping"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "A perfectly competitive firm is a price taker: it can sell any quantity at the market price, so its demand curve is horizontal (perfectly elastic) at that price.",
+        "Answer: A."
+      ],
+      "tips": [
+        "Firm in perfect competition: horizontal demand (P = MR = AR); the MARKET demand still slopes downward."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A price taker is a firm that",
+          "options": {
+            "A": "sets its own price",
+            "B": "accepts the market price",
+            "C": "has no competitors",
+            "D": "sells a unique product",
+            "E": "controls supply"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-market-structure"
+      ],
+      "keywords": [
+        "perfect competition",
+        "horizontal demand curve",
+        "price taker"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.1 Perfect competition",
+        "page": "2-3",
+        "pdf_page": 7,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q12",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 12,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "For perfect competition to exist there must be",
+      "options": {
+        "A": "heterogeneous product.",
+        "B": "immobility of inputs.",
+        "C": "restrictions to the entry of new firms.",
+        "D": "few competitors.",
+        "E": "homogenous product."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Conditions: many buyers and sellers, homogeneous (identical) products, free entry and exit, perfect mobility of resources, perfect information.",
+        "Answer: E."
+      ],
+      "tips": [
+        "Every wrong option here is the opposite of a perfect-competition condition."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which is a feature of perfect competition?",
+          "options": {
+            "A": "product differentiation",
+            "B": "one seller",
+            "C": "free entry and exit",
+            "D": "barriers to entry",
+            "E": "price setting by firms"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-market-structure"
+      ],
+      "keywords": [
+        "perfect competition",
+        "homogeneous product"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.1 Perfect competition",
+        "page": "2-3",
+        "pdf_page": 7,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q13",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 13,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following <u>will not</u> cause a change in the demand for coffee?",
+      "options": {
+        "A": "Decrease in the price of milk which is a complement to coffee",
+        "B": "An increase in the price of coffee",
+        "C": "An increase in the number of people drinking coffee",
+        "D": "An increase in the income of consumers",
+        "E": "A decrease in the price of tea which is a substitute to coffee"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "A change in the good’s OWN price causes a movement along the demand curve (change in quantity demanded), not a change (shift) in demand.",
+        "Prices of complements/substitutes, number of buyers and income shift the demand curve. Answer: B."
+      ],
+      "tips": [
+        "Own price → change in quantity demanded; any other determinant → change in demand."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A shift of the demand curve for tea is caused by",
+          "options": {
+            "A": "a fall in the price of tea",
+            "B": "a rise in consumers’ income",
+            "C": "a rise in the price of tea",
+            "D": "a movement along the curve",
+            "E": "none"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-demand"
+      ],
+      "keywords": [
+        "change in demand",
+        "change in quantity demanded"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.2 Change in quantity demanded versus change in demand",
+        "page": "12-13",
+        "pdf_page": 17,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q14",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 14,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "If farmers decide to plant more cabbage next year, ceteris paribus, the",
+      "options": {
+        "A": "supply curve for cabbage next year will shift to the left.",
+        "B": "demand curve for cabbage this year will shift to the right.",
+        "C": "supply curve for cabbage next year will be horizontal.",
+        "D": "supply curve for cabbage next year will shift to the right.",
+        "E": "demand curve for cabbage this year will shift to the left."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "More cabbage planted = more cabbage offered at every price next year → supply increases → supply curve shifts right.",
+        "Demand is not affected. Answer: D."
+      ],
+      "tips": [
+        "More sellers or more planting → supply shifts right; demand concerns buyers."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A drought destroys much of the wheat crop. The supply curve of wheat will",
+          "options": {
+            "A": "shift right",
+            "B": "shift left",
+            "C": "not change",
+            "D": "become vertical",
+            "E": "slope upward more"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-demand"
+      ],
+      "keywords": [
+        "change in supply",
+        "supply shift"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.2 Change in supply vs quantity supplied",
+        "page": "17-18",
+        "pdf_page": 22,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q15",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 15,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "At price P₃ in the Figure 1 below, [Figure 1 (demand and supply): D and S intersect at P₂, Q₂. At price P₃: quantity demanded = Q₁, quantity supplied = Q₄. At price P₁: quantity supplied = Q₁, quantity demanded = Q₃.]",
+      "image": "media/business-economics-2019-matric-q15-supply-demand.png",
+      "image_alt": "Figure 1. Demand and Supply curves: Price on the vertical axis (P₁ < P₂ < P₃), Quantity on the horizontal axis (Q₁ < Q₂ < Q₃ < Q₄). Downward-sloping D and upward-sloping S cross at (Q₂, P₂). At P₃ the dashed line meets D above Q₁ and S above Q₄. At P₁ it meets S above Q₁ and D above Q₃.",
+      "options": {
+        "A": "the market is in equilibrium.",
+        "B": "there will be a surplus of Q₄ – Q₁.",
+        "C": "there will be a tendency for prices to rise.",
+        "D": "the quantity traded is Q₄.",
+        "E": "there will be a shortage of Q₄ – Q₁"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "P₃ is above the equilibrium price P₂. At P₃, buyers want Q₁ (on D) and sellers offer Q₄ (on S).",
+        "Qs > Qd → surplus = Q₄ − Q₁; prices will tend to FALL. Answer: B."
+      ],
+      "tips": [
+        "Above equilibrium → surplus and falling price; below → shortage and rising price."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In the same figure, what happens at price P₁?",
+          "options": {
+            "A": "surplus of Q₃ − Q₁",
+            "B": "shortage of Q₃ − Q₁",
+            "C": "equilibrium",
+            "D": "shortage of Q₄ − Q₁",
+            "E": "prices fall"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "At P₁: Qs = Q₁, Qd = Q₃ → shortage Q₃ − Q₁. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-demand"
+      ],
+      "keywords": [
+        "surplus",
+        "equilibrium",
+        "demand and supply diagram"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.2.1 Equilibrium price and quantity; surplus and shortage",
+        "page": "19-20",
+        "pdf_page": 24,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q16",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 16,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "When demand is ________, a decrease in price ________ total revenue.",
+      "options": {
+        "A": "elastic; does not change",
+        "B": "unit elastic; increases",
+        "C": "inelastic; does not change",
+        "D": "elastic; decreases",
+        "E": "inelastic; decreases"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Inelastic demand: quantity rises by a smaller % than price falls → TR = P × Q falls.",
+        "Elastic: price cut raises TR; unit elastic: TR unchanged. Only E is consistent. Answer: E."
+      ],
+      "tips": [
+        "Inelastic: P and TR move in the same direction; elastic: opposite directions; unit elastic: TR constant."
+      ],
+      "similar_questions": [
+        {
+          "stem": "When demand is elastic, a price increase will",
+          "options": {
+            "A": "increase total revenue",
+            "B": "decrease total revenue",
+            "C": "leave total revenue unchanged",
+            "D": "make demand inelastic",
+            "E": "raise quantity demanded"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-elasticity"
+      ],
+      "keywords": [
+        "elasticity and total revenue",
+        "inelastic demand"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.3 Elasticity and total revenue",
+        "page": "33",
+        "pdf_page": 38,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q17",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 17,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "What will happen to equilibrium price and quantity, if supply increases and demand remains unchanged?",
+      "options": {
+        "A": "Equilibrium price increases and equilibrium quantity decreases.",
+        "B": "Equilibrium price decreases and equilibrium quantity decreases.",
+        "C": "Equilibrium price decreases and equilibrium quantity increases.",
+        "D": "Equilibrium price increases and equilibrium quantity increases.",
+        "E": "Equilibrium price increases and equilibrium quantity remains unchanged."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Supply shifts right along an unchanged downward-sloping demand curve: the new intersection is lower and further right.",
+        "Price falls, quantity rises. Answer: C."
+      ],
+      "tips": [
+        "Sketch the shift – never answer shift questions from memory alone."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If demand increases and supply is unchanged, equilibrium",
+          "options": {
+            "A": "price and quantity rise",
+            "B": "price falls, quantity rises",
+            "C": "price rises, quantity falls",
+            "D": "both fall",
+            "E": "no change"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-demand"
+      ],
+      "keywords": [
+        "increase in supply",
+        "equilibrium change"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.2.1 Equilibrium price and quantity",
+        "page": "19-20",
+        "pdf_page": 24,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q18",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 18,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following goods is most likely to have high price elasticity of demand?",
+      "options": {
+        "A": "A good for which there are many close substitutes",
+        "B": "A good that forms a very small part of a person’s total budget",
+        "C": "A staple food",
+        "D": "A vital medicine",
+        "E": "A good which is broadly defined"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Many close substitutes let buyers switch easily when the price rises → demand is elastic.",
+        "Small budget share, necessities (staple food, medicine) and broadly defined goods have inelastic demand. Answer: A."
+      ],
+      "tips": [
+        "Determinants of elasticity: substitutes, necessity vs luxury, budget share, time, definition of the good."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Demand for salt is inelastic mainly because",
+          "options": {
+            "A": "it has many substitutes",
+            "B": "it takes a tiny share of income",
+            "C": "it is a luxury",
+            "D": "it is broadly defined as ‘food’",
+            "E": "its price is high"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-elasticity"
+      ],
+      "keywords": [
+        "determinants of elasticity",
+        "substitutes"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.3 Price elasticity of demand",
+        "page": "26-27",
+        "pdf_page": 31,
+        "verified_in_text": false
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q19",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 19,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The price elasticity of demand for furniture is estimated at -1.3. This value indicates a one percent increase in the",
+      "options": {
+        "A": "price of furniture will increase the quantity of furniture demanded by 1.3 percent.",
+        "B": "price of furniture will decrease the quantity of furniture demanded by 1.3 percent.",
+        "C": "quantity of furniture demanded will decrease the price of furniture by 1.3 percent.",
+        "D": "quantity of furniture demanded will increase the price of furniture by 1.3 percent.",
+        "E": "price of furniture will decrease the quantity of furniture demanded by 13 percent."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Ped = %ΔQd ÷ %ΔP = −1.3 → %ΔQd = −1.3 × 1% = −1.3%.",
+        "A 1% price rise lowers quantity demanded by 1.3%. Answer: B."
+      ],
+      "tips": [
+        "The coefficient tells the % change in QUANTITY for a 1% change in PRICE; the minus sign means opposite directions."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Ped for bread is −0.4. A 10% price rise changes quantity demanded by",
+          "options": {
+            "A": "+4%",
+            "B": "−4%",
+            "C": "−0.4%",
+            "D": "−40%",
+            "E": "+40%"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "−0.4 × 10% = −4%. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-elasticity"
+      ],
+      "keywords": [
+        "price elasticity coefficient",
+        "interpretation"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.3 Price elasticity of demand",
+        "page": "24-25",
+        "pdf_page": 29,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q20",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 20,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Along a downward sloping demand curve for a good, the price elasticity of demand will increase the",
+      "options": {
+        "A": "higher the price of the good.",
+        "B": "higher the price of other related goods.",
+        "C": "higher the income level of consumers.",
+        "D": "lower the price of the good.",
+        "E": "higher the quantity of the good."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "On a straight-line demand curve the slope ΔQ/ΔP is constant, so |Ped| = (ΔQ/ΔP) × (P/Q) grows as P rises and Q falls.",
+        "Demand is elastic at the upper (high-price) end and inelastic at the lower end. Answer: A."
+      ],
+      "tips": [
+        "Top of a linear demand curve = elastic; bottom = inelastic; midpoint = unit elastic."
+      ],
+      "similar_questions": [
+        {
+          "stem": "On a linear demand curve, demand is unit elastic at",
+          "options": {
+            "A": "the top",
+            "B": "the midpoint",
+            "C": "the bottom",
+            "D": "every point",
+            "E": "no point"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-elasticity"
+      ],
+      "keywords": [
+        "elasticity along a demand curve"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.3 Price elasticity of demand",
+        "page": "24-25",
+        "pdf_page": 29,
+        "verified_in_text": false,
+        "note": "The G11 book gives Ped = (ΔQ/Q₁) ÷ (ΔP/P₁) (p.25) but does not state explicitly how Ped varies along a linear curve; the result follows from the formula."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Textbook gap: variation of elasticity along a linear demand curve is not stated explicitly in the G11 book; the key follows from the textbook formula (standard economics)."
+    },
+    {
+      "id": "busecon-2019-matric-p1-q21",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 21,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "If beginning inventory is Nakfa 106,000, cost of goods purchased is Nakfa 308,000, and ending inventory is Nakfa 105,000, cost of goods sold is",
+      "options": {
+        "A": "309,000.",
+        "B": "211,000.",
+        "C": "519,000.",
+        "D": "414,000.",
+        "E": "307,000."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "COGS = beginning inventory + cost of goods purchased − ending inventory.",
+        "= 106,000 + 308,000 − 105,000 = 309,000. Answer: A."
+      ],
+      "tips": [
+        "Goods available for sale (414,000, option D) minus ending inventory = COGS."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Beginning inventory 50,000; net purchases 120,000; ending inventory 40,000. COGS = ?",
+          "options": {
+            "A": "130,000",
+            "B": "210,000",
+            "C": "170,000",
+            "D": "110,000",
+            "E": "90,000"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "50,000 + 120,000 − 40,000 = 130,000. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-merchandising-period-end"
+      ],
+      "keywords": [
+        "cost of goods sold",
+        "inventory"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Bookkeeping for a Merchandising Business",
+        "section": "Income statement – cost of goods sold section",
+        "page": "119-121",
+        "pdf_page": 124,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q22",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 22,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Based on Table 1 below, what is the average cost of producing 4 units?",
+      "stem_tables": [
+        {
+          "title": "Table 1: Cost of production",
+          "kind": "data",
+          "columns": [
+            "Quantity produced",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "rows": [
+            [
+              "Fixed costs",
+              "100",
+              "100",
+              "100",
+              "100",
+              "100"
+            ],
+            [
+              "Variable costs",
+              "200",
+              "300",
+              "350",
+              "700",
+              "1400"
+            ]
+          ],
+          "align": [
+            "left",
+            "right",
+            "right",
+            "right",
+            "right",
+            "right"
+          ]
+        }
+      ],
+      "options": {
+        "A": "100",
+        "B": "700",
+        "C": "25",
+        "D": "175",
+        "E": "200"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Total cost at 4 units = FC + VC = 100 + 700 = 800.",
+        "Average (total) cost = TC ÷ Q = 800 ÷ 4 = 200. Answer: E."
+      ],
+      "tips": [
+        "‘Average cost’ without qualification = average TOTAL cost; AVC (175) and AFC (25) are traps."
+      ],
+      "similar_questions": [
+        {
+          "stem": "FC = 200 and VC = 1,000 at 4 units. Average cost = ?",
+          "options": {
+            "A": "250",
+            "B": "300",
+            "C": "50",
+            "D": "1,200",
+            "E": "200"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "(200 + 1,000) ÷ 4 = 300. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-costs"
+      ],
+      "keywords": [
+        "average cost",
+        "total cost"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.4 Short-run costs – average costs",
+        "page": "41-42",
+        "pdf_page": 46,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q23",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 23,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Based on Table 1 above, what is the marginal cost of the third unit?",
+      "stem_tables": [
+        {
+          "title": "Table 1: Cost of production",
+          "kind": "data",
+          "columns": [
+            "Quantity produced",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "rows": [
+            [
+              "Fixed costs",
+              "100",
+              "100",
+              "100",
+              "100",
+              "100"
+            ],
+            [
+              "Variable costs",
+              "200",
+              "300",
+              "350",
+              "700",
+              "1400"
+            ]
+          ],
+          "align": [
+            "left",
+            "right",
+            "right",
+            "right",
+            "right",
+            "right"
+          ]
+        }
+      ],
+      "options": {
+        "A": "100",
+        "B": "300",
+        "C": "50",
+        "D": "700",
+        "E": "850"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "MC = change in total cost = TC₃ − TC₂ = (100 + 350) − (100 + 300) = 450 − 400 = 50.",
+        "(Fixed cost does not change, so MC = ΔVC = 350 − 300.) Answer: C."
+      ],
+      "tips": [
+        "MC depends only on variable cost changes."
+      ],
+      "similar_questions": [
+        {
+          "stem": "TC is 500 at 2 units and 650 at 3 units. MC of the 3rd unit = ?",
+          "options": {
+            "A": "150",
+            "B": "650",
+            "C": "217",
+            "D": "500",
+            "E": "50"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "650 − 500 = 150. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-costs"
+      ],
+      "keywords": [
+        "marginal cost"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.4 Marginal cost",
+        "page": "41-42",
+        "pdf_page": 46,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q24",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 24,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "In economics, the short run is a period of time",
+      "options": {
+        "A": "of one year or less.",
+        "B": "in which all inputs are variable.",
+        "C": "in which all inputs are fixed.",
+        "D": "in which the quantity of at least one input is fixed and the quantities of the other inputs can be varied.",
+        "E": "in which all inputs are variable but technology is fixed."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Short run: at least one factor (e.g. plant size) is fixed; long run: all factors variable.",
+        "It is not a calendar length. Answer: D."
+      ],
+      "tips": [
+        "Short run/long run are defined by fixed inputs, not months."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The long run is a period in which",
+          "options": {
+            "A": "all inputs are variable",
+            "B": "at least one input is fixed",
+            "C": "only labour varies",
+            "D": "output is fixed",
+            "E": "prices are fixed"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-costs"
+      ],
+      "keywords": [
+        "short run",
+        "fixed input"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.4 Fixed and variable costs",
+        "page": "39-40",
+        "pdf_page": 44,
+        "verified_in_text": false
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q25",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 25,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The behavior of U-shaped cost curves implies that costs",
+      "options": {
+        "A": "first rise, reach maximum and then fall.",
+        "B": "are fixed and do not change in the long run.",
+        "C": "fall continuously.",
+        "D": "never rise once they reach minimum.",
+        "E": "first fall, reach minimum and then rise."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "AVC, ATC and MC are U-shaped: they fall at first (increasing returns), reach a minimum and then rise (diminishing returns).",
+        "Answer: E."
+      ],
+      "tips": [
+        "U shape = down, minimum, up."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The rising part of the short-run MC curve is explained by",
+          "options": {
+            "A": "increasing returns",
+            "B": "the law of diminishing returns",
+            "C": "fixed costs falling",
+            "D": "economies of scale only",
+            "E": "constant returns"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-costs"
+      ],
+      "keywords": [
+        "U-shaped cost curves"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.4 Short-run costs – average costs",
+        "page": "45",
+        "pdf_page": 50,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q26",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 26,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Utility from consuming a good is understood to mean, how",
+      "options": {
+        "A": "often we consume the good.",
+        "B": "much satisfaction we get from consuming a good.",
+        "C": "much it costs to buy the good.",
+        "D": "best we use the good.",
+        "E": "much profit we get from the good."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Utility = the satisfaction a consumer gets from consuming a good or service.",
+        "Answer: B."
+      ],
+      "tips": [
+        "Utility is satisfaction, not usefulness or price."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Total utility is",
+          "options": {
+            "A": "the satisfaction from all units consumed",
+            "B": "the extra satisfaction from one more unit",
+            "C": "the price paid",
+            "D": "the income spent",
+            "E": "the number of units"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-consumer-choice"
+      ],
+      "keywords": [
+        "utility",
+        "satisfaction"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.5 Total and marginal utility",
+        "page": "47-48",
+        "pdf_page": 52,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q27",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 27,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The total utility gained from consuming additional units of a good will increase if the",
+      "options": {
+        "A": "the opportunity cost of consuming rises.",
+        "B": "marginal utility is zero.",
+        "C": "marginal utility is positive.",
+        "D": "marginal utility is negative.",
+        "E": "expenditure on the good falls."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "MU = ΔTU; TU rises while MU > 0, is at its maximum when MU = 0, and falls when MU < 0.",
+        "Answer: C."
+      ],
+      "tips": [
+        "MU positive → TU rising; MU zero → TU maximum; MU negative → TU falling."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Total utility is at its maximum when marginal utility is",
+          "options": {
+            "A": "positive",
+            "B": "zero",
+            "C": "negative",
+            "D": "rising",
+            "E": "equal to price"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-consumer-choice"
+      ],
+      "keywords": [
+        "marginal utility",
+        "total utility"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.5 Law of diminishing marginal utility",
+        "page": "48",
+        "pdf_page": 53,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q28",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 28,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which one of the following statements <u>is incorrect</u>?",
+      "options": {
+        "A": "The closer to the origin an indifference curve lies, the greater the level of satisfaction indicated by the curve.",
+        "B": "For any two goods or services, each consumer has various indifference curves, which provide the consumer a particular level of satisfaction.",
+        "C": "For each consumer we may construct an indifference map, which consists of a collection of indifference curves.",
+        "D": "Indifference curves never intersect each other.",
+        "E": "Indifference curves never touch each other."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Higher indifference curves (further from the origin) represent MORE of both goods and therefore greater satisfaction; curves closer to the origin mean LESS satisfaction.",
+        "B, C, D (and E) are standard properties. Answer: A."
+      ],
+      "tips": [
+        "Further from the origin = higher satisfaction."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which is a property of indifference curves?",
+          "options": {
+            "A": "they slope upward",
+            "B": "they can cross",
+            "C": "higher curves show more satisfaction",
+            "D": "they are always straight",
+            "E": "they touch the axes"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-consumer-choice"
+      ],
+      "keywords": [
+        "indifference curve properties",
+        "indifference map"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.5 Indifference curves",
+        "page": "52-54",
+        "pdf_page": 57,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q29",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 29,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The total value of all final goods and services produced in a country during a particular year is called the",
+      "options": {
+        "A": "Net National Product.",
+        "B": "Gross Domestic Expenditure.",
+        "C": "Gross Domestic Product.",
+        "D": "Net National Income.",
+        "E": "Gross Investment."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "GDP = market value of all final goods and services produced within a country in a given period (usually a year).",
+        "Answer: C."
+      ],
+      "tips": [
+        "Domestic = produced inside the country; National = produced by the country’s citizens anywhere."
+      ],
+      "similar_questions": [
+        {
+          "stem": "GNP differs from GDP by",
+          "options": {
+            "A": "depreciation",
+            "B": "net factor income from abroad",
+            "C": "indirect taxes",
+            "D": "subsidies",
+            "E": "transfer payments"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "GNP = GDP + net factor income from abroad. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-national-income"
+      ],
+      "keywords": [
+        "GDP definition"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.2 National income accounting – GDP",
+        "page": "4",
+        "pdf_page": 8,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q30",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 30,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Based on the information in Table 2 below, the marginal utility for cappuccino and cake at 2 units for each good is",
+      "stem_tables": [
+        {
+          "title": "Table 2: Total utility from cappuccino and cake",
+          "kind": "data",
+          "columns": [
+            "Quantity",
+            "Total Utility (Cappuccino)",
+            "Total Utility (Cake)"
+          ],
+          "rows": [
+            [
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "1",
+              "26",
+              "60"
+            ],
+            [
+              "2",
+              "40",
+              "105"
+            ],
+            [
+              "3",
+              "48",
+              "140"
+            ],
+            [
+              "4",
+              "50",
+              "170"
+            ],
+            [
+              "5",
+              "50",
+              "180"
+            ]
+          ],
+          "align": [
+            "center",
+            "right",
+            "right"
+          ]
+        }
+      ],
+      "options": {
+        "A": "4 for cappuccino and 60 for cake.",
+        "B": "40 for cappuccino and 105 for cake.",
+        "C": "8 for cappuccino and 30 for cake.",
+        "D": "14 for cappuccino and 45 for cake.",
+        "E": "None of the above."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "MU of the 2nd unit = TU₂ − TU₁.",
+        "Cappuccino: 40 − 26 = 14. Cake: 105 − 60 = 45. Answer: D."
+      ],
+      "tips": [
+        "B gives total utility, not marginal utility."
+      ],
+      "similar_questions": [
+        {
+          "stem": "TU of mangoes: 1 unit = 18, 2 units = 30. MU of the 2nd mango = ?",
+          "options": {
+            "A": "30",
+            "B": "12",
+            "C": "18",
+            "D": "48",
+            "E": "15"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "30 − 18 = 12. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-consumer-choice"
+      ],
+      "keywords": [
+        "marginal utility",
+        "total utility table"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.5 Total and marginal utility",
+        "page": "47-48",
+        "pdf_page": 52,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q31",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 31,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The Gross Domestic Product of a country can be estimated by calculating the",
+      "options": {
+        "A": "total of all factor incomes.",
+        "B": "profits of all firms.",
+        "C": "surplus of government current revenue over current expenditure.",
+        "D": "surplus on the current account of the balance of payments.",
+        "E": "total of all capital consumption allowances."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Income approach: GDP is measured by adding all factor incomes (wages, rent, interest, profit) earned in producing output (with adjustments for depreciation and indirect taxes).",
+        "Profits alone (B) are only one factor income. Answer: A."
+      ],
+      "tips": [
+        "Three methods: income (factor incomes), expenditure (C + I + G + X − M) and value added (product)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Adding C + I + G + (X − M) measures GDP by the",
+          "options": {
+            "A": "income method",
+            "B": "expenditure method",
+            "C": "value added method",
+            "D": "product method only",
+            "E": "tax method"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-national-income"
+      ],
+      "keywords": [
+        "income approach",
+        "factor incomes"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.2 Methods of measuring GDP/GNP",
+        "page": "9-11",
+        "pdf_page": 13,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q32",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 32,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is a component of investment?",
+      "options": {
+        "A": "Purchase of new tractor",
+        "B": "Purchase of a new pizza",
+        "C": "Purchase of second-hand machine",
+        "D": "Purchase of used car",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Investment (I) in national accounts = spending on NEW capital goods (machinery, buildings) and additions to inventories.",
+        "A pizza is consumption; second-hand goods were counted when first produced. Answer: A."
+      ],
+      "tips": [
+        "Investment = new capital goods; buying used assets or shares is not investment in GDP."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which is counted as investment in GDP?",
+          "options": {
+            "A": "buying shares",
+            "B": "a firm building a new warehouse",
+            "C": "buying a used truck",
+            "D": "a household buying food",
+            "E": "a government pension"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-consumption-saving-investment"
+      ],
+      "keywords": [
+        "investment",
+        "capital goods",
+        "GDP components"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.2 Methods of measuring GDP/GNP",
+        "page": "9-11",
+        "pdf_page": 13,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q33",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 33,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The major source of government revenue is",
+      "options": {
+        "A": "gifts and grants.",
+        "B": "taxation.",
+        "C": "fines and penalties.",
+        "D": "borrowing.",
+        "E": "printing money."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Taxes (direct and indirect) are the main source of government revenue; grants, fines, borrowing and money creation are minor or undesirable sources.",
+        "Answer: B."
+      ],
+      "tips": [
+        "Tax revenue dominates government income in almost every country."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A tax on income is a",
+          "options": {
+            "A": "direct tax",
+            "B": "indirect tax",
+            "C": "fine",
+            "D": "grant",
+            "E": "tariff"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-public-finance"
+      ],
+      "keywords": [
+        "government revenue",
+        "taxation"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.3 Public finance – types of taxes",
+        "page": "31",
+        "pdf_page": 35,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q34",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 34,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The three ways of calculating GDP are",
+      "options": {
+        "A": "value added, price and income methods.",
+        "B": "income, product and services methods.",
+        "C": "expenditure, spending and value added methods.",
+        "D": "income, expenditure and value added methods.",
+        "E": "accounting, finance and book keeping methods."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "GDP can be measured by the income approach, the expenditure approach and the value-added (product/output) approach.",
+        "C repeats expenditure = spending. Answer: D."
+      ],
+      "tips": [
+        "Expenditure and spending are the same method – a trap."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Summing the value added at each stage of production measures GDP by the",
+          "options": {
+            "A": "income approach",
+            "B": "expenditure approach",
+            "C": "value added approach",
+            "D": "saving approach",
+            "E": "tax approach"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-national-income"
+      ],
+      "keywords": [
+        "methods of measuring GDP"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.2 Methods of measuring GDP/GNP",
+        "page": "9-11",
+        "pdf_page": 13,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q35",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 35,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "At an income of 100,000 Nakfa, Haile spent 90,000 Nakfa on consumer goods. When Haile’s income rose to 200,000 Nakfa, he spent 160,000 Nakfa on consumer goods. Haile’s marginal propensity to consume is",
+      "options": {
+        "A": "0.9.",
+        "B": "0.7.",
+        "C": "0.8.",
+        "D": "1.0.",
+        "E": "1.4."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "MPC = ΔC ÷ ΔY = (160,000 − 90,000) ÷ (200,000 − 100,000) = 70,000 ÷ 100,000 = 0.7.",
+        "Answer: B."
+      ],
+      "tips": [
+        "0.9 and 0.8 are APCs (C/Y) – MPC uses CHANGES."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Income rises from 60,000 to 100,000 and consumption from 40,000 to 72,000. MPC = ?",
+          "options": {
+            "A": "0.6",
+            "B": "0.72",
+            "C": "0.8",
+            "D": "0.67",
+            "E": "1.25"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "32,000 ÷ 40,000 = 0.8. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-consumption-saving-investment"
+      ],
+      "keywords": [
+        "MPC",
+        "marginal propensity to consume"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.2 Consumption and saving – MPC, MPS",
+        "page": "15-17",
+        "pdf_page": 19,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q36",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 36,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following <u>is correct</u>?",
+      "options": {
+        "A": "GDP includes intermediate goods.",
+        "B": "GDP excludes current production.",
+        "C": "GDP includes second hand goods.",
+        "D": "GDP includes future prices of goods and services.",
+        "E": "GDP excludes non market transactions."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "GDP counts only final goods produced in the current period at market value.",
+        "Non-market activities (housework, subsistence help) are excluded because they have no market price. Answer: E."
+      ],
+      "tips": [
+        "Excluded from GDP: intermediate goods, second-hand sales, transfer payments, financial transactions, non-market activities."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which is excluded from GDP?",
+          "options": {
+            "A": "new cars produced this year",
+            "B": "a haircut",
+            "C": "the resale of a used house",
+            "D": "government road building",
+            "E": "exports"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-national-income"
+      ],
+      "keywords": [
+        "GDP exclusions",
+        "non-market transactions"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.2 Methods of measuring GDP – items excluded (non-market, second-hand)",
+        "page": "10-11",
+        "pdf_page": 14,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q37",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 37,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "When people with high income pay a larger percentage of their income in tax than people with low incomes, this class of tax rate is called",
+      "options": {
+        "A": "proportional.",
+        "B": "indirect.",
+        "C": "regressive.",
+        "D": "value added.",
+        "E": "progressive."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Progressive tax: the tax RATE rises as income rises (e.g. the Eritrean income tax table 2% → 30%).",
+        "Proportional = same rate; regressive = lower rate for the rich. Answer: E."
+      ],
+      "tips": [
+        "Eritrea’s employment income tax (2%, 10%, 20%, 25%, 30%) is a progressive tax."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A tax where everyone pays 10% of income is",
+          "options": {
+            "A": "progressive",
+            "B": "regressive",
+            "C": "proportional",
+            "D": "indirect",
+            "E": "specific"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-public-finance"
+      ],
+      "keywords": [
+        "progressive tax"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.3 Public finance – types of taxes",
+        "page": "31-32",
+        "pdf_page": 35,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q38",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 38,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is an example of positive externality?",
+      "options": {
+        "A": "Air pollution",
+        "B": "Traffic congestion",
+        "C": "Vaccination against polio",
+        "D": "Noise pollution",
+        "E": "Global warming"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "A positive externality is a benefit to third parties: vaccinating one child also protects others from infection.",
+        "The other options are negative externalities (costs imposed on others). Answer: C."
+      ],
+      "tips": [
+        "Externality = effect on a third party; positive = benefit, negative = cost."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A factory dumping waste into a river creates a",
+          "options": {
+            "A": "positive externality",
+            "B": "negative externality",
+            "C": "public good",
+            "D": "merit good",
+            "E": "subsidy"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-public-finance"
+      ],
+      "keywords": [
+        "externality",
+        "positive externality"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.3 Market failure – externalities",
+        "page": "26",
+        "pdf_page": 30,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q39",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 39,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "According to the concept of comparative advantage, specialization and trade between two countries will benefit",
+      "options": {
+        "A": "only the country with the lowest labor costs.",
+        "B": "both countries, provided neither country has an absolute advantage in both goods.",
+        "C": "both countries, provided domestic opportunity costs differ in the two countries.",
+        "D": "only the country with the highest tariff rate.",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Comparative advantage depends on opportunity costs: if they differ, each country specialises in the good with the lower opportunity cost and both gain.",
+        "Gains exist even if one country has an absolute advantage in both goods, so B is wrong. Answer: C."
+      ],
+      "tips": [
+        "Comparative advantage = lower OPPORTUNITY cost, not lower absolute cost."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Country X can make 10 shirts or 5 radios; Country Y 6 shirts or 6 radios. X has a comparative advantage in",
+          "options": {
+            "A": "radios",
+            "B": "shirts",
+            "C": "both",
+            "D": "neither",
+            "E": "cannot tell"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "X: 1 shirt costs 0.5 radio; Y: 1 shirt costs 1 radio → X in shirts. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-international-trade"
+      ],
+      "keywords": [
+        "comparative advantage",
+        "opportunity cost"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.4.1 Theory of comparative advantage",
+        "page": "37-38",
+        "pdf_page": 41,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q40",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 40,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "When the National Bank of Eritrea sets the value of one US Dollar to be 15 Nakfa, this is an example of",
+      "options": {
+        "A": "flexible exchange rate.",
+        "B": "fixed exchange rate.",
+        "C": "floating exchange rate.",
+        "D": "appreciation.",
+        "E": "depreciation."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "A fixed (pegged) exchange rate is set by the central bank/government rather than by market forces.",
+        "Flexible = floating (market-determined). Answer: B."
+      ],
+      "tips": [
+        "Set by the authority → fixed; set by supply and demand → flexible/floating."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If the Nakfa price of one dollar rises from 15 to 16 in a free market, the Nakfa has",
+          "options": {
+            "A": "appreciated",
+            "B": "depreciated",
+            "C": "been fixed",
+            "D": "been revalued",
+            "E": "not changed"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "More Nakfa per dollar = Nakfa depreciated. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-international-trade"
+      ],
+      "keywords": [
+        "fixed exchange rate",
+        "Nakfa",
+        "National Bank of Eritrea"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.4.3 Exchange rates",
+        "page": "43",
+        "pdf_page": 47,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q41",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 41,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A withdrawal of cash reduces cash and",
+      "options": {
+        "A": "capital.",
+        "B": "asset.",
+        "C": "liability.",
+        "D": "sales.",
+        "E": "expense."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "When the owner withdraws cash: assets (cash) ↓ and owner’s equity (capital, through drawing) ↓.",
+        "Answer: A."
+      ],
+      "tips": [
+        "Withdrawals are not expenses – they reduce capital directly."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The owner takes merchandise for personal use. Effect?",
+          "options": {
+            "A": "assets ↓, capital ↓",
+            "B": "assets ↑, capital ↑",
+            "C": "assets ↓, liabilities ↓",
+            "D": "expenses ↑",
+            "E": "no effect"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-accounting-equation"
+      ],
+      "keywords": [
+        "withdrawal",
+        "drawing",
+        "capital"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.1.4 Transactions changing the accounting equation",
+        "page": "83",
+        "pdf_page": 89,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q42",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 42,
+      "section": "Economics",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The balance of trade is the difference between",
+      "options": {
+        "A": "the value of all exports and imports of a country.",
+        "B": "the value of a country’s goods exported and goods imported.",
+        "C": "the value a country’s services exported and imported.",
+        "D": "a country’s capital outflow and capital inflow.",
+        "E": "a country’s consumption and saving."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "G12 p.40: ‘The difference between the value of goods exported and value of goods imported is called the trade balance.’",
+        "Services are in the wider current account. Answer: B."
+      ],
+      "tips": [
+        "Balance of trade = visible (goods) trade only; current account adds services, income and transfers."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Eritrea exports goods worth 500 and imports goods worth 800 (millions). The trade balance is",
+          "options": {
+            "A": "a surplus of 300",
+            "B": "a deficit of 300",
+            "C": "1,300",
+            "D": "zero",
+            "E": "a surplus of 800"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "500 − 800 = −300 (deficit). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-international-trade"
+      ],
+      "keywords": [
+        "balance of trade",
+        "trade balance"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.4.2 Balance of payments – trade balance",
+        "page": "40",
+        "pdf_page": 44,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Some books define the balance of trade on goods AND services, which would make A defensible; B is keyed because the Eritrean G12 textbook (p.40) defines it on goods only. Teacher decision whether to accept A."
+    },
+    {
+      "id": "busecon-2019-matric-p1-q43",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 43,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Income increases assets and",
+      "options": {
+        "A": "withdrawals.",
+        "B": "expenses.",
+        "C": "purchases.",
+        "D": "capital.",
+        "E": "cash."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Revenue (income) earned brings in assets (cash or receivables) and increases owner’s equity (capital).",
+        "Answer: D."
+      ],
+      "tips": [
+        "Revenue ↑ capital; expenses and withdrawals ↓ capital."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Paying rent expense in cash",
+          "options": {
+            "A": "increases assets and capital",
+            "B": "decreases assets and capital",
+            "C": "increases liabilities",
+            "D": "has no effect",
+            "E": "decreases liabilities"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-accounting-equation"
+      ],
+      "keywords": [
+        "revenue",
+        "capital"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.1.4 Transactions changing the accounting equation",
+        "page": "83",
+        "pdf_page": 89,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q44",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 44,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "To purchase “on account” is to create a (an)",
+      "options": {
+        "A": "expense.",
+        "B": "liability.",
+        "C": "accounts payable.",
+        "D": "capital.",
+        "E": "B and C."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Buying on account means buying on credit: the business owes the supplier – a liability recorded in Accounts Payable.",
+        "Both B and C describe it. Answer: E."
+      ],
+      "tips": [
+        "On account = on credit: buying → accounts payable; selling → accounts receivable."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Selling services on account creates",
+          "options": {
+            "A": "accounts payable",
+            "B": "accounts receivable",
+            "C": "a liability",
+            "D": "an expense",
+            "E": "capital decrease"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-transaction-analysis"
+      ],
+      "keywords": [
+        "on account",
+        "accounts payable",
+        "liability"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.1.4 Transactions changing the accounting equation",
+        "page": "83",
+        "pdf_page": 89,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q45",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 45,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "An investment in the business increases",
+      "options": {
+        "A": "asset and liability.",
+        "B": "asset and expense.",
+        "C": "asset and capital.",
+        "D": "liability and capital.",
+        "E": "assets and revenues."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The owner puts cash/other assets into the business: assets ↑ and capital ↑.",
+        "Answer: C."
+      ],
+      "tips": [
+        "Owner investment is not revenue."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Borrowing cash from a bank increases",
+          "options": {
+            "A": "assets and capital",
+            "B": "assets and liabilities",
+            "C": "liabilities and capital",
+            "D": "assets and revenue",
+            "E": "expenses"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-accounting-equation"
+      ],
+      "keywords": [
+        "owner investment",
+        "capital"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.1.4 Transactions changing the accounting equation",
+        "page": "83",
+        "pdf_page": 89,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q46",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 46,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The difference between assets and liabilities is",
+      "options": {
+        "A": "accounts payable.",
+        "B": "capital.",
+        "C": "expense.",
+        "D": "current assets.",
+        "E": "supplies."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Accounting equation: Assets = Liabilities + Capital → Capital = Assets − Liabilities.",
+        "Answer: B."
+      ],
+      "tips": [
+        "Capital = net worth = owner’s equity."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Assets 90,000, liabilities 35,000. Capital = ?",
+          "options": {
+            "A": "125,000",
+            "B": "55,000",
+            "C": "35,000",
+            "D": "90,000",
+            "E": "45,000"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "90,000 − 35,000 = 55,000. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-accounting-equation"
+      ],
+      "keywords": [
+        "accounting equation",
+        "capital"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.1.3 Accounting equation",
+        "page": "65-68",
+        "pdf_page": 71,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q47",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 47,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Items owned by a business that have money value are known as",
+      "options": {
+        "A": "revenues.",
+        "B": "expenses.",
+        "C": "assets.",
+        "D": "withdrawals.",
+        "E": "liabilities."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Assets = anything of value owned by a business (cash, equipment, supplies).",
+        "Answer: C."
+      ],
+      "tips": [
+        "Owned → assets; owed → liabilities."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Amounts owed by a business are",
+          "options": {
+            "A": "assets",
+            "B": "liabilities",
+            "C": "revenues",
+            "D": "capital",
+            "E": "drawings"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-accounting-equation"
+      ],
+      "keywords": [
+        "assets"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.1.3 Accounting equation",
+        "page": "65-68",
+        "pdf_page": 71,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q48",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 48,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The schedule showing the balance of each account at the end of the period is known as the",
+      "options": {
+        "A": "balance sheet.",
+        "B": "income statement.",
+        "C": "worksheet.",
+        "D": "trial balance.",
+        "E": "ledger."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "A trial balance lists every ledger account with its debit or credit balance to prove total debits = total credits.",
+        "Answer: D."
+      ],
+      "tips": [
+        "Balance sheet lists only assets, liabilities and capital – not every account."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The purpose of a trial balance is to",
+          "options": {
+            "A": "prove equality of debits and credits",
+            "B": "show profit",
+            "C": "list only assets",
+            "D": "record transactions",
+            "E": "close accounts"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-trial-balance-worksheet"
+      ],
+      "keywords": [
+        "trial balance"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.4 Trial balance",
+        "page": "124-125",
+        "pdf_page": 130,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q49",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 49,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The initial book for recording all transactions, which is also known as the book of original entry, is the",
+      "options": {
+        "A": "journal.",
+        "B": "ledger.",
+        "C": "worksheet.",
+        "D": "balance sheet.",
+        "E": "trail balance."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Transactions are first recorded in chronological order in the journal (book of original entry), then posted to the ledger.",
+        "Answer: A."
+      ],
+      "tips": [
+        "Journal = book of original entry; ledger = book of final entry."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The book of final entry is the",
+          "options": {
+            "A": "journal",
+            "B": "ledger",
+            "C": "worksheet",
+            "D": "trial balance",
+            "E": "cash register"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-journal-ledger"
+      ],
+      "keywords": [
+        "journal",
+        "book of original entry"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.2 Journalizing",
+        "page": "97",
+        "pdf_page": 103,
+        "verified_in_text": false
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q50",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 50,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The process of transferring information from the journal to the ledger is known as",
+      "options": {
+        "A": "journalizing.",
+        "B": "posting.",
+        "C": "adjusting.",
+        "D": "closing.",
+        "E": "reversing."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Posting = transferring journal entries to the ledger accounts.",
+        "Answer: B."
+      ],
+      "tips": [
+        "Journalizing = recording in the journal; posting = journal → ledger."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Recording a transaction in the journal is called",
+          "options": {
+            "A": "posting",
+            "B": "journalizing",
+            "C": "closing",
+            "D": "adjusting",
+            "E": "balancing"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-journal-ledger"
+      ],
+      "keywords": [
+        "posting"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.3 Posting",
+        "page": "106",
+        "pdf_page": 112,
+        "verified_in_text": false
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q51",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 51,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "When transactions that are repetitive in nature are grouped together, they are recorded in a/an",
+      "options": {
+        "A": "general journal.",
+        "B": "adjusted trial balance.",
+        "C": "post-closing trial balance.",
+        "D": "worksheet.",
+        "E": "special journal."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Special journals (sales, purchases, cash receipts, cash payments) record frequent, similar transactions to save time.",
+        "Answer: E."
+      ],
+      "tips": [
+        "Special journals for repetitive transactions; general journal for the rest."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Credit purchases of merchandise are recorded in the",
+          "options": {
+            "A": "sales journal",
+            "B": "purchases journal",
+            "C": "cash receipts journal",
+            "D": "general journal",
+            "E": "payroll register"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-special-journals"
+      ],
+      "keywords": [
+        "special journal"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Bookkeeping for a Merchandising Business",
+        "section": "2.1 Special journals",
+        "page": "66",
+        "pdf_page": 71,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q52",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 52,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The post-closing trial balance involves only",
+      "options": {
+        "A": "temporary accounts.",
+        "B": "revenues and expenses.",
+        "C": "assets, liabilities, and capital.",
+        "D": "assets and capital.",
+        "E": "A and D."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "After closing, temporary accounts (revenues, expenses, drawing, income summary) are zero; only permanent (real) accounts remain.",
+        "Answer: C."
+      ],
+      "tips": [
+        "Post-closing trial balance = balance-sheet accounts only."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which appears on a post-closing trial balance?",
+          "options": {
+            "A": "Sales revenue",
+            "B": "Rent expense",
+            "C": "Cash",
+            "D": "Drawing",
+            "E": "Income summary"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-financial-statements-closing"
+      ],
+      "keywords": [
+        "post-closing trial balance",
+        "permanent accounts"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.7 Post-closing trial balance",
+        "page": "143",
+        "pdf_page": 149,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q53",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 53,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following <u>is not</u> needed in a service company’s income statement?",
+      "options": {
+        "A": "Cost of goods sold",
+        "B": "Supplies expense",
+        "C": "Depreciation expense",
+        "D": "Salaries expense",
+        "E": "Service revenue"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "A service business sells services, not merchandise, so it has no cost of goods sold.",
+        "Answer: A."
+      ],
+      "tips": [
+        "COGS belongs to merchandising businesses."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which account is found only in a merchandising business?",
+          "options": {
+            "A": "Salaries expense",
+            "B": "Purchases",
+            "C": "Rent expense",
+            "D": "Cash",
+            "E": "Capital"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-financial-statements-closing"
+      ],
+      "keywords": [
+        "service business income statement",
+        "cost of goods sold"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.6 Income statement",
+        "page": "146",
+        "pdf_page": 152,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q54",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 54,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Based on the following information, determine the capital as of December 31, 2018. Net Income for period, 1,800,000; Drawing, 600,000; Capital (January 1, 2018), 2,000,000. (All amounts are in Nakfa).",
+      "options": {
+        "A": "2,600,000.",
+        "B": "2,400,000.",
+        "C": "800,000.",
+        "D": "3,200,000.",
+        "E": "3,800,000."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Ending capital = beginning capital + net income − drawing.",
+        "= 2,000,000 + 1,800,000 − 600,000 = 3,200,000. Answer: D."
+      ],
+      "tips": [
+        "Capital statement: beginning + net income − drawing = ending."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Beginning capital 500,000; net income 150,000; drawing 80,000. Ending capital = ?",
+          "options": {
+            "A": "570,000",
+            "B": "730,000",
+            "C": "650,000",
+            "D": "420,000",
+            "E": "580,000"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "500,000 + 150,000 − 80,000 = 570,000. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-financial-statements-closing"
+      ],
+      "keywords": [
+        "capital statement",
+        "ending capital"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.6.3 Capital statement",
+        "page": "138",
+        "pdf_page": 144,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q55",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 55,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "An account that will have a zero balance after closing entries have been journalized and posted is",
+      "options": {
+        "A": "salaries payable.",
+        "B": "accumulated depreciation.",
+        "C": "prepaid insurance.",
+        "D": "office supplies.",
+        "E": "service revenue."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Closing entries bring temporary accounts (revenues, expenses, drawing) to zero. Service revenue is a revenue account.",
+        "The others are balance-sheet (permanent) accounts. Answer: E."
+      ],
+      "tips": [
+        "Temporary accounts = revenues, expenses, drawing, income summary."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which account is closed at the end of the period?",
+          "options": {
+            "A": "Cash",
+            "B": "Equipment",
+            "C": "Rent expense",
+            "D": "Accounts payable",
+            "E": "Capital"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-financial-statements-closing"
+      ],
+      "keywords": [
+        "closing entries",
+        "temporary accounts"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.7 Closing entries",
+        "page": "139-141",
+        "pdf_page": 145,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q56",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 56,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Adjustments for accrued revenues",
+      "options": {
+        "A": "have a liabilities and revenues account relationship.",
+        "B": "have an assets and revenues account relationship.",
+        "C": "decrease assets and revenues.",
+        "D": "decrease liabilities and increase revenues.",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Accrued revenue = revenue earned but not yet recorded or received. Adjusting entry: Dr Accounts (Interest) Receivable (asset ↑), Cr Revenue (revenue ↑).",
+        "Answer: B."
+      ],
+      "tips": [
+        "Every adjusting entry pairs one balance-sheet account with one income-statement account (G10 p.128)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The adjusting entry for accrued (unpaid) salaries is",
+          "options": {
+            "A": "Dr Salaries expense, Cr Salaries payable",
+            "B": "Dr Cash, Cr Salaries expense",
+            "C": "Dr Salaries payable, Cr Cash",
+            "D": "Dr Receivable, Cr Revenue",
+            "E": "none"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Accrued expense: expense ↑, liability ↑. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-financial-statements-closing"
+      ],
+      "keywords": [
+        "accrued revenue",
+        "adjusting entries"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.5 Adjusting entries",
+        "page": "128",
+        "pdf_page": 134,
+        "verified_in_text": false,
+        "note": "The G10 book explains that each adjusting entry has one income-statement and one balance-sheet account, but its examples cover only supplies and depreciation; accrued revenues are not treated."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Textbook gap: accrued revenues are not covered in the Grade 10–12 textbooks (adjustments shown are supplies and depreciation only). Key B follows standard accounting."
+    },
+    {
+      "id": "busecon-2019-matric-p1-q57",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 57,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The trial balance of Saba Textile Factory had accounts with the following normal balances: Cash 150,000; Revenue 580,000; Salaries Payable 140,000; Salaries Expense 130,000; Rent Expense 100,000; Saba, Capital 420,000; Saba, Drawing 150,000; and Equipment 610,000. In preparing a trial balance, the total in the debit column is",
+      "options": {
+        "A": "1,150,000.",
+        "B": "1,190,000.",
+        "C": "1,140,000.",
+        "D": "2,300,000.",
+        "E": "1,280,000."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Debit balances: Cash 150,000 + Salaries Expense 130,000 + Rent Expense 100,000 + Drawing 150,000 + Equipment 610,000 = 1,140,000.",
+        "Check: credits = Revenue 580,000 + Salaries Payable 140,000 + Capital 420,000 = 1,140,000. Answer: C."
+      ],
+      "tips": [
+        "Assets, expenses and drawing have debit balances; liabilities, capital and revenue credit balances."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Debit balances: Cash 20,000, Supplies 45,000, Rent expense 15,000, Drawing 10,000, Equipment 80,000. Debit total = ?",
+          "options": {
+            "A": "170,000",
+            "B": "160,000",
+            "C": "150,000",
+            "D": "180,000",
+            "E": "145,000"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Sum = 170,000. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-trial-balance-worksheet"
+      ],
+      "keywords": [
+        "trial balance",
+        "normal balance"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.2 Normal balance of accounts",
+        "page": "95",
+        "pdf_page": 101,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 10,
+          "unit": "Unit 3 – Bookkeeping for a Service Business",
+          "section": "3.4 Trial balance",
+          "page": "124-125",
+          "pdf_page": 130,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q58",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 58,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "One of the following statements <u>is not</u> true concerning a worksheet?",
+      "options": {
+        "A": "A worksheet is essentially a working tool of the accountant.",
+        "B": "A worksheet is one of the financial statements a business should prepare.",
+        "C": "A worksheet cannot be used as a basis for posting to ledger accounts.",
+        "D": "Financial statements can be prepared directly from the worksheet before journalizing and posting the adjusting entries.",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "The worksheet is an informal working paper used to prepare the financial statements; it is NOT a financial statement itself.",
+        "A, C and D are true. Answer: B."
+      ],
+      "tips": [
+        "Financial statements = income statement, capital statement, balance sheet (and cash-flow statement)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which is a financial statement?",
+          "options": {
+            "A": "worksheet",
+            "B": "trial balance",
+            "C": "balance sheet",
+            "D": "journal",
+            "E": "ledger"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-trial-balance-worksheet"
+      ],
+      "keywords": [
+        "worksheet",
+        "working paper"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.5 Worksheet",
+        "page": "130-132",
+        "pdf_page": 136,
+        "verified_in_text": false
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q59",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 59,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "In a worksheet, net loss is entered in the following columns.",
+      "options": {
+        "A": "Income statement (Debit) and balance sheet (Debit)",
+        "B": "Income statement (Credit) and balance sheet (Debit)",
+        "C": "Income statement (Debit) and balance sheet (Credit)",
+        "D": "Income statement (Credit) and balance sheet (Credit)",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Net loss: expenses (IS debit) exceed revenues (IS credit), so the loss is written in the IS CREDIT column to balance it.",
+        "A loss reduces capital, so it goes in the BS DEBIT column. Answer: B."
+      ],
+      "tips": [
+        "Net income: IS debit & BS credit. Net loss: IS credit & BS debit."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In a worksheet, net income is entered in",
+          "options": {
+            "A": "IS debit and BS credit",
+            "B": "IS credit and BS debit",
+            "C": "IS debit and BS debit",
+            "D": "IS credit and BS credit",
+            "E": "TB columns"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-trial-balance-worksheet"
+      ],
+      "keywords": [
+        "worksheet",
+        "net loss"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Bookkeeping for a Merchandising Business",
+        "section": "Ten-column worksheet – net income",
+        "page": "116",
+        "pdf_page": 121,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q60",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 60,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "What account is debited in closing the expense accounts?",
+      "options": {
+        "A": "Expense accounts",
+        "B": "Income summary",
+        "C": "Withdrawals",
+        "D": "Revenue accounts",
+        "E": "Capital"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Closing expenses: Dr Income Summary, Cr each expense account.",
+        "Answer: B."
+      ],
+      "tips": [
+        "Revenues → Cr Income Summary; expenses → Dr Income Summary; then Income Summary → Capital."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Revenue accounts are closed by",
+          "options": {
+            "A": "debiting revenue, crediting income summary",
+            "B": "crediting revenue, debiting capital",
+            "C": "debiting income summary",
+            "D": "debiting cash",
+            "E": "crediting drawing"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-financial-statements-closing"
+      ],
+      "keywords": [
+        "closing entries",
+        "income summary"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.7 Closing entries",
+        "page": "139-141",
+        "pdf_page": 145,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q61",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 61,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The sales journal is the special journal where",
+      "options": {
+        "A": "all purchases of inventory on account are recorded.",
+        "B": "all purchases on cash are recorded.",
+        "C": "only sales on account are recorded.",
+        "D": "both sales on cash and on account are recorded.",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The sales journal records only sales of merchandise on account; cash sales go to the cash receipts journal.",
+        "Answer: C."
+      ],
+      "tips": [
+        "Sales journal = credit sales; cash receipts journal = all cash in."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Cash sales are recorded in the",
+          "options": {
+            "A": "sales journal",
+            "B": "cash receipts journal",
+            "C": "purchases journal",
+            "D": "general journal",
+            "E": "cash payments journal"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-special-journals"
+      ],
+      "keywords": [
+        "sales journal"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Bookkeeping for a Merchandising Business",
+        "section": "2.1 Special journals – sales journal",
+        "page": "66",
+        "pdf_page": 71,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q62",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 62,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "In a balance sheet, ending merchandise inventory appears as a(n)",
+      "options": {
+        "A": "expense.",
+        "B": "revenues.",
+        "C": "liability.",
+        "D": "asset.",
+        "E": "capital."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Unsold goods on hand at the end of the period are a current asset.",
+        "Answer: D."
+      ],
+      "tips": [
+        "Ending inventory: current asset on the balance sheet AND deducted in the COGS section of the income statement."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Merchandise inventory is classified as a",
+          "options": {
+            "A": "plant asset",
+            "B": "current asset",
+            "C": "liability",
+            "D": "expense",
+            "E": "revenue"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-merchandising-period-end"
+      ],
+      "keywords": [
+        "merchandise inventory",
+        "current asset"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Bookkeeping for a Merchandising Business",
+        "section": "Balance sheet – merchandise inventory",
+        "page": "121",
+        "pdf_page": 126,
+        "verified_in_text": false
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q63",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 63,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Dr. Rahel, a Dentist, began her practice, investing in the business the following assets: Cash 120,000; Supplies 14,000; Equipment 220,600; and Furniture 110,000. (Amounts are in Nakfa). What is the effect of this beginning investment on the accounts? Assets will increase by",
+      "options": {
+        "A": "464,600 and liabilities will increase by 464,600.",
+        "B": "120,000 and capital will increase by 344,600.",
+        "C": "464,600 and capital will increase by 464,600.",
+        "D": "134,000 and liabilities will increase by 330,600.",
+        "E": "464,600, liabilities will increase by 232,300, and capital will increase by 232,300."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Total assets invested = 120,000 + 14,000 + 220,600 + 110,000 = 464,600.",
+        "All of it is the owner’s investment (nothing owed) → capital +464,600. Answer: C."
+      ],
+      "tips": [
+        "Owner investment: assets ↑ = capital ↑ (equal amounts)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "An owner invests cash 50,000, a computer 10,000 and furniture 80,000. Effect?",
+          "options": {
+            "A": "assets +140,000; capital +140,000",
+            "B": "assets +50,000; capital +90,000",
+            "C": "assets +140,000; liabilities +140,000",
+            "D": "assets +90,000",
+            "E": "capital +50,000"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Sum = 140,000. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-accounting-equation"
+      ],
+      "keywords": [
+        "owner investment",
+        "accounting equation"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.1.4 Transactions changing the accounting equation",
+        "page": "83",
+        "pdf_page": 89,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q64",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 64,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Dr. Rahel, a Dentist, began her practice, investing in the business the following assets: Cash 120,000; Supplies 14,000; Equipment 220,600; and Furniture 110,000. (Amounts are in Nakfa). If Dr. Rahel owed a balance of 33,500 on the equipment, what would the effect of the beginning investment be on the accounts? Assets will increase by",
+      "options": {
+        "A": "464,600 and capital will increase by 464,600.",
+        "B": "120,000 and capital will increase by 464,600.",
+        "C": "464,600 and liabilities will increase by 464,600.",
+        "D": "134,000, liabilities will increase by 33,500 and capital will increase by 431,100.",
+        "E": "464,600, liabilities will increase by 33,500, and capital will increase by 431,100."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Assets still increase by 464,600. The 33,500 still owed on the equipment is a liability.",
+        "Capital = assets − liabilities = 464,600 − 33,500 = 431,100. Answer: E."
+      ],
+      "tips": [
+        "A = L + C must still balance: 464,600 = 33,500 + 431,100."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Same investment of 140,000 of assets, but 30,000 is still owed on the furniture. Capital increases by",
+          "options": {
+            "A": "140,000",
+            "B": "110,000",
+            "C": "170,000",
+            "D": "30,000",
+            "E": "80,000"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "140,000 − 30,000 = 110,000. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-accounting-equation"
+      ],
+      "keywords": [
+        "accounting equation",
+        "liability"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Bookkeeping for a Service Business",
+        "section": "3.1.4 Transactions changing the accounting equation",
+        "page": "83",
+        "pdf_page": 89,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q65",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 65,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "In a classified balance sheet, assets are usually classified using the following categories.",
+      "options": {
+        "A": "Current assets; plant assets; and intangible assets",
+        "B": "Current assets; current liabilities; plant assets; and tangible assets",
+        "C": "Current assets; plant assets; intangible assets; current liabilities; and long-term liabilities",
+        "D": "Current assets; long-term liabilities; property, plant, and equipment; and intangible assets",
+        "E": "Current assets and current liabilities"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "The question asks about ASSET categories only: current assets, plant assets (property, plant and equipment) and intangible assets (often also long-term investments).",
+        "Every other option mixes in liabilities. Answer: A."
+      ],
+      "tips": [
+        "Liabilities are never asset categories – eliminate any option containing ‘liabilities’."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Equipment and buildings are classified on the balance sheet as",
+          "options": {
+            "A": "current assets",
+            "B": "plant assets",
+            "C": "intangible assets",
+            "D": "current liabilities",
+            "E": "capital"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-financial-statements-closing"
+      ],
+      "keywords": [
+        "classified balance sheet",
+        "current assets",
+        "plant assets"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Control of Cash, the Payroll and Payroll Records, and Plant Assets",
+        "section": "2.3 Plant assets",
+        "page": "83",
+        "pdf_page": 87,
+        "verified_in_text": false,
+        "note": "The textbooks describe plant assets but do not present a classified balance sheet."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Textbook gap: the classified balance sheet is not presented in the Grade 10–12 textbooks; key follows standard accounting."
+    },
+    {
+      "id": "busecon-2019-matric-p1-q66",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 66,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Two common subsidiary ledgers are",
+      "options": {
+        "A": "accounts receivable and cash receipts.",
+        "B": "accounts receivable and accounts payable.",
+        "C": "sales and cost of goods sold.",
+        "D": "accounts payable and cash payments.",
+        "E": "prepaid rent and prepaid insurance."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "The accounts receivable (customers) ledger and the accounts payable (creditors) ledger are the two common subsidiary ledgers, controlled by the AR and AP accounts in the general ledger.",
+        "Answer: B."
+      ],
+      "tips": [
+        "Cash receipts / cash payments are journals, not ledgers."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The general ledger account that summarises a subsidiary ledger is a",
+          "options": {
+            "A": "controlling account",
+            "B": "temporary account",
+            "C": "nominal account",
+            "D": "contra account",
+            "E": "suspense account"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-special-journals"
+      ],
+      "keywords": [
+        "subsidiary ledger",
+        "controlling account"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Bookkeeping for a Merchandising Business",
+        "section": "2.1 Controlling accounts and subsidiary ledgers",
+        "page": "67",
+        "pdf_page": 72,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q67",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 67,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which record is the input for the payroll journal entry?",
+      "options": {
+        "A": "Payroll register",
+        "B": "Cash payment journal",
+        "C": "Employee payroll record",
+        "D": "Payroll journal",
+        "E": "Cash receipts journal"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "The payroll register summarises each pay period’s gross pay, deductions and net pay; its totals are the source of the journal entry recording the payroll.",
+        "Answer: A."
+      ],
+      "tips": [
+        "Payroll register → payroll journal entry; employee earnings record → individual history."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The record that shows an individual employee’s earnings for the whole year is the",
+          "options": {
+            "A": "payroll register",
+            "B": "employee earnings record",
+            "C": "cash receipts journal",
+            "D": "sales journal",
+            "E": "trial balance"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-payroll"
+      ],
+      "keywords": [
+        "payroll register"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Control of Cash, the Payroll and Payroll Records, and Plant Assets",
+        "section": "2.2 Payroll register",
+        "page": "69-71",
+        "pdf_page": 73,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q68",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 68,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Of the following transactions involving the bank reconciliation statement, which ones necessitate an adjusting entry on the depositor’s books?",
+      "options": {
+        "A": "Outstanding checks of Nakfa 13,000 did not appear on the bank statement",
+        "B": "The last 2 days’ deposited receipts, Nakfa 22,850, did not appear on the bank statement",
+        "C": "Deposit in transit of Nakfa 1200 did not appear on the bank statement.",
+        "D": "Bank service charge, Nakfa 40",
+        "E": "C and D."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Only items on the book side (bank charges, NSF cheques, collections, depositor errors) require journal entries by the depositor.",
+        "Outstanding cheques and deposits in transit (A, B, C) are timing differences adjusted on the bank side. Answer: D."
+      ],
+      "tips": [
+        "Book-side reconciling items → journal entries; bank-side items → no entry."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which requires a journal entry by the depositor?",
+          "options": {
+            "A": "outstanding cheques",
+            "B": "deposit in transit",
+            "C": "bank collection of a note receivable",
+            "D": "a bank error",
+            "E": "none"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-bank-reconciliation"
+      ],
+      "keywords": [
+        "bank reconciliation",
+        "adjusting entry",
+        "service charge"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Control of Cash, the Payroll and Payroll Records, and Plant Assets",
+        "section": "2.1.3 Preparing a bank reconciliation",
+        "page": "56-58",
+        "pdf_page": 60,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "The question says ‘which ones’ (plural) but only D requires an entry; E (C and D) is wrong because a deposit in transit needs no entry."
+    },
+    {
+      "id": "busecon-2019-matric-p1-q69",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 69,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A credit sale of Nakfa 7,750 is made on January 11, terms 2/10, net/30. A return of sales of Nakfa 500 is granted on January 16. The amount received in Nakfa as payment in full on January 20 is",
+      "options": {
+        "A": "7,595.",
+        "B": "8,085.",
+        "C": "7,750.",
+        "D": "7,250.",
+        "E": "7,105."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Amount owed after the return: 7,750 − 500 = 7,250.",
+        "Jan 20 is within 10 days of Jan 11 → 2% discount: 7,250 × 2% = 145.",
+        "Cash received = 7,250 − 145 = 7,105. Answer: E."
+      ],
+      "tips": [
+        "Apply the cash discount AFTER deducting returns."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Sale 4,000, terms 2/10, n/30; return 400; paid within 10 days. Cash received = ?",
+          "options": {
+            "A": "3,528",
+            "B": "3,600",
+            "C": "3,920",
+            "D": "3,520",
+            "E": "4,000"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "(4,000 − 400) × 0.98 = 3,528. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-special-journals"
+      ],
+      "keywords": [
+        "sales discount",
+        "2/10 net 30",
+        "sales returns"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Bookkeeping for a Merchandising Business",
+        "section": "2.4 Cash receipts journal – sales discount",
+        "page": "93-95",
+        "pdf_page": 98,
+        "verified_in_text": false
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q70",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 70,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following debits and credits are included in the cash receipts journal?",
+      "options": {
+        "A": "Debit to Sales and credit to Cash",
+        "B": "Debit to Cash and credit to Accounts Payable",
+        "C": "Debit to Cash credit to Accounts Receivable",
+        "D": "Debit to Accounts Payable and credit to Cash",
+        "E": "Debit to Cash and credit to Merchandise Inventory"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Every cash receipts journal entry debits Cash. Collecting from a customer: Dr Cash, Cr Accounts Receivable.",
+        "D is a cash payment; A is backwards. Answer: C."
+      ],
+      "tips": [
+        "Cash receipts journal: always Dr Cash."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Paying a creditor is recorded in the cash payments journal as",
+          "options": {
+            "A": "Dr Cash, Cr AP",
+            "B": "Dr AP, Cr Cash",
+            "C": "Dr AR, Cr Cash",
+            "D": "Dr Cash, Cr Sales",
+            "E": "Dr Purchases, Cr AP"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-special-journals"
+      ],
+      "keywords": [
+        "cash receipts journal"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Bookkeeping for a Merchandising Business",
+        "section": "2.4 Cash receipts journal",
+        "page": "93",
+        "pdf_page": 98,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q71",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 71,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "When recording payroll,",
+      "options": {
+        "A": "payroll deductions are recorded as liabilities.",
+        "B": "net pay is recorded as salaries and wages expense.",
+        "C": "gross earnings are recorded as salaries and wages payable.",
+        "D": "employees income tax is recorded as expense.",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Amounts withheld (income tax, pension) are owed to the government/fund until paid → liabilities.",
+        "GROSS pay is the expense; NET pay is payable to employees. Answer: A."
+      ],
+      "tips": [
+        "Dr Salaries expense (gross); Cr Income tax payable, Pension payable (deductions); Cr Salaries payable/Cash (net)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In the payroll entry, Salaries Expense is debited for",
+          "options": {
+            "A": "net pay",
+            "B": "gross pay",
+            "C": "income tax only",
+            "D": "pension only",
+            "E": "overtime only"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-payroll"
+      ],
+      "keywords": [
+        "payroll entry",
+        "withholdings",
+        "liabilities"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Control of Cash, the Payroll and Payroll Records, and Plant Assets",
+        "section": "2.2 Payroll – withholdings",
+        "page": "69",
+        "pdf_page": 73,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q72",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 72,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The only account figure that appears on both the income statement and the balance sheet of a merchandising business is",
+      "options": {
+        "A": "purchases.",
+        "B": "merchandise inventory.",
+        "C": "income summary.",
+        "D": "accumulated depreciation.",
+        "E": "depreciation expense."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Ending merchandise inventory is deducted in the COGS section of the income statement and shown as a current asset on the balance sheet.",
+        "Answer: B."
+      ],
+      "tips": [
+        "Inventory links the two statements."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Accumulated depreciation appears on the",
+          "options": {
+            "A": "income statement",
+            "B": "balance sheet",
+            "C": "both",
+            "D": "cash receipts journal",
+            "E": "sales journal"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-merchandising-period-end"
+      ],
+      "keywords": [
+        "merchandise inventory",
+        "financial statements"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Bookkeeping for a Merchandising Business",
+        "section": "Income statement – cost of goods sold section",
+        "page": "119-121",
+        "pdf_page": 124,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q73",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 73,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Infrequent returns of merchandise purchased on account are recorded in the",
+      "options": {
+        "A": "purchases journal.",
+        "B": "sales journal.",
+        "C": "general journal.",
+        "D": "general ledger.",
+        "E": "cash book."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Transactions that do not fit a special journal (e.g. occasional purchases returns and allowances) are recorded in the general journal.",
+        "Answer: C."
+      ],
+      "tips": [
+        "No special journal fits → general journal."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Occasional sales returns on account are recorded in the",
+          "options": {
+            "A": "sales journal",
+            "B": "general journal",
+            "C": "cash receipts journal",
+            "D": "purchases journal",
+            "E": "payroll register"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-special-journals"
+      ],
+      "keywords": [
+        "general journal",
+        "purchases returns"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Bookkeeping for a Merchandising Business",
+        "section": "2.1 Special journals and the general journal",
+        "page": "66",
+        "pdf_page": 71,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q74",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 74,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A purchase of equipment for cash is recorded in the",
+      "options": {
+        "A": "cash payments journal.",
+        "B": "cash receipts journal.",
+        "C": "purchases journal.",
+        "D": "general journal.",
+        "E": "sales journal."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Every payment of cash is recorded in the cash payments journal (Dr Equipment, Cr Cash).",
+        "The purchases journal is only for merchandise on account. Answer: A."
+      ],
+      "tips": [
+        "Cash out → cash payments journal, whatever is bought."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Purchase of merchandise on account is recorded in the",
+          "options": {
+            "A": "cash payments journal",
+            "B": "purchases journal",
+            "C": "sales journal",
+            "D": "cash receipts journal",
+            "E": "general ledger"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-special-journals"
+      ],
+      "keywords": [
+        "cash payments journal"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Bookkeeping for a Merchandising Business",
+        "section": "2.1 Special journals – cash payments journal",
+        "page": "66",
+        "pdf_page": 71,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q75",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 75,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Lidya works in Barka canned Food factory. She is paid on hourly basis. During normal working hours, which are 178 hours per month, she is paid 8 Nakfa per hour. For overtime worked she is paid time-and-half (1.5) of the normal rate. During this month she worked 212 hours. The tax deductions are to be computed based on the income tax table (given). How much is her gross pay for this month?",
+      "stem_tables": [
+        {
+          "title": "Income tax table",
+          "kind": "data",
+          "columns": [
+            "Salary Range",
+            "Income tax (%)"
+          ],
+          "rows": [
+            [
+              "1 – 200",
+              "2"
+            ],
+            [
+              "201 – 1,200",
+              "10"
+            ],
+            [
+              "1,201 – 2,500",
+              "20"
+            ],
+            [
+              "2,501 – 3,500",
+              "25"
+            ],
+            [
+              "Over 3,500",
+              "30"
+            ]
+          ],
+          "align": [
+            "left",
+            "right"
+          ]
+        }
+      ],
+      "options": {
+        "A": "2,408",
+        "B": "1,832",
+        "C": "1,693",
+        "D": "2,544",
+        "E": "1,424"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "answer_tables": [
+        {
+          "title": "Lidya – payroll computation (Nakfa)",
+          "kind": "calculation",
+          "columns": [
+            "Item",
+            "Computation",
+            "Amount"
+          ],
+          "rows": [
+            [
+              "Regular pay",
+              "178 h × 8",
+              "1,424.00"
+            ],
+            [
+              "Overtime pay",
+              "34 h × (8 × 1.5 = 12)",
+              "408.00"
+            ],
+            [
+              "Gross pay",
+              "",
+              "1,832.00"
+            ],
+            [
+              "Income tax",
+              "1,832 × 20% − 136 (or 4 + 100 + 126.40)",
+              "230.40"
+            ],
+            [
+              "Net pay (before pension)",
+              "1,832 − 230.40",
+              "1,601.60"
+            ],
+            [
+              "Pension 4%",
+              "1,832 × 4%",
+              "73.28"
+            ],
+            [
+              "Net pay (after pension)",
+              "1,601.60 − 73.28",
+              "1,528.32"
+            ]
+          ],
+          "align": [
+            "left",
+            "left",
+            "right"
+          ],
+          "row_styles": [
+            null,
+            null,
+            "total",
+            null,
+            "total",
+            null,
+            "double_total"
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "Regular pay = 178 h × 8 = 1,424.",
+        "Overtime hours = 212 − 178 = 34; overtime rate = 8 × 1.5 = 12; overtime pay = 34 × 12 = 408.",
+        "Gross pay = 1,424 + 408 = 1,832. Answer: B."
+      ],
+      "tips": [
+        "E (1,424) is regular pay only – add the overtime at 1.5 × the rate."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A worker is paid 10 Nakfa/h for 176 normal hours and time-and-a-half for overtime. She works 196 hours. Gross pay = ?",
+          "options": {
+            "A": "1,960",
+            "B": "2,060",
+            "C": "2,940",
+            "D": "1,760",
+            "E": "2,000"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "176 × 10 + 20 × 15 = 1,760 + 300 = 2,060. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-payroll"
+      ],
+      "keywords": [
+        "gross pay",
+        "overtime",
+        "time-and-a-half"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Control of Cash, the Payroll and Payroll Records, and Plant Assets",
+        "section": "2.2 Payroll – income tax (Proclamation 62/1994, amended 116/2001)",
+        "page": "69-70",
+        "pdf_page": 73,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q76",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 76,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Lidya works in Barka canned Food factory. She is paid on hourly basis. During normal working hours, which are 178 hours per month, she is paid 8 Nakfa per hour. For overtime worked she is paid time-and-half (1.5) of the normal rate. During this month she worked 212 hours. The tax deductions are to be computed based on the income tax table (given). How much is her income tax deduction and net pay, respectively for this month in Nakfa?",
+      "stem_tables": [
+        {
+          "title": "Income tax table",
+          "kind": "data",
+          "columns": [
+            "Salary Range",
+            "Income tax (%)"
+          ],
+          "rows": [
+            [
+              "1 – 200",
+              "2"
+            ],
+            [
+              "201 – 1,200",
+              "10"
+            ],
+            [
+              "1,201 – 2,500",
+              "20"
+            ],
+            [
+              "2,501 – 3,500",
+              "25"
+            ],
+            [
+              "Over 3,500",
+              "30"
+            ]
+          ],
+          "align": [
+            "left",
+            "right"
+          ]
+        }
+      ],
+      "options": {
+        "A": "148.80 and 1,275.20",
+        "B": "345.60 and 2,062.40",
+        "C": "375 and 2,169",
+        "D": "202.60 and 1,490.40",
+        "E": "230.40 and 1,601.60"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "answer_tables": [
+        {
+          "title": "Lidya – payroll computation (Nakfa)",
+          "kind": "calculation",
+          "columns": [
+            "Item",
+            "Computation",
+            "Amount"
+          ],
+          "rows": [
+            [
+              "Regular pay",
+              "178 h × 8",
+              "1,424.00"
+            ],
+            [
+              "Overtime pay",
+              "34 h × (8 × 1.5 = 12)",
+              "408.00"
+            ],
+            [
+              "Gross pay",
+              "",
+              "1,832.00"
+            ],
+            [
+              "Income tax",
+              "1,832 × 20% − 136 (or 4 + 100 + 126.40)",
+              "230.40"
+            ],
+            [
+              "Net pay (before pension)",
+              "1,832 − 230.40",
+              "1,601.60"
+            ],
+            [
+              "Pension 4%",
+              "1,832 × 4%",
+              "73.28"
+            ],
+            [
+              "Net pay (after pension)",
+              "1,601.60 − 73.28",
+              "1,528.32"
+            ]
+          ],
+          "align": [
+            "left",
+            "left",
+            "right"
+          ],
+          "row_styles": [
+            null,
+            null,
+            "total",
+            null,
+            "total",
+            null,
+            "double_total"
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "Gross = 1,832 (item 75), in the 1,201–2,500 bracket.",
+        "Tax = 1,832 × 20% − 136 = 366.40 − 136 = 230.40 (bracket method: 200×2% + 1,000×10% + 632×20% = 4 + 100 + 126.40).",
+        "Net pay = 1,832 − 230.40 = 1,601.60. Answer: E."
+      ],
+      "tips": [
+        "The 20% rate applies only to the part above 1,200 – never 20% of the whole gross."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Gross pay 2,060 Nakfa. Income tax and net pay?",
+          "options": {
+            "A": "276 and 1,784",
+            "B": "412 and 1,648",
+            "C": "206 and 1,854",
+            "D": "300 and 1,760",
+            "E": "136 and 1,924"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "2,060 × 20% − 136 = 276; 2,060 − 276 = 1,784. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-payroll"
+      ],
+      "keywords": [
+        "income tax",
+        "net pay",
+        "Eritrean tax table"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Control of Cash, the Payroll and Payroll Records, and Plant Assets",
+        "section": "2.2 Payroll – income tax (Proclamation 62/1994, amended 116/2001)",
+        "page": "69-70",
+        "pdf_page": 73,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q77",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 77,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Lidya works in Barka canned Food factory. She is paid on hourly basis. During normal working hours, which are 178 hours per month, she is paid 8 Nakfa per hour. For overtime worked she is paid time-and-half (1.5) of the normal rate. During this month she worked 212 hours. The tax deductions are to be computed based on the income tax table (given). If Lidya is also subject to a pension fund deduction of 4% on gross pay, how much is her net pay for this month?",
+      "stem_tables": [
+        {
+          "title": "Income tax table",
+          "kind": "data",
+          "columns": [
+            "Salary Range",
+            "Income tax (%)"
+          ],
+          "rows": [
+            [
+              "1 – 200",
+              "2"
+            ],
+            [
+              "201 – 1,200",
+              "10"
+            ],
+            [
+              "1,201 – 2,500",
+              "20"
+            ],
+            [
+              "2,501 – 3,500",
+              "25"
+            ],
+            [
+              "Over 3,500",
+              "30"
+            ]
+          ],
+          "align": [
+            "left",
+            "right"
+          ]
+        }
+      ],
+      "options": {
+        "A": "1,218.24",
+        "B": "2,067.24",
+        "C": "1,528.32",
+        "D": "1,422.68",
+        "E": "1966.08"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "answer_tables": [
+        {
+          "title": "Lidya – payroll computation (Nakfa)",
+          "kind": "calculation",
+          "columns": [
+            "Item",
+            "Computation",
+            "Amount"
+          ],
+          "rows": [
+            [
+              "Regular pay",
+              "178 h × 8",
+              "1,424.00"
+            ],
+            [
+              "Overtime pay",
+              "34 h × (8 × 1.5 = 12)",
+              "408.00"
+            ],
+            [
+              "Gross pay",
+              "",
+              "1,832.00"
+            ],
+            [
+              "Income tax",
+              "1,832 × 20% − 136 (or 4 + 100 + 126.40)",
+              "230.40"
+            ],
+            [
+              "Net pay (before pension)",
+              "1,832 − 230.40",
+              "1,601.60"
+            ],
+            [
+              "Pension 4%",
+              "1,832 × 4%",
+              "73.28"
+            ],
+            [
+              "Net pay (after pension)",
+              "1,601.60 − 73.28",
+              "1,528.32"
+            ]
+          ],
+          "align": [
+            "left",
+            "left",
+            "right"
+          ],
+          "row_styles": [
+            null,
+            null,
+            "total",
+            null,
+            "total",
+            null,
+            "double_total"
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "Pension = 1,832 × 4% = 73.28.",
+        "Net pay = 1,832 − 230.40 − 73.28 = 1,528.32. Answer: C."
+      ],
+      "tips": [
+        "Net pay = gross − income tax − pension."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Gross 2,000 Nakfa, pension 5% of gross. Net pay = ?",
+          "options": {
+            "A": "1,636",
+            "B": "1,736",
+            "C": "1,900",
+            "D": "1,536",
+            "E": "1,700"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Tax = 2,000 × 20% − 136 = 264; pension 100; net = 2,000 − 264 − 100 = 1,636. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "be-payroll"
+      ],
+      "keywords": [
+        "pension deduction",
+        "net pay"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Control of Cash, the Payroll and Payroll Records, and Plant Assets",
+        "section": "2.2 Payroll – income tax (Proclamation 62/1994, amended 116/2001)",
+        "page": "69-70",
+        "pdf_page": 73,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "The paper uses a 4% pension on gross pay; the G12 textbook (p.70) cites 5% of basic salary (Proclamation 146/2005, government employees). Follow the paper’s data."
+    },
+    {
+      "id": "busecon-2019-matric-p1-q78",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 78,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Three parties involved in a check are",
+      "options": {
+        "A": "customer, supplier, and creditor.",
+        "B": "buyer, seller, and transporter.",
+        "C": "manufacturer, wholesaler, and retailer.",
+        "D": "purchaser, storekeeper, and bookkeeper.",
+        "E": "drawer, drawee, and payee."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Drawer = the person who writes/signs the cheque; drawee = the bank ordered to pay; payee = the person to be paid.",
+        "Answer: E."
+      ],
+      "tips": [
+        "Drawer draws on the drawee (bank) in favour of the payee."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The bank on which a cheque is drawn is the",
+          "options": {
+            "A": "drawer",
+            "B": "drawee",
+            "C": "payee",
+            "D": "endorser",
+            "E": "holder"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-cash-control"
+      ],
+      "keywords": [
+        "cheque",
+        "drawer",
+        "drawee",
+        "payee"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Control of Cash, the Payroll and Payroll Records, and Plant Assets",
+        "section": "2.1 Cheques – drawer, drawee, payee",
+        "page": "50",
+        "pdf_page": 54,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q79",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 79,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements <u>is correct</u> about the cash receipts journal?",
+      "options": {
+        "A": "The sales discount column is included in the cash receipts journal.",
+        "B": "The cash receipts journal records sales on account.",
+        "C": "Merchandise returned by the buyer is recorded by the seller in the cash receipts journal.",
+        "D": "Purchases of merchandise for cash are recorded in the cash receipts journal.",
+        "E": "All of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Customers paying within the discount period take a sales discount, so the cash receipts journal has a Sales Discount debit column.",
+        "Credit sales go to the sales journal, returns to the general journal, cash purchases to the cash payments journal. Answer: A."
+      ],
+      "tips": [
+        "Cash receipts journal columns: Cash Dr, Sales Discount Dr, Accounts Receivable Cr, Sales Cr, Other accounts Cr."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Purchases discount appears as a column in the",
+          "options": {
+            "A": "cash receipts journal",
+            "B": "cash payments journal",
+            "C": "sales journal",
+            "D": "general journal",
+            "E": "payroll register"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-special-journals"
+      ],
+      "keywords": [
+        "cash receipts journal",
+        "sales discount"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Bookkeeping for a Merchandising Business",
+        "section": "2.4 Cash receipts journal",
+        "page": "93",
+        "pdf_page": 98,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p1-q80",
+      "exam_id": "busecon-2019-matric",
+      "part": 1,
+      "number": 80,
+      "section": "Accounting",
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A trade discount of 40 percent on an office equipment retailing at Nakfa 5,000 and purchased on cash would result in a debit to cash of Nakfa",
+      "options": {
+        "A": "5000.",
+        "B": "4,800.",
+        "C": "2000.",
+        "D": "3000.",
+        "E": "7,000."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Trade discounts are deducted before recording: 5,000 × (1 − 0.40) = 3,000.",
+        "The equipment and the cash payment are both recorded at 3,000. Answer: D."
+      ],
+      "tips": [
+        "Trade discounts are never recorded in the accounts – record the net price."
+      ],
+      "similar_questions": [
+        {
+          "stem": "List price 8,000, trade discount 25%. Amount recorded = ?",
+          "options": {
+            "A": "8,000",
+            "B": "6,000",
+            "C": "2,000",
+            "D": "7,750",
+            "E": "10,000"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "8,000 × 0.75 = 6,000. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "be-special-journals"
+      ],
+      "keywords": [
+        "trade discount"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Control of Cash, the Payroll and Payroll Records, and Plant Assets",
+        "section": "Trade discount",
+        "page": "99",
+        "pdf_page": 103,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Wording problem: buying equipment for cash CREDITS cash (Dr Equipment 3,000, Cr Cash 3,000); the paper says ‘debit to cash’. The amount (3,000, D) is clearly what is asked – teacher decision."
+    },
+    {
+      "id": "busecon-2019-matric-p2-q01",
+      "exam_id": "busecon-2019-matric",
+      "part": 2,
+      "number": 1,
+      "section": "Work Out and Short Answer",
+      "type": "workout",
+      "marks": 3,
+      "stem": "Name three non-price determinants of demand for an individual consumer. (3 points)",
+      "options": null,
+      "answer": "Any three of: (1) the consumer’s income; (2) prices of related goods (substitutes and complements); (3) tastes and preferences; (4) expectations about future prices (and income).",
+      "explanation_steps": [
+        "The price of the good itself changes only the QUANTITY demanded; the other factors shift the demand curve.",
+        "G11 textbook: ‘These factors are income, price of related goods, tastes and preferences, expectations on future price of the commodity demanded, and size of population.’",
+        "Size of population / number of buyers affects MARKET demand, not an individual consumer’s demand – better to avoid it here."
+      ],
+      "marking_points": [
+        "1 point for each correct determinant (maximum 3): income; prices of related goods (substitutes/complements); tastes and preferences; expectations.",
+        "Number of buyers/population may be accepted by some markers but it is a market-demand determinant."
+      ],
+      "tips": [
+        "‘Non-price’ means: do NOT write ‘price of the good’."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Name two non-price determinants of supply.",
+          "options": null,
+          "answer": "Any two of: cost of inputs, technology, prices of related goods in production, number of sellers, expectations, taxes/subsidies, weather.",
+          "explanation_steps": [
+            "Own price moves along the supply curve; the others shift it."
+          ]
+        }
+      ],
+      "topics": [
+        "be-demand"
+      ],
+      "keywords": [
+        "determinants of demand",
+        "non-price determinants"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.2 Demand – factors affecting quantity demanded",
+        "page": "12",
+        "pdf_page": 17,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p2-q02",
+      "exam_id": "busecon-2019-matric",
+      "part": 2,
+      "number": 2,
+      "section": "Work Out and Short Answer",
+      "type": "workout",
+      "marks": 1,
+      "stem": "________ is the major determinant of household consumption. (1 point)",
+      "options": null,
+      "answer": "Disposable (personal) income.",
+      "explanation_steps": [
+        "G12 p.14: aggregate consumption is basically determined by the disposable personal income received by households; the consumption function is C = f(Yd).",
+        "The higher the disposable income, the higher the consumption, other things equal."
+      ],
+      "tips": [
+        "‘Income’ alone is usually accepted, but ‘disposable income’ is the textbook answer."
+      ],
+      "similar_questions": [
+        {
+          "stem": "________ is the part of disposable income that is not consumed.",
+          "options": null,
+          "answer": "Saving.",
+          "explanation_steps": [
+            "Yd = C + S → S = Yd − C."
+          ]
+        }
+      ],
+      "topics": [
+        "be-consumption-saving-investment"
+      ],
+      "keywords": [
+        "consumption function",
+        "disposable income"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.2 Consumption function",
+        "page": "14",
+        "pdf_page": 18,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p2-q03",
+      "exam_id": "busecon-2019-matric",
+      "part": 2,
+      "number": 3,
+      "section": "Work Out and Short Answer",
+      "type": "workout",
+      "marks": 1,
+      "stem": "________ is the major source of government revenue. (1 point)",
+      "options": null,
+      "answer": "Taxation (taxes).",
+      "explanation_steps": [
+        "Taxes – direct (income, profit) and indirect (sales, customs duties) – provide most government revenue; grants, fees, fines and borrowing are smaller sources."
+      ],
+      "tips": [
+        "Same idea as MCQ 33."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A tax levied on goods imported into a country is called a ________.",
+          "options": null,
+          "answer": "Tariff (customs/import duty).",
+          "explanation_steps": [
+            "An indirect tax on imports."
+          ]
+        }
+      ],
+      "topics": [
+        "be-public-finance"
+      ],
+      "keywords": [
+        "government revenue",
+        "taxation"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.3 Public finance – types of taxes",
+        "page": "31",
+        "pdf_page": 35,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p2-q04",
+      "exam_id": "busecon-2019-matric",
+      "part": 2,
+      "number": 4,
+      "section": "Work Out and Short Answer",
+      "type": "workout",
+      "marks": 1,
+      "stem": "________ is the exchange of goods and services between countries. (1 point)",
+      "options": null,
+      "answer": "International trade (foreign trade).",
+      "explanation_steps": [
+        "G12 p.37: ‘International trade is the exchange of goods and services between countries.’"
+      ],
+      "tips": [
+        "Domestic trade = within one country; international trade = between countries."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Trade that takes place within the borders of one country is called ________.",
+          "options": null,
+          "answer": "Domestic (home/internal) trade.",
+          "explanation_steps": [
+            "Opposite of international trade."
+          ]
+        }
+      ],
+      "topics": [
+        "be-international-trade"
+      ],
+      "keywords": [
+        "international trade"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Basic Macroeconomic Concepts",
+        "section": "1.4 International trade",
+        "page": "37",
+        "pdf_page": 41,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "busecon-2019-matric-p2-q05",
+      "exam_id": "busecon-2019-matric",
+      "part": 2,
+      "number": 5,
+      "section": "Work Out and Short Answer",
+      "type": "workout",
+      "marks": 4,
+      "stem": "Refer to the information provided in Table 3 (quantity demanded and supplied of shoes) to answer questions A to E.\nA) What is the equilibrium price in the shoe market? (0.5 points)\nB) What is the equilibrium quantity in the shoe market? (0.5 points)\nC) What is the price elasticity of demand for shoes between the prices of 40 and 43 Nakfa? (1 point)\nD) What is the total revenue received at the equilibrium price and equilibrium quantity? (1 point)\nE) Is there shortage or surplus at a price of 37 Nakfa? (1 point)",
+      "stem_tables": [
+        {
+          "title": "Table 3: Quantity demanded and supplied",
+          "kind": "data",
+          "columns": [
+            "Quantity of pairs of shoes demanded",
+            "Price per pair of shoes demanded in Nakfa",
+            "Quantity of pairs of shoes supplied"
+          ],
+          "rows": [
+            [
+              "850",
+              "34",
+              "720"
+            ],
+            [
+              "800",
+              "37",
+              "730"
+            ],
+            [
+              "750",
+              "40",
+              "750"
+            ],
+            [
+              "700",
+              "43",
+              "770"
+            ],
+            [
+              "650",
+              "46",
+              "790"
+            ],
+            [
+              "600",
+              "49",
+              "810"
+            ]
+          ],
+          "align": [
+            "right",
+            "center",
+            "right"
+          ]
+        }
+      ],
+      "options": null,
+      "answer": "A) 40 Nakfa per pair. B) 750 pairs. C) Ped = (−50/750) ÷ (3/40) = −6.67% ÷ 7.5% ≈ −0.89 (inelastic). D) TR = 40 × 750 = 30,000 Nakfa. E) Shortage of 70 pairs (Qd 800 > Qs 730).",
+      "subparts": [
+        {
+          "label": "A",
+          "marks": 0.5,
+          "question": "Equilibrium price?",
+          "answer": "40 Nakfa per pair.",
+          "steps": [
+            "Qd = Qs = 750 at 40."
+          ]
+        },
+        {
+          "label": "B",
+          "marks": 0.5,
+          "question": "Equilibrium quantity?",
+          "answer": "750 pairs.",
+          "steps": [
+            "Read Qd = Qs at 40."
+          ]
+        },
+        {
+          "label": "C",
+          "marks": 1,
+          "question": "Price elasticity of demand between 40 and 43 Nakfa?",
+          "answer": "≈ −0.89 (inelastic); midpoint method ≈ −0.95.",
+          "steps": [
+            "(−50/750) ÷ (3/40) = −0.0667 ÷ 0.075 = −0.89."
+          ]
+        },
+        {
+          "label": "D",
+          "marks": 1,
+          "question": "Total revenue at equilibrium?",
+          "answer": "30,000 Nakfa.",
+          "steps": [
+            "40 × 750."
+          ]
+        },
+        {
+          "label": "E",
+          "marks": 1,
+          "question": "Shortage or surplus at 37 Nakfa?",
+          "answer": "Shortage of 70 pairs.",
+          "steps": [
+            "Qd 800 − Qs 730 = 70."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "Equilibrium where Qd = Qs: at 40 Nakfa both are 750.",
+        "Elasticity (textbook formula, G11 p.25): %ΔQ = (700 − 750)/750 × 100 = −6.67%; %ΔP = (43 − 40)/40 × 100 = +7.5%; Ped = −6.67/7.5 = −0.89. |Ped| < 1 → inelastic.",
+        "TR = P × Q = 40 × 750 = 30,000.",
+        "At 37: Qd = 800, Qs = 730 → Qd > Qs → shortage of 70 pairs."
+      ],
+      "marking_points": [
+        "A 0.5: 40 Nakfa.",
+        "B 0.5: 750 pairs.",
+        "C 1: −0.89 (accept 0.89 or ≈ −0.95 by the midpoint method, with working).",
+        "D 1: 30,000 Nakfa.",
+        "E 1: shortage (of 70 pairs)."
+      ],
+      "tips": [
+        "Use the FIRST price and quantity as the base, as the textbook does; the midpoint method gives ≈ −0.95 (also inelastic)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "At a price of 10 Nakfa, 100 units are demanded; at 12 Nakfa, 90 units. Using the textbook formula, what is the price elasticity of demand?",
+          "options": null,
+          "answer": "−0.5 (inelastic).",
+          "explanation_steps": [
+            "%ΔQ = (90 − 100)/100 = −10%; %ΔP = (12 − 10)/10 = +20%; Ped = −10/20 = −0.5."
+          ]
+        }
+      ],
+      "topics": [
+        "be-demand",
+        "be-elasticity"
+      ],
+      "keywords": [
+        "equilibrium",
+        "price elasticity of demand",
+        "total revenue",
+        "shortage"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Basic Microeconomic Concepts",
+        "section": "1.2.1 Equilibrium price and quantity; surplus and shortage",
+        "page": "19-20",
+        "pdf_page": 24,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 11,
+          "unit": "Unit 1 – Basic Microeconomic Concepts",
+          "section": "1.3 Price elasticity of demand",
+          "page": "24-25",
+          "pdf_page": 29,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": "The paper does not say which elasticity formula to use; −0.89 follows the G11 textbook formula (base values P₁, Q₁); −0.95 (midpoint) should also be accepted."
+    },
+    {
+      "id": "busecon-2019-matric-p2-q06",
+      "exam_id": "busecon-2019-matric",
+      "part": 2,
+      "number": 6,
+      "section": "Work Out and Short Answer",
+      "type": "workout",
+      "marks": 5,
+      "stem": "In recent years, Golden Plate Pizzeria purchased two delivery motor cycles. The two motor cycles are depreciated using different methods as given in the table. For the units-of-activity method (motor cycle #2), total life in terms of kilometres is expected to be 120,000. Actual kilometres of use in the first two years were: 2010 – 34,000; 2011 – 30,000.\nA. Compute the amount of depreciation expense on motor cycle #1 at December 31, 2011. (1 point)\nB. Compute the amount of accumulated depreciation on motor cycle #1 at December 31, 2011. (1 point)\nC. Compute the amount of depreciation expense on motor cycle #2 at December 31, 2010. (1 point)\nD. Compute the amount of depreciation expense on motor cycle #2 at December 31, 2011. (1 point)\nE. Compute the amount of accumulated depreciation on motor cycle #2 at December 31, 2011. (1 point)",
+      "stem_tables": [
+        {
+          "title": "Golden Plate Pizzeria – delivery motor cycles (as printed)",
+          "kind": "data",
+          "columns": [
+            "Motor cycle",
+            "Purchase date",
+            "Cost",
+            "Salvage value",
+            "Useful life in years",
+            "Depreciation method"
+          ],
+          "rows": [
+            [
+              "#1",
+              "Jan. 1, 2008",
+              "$96,000",
+              "$6,000",
+              "5",
+              "Straight-line"
+            ],
+            [
+              "#2",
+              "Jan. 1, 2010",
+              "80,000",
+              "8,000",
+              "5",
+              "Units-of-activity"
+            ]
+          ],
+          "align": [
+            "center",
+            "left",
+            "right",
+            "right",
+            "center",
+            "left"
+          ]
+        },
+        {
+          "title": "Motor cycle #2 – actual use",
+          "kind": "data",
+          "columns": [
+            "Year",
+            "Actual miles of use"
+          ],
+          "rows": [
+            [
+              "2010",
+              "34,000"
+            ],
+            [
+              "2011",
+              "30,000"
+            ]
+          ],
+          "align": [
+            "center",
+            "right"
+          ]
+        }
+      ],
+      "options": null,
+      "answer": "A. 18,000. B. 72,000. C. 20,400. D. 18,000. E. 38,400.",
+      "subparts": [
+        {
+          "label": "A",
+          "marks": 1,
+          "question": "Depreciation expense #1, 2011",
+          "answer": "18,000",
+          "steps": [
+            "(96,000 − 6,000) ÷ 5."
+          ]
+        },
+        {
+          "label": "B",
+          "marks": 1,
+          "question": "Accumulated depreciation #1, 31 Dec 2011",
+          "answer": "72,000",
+          "steps": [
+            "4 years × 18,000."
+          ]
+        },
+        {
+          "label": "C",
+          "marks": 1,
+          "question": "Depreciation expense #2, 2010",
+          "answer": "20,400",
+          "steps": [
+            "34,000 km × 0.60."
+          ]
+        },
+        {
+          "label": "D",
+          "marks": 1,
+          "question": "Depreciation expense #2, 2011",
+          "answer": "18,000",
+          "steps": [
+            "30,000 km × 0.60."
+          ]
+        },
+        {
+          "label": "E",
+          "marks": 1,
+          "question": "Accumulated depreciation #2, 31 Dec 2011",
+          "answer": "38,400",
+          "steps": [
+            "20,400 + 18,000."
+          ]
+        }
+      ],
+      "answer_tables": [
+        {
+          "title": "Depreciation schedules",
+          "kind": "calculation",
+          "columns": [
+            "Item",
+            "Computation",
+            "Amount"
+          ],
+          "rows": [
+            [
+              "#1 annual depreciation (straight-line)",
+              "(96,000 − 6,000) ÷ 5",
+              "18,000"
+            ],
+            [
+              "A. #1 expense for 2011",
+              "one full year",
+              "18,000"
+            ],
+            [
+              "B. #1 accumulated depreciation 31 Dec 2011",
+              "2008–2011 = 4 years × 18,000",
+              "72,000"
+            ],
+            [
+              "#2 rate per km",
+              "(80,000 − 8,000) ÷ 120,000 km",
+              "0.60 per km"
+            ],
+            [
+              "C. #2 expense for 2010",
+              "34,000 km × 0.60",
+              "20,400"
+            ],
+            [
+              "D. #2 expense for 2011",
+              "30,000 km × 0.60",
+              "18,000"
+            ],
+            [
+              "E. #2 accumulated depreciation 31 Dec 2011",
+              "20,400 + 18,000",
+              "38,400"
+            ]
+          ],
+          "align": [
+            "left",
+            "left",
+            "right"
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "#1 straight-line: (cost − salvage) ÷ life = (96,000 − 6,000) ÷ 5 = 18,000 per year → 2011 expense 18,000.",
+        "Accumulated depreciation 31 Dec 2011 = 4 full years (2008, 2009, 2010, 2011) × 18,000 = 72,000.",
+        "#2 units of activity: rate = (80,000 − 8,000) ÷ 120,000 km = 0.60 per km.",
+        "2010: 34,000 × 0.60 = 20,400; 2011: 30,000 × 0.60 = 18,000; accumulated = 38,400."
+      ],
+      "marking_points": [
+        "1 point each: A 18,000; B 72,000; C 20,400; D 18,000; E 38,400."
+      ],
+      "tips": [
+        "Straight-line: the same amount every year – count the years carefully from the purchase date.",
+        "Units of activity: compute the rate per km first."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A van costing 60,000 with a salvage value of 6,000 is expected to run 90,000 km. It runs 25,000 km in year 1. Depreciation for year 1 (units-of-activity)?",
+          "options": null,
+          "answer": "15,000.",
+          "explanation_steps": [
+            "Rate = (60,000 − 6,000) ÷ 90,000 = 0.60 per km; 25,000 × 0.60 = 15,000."
+          ]
+        }
+      ],
+      "topics": [
+        "be-plant-assets"
+      ],
+      "keywords": [
+        "depreciation",
+        "straight-line",
+        "units-of-activity",
+        "accumulated depreciation"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Control of Cash, the Payroll and Payroll Records, and Plant Assets",
+        "section": "2.3 Straight-line method",
+        "page": "86-87",
+        "pdf_page": 90,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 12,
+          "unit": "Unit 2 – Control of Cash, the Payroll and Payroll Records, and Plant Assets",
+          "section": "2.3 Units of production/activity – mileage method",
+          "page": "88-89",
+          "pdf_page": 92,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": "Printing inconsistencies: the table shows ‘$’ for motor cycle #1 and no currency for #2, and the usage table is headed ‘Actual miles of use’ while the text says kilometres. Amounts are computed as given (currency units, kilometres)."
+    },
+    {
+      "id": "busecon-2019-matric-p2-q07",
+      "exam_id": "busecon-2019-matric",
+      "part": 2,
+      "number": 7,
+      "section": "Work Out and Short Answer",
+      "type": "workout",
+      "marks": 5,
+      "stem": "In order to produce equal adjusted balances for Huda Laundry, appropriate action need to be taken for the statements given in Column A. From the actions listed below from (a) to (f), name the <u>appropriate</u> action for each statement. (5 points)\nActions: a) Added to the bank statement balance; b) Deducted from the bank statement balance; c) Added to the depositor’s balance; d) Deducted from the depositor’s balance; e) Exempted from the bank reconciliation statement; f) No action is needed.\n7.1 Statement includes a credit memorandum, representing the collection of the proceeds of a notes receivable by the bank on behalf of Huda Laundry.\n7.2 Deposits in transit.\n7.3 Seven outstanding checks were not recorded on the statement.\n7.4 A customer’s check that Huda Laundry had deposited was returned with “nonsufficient funds” stamped across the face.\n7.5 A $96 check was erroneously recorded in Huda Laundry check stubs as $69.",
+      "options": null,
+      "answer": "7.1 (c); 7.2 (a); 7.3 (b); 7.4 (d); 7.5 (d).",
+      "subparts": [
+        {
+          "label": "7.1",
+          "marks": 1,
+          "question": "Collection of note receivable (credit memo)",
+          "answer": "(c) Added to the depositor’s balance",
+          "steps": [
+            "Bank recorded; books did not."
+          ]
+        },
+        {
+          "label": "7.2",
+          "marks": 1,
+          "question": "Deposits in transit",
+          "answer": "(a) Added to the bank statement balance",
+          "steps": [
+            "Books recorded; bank did not."
+          ]
+        },
+        {
+          "label": "7.3",
+          "marks": 1,
+          "question": "Outstanding checks",
+          "answer": "(b) Deducted from the bank statement balance",
+          "steps": [
+            "Books recorded; bank has not paid."
+          ]
+        },
+        {
+          "label": "7.4",
+          "marks": 1,
+          "question": "NSF check returned",
+          "answer": "(d) Deducted from the depositor’s balance",
+          "steps": [
+            "Bank deducted; books did not."
+          ]
+        },
+        {
+          "label": "7.5",
+          "marks": 1,
+          "question": "$96 check recorded as $69",
+          "answer": "(d) Deducted from the depositor’s balance (27)",
+          "steps": [
+            "Depositor’s error understating payments."
+          ]
+        }
+      ],
+      "answer_tables": [
+        {
+          "title": "Huda Laundry – reconciling actions",
+          "kind": "comparison",
+          "columns": [
+            "Statement",
+            "Action",
+            "Reason"
+          ],
+          "rows": [
+            [
+              "7.1 Note collected by bank (credit memo)",
+              "(c) Added to the depositor’s balance",
+              "The bank has added it; the books have not yet."
+            ],
+            [
+              "7.2 Deposits in transit",
+              "(a) Added to the bank statement balance",
+              "Recorded in the books, not yet by the bank."
+            ],
+            [
+              "7.3 Outstanding checks",
+              "(b) Deducted from the bank statement balance",
+              "Recorded in the books, not yet paid by the bank."
+            ],
+            [
+              "7.4 NSF customer’s check returned",
+              "(d) Deducted from the depositor’s balance",
+              "The bank has deducted it; the books still show it as cash."
+            ],
+            [
+              "7.5 $96 check recorded as $69",
+              "(d) Deducted from the depositor’s balance (by 27)",
+              "The books understate the payment by 96 − 69 = 27."
+            ]
+          ],
+          "align": [
+            "left",
+            "left",
+            "left"
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "Bank side: items the bank has not yet recorded – deposits in transit are ADDED (a), outstanding checks are DEDUCTED (b).",
+        "Book side: items the bank recorded but the books did not – collection of a note is ADDED (c); an NSF check is DEDUCTED (d).",
+        "Depositor’s error: a payment of 96 recorded as 69 understates payments by 27 → deduct 27 from the depositor’s balance (d)."
+      ],
+      "marking_points": [
+        "1 point each: 7.1 c; 7.2 a; 7.3 b; 7.4 d; 7.5 d."
+      ],
+      "tips": [
+        "Ask: who has NOT yet recorded the item – the bank or the business? Adjust that side."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In a bank reconciliation, where do bank service charges of 50 go?",
+          "options": null,
+          "answer": "Deducted from the depositor’s (book) balance.",
+          "explanation_steps": [
+            "The bank has already deducted them; the books have not."
+          ]
+        }
+      ],
+      "topics": [
+        "be-bank-reconciliation"
+      ],
+      "keywords": [
+        "bank reconciliation",
+        "deposits in transit",
+        "outstanding checks",
+        "NSF check",
+        "credit memorandum"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Control of Cash, the Payroll and Payroll Records, and Plant Assets",
+        "section": "2.1.3 Preparing a bank reconciliation",
+        "page": "56-58",
+        "pdf_page": 60,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    }
+  ]
+}

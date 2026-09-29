@@ -1,0 +1,5327 @@
+{
+  "schema_version": "1.0",
+  "exam": {
+    "id": "chem-2021-matric",
+    "year": "2021",
+    "subject": "Chemistry",
+    "grade": 12,
+    "school": "Eritrean Secondary Education Certificate Examination (national)",
+    "type": "matriculation",
+    "semester": null,
+    "title": "Eritrean Secondary Education Certificate Examinations 2021 – Chemistry (1067)",
+    "exam_code": "1067",
+    "duration": "2 hours 30 minutes",
+    "duration_minutes": 150,
+    "total_points": 100,
+    "parts": [
+      {
+        "part": 1,
+        "title": "Part I – Multiple Choice Questions",
+        "question_type": "mcq",
+        "question_count": 75,
+        "points": 75,
+        "instructions": "Part I contains 75 questions. You must answer all of them. Each question carries 1 point. There is only one best answer for each question; blacken the letter of your choice on the Scantron answer sheet with a pencil."
+      },
+      {
+        "part": 2,
+        "title": "Part II – Work Out and Short Answer Questions",
+        "question_type": "workout/short answer",
+        "question_count": 9,
+        "points": 25,
+        "instructions": "Part II contains nine work out and short answer questions. You must answer all of them. This part carries twenty five points. Write your answers on the separate answer sheet provided."
+      }
+    ],
+    "source": {
+      "document": "/workspace/matric/raw/2021/Chemistry_Matric_2021.pdf",
+      "pages": 21,
+      "scan": "CamScanner image PDF; text recovered by OCR and corrected against the 150-dpi page images",
+      "official_answer_key": false,
+      "media": [
+        "media/chemistry-2021-matric-q46-solubility-graph.png (Q46 solubility curve, cropped from p.12)",
+        "media/chemistry-2021-matric-p2q5-blast-furnace.png (Part II Q5 blast furnace, cropped from p.20)",
+        "media/chemistry-2021-matric-p2q6-gas-containers.png (Part II Q6 gas containers, cropped from p.20)"
+      ]
+    },
+    "answer_key_note": "No official key exists. All answers were solved independently, calculations were checked in Python (verify_calcs.py), and facts were checked against the Eritrean MoE Chemistry textbooks Grades 9–12. The Grade 11 PDF ends at p.129, so Gases (Unit 5) and the later part of Unit 4 (extraction of iron) are checked against standard chemistry only. See confidence and review_flag on each question.",
+    "notation": "unicode",
+    "textbooks": [
+      {
+        "subject": "chemistry",
+        "grade": 9,
+        "file": "textbook_chemistry_9.pdf",
+        "publisher": "Eritrea Ministry of Education, 2011",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "chemistry",
+        "grade": 10,
+        "file": "textbook_chemistry_10.pdf",
+        "publisher": "Eritrea Ministry of Education, 2011",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "chemistry",
+        "grade": 11,
+        "file": "textbook_chemistry_11.pdf",
+        "publisher": "Eritrea Ministry of Education, 2011",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "chemistry",
+        "grade": 12,
+        "file": "textbook_chemistry_12.pdf",
+        "publisher": "Eritrea Ministry of Education, 2011",
+        "printed_page_offset": 6
+      }
+    ],
+    "content_version": "1.0.0",
+    "language": "en"
+  },
+  "questions": [
+    {
+      "id": "chem-2021-matric-p1-q01",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 1,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following substances does not represent an alloy?",
+      "options": {
+        "A": "Coin",
+        "B": "Steel",
+        "C": "Amalgam",
+        "D": "Jewellery",
+        "E": "Iron"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "An alloy is a homogeneous mixture of a metal with other metals or with non-metals (textbook G9 p.26: brass, bronze, mild steel, stainless steel, solder).",
+        "Coins are made of alloys (e.g. cupronickel, brass), steel is iron + carbon, amalgam is mercury + another metal, and jewellery gold is alloyed with other metals for durability (G10 p.92).",
+        "Iron is a pure element, not an alloy. Answer: E."
+      ],
+      "tips": [
+        "An alloy is a mixture, so it never has a single chemical symbol."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Brass is an alloy of",
+          "options": {
+            "A": "copper and tin",
+            "B": "copper and zinc",
+            "C": "iron and carbon",
+            "D": "lead and tin",
+            "E": "iron and chromium"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Brass = Cu + Zn; bronze = Cu + Sn. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "metallurgy"
+      ],
+      "keywords": [
+        "alloy",
+        "steel",
+        "amalgam",
+        "iron"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.4.2 Mixtures – alloys (Did you know?)",
+        "page": "26",
+        "pdf_page": 34,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 10,
+          "unit": "Unit 3 – Solutions and Their Properties",
+          "section": "3.1 Solid solutions – gold alloys in jewellery",
+          "page": "92",
+          "pdf_page": 100,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q02",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 2,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The number of periods in the modern Periodic Table is",
+      "options": {
+        "A": "16.",
+        "B": "8.",
+        "C": "7.",
+        "D": "9.",
+        "E": "6."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Each horizontal row of the periodic table is a period; the textbook states there are seven periods (G10 p.13).",
+        "There are 18 vertical columns (groups: 8 A-groups and 10 B-groups). Answer: C."
+      ],
+      "tips": [
+        "7 periods (rows), 18 columns (groups)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "An element with electron configuration 2, 8, 3 is in",
+          "options": {
+            "A": "period 2, group IIIA",
+            "B": "period 3, group IIIA",
+            "C": "period 3, group IIA",
+            "D": "period 8, group IIIA",
+            "E": "period 2, group VIIIA"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Three shells → period 3; three valence electrons → group IIIA (Al). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "periodic-classification"
+      ],
+      "keywords": [
+        "periods",
+        "periodic table",
+        "seven periods"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.2 The modern periodic table – periods and groups",
+        "page": "13-16",
+        "pdf_page": 21,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q03",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 3,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Sodium hydroxide is used",
+      "options": {
+        "A": "in alkaline batteries.",
+        "B": "as a household cleaner.",
+        "C": "in the manufacture of soap.",
+        "D": "as an antacid.",
+        "E": "to purify water."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C",
+        "B"
+      ],
+      "explanation_steps": [
+        "The textbook states that bases have important applications in the manufacture of soap (G10 p.130), and its exercise asks which substance can be made from NaOH – soap (G10 p.150).",
+        "Soap is made by boiling fats or oils with sodium hydroxide (saponification). Answer: C.",
+        "Alkaline batteries use KOH; antacids use Mg(OH)₂ or Al(OH)₃. NaOH is also found in drain and oven cleaners, so B is true in everyday life."
+      ],
+      "tips": [
+        "NaOH (caustic soda) → hard soap; KOH → soft soap."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which base is commonly used as an antacid?",
+          "options": {
+            "A": "NaOH",
+            "B": "KOH",
+            "C": "Mg(OH)₂",
+            "D": "NH₄OH",
+            "E": "Ca(OH)₂ solution (lime water)"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Milk of magnesia, Mg(OH)₂, is a mild base that neutralises excess stomach acid. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-properties"
+      ],
+      "keywords": [
+        "sodium hydroxide",
+        "soap",
+        "uses of bases"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.2 Bases – uses; Review exercise",
+        "page": "130, 150",
+        "pdf_page": 138,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "C (soap manufacture) is the textbook use, but NaOH is also a real household cleaner (drain and oven cleaner), so B is accepted as well."
+    },
+    {
+      "id": "chem-2021-matric-p1-q04",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 4,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The central part of an atom consists of",
+      "options": {
+        "A": "protons and electrons.",
+        "B": "electrons and neutrons.",
+        "C": "neutrons and protons.",
+        "D": "electron shells.",
+        "E": "atomic orbitals."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The nucleus (the central part of an atom) contains protons and neutrons; electrons move around it in shells (G9 p.43). Answer: C."
+      ],
+      "tips": [
+        "Nucleons = protons + neutrons."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which subatomic particle has no charge?",
+          "options": {
+            "A": "Proton",
+            "B": "Electron",
+            "C": "Neutron",
+            "D": "Positron",
+            "E": "Alpha particle"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "The neutron is neutral. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "atomic-particles"
+      ],
+      "keywords": [
+        "nucleus",
+        "protons",
+        "neutrons"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+        "section": "2.1.2 Subatomic particles",
+        "page": "43-44",
+        "pdf_page": 51,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q05",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 5,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The rates of reactions can be measured by noting the changes in",
+      "options": {
+        "A": "temperature.",
+        "B": "colour.",
+        "C": "the loss or gain of mass.",
+        "D": "conductivity.",
+        "E": "All of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Textbook (G11 p.2): the rate of a reaction can be followed by measuring the volume of gas evolved, the loss or gain of mass, a change in colour, a change in pH, the change in temperature or the change in conductivity.",
+        "All four listed properties can be used. Answer: E."
+      ],
+      "tips": [
+        "Choose any property that changes steadily as reactants turn into products."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂ in an open flask, which measurement is most convenient for following the rate?",
+          "options": {
+            "A": "Colour change",
+            "B": "Loss of mass",
+            "C": "Change in melting point",
+            "D": "Density of the flask",
+            "E": "Boiling point"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "CO₂ escapes, so the flask loses mass as the reaction proceeds. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "reaction-rates"
+      ],
+      "keywords": [
+        "rate of reaction",
+        "measuring rate",
+        "mass",
+        "colour",
+        "conductivity"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Rate of a Chemical Reaction and Factors Affecting it",
+        "section": "1.1.1 Measuring the rate of a chemical reaction",
+        "page": "2",
+        "pdf_page": 10,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q06",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 6,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following pairs of symbols is derived from an English name?",
+      "options": {
+        "A": "Na and K",
+        "B": "Ar and Al",
+        "C": "Cu and Au",
+        "D": "Hg and Ag",
+        "E": "Pb and Sb"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Ar = argon and Al = aluminium – both come from the English names.",
+        "Na (natrium), K (kalium), Cu (cuprum), Au (aurum), Hg (hydrargyrum), Ag (argentum), Pb (plumbum) and Sb (stibium) come from Latin names (G9 p.80–83). Answer: B."
+      ],
+      "tips": [
+        "If the symbol does not match the English name, it comes from Latin."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which symbol comes from the Latin name 'stannum'?",
+          "options": {
+            "A": "Sb",
+            "B": "Sn",
+            "C": "S",
+            "D": "Sr",
+            "E": "Si"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Stannum = tin, Sn. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "formulas-names"
+      ],
+      "keywords": [
+        "chemical symbols",
+        "English name",
+        "Latin name"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.1 Chemical symbols (symbols from Latin names)",
+        "page": "80-83",
+        "pdf_page": 88,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q07",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 7,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "If a species accepts an electron in a redox reaction, it is",
+      "options": {
+        "A": "a reducing agent.",
+        "B": "reduced.",
+        "C": "an oxidizing agent.",
+        "D": "oxidized.",
+        "E": "B and C."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Gain of electrons is reduction, so the species is reduced (B).",
+        "By accepting electrons it removes them from another species, causing that species to be oxidised – so it acts as the oxidising agent (C).",
+        "Both B and C are correct. Answer: E."
+      ],
+      "tips": [
+        "OIL RIG: Oxidation Is Loss, Reduction Is Gain. The oxidising agent is itself reduced."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In Zn + Cu²⁺ → Zn²⁺ + Cu, the reducing agent is",
+          "options": {
+            "A": "Zn",
+            "B": "Cu²⁺",
+            "C": "Zn²⁺",
+            "D": "Cu",
+            "E": "none"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Zn loses electrons (is oxidised), so it is the reducing agent. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "oxidation-numbers-agents"
+      ],
+      "keywords": [
+        "reduction",
+        "oxidizing agent",
+        "electron gain"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.1 Oxidation and reduction; oxidizing and reducing agents",
+        "page": "27-31",
+        "pdf_page": 35,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q08",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 8,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "How many carbon atoms are joined in the spherical molecule of buckminsterfullerene?",
+      "options": {
+        "A": "30",
+        "B": "60",
+        "C": "90",
+        "D": "120",
+        "E": "180"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Textbook (G11 p.73): buckminsterfullerene, C₆₀, discovered in 1985, is a football-shaped (spherical) molecule of 60 carbon atoms. Answer: B."
+      ],
+      "tips": [
+        "C₆₀ looks like a football: 12 pentagons and 20 hexagons."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which allotrope of carbon conducts electricity?",
+          "options": {
+            "A": "Diamond",
+            "B": "Graphite",
+            "C": "Charcoal only",
+            "D": "C₆₀ only",
+            "E": "None"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Graphite has delocalised electrons between its layers. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "carbon-compounds"
+      ],
+      "keywords": [
+        "buckminsterfullerene",
+        "C60",
+        "allotropes of carbon"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.2 Carbon – allotropes (Did you know? fullerenes)",
+        "page": "72-73",
+        "pdf_page": 80,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q09",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 9,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following converts solar energy into chemical energy?",
+      "options": {
+        "A": "A tree",
+        "B": "A candle",
+        "C": "A battery",
+        "D": "The sun",
+        "E": "A light bulb"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Green plants such as a tree trap sunlight in photosynthesis and store it as chemical energy in glucose (G10 p.153, energy transformations).",
+        "A candle converts chemical energy into light and heat; a battery converts chemical into electrical energy; a bulb converts electrical into light and heat; the sun produces solar energy by nuclear fusion. Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "A dry cell (battery) converts",
+          "options": {
+            "A": "electrical energy to chemical energy",
+            "B": "chemical energy to electrical energy",
+            "C": "light energy to chemical energy",
+            "D": "heat to light",
+            "E": "nuclear to chemical energy"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Redox reactions inside the cell produce an electric current. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "energy-forms-heat"
+      ],
+      "keywords": [
+        "energy transformation",
+        "photosynthesis",
+        "solar energy",
+        "chemical energy"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.1 Energy transformations (Activity: plant, candle, light bulb)",
+        "page": "153-154",
+        "pdf_page": 161,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q10",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 10,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Industrial chemistry deals with the",
+      "options": {
+        "A": "detection and monitoring of chemical substances in the air.",
+        "B": "manufacturing of materials such as cement, glass and ceramics.",
+        "C": "chemical processes that occur inside the cells of organisms.",
+        "D": "study of carbon compounds.",
+        "E": "study of radioactive substances."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Industrial chemistry applies chemistry to the large-scale manufacture of materials such as cement, glass, ceramics, fertilisers and soap (G9 p.1–3).",
+        "A = environmental/analytical chemistry, C = biochemistry, D = organic chemistry, E = nuclear chemistry. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The branch of chemistry that studies the chemical processes in living organisms is",
+          "options": {
+            "A": "organic chemistry",
+            "B": "biochemistry",
+            "C": "physical chemistry",
+            "D": "analytical chemistry",
+            "E": "industrial chemistry"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Biochemistry = chemistry of life. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "fields-of-chemistry"
+      ],
+      "keywords": [
+        "industrial chemistry",
+        "branches of chemistry"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "Introduction – branches of chemistry; chemistry and industry",
+        "page": "1-3",
+        "pdf_page": 9,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q11",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 11,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The type of bond that is formed when non-metallic atoms share one or more pairs of valence electrons between them is called",
+      "options": {
+        "A": "hydrogen bond.",
+        "B": "covalent bond.",
+        "C": "van der Waals forces.",
+        "D": "ionic bond.",
+        "E": "metallic bond."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "A covalent bond is formed by sharing pairs of valence electrons between non-metal atoms (G10 p.43).",
+        "Ionic bonds involve transfer of electrons (metal + non-metal); hydrogen bonds and van der Waals forces are intermolecular attractions. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "How many shared electron pairs are there in an N₂ molecule?",
+          "options": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4",
+            "E": "0"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "N≡N is a triple bond: three shared pairs. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "intermolecular-forces"
+      ],
+      "keywords": [
+        "covalent bond",
+        "sharing electrons"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Chemical Bonding and Forces of Attraction",
+        "section": "2.2.2 Covalent bonding",
+        "page": "43-44",
+        "pdf_page": 51,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q12",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 12,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The functional group that shows the presence of an organic acid is",
+      "options": {
+        "A": "–OH.",
+        "B": "–COOH.",
+        "C": "–CHO.",
+        "D": "–CO–.",
+        "E": "–COOR."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Textbook table of functional groups (G12 p.30): alcohols –OH, carboxylic (organic) acids –COOH, aldehydes –CHO, ketones –CO–, esters –COO–. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The functional group of an aldehyde is",
+          "options": {
+            "A": "–OH",
+            "B": "–COOH",
+            "C": "–CHO",
+            "D": "–CO–",
+            "E": "–O–"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Aldehydes contain –CHO. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "functional-groups"
+      ],
+      "keywords": [
+        "functional group",
+        "carboxyl group",
+        "organic acid"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.1 General background – functional groups (table)",
+        "page": "30",
+        "pdf_page": 36,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q13",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 13,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "An element X belongs to Period 3 and Group IA of the Periodic Table. What is the number of valence electrons in its atom?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "For A-group elements the group number equals the number of valence electrons: Group IA → 1.",
+        "Period 3 means three shells: 2, 8, 1 (sodium). Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "How many valence electrons does an element in period 2, group VIA have?",
+          "options": {
+            "A": "2",
+            "B": "4",
+            "C": "6",
+            "D": "8",
+            "E": "16"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Group VIA → 6 valence electrons (oxygen, 2,6). Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "electron-configuration-ions"
+      ],
+      "keywords": [
+        "valence electrons",
+        "group IA",
+        "period 3"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.2 Modern periodic table – electron configuration",
+        "page": "14-17",
+        "pdf_page": 22,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q14",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 14,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The metal that is commonly used as electrical wire is",
+      "options": {
+        "A": "Co.",
+        "B": "Fe.",
+        "C": "Al.",
+        "D": "Zn.",
+        "E": "Cu."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Copper is the most commonly used metal for electrical wiring because it is an excellent conductor, ductile and relatively cheap.",
+        "Aluminium is used for overhead power lines because it is light, but household wiring and cables are mostly copper. Answer: E."
+      ],
+      "tips": [
+        "Silver conducts best, but copper is the practical choice."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Why is aluminium preferred for overhead power cables?",
+          "options": {
+            "A": "It is the best conductor",
+            "B": "It is light and a good conductor",
+            "C": "It is magnetic",
+            "D": "It is brittle",
+            "E": "It has a very high density"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Low density plus good conductivity. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "activity-series-uses"
+      ],
+      "keywords": [
+        "copper",
+        "electrical wire",
+        "conductivity",
+        "uses of metals"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – Chemistry of Some Metals and Their Compounds",
+        "section": "4.1 General properties of metals",
+        "page": "117-121",
+        "pdf_page": 125,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q15",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 15,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Photosynthesis is an example of ______ reaction.",
+      "options": {
+        "A": "condensation",
+        "B": "endothermic",
+        "C": "exothermic",
+        "D": "neutralization",
+        "E": "decomposition"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Photosynthesis (6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂) absorbs light energy; the products store more energy than the reactants.",
+        "A reaction that absorbs energy from the surroundings is endothermic (textbook G10 p.164 lists producing sugar by photosynthesis as an energy-requiring process). Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which process is exothermic?",
+          "options": {
+            "A": "Melting ice",
+            "B": "Photosynthesis",
+            "C": "Burning methane",
+            "D": "Evaporating water",
+            "E": "Decomposing CaCO₃"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Combustion releases heat. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "exo-endothermic"
+      ],
+      "keywords": [
+        "photosynthesis",
+        "endothermic reaction"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.1 Exothermic and endothermic reactions",
+        "page": "158-164",
+        "pdf_page": 166,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q16",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 16,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The ability of a metal to be drawn into wires refers to its",
+      "options": {
+        "A": "malleability.",
+        "B": "conductivity.",
+        "C": "shininess.",
+        "D": "ductility.",
+        "E": "brittleness."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Ductility = ability to be drawn into wires; malleability = ability to be hammered into sheets (G10 p.52; G11 p.69). Answer: D."
+      ],
+      "tips": [
+        "Ductile → wire; malleable → sheet."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Gold can be beaten into very thin leaves. This property is",
+          "options": {
+            "A": "ductility",
+            "B": "malleability",
+            "C": "lustre",
+            "D": "brittleness",
+            "E": "conductivity"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Hammering into sheets = malleability. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "metals-nonmetals"
+      ],
+      "keywords": [
+        "ductility",
+        "malleability",
+        "properties of metals"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Chemical Bonding and Forces of Attraction",
+        "section": "2.2 Metallic bonding – properties of metals",
+        "page": "52",
+        "pdf_page": 60,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q17",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 17,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The law that refers to the direct relationship between temperature and volume at constant pressure is",
+      "options": {
+        "A": "Boyle's Law.",
+        "B": "Charles's Law.",
+        "C": "Avogadro's Law.",
+        "D": "Ideal Gas Law.",
+        "E": "C and D."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Charles's law: at constant pressure the volume of a fixed amount of gas is directly proportional to its absolute temperature (V/T = constant).",
+        "Boyle's law relates P and V at constant T; Avogadro's law relates V and moles. The ideal gas law PV = nRT contains the V–T relation but is not 'the law' of it. Answer: B."
+      ],
+      "tips": [
+        "Charles: V ∝ T (P constant). Boyle: P ∝ 1/V (T constant). Gay-Lussac: P ∝ T (V constant)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A gas occupies 2.0 L at 300 K. At constant pressure, what is its volume at 450 K?",
+          "options": {
+            "A": "1.3 L",
+            "B": "2.0 L",
+            "C": "3.0 L",
+            "D": "4.5 L",
+            "E": "6.0 L"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "V₂ = V₁T₂/T₁ = 2.0 × 450/300 = 3.0 L. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gas-laws"
+      ],
+      "keywords": [
+        "Charles's law",
+        "volume",
+        "temperature"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Behaviour of Gases",
+        "section": "5.2.2 Charles's law",
+        "page": "166-172",
+        "pdf_page": null,
+        "verified_in_text": false,
+        "note": "Grade 11 Unit 5 (Behaviour of Gases, printed pp.162-190) is missing from the supplied PDF (it ends at p.129); page taken from the book's table of contents, text not verified."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Gases unit (Grade 11 Unit 5) is missing from the supplied PDF; answer checked against standard chemistry only."
+    },
+    {
+      "id": "chem-2021-matric-p1-q18",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 18,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Alkalis are",
+      "options": {
+        "A": "metals, which are soluble in water.",
+        "B": "bases, which are insoluble in water.",
+        "C": "acids, which are insoluble in water.",
+        "D": "acids, which are soluble in water.",
+        "E": "bases, which are soluble in water."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "An alkali is a base that dissolves in water (NaOH, KOH, Ca(OH)₂) producing OH⁻ ions.",
+        "All alkalis are bases, but not all bases are alkalis (CuO, Fe(OH)₃ are insoluble). Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which of these bases is an alkali?",
+          "options": {
+            "A": "CuO",
+            "B": "Fe(OH)₃",
+            "C": "KOH",
+            "D": "Cu(OH)₂",
+            "E": "ZnO"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "KOH dissolves in water. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-properties"
+      ],
+      "keywords": [
+        "alkali",
+        "soluble base"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.2 Bases and alkalis",
+        "page": "125-129",
+        "pdf_page": 133,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q19",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 19,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The gas laws apply to all of the following substances, except",
+      "options": {
+        "A": "oxygen.",
+        "B": "nitrogen.",
+        "C": "carbon dioxide.",
+        "D": "gold.",
+        "E": "ammonia."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "The gas laws describe the behaviour of gases. Oxygen, nitrogen, carbon dioxide and ammonia are gases at ordinary conditions.",
+        "Gold is a solid metal, so the gas laws do not apply to it. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which of the following does NOT behave according to the gas laws at room temperature?",
+          "options": {
+            "A": "Helium",
+            "B": "Hydrogen",
+            "C": "Mercury",
+            "D": "Methane",
+            "E": "Neon"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Mercury is a liquid at room temperature. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "gas-laws"
+      ],
+      "keywords": [
+        "gas laws",
+        "states of matter"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Behaviour of Gases",
+        "section": "5.2 The gas laws",
+        "page": "164-175",
+        "pdf_page": null,
+        "verified_in_text": false,
+        "note": "Grade 11 Unit 5 (Behaviour of Gases, printed pp.162-190) is missing from the supplied PDF (it ends at p.129); page taken from the book's table of contents, text not verified."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Gases unit (Grade 11 Unit 5) is missing from the supplied PDF; answer checked against standard chemistry only."
+    },
+    {
+      "id": "chem-2021-matric-p1-q20",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 20,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The following terms describe all crystalline solids, except",
+      "options": {
+        "A": "definite geometrical shape.",
+        "B": "specific coordination number.",
+        "C": "flat faces.",
+        "D": "amorphousness.",
+        "E": "a straight edge."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Crystalline solids have particles in an orderly repeating pattern, giving definite geometric shapes, flat faces, straight edges and a definite coordination number (G12 p.13).",
+        "'Amorphous' means without regular arrangement – it describes non-crystalline solids such as glass. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which of these is an amorphous solid?",
+          "options": {
+            "A": "Sodium chloride",
+            "B": "Diamond",
+            "C": "Glass",
+            "D": "Ice",
+            "E": "Quartz"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Glass has no regular long-range arrangement. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "crystals"
+      ],
+      "keywords": [
+        "crystalline solids",
+        "amorphous"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Shapes of Simple Molecules and Crystals",
+        "section": "1.2 Crystals – crystalline and amorphous solids",
+        "page": "13-14",
+        "pdf_page": 19,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q21",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 21,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following rays has the highest penetration power?",
+      "options": {
+        "A": "Beta",
+        "B": "Alpha",
+        "C": "Gamma",
+        "D": "A and B",
+        "E": "B and C"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Alpha particles are stopped by paper, beta particles by thin aluminium; gamma rays are high-energy electromagnetic radiation that need thick lead or concrete (G12 p.111–112). Answer: C."
+      ],
+      "tips": [
+        "Penetrating power: α < β < γ; ionising power: α > β > γ."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which radiation is deflected most in an electric field and has a 2+ charge?",
+          "options": {
+            "A": "Gamma",
+            "B": "Beta",
+            "C": "Alpha",
+            "D": "X-rays",
+            "E": "Neutrons"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Alpha particles are helium nuclei (2+). Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "nuclear-reactions-decay"
+      ],
+      "keywords": [
+        "gamma rays",
+        "penetrating power",
+        "radioactivity"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 3 – Introduction to Nuclear Chemistry",
+        "section": "3.1.3 Types of radioactive decay",
+        "page": "110-112",
+        "pdf_page": 116,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q22",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 22,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Isotopes are atoms of one element with a different number of",
+      "options": {
+        "A": "electrons.",
+        "B": "neutrons.",
+        "C": "protons and neutrons.",
+        "D": "protons.",
+        "E": "nucleons."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Isotopes have the same number of protons (same element) but different numbers of neutrons, hence different mass numbers (G9 p.47).",
+        "They differ in nucleons too (E), but that is a consequence of the different neutron number; the defining difference is neutrons. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "¹²C, ¹³C and ¹⁴C differ in their number of",
+          "options": {
+            "A": "protons",
+            "B": "electrons",
+            "C": "neutrons",
+            "D": "atomic number",
+            "E": "chemical properties"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "6, 7 and 8 neutrons respectively. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "atomic-particles"
+      ],
+      "keywords": [
+        "isotopes",
+        "neutrons"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+        "section": "2.1.4 Isotopes",
+        "page": "47-48",
+        "pdf_page": 55,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q23",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 23,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is a promising potential biofuel that can be obtained by processing sugar cane, corn and other cereals?",
+      "options": {
+        "A": "Ethanol",
+        "B": "Benzene",
+        "C": "Molasses",
+        "D": "Petroleum",
+        "E": "Methane"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Textbook (G10 p.165, Did you know?): ethanol is a biofuel obtained from sugarcane, corn and other crops by fermentation.",
+        "Molasses is the raw material (a sugar syrup), not the fuel; petroleum is a fossil fuel. Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Ethanol for fuel is produced from sugar by",
+          "options": {
+            "A": "distillation only",
+            "B": "fermentation by yeast",
+            "C": "cracking",
+            "D": "hydrogenation",
+            "E": "electrolysis"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂ (yeast). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "energy-forms-heat"
+      ],
+      "keywords": [
+        "biofuel",
+        "ethanol",
+        "sugar cane"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.3 Fuels – Did you know? (biofuel)",
+        "page": "165",
+        "pdf_page": 173,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q24",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 24,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is not true about the ratio of the equilibrium quotient (Q) and the equilibrium constant (K) of a reversible reaction?",
+      "options": {
+        "A": "The product concentration becomes high if Q/K is greater than one.",
+        "B": "The product concentration becomes low if Q/K is less than one.",
+        "C": "The product concentration becomes low if Q/K is greater than one.",
+        "D": "The net reaction proceeds to the left if Q/K is greater than one.",
+        "E": "The net reaction proceeds to the right if Q/K is less than one."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Q has the same form as K, [products]/[reactants], but with the actual concentrations (G11 p.20).",
+        "Q/K > 1 (Q > K): the product concentrations are higher than at equilibrium, so the net reaction goes to the left (A and D true).",
+        "Q/K < 1 (Q < K): the product concentrations are lower than at equilibrium, so the net reaction goes to the right (B and E true).",
+        "C contradicts A: when Q/K > 1 the products are high, not low. Answer: C.",
+        "Note: after the shift the products do decrease, so a reader who reads 'becomes' as the result of the shift could argue for A or B instead."
+      ],
+      "tips": [
+        "Q > K → too much product → shift left. Q < K → too little product → shift right."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For N₂ + 3H₂ ⇌ 2NH₃, K = 0.50. A mixture has Q = 0.10. The system will",
+          "options": {
+            "A": "shift left",
+            "B": "shift right",
+            "C": "stay at equilibrium",
+            "D": "stop reacting",
+            "E": "change K"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Q < K, so more NH₃ forms (shift right). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "equilibrium-quotient"
+      ],
+      "keywords": [
+        "reaction quotient",
+        "equilibrium constant",
+        "Q and K"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Rate of a Chemical Reaction and Factors Affecting it",
+        "section": "1.2.1 Equilibrium constant and reaction quotient",
+        "page": "19-20",
+        "pdf_page": 27,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Wording 'becomes' is ambiguous: read as the state described by Q, C is the false statement (keyed); read as the result of the shift, A and B become false instead."
+    },
+    {
+      "id": "chem-2021-matric-p1-q25",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 25,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following compounds has the same molecular and empirical formula?",
+      "options": {
+        "A": "C₆H₆",
+        "B": "C₂H₂",
+        "C": "C₆H₁₂O₆",
+        "D": "CH₄",
+        "E": "C₄H₁₀"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "The empirical formula is the simplest whole-number ratio. C₆H₆ and C₂H₂ → CH; C₆H₁₂O₆ → CH₂O; C₄H₁₀ → C₂H₅.",
+        "CH₄ cannot be simplified, so its empirical and molecular formulas are the same. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The empirical formula of C₂H₄O₂ (ethanoic acid) is",
+          "options": {
+            "A": "CHO",
+            "B": "CH₂O",
+            "C": "C₂H₄O₂",
+            "D": "CH₄O",
+            "E": "C₂HO"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Divide by 2: CH₂O. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "mole-composition"
+      ],
+      "keywords": [
+        "empirical formula",
+        "molecular formula"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.3 Empirical and molecular formulas",
+        "page": "104-107",
+        "pdf_page": 112,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q26",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 26,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "In the process of electroplating, the plating metal is the",
+      "options": {
+        "A": "cathode.",
+        "B": "anode.",
+        "C": "electrolyte.",
+        "D": "bath.",
+        "E": "solution."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "In electroplating the object to be plated is the cathode, the plating metal is the anode, and the electrolyte contains ions of the plating metal (G11 p.55, Activity 2.7).",
+        "The anode dissolves (e.g. Cu → Cu²⁺ + 2e⁻), replacing the ions that are deposited on the cathode. Answer: B."
+      ],
+      "tips": [
+        "Object = cathode; plating metal = anode."
+      ],
+      "similar_questions": [
+        {
+          "stem": "To silver-plate a spoon, the spoon is made the",
+          "options": {
+            "A": "anode",
+            "B": "cathode",
+            "C": "electrolyte",
+            "D": "salt bridge",
+            "E": "separator"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Ag⁺ ions are reduced onto the cathode (spoon). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "electrolysis"
+      ],
+      "keywords": [
+        "electroplating",
+        "anode",
+        "cathode"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.2.5 Applications of electrolysis – electroplating",
+        "page": "55-56",
+        "pdf_page": 63,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q27",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 27,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is not correct about a pure substance? It has a",
+      "options": {
+        "A": "uniform composition.",
+        "B": "fixed melting point.",
+        "C": "variable melting point.",
+        "D": "fixed boiling point.",
+        "E": "distinct property."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "A pure substance has a fixed, uniform composition and definite properties, including a sharp (fixed) melting point and boiling point (G9 p.11, p.20).",
+        "A variable melting point (melting over a range) indicates an impure substance or mixture. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "A sample melts gradually between 72 °C and 78 °C. This suggests the sample is",
+          "options": {
+            "A": "a pure element",
+            "B": "a pure compound",
+            "C": "impure (a mixture)",
+            "D": "a gas",
+            "E": "an alloy of fixed composition"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Impurities lower and broaden the melting range. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "properties-of-matter"
+      ],
+      "keywords": [
+        "pure substance",
+        "melting point"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.2.3 Melting point; 1.4.1 Pure substances",
+        "page": "11, 20",
+        "pdf_page": 19,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q28",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 28,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "______ is the chemical formula of the salt used to treat anaemia.",
+      "options": {
+        "A": "NaCl",
+        "B": "NH₄CO₃ (as printed)",
+        "C": "NaHCO₃",
+        "D": "Na₂CO₃",
+        "E": "FeSO₄·7H₂O"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Textbook table of uses of salts (G10 p.143): FeSO₄·7H₂O – to treat anaemia; NaHCO₃ – baking powder; Na₂CO₃ – manufacture of glass and soap; NH₄NO₃ – fertiliser.",
+        "Iron(II) sulphate supplies iron for making haemoglobin. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which salt is used as a fungicide/pesticide?",
+          "options": {
+            "A": "NaCl",
+            "B": "CuSO₄",
+            "C": "NaHCO₃",
+            "D": "Na₂CO₃",
+            "E": "NH₄NO₃"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Copper sulphate is used as a pesticide and fungicide (G10 p.143). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-preparation"
+      ],
+      "keywords": [
+        "uses of salts",
+        "iron(II) sulphate",
+        "anaemia"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.4.5 Uses of common salts (Table 4.5)",
+        "page": "143",
+        "pdf_page": 151,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q29",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 29,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The pH of a solution is 7, and its pH can be increased by",
+      "options": {
+        "A": "adding a small amount of an acid.",
+        "B": "adding a small amount of a base.",
+        "C": "adding a small amount of sulphuric acid.",
+        "D": "adding a small amount of water.",
+        "E": "passing carbon dioxide gas through it."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "pH 7 is neutral. Adding a base increases [OH⁻] and raises the pH above 7.",
+        "Acids, sulphuric acid and CO₂ (forms carbonic acid) lower the pH; water leaves a neutral solution at 7. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which change lowers the pH of pure water?",
+          "options": {
+            "A": "Adding NaOH",
+            "B": "Adding NH₃",
+            "C": "Bubbling in CO₂",
+            "D": "Adding sugar",
+            "E": "Adding NaCl"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "CO₂ + H₂O → H₂CO₃, a weak acid. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-properties"
+      ],
+      "keywords": [
+        "pH",
+        "base",
+        "neutral solution"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.5 The pH scale",
+        "page": "144-146",
+        "pdf_page": 152,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q30",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 30,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A 48 g sample of a compound contains 12 g of carbon and 36 g of oxygen. What is the percentage composition of carbon and oxygen in the sample?",
+      "options": {
+        "A": "75% carbon and 25% oxygen",
+        "B": "50% carbon and 50% oxygen",
+        "C": "60% carbon and 40% oxygen",
+        "D": "40% carbon and 60% oxygen",
+        "E": "25% carbon and 75% oxygen"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "% C = 12/48 × 100 = 25%.",
+        "% O = 36/48 × 100 = 75% (check: 25 + 75 = 100). Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "A 20 g sample of a compound contains 8 g of calcium. What is the percentage of calcium?",
+          "options": {
+            "A": "8%",
+            "B": "20%",
+            "C": "40%",
+            "D": "60%",
+            "E": "80%"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "8/20 × 100 = 40%. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "mole-composition"
+      ],
+      "keywords": [
+        "percentage composition"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.2.5 Percentage composition",
+        "page": "100-103",
+        "pdf_page": 108,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q31",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 31,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "In the modern Periodic Table, elements are arranged horizontally in increasing order of their",
+      "options": {
+        "A": "number of neutrons.",
+        "B": "atomic radii.",
+        "C": "atomic masses.",
+        "D": "number of protons.",
+        "E": "ionic radii."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "The modern periodic law: elements are arranged in order of increasing atomic number, i.e. the number of protons (G10 p.16).",
+        "Mendeleev used atomic masses; the modern table uses atomic numbers. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which scientist first arranged the elements by atomic number (from X-ray studies)?",
+          "options": {
+            "A": "Mendeleev",
+            "B": "Moseley",
+            "C": "Döbereiner",
+            "D": "Newlands",
+            "E": "Dalton"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Henry Moseley (1913). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "periodic-classification"
+      ],
+      "keywords": [
+        "modern periodic law",
+        "atomic number",
+        "protons"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.2 The modern periodic table",
+        "page": "12-16",
+        "pdf_page": 20,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q32",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 32,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following substances does not have a fixed volume at standard temperature and pressure?",
+      "options": {
+        "A": "Sand",
+        "B": "Water",
+        "C": "Salt",
+        "D": "Wood",
+        "E": "Oxygen"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Solids (sand, salt, wood) have fixed shape and volume; liquids (water) have a fixed volume but take the shape of the container.",
+        "Gases such as oxygen have neither fixed shape nor fixed volume – they fill their container. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which state of matter has a fixed volume but no fixed shape?",
+          "options": {
+            "A": "Solid",
+            "B": "Liquid",
+            "C": "Gas",
+            "D": "Plasma",
+            "E": "None"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Liquids flow but keep their volume. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "states-of-matter"
+      ],
+      "keywords": [
+        "states of matter",
+        "gas",
+        "fixed volume"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.2 States of matter",
+        "page": "8-10",
+        "pdf_page": 16,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q33",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 33,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The next member of C₈H₁₈ in the alkane homologous series is",
+      "options": {
+        "A": "C₉H₁₆.",
+        "B": "C₉H₁₈.",
+        "C": "C₉H₁₉.",
+        "D": "C₉H₂₀.",
+        "E": "C₈H₁₉."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Alkanes have the general formula CₙH₂ₙ₊₂ and successive members differ by CH₂.",
+        "C₈H₁₈ + CH₂ = C₉H₂₀ (2 × 9 + 2 = 20). Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which formula belongs to the alkene series?",
+          "options": {
+            "A": "C₄H₁₀",
+            "B": "C₄H₈",
+            "C": "C₄H₆",
+            "D": "C₄H₉",
+            "E": "C₄H₁₂"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Alkenes CₙH₂ₙ: C₄H₈. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "alkanes-nomenclature"
+      ],
+      "keywords": [
+        "alkanes",
+        "homologous series",
+        "general formula"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.2 Hydrocarbons – homologous series",
+        "page": "36-38",
+        "pdf_page": 42,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q34",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 34,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following compounds of sulphur has not been found in Eritrea?",
+      "options": {
+        "A": "Pyrite",
+        "B": "Zinc blende",
+        "C": "Copper sulphide",
+        "D": "Copper pyrite",
+        "E": "Galena"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Textbook (G11 p.100): compounds of sulphur such as pyrite (FeS₂), ZnS (zinc blende), CuFeS₂ (copper pyrite) and CuS have been found in parts of Eritrea, for example Debarwa and Adi Nefas.",
+        "Galena (PbS) is listed as a sulphur ore in general but not among those found in Eritrea. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Where has elemental (free) sulphur been found in Eritrea?",
+          "options": {
+            "A": "Debarwa",
+            "B": "Marsa Fatuma and Erta Ale",
+            "C": "Adi Nefas",
+            "D": "Keren",
+            "E": "Massawa port only"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "The textbook names Marsa Fatuma and Erta Ale. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "sulphur"
+      ],
+      "keywords": [
+        "sulphur ores",
+        "Eritrea",
+        "galena",
+        "pyrite"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.4.1 Sulphur – occurrence",
+        "page": "100",
+        "pdf_page": 108,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q35",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 35,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following pairs of elements and their valence electrons is not correct? [Atomic number: S = 16, Cl = 17, K = 19, Ca = 20 and Si = 14]",
+      "options": {
+        "A": "Ca, 2",
+        "B": "Si, 3",
+        "C": "Cl, 7",
+        "D": "S, 6",
+        "E": "K, 1"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Configurations: Ca 2,8,8,2 (2); Si 2,8,4 (4); Cl 2,8,7 (7); S 2,8,6 (6); K 2,8,8,1 (1).",
+        "Silicon has 4 valence electrons, not 3. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "How many valence electrons does phosphorus (Z = 15) have?",
+          "options": {
+            "A": "3",
+            "B": "5",
+            "C": "7",
+            "D": "15",
+            "E": "2"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "2, 8, 5 → 5 valence electrons. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "electron-configuration-ions"
+      ],
+      "keywords": [
+        "valence electrons",
+        "electron configuration"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+        "section": "2.1.7 Arrangement of electrons in atoms",
+        "page": "52-53",
+        "pdf_page": 60,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q36",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 36,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The members of the alkene homologous series have the same",
+      "options": {
+        "A": "colour.",
+        "B": "density.",
+        "C": "physical state.",
+        "D": "functional group.",
+        "E": "molecular formula."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "A homologous series has the same general formula, the same functional group (C=C for alkenes) and similar chemical properties; physical properties such as density and state change gradually (G12 p.36).",
+        "Each member has a different molecular formula (C₂H₄, C₃H₆, …). Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Successive members of a homologous series differ by",
+          "options": {
+            "A": "CH",
+            "B": "CH₂",
+            "C": "CH₃",
+            "D": "C₂H₄",
+            "E": "H₂"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Each member adds a –CH₂– unit. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "alkanes-nomenclature"
+      ],
+      "keywords": [
+        "homologous series",
+        "functional group",
+        "alkenes"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.2 Hydrocarbons – homologous series",
+        "page": "36",
+        "pdf_page": 42,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q37",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 37,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "All of the following compounds are binary compounds, except",
+      "options": {
+        "A": "magnesium sulphide.",
+        "B": "calcium oxide.",
+        "C": "calcium sulphate.",
+        "D": "water.",
+        "E": "ammonia."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Binary compounds consist of two elements: MgS, CaO, H₂O, NH₃.",
+        "Calcium sulphate, CaSO₄, contains three elements (Ca, S, O) – a ternary compound. Answer: C."
+      ],
+      "tips": [
+        "-ide usually means binary; -ate/-ite means oxygen is also present."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of these is a ternary compound?",
+          "options": {
+            "A": "NaCl",
+            "B": "KBr",
+            "C": "Na₂CO₃",
+            "D": "HCl",
+            "E": "CO₂"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Na, C and O: three elements. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "formulas-names"
+      ],
+      "keywords": [
+        "binary compounds",
+        "ternary compounds"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.2 Naming and writing formulas for simple compounds",
+        "page": "85-86",
+        "pdf_page": 93,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q38",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 38,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following metal oxides has an amphoteric property?",
+      "options": {
+        "A": "BaO",
+        "B": "CaO",
+        "C": "Al₂O₃",
+        "D": "Na₂O",
+        "E": "K₂O"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Textbook (G11 p.123): metal oxides such as aluminium oxide and zinc oxide react with both acids and bases to give salts and water – amphoteric oxides.",
+        "BaO, CaO, Na₂O and K₂O are basic oxides. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which oxide reacts with both HCl and NaOH?",
+          "options": {
+            "A": "MgO",
+            "B": "ZnO",
+            "C": "Na₂O",
+            "D": "CO₂",
+            "E": "SO₂"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "ZnO is amphoteric. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "activity-series-uses"
+      ],
+      "keywords": [
+        "amphoteric oxide",
+        "aluminium oxide"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – Chemistry of Some Metals and Their Compounds",
+        "section": "4.1.2 Chemical properties – amphoteric oxides",
+        "page": "123",
+        "pdf_page": 131,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q39",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 39,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following acids does not form an acidic salt?",
+      "options": {
+        "A": "Phosphoric acid",
+        "B": "Hydrochloric acid",
+        "C": "Sulphuric acid",
+        "D": "Carbonic acid",
+        "E": "Sulphurous acid"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Acid salts form when only some of the replaceable hydrogen ions of an acid are replaced by a metal, so only polyprotic (dibasic or tribasic) acids form them (G10 p.140).",
+        "H₃PO₄ (NaH₂PO₄), H₂SO₄ (NaHSO₄), H₂CO₃ (NaHCO₃) and H₂SO₃ (NaHSO₃) all form acid salts.",
+        "HCl is monobasic (one replaceable H), so it forms only the normal salt, e.g. NaCl. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is an acid salt?",
+          "options": {
+            "A": "Na₂SO₄",
+            "B": "NaHSO₄",
+            "C": "NaCl",
+            "D": "KNO₃",
+            "E": "CaCO₃"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "NaHSO₄ still contains a replaceable H. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-preparation"
+      ],
+      "keywords": [
+        "acid salt",
+        "monobasic acid",
+        "hydrochloric acid"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.4 Salts – normal and acid salts",
+        "page": "140",
+        "pdf_page": 148,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q40",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 40,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Intensive properties are",
+      "options": {
+        "A": "dependent on the amount of matter.",
+        "B": "independent of the amount of matter.",
+        "C": "independent of the type of matter.",
+        "D": "not important in characterizing matter.",
+        "E": "chemical properties of matter."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Intensive properties (density, melting point, boiling point, colour) do not depend on the amount of the sample; extensive properties (mass, volume) do (G9 p.14–15).",
+        "Intensive properties depend on the type of matter and are used to identify substances. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which is an extensive property?",
+          "options": {
+            "A": "Density",
+            "B": "Boiling point",
+            "C": "Mass",
+            "D": "Colour",
+            "E": "Melting point"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Mass depends on the amount of the sample. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "properties-of-matter"
+      ],
+      "keywords": [
+        "intensive properties",
+        "extensive properties"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.3.1 Physical properties – intensive and extensive",
+        "page": "14-15",
+        "pdf_page": 22,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q41",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 41,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following pairs of materials is not required during the separation of liquid mixtures by distillation?",
+      "options": {
+        "A": "Condenser and thermometer",
+        "B": "Stand and a clamp",
+        "C": "Conical flask and round-bottom flask",
+        "D": "Burner and a tripod",
+        "E": "Magnet and a hammer"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Simple distillation needs a distillation (round-bottom) flask, thermometer, condenser, receiver (conical flask), heat source, stand, clamp and tripod (G9 p.32).",
+        "A magnet separates magnetic solids (iron filings) and a hammer is not used at all. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "In distillation, the part that changes vapour back into liquid is the",
+          "options": {
+            "A": "thermometer",
+            "B": "condenser",
+            "C": "tripod",
+            "D": "round-bottom flask",
+            "E": "burner"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Cold water in the condenser cools the vapour. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "separation-methods"
+      ],
+      "keywords": [
+        "distillation",
+        "apparatus",
+        "condenser"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.4.3 Separation of mixtures – distillation",
+        "page": "32-33",
+        "pdf_page": 40,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q42",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 42,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is correct about a heterogeneous mixture?",
+      "options": {
+        "A": "It consists of two or more elements that are physically mixed together.",
+        "B": "It often retains many of the properties of its components.",
+        "C": "It has variable composition.",
+        "D": "It can be separated into its components by physical means.",
+        "E": "All of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "The textbook's characteristics of mixtures (G9 p.25–26): made of two or more substances physically combined; can be separated by physical means; often retains many properties of its components; has a variable composition.",
+        "All the statements describe a heterogeneous mixture (A is loose – components may be compounds too – but the setter copies the textbook list). Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is a heterogeneous mixture?",
+          "options": {
+            "A": "Salt solution",
+            "B": "Air",
+            "C": "Sand and water",
+            "D": "Brass",
+            "E": "Sugar solution"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Sand does not dissolve; the parts are visible. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "properties-of-matter"
+      ],
+      "keywords": [
+        "heterogeneous mixture",
+        "mixtures"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.4.2 Mixtures – characteristics",
+        "page": "25-26",
+        "pdf_page": 33,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q43",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 43,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The enthalpy change of a chemical reaction can be found from the",
+      "options": {
+        "A": "boiling and melting point difference of products and reactants.",
+        "B": "solubility difference of products and reactants.",
+        "C": "heat content difference of products and reactants.",
+        "D": "electrons lost and gained during a reaction.",
+        "E": "All of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Enthalpy (H) is the heat content of a substance. The enthalpy change is ΔH = H(products) − H(reactants) (G10 p.158). Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "If H(products) = 50 kJ and H(reactants) = 120 kJ, ΔH equals",
+          "options": {
+            "A": "+170 kJ",
+            "B": "+70 kJ",
+            "C": "−70 kJ",
+            "D": "−170 kJ",
+            "E": "0"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "ΔH = 50 − 120 = −70 kJ (exothermic). Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "exo-endothermic"
+      ],
+      "keywords": [
+        "enthalpy change",
+        "heat content"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.1 Enthalpy and enthalpy change",
+        "page": "158",
+        "pdf_page": 166,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q44",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 44,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is not true about van der Waals forces? They",
+      "options": {
+        "A": "are weak attractive forces that hold molecules together.",
+        "B": "involve an interaction between polar and nonpolar molecules.",
+        "C": "may occur between nonpolar molecules.",
+        "D": "show dipole-dipole interactions.",
+        "E": "possess very strong electrostatic attraction."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Van der Waals forces are weak intermolecular attractions: dispersion forces (even between non-polar molecules), dipole–dipole forces and dipole–induced dipole forces between polar and non-polar molecules (G10 p.53).",
+        "They are much weaker than ionic or covalent bonds, so 'very strong electrostatic attraction' is false. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The forces between molecules of iodine (I₂) are mainly",
+          "options": {
+            "A": "ionic bonds",
+            "B": "hydrogen bonds",
+            "C": "dispersion (London) forces",
+            "D": "metallic bonds",
+            "E": "covalent bonds"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "I₂ is non-polar, so only dispersion forces act. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "intermolecular-forces"
+      ],
+      "keywords": [
+        "van der Waals forces",
+        "intermolecular forces",
+        "dispersion forces"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Chemical Bonding and Forces of Attraction",
+        "section": "2.3.2 van der Waals forces",
+        "page": "53-54",
+        "pdf_page": 61,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q45",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 45,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The change that causes an expansion when matter converts from solid into liquid, and then from liquid into gas, is",
+      "options": {
+        "A": "a decrease in temperature.",
+        "B": "an increase in pressure.",
+        "C": "an increase in temperature.",
+        "D": "a decrease in pressure.",
+        "E": "All of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Heating (increasing temperature) gives particles more kinetic energy; they move further apart, so the solid melts and the liquid then boils, expanding at each stage (G9 p.10–13).",
+        "Decreasing temperature or increasing pressure has the opposite effect. Answer: C.",
+        "Lowering the pressure can also cause a liquid to boil, but the change of state sequence solid → liquid → gas is normally produced by heating."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Changing a gas directly into a solid is called",
+          "options": {
+            "A": "sublimation",
+            "B": "deposition",
+            "C": "condensation",
+            "D": "evaporation",
+            "E": "melting"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Gas → solid is deposition. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "states-of-matter"
+      ],
+      "keywords": [
+        "changes of state",
+        "temperature",
+        "expansion"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.2.3 Changes of state of matter",
+        "page": "10-13",
+        "pdf_page": 18,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q46",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 46,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Consider the following solubility graph and identify the letters that represent a saturated solution.\n(Graph: solubility curve rising from left to right. X and Z lie on the curve; W lies above the curve; Y lies below the curve.)",
+      "image": "media/chemistry-2021-matric-q46-solubility-graph.png",
+      "image_alt": "Solubility curve rising to the right. Point X lies on the lower part of the curve and Z on the upper part; W is above the curve and Y is below it.",
+      "options": {
+        "A": "X and Y",
+        "B": "Y",
+        "C": "W",
+        "D": "X and Z",
+        "E": "Y and Z"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Points on the solubility curve represent saturated solutions: the maximum amount of solute dissolved at that temperature (G10 p.69–71). X and Z are on the curve.",
+        "W (above the curve) represents a supersaturated solution; Y (below) is unsaturated. Answer: D."
+      ],
+      "tips": [
+        "On the curve = saturated; below = unsaturated; above = supersaturated."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A point lies below a solubility curve. The solution it represents is",
+          "options": {
+            "A": "saturated",
+            "B": "unsaturated",
+            "C": "supersaturated",
+            "D": "a suspension",
+            "E": "a colloid"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Less solute than the maximum is dissolved. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "solution-types"
+      ],
+      "keywords": [
+        "solubility curve",
+        "saturated solution",
+        "supersaturated"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.1.2–3.1.3 Saturated solutions and solubility curves",
+        "page": "66-71",
+        "pdf_page": 74,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q47",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 47,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The reaction of sodium carbonate with hydrochloric acid forms all of the following substances, except",
+      "options": {
+        "A": "sodium chloride.",
+        "B": "carbon dioxide.",
+        "C": "sodium hydrogen carbonate.",
+        "D": "water.",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Carbonate + acid → salt + water + carbon dioxide: Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂ (G10 p.123).",
+        "Sodium hydrogen carbonate is not a product of the complete reaction. Answer: C.",
+        "(With only a little acid, NaHCO₃ forms as an intermediate, but the question describes the usual complete reaction.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which gas is given off when CaCO₃ reacts with dilute HCl?",
+          "options": {
+            "A": "H₂",
+            "B": "O₂",
+            "C": "CO₂",
+            "D": "Cl₂",
+            "E": "CO"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Carbonates give CO₂ with acids (turns lime water milky). Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-properties"
+      ],
+      "keywords": [
+        "sodium carbonate",
+        "acid-carbonate reaction",
+        "carbon dioxide"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.1.4 Chemical properties of acids – reaction with carbonates",
+        "page": "123-124",
+        "pdf_page": 131,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q48",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 48,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is not true regarding halogens?",
+      "options": {
+        "A": "They are non-metals.",
+        "B": "In their binary compounds, they have an oxidation number of −1.",
+        "C": "Their outermost electronic configuration is ns² np⁶.",
+        "D": "Their compounds with alkali and alkaline earth metals are generally ionic in nature.",
+        "E": "Elemental halogens exist as diatomic molecules."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Halogens (group VIIA) have seven valence electrons: outer configuration ns² np⁵. ns² np⁶ is the noble-gas configuration. Answer: C.",
+        "They are non-metals, exist as F₂, Cl₂, Br₂, I₂, and form ionic halides with group IA and IIA metals.",
+        "B is true for metal halides; strictly, in oxides such as Cl₂O₇ chlorine is positive, but the intended false statement is C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which halogen is a liquid at room temperature?",
+          "options": {
+            "A": "Fluorine",
+            "B": "Chlorine",
+            "C": "Bromine",
+            "D": "Iodine",
+            "E": "Astatine"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Bromine is a red-brown liquid. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "periodic-classification"
+      ],
+      "keywords": [
+        "halogens",
+        "group VIIA",
+        "electron configuration"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.2 Groups of the periodic table – halogens",
+        "page": "15-17",
+        "pdf_page": 23,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q49",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 49,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is not correct about ideal gases or real gases?",
+      "options": {
+        "A": "Ideal gases obey all gas laws under all conditions of temperature and pressure.",
+        "B": "Real gases obey the ideal gas equation.",
+        "C": "In ideal gases, the force of attraction among the molecules is negligible.",
+        "D": "In real gases, the force of attraction is not negligible at all temperatures and pressures.",
+        "E": "Real gases obey all gas laws only at high temperature and low pressure."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "An ideal gas is one that obeys PV = nRT and all gas laws exactly under all conditions; its intermolecular attractions and molecular volumes are negligible (A and C true).",
+        "Real gases have attractions and finite molecular volume, so they deviate from the ideal gas equation – especially at high pressure and low temperature – and behave nearly ideally only at high temperature and low pressure (D and E acceptable).",
+        "B states without qualification that real gases obey the ideal gas equation, which is not correct. Answer: B."
+      ],
+      "tips": [
+        "Real gases are most ideal when hot and at low pressure."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Under which conditions does a real gas behave most like an ideal gas?",
+          "options": {
+            "A": "Low temperature, high pressure",
+            "B": "High temperature, low pressure",
+            "C": "Low temperature, low pressure",
+            "D": "High temperature, high pressure",
+            "E": "At its boiling point"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Molecules are far apart and fast, so attractions matter little. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "kinetic-theory"
+      ],
+      "keywords": [
+        "ideal gas",
+        "real gas",
+        "ideal gas equation"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Behaviour of Gases",
+        "section": "5.3 Kinetic molecular theory; real and ideal gases",
+        "page": "180-186",
+        "pdf_page": null,
+        "verified_in_text": false,
+        "note": "Grade 11 Unit 5 (Behaviour of Gases, printed pp.162-190) is missing from the supplied PDF (it ends at p.129); page taken from the book's table of contents, text not verified."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Gases unit (Grade 11 Unit 5) is missing from the supplied PDF; answer checked against standard chemistry only."
+    },
+    {
+      "id": "chem-2021-matric-p1-q50",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 50,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Catalytic conversion of an alkyne or alkene into the corresponding alkane is called",
+      "options": {
+        "A": "hydrohalogenation.",
+        "B": "hydration.",
+        "C": "hydrogenation.",
+        "D": "halogenation.",
+        "E": "hydroxylation."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Addition of hydrogen (with a Ni, Pt or Pd catalyst) across a double or triple bond gives an alkane: hydrogenation (G12 p.56). E.g. C₂H₄ + H₂ → C₂H₆. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Adding HBr to ethene is an example of",
+          "options": {
+            "A": "hydrogenation",
+            "B": "hydrohalogenation",
+            "C": "hydration",
+            "D": "substitution",
+            "E": "polymerisation"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Addition of a hydrogen halide. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "hydrocarbon-reactions"
+      ],
+      "keywords": [
+        "hydrogenation",
+        "addition reaction",
+        "alkene",
+        "alkyne"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.2.3 The alkene series – addition reactions",
+        "page": "56-58",
+        "pdf_page": 62,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q51",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 51,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The ______ groups are structures with the general formula CₙH₂ₙ₊₁ used as side branches in naming organic compounds.",
+      "options": {
+        "A": "alkyl",
+        "B": "phenyl",
+        "C": "benzyl",
+        "D": "allyl",
+        "E": "vinyl"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Textbook (G12 p.39): an alkane-based substituent group is called an alkyl group, R–, e.g. methyl CH₃– and ethyl C₂H₅–, general formula CₙH₂ₙ₊₁. Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The alkyl group C₃H₇– is called",
+          "options": {
+            "A": "methyl",
+            "B": "ethyl",
+            "C": "propyl",
+            "D": "butyl",
+            "E": "pentyl"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Three carbons: propyl. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "alkanes-nomenclature"
+      ],
+      "keywords": [
+        "alkyl group",
+        "substituent",
+        "IUPAC naming"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.2.2 Alkanes – alkyl groups",
+        "page": "39",
+        "pdf_page": 45,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q52",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 52,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The common process for refining metals such as Zn, Cu, Au or Ag from impurities is",
+      "options": {
+        "A": "roasting.",
+        "B": "calcination.",
+        "C": "electrolysis.",
+        "D": "electroplating.",
+        "E": "corrosion."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "In electrolytic refining the impure metal is the anode, a thin sheet of pure metal is the cathode, and the electrolyte contains the metal's ions; pure metal is deposited on the cathode (G11 p.57, p.128). Answer: C.",
+        "Roasting and calcination convert ores to oxides before reduction; electroplating coats objects."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "In the electrolytic refining of copper, pure copper collects at the",
+          "options": {
+            "A": "anode",
+            "B": "cathode",
+            "C": "bottom as anode mud",
+            "D": "electrolyte surface",
+            "E": "salt bridge"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Cu²⁺ + 2e⁻ → Cu at the cathode. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "electrolysis"
+      ],
+      "keywords": [
+        "electrolytic refining",
+        "electrolysis",
+        "purification of metals"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.2.5 Applications of electrolysis – purification of copper",
+        "page": "57",
+        "pdf_page": 65,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 11,
+          "unit": "Unit 4 – Chemistry of Some Metals and Their Compounds",
+          "section": "4.2 Metallurgy – refining",
+          "page": "128",
+          "pdf_page": 136,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q53",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 53,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements about graphite and diamond is true?",
+      "options": {
+        "A": "They have the same crystal structure.",
+        "B": "They have the same degree of hardness.",
+        "C": "They have the same electrical conductivity.",
+        "D": "They can undergo the same chemical reactions.",
+        "E": "They have the same appearance."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Diamond and graphite are allotropes of carbon: the same element in different structural forms (G11 p.72–73).",
+        "Their structures, hardness (diamond hardest, graphite soft), conductivity (graphite conducts) and appearance differ, but chemically both are carbon – e.g. both burn to CO₂. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which property explains why graphite is used as a lubricant?",
+          "options": {
+            "A": "Its layers slide over each other",
+            "B": "It is very hard",
+            "C": "It is transparent",
+            "D": "It has a high density",
+            "E": "It is a metal"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Weak forces between layers. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "carbon-compounds"
+      ],
+      "keywords": [
+        "allotropes",
+        "diamond",
+        "graphite"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.2 Carbon – allotropic forms",
+        "page": "71-74",
+        "pdf_page": 79,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q54",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 54,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The H–C–H bond angle in the CH₄ molecule approximately equals",
+      "options": {
+        "A": "90°.",
+        "B": "45°.",
+        "C": "109.5°.",
+        "D": "120°.",
+        "E": "180°."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "CH₄ has four bonding pairs and no lone pairs around carbon: tetrahedral geometry with bond angles of 109.5° (G12 p.5–9). Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "The bond angle in BF₃ is",
+          "options": {
+            "A": "90°",
+            "B": "104.5°",
+            "C": "109.5°",
+            "D": "120°",
+            "E": "180°"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "Three bonding pairs, no lone pairs: trigonal planar, 120°. Answer: D."
+          ]
+        }
+      ],
+      "topics": [
+        "vsepr-shapes"
+      ],
+      "keywords": [
+        "bond angle",
+        "methane",
+        "tetrahedral"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Shapes of Simple Molecules and Crystals",
+        "section": "1.1 VSEPR theory – tetrahedral shape",
+        "page": "5-9",
+        "pdf_page": 11,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q55",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 55,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Water gas is a mixture of",
+      "options": {
+        "A": "air and water vapour.",
+        "B": "hydrogen and nitrogen.",
+        "C": "hydrogen and oxygen.",
+        "D": "hydrogen and carbon monoxide.",
+        "E": "nitrogen and carbon monoxide."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Textbook (G11 p.78): water gas is made by passing steam over red-hot coke: C + H₂O → CO + H₂. It is a mixture of hydrogen and carbon monoxide, both combustible.",
+        "Producer gas is CO + N₂ (E). Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Producer gas is a mixture of",
+          "options": {
+            "A": "CO and H₂",
+            "B": "CO and N₂",
+            "C": "CO₂ and H₂",
+            "D": "CH₄ and H₂",
+            "E": "O₂ and N₂"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Air over hot coke gives CO with the N₂ from air. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "carbon-monoxide-fuels"
+      ],
+      "keywords": [
+        "water gas",
+        "carbon monoxide",
+        "hydrogen"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.2.2 Carbon monoxide – water gas and producer gas",
+        "page": "77-78",
+        "pdf_page": 85,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q56",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 56,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The type of decay that changes the atomic number of an atom is",
+      "options": {
+        "A": "translation.",
+        "B": "transmutation.",
+        "C": "translocation.",
+        "D": "transformation.",
+        "E": "mutation."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Changing the atomic number converts an atom of one element into another; this is called (nuclear) transmutation (G12 p.105–108), e.g. alpha and beta decay.",
+        "Translation, translocation and mutation are biological terms. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "When ²³⁸U emits an alpha particle, the new atomic number is",
+          "options": {
+            "A": "94",
+            "B": "90",
+            "C": "92",
+            "D": "91",
+            "E": "88"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Alpha emission lowers Z by 2: 92 − 2 = 90 (thorium). Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "nuclear-reactions-decay"
+      ],
+      "keywords": [
+        "transmutation",
+        "radioactive decay",
+        "atomic number"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 3 – Introduction to Nuclear Chemistry",
+        "section": "Introduction; 3.1 Nuclear stability and transmutation",
+        "page": "105-108",
+        "pdf_page": 111,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q57",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 57,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The elements X, Y and Z form a triad. If the atomic mass of X is 7.00 u and that of Y is 23.00 u, the atomic mass of Z will be",
+      "options": {
+        "A": "30.00 u.",
+        "B": "39.00 u.",
+        "C": "15.00 u.",
+        "D": "16.00 u.",
+        "E": "3.29 u."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "In a Döbereiner triad the atomic mass of the middle element is the average of the other two (G10 p.2–3): Y = (X + Z)/2.",
+        "23.00 = (7.00 + Z)/2 → Z = 46.00 − 7.00 = 39.00 u (Li, Na, K). Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Ca (40) and Ba (137) form a triad with Sr. The predicted atomic mass of Sr is",
+          "options": {
+            "A": "88.5",
+            "B": "97",
+            "C": "177",
+            "D": "48.5",
+            "E": "68.5"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "(40 + 137)/2 = 88.5 (actual 87.6). Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "periodic-classification"
+      ],
+      "keywords": [
+        "Döbereiner's triads",
+        "atomic mass"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.1 Historical development – Döbereiner's triads",
+        "page": "2-3",
+        "pdf_page": 10,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q58",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 58,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The correct increasing order in the relative strength of intramolecular and intermolecular forces is",
+      "options": {
+        "A": "hydrogen bond < dispersion forces < covalent bond < ionic bond.",
+        "B": "dispersion forces < hydrogen bond < covalent bond < ionic bond.",
+        "C": "hydrogen bond < dispersion forces < ionic bond < covalent bond.",
+        "D": "dispersion forces < covalent bond < hydrogen bond < ionic bond.",
+        "E": "covalent bond < hydrogen bond < ionic bond < dispersion forces."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Intermolecular forces are weaker than bonds: dispersion forces are the weakest, hydrogen bonds are the strongest intermolecular forces.",
+        "Intramolecular bonds (covalent, ionic) are much stronger. The order used in the textbook (G10 p.41–42) is dispersion < hydrogen bond < covalent < ionic. Answer: B.",
+        "(The relative order of covalent and ionic bonds depends on the example; only B puts the intermolecular forces correctly below both bonds.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which is the strongest intermolecular force?",
+          "options": {
+            "A": "Dispersion",
+            "B": "Dipole–dipole",
+            "C": "Hydrogen bond",
+            "D": "Induced dipole",
+            "E": "Covalent bond"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "The covalent bond is intramolecular; among intermolecular forces the hydrogen bond is strongest. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "intermolecular-forces"
+      ],
+      "keywords": [
+        "intermolecular forces",
+        "hydrogen bond",
+        "dispersion forces",
+        "relative strength"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 2 – Chemical Bonding and Forces of Attraction",
+        "section": "2.1 Forces of attraction (intra- and intermolecular)",
+        "page": "41-42",
+        "pdf_page": 49,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q59",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 59,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "What is the molar mass (in grams) of 2 moles of CaCO₃? [Atomic mass: H = 1.0, C = 12.0, O = 16.0, Ca = 40]",
+      "options": {
+        "A": "100 g",
+        "B": "68 g",
+        "C": "136 g",
+        "D": "200 g",
+        "E": "50 g"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D",
+        "A"
+      ],
+      "explanation_steps": [
+        "Molar mass of CaCO₃ = 40 + 12 + 3 × 16 = 100 g/mol.",
+        "Mass of 2 moles = 2 × 100 = 200 g. Answer: D.",
+        "Strictly, molar mass is 100 g/mol whatever the amount; the question means 'mass of 2 moles'."
+      ],
+      "tips": [
+        "Mass = moles × molar mass."
+      ],
+      "similar_questions": [
+        {
+          "stem": "What is the mass of 0.5 mol of NaOH? [Na = 23, O = 16, H = 1]",
+          "options": {
+            "A": "10 g",
+            "B": "20 g",
+            "C": "40 g",
+            "D": "80 g",
+            "E": "23 g"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "M = 40 g/mol; 0.5 × 40 = 20 g. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "mole-composition"
+      ],
+      "keywords": [
+        "molar mass",
+        "mole",
+        "calcium carbonate"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.3 Formula mass and the mole",
+        "page": "110-113",
+        "pdf_page": 118,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Badly worded: 'molar mass of 2 moles' – the mass of 2 mol is 200 g (D, keyed), but the molar mass itself is 100 g/mol (A), so A is also accepted."
+    },
+    {
+      "id": "chem-2021-matric-p1-q60",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 60,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "According to the traditional oxidation-reduction definition, which of the following is a reduction reaction?",
+      "options": {
+        "A": "When freshly cut potato is exposed to air",
+        "B": "When magnesium reacts with hydrochloric acid",
+        "C": "When hydrogen is combined with sulphur to produce hydrogen sulphide",
+        "D": "When oxygen reacts with magnesium metal to yield magnesium oxide",
+        "E": "The corrosion of iron or rusting"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Traditional definitions: oxidation = addition of oxygen or removal of hydrogen; reduction = removal of oxygen or addition of hydrogen (G11 p.27–28).",
+        "H₂ + S → H₂S: hydrogen is added to sulphur, so sulphur is reduced. Answer: C.",
+        "A, D and E are additions of oxygen (oxidation). B is best described by electron transfer (Mg is oxidised), not by the traditional oxygen/hydrogen definition."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "According to the traditional definition, CuO + H₂ → Cu + H₂O is a reduction of",
+          "options": {
+            "A": "H₂",
+            "B": "CuO",
+            "C": "H₂O",
+            "D": "Cu",
+            "E": "nothing"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "CuO loses oxygen. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "oxidation-numbers-agents"
+      ],
+      "keywords": [
+        "reduction",
+        "traditional definition",
+        "addition of hydrogen"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.1 Oxidation and reduction – classical definitions",
+        "page": "27-28",
+        "pdf_page": 35,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q61",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 61,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "If the pH of an HCl solution is 4, the molarity of the solution equals",
+      "options": {
+        "A": "4.0 M.",
+        "B": "0.4 M.",
+        "C": "0.0001 M.",
+        "D": "0.001 M.",
+        "E": "4000 M."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "pH = −log[H⁺], so [H⁺] = 10⁻ᵖᴴ = 10⁻⁴ M.",
+        "HCl is a strong monoprotic acid, so [HCl] = [H⁺] = 1 × 10⁻⁴ = 0.0001 M. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "What is the pH of 0.01 M HNO₃?",
+          "options": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "12",
+            "E": "0.01"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "[H⁺] = 10⁻² → pH = 2. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-properties"
+      ],
+      "keywords": [
+        "pH",
+        "molarity",
+        "strong acid"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.5 The pH scale",
+        "page": "144-146",
+        "pdf_page": 152,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q62",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 62,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is correct about the atomic structures of ¹⁶O²⁻, ¹⁹F⁻ and ²⁰Ne? [Atomic number: O = 8, F = 9 and Ne = 10]",
+      "options": {
+        "A": "Each structure contains the same number of protons.",
+        "B": "The sum of the neutrons in ¹⁹F⁻ and ²⁰Ne is 20.",
+        "C": "Each structure contains 10 electrons.",
+        "D": "The sum of the neutrons in all three species is 27.",
+        "E": "B and C."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Protons: O 8, F 9, Ne 10 – different (A false).",
+        "Neutrons: ¹⁶O 16 − 8 = 8; ¹⁹F 19 − 9 = 10; ²⁰Ne 20 − 10 = 10. F + Ne = 20 (B true); all three = 28 (D false).",
+        "Electrons: O²⁻ 8 + 2 = 10; F⁻ 9 + 1 = 10; Ne 10 – isoelectronic (C true). Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which species is isoelectronic with Ne?",
+          "options": {
+            "A": "Na",
+            "B": "Cl⁻",
+            "C": "Mg²⁺",
+            "D": "K⁺",
+            "E": "S²⁻"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Mg²⁺ has 12 − 2 = 10 electrons. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "electron-configuration-ions"
+      ],
+      "keywords": [
+        "isoelectronic",
+        "neutrons",
+        "ions"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+        "section": "2.1.1–2.1.3 The atom, subatomic particles, atomic and mass number",
+        "page": "41-44",
+        "pdf_page": 49,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q63",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 63,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A student noticed a grease stain on his/her jacket. Which solvent should the student use to remove the stain?",
+      "options": {
+        "A": "Methanol",
+        "B": "Water",
+        "C": "Ethanol",
+        "D": "Benzene",
+        "E": "Hydrochloric acid"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Like dissolves like: non-polar solutes dissolve best in non-polar solvents (G10 p.98).",
+        "Grease is non-polar; benzene is a non-polar solvent. Water, methanol and ethanol are polar; HCl would damage the fabric. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which substance dissolves best in water?",
+          "options": {
+            "A": "Iodine",
+            "B": "Oil",
+            "C": "Sodium chloride",
+            "D": "Wax",
+            "E": "Petrol"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Ionic NaCl dissolves in polar water. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "solubility"
+      ],
+      "keywords": [
+        "like dissolves like",
+        "non-polar solvent",
+        "benzene"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.3.1 Solubility of solutes in liquids – like dissolves like",
+        "page": "96-98",
+        "pdf_page": 104,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q64",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 64,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following statements is not correct about the oxidation number of atoms in their free or combined state?",
+      "options": {
+        "A": "The oxidation number of oxygen is usually −2.",
+        "B": "The oxidation number of hydrogen is −1 in hydrides.",
+        "C": "The oxidation numbers of alkali metals and alkaline earth metals are often +1 and +2, respectively.",
+        "D": "The oxidation number of sulphur in the sulphate ion is −2.",
+        "E": "The oxidation number of a free atom of an element is zero."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "In SO₄²⁻: x + 4(−2) = −2 → x = +6. So sulphur is +6, not −2. Answer: D.",
+        "The other statements are standard oxidation-number rules (G11 p.29–31): O usually −2; H −1 in metal hydrides (NaH); group IA +1, IIA +2; free elements 0."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "What is the oxidation number of Mn in KMnO₄?",
+          "options": {
+            "A": "+2",
+            "B": "+4",
+            "C": "+6",
+            "D": "+7",
+            "E": "−1"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "+1 + x + 4(−2) = 0 → x = +7. Answer: D."
+          ]
+        }
+      ],
+      "topics": [
+        "oxidation-numbers-agents"
+      ],
+      "keywords": [
+        "oxidation number",
+        "sulphate ion",
+        "rules"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.1.2 Oxidation numbers",
+        "page": "29-31",
+        "pdf_page": 37,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q65",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 65,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A student adds muddy water into a funnel with a filter paper. Clear water is collected in a beaker and solid wastes remain on the filter paper. This process is an example of",
+      "options": {
+        "A": "sedimentation.",
+        "B": "distillation.",
+        "C": "evaporation.",
+        "D": "filtration.",
+        "E": "condensation."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Filtration separates an insoluble solid from a liquid: the residue stays on the filter paper and the filtrate passes through (G9 p.29, Activity 1.11). Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "In filtration, the clear liquid that passes through the filter paper is called the",
+          "options": {
+            "A": "residue",
+            "B": "filtrate",
+            "C": "solute",
+            "D": "distillate",
+            "E": "precipitate"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Filtrate passes; residue remains. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "separation-methods"
+      ],
+      "keywords": [
+        "filtration",
+        "filtrate",
+        "residue"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Chemistry: The Study of Matter",
+        "section": "1.4.3 Separation of mixtures – filtration",
+        "page": "29-30",
+        "pdf_page": 37,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q66",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 66,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "All of the following options are correct about exothermic reactions, except that",
+      "options": {
+        "A": "the enthalpy of reactants is greater than the enthalpy of products.",
+        "B": "the bond formation energy in products is greater than the bond breaking energy in reactants.",
+        "C": "the change in enthalpy of the reaction is negative.",
+        "D": "energy flows from the reaction to the surroundings.",
+        "E": "the enthalpy of reactants is less than the enthalpy of products."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "In an exothermic reaction heat is released: H(reactants) > H(products), ΔH < 0, energy flows to the surroundings, and more energy is released forming bonds than is absorbed breaking bonds (G10 p.158–163).",
+        "E describes an endothermic reaction. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "For an endothermic reaction, ΔH is",
+          "options": {
+            "A": "negative",
+            "B": "positive",
+            "C": "zero",
+            "D": "always −890 kJ",
+            "E": "undefined"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Products have more enthalpy than reactants. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "exo-endothermic"
+      ],
+      "keywords": [
+        "exothermic reaction",
+        "enthalpy",
+        "bond energy"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.1 Exothermic and endothermic reactions; 5.2 energy diagrams",
+        "page": "158-163",
+        "pdf_page": 166,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q67",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 67,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following metals does not react with cold water?",
+      "options": {
+        "A": "K",
+        "B": "Na",
+        "C": "Fe",
+        "D": "Ca",
+        "E": "A and B"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "K, Na and Ca react with cold water to give hydroxides and hydrogen (K most vigorously) (G11 p.122).",
+        "Iron does not react with cold water; red-hot iron reacts with steam (and rusts slowly with water and air). Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which metal reacts with steam but not with cold water?",
+          "options": {
+            "A": "K",
+            "B": "Na",
+            "C": "Mg",
+            "D": "Cu",
+            "E": "Au"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Mg reacts with hot water/steam; Cu and Au do not react. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "activity-series-uses"
+      ],
+      "keywords": [
+        "reaction with water",
+        "activity series",
+        "iron"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – Chemistry of Some Metals and Their Compounds",
+        "section": "4.1.2 Chemical properties – reaction with water",
+        "page": "122",
+        "pdf_page": 130,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q68",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 68,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following structures has a trigonal pyramidal molecular geometry? [Atomic number: H = 1, Be = 4, B = 5, C = 6, N = 7, O = 8, F = 9]",
+      "options": {
+        "A": "CH₄",
+        "B": "H₂O",
+        "C": "BF₃",
+        "D": "BeF₂",
+        "E": "NH₃"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "NH₃: nitrogen has 3 bonding pairs and 1 lone pair – the electron pairs are tetrahedral but the molecular shape is trigonal pyramidal (G12 p.10).",
+        "CH₄ tetrahedral; H₂O bent; BF₃ trigonal planar; BeF₂ linear. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "What is the molecular shape of H₂O?",
+          "options": {
+            "A": "Linear",
+            "B": "Bent (V-shaped)",
+            "C": "Trigonal planar",
+            "D": "Tetrahedral",
+            "E": "Trigonal pyramidal"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Two bonding pairs and two lone pairs: bent. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "vsepr-shapes"
+      ],
+      "keywords": [
+        "trigonal pyramidal",
+        "ammonia",
+        "VSEPR"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Shapes of Simple Molecules and Crystals",
+        "section": "1.1 VSEPR – molecules with non-bonding pairs",
+        "page": "9-10",
+        "pdf_page": 15,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q69",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 69,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following groups of the Periodic Table contains the greatest number of gaseous elements at STP?",
+      "options": {
+        "A": "IA",
+        "B": "VIIA",
+        "C": "VIA",
+        "D": "IIA",
+        "E": "VIIIA"
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Group VIIIA (noble gases: He, Ne, Ar, Kr, Xe, Rn) – all are gases.",
+        "Group VIIA has only two gases (F₂, Cl₂); VIA has one (O₂); IA has one (H₂, if placed there); IIA none. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Which group contains elements in all three states (solid, liquid, gas) at room temperature?",
+          "options": {
+            "A": "IA",
+            "B": "IIA",
+            "C": "VIIA",
+            "D": "VIIIA",
+            "E": "IVA"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "F₂, Cl₂ gases; Br₂ liquid; I₂ solid. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "periodic-classification"
+      ],
+      "keywords": [
+        "noble gases",
+        "group VIIIA",
+        "gaseous elements"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Periodic Table of Elements",
+        "section": "1.2 Groups of the periodic table (Table 1.8)",
+        "page": "15-17",
+        "pdf_page": 23,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q70",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 70,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Dehydration, the removal of a water molecule from ethanol, results in the formation of",
+      "options": {
+        "A": "ethane.",
+        "B": "ethene.",
+        "C": "ethyne.",
+        "D": "ethanoic acid.",
+        "E": "diethyl ether."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Textbook (G12 p.77–78): in the presence of concentrated sulphuric acid, alcohols are dehydrated to form alkenes. CH₃CH₂OH → CH₂=CH₂ + H₂O (about 170 °C).",
+        "Oxidation of ethanol gives ethanoic acid; at a lower temperature with excess ethanol, diethyl ether can form, but the textbook answer is the alkene. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Oxidation of ethanol with acidified potassium dichromate eventually gives",
+          "options": {
+            "A": "ethene",
+            "B": "ethanoic acid",
+            "C": "ethane",
+            "D": "methanol",
+            "E": "diethyl ether"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Ethanol → ethanal → ethanoic acid. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "functional-groups"
+      ],
+      "keywords": [
+        "dehydration",
+        "ethanol",
+        "ethene",
+        "alcohols"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.3.1 Alcohols – chemical properties (dehydration)",
+        "page": "77-78",
+        "pdf_page": 83,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q71",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 71,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Which of the following is an example of nuclear fusion?",
+      "options": {
+        "A": "A uranium atom is split apart into lighter elements.",
+        "B": "Two isotopes of hydrogen atoms are combined to form a helium atom.",
+        "C": "A plutonium atom is used to start a chain reaction that detonates a nuclear weapon.",
+        "D": "Two hydrogen atoms bond with an oxygen atom to form a water molecule.",
+        "E": "All of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Fusion joins light nuclei into a heavier one: ²H + ³H → ⁴He + ¹n (as in the sun) (G12 p.123–124). Answer: B.",
+        "A and C are fission; D is a chemical reaction."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Nuclear power stations obtain energy from",
+          "options": {
+            "A": "fusion of hydrogen",
+            "B": "fission of uranium-235",
+            "C": "burning coal",
+            "D": "chemical reactions of plutonium",
+            "E": "radioactive decay of carbon-14"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Present reactors use controlled fission. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "fission-fusion"
+      ],
+      "keywords": [
+        "nuclear fusion",
+        "hydrogen isotopes",
+        "helium"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 3 – Introduction to Nuclear Chemistry",
+        "section": "3.5 Nuclear fusion",
+        "page": "123-124",
+        "pdf_page": 129,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q72",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 72,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "A naturally occurring element Z is 78.99% Z-24, 10.00% Z-25 and 11.01% Z-26. The average atomic mass of Z is approximately equal to",
+      "options": {
+        "A": "24.00.",
+        "B": "25.00.",
+        "C": "26.00.",
+        "D": "27.00.",
+        "E": "28.00."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Average atomic mass = Σ(fraction × mass) (G9 p.48–49).",
+        "0.7899 × 24 + 0.1000 × 25 + 0.1101 × 26 = 18.958 + 2.500 + 2.863 = 24.32.",
+        "The nearest option is 24.00 (Z is magnesium, 24.31). Answer: A."
+      ],
+      "tips": [
+        "The average lies closest to the most abundant isotope."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Chlorine is 75% ³⁵Cl and 25% ³⁷Cl. Its average atomic mass is",
+          "options": {
+            "A": "35.0",
+            "B": "35.5",
+            "C": "36.0",
+            "D": "36.5",
+            "E": "37.0"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "0.75 × 35 + 0.25 × 37 = 35.5. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "atomic-particles"
+      ],
+      "keywords": [
+        "average atomic mass",
+        "isotopes",
+        "percentage abundance"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+        "section": "2.1.5 Average atomic mass",
+        "page": "48-49",
+        "pdf_page": 56,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q73",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 73,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "The fountain experiment demonstrates the solubility of ______ in water.",
+      "options": {
+        "A": "oxygen",
+        "B": "nitric oxide",
+        "C": "carbon dioxide",
+        "D": "ammonia",
+        "E": "sulphur dioxide"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Textbook Activity 3.8 'The ammonia fountain' (G11 p.93): ammonia is so soluble in water that a few drops dissolve most of the gas in the flask, the pressure drops and water rushes up as a fountain. Answer: D.",
+        "(HCl and SO₂ are also very soluble, but the textbook experiment uses ammonia.)"
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "In the ammonia fountain with phenolphthalein in the water, the fountain appears",
+          "options": {
+            "A": "colourless",
+            "B": "pink",
+            "C": "blue",
+            "D": "yellow",
+            "E": "green"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Ammonia solution is alkaline, so phenolphthalein turns pink. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "ammonia-haber"
+      ],
+      "keywords": [
+        "fountain experiment",
+        "ammonia",
+        "solubility"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.3 Ammonia – properties (Activity 3.8 ammonia fountain)",
+        "page": "93",
+        "pdf_page": 101,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p1-q74",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 74,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "If the pressure of an ideal gas is doubled at constant temperature for a fixed amount of gas, the volume will be",
+      "options": {
+        "A": "doubled.",
+        "B": "halved.",
+        "C": "the same.",
+        "D": "tripled.",
+        "E": "quadrupled."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Boyle's law: P₁V₁ = P₂V₂ at constant T and n.",
+        "P₂ = 2P₁ → V₂ = P₁V₁/(2P₁) = V₁/2. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "A gas at 1 atm occupies 6 L. At constant temperature, what volume does it occupy at 3 atm?",
+          "options": {
+            "A": "18 L",
+            "B": "2 L",
+            "C": "3 L",
+            "D": "6 L",
+            "E": "9 L"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "V₂ = 1 × 6/3 = 2 L. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "gas-laws"
+      ],
+      "keywords": [
+        "Boyle's law",
+        "pressure",
+        "volume"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Behaviour of Gases",
+        "section": "5.2.1 Boyle's law",
+        "page": "164-166",
+        "pdf_page": null,
+        "verified_in_text": false,
+        "note": "Grade 11 Unit 5 (Behaviour of Gases, printed pp.162-190) is missing from the supplied PDF (it ends at p.129); page taken from the book's table of contents, text not verified."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Gases unit (Grade 11 Unit 5) is missing from the supplied PDF; answer checked against standard chemistry only."
+    },
+    {
+      "id": "chem-2021-matric-p1-q75",
+      "exam_id": "chem-2021-matric",
+      "part": 1,
+      "number": 75,
+      "type": "mcq",
+      "marks": 1,
+      "stem": "Molten NaI conducts electricity due to the presence of",
+      "options": {
+        "A": "atoms of sodium and iodine.",
+        "B": "free ions of sodium and iodine.",
+        "C": "free molecules.",
+        "D": "free electrons.",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "NaI is an ionic compound. In the solid the ions are fixed; when molten, Na⁺ and I⁻ ions are free to move and carry the current (G11 p.40). Answer: B.",
+        "Free electrons conduct in metals, not in molten salts."
+      ],
+      "tips": [],
+      "similar_questions": [
+        {
+          "stem": "Solid NaCl does not conduct electricity because",
+          "options": {
+            "A": "it has no ions",
+            "B": "its ions are not free to move",
+            "C": "it contains free electrons",
+            "D": "it is covalent",
+            "E": "it is a metal"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "The ions are held in a rigid lattice. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "electrolysis"
+      ],
+      "keywords": [
+        "molten electrolyte",
+        "ions",
+        "conductivity"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Oxidation-Reduction Reactions",
+        "section": "2.2 Electrolysis – electrolytes",
+        "page": "40-41",
+        "pdf_page": 48,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p2-q01",
+      "exam_id": "chem-2021-matric",
+      "part": 2,
+      "number": 1,
+      "type": "workout",
+      "marks": 2,
+      "stem": "Answer the following questions on the basis of the atomic structure of an element.\n1.1 The atomic number of an atom is the number of ___(a)___ in its ___(b)___. (1 point)\n1.2 Define the atomic mass of an element. (1 point)",
+      "options": null,
+      "answer": "1.1 (a) protons; (b) nucleus. 1.2 The atomic mass of an element is the average mass of its naturally occurring isotopes, measured relative to one twelfth of the mass of a carbon-12 atom (in atomic mass units, u).",
+      "subparts": [
+        {
+          "label": "1.1",
+          "marks": 1,
+          "question": "Atomic number = number of (a) in its (b)",
+          "answer": "(a) protons; (b) nucleus",
+          "steps": [
+            "½ point each."
+          ]
+        },
+        {
+          "label": "1.2",
+          "marks": 1,
+          "question": "Define atomic mass",
+          "answer": "Average mass of the naturally occurring isotopes relative to 1/12 of the mass of a C-12 atom",
+          "steps": []
+        }
+      ],
+      "explanation_steps": [
+        "The atomic number Z is the number of protons in the nucleus of an atom (G9 p.44).",
+        "Textbook (G9 p.48–49): atomic masses are measured on the carbon-12 scale, where 1 u is one twelfth of the mass of a carbon-12 atom; the atomic mass of an element is the average atomic mass of all its naturally occurring isotopes."
+      ],
+      "marking_points": [
+        "1.1: ½ point protons, ½ point nucleus",
+        "1.2: 1 point for mass relative to 1/12 of carbon-12 (or weighted average mass of isotopes); ½ point for 'mass of an atom' without the reference standard"
+      ],
+      "tips": [
+        "Atomic number counts protons only; mass number counts protons + neutrons."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Define mass number and give the mass number of an atom with 11 protons and 12 neutrons.",
+          "options": null,
+          "answer": "Mass number = total number of protons and neutrons in the nucleus; 11 + 12 = 23.",
+          "explanation_steps": [
+            "Mass number = nucleons."
+          ]
+        }
+      ],
+      "topics": [
+        "atomic-particles"
+      ],
+      "keywords": [
+        "atomic number",
+        "atomic mass",
+        "carbon-12 scale",
+        "nucleus"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+        "section": "2.1.3 Atomic number and mass number",
+        "page": "44",
+        "pdf_page": 52,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 9,
+          "unit": "Unit 2 – Atomic Structure and Chemical Bonding",
+          "section": "2.1.5 Atomic mass and average atomic mass",
+          "page": "48-49",
+          "pdf_page": 56,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p2-q02",
+      "exam_id": "chem-2021-matric",
+      "part": 2,
+      "number": 2,
+      "type": "workout",
+      "marks": 2,
+      "stem": "Write a balanced chemical equation for the reaction of aluminium with chlorine to form aluminium chloride. (2 points)",
+      "options": null,
+      "answer": "2Al(s) + 3Cl₂(g) → 2AlCl₃(s)",
+      "explanation_steps": [
+        "Aluminium forms Al³⁺ and chlorine forms Cl⁻, so the formula of aluminium chloride is AlCl₃.",
+        "Unbalanced: Al + Cl₂ → AlCl₃. Chlorine atoms: 2 on the left, 3 on the right; the least common multiple is 6, so use 3Cl₂ and 2AlCl₃.",
+        "Then 2 Al atoms are needed on the left: 2Al + 3Cl₂ → 2AlCl₃ (Al 2 = 2, Cl 6 = 6)."
+      ],
+      "marking_points": [
+        "Correct formulas Al, Cl₂, AlCl₃ (1 point)",
+        "Correct balancing 2 : 3 : 2 (1 point)",
+        "State symbols not required"
+      ],
+      "tips": [
+        "Get the product formula right from the ion charges first, then balance by coefficients only."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Write the balanced equation for the reaction of magnesium with oxygen.",
+          "options": null,
+          "answer": "2Mg + O₂ → 2MgO",
+          "explanation_steps": [
+            "Mg²⁺ and O²⁻ give MgO; balance oxygen with 2MgO, then Mg with 2Mg."
+          ]
+        }
+      ],
+      "topics": [
+        "reaction-types"
+      ],
+      "keywords": [
+        "balancing equations",
+        "aluminium chloride",
+        "combination reaction"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Chemical Symbols, Formulas and Equations",
+        "section": "3.4 Chemical equations – writing and balancing",
+        "page": "120-121",
+        "pdf_page": 128,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p2-q03",
+      "exam_id": "chem-2021-matric",
+      "part": 2,
+      "number": 3,
+      "type": "workout",
+      "marks": 4,
+      "stem": "A solution has 5.6 g of KOH in 500 g of water. [Atomic mass: H = 1, O = 16, K = 39] Calculate:\n3.1 The molality of the solution. (2 points)\n3.2 The freezing-point depression of the solution when the molal freezing-point constant (Kf) of water is 1.86 °C/m. (2 points)",
+      "options": null,
+      "answer": "3.1 0.2 m (mol/kg). 3.2 ΔTf = 0.372 °C (about 0.37 °C).",
+      "subparts": [
+        {
+          "label": "3.1",
+          "marks": 2,
+          "question": "Molality",
+          "answer": "0.2 m",
+          "steps": [
+            "n = 5.6/56 = 0.1 mol; m = 0.1/0.5 kg = 0.2 m."
+          ]
+        },
+        {
+          "label": "3.2",
+          "marks": 2,
+          "question": "Freezing-point depression",
+          "answer": "0.372 °C",
+          "steps": [
+            "ΔTf = 1.86 × 0.2 = 0.372 °C."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "Molar mass of KOH = 39 + 16 + 1 = 56 g/mol; moles of KOH = 5.6 g ÷ 56 g/mol = 0.10 mol.",
+        "Mass of solvent = 500 g = 0.500 kg. Molality m = moles of solute ÷ kg of solvent = 0.10 ÷ 0.500 = 0.20 m.",
+        "Freezing-point depression ΔTf = Kf × m = 1.86 °C/m × 0.20 m = 0.372 °C (G10 p.105).",
+        "The solution freezes at about −0.37 °C. (Because KOH is an electrolyte giving K⁺ and OH⁻, the real depression is nearly double, about 0.74 °C; the textbook formula ΔTf = Kf·m is what the question expects.)"
+      ],
+      "marking_points": [
+        "3.1: moles of KOH = 0.1 mol (1 point); molality = 0.2 m with unit (1 point)",
+        "3.2: formula ΔTf = Kf·m (1 point); 0.372 °C (1 point); allow follow-through from a wrong molality",
+        "Accept 0.744 °C if the student correctly applies i = 2 for KOH"
+      ],
+      "tips": [
+        "Molality uses kilograms of SOLVENT, not litres of solution."
+      ],
+      "similar_questions": [
+        {
+          "stem": "11.7 g of NaCl (M = 58.5 g/mol) is dissolved in 250 g of water. Find (a) the molality, (b) ΔTf using Kf = 1.86 °C/m (ignore dissociation).",
+          "options": null,
+          "answer": "(a) 0.8 m; (b) 1.488 °C (≈ 1.49 °C).",
+          "explanation_steps": [
+            "n = 11.7/58.5 = 0.200 mol; m = 0.200/0.250 = 0.800 m; ΔTf = 1.86 × 0.800 = 1.488 °C."
+          ]
+        }
+      ],
+      "topics": [
+        "colligative-properties",
+        "concentration"
+      ],
+      "keywords": [
+        "molality",
+        "freezing point depression",
+        "KOH"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Solutions and Their Properties",
+        "section": "3.2 Molality",
+        "page": "84-85",
+        "pdf_page": 92,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 10,
+          "unit": "Unit 3 – Solutions and Their Properties",
+          "section": "3.3.3 Colligative properties – freezing point depression",
+          "page": "104-105",
+          "pdf_page": 112,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p2-q04",
+      "exam_id": "chem-2021-matric",
+      "part": 2,
+      "number": 4,
+      "type": "workout",
+      "marks": 2,
+      "stem": "Consider the acid–base properties of solutions:\n4.1 Acids turn litmus paper from ___(a)___ to ___(b)___. (1 point)\n4.2 Bases have a pH value of ___(a)___ and acids have a pH value of ___(b)___. (1 point)",
+      "options": null,
+      "answer": "4.1 (a) blue; (b) red. 4.2 (a) greater than 7 (7–14); (b) less than 7 (0–7).",
+      "subparts": [
+        {
+          "label": "4.1",
+          "marks": 1,
+          "question": "Acids turn litmus from (a) to (b)",
+          "answer": "(a) blue; (b) red",
+          "steps": []
+        },
+        {
+          "label": "4.2",
+          "marks": 1,
+          "question": "pH of bases (a) and acids (b)",
+          "answer": "(a) > 7; (b) < 7",
+          "steps": []
+        }
+      ],
+      "explanation_steps": [
+        "Acids turn blue litmus red; bases turn red litmus blue (G10 p.114–115).",
+        "On the pH scale 7 is neutral; acidic solutions have pH below 7 and basic solutions have pH above 7 (G10 p.144–146)."
+      ],
+      "marking_points": [
+        "½ point for each blank: blue, red, above 7, below 7"
+      ],
+      "tips": [
+        "Acid → red, base → blue: 'BaBy' (Base Blue)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A solution has pH 11. (a) Is it acidic or basic? (b) What colour does it turn red litmus?",
+          "options": null,
+          "answer": "(a) Basic; (b) blue.",
+          "explanation_steps": [
+            "pH > 7 is basic; bases turn red litmus blue."
+          ]
+        }
+      ],
+      "topics": [
+        "acid-base-properties"
+      ],
+      "keywords": [
+        "litmus",
+        "pH scale",
+        "acids",
+        "bases"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Acids, Bases and Salts",
+        "section": "4.1 Acids – properties (Activity 4.1, litmus)",
+        "page": "114-115",
+        "pdf_page": 122,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 10,
+          "unit": "Unit 4 – Acids, Bases and Salts",
+          "section": "4.5 The pH scale",
+          "page": "144-146",
+          "pdf_page": 152,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p2-q05",
+      "exam_id": "chem-2021-matric",
+      "part": 2,
+      "number": 5,
+      "type": "workout",
+      "marks": 5,
+      "stem": "5.1 During the extraction of iron in the blast furnace, the processes indicated A to E in the diagram are involved. Name the indicated processes A–E. (2.5 points)\n(Diagram: blast furnace with zones at 600 °C, 1500 °C and 2000 °C. A: arrows into the top of the furnace; B: arrows out near the top; C: arrows into the sides near the bottom; D: arrow out at the bottom (upper tap); E: arrow out at the very bottom (lower tap).)\n5.2 Mention two uses of aluminium (a and b) and explain why (c). (2.5 points)",
+      "image": "media/chemistry-2021-matric-p2q5-blast-furnace.png",
+      "image_alt": "Blast furnace drawing. A: two arrows pointing down into the top of the furnace. B: two open arrows pointing outward near the top. Temperatures 600 °C, 1500 °C and 2000 °C marked down the shaft. C: two open arrows pointing inward near the bottom. D: a black arrow pointing out to the right just below C. E: an arrow pointing out to the left at the very bottom.",
+      "options": null,
+      "answer": "5.1 A – charging: iron ore (haematite), coke and limestone are added at the top; B – waste (exhaust) gases (CO₂, CO, N₂) leave; C – hot air is blasted in; D – molten slag is tapped off; E – molten iron is tapped off. 5.2 (a) overhead electric power cables; (b) aircraft bodies, cooking pots, window frames or foil; (c) aluminium is light (low density), a good conductor of heat and electricity, and resists corrosion because of its protective oxide layer.",
+      "subparts": [
+        {
+          "label": "5.1 A",
+          "marks": 0.5,
+          "question": "Process A",
+          "answer": "Charging with iron ore, coke and limestone",
+          "steps": []
+        },
+        {
+          "label": "5.1 B",
+          "marks": 0.5,
+          "question": "Process B",
+          "answer": "Exit of waste gases",
+          "steps": []
+        },
+        {
+          "label": "5.1 C",
+          "marks": 0.5,
+          "question": "Process C",
+          "answer": "Hot air blast blown in",
+          "steps": []
+        },
+        {
+          "label": "5.1 D",
+          "marks": 0.5,
+          "question": "Process D",
+          "answer": "Slag tapped off",
+          "steps": []
+        },
+        {
+          "label": "5.1 E",
+          "marks": 0.5,
+          "question": "Process E",
+          "answer": "Molten iron tapped off",
+          "steps": []
+        },
+        {
+          "label": "5.2",
+          "marks": 2.5,
+          "question": "Two uses of aluminium and why",
+          "answer": "Power cables; aircraft/cooking pots; light, good conductor, corrosion resistant",
+          "steps": []
+        }
+      ],
+      "explanation_steps": [
+        "A blast furnace is charged at the top (A) with iron ore (Fe₂O₃), coke (C) and limestone (CaCO₃).",
+        "Hot air blown in near the bottom (C) burns coke: C + O₂ → CO₂; CO₂ + C → 2CO. Carbon monoxide reduces the ore: Fe₂O₃ + 3CO → 2Fe + 3CO₂ (the textbook notes CO is used as a reducing agent in the extraction of iron, G11 p.77).",
+        "Limestone decomposes (CaCO₃ → CaO + CO₂) and CaO removes sand: CaO + SiO₂ → CaSiO₃ (slag).",
+        "Waste gases leave near the top (B). Molten slag, which is less dense, floats on the molten iron and is tapped off higher (D); the molten iron is tapped from the very bottom (E).",
+        "Aluminium uses follow from its properties: low density, good conductivity, corrosion resistance (oxide layer), malleability and ductility – e.g. power cables, aircraft and vehicle parts, cooking utensils, food foil, window frames."
+      ],
+      "marking_points": [
+        "5.1: ½ point for each of A–E",
+        "D and E: accept slag and molten iron in either order – the diagram shows the two taps at almost the same level (teacher's discretion)",
+        "5.2: 1 point for each correct use (a, b); ½ point for a matching reason (c) – light, conductor, corrosion resistant"
+      ],
+      "tips": [
+        "In the furnace, slag floats on iron because it is less dense."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Write the equation for the reduction of haematite by carbon monoxide in the blast furnace and state the role of limestone.",
+          "options": null,
+          "answer": "Fe₂O₃ + 3CO → 2Fe + 3CO₂. Limestone decomposes to CaO, which combines with sandy impurities (SiO₂) to form slag, CaSiO₃.",
+          "explanation_steps": [
+            "CO is the reducing agent; CaO is a basic flux."
+          ]
+        }
+      ],
+      "topics": [
+        "metallurgy",
+        "activity-series-uses"
+      ],
+      "keywords": [
+        "blast furnace",
+        "extraction of iron",
+        "slag",
+        "uses of aluminium"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – Chemistry of Some Metals and Their Compounds",
+        "section": "4.2 Metallurgy – extraction of iron (blast furnace)",
+        "page": "127-129",
+        "pdf_page": 135,
+        "verified_in_text": false,
+        "note": "The Grade 11 PDF ends at p.129; the blast-furnace section is not in the extracted text, so this answer is checked against standard chemistry only."
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 11,
+          "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+          "section": "3.2.2 Carbon monoxide – uses (reducing agent in extraction of iron)",
+          "page": "77",
+          "pdf_page": 85,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "medium",
+      "review_flag": "Blast-furnace section is missing from the truncated Grade 11 PDF. The diagram does not make it clear whether D or E is the slag tap, so D and E are accepted in either order."
+    },
+    {
+      "id": "chem-2021-matric-p2-q06",
+      "exam_id": "chem-2021-matric",
+      "part": 2,
+      "number": 6,
+      "type": "workout",
+      "marks": 2,
+      "stem": "All the gases in the three containers (I–III) have the same volume (5 L) and pressure (896 mm Hg) and are placed in the same room: I contains H₂, II contains N₂, III contains Cl₂. [Atomic mass: H = 1, N = 14, Cl = 35.5] (2 points)\n6.1 Which container contains the greatest mass (in grams)?\n6.2 The container with the least density of gas is ______.",
+      "image": "media/chemistry-2021-matric-p2q6-gas-containers.png",
+      "image_alt": "Three identical 5 L cylinders labelled I, II and III, each at 896 mm Hg, containing H2, N2 and Cl2 respectively.",
+      "options": null,
+      "answer": "6.1 Container III (Cl₂). 6.2 Container I (H₂).",
+      "subparts": [
+        {
+          "label": "6.1",
+          "marks": 1,
+          "question": "Greatest mass",
+          "answer": "III (Cl₂)",
+          "steps": [
+            "Equal moles × largest molar mass."
+          ]
+        },
+        {
+          "label": "6.2",
+          "marks": 1,
+          "question": "Least density",
+          "answer": "I (H₂)",
+          "steps": [
+            "Smallest molar mass."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "Same volume, pressure and temperature (same room) → by Avogadro's law the containers hold equal numbers of moles (n = PV/RT).",
+        "Mass = n × molar mass, so the gas with the largest molar mass has the greatest mass: H₂ = 2, N₂ = 28, Cl₂ = 71 g/mol → Cl₂ (III).",
+        "Check at 25 °C: n = (896/760 atm × 5 L)/(0.0821 × 298) ≈ 0.241 mol → H₂ ≈ 0.48 g, N₂ ≈ 6.75 g, Cl₂ ≈ 17.1 g.",
+        "Density = mass/volume; all volumes are 5 L, so the lightest gas, H₂ (I), has the least density."
+      ],
+      "marking_points": [
+        "1 point each: III / Cl₂; I / H₂"
+      ],
+      "tips": [
+        "Equal V, P, T → equal moles; then compare molar masses."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Equal volumes of O₂, CO₂ and CH₄ are at the same temperature and pressure. Which sample has (a) the greatest mass and (b) the most molecules?",
+          "options": null,
+          "answer": "(a) CO₂ (44 g/mol); (b) all have the same number of molecules.",
+          "explanation_steps": [
+            "Avogadro's law: equal volumes contain equal numbers of molecules."
+          ]
+        }
+      ],
+      "topics": [
+        "gas-laws"
+      ],
+      "keywords": [
+        "Avogadro's law",
+        "molar mass",
+        "gas density"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Behaviour of Gases",
+        "section": "5.2.3 Avogadro's law; 5.2.5 The ideal gas law",
+        "page": "172-178",
+        "pdf_page": null,
+        "verified_in_text": false,
+        "note": "Grade 11 Unit 5 (Behaviour of Gases, printed pp.162-190) is missing from the supplied PDF (it ends at p.129); page taken from the book's table of contents, text not verified."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Gases unit (Grade 11 Unit 5) is missing from the supplied PDF; answer checked against standard chemistry only."
+    },
+    {
+      "id": "chem-2021-matric-p2-q07",
+      "exam_id": "chem-2021-matric",
+      "part": 2,
+      "number": 7,
+      "type": "workout",
+      "marks": 3,
+      "stem": "List the two allotropes of sulphur and two properties of each. (3 points)",
+      "options": null,
+      "answer": "7.1 Rhombic sulphur: (a) stable below 96 °C; (b) bright yellow, m.p. 113 °C, density 2.07 g/cm³ (octahedral crystals). 7.2 Monoclinic sulphur: (a) stable above 96 °C; (b) pale yellow, m.p. 119 °C, density 1.98 g/cm³ (needle-shaped crystals).",
+      "subparts": [
+        {
+          "label": "7.1",
+          "marks": 1.5,
+          "question": "First allotrope and two properties",
+          "answer": "Rhombic: stable below 96 °C; bright yellow / m.p. 113 °C / density 2.07",
+          "steps": []
+        },
+        {
+          "label": "7.2",
+          "marks": 1.5,
+          "question": "Second allotrope and two properties",
+          "answer": "Monoclinic: stable above 96 °C; pale yellow / m.p. 119 °C / density 1.98",
+          "steps": []
+        }
+      ],
+      "explanation_steps": [
+        "Textbook (G11 p.101–102): sulphur exists in two main allotropic forms, rhombic and monoclinic; rhombic is stable at room temperature up to 96 °C and monoclinic at or above 96 °C.",
+        "Table 3.2: rhombic – bright yellow, m.p. 113 °C, density 2.07 g/cc; monoclinic – pale yellow, m.p. 119 °C, density 1.98 g/cc.",
+        "Both are made of S₈ ring molecules packed differently."
+      ],
+      "marking_points": [
+        "½ point for each allotrope name",
+        "½ point for each correct property (two per allotrope)"
+      ],
+      "tips": [
+        "96 °C is the transition temperature between the two allotropes."
+      ],
+      "similar_questions": [
+        {
+          "stem": "What is the transition temperature of sulphur, and which allotrope is stable at room temperature?",
+          "options": null,
+          "answer": "96 °C; rhombic sulphur.",
+          "explanation_steps": [
+            "Rhombic sulphur is stable below 96 °C."
+          ]
+        }
+      ],
+      "topics": [
+        "sulphur"
+      ],
+      "keywords": [
+        "allotropes of sulphur",
+        "rhombic sulphur",
+        "monoclinic sulphur"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Chemistry of Some Nonmetals and Their Compounds",
+        "section": "3.4.1 Sulphur – allotropes (Table 3.2)",
+        "page": "101-102",
+        "pdf_page": 109,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p2-q08",
+      "exam_id": "chem-2021-matric",
+      "part": 2,
+      "number": 8,
+      "type": "workout",
+      "marks": 3,
+      "stem": "Write down the IUPAC names of the following two structures, and draw cyclopentane. (3 points)\n8.1 CH₃CH₂C(CH₃)=CH₂\n8.2 C₆H₅–CH₂CH₃ (a benzene ring bonded to an ethyl group)\n8.3 Draw the structure of cyclopentane.",
+      "options": null,
+      "answer": "8.1 2-Methylbut-1-ene (2-methyl-1-butene). 8.2 Ethylbenzene. 8.3 Cyclopentane: five CH₂ groups joined in a ring (a pentagon), C₅H₁₀.",
+      "subparts": [
+        {
+          "label": "8.1",
+          "marks": 1,
+          "question": "IUPAC name",
+          "answer": "2-Methylbut-1-ene",
+          "steps": []
+        },
+        {
+          "label": "8.2",
+          "marks": 1,
+          "question": "IUPAC name",
+          "answer": "Ethylbenzene",
+          "steps": []
+        },
+        {
+          "label": "8.3",
+          "marks": 1,
+          "question": "Structure of cyclopentane",
+          "answer": "Pentagon of five CH₂ groups",
+          "steps": []
+        }
+      ],
+      "explanation_steps": [
+        "8.1: the longest chain containing the C=C has four carbons (CH₂=C–CH₂–CH₃). Number from the end nearest the double bond: C1=C2; the methyl group is on C2. Name: 2-methylbut-1-ene.",
+        "8.2: an ethyl group (–CH₂CH₃) attached to a benzene ring: ethylbenzene.",
+        "8.3: cyclopentane, C₅H₁₀, is five carbon atoms in a ring, each bonded to two hydrogens; drawn as a pentagon (each corner = CH₂)."
+      ],
+      "marking_points": [
+        "1 point each: 2-methylbut-1-ene (accept 2-methyl-1-butene); ethylbenzene; correct five-membered ring with CH₂ groups (or skeletal pentagon)",
+        "8.1: ½ point if the locant of the double bond or methyl group is wrong"
+      ],
+      "tips": [
+        "For alkenes, the double bond takes the lowest locant, then the substituents."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Name CH₃CH(CH₃)CH₂CH₃ and draw cyclohexane.",
+          "options": null,
+          "answer": "2-Methylbutane; cyclohexane is a six-membered ring of CH₂ groups (hexagon), C₆H₁₂.",
+          "explanation_steps": [
+            "Longest chain 4 C, methyl on C2."
+          ]
+        }
+      ],
+      "topics": [
+        "alkanes-nomenclature"
+      ],
+      "keywords": [
+        "IUPAC naming",
+        "2-methylbut-1-ene",
+        "ethylbenzene",
+        "cyclopentane"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Introduction to Organic Chemistry",
+        "section": "2.2.3 The alkene series – nomenclature",
+        "page": "51-52",
+        "pdf_page": 57,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 12,
+          "unit": "Unit 2 – Introduction to Organic Chemistry",
+          "section": "2.2.5 Aromatic compounds – nomenclature; cycloalkanes",
+          "page": "66, 42",
+          "pdf_page": 72,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "chem-2021-matric-p2-q09",
+      "exam_id": "chem-2021-matric",
+      "part": 2,
+      "number": 9,
+      "type": "workout",
+      "marks": 2,
+      "stem": "Given the equation: CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(l), ΔH = −890.4 kJ. How much energy is given off when 5.00 moles of CH₄ are burned? (2 points)",
+      "options": null,
+      "answer": "4452 kJ (ΔH = −4452 kJ; 4.45 × 10³ kJ released).",
+      "explanation_steps": [
+        "The thermochemical equation shows that 1 mol CH₄ releases 890.4 kJ (G10 p.170).",
+        "Energy released = 5.00 mol × 890.4 kJ/mol = 4452 kJ."
+      ],
+      "marking_points": [
+        "Correct set-up 5.00 × 890.4 (1 point)",
+        "4452 kJ with unit (1 point); accept −4452 kJ"
+      ],
+      "tips": [
+        "Heat scales with the number of moles in the equation."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Using the same equation, how much heat is released when 40.0 g of CH₄ (M = 16 g/mol) burns?",
+          "options": null,
+          "answer": "2226 kJ",
+          "explanation_steps": [
+            "n = 40.0/16 = 2.50 mol; 2.50 × 890.4 = 2226 kJ."
+          ]
+        }
+      ],
+      "topics": [
+        "exo-endothermic"
+      ],
+      "keywords": [
+        "thermochemical equation",
+        "enthalpy of combustion",
+        "methane"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Energy and Chemical Reactions",
+        "section": "5.1.9 Thermochemical equations",
+        "page": "170",
+        "pdf_page": 178,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    }
+  ]
+}

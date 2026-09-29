@@ -1,0 +1,4019 @@
+{
+  "schema_version": "1.0",
+  "exam": {
+    "id": "math-2019-matric",
+    "year": "2019",
+    "subject": "Mathematics",
+    "grade": 12,
+    "school": "Eritrean Secondary Education Certificate Examination (national)",
+    "type": "matriculation",
+    "semester": null,
+    "title": "ESSCE 2019 – Algebra and Geometry (Mathematics) (9021)",
+    "exam_code": "9021",
+    "duration": "3 hours",
+    "duration_minutes": 180,
+    "total_points": 100,
+    "parts": [
+      {
+        "part": 1,
+        "title": "Part I – Multiple Choice Questions",
+        "question_type": "mcq",
+        "question_count": 50,
+        "points": 75,
+        "instructions": "Part I contains 50 questions; each carries 1.5 points. There is only one best answer for each question. Blacken the letter of your choice on the Scantron answer sheet with a pencil."
+      },
+      {
+        "part": 2,
+        "title": "Part II – Completion and Work Out Questions",
+        "question_type": "completion + workout",
+        "question_count": 9,
+        "points": 25,
+        "instructions": "Part II contains five completion questions (A1–A5, 2 points each) and four work out questions (B1–B4, show all necessary steps). In this bank A1–A5 are numbered 1–5 and B1–B4 are numbered 6–9."
+      }
+    ],
+    "source": {
+      "document": "maths_matric._2019.pdf",
+      "pages": 14,
+      "prepared_by": "Ministry of Education, Eritrea – ESSCE 2019",
+      "official_answer_key": false,
+      "note": "Scanned paper; every item was transcribed from the page images (OCR of the mathematics is unreliable)."
+    },
+    "answer_key_note": "No official key exists. All answers were solved independently, every calculation (including the similar questions) was checked with sympy (tools/src_matric/mathematics_2019/verify.py), and the method follows the Eritrean MoE Mathematics textbooks Grades 9–12. See confidence and review_flag on each question.",
+    "notation": "unicode",
+    "textbooks": [
+      {
+        "subject": "mathematics",
+        "grade": 9,
+        "file": "textbook_mathematics_9.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "mathematics",
+        "grade": 10,
+        "file": "textbook_mathematics_10.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 6
+      },
+      {
+        "subject": "mathematics",
+        "grade": 11,
+        "file": "textbook_mathematics_11.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 8
+      },
+      {
+        "subject": "mathematics",
+        "grade": 12,
+        "file": "textbook_mathematics_12.pdf",
+        "publisher": "Eritrea Ministry of Education",
+        "printed_page_offset": 6
+      }
+    ],
+    "content_version": "1.0.0",
+    "language": "en"
+  },
+  "questions": [
+    {
+      "id": "math-2019-matric-p1-q01",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 1,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Which of the following is not a subset of the set A = {∅, x, y}?",
+      "options": {
+        "A": "∅",
+        "B": "{x}",
+        "C": "y",
+        "D": "{∅}",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "A subset must itself be a set whose elements all belong to A.",
+        "∅ is a subset of every set; {x} ⊆ A because x ∈ A; {∅} ⊆ A because ∅ is an element of A.",
+        "y is an ELEMENT of A (y ∈ A), not a set of elements of A, so y is not a subset. Answer: C."
+      ],
+      "tips": [
+        "Distinguish ∈ (element of) from ⊆ (subset of).",
+        "Here ∅ is both an element of A and a subset of A."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is not a subset of B = {1, {2}, 3}?",
+          "options": {
+            "A": "{1, 3}",
+            "B": "{{2}}",
+            "C": "{2}",
+            "D": "∅",
+            "E": "B"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "The elements of B are 1, {2} and 3; the number 2 itself is not an element.",
+            "So {2} ⊄ B, while {{2}} ⊆ B. Answer: C."
+          ]
+        }
+      ],
+      "topics": [
+        "sets-operations"
+      ],
+      "keywords": [
+        "subset",
+        "empty set",
+        "element"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Set Theory",
+        "section": "1.3 Subsets and Proper Subsets",
+        "page": "6",
+        "pdf_page": 14,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q02",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 2,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If A = {1, 2, 3}, B = {2, 3, 4} and C = {3, 4, 5}, then",
+      "options": {
+        "A": "(A − B) ∩ C = ∅.",
+        "B": "(C − A) ∩ B = ∅.",
+        "C": "(B − C) ∩ A = ∅.",
+        "D": "(A − C) ∩ B = ∅.",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "A − B = {1}; {1} ∩ C = ∅ ✓.",
+        "C − A = {4, 5}; ∩ B = {4} ≠ ∅.  B − C = {2}; ∩ A = {2} ≠ ∅.  A − C = {1, 2}; ∩ B = {2} ≠ ∅.",
+        "Only statement A is true. Answer: A."
+      ],
+      "tips": [
+        "Test each option separately – differences first, then intersections."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If P = {a, b, c}, Q = {b, c, d} and R = {c, d, e}, which is true?",
+          "options": {
+            "A": "(P − Q) ∩ R = ∅",
+            "B": "(Q − P) ∩ R = ∅",
+            "C": "(R − P) ∩ Q = ∅",
+            "D": "(P − R) ∩ Q = ∅",
+            "E": "None of these"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "P − Q = {a}; {a} ∩ R = ∅ ✓.",
+            "Q − P = {d}, ∩ R = {d}; R − P = {d, e}, ∩ Q = {d}; P − R = {a, b}, ∩ Q = {b}. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "sets-operations"
+      ],
+      "keywords": [
+        "set difference",
+        "intersection",
+        "empty set"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 1 – Set Theory",
+        "section": "1.5.2 Difference of Sets",
+        "page": "13",
+        "pdf_page": 21,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q03",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 3,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The solution set of the equation 2x + 3(5 + 3x) = 7(5 + x) is given by",
+      "options": {
+        "A": "{5}.",
+        "B": "{4}.",
+        "C": "{7}.",
+        "D": "{1}.",
+        "E": "{6}."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Expand: 2x + 15 + 9x = 35 + 7x → 11x + 15 = 35 + 7x.",
+        "4x = 20 → x = 5. Answer: A."
+      ],
+      "tips": [
+        "Check: LHS = 10 + 3(20) = 70, RHS = 7(10) = 70 ✓."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Solve 3x + 2(4 + x) = 4(x + 5).",
+          "options": {
+            "A": "{12}",
+            "B": "{8}",
+            "C": "{4}",
+            "D": "{−12}",
+            "E": "{28}"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "3x + 8 + 2x = 4x + 20 → x = 12.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "linear-equations"
+      ],
+      "keywords": [
+        "linear equation",
+        "brackets"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Foundation of Functions",
+        "section": "2.2.2 Solving Linear Equations with Variables on Both Sides",
+        "page": "31",
+        "pdf_page": 39,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q04",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 4,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Let X vary inversely as the square of Y, and Y = 2 for X = 1. Then the value of X for Y = 6 is",
+      "options": {
+        "A": "3.",
+        "B": "9.",
+        "C": "1/3.",
+        "D": "1/9.",
+        "E": "3/2."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "X = k/Y². With X = 1, Y = 2: k = 1 × 4 = 4.",
+        "For Y = 6: X = 4/36 = 1/9. Answer: D."
+      ],
+      "tips": [
+        "Inverse square: if Y triples, X becomes 1/9 of its value."
+      ],
+      "similar_questions": [
+        {
+          "stem": "P varies inversely as the square of Q, and P = 3 when Q = 2. Find P when Q = 4.",
+          "options": {
+            "A": "3/4",
+            "B": "3/2",
+            "C": "12",
+            "D": "6",
+            "E": "1/4"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "k = 3 × 4 = 12.",
+            "P = 12/16 = 3/4. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "linear-functions-lines"
+      ],
+      "keywords": [
+        "inverse variation",
+        "constant of variation"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Foundation of Functions",
+        "section": "2.3.2 Inverse Variation",
+        "page": "40",
+        "pdf_page": 48,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q05",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 5,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "How many two digit numbers are divisible by 3?",
+      "options": {
+        "A": "21",
+        "B": "30",
+        "C": "25",
+        "D": "20",
+        "E": "15"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "The two-digit multiples of 3 form an AP: 12, 15, …, 99 with d = 3.",
+        "n = (99 − 12)/3 + 1 = 29 + 1 = 30. Answer: B."
+      ],
+      "tips": [
+        "Alternatively: ⌊99/3⌋ − ⌊9/3⌋ = 33 − 3 = 30."
+      ],
+      "similar_questions": [
+        {
+          "stem": "How many three-digit numbers are divisible by 7?",
+          "options": {
+            "A": "128",
+            "B": "129",
+            "C": "130",
+            "D": "142",
+            "E": "143"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "First 105, last 994.",
+            "n = (994 − 105)/7 + 1 = 128. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "sequences-series"
+      ],
+      "keywords": [
+        "arithmetic progression",
+        "number of terms",
+        "multiples"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Sequence and Series",
+        "section": "1.2 Arithmetic Progression",
+        "page": "9",
+        "pdf_page": 15,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q06",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 6,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Which of the following relations is not a function?",
+      "options": {
+        "A": "R = {(x, y): x is the price of an article y}",
+        "B": "R = {(x, y): x is the perimeter of triangle y}",
+        "C": "R = {(x, y): y is the multiple of x}",
+        "D": "R = {(x, y): x is the plate number of car y}",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "A relation is a function if each first element x is paired with exactly one second element y.",
+        "In C, a number x has many multiples (x, 2x, 3x, …), so the same x is paired with many y – not a function; the reverse relation (each y with its divisors) is not a function either.",
+        "A plate number belongs to exactly one car (D is a function). Answer: C."
+      ],
+      "tips": [
+        "Test with a counter-example: x = 2 is paired with y = 4 and y = 6."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which relation is a function?",
+          "options": {
+            "A": "{(x, y): y is a factor of x}",
+            "B": "{(x, y): y = x²}",
+            "C": "{(x, y): y² = x}",
+            "D": "{(x, y): y > x}",
+            "E": "{(x, y): x is a brother of y}"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "y = x² gives one y for every x.",
+            "The others pair one x with several y. Answer: B."
+          ]
+        }
+      ],
+      "topics": [
+        "functions-inverse"
+      ],
+      "keywords": [
+        "relation",
+        "function",
+        "definition of function"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Foundations for Functions",
+        "section": "1.1.2 Functions",
+        "page": "5",
+        "pdf_page": 11,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "medium",
+      "review_flag": "Strictly (x → y), A and B are also not functions: many articles can have the same price and many triangles the same perimeter. Under the reverse reading (each article/triangle/car has one price/perimeter/plate) only C fails, so C is the only option that is not a function under either reading. Keyed C – teacher to confirm."
+    },
+    {
+      "id": "math-2019-matric-p1-q07",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 7,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The solution set of (3x − 1)/2 ≤ (4 − x)/3 is",
+      "stem_tex": "The solution set of $\\dfrac{3x-1}{2}\\le\\dfrac{4-x}{3}$ is",
+      "options": {
+        "A": "{x : x ≤ 11}.",
+        "B": "{x : x ≤ 11/7}.",
+        "C": "{x : x ≥ 11/7}.",
+        "D": "{x : x ≥ 11}.",
+        "E": "{x ≤ −11}."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Multiply by 6: 3(3x − 1) ≤ 2(4 − x) → 9x − 3 ≤ 8 − 2x → 11x ≤ 11 → x ≤ 1.",
+        "The correct solution set {x : x ≤ 1} is not among the options.",
+        "If the right-hand side were (4 + x)/3: 9x − 3 ≤ 8 + 2x → 7x ≤ 11 → x ≤ 11/7, which is option B – the evident intended answer."
+      ],
+      "tips": [
+        "Multiply both sides by the LCD (6) – a positive number, so the inequality sign stays."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Solve (2x + 1)/3 ≤ (x + 4)/2.",
+          "options": {
+            "A": "{x : x ≤ 10}",
+            "B": "{x : x ≥ 10}",
+            "C": "{x : x ≤ 2}",
+            "D": "{x : x ≤ −10}",
+            "E": "{x : x ≥ 2}"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "×6: 4x + 2 ≤ 3x + 12 → x ≤ 10.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "linear-equations"
+      ],
+      "keywords": [
+        "linear inequality",
+        "fractions"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Foundation of Functions",
+        "section": "2.2.4 Solving Linear Inequalities",
+        "page": "35",
+        "pdf_page": 43,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "low",
+      "review_flag": "As printed the solution is x ≤ 1, which is not an option. Option B (x ≤ 11/7) results if the numerator is 4 + x (probable misprint). Keyed B – teacher decision / consider voiding."
+    },
+    {
+      "id": "math-2019-matric-p1-q08",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 8,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The solution set of 4|2x − 6| + 5 < 21 is",
+      "options": {
+        "A": "{x : 1 < x < 5}.",
+        "B": "{x : x < 1 or x > 5}.",
+        "C": "{x : 2 < x < 10}.",
+        "D": "All real numbers.",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "4|2x − 6| < 16 → |2x − 6| < 4.",
+        "−4 < 2x − 6 < 4 → 2 < 2x < 10 → 1 < x < 5. Answer: A."
+      ],
+      "tips": [
+        "|u| < a (a > 0) ⇔ −a < u < a; |u| > a gives two separate intervals."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Solve 3|x + 2| − 1 < 8.",
+          "options": {
+            "A": "{x : −5 < x < 1}",
+            "B": "{x : x < −5 or x > 1}",
+            "C": "{x : −1 < x < 5}",
+            "D": "{x : x < 1}",
+            "E": "∅"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "3|x + 2| < 9 → |x + 2| < 3.",
+            "−3 < x + 2 < 3 → −5 < x < 1. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "absolute-value-radicals"
+      ],
+      "keywords": [
+        "absolute value inequality"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Foundation of Functions",
+        "section": "2.4.3 Absolute Value Inequalities",
+        "page": "46",
+        "pdf_page": 54,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q09",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 9,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The solution set of √(2x − 1) − √(x + 3) + 1 = 0 is",
+      "stem_tex": "The solution set of $\\sqrt{2x-1}-\\sqrt{x+3}+1=0$ is",
+      "options": {
+        "A": "{x : x = 1}.",
+        "B": "{x : x = 2}.",
+        "C": "{x : x = 3}.",
+        "D": "{x : x = 4}.",
+        "E": "{x : x = 5}."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Write √(2x − 1) + 1 = √(x + 3) and square: 2x − 1 + 2√(2x − 1) + 1 = x + 3 → 2√(2x − 1) = 3 − x.",
+        "Square again: 4(2x − 1) = 9 − 6x + x² → x² − 14x + 13 = 0 → x = 1 or x = 13.",
+        "Check: x = 1: √1 − √4 + 1 = 0 ✓; x = 13: √25 − √16 + 1 = 2 ≠ 0 ✗ (extraneous). Answer: A."
+      ],
+      "tips": [
+        "Always check solutions of radical equations – squaring can create extraneous roots.",
+        "In an MCQ you can simply substitute the options."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Solve √(x + 5) − √x = 1.",
+          "options": {
+            "A": "{4}",
+            "B": "{1}",
+            "C": "{9}",
+            "D": "{0}",
+            "E": "{16}"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "√(x + 5) = 1 + √x → x + 5 = 1 + 2√x + x → √x = 2 → x = 4.",
+            "Check: 3 − 2 = 1 ✓. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "absolute-value-radicals"
+      ],
+      "keywords": [
+        "radical equation",
+        "extraneous root"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 2 – Square Root Functions",
+        "section": "2.3 Solving Square Root Equations",
+        "page": "67",
+        "pdf_page": 75,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q10",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 10,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Let f(x) = x² + 1 and g(x) = x − 1 be two real functions. Then which of the following is false?",
+      "stem_tex": "Let $f(x)=x^{2}+1$ and $g(x)=x-1$. Which is false? (A) $(f+g)(x)=x^{2}+x$ (B) $(fg)(x)=x^{3}-x^{2}+x-1$ (C) $(f-g)(x)=x^{2}-x+2$ (D) $\\left(\\dfrac{f}{g}\\right)(x)=x+1,\\ x\\ne1$",
+      "options": {
+        "A": "(f + g)(x) = x² + x",
+        "B": "(fg)(x) = x³ − x² + x − 1",
+        "C": "(f − g)(x) = x² − x + 2",
+        "D": "(f/g)(x) = x + 1, x ≠ 1",
+        "E": "None of the above."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "f + g = x² + 1 + x − 1 = x² + x ✓.  fg = (x² + 1)(x − 1) = x³ − x² + x − 1 ✓.  f − g = x² + 1 − x + 1 = x² − x + 2 ✓.",
+        "f/g = (x² + 1)/(x − 1); x² + 1 does not factor, so it is NOT x + 1 (that would need x² − 1). Answer: D."
+      ],
+      "tips": [
+        "x² − 1 = (x − 1)(x + 1) but x² + 1 has no real factors."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If f(x) = x² − 4 and g(x) = x + 2, then (f/g)(x) equals",
+          "options": {
+            "A": "x − 2, x ≠ −2",
+            "B": "x + 2, x ≠ −2",
+            "C": "x − 2 for all x",
+            "D": "x² − x − 6",
+            "E": "1/(x − 2)"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "(x² − 4)/(x + 2) = (x − 2)(x + 2)/(x + 2) = x − 2, with x ≠ −2.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "functions-inverse"
+      ],
+      "keywords": [
+        "operations on functions",
+        "quotient of functions"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Foundations for Functions",
+        "section": "1.1.4 Function Notation",
+        "page": "12",
+        "pdf_page": 18,
+        "verified_in_text": false,
+        "note": "Operations on functions (f ± g, fg, f/g) are standard; not treated as a separate section in the G9–G12 books."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q11",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 11,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The solution set of x^(1/4) − 3x^(1/2) + 2 = 0 is",
+      "stem_tex": "The solution set of $x^{1/4}-3x^{1/2}+2=0$ is",
+      "options": {
+        "A": "{x : x = 1}.",
+        "B": "{x : x = 2}.",
+        "C": "{x : x = 3}.",
+        "D": "{x : x = 32/81}.",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Let t = x^(1/4) ≥ 0, so x^(1/2) = t². The equation becomes t − 3t² + 2 = 0 → 3t² − t − 2 = 0 → (3t + 2)(t − 1) = 0.",
+        "t = 1 or t = −2/3; t ≥ 0 so t = 1 → x = 1⁴ = 1.",
+        "Check: 1 − 3 + 2 = 0 ✓. Answer: A."
+      ],
+      "tips": [
+        "Substitute t for the smallest fractional power to get a quadratic.",
+        "Reject negative values of an even root."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Solve x^(1/2) − 5x^(1/4) + 6 = 0.",
+          "options": {
+            "A": "{16, 81}",
+            "B": "{2, 3}",
+            "C": "{4, 9}",
+            "D": "{16}",
+            "E": "{81}"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "t = x^(1/4): t² − 5t + 6 = 0 → t = 2 or 3.",
+            "x = 2⁴ = 16 or 3⁴ = 81. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "fractional exponents",
+        "substitution",
+        "equations in quadratic form"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 5 – Exponential and Logarithmic Expressions",
+        "section": "5.1.8 Expressing Exponentials as Radicals",
+        "page": "112",
+        "pdf_page": 120,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "If the exponents were intended the other way round (x^(1/2) − 3x^(1/4) + 2 = 0) the solutions would be 1 and 16 (answer E). Keyed as printed: A."
+    },
+    {
+      "id": "math-2019-matric-p1-q12",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 12,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "A certain number of two digits is three times the sum of its digits. If 45 is added to the number, the digits are reversed. Then the number is",
+      "options": {
+        "A": "23.",
+        "B": "24.",
+        "C": "27.",
+        "D": "32.",
+        "E": "42."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Let the number be 10a + b. Then 10a + b = 3(a + b) → 7a = 2b.",
+        "10a + b + 45 = 10b + a → 9(b − a) = 45 → b − a = 5.",
+        "From 7a = 2b and b = a + 5: 7a = 2a + 10 → a = 2, b = 7. The number is 27 (check 27 = 3 × 9, 27 + 45 = 72 ✓). Answer: C."
+      ],
+      "tips": [
+        "Reversing the digits changes the number by 9 × (difference of digits)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A two-digit number is four times the sum of its digits. If 27 is added to it, the digits are reversed. The number is",
+          "options": {
+            "A": "36",
+            "B": "12",
+            "C": "48",
+            "D": "24",
+            "E": "63"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "10a + b = 4(a + b) → 2a = b; 9(b − a) = 27 → b − a = 3.",
+            "a = 3, b = 6 → 36 (36 = 4 × 9, 36 + 27 = 63 ✓). Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "linear-systems"
+      ],
+      "keywords": [
+        "digit problem",
+        "system of equations"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 3 – Linear Functions",
+        "section": "3.5 Solving Systems of Linear Equations",
+        "page": "72",
+        "pdf_page": 80,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q13",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 13,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Let f(x) = ax² + bx + c be a quadratic function. If f(1) = 6, f(0) = 1 and f(−1) = 0, then the quadratic function is given by",
+      "options": {
+        "A": "f(x) = 2x² + 4.",
+        "B": "f(x) = 2x² + 1.",
+        "C": "f(x) = 2x² + 3x + 1.",
+        "D": "f(x) = 2x² − x − 3.",
+        "E": "f(x) = 2x² + 3x − 1."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "f(0) = c = 1.",
+        "f(1) = a + b + 1 = 6 → a + b = 5;  f(−1) = a − b + 1 = 0 → a − b = −1.",
+        "a = 2, b = 3 → f(x) = 2x² + 3x + 1. Answer: C."
+      ],
+      "tips": [
+        "Use f(0) first – it gives c immediately."
+      ],
+      "similar_questions": [
+        {
+          "stem": "f(x) = ax² + bx + c with f(0) = 2, f(1) = 5, f(−1) = 3. Then f(x) =",
+          "options": {
+            "A": "2x² + x + 2",
+            "B": "x² + 2x + 2",
+            "C": "2x² − x + 2",
+            "D": "3x² + 2",
+            "E": "x² + x + 3"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "c = 2; a + b = 3; a − b = 1.",
+            "a = 2, b = 1 → 2x² + x + 2. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "quadratic-functions"
+      ],
+      "keywords": [
+        "quadratic function",
+        "determining coefficients"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Polynomial Function",
+        "section": "1.1 Representation of Quadratic Functions",
+        "page": "1",
+        "pdf_page": 9,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q14",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 14,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If r₁ and r₂ are the roots of the quadratic equation x² + x + 1 = 0, then r₁³ + r₂³ is equal to",
+      "options": {
+        "A": "2.",
+        "B": "1.",
+        "C": "−2.",
+        "D": "−1.",
+        "E": "3."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Sum r₁ + r₂ = −1, product r₁r₂ = 1.",
+        "r₁³ + r₂³ = (r₁ + r₂)³ − 3r₁r₂(r₁ + r₂) = (−1)³ − 3(1)(−1) = −1 + 3 = 2. Answer: A."
+      ],
+      "tips": [
+        "The roots are complex (discriminant −3 < 0), but the sum/product identities still hold.",
+        "Here r₁, r₂ are the non-real cube roots of 1, so r₁³ = r₂³ = 1."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If α and β are the roots of x² − 3x + 1 = 0, then α³ + β³ =",
+          "options": {
+            "A": "18",
+            "B": "27",
+            "C": "24",
+            "D": "9",
+            "E": "3"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "α + β = 3, αβ = 1.",
+            "α³ + β³ = 27 − 3(1)(3) = 18. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "quadratic-equations"
+      ],
+      "keywords": [
+        "sum and product of roots",
+        "Vieta's formulas"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Polynomial Function",
+        "section": "1.2.1 Quadratic Equations (sum and product of roots)",
+        "page": "6",
+        "pdf_page": 14,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q15",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 15,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Let x + 2 be a factor of f(x) = x³ + 3x² + kx − 2. Then the remainder when f(x) is divided by x − 3 is",
+      "options": {
+        "A": "27.",
+        "B": "54.",
+        "C": "55.",
+        "D": "59.",
+        "E": "64."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Factor theorem: f(−2) = −8 + 12 − 2k − 2 = 2 − 2k = 0 → k = 1.",
+        "Remainder theorem: f(3) = 27 + 27 + 3 − 2 = 55. Answer: C."
+      ],
+      "tips": [
+        "x − a is a factor ⇔ f(a) = 0; the remainder on division by x − a is f(a)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If x − 1 is a factor of p(x) = x³ + kx² − 4x + 2, find the remainder when p(x) is divided by x + 1.",
+          "options": {
+            "A": "6",
+            "B": "4",
+            "C": "2",
+            "D": "8",
+            "E": "0"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "p(1) = 1 + k − 4 + 2 = 0 → k = 1.",
+            "p(−1) = −1 + 1 + 4 + 2 = 6. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "polynomials"
+      ],
+      "keywords": [
+        "factor theorem",
+        "remainder theorem"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Polynomial Function",
+        "section": "1.4 Polynomial Functions (remainder and factor theorems)",
+        "page": "41",
+        "pdf_page": 49,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q16",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 16,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The complete factorization of −6x³ − 7x² + 1 is",
+      "options": {
+        "A": "(x + 1)(2x + 1)(1 − 3x).",
+        "B": "(x + 1)(2x − 1)(3x − 1).",
+        "C": "(x − 1)(2x − 1)(3x − 1).",
+        "D": "(x − 1)(1 − 2x)(1 − 3x).",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "f(−1) = 6 − 7 + 1 = 0, so x + 1 is a factor.",
+        "−6x³ − 7x² + 1 = (x + 1)(−6x² − x + 1) = (x + 1)(2x + 1)(1 − 3x).",
+        "Check the leading term: x · 2x · (−3x) = −6x³ ✓. Answer: A."
+      ],
+      "tips": [
+        "Try x = ±1, ±1/2, ±1/3 (factors of the constant over factors of the leading coefficient)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Factorize completely: 2x³ + 3x² − 3x − 2.",
+          "options": {
+            "A": "(x − 1)(x + 2)(2x + 1)",
+            "B": "(x + 1)(x − 2)(2x − 1)",
+            "C": "(x − 1)(x − 2)(2x + 1)",
+            "D": "(x + 1)(x + 2)(2x − 1)",
+            "E": "(2x − 1)(x² + 2)"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "f(1) = 0 → (x − 1)(2x² + 5x + 2).",
+            "= (x − 1)(x + 2)(2x + 1). Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "polynomials"
+      ],
+      "keywords": [
+        "factorization",
+        "factor theorem",
+        "cubic"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 1 – Polynomial Function",
+        "section": "1.4 Polynomial Functions",
+        "page": "41",
+        "pdf_page": 49,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q17",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 17,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Which one of the following is not a polynomial function?",
+      "stem_tex": "Which is not a polynomial function? (A) $2x^4-x^2+5x+6$ (B) $\\sqrt2\\,x^3-\\pi x^2-4x+2$ (C) $\\sqrt{(x^2+3)^2}$ (D) $\\dfrac{(x-3)^3}{x-3}$",
+      "options": {
+        "A": "f(x) = 2x⁴ − x² + 5x + 6",
+        "B": "f(x) = √2x³ − πx² − 4x + 2",
+        "C": "f(x) = √((x² + 3)²)",
+        "D": "f(x) = (x − 3)³/(x − 3)",
+        "E": "None of the above."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "A and B are polynomials (coefficients such as √2 and π may be any real numbers).",
+        "C: √((x² + 3)²) = |x² + 3| = x² + 3 for all x – a polynomial.",
+        "D equals (x − 3)² only for x ≠ 3; it is undefined at x = 3, so its domain is not ℝ and it is not a polynomial function. Answer: D."
+      ],
+      "tips": [
+        "A polynomial function is defined for every real number and has only non-negative whole-number powers of x."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which is a polynomial function?",
+          "options": {
+            "A": "f(x) = x^(1/2) + 1",
+            "B": "f(x) = 1/x + x",
+            "C": "f(x) = 2^x",
+            "D": "f(x) = 3x² − √5 x + π",
+            "E": "f(x) = (x² − 1)/(x − 1)"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "Only D has whole-number powers and real coefficients for every x.",
+            "Answer: D."
+          ]
+        }
+      ],
+      "topics": [
+        "polynomials"
+      ],
+      "keywords": [
+        "polynomial function",
+        "domain"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 8 – Polynomials",
+        "section": "8.1 Representing Polynomials",
+        "page": "169",
+        "pdf_page": 177,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q18",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 18,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The simplified form of 1/log(base xy)(xyz) + 1/log(base yz)(xyz) + 1/log(base xz)(xyz) is",
+      "stem_tex": "The simplified form of $\\dfrac{1}{\\log_{xy}(xyz)}+\\dfrac{1}{\\log_{yz}(xyz)}+\\dfrac{1}{\\log_{xz}(xyz)}$ is",
+      "options": {
+        "A": "xy.",
+        "B": "xz.",
+        "C": "xyz.",
+        "D": "2.",
+        "E": "1."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "1/logₐb = log(base b)a, so the sum is log(base xyz)(xy) + log(base xyz)(yz) + log(base xyz)(xz).",
+        "= log(base xyz)(xy · yz · xz) = log(base xyz)(x²y²z²) = log(base xyz)((xyz)²) = 2. Answer: D."
+      ],
+      "tips": [
+        "Reciprocal rule: logₐb · log(base b)a = 1."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Simplify 1/logₐ(abc) + 1/log(base b)(abc) + 1/log(base c)(abc).",
+          "options": {
+            "A": "1",
+            "B": "0",
+            "C": "abc",
+            "D": "3",
+            "E": "2"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "= log(base abc) a + log(base abc) b + log(base abc) c = log(base abc)(abc) = 1.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "change of base",
+        "laws of logarithms"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 5 – Exponential and Logarithmic Expressions",
+        "section": "5.2.2 Laws of Logarithms",
+        "page": "117",
+        "pdf_page": 125,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q19",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 19,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If log(base √8) x = 10/3, then the value of x is",
+      "stem_tex": "If $\\log_{\\sqrt8}x=\\dfrac{10}{3}$, then the value of $x$ is",
+      "options": {
+        "A": "8.",
+        "B": "16.",
+        "C": "32.",
+        "D": "64.",
+        "E": "128."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "x = (√8)^(10/3) = (2^(3/2))^(10/3) = 2⁵ = 32. Answer: C."
+      ],
+      "tips": [
+        "Write every base as a power of a prime (√8 = 2^(3/2))."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If log(base √27) x = 4/3, then x =",
+          "options": {
+            "A": "9",
+            "B": "3",
+            "C": "27",
+            "D": "81",
+            "E": "√3"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "x = (3^(3/2))^(4/3) = 3² = 9.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "logarithm",
+        "exponential form"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 5 – Exponential and Logarithmic Expressions",
+        "section": "5.2.1 Logarithmic Notation",
+        "page": "116",
+        "pdf_page": 124,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q20",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 20,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If (1/5)^(x − 1) < (1/5)^(2x − 5), then its solution is",
+      "stem_tex": "If $\\left(\\dfrac15\\right)^{x-1}<\\left(\\dfrac15\\right)^{2x-5}$, then its solution is",
+      "options": {
+        "A": "{x : x < 4}.",
+        "B": "{x : x < −4}.",
+        "C": "{x : x > −4}.",
+        "D": "{x : x > 4}.",
+        "E": "{x : x > 0}."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "The base 1/5 is between 0 and 1, so the function is decreasing: a smaller value means a LARGER exponent.",
+        "x − 1 > 2x − 5 → −x > −4 → x < 4. Answer: A."
+      ],
+      "tips": [
+        "Base > 1: keep the sign; 0 < base < 1: reverse the sign."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Solve (1/2)^(3x) > (1/2)^(x + 4).",
+          "options": {
+            "A": "{x : x < 2}",
+            "B": "{x : x > 2}",
+            "C": "{x : x < −2}",
+            "D": "{x : x > 4}",
+            "E": "{x : x < 4}"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Decreasing base → 3x < x + 4 → x < 2.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "exponential inequality",
+        "decreasing function"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 4 – Exponential and Logarithmic Functions",
+        "section": "4.1 Exponential Functions",
+        "page": "142",
+        "pdf_page": 150,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q21",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 21,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If 20% of a number is 12, then 15% of that number is",
+      "options": {
+        "A": "1.8.",
+        "B": "2.4.",
+        "C": "6.",
+        "D": "9.",
+        "E": "60."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "0.20 × N = 12 → N = 60.",
+        "15% of 60 = 9. Answer: D."
+      ],
+      "tips": [
+        "Shortcut: 15% is 3/4 of 20%, so 3/4 × 12 = 9."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If 25% of a number is 30, then 40% of it is",
+          "options": {
+            "A": "48",
+            "B": "12",
+            "C": "75",
+            "D": "120",
+            "E": "36"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "N = 120.",
+            "0.40 × 120 = 48. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "business-mathematics"
+      ],
+      "keywords": [
+        "percentage"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 7 – Business Mathematics",
+        "section": "7.1.1 Percentage",
+        "page": "154",
+        "pdf_page": 162,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q22",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 22,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If the cost price is 90% of the selling price, then what is the profit in percent?",
+      "options": {
+        "A": "10.11",
+        "B": "11.11",
+        "C": "12.11",
+        "D": "13.11",
+        "E": "14.11"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Let SP = 100, CP = 90. Profit = 10.",
+        "Profit % (on cost price) = 10/90 × 100 = 11.11 %. Answer: B."
+      ],
+      "tips": [
+        "Profit percentage is calculated on the cost price unless stated otherwise."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If the cost price is 80% of the selling price, the profit percent is",
+          "options": {
+            "A": "25",
+            "B": "20",
+            "C": "80",
+            "D": "12.5",
+            "E": "16"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "CP = 80, SP = 100, profit = 20.",
+            "20/80 × 100 = 25 %. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "business-mathematics"
+      ],
+      "keywords": [
+        "profit percent",
+        "cost price",
+        "selling price"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 7 – Business Mathematics",
+        "section": "7.3 Profit and Loss",
+        "page": "163",
+        "pdf_page": 171,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q23",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 23,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Tekle, Yonas and Ahmed started a business by investing some amount of money to share their profit based on the ratio of their investment. If Tekle, Yonas and Ahmed invested 120,000 Nakfa, 135,000 Nakfa and 150,000 Nakfa, respectively, for the business, then what is the share of Yonas (in Nakfa) if their annual profit is 56,700 Nakfa?",
+      "options": {
+        "A": "16,800",
+        "B": "18,900",
+        "C": "21,000",
+        "D": "23,000",
+        "E": "24,000"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Ratio 120,000 : 135,000 : 150,000 = 24 : 27 : 30 (sum 81).",
+        "Yonas's share = 27/81 × 56,700 = 18,900 Nakfa. Answer: B."
+      ],
+      "tips": [
+        "Check: Tekle 16,800 + Yonas 18,900 + Ahmed 21,000 = 56,700 ✓."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A and B invest 40,000 and 60,000 Nakfa. Profit 25,000 Nakfa is shared in the ratio of investment. B receives",
+          "options": {
+            "A": "15,000",
+            "B": "10,000",
+            "C": "12,500",
+            "D": "20,000",
+            "E": "16,000"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Ratio 2 : 3.",
+            "B = 3/5 × 25,000 = 15,000. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "business-mathematics"
+      ],
+      "keywords": [
+        "partnership",
+        "ratio",
+        "profit sharing"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 6 – Business Mathematics",
+        "section": "6.2 Partnership",
+        "page": "220",
+        "pdf_page": 228,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q24",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 24,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "A ladder of length 6 meters leans against a vertical wall so that the base of the ladder is 3 meters from the wall. Assume the wall is perpendicular to the ground. Then the angle between the ladder and the wall is",
+      "options": {
+        "A": "30°.",
+        "B": "45°.",
+        "C": "60°.",
+        "D": "90°.",
+        "E": "75°."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "The ladder is the hypotenuse (6 m); the distance from the wall (3 m) is opposite the angle θ at the wall.",
+        "sin θ = 3/6 = 1/2 → θ = 30°. (The ladder makes 60° with the ground.) Answer: A."
+      ],
+      "tips": [
+        "Read carefully whether the angle is with the wall or with the ground."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A 10 m ladder reaches 5 m up a vertical wall. The angle between the ladder and the ground is",
+          "options": {
+            "A": "30°",
+            "B": "45°",
+            "C": "60°",
+            "D": "90°",
+            "E": "75°"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "sin θ = 5/10 → θ = 30°.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "trigonometry"
+      ],
+      "keywords": [
+        "trigonometric ratios",
+        "sine",
+        "ladder problem"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 6 – Right Angled Triangle and Trigonometric Ratios",
+        "section": "6.3.1 Table of Trigonometric Ratios",
+        "page": "136",
+        "pdf_page": 144,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q25",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 25,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Given the sum of the first n terms of an arithmetic progression by Sₙ = n² + 2n, then the nth term is given by",
+      "options": {
+        "A": "5n − 2.",
+        "B": "5n − 8.",
+        "C": "2n + 1.",
+        "D": "5n + 8.",
+        "E": "3n + 1."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "aₙ = Sₙ − Sₙ₋₁ = (n² + 2n) − ((n − 1)² + 2(n − 1)) = n² + 2n − n² + 2n − 1 − 2n + 2 = 2n + 1.",
+        "Check: a₁ = S₁ = 3 = 2(1) + 1 ✓. Answer: C."
+      ],
+      "tips": [
+        "aₙ = Sₙ − Sₙ₋₁ for n ≥ 2 and a₁ = S₁."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If Sₙ = 3n² − n for an AP, then aₙ =",
+          "options": {
+            "A": "6n − 4",
+            "B": "6n − 1",
+            "C": "3n − 1",
+            "D": "6n + 2",
+            "E": "3n + 2"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "aₙ = 3n² − n − (3(n − 1)² − (n − 1)) = 6n − 4.",
+            "a₁ = S₁ = 2 ✓. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "sequences-series"
+      ],
+      "keywords": [
+        "arithmetic progression",
+        "sum of n terms",
+        "nth term"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Sequence and Series",
+        "section": "1.2 Arithmetic Progression",
+        "page": "9",
+        "pdf_page": 15,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q26",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 26,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The simplified form of (a⁻² − b⁻²)/(a⁻¹ − b⁻¹) is",
+      "stem_tex": "The simplified form of $\\dfrac{a^{-2}-b^{-2}}{a^{-1}-b^{-1}}$ is",
+      "options": {
+        "A": "ab/(a − b).",
+        "B": "ab/(a + b).",
+        "C": "(a + b)/(ab).",
+        "D": "(a − b)/(ab).",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Let p = a⁻¹ = 1/a and q = b⁻¹ = 1/b. Then (p² − q²)/(p − q) = p + q (for a ≠ b).",
+        "p + q = 1/a + 1/b = (a + b)/(ab). Answer: C."
+      ],
+      "tips": [
+        "Spot the difference of two squares before clearing fractions."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Simplify (x⁻² − 9)/(x⁻¹ + 3).",
+          "options": {
+            "A": "(1 − 3x)/x",
+            "B": "(1 + 3x)/x",
+            "C": "x/(1 − 3x)",
+            "D": "x − 3",
+            "E": "3 − x"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "(x⁻¹ − 3)(x⁻¹ + 3)/(x⁻¹ + 3) = x⁻¹ − 3.",
+            "= (1 − 3x)/x. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "negative exponents",
+        "difference of squares",
+        "simplification"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 5 – Exponential and Logarithmic Expressions",
+        "section": "5.1.7 Integral Exponents",
+        "page": "110",
+        "pdf_page": 118,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q27",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 27,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The solution set of the inequality 1/x < 3 is",
+      "stem_tex": "The solution set of the inequality $\\dfrac1x<3$ is",
+      "options": {
+        "A": "{x : x > 1/3}.",
+        "B": "{x : x < 1/3}.",
+        "C": "{x : x < 0 or x > 1/3}.",
+        "D": "{x : x > 0 or x < 1/3}.",
+        "E": "{x : 0 < x < 1/3}."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "1/x − 3 < 0 → (1 − 3x)/x < 0.",
+        "Critical points x = 0 and x = 1/3. Sign test: x < 0 → negative ✓; 0 < x < 1/3 → positive ✗; x > 1/3 → negative ✓.",
+        "Solution: x < 0 or x > 1/3. Answer: C."
+      ],
+      "tips": [
+        "Never multiply an inequality by x unless you know its sign – bring everything to one side instead."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Solve 2/x > 1.",
+          "options": {
+            "A": "{x : 0 < x < 2}",
+            "B": "{x : x < 2}",
+            "C": "{x : x > 2}",
+            "D": "{x : x < 0 or x > 2}",
+            "E": "{x : x > 0}"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "(2 − x)/x > 0.",
+            "Positive between the critical points 0 and 2 → 0 < x < 2. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "rational-functions"
+      ],
+      "keywords": [
+        "rational inequality",
+        "sign chart"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Rational Functions",
+        "section": "3.4.2 Solving Rational Inequalities",
+        "page": "133",
+        "pdf_page": 141,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q28",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 28,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The inverse of the function f = {(x, y): y = x² − 9, x < 0} is",
+      "stem_tex": "The inverse of $f=\\{(x,y): y=x^{2}-9,\\ x<0\\}$ is (B) $f^{-1}=\\{(x,y): y=-\\sqrt{x+9},\\ x\\ge -9\\}$",
+      "options": {
+        "A": "f⁻¹ = {(x, y): y = √(x + 9), x ≥ −9}.",
+        "B": "f⁻¹ = {(x, y): y = −√(x + 9), x ≥ −9}.",
+        "C": "f⁻¹ = {(x, y): y = −√(x − 9), x ≥ 0}.",
+        "D": "f⁻¹ = {(x, y): y = √(x − 9), x ≥ 0}.",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Swap x and y: x = y² − 9 with y < 0 → y² = x + 9 → y = −√(x + 9) (negative root because y < 0).",
+        "Domain of f⁻¹ = range of f = {x : x > −9}. Option B has the correct rule. Answer: B."
+      ],
+      "tips": [
+        "The restriction x < 0 on f becomes y < 0 on f⁻¹, which fixes the sign of the root."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Find the inverse of f(x) = x² + 1, x ≥ 0.",
+          "options": {
+            "A": "f⁻¹(x) = √(x − 1), x ≥ 1",
+            "B": "f⁻¹(x) = −√(x − 1), x ≥ 1",
+            "C": "f⁻¹(x) = √(x + 1), x ≥ −1",
+            "D": "f⁻¹(x) = √x − 1",
+            "E": "f⁻¹(x) = 1/(x² + 1)"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "x = y² + 1, y ≥ 0 → y = √(x − 1).",
+            "Domain of f⁻¹ = range of f = [1, ∞). Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "functions-inverse"
+      ],
+      "keywords": [
+        "inverse function",
+        "restricted domain",
+        "square root"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 1 – Foundations for Functions",
+        "section": "1.2.2 Inverse of a Function",
+        "page": "21",
+        "pdf_page": 27,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Strictly the domain of f⁻¹ is x > −9 (since x < 0 excludes y = −9 from the range of f); option B writes x ≥ −9. B is still clearly the intended answer."
+    },
+    {
+      "id": "math-2019-matric-p1-q29",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 29,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If 6 balls are drawn from a bag that contains 7 black and 5 white balls, then the probability that 4 of them will be black is",
+      "options": {
+        "A": "2/5.",
+        "B": "25/66.",
+        "C": "13/33.",
+        "D": "24/66.",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Total selections: C(12, 6) = 924.",
+        "Favourable: 4 black from 7 and 2 white from 5: C(7, 4) × C(5, 2) = 35 × 10 = 350.",
+        "P = 350/924 = 25/66. Answer: B."
+      ],
+      "tips": [
+        "'Exactly 4 black' out of 6 drawn means the other 2 are white."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Three balls are drawn from a bag with 4 red and 6 green balls. The probability that exactly 2 are red is",
+          "options": {
+            "A": "3/10",
+            "B": "1/5",
+            "C": "1/2",
+            "D": "2/5",
+            "E": "1/10"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "C(4, 2) × C(6, 1) / C(10, 3) = 36/120 = 3/10.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "probability"
+      ],
+      "keywords": [
+        "combinations",
+        "probability",
+        "drawing without replacement"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Descriptive Statistics and Probability",
+        "section": "2.5.6 Permutations and Combinations",
+        "page": "118",
+        "pdf_page": 124,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q30",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 30,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "In a geometric progression the third term is 24 and the sixth term is 192. Which of the following gives the 10th term?",
+      "options": {
+        "A": "3012",
+        "B": "3072",
+        "C": "3096",
+        "D": "3016",
+        "E": "3002"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "ar² = 24 and ar⁵ = 192 → r³ = 8 → r = 2, a = 6.",
+        "a₁₀ = ar⁹ = 6 × 512 = 3072. Answer: B."
+      ],
+      "tips": [
+        "Divide the two given terms to eliminate a."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In a GP, a₂ = 6 and a₅ = 162. Then a₆ =",
+          "options": {
+            "A": "486",
+            "B": "324",
+            "C": "243",
+            "D": "729",
+            "E": "162"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "r³ = 27 → r = 3, a = 2.",
+            "a₆ = 2 × 3⁵ = 486. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "sequences-series"
+      ],
+      "keywords": [
+        "geometric progression",
+        "common ratio",
+        "nth term"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Sequence and Series",
+        "section": "1.3 Geometric Progression",
+        "page": "19",
+        "pdf_page": 25,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q31",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 31,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "What will be the equation of the image of the line y = (1/2)x − 3 after a reflection in the x-axis?",
+      "stem_tex": "What will be the equation of the image of the line $y=\\tfrac12x-3$ after a reflection in the x-axis?",
+      "options": {
+        "A": "x − y + 3 = 0.",
+        "B": "2x + y − 6 = 0.",
+        "C": "x + 2y − 6 = 0.",
+        "D": "x + 2y + 6 = 0.",
+        "E": "x + y + 6 = 0."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Reflection in the x-axis maps (x, y) → (x, −y), so replace y by −y: −y = (1/2)x − 3.",
+        "y = −(1/2)x + 3 → 2y = −x + 6 → x + 2y − 6 = 0. Answer: C."
+      ],
+      "tips": [
+        "Reflection in x-axis: y → −y; in y-axis: x → −x."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The image of y = 2x + 1 under reflection in the y-axis is",
+          "options": {
+            "A": "y = −2x + 1",
+            "B": "y = 2x − 1",
+            "C": "y = −2x − 1",
+            "D": "y = x/2 + 1",
+            "E": "y = 2x + 1"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Replace x by −x: y = −2x + 1.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "transformations"
+      ],
+      "keywords": [
+        "reflection",
+        "x-axis",
+        "image of a line"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Dimensionality and Geometry of Location",
+        "section": "4.3.1 Reflection",
+        "page": "133",
+        "pdf_page": 139,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q32",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 32,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The inverse of the matrix A = [[3, 4], [2, 2]] (rows 3 4 and 2 2) is",
+      "stem_tex": "The inverse of $A=\\begin{pmatrix}3&4\\\\2&2\\end{pmatrix}$ is: (A) $\\begin{pmatrix}2&-2\\\\-4&3\\end{pmatrix}$ (B) $\\begin{pmatrix}2&-4\\\\-2&3\\end{pmatrix}$ (C) $\\begin{pmatrix}-1&2\\\\1&-1.5\\end{pmatrix}$ (D) $\\begin{pmatrix}-2&-4\\\\-2&3\\end{pmatrix}$ (E) $\\begin{pmatrix}2&3\\\\4&2\\end{pmatrix}$",
+      "options": {
+        "A": "[[2, −2], [−4, 3]]",
+        "B": "[[2, −4], [−2, 3]]",
+        "C": "[[−1, 2], [1, −1.5]]",
+        "D": "[[−2, −4], [−2, 3]]",
+        "E": "[[2, 3], [4, 2]]"
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "det A = 3·2 − 4·2 = −2.",
+        "A⁻¹ = (1/det A)·[[d, −b], [−c, a]] = (−1/2)·[[2, −4], [−2, 3]] = [[−1, 2], [1, −1.5]].",
+        "Check: A·A⁻¹ = [[−3 + 4, 6 − 6], [−2 + 2, 4 − 3]] = I ✓. Answer: C."
+      ],
+      "tips": [
+        "Swap the diagonal, change the signs of the off-diagonal, divide by the determinant.",
+        "Option B is the adjoint – it forgets to divide by det A."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The inverse of [[2, 1], [5, 3]] is",
+          "options": {
+            "A": "[[3, −1], [−5, 2]]",
+            "B": "[[3, 1], [5, 2]]",
+            "C": "[[−3, 1], [5, −2]]",
+            "D": "[[2, −1], [−5, 3]]",
+            "E": "[[1/2, 1], [1/5, 1/3]]"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "det = 6 − 5 = 1.",
+            "Inverse = [[3, −1], [−5, 2]]. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "matrices-determinants"
+      ],
+      "keywords": [
+        "inverse of a matrix",
+        "determinant",
+        "2×2 matrix"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 4 – Matrices and Determinants (2×2)",
+        "section": "4.1 Operations on Matrices (inverse of a matrix)",
+        "page": "165",
+        "pdf_page": 171,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q33",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 33,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The equation of the line that is perpendicular to the line x + 11y = 5 and has the same y-intercept as 3x − y = 36 is",
+      "options": {
+        "A": "11y − x − 36 = 0.",
+        "B": "11y + 11x + 36 = 0.",
+        "C": "3y − 11x − 36 = 0.",
+        "D": "y − 11x + 36 = 0.",
+        "E": "None of the above."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Slope of x + 11y = 5 is −1/11, so a perpendicular line has slope 11.",
+        "3x − y = 36 → y = 3x − 36, y-intercept −36.",
+        "y = 11x − 36 → y − 11x + 36 = 0. Answer: D."
+      ],
+      "tips": [
+        "Perpendicular slopes multiply to −1."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The line perpendicular to 2x + y = 4 with the same y-intercept as y = x + 3 is",
+          "options": {
+            "A": "x − 2y + 6 = 0",
+            "B": "2x − y + 3 = 0",
+            "C": "x + 2y − 6 = 0",
+            "D": "x − 2y − 6 = 0",
+            "E": "y = 2x + 3"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Slope 1/2, intercept 3: y = x/2 + 3.",
+            "→ x − 2y + 6 = 0. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "linear-functions-lines"
+      ],
+      "keywords": [
+        "perpendicular lines",
+        "slope",
+        "y-intercept"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 3 – Algebra and Geometry",
+        "section": "3.2 Straight Lines",
+        "page": "130",
+        "pdf_page": 136,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q34",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 34,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "A man travelled from a village to a town at a speed of 25 km/hr and walked back at a speed of 4 km/hr. If the whole journey took him 5 hours and 48 minutes, then the distance between the village and the town, in km, is",
+      "options": {
+        "A": "5.",
+        "B": "10.",
+        "C": "15.",
+        "D": "20.",
+        "E": "25."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "5 h 48 min = 5.8 h. d/25 + d/4 = 5.8.",
+        "Multiply by 100: 4d + 25d = 580 → 29d = 580 → d = 20 km. Answer: D."
+      ],
+      "tips": [
+        "Convert minutes to hours: 48/60 = 0.8."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A cyclist rides to a town at 15 km/h and walks back at 5 km/h. The round trip takes 4 hours. The distance is",
+          "options": {
+            "A": "15 km",
+            "B": "10 km",
+            "C": "20 km",
+            "D": "12 km",
+            "E": "30 km"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "d/15 + d/5 = 4 → 4d/15 = 4 → d = 15.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "linear-equations"
+      ],
+      "keywords": [
+        "distance speed time",
+        "word problem"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Foundation of Functions",
+        "section": "2.2.3 Solving Linear Equations with Fractional Coefficients",
+        "page": "33",
+        "pdf_page": 41,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q35",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 35,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If 15 workers can build a wall in 48 hours, how many workers will be required to do the same work in 30 hours?",
+      "options": {
+        "A": "12",
+        "B": "24",
+        "C": "30",
+        "D": "25",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Workers × hours is constant (inverse proportion): 15 × 48 = 720 worker-hours.",
+        "720 ÷ 30 = 24 workers. Answer: B."
+      ],
+      "tips": [
+        "Fewer hours → more workers (inverse variation)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "8 pumps empty a tank in 15 hours. How long will 12 pumps take?",
+          "options": {
+            "A": "10 hours",
+            "B": "22.5 hours",
+            "C": "12 hours",
+            "D": "9 hours",
+            "E": "20 hours"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "8 × 15 = 120 pump-hours.",
+            "120 ÷ 12 = 10 hours. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "business-mathematics"
+      ],
+      "keywords": [
+        "inverse proportion",
+        "work problem"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 2 – Foundation of Functions",
+        "section": "2.3.2 Inverse Variation",
+        "page": "40",
+        "pdf_page": 48,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q36",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 36,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "In △ABC, ∠C is a right angle, BF = BE and AD = AE (D on AC, F on BC and E on AB, as in the figure). Then x = ∠DEF =",
+      "image": "media/mathematics-2019-matric-q36-right-triangle-isosceles.jpg",
+      "image_alt": "Right triangle ABC with the right angle at C at the top, A bottom-left and B bottom-right. D is on AC, F on BC and E on AB; segments DE and EF are drawn and the angle DEF at E is marked x.",
+      "options": {
+        "A": "90°.",
+        "B": "45°.",
+        "C": "60°.",
+        "D": "30°.",
+        "E": "135°."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "△ADE is isosceles (AD = AE): ∠AED = (180° − A)/2.  △BEF is isosceles (BE = BF): ∠BEF = (180° − B)/2.",
+        "At E on the straight line AB: x = 180° − ∠AED − ∠BEF = 180° − 90° + A/2 − 90° + B/2 = (A + B)/2.",
+        "A + B = 90° (∠C = 90°), so x = 45°. Answer: B."
+      ],
+      "tips": [
+        "Angles on a straight line add to 180°; base angles of an isosceles triangle are equal."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In △ABC, ∠C = 60°. D is on AC, F on BC and E on AB with AD = AE and BE = BF. Then ∠DEF =",
+          "options": {
+            "A": "60°",
+            "B": "45°",
+            "C": "30°",
+            "D": "90°",
+            "E": "120°"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "x = (A + B)/2 = (180° − 60°)/2.",
+            "= 60°. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "geometric-reasoning"
+      ],
+      "keywords": [
+        "isosceles triangle",
+        "angle sum",
+        "angles on a straight line"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Geometric Patterns",
+        "section": "3.1.2 Sum of the Interior Angles of Polygons",
+        "page": "59",
+        "pdf_page": 65,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q37",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 37,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "In the figure, O is the center of a circle and ∠ABO = 60°. Then the measure of ∠ACB is",
+      "image": "media/mathematics-2019-matric-q37-circle-angle.jpg",
+      "image_alt": "Circle with centre O. Chord AB near the bottom, point C on the circle at the right; segments OA, OB, AC, BC drawn; the angle ABO at B is marked 60.",
+      "options": {
+        "A": "15°.",
+        "B": "30°.",
+        "C": "60°.",
+        "D": "120°.",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "OA = OB (radii), so △OAB is isosceles: ∠OAB = ∠OBA = 60°, hence ∠AOB = 60°.",
+        "∠ACB is an inscribed angle on the same arc AB (C on the major arc, on the same side of AB as O): ∠ACB = ½∠AOB = 30°. Answer: B."
+      ],
+      "tips": [
+        "An inscribed angle is half the central angle on the same arc."
+      ],
+      "similar_questions": [
+        {
+          "stem": "O is the centre of a circle, ∠OAB = 50°, and C is on the major arc AB. Then ∠ACB =",
+          "options": {
+            "A": "40°",
+            "B": "50°",
+            "C": "80°",
+            "D": "100°",
+            "E": "25°"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "∠AOB = 180° − 2(50°) = 80°.",
+            "∠ACB = 40°. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "circle-geometry"
+      ],
+      "keywords": [
+        "inscribed angle",
+        "central angle",
+        "isosceles triangle"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Geometric Patterns",
+        "section": "3.2.1 Angles in a Circle (inscribed and central angles)",
+        "page": "77-78",
+        "pdf_page": 83,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q38",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 38,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "What is the number of sides of a convex polygon whose sum of the measures of its interior angles is 1980°?",
+      "options": {
+        "A": "9",
+        "B": "12",
+        "C": "8",
+        "D": "13",
+        "E": "10"
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "(n − 2) × 180° = 1980° → n − 2 = 11 → n = 13. Answer: D."
+      ],
+      "tips": [
+        "Sum of interior angles of an n-gon = (n − 2) × 180°."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The interior angles of a convex polygon add up to 1440°. How many sides does it have?",
+          "options": {
+            "A": "10",
+            "B": "8",
+            "C": "12",
+            "D": "9",
+            "E": "11"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "n − 2 = 8.",
+            "n = 10. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "geometric-reasoning"
+      ],
+      "keywords": [
+        "polygon",
+        "interior angle sum"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Geometric Patterns",
+        "section": "3.1.2 Sum of the Interior Angles of Polygons",
+        "page": "59",
+        "pdf_page": 65,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q39",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 39,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Point A is 13 cm from the center of a circle O. The length of the tangent line drawn from A to T is 12 cm, as shown in the figure. Then the radius of the circle is",
+      "image": "media/mathematics-2019-matric-q39-tangent.jpg",
+      "image_alt": "Circle with centre O; radius OT drawn upward to the point of tangency T; tangent segment TA to an external point A on the right; segment OA joins the centre to A.",
+      "options": {
+        "A": "5 cm.",
+        "B": "10 cm.",
+        "C": "15 cm.",
+        "D": "20 cm.",
+        "E": "25 cm."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "A radius is perpendicular to the tangent at the point of contact, so △OTA is right-angled at T.",
+        "OT = √(13² − 12²) = √25 = 5 cm. Answer: A."
+      ],
+      "tips": [
+        "Tangent ⟂ radius → Pythagoras."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A tangent from a point 10 cm from the centre of a circle of radius 6 cm has length",
+          "options": {
+            "A": "8 cm",
+            "B": "4 cm",
+            "C": "16 cm",
+            "D": "√136 cm",
+            "E": "6 cm"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "√(10² − 6²) = 8.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "circle-geometry"
+      ],
+      "keywords": [
+        "tangent",
+        "radius",
+        "Pythagoras"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 3 – Geometric Patterns",
+        "section": "3.2.3 Properties of Tangents in Circles",
+        "page": "88",
+        "pdf_page": 94,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q40",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 40,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Quadrilateral PQRS is convex and PR ⊥ QS. If PR = 12 cm and QS = 16 cm, what is the area of quadrilateral PQRS?",
+      "image": "media/mathematics-2019-matric-q40-quadrilateral.jpg",
+      "image_alt": "Convex quadrilateral PQRS (P left, S top, R right, Q bottom) with diagonals PR (horizontal) and QS (vertical) crossing at right angles.",
+      "options": {
+        "A": "96 cm²",
+        "B": "192 cm²",
+        "C": "48 cm²",
+        "D": "66 cm²",
+        "E": "32 cm²"
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "The diagonals are perpendicular, so the quadrilateral splits into triangles with base PR and heights adding up to QS.",
+        "Area = ½ × PR × QS = ½ × 12 × 16 = 96 cm². Answer: A."
+      ],
+      "tips": [
+        "Area of any quadrilateral with perpendicular diagonals d₁, d₂ is ½d₁d₂ (kite, rhombus, square …)."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A rhombus has diagonals 10 cm and 24 cm. Its area is",
+          "options": {
+            "A": "120 cm²",
+            "B": "240 cm²",
+            "C": "60 cm²",
+            "D": "34 cm²",
+            "E": "130 cm²"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "½ × 10 × 24 = 120.",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "mensuration"
+      ],
+      "keywords": [
+        "area of quadrilateral",
+        "perpendicular diagonals"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Congruency and the Geometry of Size",
+        "section": "5.2.2 Area of Polygons",
+        "page": "177",
+        "pdf_page": 183,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q41",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 41,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "What is the area of the shaded region in the figure, where ABCD is a square of side 14 cm (four equal circles fit inside, each touching two sides and two other circles)?",
+      "image": "media/mathematics-2019-matric-q41-four-circles.jpg",
+      "image_alt": "Square ABCD shaded black with four equal white circles arranged two by two inside it, each circle touching two sides of the square and two neighbouring circles.",
+      "options": {
+        "A": "(196 − 14π) cm²",
+        "B": "(196 − 49π/2) cm²",
+        "C": "(196 − 49π) cm²",
+        "D": "(196 − 7π) cm²",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Two circles fit across each side, so each diameter is 7 cm and radius r = 3.5 cm.",
+        "Area of the four circles = 4π(3.5)² = 4π × 12.25 = 49π cm².",
+        "Shaded = 14² − 49π = (196 − 49π) cm² (≈ 42.06 cm²). Answer: C."
+      ],
+      "tips": [
+        "Notice that the total circle area 4πr² = π(2r)² = π × 7² does not depend on how many equal circles there are in the grid pattern."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A square of side 20 cm contains four equal circles arranged 2 × 2, each touching its neighbours and two sides. The area outside the circles is",
+          "options": {
+            "A": "(400 − 100π) cm²",
+            "B": "(400 − 25π) cm²",
+            "C": "(400 − 400π) cm²",
+            "D": "(400 − 50π) cm²",
+            "E": "(400 − 200π) cm²"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "r = 5 cm; circles = 4 × 25π = 100π.",
+            "400 − 100π. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "mensuration"
+      ],
+      "keywords": [
+        "area of circle",
+        "shaded region",
+        "square"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Congruency and the Geometry of Size",
+        "section": "5.2.3 Area and Perimeter of Sectors",
+        "page": "190",
+        "pdf_page": 196,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q42",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 42,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Let △ABC and △DEF be equilateral triangles. An altitude of △DEF has the same length as a side of △ABC. Then the area of △DEF = ____ of the area of △ABC.",
+      "options": {
+        "A": "1/3",
+        "B": "4/3",
+        "C": "2/√3",
+        "D": "2/3",
+        "E": "5/4"
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Let the side of △ABC be a. The altitude of △DEF is (√3/2)s = a, so s = 2a/√3.",
+        "Areas of equilateral triangles are proportional to the squares of their sides: (s/a)² = 4/3. Answer: B."
+      ],
+      "tips": [
+        "For similar figures, area ratio = (side ratio)²."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A square's diagonal equals the side of a second square. The area of the first square is ____ of the second.",
+          "options": {
+            "A": "1/2",
+            "B": "2",
+            "C": "1/√2",
+            "D": "√2",
+            "E": "1/4"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "side₁ = d/√2 with d = side₂.",
+            "Ratio = (1/√2)² = 1/2. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "similar-triangles"
+      ],
+      "keywords": [
+        "equilateral triangle",
+        "altitude",
+        "ratio of areas"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Similarity and the Geometry of Shape",
+        "section": "5.4.1 Areas of Similar Triangles",
+        "page": "194",
+        "pdf_page": 202,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q43",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 43,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If a translation takes the origin to the point (2, 6), then the image of the point (−1, 4) under this translation is",
+      "options": {
+        "A": "(3, 2).",
+        "B": "(2, 6).",
+        "C": "(1, 10).",
+        "D": "(−3, −2).",
+        "E": "(2, −3)."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The translation vector is (2, 6) − (0, 0) = (2, 6).",
+        "(−1, 4) → (−1 + 2, 4 + 6) = (1, 10). Answer: C."
+      ],
+      "tips": [
+        "A translation adds the same vector to every point."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A translation maps (1, −2) to (4, 3). The image of (0, 0) is",
+          "options": {
+            "A": "(3, 5)",
+            "B": "(5, 1)",
+            "C": "(−3, −5)",
+            "D": "(4, 3)",
+            "E": "(1, −2)"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Vector (3, 5).",
+            "Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "transformations"
+      ],
+      "keywords": [
+        "translation",
+        "image of a point"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 4 – Dimensionality and Geometry of Location",
+        "section": "4.3.2 Translations",
+        "page": "138",
+        "pdf_page": 144,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q44",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 44,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The total surface area of a right circular cone of height 8 cm and base radius 6 cm is",
+      "options": {
+        "A": "36π cm².",
+        "B": "60π cm².",
+        "C": "96π cm².",
+        "D": "120π cm².",
+        "E": "24π cm²."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Slant height l = √(8² + 6²) = 10 cm.",
+        "TSA = πr² + πrl = 36π + 60π = 96π cm². Answer: C."
+      ],
+      "tips": [
+        "60π (B) is only the curved (lateral) surface."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Find the total surface area of a cone with radius 5 cm and height 12 cm.",
+          "options": {
+            "A": "90π cm²",
+            "B": "65π cm²",
+            "C": "25π cm²",
+            "D": "100π cm²",
+            "E": "60π cm²"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "l = 13; TSA = 25π + 65π.",
+            "= 90π cm². Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "mensuration"
+      ],
+      "keywords": [
+        "cone",
+        "total surface area",
+        "slant height"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Congruency and the Geometry of Size",
+        "section": "5.3.4 Surface Areas and Volumes of Cones",
+        "page": "215",
+        "pdf_page": 221,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q45",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 45,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "In the figure, BD ⊥ AC and CE ⊥ AB (D on AC, E on AB, BD and CE meet at F). Then which of the following is not true?",
+      "image": "media/mathematics-2019-matric-q45-altitudes.jpg",
+      "image_alt": "Triangle ABC with A bottom-left, B bottom-right and C at the top. D on AC with BD perpendicular to AC; E on AB with CE perpendicular to AB; BD and CE intersect at F.",
+      "options": {
+        "A": "△AEC ~ △ADB",
+        "B": "△BEF ~ △CDF",
+        "C": "∠A + ∠B + ∠C = 180°",
+        "D": "AC/AB = CE/BD",
+        "E": "None of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "A: △AEC and △ADB are right-angled (at E and D) and share ∠A → similar (AA) ✓.",
+        "B: △BEF and △CDF are right-angled (at E and D) with vertical angles at F → similar ✓.  C: angle sum of a triangle ✓.",
+        "D: from △AEC ~ △ADB, AE/AD = EC/DB = AC/AB, so AC/AB = CE/BD ✓.",
+        "All four statements are true. Answer: E."
+      ],
+      "tips": [
+        "Write the correspondence in order (A↔A, E↔D, C↔B) before forming ratios."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In △PQR the altitudes QS (S on PR) and RT (T on PQ) are drawn. Which similarity is correct?",
+          "options": {
+            "A": "△PTR ~ △PSQ",
+            "B": "△PTR ~ △QSP",
+            "C": "△PQR ~ △QSR",
+            "D": "△QTR ~ △PSQ",
+            "E": "none"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Both are right-angled (at T and S) and share ∠P.",
+            "△PTR ~ △PSQ. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "similar-triangles"
+      ],
+      "keywords": [
+        "AA similarity",
+        "altitudes",
+        "right triangles"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Similarity and the Geometry of Shape",
+        "section": "5.2.3 Methods for Similarity of Triangles",
+        "page": "180",
+        "pdf_page": 188,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q46",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 46,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The sides of a triangle are 3 cm, 4 cm and 5 cm. The area of the triangle formed by joining the mid-points of the sides of the triangle, in square cm, is",
+      "options": {
+        "A": "7.5.",
+        "B": "1.5.",
+        "C": "3.",
+        "D": "6.",
+        "E": "9."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "3² + 4² = 5², so the triangle is right-angled with area ½ × 3 × 4 = 6 cm².",
+        "The mid-point triangle has sides half as long (mid-point theorem), so its area is (½)² = ¼ of the original: 6/4 = 1.5 cm². Answer: B."
+      ],
+      "tips": [
+        "The four small triangles formed by the mid-segments are congruent."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The mid-points of the sides of a triangle of area 40 cm² are joined. The area of the new triangle is",
+          "options": {
+            "A": "10 cm²",
+            "B": "20 cm²",
+            "C": "5 cm²",
+            "D": "13.3 cm²",
+            "E": "160 cm²"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "¼ × 40.",
+            "= 10 cm². Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "similar-triangles"
+      ],
+      "keywords": [
+        "mid-point theorem",
+        "area ratio",
+        "right triangle"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Similarity and the Geometry of Shape",
+        "section": "5.4.1 Areas of Similar Triangles",
+        "page": "194",
+        "pdf_page": 202,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q47",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 47,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The equation of the circle whose radius is 2√5 and whose center is at (4, 5) is",
+      "options": {
+        "A": "x² + y² − 8x + 5y + 11 = 0.",
+        "B": "x² + y² − 8x + 10y − 1 = 0.",
+        "C": "x² + y² − 8x − 10y + 21 = 0.",
+        "D": "x² + y² − 8x − 10y + 1 = 0.",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "(x − 4)² + (y − 5)² = (2√5)² = 20.",
+        "x² − 8x + 16 + y² − 10y + 25 − 20 = 0 → x² + y² − 8x − 10y + 21 = 0. Answer: C."
+      ],
+      "tips": [
+        "(x − h)² + (y − k)² = r²; the constant term is h² + k² − r²."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The circle with centre (−1, 2) and radius 3 is",
+          "options": {
+            "A": "x² + y² + 2x − 4y − 4 = 0",
+            "B": "x² + y² − 2x + 4y − 4 = 0",
+            "C": "x² + y² + 2x − 4y + 4 = 0",
+            "D": "x² + y² + 2x + 4y − 4 = 0",
+            "E": "x² + y² − 9 = 0"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "(x + 1)² + (y − 2)² = 9.",
+            "x² + y² + 2x − 4y + 5 − 9 = 0. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "circle-equation"
+      ],
+      "keywords": [
+        "equation of a circle",
+        "centre and radius"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 3 – Algebra and Geometry",
+        "section": "3.3 Circle (standard equation of a circle)",
+        "page": "151-152",
+        "pdf_page": 157,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q48",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 48,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "The ratio of the radius of the circumscribed circle of a regular hexagon to the radius of the circumscribed circle of an equilateral triangle, having equal perimeters, is",
+      "options": {
+        "A": "2/√3.",
+        "B": "1/√3.",
+        "C": "0.5.",
+        "D": "3/√3.",
+        "E": "None of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Let the common perimeter be 6a. Hexagon side = a; its circumradius equals its side: R₁ = a.",
+        "Triangle side = 2a; circumradius R₂ = side/√3 = 2a/√3.",
+        "R₁/R₂ = a ÷ (2a/√3) = √3/2 ≈ 0.866, which is not among A–D. Answer: E."
+      ],
+      "tips": [
+        "Circumradius of a regular hexagon = side; of an equilateral triangle = side/√3."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A regular hexagon and a square have equal perimeters 24 cm. The ratio of the hexagon's circumradius to the square's circumradius is",
+          "options": {
+            "A": "1",
+            "B": "√2",
+            "C": "2/3",
+            "D": "3/2",
+            "E": "2√2/3"
+          },
+          "answer": "E",
+          "explanation_steps": [
+            "Hexagon side 4 → R = 4; square side 6 → R = 6/√2 = 3√2.",
+            "Ratio 4/(3√2) = 2√2/3 ≈ 0.943. Answer: E."
+          ]
+        }
+      ],
+      "topics": [
+        "mensuration"
+      ],
+      "keywords": [
+        "regular hexagon",
+        "equilateral triangle",
+        "circumradius"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Congruency and the Geometry of Size",
+        "section": "5.2.1 Perimeter of Polygons",
+        "page": "171",
+        "pdf_page": 177,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "The correct ratio √3/2 is not listed in A–D, so E (None of the above) is keyed. Option A (2/√3) is the inverse ratio (triangle to hexagon) – a teacher may want to check the intended key."
+    },
+    {
+      "id": "math-2019-matric-p1-q49",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 49,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "Let △STU be similar to △QPR. If ST = 3 cm, TU = 7 cm and QP = 12 cm, then PR = ____ cm.",
+      "options": {
+        "A": "21",
+        "B": "28",
+        "C": "24",
+        "D": "36",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Correspondence S↔Q, T↔P, U↔R, so ST ↔ QP and TU ↔ PR.",
+        "Scale factor QP/ST = 12/3 = 4 → PR = 4 × 7 = 28 cm. Answer: B."
+      ],
+      "tips": [
+        "The order of letters in a similarity statement tells you which sides correspond."
+      ],
+      "similar_questions": [
+        {
+          "stem": "△ABC ~ △XYZ with AB = 5, BC = 8 and XY = 15. Then YZ =",
+          "options": {
+            "A": "24",
+            "B": "40/3",
+            "C": "25",
+            "D": "16",
+            "E": "12"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "k = 15/5 = 3.",
+            "YZ = 3 × 8 = 24. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "similar-triangles"
+      ],
+      "keywords": [
+        "similar triangles",
+        "corresponding sides",
+        "scale factor"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 5 – Similarity and the Geometry of Shape",
+        "section": "5.2.1 Definition of Similarity",
+        "page": "172",
+        "pdf_page": 180,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p1-q50",
+      "exam_id": "math-2019-matric",
+      "part": 1,
+      "number": 50,
+      "type": "mcq",
+      "marks": 1.5,
+      "stem": "If quadrilateral ABCD is a trapezoid (AB ∥ CD, with diagonals AD and BC meeting at O as in the figure), then which of the following statements is false?",
+      "image": "media/mathematics-2019-matric-q50-trapezoid.jpg",
+      "image_alt": "Trapezoid with the short side AB at the top (A left, B right) and the long side CD at the bottom (C left, D right); segments AC and BD are the legs, and AD and BC are the diagonals crossing at O.",
+      "options": {
+        "A": "AO/DO = OB/OC.",
+        "B": "If the non-parallel sides are congruent, then ∠C ≅ ∠D.",
+        "C": "If the non-parallel sides are congruent, then the diagonals are congruent.",
+        "D": "△ACD ≅ △BDC.",
+        "E": "None of the above."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "AB ∥ CD gives △AOB ~ △DOC, so AO/DO = BO/CO = AB/DC – A is true.",
+        "In an isosceles trapezoid (AC = BD) the base angles are equal and the diagonals are equal – B and C are true.",
+        "△ACD ≅ △BDC needs AC = BD and AD = BC, which hold only for an isosceles trapezoid; for a general trapezoid D is false. Answer: D."
+      ],
+      "tips": [
+        "A statement that is true only in a special case is 'false' as a general statement."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In trapezoid PQRS with PQ ∥ SR, the diagonals meet at O. If PQ = 6, SR = 9 and PO = 4, then OR =",
+          "options": {
+            "A": "6",
+            "B": "4",
+            "C": "13.5",
+            "D": "8/3",
+            "E": "9"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "△POQ ~ △ROS with ratio 6 : 9.",
+            "OR = 4 × 9/6 = 6. Answer: A."
+          ]
+        }
+      ],
+      "topics": [
+        "similar-triangles"
+      ],
+      "keywords": [
+        "trapezoid",
+        "isosceles trapezoid",
+        "similar triangles",
+        "congruence"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Congruency and the Geometry of Size",
+        "section": "5.1.3 Quadrilaterals and Congruency",
+        "page": "162",
+        "pdf_page": 168,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p2-q01",
+      "exam_id": "math-2019-matric",
+      "part": 2,
+      "number": 1,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 2,
+      "stem": "A1. If the 9th term of an arithmetic progression is 99 and the 99th term is 9, then the 108th term is ______.",
+      "options": null,
+      "answer": "0",
+      "explanation_steps": [
+        "a + 8d = 99 and a + 98d = 9 → 90d = −90 → d = −1, a = 107.",
+        "a₁₀₈ = a + 107d = 107 − 107 = 0."
+      ],
+      "marking_points": [
+        "Correct answer: 0 (2 points)"
+      ],
+      "tips": [
+        "General fact: if aₘ = n and aₙ = m, then aₘ₊ₙ = 0."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The 5th term of an AP is 20 and the 20th term is 5. Find the 25th term.",
+          "options": null,
+          "answer": "0",
+          "explanation_steps": [
+            "a + 4d = 20, a + 19d = 5 → d = −1, a = 24.",
+            "a₂₅ = 24 − 24 = 0."
+          ]
+        }
+      ],
+      "topics": [
+        "sequences-series"
+      ],
+      "keywords": [
+        "arithmetic progression",
+        "nth term"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 1 – Sequence and Series",
+        "section": "1.2 Arithmetic Progression",
+        "page": "9",
+        "pdf_page": 15,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p2-q02",
+      "exam_id": "math-2019-matric",
+      "part": 2,
+      "number": 2,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 2,
+      "stem": "A2. The simplified form of √50 + √54 − √18 − √24 is ______.",
+      "stem_tex": "A2. The simplified form of $\\sqrt{50}+\\sqrt{54}-\\sqrt{18}-\\sqrt{24}$ is ______.",
+      "options": null,
+      "answer": "2√2 + √6",
+      "explanation_steps": [
+        "√50 = 5√2, √54 = 3√6, √18 = 3√2, √24 = 2√6.",
+        "5√2 − 3√2 + 3√6 − 2√6 = 2√2 + √6."
+      ],
+      "marking_points": [
+        "Correct answer: 2√2 + √6 (2 points)"
+      ],
+      "tips": [
+        "Take out the largest perfect-square factor, then collect like surds."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Simplify √75 − √12 + √8.",
+          "options": null,
+          "answer": "3√3 + 2√2",
+          "explanation_steps": [
+            "5√3 − 2√3 + 2√2 = 3√3 + 2√2."
+          ]
+        }
+      ],
+      "topics": [
+        "absolute-value-radicals"
+      ],
+      "keywords": [
+        "surds",
+        "simplifying radicals"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 5 – Exponential and Logarithmic Expressions",
+        "section": "5.1.8 Expressing Exponentials as Radicals",
+        "page": "112",
+        "pdf_page": 120,
+        "verified_in_text": false,
+        "note": "Simplifying and adding surds is not a separate section in the G9–G12 books; nearest section on radicals."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p2-q03",
+      "exam_id": "math-2019-matric",
+      "part": 2,
+      "number": 3,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 2,
+      "stem": "A3. If the volume of a sphere is equal to its surface area, then the radius of the sphere is ______.",
+      "options": null,
+      "answer": "3 units",
+      "explanation_steps": [
+        "(4/3)πr³ = 4πr² → r/3 = 1 (r ≠ 0) → r = 3."
+      ],
+      "marking_points": [
+        "Correct answer: 3 units (2 points)"
+      ],
+      "tips": [
+        "Divide both sides by 4πr²."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The volume of a cube equals its total surface area. Find the edge length.",
+          "options": null,
+          "answer": "6 units",
+          "explanation_steps": [
+            "a³ = 6a² → a = 6."
+          ]
+        }
+      ],
+      "topics": [
+        "mensuration"
+      ],
+      "keywords": [
+        "sphere",
+        "volume",
+        "surface area"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Congruency and the Geometry of Size",
+        "section": "5.3.5 Surface Areas and Volumes of Spheres",
+        "page": "219",
+        "pdf_page": 225,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p2-q04",
+      "exam_id": "math-2019-matric",
+      "part": 2,
+      "number": 4,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 2,
+      "stem": "A4. The mean weight of n boys is 53 kg. If Petros, who weighs 73 kg, is included, the mean becomes 55 kg. Then the number of boys is ______.",
+      "options": null,
+      "answer": "n = 9",
+      "explanation_steps": [
+        "Total before: 53n. After: 53n + 73 = 55(n + 1).",
+        "53n + 73 = 55n + 55 → 2n = 18 → n = 9."
+      ],
+      "marking_points": [
+        "Correct answer: n = 9 (2 points)"
+      ],
+      "tips": [
+        "The question asks for n (the original number of boys); with Petros there are 10."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The mean of n numbers is 20. Adding the number 38 raises the mean to 22. Find n.",
+          "options": null,
+          "answer": "n = 8",
+          "explanation_steps": [
+            "20n + 38 = 22(n + 1) → 2n = 16 → n = 8."
+          ]
+        }
+      ],
+      "topics": [
+        "statistics"
+      ],
+      "keywords": [
+        "mean",
+        "adding an observation"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Descriptive Statistics and Probability",
+        "section": "2.4 Statistical Analysis of Ungrouped Data",
+        "page": "78",
+        "pdf_page": 84,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": "Some candidates may give 10 (the number of boys including Petros); the question asks for n, so 9 is keyed."
+    },
+    {
+      "id": "math-2019-matric-p2-q05",
+      "exam_id": "math-2019-matric",
+      "part": 2,
+      "number": 5,
+      "section": "A. Completion",
+      "type": "workout",
+      "marks": 2,
+      "stem": "A5. The simple interest on 68,000 Nakfa at a rate of 16⅔ % for 9 months is ______.",
+      "stem_tex": "A5. The simple interest on 68{,}000 Nakfa at a rate of $16\\tfrac{2}{3}\\%$ for 9 months is ______.",
+      "options": null,
+      "answer": "8,500 Nakfa",
+      "explanation_steps": [
+        "I = P × r × t = 68,000 × (50/3)/100 × 9/12.",
+        "= 68,000 × 1/6 × 3/4 = 8,500 Nakfa."
+      ],
+      "marking_points": [
+        "Correct answer: 8,500 Nakfa (2 points)"
+      ],
+      "tips": [
+        "16⅔ % = 1/6; 9 months = 3/4 year."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Find the simple interest on 24,000 Nakfa at 12½ % per year for 8 months.",
+          "options": null,
+          "answer": "2,000 Nakfa",
+          "explanation_steps": [
+            "24,000 × 1/8 × 2/3 = 2,000."
+          ]
+        }
+      ],
+      "topics": [
+        "business-mathematics"
+      ],
+      "keywords": [
+        "simple interest"
+      ],
+      "textbook_ref": {
+        "grade": 9,
+        "unit": "Unit 7 – Business Mathematics",
+        "section": "7.4 Simple Interest",
+        "page": "165",
+        "pdf_page": 173,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p2-q06",
+      "exam_id": "math-2019-matric",
+      "part": 2,
+      "number": 6,
+      "section": "B. Work out",
+      "type": "workout",
+      "marks": 5,
+      "stem": "B1. The following table consists of scores obtained in a class quiz out of 10.\nScore: 1 2 3 4 5 6 7 8 9\nFrequency (# students): 1 2 1 1 2 2 5 3 3\n1.1 Find a) the mode, b) the median and c) the mean. (2 points)\n1.2 Find the standard deviation. (2 points)\n1.3 If a student is selected at random from the class, what is the probability that the chosen student gets a pass mark (5 or greater than 5)? (1 point)",
+      "stem_tables": [
+        {
+          "title": "Scores in a class quiz (out of 10)",
+          "kind": "data",
+          "columns": [
+            "Score",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "rows": [
+            [
+              "Frequency (# students)",
+              "1",
+              "2",
+              "1",
+              "1",
+              "2",
+              "2",
+              "5",
+              "3",
+              "3"
+            ]
+          ],
+          "align": [
+            "left",
+            "right",
+            "right",
+            "right",
+            "right",
+            "right",
+            "right",
+            "right",
+            "right",
+            "right"
+          ]
+        }
+      ],
+      "options": null,
+      "answer": "1.1 a) Mode = 7; b) median = 7; c) mean = 120/20 = 6.  1.2 σ = √(116/20) = √5.8 ≈ 2.41.  1.3 P(score ≥ 5) = 15/20 = 3/4.",
+      "subparts": [
+        {
+          "label": "1.1",
+          "marks": 2,
+          "question": "Mode, median and mean",
+          "answer": "Mode 7; median 7; mean 6",
+          "steps": [
+            "Highest frequency; 10th and 11th values; Σfx/N = 120/20."
+          ]
+        },
+        {
+          "label": "1.2",
+          "marks": 2,
+          "question": "Standard deviation",
+          "answer": "σ = √5.8 ≈ 2.41 (sample formula: √(116/19) ≈ 2.47)",
+          "steps": [
+            "Σf(x − x̄)² = 116; divide by N = 20 (textbook)."
+          ]
+        },
+        {
+          "label": "1.3",
+          "marks": 1,
+          "question": "Probability of a pass mark",
+          "answer": "15/20 = 3/4",
+          "steps": [
+            "15 students scored 5 or more."
+          ]
+        }
+      ],
+      "answer_tables": [
+        {
+          "title": "Working table (N = 20)",
+          "kind": "calculation",
+          "columns": [
+            "x",
+            "f",
+            "fx",
+            "x − x̄",
+            "f(x − x̄)²"
+          ],
+          "rows": [
+            [
+              "1",
+              "1",
+              "1",
+              "-5",
+              "25"
+            ],
+            [
+              "2",
+              "2",
+              "4",
+              "-4",
+              "32"
+            ],
+            [
+              "3",
+              "1",
+              "3",
+              "-3",
+              "9"
+            ],
+            [
+              "4",
+              "1",
+              "4",
+              "-2",
+              "4"
+            ],
+            [
+              "5",
+              "2",
+              "10",
+              "-1",
+              "2"
+            ],
+            [
+              "6",
+              "2",
+              "12",
+              "0",
+              "0"
+            ],
+            [
+              "7",
+              "5",
+              "35",
+              "1",
+              "5"
+            ],
+            [
+              "8",
+              "3",
+              "24",
+              "2",
+              "12"
+            ],
+            [
+              "9",
+              "3",
+              "27",
+              "3",
+              "27"
+            ],
+            [
+              "Total",
+              "20",
+              "120",
+              "",
+              "116"
+            ]
+          ],
+          "align": [
+            "left",
+            "right",
+            "right",
+            "right",
+            "right"
+          ],
+          "row_styles": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "total"
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "N = 1 + 2 + 1 + 1 + 2 + 2 + 5 + 3 + 3 = 20.",
+        "Mode: the score with the highest frequency (5 students) is 7.",
+        "Median: average of the 10th and 11th scores. Cumulative frequencies 1, 3, 4, 5, 7, 9, 14, … – both the 10th and 11th scores are 7, so the median is 7.",
+        "Mean: Σfx = 1 + 4 + 3 + 4 + 10 + 12 + 35 + 24 + 27 = 120; x̄ = 120/20 = 6.",
+        "Standard deviation (textbook population formula σ = √(Σf(x − x̄)²/N)): Σf(x − x̄)² = 25 + 32 + 9 + 4 + 2 + 0 + 5 + 12 + 27 = 116; σ² = 116/20 = 5.8; σ = √5.8 ≈ 2.41.",
+        "Pass (score ≥ 5): 2 + 2 + 5 + 3 + 3 = 15 students; P = 15/20 = 3/4 = 0.75."
+      ],
+      "marking_points": [
+        "1.1: mode 7 (0.5), median 7 (0.5 + working), mean 6 (1).",
+        "1.2: Σf(x − x̄)² = 116 (1); σ = √5.8 ≈ 2.41 (1). Accept √(116/19) ≈ 2.47 if the sample formula is used consistently.",
+        "1.3: 15/20 = 3/4 (1)."
+      ],
+      "tips": [
+        "Build a table with columns x, f, fx, (x − x̄)² f to avoid arithmetic slips.",
+        "With an even N the median is the mean of the two middle values."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For the data 2, 4, 4, 5, 7, 8, find the mean and the (population) standard deviation.",
+          "options": null,
+          "answer": "Mean = 5; σ = 2",
+          "explanation_steps": [
+            "Σx = 30, x̄ = 30/6 = 5.",
+            "Σ(x − 5)² = 9 + 1 + 1 + 0 + 4 + 9 = 24 → σ = √(24/6) = √4 = 2."
+          ]
+        }
+      ],
+      "topics": [
+        "statistics",
+        "probability"
+      ],
+      "keywords": [
+        "mode",
+        "median",
+        "mean",
+        "standard deviation",
+        "probability"
+      ],
+      "textbook_ref": {
+        "grade": 12,
+        "unit": "Unit 2 – Descriptive Statistics and Probability",
+        "section": "2.4 Statistical Analysis of Ungrouped Data",
+        "page": "78-92",
+        "pdf_page": 84,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [
+        {
+          "grade": 12,
+          "unit": "Unit 2 – Descriptive Statistics and Probability",
+          "section": "2.5 Probability",
+          "page": "93",
+          "pdf_page": 99,
+          "verified_in_text": true
+        }
+      ],
+      "confidence": "high",
+      "review_flag": "The textbook uses the population standard deviation (divide by N), giving ≈ 2.41; a sample SD (divide by N − 1) gives ≈ 2.47 – teachers may accept either."
+    },
+    {
+      "id": "math-2019-matric-p2-q07",
+      "exam_id": "math-2019-matric",
+      "part": 2,
+      "number": 7,
+      "section": "B. Work out",
+      "type": "workout",
+      "marks": 3,
+      "stem": "B2. Given a regular square pyramid with a height of 6 cm and a slant height of 10 cm, find the\n2.1 lateral area of the square pyramid. (1 point)\n2.2 total surface area of the square pyramid. (1 point)\n2.3 volume of the pyramid. (1 point)",
+      "options": null,
+      "answer": "Half the base edge = √(10² − 6²) = 8 cm, so the base edge is 16 cm. 2.1 Lateral area = 320 cm². 2.2 Total surface area = 576 cm². 2.3 Volume = 512 cm³.",
+      "subparts": [
+        {
+          "label": "2.1",
+          "marks": 1,
+          "question": "Lateral area",
+          "answer": "320 cm²",
+          "steps": [
+            "Base edge 16 cm; 4 × ½ × 16 × 10."
+          ]
+        },
+        {
+          "label": "2.2",
+          "marks": 1,
+          "question": "Total surface area",
+          "answer": "576 cm²",
+          "steps": [
+            "320 + 256."
+          ]
+        },
+        {
+          "label": "2.3",
+          "marks": 1,
+          "question": "Volume",
+          "answer": "512 cm³",
+          "steps": [
+            "⅓ × 256 × 6."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "The height (6), the slant height (10) and half the base edge form a right triangle: half-edge = √(100 − 36) = 8 cm → base edge a = 16 cm.",
+        "Lateral area = 4 × ½ × a × slant height = 4 × ½ × 16 × 10 = 320 cm².",
+        "Total surface area = lateral area + base = 320 + 16² = 320 + 256 = 576 cm².",
+        "Volume = ⅓ × base area × height = ⅓ × 256 × 6 = 512 cm³."
+      ],
+      "marking_points": [
+        "Finding the base edge 16 cm is needed for all parts.",
+        "2.1: 320 cm² (1).",
+        "2.2: 576 cm² (1).",
+        "2.3: 512 cm³ (1)."
+      ],
+      "tips": [
+        "The slant height is measured on a face, from the apex to the midpoint of a base edge."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A regular square pyramid has base edge 10 cm and height 12 cm. Find its slant height and total surface area.",
+          "options": null,
+          "answer": "Slant height 13 cm; TSA = 360 cm²",
+          "explanation_steps": [
+            "l = √(12² + 5²) = 13.",
+            "TSA = 100 + 4 × ½ × 10 × 13 = 100 + 260 = 360 cm²."
+          ]
+        }
+      ],
+      "topics": [
+        "mensuration"
+      ],
+      "keywords": [
+        "square pyramid",
+        "lateral area",
+        "total surface area",
+        "volume"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Congruency and the Geometry of Size",
+        "section": "5.3.3 Surface Areas and Volumes of Pyramids",
+        "page": "210",
+        "pdf_page": 216,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p2-q08",
+      "exam_id": "math-2019-matric",
+      "part": 2,
+      "number": 8,
+      "section": "B. Work out",
+      "type": "workout",
+      "marks": 4,
+      "stem": "B3. Given the rational function f(x) = (3x − 6)/(x − 4), then\n3.1 find its domain and range. (1 point)\n3.2 find its asymptotes. (1 point)\n3.3 sketch its graph. (2 points)",
+      "stem_tex": "B3. Given the rational function $f(x)=\\dfrac{3x-6}{x-4}$: 3.1 find its domain and range; 3.2 find its asymptotes; 3.3 sketch its graph.",
+      "options": null,
+      "answer": "3.1 Domain {x ∈ ℝ : x ≠ 4}; range {y ∈ ℝ : y ≠ 3}. 3.2 Vertical asymptote x = 4; horizontal asymptote y = 3. 3.3 Hyperbola with intercepts (2, 0) and (0, 3/2), lying in the upper-right and lower-left regions formed by the asymptotes.",
+      "subparts": [
+        {
+          "label": "3.1",
+          "marks": 1,
+          "question": "Domain and range",
+          "answer": "Domain ℝ \\ {4}; range ℝ \\ {3}",
+          "steps": [
+            "f(x) = 3 + 6/(x − 4)."
+          ]
+        },
+        {
+          "label": "3.2",
+          "marks": 1,
+          "question": "Asymptotes",
+          "answer": "VA x = 4; HA y = 3",
+          "steps": [
+            "Denominator zero; leading coefficients."
+          ]
+        },
+        {
+          "label": "3.3",
+          "marks": 2,
+          "question": "Sketch",
+          "answer": "Two branches about the asymptotes x = 4, y = 3 through (2, 0) and (0, 1.5)",
+          "steps": [
+            "Plot intercepts and a few points on each side of x = 4."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "Domain: x − 4 ≠ 0 → x ≠ 4.",
+        "Write f(x) = 3 + 6/(x − 4). Since 6/(x − 4) is never 0, f(x) ≠ 3; every other value is taken → range ℝ \\ {3}.",
+        "Vertical asymptote x = 4 (denominator zero, numerator 6 ≠ 0). Horizontal asymptote y = 3 (ratio of leading coefficients 3/1).",
+        "Intercepts: f(x) = 0 → x = 2, point (2, 0); f(0) = −6/−4 = 3/2, point (0, 1.5).",
+        "Extra points: f(5) = 9, f(6) = 6, f(3) = −3, f(−2) = 2. For x > 4 the curve is above y = 3; for x < 4 it is below y = 3.",
+        "Sketch: dashed lines x = 4 and y = 3; the right branch comes down from +∞ near x = 4 towards y = 3; the left branch passes through (0, 1.5) and (2, 0) and falls to −∞ as x → 4⁻."
+      ],
+      "marking_points": [
+        "3.1: domain (0.5), range (0.5).",
+        "3.2: x = 4 (0.5), y = 3 (0.5).",
+        "3.3: asymptotes drawn (0.5), intercepts (0.5), both branches correct in shape and position (1)."
+      ],
+      "tips": [
+        "Rewrite as a constant plus a proper fraction to read off the horizontal asymptote and the range."
+      ],
+      "similar_questions": [
+        {
+          "stem": "For g(x) = (2x + 1)/(x + 3), find the domain, range and asymptotes.",
+          "options": null,
+          "answer": "Domain x ≠ −3; range y ≠ 2; VA x = −3; HA y = 2",
+          "explanation_steps": [
+            "g(x) = 2 − 5/(x + 3).",
+            "So g(x) ≠ 2; x ≠ −3."
+          ]
+        }
+      ],
+      "topics": [
+        "rational-functions"
+      ],
+      "keywords": [
+        "rational function",
+        "domain",
+        "range",
+        "asymptotes",
+        "graph"
+      ],
+      "textbook_ref": {
+        "grade": 11,
+        "unit": "Unit 3 – Rational Functions",
+        "section": "3.2.2 Asymptotes of Rational Functions",
+        "page": "87",
+        "pdf_page": 95,
+        "verified_in_text": false,
+        "note": "G11 PDF text layer is not machine-readable (font encoding); section/page from the table of contents."
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    },
+    {
+      "id": "math-2019-matric-p2-q09",
+      "exam_id": "math-2019-matric",
+      "part": 2,
+      "number": 9,
+      "section": "B. Work out",
+      "type": "workout",
+      "marks": 3,
+      "stem": "B4. In the figure, MP ≅ NQ and ∠KPQ ≅ ∠KQP (M, P, Q, N collinear in that order; K is the apex). Show that △MNK is an isosceles triangle. (3 points)",
+      "image": "media/mathematics-2019-matric-p2-q9-isosceles.jpg",
+      "image_alt": "Triangle MNK with base MN; points P and Q on MN (order M, P, Q, N); segments KP and KQ drawn from the apex K.",
+      "options": null,
+      "answer": "Since ∠KPQ ≅ ∠KQP, △KPQ is isosceles, so KP ≅ KQ. The angles ∠KPM and ∠KQN are supplements of the equal angles ∠KPQ and ∠KQP, so ∠KPM ≅ ∠KQN. With MP ≅ NQ, △KPM ≅ △KQN (SAS). Hence KM ≅ KN (CPCTC), so △MNK is isosceles.",
+      "subparts": [
+        {
+          "label": "4",
+          "marks": 3,
+          "question": "Proof that KM ≅ KN",
+          "answer": "KP ≅ KQ; ∠KPM ≅ ∠KQN; △KPM ≅ △KQN (SAS) ⇒ KM ≅ KN",
+          "steps": [
+            "See steps."
+          ]
+        }
+      ],
+      "explanation_steps": [
+        "1. ∠KPQ ≅ ∠KQP (given) ⇒ KP ≅ KQ (sides opposite equal angles).",
+        "2. ∠KPM = 180° − ∠KPQ and ∠KQN = 180° − ∠KQP (linear pairs) ⇒ ∠KPM ≅ ∠KQN.",
+        "3. MP ≅ NQ (given).",
+        "4. △KPM ≅ △KQN by SAS (KP ≅ KQ, ∠KPM ≅ ∠KQN, PM ≅ QN).",
+        "5. Therefore KM ≅ KN (corresponding parts of congruent triangles), so △MNK is isosceles with KM = KN."
+      ],
+      "marking_points": [
+        "KP ≅ KQ from the equal base angles (1).",
+        "∠KPM ≅ ∠KQN (supplements) and SAS congruence of △KPM and △KQN (1).",
+        "KM ≅ KN ⇒ △MNK isosceles (1)."
+      ],
+      "tips": [
+        "Supplements of equal angles are equal.",
+        "Alternative: MQ = MP + PQ = NQ + QP = NP, and △KMQ ≅ △KNP by SAS."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In △ABC, points D and E lie on BC with BD = EC and AD = AE. Prove that AB = AC.",
+          "options": null,
+          "answer": "∠ADE = ∠AED (AD = AE) ⇒ ∠ADB = ∠AEC (supplements); with BD = EC and AD = AE, △ABD ≅ △ACE (SAS) ⇒ AB = AC.",
+          "explanation_steps": [
+            "Isosceles △ADE gives equal base angles.",
+            "Supplements are equal; SAS congruence; CPCTC."
+          ]
+        }
+      ],
+      "topics": [
+        "geometric-reasoning"
+      ],
+      "keywords": [
+        "congruent triangles",
+        "SAS",
+        "isosceles triangle",
+        "proof"
+      ],
+      "textbook_ref": {
+        "grade": 10,
+        "unit": "Unit 5 – Congruency and the Geometry of Size",
+        "section": "5.1.2 Methods for Congruence of Triangles",
+        "page": "145",
+        "pdf_page": 151,
+        "verified_in_text": true
+      },
+      "additional_textbook_refs": [],
+      "confidence": "high",
+      "review_flag": null
+    }
+  ]
+}

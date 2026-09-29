@@ -1,0 +1,19 @@
+PILOT READY: Grade 12 Biology (validated: tools/validate_notes.py 0 errors; tools/coverage_check.py 0 missing)
+Book file   : content/notes/biology_12.json (3 units, the textbook's own units/sections)
+Schema      : content/notes_schema.json (the Junior notes schema + High extensions, listed under "x-high-extensions")
+SVG assets  : content/notes/svg/biology_12/*.svg (path in unit.diagrams[key].svg is relative to content/notes/)
+Unit list   : content/notes/index.json (grade -> subject -> units -> topics with card ids); schema content/notes_index_schema.json
+Exam links  : content/unit_questions.json (unitId -> examprep question ids + confidence)
+What the Junior renderer does not know yet (all optional for rendering):
+  - unit.unitMap {root, nodes[{id,label,kind,lesson?,cards[]}], edges[{from,to,label}]}  (concept map)
+  - card.id (every card), card.src ("notes" | "textbook p.N"), card.enriched, card.style ("timeline"/"steps")
+  - book.intro (header lines), book.intro_cards (whole-book cards), book.source_outline
+  - exercise.questions can be more than 15 (all source quiz items kept)
+The other 28 books will appear in content/notes/ with the same format.
+
+UPDATE 2026-09-29: all 29 books are built in content/notes/ (validate 0 errors, coverage 0 missing).
+Extra optional fields added since the pilot (all documented in notes_schema.json x-high-extensions):
+  - unit.note (text shown when the textbook PDF is incomplete, e.g. chemistry_11 units 4-5)
+  - question.orig (true textbook sentence behind a false true/false item), question.answer_src / why_src / exam_question
+  - game.src / game.from_card; non-maths books write a dollar before a digit as full-width "＄"
+Reports: docs/content_report.md, docs/coverage_report.md, docs/notes_fixes.md, docs/question_mapping.md

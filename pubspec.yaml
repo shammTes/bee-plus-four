@@ -1,52 +1,80 @@
-name: four
-description: App 4 — Highschool BEE PLUS (no Junior) + offline controlled study bot.
-publish_to: "none"
+name: high
+description: "High – offline Grade 9-12 notes and Eritrean matriculation / model exam prep. Native Flutter (no WebView)."
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.3.0 <4.0.0"
+  sdk: ^3.8.0
+  flutter: ">=3.44.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.8
+  flutter_svg: ^2.3.0
+  flutter_math_fork: ^0.7.4
+  shared_preferences: ^2.5.5
   crypto: ^3.0.6
-  flutter_secure_storage: ^9.2.4
-  device_info_plus: ^11.2.0
-  uuid: ^4.5.1
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
-  path_provider: ^2.1.5
-  collection: ^1.19.0
-  pdfrx: ^1.1.29
   qr_flutter: ^4.1.0
   mobile_scanner: ^5.2.3
-  webview_flutter: ^4.10.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
 flutter:
-  uses-material-design: true
+  uses-material-design: false
   assets:
-    - assets/content/
-    - assets/content/interactive_notes/
-    - assets/content/textbooks/
-    - assets/content/phet/
-    - assets/content/illustrated_pdf/
-    - assets/content/vendor/
-    - assets/content/vendor/katex/
-    - assets/content/vendor/katex/fonts/
-    - assets/content/examprep_preview/
+    - assets/high/exams/
+    - assets/high/exams/media/
+    - assets/high/exercises/
+    - assets/high/notes/
+    - assets/high/notes/notes/
+    - assets/high/notes/notes/svg/agriculture_11/
+    - assets/high/notes/notes/svg/agriculture_12/
+    - assets/high/notes/notes/svg/biology_10/
+    - assets/high/notes/notes/svg/biology_11/
+    - assets/high/notes/notes/svg/biology_12/
+    - assets/high/notes/notes/svg/biology_9/
+    - assets/high/notes/notes/svg/business_economics_10/
+    - assets/high/notes/notes/svg/business_economics_11/
+    - assets/high/notes/notes/svg/business_economics_12/
+    - assets/high/notes/notes/svg/chemistry_10/
+    - assets/high/notes/notes/svg/chemistry_11/
+    - assets/high/notes/notes/svg/chemistry_12/
+    - assets/high/notes/notes/svg/chemistry_9/
+    - assets/high/notes/notes/svg/geography_10/
+    - assets/high/notes/notes/svg/geography_11/
+    - assets/high/notes/notes/svg/geography_12/
+    - assets/high/notes/notes/svg/geography_9/
+    - assets/high/notes/notes/svg/history_12/
+    - assets/high/notes/notes/svg/mathematics_11/
+    - assets/high/notes/notes/svg/physics_10/
+    - assets/high/notes/notes/svg/physics_11/
+    - assets/high/notes/notes/svg/physics_12/
+    - assets/high/notes/notes/svg/physics_9/
   fonts:
-    - family: Nunito
+    - family: HighNunito
       fonts:
-        - asset: assets/fonts/Nunito-VariableFont_wght.ttf
-    - family: NotoSansEthiopic
+        - asset: assets/high/fonts/Nunito-500.ttf
+          weight: 500
+        - asset: assets/high/fonts/Nunito-600.ttf
+          weight: 600
+        - asset: assets/high/fonts/Nunito-700.ttf
+          weight: 700
+        - asset: assets/high/fonts/Nunito-800.ttf
+          weight: 800
+        - asset: assets/high/fonts/Nunito-900.ttf
+          weight: 900
+        - asset: assets/high/fonts/Nunito-Italic-700.ttf
+          weight: 700
+          style: italic
+    - family: HighSymbols
       fonts:
-        - asset: assets/fonts/NotoSansEthiopic-Regular.ttf
-    - family: NotoSans
+        - asset: assets/high/fonts/HighSymbols-Noto.ttf
+    - family: HighSymbols2
       fonts:
-        - asset: assets/fonts/NotoSans-Regular.ttf
+        - asset: assets/high/fonts/HighSymbols-DejaVu.ttf
+    - family: HighSymbols3
+      fonts:
+        - asset: assets/high/fonts/HighSymbols-Math.ttf

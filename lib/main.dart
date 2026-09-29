@@ -1,65 +1,41 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:flutter/widgets.dart';
 
-import 'core/licensing/unlock_store.dart';
-import 'core/theme/four_theme.dart';
-import 'features/onboarding/onboarding_walkthrough.dart';
-import 'features/shell/app_shell.dart';
+import 'high/high.dart';
+import 'licensing/lock_screen.dart';
+import 'licensing/unlock_store.dart';
 
+/// 4. Locked until Bee Seller issues a HIGHSCHOOL code for this phone.
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-  await Hive.initFlutter();
-  await UnlockStore.instance.init();
-  runApp(const FourApp());
+  final unlock = UnlockStore();
+  await unlock.init();
+  runApp(FourRoot(unlock: unlock));
 }
 
-/// App 4 — Highschool curriculum only + offline controlled bot.
-class FourApp extends StatelessWidget {
-  const FourApp({super.key});
+class FourRoot extends StatefulWidget {
+  const FourRoot({super.key, required this.unlock});
+  final UnlockStore unlock;
+
+  @override
+  State<FourRoot> createState() => _FourRootState();
+}
+
+class _FourRootState extends State<FourRoot> {
+  late bool _open = widget.unlock.isUnlocked;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    if (_open) return const HighApp();
+    return WidgetsApp(
       title: '4',
+      color: const Color(0xFFE88A6E),
       debugShowCheckedModeBanner: false,
-      theme: FourTheme.highschool,
-      home: const _RootGate(),
+      builder: (_, _) => LockScreen(
+        unlock: widget.unlock,
+        onUnlocked: () {
+          if (mounted) setState(() => _open = true);
+        },
+      ),
     );
-  }
-}
-
-class _RootGate extends StatefulWidget {
-  const _RootGate();
-
-  @override
-  State<_RootGate> createState() => _RootGateState();
-}
-
-class _RootGateState extends State<_RootGate> {
-  bool? _done;
-
-  @override
-  void initState() {
-    super.initState();
-    OnboardingWalkthrough.isDone().then((v) {
-      if (mounted) setState(() => _done = v);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (_done == null) {
-      return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      );
-    }
-    if (!_done!) {
-      return OnboardingWalkthrough(
-        onFinished: () => setState(() => _done = true),
-      );
-    }
-    return const AppShell();
   }
 }
