@@ -100,6 +100,20 @@ class HighState extends ChangeNotifier {
   Map<String, dynamic> daily = {};
   Map<String, dynamic> notes = {};
 
+  /// First-run walkthrough. Null once finished.
+  int? tourStep;
+
+  static const tourActs = ['name', 'grade9', 'subject', 'back', 'back', 'notes', 'exercise', 'matric', 'tutor', 'home', 'settings', 'finish'];
+
+  bool tourWants(String act) => tourStep != null && tourStep! >= 0 && tourStep! < tourActs.length && tourActs[tourStep!] == act;
+
+  void tourAct(String act) {
+    if (!tourWants(act)) return;
+    final next = tourStep! + 1;
+    tourStep = next >= tourActs.length ? null : next;
+    changed();
+  }
+
   /// platform brightness for theme == null
   bool systemDark = false;
 
@@ -135,8 +149,10 @@ class HighState extends ChangeNotifier {
       try {
         fromJson(jsonDecode(raw) as Map<String, dynamic>);
       } catch (_) {
-        /* corrupt record: start fresh */
+        tourStep = 0;
       }
+    } else {
+      tourStep = 0;
     }
   }
 
@@ -153,6 +169,7 @@ class HighState extends ChangeNotifier {
     attempts = [for (final r in (o['attempts'] as List? ?? const [])) if (r is Map) Map<String, dynamic>.from(r)];
     daily = Map<String, dynamic>.from(o['daily'] as Map? ?? {});
     notes = Map<String, dynamic>.from(o['notes'] as Map? ?? {});
+    tourStep = o['tourDone'] == true ? null : ((o['tourStep'] as num?)?.toInt() ?? 0);
     if (!kCats.any((c) => c.id == cat) || (repo.loaded && repo.catExams(cat).isEmpty)) cat = 'matric';
   }
 
@@ -170,6 +187,8 @@ class HighState extends ChangeNotifier {
     'attempts': attempts,
     'daily': daily,
     'notes': notes,
+    'tourDone': tourStep == null,
+    'tourStep': tourStep,
   };
 
   Timer? _saveT;

@@ -42,7 +42,7 @@ class _OnboardingState extends State<Onboarding> {
             TextSpan(
               children: [
                 const TextSpan(text: "I'm "),
-                TextSpan(text: 'Kokob', style: ts(14, w900, p.ink2)),
+                TextSpan(text: '4', style: ts(14, w900, p.ink2)),
                 const TextSpan(text: ', your offline study buddy for Grade 9–12 and the matriculation exams. What should I call you?'),
               ],
             ),

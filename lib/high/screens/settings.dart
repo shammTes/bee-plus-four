@@ -149,9 +149,22 @@ class _SettingsPageState extends State<SettingsPage> {
               ],
             ),
           ),
+          const SectionLabel('About'),
+          Panel(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('4', style: ts(18, w900, p.ink)),
+                const SizedBox(height: 4),
+                Text('Developed by Shamm Tesfalem, 07162947', style: ts(14, w800, p.ink2)),
+                const SizedBox(height: 4),
+                Text('Grade 9–12 · works fully offline', style: ts(12.5, w700, p.ink3)),
+              ],
+            ),
+          ),
           Blk(
             margin: const EdgeInsets.only(top: 18),
-            child: Text('High · works fully offline', textAlign: TextAlign.center, style: ts(12.5, w700, p.ink3)),
+            child: Text('4 · works fully offline', textAlign: TextAlign.center, style: ts(12.5, w700, p.ink3)),
           ),
         ]),
       ),

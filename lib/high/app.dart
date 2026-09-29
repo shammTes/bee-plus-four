@@ -7,13 +7,13 @@ import 'screens/exercise.dart';
 import 'screens/tutor.dart';
 import 'notes/jr/state/app_state.dart' as jr;
 import 'screens/notes_home.dart';
-import 'screens/onboarding.dart';
 import 'state/app_state.dart';
 import 'theme/tokens.dart';
 import 'widgets/art.dart';
 import 'widgets/kit.dart';
 import 'widgets/page.dart';
 import 'high.dart';
+import 'screens/tour.dart';
 
 /// Standalone app (use in main.dart). Loads content + state, then shows [HighScreen].
 class HighApp extends StatelessWidget {
@@ -109,7 +109,6 @@ class HighShellState extends State<HighShell> implements HighNav {
   final List<Widget> _stack = [];
   final List<({Key key, Widget child, bool lock, bool bare})> _sheets = [];
   int _gen = 0;
-  bool _onboardShown = false;
 
   @override
   HighTab get current => _tab;
@@ -118,11 +117,16 @@ class HighShellState extends State<HighShell> implements HighNav {
   final Set<HighTab> _visited = {};
 
   @override
-  void tab(HighTab t) => setState(() {
-    if (t == _tab && _stack.isEmpty) _tabGen[t] = (_tabGen[t] ?? 0) + 1; // re-tapping the open tab resets it
-    _stack.clear();
-    _tab = t;
-  });
+  void tab(HighTab t) {
+    final s = HighScope.read(context);
+    if (s.tourStep != null && !s.tourWants(t.name)) return;
+    setState(() {
+      if (t == _tab && _stack.isEmpty) _tabGen[t] = (_tabGen[t] ?? 0) + 1;
+      _stack.clear();
+      _tab = t;
+    });
+    s.tourAct(t.name);
+  }
   final Map<HighTab, int> _tabGen = {};
 
   @override
@@ -141,15 +145,20 @@ class HighShellState extends State<HighShell> implements HighNav {
   });
 
   @override
-  void back() => setState(() {
-    if (_sheets.isNotEmpty) {
-      _sheets.removeLast();
-    } else if (_stack.isNotEmpty) {
-      _stack.removeLast();
-    } else if (_tab != HighTab.home) {
-      _tab = HighTab.home;
-    }
-  });
+  void back() {
+    final s = HighScope.read(context);
+    if (s.tourStep != null && !s.tourWants('back')) return;
+    setState(() {
+      if (_sheets.isNotEmpty) {
+        _sheets.removeLast();
+      } else if (_stack.isNotEmpty) {
+        _stack.removeLast();
+      } else if (_tab != HighTab.home) {
+        _tab = HighTab.home;
+      }
+    });
+    s.tourAct('back');
+  }
 
   /// shows a bottom sheet (web `sheet()`); returns a close function
   VoidCallback sheet(Widget child, {bool lock = false, bool bare = false}) {
@@ -159,16 +168,6 @@ class HighShellState extends State<HighShell> implements HighNav {
   }
 
   bool get canPop => _sheets.isEmpty && _stack.isEmpty && _tab == HighTab.home;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    final s = HighScope.read(context);
-    if (!_onboardShown && s.name == null) {
-      _onboardShown = true;
-      WidgetsBinding.instance.addPostFrameCallback((_) => sheet(const Onboarding(), lock: true));
-    }
-  }
 
   Widget _tabPage(HighTab t) => switch (t) {
     HighTab.home => const HomePage(),
@@ -203,6 +202,7 @@ class HighShellState extends State<HighShell> implements HighNav {
             ),
           if (showNav) Positioned(left: 14, right: 14, bottom: 14 + MediaQuery.paddingOf(context).bottom, child: NavBar(current: _tab, onTap: tab)),
           for (final s in _sheets) Positioned.fill(key: s.key, child: SheetLayer(lock: s.lock, bare: s.bare, onClose: back, child: s.child)),
+          const Positioned(left: 14, right: 14, bottom: 0, child: TourCard()),
         ],
       ),
     );
@@ -276,7 +276,12 @@ class NavBar extends StatelessWidget {
                     dy: 4,
                     child: SizedBox(
                       height: 56,
-                      child: Column(
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          border: Kit.of(context).s.tourWants(t.name) ? Border.all(color: p.coral, width: 2.5) : null,
+                        ),
+                        child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         spacing: 3,
                         children: [
@@ -286,6 +291,7 @@ class NavBar extends StatelessWidget {
                           ),
                           Text(label, style: ts(11, w800, t == current ? p.sage.deep : p.ink3), maxLines: 1, softWrap: false, overflow: TextOverflow.clip),
                         ],
+                        ),
                       ),
                     ),
                   ),

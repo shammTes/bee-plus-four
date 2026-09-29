@@ -47,7 +47,7 @@ class HomePage extends StatelessWidget {
         ? "You're on a ${st.cur}-day streak. Keep it glowing!"
         : "Let's make today count.";
     return PageShell(
-      top: const TopBar(title: 'High', sub: 'Grade 9–12 · matric prep & notes'),
+      top: const TopBar(title: '4', sub: 'Grade 9–12 · matric prep & notes'),
       body: ScreenList(
         controller: controller,
         children: Stagger.wrap([
@@ -1025,7 +1025,7 @@ class _TutorBanner extends StatelessWidget implements Spaced {
   Widget build(BuildContext context) => Banner(
     tone: 'lilac',
     other: 'blue',
-    title: 'Ask Kokob, your tutor',
+    title: 'Ask 4, your tutor',
     sub: 'Offline answers from your exam packs',
     btn: 'Ask now',
     onTap: () => Routes.tutor(context),
@@ -1047,7 +1047,12 @@ class _Grades extends StatelessWidget implements Spaced {
         tone: tone,
         margin: EdgeInsets.zero,
         padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
-        onTap: () => HighNav.of(context).open('grade:$g', () => GradePage(grade: g)),
+        onTap: () {
+          final s = k.s;
+          if (s.tourStep != null && !(s.tourWants('grade9') && g == 9)) return;
+          HighNav.of(context).open('grade:$g', () => GradePage(grade: g));
+          s.tourAct('grade9');
+        },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -1061,7 +1066,7 @@ class _Grades extends StatelessWidget implements Spaced {
               ],
             ),
             const SizedBox(height: 6),
-            Text('${books.length} subject${books.length == 1 ? '' : 's'} · $pct%', style: ts(12.5, w800, p.ink2)),
+            Text(g >= 11 ? 'Science · Art' : '${books.length} subject${books.length == 1 ? '' : 's'} · $pct%', style: ts(12.5, w800, p.ink2)),
             Padding(padding: const EdgeInsets.only(top: 8), child: Bar(pct, tone: tone, height: 7, onTile: true)),
           ],
         ),

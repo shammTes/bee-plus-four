@@ -18,6 +18,10 @@ const kNotesSubjects = {
 
 const kNotesOrder = ['biology', 'chemistry', 'physics', 'mathematics', 'agriculture', 'geography', 'history', 'business_economics', 'english'];
 
+/// Grade 11–12 streams. Mathematics and Agriculture are taken in both.
+const kScienceSubjects = {'biology', 'chemistry', 'physics', 'mathematics', 'agriculture', 'english'};
+const kArtSubjects = {'history', 'geography', 'business_economics', 'mathematics', 'agriculture', 'english'};
+
 NotesSubject notesSubject(String s) =>
     kNotesSubjects[s] ?? NotesSubject(s.replaceAll('_', ' ').replaceFirstMapped(RegExp('^.'), (m) => m[0]!.toUpperCase()), 'book', 'sage');
 

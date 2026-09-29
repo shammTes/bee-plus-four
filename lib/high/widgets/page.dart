@@ -45,7 +45,12 @@ class TopBar extends StatelessWidget {
             ),
             ...actions,
             CBtn(p.dark ? 'sun' : 'moon', onTap: k.s.toggleTheme, label: 'Toggle dark mode'),
-            if (tab) Avatar(onTap: () => HighNav.of(context).push(const SettingsPage())),
+            if (tab) Avatar(onTap: () {
+              final s = Kit.of(context).s;
+              if (s.tourStep != null && !s.tourWants('settings')) return;
+              HighNav.of(context).push(const SettingsPage());
+              s.tourAct('settings');
+            }),
           ],
         ),
       ),

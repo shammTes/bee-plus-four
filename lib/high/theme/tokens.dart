@@ -181,7 +181,7 @@ const kFont = 'HighNunito';
 double chromeNormal(double size) => ((size * 1.011).roundToDouble() + (size * .353).roundToDouble()) / size;
 
 /// bundled math/symbol fallback (Greek, arrows incl. ⇌, super/subscripts, operators …) – see tool/build_symbols.py
-const kSymbolFallback = ['HighSymbols', 'HighSymbols2', 'HighSymbols3'];
+const kSymbolFallback = ['HighSymbols', 'HighSymbols2', 'HighSymbols3', 'HighGeez'];
 
 TextStyle ts(double size, FontWeight w, Color color, {double? height, double? spacing, FontStyle? style, TextDecoration? decoration}) => TextStyle(
   inherit: false,

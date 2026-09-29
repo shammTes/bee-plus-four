@@ -187,7 +187,7 @@ class _TutorPageState extends State<TutorPage> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Selam ${s.name ?? 'Student'}! I'm Kokob, your offline tutor 👋", style: ts(15, w900, p.ink)),
+            Text("Selam ${s.name ?? 'Student'}! I'm 4, your offline tutor.", style: ts(15, w900, p.ink)),
             Padding(padding: const EdgeInsets.only(top: 4), child: Text('Ask me about any topic in your ${r.subjects.join(', ')} exam packs. I explain the concept, point you to the textbook and quiz you on real exam questions.', style: ts(13.5, w700, p.ink2, height: 1.45))),
           ],
         ),
