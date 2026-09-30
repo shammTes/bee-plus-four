@@ -57,7 +57,14 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
   }
 
   Future<void> _openScan() async {
+    final allowed = await _Secure.requestCamera();
+    if (!mounted) return;
+    if (!allowed) {
+      setState(() => _message = 'Allow the camera, or go back and paste the code.');
+      return;
+    }
     await _Secure.set(false);
+    await Future<void>.delayed(const Duration(milliseconds: 280));
     if (mounted) setState(() => _scanning = true);
   }
 
@@ -263,6 +270,14 @@ class _Secure {
       await _channel.invokeMethod<void>('set', on);
     } catch (_) {}
   }
+
+  static Future<bool> requestCamera() async {
+    try {
+      return await _channel.invokeMethod<bool>('requestCamera') ?? false;
+    } catch (_) {
+      return false;
+    }
+  }
 }
 
 class _ScanLayer extends StatefulWidget {
@@ -274,17 +289,39 @@ class _ScanLayer extends StatefulWidget {
 }
 
 class _ScanLayerState extends State<_ScanLayer> {
-  final _camera = MobileScannerController(
+  late final MobileScannerController _camera = MobileScannerController(
+    autoStart: false,
     detectionSpeed: DetectionSpeed.noDuplicates,
     facing: CameraFacing.back,
     formats: const [BarcodeFormat.qrCode],
   );
   bool _done = false;
+  String? _fail;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (!mounted) return;
+      try {
+        await _camera.start();
+      } catch (e) {
+        if (mounted) setState(() => _fail = 'Camera did not open.\n\nAllow the camera, or go back and paste the code.');
+      }
+    });
+  }
 
   @override
   void dispose() {
     _camera.dispose();
     super.dispose();
+  }
+
+  void _hit(String? raw) {
+    final text = raw?.trim() ?? '';
+    if (_done || text.isEmpty) return;
+    _done = true;
+    widget.onCode(text);
   }
 
   @override
@@ -295,32 +332,33 @@ class _ScanLayerState extends State<_ScanLayer> {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          MobileScanner(
-            controller: _camera,
-            onDetect: (capture) {
-              if (_done) return;
-              for (final b in capture.barcodes) {
-                final raw = b.rawValue?.trim();
-                if (raw == null || raw.isEmpty) continue;
-                _done = true;
-                widget.onCode(raw);
-                return;
-              }
-            },
-            errorBuilder: (context, error, child) => const ColoredBox(
-              color: Color(0xFF000000),
-              child: Center(
+          if (_fail != null)
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Text(_fail!, textAlign: TextAlign.center, style: _ts(16, FontWeight.w800, const Color(0xFFFFFFFF))),
+              ),
+            )
+          else
+            MobileScanner(
+              controller: _camera,
+              onDetect: (capture) {
+                for (final b in capture.barcodes) {
+                  _hit(b.rawValue ?? b.displayValue);
+                  if (_done) return;
+                }
+              },
+              errorBuilder: (context, error, child) => Center(
                 child: Padding(
-                  padding: EdgeInsets.all(24),
+                  padding: const EdgeInsets.all(24),
                   child: Text(
                     'Camera did not open.\n\nAllow the camera, or go back and paste the code.',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Color(0xFFFFFFFF), fontWeight: FontWeight.w800, fontSize: 16),
+                    style: _ts(16, FontWeight.w800, const Color(0xFFFFFFFF)),
                   ),
                 ),
               ),
             ),
-          ),
           Positioned(
             left: 16,
             right: 16,
