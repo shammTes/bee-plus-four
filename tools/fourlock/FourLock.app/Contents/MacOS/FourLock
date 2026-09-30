@@ -1,0 +1,174 @@
+#!/bin/bash
+# FourLock — lock / unlock papers for the 4 app. Works without Python.
+# Double-click FourLock.command (Terminal opens) or FourLock.app.
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/bin:$PATH"
+set +e
+
+say() {
+  printf '%s\n' "$*"
+}
+
+die_box() {
+  local msg="$1"
+  say "ERROR: $msg"
+  osascript -e "display dialog \"FourLock: $msg\" buttons {\"OK\"} default button \"OK\" with icon stop" >/dev/null 2>&1 || true
+  exit 1
+}
+
+ok_box() {
+  local msg="$1"
+  say "$msg"
+  osascript -e "display dialog \"$msg\" buttons {\"OK\"} default button \"OK\" with icon note" >/dev/null 2>&1 || true
+}
+
+ask_list() {
+  osascript <<'OSA' 2>/dev/null
+set theChoice to choose from list {"Lock a PDF", "Unlock a PDF / .fourpdf / .fourpack", "Pack exam JSON as .fourpack"} with prompt "FourLock — encrypt papers for the 4 app\n\nLock = password-protect a PDF\nUnlock = restore the original\nPack = wrap a 4 exam JSON" default items {"Lock a PDF"} with title "FourLock"
+if theChoice is false then return "cancel"
+return item 1 of theChoice
+OSA
+}
+
+ask_file() {
+  osascript <<'OSA' 2>/dev/null
+set theFile to choose file with prompt "Pick the file to lock, unlock, or pack"
+return POSIX path of theFile
+OSA
+}
+
+ask_pass() {
+  osascript <<'OSA' 2>/dev/null
+set r to display dialog "Password for this paper" default answer "" with hidden answer buttons {"Cancel", "OK"} default button "OK" with title "FourLock"
+if button returned of r is "Cancel" then return ""
+return text returned of r
+OSA
+}
+
+HERE="$(cd "$(dirname "$0")" && pwd)"
+
+osascript -e 'display dialog "FourLock is open.\n\nNext: pick Lock, Unlock, or Pack." buttons {"Continue"} default button "Continue" with title "FourLock"' >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+  say "FourLock — lock papers for the 4 app"
+  say "osascript dialogs are blocked. Using Terminal prompts instead."
+fi
+
+CHOICE="$(ask_list)"
+CHOICE="${CHOICE%$'\r'}"
+if [ -z "$CHOICE" ] || [ "$CHOICE" = "cancel" ]; then
+  say "Cancelled."
+  exit 0
+fi
+
+FILE="$(ask_file)"
+FILE="${FILE%$'\r'}"
+FILE="${FILE%$'\n'}"
+if [ -z "$FILE" ]; then
+  say "No file picked."
+  exit 0
+fi
+FILE="${FILE%"${FILE##*[![:space:]]}"}"
+if [ ! -f "$FILE" ]; then
+  die_box "File not found:\n$FILE"
+fi
+
+PASS="$(ask_pass)"
+PASS="${PASS%$'\r'}"
+if [ -z "$PASS" ]; then
+  say "No password — cancelled."
+  exit 0
+fi
+
+CMD="lock"
+case "$CHOICE" in
+  Unlock*) CMD="unlock" ;;
+  Pack*)   CMD="pack" ;;
+esac
+
+lock_openssl() {
+  local src="$1" dest="$2" magic="$3"
+  local tmp
+  tmp="$(mktemp /tmp/fourlock.XXXXXX)"
+  openssl enc -aes-256-cbc -pbkdf2 -iter 200000 -salt \
+    -in "$src" -out "$tmp" -pass "pass:$PASS" || { rm -f "$tmp"; return 1; }
+  { printf '%s' "$magic"; cat "$tmp"; } > "$dest"
+  rm -f "$tmp"
+}
+
+unlock_openssl() {
+  local src="$1" dest="$2" magic="$3"
+  local tmp hdr
+  tmp="$(mktemp /tmp/fourlock.XXXXXX)"
+  hdr="$(dd if="$src" bs=1 count=${#magic} 2>/dev/null)"
+  if [ "$hdr" != "$magic" ]; then
+    rm -f "$tmp"
+    return 2
+  fi
+  dd if="$src" bs=1 skip=${#magic} of="$tmp" 2>/dev/null
+  openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 -salt \
+    -in "$tmp" -out "$dest" -pass "pass:$PASS"
+  local rc=$?
+  rm -f "$tmp"
+  return $rc
+}
+
+DIR="$(dirname "$FILE")"
+BASE="$(basename "$FILE")"
+STEM="${BASE%.*}"
+
+OUT=""
+LOG=""
+RC=1
+if [ "$CMD" = "lock" ]; then
+  if command -v qpdf >/dev/null 2>&1; then
+    OUT="$DIR/${STEM}.locked.pdf"
+    LOG="$(qpdf --encrypt "$PASS" "$PASS" 256 -- "$FILE" "$OUT" 2>&1)"
+    RC=$?
+  else
+    OUT="$FILE.fourpdf"
+    lock_openssl "$FILE" "$OUT" "FOURPDF1"
+    RC=$?
+    LOG="openssl AES-256 wrapper (install qpdf with: brew install qpdf)"
+  fi
+elif [ "$CMD" = "pack" ]; then
+  case "$BASE" in
+    *.json|*.JSON) ;;
+    *) die_box "Pack needs a 4 exam JSON file." ;;
+  esac
+  OUT="$DIR/${STEM}.fourpack"
+  lock_openssl "$FILE" "$OUT" "FOURPACK"
+  RC=$?
+  LOG="Packed exam JSON. Unlock on this Mac, then copy the JSON into 4 Model exams."
+else
+  HDR8="$(dd if="$FILE" bs=1 count=8 2>/dev/null)"
+  if [ "$HDR8" = "FOURPDF1" ]; then
+    OUT="$DIR/${STEM}.unlocked.pdf"
+    case "$BASE" in
+      *.pdf.fourpdf) OUT="$DIR/${BASE%.pdf.fourpdf}.unlocked.pdf" ;;
+      *.fourpdf) OUT="$DIR/${BASE%.fourpdf}.unlocked.pdf" ;;
+    esac
+    unlock_openssl "$FILE" "$OUT" "FOURPDF1"
+    RC=$?
+    LOG="Unlocked .fourpdf wrapper."
+  elif [ "$HDR8" = "FOURPACK" ]; then
+    OUT="$DIR/${STEM}.unlocked.json"
+    case "$BASE" in
+      *.fourpack) OUT="$DIR/${BASE%.fourpack}.unlocked.json" ;;
+    esac
+    unlock_openssl "$FILE" "$OUT" "FOURPACK"
+    RC=$?
+    LOG="Unlocked exam pack. Copy the JSON into assets/high/exams / Model tab."
+  elif command -v qpdf >/dev/null 2>&1; then
+    OUT="$DIR/${STEM}.unlocked.pdf"
+    LOG="$(qpdf --password="$PASS" --decrypt "$FILE" "$OUT" 2>&1)"
+    RC=$?
+  else
+    die_box "Need qpdf to unlock a standard PDF.\nInstall: brew install qpdf\nOr unlock a .fourpdf / .fourpack file."
+  fi
+fi
+
+if [ "${RC:-1}" -ne 0 ] || [ ! -s "$OUT" ]; then
+  die_box "Failed.\n$LOG"
+fi
+
+ok_box "Done.\n\nSaved:\n$OUT\n\n$LOG"
+exit 0
