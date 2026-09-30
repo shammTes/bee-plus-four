@@ -24,11 +24,11 @@ class NotesHomePage extends StatefulWidget {
 class _NotesHomePageState extends State<NotesHomePage> {
   @override
   Widget build(BuildContext context) {
-    final s = Kit.of(context).s, repo = s.notesRepo, a = jr.AppScope.of(context);
+    final repo = Kit.of(context).s.notesRepo;
     final gs = repo.grades;
     if (gs.isNotEmpty && !gs.contains(_grade)) _grade = gs.contains(9) ? 9 : gs.first;
     final all = repo.grade(_grade);
-    if (all.isNotEmpty && ( _subject == null || !all.any((b) => b.subject == _subject))) {
+    if (all.isNotEmpty && (_subject == null || !all.any((b) => b.subject == _subject))) {
       _subject = all.first.subject;
     }
     final book = all.where((b) => b.subject == _subject).firstOrNull;
@@ -51,6 +51,7 @@ class _NotesHomePageState extends State<NotesHomePage> {
           else ...[
             SectionLabel('Subjects', n: all.length, icon: 'book'),
             Blk(
+              margin: const EdgeInsets.only(top: 8),
               child: Wrap(spacing: 8, runSpacing: 8, children: [
                 for (final b in all)
                   ChipX(b.look.key, tone: b.look.tone, on: b.subject == _subject, onTap: () => setState(() => _subject = b.subject)),
@@ -138,7 +139,7 @@ class NotesSubjectPage extends StatelessWidget {
   final String bookId;
   @override
   Widget build(BuildContext context) {
-    final s = Kit.of(context).s, b = s.notesRepo.byId(bookId)!;
+    final b = Kit.of(context).s.notesRepo.byId(bookId)!;
     return PageShell(
       top: TopBar(title: b.look.key, sub: 'Grade ${b.grade} · ${b.units.length} units', onBack: HighNav.of(context).back, tab: false),
       body: ScreenList(
@@ -151,7 +152,6 @@ class NotesSubjectPage extends StatelessWidget {
   }
 }
 
-/// opened from the Grade tiles on Home: subjects first. Grades 11 and 12 pick Science or Art.
 class GradePage extends StatefulWidget {
   const GradePage({super.key, required this.grade});
   final int grade;
@@ -165,7 +165,7 @@ class _GradePageState extends State<GradePage> {
 
   @override
   Widget build(BuildContext context) {
-    final k = Kit.of(context), p = k.p, s = k.s, a = jr.AppScope.of(context);
+    final s = Kit.of(context).s;
     final all = s.notesRepo.grade(widget.grade);
     final split = widget.grade >= 11;
     final books = !split || _stream == null
@@ -197,6 +197,7 @@ class _GradePageState extends State<GradePage> {
             _StreamCard(title: 'Art', ti: 'ኪነት', sub: 'Mathematics, History, Geography, Business, Agriculture', tone: 'butter', onTap: () => setState(() => _stream = 'art')),
           ] else ...[
             Blk(
+              margin: const EdgeInsets.only(top: 8),
               child: Wrap(spacing: 8, runSpacing: 8, children: [
                 for (final b in books)
                   ChipX(b.look.key, tone: b.look.tone, on: b.id == _pick, onTap: () {
