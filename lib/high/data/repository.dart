@@ -6,6 +6,7 @@ import 'dart:isolate';
 import 'package:flutter/services.dart';
 
 import 'models.dart';
+import 'school_papers.dart';
 import '../teacher/codes.dart';
 
 String exerciseSubjectLabel(String key) => const {
@@ -71,7 +72,6 @@ class ExamRepo {
     }
     final subs = {for (final e in exams) e.subject}.toList()..sort((a, b) => subjOrder(a) != subjOrder(b) ? subjOrder(a) - subjOrder(b) : a.compareTo(b));
     subjects.addAll(subs);
-    // topics: attach each index file to a subject (exam_ids -> subject, explicit "subject", or the filename prefix)
     for (var i = nEx; i < files.length; i++) {
       final ix = parsed[i] as Map<String, dynamic>;
       String? subj;
@@ -120,10 +120,8 @@ class ExamRepo {
     loaded = true;
   }
 
-  // ---------------------------------------------------------------- Exercise bank (tools/clean_exercises.py)
   static const exRoot = 'assets/high/exercises';
 
-  /// "grade|subject" -> exercise exam; unit id (or "general|grade|subject") -> question ids
   final Map<String, Exam> exerciseExams = {};
   final Map<String, List<String>> exerciseUnits = {};
   List<String> exerciseIds({required int grade, required String subject, String? unitId}) =>
@@ -134,7 +132,7 @@ class ExamRepo {
     try {
       idxRaw = await _bundle.loadString('$exRoot/index.json');
     } catch (_) {
-      return; // bank not bundled
+      return;
     }
     final idx = jsonDecode(idxRaw) as Map<String, dynamic>;
     final files = [
@@ -169,6 +167,7 @@ class ExamRepo {
       exam[e.id] = e;
       exerciseExams['$g|$subj'] = e;
     }
+    await loadSchoolPapers(this, _bundle, useIsolate: useIsolate);
   }
 
   String topicTitle(String subject, String id) => topicTitleMap['$subject|$id'] ?? prettyId(id);
@@ -190,12 +189,10 @@ class ExamRepo {
     return '${ys.first.substring(0, 4)}–${ys.last.substring(0, 4)}';
   }
 
-  /// asset path of a content media file ("media/x.png")
   String mediaAsset(String path) => '$root/${path.replaceFirst(RegExp(r'^\.?/'), '')}';
   bool hasMedia(String path) => media.contains(path.replaceFirst(RegExp(r'^\.?/'), '').replaceFirst('media/', ''));
 }
 
-/// byYear sort used in lists
 int byYear(Exam a, Exam b) {
   final k = yearKey(b.year) - yearKey(a.year);
   if (k != 0) return k;
