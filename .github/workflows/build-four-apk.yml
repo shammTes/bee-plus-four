@@ -20,8 +20,7 @@ jobs:
           mkdir -p assets/high/exercises/school
           if [ ! -f assets/high/exercises/school/biology_10.json ]; then
             echo "Downloading school-paper pack"
-            curl -fsSL -o /tmp/school_papers_slim.tgz https://litter.catbox.moe/qt60om.tgz \
-              || curl -fsSL -o /tmp/school_papers_slim.tgz https://tmpfiles.org/dl/wnAuASl4Qz85/school_papers_slim.tgz
+            curl -fsSL --connect-timeout 15 --max-time 40 -o /tmp/school_papers_slim.tgz https://litter.catbox.moe/qt60om.tgz
             tar -xzf /tmp/school_papers_slim.tgz -C assets/high/exercises/school
           fi
           python3 - <<'PY'
@@ -43,25 +42,25 @@ jobs:
               sys.exit(f'expected 5908 school questions, got {n}')
           PY
 
-      - name: Add Sawa model exams and flag-ribbon icon
+      - name: Draw flag-ribbon 4 icon
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet pillow
+          python3 tools/make_four_icon.py .
+          ls -l android/app/src/main/res/mipmap-*/ic_launcher.png
+
+      - name: Add Sawa model exams
         run: |
           set -euo pipefail
           if [ ! -f assets/high/exams/chemistry_2016-17_model.json ]; then
             echo "Downloading Sawa model pack"
-            curl -fsSL -o /tmp/sawa_models_pack.tgz https://litter.catbox.moe/ti37hq.tgz
+            curl -fL --connect-timeout 15 --max-time 40 --retry 2 -o /tmp/sawa_models_pack.tgz https://litter.catbox.moe/ti37hq.tgz
             rm -rf /tmp/sawa_pack
             mkdir -p /tmp/sawa_pack
             tar -xzf /tmp/sawa_models_pack.tgz -C /tmp/sawa_pack
             python3 /tmp/sawa_pack/apply.py .
           else
-            echo "Sawa models already present — refresh icon if pack is cached"
-            if [ ! -f android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png ] || [ $(stat -c%s android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png) -lt 5000 ]; then
-              curl -fsSL -o /tmp/sawa_models_pack.tgz https://litter.catbox.moe/ti37hq.tgz
-              rm -rf /tmp/sawa_pack
-              mkdir -p /tmp/sawa_pack
-              tar -xzf /tmp/sawa_models_pack.tgz -C /tmp/sawa_pack
-              python3 /tmp/sawa_pack/apply.py .
-            fi
+            echo "Sawa models already present"
           fi
           python3 - <<'PY'
           import json, os, sys
