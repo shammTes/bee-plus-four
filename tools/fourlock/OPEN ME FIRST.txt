@@ -1,0 +1,26 @@
+FOURLOCK — open this on a Mac
+=============================
+
+The old disk image did nothing because the app inside had no program
+to run, and macOS will not mount that fake .dmg.
+
+Do this instead:
+
+1. Unzip FourLock.zip. You get a folder named FourLock.
+2. Open that folder.
+3. Double-click  "Open FourLock.command"
+   A Terminal window MUST appear. If macOS blocks it:
+      • Right-click the file → Open → Open
+      • Or paste this in Terminal, then try again:
+
+        xattr -cr ~/Downloads/FourLock
+        chmod +x ~/Downloads/FourLock/"Open FourLock.command"
+
+4. FourLock asks: Lock a PDF / Unlock / Pack exam JSON.
+5. Pick the file, type the password.
+
+Needs nothing extra. openssl is already on the Mac.
+Optional:  brew install qpdf   →  normal password-PDFs.
+
+4 does not open PDFs on the phone (too heavy). Unlock here,
+then copy the exam JSON into the Model tab / assets/high/exams.

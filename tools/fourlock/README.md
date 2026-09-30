@@ -1,34 +1,17 @@
 # FourLock — Mac paper locker for 4
 
-Encrypt a paper PDF or wrap a 4 exam JSON so it can travel safely, then unlock it on the same Mac.
+**Do not use the old FourLock.dmg.** It was an ISO with no app executable, so double-click did nothing.
 
-## Get the disk image
-
-After CI runs, download **FourLock.dmg** (or FourLock.zip) from the Actions artifact `fourlock-mac`.
-
-Or build it here:
+Use **FourLock.zip**. Unzip it and double-click `Open FourLock.command`.
+A Terminal window must appear. If macOS blocks the file:
 
 ```
-python3 tools/make_fourlock_dmg.py
-# writes dist/FourLock.dmg and dist/FourLock.zip
+xattr -cr ~/Downloads/FourLock
+chmod +x ~/Downloads/FourLock/"Open FourLock.command"
 ```
 
-On a Mac: open the `.dmg` (or unzip), drag **FourLock.app** to Applications, double-click.
+Then right-click → Open.
 
-Needs Python 3 (already on macOS). For a normal password-PDF also run `brew install qpdf`.
+The tool uses bash + osascript + openssl (already on macOS). Optional: `brew install qpdf` for a normal password-PDF.
 
-## What it makes
-
-| Action | Output | Open in 4? |
-| --- | --- | --- |
-| Lock PDF | `.locked.pdf` via qpdf AES-256, else `.fourpdf` wrapper | No — 4 does not render PDFs |
-| Pack JSON | `.fourpack` (AES-256 exam wrap) | Unlock on the Mac, copy JSON into `assets/high/exams` / Model tab |
-| Unlock | original PDF or JSON | — |
-
-CLI (same engine):
-
-```
-python3 tools/encrypt_pdf_mac.py lock  Physics_2024.pdf --password sawa
-python3 tools/encrypt_pdf_mac.py pack  physics_2024_matric.json --password sawa
-python3 tools/encrypt_pdf_mac.py unlock Physics_2024.pdf.fourpdf --password sawa
-```
+4 does not render PDFs on the phone. Unlock on the Mac, then copy exam JSON into `assets/high/exams` / the Model tab.
