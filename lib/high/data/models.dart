@@ -5,6 +5,12 @@ typedef Json = Map<String, dynamic>;
 List<String> strs(Object? v) => v is List ? [for (final x in v) if (x != null) x.toString()] : const [];
 String str(Object? v) => v == null ? '' : v.toString();
 
+/// JSON optional text. Bool/num/empty (e.g. review_flag: false on Physics 2009) → null.
+String? optStr(Object? v) {
+  if (v is String) return v.isEmpty ? null : v;
+  return null;
+}
+
 class MatchList {
   MatchList(this.j);
   final Json j;
@@ -21,8 +27,8 @@ class SimilarQ {
   Map<String, String>? get options => j['options'] is Map ? {for (final e in (j['options'] as Map).entries) e.key.toString(): str(e.value)} : null;
   String get answer => str(j['answer']);
   List<String> get steps => strs(j['explanation_steps']);
-  String? get image => j['image'] as String?;
-  String? get imageAlt => j['image_alt'] as String?;
+  String? get image => optStr(j['image']);
+  String? get imageAlt => optStr(j['image_alt']);
 }
 
 class Question {
@@ -35,7 +41,7 @@ class Question {
   String get type => str(j['type']);
   Object? get marks => j['marks'];
   String get stem => str(j['stem']);
-  String? get stemTex => j['stem_tex'] as String?;
+  String? get stemTex => optStr(j['stem_tex']);
   late final Map<String, String>? options = j['options'] is Map ? {for (final e in (j['options'] as Map).entries) e.key.toString(): str(e.value)} : null;
   String get answer => str(j['answer']);
   List<String> get accepted => strs(j['accepted_answers']);
@@ -45,13 +51,13 @@ class Question {
   late final List<String> topics = strs(j['topics']);
   late final List<String> keywords = strs(j['keywords']);
   Json? get textbookRef => j['textbook_ref'] is Map ? Json.from(j['textbook_ref'] as Map) : null;
-  String? get confidence => j['confidence'] as String?;
-  String? get reviewFlag => j['review_flag'] as String?;
-  String? get image => j['image'] as String?;
-  String? get imageAlt => j['image_alt'] as String?;
-  String? get matchListId => j['match_list_id'] as String?;
-  String? get matchAnswer => j['match_answer'] as String?;
-  String? get passageId => j['passage_id'] as String?;
+  String? get confidence => optStr(j['confidence']);
+  String? get reviewFlag => optStr(j['review_flag']);
+  String? get image => optStr(j['image']);
+  String? get imageAlt => optStr(j['image_alt']);
+  String? get matchListId => optStr(j['match_list_id']);
+  String? get matchAnswer => optStr(j['match_answer']);
+  String? get passageId => optStr(j['passage_id']);
   List<Json> get subparts => [for (final x in (j['subparts'] as List? ?? const [])) if (x is Map) Json.from(x)];
   List<String> get markingPoints => strs(j['marking_points']);
 
@@ -87,7 +93,7 @@ class Exam {
   int? get semester => (j['semester'] as num?)?.toInt();
   String get title => str(j['title']);
   String get school => str(j['school']);
-  String? get duration => j['duration'] as String?;
+  String? get duration => optStr(j['duration']);
   bool get isMatric => type == 'matriculation';
 
   /// synthetic exam holding one grade+subject of the Exercise bank (assets/high/exercises)
@@ -107,7 +113,7 @@ class Exam {
 
 /// "2018/2019" -> "2018/19"
 String yearShort(String y) {
-  final m = RegExp(r'^(\d{4})\s*[/–-]\s*(\d{2,4})$').firstMatch(y.trim());
+  final m = RegExp(r'^(\d{4})\s*[/\u2013-]\s*(\d{2,4})$').firstMatch(y.trim());
   return m != null ? '${m[1]}/${m[2]!.substring(m[2]!.length - 2)}' : (y.isEmpty ? '—' : y);
 }
 
