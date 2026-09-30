@@ -16,7 +16,7 @@ abstract final class High {
 
   /// Loads all exam packs (assets/high/exams) and the saved state (SharedPreferences key 'high:v1').
   /// Safe to call many times; the same state is shared by every HighScreen.
-  static Future<HighState> init({bool useIsolate = false}) => _f ??= () async {
+  static Future<HighState> init({bool useIsolate = true}) => _f ??= () async {
     final repo = ExamRepo(useIsolate: useIsolate);
     await repo.init();
     final notes = NotesRepo(useIsolate: useIsolate);
