@@ -5,11 +5,56 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Add school-paper exercises
+        run: |
+          set -euo pipefail
+          mkdir -p assets/high/exercises/school
+          if [ ! -f assets/high/exercises/school/biology_10.json ]; then
+            echo "Downloading school-paper pack"
+            curl -fsSL -o /tmp/school_papers_slim.tgz https://litter.catbox.moe/qt60om.tgz \
+              || curl -fsSL -o /tmp/school_papers_slim.tgz https://tmpfiles.org/dl/wnAuASl4Qz85/school_papers_slim.tgz
+            tar -xzf /tmp/school_papers_slim.tgz -C assets/high/exercises/school
+          fi
+          python3 - <<'PY'
+          import json, os, sys
+          root = 'assets/high/exercises/school'
+          idx = json.load(open(f'{root}/index.json'))
+          missing, n = [], 0
+          for g in idx['grades'].values():
+              for e in g.values():
+                  p = os.path.join(root, e['file'])
+                  if not os.path.exists(p):
+                      missing.append(e['file'])
+                      continue
+                  n += len(json.load(open(p))['questions'])
+          print('school questions', n)
+          if missing:
+              sys.exit('missing ' + ', '.join(missing))
+          if n < 5908:
+              sys.exit(f'expected 5908 school questions, got {n}')
+          PY
+
+      - name: Commit school papers if they were fetched
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add assets/high/exercises/school
+          if git diff --cached --quiet; then
+            echo "school papers already on the branch"
+          else
+            git commit -m "Add 5,908 school-paper questions to the Exercise bank."
+            git push
+          fi
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
