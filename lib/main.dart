@@ -12,8 +12,17 @@ Future<void> main() async {
   final unlock = UnlockStore();
   await unlock.init();
   // Load notes + exams while the lock screen is up so unlock is not a blank cream frame.
-  final loading = High.init();
+  final loading = _warm();
   runApp(FourRoot(unlock: unlock, loading: loading));
+}
+
+Future<HighState> _warm() async {
+  try {
+    return await High.init(useIsolate: true);
+  } catch (_) {
+    High.reset();
+    return High.init(useIsolate: false);
+  }
 }
 
 class FourRoot extends StatefulWidget {
@@ -63,7 +72,8 @@ class _FourRootState extends State<FourRoot> {
 
   void _retry() {
     setState(() => _err = null);
-    High.init().then((s) {
+    High.reset();
+    High.init(useIsolate: false).then((s) {
       if (mounted) setState(() => _state = s);
     }, onError: (Object e) {
       if (mounted) setState(() => _err = e);
