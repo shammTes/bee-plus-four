@@ -47,7 +47,8 @@ class UnlockStore {
     }
     final payload = QrPayload.tryParse(text);
     if (payload == null) return const UnlockResult.fail('That is not a Bee Seller code.');
-    if (!payload.isSignatureValid) return const UnlockResult.fail('Invalid signature.');
+    final signed = payload.sellerLayout ? payload.sellerSignatureValid(text) : payload.isSignatureValid;
+    if (!signed) return const UnlockResult.fail('Invalid signature.');
     final current = await deviceId();
     if (!payload.matchesDevice(current)) {
       return const UnlockResult.fail('This code is for another phone.');
