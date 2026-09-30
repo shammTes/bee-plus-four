@@ -43,15 +43,59 @@ jobs:
               sys.exit(f'expected 5908 school questions, got {n}')
           PY
 
-      - name: Commit school papers if they were fetched
+      - name: Add Sawa model exams and flag-ribbon icon
+        run: |
+          set -euo pipefail
+          if [ ! -f assets/high/exams/chemistry_2016-17_model.json ]; then
+            echo "Downloading Sawa model pack"
+            curl -fsSL -o /tmp/sawa_models_pack.tgz https://litter.catbox.moe/ti37hq.tgz
+            rm -rf /tmp/sawa_pack
+            mkdir -p /tmp/sawa_pack
+            tar -xzf /tmp/sawa_models_pack.tgz -C /tmp/sawa_pack
+            python3 /tmp/sawa_pack/apply.py .
+          else
+            echo "Sawa models already present — refresh icon if pack is cached"
+            if [ ! -f android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png ] || [ $(stat -c%s android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png) -lt 5000 ]; then
+              curl -fsSL -o /tmp/sawa_models_pack.tgz https://litter.catbox.moe/ti37hq.tgz
+              rm -rf /tmp/sawa_pack
+              mkdir -p /tmp/sawa_pack
+              tar -xzf /tmp/sawa_models_pack.tgz -C /tmp/sawa_pack
+              python3 /tmp/sawa_pack/apply.py .
+            fi
+          fi
+          python3 - <<'PY'
+          import json, os, sys
+          need = [
+            'chemistry_2010-11_model_sem2.json',
+            'chemistry_2016-17_model.json',
+            'chemistry_2017-18_model.json',
+            'history_2016-17_model.json',
+            'physics_2017-18_model.json',
+          ]
+          root = 'assets/high/exams'
+          idx = json.load(open(f'{root}/index.json'))
+          missing = [f for f in need if not os.path.exists(os.path.join(root, f)) or f not in idx['exams']]
+          n = 0
+          for f in need:
+              p = os.path.join(root, f)
+              if os.path.exists(p):
+                  n += len(json.load(open(p))['questions'])
+          print('sawa model questions', n, 'index', len(idx['exams']))
+          if missing:
+              sys.exit('missing ' + ', '.join(missing))
+          if n < 383:
+              sys.exit(f'expected 383 Sawa questions, got {n}')
+          PY
+
+      - name: Commit Sawa models and icon
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add assets/high/exercises/school
+          git add assets/high/exams assets/high/exercises/school android/app/src/main/res/mipmap-*/ic_launcher.png
           if git diff --cached --quiet; then
-            echo "school papers already on the branch"
+            echo "Sawa models and icon already on the branch"
           else
-            git commit -m "Add 5,908 school-paper questions to the Exercise bank."
+            git commit -m "Add Sawa Warsay Yikealo model exams and flag-ribbon 4 icon."
             git push
           fi
 
