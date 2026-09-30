@@ -1,5 +1,4 @@
-// Notes tab: grade chips -> subjects -> units (textbook notes for Grade 9–12), plus the Grade page opened from Home's
-// grade tiles (subjects -> units with notes + practice questions mapped from matric exams).
+// Notes tab: grade chips -> subject chips -> units on the same page.
 import 'package:flutter/widgets.dart';
 
 import '../notes/jr/data/repository.dart';
@@ -10,7 +9,8 @@ import '../widgets/kit.dart';
 import '../widgets/page.dart';
 import 'routes.dart';
 
-int _grade = 12;
+int _grade = 9;
+String? _subject;
 
 int bookPct(jr.AppState a, IndexBook b) => b.units.isEmpty ? 0 : (b.units.fold<int>(0, (x, u) => x + a.unitPctIdx(u)) / b.units.length).round();
 int gradePct(jr.AppState a, List<IndexBook> l) => l.isEmpty ? 0 : (l.fold<int>(0, (x, b) => x + bookPct(a, b)) / l.length).round();
@@ -22,17 +22,18 @@ class NotesHomePage extends StatefulWidget {
 }
 
 class _NotesHomePageState extends State<NotesHomePage> {
-  String? _stream;
   @override
   Widget build(BuildContext context) {
     final s = Kit.of(context).s, repo = s.notesRepo, a = jr.AppScope.of(context);
     final gs = repo.grades;
-    if (gs.isNotEmpty && !gs.contains(_grade)) _grade = gs.last;
-    final split = _grade >= 11;
+    if (gs.isNotEmpty && !gs.contains(_grade)) _grade = gs.contains(9) ? 9 : gs.first;
     final all = repo.grade(_grade);
-    final books = !split || _stream == null ? all : all.where((b) => (_stream == 'science' ? kScienceSubjects : kArtSubjects).contains(b.subject)).toList();
+    if (all.isNotEmpty && ( _subject == null || !all.any((b) => b.subject == _subject))) {
+      _subject = all.first.subject;
+    }
+    final book = all.where((b) => b.subject == _subject).firstOrNull;
     return PageShell(
-      top: TopBar(title: 'Notes', sub: split && _stream == null ? 'Grade $_grade · choose Science or Art' : 'Grade $_grade · ${books.length} subjects'),
+      top: TopBar(title: 'Notes', sub: 'Grade $_grade · tap a subject, then a unit'),
       body: ScreenList(
         children: [
           Blk(
@@ -41,18 +42,28 @@ class _NotesHomePageState extends State<NotesHomePage> {
               for (final g in gs)
                 ChipX('Grade $g', tone: gradeTone(g), on: g == _grade, onTap: () => setState(() {
                   _grade = g;
-                  _stream = null;
+                  _subject = null;
                 })),
             ]),
           ),
-          if (split && _stream == null) ...[
-            _StreamCard(title: 'Science', ti: 'ሳይንስ', sub: 'Mathematics, Physics, Chemistry, Biology, Agriculture', tone: 'mint', onTap: () => setState(() => _stream = 'science')),
-            _StreamCard(title: 'Art', ti: 'ኪነት', sub: 'Mathematics, History, Geography, Business, Agriculture', tone: 'butter', onTap: () => setState(() => _stream = 'art')),
-          ] else ...[
-            SectionLabel(split ? (_stream == 'science' ? 'Science' : 'Art') : 'Grade $_grade subjects', n: books.length, icon: 'book'),
-            for (final b in books) BookTile(book: b, pct: bookPct(a, b)),
+          if (all.isEmpty)
+            const EmptyCard(title: 'No notes yet', text: 'Notes for this grade are on the way.')
+          else ...[
+            SectionLabel('Subjects', n: all.length, icon: 'book'),
+            Blk(
+              child: Wrap(spacing: 8, runSpacing: 8, children: [
+                for (final b in all)
+                  ChipX(b.look.key, tone: b.look.tone, on: b.subject == _subject, onTap: () => setState(() => _subject = b.subject)),
+              ]),
+            ),
+            if (book != null) ...[
+              SectionLabel('Units', n: book.units.length, icon: 'book'),
+              Panel(
+                padding: const EdgeInsets.fromLTRB(16, 6, 16, 6),
+                child: Column(children: [for (final (i, u) in book.units.indexed) _unitRow(context, book, u, i, practice: true)]),
+              ),
+            ],
           ],
-          if (!split && books.isEmpty) const EmptyCard(title: 'No notes yet', text: 'Notes for this grade are on the way.'),
         ],
       ),
     );
@@ -150,6 +161,7 @@ class GradePage extends StatefulWidget {
 
 class _GradePageState extends State<GradePage> {
   String? _stream;
+  String? _pick;
 
   @override
   Widget build(BuildContext context) {
@@ -159,6 +171,8 @@ class _GradePageState extends State<GradePage> {
     final books = !split || _stream == null
         ? all
         : all.where((b) => (_stream == 'science' ? kScienceSubjects : kArtSubjects).contains(b.subject)).toList();
+    if (books.isNotEmpty && (_pick == null || !books.any((b) => b.id == _pick))) _pick = books.first.id;
+    final book = books.where((b) => b.id == _pick).firstOrNull;
     final nq = {for (final b in books) ...?s.links.bookMatric[b.id]}.length;
     return PageShell(
       top: TopBar(
@@ -166,7 +180,10 @@ class _GradePageState extends State<GradePage> {
         sub: split && _stream == null ? 'Choose Science or Art' : '${books.length} subjects · $nq matric questions',
         onBack: () {
           if (split && _stream != null) {
-            setState(() => _stream = null);
+            setState(() {
+              _stream = null;
+              _pick = null;
+            });
           } else {
             HighNav.of(context).back();
           }
@@ -179,51 +196,23 @@ class _GradePageState extends State<GradePage> {
             _StreamCard(title: 'Science', ti: 'ሳይንስ', sub: 'Mathematics, Physics, Chemistry, Biology, Agriculture', tone: 'mint', onTap: () => setState(() => _stream = 'science')),
             _StreamCard(title: 'Art', ti: 'ኪነት', sub: 'Mathematics, History, Geography, Business, Agriculture', tone: 'butter', onTap: () => setState(() => _stream = 'art')),
           ] else ...[
-            Panel(
-              tone: gradeTone(widget.grade),
-              padding: const EdgeInsets.all(18),
-              child: Row(
-                spacing: 14,
-                children: [
-                  Text('${widget.grade}', style: ts(52, w900, k.tone(gradeTone(widget.grade)).deep, height: 1)),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(split ? (_stream == 'science' ? 'Science' : 'Art') : 'Grade ${widget.grade}', style: ts(20, w900, p.ink)),
-                        Text('Pick a subject', style: ts(13, w700, p.ink2)),
-                        Padding(padding: const EdgeInsets.only(top: 10), child: Bar(gradePct(a, books), tone: gradeTone(widget.grade), onTile: true)),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+            Blk(
+              child: Wrap(spacing: 8, runSpacing: 8, children: [
+                for (final b in books)
+                  ChipX(b.look.key, tone: b.look.tone, on: b.id == _pick, onTap: () {
+                    if (s.tourStep != null && !s.tourWants('subject')) return;
+                    setState(() => _pick = b.id);
+                    s.tourAct('subject');
+                  }),
+              ]),
             ),
-            for (final b in books)
+            if (book != null) ...[
+              SectionLabel('Units', n: book.units.length, icon: 'book'),
               Panel(
-                margin: const EdgeInsets.only(bottom: 10),
-                padding: const EdgeInsets.all(14),
-                onTap: () {
-                  if (s.tourStep != null && !s.tourWants('subject')) return;
-                  Routes.notesBook(context, b.id);
-                  s.tourAct('subject');
-                },
-                child: Row(
-                  spacing: 12,
-                  children: [
-                    Badge(b.look.tone, 'book', s: 46),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(b.look.key, style: ts(17, w900, p.ink)),
-                          Text('${b.units.length} units', style: ts(12.5, w700, p.ink3)),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                padding: const EdgeInsets.fromLTRB(16, 6, 16, 6),
+                child: Column(children: [for (final (i, u) in book.units.indexed) _unitRow(context, book, u, i, practice: true)]),
               ),
+            ],
             if (books.isEmpty) const EmptyCard(title: 'No notes yet', text: 'Notes for this grade are on the way.'),
           ],
         ],
