@@ -1,3 +1,4 @@
+import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 
 import 'high/app.dart';
@@ -9,6 +10,9 @@ import 'licensing/unlock_store.dart';
 /// 4. Locked until Bee Seller issues a HIGHSCHOOL code for this phone.
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final cache = PaintingBinding.instance.imageCache;
+  cache.maximumSize = 60;
+  cache.maximumSizeBytes = 40 << 20;
   final unlock = UnlockStore();
   await unlock.init();
   // Load notes + exams while the lock screen is up so unlock is not a blank cream frame.
