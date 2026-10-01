@@ -24,8 +24,13 @@ class MainActivity : FlutterActivity() {
             .setMethodCallHandler { call, result ->
                 when (call.method) {
                     "set" -> {
-                        runOnUiThread { setSecure(call.arguments == true) }
-                        result.success(null)
+                        val on = call.arguments == true
+                        runOnUiThread {
+                            setSecure(on)
+                            // Reply only after the window flag is applied, so the camera
+                            // surface is not created while FLAG_SECURE is still on.
+                            window.decorView.post { result.success(null) }
+                        }
                     }
                     "requestCamera" -> requestCamera(result)
                     else -> result.notImplemented()
@@ -40,8 +45,10 @@ class MainActivity : FlutterActivity() {
             result.success(true)
             return
         }
-        cameraWaiters.add(result)
-        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 71)
+        runOnUiThread {
+            cameraWaiters.add(result)
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 71)
+        }
     }
 
     override fun onRequestPermissionsResult(
@@ -52,16 +59,14 @@ class MainActivity : FlutterActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode != 71) return
         val ok = grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
-        cameraWaiters.forEach { it.success(ok) }
+        val waiters = cameraWaiters.toList()
         cameraWaiters.clear()
+        waiters.forEach { it.success(ok) }
     }
 
     private fun setSecure(on: Boolean) {
         if (on) {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_SECURE,
-                WindowManager.LayoutParams.FLAG_SECURE,
-            )
+            window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
         } else {
             window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
         }
