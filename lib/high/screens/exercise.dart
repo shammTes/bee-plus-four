@@ -100,7 +100,7 @@ class _ExercisePageState extends State<ExercisePage> {
   }
 }
 
-Widget _unitTile(BuildContext context, {required int grade, required String subject, required SubjectLook lk, required String badge, required String title, required String? unitId, required String openTitle}) {
+Widget _unitTile(BuildContext context, {required int grade, required String subject, required NotesSubject lk, required String badge, required String title, required String? unitId, required String openTitle}) {
   final k = Kit.of(context), p = k.p, s = k.s;
   final ids = s.repo.exerciseIds(grade: grade, subject: subject, unitId: unitId);
   final extra = HighExercises.source.countFor(grade: grade, subject: subject, unitId: unitId ?? 'general');
