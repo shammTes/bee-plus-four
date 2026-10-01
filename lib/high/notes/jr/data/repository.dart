@@ -1,18 +1,13 @@
-// High: notes content (assets/high/notes = /workspace/high/content, synced by tool/sync_assets.sh).
-// notes/index.json lists grade -> subject -> book file + units; books are parsed lazily (isolate) and cached.
-// English is listed in english_index.json so it can be added without rewriting the full index.
+// High: notes content. A file unit_<id>.json replaces that unit when present.
 import 'dart:async';
 import 'dart:convert';
 import 'dart:isolate';
 
 import '../../../media/media.dart' show MediaLib;
-
 import 'package:flutter/services.dart';
-
 import 'notes_models.dart';
 import 'subjects.dart';
 
-/// one unit entry of notes/index.json
 class IndexUnit {
   IndexUnit(this.id, this.number, this.title, this.pages, this.questions, this.topics);
   final String id, title;
@@ -29,7 +24,6 @@ class IndexBook {
   NotesSubject get look => notesSubject(subject);
 }
 
-/// High extension: unit concept map
 class MapNode {
   MapNode(this.id, this.label, this.kind, this.cards);
   final String id, label, kind;
@@ -43,11 +37,10 @@ class UnitMap {
   final List<({String from, String to, String label})> edges;
 }
 
-/// extras parsed from the raw JSON that the Junior models do not keep
 class BookExtras {
   BookExtras(this.maps, this.cardKey);
-  final Map<String, UnitMap> maps; // unit id -> map
-  final Map<String, String> cardKey; // card id -> "lessonId~i"
+  final Map<String, UnitMap> maps;
+  final Map<String, String> cardKey;
 }
 
 class NotesRepo {
@@ -57,18 +50,19 @@ class NotesRepo {
   static const base = 'assets/high/notes/notes';
 
   final List<IndexBook> books = [];
-  final Map<String, List<Map<String, dynamic>>> unitQuestions = {}; // unit id -> [{id, confidence, via, exam, secondary}]
+  final Map<String, List<Map<String, dynamic>>> unitQuestions = {};
   final Map<String, NotesBook> _books = {};
   final Map<String, BookExtras> _extras = {};
   final Map<String, Future<NotesBook>> _loads = {};
   bool loaded = false;
+  List<Map<String, dynamic>> placements = [];
 
   Future<void> init() async {
     Map<String, dynamic> idx;
     try {
       idx = jsonDecode(await bundle.loadString('$base/index.json')) as Map<String, dynamic>;
     } catch (_) {
-      loaded = true; // no notes bundled
+      loaded = true;
       return;
     }
     _addGradeMap((idx['grades'] as Map?) ?? const {});
@@ -101,38 +95,18 @@ class NotesRepo {
         final b = se.value as Map;
         final id = '${b['book']}';
         if (books.any((x) => x.id == id)) continue;
-        books.add(
-          IndexBook(id, '${b['file']}', '${b['title'] ?? ''}', '${se.key}', g, [
-            for (final u in (b['units'] as List? ?? const []))
-              if (u is Map)
-                IndexUnit(
-                  '${u['id']}',
-                  (u['number'] as num?)?.toInt() ?? 0,
-                  '${u['title'] ?? ''}',
-                  [for (final p in (u['pages'] as List? ?? const [])) (p as num).toInt()],
-                  (u['questions'] as num?)?.toInt() ?? 0,
-                  [
-                    for (final t in (u['topics'] as List? ?? const []))
-                      if (t is Map)
-                        (
-                          id: '${t['id']}',
-                          number: '${t['number'] ?? ''}',
-                          title: '${t['title'] ?? ''}',
-                          page: (t['page'] as num?)?.toInt(),
-                          cards: [for (final c in (t['cards'] as List? ?? const [])) '$c'],
-                        ),
-                  ],
-                ),
-          ]),
-        );
+        books.add(IndexBook(id, '${b['file']}', '${b['title'] ?? ''}', '${se.key}', g, [
+          for (final u in (b['units'] as List? ?? const []))
+            if (u is Map)
+              IndexUnit('${u['id']}', (u['number'] as num?)?.toInt() ?? 0, '${u['title'] ?? ''}', [for (final p in (u['pages'] as List? ?? const [])) (p as num).toInt()], (u['questions'] as num?)?.toInt() ?? 0, [
+                for (final t in (u['topics'] as List? ?? const []))
+                  if (t is Map) (id: '${t['id']}', number: '${t['number'] ?? ''}', title: '${t['title'] ?? ''}', page: (t['page'] as num?)?.toInt(), cards: [for (final c in (t['cards'] as List? ?? const [])) '$c']),
+              ]),
+        ]));
       }
     }
   }
 
-  /// High: media / interactive cards appended to lessons ({lesson, card}), see assets/high/media/placements.json
-  List<Map<String, dynamic>> placements = [];
-
-  /// append placed cards to their lessons (at the end, so saved card indices stay valid)
   static void injectMedia(Object? raw, List<Map<String, dynamic>> pl) {
     if (pl.isEmpty || raw is! Map) return;
     final by = <String, List<Map<String, dynamic>>>{};
@@ -161,7 +135,6 @@ class NotesRepo {
   IndexBook? byId(String id) => books.where((b) => b.id == id).firstOrNull;
   int get totalUnits => books.fold(0, (a, b) => a + b.units.length);
 
-  /// book id + index unit of a unit id
   ({IndexBook book, IndexUnit unit})? unitById(String uid) {
     for (final b in books) {
       for (final u in b.units) {
@@ -180,13 +153,24 @@ class NotesRepo {
     return _loads[id] ??= () async {
       final file = byId(id)?.file ?? '$id.json';
       final s = await bundle.loadString('$base/$file', cache: false);
+      final raw0 = jsonDecode(s);
+      if (raw0 is Map && raw0['units'] is List) {
+        final units = raw0['units'] as List;
+        for (var i = 0; i < units.length; i++) {
+          final u = units[i];
+          if (u is! Map || u['id'] == null) continue;
+          try {
+            units[i] = jsonDecode(await bundle.loadString('$base/unit_${u['id']}.json', cache: false));
+          } catch (_) {}
+        }
+      }
+      final merged = jsonEncode(raw0);
       final pl = placements;
       (NotesBook, BookExtras) parse() {
-        final raw = jsonDecode(s);
+        final raw = jsonDecode(merged);
         injectMedia(raw, pl);
         return (NotesBook.fromJson(raw, file), _parseExtras(raw));
       }
-
       final r = useIsolate ? await Isolate.run(parse) : parse();
       _books[id] = r.$1;
       _extras[id] = r.$2;
@@ -208,22 +192,17 @@ class NotesRepo {
       }
       final m = u['unitMap'];
       if (m is Map) {
-        maps['${u['id']}'] = UnitMap(
-          '${m['root']}',
-          [
-            for (final n in (m['nodes'] as List? ?? const []))
-              if (n is Map) MapNode('${n['id']}', '${n['label']}', '${n['kind'] ?? 'idea'}', [for (final c in (n['cards'] as List? ?? const [])) '$c']),
-          ],
-          [
-            for (final e in (m['edges'] as List? ?? const []))
-              if (e is Map) (from: '${e['from']}', to: '${e['to']}', label: '${e['label'] ?? ''}'),
-          ],
-        );
+        maps['${u['id']}'] = UnitMap('${m['root']}', [
+          for (final n in (m['nodes'] as List? ?? const []))
+            if (n is Map) MapNode('${n['id']}', '${n['label']}', '${n['kind'] ?? 'idea'}', [for (final c in (n['cards'] as List? ?? const [])) '$c']),
+        ], [
+          for (final e in (m['edges'] as List? ?? const []))
+            if (e is Map) (from: '${e['from']}', to: '${e['to']}', label: '${e['label'] ?? ''}'),
+        ]);
       }
     }
     return BookExtras(maps, keys);
   }
 
-  /// diagram.svg is relative to content/notes (e.g. "svg/biology_12/cell.svg")
   String svgPath(String svg) => '$base/$svg';
 }
