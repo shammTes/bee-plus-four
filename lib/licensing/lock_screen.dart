@@ -20,7 +20,6 @@ TextStyle _ts(double size, FontWeight w, Color color) => TextStyle(
       height: 1.25,
     );
 
-/// First-run gate. Stays up until a Bee Seller HIGHSCHOOL code matches this phone.
 class LockScreen extends StatefulWidget {
   const LockScreen({super.key, required this.unlock, required this.onUnlocked});
   final UnlockStore unlock;
@@ -57,18 +56,21 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
   }
 
   Future<void> _openScan() async {
+    _tilt.stop();
     final allowed = await _Secure.requestCamera();
     if (!mounted) return;
     if (!allowed) {
+      if (!_tilt.isAnimating) _tilt.repeat();
       setState(() => _message = 'Allow the camera, or go back and paste the code.');
       return;
     }
     await _Secure.set(false);
-    await Future<void>.delayed(const Duration(milliseconds: 280));
+    await Future<void>.delayed(const Duration(milliseconds: 200));
     if (mounted) setState(() => _scanning = true);
   }
 
   Future<void> _closeScan([String? code]) async {
+    if (!_tilt.isAnimating) _tilt.repeat();
     if (mounted) {
       if (code != null) _code.text = code;
       setState(() => _scanning = false);
@@ -289,32 +291,26 @@ class _ScanLayer extends StatefulWidget {
 }
 
 class _ScanLayerState extends State<_ScanLayer> {
-  late final MobileScannerController _camera = MobileScannerController(
-    autoStart: false,
-    detectionSpeed: DetectionSpeed.noDuplicates,
-    facing: CameraFacing.back,
-    formats: const [BarcodeFormat.qrCode],
-  );
+  late MobileScannerController _camera = _make();
   bool _done = false;
-  String? _fail;
 
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      if (!mounted) return;
-      try {
-        await _camera.start();
-      } catch (e) {
-        if (mounted) setState(() => _fail = 'Camera did not open.\n\nAllow the camera, or go back and paste the code.');
-      }
-    });
-  }
+  MobileScannerController _make() => MobileScannerController(
+        autoStart: true,
+        detectionSpeed: DetectionSpeed.noDuplicates,
+        facing: CameraFacing.back,
+        formats: const [BarcodeFormat.qrCode],
+      );
 
   @override
   void dispose() {
     _camera.dispose();
     super.dispose();
+  }
+
+  void _retry() {
+    final old = _camera;
+    setState(() => _camera = _make());
+    old.dispose();
   }
 
   void _hit(String? raw) {
@@ -332,33 +328,42 @@ class _ScanLayerState extends State<_ScanLayer> {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          if (_fail != null)
-            Center(
+          MobileScanner(
+            key: ObjectKey(_camera),
+            controller: _camera,
+            onDetect: (capture) {
+              for (final b in capture.barcodes) {
+                _hit(b.rawValue ?? b.displayValue);
+                if (_done) return;
+              }
+            },
+            errorBuilder: (context, error, child) => Center(
               child: Padding(
                 padding: const EdgeInsets.all(24),
-                child: Text(_fail!, textAlign: TextAlign.center, style: _ts(16, FontWeight.w800, const Color(0xFFFFFFFF))),
-              ),
-            )
-          else
-            MobileScanner(
-              controller: _camera,
-              onDetect: (capture) {
-                for (final b in capture.barcodes) {
-                  _hit(b.rawValue ?? b.displayValue);
-                  if (_done) return;
-                }
-              },
-              errorBuilder: (context, error, child) => Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(24),
-                  child: Text(
-                    'Camera did not open.\n\nAllow the camera, or go back and paste the code.',
-                    textAlign: TextAlign.center,
-                    style: _ts(16, FontWeight.w800, const Color(0xFFFFFFFF)),
-                  ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Camera did not open.\n\nAllow the camera, then try again. Or go back and paste the code.',
+                      textAlign: TextAlign.center,
+                      style: _ts(16, FontWeight.w800, const Color(0xFFFFFFFF)),
+                    ),
+                    const SizedBox(height: 16),
+                    GestureDetector(
+                      onTap: _retry,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(color: _coral, borderRadius: BorderRadius.circular(999)),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                          child: Text('Try again', style: _ts(15, FontWeight.w900, const Color(0xFFFFFFFF))),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
+          ),
           Positioned(
             left: 16,
             right: 16,
