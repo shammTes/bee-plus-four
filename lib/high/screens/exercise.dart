@@ -1,9 +1,8 @@
-// Exercise tab: Grade -> Subject -> Unit browser.
+// Exercise tab: Grade -> subject chips -> units on the same page.
 // Items: the bundled, answer-verified MCQ bank (assets/high/exercises, built by tools/clean_exercises.py; opened in the
 // quiz player so answers feed Mistakes / "Retry wrong") plus anything a host registers via HighExercises (source.dart).
 import 'package:flutter/widgets.dart';
 
-import '../widgets/art.dart' show Ic;
 import '../exam/cards.dart' show Tag;
 import '../exercise/source.dart';
 import '../notes/jr/data/repository.dart';
@@ -17,6 +16,7 @@ import 'routes.dart';
 import '../teacher/teacher.dart' show ClassCodeCard;
 
 int _g = 9;
+String? _subject;
 const kExerciseSet = 20;
 
 bool get _pluginEmpty => HighExercises.source is EmptyExerciseSource;
@@ -55,47 +55,78 @@ class _ExercisePageState extends State<ExercisePage> {
   Widget build(BuildContext context) {
     final k = Kit.of(context), p = k.p, s = k.s;
     final gs = {...s.notesRepo.grades, for (final e in s.repo.exerciseExams.keys) int.parse(e.split('|').first)}.toList()..sort();
-    if (gs.isNotEmpty && !gs.contains(_g)) _g = gs.first;
+    if (gs.isNotEmpty && !gs.contains(_g)) _g = gs.contains(9) ? 9 : gs.first;
     final subs = exerciseSubjects(s, _g);
-    final total = subs.fold<int>(0, (a, x) => a + exerciseCount(s, _g, x.subject));
+    if (subs.isNotEmpty && (_subject == null || !subs.any((x) => x.subject == _subject))) _subject = subs.first.subject;
+    final pick = subs.where((x) => x.subject == _subject).firstOrNull;
+    final lk = pick == null ? null : notesSubject(pick.subject);
     return PageShell(
-      top: const TopBar(title: 'Exercise', sub: 'Practice by grade, subject and unit'),
+      top: TopBar(title: 'Exercise', sub: 'Grade $_g · tap a subject, then a unit'),
       body: ScreenList(
         children: [
           Blk(
             margin: const EdgeInsets.only(top: 6),
-            child: Wrap(spacing: 8, runSpacing: 8, children: [for (final g in gs) ChipX('Grade $g', tone: gradeTone(g), on: g == _g, onTap: () => setState(() => _g = g))]),
+            child: Wrap(spacing: 8, runSpacing: 8, children: [
+              for (final g in gs)
+                ChipX('Grade $g', tone: gradeTone(g), on: g == _g, onTap: () => setState(() {
+                  _g = g;
+                  _subject = null;
+                })),
+            ]),
           ),
           const ClassCodeCard(),
-          SectionLabel('Grade $_g', n: total > 0 ? '$total questions' : '${subs.length} subjects', icon: 'pen'),
-          for (final x in subs)
-            () {
-              final lk = notesSubject(x.subject), n = exerciseCount(s, _g, x.subject);
-              return Panel(
-                padding: const EdgeInsets.all(14),
-                onTap: () => Routes.exerciseSubject(context, _g, x.subject),
-                child: Row(
-                  spacing: 12,
-                  children: [
-                    Badge(lk.tone, 'pen', s: 42),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(lk.key, style: ts(16, w900, p.ink)),
-                          Text([if (x.book != null) '${x.book!.units.length} units', n > 0 ? '$n questions' : 'coming soon'].join(' · '), style: ts(12.5, w700, p.ink3)),
-                        ],
-                      ),
-                    ),
-                    Ic('right', size: 20, color: p.ink3),
-                  ],
-                ),
-              );
-            }(),
+          if (subs.isEmpty)
+            const EmptyCard(title: 'No exercises yet', text: 'Practice for this grade is on the way.')
+          else ...[
+            SectionLabel('Subjects', n: subs.length, icon: 'pen'),
+            Blk(
+              margin: const EdgeInsets.only(bottom: 8),
+              child: Wrap(spacing: 8, runSpacing: 8, children: [
+                for (final x in subs)
+                  ChipX(notesSubject(x.subject).key, tone: notesSubject(x.subject).tone, on: x.subject == _subject, onTap: () => setState(() => _subject = x.subject)),
+              ]),
+            ),
+            if (pick != null && lk != null) ...[
+              SectionLabel('Units', n: pick.book?.units.length ?? 0, icon: 'pen'),
+              if (pick.book != null)
+                for (final u in pick.book!.units)
+                  _unitTile(context, grade: _g, subject: pick.subject, lk: lk, badge: '${u.number}', title: u.title, unitId: u.id, openTitle: 'Unit ${u.number} · ${u.title}'),
+              _unitTile(context, grade: _g, subject: pick.subject, lk: lk, badge: '★', title: 'General', unitId: null, openTitle: '${lk.key} · General'),
+            ],
+          ],
         ],
       ),
     );
   }
+}
+
+Widget _unitTile(BuildContext context, {required int grade, required String subject, required SubjectLook lk, required String badge, required String title, required String? unitId, required String openTitle}) {
+  final k = Kit.of(context), p = k.p, s = k.s;
+  final ids = s.repo.exerciseIds(grade: grade, subject: subject, unitId: unitId);
+  final extra = HighExercises.source.countFor(grade: grade, subject: subject, unitId: unitId ?? 'general');
+  final n = ids.length + (extra ?? 0), done = ids.where(s.answered).length, right = ids.where(s.ansOk).length;
+  return Panel(
+    padding: const EdgeInsets.all(14),
+    onTap: () => openExercises(context, grade: grade, subject: subject, unitId: unitId, title: openTitle),
+    child: Row(
+      spacing: 12,
+      children: [
+        Knob(tone: lk.tone, radius: 22, child: Text(badge, style: ts(14, w900, k.tone(lk.tone).deep))),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(title, maxLines: 2, overflow: TextOverflow.ellipsis, style: ts(14.5, w900, p.ink)),
+              Text(n == 0 ? 'Exercises coming soon' : '$n questions${done > 0 ? ' · $right of $done right' : ''}', style: ts(12, w700, p.ink3)),
+              if (ids.isNotEmpty) Padding(padding: const EdgeInsets.only(top: 6), child: Bar((100 * done / ids.length).round(), tone: lk.tone, height: 6)),
+              if (unitId != null) Padding(padding: const EdgeInsets.only(top: 10), child: UnitLinkBar(unitId: unitId, notes: true, exercises: false, small: true)),
+            ],
+          ),
+        ),
+        if (n > 0) Tag('$n', tone: lk.tone),
+      ],
+    ),
+  );
 }
 
 class ExerciseSubjectPage extends StatelessWidget {
@@ -104,44 +135,16 @@ class ExerciseSubjectPage extends StatelessWidget {
   final String subject;
   @override
   Widget build(BuildContext context) {
-    final k = Kit.of(context), p = k.p, s = k.s, lk = notesSubject(subject);
+    final s = Kit.of(context).s, lk = notesSubject(subject);
     final book = s.notesRepo.grade(grade).where((b) => b.subject == subject).firstOrNull;
     final gen = s.repo.exerciseIds(grade: grade, subject: subject);
-    Widget row({required String badge, required String title, required String? unitId, required String openTitle}) {
-      final ids = s.repo.exerciseIds(grade: grade, subject: subject, unitId: unitId);
-      final extra = HighExercises.source.countFor(grade: grade, subject: subject, unitId: unitId ?? 'general');
-      final n = ids.length + (extra ?? 0), done = ids.where(s.answered).length, right = ids.where(s.ansOk).length;
-      return Panel(
-        padding: const EdgeInsets.all(14),
-        onTap: () => openExercises(context, grade: grade, subject: subject, unitId: unitId, title: openTitle),
-        child: Row(
-          spacing: 12,
-          children: [
-            Knob(tone: lk.tone, radius: 22, child: Text(badge, style: ts(14, w900, k.tone(lk.tone).deep))),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(title, maxLines: 2, overflow: TextOverflow.ellipsis, style: ts(14.5, w900, p.ink)),
-                  Text(n == 0 ? 'Exercises coming soon' : '$n questions${done > 0 ? ' · $right of $done right' : ''}', style: ts(12, w700, p.ink3)),
-                  if (ids.isNotEmpty) Padding(padding: const EdgeInsets.only(top: 6), child: Bar((100 * done / ids.length).round(), tone: lk.tone, height: 6)),
-                  if (unitId != null) Padding(padding: const EdgeInsets.only(top: 10), child: UnitLinkBar(unitId: unitId, notes: true, exercises: false, small: true)),
-                ],
-              ),
-            ),
-            if (n > 0) Tag('$n', tone: lk.tone),
-          ],
-        ),
-      );
-    }
-
     return PageShell(
       top: TopBar(title: lk.key, sub: 'Grade $grade · exercises', onBack: HighNav.of(context).back, tab: false),
       body: ScreenList(
         children: [
           if (book != null)
-            for (final u in book.units) row(badge: '${u.number}', title: u.title, unitId: u.id, openTitle: 'Unit ${u.number} · ${u.title}'),
-          if (gen.isNotEmpty || book == null) row(badge: '★', title: 'General', unitId: null, openTitle: '${lk.key} · General'),
+            for (final u in book.units) _unitTile(context, grade: grade, subject: subject, lk: lk, badge: '${u.number}', title: u.title, unitId: u.id, openTitle: 'Unit ${u.number} · ${u.title}'),
+          if (gen.isNotEmpty || book == null) _unitTile(context, grade: grade, subject: subject, lk: lk, badge: '★', title: 'General', unitId: null, openTitle: '${lk.key} · General'),
         ],
       ),
     );
