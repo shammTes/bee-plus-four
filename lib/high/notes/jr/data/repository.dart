@@ -84,10 +84,13 @@ class NotesRepo {
       }
     } catch (_) {}
     await MediaLib.load(bundle);
-    try {
-      final pj = jsonDecode(await bundle.loadString('assets/high/media/placements.json')) as Map<String, dynamic>;
-      placements = [for (final x in (pj['cards'] as List? ?? const [])) if (x is Map) Map<String, dynamic>.from(x)];
-    } catch (_) {}
+    placements = [];
+    for (final path in ['assets/high/media/placements.json', 'assets/high/media/taxonomy_extra.json']) {
+      try {
+        final pj = jsonDecode(await bundle.loadString(path)) as Map<String, dynamic>;
+        placements.addAll([for (final x in (pj['cards'] as List? ?? const [])) if (x is Map) Map<String, dynamic>.from(x)]);
+      } catch (_) {}
+    }
     loaded = true;
   }
 
