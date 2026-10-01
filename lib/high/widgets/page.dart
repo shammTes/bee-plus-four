@@ -1,5 +1,4 @@
-// Page scaffold matching the web layout: fixed `.topbar` (padding 16 18 8, min-height 66, gap 10) above the scrolling
-// `.screen` (padding 4 16 116; the nav floats over the bottom).
+// Page scaffold. Lists build only visible rows so low-end phones stay smooth.
 import 'package:flutter/widgets.dart';
 
 import '../theme/tokens.dart';
@@ -7,11 +6,10 @@ import 'art.dart';
 import 'kit.dart';
 import '../screens/settings.dart' show SettingsPage;
 
-/// bottom padding of `.screen` (the floating nav bar covers it)
 const kScreenBottom = 116.0;
 
-/// global switch for decorative infinite animations (float, pulse); tests turn it off so frames settle
-bool highDecorAnimations = true;
+/// Idle float/pulse. Off by default so weak GPUs are not repainting off-screen.
+bool highDecorAnimations = false;
 
 class TopBar extends StatelessWidget {
   const TopBar({super.key, required this.title, this.sub, this.onBack, this.actions = const [], this.tab = true});
@@ -19,8 +17,6 @@ class TopBar extends StatelessWidget {
   final String? sub;
   final VoidCallback? onBack;
   final List<Widget> actions;
-
-  /// tab pages show theme + avatar; pushed pages show back + theme
   final bool tab;
   @override
   Widget build(BuildContext context) {
@@ -61,10 +57,8 @@ class TopBar extends StatelessWidget {
 
 enum HighTab { home, notes, exercise, matric, tutor }
 
-/// marker for pushed pages that hide the bottom nav (notes unit page)
 mixin NoNav on Widget {}
 
-/// navigation API of the shell (web `go()` / `back()` / nav tabs)
 abstract class HighNav {
   static HighNav of(BuildContext c) {
     HighNav? n;
@@ -80,15 +74,11 @@ abstract class HighNav {
 
   void tab(HighTab t);
   void push(Widget page);
-
-  /// push a page identified by [key]; if that page is already on the stack, pop back to it instead (no pile-up)
   void open(String key, Widget Function() build);
   void back();
   HighTab get current;
 }
 
-/// A block with CSS vertical margins. Siblings laid out by [collapse] get collapsed margins
-/// (gap = max(prev.bottom, next.top), negative margins added), like normal block flow in the browser.
 abstract interface class Spaced {
   EdgeInsets get blockMargin;
 }
@@ -101,13 +91,9 @@ class _Bare extends InheritedWidget {
 }
 
 EdgeInsets bareM(BuildContext c, Widget w, EdgeInsets m) => isBare(c, w) ? EdgeInsets.zero : m;
-
-/// true when [w]'s vertical margin is already applied by an enclosing [collapse]
 bool isBare(BuildContext c, Widget w) => identical(c.getInheritedWidgetOfExactType<_Bare>()?.target, w);
-
 Widget _target(Widget w) => w is Delegating ? _target((w as Delegating).inner) : w;
 
-/// wrapper widgets (entrance animations) that pass their child's margins through
 abstract interface class Delegating {
   Widget get inner;
 }
@@ -123,7 +109,6 @@ double _gap(double a, double b) {
   return a + b;
 }
 
-/// lays out [children] as CSS blocks with collapsing vertical margins; [trailing] keeps the last bottom margin
 List<Widget> collapse(List<Widget> children, {bool leading = true, bool trailing = true}) {
   final out = <Widget>[];
   double prev = 0;
@@ -140,7 +125,6 @@ List<Widget> collapse(List<Widget> children, {bool leading = true, bool trailing
   return out;
 }
 
-/// a Column of CSS blocks (margins collapsed)
 class Blocks extends StatelessWidget {
   const Blocks({super.key, required this.children});
   final List<Widget> children;
@@ -148,21 +132,29 @@ class Blocks extends StatelessWidget {
   Widget build(BuildContext context) => Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: collapse(children));
 }
 
-/// scrolling `.screen`
 class ScreenList extends StatelessWidget {
   const ScreenList({super.key, required this.children, this.controller, this.bottom = kScreenBottom, this.top = 4});
   final List<Widget> children;
   final ScrollController? controller;
   final double bottom, top;
   @override
-  Widget build(BuildContext context) => ScrollConfiguration(
-    behavior: const NoGlow(),
-    child: ListView(
-      controller: controller,
-      padding: EdgeInsets.fromLTRB(16, top, 16, bottom + MediaQuery.paddingOf(context).bottom),
-      children: collapse(children),
-    ),
-  );
+  Widget build(BuildContext context) {
+    final items = collapse(children);
+    final cache = MediaQuery.sizeOf(context).height;
+    return ScrollConfiguration(
+      behavior: const NoGlow(),
+      child: ListView.builder(
+        controller: controller,
+        padding: EdgeInsets.fromLTRB(16, top, 16, bottom + MediaQuery.paddingOf(context).bottom),
+        cacheExtent: cache,
+        addAutomaticKeepAlives: false,
+        addRepaintBoundaries: true,
+        physics: const ClampingScrollPhysics(),
+        itemCount: items.length,
+        itemBuilder: (context, i) => items[i],
+      ),
+    );
+  }
 }
 
 class NoGlow extends ScrollBehavior {
@@ -176,22 +168,17 @@ class NoGlow extends ScrollBehavior {
 class PageShell extends StatelessWidget {
   const PageShell({super.key, required this.top, required this.body});
   final Widget top, body;
-  /// on wide (landscape / TV) screens pages keep a readable column width, centred
   static const maxWidth = 860.0;
   @override
   Widget build(BuildContext context) {
     final col = Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        top,
-        Expanded(child: body),
-      ],
+      children: [top, Expanded(child: body)],
     );
     return MediaQuery.sizeOf(context).width <= maxWidth ? col : Center(child: SizedBox(width: maxWidth, child: col));
   }
 }
 
-/// `.hd` card header: h3 (16.5/900) + small, trailing widget
 class CardHead extends StatelessWidget {
   const CardHead(this.title, {super.key, this.small, this.trailing});
   final String title;
@@ -221,7 +208,6 @@ class CardHead extends StatelessWidget {
   }
 }
 
-/// `.kokob-float`: 3.2 s ease-in-out translateY(-4px) rotate(-3deg) at 50%
 class Float extends StatefulWidget {
   const Float({super.key, required this.child});
   final Widget child;
@@ -244,18 +230,20 @@ class _FloatState extends State<Float> with SingleTickerProviderStateMixin {
   }
 
   @override
-  Widget build(BuildContext context) => AnimatedBuilder(
-    animation: _c,
-    child: widget.child,
-    builder: (_, child) {
-      final x = _c.value < .5 ? _c.value * 2 : (1 - _c.value) * 2;
-      final e = Curves.easeInOut.transform(x);
-      return Transform.translate(offset: Offset(0, -4 * e), child: Transform.rotate(angle: -3 * e * 3.14159265 / 180, child: child));
-    },
-  );
+  Widget build(BuildContext context) {
+    if (!highDecorAnimations || !TickerMode.valuesOf(context).enabled) return widget.child;
+    return AnimatedBuilder(
+      animation: _c,
+      child: widget.child,
+      builder: (_, child) {
+        final x = _c.value < .5 ? _c.value * 2 : (1 - _c.value) * 2;
+        final e = Curves.easeInOut.transform(x);
+        return Transform.translate(offset: Offset(0, -4 * e), child: Transform.rotate(angle: -3 * e * 3.14159265 / 180, child: child));
+      },
+    );
+  }
 }
 
-/// the Kokob mascot (ART.kokob) at [width]
 class Kokob extends StatelessWidget {
   const Kokob({super.key, this.width = 62, this.float = true});
   final double width;
@@ -263,11 +251,10 @@ class Kokob extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final a = SizedBox(width: width, height: width, child: Art('kokob', palette: Kit.of(context).p, width: width, height: width));
-    return float ? Float(child: a) : a;
+    return float && highDecorAnimations ? Float(child: a) : a;
   }
 }
 
-/// any widget with CSS block margins
 class Blk extends StatelessWidget implements Spaced {
   const Blk({super.key, required this.margin, required this.child});
   final EdgeInsets margin;

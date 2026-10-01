@@ -1,4 +1,3 @@
-import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 
 import 'high/app.dart';
@@ -12,10 +11,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final cache = PaintingBinding.instance.imageCache;
   cache.maximumSize = 60;
-  cache.maximumSizeBytes = 40 << 20;
+  cache.maximumSizeBytes = 48 << 20;
   final unlock = UnlockStore();
   await unlock.init();
-  // Load notes + exams while the lock screen is up so unlock is not a blank cream frame.
   final loading = _warm();
   runApp(FourRoot(unlock: unlock, loading: loading));
 }
@@ -54,7 +52,6 @@ class _FourRootState extends State<FourRoot> {
   }
 
   Future<void> _unlocked() async {
-    // Let MobileScanner unmount before swapping to HighScreen (avoids a black frame).
     await Future<void>.delayed(const Duration(milliseconds: 200));
     if (mounted) setState(() => _open = true);
   }
@@ -85,7 +82,6 @@ class _FourRootState extends State<FourRoot> {
   }
 }
 
-/// Visible stand-in for the cream HighScreen loading box (looked blank on low-end phones).
 class OpeningPane extends StatelessWidget {
   const OpeningPane({super.key, this.err, this.onRetry});
   final Object? err;
