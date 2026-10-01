@@ -1,6 +1,6 @@
 // High: notes content (assets/high/notes = /workspace/high/content, synced by tool/sync_assets.sh).
 // notes/index.json lists grade -> subject -> book file + units; books are parsed lazily (isolate) and cached.
-// Built generically: any book added to index.json shows up without code changes.
+// English is listed in english_index.json so it can be added without rewriting the full index.
 import 'dart:async';
 import 'dart:convert';
 import 'dart:isolate';
@@ -71,13 +71,35 @@ class NotesRepo {
       loaded = true; // no notes bundled
       return;
     }
-    final grades = (idx['grades'] as Map?) ?? const {};
+    _addGradeMap((idx['grades'] as Map?) ?? const {});
+    try {
+      final extra = jsonDecode(await bundle.loadString('$base/english_index.json')) as Map<String, dynamic>;
+      _addGradeMap((extra['grades'] as Map?) ?? const {});
+    } catch (_) {}
+    books.sort((a, b) => a.grade != b.grade ? a.grade - b.grade : _ord(a.subject) - _ord(b.subject));
+    try {
+      final uq = jsonDecode(await bundle.loadString('assets/high/notes/unit_questions.json')) as Map<String, dynamic>;
+      for (final e in ((uq['units'] as Map?) ?? const {}).entries) {
+        unitQuestions['${e.key}'] = [for (final x in (e.value as List? ?? const [])) if (x is Map) Map<String, dynamic>.from(x)];
+      }
+    } catch (_) {}
+    await MediaLib.load(bundle);
+    try {
+      final pj = jsonDecode(await bundle.loadString('assets/high/media/placements.json')) as Map<String, dynamic>;
+      placements = [for (final x in (pj['cards'] as List? ?? const [])) if (x is Map) Map<String, dynamic>.from(x)];
+    } catch (_) {}
+    loaded = true;
+  }
+
+  void _addGradeMap(Map grades) {
     for (final ge in grades.entries) {
       final g = int.tryParse('${ge.key}') ?? 0;
       for (final se in ((ge.value as Map?) ?? const {}).entries) {
         final b = se.value as Map;
+        final id = '${b['book']}';
+        if (books.any((x) => x.id == id)) continue;
         books.add(
-          IndexBook('${b['book']}', '${b['file']}', '${b['title'] ?? ''}', '${se.key}', g, [
+          IndexBook(id, '${b['file']}', '${b['title'] ?? ''}', '${se.key}', g, [
             for (final u in (b['units'] as List? ?? const []))
               if (u is Map)
                 IndexUnit(
@@ -102,19 +124,6 @@ class NotesRepo {
         );
       }
     }
-    books.sort((a, b) => a.grade != b.grade ? a.grade - b.grade : _ord(a.subject) - _ord(b.subject));
-    try {
-      final uq = jsonDecode(await bundle.loadString('assets/high/notes/unit_questions.json')) as Map<String, dynamic>;
-      for (final e in ((uq['units'] as Map?) ?? const {}).entries) {
-        unitQuestions['${e.key}'] = [for (final x in (e.value as List? ?? const [])) if (x is Map) Map<String, dynamic>.from(x)];
-      }
-    } catch (_) {}
-    await MediaLib.load(bundle);
-    try {
-      final pj = jsonDecode(await bundle.loadString('assets/high/media/placements.json')) as Map<String, dynamic>;
-      placements = [for (final x in (pj['cards'] as List? ?? const [])) if (x is Map) Map<String, dynamic>.from(x)];
-    } catch (_) {}
-    loaded = true;
   }
 
   /// High: media / interactive cards appended to lessons ({lesson, card}), see assets/high/media/placements.json
