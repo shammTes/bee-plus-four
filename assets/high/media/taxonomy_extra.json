@@ -3,68 +3,38 @@
     {
       "lesson": "bio9-u2-l2-1",
       "card": {
-        "kind": "match",
-        "title": "Match the rank",
-        "pairs": [
-          {"a": "Kingdom", "b": "Animalia"},
-          {"a": "Phylum", "b": "Chordata"},
-          {"a": "Class", "b": "Mammalia"},
-          {"a": "Order", "b": "Primates"},
-          {"a": "Family", "b": "Hominidae"},
-          {"a": "Genus", "b": "Homo"},
-          {"a": "Species", "b": "Homo sapiens"}
+        "kind": "quick",
+        "title": "Quick check: naming and ranks",
+        "qs": [
+          {"q": "Which is the correct way to print the scientific name of the lion?", "o": ["Panthera Leo", "panthera leo", "Panthera leo", "Panthera leo (no italics, no underline)"], "a": 2, "why": "Genus capital, species small, italic when printed."},
+          {"q": "Which list puts the ranks in order from largest to smallest?", "o": ["Kingdom, Class, Phylum, Order", "Kingdom, Phylum, Class, Order", "Phylum, Kingdom, Order, Class", "Order, Class, Phylum, Kingdom"], "a": 1, "why": "King Philip Came Over For Good Soup."},
+          {"q": "Who made binomial nomenclature the standard way to name species?", "o": ["Aristotle", "Robert Whittaker", "Carl Linnaeus", "Carl Woese"], "a": 2, "why": "Linnaeus, the father of modern taxonomy (18th century)."},
+          {"q": "Which kingdom contains organisms with prokaryotic cells?", "o": ["Monera", "Protista", "Fungi", "Plantae"], "a": 0, "why": "Bacteria are prokaryotes: kingdom Monera."},
+          {"q": "A mushroom is placed in kingdom Fungi and not Plantae because it", "o": ["is multicellular", "has no chlorophyll and absorbs its food", "has a nucleus", "grows in soil"], "a": 1, "why": "Fungi are heterotrophs that absorb digested food; they have chitin walls."}
         ]
       }
     },
     {
-      "lesson": "bio9-u2-l2-1",
+      "lesson": "bio9-u2-l2-3",
       "card": {
         "kind": "quick",
-        "title": "Ranks and binomial names",
+        "title": "Quick check: kingdoms, domains and keys",
         "qs": [
-          {"q": "Which binomial is written correctly?", "o": ["olea Europaea", "Olea europaea", "Olea Europaea", "olea europaea"], "a": 1, "why": "Genus capital, species word lower case."},
-          {"q": "The smallest rank in this unit is", "o": ["kingdom", "family", "species", "class"], "a": 2, "why": "Kingdom, phylum, class, order, family, genus, species."},
-          {"q": "A market grouping by food or medicine is the same as taxonomy.", "o": ["True", "False"], "a": 1, "why": "Taxonomy groups by shared structure, not by use."}
+          {"q": "The three domains are", "o": ["Monera, Protista, Fungi", "Bacteria, Archaea, Eukarya", "Plantae, Animalia, Fungi", "Prokaryotes, Eukaryotes, Viruses"], "a": 1, "why": "Woese's three-domain system."},
+          {"q": "Why are viruses not placed in any kingdom?", "o": ["They are too small to see", "They are not made of cells and only reproduce inside host cells", "They cause diseases", "They live in water"], "a": 1, "why": "Kingdoms group cellular organisms."},
+          {"q": "Human (Primates) and lion (Carnivora) first differ at which rank?", "o": ["Class", "Phylum", "Order", "Genus"], "a": 2, "why": "They share Domain, Kingdom, Phylum and Class."},
+          {"q": "In a dichotomous key, each step gives", "o": ["one choice", "two choices", "three choices", "as many choices as organisms"], "a": 1, "why": "Dichotomous means divided into two."},
+          {"q": "Teff (Eragrostis tef) and sorghum (Sorghum bicolor) belong to the same", "o": ["genus", "species", "family (Poaceae)", "kingdom Fungi"], "a": 2, "why": "Different genera, same grass family."}
         ]
       }
     },
     {
       "lesson": "bio9-u2-l2-2",
-      "card": {
-        "kind": "quick",
-        "title": "Dichotomous key",
-        "qs": [
-          {"q": "In a couplet, both statements can be true at once.", "o": ["True", "False"], "a": 1, "why": "You choose one statement at each step."},
-          {"q": "A key is finished when", "o": ["both statements fit", "only one name is left", "you reach kingdom", "you see a drawing"], "a": 1}
-        ]
-      }
+      "card": {"kind": "model", "id": "m_shell", "title": "A mollusc shell to identify", "caption": "A Lambis (spider conch) shell: use its features with a dichotomous key."}
     },
     {
       "lesson": "bio9-u2-l2-3",
-      "card": {
-        "kind": "match",
-        "title": "Match the kingdom",
-        "pairs": [
-          {"a": "Monera", "b": "No nucleus"},
-          {"a": "Protista", "b": "One cell, has a nucleus"},
-          {"a": "Fungi", "b": "Absorb food"},
-          {"a": "Plantae", "b": "Make food"},
-          {"a": "Animalia", "b": "Eat food, no cell wall"}
-        ]
-      }
-    },
-    {
-      "lesson": "bio9-u2-l2-3",
-      "card": {
-        "kind": "quick",
-        "title": "Which kingdom?",
-        "qs": [
-          {"q": "A one-celled green organism with a nucleus and a chloroplast is", "o": ["Monera", "Protista", "Plantae", "Fungi"], "a": 1, "why": "Nucleus means not Monera. One cell means not Plantae in this course."},
-          {"q": "E. coli belongs to", "o": ["Fungi", "Protista", "Monera", "Animalia"], "a": 2},
-          {"q": "A mushroom belongs to", "o": ["Plantae", "Fungi", "Monera", "Protista"], "a": 1},
-          {"q": "A coral is", "o": ["a plant", "a fungus", "an animal", "a protist"], "a": 2, "why": "Corals are animals, phylum Cnidaria."}
-        ]
-      }
+      "card": {"kind": "model", "id": "m_coral", "title": "A coral skeleton in 3D", "caption": "Acropora, a stony coral. Corals are animals (kingdom Animalia, phylum Cnidaria); many live in the Red Sea off Eritrea."}
     }
   ]
 }
