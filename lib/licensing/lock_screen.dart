@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import 'unlock_store.dart';
@@ -53,19 +54,18 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     super.dispose();
   }
 
+  bool _scanning = false;
+
   Future<void> _openScan() async {
-    setState(() => _message = null);
-    await _Secure.set(false);
-    String code;
-    try {
-      code = await _Secure.scanQr();
-    } catch (_) {
-      if (mounted) {
-        setState(() => _message = 'Camera did not open. Allow the camera, or paste the code.');
-      }
-      return;
-    }
-    if (!mounted) return;
+    setState(() {
+      _message = null;
+      _scanning = true;
+    });
+  }
+
+  Future<void> _onScan(String code) async {
+    if (!_scanning) return;
+    setState(() => _scanning = false);
     final text = code.trim();
     if (text.isEmpty) {
       setState(() => _message = 'No code scanned. Paste the Bee Seller code, or try again.');
@@ -111,6 +111,28 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     final pad = MediaQuery.paddingOf(context);
     final keyboard = MediaQuery.viewInsetsOf(context).bottom;
+    if (_scanning) {
+      return ColoredBox(
+        color: const Color(0xFF1A120E),
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            MobileScanner(
+              onDetect: (capture) {
+                final raw = capture.barcodes.isEmpty ? null : capture.barcodes.first.rawValue;
+                if (raw != null && raw.isNotEmpty) _onScan(raw);
+              },
+            ),
+            Positioned(
+              left: 16,
+              right: 16,
+              bottom: 28,
+              child: _Btn(label: 'Close camera', filled: true, onTap: () => setState(() => _scanning = false)),
+            ),
+          ],
+        ),
+      );
+    }
     return ColoredBox(
       color: const Color(0xFF1A120C),
       child: DecoratedBox(
@@ -258,16 +280,3 @@ class _Btn extends StatelessWidget {
   }
 }
 
-class _Secure {
-  static const _channel = MethodChannel('com.warsay.high/secure');
-  static Future<void> set(bool on) async {
-    try {
-      await _channel.invokeMethod<void>('set', on);
-    } catch (_) {}
-  }
-
-  static Future<String> scanQr() async {
-    final value = await _channel.invokeMethod<String>('scanQr');
-    return value ?? '';
-  }
-}

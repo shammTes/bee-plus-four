@@ -113,11 +113,7 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun setSecure(on: Boolean) {
-        secureWanted = on
-        if (on) {
-            window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
-        } else {
-            window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
-        }
+        secureWanted = false
+        window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
     }
 }

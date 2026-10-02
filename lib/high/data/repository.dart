@@ -194,12 +194,13 @@ class ExamRepo {
             'options': {for (final (i, o) in (q['options'] as List).indexed) 'ABCDE'[i]: o},
             'answer': 'ABCDE'[(q['answer'] as num).toInt()],
             'explanation_steps': [if ((q['explanation'] as String? ?? '').isNotEmpty) q['explanation']],
-            'unit': q['unit'],
+            'unit': (q['unit'] as String?) ?? 'eng$g-practice',
           }, e),
       ];
       for (final q in e.questions) {
         byId[q.id] = q;
         (exerciseUnits[(q.j['unit'] as String?) ?? 'general|$g|$subj'] ??= []).add(q.id);
+        (exerciseUnits['general|$g|$subj'] ??= []).add(q.id);
       }
       exam[e.id] = e;
       exerciseExams['$g|$subj'] = e;
