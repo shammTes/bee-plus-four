@@ -65,7 +65,6 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       return;
     }
     await _Secure.set(false);
-    await Future<void>.delayed(const Duration(milliseconds: 200));
     if (mounted) setState(() => _scanning = true);
   }
 
@@ -75,7 +74,6 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       if (code != null) _code.text = code;
       setState(() => _scanning = false);
     }
-    await _Secure.set(true);
     if (code != null) await _apply(code);
   }
 

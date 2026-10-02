@@ -14,6 +14,7 @@ import 'widgets/art.dart';
 import 'widgets/kit.dart';
 import 'widgets/page.dart';
 import 'high.dart';
+import '../licensing/screenshot.dart';
 
 /// Standalone app (use in main.dart). Loads content + state, then shows [HighScreen].
 class HighApp extends StatelessWidget {
@@ -159,6 +160,37 @@ class HighShellState extends State<HighShell> implements HighNav {
 
   bool get canPop => _sheets.isEmpty && _stack.isEmpty && _tab == HighTab.home;
 
+  static const _protected = {
+    'NotesHomePage',
+    'NotesSubjectPage',
+    'UnitPage',
+    'ExercisePage',
+    'ExerciseSubjectPage',
+    'ExerciseUnitPage',
+    'ExamsPage',
+    'ExamSubjectPage',
+    'PracticePage',
+    'QuizPage',
+    'MistakesPage',
+    'WeakPage',
+  };
+  bool _secureOn = false;
+
+  bool _isProtected(Widget w) {
+    if (w is KeyedSubtree) return _isProtected(w.child);
+    return _protected.contains(w.runtimeType.toString());
+  }
+
+  void _syncSecure() {
+    final tabProtected = _tab == HighTab.notes || _tab == HighTab.exercise || _tab == HighTab.matric;
+    final stackProtected = _stack.isNotEmpty && _isProtected(_stack.last);
+    final sheetProtected = _sheets.isNotEmpty && _isProtected(_sheets.last.child);
+    final on = sheetProtected || stackProtected || (tabProtected && _stack.isEmpty);
+    if (on == _secureOn) return;
+    _secureOn = on;
+    ScreenshotGuard.set(on);
+  }
+
   Widget _tabPage(HighTab t) => switch (t) {
     HighTab.home => const HomePage(),
     HighTab.notes => const NotesHomePage(),
@@ -175,6 +207,7 @@ class HighShellState extends State<HighShell> implements HighNav {
     final pages = [...tabs, ..._stack];
     final top = _stack.isNotEmpty ? _stack.last : tabs.firstWhere((w) => w.key == ValueKey('tab:${_tab.name}:${_tabGen[_tab] ?? 0}'));
     final showNav = _stack.isEmpty || (_stack.last is KeyedSubtree && (_stack.last as KeyedSubtree).child is! NoNav);
+    _syncSecure();
     return PopScope(
       canPop: canPop,
       onPopInvokedWithResult: (did, _) {

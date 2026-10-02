@@ -2,7 +2,6 @@ package com.warsay.high
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.os.Bundle
 import android.view.WindowManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -13,11 +12,6 @@ import io.flutter.plugin.common.MethodChannel
 class MainActivity : FlutterActivity() {
     private val cameraWaiters = mutableListOf<MethodChannel.Result>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setSecure(true)
-    }
-
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.warsay.high/secure")
@@ -27,8 +21,6 @@ class MainActivity : FlutterActivity() {
                         val on = call.arguments == true
                         runOnUiThread {
                             setSecure(on)
-                            // Reply only after the window flag is applied, so the camera
-                            // surface is not created while FLAG_SECURE is still on.
                             window.decorView.post { result.success(null) }
                         }
                     }
