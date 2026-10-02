@@ -163,6 +163,7 @@ class HighShellState extends State<HighShell> implements HighNav {
   static const _protected = {
     'NotesHomePage',
     'NotesSubjectPage',
+    'GradePage',
     'UnitPage',
     'ExercisePage',
     'ExerciseSubjectPage',
@@ -170,25 +171,32 @@ class HighShellState extends State<HighShell> implements HighNav {
     'ExamsPage',
     'ExamSubjectPage',
     'PracticePage',
-    'QuizPage',
-    'MistakesPage',
-    'WeakPage',
   };
   bool _secureOn = false;
 
   bool _isProtected(Widget w) {
     if (w is KeyedSubtree) return _isProtected(w.child);
-    return _protected.contains(w.runtimeType.toString());
+    final name = w.runtimeType.toString();
+    if (name == 'QuizPage') {
+      final kind = (w as dynamic).kind;
+      return kind == 'exercise' || kind == 'unit' || kind == 'topic';
+    }
+    return _protected.contains(name);
   }
 
   void _syncSecure() {
     final tabProtected = _tab == HighTab.notes || _tab == HighTab.exercise || _tab == HighTab.matric;
     final stackProtected = _stack.isNotEmpty && _isProtected(_stack.last);
-    final sheetProtected = _sheets.isNotEmpty && _isProtected(_sheets.last.child);
-    final on = sheetProtected || stackProtected || (tabProtected && _stack.isEmpty);
+    final on = stackProtected || (tabProtected && _stack.isEmpty);
     if (on == _secureOn) return;
     _secureOn = on;
     ScreenshotGuard.set(on);
+  }
+
+  @override
+  void dispose() {
+    ScreenshotGuard.set(false);
+    super.dispose();
   }
 
   Widget _tabPage(HighTab t) => switch (t) {
