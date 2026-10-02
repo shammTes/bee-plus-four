@@ -57,6 +57,8 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
 
   Future<void> _openScan() async {
     _tilt.stop();
+    await _Secure.set(false);
+    await Future<void>.delayed(const Duration(milliseconds: 350));
     final allowed = await _Secure.requestCamera();
     if (!mounted) return;
     if (!allowed) {
@@ -64,6 +66,8 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       setState(() => _message = 'Allow the camera, or go back and paste the code.');
       return;
     }
+    await _Secure.set(false);
+    await Future<void>.delayed(const Duration(milliseconds: 350));
     if (mounted) setState(() => _scanning = true);
   }
 
@@ -264,6 +268,12 @@ class _Btn extends StatelessWidget {
 
 class _Secure {
   static const _channel = MethodChannel('com.warsay.high/secure');
+  static Future<void> set(bool on) async {
+    try {
+      await _channel.invokeMethod<void>('set', on);
+    } catch (_) {}
+  }
+
   static Future<bool> requestCamera() async {
     try {
       return await _channel.invokeMethod<bool>('requestCamera') ?? false;

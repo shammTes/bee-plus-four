@@ -45,35 +45,72 @@ class ExamRepo {
   Future<void> _load() async {
     final idx = jsonDecode(await _bundle.loadString('$root/index.json')) as Map<String, dynamic>;
     media = strs(idx['media']);
-    final files = [...strs(idx['exams']), ...strs(idx['topics'])];
-    final raws = await Future.wait(files.map((f) => _bundle.loadString('$root/$f', cache: false)));
-    List<Object?> parse(List<String> l) => [for (final s in l) jsonDecode(s)];
-    final parsed = useIsolate ? await Isolate.run(() => parse(raws)) : parse(raws);
-    final nEx = strs(idx['exams']).length;
+    final examFiles = strs(idx['exams']);
+    final topicFiles = strs(idx['topics']);
+    final files = [...examFiles, ...topicFiles];
+    final parsed = <Object?>[];
+    // Load a few papers at a time so a low-end phone is not asked to hold every paper at once.
+    for (var start = 0; start < files.length; start += 8) {
+      final end = start + 8 > files.length ? files.length : start + 8;
+      final batch = files.sublist(start, end);
+      final raws = await Future.wait(batch.map((f) async {
+        try {
+          return await _bundle.loadString('$root/$f', cache: false);
+        } catch (_) {
+          return '';
+        }
+      }));
+      for (final s in raws) {
+        if (s.isEmpty) {
+          parsed.add(null);
+          continue;
+        }
+        try {
+          parsed.add(jsonDecode(s));
+        } catch (_) {
+          parsed.add(null);
+        }
+      }
+    }
+    final nEx = examFiles.length;
     for (var i = 0; i < nEx; i++) {
-      final d = parsed[i] as Map<String, dynamic>;
-      final e = Exam(Map<String, dynamic>.from(d['exam'] as Map), files[i]);
-      if (exam.containsKey(e.id)) continue;
-      for (final ml in (d['match_lists'] as List? ?? const [])) {
-        if (ml is Map && ml['id'] != null && ml['choices'] != null) e.matchLists[ml['id'] as String] = MatchList(Map<String, dynamic>.from(ml));
-      }
-      for (final ps in (d['passages'] as List? ?? const [])) {
-        if (ps is Map && ps['id'] != null) e.passages[ps['id'] as String] = Map<String, dynamic>.from(ps);
-      }
-      e.questions = [
-        for (final q in (d['questions'] as List? ?? const []))
-          if (q is Map && q['id'] != null) Question(Map<String, dynamic>.from(q), e),
-      ];
-      for (final q in e.questions) {
-        byId[q.id] = q;
-      }
-      exams.add(e);
-      exam[e.id] = e;
+      final raw = parsed[i];
+      if (raw is! Map) continue;
+      final examMap = raw['exam'];
+      if (examMap is! Map) continue;
+      try {
+        final d = Map<String, dynamic>.from(raw);
+        final e = Exam(Map<String, dynamic>.from(examMap), files[i]);
+        if (exam.containsKey(e.id)) continue;
+        final lists = d['match_lists'];
+        if (lists is List) {
+          for (final ml in lists) {
+            if (ml is Map && ml['id'] != null && ml['choices'] != null) e.matchLists[ml['id'] as String] = MatchList(Map<String, dynamic>.from(ml));
+          }
+        }
+        final passages = d['passages'];
+        if (passages is List) {
+          for (final ps in passages) {
+            if (ps is Map && ps['id'] != null) e.passages[ps['id'] as String] = Map<String, dynamic>.from(ps);
+          }
+        }
+        e.questions = [
+          for (final q in (d['questions'] as List? ?? const []))
+            if (q is Map && q['id'] != null) Question(Map<String, dynamic>.from(q), e),
+        ];
+        for (final q in e.questions) {
+          byId[q.id] = q;
+        }
+        exams.add(e);
+        exam[e.id] = e;
+      } catch (_) {}
     }
     final subs = {for (final e in exams) e.subject}.toList()..sort((a, b) => subjOrder(a) != subjOrder(b) ? subjOrder(a) - subjOrder(b) : a.compareTo(b));
     subjects.addAll(subs);
     for (var i = nEx; i < files.length; i++) {
-      final ix = parsed[i] as Map<String, dynamic>;
+      final rawIx = parsed[i];
+      if (rawIx is! Map) continue;
+      final ix = Map<String, dynamic>.from(rawIx);
       String? subj;
       for (final id in strs(ix['exam_ids'])) {
         if (exam[id] != null) {

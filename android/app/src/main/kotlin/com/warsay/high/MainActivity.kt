@@ -12,6 +12,18 @@ import io.flutter.plugin.common.MethodChannel
 class MainActivity : FlutterActivity() {
     private val cameraWaiters = mutableListOf<MethodChannel.Result>()
 
+    override fun onCreate(savedInstanceState: android.os.Bundle?) {
+        super.onCreate(savedInstanceState)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (!secureWanted) window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+    }
+
+    private var secureWanted = false
+
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.warsay.high/secure")
@@ -57,6 +69,7 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun setSecure(on: Boolean) {
+        secureWanted = on
         if (on) {
             window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
         } else {
