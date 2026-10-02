@@ -5,12 +5,17 @@ import android.content.pm.PackageManager
 import android.view.WindowManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.mlkit.vision.barcode.common.Barcode
+import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions
+import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
     private val cameraWaiters = mutableListOf<MethodChannel.Result>()
+    private var scanAfterPermission: MethodChannel.Result? = null
+    private var secureWanted = false
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +26,6 @@ class MainActivity : FlutterActivity() {
         super.onResume()
         if (!secureWanted) window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
     }
-
-    private var secureWanted = false
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -37,6 +40,7 @@ class MainActivity : FlutterActivity() {
                         }
                     }
                     "requestCamera" -> requestCamera(result)
+                    "scanQr" -> scanQr(result)
                     else -> result.notImplemented()
                 }
             }
@@ -55,17 +59,57 @@ class MainActivity : FlutterActivity() {
         }
     }
 
+    private fun scanQr(result: MethodChannel.Result) {
+        runOnUiThread {
+            setSecure(false)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=
+                PackageManager.PERMISSION_GRANTED
+            ) {
+                scanAfterPermission = result
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 72)
+                return@runOnUiThread
+            }
+            startScanner(result)
+        }
+    }
+
+    private fun startScanner(result: MethodChannel.Result) {
+        val options = GmsBarcodeScannerOptions.Builder()
+            .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
+            .enableAutoZoom()
+            .build()
+        GmsBarcodeScanning.getClient(this, options)
+            .startScan()
+            .addOnSuccessListener { barcode ->
+                result.success(barcode.rawValue ?: "")
+            }
+            .addOnCanceledListener {
+                result.success("")
+            }
+            .addOnFailureListener { error ->
+                result.error("scan", error.message ?: "Camera did not open", null)
+            }
+    }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray,
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode != 71) return
         val ok = grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
-        val waiters = cameraWaiters.toList()
-        cameraWaiters.clear()
-        waiters.forEach { it.success(ok) }
+        if (requestCode == 71) {
+            val waiters = cameraWaiters.toList()
+            cameraWaiters.clear()
+            waiters.forEach { it.success(ok) }
+        }
+        if (requestCode == 72) {
+            val pending = scanAfterPermission
+            scanAfterPermission = null
+            if (pending == null) return
+            if (ok) startScanner(pending) else pending.success("")
+        }
     }
 
     private fun setSecure(on: Boolean) {

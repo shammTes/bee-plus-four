@@ -2,7 +2,6 @@ import 'dart:math' as math;
 
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import 'unlock_store.dart';
@@ -36,7 +35,6 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
   String? _id;
   String? _message;
   bool _busy = false;
-  bool _scanning = false;
 
   @override
   void initState() {
@@ -56,28 +54,25 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
   }
 
   Future<void> _openScan() async {
-    _tilt.stop();
+    setState(() => _message = null);
     await _Secure.set(false);
-    await Future<void>.delayed(const Duration(milliseconds: 350));
-    final allowed = await _Secure.requestCamera();
-    if (!mounted) return;
-    if (!allowed) {
-      if (!_tilt.isAnimating) _tilt.repeat();
-      setState(() => _message = 'Allow the camera, or go back and paste the code.');
+    String code;
+    try {
+      code = await _Secure.scanQr();
+    } catch (_) {
+      if (mounted) {
+        setState(() => _message = 'Camera did not open. Allow the camera, or paste the code.');
+      }
       return;
     }
-    await _Secure.set(false);
-    await Future<void>.delayed(const Duration(milliseconds: 350));
-    if (mounted) setState(() => _scanning = true);
-  }
-
-  Future<void> _closeScan([String? code]) async {
-    if (!_tilt.isAnimating) _tilt.repeat();
-    if (mounted) {
-      if (code != null) _code.text = code;
-      setState(() => _scanning = false);
+    if (!mounted) return;
+    final text = code.trim();
+    if (text.isEmpty) {
+      setState(() => _message = 'No code scanned. Paste the Bee Seller code, or try again.');
+      return;
     }
-    if (code != null) await _apply(code);
+    _code.text = text;
+    await _apply(text);
   }
 
   Future<void> _paste() async {
@@ -114,9 +109,6 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
-    if (_scanning) {
-      return _ScanLayer(onClose: () => _closeScan(), onCode: (code) => _closeScan(code));
-    }
     final pad = MediaQuery.paddingOf(context);
     final keyboard = MediaQuery.viewInsetsOf(context).bottom;
     return ColoredBox(
@@ -134,7 +126,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
           children: [
             Text('4', textAlign: TextAlign.center, style: _ts(42, FontWeight.w900, const Color(0xFFFFFFFF))),
             const SizedBox(height: 6),
-            Text('Grade 9–12  ·  Offline  ·  Notes and exams', textAlign: TextAlign.center, style: _ts(15, FontWeight.w700, const Color(0xFFFFE7D4))),
+            Text('Grade 9\u201312  \u00b7  Offline  \u00b7  Notes and exams', textAlign: TextAlign.center, style: _ts(15, FontWeight.w700, const Color(0xFFFFE7D4))),
             const SizedBox(height: 22),
             AnimatedBuilder(
               animation: _tilt,
@@ -173,7 +165,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
                               const SizedBox(height: 6),
                               GestureDetector(
                                 onTap: _id == null ? null : () => Clipboard.setData(ClipboardData(text: _id!)),
-                                child: Text(_id ?? '…', textAlign: TextAlign.center, style: _ts(13, FontWeight.w800, _ink)),
+                                child: Text(_id ?? '\u2026', textAlign: TextAlign.center, style: _ts(13, FontWeight.w800, _ink)),
                               ),
                             ],
                           ),
@@ -189,7 +181,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
             const SizedBox(height: 22),
             Text('Already have a code?', style: _ts(16, FontWeight.w900, const Color(0xFFFFFFFF))),
             const SizedBox(height: 4),
-            Text('Type it, or paste it from Bee Seller.', style: _ts(13, FontWeight.w700, const Color(0xFFFFE7D4))),
+            Text('Type it, paste it, or scan the Bee Seller QR.', style: _ts(13, FontWeight.w700, const Color(0xFFFFE7D4))),
             const SizedBox(height: 8),
             DecoratedBox(
               decoration: BoxDecoration(color: const Color(0x33FFFFFF), borderRadius: BorderRadius.circular(18)),
@@ -231,7 +223,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
               ],
             ),
             const SizedBox(height: 12),
-            _Btn(label: _busy ? 'Checking…' : 'Unlock 4', onTap: _busy ? null : () => _apply(_code.text)),
+            _Btn(label: _busy ? 'Checking\u2026' : 'Unlock 4', onTap: _busy ? null : () => _apply(_code.text)),
             const SizedBox(height: 8),
             _Btn(label: 'Scan seller QR', filled: false, onTap: _busy ? null : _openScan),
             if (_message != null) ...[
@@ -274,120 +266,8 @@ class _Secure {
     } catch (_) {}
   }
 
-  static Future<bool> requestCamera() async {
-    try {
-      return await _channel.invokeMethod<bool>('requestCamera') ?? false;
-    } catch (_) {
-      return false;
-    }
-  }
-}
-
-class _ScanLayer extends StatefulWidget {
-  const _ScanLayer({required this.onClose, required this.onCode});
-  final VoidCallback onClose;
-  final ValueChanged<String> onCode;
-  @override
-  State<_ScanLayer> createState() => _ScanLayerState();
-}
-
-class _ScanLayerState extends State<_ScanLayer> {
-  late MobileScannerController _camera = _make();
-  bool _done = false;
-
-  MobileScannerController _make() => MobileScannerController(
-        autoStart: true,
-        detectionSpeed: DetectionSpeed.noDuplicates,
-        facing: CameraFacing.back,
-        formats: const [BarcodeFormat.qrCode],
-      );
-
-  @override
-  void dispose() {
-    _camera.dispose();
-    super.dispose();
-  }
-
-  void _retry() {
-    final old = _camera;
-    setState(() => _camera = _make());
-    old.dispose();
-  }
-
-  void _hit(String? raw) {
-    final text = raw?.trim() ?? '';
-    if (_done || text.isEmpty) return;
-    _done = true;
-    widget.onCode(text);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final top = MediaQuery.paddingOf(context).top;
-    return ColoredBox(
-      color: const Color(0xFF000000),
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          MobileScanner(
-            key: ObjectKey(_camera),
-            controller: _camera,
-            onDetect: (capture) {
-              for (final b in capture.barcodes) {
-                _hit(b.rawValue ?? b.displayValue);
-                if (_done) return;
-              }
-            },
-            errorBuilder: (context, error, child) => Center(
-              child: Padding(
-                padding: const EdgeInsets.all(24),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      'Camera did not open.\n\nAllow the camera, then try again. Or go back and paste the code.',
-                      textAlign: TextAlign.center,
-                      style: _ts(16, FontWeight.w800, const Color(0xFFFFFFFF)),
-                    ),
-                    const SizedBox(height: 16),
-                    GestureDetector(
-                      onTap: _retry,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(color: _coral, borderRadius: BorderRadius.circular(999)),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
-                          child: Text('Try again', style: _ts(15, FontWeight.w900, const Color(0xFFFFFFFF))),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 16,
-            right: 16,
-            top: top + 12,
-            child: Row(
-              children: [
-                GestureDetector(
-                  onTap: widget.onClose,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(color: _cream, borderRadius: BorderRadius.circular(999)),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                      child: Text('Back', style: _ts(15, FontWeight.w900, _ink)),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(child: Text('Point at the Bee Seller unlock QR', style: _ts(15, FontWeight.w800, const Color(0xFFFFFFFF)))),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
+  static Future<String> scanQr() async {
+    final value = await _channel.invokeMethod<String>('scanQr');
+    return value ?? '';
   }
 }
