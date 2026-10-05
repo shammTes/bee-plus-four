@@ -136,19 +136,21 @@ class MainActivity : FlutterFragmentActivity() {
                 return@runOnUiThread
             }
             Log.i(TAG, "requestCamera: launching system dialog")
-            cameraWaiters.add(OnceResult(result))
+            val once = OnceResult(result)
+            cameraWaiters.add(once)
             try {
                 cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
             } catch (e: Exception) {
                 Log.e(TAG, "requestCamera launch failed", e)
-                cameraWaiters.remove(result)
+                cameraWaiters.remove(once)
                 // Fallback to legacy API
                 try {
+                    cameraWaiters.add(once)
                     ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 71)
-                    cameraWaiters.add(OnceResult(result))
                 } catch (e2: Exception) {
                     Log.e(TAG, "legacy requestPermissions failed", e2)
-                    result.error("request_failed", e2.message, null)
+                    cameraWaiters.remove(once)
+                    once.error("request_failed", e2.message, null)
                 }
             }
         }
@@ -170,7 +172,7 @@ class MainActivity : FlutterFragmentActivity() {
                 }
                 return@runOnUiThread
             }
-            startScanner(result)
+            startScanner(OnceResult(result))
         }
     }
 
