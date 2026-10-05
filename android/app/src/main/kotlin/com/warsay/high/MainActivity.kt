@@ -118,6 +118,10 @@ class MainActivity : FlutterFragmentActivity() {
                         }
                     }
                     "scanQr" -> scanQr(result)
+                    "log" -> {
+                        Log.i(TAG, call.arguments?.toString() ?: "")
+                        result.success(null)
+                    }
                     else -> result.notImplemented()
                 }
             }
@@ -192,11 +196,16 @@ class MainActivity : FlutterFragmentActivity() {
                 }
                 .addOnCanceledListener {
                     Log.i(TAG, "scan cancelled")
-                    result.success("")
+                    window.decorView.postDelayed({
+                        result.success("")
+                    }, 300)
                 }
                 .addOnFailureListener { error ->
                     Log.e(TAG, "scan failed: ${error.message}", error)
-                    result.error("scan", error.message ?: "Camera did not open", null)
+                    // Give CameraX / HAL time to release before Flutter MobileScanner starts.
+                    window.decorView.postDelayed({
+                        result.error("scan", error.message ?: "Camera did not open", null)
+                    }, 350)
                 }
         } catch (e: Exception) {
             Log.e(TAG, "startScanner exception", e)

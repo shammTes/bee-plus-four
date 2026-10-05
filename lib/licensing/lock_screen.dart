@@ -25,6 +25,27 @@ TextStyle _ts(double size, FontWeight w, Color color) => TextStyle(
       height: 1.25,
     );
 
+/// Human text for scanner failures (never show raw names like "genericError").
+String _scannerErrorText(MobileScannerException error) {
+  final code = error.errorCode;
+  if (code == MobileScannerErrorCode.permissionDenied) {
+    return 'Camera permission is off. Open Settings, enable Camera for 4, then tap Retry — or enter the unlock code below.';
+  }
+  if (code == MobileScannerErrorCode.unsupported) {
+    return 'This phone cannot open the on-screen scanner. Tap Scan for the system scanner, or enter the unlock code below.';
+  }
+  if (code == MobileScannerErrorCode.genericError) {
+    // Typical first-install: camera still held by Play Services scanner / HAL not ready.
+    return 'Camera could not open (busy or not ready). Wait a moment, tap Retry Scan, or enter the unlock code below.';
+  }
+  // Prefer the package human message over enum .name (avoids "genericError" style strings).
+  final msg = code.message.trim();
+  if (msg.isNotEmpty && !msg.toLowerCase().contains('generic')) {
+    return '$msg Tap Retry Scan, or enter the unlock code below.';
+  }
+  return 'Camera was not ready. Tap Retry Scan, or enter the unlock code below.';
+}
+
 class LockScreen extends StatefulWidget {
   const LockScreen({super.key, required this.unlock, required this.onUnlocked});
   final UnlockStore unlock;
@@ -47,6 +68,8 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
   bool _awaitingPermission = false;
   bool _showCodeEntryHint = false;
   bool _detecting = false;
+  bool _startingEmbedded = false;
+  int _scannerGen = 0;
 
   bool get _isAndroid => !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
 
@@ -61,7 +84,9 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
 
   @override
   void dispose() {
-    _stopScanner();
+    _scannerGen++;
+    _startingEmbedded = false;
+    unawaited(_stopScanner());
     _tilt.dispose();
     _code.dispose();
     _focus.dispose();
@@ -72,6 +97,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     final c = _scanner;
     _scanner = null;
     if (c == null) return;
+    debugPrint('HighSecure: dispose MobileScannerController');
     try {
       await c.stop();
     } catch (_) {}
@@ -87,6 +113,14 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       debugPrint('HighSecure.$method failed: $e\n$st');
       rethrow;
     }
+  }
+
+  Future<void> _nativeLog(String msg) async {
+    debugPrint('HighSecure: $msg');
+    if (!_isAndroid) return;
+    try {
+      await _secureChannel.invokeMethod<void>('log', msg);
+    } catch (_) {}
   }
 
   Future<bool> _hasCameraPermission() async {
@@ -107,7 +141,6 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     }
   }
 
-  /// Request CAMERA via native Activity Result API. Never hangs forever.
   Future<bool> _requestCameraPermission() async {
     if (!_isAndroid) return true;
     try {
@@ -137,6 +170,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
 
   void _failCamera(String why, {bool needSettings = false}) {
     debugPrint('HighSecure camera fail: $why settings=$needSettings');
+    _startingEmbedded = false;
     setState(() {
       _awaitingPermission = false;
       _scanning = false;
@@ -146,14 +180,15 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     });
   }
 
-  /// Unlock → request CAMERA → native Play Services scanner, else embedded MobileScanner after grant.
+  /// Prefer native Play Services scanQr AFTER permission. Embedded scanner is fallback only.
   Future<void> _openScan() async {
-    if (_busy || _awaitingPermission || _scanning) return;
+    if (_busy || _awaitingPermission || _scanning || _startingEmbedded) return;
     setState(() {
       _message = null;
       _needSettings = false;
       _showCodeEntryHint = false;
     });
+    await _nativeLog('openScan begin');
 
     if (_isAndroid) {
       var granted = await _hasCameraPermission();
@@ -167,7 +202,6 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
         setState(() => _awaitingPermission = false);
         if (!granted) {
           final rationale = await _shouldShowRationale();
-          // After deny: if no rationale, usually permanently denied / never-ask-again.
           _failCamera(
             rationale
                 ? 'Camera permission was denied. Tap Scan again and choose Allow, or enter the unlock code below.'
@@ -176,30 +210,37 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
           );
           return;
         }
+        // Camera HAL needs a beat after first-install grant before any scanner opens.
+        await _nativeLog('permission granted; settling 400ms');
+        await Future<void>.delayed(const Duration(milliseconds: 400));
+        if (!mounted) return;
       }
 
-      // Prefer Play Services QR UI (handles its own camera surface).
+      // Prefer Play Services QR UI (owns its camera surface; avoids CameraX race).
       try {
-        debugPrint('HighSecure: invoking scanQr');
+        await _nativeLog('invoking native scanQr');
         final code = await _invoke<String>('scanQr').timeout(
           const Duration(seconds: 120),
           onTimeout: () => '',
         );
         if (!mounted) return;
         final text = (code ?? '').trim();
-        if (text.isEmpty) {
-          // Cancelled or empty — offer embedded + code entry, don't treat as hard fail.
-          setState(() {
-            _message = 'Scan cancelled. Trying on-screen camera, or enter the unlock code below.';
-            _showCodeEntryHint = true;
-          });
-          await _startEmbeddedScanner();
+        if (text.isNotEmpty) {
+          await _onScan(text);
           return;
         }
-        await _onScan(text);
+        // Cancelled / empty — settle camera before embedded fallback.
+        await _nativeLog('native scanQr empty/cancelled; settle then embedded');
+        setState(() {
+          _message = 'System scan closed. Opening on-screen camera…';
+          _showCodeEntryHint = true;
+        });
+        await Future<void>.delayed(const Duration(milliseconds: 450));
+        if (!mounted) return;
+        await _startEmbeddedScanner();
         return;
       } on PlatformException catch (e) {
-        debugPrint('HighSecure.scanQr PlatformException: ${e.code} ${e.message}');
+        await _nativeLog('scanQr PlatformException ${e.code}: ${e.message}');
         if (e.code == 'permission_denied') {
           final rationale = await _shouldShowRationale();
           _failCamera(
@@ -209,15 +250,20 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
           return;
         }
         setState(() {
-          _message = 'System scanner unavailable (${e.message ?? e.code}). Opening camera…';
+          _message = 'System scanner unavailable. Opening on-screen camera…';
           _showCodeEntryHint = true;
         });
+        // GMS often still holds the camera briefly after failure (module download, etc.).
+        await Future<void>.delayed(const Duration(milliseconds: 500));
+        if (!mounted) return;
       } catch (e) {
-        debugPrint('HighSecure.scanQr error: $e');
+        await _nativeLog('scanQr error: $e');
         setState(() {
           _message = 'Opening on-screen camera…';
           _showCodeEntryHint = true;
         });
+        await Future<void>.delayed(const Duration(milliseconds: 450));
+        if (!mounted) return;
       }
     }
 
@@ -225,6 +271,10 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
   }
 
   Future<void> _startEmbeddedScanner() async {
+    if (_startingEmbedded || _scanning) {
+      await _nativeLog('embedded start skipped (already starting/scanning)');
+      return;
+    }
     if (_isAndroid) {
       final granted = await _hasCameraPermission();
       if (!granted) {
@@ -236,7 +286,21 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       }
     }
 
+    _startingEmbedded = true;
+    final gen = ++_scannerGen;
     await _stopScanner();
+    if (!mounted || gen != _scannerGen) {
+      _startingEmbedded = false;
+      return;
+    }
+
+    // Extra settle after dispose of any previous controller / GMS release.
+    await Future<void>.delayed(const Duration(milliseconds: 300));
+    if (!mounted || gen != _scannerGen) {
+      _startingEmbedded = false;
+      return;
+    }
+
     final controller = MobileScannerController(
       autoStart: false,
       facing: CameraFacing.back,
@@ -250,35 +314,69 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       _message = null;
       _needSettings = false;
     });
-    // Attach MobileScanner to the tree first; start only after the next frame.
+
+    // Attach MobileScanner widget first; start only after frames + delay (avoids genericError).
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      if (!mounted || _scanner != controller) return;
-      // One more frame: some devices need the platform view fully attached.
-      await Future<void>.delayed(const Duration(milliseconds: 50));
-      if (!mounted || _scanner != controller) return;
-      try {
-        debugPrint('HighSecure: MobileScannerController.start()');
-        await controller.start();
-      } on MobileScannerException catch (e) {
-        if (!mounted) return;
-        await _stopScanner();
-        final denied = e.errorCode == MobileScannerErrorCode.permissionDenied;
-        _failCamera(
-          denied
-              ? 'Camera permission is off. Open Settings, enable Camera for 4, then tap Scan — or enter the unlock code below.'
-              : 'Camera could not open (${e.errorCode.name}). Enter the unlock code below.',
-          needSettings: denied,
-        );
-      } catch (e) {
-        debugPrint('HighSecure: MobileScanner start failed: $e');
-        if (!mounted) return;
-        await _stopScanner();
-        _failCamera('Camera could not open. Enter the unlock code below, or try Scan again.');
+      if (!mounted || gen != _scannerGen || _scanner != controller) {
+        _startingEmbedded = false;
+        return;
       }
+      await Future<void>.delayed(const Duration(milliseconds: 100));
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        if (!mounted || gen != _scannerGen || _scanner != controller) {
+          _startingEmbedded = false;
+          return;
+        }
+        // First-install / post-GMS: CameraX needs ~300–500ms after attach.
+        await Future<void>.delayed(const Duration(milliseconds: 400));
+        if (!mounted || gen != _scannerGen || _scanner != controller) {
+          _startingEmbedded = false;
+          return;
+        }
+        try {
+          await _nativeLog('MobileScannerController.start() facing=back');
+          try {
+            await controller.start(cameraDirection: CameraFacing.back);
+          } catch (_) {
+            await controller.start();
+          }
+          _startingEmbedded = false;
+          await _nativeLog('MobileScannerController.start() ok');
+        } on MobileScannerException catch (e) {
+          await _nativeLog('MobileScannerException ${e.errorCode.name}: ${e.errorDetails}');
+          if (!mounted) return;
+          await _stopScanner();
+          final denied = e.errorCode == MobileScannerErrorCode.permissionDenied;
+          _failCamera(_scannerErrorText(e), needSettings: denied);
+        } catch (e) {
+          await _nativeLog('MobileScanner start failed: $e');
+          if (!mounted) return;
+          await _stopScanner();
+          _failCamera('Camera could not open. Tap Retry Scan, or enter the unlock code below.');
+        }
+      });
     });
   }
 
+  Future<void> _retryScan() async {
+    await _nativeLog('retryScan');
+    _scannerGen++;
+    _startingEmbedded = false;
+    await _stopScanner();
+    if (mounted) {
+      setState(() {
+        _scanning = false;
+        _message = null;
+      });
+    }
+    await Future<void>.delayed(const Duration(milliseconds: 350));
+    if (!mounted) return;
+    await _openScan();
+  }
+
   Future<void> _closeEmbeddedScanner() async {
+    _scannerGen++;
+    _startingEmbedded = false;
     await _stopScanner();
     if (mounted) {
       setState(() {
@@ -289,10 +387,21 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     }
   }
 
+  Future<void> _onEmbeddedError(MobileScannerException error) async {
+    await _nativeLog('errorBuilder ${error.errorCode.name}');
+    if (!mounted) return;
+    _scannerGen++;
+    _startingEmbedded = false;
+    await _stopScanner();
+    final denied = error.errorCode == MobileScannerErrorCode.permissionDenied;
+    _failCamera(_scannerErrorText(error), needSettings: denied);
+  }
+
   Future<void> _onScan(String code) async {
     if (_detecting) return;
     _detecting = true;
     if (_scanning) {
+      _scannerGen++;
       setState(() => _scanning = false);
       await _stopScanner();
     }
@@ -334,6 +443,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     final r = await widget.unlock.applyPayload(raw);
     if (!mounted) return;
     if (r.isOk) {
+      _scannerGen++;
       await _stopScanner();
       widget.onUnlocked();
       return;
@@ -359,16 +469,21 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
             if (controller != null)
               MobileScanner(
                 controller: controller,
+                fit: BoxFit.cover,
                 onDetect: (capture) {
                   final raw = capture.barcodes.isEmpty ? null : capture.barcodes.first.rawValue;
                   if (raw != null && raw.isNotEmpty) _onScan(raw);
                 },
                 errorBuilder: (context, error, child) {
+                  // Never surface raw "genericError" — map + offer actions.
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    if (mounted && _scanning) unawaited(_onEmbeddedError(error));
+                  });
                   return Center(
                     child: Padding(
                       padding: const EdgeInsets.all(24),
                       child: Text(
-                        'Camera error: ${error.errorCode.name}\nEnter the unlock code instead.',
+                        _scannerErrorText(error),
                         textAlign: TextAlign.center,
                         style: _ts(15, FontWeight.w800, _peach),
                       ),
@@ -385,7 +500,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  _Btn(label: 'Close camera', filled: true, onTap: _busy ? null : _closeEmbeddedScanner),
+                  _Btn(label: 'Retry Scan', filled: true, onTap: _busy ? null : _retryScan),
                   const SizedBox(height: 8),
                   _Btn(
                     label: 'Enter unlock code instead',
@@ -535,8 +650,12 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
             _Btn(
               label: _awaitingPermission ? 'Waiting for camera\u2026' : 'Scan seller QR',
               filled: false,
-              onTap: (_busy || _awaitingPermission) ? null : _openScan,
+              onTap: (_busy || _awaitingPermission || _startingEmbedded) ? null : _openScan,
             ),
+            if (_showCodeEntryHint || _message != null) ...[
+              const SizedBox(height: 8),
+              _Btn(label: 'Retry Scan', filled: false, onTap: (_busy || _awaitingPermission || _startingEmbedded) ? null : _retryScan),
+            ],
             if (_needSettings) ...[
               const SizedBox(height: 8),
               _Btn(label: 'Open Settings', filled: true, onTap: _openAppSettings),
