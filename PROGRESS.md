@@ -1,30 +1,22 @@
-# High / bee-plus-four — progress (`fix/high-qr-generic-error`)
+# High / bee-plus-four — progress (`fix/high-qr-embedded-only`)
 
 Updated: 2026-10-05 ~16:45 (Africa/Asmera, UTC+3)
 
-## URGENT: "Camera error: genericError" on first-install unlock
+## URGENT: camera error after PR #8
 
-### Exact source
-`lib/licensing/lock_screen.dart` → `MobileScanner` `errorBuilder` previously rendered:
+### What still failed
+PR #8 preferred native Play Services `scanQr`, then fell back to embedded `MobileScanner`.
+`scanQr` **steals the camera**; after cancel/fail, CameraX still often hits **`genericError`**.
 
-`Camera error: ${error.errorCode.name}`
-
-When `MobileScannerErrorCode.genericError` fired, the user saw **"Camera error: genericError"**.
-
-### Root cause
-1. After permission, flow prefers Play Services `scanQr`. On first install that often **cancels/fails** (barcode UI module) or user backs out.
-2. Embedded `MobileScannerController.start()` ran **immediately** (≈50 ms) while GMS / CameraX still held the camera → CameraX init fails → **`genericError`**.
-3. `errorBuilder` exposed the raw enum **name** instead of a human message; no settle delay / single-flight guard.
-
-### Fix
-- Prefer native `scanQr` after CAMERA grant; **settle 400–500 ms** (Dart + native `postDelayed`) before embedded fallback.
-- Embedded: full dispose between attempts; `_startingEmbedded` + `_scannerGen` prevent double-start; create controller after permission; start only after widget attach + **~400 ms**; `CameraFacing.back`.
-- Map `genericError` (and others) to human copy; **Retry Scan** + **Enter unlock code** + **Open Settings**.
-- Native `log` MethodChannel + Logcat tag **`HighSecure`**.
+### Fix (this branch)
+1. **Never call native `scanQr`** after CAMERA grant (Dart unlock path removed; native method returns `use_embedded` without opening camera).
+2. **Only** `MobileScannerController` with `CameraFacing.back`, `autoStart: false`, start after widget attach + **500ms**, single instance, full dispose on leave/retry.
+3. Clear error UI: Retry Scan + Enter unlock code + Open Settings; **never** show raw `genericError`.
+4. `MainActivity` still grants CAMERA via **`ActivityResultContracts.RequestPermission`** (`requestCamera` / `hasCamera` / rationale / settings). Logcat tag **`HighSecure`**.
 
 ### Verify
 ```bash
 adb logcat -s HighSecure
-# Fresh install → Scan → Allow → system scanner OR on-screen after settle
-# Deny / fail → human message, not "genericError"
+# Fresh install → Scan seller QR → Allow → on-screen preview (no GMS UI)
+# Fail path → human message, Retry / Enter code / Settings — never "genericError"
 ```

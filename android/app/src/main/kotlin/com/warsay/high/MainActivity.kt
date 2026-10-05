@@ -10,9 +10,6 @@ import android.view.WindowManager
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.google.mlkit.vision.barcode.common.Barcode
-import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions
-import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
 import io.flutter.embedding.android.FlutterFragmentActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -61,14 +58,11 @@ class MainActivity : FlutterFragmentActivity() {
             cameraWaiters.clear()
             waiters.forEach { it.success(granted) }
 
+            // Never start GmsBarcodeScanning after permission — unlock is MobileScanner-only.
             val pending = scanAfterPermission
             if (pending != null) {
                 scanAfterPermission = null
-                if (granted) {
-                    startScanner(pending)
-                } else {
-                    pending.error("permission_denied", "Camera permission denied", null)
-                }
+                pending.error("use_embedded", "Use Flutter MobileScanner; native scanQr disabled", null)
             }
         }
 
@@ -160,58 +154,16 @@ class MainActivity : FlutterFragmentActivity() {
         }
     }
 
+    /**
+     * Unlock QR uses Flutter MobileScanner only. Native GmsBarcodeScanning steals the
+     * camera and caused genericError on first install when Dart fell back to embedded.
+     * Keep the MethodChannel method for API compat; do not open the camera here.
+     */
     private fun scanQr(result: MethodChannel.Result) {
-        runOnUiThread {
-            setSecure(false)
-            window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
-            if (!hasCameraPermission()) {
-                Log.i(TAG, "scanQr: need permission first")
-                scanAfterPermission = OnceResult(result)
-                try {
-                    cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
-                } catch (e: Exception) {
-                    Log.e(TAG, "scanQr permission launch failed", e)
-                    scanAfterPermission = null
-                    result.error("permission_denied", e.message, null)
-                }
-                return@runOnUiThread
-            }
-            startScanner(OnceResult(result))
-        }
+        Log.i(TAG, "scanQr: disabled (embedded MobileScanner only)")
+        result.error("use_embedded", "Use Flutter MobileScanner; native scanQr disabled", null)
     }
 
-    private fun startScanner(result: MethodChannel.Result) {
-        Log.i(TAG, "startScanner: GmsBarcodeScanning")
-        try {
-            val options = GmsBarcodeScannerOptions.Builder()
-                .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
-                .enableAutoZoom()
-                .build()
-            GmsBarcodeScanning.getClient(this, options)
-                .startScan()
-                .addOnSuccessListener { barcode ->
-                    val value = barcode.rawValue ?: ""
-                    Log.i(TAG, "scan success len=${value.length}")
-                    result.success(value)
-                }
-                .addOnCanceledListener {
-                    Log.i(TAG, "scan cancelled")
-                    window.decorView.postDelayed({
-                        result.success("")
-                    }, 300)
-                }
-                .addOnFailureListener { error ->
-                    Log.e(TAG, "scan failed: ${error.message}", error)
-                    // Give CameraX / HAL time to release before Flutter MobileScanner starts.
-                    window.decorView.postDelayed({
-                        result.error("scan", error.message ?: "Camera did not open", null)
-                    }, 350)
-                }
-        } catch (e: Exception) {
-            Log.e(TAG, "startScanner exception", e)
-            result.error("scan", e.message ?: "Camera did not open", null)
-        }
-    }
 
     @Deprecated("Legacy fallback if Activity Result launcher is unavailable")
     override fun onRequestPermissionsResult(
@@ -231,7 +183,7 @@ class MainActivity : FlutterFragmentActivity() {
         val pending = scanAfterPermission
         if (pending != null && requestCode == 72) {
             scanAfterPermission = null
-            if (ok) startScanner(pending) else pending.error("permission_denied", "Camera permission denied", null)
+            pending.error("use_embedded", "Use Flutter MobileScanner; native scanQr disabled", null)
         }
     }
 
