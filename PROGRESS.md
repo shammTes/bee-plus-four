@@ -1,45 +1,43 @@
-# High / bee-plus-four — progress (`fix/high-qr-system-camera`)
+# High / bee-plus-four — progress (`fix/high-qr-decode-reliability`)
 
-Updated: 2026-10-05 ~17:10 (Africa/Asmera, UTC+3)
+Updated: 2026-10-05 ~17:25 (Africa/Asmera, UTC+3)
 
-## CRITICAL: QR unlock camera never opens (after PRs #5 / #8 / #9)
+## CRITICAL: Camera opens but QR does not decode (after PR #11)
 
-### Root cause (product)
-In-app CameraX / `mobile_scanner` and Play Services barcode UI failed to open a usable camera
-preview on the user’s low-end / first-install Android builds (`genericError`, busy HAL, etc.).
+### Root cause
+PR #11 correctly switched unlock to **system TakePicture → still JPEG → ML Kit**, so the
+camera app opens. Decode was still brittle:
 
-### Fix (this branch) — system camera app
-**Do not use `mobile_scanner` for unlock.** Flow:
+1. **Single ML Kit pass** on an EXIF-rotated bitmap only (no `fromFilePath`, no rotation retries)
+2. **No secondary decoder** when ML Kit missed contrast / orientation edge cases
+3. **Aggressive downscale** (1600px) could shrink dense unlock QR modules too far
+4. **Empty / tiny JPEG** (some OEM cameras + FileProvider) was treated like “no QR”
+5. Did not prefer `BEE1|` payloads when multiple barcodes appeared
 
-1. User taps **Scan unlock QR**
-2. `ActivityResultContracts.RequestPermission` for `CAMERA` (unchanged)
-3. Native **`ActivityResultContracts.TakePicture`** → system camera app (`ACTION_IMAGE_CAPTURE`)
-4. Photo saved via **FileProvider** into app cache
-5. On-device **ML Kit `barcode-scanning`** reads QR from the still image (downscaled for low RAM)
-6. Payload returned on MethodChannel `captureAndScanQr` → existing `UnlockStore.applyPayload`
+### Fix (this branch)
+Keep system camera flow. Harden still-photo decode:
 
-Secondary UX: **Enter unlock code** field always visible (paste / type / Unlock 4).
+1. Log photo **path + byte size**; fail clearly if camera wrote an empty/tiny file
+2. **ML Kit** `InputImage.fromFilePath` (content Uri, auto EXIF) first
+3. Then ML Kit on bitmap at **0/90/180/270°** (formats: QR + Aztec + Data Matrix)
+4. **ZXing** fallback (`TRY_HARDER`, same rotations, inverted luminance)
+5. Optional **hi-res retry** (3200px) if still missing
+6. Prefer raw values containing `BEE1|`
+7. UI: `No QR found — retake photo closer / better light`; invalid content after scan is explicit
+8. **Enter unlock code** remains always visible
+9. HighSecure logs: path, size, barcode count, redacted values, unlock success/fail
 
 ### Files
-- `lib/licensing/lock_screen.dart` — rewritten; no MobileScanner
-- `android/.../MainActivity.kt` — `captureAndScanQr` + ML Kit decode; tag **`HighSecure`**
-- `AndroidManifest.xml` — CAMERA, FileProvider, `IMAGE_CAPTURE` query, `barcode` ML Kit meta
-- `android/app/build.gradle.kts` — `barcode-scanning` + `exifinterface` (drop code-scanner UI)
-- `pubspec.yaml` — removed `mobile_scanner`
-- `res/xml/file_paths.xml` — cache FileProvider paths
+- `android/.../MainActivity.kt` — robust multi-pass decode
+- `android/app/build.gradle.kts` — `com.google.zxing:core:3.5.3`
+- `lib/licensing/lock_screen.dart` — clearer no-QR / invalid-QR messages + logs
+- `PROGRESS.md`
 
 ### How to test
 ```bash
 flutter pub get
-flutter build apk   # or run on device
+# After merge: uninstall old APK, install Actions APK
 adb logcat -s HighSecure
-
-# Fresh install:
-# 1. Open 4 → lock screen
-# 2. Tap "Scan unlock QR" → Allow camera
-# 3. System camera app opens (not in-app preview)
-# 4. Photograph Bee Seller unlock QR → shutter / OK
-# 5. App unlocks OR human error ("No QR…") + Enter unlock code / Retry / Settings
-#
-# Also: paste unlock code → Unlock 4 (always works without camera)
+# Scan unlock QR → system camera → hold steady, QR fills much of frame → shutter
+# Or paste code → Unlock 4
 ```
