@@ -44,4 +44,6 @@ dependencies {
     implementation("androidx.exifinterface:exifinterface:1.3.7")
     // Second decoder when ML Kit misses a still-photo QR (orientation / contrast).
     implementation("com.google.zxing:core:3.5.3")
+    // Live QR capture UI (offline, no Play Services barcode UI).
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
 }
