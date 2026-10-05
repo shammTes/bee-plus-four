@@ -34,9 +34,11 @@ String _humanChannelError(PlatformException e) {
     case 'no_qr':
       return e.message?.trim().isNotEmpty == true
           ? e.message!.trim()
-          : 'No QR code found in the photo. Hold steady, fill the frame, and try again — or enter the unlock code.';
+          : 'No QR found — retake photo closer / better light';
     case 'decode':
-      return 'Could not read a QR from the photo. Try again in better light, or enter the unlock code below.';
+      return e.message?.trim().isNotEmpty == true
+          ? e.message!.trim()
+          : 'Could not read a QR from the photo. Try again in better light, or enter the unlock code below.';
     case 'camera':
     case 'busy':
       return e.message?.trim().isNotEmpty == true
@@ -225,7 +227,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       }
       await _nativeLog('captureAndScanQr got payload len=${text.length}');
       setState(() => _scanning = false);
-      await _apply(text);
+      await _apply(text, fromScan: true);
     } on PlatformException catch (e) {
       await _nativeLog('captureAndScanQr PlatformException ${e.code}: ${e.message}');
       if (!mounted) return;
@@ -252,24 +254,35 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     setState(() => _message = null);
   }
 
-  Future<void> _apply(String raw) async {
+  Future<void> _apply(String raw, {bool fromScan = false}) async {
     if (_busy) return;
     setState(() {
       _busy = true;
       _message = null;
       _needSettings = false;
     });
+    await _nativeLog(
+      'applyPayload fromScan=$fromScan len=${raw.trim().length} preview=${raw.trim().length > 12 ? raw.trim().substring(0, 12) : "***"}',
+    );
     final r = await widget.unlock.applyPayload(raw);
     if (!mounted) return;
     if (r.isOk) {
+      await _nativeLog('unlock success');
       widget.onUnlocked();
       return;
     }
+    await _nativeLog('unlock fail: ${r.error}');
+    final err = r.error ?? 'Invalid unlock code.';
+    final msg = fromScan
+        ? (err.contains('Bee Seller') || err.contains('signature') || err.contains('another phone') || err.contains('already used') || err.contains('Bee Plus')
+            ? 'Invalid QR content: $err Retake the Bee Seller unlock QR, or enter the unlock code.'
+            : 'Invalid QR content: $err')
+        : err;
     setState(() {
       _busy = false;
       _scanning = false;
       _showCodeEntryHint = true;
-      _message = r.error;
+      _message = msg;
     });
   }
 

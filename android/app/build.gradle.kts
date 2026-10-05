@@ -42,4 +42,6 @@ dependencies {
     // Decode QR from a still photo taken by the system camera app (low-end friendly).
     implementation("com.google.mlkit:barcode-scanning:17.3.0")
     implementation("androidx.exifinterface:exifinterface:1.3.7")
+    // Second decoder when ML Kit misses a still-photo QR (orientation / contrast).
+    implementation("com.google.zxing:core:3.5.3")
 }
