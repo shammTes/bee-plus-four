@@ -241,7 +241,7 @@ class ExamRepo {
   final Set<String> _lazySubjects = {};
   final Map<String, Future<void>> _lazyLoads = {};
 
-  /// Load Drive slim packs (years >= catalog min, currently 2020+) for a subject on first open.
+  /// Load Drive slim packs (years >= catalog min, currently 2017+) for a subject on first open.
   Future<void> ensureLazySubject(String subject) {
     final key = subject.trim();
     if (key.isEmpty || _lazySubjects.contains(key)) return Future.value();
