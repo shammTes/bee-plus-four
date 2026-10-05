@@ -195,6 +195,7 @@ class UnitPageState extends State<UnitPage> {
       ],
     );
     if (!_ready || u == null) return PageShell(top: top, body: const SizedBox.shrink());
+    final items = _contentItems(context, k, u);
     return PageShell(
       top: top,
       body: ScrollConfiguration(
@@ -215,11 +216,19 @@ class UnitPageState extends State<UnitPage> {
           },
           child: CustomScrollView(
             controller: _scroll,
+            cacheExtent: MediaQuery.sizeOf(context).height * 0.4,
             slivers: [
               SliverPersistentHeader(pinned: true, delegate: _JumpDelegate(this, u, k)),
               SliverPadding(
                 padding: EdgeInsets.fromLTRB(20, 6, 20, 30 + MediaQuery.paddingOf(context).bottom),
-                sliver: SliverToBoxAdapter(child: _content(context, k, u)),
+                sliver: SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, i) => items[i],
+                    childCount: items.length,
+                    addAutomaticKeepAlives: false,
+                    addRepaintBoundaries: true,
+                  ),
+                ),
               ),
             ],
           ),
@@ -258,7 +267,7 @@ class UnitPageState extends State<UnitPage> {
 
   String? get jumpOn => _jumpOn;
 
-  Widget _content(BuildContext context, Kit k, Unit u) {
+  List<Widget> _contentItems(BuildContext context, Kit k, Unit u) {
     final p = k.p, s = k.s, b = _book!.info, sub = notesSubject(b.subject), tone = p.tone(sub.tone);
     final ctx = UnitCtx(u, widget.bookId, s.repo.svgPath);
     final pct = s.unitPct(u), rc = richColors(p);
@@ -411,78 +420,73 @@ class UnitPageState extends State<UnitPage> {
       ),
     ];
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        // uhead
-        Tx(u.title, style: ts(30, FontWeight.w900, p.ink, height: 1.15, spacing: -.3)),
-        Padding(
-          padding: const EdgeInsets.only(top: 4, bottom: 10),
-          child: Tx('${k.t(sub.key)} ${b.grade} · ${k.t('progress', {'n': pct})}', style: ts(19, FontWeight.w700, p.ink2)),
+    return [
+      Tx(u.title, style: ts(30, FontWeight.w900, p.ink, height: 1.15, spacing: -.3)),
+      Padding(
+        padding: const EdgeInsets.only(top: 4, bottom: 10),
+        child: Tx('${k.t(sub.key)} ${b.grade} · ${k.t('progress', {'n': pct})}', style: ts(19, FontWeight.w700, p.ink2)),
+      ),
+      PBar(pct / 100),
+      Padding(padding: const EdgeInsets.only(top: 16), child: hr.UnitLinkBar(unitId: u.id)),
+      if (u.intro.isNotEmpty)
+        NCard(
+          padding: const EdgeInsets.all(20),
+          margin: const EdgeInsets.only(top: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 6),
+                child: RichPara(u.intro, style: ts(19, FontWeight.w700, p.ink), colors: rc),
+              ),
+              PgRef(u.introPage),
+            ],
+          ),
         ),
-        PBar(pct / 100),
-        // High: links to this unit's exercise set and matric questions
-        Padding(padding: const EdgeInsets.only(top: 16), child: hr.UnitLinkBar(unitId: u.id)),
-        if (u.intro.isNotEmpty)
-          NCard(
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.only(top: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
+      if (_map != null)
+        section('map', 'star', 'Concept map', p.mint, [
+          ConceptMapView(map: _map!, tone: sub.tone, onCard: _jumpToCard),
+        ]),
+      section('notes', 'book', k.t('notes'), p.butter, notes),
+      section('memory', 'tip', k.t('tipsTricks'), p.lilac, memory),
+      if (u.games.isNotEmpty) section('games', 'star', k.t('games'), p.blue, games),
+      section('questions', 'check', 'Unit quiz', p.sage, qs),
+      if (_matricIds.isNotEmpty)
+        section('matric', 'star', 'Matric questions', p.peach, [
+          hr.UnitMatricCard(unitId: u.id, title: u.title, ids: _matricIds),
+        ]),
+      if (u.links.isNotEmpty) ...[
+        Padding(
+          padding: const EdgeInsets.only(top: 24, bottom: 12),
+          child: Row(
+            spacing: 10,
+            children: [
+              k.icon('lang', size: 30, color: p.ink),
+              Expanded(child: Tx(k.t('learnMore'), style: ts(22, FontWeight.w900, p.ink))),
+            ],
+          ),
+        ),
+        NCard(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              for (final l in u.links)
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 6),
-                  child: RichPara(u.intro, style: ts(19, FontWeight.w700, p.ink), colors: rc),
-                ),
-                PgRef(u.introPage),
-              ],
-            ),
-          ),
-        if (_map != null)
-          section('map', 'star', 'Concept map', p.mint, [
-            ConceptMapView(map: _map!, tone: sub.tone, onCard: _jumpToCard),
-          ]),
-        section('notes', 'book', k.t('notes'), p.butter, notes),
-        section('memory', 'tip', k.t('tipsTricks'), p.lilac, memory),
-        if (u.games.isNotEmpty) section('games', 'star', k.t('games'), p.blue, games),
-        section('questions', 'check', 'Unit quiz', p.sage, qs),
-        if (_matricIds.isNotEmpty)
-          section('matric', 'star', 'Matric questions', p.peach, [
-            hr.UnitMatricCard(unitId: u.id, title: u.title, ids: _matricIds),
-          ]),
-        if (u.links.isNotEmpty) ...[
-          Padding(
-            padding: const EdgeInsets.only(top: 24, bottom: 12),
-            child: Row(
-              spacing: 10,
-              children: [
-                k.icon('lang', size: 30, color: p.ink),
-                Expanded(child: Tx(k.t('learnMore'), style: ts(22, FontWeight.w900, p.ink))),
-              ],
-            ),
-          ),
-          NCard(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                for (final l in u.links)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Tx('${l['title'] ?? ''}', style: ts(18, FontWeight.w500, p.blue.deep).copyWith(decoration: TextDecoration.underline, decorationColor: p.blue.deep)),
-                        Tx('${l['license'] ?? ''}${l['note'] != null ? ' · ${l['note']}' : ''}', style: ts(15, FontWeight.w500, p.ink2)),
-                      ],
-                    ),
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Tx('${l['title'] ?? ''}', style: ts(18, FontWeight.w500, p.blue.deep).copyWith(decoration: TextDecoration.underline, decorationColor: p.blue.deep)),
+                      Tx('${l['license'] ?? ''}${l['note'] != null ? ' · ${l['note']}' : ''}', style: ts(15, FontWeight.w500, p.ink2)),
+                    ],
                   ),
-              ],
-            ),
+                ),
+            ],
           ),
-        ],
+        ),
       ],
-    );
+    ];
   }
 }
 
