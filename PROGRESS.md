@@ -1,51 +1,37 @@
-# High / bee-plus-four — progress (`fix/high-more-english-matric-enrich`)
+# High / bee-plus-four — progress (`fix/high-qr-camera-retry`)
 
-Updated: 2026-10-05 ~16:15 (Africa/Asmera, UTC+3)
+Updated: 2026-10-05 ~16:20 (Africa/Asmera, UTC+3)
 
-Follow-up to merged PR #3. Branch targets PR #4.
+## QR unlock camera — root cause + fix (PRIORITY)
 
-## Sync
-- Branched from upstream `main` after PR #2/#3 merges (`94bb196`).
+### Root causes (first-install)
+1. **Permission callback gap:** `MainActivity` extended `FlutterActivity` and relied on classic `onRequestPermissionsResult`. On modern Flutter/AndroidX embeddings this often **never completes** the MethodChannel `requestCamera` future → UI stuck on “Waiting for camera…” and the scanner never starts.
+2. **Play Services Code Scanner cold start:** On first install, `GmsBarcodeScanning.startScan()` frequently fails until the `barcode_ui` module finishes downloading. Without a solid fallback + permission already granted, users see a dead end.
+3. **No hard fallback UX:** When camera failed, code entry existed but was not highlighted, so users felt stuck.
 
-## 1. Lazy Matric — more pre-2024 (APK lean)
+### Fix
+- **Native (`MainActivity.kt`):** Switch to `FlutterFragmentActivity` + `ActivityResultContracts.RequestPermission` for CAMERA; keep legacy `onRequestPermissionsResult` as backup; `OnceResult` prevents double-reply crashes; Logcat tag `HighSecure`; channel remains `com.warsay.high/secure` (`requestCamera`, `hasCamera`, `shouldShowCameraRationale`, `openAppSettings`, `scanQr`).
+- **Dart (`lock_screen.dart`):** On Scan → request CAMERA (45s timeout) → try native `scanQr` → on cancel/failure start **embedded `MobileScannerController` only after permission** (post-frame attach); permanentlyDenied → Open Settings; always surface **“Enter unlock code”** banner + Paste/Unlock; opaque hit-testing on buttons; `errorBuilder` on scanner preview.
+- **Manifest:** `CAMERA` permission + optional camera feature + ML Kit `barcode_ui` meta-data (unchanged, verified).
 
-| Pack | Years | Source size |
-|---|---|---|
-| Prior (PR #3) | 2024+ | ~2.2 MB |
-| **This PR** | **2020+** | **~4.8 MB** across 12 subject files |
+### Verify on device
+1. Fresh install → Lock → **Scan seller QR** → system permission dialog appears.
+2. Allow → Play scanner **or** on-screen camera preview.
+3. Deny → message + **Enter unlock code** + Settings if permanent.
+4. Paste Bee Seller payload → Unlock 4.
 
-- Still **not** shipping full Drive JSON (~20 MB) or pre-2020 Drive duplicates (eager banks cover those).
-- Same loader: `ExamRepo.ensureLazySubject` on Matric subject open; exam-id dedupe.
-- Docs: `tool/matric_lazy/README.md`, `matric_lazy/catalog.json` (`min_lazy_year: 2020`).
-
-## 2. English Study Notes ch.16–24
-
-- Added eng11 units **u17–u24** (phrasals, prepositions, collocations, synonyms, conversation, pronunciation, reading, L1 mistakes).
-- Ch.20 (cohesion) already present as unit 8 — skipped duplicate.
-- Each unit: grammar/text cards, worked + check, match game, **10 MCQs with answers/explanations**.
-
-## 3. Enrich
-
-- More steps/tables/games: math 11–12, BE 10–12, physics 12, chem 12, english 9/10/12.
-- **History teacher text unchanged.**
-- No new Commons rasters this round (`credits.json` unchanged).
-
-## 4. Per-card lazy notes
-
-- Unit page `_contentBuilders` returns `List<Widget Function()>`.
-- Each lesson head / note card / quiz item is its own SliverList entry; widgets build when the list asks (`items[i]()`).
-- `addAutomaticKeepAlives: false` retained.
-
-## Build
-
-```bash
-git fetch origin && git checkout fix/high-more-english-matric-enrich
-flutter pub get && flutter analyze && flutter test
-flutter build apk --release
-```
+## Enrichment this branch
+- Focused on QR fix. English 12 thematic units already have worked/check/games from prior PRs; no History rewrites; no new Commons images.
 
 ## Left
-- Pre-2020 Drive-only papers (if any gaps vs eager banks)
-- English thematic G12 textbook units (still topic books, not grammar ch.16–24)
+- Device QA of permission/scanner paths (debug + release APK)
 - Optional Commons diagrams + credits.json
-- Further APK trim (gzip already helps; could drop workout stems from lazy packs)
+- Pre-2020 Drive matric gaps (if any)
+
+## Build
+```bash
+git fetch origin && git checkout fix/high-qr-camera-retry
+flutter pub get && flutter analyze
+flutter build apk --release
+# Logcat: adb logcat -s HighSecure
+```
