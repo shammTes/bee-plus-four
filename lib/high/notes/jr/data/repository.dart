@@ -79,7 +79,7 @@ class NotesRepo {
     } catch (_) {}
     // credits loaded on first book open (see book())
     placements = [];
-    for (final path in ['assets/high/media/placements.json', 'assets/high/media/taxonomy_extra.json', 'assets/high/media/g11_extra.json']) {
+    for (final path in ['assets/high/media/placements.json', 'assets/high/media/taxonomy_extra.json', 'assets/high/media/g11_extra.json', 'assets/high/media/commons_extra.json']) {
       try {
         final pj = jsonDecode(await bundle.loadString(path)) as Map<String, dynamic>;
         placements.addAll([for (final x in (pj['cards'] as List? ?? const [])) if (x is Map) Map<String, dynamic>.from(x)]);

@@ -1,37 +1,41 @@
-# High / bee-plus-four — progress (`fix/high-qr-camera-retry`)
+# High / bee-plus-four — progress (`fix/high-enrich-images-more`)
 
-Updated: 2026-10-05 ~16:20 (Africa/Asmera, UTC+3)
+Updated: 2026-10-05 ~16:30 (Africa/Asmera, UTC+3)
 
-## QR unlock camera — root cause + fix (PRIORITY)
+Branched from upstream main after PR #5 (QR camera) merge.
 
-### Root causes (first-install)
-1. **Permission callback gap:** `MainActivity` extended `FlutterActivity` and relied on classic `onRequestPermissionsResult`. On modern Flutter/AndroidX embeddings this often **never completes** the MethodChannel `requestCamera` future → UI stuck on “Waiting for camera…” and the scanner never starts.
-2. **Play Services Code Scanner cold start:** On first install, `GmsBarcodeScanning.startScan()` frequently fails until the `barcode_ui` module finishes downloading. Without a solid fallback + permission already granted, users see a dead end.
-3. **No hard fallback UX:** When camera failed, code entry existed but was not highlighted, so users felt stuck.
+## 1. Thin-unit enrichment
+Added more worked / check / table / match from Drive Study Notes for:
+physics 9–10, mathematics 9–10, chemistry 9, biology 9, geography 9–10, agriculture 11.
+**History teacher text unchanged.**
 
-### Fix
-- **Native (`MainActivity.kt`):** Switch to `FlutterFragmentActivity` + `ActivityResultContracts.RequestPermission` for CAMERA; keep legacy `onRequestPermissionsResult` as backup; `OnceResult` prevents double-reply crashes; Logcat tag `HighSecure`; channel remains `com.warsay.high/secure` (`requestCamera`, `hasCamera`, `shouldShowCameraRationale`, `openAppSettings`, `scanQr`).
-- **Dart (`lock_screen.dart`):** On Scan → request CAMERA (45s timeout) → try native `scanQr` → on cancel/failure start **embedded `MobileScannerController` only after permission** (post-frame attach); permanentlyDenied → Open Settings; always surface **“Enter unlock code”** banner + Paste/Unlock; opaque hit-testing on buttons; `errorBuilder` on scanner preview.
-- **Manifest:** `CAMERA` permission + optional camera feature + ML Kit `barcode_ui` meta-data (unchanged, verified).
+## 2. Wikimedia Commons diagrams (+ credits.json)
+New webp assets under `assets/high/media/img/` with credits:
 
-### Verify on device
-1. Fresh install → Lock → **Scan seller QR** → system permission dialog appears.
-2. Allow → Play scanner **or** on-screen camera preview.
-3. Deny → message + **Enter unlock code** + Settings if permanent.
-4. Paste Bee Seller payload → Unlock 4.
+| id | topic | licence |
+|---|---|---|
+| math_pythagoras | Pythagorean theorem | Public domain |
+| math_cartesian | Coordinate plane | Public domain |
+| phy_circuit | Series circuit | CC BY-SA (Commons metadata) |
+| phy_spectrum | EM spectrum | Public domain |
+| chem_bohr | Bohr atom model | Public domain |
+| bio_leaf_xsec | Leaf anatomy | CC BY-SA 3.0 |
 
-## Enrichment this branch
-- Focused on QR fix. English 12 thematic units already have worked/check/games from prior PRs; no History rewrites; no new Commons images.
+Placements: `assets/high/media/commons_extra.json` (loaded by NotesRepo with other placement packs).
 
-## Left
-- Device QA of permission/scanner paths (debug + release APK)
-- Optional Commons diagrams + credits.json
-- Pre-2020 Drive matric gaps (if any)
+## 3. Matric lazy gaps
+Expanded `matric_lazy` from **2020+** to **2017+** (~6.8 MB source across 12 subjects, 110 papers).
+Pre-2017 still eager-bank only (keeps APK lean; full Drive JSON still not shipped).
+Loader comment + `tool/matric_lazy` docs updated (`min_lazy_year: 2017`).
 
 ## Build
 ```bash
-git fetch origin && git checkout fix/high-qr-camera-retry
+git fetch origin && git checkout fix/high-enrich-images-more
 flutter pub get && flutter analyze
 flutter build apk --release
-# Logcat: adb logcat -s HighSecure
 ```
+
+## Left
+- Pre-2017 Drive-only papers (if any gaps vs eager)
+- More Commons diagrams (geo/math as needed)
+- Device QA of QR PR #5 on release APK
