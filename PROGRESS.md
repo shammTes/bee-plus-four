@@ -1,22 +1,29 @@
-# High / bee-plus-four — progress (`fix/high-qr-embedded-only`)
+# High / bee-plus-four — progress (`fix/high-continue-10`)
 
-Updated: 2026-10-05 ~16:45 (Africa/Asmera, UTC+3)
+Updated: 2026-10-05 ~17:00 (Africa/Asmera, UTC+3)
 
-## URGENT: camera error after PR #8
+## QR (user testing)
+Upstream main includes PR #9 (embedded MobileScanner only). User is testing on device.
 
-### What still failed
-PR #8 preferred native Play Services `scanQr`, then fell back to embedded `MobileScanner`.
-`scanQr` **steals the camera**; after cancel/fail, CameraX still often hits **`genericError`**.
+## This branch
+### Thin-unit enrich (History untouched)
+- Tool: `tool/enrich/from_study_notes.py` — maps Study_Notes review MCQs → `check` + `worked` cards on lessons missing both.
+- Skips History and English (English has its own pipeline).
+- Cap ~24 new checks/book; touched STEM + Agriculture + Business & Economics across grades 9–12.
 
-### Fix (this branch)
-1. **Never call native `scanQr`** after CAMERA grant (Dart unlock path removed; native method returns `use_embedded` without opening camera).
-2. **Only** `MobileScannerController` with `CameraFacing.back`, `autoStart: false`, start after widget attach + **500ms**, single instance, full dispose on leave/retry.
-3. Clear error UI: Retry Scan + Enter unlock code + Open Settings; **never** show raw `genericError`.
-4. `MainActivity` still grants CAMERA via **`ActivityResultContracts.RequestPermission`** (`requestCamera` / `hasCamera` / rationale / settings). Logcat tag **`HighSecure`**.
+### Commons diagrams + credits
+| id | lesson | notes |
+|---|---|---|
+| `geo_rockcycle` | geo9-u5-l5-1 | Rock cycle (PNG → webp) |
+| `chem_phscale` | chem10-u4-l4-1 | pH scale |
+| `bio_nitrogen` | bio12-u3-l3-1 | Nitrogen cycle |
+| `math_venn` | math9-u1-l1-1 | Three-set Venn |
 
-### Verify
+Placements in `assets/high/media/commons_extra.json`; attribution in `credits.json`.
+
+## Verify
 ```bash
-adb logcat -s HighSecure
-# Fresh install → Scan seller QR → Allow → on-screen preview (no GMS UI)
-# Fail path → human message, Retry / Enter code / Settings — never "genericError"
+# History must be unchanged
+git diff -- assets/high/notes/notes/history_*.json
+adb logcat -s HighSecure   # QR testing (separate)
 ```
