@@ -1,41 +1,33 @@
-# High / bee-plus-four — progress (`fix/high-enrich-images-more`)
+# High / bee-plus-four — progress (`fix/high-continue-7`)
 
-Updated: 2026-10-05 ~16:30 (Africa/Asmera, UTC+3)
+Updated: 2026-10-05 ~16:40 (Africa/Asmera, UTC+3)
 
-Branched from upstream main after PR #5 (QR camera) merge.
+Branched from upstream main after PR #6 merge.
 
 ## 1. Thin-unit enrichment
-Added more worked / check / table / match from Drive Study Notes for:
-physics 9–10, mathematics 9–10, chemistry 9, biology 9, geography 9–10, agriculture 11.
+More worked / check / table / match for:
+BE 10–12, math 10–12, physics 9/11/12, chem 11–12, agri 12, bio 12, geo 11.
+Fixed MC answer parsing for `C. Kelvin`-style and math `Multiple Choice` full-text answers.
 **History teacher text unchanged.**
 
-## 2. Wikimedia Commons diagrams (+ credits.json)
-New webp assets under `assets/high/media/img/` with credits:
+## 2. Commons diagrams (+ credits.json)
+New webps + credits + `commons_extra.json` placements:
+- `math_parabola` (PD) → math9 quadratic
+- `bio_mitosis_stages` (PD) → bio9 cell
+- `phy_lens_ray` (CC BY-SA 3.0) → phys10 optics
 
-| id | topic | licence |
-|---|---|---|
-| math_pythagoras | Pythagorean theorem | Public domain |
-| math_cartesian | Coordinate plane | Public domain |
-| phy_circuit | Series circuit | CC BY-SA (Commons metadata) |
-| phy_spectrum | EM spectrum | Public domain |
-| chem_bohr | Bohr atom model | Public domain |
-| bio_leaf_xsec | Leaf anatomy | CC BY-SA 3.0 |
+(Rock-cycle download hit Commons rate-limit / missing file; skipped.)
 
-Placements: `assets/high/media/commons_extra.json` (loaded by NotesRepo with other placement packs).
-
-## 3. Matric lazy gaps
-Expanded `matric_lazy` from **2020+** to **2017+** (~6.8 MB source across 12 subjects, 110 papers).
-Pre-2017 still eager-bank only (keeps APK lean; full Drive JSON still not shipped).
-Loader comment + `tool/matric_lazy` docs updated (`min_lazy_year: 2017`).
+## 3. Matric lazy
+Expanded `min_lazy_year` **2017 → 2014** so **all 136 Drive papers** are in subject lazy packs (~8.4 MB source). Eager banks still load at startup; lazy packs merge on subject open with exam-id dedupe. Raw 20 MB JSON still not shipped.
 
 ## Build
 ```bash
-git fetch origin && git checkout fix/high-enrich-images-more
+git fetch origin && git checkout fix/high-continue-7
 flutter pub get && flutter analyze
 flutter build apk --release
 ```
 
 ## Left
-- Pre-2017 Drive-only papers (if any gaps vs eager)
-- More Commons diagrams (geo/math as needed)
-- Device QA of QR PR #5 on release APK
+- More geo Commons (rock cycle) when API allows
+- Device QA QR unlock on release APK
