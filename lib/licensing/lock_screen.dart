@@ -32,10 +32,10 @@ String _scannerErrorText(MobileScannerException error) {
     return 'Camera permission is off. Open Settings, enable Camera for 4, then tap Retry — or enter the unlock code below.';
   }
   if (code == MobileScannerErrorCode.unsupported) {
-    return 'This phone cannot open the on-screen scanner. Tap Scan for the system scanner, or enter the unlock code below.';
+    return 'This phone cannot open the camera scanner. Enter the unlock code below, or tap Open Settings.';
   }
   if (code == MobileScannerErrorCode.genericError) {
-    // Typical first-install: camera still held by Play Services scanner / HAL not ready.
+    // Never surface raw "genericError" — usually HAL busy / start-before-attach / camera in use.
     return 'Camera could not open (busy or not ready). Wait a moment, tap Retry Scan, or enter the unlock code below.';
   }
   // Prefer the package human message over enum .name (avoids "genericError" style strings).
@@ -180,7 +180,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     });
   }
 
-  /// Prefer native Play Services scanQr AFTER permission. Embedded scanner is fallback only.
+  /// Embedded MobileScanner only — never call native Play Services scanQr (it steals the camera).
   Future<void> _openScan() async {
     if (_busy || _awaitingPermission || _scanning || _startingEmbedded) return;
     setState(() {
@@ -188,7 +188,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       _needSettings = false;
       _showCodeEntryHint = false;
     });
-    await _nativeLog('openScan begin');
+    await _nativeLog('openScan begin (embedded-only; no scanQr)');
 
     if (_isAndroid) {
       var granted = await _hasCameraPermission();
@@ -210,59 +210,9 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
           );
           return;
         }
-        // Camera HAL needs a beat after first-install grant before any scanner opens.
-        await _nativeLog('permission granted; settling 400ms');
-        await Future<void>.delayed(const Duration(milliseconds: 400));
-        if (!mounted) return;
-      }
-
-      // Prefer Play Services QR UI (owns its camera surface; avoids CameraX race).
-      try {
-        await _nativeLog('invoking native scanQr');
-        final code = await _invoke<String>('scanQr').timeout(
-          const Duration(seconds: 120),
-          onTimeout: () => '',
-        );
-        if (!mounted) return;
-        final text = (code ?? '').trim();
-        if (text.isNotEmpty) {
-          await _onScan(text);
-          return;
-        }
-        // Cancelled / empty — settle camera before embedded fallback.
-        await _nativeLog('native scanQr empty/cancelled; settle then embedded');
-        setState(() {
-          _message = 'System scan closed. Opening on-screen camera…';
-          _showCodeEntryHint = true;
-        });
-        await Future<void>.delayed(const Duration(milliseconds: 450));
-        if (!mounted) return;
-        await _startEmbeddedScanner();
-        return;
-      } on PlatformException catch (e) {
-        await _nativeLog('scanQr PlatformException ${e.code}: ${e.message}');
-        if (e.code == 'permission_denied') {
-          final rationale = await _shouldShowRationale();
-          _failCamera(
-            'Camera permission is required to scan. Enable Camera in Settings, or enter the unlock code below.',
-            needSettings: !rationale,
-          );
-          return;
-        }
-        setState(() {
-          _message = 'System scanner unavailable. Opening on-screen camera…';
-          _showCodeEntryHint = true;
-        });
-        // GMS often still holds the camera briefly after failure (module download, etc.).
+        // First-install: HAL needs a beat after Activity Result grant before CameraX opens.
+        await _nativeLog('permission granted via ActivityResult; settling 500ms before MobileScanner');
         await Future<void>.delayed(const Duration(milliseconds: 500));
-        if (!mounted) return;
-      } catch (e) {
-        await _nativeLog('scanQr error: $e');
-        setState(() {
-          _message = 'Opening on-screen camera…';
-          _showCodeEntryHint = true;
-        });
-        await Future<void>.delayed(const Duration(milliseconds: 450));
         if (!mounted) return;
       }
     }
@@ -288,14 +238,8 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
 
     _startingEmbedded = true;
     final gen = ++_scannerGen;
+    // Single instance: fully dispose any previous controller before creating another.
     await _stopScanner();
-    if (!mounted || gen != _scannerGen) {
-      _startingEmbedded = false;
-      return;
-    }
-
-    // Extra settle after dispose of any previous controller / GMS release.
-    await Future<void>.delayed(const Duration(milliseconds: 300));
     if (!mounted || gen != _scannerGen) {
       _startingEmbedded = false;
       return;
@@ -315,20 +259,20 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       _needSettings = false;
     });
 
-    // Attach MobileScanner widget first; start only after frames + delay (avoids genericError).
+    // Attach MobileScanner widget first; start only after attach + 500ms (avoids start-before-attach genericError).
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (!mounted || gen != _scannerGen || _scanner != controller) {
         _startingEmbedded = false;
         return;
       }
-      await Future<void>.delayed(const Duration(milliseconds: 100));
+      // Second frame ensures PlatformView / texture is in the tree.
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         if (!mounted || gen != _scannerGen || _scanner != controller) {
           _startingEmbedded = false;
           return;
         }
-        // First-install / post-GMS: CameraX needs ~300–500ms after attach.
-        await Future<void>.delayed(const Duration(milliseconds: 400));
+        await _nativeLog('widget attached; waiting 500ms before start');
+        await Future<void>.delayed(const Duration(milliseconds: 500));
         if (!mounted || gen != _scannerGen || _scanner != controller) {
           _startingEmbedded = false;
           return;
@@ -343,6 +287,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
           _startingEmbedded = false;
           await _nativeLog('MobileScannerController.start() ok');
         } on MobileScannerException catch (e) {
+          // Log enum name for debug; never show it in UI.
           await _nativeLog('MobileScannerException ${e.errorCode.name}: ${e.errorDetails}');
           if (!mounted) return;
           await _stopScanner();
@@ -369,7 +314,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
         _message = null;
       });
     }
-    await Future<void>.delayed(const Duration(milliseconds: 350));
+    await Future<void>.delayed(const Duration(milliseconds: 500));
     if (!mounted) return;
     await _openScan();
   }
@@ -511,6 +456,12 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
                             await _closeEmbeddedScanner();
                             if (mounted) _focus.requestFocus();
                           },
+                  ),
+                  const SizedBox(height: 8),
+                  _Btn(
+                    label: 'Open Settings',
+                    filled: false,
+                    onTap: _busy ? null : _openAppSettings,
                   ),
                 ],
               ),
