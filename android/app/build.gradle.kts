@@ -39,5 +39,7 @@ flutter {
 }
 
 dependencies {
-    implementation("com.google.android.gms:play-services-code-scanner:16.1.0")
+    // Decode QR from a still photo taken by the system camera app (low-end friendly).
+    implementation("com.google.mlkit:barcode-scanning:17.3.0")
+    implementation("androidx.exifinterface:exifinterface:1.3.7")
 }
