@@ -21,16 +21,16 @@ class Deco {
   ];
   List<Shadow3> puffyShadows(Color d) => dk
       ? [
-          Shadow3(0, 18, 26, -14, _ka(.72)),
-          Shadow3(0, 6, 12, -7, _ka(.5)),
-          Shadow3.inset(4, 6, 11, -4, p.hi),
-          Shadow3.inset(-6, -9, 14, -6, _ka(.36)),
+          Shadow3(0, 14, 18, -12, _ka(.65)),
+          Shadow3(0, 5, 8, -6, _ka(.42)),
+          Shadow3.inset(4, 6, 9, -4, p.hi),
+          Shadow3.inset(-5, -7, 10, -5, _ka(.3)),
         ]
       : [
-          Shadow3(0, 18, 26, -16, withA(d, .55)),
-          Shadow3(0, 6, 12, -7, withA(d, .36)),
-          Shadow3.inset(5, 7, 11, -4, p.hi),
-          Shadow3.inset(-6, -9, 14, -6, withA(d, .28)),
+          Shadow3(0, 14, 18, -14, withA(d, .48)),
+          Shadow3(0, 5, 8, -6, withA(d, .3)),
+          Shadow3.inset(5, 7, 9, -4, p.hi),
+          Shadow3.inset(-5, -7, 10, -5, withA(d, .22)),
         ];
   List<Shadow3> puffyPressedShadows(Color d) => dk
       ? [Shadow3(0, 8, 14, -10, _ka(.7)), Shadow3.inset(4, 6, 11, -4, p.hi), Shadow3.inset(-5, -7, 12, -4, _ka(.45))]

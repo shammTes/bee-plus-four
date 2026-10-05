@@ -1,40 +1,3840 @@
 {
-  "$schema": "../notes_schema.json",
-  "book": {"id": "english_11", "subject": "english", "grade": 11, "title": "English Grade 11", "lang": "en", "source": "English for Eritrea, Grade 11", "intro": ["Eritrea · Grade 11 English", "Grammar, reading, and writing"]}, 
-  "units": [
-    {
-      "id": "eng11-u1", "number": 1, "title": "Parts of speech and sentences", "status": "done", "pages": [1, 20], "tone": "rose",
-      "intro": "A sentence needs a subject and a finite verb. Know the parts of speech before you write.",
-      "lessons": [{"id": "eng11-u1-l1", "number": "1.1", "title": "Parts of speech", "pages": [1, 10], "cards": [
-        {"id": "eng11-u1-c1", "type": "table", "title": "Parts of speech", "page": 1, "src": "notes", "head": ["Part", "Job", "Example"], "rows": [["Noun", "names", "Asmara, teacher"], ["Verb", "action or state", "write, is"], ["Adjective", "describes a noun", "long, Eritrean"], ["Adverb", "describes a verb", "carefully"], ["Conjunction", "joins", "and, because"]]},
-        {"id": "eng11-u1-c2", "type": "remember", "title": "Sentence check", "page": 2, "src": "notes", "body": ["Every full sentence has a subject and a finite verb. 'Opening the door' is not a sentence."]}
-      ]}],
-      "exercise": {"questions": [
-        {"id": "eng11-u1-q1", "type": "mcq", "q": "Which word is a noun?", "options": {"A": "quickly", "B": "Asmara", "C": "write", "D": "because"}, "answer": "B", "why": ["Asmara names a place."], "page": 1},
-        {"id": "eng11-u1-q2", "type": "mcq", "q": "Which is a complete sentence?", "options": {"A": "To rest after class.", "B": "Opening the door.", "C": "The students revised together.", "D": "Because it was late."}, "answer": "C", "why": ["It has a subject and a finite verb."], "page": 1}
-      ]}
-    },
-    {
-      "id": "eng11-u2", "number": 2, "title": "Reading for the main idea", "status": "done", "pages": [21, 40], "tone": "rose",
-      "intro": "The main idea is what the whole text is about, not one detail.",
-      "lessons": [{"id": "eng11-u2-l1", "number": "2.1", "title": "Main idea", "pages": [21, 30], "cards": [
-        {"id": "eng11-u2-c1", "type": "text", "title": "How to find it", "page": 21, "src": "notes", "body": ["Read the title and the first sentence of each paragraph.", "Ask: what is this text mostly about?", "A detail is one example. The main idea covers the whole text."]},
-        {"id": "eng11-u2-c2", "type": "reading", "title": "A short text", "page": 22, "src": "notes", "source": "Practice", "paras": ["Students in Keren meet after class to revise grammar.", "They write one sentence each and correct a partner's mistake.", "They say the group helps them remember more than reading alone."], "questions": [{"q": "What is the main idea?", "a": "Revising together helps the students remember."}]}
-      ]}],
-      "exercise": {"questions": [
-        {"id": "eng11-u2-q1", "type": "mcq", "q": "The main idea of the Keren text is", "options": {"A": "Keren is a city", "B": "Revising together helps them remember", "C": "A partner made a mistake", "D": "They write one sentence"}, "answer": "B", "why": ["The last sentence states the point of the text."], "page": 22}
-      ]}
-    },
-    {
-      "id": "eng11-u3", "number": 3, "title": "Writing a paragraph", "status": "done", "pages": [41, 55], "tone": "rose",
-      "intro": "A paragraph has a topic sentence, supporting sentences, and a closing sentence.",
-      "lessons": [{"id": "eng11-u3-l1", "number": "3.1", "title": "Topic sentence", "pages": [41, 50], "cards": [
-        {"id": "eng11-u3-c1", "type": "table", "title": "Paragraph parts", "page": 41, "src": "notes", "head": ["Part", "Job"], "rows": [["Topic sentence", "names the subject and the controlling idea"], ["Support", "gives reasons or examples"], ["Closing", "restates the point without copying the first sentence"]]},
-        {"id": "eng11-u3-c2", "type": "worked", "title": "Topic sentence", "page": 42, "src": "notes", "problem": "Which is the better topic sentence about saving water in Asmara?", "steps": [{"text": "Water is wet. This names no idea."}, {"text": "Families in Asmara can save water in three simple ways. This names the subject and the idea."}], "answer": "Families in Asmara can save water in three simple ways."}
-      ]}],
-      "exercise": {"questions": [
-        {"id": "eng11-u3-q1", "type": "mcq", "q": "The best topic sentence is", "options": {"A": "Water is wet.", "B": "I have a bucket.", "C": "Families in Asmara can save water in three simple ways.", "D": "The end."}, "answer": "C", "why": ["It names the subject and the controlling idea."], "page": 41}
-      ]}
-    }
+ "$schema": "../notes_schema.json",
+ "book": {
+  "id": "english_11",
+  "subject": "english",
+  "grade": 11,
+  "title": "English Grade 11 · Grammar",
+  "pdf": "textbook_english_11.pdf",
+  "page_offset": 0,
+  "source": "Grammar sections of English for Eritrea Grade 11 Textbook (Ministry of Education, 2011); topics from the textbook Book Map. Topics follow Grade 10→12 Eritrea MoE English grammar progression. Drive textbook PDF was image-scanned and unavailable for OCR this pass; regenerate from PDF text when ready.",
+  "lang": "en",
+  "intro": [
+   "Eritrea · Ministry of Education · English for Eritrea Grade 11",
+   "Grammar notes and practice for every unit"
   ]
+ },
+ "units": [
+  {
+   "id": "eng11-u1",
+   "number": 1,
+   "title": "Complex sentences",
+   "status": "done",
+   "pages": [
+    1,
+    18
+   ],
+   "tone": "sage",
+   "intro": "A complex sentence has one independent clause and at least one dependent clause.",
+   "intro_page": 1,
+   "lessons": [
+    {
+     "id": "eng11-u1-l1-1",
+     "number": "1.1",
+     "title": "Independent and dependent clauses",
+     "pages": [
+      1,
+      18
+     ],
+     "cards": [
+      {
+       "id": "eng11-u1-c01",
+       "type": "grammar",
+       "title": "Independent and dependent clauses",
+       "page": 1,
+       "src": "notes",
+       "rule": [
+        "An **independent clause** can stand alone as a sentence: *Students revise every evening.*",
+        "A **dependent (subordinate) clause** cannot stand alone: *because the exam is near*.",
+        "Join them without a comma splice: *Students revise every evening **because** the exam is near.*"
+       ],
+       "examples": [
+        {
+         "text": "She left early because she felt ill.",
+         "ok": true
+        },
+        {
+         "text": "Because she felt ill.",
+         "ok": false,
+         "fix": "Because she felt ill, she left early."
+        },
+        {
+         "text": "She left early, she felt ill.",
+         "ok": false,
+         "fix": "She left early because she felt ill."
+        }
+       ],
+       "pattern": "independent + subordinating conjunction + dependent"
+      },
+      {
+       "id": "eng11-u1-c02",
+       "type": "table",
+       "title": "Forms and examples",
+       "page": 1,
+       "src": "notes",
+       "head": [
+        "Clause",
+        "Example"
+       ],
+       "rows": [
+        [
+         "Independent",
+         "The class starts at eight."
+        ],
+        [
+         "Dependent (because)",
+         "because the bus was late"
+        ],
+        [
+         "Non-finite (-ing)",
+         "Walking to school, …"
+        ],
+        [
+         "Non-finite (to-)",
+         "To pass, you must practise."
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "eng11-u1-l1-2",
+     "number": "1.2",
+     "title": "Finite and non-finite clauses",
+     "pages": [
+      1,
+      18
+     ],
+     "cards": [
+      {
+       "id": "eng11-u1-c03",
+       "type": "grammar",
+       "title": "Finite and non-finite clauses",
+       "page": 1,
+       "src": "notes",
+       "rule": [
+        "A **finite clause** has a tensed verb: *when he **arrives***.",
+        "A **non-finite clause** uses infinitive, -ing, or -ed with no tense: *to arrive early*, *arriving early*, *surprised by the news*.",
+        "Non-finite clauses keep writing compact for essays and reports."
+       ],
+       "examples": [
+        {
+         "text": "Hoping to win, they trained harder.",
+         "ok": true
+        },
+        {
+         "text": "Hope to win, they trained harder.",
+         "ok": false,
+         "fix": "Hoping to win, they trained harder."
+        },
+        {
+         "text": "To finish on time is important.",
+         "ok": true
+        }
+       ]
+      },
+      {
+       "id": "eng11-u1-c04",
+       "type": "table",
+       "title": "Common mistakes",
+       "page": 1,
+       "src": "notes",
+       "head": [
+        "Wrong",
+        "Right",
+        "Why"
+       ],
+       "rows": [
+        [
+         "She failed. Because she did not revise.",
+         "She failed because she did not revise.",
+         "Do not leave a dependent clause as its own sentence."
+        ],
+        [
+         "Although tired. He continued.",
+         "Although tired, he continued.",
+         "Attach the dependent idea to a main clause."
+        ]
+       ]
+      },
+      {
+       "id": "eng11-u1-c05",
+       "type": "mnemonic",
+       "title": "Memory tip",
+       "page": 1,
+       "src": "notes",
+       "body": [
+        "Underline the main verb; if the group still needs another clause, it is dependent."
+       ]
+      },
+      {
+       "id": "eng11-u1-c06",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 1,
+       "src": "notes",
+       "body": [
+        "Complex sentences = one free-standing clause + one or more dependent clauses (finite or non-finite)."
+       ]
+      }
+     ]
+    }
+   ],
+   "glossary": [
+    {
+     "term": "independent clause",
+     "meaning": "a clause that can be a complete sentence",
+     "page": 1,
+     "src": "notes"
+    },
+    {
+     "term": "dependent clause",
+     "meaning": "a clause that cannot stand alone",
+     "page": 1,
+     "src": "notes"
+    }
+   ],
+   "tips": [
+    {
+     "text": "Underline the main verb; if the group still needs another clause, it is dependent.",
+     "page": 1,
+     "src": "notes"
+    }
+   ],
+   "games": [
+    {
+     "id": "eng11-u1-g1",
+     "type": "match",
+     "title": "Match the form to its example",
+     "src": "notes",
+     "lesson": "eng11-u1-l1-1",
+     "pairs": [
+      {
+       "a": "Independent",
+       "b": "The class starts at eight."
+      },
+      {
+       "a": "Dependent (because)",
+       "b": "because the bus was late"
+      },
+      {
+       "a": "Non-finite (-ing)",
+       "b": "Walking to school, …"
+      },
+      {
+       "a": "Non-finite (to-)",
+       "b": "To pass, you must practise."
+      }
+     ]
+    }
+   ],
+   "exercise": {
+    "questions": [
+     {
+      "id": "eng11-u1-q01",
+      "q": "Which group is a dependent clause?",
+      "src": "notes",
+      "page": 1,
+      "label": "1. Which group is a dependent clause?",
+      "similar": [
+       {
+        "q": "Which is independent?",
+        "a": "The lights went out"
+       },
+       {
+        "q": "Which needs a main clause?",
+        "a": "because the power failed"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "The lights went out",
+       "B": "because the power failed",
+       "C": "Students opened books",
+       "D": "Open the door"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: because the power failed",
+       "B starts with because and cannot stand alone.",
+       "A, C, and D can stand alone."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u1-q02",
+      "q": "Join with because: The match stopped ____ it rained heavily.",
+      "src": "notes",
+      "page": 1,
+      "label": "2. Join with because: The match stopped ____ it rained heavily.",
+      "similar": [
+       {
+        "q": "Which needs a main clause?",
+        "a": "because the power failed"
+       },
+       {
+        "q": "Which is independent?",
+        "a": "The lights went out"
+       }
+      ],
+      "type": "fill",
+      "answer": "because",
+      "choices": [
+       "because",
+       "so",
+       "and",
+       "but"
+      ],
+      "why": [
+       "because introduces the reason clause.",
+       "so would reverse cause and effect."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u1-q03",
+      "q": "A dependent clause often begins with ____.",
+      "src": "notes",
+      "page": 1,
+      "label": "3. A dependent clause often begins with ____.",
+      "similar": [
+       {
+        "q": "Which is independent?",
+        "a": "The lights went out"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "a capital letter only",
+       "B": "a subordinating conjunction",
+       "C": "a full stop",
+       "D": "quotation marks"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: a subordinating conjunction",
+       "because/although/when introduce dependent clauses."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u1-q04",
+      "q": "Which is a non-finite clause?",
+      "src": "notes",
+      "page": 1,
+      "label": "4. Which is a non-finite clause?",
+      "similar": [
+       {
+        "q": "Which needs a main clause?",
+        "a": "because the power failed"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "when she arrives",
+       "B": "to arrive early",
+       "C": "she arrives early",
+       "D": "arrives early now"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: to arrive early",
+       "to-infinitive clauses are non-finite."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u1-q05",
+      "q": "Complete: ____ she was tired, she finished the essay.",
+      "src": "notes",
+      "page": 1,
+      "label": "5. Complete: ____ she was tired, she finished the essay.",
+      "similar": [
+       {
+        "q": "Which is independent?",
+        "a": "The lights went out"
+       }
+      ],
+      "type": "fill",
+      "answer": "Although",
+      "choices": [
+       "Although",
+       "Because of",
+       "Therefore",
+       "So"
+      ],
+      "why": [
+       "Although introduces a contrast dependent clause."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u1-q06",
+      "q": "Choose the correctly joined sentence.",
+      "src": "notes",
+      "page": 1,
+      "label": "6. Choose the correctly joined sentence.",
+      "similar": [
+       {
+        "q": "Which needs a main clause?",
+        "a": "because the power failed"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "I was late. Because the bus stalled.",
+       "B": "I was late because the bus stalled.",
+       "C": "Because the bus stalled.",
+       "D": "I was late, because."
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: I was late because the bus stalled.",
+       "Attach the because-clause to a main clause."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u1-q07",
+      "q": "Fill: Students revise ____ the exam is near.",
+      "src": "notes",
+      "page": 1,
+      "label": "7. Fill: Students revise ____ the exam is near.",
+      "similar": [
+       {
+        "q": "Which is independent?",
+        "a": "The lights went out"
+       }
+      ],
+      "type": "fill",
+      "answer": "because",
+      "choices": [
+       "because",
+       "although",
+       "however",
+       "to"
+      ],
+      "why": [
+       "because shows reason."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u1-q08",
+      "q": "Which can stand alone?",
+      "src": "notes",
+      "page": 1,
+      "label": "8. Which can stand alone?",
+      "similar": [
+       {
+        "q": "Which needs a main clause?",
+        "a": "because the power failed"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "while waiting",
+       "B": "to pass the test",
+       "C": "The class starts at eight.",
+       "D": "if it rains"
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: The class starts at eight.",
+       "Only C is an independent clause."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     }
+    ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "src": "hand",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Complex sentences",
+      "kind": "unit",
+      "cards": [
+       "eng11-u1-c01",
+       "eng11-u1-c03"
+      ]
+     },
+     {
+      "id": "l1_1",
+      "label": "Independent and dependent cl",
+      "kind": "topic",
+      "lesson": "eng11-u1-l1-1",
+      "cards": [
+       "eng11-u1-c01",
+       "eng11-u1-c02"
+      ]
+     },
+     {
+      "id": "l1_2",
+      "label": "Finite and non-finite clause",
+      "kind": "topic",
+      "lesson": "eng11-u1-l1-2",
+      "cards": [
+       "eng11-u1-c03",
+       "eng11-u1-c04",
+       "eng11-u1-c05",
+       "eng11-u1-c06"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l1_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l1_2",
+      "label": "includes"
+     }
+    ]
+   }
+  },
+  {
+   "id": "eng11-u2",
+   "number": 2,
+   "title": "Relative clauses",
+   "status": "done",
+   "pages": [
+    19,
+    36
+   ],
+   "tone": "peach",
+   "intro": "Relative clauses add information about a noun using who, which, that, whose, where, when.",
+   "intro_page": 19,
+   "lessons": [
+    {
+     "id": "eng11-u2-l2-1",
+     "number": "2.1",
+     "title": "Defining vs non-defining",
+     "pages": [
+      19,
+      36
+     ],
+     "cards": [
+      {
+       "id": "eng11-u2-c01",
+       "type": "grammar",
+       "title": "Defining vs non-defining",
+       "page": 19,
+       "src": "notes",
+       "rule": [
+        "A **defining** relative clause identifies which person/thing: *The student **who arrived late** missed the quiz.* (no commas)",
+        "A **non-defining** clause adds extra information about an already clear noun: *Asmara, **which is the capital**, is cool in July.* (commas)",
+        "Do not use **that** in non-defining clauses."
+       ],
+       "examples": [
+        {
+         "text": "The book that I borrowed is new.",
+         "ok": true
+        },
+        {
+         "text": "Asmara, that is the capital, is cool.",
+         "ok": false,
+         "fix": "Asmara, which is the capital, is cool."
+        },
+        {
+         "text": "My brother, who lives in Keren, called.",
+         "ok": true
+        }
+       ],
+       "pattern": "noun + who/which/that …"
+      },
+      {
+       "id": "eng11-u2-c02",
+       "type": "table",
+       "title": "Forms and examples",
+       "page": 19,
+       "src": "notes",
+       "head": [
+        "Relative",
+        "Use"
+       ],
+       "rows": [
+        [
+         "who",
+         "people (subject)"
+        ],
+        [
+         "which",
+         "things / non-defining"
+        ],
+        [
+         "that",
+         "people or things (defining only)"
+        ],
+        [
+         "whose",
+         "possession"
+        ],
+        [
+         "where / when",
+         "place / time"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "eng11-u2-l2-2",
+     "number": "2.2",
+     "title": "Whose, where, when",
+     "pages": [
+      19,
+      36
+     ],
+     "cards": [
+      {
+       "id": "eng11-u2-c03",
+       "type": "grammar",
+       "title": "Whose, where, when",
+       "page": 19,
+       "src": "notes",
+       "rule": [
+        "**whose** = possession: *the teacher whose class we joined*",
+        "**where** = place: *the school where we study*",
+        "**when** = time: *the year when Eritrea became independent*"
+       ],
+       "examples": [
+        {
+         "text": "the girl whose bag was lost",
+         "ok": true
+        },
+        {
+         "text": "the girl who bag was lost",
+         "ok": false,
+         "fix": "the girl whose bag was lost"
+        },
+        {
+         "text": "the town where I was born",
+         "ok": true
+        }
+       ]
+      },
+      {
+       "id": "eng11-u2-c04",
+       "type": "table",
+       "title": "Common mistakes",
+       "page": 19,
+       "src": "notes",
+       "head": [
+        "Wrong",
+        "Right",
+        "Why"
+       ],
+       "rows": [
+        [
+         "The man which helped us…",
+         "The man who helped us…",
+         "Use who for people."
+        ],
+        [
+         "My phone, that is new, …",
+         "My phone, which is new, …",
+         "Non-defining → which, with commas."
+        ]
+       ]
+      },
+      {
+       "id": "eng11-u2-c05",
+       "type": "mnemonic",
+       "title": "Memory tip",
+       "page": 19,
+       "src": "notes",
+       "body": [
+        "If removing the clause still leaves a clear noun, use commas (non-defining)."
+       ]
+      },
+      {
+       "id": "eng11-u2-c06",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 19,
+       "src": "notes",
+       "body": [
+        "Defining clauses identify; non-defining clauses add extras with commas; never use that after a comma."
+       ]
+      }
+     ]
+    }
+   ],
+   "glossary": [
+    {
+     "term": "defining clause",
+     "meaning": "identifies which noun you mean",
+     "page": 19,
+     "src": "notes"
+    },
+    {
+     "term": "non-defining clause",
+     "meaning": "adds extra information, set off by commas",
+     "page": 19,
+     "src": "notes"
+    }
+   ],
+   "tips": [
+    {
+     "text": "If removing the clause still leaves a clear noun, use commas (non-defining).",
+     "page": 19,
+     "src": "notes"
+    }
+   ],
+   "games": [
+    {
+     "id": "eng11-u2-g1",
+     "type": "match",
+     "title": "Match the form to its example",
+     "src": "notes",
+     "lesson": "eng11-u2-l2-1",
+     "pairs": [
+      {
+       "a": "who",
+       "b": "people (subject)"
+      },
+      {
+       "a": "which",
+       "b": "things / non-defining"
+      },
+      {
+       "a": "that",
+       "b": "people or things (defining only)"
+      },
+      {
+       "a": "whose",
+       "b": "possession"
+      },
+      {
+       "a": "where / when",
+       "b": "place / time"
+      }
+     ]
+    }
+   ],
+   "exercise": {
+    "questions": [
+     {
+      "id": "eng11-u2-q01",
+      "q": "Choose the correct relative pronoun: Asmara, ____ is highland, has mild summers.",
+      "src": "notes",
+      "page": 19,
+      "label": "1. Choose the correct relative pronoun: Asmara, ____ is highlan",
+      "similar": [
+       {
+        "q": "Defining (no commas)",
+        "a": "the student who arrived late"
+       },
+       {
+        "q": "Non-defining (commas)",
+        "a": "Asmara, which is the capital, …"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "that",
+       "B": "which",
+       "C": "who",
+       "D": "whose"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: which",
+       "Non-defining clause about a place → which.",
+       "that is wrong after a comma."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u2-q02",
+      "q": "The student ____ essay won the prize is in Grade 11.",
+      "src": "notes",
+      "page": 19,
+      "label": "2. The student ____ essay won the prize is in Grade 11.",
+      "similar": [
+       {
+        "q": "Non-defining (commas)",
+        "a": "Asmara, which is the capital, …"
+       },
+       {
+        "q": "Defining (no commas)",
+        "a": "the student who arrived late"
+       }
+      ],
+      "type": "fill",
+      "answer": "whose",
+      "choices": [
+       "whose",
+       "who",
+       "which",
+       "where"
+      ],
+      "why": [
+       "whose marks possession (essay belongs to the student)."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u2-q03",
+      "q": "Use ____ for people in defining clauses.",
+      "src": "notes",
+      "page": 19,
+      "label": "3. Use ____ for people in defining clauses.",
+      "similar": [
+       {
+        "q": "Defining (no commas)",
+        "a": "the student who arrived late"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "which",
+       "B": "who",
+       "C": "where",
+       "D": "when"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: who",
+       "who refers to people."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u2-q04",
+      "q": "Non-defining clauses need ____.",
+      "src": "notes",
+      "page": 19,
+      "label": "4. Non-defining clauses need ____.",
+      "similar": [
+       {
+        "q": "Non-defining (commas)",
+        "a": "Asmara, which is the capital, …"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "no punctuation",
+       "B": "commas",
+       "C": "a semicolon only",
+       "D": "brackets only"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: commas",
+       "Extra information is set off by commas."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u2-q05",
+      "q": "The school ____ we study is near the market.",
+      "src": "notes",
+      "page": 19,
+      "label": "5. The school ____ we study is near the market.",
+      "similar": [
+       {
+        "q": "Defining (no commas)",
+        "a": "the student who arrived late"
+       }
+      ],
+      "type": "fill",
+      "answer": "where",
+      "choices": [
+       "where",
+       "who",
+       "whose",
+       "which"
+      ],
+      "why": [
+       "where marks place."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u2-q06",
+      "q": "Choose correctly.",
+      "src": "notes",
+      "page": 19,
+      "label": "6. Choose correctly.",
+      "similar": [
+       {
+        "q": "Non-defining (commas)",
+        "a": "Asmara, which is the capital, …"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "The phone that is new, is mine.",
+       "B": "The phone, that is new, is mine.",
+       "C": "The phone, which is new, is mine.",
+       "D": "The phone which, is new is mine."
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: The phone, which is new, is mine.",
+       "Non-defining uses which + commas."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u2-q07",
+      "q": "The teacher ____ class we joined explained clearly.",
+      "src": "notes",
+      "page": 19,
+      "label": "7. The teacher ____ class we joined explained clearly.",
+      "similar": [
+       {
+        "q": "Defining (no commas)",
+        "a": "the student who arrived late"
+       }
+      ],
+      "type": "fill",
+      "answer": "whose",
+      "choices": [
+       "whose",
+       "who",
+       "which",
+       "where"
+      ],
+      "why": [
+       "whose shows possession."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u2-q08",
+      "q": "Do not use that in ____ clauses.",
+      "src": "notes",
+      "page": 19,
+      "label": "8. Do not use that in ____ clauses.",
+      "similar": [
+       {
+        "q": "Non-defining (commas)",
+        "a": "Asmara, which is the capital, …"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "defining",
+       "B": "non-defining",
+       "C": "short",
+       "D": "spoken"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: non-defining",
+       "that is not used after commas in non-defining clauses."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     }
+    ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "src": "hand",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Relative clauses",
+      "kind": "unit",
+      "cards": [
+       "eng11-u2-c01",
+       "eng11-u2-c03"
+      ]
+     },
+     {
+      "id": "l2_1",
+      "label": "Defining vs non-defining",
+      "kind": "topic",
+      "lesson": "eng11-u2-l2-1",
+      "cards": [
+       "eng11-u2-c01",
+       "eng11-u2-c02"
+      ]
+     },
+     {
+      "id": "l2_2",
+      "label": "Whose, where, when",
+      "kind": "topic",
+      "lesson": "eng11-u2-l2-2",
+      "cards": [
+       "eng11-u2-c03",
+       "eng11-u2-c04",
+       "eng11-u2-c05",
+       "eng11-u2-c06"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l2_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l2_2",
+      "label": "includes"
+     }
+    ]
+   }
+  },
+  {
+   "id": "eng11-u3",
+   "number": 3,
+   "title": "Conditionals (mixed and review)",
+   "status": "done",
+   "pages": [
+    37,
+    54
+   ],
+   "tone": "butter",
+   "intro": "Review types 0–3, then mix time references for past cause + present result.",
+   "intro_page": 37,
+   "lessons": [
+    {
+     "id": "eng11-u3-l3-1",
+     "number": "3.1",
+     "title": "Types 0–3 in brief",
+     "pages": [
+      37,
+      54
+     ],
+     "cards": [
+      {
+       "id": "eng11-u3-c01",
+       "type": "grammar",
+       "title": "Types 0–3 in brief",
+       "page": 37,
+       "src": "notes",
+       "rule": [
+        "**0** facts: *If you heat ice, it melts.* (present + present)",
+        "**1** real future: *If it rains, we will stay in.* (present + will)",
+        "**2** unreal present: *If I had time, I would help.* (past + would)",
+        "**3** unreal past: *If she had revised, she would have passed.* (had + would have)"
+       ],
+       "examples": [
+        {
+         "text": "If I were you, I would apologise.",
+         "ok": true
+        },
+        {
+         "text": "If I will see her, I tell her.",
+         "ok": false,
+         "fix": "If I see her, I will tell her."
+        },
+        {
+         "text": "If they had left earlier, they would have arrived on time.",
+         "ok": true
+        }
+       ]
+      },
+      {
+       "id": "eng11-u3-c02",
+       "type": "table",
+       "title": "Forms and examples",
+       "page": 37,
+       "src": "notes",
+       "head": [
+        "Type",
+        "Form"
+       ],
+       "rows": [
+        [
+         "0",
+         "If + present, present"
+        ],
+        [
+         "1",
+         "If + present, will + V"
+        ],
+        [
+         "2",
+         "If + past, would + V"
+        ],
+        [
+         "3",
+         "If + had + PP, would have + PP"
+        ],
+        [
+         "Mixed",
+         "If + had + PP, would + V (now)"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "eng11-u3-l3-2",
+     "number": "3.2",
+     "title": "Mixed conditionals",
+     "pages": [
+      37,
+      54
+     ],
+     "cards": [
+      {
+       "id": "eng11-u3-c03",
+       "type": "grammar",
+       "title": "Mixed conditionals",
+       "page": 37,
+       "src": "notes",
+       "rule": [
+        "Past cause → present result: *If I **had studied** medicine, I **would be** a doctor now.*",
+        "Present (ongoing) cause → past result: *If she **were** more careful, she **would not have broken** it.*",
+        "Keep the if-clause and main clause times consistent with the meaning you intend."
+       ],
+       "examples": [
+        {
+         "text": "If he had taken the bus, he would be here now.",
+         "ok": true
+        },
+        {
+         "text": "If he took the bus, he would have been here now.",
+         "ok": false,
+         "fix": "If he had taken the bus, he would be here now."
+        },
+        {
+         "text": "If I were taller, I would have joined the team last year.",
+         "ok": true
+        }
+       ]
+      },
+      {
+       "id": "eng11-u3-c04",
+       "type": "table",
+       "title": "Common mistakes",
+       "page": 37,
+       "src": "notes",
+       "head": [
+        "Wrong",
+        "Right",
+        "Why"
+       ],
+       "rows": [
+        [
+         "If I would have known…",
+         "If I had known…",
+         "Never put would in the if-clause of type 2/3."
+        ],
+        [
+         "If she studied, she would have passed.",
+         "If she had studied, she would have passed.",
+         "Unreal past needs had + past participle."
+        ]
+       ]
+      },
+      {
+       "id": "eng11-u3-c05",
+       "type": "mnemonic",
+       "title": "Memory tip",
+       "page": 37,
+       "src": "notes",
+       "body": [
+        "Ask: is the cause past or present? Is the result past or present? Then pick the matching half."
+       ]
+      },
+      {
+       "id": "eng11-u3-c06",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 37,
+       "src": "notes",
+       "body": [
+        "Conditionals link cause and result; mixed forms combine past if-clauses with present results (and the reverse)."
+       ]
+      }
+     ]
+    }
+   ],
+   "glossary": [
+    {
+     "term": "mixed conditional",
+     "meaning": "if-clause and result clause refer to different times",
+     "page": 37,
+     "src": "notes"
+    }
+   ],
+   "tips": [
+    {
+     "text": "Ask: is the cause past or present? Is the result past or present? Then pick the matching half.",
+     "page": 37,
+     "src": "notes"
+    }
+   ],
+   "games": [
+    {
+     "id": "eng11-u3-g1",
+     "type": "match",
+     "title": "Match the form to its example",
+     "src": "notes",
+     "lesson": "eng11-u3-l3-1",
+     "pairs": [
+      {
+       "a": "0",
+       "b": "If + present, present"
+      },
+      {
+       "a": "1",
+       "b": "If + present, will + V"
+      },
+      {
+       "a": "2",
+       "b": "If + past, would + V"
+      },
+      {
+       "a": "3",
+       "b": "If + had + PP, would have + PP"
+      },
+      {
+       "a": "Mixed",
+       "b": "If + had + PP, would + V (now)"
+      }
+     ]
+    }
+   ],
+   "exercise": {
+    "questions": [
+     {
+      "id": "eng11-u3-q01",
+      "q": "If they ____ harder last term, they would be in the top class now.",
+      "src": "notes",
+      "page": 37,
+      "label": "1. If they ____ harder last term, they would be in the top clas",
+      "similar": [
+       {
+        "q": "Type 3",
+        "a": "If she had revised, she would have passed."
+       },
+       {
+        "q": "Mixed",
+        "a": "If I had studied medicine, I would be a doctor now."
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "study",
+       "B": "studied",
+       "C": "had studied",
+       "D": "would study"
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: had studied",
+       "Past cause → had studied; present result → would be.",
+       "Mixed conditional."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u3-q02",
+      "q": "If it rains tomorrow, we ____ indoors.",
+      "src": "notes",
+      "page": 37,
+      "label": "2. If it rains tomorrow, we ____ indoors.",
+      "similar": [
+       {
+        "q": "Mixed",
+        "a": "If I had studied medicine, I would be a doctor now."
+       },
+       {
+        "q": "Type 3",
+        "a": "If she had revised, she would have passed."
+       }
+      ],
+      "type": "fill",
+      "answer": "will stay",
+      "choices": [
+       "will stay",
+       "would stay",
+       "stayed",
+       "had stayed"
+      ],
+      "why": [
+       "Type 1 real future uses will + verb."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u3-q03",
+      "q": "Type 1 uses present in the if-clause and ____ in the result.",
+      "src": "notes",
+      "page": 37,
+      "label": "3. Type 1 uses present in the if-clause and ____ in the result.",
+      "similar": [
+       {
+        "q": "Type 3",
+        "a": "If she had revised, she would have passed."
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "would",
+       "B": "will",
+       "C": "had",
+       "D": "would have"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: will",
+       "real future → will."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u3-q04",
+      "q": "If she had left earlier, she ____ on time.",
+      "src": "notes",
+      "page": 37,
+      "label": "4. If she had left earlier, she ____ on time.",
+      "similar": [
+       {
+        "q": "Mixed",
+        "a": "If I had studied medicine, I would be a doctor now."
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "arrives",
+       "B": "would arrive",
+       "C": "would have arrived",
+       "D": "will arrive"
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: would have arrived",
+       "Type 3 → would have + past participle."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u3-q05",
+      "q": "If I ____ you, I would apologise.",
+      "src": "notes",
+      "page": 37,
+      "label": "5. If I ____ you, I would apologise.",
+      "similar": [
+       {
+        "q": "Type 3",
+        "a": "If she had revised, she would have passed."
+       }
+      ],
+      "type": "fill",
+      "answer": "were",
+      "choices": [
+       "were",
+       "was being",
+       "am",
+       "will be"
+      ],
+      "why": [
+       "Type 2 often uses were for all persons."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u3-q06",
+      "q": "Mixed: past cause + present result uses ____ in the if-clause.",
+      "src": "notes",
+      "page": 37,
+      "label": "6. Mixed: past cause + present result uses ____ in the if-claus",
+      "similar": [
+       {
+        "q": "Mixed",
+        "a": "If I had studied medicine, I would be a doctor now."
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "present",
+       "B": "will",
+       "C": "had + past participle",
+       "D": "would"
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: had + past participle",
+       "If + had + PP, would + V now."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u3-q07",
+      "q": "If it ____ tomorrow, we will stay indoors.",
+      "src": "notes",
+      "page": 37,
+      "label": "7. If it ____ tomorrow, we will stay indoors.",
+      "similar": [
+       {
+        "q": "Type 3",
+        "a": "If she had revised, she would have passed."
+       }
+      ],
+      "type": "fill",
+      "answer": "rains",
+      "choices": [
+       "rains",
+       "rained",
+       "had rained",
+       "would rain"
+      ],
+      "why": [
+       "Type 1: present after if."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u3-q08",
+      "q": "Never put would in the ____ of type 2/3.",
+      "src": "notes",
+      "page": 37,
+      "label": "8. Never put would in the ____ of type 2/3.",
+      "similar": [
+       {
+        "q": "Mixed",
+        "a": "If I had studied medicine, I would be a doctor now."
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "main clause",
+       "B": "if-clause",
+       "C": "title",
+       "D": "footnote"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: if-clause",
+       "would belongs in the result clause."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     }
+    ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "src": "hand",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Conditionals (mixed and revi",
+      "kind": "unit",
+      "cards": [
+       "eng11-u3-c01",
+       "eng11-u3-c03"
+      ]
+     },
+     {
+      "id": "l3_1",
+      "label": "Types 0–3 in brief",
+      "kind": "topic",
+      "lesson": "eng11-u3-l3-1",
+      "cards": [
+       "eng11-u3-c01",
+       "eng11-u3-c02"
+      ]
+     },
+     {
+      "id": "l3_2",
+      "label": "Mixed conditionals",
+      "kind": "topic",
+      "lesson": "eng11-u3-l3-2",
+      "cards": [
+       "eng11-u3-c03",
+       "eng11-u3-c04",
+       "eng11-u3-c05",
+       "eng11-u3-c06"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l3_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l3_2",
+      "label": "includes"
+     }
+    ]
+   }
+  },
+  {
+   "id": "eng11-u4",
+   "number": 4,
+   "title": "Advanced passives and reporting",
+   "status": "done",
+   "pages": [
+    55,
+    72
+   ],
+   "tone": "blue",
+   "intro": "Passives shift focus to the action or receiver; reporting verbs introduce other people’s words or views.",
+   "intro_page": 55,
+   "lessons": [
+    {
+     "id": "eng11-u4-l4-1",
+     "number": "4.1",
+     "title": "Passive with modals and perfects",
+     "pages": [
+      55,
+      72
+     ],
+     "cards": [
+      {
+       "id": "eng11-u4-c01",
+       "type": "grammar",
+       "title": "Passive with modals and perfects",
+       "page": 55,
+       "src": "notes",
+       "rule": [
+        "Modal + be + past participle: *The essay **must be submitted** today.*",
+        "Perfect passive: *The results **have been published**.* / *The room **had been cleaned**.*",
+        "Use passive when the doer is unknown, obvious, or less important."
+       ],
+       "examples": [
+        {
+         "text": "The work must be finished by Friday.",
+         "ok": true
+        },
+        {
+         "text": "The work must finished by Friday.",
+         "ok": false,
+         "fix": "The work must be finished by Friday."
+        },
+        {
+         "text": "The notices have been posted.",
+         "ok": true
+        }
+       ]
+      },
+      {
+       "id": "eng11-u4-c02",
+       "type": "table",
+       "title": "Forms and examples",
+       "page": 55,
+       "src": "notes",
+       "head": [
+        "Active",
+        "Passive"
+       ],
+       "rows": [
+        [
+         "Someone stole the phone.",
+         "The phone was stolen."
+        ],
+        [
+         "They must submit forms.",
+         "Forms must be submitted."
+        ],
+        [
+         "They have published results.",
+         "Results have been published."
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "eng11-u4-l4-2",
+     "number": "4.2",
+     "title": "Reporting verbs and structures",
+     "pages": [
+      55,
+      72
+     ],
+     "cards": [
+      {
+       "id": "eng11-u4-c03",
+       "type": "grammar",
+       "title": "Reporting verbs and structures",
+       "page": 55,
+       "src": "notes",
+       "rule": [
+        "Say/tell/ask + clause: *She said (that) she was ready.* / *He told us to wait.*",
+        "Suggest/recommend + -ing or that-clause: *They suggested revising together.*",
+        "Claim/argue/insist that… are useful in formal essays."
+       ],
+       "examples": [
+        {
+         "text": "He told me to arrive early.",
+         "ok": true
+        },
+        {
+         "text": "He said me to arrive early.",
+         "ok": false,
+         "fix": "He told me to arrive early. / He said (that) I should arrive early."
+        },
+        {
+         "text": "The writer argues that literacy builds opportunity.",
+         "ok": true
+        }
+       ]
+      },
+      {
+       "id": "eng11-u4-c04",
+       "type": "table",
+       "title": "Common mistakes",
+       "page": 55,
+       "src": "notes",
+       "head": [
+        "Wrong",
+        "Right",
+        "Why"
+       ],
+       "rows": [
+        [
+         "The letter sent yesterday.",
+         "The letter was sent yesterday.",
+         "Passive needs be + past participle."
+        ],
+        [
+         "She said me the truth.",
+         "She told me the truth.",
+         "tell takes an object person; say usually does not."
+        ]
+       ]
+      },
+      {
+       "id": "eng11-u4-c05",
+       "type": "mnemonic",
+       "title": "Memory tip",
+       "page": 55,
+       "src": "notes",
+       "body": [
+        "Ask: do I need the doer? If not, prefer passive for formal tone."
+       ]
+      },
+      {
+       "id": "eng11-u4-c06",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 55,
+       "src": "notes",
+       "body": [
+        "Advanced passives use modals and perfects; reporting verbs package other voices for essays and news."
+       ]
+      }
+     ]
+    }
+   ],
+   "glossary": [
+    {
+     "term": "reporting verb",
+     "meaning": "a verb that introduces speech or opinion (say, claim, argue)",
+     "page": 55,
+     "src": "notes"
+    }
+   ],
+   "tips": [
+    {
+     "text": "Ask: do I need the doer? If not, prefer passive for formal tone.",
+     "page": 55,
+     "src": "notes"
+    }
+   ],
+   "games": [
+    {
+     "id": "eng11-u4-g1",
+     "type": "match",
+     "title": "Match the form to its example",
+     "src": "notes",
+     "lesson": "eng11-u4-l4-1",
+     "pairs": [
+      {
+       "a": "Someone stole the phone.",
+       "b": "The phone was stolen."
+      },
+      {
+       "a": "They must submit forms.",
+       "b": "Forms must be submitted."
+      },
+      {
+       "a": "They have published results.",
+       "b": "Results have been published."
+      }
+     ]
+    }
+   ],
+   "exercise": {
+    "questions": [
+     {
+      "id": "eng11-u4-q01",
+      "q": "Choose the correct passive: The homework ____ before Friday.",
+      "src": "notes",
+      "page": 55,
+      "label": "1. Choose the correct passive: The homework ____ before Friday.",
+      "similar": [
+       {
+        "q": "Modal passive",
+        "a": "must be submitted"
+       },
+       {
+        "q": "Reporting",
+        "a": "She argued that …"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "must submit",
+       "B": "must be submitted",
+       "C": "must submitted",
+       "D": "must be submit"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: must be submitted",
+       "must + be + past participle."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u4-q02",
+      "q": "Rewrite focus: Someone has opened the gate. → The gate ____.",
+      "src": "notes",
+      "page": 55,
+      "label": "2. Rewrite focus: Someone has opened the gate. → The gate ____.",
+      "similar": [
+       {
+        "q": "Reporting",
+        "a": "She argued that …"
+       },
+       {
+        "q": "Modal passive",
+        "a": "must be submitted"
+       }
+      ],
+      "type": "fill",
+      "answer": "has been opened",
+      "choices": [
+       "has been opened",
+       "has opened",
+       "was open",
+       "is opening"
+      ],
+      "why": [
+       "Present perfect passive = has/have been + past participle."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u4-q03",
+      "q": "Passive of “They must submit forms” is ____.",
+      "src": "notes",
+      "page": 55,
+      "label": "3. Passive of “They must submit forms” is ____.",
+      "similar": [
+       {
+        "q": "Modal passive",
+        "a": "must be submitted"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "Forms must submit.",
+       "B": "Forms must be submitted.",
+       "C": "Forms must submitted.",
+       "D": "Forms must be submit."
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: Forms must be submitted.",
+       "modal + be + past participle."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u4-q04",
+      "q": "Choose reporting: He ____ me to wait.",
+      "src": "notes",
+      "page": 55,
+      "label": "4. Choose reporting: He ____ me to wait.",
+      "similar": [
+       {
+        "q": "Reporting",
+        "a": "She argued that …"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "said",
+       "B": "told",
+       "C": "spoke",
+       "D": "told to"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: told",
+       "tell takes a person object."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u4-q05",
+      "q": "The notices ____ posted.",
+      "src": "notes",
+      "page": 55,
+      "label": "5. The notices ____ posted.",
+      "similar": [
+       {
+        "q": "Modal passive",
+        "a": "must be submitted"
+       }
+      ],
+      "type": "fill",
+      "answer": "have been",
+      "choices": [
+       "have been",
+       "have",
+       "has",
+       "were being be"
+      ],
+      "why": [
+       "Present perfect passive needs have/has been."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u4-q06",
+      "q": "Best formal reporting verb for an essay claim:",
+      "src": "notes",
+      "page": 55,
+      "label": "6. Best formal reporting verb for an essay claim:",
+      "similar": [
+       {
+        "q": "Reporting",
+        "a": "She argued that …"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "yell",
+       "B": "argue",
+       "C": "chat",
+       "D": "go"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: argue",
+       "argue/claim suit academic tone."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u4-q07",
+      "q": "Rewrite: Someone stole the phone. → The phone ____.",
+      "src": "notes",
+      "page": 55,
+      "label": "7. Rewrite: Someone stole the phone. → The phone ____.",
+      "similar": [
+       {
+        "q": "Modal passive",
+        "a": "must be submitted"
+       }
+      ],
+      "type": "fill",
+      "answer": "was stolen",
+      "choices": [
+       "was stolen",
+       "stole",
+       "stolen",
+       "was stole"
+      ],
+      "why": [
+       "Past simple passive."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u4-q08",
+      "q": "Perfect passive of publish:",
+      "src": "notes",
+      "page": 55,
+      "label": "8. Perfect passive of publish:",
+      "similar": [
+       {
+        "q": "Reporting",
+        "a": "She argued that …"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "is publish",
+       "B": "has been published",
+       "C": "has published",
+       "D": "was publish"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: has been published",
+       "has/have been + past participle."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     }
+    ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "src": "hand",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Advanced passives and report",
+      "kind": "unit",
+      "cards": [
+       "eng11-u4-c01",
+       "eng11-u4-c03"
+      ]
+     },
+     {
+      "id": "l4_1",
+      "label": "Passive with modals and perf",
+      "kind": "topic",
+      "lesson": "eng11-u4-l4-1",
+      "cards": [
+       "eng11-u4-c01",
+       "eng11-u4-c02"
+      ]
+     },
+     {
+      "id": "l4_2",
+      "label": "Reporting verbs and structur",
+      "kind": "topic",
+      "lesson": "eng11-u4-l4-2",
+      "cards": [
+       "eng11-u4-c03",
+       "eng11-u4-c04",
+       "eng11-u4-c05",
+       "eng11-u4-c06"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l4_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l4_2",
+      "label": "includes"
+     }
+    ]
+   }
+  },
+  {
+   "id": "eng11-u5",
+   "number": 5,
+   "title": "Nominalisation and formal register",
+   "status": "done",
+   "pages": [
+    73,
+    88
+   ],
+   "tone": "lilac",
+   "intro": "Academic writing often turns verbs and adjectives into nouns (nominalisation) and prefers formal vocabulary.",
+   "intro_page": 73,
+   "lessons": [
+    {
+     "id": "eng11-u5-l5-1",
+     "number": "5.1",
+     "title": "Nominalisation",
+     "pages": [
+      73,
+      88
+     ],
+     "cards": [
+      {
+       "id": "eng11-u5-c01",
+       "type": "grammar",
+       "title": "Nominalisation",
+       "page": 73,
+       "src": "notes",
+       "rule": [
+        "Verb → noun: *decide → decision*, *develop → development*, *fail → failure*.",
+        "Adjective → noun: *important → importance*, *possible → possibility*.",
+        "Nominal style: *The **rapid expansion** of towns creates pressure on services.*"
+       ],
+       "examples": [
+        {
+         "text": "Their decision surprised everyone.",
+         "ok": true
+        },
+        {
+         "text": "They decide surprised everyone.",
+         "ok": false,
+         "fix": "Their decision surprised everyone."
+        },
+        {
+         "text": "The importance of literacy is clear.",
+         "ok": true
+        }
+       ],
+       "pattern": "the + noun (+ of …)"
+      },
+      {
+       "id": "eng11-u5-c02",
+       "type": "table",
+       "title": "Forms and examples",
+       "page": 73,
+       "src": "notes",
+       "head": [
+        "Everyday",
+        "More formal"
+       ],
+       "rows": [
+        [
+         "get better",
+         "improve / recover"
+        ],
+        [
+         "a lot of",
+         "many / a large number of"
+        ],
+        [
+         "kids",
+         "children / young people"
+        ],
+        [
+         "find out",
+         "discover / determine"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "eng11-u5-l5-2",
+     "number": "5.2",
+     "title": "Formal vs informal",
+     "pages": [
+      73,
+      88
+     ],
+     "cards": [
+      {
+       "id": "eng11-u5-c03",
+       "type": "grammar",
+       "title": "Formal vs informal",
+       "page": 73,
+       "src": "notes",
+       "rule": [
+        "Prefer precise verbs: *obtain, require, demonstrate* over *get, need, show* in formal essays.",
+        "Avoid chatty fillers (*well, you know, lots of*) and contractions in formal exams.",
+        "Keep a respectful tone: *Could you clarify…?* rather than *What do you want?*"
+       ],
+       "examples": [
+        {
+         "text": "The study demonstrates a clear trend.",
+         "ok": true
+        },
+        {
+         "text": "The study shows stuff pretty well.",
+         "ok": false,
+         "fix": "The study demonstrates a clear trend."
+        },
+        {
+         "text": "Candidates are required to arrive early.",
+         "ok": true
+        }
+       ]
+      },
+      {
+       "id": "eng11-u5-c04",
+       "type": "table",
+       "title": "Common mistakes",
+       "page": 73,
+       "src": "notes",
+       "head": [
+        "Wrong",
+        "Right",
+        "Why"
+       ],
+       "rows": [
+        [
+         "Because of the rain, cancel happened.",
+         "Because of the rain, cancellation occurred. / The rain caused cancellation.",
+         "Use a real noun form of the verb."
+        ],
+        [
+         "We gotta finish ASAP.",
+         "We must finish as soon as possible.",
+         "Avoid slang in exam writing."
+        ]
+       ]
+      },
+      {
+       "id": "eng11-u5-c05",
+       "type": "mnemonic",
+       "title": "Memory tip",
+       "page": 73,
+       "src": "notes",
+       "body": [
+        "When a sentence feels “spoken”, try replacing a verb with a noun phrase of the same idea."
+       ]
+      },
+      {
+       "id": "eng11-u5-c06",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 73,
+       "src": "notes",
+       "body": [
+        "Nominalisation and formal word choice raise register for academic and exam writing."
+       ]
+      }
+     ]
+    }
+   ],
+   "glossary": [
+    {
+     "term": "nominalisation",
+     "meaning": "forming a noun from a verb or adjective",
+     "page": 73,
+     "src": "notes"
+    },
+    {
+     "term": "register",
+     "meaning": "level of formality in language",
+     "page": 73,
+     "src": "notes"
+    }
+   ],
+   "tips": [
+    {
+     "text": "When a sentence feels “spoken”, try replacing a verb with a noun phrase of the same idea.",
+     "page": 73,
+     "src": "notes"
+    }
+   ],
+   "games": [
+    {
+     "id": "eng11-u5-g1",
+     "type": "match",
+     "title": "Match the form to its example",
+     "src": "notes",
+     "lesson": "eng11-u5-l5-1",
+     "pairs": [
+      {
+       "a": "get better",
+       "b": "improve / recover"
+      },
+      {
+       "a": "a lot of",
+       "b": "many / a large number of"
+      },
+      {
+       "a": "kids",
+       "b": "children / young people"
+      },
+      {
+       "a": "find out",
+       "b": "discover / determine"
+      }
+     ]
+    }
+   ],
+   "exercise": {
+    "questions": [
+     {
+      "id": "eng11-u5-q01",
+      "q": "Which sentence is most formal?",
+      "src": "notes",
+      "page": 73,
+      "label": "1. Which sentence is most formal?",
+      "similar": [
+       {
+        "q": "Nominalisation",
+        "a": "the expansion of towns"
+       },
+       {
+        "q": "Formal",
+        "a": "demonstrate / require / obtain"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "Kids gotta learn stuff.",
+       "B": "Young people must acquire knowledge.",
+       "C": "Guys need to get facts.",
+       "D": "We wanna know things."
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: Young people must acquire knowledge.",
+       "B uses formal vocabulary (acquire, knowledge) without slang."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u5-q02",
+      "q": "Nominalise: They decided quickly. → Their ____ was quick.",
+      "src": "notes",
+      "page": 73,
+      "label": "2. Nominalise: They decided quickly. → Their ____ was quick.",
+      "similar": [
+       {
+        "q": "Formal",
+        "a": "demonstrate / require / obtain"
+       },
+       {
+        "q": "Nominalisation",
+        "a": "the expansion of towns"
+       }
+      ],
+      "type": "fill",
+      "answer": "decision",
+      "choices": [
+       "decision",
+       "decide",
+       "deciding",
+       "decided"
+      ],
+      "why": [
+       "decide → decision."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u5-q03",
+      "q": "Nominalise “decide”:",
+      "src": "notes",
+      "page": 73,
+      "label": "3. Nominalise “decide”:",
+      "similar": [
+       {
+        "q": "Nominalisation",
+        "a": "the expansion of towns"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "decide",
+       "B": "decision",
+       "C": "decidingly",
+       "D": "decidous"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: decision",
+       "decide → decision."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u5-q04",
+      "q": "Most formal choice:",
+      "src": "notes",
+      "page": 73,
+      "label": "4. Most formal choice:",
+      "similar": [
+       {
+        "q": "Formal",
+        "a": "demonstrate / require / obtain"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "get info",
+       "B": "obtain information",
+       "C": "grab facts",
+       "D": "wanna know"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: obtain information",
+       "obtain information is formal."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u5-q05",
+      "q": "Their ____ surprised everyone. (decide)",
+      "src": "notes",
+      "page": 73,
+      "label": "5. Their ____ surprised everyone. (decide)",
+      "similar": [
+       {
+        "q": "Nominalisation",
+        "a": "the expansion of towns"
+       }
+      ],
+      "type": "fill",
+      "answer": "decision",
+      "choices": [
+       "decision",
+       "decide",
+       "decided",
+       "decides"
+      ],
+      "why": [
+       "Use the noun form."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u5-q06",
+      "q": "Avoid in formal exams:",
+      "src": "notes",
+      "page": 73,
+      "label": "6. Avoid in formal exams:",
+      "similar": [
+       {
+        "q": "Formal",
+        "a": "demonstrate / require / obtain"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "therefore",
+       "B": "however",
+       "C": "gotta",
+       "D": "moreover"
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: gotta",
+       "gotta is slang."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u5-q07",
+      "q": "important → ____",
+      "src": "notes",
+      "page": 73,
+      "label": "7. important → ____",
+      "similar": [
+       {
+        "q": "Nominalisation",
+        "a": "the expansion of towns"
+       }
+      ],
+      "type": "fill",
+      "answer": "importance",
+      "choices": [
+       "importance",
+       "importantly",
+       "import",
+       "importing"
+      ],
+      "why": [
+       "Adjective → noun."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u5-q08",
+      "q": "Nominal style prefers ____.",
+      "src": "notes",
+      "page": 73,
+      "label": "8. Nominal style prefers ____.",
+      "similar": [
+       {
+        "q": "Formal",
+        "a": "demonstrate / require / obtain"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "only pronouns",
+       "B": "noun phrases of actions",
+       "C": "emojis",
+       "D": "commands only"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: noun phrases of actions",
+       "actions packed as nouns."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     }
+    ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "src": "hand",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Nominalisation and formal re",
+      "kind": "unit",
+      "cards": [
+       "eng11-u5-c01",
+       "eng11-u5-c03"
+      ]
+     },
+     {
+      "id": "l5_1",
+      "label": "Nominalisation",
+      "kind": "topic",
+      "lesson": "eng11-u5-l5-1",
+      "cards": [
+       "eng11-u5-c01",
+       "eng11-u5-c02"
+      ]
+     },
+     {
+      "id": "l5_2",
+      "label": "Formal vs informal",
+      "kind": "topic",
+      "lesson": "eng11-u5-l5-2",
+      "cards": [
+       "eng11-u5-c03",
+       "eng11-u5-c04",
+       "eng11-u5-c05",
+       "eng11-u5-c06"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l5_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l5_2",
+      "label": "includes"
+     }
+    ]
+   }
+  },
+  {
+   "id": "eng11-u6",
+   "number": 6,
+   "title": "Cohesion and discourse markers",
+   "status": "done",
+   "pages": [
+    89,
+    104
+   ],
+   "tone": "mint",
+   "intro": "Cohesion links sentences so the paragraph reads as one argument, not a list of facts.",
+   "intro_page": 89,
+   "lessons": [
+    {
+     "id": "eng11-u6-l6-1",
+     "number": "6.1",
+     "title": "Discourse markers",
+     "pages": [
+      89,
+      104
+     ],
+     "cards": [
+      {
+       "id": "eng11-u6-c01",
+       "type": "grammar",
+       "title": "Discourse markers",
+       "page": 89,
+       "src": "notes",
+       "rule": [
+        "Addition: *moreover, furthermore, in addition*",
+        "Contrast: *however, nevertheless, on the other hand*",
+        "Cause/result: *therefore, consequently, as a result*",
+        "Example/clarifying: *for instance, that is, in other words*"
+       ],
+       "examples": [
+        {
+         "text": "The roads flooded; therefore schools closed.",
+         "ok": true
+        },
+        {
+         "text": "The roads flooded; however schools closed.",
+         "ok": false,
+         "fix": "The roads flooded; therefore schools closed."
+        },
+        {
+         "text": "Moreover, attendance improved after the campaign.",
+         "ok": true
+        }
+       ]
+      },
+      {
+       "id": "eng11-u6-c02",
+       "type": "table",
+       "title": "Forms and examples",
+       "page": 89,
+       "src": "notes",
+       "head": [
+        "Marker",
+        "Job"
+       ],
+       "rows": [
+        [
+         "however",
+         "contrast"
+        ],
+        [
+         "therefore",
+         "result"
+        ],
+        [
+         "for example",
+         "illustration"
+        ],
+        [
+         "in conclusion",
+         "closing"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "eng11-u6-l6-2",
+     "number": "6.2",
+     "title": "Reference and lexical cohesion",
+     "pages": [
+      89,
+      104
+     ],
+     "cards": [
+      {
+       "id": "eng11-u6-c03",
+       "type": "grammar",
+       "title": "Reference and lexical cohesion",
+       "page": 89,
+       "src": "notes",
+       "rule": [
+        "Use pronouns carefully: *this / these / such* to point back to a clear noun idea.",
+        "Repeat key nouns or use synonyms to keep the topic visible.",
+        "Avoid vague *this* when the reader cannot see what it refers to."
+       ],
+       "examples": [
+        {
+         "text": "Pollution rose. This increase worried officials.",
+         "ok": true
+        },
+        {
+         "text": "Pollution rose. This worried.",
+         "ok": false,
+         "fix": "Pollution rose. This increase worried officials."
+        },
+        {
+         "text": "Farmers and growers both need water.",
+         "ok": true
+        }
+       ]
+      },
+      {
+       "id": "eng11-u6-c04",
+       "type": "table",
+       "title": "Common mistakes",
+       "page": 89,
+       "src": "notes",
+       "head": [
+        "Wrong",
+        "Right",
+        "Why"
+       ],
+       "rows": [
+        [
+         "And then also too…",
+         "Furthermore, … / In addition, …",
+         "Stacking casual add-ons weakens formal cohesion."
+        ],
+        [
+         "This proves it.",
+         "This result / This evidence proves the claim.",
+         "Make the reference noun clear."
+        ]
+       ]
+      },
+      {
+       "id": "eng11-u6-c05",
+       "type": "mnemonic",
+       "title": "Memory tip",
+       "page": 89,
+       "src": "notes",
+       "body": [
+        "After each sentence, ask: how does the next sentence connect—add, contrast, or result?"
+       ]
+      },
+      {
+       "id": "eng11-u6-c06",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 89,
+       "src": "notes",
+       "body": [
+        "Discourse markers and clear reference glue sentences into coherent paragraphs."
+       ]
+      }
+     ]
+    }
+   ],
+   "glossary": [
+    {
+     "term": "discourse marker",
+     "meaning": "a word/phrase that shows how ideas connect",
+     "page": 89,
+     "src": "notes"
+    },
+    {
+     "term": "cohesion",
+     "meaning": "links that hold a text together",
+     "page": 89,
+     "src": "notes"
+    }
+   ],
+   "tips": [
+    {
+     "text": "After each sentence, ask: how does the next sentence connect—add, contrast, or result?",
+     "page": 89,
+     "src": "notes"
+    }
+   ],
+   "games": [
+    {
+     "id": "eng11-u6-g1",
+     "type": "match",
+     "title": "Match the form to its example",
+     "src": "notes",
+     "lesson": "eng11-u6-l6-1",
+     "pairs": [
+      {
+       "a": "however",
+       "b": "contrast"
+      },
+      {
+       "a": "therefore",
+       "b": "result"
+      },
+      {
+       "a": "for example",
+       "b": "illustration"
+      },
+      {
+       "a": "in conclusion",
+       "b": "closing"
+      }
+     ]
+    }
+   ],
+   "exercise": {
+    "questions": [
+     {
+      "id": "eng11-u6-q01",
+      "q": "Best marker: Rain fell for three days; ____ the river burst its banks.",
+      "src": "notes",
+      "page": 89,
+      "label": "1. Best marker: Rain fell for three days; ____ the river burst ",
+      "similar": [
+       {
+        "q": "Result",
+        "a": "therefore / consequently"
+       },
+       {
+        "q": "Contrast",
+        "a": "however / on the other hand"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "however",
+       "B": "for example",
+       "C": "therefore",
+       "D": "although"
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: therefore",
+       "therefore shows result."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u6-q02",
+      "q": "Choose a contrast marker: The plan looked easy; ____ it failed.",
+      "src": "notes",
+      "page": 89,
+      "label": "2. Choose a contrast marker: The plan looked easy; ____ it fail",
+      "similar": [
+       {
+        "q": "Contrast",
+        "a": "however / on the other hand"
+       },
+       {
+        "q": "Result",
+        "a": "therefore / consequently"
+       }
+      ],
+      "type": "fill",
+      "answer": "however",
+      "choices": [
+       "however",
+       "therefore",
+       "moreover",
+       "for instance"
+      ],
+      "why": [
+       "however signals contrast."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u6-q03",
+      "q": "Marker of result:",
+      "src": "notes",
+      "page": 89,
+      "label": "3. Marker of result:",
+      "similar": [
+       {
+        "q": "Result",
+        "a": "therefore / consequently"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "however",
+       "B": "therefore",
+       "C": "although",
+       "D": "for example"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: therefore",
+       "therefore = result."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u6-q04",
+      "q": "Marker of contrast:",
+      "src": "notes",
+      "page": 89,
+      "label": "4. Marker of contrast:",
+      "similar": [
+       {
+        "q": "Contrast",
+        "a": "however / on the other hand"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "moreover",
+       "B": "therefore",
+       "C": "however",
+       "D": "for instance"
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: however",
+       "however = contrast."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u6-q05",
+      "q": "Rain fell; ____ schools closed.",
+      "src": "notes",
+      "page": 89,
+      "label": "5. Rain fell; ____ schools closed.",
+      "similar": [
+       {
+        "q": "Result",
+        "a": "therefore / consequently"
+       }
+      ],
+      "type": "fill",
+      "answer": "therefore",
+      "choices": [
+       "therefore",
+       "however",
+       "although",
+       "for example"
+      ],
+      "why": [
+       "Cause → result."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u6-q06",
+      "q": "Clarify a vague “this” by adding a ____.",
+      "src": "notes",
+      "page": 89,
+      "label": "6. Clarify a vague “this” by adding a ____.",
+      "similar": [
+       {
+        "q": "Contrast",
+        "a": "however / on the other hand"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "comma",
+       "B": "noun",
+       "C": "question mark",
+       "D": "slang word"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: noun",
+       "this + noun makes reference clear."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u6-q07",
+      "q": "Addition marker: ____, attendance improved.",
+      "src": "notes",
+      "page": 89,
+      "label": "7. Addition marker: ____, attendance improved.",
+      "similar": [
+       {
+        "q": "Result",
+        "a": "therefore / consequently"
+       }
+      ],
+      "type": "fill",
+      "answer": "Moreover",
+      "choices": [
+       "Moreover",
+       "However",
+       "Although",
+       "Instead"
+      ],
+      "why": [
+       "Moreover adds a point."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u6-q08",
+      "q": "for example introduces ____.",
+      "src": "notes",
+      "page": 89,
+      "label": "8. for example introduces ____.",
+      "similar": [
+       {
+        "q": "Contrast",
+        "a": "however / on the other hand"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "contrast",
+       "B": "result",
+       "C": "an illustration",
+       "D": "a question"
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: an illustration",
+       "illustration/example."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     }
+    ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "src": "hand",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Cohesion and discourse marke",
+      "kind": "unit",
+      "cards": [
+       "eng11-u6-c01",
+       "eng11-u6-c03"
+      ]
+     },
+     {
+      "id": "l6_1",
+      "label": "Discourse markers",
+      "kind": "topic",
+      "lesson": "eng11-u6-l6-1",
+      "cards": [
+       "eng11-u6-c01",
+       "eng11-u6-c02"
+      ]
+     },
+     {
+      "id": "l6_2",
+      "label": "Reference and lexical cohesi",
+      "kind": "topic",
+      "lesson": "eng11-u6-l6-2",
+      "cards": [
+       "eng11-u6-c03",
+       "eng11-u6-c04",
+       "eng11-u6-c05",
+       "eng11-u6-c06"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l6_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l6_2",
+      "label": "includes"
+     }
+    ]
+   }
+  },
+  {
+   "id": "eng11-u7",
+   "number": 7,
+   "title": "Verb patterns: gerunds and infinitives",
+   "status": "done",
+   "pages": [
+    105,
+    118
+   ],
+   "tone": "sage",
+   "intro": "After some verbs you must use -ing; after others to + verb; a few allow both with a meaning change.",
+   "intro_page": 105,
+   "lessons": [
+    {
+     "id": "eng11-u7-l7-1",
+     "number": "7.1",
+     "title": "Common patterns",
+     "pages": [
+      105,
+      118
+     ],
+     "cards": [
+      {
+       "id": "eng11-u7-c01",
+       "type": "grammar",
+       "title": "Common patterns",
+       "page": 105,
+       "src": "notes",
+       "rule": [
+        "**enjoy / avoid / suggest / finish / keep** + -ing: *She enjoys reading.*",
+        "**want / decide / hope / plan / afford** + to-infinitive: *They decided to wait.*",
+        "**stop + -ing** = quit a habit; **stop + to-infinitive** = pause in order to do something."
+       ],
+       "examples": [
+        {
+         "text": "He suggested revising together.",
+         "ok": true
+        },
+        {
+         "text": "He suggested to revise together.",
+         "ok": false,
+         "fix": "He suggested revising together."
+        },
+        {
+         "text": "We stopped to rest.",
+         "ok": true
+        }
+       ]
+      },
+      {
+       "id": "eng11-u7-c02",
+       "type": "table",
+       "title": "Forms and examples",
+       "page": 105,
+       "src": "notes",
+       "head": [
+        "Pattern",
+        "Example"
+       ],
+       "rows": [
+        [
+         "enjoy + -ing",
+         "enjoy swimming"
+        ],
+        [
+         "decide + to",
+         "decide to stay"
+        ],
+        [
+         "stop + -ing",
+         "stop smoking"
+        ],
+        [
+         "stop + to",
+         "stop to smoke (pause)"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "eng11-u7-l7-2",
+     "number": "7.2",
+     "title": "Adjective + infinitive; preposition + -ing",
+     "pages": [
+      105,
+      118
+     ],
+     "cards": [
+      {
+       "id": "eng11-u7-c03",
+       "type": "grammar",
+       "title": "Adjective + infinitive; preposition + -ing",
+       "page": 105,
+       "src": "notes",
+       "rule": [
+        "*easy / hard / important / ready* + to-infinitive: *It is important to listen.*",
+        "After a preposition use -ing: *interested in learning*, *good at solving*, *before leaving*."
+       ],
+       "examples": [
+        {
+         "text": "She is interested in studying history.",
+         "ok": true
+        },
+        {
+         "text": "She is interested in to study history.",
+         "ok": false,
+         "fix": "She is interested in studying history."
+        },
+        {
+         "text": "It is hard to refuse help.",
+         "ok": true
+        }
+       ]
+      },
+      {
+       "id": "eng11-u7-c04",
+       "type": "table",
+       "title": "Common mistakes",
+       "page": 105,
+       "src": "notes",
+       "head": [
+        "Wrong",
+        "Right",
+        "Why"
+       ],
+       "rows": [
+        [
+         "I look forward to meet you.",
+         "I look forward to meeting you.",
+         "to is a preposition here → -ing."
+        ],
+        [
+         "He avoided to answer.",
+         "He avoided answering.",
+         "avoid takes -ing."
+        ]
+       ]
+      },
+      {
+       "id": "eng11-u7-c05",
+       "type": "mnemonic",
+       "title": "Memory tip",
+       "page": 105,
+       "src": "notes",
+       "body": [
+        "Memorise high-frequency verb lists; when unsure, check whether a preposition is present."
+       ]
+      },
+      {
+       "id": "eng11-u7-c06",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 105,
+       "src": "notes",
+       "body": [
+        "Gerund and infinitive patterns are fixed by the verb or preposition that comes before them."
+       ]
+      }
+     ]
+    }
+   ],
+   "glossary": [
+    {
+     "term": "gerund",
+     "meaning": "the -ing form used as a noun",
+     "page": 105,
+     "src": "notes"
+    },
+    {
+     "term": "infinitive",
+     "meaning": "to + base verb",
+     "page": 105,
+     "src": "notes"
+    }
+   ],
+   "tips": [
+    {
+     "text": "Memorise high-frequency verb lists; when unsure, check whether a preposition is present.",
+     "page": 105,
+     "src": "notes"
+    }
+   ],
+   "games": [
+    {
+     "id": "eng11-u7-g1",
+     "type": "match",
+     "title": "Match the form to its example",
+     "src": "notes",
+     "lesson": "eng11-u7-l7-1",
+     "pairs": [
+      {
+       "a": "enjoy + -ing",
+       "b": "enjoy swimming"
+      },
+      {
+       "a": "decide + to",
+       "b": "decide to stay"
+      },
+      {
+       "a": "stop + -ing",
+       "b": "stop smoking"
+      },
+      {
+       "a": "stop + to",
+       "b": "stop to smoke (pause)"
+      }
+     ]
+    }
+   ],
+   "exercise": {
+    "questions": [
+     {
+      "id": "eng11-u7-q01",
+      "q": "Choose correctly: She decided ____ the scholarship.",
+      "src": "notes",
+      "page": 105,
+      "label": "1. Choose correctly: She decided ____ the scholarship.",
+      "similar": [
+       {
+        "q": "Gerund",
+        "a": "enjoy reading"
+       },
+       {
+        "q": "Infinitive",
+        "a": "hope to win"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "applying for",
+       "B": "to apply for",
+       "C": "apply for",
+       "D": "to applying for"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: to apply for",
+       "decide + to-infinitive."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u7-q02",
+      "q": "After a preposition: He is good at ____ maps.",
+      "src": "notes",
+      "page": 105,
+      "label": "2. After a preposition: He is good at ____ maps.",
+      "similar": [
+       {
+        "q": "Infinitive",
+        "a": "hope to win"
+       },
+       {
+        "q": "Gerund",
+        "a": "enjoy reading"
+       }
+      ],
+      "type": "fill",
+      "answer": "reading",
+      "choices": [
+       "reading",
+       "to read",
+       "read",
+       "reads"
+      ],
+      "why": [
+       "preposition + -ing."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u7-q03",
+      "q": "enjoy takes ____.",
+      "src": "notes",
+      "page": 105,
+      "label": "3. enjoy takes ____.",
+      "similar": [
+       {
+        "q": "Gerund",
+        "a": "enjoy reading"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "to-infinitive",
+       "B": "-ing",
+       "C": "past participle",
+       "D": "a bare comma"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: -ing",
+       "enjoy + -ing."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u7-q04",
+      "q": "decide takes ____.",
+      "src": "notes",
+      "page": 105,
+      "label": "4. decide takes ____.",
+      "similar": [
+       {
+        "q": "Infinitive",
+        "a": "hope to win"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "-ing only",
+       "B": "to-infinitive",
+       "C": "past simple",
+       "D": "whose"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: to-infinitive",
+       "decide + to-infinitive."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u7-q05",
+      "q": "She is interested in ____ history.",
+      "src": "notes",
+      "page": 105,
+      "label": "5. She is interested in ____ history.",
+      "similar": [
+       {
+        "q": "Gerund",
+        "a": "enjoy reading"
+       }
+      ],
+      "type": "fill",
+      "answer": "studying",
+      "choices": [
+       "studying",
+       "to study",
+       "study",
+       "studied"
+      ],
+      "why": [
+       "preposition + -ing."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u7-q06",
+      "q": "stop smoking means ____.",
+      "src": "notes",
+      "page": 105,
+      "label": "6. stop smoking means ____.",
+      "similar": [
+       {
+        "q": "Infinitive",
+        "a": "hope to win"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "pause to smoke",
+       "B": "quit the habit",
+       "C": "start smoking",
+       "D": "smoke later"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: quit the habit",
+       "stop + -ing = quit."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u7-q07",
+      "q": "It is important ____ carefully.",
+      "src": "notes",
+      "page": 105,
+      "label": "7. It is important ____ carefully.",
+      "similar": [
+       {
+        "q": "Gerund",
+        "a": "enjoy reading"
+       }
+      ],
+      "type": "fill",
+      "answer": "to listen",
+      "choices": [
+       "to listen",
+       "listening",
+       "listen",
+       "listened"
+      ],
+      "why": [
+       "adjective + to-infinitive."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u7-q08",
+      "q": "look forward to takes ____.",
+      "src": "notes",
+      "page": 105,
+      "label": "8. look forward to takes ____.",
+      "similar": [
+       {
+        "q": "Infinitive",
+        "a": "hope to win"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "to-infinitive",
+       "B": "-ing",
+       "C": "past tense",
+       "D": "which"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: -ing",
+       "to is a preposition here → -ing."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     }
+    ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "src": "hand",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Verb patterns: gerunds and i",
+      "kind": "unit",
+      "cards": [
+       "eng11-u7-c01",
+       "eng11-u7-c03"
+      ]
+     },
+     {
+      "id": "l7_1",
+      "label": "Common patterns",
+      "kind": "topic",
+      "lesson": "eng11-u7-l7-1",
+      "cards": [
+       "eng11-u7-c01",
+       "eng11-u7-c02"
+      ]
+     },
+     {
+      "id": "l7_2",
+      "label": "Adjective + infinitive; prep",
+      "kind": "topic",
+      "lesson": "eng11-u7-l7-2",
+      "cards": [
+       "eng11-u7-c03",
+       "eng11-u7-c04",
+       "eng11-u7-c05",
+       "eng11-u7-c06"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l7_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l7_2",
+      "label": "includes"
+     }
+    ]
+   }
+  },
+  {
+   "id": "eng11-u8",
+   "number": 8,
+   "title": "Sentence combining and punctuation",
+   "status": "done",
+   "pages": [
+    119,
+    132
+   ],
+   "tone": "peach",
+   "intro": "Clear punctuation prevents run-ons and fragments in exam essays.",
+   "intro_page": 119,
+   "lessons": [
+    {
+     "id": "eng11-u8-l8-1",
+     "number": "8.1",
+     "title": "Avoiding run-ons and comma splices",
+     "pages": [
+      119,
+      132
+     ],
+     "cards": [
+      {
+       "id": "eng11-u8-c01",
+       "type": "grammar",
+       "title": "Avoiding run-ons and comma splices",
+       "page": 119,
+       "src": "notes",
+       "rule": [
+        "Two independent clauses need a full stop, semicolon, or conjunction: *It rained. We stayed in.* / *It rained; we stayed in.* / *It rained, so we stayed in.*",
+        "A **comma splice** joins two full sentences with only a comma — fix it.",
+        "Fragments lack a main clause: *While waiting for the bus.* → complete it."
+       ],
+       "examples": [
+        {
+         "text": "It rained, so we stayed in.",
+         "ok": true
+        },
+        {
+         "text": "It rained, we stayed in.",
+         "ok": false,
+         "fix": "It rained, so we stayed in. / It rained; we stayed in."
+        },
+        {
+         "text": "While waiting for the bus, we revised notes.",
+         "ok": true
+        }
+       ]
+      },
+      {
+       "id": "eng11-u8-c02",
+       "type": "table",
+       "title": "Forms and examples",
+       "page": 119,
+       "src": "notes",
+       "head": [
+        "Problem",
+        "Fix"
+       ],
+       "rows": [
+        [
+         "Comma splice",
+         "add so/but or use a full stop"
+        ],
+        [
+         "Fragment",
+         "attach to a main clause"
+        ],
+        [
+         "Run-on",
+         "split or add a conjunction"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "eng11-u8-l8-2",
+     "number": "8.2",
+     "title": "Useful combining tools",
+     "pages": [
+      119,
+      132
+     ],
+     "cards": [
+      {
+       "id": "eng11-u8-c03",
+       "type": "grammar",
+       "title": "Useful combining tools",
+       "page": 119,
+       "src": "notes",
+       "rule": [
+        "Coordinators: *and, but, or, so, yet*",
+        "Subordinators: *because, although, when, if, while*",
+        "Semicolon + conjunctive adverb: *however, therefore, meanwhile*"
+       ],
+       "examples": [
+        {
+         "text": "Although the test was hard, she scored well.",
+         "ok": true
+        },
+        {
+         "text": "Although the test was hard. She scored well.",
+         "ok": false,
+         "fix": "Although the test was hard, she scored well."
+        },
+        {
+         "text": "The lights failed; however, the exam continued.",
+         "ok": true
+        }
+       ]
+      },
+      {
+       "id": "eng11-u8-c04",
+       "type": "table",
+       "title": "Common mistakes",
+       "page": 119,
+       "src": "notes",
+       "head": [
+        "Wrong",
+        "Right",
+        "Why"
+       ],
+       "rows": [
+        [
+         "I was tired, I slept early.",
+         "I was tired, so I slept early.",
+         "Comma alone cannot join two sentences."
+        ],
+        [
+         "Because I was tired.",
+         "Because I was tired, I slept early.",
+         "Complete the dependent clause."
+        ]
+       ]
+      },
+      {
+       "id": "eng11-u8-c05",
+       "type": "mnemonic",
+       "title": "Memory tip",
+       "page": 119,
+       "src": "notes",
+       "body": [
+        "Read aloud: if you hear two finished thoughts, check the join."
+       ]
+      },
+      {
+       "id": "eng11-u8-c06",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 119,
+       "src": "notes",
+       "body": [
+        "Combine sentences with coordinators, subordinators, or semicolons; never with a bare comma."
+       ]
+      }
+     ]
+    }
+   ],
+   "glossary": [
+    {
+     "term": "comma splice",
+     "meaning": "joining two sentences with only a comma",
+     "page": 119,
+     "src": "notes"
+    },
+    {
+     "term": "fragment",
+     "meaning": "a group of words that is not a complete sentence",
+     "page": 119,
+     "src": "notes"
+    }
+   ],
+   "tips": [
+    {
+     "text": "Read aloud: if you hear two finished thoughts, check the join.",
+     "page": 119,
+     "src": "notes"
+    }
+   ],
+   "games": [
+    {
+     "id": "eng11-u8-g1",
+     "type": "match",
+     "title": "Match the form to its example",
+     "src": "notes",
+     "lesson": "eng11-u8-l8-1",
+     "pairs": [
+      {
+       "a": "Comma splice",
+       "b": "add so/but or use a full stop"
+      },
+      {
+       "a": "Fragment",
+       "b": "attach to a main clause"
+      },
+      {
+       "a": "Run-on",
+       "b": "split or add a conjunction"
+      }
+     ]
+    }
+   ],
+   "exercise": {
+    "questions": [
+     {
+      "id": "eng11-u8-q01",
+      "q": "Which sentence is correctly punctuated?",
+      "src": "notes",
+      "page": 119,
+      "label": "1. Which sentence is correctly punctuated?",
+      "similar": [
+       {
+        "q": "Comma splice fix",
+        "a": "…, so …"
+       },
+       {
+        "q": "Semicolon",
+        "a": "…; however, …"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "He studied, he passed.",
+       "B": "He studied he passed.",
+       "C": "He studied, so he passed.",
+       "D": "He studied. so he passed."
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: He studied, so he passed.",
+       "C joins with a comma + coordinating conjunction."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u8-q02",
+      "q": "Fix the fragment: While the teacher explained. → While the teacher explained, ____.",
+      "src": "notes",
+      "page": 119,
+      "label": "2. Fix the fragment: While the teacher explained. → While the t",
+      "similar": [
+       {
+        "q": "Semicolon",
+        "a": "…; however, …"
+       },
+       {
+        "q": "Comma splice fix",
+        "a": "…, so …"
+       }
+      ],
+      "type": "fill",
+      "answer": "we took notes",
+      "choices": [
+       "we took notes",
+       "taking notes",
+       "and notes",
+       "notes"
+      ],
+      "why": [
+       "Add an independent clause after the dependent clause."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u8-q03",
+      "q": "A comma splice joins two sentences with ____.",
+      "src": "notes",
+      "page": 119,
+      "label": "3. A comma splice joins two sentences with ____.",
+      "similar": [
+       {
+        "q": "Comma splice fix",
+        "a": "…, so …"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "a semicolon",
+       "B": "only a comma",
+       "C": "a full stop",
+       "D": "a dash and capital"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: only a comma",
+       "comma alone is not enough."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u8-q04",
+      "q": "Fix “Although tired.” by ____.",
+      "src": "notes",
+      "page": 119,
+      "label": "4. Fix “Although tired.” by ____.",
+      "similar": [
+       {
+        "q": "Semicolon",
+        "a": "…; however, …"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "adding a main clause",
+       "B": "deleting although",
+       "C": "adding slang",
+       "D": "removing all verbs"
+      },
+      "answer": "A",
+      "why": [
+       "Answer A: adding a main clause",
+       "complete the dependent clause."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u8-q05",
+      "q": "It rained, ____ we stayed in.",
+      "src": "notes",
+      "page": 119,
+      "label": "5. It rained, ____ we stayed in.",
+      "similar": [
+       {
+        "q": "Comma splice fix",
+        "a": "…, so …"
+       }
+      ],
+      "type": "fill",
+      "answer": "so",
+      "choices": [
+       "so",
+       "however",
+       "although",
+       "to"
+      ],
+      "why": [
+       "comma + coordinating conjunction."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u8-q06",
+      "q": "Which is correct?",
+      "src": "notes",
+      "page": 119,
+      "label": "6. Which is correct?",
+      "similar": [
+       {
+        "q": "Semicolon",
+        "a": "…; however, …"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "He studied, he passed.",
+       "B": "He studied he passed.",
+       "C": "He studied, so he passed.",
+       "D": "He studied. so he passed."
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: He studied, so he passed.",
+       "comma + so."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     },
+     {
+      "id": "eng11-u8-q07",
+      "q": "Use a semicolon before ____ in formal contrast.",
+      "src": "notes",
+      "page": 119,
+      "label": "7. Use a semicolon before ____ in formal contrast.",
+      "similar": [
+       {
+        "q": "Comma splice fix",
+        "a": "…, so …"
+       }
+      ],
+      "type": "fill",
+      "answer": "however",
+      "choices": [
+       "however",
+       "and",
+       "because",
+       "the"
+      ],
+      "why": [
+       "semicolon + however."
+      ],
+      "tip": "Say the sentence aloud with your answer; it must be grammatical and make sense."
+     },
+     {
+      "id": "eng11-u8-q08",
+      "q": "A fragment lacks ____.",
+      "src": "notes",
+      "page": 119,
+      "label": "8. A fragment lacks ____.",
+      "similar": [
+       {
+        "q": "Semicolon",
+        "a": "…; however, …"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "adjectives",
+       "B": "a main clause",
+       "C": "commas",
+       "D": "capital letters only"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: a main clause",
+       "needs an independent clause."
+      ],
+      "tip": "Read the whole sentence, find the clue word, then test each option."
+     }
+    ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "src": "hand",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Sentence combining and punct",
+      "kind": "unit",
+      "cards": [
+       "eng11-u8-c01",
+       "eng11-u8-c03"
+      ]
+     },
+     {
+      "id": "l8_1",
+      "label": "Avoiding run-ons and comma s",
+      "kind": "topic",
+      "lesson": "eng11-u8-l8-1",
+      "cards": [
+       "eng11-u8-c01",
+       "eng11-u8-c02"
+      ]
+     },
+     {
+      "id": "l8_2",
+      "label": "Useful combining tools",
+      "kind": "topic",
+      "lesson": "eng11-u8-l8-2",
+      "cards": [
+       "eng11-u8-c03",
+       "eng11-u8-c04",
+       "eng11-u8-c05",
+       "eng11-u8-c06"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l8_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l8_2",
+      "label": "includes"
+     }
+    ]
+   }
+  }
+ ]
 }

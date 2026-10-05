@@ -1,7 +1,10 @@
 package com.warsay.high
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
+import android.provider.Settings
 import android.view.WindowManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -40,6 +43,19 @@ class MainActivity : FlutterActivity() {
                         }
                     }
                     "requestCamera" -> requestCamera(result)
+                    "hasCamera" -> {
+                        val ok = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) ==
+                            PackageManager.PERMISSION_GRANTED
+                        result.success(ok)
+                    }
+                    "openAppSettings" -> {
+                        runOnUiThread {
+                            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                            intent.data = Uri.fromParts("package", packageName, null)
+                            startActivity(intent)
+                            result.success(null)
+                        }
+                    }
                     "scanQr" -> scanQr(result)
                     else -> result.notImplemented()
                 }
