@@ -84,10 +84,10 @@ def main():
     catalog.append({
       'paper_id': paper['paper_id'], 'exam_id': eid, 'subject': bank['exam']['subject'],
       'year': str(paper['year']), 'category': paper['category'], 'title': paper['title'],
-      'questions': len(bank['questions']), 'lazy': year >= 2024,
-      'file': f"subjects/{slug(bank['exam']['subject'])}.json" if year >= 2024 else None,
+      'questions': len(bank['questions']), 'lazy': year >= 2020,
+      'file': f"subjects/{slug(bank['exam']['subject'])}.json" if year >= 2020 else None,
     })
-    if year >= 2024:
+    if year >= 2020:
       by_subj[bank['exam']['subject']].append(bank)
   for subj, banks in by_subj.items():
     seen, unique = set(), []
@@ -97,7 +97,7 @@ def main():
     (LAZY_SUB / f'{slug(subj)}.json').write_text(json.dumps({'subject': subj, 'schema_version': '1.0', 'papers': unique}, ensure_ascii=False, separators=(',', ':')))
   (LAZY / 'catalog.json').write_text(json.dumps({
     'source': 'Matric_Questions.json',
-    'note': 'Eager = existing + missing English Language / Algebra. Lazy = slim 2024+ by subject.',
+    'note': 'Eager = existing + missing English Language / Algebra. Lazy = slim 2020+ by subject.',
     'totals': m.get('totals'), 'lazy_root': 'assets/high/exams/matric_lazy',
     'subjects': sorted(by_subj.keys()), 'papers': catalog,
   }, ensure_ascii=False, indent=2) + '\n')

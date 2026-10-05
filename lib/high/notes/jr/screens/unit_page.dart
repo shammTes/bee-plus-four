@@ -195,7 +195,7 @@ class UnitPageState extends State<UnitPage> {
       ],
     );
     if (!_ready || u == null) return PageShell(top: top, body: const SizedBox.shrink());
-    final items = _contentItems(context, k, u);
+    final items = _contentBuilders(context, k, u);
     return PageShell(
       top: top,
       body: ScrollConfiguration(
@@ -223,7 +223,7 @@ class UnitPageState extends State<UnitPage> {
                 padding: EdgeInsets.fromLTRB(20, 6, 20, 30 + MediaQuery.paddingOf(context).bottom),
                 sliver: SliverList(
                   delegate: SliverChildBuilderDelegate(
-                    (context, i) => items[i],
+                    (context, i) => items[i](),
                     childCount: items.length,
                     addAutomaticKeepAlives: false,
                     addRepaintBoundaries: true,
@@ -267,7 +267,7 @@ class UnitPageState extends State<UnitPage> {
 
   String? get jumpOn => _jumpOn;
 
-  List<Widget> _contentItems(BuildContext context, Kit k, Unit u) {
+  List<Widget Function()> _contentBuilders(BuildContext context, Kit k, Unit u) {
     final p = k.p, s = k.s, b = _book!.info, sub = notesSubject(b.subject), tone = p.tone(sub.tone);
     final ctx = UnitCtx(u, widget.bookId, s.repo.svgPath);
     final pct = s.unitPct(u), rc = richColors(p);
@@ -292,63 +292,65 @@ class UnitPageState extends State<UnitPage> {
         ),
       ),
     );
-    Widget section(String key, String icon, String title, Tone t, List<Widget> kids) => Padding(
-      padding: const EdgeInsets.only(top: 34),
-      child: Column(
-        key: _secKeys.putIfAbsent(key, GlobalKey.new),
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [secPill(key, icon, title, t), ...kids],
-      ),
-    );
-
-    // notes: lesson heads + cards
-    final notes = <Widget>[];
-    for (final (li, l) in u.lessons.indexed) {
-      notes.add(
-        Padding(
-          padding: EdgeInsets.only(top: li == 0 ? 0 : 6, bottom: 12), // 26px after a card's 20px margin; the first collapses into the pill's 16px
-          child: Row(
-            spacing: 14,
-            children: [
-              DecoratedBox(
-                decoration: k.c.num(tone),
-                child: SizedBox(
-                  width: 52,
-                  height: 52,
-                  child: Center(child: Tx(l.number, style: ts(20, FontWeight.w900, tone.deep, normal: true))),
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Tx(l.title, style: ts(22, FontWeight.w900, p.ink, height: 1.2)),
-                    if (l.pages.length >= 2) Tx(k.t('textbookPage', {'n': '${l.pages[0]}–${l.pages[1]}'}), style: ts(16, FontWeight.w700, p.ink2)),
-                  ],
-                ),
-              ),
-            ],
-          ),
+    List<Widget Function()> sectionBuilders(String key, String icon, String title, Tone t, List<Widget Function()> kids) => [
+      () => Padding(
+        padding: const EdgeInsets.only(top: 34),
+        child: Column(
+          key: _secKeys.putIfAbsent(key, GlobalKey.new),
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [secPill(key, icon, title, t)],
         ),
-      );
-      for (final (i, c) in l.cards.indexed) {
-        final key = '${l.id}~$i';
-        notes.add(
-          Padding(
-            key: _cardKeys.putIfAbsent(key, GlobalKey.new),
-            padding: const EdgeInsets.only(bottom: 20),
-            child: NoteCardView(ctx: ctx, card: c, ckey: key, onGloss: (gi) => _gloss(u, gi)),
-          ),
-        );
+      ),
+      ...kids,
+    ];
+
+    // notes: lesson heads + cards — each card is its own lazy list item
+    final noteBuilders = <Widget Function()>[];
+    for (final (li, l) in u.lessons.indexed) {
+      final lesson = l;
+      final lessonIndex = li;
+      noteBuilders.add(() => Padding(
+        padding: EdgeInsets.only(top: lessonIndex == 0 ? 0 : 6, bottom: 12),
+        child: Row(
+          spacing: 14,
+          children: [
+            DecoratedBox(
+              decoration: k.c.num(tone),
+              child: SizedBox(
+                width: 52,
+                height: 52,
+                child: Center(child: Tx(lesson.number, style: ts(20, FontWeight.w900, tone.deep, normal: true))),
+              ),
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Tx(lesson.title, style: ts(22, FontWeight.w900, p.ink, height: 1.2)),
+                  if (lesson.pages.length >= 2) Tx(k.t('textbookPage', {'n': '${lesson.pages[0]}–${lesson.pages[1]}'}), style: ts(16, FontWeight.w700, p.ink2)),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ));
+      for (final (i, c) in lesson.cards.indexed) {
+        final card = c;
+        final key = '${lesson.id}~$i';
+        noteBuilders.add(() => Padding(
+          key: _cardKeys.putIfAbsent(key, GlobalKey.new),
+          padding: const EdgeInsets.only(bottom: 20),
+          child: NoteCardView(ctx: ctx, card: card, ckey: key, onGloss: (gi) => _gloss(u, gi)),
+        ));
       }
     }
 
-    // memory: tips, every memory trick, key words
+    // memory / games / quiz — deferred until list builder asks for them
     final tricks = [for (final l in u.lessons) ...l.cards.whereType<MnemonicCard>()];
     final words = [...u.glossary]..sort((a, b) => a.term.compareTo(b.term));
-    final memory = <Widget>[
+    final memoryBuilders = <Widget Function()>[
       if (u.tips.isNotEmpty)
-        NCard(
+        () => NCard(
           tone: p.butter,
           padding: const EdgeInsets.all(20),
           margin: const EdgeInsets.only(bottom: 16),
@@ -356,21 +358,25 @@ class UnitPageState extends State<UnitPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               KindLabel('tip', k.t('tip')),
-              for (final t in u.tips)
+              for (final tip in u.tips)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: RichPara(t.text, style: ts(18, FontWeight.w500, p.ink), colors: rc),
+                  child: RichPara(tip.text, style: ts(18, FontWeight.w500, p.ink), colors: rc),
                 ),
             ],
           ),
         ),
       for (final (i, c) in tricks.indexed)
-        Padding(
-          padding: EdgeInsets.only(top: i == 0 ? 0 : 4, bottom: i == tricks.length - 1 ? 16 : 0),
-          child: NoteCardView(ctx: ctx, card: c, ckey: 'mem$i', compact: true),
-        ),
+        () {
+          final card = c;
+          final idx = i;
+          return Padding(
+            padding: EdgeInsets.only(top: idx == 0 ? 0 : 4, bottom: idx == tricks.length - 1 ? 16 : 0),
+            child: NoteCardView(ctx: ctx, card: card, ckey: 'mem$idx', compact: true),
+          );
+        },
       if (words.isNotEmpty)
-        NCard(
+        () => NCard(
           padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -392,44 +398,51 @@ class UnitPageState extends State<UnitPage> {
         ),
     ];
 
-    final games = [
+    final gameBuilders = <Widget Function()>[
       for (final g in u.games)
-        Padding(
-          key: _gameKeys.putIfAbsent(g.id, GlobalKey.new),
-          padding: const EdgeInsets.only(bottom: 22),
-          child: GameCard(ctx: ctx, game: g, onEnd: () => setState(() {})),
-        ),
+        () {
+          final game = g;
+          return Padding(
+            key: _gameKeys.putIfAbsent(game.id, GlobalKey.new),
+            padding: const EdgeInsets.only(bottom: 22),
+            child: GameCard(ctx: ctx, game: game, onEnd: () => setState(() {})),
+          );
+        },
     ];
 
-    final qs = [
+    final quizBuilders = <Widget Function()>[
       for (final (i, q) in u.exercise.questions.indexed)
-        Padding(
-          padding: const EdgeInsets.only(bottom: 22),
-          child: QCard(
-            key: ValueKey('${u.id}/${q.id}/${NotesSession.ex(u.id).hashCode}'),
-            u: u,
-            bid: widget.bookId,
-            q: q,
-            index: i,
-            onChecked: () => setState(() {}),
-          ),
-        ),
-      Padding(
+        () {
+          final qi = i;
+          final qq = q;
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 22),
+            child: QCard(
+              key: ValueKey('${u.id}/${qq.id}/${NotesSession.ex(u.id).hashCode}'),
+              u: u,
+              bid: widget.bookId,
+              q: qq,
+              index: qi,
+              onChecked: () => setState(() {}),
+            ),
+          );
+        },
+      () => Padding(
         padding: const EdgeInsets.only(bottom: 12),
         child: QSummary(u: u, onReset: () => _resetEx(u)),
       ),
     ];
 
-    return [
-      Tx(u.title, style: ts(30, FontWeight.w900, p.ink, height: 1.15, spacing: -.3)),
-      Padding(
+    return <Widget Function()>[
+      () => Tx(u.title, style: ts(30, FontWeight.w900, p.ink, height: 1.15, spacing: -.3)),
+      () => Padding(
         padding: const EdgeInsets.only(top: 4, bottom: 10),
         child: Tx('${k.t(sub.key)} ${b.grade} · ${k.t('progress', {'n': pct})}', style: ts(19, FontWeight.w700, p.ink2)),
       ),
-      PBar(pct / 100),
-      Padding(padding: const EdgeInsets.only(top: 16), child: hr.UnitLinkBar(unitId: u.id)),
+      () => PBar(pct / 100),
+      () => Padding(padding: const EdgeInsets.only(top: 16), child: hr.UnitLinkBar(unitId: u.id)),
       if (u.intro.isNotEmpty)
-        NCard(
+        () => NCard(
           padding: const EdgeInsets.all(20),
           margin: const EdgeInsets.only(top: 16),
           child: Column(
@@ -443,20 +456,18 @@ class UnitPageState extends State<UnitPage> {
             ],
           ),
         ),
-      if (_map != null)
-        section('map', 'star', 'Concept map', p.mint, [
-          ConceptMapView(map: _map!, tone: sub.tone, onCard: _jumpToCard),
-        ]),
-      section('notes', 'book', k.t('notes'), p.butter, notes),
-      section('memory', 'tip', k.t('tipsTricks'), p.lilac, memory),
-      if (u.games.isNotEmpty) section('games', 'star', k.t('games'), p.blue, games),
-      section('questions', 'check', 'Unit quiz', p.sage, qs),
-      if (_matricIds.isNotEmpty)
-        section('matric', 'star', 'Matric questions', p.peach, [
-          hr.UnitMatricCard(unitId: u.id, title: u.title, ids: _matricIds),
-        ]),
+      if (_map != null) ...sectionBuilders('map', 'star', 'Concept map', p.mint, [
+        () => ConceptMapView(map: _map!, tone: sub.tone, onCard: _jumpToCard),
+      ]),
+      ...sectionBuilders('notes', 'book', k.t('notes'), p.butter, noteBuilders),
+      ...sectionBuilders('memory', 'tip', k.t('tipsTricks'), p.lilac, memoryBuilders),
+      if (u.games.isNotEmpty) ...sectionBuilders('games', 'star', k.t('games'), p.blue, gameBuilders),
+      ...sectionBuilders('questions', 'check', 'Unit quiz', p.sage, quizBuilders),
+      if (_matricIds.isNotEmpty) ...sectionBuilders('matric', 'star', 'Matric questions', p.peach, [
+        () => hr.UnitMatricCard(unitId: u.id, title: u.title, ids: _matricIds),
+      ]),
       if (u.links.isNotEmpty) ...[
-        Padding(
+        () => Padding(
           padding: const EdgeInsets.only(top: 24, bottom: 12),
           child: Row(
             spacing: 10,
@@ -466,7 +477,7 @@ class UnitPageState extends State<UnitPage> {
             ],
           ),
         ),
-        NCard(
+        () => NCard(
           padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
