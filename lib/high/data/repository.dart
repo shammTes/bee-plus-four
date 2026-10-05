@@ -236,6 +236,68 @@ class ExamRepo {
 
   String mediaAsset(String path) => '$root/${path.replaceFirst(RegExp(r'^\.?/'), '')}';
   bool hasMedia(String path) => media.contains(path.replaceFirst(RegExp(r'^\.?/'), '').replaceFirst('media/', ''));
+
+  static const lazyRoot = 'assets/high/exams/matric_lazy';
+  final Set<String> _lazySubjects = {};
+  final Map<String, Future<void>> _lazyLoads = {};
+
+  /// Load Drive 2024+ slim packs for a subject on first open (not at app start).
+  Future<void> ensureLazySubject(String subject) {
+    final key = subject.trim();
+    if (key.isEmpty || _lazySubjects.contains(key)) return Future.value();
+    return _lazyLoads[key] ??= _loadLazySubject(key);
+  }
+
+  Future<void> _loadLazySubject(String subject) async {
+    final slug = subject.toLowerCase().replaceAll(RegExp(r'[^a-z0-9]+'), '_').replaceAll(RegExp(r'_+'), '_').replaceAll(RegExp(r'^_|_$'), '');
+    String raw;
+    try {
+      raw = await _bundle.loadString('$lazyRoot/subjects/$slug.json', cache: false);
+    } catch (_) {
+      _lazySubjects.add(subject);
+      return;
+    }
+    Object? decoded;
+    if (useIsolate) {
+      decoded = await Isolate.run(() => jsonDecode(raw));
+    } else {
+      decoded = jsonDecode(raw);
+    }
+    if (decoded is! Map) {
+      _lazySubjects.add(subject);
+      return;
+    }
+    final papers = decoded['papers'];
+    if (papers is! List) {
+      _lazySubjects.add(subject);
+      return;
+    }
+    var added = 0;
+    for (final rawPaper in papers) {
+      if (rawPaper is! Map) continue;
+      final d = Map<String, dynamic>.from(rawPaper);
+      final examMap = d['exam'];
+      if (examMap is! Map) continue;
+      final e = Exam(Map<String, dynamic>.from(examMap), 'matric_lazy/$slug.json');
+      if (exam.containsKey(e.id)) continue;
+      e.questions = [
+        for (final q in (d['questions'] as List? ?? const []))
+          if (q is Map && q['id'] != null) Question(Map<String, dynamic>.from(q), e),
+      ];
+      for (final q in e.questions) {
+        byId.putIfAbsent(q.id, () => q);
+      }
+      exams.add(e);
+      exam[e.id] = e;
+      added++;
+    }
+    if (added > 0 && !subjects.contains(subject)) {
+      subjects.add(subject);
+      subjects.sort((a, b) => subjOrder(a) != subjOrder(b) ? subjOrder(a) - subjOrder(b) : a.compareTo(b));
+    }
+    _lazySubjects.add(subject);
+  }
+
 }
 
 int byYear(Exam a, Exam b) {

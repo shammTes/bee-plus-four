@@ -253,9 +253,44 @@ class ExamSubjectPage extends StatefulWidget {
 class _ExamSubjectPageState extends State<ExamSubjectPage> {
   String? _cat;
   bool _allT = false;
+  bool _lazyReady = false;
+  bool _lazyLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _kickLazy();
+  }
+
+  @override
+  void didUpdateWidget(covariant ExamSubjectPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.subject != widget.subject) {
+      _lazyReady = false;
+      _kickLazy();
+    }
+  }
+
+  void _kickLazy() {
+    if (_lazyLoading) return;
+    _lazyLoading = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      HighScope.read(context).repo.ensureLazySubject(widget.subject).whenComplete(() {
+        if (!mounted) return;
+        setState(() {
+          _lazyLoading = false;
+          _lazyReady = true;
+        });
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final k = Kit.of(context), p = k.p, s = k.s, r = s.repo, sub = widget.subject, l = look(sub), t = k.tone(l.tone);
+    // Touch flag so rebuild after lazy load refreshes paper list.
+    final _ = _lazyReady;
     final all = r.exams.where((e) => e.subject == sub).toList();
     final counts = {for (final c in kCats) c.id: all.where((e) => e.cat == c.id).length};
     final cat = [_cat, widget.cat, s.cat].firstWhere((c) => c != null && (counts[c] ?? 0) > 0, orElse: () => kCats.firstWhere((c) => counts[c.id]! > 0, orElse: () => kCats.first).id)!;

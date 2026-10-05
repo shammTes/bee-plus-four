@@ -77,7 +77,7 @@ class NotesRepo {
         unitQuestions['${e.key}'] = [for (final x in (e.value as List? ?? const [])) if (x is Map) Map<String, dynamic>.from(x)];
       }
     } catch (_) {}
-    await MediaLib.load(bundle);
+    // credits loaded on first book open (see book())
     placements = [];
     for (final path in ['assets/high/media/placements.json', 'assets/high/media/taxonomy_extra.json', 'assets/high/media/g11_extra.json']) {
       try {
@@ -151,6 +151,7 @@ class NotesRepo {
     final hit = _books[id];
     if (hit != null) return Future.value(hit);
     return _loads[id] ??= () async {
+      await MediaLib.load(bundle);
       final file = byId(id)?.file ?? '$id.json';
       final s = await bundle.loadString('$base/$file', cache: false);
       final raw0 = jsonDecode(s);
