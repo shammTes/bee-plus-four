@@ -6,6 +6,7 @@ import '../data/models.dart';
 import '../data/repository.dart';
 import '../screens/routes.dart';
 import '../state/app_state.dart';
+import '../theme/perf.dart';
 import '../theme/tokens.dart';
 import '../widgets/kit.dart';
 import '../widgets/page.dart';
@@ -30,8 +31,8 @@ class _CardsScreenState extends State<_CardsScreen> {
     super.initState();
     if (widget.focus != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        final c = widget.keys[widget.focus]?.currentContext;
-        if (c != null && c.mounted) Scrollable.ensureVisible(c, alignment: .02);
+        final key = widget.keys[widget.focus];
+        if (key != null) _seek(key);
       });
     }
   }
@@ -42,26 +43,74 @@ class _CardsScreenState extends State<_CardsScreen> {
     super.dispose();
   }
 
+  /// index of each keyed card in [widget.children] (the list is lazy: off-screen cards have no context yet)
+  Map<GlobalKey, int> _index() => {
+    for (final (i, c) in widget.children.indexed)
+      if (c.key is GlobalKey) c.key! as GlobalKey: i,
+  };
+
+  /// bring [key]'s card to the top. Cards are built lazily, so when it is not built yet jump towards it (estimating
+  /// from the cards that are built) and try again next frame.
+  void _seek(GlobalKey key, [int tries = 0]) {
+    if (!mounted || !_sc.hasClients) return;
+    final c = key.currentContext;
+    if (c != null) {
+      Scrollable.ensureVisible(c, alignment: .02);
+      return;
+    }
+    final index = _index(), idx = index[key];
+    if (idx == null || tries >= 14) return;
+    int? lo, hi;
+    var h = 0.0, n = 0;
+    for (final e in index.entries) {
+      final ro = e.key.currentContext?.findRenderObject();
+      if (ro is! RenderBox || !ro.hasSize) continue;
+      lo = lo == null || e.value < lo ? e.value : lo;
+      hi = hi == null || e.value > hi ? e.value : hi;
+      h += ro.size.height;
+      n++;
+    }
+    final pos = _sc.position;
+    final avg = n == 0 ? pos.viewportDimension * .6 : h / n;
+    final double target;
+    if (lo == null || hi == null) {
+      target = pos.maxScrollExtent * idx / (widget.children.isEmpty ? 1 : widget.children.length);
+    } else if (idx < lo) {
+      target = pos.pixels - (lo - idx) * avg;
+    } else {
+      target = pos.pixels + (idx - hi + 1) * avg;
+    }
+    _sc.jumpTo(target.clamp(pos.minScrollExtent, pos.maxScrollExtent));
+    WidgetsBinding.instance.addPostFrameCallback((_) => _seek(key, tries + 1));
+  }
+
   @override
-  Widget build(BuildContext context) => PageShell(
-    top: widget.top,
-    body: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Padding(padding: const EdgeInsets.fromLTRB(16, 4, 16, 4), child: widget.header),
-        Expanded(
-          child: ScrollConfiguration(
-            behavior: const NoGlow(),
-            child: SingleChildScrollView(
-              controller: _sc,
-              padding: EdgeInsets.fromLTRB(16, 0, 16, kScreenBottom + MediaQuery.paddingOf(context).bottom),
-              child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: collapse(widget.children)),
+  Widget build(BuildContext context) {
+    // a whole exam is 60–100 cards: build only the ones on (or just off) screen instead of one giant Column
+    final items = collapse(widget.children);
+    return PageShell(
+      top: widget.top,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Padding(padding: const EdgeInsets.fromLTRB(16, 4, 16, 4), child: widget.header),
+          Expanded(
+            child: ScrollConfiguration(
+              behavior: const NoGlow(),
+              child: ListView.builder(
+                controller: _sc,
+                padding: EdgeInsets.fromLTRB(16, 0, 16, kScreenBottom + MediaQuery.paddingOf(context).bottom),
+                cacheExtent: Perf.cacheExtent(context),
+                addAutomaticKeepAlives: false,
+                itemCount: items.length,
+                itemBuilder: (context, i) => items[i],
+              ),
             ),
           ),
-        ),
-      ],
-    ),
-  );
+        ],
+      ),
+    );
+  }
 }
 
 Widget _chips(List<Widget> c) => SingleChildScrollView(

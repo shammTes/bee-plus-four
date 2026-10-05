@@ -177,7 +177,7 @@ class _DiagramLabelGameState extends State<DiagramLabelGame> {
                 height: h,
                 child: Stack(
                   children: [
-                    Positioned.fill(child: Image.asset(c.asset, fit: BoxFit.fill)),
+                    Positioned.fill(child: Image.asset(c.asset, fit: BoxFit.fill, cacheWidth: decodeWidth(context, c, w), filterQuality: FilterQuality.medium)),
                     for (final (i, pin) in widget.pins.indexed)
                       () {
                         final t = '${pin['t']}', show = explore || solved.contains(i);

@@ -4,6 +4,7 @@
 //   Navigator.push(context, PageRouteBuilder(pageBuilder: (_, _, _) => const HighScreen()));
 import 'data/repository.dart';
 import 'notes/jr/data/repository.dart';
+import 'notes/jr/notes/svg_prep.dart' show SvgStore;
 export 'exercise/source.dart';
 import 'state/app_state.dart';
 
@@ -20,6 +21,7 @@ abstract final class High {
     final repo = ExamRepo(useIsolate: useIsolate);
     await repo.init();
     final notes = NotesRepo(useIsolate: useIsolate);
+    SvgStore.useIsolate = useIsolate;
     await notes.init();
     final s = HighState(repo, null, notes);
     await s.load();

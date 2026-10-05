@@ -106,6 +106,31 @@ class _SettingsPageState extends State<SettingsPage> {
               onPick: (t) => s.setTheme(t == 'auto' ? null : t),
             ),
           ),
+          const SectionLabel('Scrolling'),
+          Panel(
+            padding: const EdgeInsets.all(12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              spacing: 8,
+              children: [
+                Seg(
+                  current: s.lite ? 'lite' : 'full',
+                  items: const [
+                    (id: 'lite', label: 'Smooth', icon: 'flame', count: null, tone: 'sage', enabled: true),
+                    (id: 'full', label: 'Full clay', icon: 'sparkle', count: null, tone: 'sage', enabled: true),
+                  ],
+                  onPick: (v) => s.setLite(v == 'lite'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: Text(
+                    s.lite ? 'Lighter shadows and no fade-ins, so Notes scroll smoothly on any phone.' : 'Every soft shadow and animation. Best on fast phones.',
+                    style: ts(12.5, w700, p.ink3),
+                  ),
+                ),
+              ],
+            ),
+          ),
           const SectionLabel('Teacher'),
           Panel(
             padding: const EdgeInsets.all(12),

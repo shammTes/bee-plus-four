@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:isolate';
+import 'off_thread.dart';
 
 import 'package:flutter/services.dart';
 
@@ -21,8 +21,7 @@ Future<void> loadSchoolPapers(ExamRepo repo, AssetBundle bundle, {required bool 
       for (final e in (g as Map).values) (e as Map)['file'] as String,
   ];
   final raws = await Future.wait(files.map((f) => bundle.loadString('$pack/$f', cache: false)));
-  List<Object?> parse(List<String> l) => [for (final s in l) jsonDecode(s)];
-  final parsed = useIsolate ? await Isolate.run(() => parse(raws)) : parse(raws);
+  final parsed = useIsolate ? await offThread(decodeJsonList, raws) : decodeJsonList(raws);
   for (final d in parsed.cast<Map<String, dynamic>>()) {
     final subj = d['subject'] as String, g = (d['grade'] as num).toInt();
     final key = '$g|$subj';

@@ -21,7 +21,7 @@ class AppState extends ChangeNotifier {
   Map<String, dynamic> get notes => high.notes;
 
   void _changed() => high.changed();
-  void _quiet() => high.saveLater();
+  void _quiet() => high.saveIdle(); // reading progress: saved when the user pauses, not mid-scroll
 
   // ---- labels (English; missing keys show the key itself, used for subject names)
   String t(String k, [Map<String, Object>? vars]) {

@@ -8,6 +8,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/services.dart';
 
+import '../../../data/off_thread.dart';
+
 class SvgStore {
   SvgStore._();
   static final _raw = <String, String>{};
@@ -16,13 +18,19 @@ class SvgStore {
 
   static bool has(String path) => _raw.containsKey(path);
 
+  /// prepare big batches in a background isolate (set by High.init; widget tests keep it synchronous)
+  static bool useIsolate = false;
+
   static Future<void> preload(AssetBundle bundle, Iterable<String> paths) async {
-    await Future.wait([
-      for (final p in paths.where((p) => !_raw.containsKey(p)))
-        bundle.loadString(p).then((s) {
-          _raw[p] = prepSvg(s);
-        }),
-    ]);
+    final todo = paths.where((p) => !_raw.containsKey(p)).toList();
+    if (todo.isEmpty) return;
+    final raws = await Future.wait([for (final p in todo) bundle.loadString(p)]);
+    // regex-heavy rewriting of every diagram in the unit: keep it off the UI thread when there is a lot of it
+    final big = raws.fold<int>(0, (a, s) => a + s.length) > 40000;
+    final prepped = useIsolate && big ? await offThread(_prepAll, raws) : _prepAll(raws);
+    for (var i = 0; i < todo.length; i++) {
+      _raw[todo[i]] = prepped[i];
+    }
   }
 
   /// viewBox [x, y, w, h] (default 0 0 320 320)
@@ -43,6 +51,8 @@ class SvgStore {
   /// used by the graph cards (SVG generated in code)
   static String showString(String svg, String? key) => applyShow(svg, key);
 }
+
+List<String> _prepAll(List<String> l) => [for (final s in l) prepSvg(s)];
 
 // ---------------------------------------------------------------- tag scanning helpers
 final _attrRe = RegExp(r'([\w:-]+)="([^"]*)"');

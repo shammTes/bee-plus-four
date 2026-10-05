@@ -236,8 +236,25 @@ class _Mark extends StatelessWidget {
   }
 }
 
+/// small LRU map: notes pages re-create the same paragraphs every time a card scrolls back into view
+class _Lru<K, V> {
+  _Lru(this.max);
+  final int max;
+  final _m = <K, V>{}; // insertion-ordered (LinkedHashMap): first key = least recently used
+  V putIfAbsent(K k, V Function() f) {
+    final hit = _m.remove(k);
+    if (hit != null) return _m[k] = hit;
+    final v = f();
+    _m[k] = v;
+    if (_m.length > max) _m.remove(_m.keys.first);
+    return v;
+  }
+}
+
 Widget _math(String src, bool display, TextStyle base) {
   final fs = (base.fontSize ?? 18) * 1.06 * (display ? .92 : 1);
+  // parsed fresh every time on purpose: flutter_math keeps GlobalKeys and build results inside the parsed tree, so a
+  // shared tree shown twice on screen throws "Multiple widgets used the same GlobalKey"
   return Math.tex(
     src,
     mathStyle: display ? MathStyle.display : MathStyle.text,
@@ -245,6 +262,35 @@ Widget _math(String src, bool display, TextStyle base) {
     onErrorFallback: (e) => Text(src, style: base),
   );
 }
+
+/// what a [RichPara] renders depends only on these, so a paragraph's widget tree is cached and reused (same widget
+/// instance = Flutter skips rebuilding that subtree; no re-parsing of the markup when a card scrolls back into view).
+/// Paragraphs with maths are not cached (see [_math]).
+@immutable
+class _ParaKey {
+  const _ParaKey(this.text, this.style, this.c, this.hx, this.notes, this.strikeHx, this.align);
+  final String text;
+  final TextStyle style;
+  final RichColors c;
+  final bool hx, notes, strikeHx;
+  final TextAlign? align;
+  @override
+  bool operator ==(Object o) =>
+      o is _ParaKey &&
+      o.text == text &&
+      o.hx == hx &&
+      o.notes == notes &&
+      o.strikeHx == strikeHx &&
+      o.align == align &&
+      o.c.butter2 == c.butter2 &&
+      o.c.sage3 == c.sage3 &&
+      o.c.peach3 == c.peach3 &&
+      o.style == style;
+  @override
+  int get hashCode => Object.hash(text, hx, notes, strikeHx, align, c.butter2, c.sage3, c.peach3, style);
+}
+
+final _paraCache = _Lru<_ParaKey, Widget>(1500);
 
 /// Rich paragraph: inline markup + inline maths; display maths become their own centred block.
 class RichPara extends StatelessWidget {
@@ -261,6 +307,11 @@ class RichPara extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = colors ?? const RichColors(Color(0xFFF7D46E), Color(0xFF2F6B3A), Color(0xFFA8412A));
     final segs = _cache.putIfAbsent('$notes|$text', () => _split(text, notes: notes));
+    if (segs.any((s) => s.math != null)) return _build(c, segs);
+    return _paraCache.putIfAbsent(_ParaKey(text, style, c, hx, notes, strikeHx, textAlign), () => _build(c, segs));
+  }
+
+  Widget _build(RichColors c, List<_Seg> segs) {
     final blocks = <Widget>[];
     var ib = _InlineBuilder(style, c, hx, strikeHx);
     void flush() {

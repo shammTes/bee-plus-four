@@ -11,6 +11,7 @@ import '../theme/deco.dart';
 import '../theme/tokens.dart';
 import 'art.dart';
 import 'page.dart';
+import '../theme/perf.dart';
 
 final _dL = Deco(Palette.light), _dD = Deco(Palette.darkP);
 
@@ -218,7 +219,14 @@ class Badge extends StatelessWidget {
               clipBehavior: Clip.none,
               children: [
                 // filter: drop-shadow(0 1px 1px rgba(0,0,0,.18))
-                Positioned(left: 0, top: 1, child: ImageFiltered(imageFilter: _blur1, child: Ic(icon, size: isz, color: const Color.fromRGBO(0, 0, 0, .18)))),
+                // Lite: the .5 sigma blur is invisible at this size but costs an offscreen layer per badge
+                Positioned(
+                  left: 0,
+                  top: 1,
+                  child: Perf.lite
+                      ? Ic(icon, size: isz, color: const Color.fromRGBO(0, 0, 0, .14))
+                      : ImageFiltered(imageFilter: _blur1, child: Ic(icon, size: isz, color: const Color.fromRGBO(0, 0, 0, .18))),
+                ),
                 Ic(icon, size: isz, color: fg),
               ],
             ),

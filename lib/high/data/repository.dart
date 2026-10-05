@@ -1,7 +1,7 @@
 // Loads the exam packs (assets/high/exams, copied unchanged from the web app) and builds the same indexes as the web:
 // EXAMS (web order), EXAM, byId, SUBJECTS, YEARS, TOPIC_TITLE / TOPIC_PARENT / TOPIC_QS, CONCEPTS.
 import 'dart:convert';
-import 'dart:isolate';
+import 'off_thread.dart';
 
 import 'package:flutter/services.dart';
 
@@ -60,23 +60,7 @@ class ExamRepo {
           return '';
         }
       }));
-      List<Object?> decodeBatch(List<String> raws) {
-        final out = <Object?>[];
-        for (final s in raws) {
-          if (s.isEmpty) {
-            out.add(null);
-            continue;
-          }
-          try {
-            out.add(jsonDecode(s));
-          } catch (_) {
-            out.add(null);
-          }
-        }
-        return out;
-      }
-
-      final batchParsed = useIsolate ? await Isolate.run(() => decodeBatch(raws)) : decodeBatch(raws);
+      final batchParsed = useIsolate ? await offThread(decodeJsonListLenient, raws) : decodeJsonListLenient(raws);
       parsed.addAll(batchParsed);
     }
     final nEx = examFiles.length;
@@ -184,8 +168,7 @@ class ExamRepo {
         for (final e in (g as Map).values) (e as Map)['file'] as String,
     ];
     final raws = await Future.wait(files.map((f) => _bundle.loadString('$exRoot/$f', cache: false)));
-    List<Object?> parse(List<String> l) => [for (final s in l) jsonDecode(s)];
-    final parsed = useIsolate ? await Isolate.run(() => parse(raws)) : parse(raws);
+    final parsed = useIsolate ? await offThread(decodeJsonList, raws) : decodeJsonList(raws);
     for (final d in parsed.cast<Map<String, dynamic>>()) {
       final subj = d['subject'] as String, g = (d['grade'] as num).toInt();
       final label = exerciseSubjectLabel(subj);
@@ -259,7 +242,7 @@ class ExamRepo {
     }
     Object? decoded;
     if (useIsolate) {
-      decoded = await Isolate.run(() => jsonDecode(raw));
+      decoded = await offThread(decodeJson, raw);
     } else {
       decoded = jsonDecode(raw);
     }

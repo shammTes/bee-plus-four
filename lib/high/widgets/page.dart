@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import '../theme/tokens.dart';
 import 'art.dart';
 import 'kit.dart';
+import '../theme/perf.dart';
 import '../screens/settings.dart' show SettingsPage;
 
 const kScreenBottom = 116.0;
@@ -140,7 +141,7 @@ class ScreenList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final items = collapse(children);
-    final cache = MediaQuery.sizeOf(context).height * .35;
+    final cache = Perf.cacheExtent(context);
     return ScrollConfiguration(
       behavior: const NoGlow(),
       child: ListView.builder(

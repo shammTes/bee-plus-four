@@ -1,7 +1,7 @@
 // High: notes content. A file unit_<id>.json replaces that unit when present.
 import 'dart:async';
 import 'dart:convert';
-import 'dart:isolate';
+import '../../../data/off_thread.dart';
 
 import '../../../media/media.dart' show MediaLib;
 import 'package:flutter/services.dart';
@@ -154,29 +154,49 @@ class NotesRepo {
       await MediaLib.load(bundle);
       final file = byId(id)?.file ?? '$id.json';
       final s = await bundle.loadString('$base/$file', cache: false);
-      final raw0 = jsonDecode(s);
-      if (raw0 is Map && raw0['units'] is List) {
-        final units = raw0['units'] as List;
-        for (var i = 0; i < units.length; i++) {
-          final u = units[i];
-          if (u is! Map || u['id'] == null) continue;
-          try {
-            units[i] = jsonDecode(await bundle.loadString('$base/unit_${u['id']}.json', cache: false));
-          } catch (_) {}
-        }
-      }
-      final merged = jsonEncode(raw0);
-      final pl = placements;
-      (NotesBook, BookExtras) parse() {
-        final raw = jsonDecode(merged);
-        injectMedia(raw, pl);
-        return (NotesBook.fromJson(raw, file), _parseExtras(raw));
-      }
-      final r = useIsolate ? await Isolate.run(parse) : parse();
+      // all JSON work happens off the UI thread (it used to decode the book, every unit file and re-encode the merge
+      // here, a long frame drop when a unit was first opened): ask for the unit ids, then load the unit files together
+      final ids = useIsolate ? await offThread(_unitIds, s) : _unitIds(s);
+      final unitRaw = <String, String>{};
+      await Future.wait([
+        for (final id in ids)
+          bundle.loadString('$base/unit_$id.json', cache: false).then((t) => unitRaw[id] = t, onError: (Object _) => ''),
+      ]);
+      final job = (book: s, units: unitRaw, placements: placements, file: file);
+      final r = useIsolate ? await offThread(_parseBook, job) : _parseBook(job);
       _books[id] = r.$1;
       _extras[id] = r.$2;
       return r.$1;
     }();
+  }
+
+  /// book JSON + its unit files -> models (static: runs in a background isolate, see off_thread.dart)
+  static (NotesBook, BookExtras) _parseBook(({String book, Map<String, String> units, List<Map<String, dynamic>> placements, String file}) j) {
+    final raw = jsonDecode(j.book);
+    if (raw is Map && raw['units'] is List) {
+      final units = raw['units'] as List;
+      for (var i = 0; i < units.length; i++) {
+        final u = units[i];
+        if (u is! Map || u['id'] == null) continue;
+        final t = j.units['${u['id']}'];
+        if (t == null) continue;
+        try {
+          units[i] = jsonDecode(t);
+        } catch (_) {}
+      }
+    }
+    injectMedia(raw, j.placements);
+    return (NotesBook.fromJson(raw, j.file), _parseExtras(raw));
+  }
+
+  /// ids of the units a book file lists (each has its own `unit_<id>.json`)
+  static List<String> _unitIds(String bookJson) {
+    final raw = jsonDecode(bookJson);
+    if (raw is! Map || raw['units'] is! List) return const [];
+    return [
+      for (final u in raw['units'] as List)
+        if (u is Map && u['id'] != null) '${u['id']}',
+    ];
   }
 
   static BookExtras _parseExtras(Object? raw) {

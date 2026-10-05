@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../theme/tokens.dart';
 import 'art_data.dart';
+import '../../../theme/perf.dart';
 
 String hex(Color c) {
   int ch(double v) => (v * 255).round().clamp(0, 255);
@@ -81,10 +82,12 @@ class ArtIcon extends StatelessWidget {
             Positioned.fill(
               child: Transform.translate(
                 offset: Offset(0, shadowDy),
-                child: ImageFiltered(
-                  imageFilter: ui.ImageFilter.blur(sigmaX: shadowBlur / 2, sigmaY: shadowBlur / 2, tileMode: TileMode.decal),
-                  child: ColorFiltered(colorFilter: ColorFilter.mode(shadow!, BlendMode.srcIn), child: pic),
-                ),
+                child: Perf.lite
+                    ? ColorFiltered(colorFilter: ColorFilter.mode(withA(shadow!, shadow!.a * .7), BlendMode.srcIn), child: pic)
+                    : ImageFiltered(
+                        imageFilter: ui.ImageFilter.blur(sigmaX: shadowBlur / 2, sigmaY: shadowBlur / 2, tileMode: TileMode.decal),
+                        child: ColorFiltered(colorFilter: ColorFilter.mode(shadow!, BlendMode.srcIn), child: pic),
+                      ),
               ),
             ),
             pic,
