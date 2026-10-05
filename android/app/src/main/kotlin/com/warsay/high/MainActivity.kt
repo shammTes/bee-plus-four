@@ -26,6 +26,8 @@ import com.google.zxing.MultiFormatReader
 import com.google.zxing.RGBLuminanceSource
 import com.google.zxing.common.HybridBinarizer
 import com.google.zxing.BarcodeFormat
+import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanOptions
 import io.flutter.embedding.android.FlutterFragmentActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -35,11 +37,8 @@ import java.util.EnumSet
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
- * Unlock QR via the **system camera app** (ACTION_IMAGE_CAPTURE / TakePicture),
- * then robust on-device decode of the still photo:
- *   1) ML Kit barcode-scanning (file path + bitmap, multiple rotations)
- *   2) ZXing fallback (TRY_HARDER, rotations, inverted)
- *
+ * Unlock QR primary path: **live ZXing CaptureActivity** (continuous focus / decode).
+ * Fallback: system camera TakePicture → ML Kit + ZXing still-photo decode.
  * Prefer payloads containing "BEE1|". Logcat tag: HighSecure
  */
 class MainActivity : FlutterFragmentActivity() {
@@ -89,7 +88,7 @@ class MainActivity : FlutterFragmentActivity() {
             if (pendingCapture != null) {
                 captureAfterPermission = null
                 if (granted) {
-                    launchSystemCamera(pendingCapture)
+                    launchLiveScan(pendingCapture)
                 } else {
                     pendingCapture.error(
                         "permission_denied",
@@ -98,6 +97,29 @@ class MainActivity : FlutterFragmentActivity() {
                     )
                 }
             }
+        }
+
+    /** Pending Flutter result for live ZXing scan. */
+    private var liveScanPending: MethodChannel.Result? = null
+
+    /** Live QR scanner (JourneyApps) — reads Bee Seller QR without requiring a still photo. */
+    private val liveScanLauncher =
+        registerForActivityResult(ScanContract()) { result ->
+            val pending = liveScanPending
+            liveScanPending = null
+            if (pending == null) return@registerForActivityResult
+            val contents = result.contents?.trim().orEmpty()
+            Log.i(
+                TAG,
+                "liveScan done format=${result.formatName} len=${contents.length} preview=${redact(contents)}",
+            )
+            if (contents.isEmpty()) {
+                // User cancelled — empty string lets Dart show a clear message.
+                pending.success("")
+                return@registerForActivityResult
+            }
+            // Prefer BEE1 payloads if somehow multiple (ScanContract returns one).
+            pending.success(contents)
         }
 
     /** Opens the device camera app; on success we decode QR from the JPEG. */
@@ -175,10 +197,11 @@ class MainActivity : FlutterFragmentActivity() {
                             }
                         }
                     }
-                    // Primary unlock path: system camera → still photo → ML Kit / ZXing QR.
+                    // Primary: live ZXing QR scanner.
                     "captureAndScanQr" -> captureAndScanQr(result)
-                    // Alias kept for older Dart / docs.
                     "scanQr" -> captureAndScanQr(result)
+                    // Fallback: system camera still photo → ML Kit / ZXing.
+                    "capturePhotoAndScanQr" -> capturePhotoAndScanQr(result)
                     "log" -> {
                         Log.i(TAG, call.arguments?.toString() ?: "")
                         result.success(null)
@@ -186,7 +209,7 @@ class MainActivity : FlutterFragmentActivity() {
                     else -> result.notImplemented()
                 }
             }
-        Log.i(TAG, "MethodChannel $CHANNEL ready (system-camera unlock, robust decode)")
+        Log.i(TAG, "MethodChannel $CHANNEL ready (live ZXing unlock + photo fallback)")
     }
 
     private fun hasCameraPermission(): Boolean =
@@ -221,14 +244,14 @@ class MainActivity : FlutterFragmentActivity() {
     }
 
     /**
-     * Request CAMERA if needed, then open the **system camera app**.
+     * Request CAMERA if needed, then open **live ZXing** QR scanner.
      * Returns QR payload string, "" if cancelled, or MethodChannel error.
      */
     private fun captureAndScanQr(result: MethodChannel.Result) {
         runOnUiThread {
             setSecure(false)
             window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
-            if (capturePending != null || captureAfterPermission != null) {
+            if (liveScanPending != null || capturePending != null || captureAfterPermission != null) {
                 Log.w(TAG, "captureAndScanQr: busy")
                 result.error("busy", "Camera is already opening. Wait a moment and try again.", null)
                 return@runOnUiThread
@@ -246,7 +269,48 @@ class MainActivity : FlutterFragmentActivity() {
                 }
                 return@runOnUiThread
             }
+            launchLiveScan(once)
+        }
+    }
+
+    /** Fallback: system camera still photo → ML Kit / ZXing decode. */
+    private fun capturePhotoAndScanQr(result: MethodChannel.Result) {
+        runOnUiThread {
+            setSecure(false)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+            if (liveScanPending != null || capturePending != null || captureAfterPermission != null) {
+                Log.w(TAG, "capturePhotoAndScanQr: busy")
+                result.error("busy", "Camera is already opening. Wait a moment and try again.", null)
+                return@runOnUiThread
+            }
+            val once = OnceResult(result)
+            if (!hasCameraPermission()) {
+                Log.i(TAG, "capturePhotoAndScanQr: need CAMERA first")
+                // Reuse permission waiter but route to photo path via a flag is messy;
+                // require Dart to requestCamera first for photo fallback.
+                once.error("permission_denied", "Camera permission required", null)
+                return@runOnUiThread
+            }
             launchSystemCamera(once)
+        }
+    }
+
+    private fun launchLiveScan(result: MethodChannel.Result) {
+        try {
+            liveScanPending = result
+            val options = ScanOptions().apply {
+                setDesiredBarcodeFormats(ScanOptions.QR_CODE)
+                setPrompt("Point at the Bee Seller unlock QR")
+                setBeepEnabled(false)
+                setBarcodeImageEnabled(false)
+                setOrientationLocked(false)
+            }
+            Log.i(TAG, "launching live ZXing CaptureActivity")
+            liveScanLauncher.launch(options)
+        } catch (e: Exception) {
+            Log.e(TAG, "launchLiveScan failed — falling back to system camera", e)
+            liveScanPending = null
+            launchSystemCamera(result)
         }
     }
 

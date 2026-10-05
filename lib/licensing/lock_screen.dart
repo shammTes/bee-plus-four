@@ -167,8 +167,8 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     });
   }
 
-  /// Primary path: system camera app (native) → photo → ML Kit QR → UnlockStore.
-  /// No mobile_scanner / CameraX preview.
+  /// Primary path: live native ZXing scanner → UnlockStore.
+  /// Photo fallback available via [_openPhotoScan].
   Future<void> _openScan() async {
     if (_busy || _awaitingPermission || _scanning) return;
     if (!_isAndroid) {
@@ -181,7 +181,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       _needSettings = false;
       _showCodeEntryHint = false;
     });
-    await _nativeLog('openScan begin (system camera)');
+    await _nativeLog('openScan begin (live ZXing)');
 
     var granted = await _hasCameraPermission();
     if (!granted) {
@@ -210,11 +210,11 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
 
     setState(() {
       _scanning = true;
-      _message = 'Opening camera… Photograph the Bee Seller unlock QR, then tap the shutter.';
+      _message = 'Opening scanner… Point at the Bee Seller unlock QR until it beeps/reads.';
     });
 
     try {
-      await _nativeLog('invoking captureAndScanQr');
+      await _nativeLog('invoking captureAndScanQr (live)');
       final code = await _invoke<String>('captureAndScanQr').timeout(
         const Duration(seconds: 180),
         onTimeout: () => '',
@@ -222,7 +222,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       if (!mounted) return;
       final text = (code ?? '').trim();
       if (text.isEmpty) {
-        _fail('Scan cancelled. Photograph the Bee Seller QR again, or enter the unlock code below.');
+        _fail('Scan cancelled. Point the camera at the Bee Seller QR again, try Photo scan, or enter the unlock code below.');
         return;
       }
       await _nativeLog('captureAndScanQr got payload len=${text.length}');
@@ -237,6 +237,55 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       await _nativeLog('captureAndScanQr error: $e');
       if (!mounted) return;
       _fail('Camera scan failed. Try again, or enter the unlock code below.');
+    }
+  }
+
+
+  /// Fallback: system camera still photo → native ML Kit / ZXing decode.
+  Future<void> _openPhotoScan() async {
+    if (_busy || _awaitingPermission || _scanning) return;
+    if (!_isAndroid) {
+      _fail('QR scan needs Android. Paste or type the Bee Seller unlock code below.');
+      return;
+    }
+    setState(() {
+      _message = null;
+      _needSettings = false;
+      _showCodeEntryHint = false;
+    });
+    await _nativeLog('openPhotoScan begin');
+    var granted = await _hasCameraPermission();
+    if (!granted) {
+      granted = await _requestCameraPermission();
+      if (!mounted) return;
+      if (!granted) {
+        _fail('Camera permission is off. Enable Camera for 4, or enter the unlock code below.', needSettings: true);
+        return;
+      }
+    }
+    setState(() {
+      _scanning = true;
+      _message = 'Opening camera… Fill the frame with the Bee Seller QR, then tap the shutter.';
+    });
+    try {
+      final code = await _invoke<String>('capturePhotoAndScanQr').timeout(
+        const Duration(seconds: 180),
+        onTimeout: () => '',
+      );
+      if (!mounted) return;
+      final text = (code ?? '').trim();
+      if (text.isEmpty) {
+        _fail('Photo cancelled. Try live Scan unlock QR, or enter the unlock code below.');
+        return;
+      }
+      setState(() => _scanning = false);
+      await _apply(text, fromScan: true);
+    } on PlatformException catch (e) {
+      if (!mounted) return;
+      _fail(_humanChannelError(e), needSettings: e.code == 'permission_denied');
+    } catch (e) {
+      if (!mounted) return;
+      _fail('Photo scan failed. Try live Scan unlock QR, or enter the unlock code below.');
     }
   }
 
@@ -358,21 +407,27 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
               ),
             ),
             const SizedBox(height: 22),
-            // Primary: system camera scan
+            // Primary: live ZXing scanner
             _Btn(
               label: _awaitingPermission
                   ? 'Waiting for camera\u2026'
                   : _scanning
-                      ? 'Camera open\u2026'
+                      ? 'Scanner open\u2026'
                       : 'Scan unlock QR',
               filled: true,
               onTap: (_busy || _awaitingPermission || _scanning) ? null : _openScan,
             ),
             const SizedBox(height: 8),
             Text(
-              'Opens your phone\u2019s camera app. Photograph the Bee Seller unlock QR, then confirm.',
+              'Opens a live scanner. Point at the Bee Seller unlock QR until it reads.',
               textAlign: TextAlign.center,
               style: _ts(12, FontWeight.w700, const Color(0xFFFFE7D4)),
+            ),
+            const SizedBox(height: 10),
+            _Btn(
+              label: 'Photo scan (fallback)',
+              filled: false,
+              onTap: (_busy || _awaitingPermission || _scanning) ? null : _openPhotoScan,
             ),
             const SizedBox(height: 18),
             if (_showCodeEntryHint) ...[
