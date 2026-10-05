@@ -1,51 +1,51 @@
-# High / bee-plus-four — progress (`fix/high-matric-notes-more`)
+# High / bee-plus-four — progress (`fix/high-more-english-matric-enrich`)
 
-Updated: 2026-10-05 ~14:20 (Africa/Asmera, UTC+3)
+Updated: 2026-10-05 ~16:15 (Africa/Asmera, UTC+3)
 
-Follow-up to merged PR #2. Branch targets PR #3.
+Follow-up to merged PR #3. Branch targets PR #4.
 
-## 1. Matric_Questions.json — size tradeoff
+## Sync
+- Branched from upstream `main` after PR #2/#3 merges (`94bb196`).
 
-| Approach | Size | Status |
+## 1. Lazy Matric — more pre-2024 (APK lean)
+
+| Pack | Years | Source size |
 |---|---|---|
-| Ship full Drive JSON | ~20 MB | **Not shipped** (APK bloat) |
-| Existing eager exams | ~24 MB | Unchanged |
-| Missing papers → eager banks | ~0.4 MB | **Shipped** (English Language 2017/18/20/23/24 + Algebra 2023) |
-| Slim 2024+ by subject (lazy) | ~2.2 MB source | **Shipped** under `assets/high/exams/matric_lazy/` |
+| Prior (PR #3) | 2024+ | ~2.2 MB |
+| **This PR** | **2020+** | **~4.8 MB** across 12 subject files |
 
-- Catalog: `assets/high/exams/matric_lazy/catalog.json`
-- Loader: `ExamRepo.ensureLazySubject` (isolate decode); kicked from `ExamSubjectPage` on open
-- Docs: `tool/matric_lazy/README.md`
+- Still **not** shipping full Drive JSON (~20 MB) or pre-2020 Drive duplicates (eager banks cover those).
+- Same loader: `ExamRepo.ensureLazySubject` on Matric subject open; exam-id dedupe.
+- Docs: `tool/matric_lazy/README.md`, `matric_lazy/catalog.json` (`min_lazy_year: 2020`).
 
-## 2. Study Notes → notes JSON
+## 2. English Study Notes ch.16–24
 
-- Enriched geo/physics/chem/bio/math/agri (18 books) with worked / check / table / match from Drive `Study_Notes.json` (History **not** rewritten)
-- English 11: +8 grammar units (u9–u16) from Drive chapters 2–4,6–7,12–13,15
-- Chemistry 9: added unit 4 (lab / cumulative review)
+- Added eng11 units **u17–u24** (phrasals, prepositions, collocations, synonyms, conversation, pronunciation, reading, L1 mistakes).
+- Ch.20 (cohesion) already present as unit 8 — skipped duplicate.
+- Each unit: grammar/text cards, worked + check, match game, **10 MCQs with answers/explanations**.
 
-## 3. Enrich / images
+## 3. Enrich
 
-- Step-by-step + games on remaining thin science/geo units (above)
-- No new raster images this round (existing Commons assets + `credits.json` unchanged)
+- More steps/tables/games: math 11–12, BE 10–12, physics 12, chem 12, english 9/10/12.
+- **History teacher text unchanged.**
+- No new Commons rasters this round (`credits.json` unchanged).
 
-## 4. Perf
+## 4. Per-card lazy notes
 
-- Unit notes: `SliverList` + `cacheExtent` ~0.4× height; `addAutomaticKeepAlives: false`
-- `MediaLib` credits load deferred until first notes book open
-- Matric subject packs lazy (not in startup exam batch)
+- Unit page `_contentBuilders` returns `List<Widget Function()>`.
+- Each lesson head / note card / quiz item is its own SliverList entry; widgets build when the list asks (`items[i]()`).
+- `addAutomaticKeepAlives: false` retained.
 
-## Build APK
+## Build
 
 ```bash
-git fetch origin && git checkout fix/high-matric-notes-more
+git fetch origin && git checkout fix/high-more-english-matric-enrich
 flutter pub get && flutter analyze && flutter test
 flutter build apk --release
 ```
 
 ## Left
-
-- Pre-2024 Drive papers still only via existing eager banks (not dual-shipped as lazy)
-- Remaining English Study Notes chapters 16–24
-- True per-card lazy build inside unit notes (widgets still assembled before SliverList)
-- Optional Commons diagrams for thin units + credits.json entries
-- Full Matric CSV / OCR textbook when `user-Google-drive` signed in
+- Pre-2020 Drive-only papers (if any gaps vs eager banks)
+- English thematic G12 textbook units (still topic books, not grammar ch.16–24)
+- Optional Commons diagrams + credits.json
+- Further APK trim (gzip already helps; could drop workout stems from lazy packs)
