@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart' show TargetPlatform, defaultTargetPlatform, kIsWeb;
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -11,6 +12,8 @@ const _ink = Color(0xFF3E3129);
 const _cream = Color(0xFFFFFCF7);
 const _peach = Color(0xFFFFC9A3);
 const _coral = Color(0xFFC24E32);
+
+const _secureChannel = MethodChannel('com.warsay.high/secure');
 
 TextStyle _ts(double size, FontWeight w, Color color) => TextStyle(
       fontFamily: 'HighNunito',
@@ -33,9 +36,13 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
   final _code = TextEditingController();
   final _focus = FocusNode();
   late final AnimationController _tilt;
+  MobileScannerController? _scanner;
   String? _id;
   String? _message;
   bool _busy = false;
+  bool _scanning = false;
+  bool _needSettings = false;
+  bool _awaitingPermission = false;
 
   @override
   void initState() {
@@ -48,24 +55,152 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
 
   @override
   void dispose() {
+    _stopScanner();
     _tilt.dispose();
     _code.dispose();
     _focus.dispose();
     super.dispose();
   }
 
-  bool _scanning = false;
+  Future<void> _stopScanner() async {
+    final c = _scanner;
+    _scanner = null;
+    if (c == null) return;
+    try {
+      await c.stop();
+    } catch (_) {}
+    try {
+      await c.dispose();
+    } catch (_) {}
+  }
 
+  Future<bool> _hasCameraPermission() async {
+    if (kIsWeb || defaultTargetPlatform != TargetPlatform.android) return false;
+    try {
+      final ok = await _secureChannel.invokeMethod<bool>('hasCamera');
+      return ok == true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  Future<bool> _requestCameraPermission() async {
+    if (kIsWeb || defaultTargetPlatform != TargetPlatform.android) return true;
+    try {
+      final ok = await _secureChannel.invokeMethod<bool>('requestCamera');
+      return ok == true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  Future<void> _openAppSettings() async {
+    if (kIsWeb || defaultTargetPlatform != TargetPlatform.android) return;
+    try {
+      await _secureChannel.invokeMethod<void>('openAppSettings');
+    } catch (_) {}
+  }
+
+  /// Prefer the Play Services code scanner (permission + camera UI). Falls back to embedded MobileScanner.
   Future<void> _openScan() async {
+    if (_busy || _awaitingPermission) return;
     setState(() {
       _message = null;
+      _needSettings = false;
+    });
+
+    final android = !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
+    if (android) {
+      final already = await _hasCameraPermission();
+      if (!already) {
+        setState(() {
+          _awaitingPermission = true;
+          _message = '4 needs the camera to scan the Bee Seller unlock QR. Allow camera access on the next prompt.';
+        });
+        final granted = await _requestCameraPermission();
+        if (!mounted) return;
+        setState(() => _awaitingPermission = false);
+        if (!granted) {
+          setState(() {
+            _needSettings = true;
+            _message = 'Camera permission is off. Open Settings, enable Camera for 4, then tap Scan again.';
+          });
+          return;
+        }
+      }
+
+      try {
+        final code = await _secureChannel.invokeMethod<String>('scanQr');
+        if (!mounted) return;
+        final text = (code ?? '').trim();
+        if (text.isEmpty) {
+          setState(() => _message = 'Scan cancelled. Paste the Bee Seller code, or try again.');
+          return;
+        }
+        await _onScan(text);
+        return;
+      } on PlatformException catch (e) {
+        // Play Services scanner failed — fall through to embedded camera.
+        setState(() => _message = 'Opening camera… (${e.message ?? 'scanner unavailable'})');
+      } catch (_) {
+        setState(() => _message = 'Opening camera…');
+      }
+    }
+
+    await _startEmbeddedScanner();
+  }
+
+  Future<void> _startEmbeddedScanner() async {
+    await _stopScanner();
+    final controller = MobileScannerController(
+      autoStart: false,
+      facing: CameraFacing.back,
+      detectionSpeed: DetectionSpeed.normal,
+      formats: const [BarcodeFormat.qrCode],
+    );
+    _scanner = controller;
+    setState(() {
       _scanning = true;
+      _message = null;
+      _needSettings = false;
+    });
+    // MobileScanner must be in the tree before start() (controllerNotAttached otherwise).
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (!mounted || _scanner != controller) return;
+      try {
+        await controller.start();
+      } on MobileScannerException catch (e) {
+        if (!mounted) return;
+        await _stopScanner();
+        final denied = e.errorCode == MobileScannerErrorCode.permissionDenied;
+        setState(() {
+          _scanning = false;
+          _needSettings = denied;
+          _message = denied
+              ? 'Camera permission is off. Open Settings, enable Camera for 4, then tap Scan again.'
+              : 'Camera could not open (${e.errorCode.name}). Paste the Bee Seller code instead.';
+        });
+      } catch (_) {
+        if (!mounted) return;
+        await _stopScanner();
+        setState(() {
+          _scanning = false;
+          _message = 'Camera could not open. Paste the Bee Seller code, or try again.';
+        });
+      }
     });
   }
 
+  Future<void> _closeEmbeddedScanner() async {
+    await _stopScanner();
+    if (mounted) setState(() => _scanning = false);
+  }
+
   Future<void> _onScan(String code) async {
-    if (!_scanning) return;
-    setState(() => _scanning = false);
+    if (_scanning) {
+      setState(() => _scanning = false);
+      await _stopScanner();
+    }
     final text = code.trim();
     if (text.isEmpty) {
       setState(() => _message = 'No code scanned. Paste the Bee Seller code, or try again.');
@@ -94,10 +229,12 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     setState(() {
       _busy = true;
       _message = null;
+      _needSettings = false;
     });
     final r = await widget.unlock.applyPayload(raw);
     if (!mounted) return;
     if (r.isOk) {
+      await _stopScanner();
       widget.onUnlocked();
       return;
     }
@@ -112,22 +249,27 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     final pad = MediaQuery.paddingOf(context);
     final keyboard = MediaQuery.viewInsetsOf(context).bottom;
     if (_scanning) {
+      final controller = _scanner;
       return ColoredBox(
         color: const Color(0xFF1A120E),
         child: Stack(
           fit: StackFit.expand,
           children: [
-            MobileScanner(
-              onDetect: (capture) {
-                final raw = capture.barcodes.isEmpty ? null : capture.barcodes.first.rawValue;
-                if (raw != null && raw.isNotEmpty) _onScan(raw);
-              },
-            ),
+            if (controller != null)
+              MobileScanner(
+                controller: controller,
+                onDetect: (capture) {
+                  final raw = capture.barcodes.isEmpty ? null : capture.barcodes.first.rawValue;
+                  if (raw != null && raw.isNotEmpty) _onScan(raw);
+                },
+              )
+            else
+              const Center(child: SizedBox(width: 36, height: 36, child: DecoratedBox(decoration: BoxDecoration(color: _peach, shape: BoxShape.circle)))),
             Positioned(
               left: 16,
               right: 16,
               bottom: 28,
-              child: _Btn(label: 'Close camera', filled: true, onTap: () => setState(() => _scanning = false)),
+              child: _Btn(label: 'Close camera', filled: true, onTap: _busy ? null : _closeEmbeddedScanner),
             ),
           ],
         ),
@@ -247,7 +389,15 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
             const SizedBox(height: 12),
             _Btn(label: _busy ? 'Checking\u2026' : 'Unlock 4', onTap: _busy ? null : () => _apply(_code.text)),
             const SizedBox(height: 8),
-            _Btn(label: 'Scan seller QR', filled: false, onTap: _busy ? null : _openScan),
+            _Btn(
+              label: _awaitingPermission ? 'Waiting for camera\u2026' : 'Scan seller QR',
+              filled: false,
+              onTap: (_busy || _awaitingPermission) ? null : _openScan,
+            ),
+            if (_needSettings) ...[
+              const SizedBox(height: 8),
+              _Btn(label: 'Open Settings', filled: true, onTap: _openAppSettings),
+            ],
             if (_message != null) ...[
               const SizedBox(height: 12),
               Text(_message!, textAlign: TextAlign.center, style: _ts(14, FontWeight.w800, _peach)),
@@ -279,4 +429,3 @@ class _Btn extends StatelessWidget {
     );
   }
 }
-

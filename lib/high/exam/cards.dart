@@ -225,6 +225,7 @@ class _AccState extends State<Acc> {
               duration: const Duration(milliseconds: 300),
               curve: const Cubic(.2, .8, .2, 1),
               alignment: Alignment.topCenter,
+              clipBehavior: Clip.none,
               child: _open ? Padding(padding: const EdgeInsets.fromLTRB(12, 0, 12, 4), child: widget.child) : const SizedBox(width: double.infinity),
             ),
           ],
@@ -452,7 +453,7 @@ class Fig extends StatelessWidget {
             ? Row(
                 spacing: 10,
                 children: [
-                  ClipRRect(borderRadius: BorderRadius.circular(10), child: SizedBox(width: 64, height: 48, child: Image.asset(r.mediaAsset(path), fit: BoxFit.cover))),
+                  ClipRRect(borderRadius: BorderRadius.circular(10), child: SizedBox(width: 64, height: 48, child: Image.asset(r.mediaAsset(path), fit: BoxFit.cover, cacheWidth: 128, filterQuality: FilterQuality.low))),
                   Expanded(child: Text(label, style: ts(12.5, w800, const Color(0xFF6F6055)))),
                   Text('View', style: ts(11.5, w900, p.blue.deep)),
                 ],
@@ -640,10 +641,45 @@ class _QCardState extends State<QCard> {
     final long = q.stem.length > 650;
     Widget stem = q.stemTex != null ? RichTx(_texStem(q), style: stemStyle, tex: true) : RichTx(q.stem, style: stemStyle);
     if (long && _long) {
-      stem = ShaderMask(
-        shaderCallback: (r) => const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFF000000), Color(0x00000000)], stops: [.7, 1]).createShader(r),
-        blendMode: BlendMode.dstIn,
-        child: ConstrainedBox(constraints: const BoxConstraints(maxHeight: 220), child: ClipRect(child: SingleChildScrollView(physics: const NeverScrollableScrollPhysics(), child: stem))),
+      stem = Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ShaderMask(
+            shaderCallback: (r) => const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFF000000), Color(0x00000000)], stops: [.72, 1]).createShader(r),
+            blendMode: BlendMode.dstIn,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 280),
+              child: SingleChildScrollView(physics: const ClampingScrollPhysics(), child: stem),
+            ),
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: GestureDetector(
+              onTap: () => setState(() => _long = false),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 6, bottom: 4),
+                child: Text('Show full question', style: ts(13, w900, p.blue.deep)),
+              ),
+            ),
+          ),
+        ],
+      );
+    } else if (long && !_long) {
+      stem = Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          stem,
+          Align(
+            alignment: Alignment.centerLeft,
+            child: GestureDetector(
+              onTap: () => setState(() => _long = true),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 6, bottom: 4),
+                child: Text('Show less', style: ts(13, w900, p.ink3)),
+              ),
+            ),
+          ),
+        ],
       );
     }
     final kids = <Widget>[
