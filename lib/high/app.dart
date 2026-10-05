@@ -56,6 +56,13 @@ class _HighScreenState extends State<HighScreen> {
   }
 
   @override
+  void dispose() {
+    _s?.stopTicker();
+    _notes?.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final s = _s;
     if (s == null) {
@@ -195,6 +202,9 @@ class HighShellState extends State<HighShell> implements HighNav {
 
   @override
   void dispose() {
+    try {
+      HighScope.read(context).stopTicker();
+    } catch (_) {}
     ScreenshotGuard.set(false);
     super.dispose();
   }

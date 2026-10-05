@@ -60,17 +60,24 @@ class ExamRepo {
           return '';
         }
       }));
-      for (final s in raws) {
-        if (s.isEmpty) {
-          parsed.add(null);
-          continue;
+      List<Object?> decodeBatch(List<String> raws) {
+        final out = <Object?>[];
+        for (final s in raws) {
+          if (s.isEmpty) {
+            out.add(null);
+            continue;
+          }
+          try {
+            out.add(jsonDecode(s));
+          } catch (_) {
+            out.add(null);
+          }
         }
-        try {
-          parsed.add(jsonDecode(s));
-        } catch (_) {
-          parsed.add(null);
-        }
+        return out;
       }
+
+      final batchParsed = useIsolate ? await Isolate.run(() => decodeBatch(raws)) : decodeBatch(raws);
+      parsed.addAll(batchParsed);
     }
     final nEx = examFiles.length;
     for (var i = 0; i < nEx; i++) {

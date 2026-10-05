@@ -140,7 +140,7 @@ class ScreenList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final items = collapse(children);
-    final cache = MediaQuery.sizeOf(context).height;
+    final cache = MediaQuery.sizeOf(context).height * .35;
     return ScrollConfiguration(
       behavior: const NoGlow(),
       child: ListView.builder(
