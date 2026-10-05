@@ -5,20 +5,72 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.provider.Settings
+import android.util.Log
 import android.view.WindowManager
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
-import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.android.FlutterFragmentActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 
-class MainActivity : FlutterActivity() {
+/**
+ * Secure channel for High lock-screen unlock.
+ * Uses FlutterFragmentActivity + Activity Result API so CAMERA permission
+ * callbacks always complete (classic onRequestPermissionsResult is unreliable
+ * with modern Flutter embeddings on first install).
+ */
+class MainActivity : FlutterFragmentActivity() {
+    companion object {
+        private const val TAG = "HighSecure"
+        private const val CHANNEL = "com.warsay.high/secure"
+    }
+
+
+    /** MethodChannel.Result may be answered only once; guard against double permission callbacks. */
+    private class OnceResult(private val inner: MethodChannel.Result) : MethodChannel.Result {
+        @Volatile private var done = false
+        override fun success(result: Any?) {
+            if (done) return
+            done = true
+            inner.success(result)
+        }
+        override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
+            if (done) return
+            done = true
+            inner.error(errorCode, errorMessage, errorDetails)
+        }
+        override fun notImplemented() {
+            if (done) return
+            done = true
+            inner.notImplemented()
+        }
+    }
+
     private val cameraWaiters = mutableListOf<MethodChannel.Result>()
     private var scanAfterPermission: MethodChannel.Result? = null
     private var secureWanted = false
+
+    private val cameraPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+            Log.i(TAG, "camera permission result granted=$granted")
+            val waiters = cameraWaiters.toList()
+            cameraWaiters.clear()
+            waiters.forEach { it.success(granted) }
+
+            val pending = scanAfterPermission
+            if (pending != null) {
+                scanAfterPermission = null
+                if (granted) {
+                    startScanner(pending)
+                } else {
+                    pending.error("permission_denied", "Camera permission denied", null)
+                }
+            }
+        }
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +84,7 @@ class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
-        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.warsay.high/secure")
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
             .setMethodCallHandler { call, result ->
                 when (call.method) {
                     "set" -> {
@@ -43,35 +95,62 @@ class MainActivity : FlutterActivity() {
                         }
                     }
                     "requestCamera" -> requestCamera(result)
-                    "hasCamera" -> {
-                        val ok = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) ==
-                            PackageManager.PERMISSION_GRANTED
-                        result.success(ok)
+                    "hasCamera" -> result.success(hasCameraPermission())
+                    "shouldShowCameraRationale" -> {
+                        result.success(
+                            ActivityCompat.shouldShowRequestPermissionRationale(
+                                this,
+                                Manifest.permission.CAMERA,
+                            ),
+                        )
                     }
                     "openAppSettings" -> {
                         runOnUiThread {
-                            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                            intent.data = Uri.fromParts("package", packageName, null)
-                            startActivity(intent)
-                            result.success(null)
+                            try {
+                                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                                intent.data = Uri.fromParts("package", packageName, null)
+                                startActivity(intent)
+                                result.success(true)
+                            } catch (e: Exception) {
+                                Log.e(TAG, "openAppSettings failed", e)
+                                result.error("settings", e.message, null)
+                            }
                         }
                     }
                     "scanQr" -> scanQr(result)
                     else -> result.notImplemented()
                 }
             }
+        Log.i(TAG, "MethodChannel $CHANNEL ready")
     }
 
-    private fun requestCamera(result: MethodChannel.Result) {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) ==
+    private fun hasCameraPermission(): Boolean =
+        ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) ==
             PackageManager.PERMISSION_GRANTED
-        ) {
-            result.success(true)
-            return
-        }
+
+    private fun requestCamera(result: MethodChannel.Result) {
         runOnUiThread {
-            cameraWaiters.add(result)
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 71)
+            if (hasCameraPermission()) {
+                Log.i(TAG, "requestCamera: already granted")
+                result.success(true)
+                return@runOnUiThread
+            }
+            Log.i(TAG, "requestCamera: launching system dialog")
+            cameraWaiters.add(OnceResult(result))
+            try {
+                cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
+            } catch (e: Exception) {
+                Log.e(TAG, "requestCamera launch failed", e)
+                cameraWaiters.remove(result)
+                // Fallback to legacy API
+                try {
+                    ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 71)
+                    cameraWaiters.add(OnceResult(result))
+                } catch (e2: Exception) {
+                    Log.e(TAG, "legacy requestPermissions failed", e2)
+                    result.error("request_failed", e2.message, null)
+                }
+            }
         }
     }
 
@@ -79,11 +158,16 @@ class MainActivity : FlutterActivity() {
         runOnUiThread {
             setSecure(false)
             window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=
-                PackageManager.PERMISSION_GRANTED
-            ) {
-                scanAfterPermission = result
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 72)
+            if (!hasCameraPermission()) {
+                Log.i(TAG, "scanQr: need permission first")
+                scanAfterPermission = OnceResult(result)
+                try {
+                    cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
+                } catch (e: Exception) {
+                    Log.e(TAG, "scanQr permission launch failed", e)
+                    scanAfterPermission = null
+                    result.error("permission_denied", e.message, null)
+                }
                 return@runOnUiThread
             }
             startScanner(result)
@@ -91,44 +175,57 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun startScanner(result: MethodChannel.Result) {
-        val options = GmsBarcodeScannerOptions.Builder()
-            .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
-            .enableAutoZoom()
-            .build()
-        GmsBarcodeScanning.getClient(this, options)
-            .startScan()
-            .addOnSuccessListener { barcode ->
-                result.success(barcode.rawValue ?: "")
-            }
-            .addOnCanceledListener {
-                result.success("")
-            }
-            .addOnFailureListener { error ->
-                result.error("scan", error.message ?: "Camera did not open", null)
-            }
+        Log.i(TAG, "startScanner: GmsBarcodeScanning")
+        try {
+            val options = GmsBarcodeScannerOptions.Builder()
+                .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
+                .enableAutoZoom()
+                .build()
+            GmsBarcodeScanning.getClient(this, options)
+                .startScan()
+                .addOnSuccessListener { barcode ->
+                    val value = barcode.rawValue ?: ""
+                    Log.i(TAG, "scan success len=${value.length}")
+                    result.success(value)
+                }
+                .addOnCanceledListener {
+                    Log.i(TAG, "scan cancelled")
+                    result.success("")
+                }
+                .addOnFailureListener { error ->
+                    Log.e(TAG, "scan failed: ${error.message}", error)
+                    result.error("scan", error.message ?: "Camera did not open", null)
+                }
+        } catch (e: Exception) {
+            Log.e(TAG, "startScanner exception", e)
+            result.error("scan", e.message ?: "Camera did not open", null)
+        }
     }
 
+    @Deprecated("Legacy fallback if Activity Result launcher is unavailable")
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray,
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode != 71 && requestCode != 72) return
         val ok = grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
-        if (requestCode == 71) {
+        Log.i(TAG, "legacy onRequestPermissionsResult code=$requestCode granted=$ok")
+        if (cameraWaiters.isNotEmpty()) {
             val waiters = cameraWaiters.toList()
             cameraWaiters.clear()
             waiters.forEach { it.success(ok) }
         }
-        if (requestCode == 72) {
-            val pending = scanAfterPermission
+        val pending = scanAfterPermission
+        if (pending != null && requestCode == 72) {
             scanAfterPermission = null
-            if (pending == null) return
-            if (ok) startScanner(pending) else pending.success("")
+            if (ok) startScanner(pending) else pending.error("permission_denied", "Camera permission denied", null)
         }
     }
 
     private fun setSecure(on: Boolean) {
+        // Screenshot blocking disabled for study content; keep channel for API compat.
         secureWanted = false
         window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
     }
