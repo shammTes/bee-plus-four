@@ -1,33 +1,30 @@
-# High / bee-plus-four — progress (`fix/high-continue-7`)
+# High / bee-plus-four — progress (`fix/high-qr-generic-error`)
 
-Updated: 2026-10-05 ~16:40 (Africa/Asmera, UTC+3)
+Updated: 2026-10-05 ~16:45 (Africa/Asmera, UTC+3)
 
-Branched from upstream main after PR #6 merge.
+## URGENT: "Camera error: genericError" on first-install unlock
 
-## 1. Thin-unit enrichment
-More worked / check / table / match for:
-BE 10–12, math 10–12, physics 9/11/12, chem 11–12, agri 12, bio 12, geo 11.
-Fixed MC answer parsing for `C. Kelvin`-style and math `Multiple Choice` full-text answers.
-**History teacher text unchanged.**
+### Exact source
+`lib/licensing/lock_screen.dart` → `MobileScanner` `errorBuilder` previously rendered:
 
-## 2. Commons diagrams (+ credits.json)
-New webps + credits + `commons_extra.json` placements:
-- `math_parabola` (PD) → math9 quadratic
-- `bio_mitosis_stages` (PD) → bio9 cell
-- `phy_lens_ray` (CC BY-SA 3.0) → phys10 optics
+`Camera error: ${error.errorCode.name}`
 
-(Rock-cycle download hit Commons rate-limit / missing file; skipped.)
+When `MobileScannerErrorCode.genericError` fired, the user saw **"Camera error: genericError"**.
 
-## 3. Matric lazy
-Expanded `min_lazy_year` **2017 → 2014** so **all 136 Drive papers** are in subject lazy packs (~8.4 MB source). Eager banks still load at startup; lazy packs merge on subject open with exam-id dedupe. Raw 20 MB JSON still not shipped.
+### Root cause
+1. After permission, flow prefers Play Services `scanQr`. On first install that often **cancels/fails** (barcode UI module) or user backs out.
+2. Embedded `MobileScannerController.start()` ran **immediately** (≈50 ms) while GMS / CameraX still held the camera → CameraX init fails → **`genericError`**.
+3. `errorBuilder` exposed the raw enum **name** instead of a human message; no settle delay / single-flight guard.
 
-## Build
+### Fix
+- Prefer native `scanQr` after CAMERA grant; **settle 400–500 ms** (Dart + native `postDelayed`) before embedded fallback.
+- Embedded: full dispose between attempts; `_startingEmbedded` + `_scannerGen` prevent double-start; create controller after permission; start only after widget attach + **~400 ms**; `CameraFacing.back`.
+- Map `genericError` (and others) to human copy; **Retry Scan** + **Enter unlock code** + **Open Settings**.
+- Native `log` MethodChannel + Logcat tag **`HighSecure`**.
+
+### Verify
 ```bash
-git fetch origin && git checkout fix/high-continue-7
-flutter pub get && flutter analyze
-flutter build apk --release
+adb logcat -s HighSecure
+# Fresh install → Scan → Allow → system scanner OR on-screen after settle
+# Deny / fail → human message, not "genericError"
 ```
-
-## Left
-- More geo Commons (rock cycle) when API allows
-- Device QA QR unlock on release APK
