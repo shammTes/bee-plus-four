@@ -37,7 +37,16 @@ class Deco {
       : [Shadow3(0, 8, 14, -10, withA(d, .55)), Shadow3.inset(5, 7, 11, -4, p.hi), Shadow3.inset(-5, -7, 12, -4, withA(d, .36))];
 
   /// `.card` (surface) / `.tile.t-x` (tone tile)
-  ClayDecoration card({double radius = R.lg}) => ClayDecoration(radius: _r(radius), fills: puffyFill(p.surface, _defD), shadows: puffyShadows(_defD));
+  /// Lighter shadow set for long scrolling lists (Matric / Exercise rows).
+  List<Shadow3> litePuffyShadows(Color d) => dk
+      ? [Shadow3(0, 8, 10, -8, _ka(.55)), Shadow3.inset(3, 4, 6, -3, p.hi)]
+      : [Shadow3(0, 8, 10, -8, withA(d, .38)), Shadow3.inset(3, 4, 6, -3, p.hi)];
+
+  ClayDecoration card({double radius = R.lg, bool lite = false}) => ClayDecoration(
+        radius: _r(radius),
+        fills: puffyFill(p.surface, _defD),
+        shadows: lite ? litePuffyShadows(_defD) : puffyShadows(_defD),
+      );
   ClayDecoration cardPressed({double radius = R.lg}) =>
       ClayDecoration(radius: _r(radius), fills: puffyFill(p.surface, _defD), shadows: puffyPressedShadows(_defD));
   ClayDecoration tile(Tone t, {double radius = R.lg}) => ClayDecoration(radius: _r(radius), fills: puffyFill(t.tile, t.deep), shadows: puffyShadows(t.deep));
