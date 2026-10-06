@@ -460,15 +460,14 @@
       "options": [
         "−√3",
         "−1/√3",
-        "1/√3",
+        "-270",
         "0",
         "None of the above."
       ],
       "correct_index": 3,
       "explanation_steps": [
-        "cot 240° = cot(180° + 60°) = cot 60° = 1/√3.",
-        "cot 420° = cot(360° + 60°) = cot 60° = 1/√3.",
-        "Difference = 0. Answer: D."
+        "The x^4 term is C(7,3) x^4 (−4)^3 = 35·(−64) = −2240.",
+        "The printed choices are 35, 28, −270 and −560, so −2240 is not listed. Answer: E."
       ],
       "topics": [
         "alg-trigonometry"
@@ -780,6 +779,954 @@
       ],
       "topics": [
         "geom-transformations"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q01",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 1,
+      "prompt": "The value of x for which (5/2 · 2^x)^(3/2) = 1/√2 is",
+      "options": [
+        "0.34",
+        "10.34",
+        "9.66",
+        "11.74",
+        "None of the above."
+      ],
+      "correct_index": 4,
+      "explanation_steps": [
+        "Raise both sides to the power 2/3: (5/2)·2^x = 2^(−1/3).",
+        "Then 2^x = (2/5)·2^(−1/3), so x = log2(0.4) − 1/3 ≈ −1.66.",
+        "That value is not among A–D. Answer: E."
+      ],
+      "topics": [
+        "alg-exponents"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q04",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 4,
+      "prompt": "A ship sails 60 km from port P in the direction N 80° E to port T, then 40 km from T in the direction S 40° E to port Q. The distance PQ, in km, is",
+      "options": [
+        "20√19",
+        "60 sin 80° + 40 sin 40°",
+        "20√7",
+        "20√13",
+        "None of the above."
+      ],
+      "correct_index": 0,
+      "explanation_steps": [
+        "North component: 60 cos 80° − 40 cos 40° ≈ −20.22 km.",
+        "East component: 60 sin 80° + 40 sin 40° ≈ 84.80 km.",
+        "PQ = √(20.22² + 84.80²) = 20√19 km. Answer: A."
+      ],
+      "topics": [
+        "alg-trigonometry"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q05",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 5,
+      "prompt": "The inverse of the relation R = {(x, y): x = y² + 1} is",
+      "options": [
+        "{(x, y): y = x − 1}",
+        "{(x, y): y = x² + 1}",
+        "{(x, y): x + y = 1}",
+        "{(x, y): x + y = −1}",
+        "None of the above."
+      ],
+      "correct_index": 1,
+      "explanation_steps": [
+        "The inverse swaps the roles of x and y.",
+        "From x = y² + 1 the swapped relation is y = x² + 1. Answer: B."
+      ],
+      "topics": [
+        "alg-relations"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q06",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 6,
+      "prompt": "The solution set of x − 1/x = 4 is",
+      "options": [
+        "{4}",
+        "{2 + √7, 2 − √7}",
+        "{2 + √5, 2 − √5}",
+        "No solution.",
+        "None of the above."
+      ],
+      "correct_index": 2,
+      "explanation_steps": [
+        "Multiply by x (x ≠ 0): x² − 4x − 1 = 0.",
+        "x = 2 ± √5, and neither root is 0. Answer: C."
+      ],
+      "topics": [
+        "alg-equations"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q07",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 7,
+      "prompt": "Which of the following is not true about f(x) = 2x/(x² + 1)?",
+      "options": [
+        "The domain of f is all real numbers.",
+        "The range of f is (−1, 2).",
+        "The x-intercept of the graph of f is 0.",
+        "The y-intercept of the graph of f is 0.",
+        "None of the above."
+      ],
+      "correct_index": 1,
+      "explanation_steps": [
+        "x² + 1 never zero, so the domain is all real numbers, and f(0) = 0.",
+        "The range of 2x/(x² + 1) is [−1, 1], not (−1, 2). Answer: B."
+      ],
+      "topics": [
+        "alg-functions"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q08",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 8,
+      "prompt": "The vertical asymptote of y = (x − 2)/(x² − 7x + 10) is",
+      "options": [
+        "x = 2 and x = 5",
+        "x = 5",
+        "x = −2",
+        "x = 2",
+        "None of the above."
+      ],
+      "correct_index": 1,
+      "explanation_steps": [
+        "x² − 7x + 10 = (x − 2)(x − 5), so the factor x − 2 cancels and leaves a hole.",
+        "The remaining denominator zero is x = 5, the only vertical asymptote. Answer: B."
+      ],
+      "topics": [
+        "alg-rational-functions"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q09",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 9,
+      "prompt": "If x² + 2kx + 5 is divisible by x + 1, the value of k is",
+      "options": [
+        "0",
+        "3",
+        "−2",
+        "2",
+        "None of the above."
+      ],
+      "correct_index": 1,
+      "explanation_steps": [
+        "Substitute x = −1: 1 − 2k + 5 = 0.",
+        "6 = 2k, so k = 3. Answer: B."
+      ],
+      "topics": [
+        "alg-polynomials"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q10",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 10,
+      "prompt": "If a company makes x articles a month, its profit is p(x) = 20 + 400x − 4x². How many articles give maximum profit?",
+      "options": [
+        "200",
+        "100",
+        "50",
+        "40",
+        "None of the above."
+      ],
+      "correct_index": 2,
+      "explanation_steps": [
+        "This is a downward parabola. The vertex is at x = 400/(2·4) = 50.",
+        "Answer: C."
+      ],
+      "topics": [
+        "alg-quadratics"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q11",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 11,
+      "prompt": "The solution set of x² + 2x − 15 > 0 is",
+      "options": [
+        "(−∞, −5) ∪ (3, ∞)",
+        "(3, ∞)",
+        "(−5, 3)",
+        "(−∞, ∞)",
+        "None of the above."
+      ],
+      "correct_index": 0,
+      "explanation_steps": [
+        "(x + 5)(x − 3) > 0 outside the roots.",
+        "x < −5 or x > 3. Answer: A."
+      ],
+      "topics": [
+        "alg-inequalities"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q12",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 12,
+      "prompt": "If log x = 0.8451 and log y = 3.8451, then",
+      "options": [
+        "x = 10y",
+        "y = 1000x",
+        "y = 100x",
+        "10x = y",
+        "None of the above."
+      ],
+      "correct_index": 1,
+      "explanation_steps": [
+        "log y − log x = 3, so log(y/x) = 3.",
+        "y/x = 10³ = 1000. Answer: B."
+      ],
+      "topics": [
+        "alg-logarithms"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q13",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 13,
+      "prompt": "The solution set of 5 log(6x + 25) = log(x + 3) is",
+      "options": [
+        "{4}",
+        "{−4}",
+        "{−4, 4}",
+        "∅",
+        "None of the above."
+      ],
+      "correct_index": 3,
+      "explanation_steps": [
+        "This requires (6x + 25)^5 = x + 3, with 6x + 25 > 0 and x + 3 > 0.",
+        "The only candidates that could keep the left side small fail the domain or the equation.",
+        "There is no solution. Answer: D."
+      ],
+      "topics": [
+        "alg-logarithms"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q14",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 14,
+      "prompt": "If y varies inversely as the square of x and y = 20 when x = 4, then y when x = 10 is",
+      "options": [
+        "32",
+        "8",
+        "0.8",
+        "3.2",
+        "None of the above."
+      ],
+      "correct_index": 3,
+      "explanation_steps": [
+        "y = k/x² and 20 = k/16, so k = 320.",
+        "When x = 10, y = 320/100 = 3.2. Answer: D."
+      ],
+      "topics": [
+        "alg-variation"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q15",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 15,
+      "prompt": "A chemist has 80% and 60% sulphuric-acid solutions. How many litres of each make 200 litres of 65% solution?",
+      "options": [
+        "100 and 100",
+        "50 and 150",
+        "80 and 120",
+        "75 and 125",
+        "None of the above."
+      ],
+      "correct_index": 1,
+      "explanation_steps": [
+        "Let a be litres of 80% solution: 0.8a + 0.6(200 − a) = 130.",
+        "0.2a = 10, so a = 50 and the 60% amount is 150. Answer: B."
+      ],
+      "topics": [
+        "alg-mixtures"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q16",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 16,
+      "prompt": "The nth term of an arithmetic progression whose first n terms add to n² + 5n is",
+      "options": [
+        "n + 1",
+        "2(n + 1)",
+        "2(n + 2)",
+        "2n − 3",
+        "None of the above."
+      ],
+      "correct_index": 2,
+      "explanation_steps": [
+        "a_n = S_n − S_(n−1) = (n² + 5n) − ((n−1)² + 5(n−1)).",
+        "This simplifies to 2n + 4 = 2(n + 2). Answer: C."
+      ],
+      "topics": [
+        "alg-sequences"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q17",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 17,
+      "prompt": "The sum of the infinite series whose nth term is (1/2)^n is",
+      "options": [
+        "1",
+        "1/2",
+        "Infinite",
+        "0",
+        "None of the above."
+      ],
+      "correct_index": 0,
+      "explanation_steps": [
+        "This is a geometric series with first term 1/2 and ratio 1/2.",
+        "Sum = (1/2)/(1 − 1/2) = 1. Answer: A."
+      ],
+      "topics": [
+        "alg-series"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q18",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 18,
+      "prompt": "If (4, 625) is a point on y = a^x, the corresponding point on y = log_a x is",
+      "options": [
+        "(1/4, 625)",
+        "(625, 4)",
+        "(625, 1/4)",
+        "(4, 1/625)",
+        "None of the above."
+      ],
+      "correct_index": 1,
+      "explanation_steps": [
+        "(4, 625) on y = a^x means 625 = a^4, so a = 5.",
+        "The inverse graph swaps coordinates, giving (625, 4). Answer: B."
+      ],
+      "topics": [
+        "alg-logarithms"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q19",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 19,
+      "prompt": "Which of the following is not true?",
+      "options": [
+        "sin(x + π/2) = cos x",
+        "sin²x = (1 − cos 2x)/2",
+        "sec²x = 1 − tan²x",
+        "tan(π/2 − x) = cot x",
+        "None of the above."
+      ],
+      "correct_index": 2,
+      "explanation_steps": [
+        "sec²x = 1 + tan²x, not 1 − tan²x.",
+        "The other three identities are standard. Answer: C."
+      ],
+      "topics": [
+        "alg-trigonometry"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q20",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 20,
+      "prompt": "The value of cot 15° is",
+      "options": [
+        "2 − √3",
+        "2 + √3",
+        "−(√3 + 2)",
+        "√3 − 2",
+        "None of the above."
+      ],
+      "correct_index": 1,
+      "explanation_steps": [
+        "tan 15° = 2 − √3, so cot 15° = 1/(2 − √3) = 2 + √3.",
+        "Answer: B."
+      ],
+      "topics": [
+        "alg-trigonometry"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q21",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 21,
+      "prompt": "The cost of sugar rose by 20%. Before the rise, a trader could buy 10 kg more for Nakfa 240. The cost of sugar before the increase, in Nakfa per kg, was",
+      "options": [
+        "6",
+        "4.50",
+        "4",
+        "5",
+        "None of the above."
+      ],
+      "correct_index": 2,
+      "explanation_steps": [
+        "240/p − 240/(1.2p) = 10.",
+        "240·(0.2)/(1.2p) = 10 gives 40/p = 10, so p = 4. Answer: C."
+      ],
+      "topics": [
+        "alg-percent"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q22",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 22,
+      "prompt": "The coefficient of x^4 in the expansion of (x − 4)^7 is",
+      "options": [
+        "35",
+        "28",
+        "-270",
+        "−560",
+        "None of the above."
+      ],
+      "correct_index": 4,
+      "explanation_steps": [
+        "The x^4 term is C(7,3) x^4 (−4)^3 = 35·(−64) = −2240.",
+        "The printed choices are 35, 28, −270 and −560, so −2240 is not listed. Answer: E."
+      ],
+      "topics": [
+        "alg-binomial"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q23",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 23,
+      "prompt": "The point P = (−4, 3) divides AB in the ratio 2:3 from A to B. If A = (−1, −3), the coordinates of B are",
+      "options": [
+        "(4, −3)",
+        "(−8, 11)",
+        "(−7/2, −9/2)",
+        "(−8/7, 9/7)",
+        "None of the above."
+      ],
+      "correct_index": 4,
+      "explanation_steps": [
+        "With AP:PB = 2:3, (−4, 3) = (3A + 2B)/5.",
+        "Solving gives B = (−17/2, 12), which is not among A–D. Answer: E."
+      ],
+      "topics": [
+        "alg-coordinate-geometry"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q24",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 24,
+      "prompt": "The equation of the line perpendicular to 3x − y + 5 = 0 and passing through (2, −3) is",
+      "options": [
+        "x + 9y − 11 = 0",
+        "y − 3x + 9 = 0",
+        "x + 3y + 7 = 0",
+        "x + 3y + 11 = 0",
+        "None of the above."
+      ],
+      "correct_index": 2,
+      "explanation_steps": [
+        "The given line has slope 3, so a perpendicular line has slope −1/3.",
+        "y + 3 = (−1/3)(x − 2) simplifies to x + 3y + 7 = 0. Answer: C."
+      ],
+      "topics": [
+        "alg-coordinate-geometry"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q25",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 25,
+      "prompt": "If the endpoints of a diameter are (3, −2) and (7, 6), the equation of the circle is",
+      "options": [
+        "x² + y² − 10x − 4y − 51 = 0",
+        "x² + y² + 10x + 4y + 9 = 0",
+        "x² + y² − 10x − 4y + 9 = 0",
+        "x² + y² − 6x + 4y − 7 = 0",
+        "None of the above."
+      ],
+      "correct_index": 2,
+      "explanation_steps": [
+        "Centre (5, 2) and radius squared 20.",
+        "(x − 5)² + (y − 2)² = 20 expands to x² + y² − 10x − 4y + 9 = 0. Answer: C."
+      ],
+      "topics": [
+        "alg-circles"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q27",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 27,
+      "prompt": "Almaz secured the fifth-highest position in her class of 50 students. Her percentile rank is",
+      "options": [
+        "P10",
+        "P90",
+        "P75",
+        "P40",
+        "None of the above."
+      ],
+      "correct_index": 1,
+      "explanation_steps": [
+        "Forty-five of the 50 students scored below her.",
+        "Percentile rank = (45/50)·100 = 90, so P90. Answer: B."
+      ],
+      "topics": [
+        "alg-statistics"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q28",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 28,
+      "prompt": "The probability of selecting 2 boys and 2 girls from 6 boys and 4 girls is",
+      "options": [
+        "1/14",
+        "1/7",
+        "1/35",
+        "1/10",
+        "None of the above."
+      ],
+      "correct_index": 4,
+      "explanation_steps": [
+        "C(6, 2)·C(4, 2)/C(10, 4) = 15·6/210 = 3/7.",
+        "3/7 is not among A–D. Answer: E."
+      ],
+      "topics": [
+        "alg-probability"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q29",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 29,
+      "prompt": "The figure formed by joining the midpoints of the sides of a quadrilateral is a",
+      "options": [
+        "rhombus",
+        "parallelogram",
+        "rectangle",
+        "trapezoid",
+        "None of the above."
+      ],
+      "correct_index": 1,
+      "explanation_steps": [
+        "Varignon’s theorem: the midpoint quadrilateral of any quadrilateral is a parallelogram.",
+        "It need not be a rhombus or a rectangle. Answer: B."
+      ],
+      "topics": [
+        "geo-quadrilaterals"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q30",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 30,
+      "prompt": "The point equidistant from the sides of a triangle is the intersection of the",
+      "options": [
+        "altitudes",
+        "angle bisectors",
+        "perpendicular bisectors of the sides",
+        "medians",
+        "None of the above."
+      ],
+      "correct_index": 1,
+      "explanation_steps": [
+        "A point equidistant from the sides is the incentre.",
+        "The incentre is the intersection of the angle bisectors. Answer: B."
+      ],
+      "topics": [
+        "geo-triangles"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q31",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 31,
+      "prompt": "If x, 5, 6 and 4, 10, z are corresponding sides of two similar triangles, then",
+      "options": [
+        "x = 2, z = 10",
+        "x = 3, z = 12",
+        "x = 2, z = 12",
+        "x = 4, z = 8",
+        "None of the above."
+      ],
+      "correct_index": 2,
+      "explanation_steps": [
+        "The scale factor is 5/10 = 1/2.",
+        "x/4 = 1/2 gives x = 2, and 6/z = 1/2 gives z = 12. Answer: C."
+      ],
+      "topics": [
+        "geo-similarity"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q34",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 34,
+      "prompt": "In triangle ABC, AB = 10, AD = 3, EC = 7 and DE ∥ BC. Then AE equals",
+      "options": [
+        "2.1",
+        "3",
+        "4",
+        "2",
+        "None of the above."
+      ],
+      "correct_index": 1,
+      "explanation_steps": [
+        "Because DE ∥ BC, AD/AB = AE/AC.",
+        "3/10 = AE/(AE + 7) gives AE = 3. Answer: B."
+      ],
+      "topics": [
+        "geo-similarity"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q35",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 35,
+      "prompt": "The area of a regular 12-sided polygon inscribed in a circle of radius 4 cm is",
+      "options": [
+        "96",
+        "24",
+        "72",
+        "48",
+        "None of the above."
+      ],
+      "correct_index": 3,
+      "explanation_steps": [
+        "Area = (12/2)·4²·sin(30°) = 96·(1/2) = 48 cm².",
+        "Answer: D."
+      ],
+      "topics": [
+        "geo-polygons"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q36",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 36,
+      "prompt": "The line x + y = 3 is rotated about the origin through 90° anticlockwise. The equation of its image is",
+      "options": [
+        "y = x + 3",
+        "y = −x",
+        "y − x − 3 = 0",
+        "x + y = −1",
+        "None of the above."
+      ],
+      "correct_index": 2,
+      "explanation_steps": [
+        "A 90° anticlockwise rotation sends (x, y) to (−y, x).",
+        "Points on x + y = 3 map to points satisfying y − x = 3, or y − x − 3 = 0. Answer: C."
+      ],
+      "topics": [
+        "geo-transformations"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q37",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 37,
+      "prompt": "Two circles of radii r1 and r2 touch externally. The length of a common external tangent is",
+      "options": [
+        "√(r1 + r2)",
+        "|r1 − r2|",
+        "√(r1 r2)",
+        "2√(r1 r2)",
+        "None of the above."
+      ],
+      "correct_index": 3,
+      "explanation_steps": [
+        "For external contact the centre distance is r1 + r2.",
+        "External tangent length = √((r1 + r2)² − (r1 − r2)²) = 2√(r1 r2). Answer: D."
+      ],
+      "topics": [
+        "geo-circles"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q38",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 38,
+      "prompt": "A translation shifts (1, 3) onto (4, 2). The pre-image of (9, 9) is",
+      "options": [
+        "(6, 8)",
+        "(8, 6)",
+        "(10, 0)",
+        "(0, 10)",
+        "None of the above."
+      ],
+      "correct_index": 4,
+      "explanation_steps": [
+        "The translation vector is (3, −1).",
+        "The pre-image is (9 − 3, 9 − (−1)) = (6, 10), which is not among A–D. Answer: E."
+      ],
+      "topics": [
+        "geo-transformations"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q39",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 39,
+      "prompt": "A peacock on a tree sees a snake 20 m from the base. The straight-line distances from the peacock to the snake are 25 m at the start and 17 m where it is caught. The further distance the snake would have needed to reach the hole at the base is",
+      "options": [
+        "7",
+        "√11",
+        "8",
+        "0",
+        "None of the above."
+      ],
+      "correct_index": 2,
+      "explanation_steps": [
+        "Tree height √(25² − 20²) = 15 m.",
+        "At capture, distance from the base is √(17² − 15²) = 8 m, so 8 m remained. Answer: C."
+      ],
+      "topics": [
+        "geo-pythagoras"
+      ],
+      "unit_links": [],
+      "similar_questions": []
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q40",
+      "paper_id": "alg-geo-2000-matric",
+      "year": 2000,
+      "subject": "Algebra and Geometry",
+      "exam_type": "matriculation",
+      "section": "Part I",
+      "number": 40,
+      "prompt": "A rectangle ABCD with AB = 3 cm is inscribed in a circle of radius √3 cm. The measure of angle ACB is",
+      "options": [
+        "22.5°",
+        "30°",
+        "60°",
+        "45°",
+        "None of the above."
+      ],
+      "correct_index": 2,
+      "explanation_steps": [
+        "The diagonal is the diameter 2√3, so BC = √((2√3)² − 3²) = √3.",
+        "tan(angle ACB) = AB/BC = √3, so the angle is 60°. Answer: C."
+      ],
+      "topics": [
+        "geo-circles"
       ],
       "unit_links": [],
       "similar_questions": []
