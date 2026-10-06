@@ -303,6 +303,62 @@
               },
               "answer": "B",
               "why": "**Step 1: Understand the physical mechanism of refraction**\nRefraction is defined as the bending of light when it transitions from one medium to another. This occurs because the speed (phase velocity) of light changes due to the different optical densities of the media.\n\n**Step 2: Eliminate incorrect options**\nThe frequency of a wave is determined by the source and remains constant across boundari"
+            },
+            {
+              "id": "phys11-u1-tb1",
+              "type": "text",
+              "title": "1.1 Refraction of Light, Snell's Law, and Apparent Depth (1/4)",
+              "page": 2,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Refraction** is the bending or change in direction of propagation of a light wave as it passes from one transparent medium to another of different optical density, caused by a change in its phase velocity.",
+                "When a wave transitions between media, its frequency remains strictly constant because it is determined solely by the source of the oscillation. However, because the phase velocity of light is slower in optically denser media (where the refractive index $$n > 1$$), the wavelength must decrease proportionally according to the wave relationship $$v = f \\lambda$$. This spatial compression of wavefronts at an oblique boundary causes the wave direction to pivot toward the normal when entering a denser medium, and away from the normal when entering a rarer medium.",
+                "To visualize this, consider the classic lawnmower analogy: when a lawnmower rolls at an angle from smooth pavement onto thick grass, the wheel that enters the grass first slows down immediately while the other wheel continues at high speed on the pavement. This speed mismatch forces the entire lawnmower to pivot, changing its trajectory. In optics, the degree of this bending is quantified by the absolute refractive index $$n$$, defined as the dimensionless ratio of the speed of light in a vacuum $$c$$ to its speed in the medium $$v$$:",
+                "$$n = \\frac{c}{v}$$"
+              ]
+            },
+            {
+              "id": "phys11-u1-tb2",
+              "type": "text",
+              "title": "1.1 Refraction of Light, Snell's Law, and Apparent Depth (2/4)",
+              "page": 2,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "At any planar interface between two media, this refraction is governed by Snell's Law. Mathematically, it states that the product of the refractive index and the sine of the angle of incidence is constant across the interface:",
+                "$$n_1 \\sin \\theta_1 = n_2 \\sin \\theta_2$$",
+                "Here, the angles $$\\theta_1$$ and $$\\theta_2$$ are always measured relative to the normal, which is an imaginary perpendicular line constructed at the exact point of incidence.",
+                "Refraction yields several profound observational phenomena. For instance, when looking down into a body of water, light rays departing an underwater object bend away from the normal as they cross the boundary into the air. When these diverging rays reach the human eye, the brain traces them backward along straight lines, projecting a virtual image that is shallower than the physical object. This discrepancy is described by the relation:"
+              ]
+            },
+            {
+              "id": "phys11-u1-tb3",
+              "type": "text",
+              "title": "1.1 Refraction of Light, Snell's Law, and Apparent Depth (3/4)",
+              "page": 2,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "$$n = \\frac{\\text{Real Depth}}{\\text{Apparent Depth}}$$",
+                "Furthermore, when light attempts to travel from an optically denser medium to a rarer medium (such as from glass to air), there exists a unique angle of incidence called the **Critical Angle** ($$\\theta_c$$) at which the angle of refraction is exactly $$90^\\circ$$. At this point, the refracted ray skims along the interface. This angle is calculated by:",
+                "$$\\theta_c = \\sin^{-1}\\left(\\frac{n_2}{n_1}\\right)$$",
+                "If the angle of incidence exceeds $$\\theta_c$$, the light cannot refract into the second medium at all. Instead, it is entirely reflected back into the denser medium. This phenomenon is known as **Total Internal Reflection** (TIR) and is the foundation of fiber-optic communication and the brilliance of cut diamonds."
+              ]
+            },
+            {
+              "id": "phys11-u1-tb4",
+              "type": "text",
+              "title": "1.1 Refraction of Light, Snell's Law, and Apparent Depth (4/4)",
+              "page": 2,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "In non-uniform media, such as atmospheric air with temperature gradients, the refractive index varies continuously. On hot summer days, the air directly above asphalt is heated, making it less dense than the cooler air above it. Light rays from the sky bend progressively upward as they travel through these thermal layers, eventually undergoing total internal reflection near the road surface. This causes an optical illusion known as a **Mirage**, where the observer perceives a shimmering, wet surface reflecting the sky.",
+                "Substance — Refractive Index ($$n$$) — Speed of Light ($$v$$ in $$\\text{m/s}$$) | Vacuum — $$1.0000$$ — $$3.00 \\times 10^8$$ | Air — $$1.0003$$ — $$2.99 \\times 10^8$$ | Water — $$1.3300$$ — $$2.26 \\times 10^8$$ | Crown Glass — $$1.5200$$ — $$1.97 \\times 10^8$$ | Diamond — $$2.4200$$ — $$1.24 \\times 10^8$$",
+                "> **💡 Did You Know?**: Even though diamond has a very high refractive index ($$2.42$$), its sparkling brilliance is not just due to the material itself, but also to the precise geometric angles of its cut, which maximize total internal reflection.",
+                "> **🧠 Pro-Tip**: When solving Apparent Depth problems, remember that the formula $$n = \\frac{\\text{Real Depth}}{\\text{Apparent Depth}}$$ assumes the observer is looking nearly straight down (normal viewing). For steep angles, the simple linear relationship breaks down due to trigonometric variations."
+              ]
             }
           ]
         },
@@ -545,6 +601,78 @@
                 }
               ],
               "answer": "A"
+            },
+            {
+              "id": "phys11-u1-tb5",
+              "type": "text",
+              "title": "1.2 Thin Lenses: Ray Diagrams, Lens Equation, and Power (1/4)",
+              "page": 21,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "A **lens** is a transmissive optical device that focuses or disperses a light beam by means of refraction, characterized by curved surfaces that shape wavefronts.",
+                "Lenses are broadly categorized into two structural classes based on their cross-sectional profiles. A **converging lens** (or convex lens) is thicker at its center than at its edges and causes parallel incident rays to converge toward a real focus point. Conversely, a **diverging lens** (or concave lens) is thinner at its center than at its margins, causing parallel rays to diverge as if originating from a virtual focus point located behind the lens.",
+                "To analyze thin lenses, we define several critical terms. The *Principal Axis* is the horizontal line passing through the geometric centers of the lens's curved surfaces. The *Optical Center* ($$O$$) is the exact midpoint of the lens; any ray passing through $$O$$ undergoes negligible deviation. The *Principal Focus* or *Focal Point* ($$F$$) is the point where parallel rays converge (for convex lenses) or appear to diverge from (for concave lenses). The distance from the optical center to the focal point is the *Focal Length* ($$f$$).",
+                "Geometric ray tracing is a powerful visual tool used to predict image characteristics. By drawing three distinct principal rays from the top of an object, we can locate its image: 1. **The Parallel Ray**: Travels parallel to the principal axis and refracts through the focal point on the opposite side (for convex) or aligns with the virtual focus on the same side (for concave). 2. **The Central Ray**: Passes straight through the optical center $$O$$ without any angular deviation. 3. **The Focal Ray**: Passes through the focal point before reaching the lens and refracts parallel to the principal axis."
+              ]
+            },
+            {
+              "id": "phys11-u1-tb6",
+              "type": "text",
+              "title": "1.2 Thin Lenses: Ray Diagrams, Lens Equation, and Power (2/4)",
+              "page": 21,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "For mathematical precision, we employ the Thin Lens Equation, which relates the object distance ($$d_o$$), image distance ($$d_i$$), and focal length ($$f$$):",
+                "$$\\frac{1}{d_o} + \\frac{1}{d_i} = \\frac{1}{f}$$",
+                "The size and orientation of the image are governed by the linear magnification equation:",
+                "$$m = -\\frac{d_i}{d_o} = \\frac{h_i}{h_o}$$"
+              ]
+            },
+            {
+              "id": "phys11-u1-tb7",
+              "type": "text",
+              "title": "1.2 Thin Lenses: Ray Diagrams, Lens Equation, and Power (3/4)",
+              "page": 21,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "To ensure consistency, we strictly adhere to the real-is-positive sign convention: focal length $$f$$ is positive for converging lenses and negative for diverging lenses; object distance $$d_o$$ is always positive for real objects; image distance $$d_i$$ is positive for real images (formed on the opposite side of the lens) and negative for virtual images (formed on the same side as the object).",
+                "Another essential property of a lens is its refracting strength, known as **Optical Power** ($$P$$). It is defined as the reciprocal of its focal length measured in meters:",
+                "$$P = \\frac{1}{f}$$",
+                "The SI unit of power is the **dioptre** ($$\\text{D}$$, where $$1 \\text{ D} = 1 \\text{ m}^{-1}$$$). Converging lenses have positive powers, while diverging lenses have negative powers. When multiple thin lenses are placed in close contact, their net optical power is simply the algebraic sum of their individual powers:"
+              ]
+            },
+            {
+              "id": "phys11-u1-tb8",
+              "type": "text",
+              "title": "1.2 Thin Lenses: Ray Diagrams, Lens Equation, and Power (4/4)",
+              "page": 21,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "$$P_{\\text{net}} = P_1 + P_2 + P_3 + \\dots$$",
+                "Lens Type — Focal Length ($$f$$) — Image Type — Sign of Power ($$P$$) | Converging (Convex) — Positive ($$+f$$) — Real (mostly) or Virtual — Positive ($$+P$$) | Diverging (Concave) — Negative ($$-f$$) — Virtual (always) — Negative ($$-P$$)",
+                "> **💡 Did You Know?**: When an object is placed exactly at twice the focal length ($$2f$$) of a converging lens, the resulting image is real, inverted, and exactly the same size as the object, located at $$2f$$ on the opposite side.",
+                "> **🧠 Pro-Tip**: If the magnification $$m$$ of a system is negative, the image is inverted and real. If $$m$$ is positive, the image is erect and virtual."
+              ]
+            },
+            {
+              "id": "phys11-u1-chk82",
+              "type": "check",
+              "title": "Quick check",
+              "page": 21,
+              "src": "study_notes",
+              "q": "When red light and green light of equal intensities are projected onto a white screen, what color is produced?",
+              "options": {
+                "A": "Yellow",
+                "B": "Cyan",
+                "C": "Magenta",
+                "D": "White"
+              },
+              "answer": "A",
+              "why": "**Step 1: Recall the rules of additive color mixing**\nAdditive mixing applies to light sources projected together onto a screen.\n\n**Step 2: Identify the primary color combinations**\nCombining primary Red and primary Green stimulates both red and green cone cells in the human eye simultaneously, which the brain interprets as the secondary color yellow.\n\n**Step 3: Final Result**\nTherefore, the color produced is **Yellow**."
             }
           ]
         },
@@ -677,6 +805,62 @@
                 }
               ],
               "answer": "A"
+            },
+            {
+              "id": "phys11-u1-tb9",
+              "type": "text",
+              "title": "1.3 Optical Instruments, the Human Eye, and Dispersion of Light (1/3)",
+              "page": 35,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "An **optical instrument** is a device consisting of lenses, mirrors, or prisms designed to process light waves to enhance images for viewing or analysis.",
+                "The simplest optical instrument is the **Magnifying Glass**, which consists of a single converging lens. When an object is placed inside the focal point ($$d_o < f$$), the lens produces an enlarged, virtual, and erect image on the same side of the lens. To achieve greater magnification without extreme lens curvature, we use a **Compound Microscope**. This instrument utilizes two converging lenses: the *objective lens* (short focal length) and the *eyepiece lens* (longer focal length). The objective lens forms a real, inverted, and magnified intermediate image, which is then further magnified by the eyepiece to create a highly enlarged virtual final image.",
+                "Similarly, a **Refracting Telescope** is designed to view highly distant objects. It also consists of an objective and an eyepiece, but the objective lens has a very long focal length to capture distant parallel rays and form an intermediate image at its focal plane, which is then magnified by the eyepiece. The overall angular magnification of a telescope is given by:",
+                "$$m = -\\frac{f_o}{f_e}$$"
+              ]
+            },
+            {
+              "id": "phys11-u1-tb10",
+              "type": "text",
+              "title": "1.3 Optical Instruments, the Human Eye, and Dispersion of Light (2/3)",
+              "page": 35,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "The **Human Eye** behaves as a natural optical instrument. Light entering the eye is refracted by the cornea and focused by the crystalline lens onto the light-sensitive retina. The eye adjusts its focus for varying distances by using the ciliary muscles to alter the curvature (and thus the focal length) of the lens, a process called **Accommodation**. The nearest point at which the eye can focus clearly without strain is the *Near Point* (typically $$25 \\text{ cm}$$ for young adults).",
+                "When the accommodation mechanism fails, vision defects arise: 1. **Myopia** (Short-sightedness): The eyeball is too long or the lens is too curved, focusing distant light in front of the retina. This is corrected using a diverging (concave) lens. 2. **Hypermetropia** (Long-sightedness): The eyeball is too short or the lens is too flat, focusing near light behind the retina. This is corrected using a converging (convex) lens. 3. **Astigmatism**: The cornea has an irregular curvature, causing light to focus unevenly. This is corrected using a cylindrical lens.",
+                "Additionally, when white light passes through a glass prism, it undergoes **Dispersion**. This splitting of light into its component colors (the spectrum) occurs because different wavelengths of light travel at different speeds in glass. The shorter the wavelength, the more the light slows down and bends. Consequently, violet light (shortest visible wavelength) refracts the most, while red light (longest visible wavelength) refracts the least. This wavelength-dependent variation in refractive index is the primary cause of rainbows.",
+                "Instrument / System — Objective Lens — Eyepiece Lens — Final Image Characteristics | Microscope — Short $$f$$ — Long $$f$$ — Virtual, Inverted, Highly Magnified | Telescope — Long $$f$$ — Short $$f$$ — Virtual, Inverted, Magnified | Human Eye — Natural crystalline lens — None — Real, Inverted, Diminished (on retina)"
+              ]
+            },
+            {
+              "id": "phys11-u1-tb11",
+              "type": "text",
+              "title": "1.3 Optical Instruments, the Human Eye, and Dispersion of Light (3/3)",
+              "page": 35,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "> **💡 Did You Know?**: The human brain automatically flips the inverted real image formed on our retina, allowing us to perceive the world right-side up without any conscious effort.",
+                "> **🧠 Pro-Tip**: Remember that in a compound microscope, the intermediate image must fall just inside the focal point of the eyepiece lens to allow the eyepiece to act as a simple magnifier."
+              ]
+            },
+            {
+              "id": "phys11-u1-chk83",
+              "type": "check",
+              "title": "Quick check",
+              "page": 35,
+              "src": "study_notes",
+              "q": "A mirage is primarily caused by which of the following optical phenomena?",
+              "options": {
+                "A": "Dispersion of light through hot air",
+                "B": "Diffraction of light around dust particles",
+                "C": "Atmospheric refraction due to temperature gradients",
+                "D": "Polarization of sky light near the ground"
+              },
+              "answer": "C",
+              "why": "**Step 1: Understand how mirages form**\nA mirage is an optical illusion that occurs when there is a rapid temperature gradient in the air near the ground. Hot air near the ground has a lower density and a lower refractive index than the cooler air above it.\n\n**Step 2: Trace light ray behavior**\nLight rays from the sky bend progressively upward as they travel through these atmospheric layers with varying refractive indices. This bending is refraction. Near the ground, the angle of incidence eventually exceeds the critical angle, resulting in total internal reflection.\n\n**Step 3: Final Result**\nTherefore, a mirage is caused by **atmospheric refraction due to temperature gradients**."
             }
           ]
         },
@@ -821,6 +1005,36 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys11-u1-chk84",
+              "type": "check",
+              "title": "Quick check",
+              "page": 50,
+              "src": "study_notes",
+              "q": "When white light passes through a glass prism, which spectral color suffers the greatest angle of deviation?",
+              "options": {
+                "A": "Red",
+                "B": "Yellow",
+                "C": "Green",
+                "D": "Violet"
+              },
+              "answer": "D",
+              "why": "**Step 1: Define dispersion and deviation**\nAs white light passes through a prism, different colors are refracted by different amounts. The deviation angle is the angle between the incident ray and the emergent ray.\n\n**Step 2: Compare refractive indices**\nIn optical glass, the refractive index is greater for shorter wavelengths. Because violet light has the shortest visible wavelength, glass has the highest refractive index for violet: \n$$n_{\\text{violet}} > n_{\\text{red}}$$\n\n**Step 3: Apply Snell's Law**\nA higher refractive index causes a greater change in direction, meaning violet light bends and deviates the most.\n\n**Step 4: Final Result**\nThus, **Violet** light suffers the greatest angle of deviation."
+            },
+            {
+              "id": "phys11-u1-tb12",
+              "type": "text",
+              "title": "Dispersion of light",
+              "page": 50,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Dispersion is the splitting of white light into its component colours because different wavelengths refract by slightly different amounts in a medium such as glass.",
+                "In a triangular prism, violet typically bends more than red, producing a spectrum. Rainbow formation also involves refraction and dispersion in water droplets.",
+                "The refractive index of glass depends weakly on wavelength; that wavelength dependence is the microscopic reason for dispersion.",
+                "Chromatic aberration in lenses is an unwanted effect of dispersion: different colours focus at slightly different places."
+              ]
             }
           ]
         },
@@ -959,6 +1173,36 @@
                 }
               ],
               "answer": "C"
+            },
+            {
+              "id": "phys11-u1-chk85",
+              "type": "check",
+              "title": "Quick check",
+              "page": 53,
+              "src": "study_notes",
+              "q": "What is the relationship between the focal length ($$f$$) and the radius of curvature ($$R$$) of a thin spherical lens?",
+              "options": {
+                "A": "$$f = R$$",
+                "B": "$$f = 2R$$",
+                "C": "$$f = \\frac{R}{2}$$",
+                "D": "There is no fixed simple relationship like mirrors because it depends on the refractive index of the glass."
+              },
+              "answer": "D",
+              "why": "**Step 1: Distinguish between mirrors and lenses**\nFor spherical mirrors, the focal length is geometrically fixed as $$f = \\frac{R}{2}$$.\n\n**Step 2: Examine lens focal parameters**\nFor a thin spherical lens, the focal length depends not only on the radii of curvature of its two surfaces ($$R_1$$ and $$R_2$$) but also on the refractive index of the lens material ($$n$$) and the surrounding medium, as described by the Lensmaker's Equation:\n$$\\frac{1}{f} = (n - 1)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right)$$\n\n**Step 3: Final Result**\nTherefore, **there is no fixed simple relationship like mirrors because it depends on the refractive index of the glass**."
+            },
+            {
+              "id": "phys11-u1-tb13",
+              "type": "text",
+              "title": "Colours and filters",
+              "page": 53,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "An object’s colour depends on which wavelengths it reflects or transmits to the eye. A red object under white light reflects mainly red and absorbs other colours.",
+                "A colour filter transmits its own colour band and absorbs others. A blue filter makes a white scene look blue because mainly blue light passes through.",
+                "Primary colours for additive mixing of light are red, green and blue. Subtractive mixing with pigments/filters uses cyan, magenta and yellow ideas.",
+                "Combining filters reduces the transmitted light further — two complementary filters can block nearly everything and look dark."
+              ]
             }
           ]
         }
@@ -3245,6 +3489,59 @@
               },
               "answer": "B",
               "why": "**Step 1: Understand the subatomic origin of magnetism**\nAt the subatomic level, magnetic fields are produced by moving electric charges. In atoms, individual electrons possess an intrinsic property called spin and orbit the nucleus. Both of these motions act as tiny current loops, creating atomic magnetic dipoles.\n\n**Step 2: Compare with incorrect options**\nThe nuclear strong force, electrostatic"
+            },
+            {
+              "id": "phys11-u2-tb1",
+              "type": "text",
+              "title": "2.1 Magnets, Magnetic Fields, and Electromagnetism (1/4)",
+              "page": 65,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Magnetism** is a class of physical phenomena mediated by magnetic fields, originating from the motion of electric charges—specifically the spin and orbital motion of electrons—resulting in attractive or repulsive forces between objects.",
+                "At the subatomic level, every electron behaves as a microscopic magnetic dipole due to its intrinsic spin and its orbital revolution around the nucleus. In most materials, the magnetic orientations of these electrons point in random directions, canceling each other out. However, in **ferromagnetic** materials like iron, cobalt, and nickel, quantum-mechanical effects cause the magnetic dipoles of adjacent atoms to align parallel to one another. This alignment forms localized regions called *magnetic domains*. When an external magnetic field is applied, these domains rotate and merge, turning the material into a permanent or temporary magnet. In contrast, **paramagnetic** materials (like aluminum) show only weak domain alignment in external fields, while **diamagnetic** materials (like bismuth) weakly oppose external fields.",
+                "A magnet always possesses two distinct poles: a north-seeking pole (N) and a south-seeking pole (S). If you cut a bar magnet in half, you do not isolate the poles; instead, two new complete dipoles are created, as magnetic monopoles do not exist in nature. The space surrounding a magnet is occupied by a vector quantity called the **Magnetic Field** ($$\\mathbf{B}$$), also termed *Magnetic Flux Density*. By convention, magnetic field lines emerge from the north pole, curve through space, and enter the south pole, forming continuous closed loops that never intersect.",
+                "Our planet itself is a giant magnet. The Earth's magnetic field, or geomagnetism, is generated by convective currents of molten iron and nickel in its outer core. Interestingly, the Earth's geographic North Pole corresponds to its magnetic south pole, which is why the north pole of a compass needle points toward geographic north. This magnetic field acts as a protective shield (the magnetosphere), redirecting harmful solar wind particles away from our atmosphere."
+              ]
+            },
+            {
+              "id": "phys11-u2-tb2",
+              "type": "text",
+              "title": "2.1 Magnets, Magnetic Fields, and Electromagnetism (2/4)",
+              "page": 65,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "In 1820, Hans Christian Oersted discovered a direct connection between electricity and magnetism. He observed that an electric current flowing through a wire deflected a nearby compass needle. This demonstrated that moving charges generate their own magnetic fields. For a long, straight, current-carrying wire, the magnetic field lines form concentric circles around the conductor. The direction of these lines is determined by the **Right-Hand Grip Rule**: if you grasp the wire with your right hand so that your thumb points in the direction of the conventional current ($$I$$), your curled fingers point in the direction of the magnetic field vector ($$\\mathbf{B}$$). The magnitude of this field at a perpendicular distance $$r$$ from the wire is governed by:",
+                "$$B = \\frac{\\mu_0 I}{2\\pi r}$$",
+                "where $$\\mu_0 = 4\\pi \\times 10^{-7} \\text{ T}\\cdot\\text{m/A}$$ is the permeability of free space.",
+                "By winding a long wire into a tight coil of $$N$$ turns, we construct a **solenoid**. When an electric current passes through the solenoid, the individual magnetic fields of each loop add together, producing a strong, highly uniform magnetic field inside the coil that resembles the field of a bar magnet. The magnetic field strength inside a long solenoid is calculated by:"
+              ]
+            },
+            {
+              "id": "phys11-u2-tb3",
+              "type": "text",
+              "title": "2.1 Magnets, Magnetic Fields, and Electromagnetism (3/4)",
+              "page": 65,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "$$B = \\mu_0 n I = \\mu_0 \\left(\\frac{N}{L}\\right) I$$",
+                "where $$n$$ is the number of turns per unit length ($$N/L$$). Placing a soft iron core inside the solenoid concentrates the magnetic field lines, greatly increasing the magnetic flux density. This setup is the foundation of **electromagnets**, which are essential for cranes, magnetic relays, electric bells, and speakers.",
+                "Material Class — Domain Alignment in External Field — Typical Substances — Industrial Applications | Ferromagnetic — Strong, parallel alignment (persists) — Iron, Nickel, Cobalt, Alnico — Permanent magnets, transformer cores | Paramagnetic — Weak, temporary parallel alignment — Aluminum, Platinum, Sodium — Oxygen sensors, medical agents | Diamagnetic — Weak, temporary antiparallel alignment — Bismuth, Copper, Water — Magnetic levitation, superdiamagnetism",
+                "> **💡 Did You Know?**: Maglev (magnetic levitation) trains use powerful electromagnets to levitate the train above the guide way. This eliminates mechanical friction, allowing these trains to reach speeds exceeding $$500 \\text{ km/h}$$ with very quiet operation."
+              ]
+            },
+            {
+              "id": "phys11-u2-tb4",
+              "type": "text",
+              "title": "2.1 Magnets, Magnetic Fields, and Electromagnetism (4/4)",
+              "page": 65,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "> **🧠 Pro-Tip**: To distinguish between a permanent magnet and a temporary unmagnetized iron bar using only the two bars, remember that attraction is not a definitive test because a magnet will attract any ferromagnetic object. **Repulsion** is the only true test of permanent magnetism."
+              ]
             }
           ]
         },
@@ -3370,6 +3667,36 @@
                 }
               ],
               "answer": "C"
+            },
+            {
+              "id": "phys11-u2-chk82",
+              "type": "check",
+              "title": "Quick check",
+              "page": 79,
+              "src": "study_notes",
+              "q": "A paramagnetic substance placed near a strong permanent magnet will experience which of the following?",
+              "options": {
+                "A": "A strong repulsive force",
+                "B": "A weak attractive force",
+                "C": "A strong attractive force",
+                "D": "No magnetic force whatsoever"
+              },
+              "answer": "B",
+              "why": "**Step 1: Understand the characteristics of paramagnetic materials**\nParamagnetic materials have atoms with unpaired electrons that align parallel to an external magnetic field, but this alignment is weak and disappears when the external field is removed.\n\n**Step 2: Contrast with other materials**\n- Ferromagnetic: Strong attraction\n- Diamagnetic: Weak repulsion\n- Paramagnetic: Weak attraction\n\n**Step 3: Final Result**\nTherefore, it will experience **a weak attractive force**."
+            },
+            {
+              "id": "phys11-u2-tb14",
+              "type": "text",
+              "title": "Magnetic field of electric currents",
+              "page": 79,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "A current-carrying wire produces a magnetic field around it. The field lines form closed loops circling the wire (right-hand grip rule: thumb in current direction, fingers show field sense).",
+                "A single loop concentrates field through its centre. A long coil (solenoid) produces a nearly uniform field inside, similar to a bar magnet’s pattern outside.",
+                "Field strength near a long straight wire increases with current and decreases with distance from the wire.",
+                "Electromagnets use coils (often with iron cores) so the field can be switched on and off with the current — unlike permanent magnets."
+              ]
             }
           ]
         },
@@ -3493,6 +3820,89 @@
                 }
               ],
               "answer": "D"
+            },
+            {
+              "id": "phys11-u2-tb5",
+              "type": "text",
+              "title": "2.2 Magnetic Force on Charges and Conductors (1/5)",
+              "page": 86,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "The **Lorentz Force** (specifically its magnetic component) is the force exerted on a charged particle moving through a magnetic field, mathematically perpendicular to both the particle's velocity vector and the magnetic field vector.",
+                "When a point charge $$q$$ moves with a velocity vector $$\\mathbf{v}$$ through an external magnetic field $$\\mathbf{B}$$, it experiences a magnetic force $$\\mathbf{F}_M$$. The magnitude of this force is given by:",
+                "$$F_M = |q| v B \\sin \\theta$$",
+                "where $$\\theta$$ is the angle between the velocity vector $$\\mathbf{v}$$ and the magnetic field vector $$\\mathbf{B}$$. If the charge moves parallel to the field lines ($$\\theta = 0^\\circ$$ or $$180^\\circ$$), the magnetic force is zero. The force is maximized when the charge moves perpendicular to the field ($$\\theta = 90^\\circ$$). The direction of this force is determined by the **Right-Hand Rule (RHR-1)**: point the fingers of your flat right hand in the direction of the velocity vector $$\\mathbf{v}$$, curl them toward the magnetic field vector $$\\mathbf{B}$$, and your extended thumb will point in the direction of the force acting on a *positive* charge. If the charge is *negative* (like an electron), the force points in the opposite direction."
+              ]
+            },
+            {
+              "id": "phys11-u2-tb6",
+              "type": "text",
+              "title": "2.2 Magnetic Force on Charges and Conductors (2/5)",
+              "page": 86,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Because the magnetic force is always perpendicular to the velocity vector, the work done by the magnetic field on the moving charge is exactly zero ($$W = \\mathbf{F} \\cdot \\mathbf{d} = 0$$). Consequently, a magnetic field can change the direction of a charged particle's motion but cannot alter its kinetic energy or speed. When a charged particle enters a uniform magnetic field perpendicularly ($$\\theta = 90^\\circ$$), the magnetic force acts as a constant centripetal force. This forces the particle to travel in a perfect circle of radius $$r$$:",
+                "$$F_C = F_M \\implies \\frac{m v^2}{r} = q v B \\implies r = \\frac{m v}{q B}$$",
+                "This principle of mass-to-charge ratio separation is used in mass spectrometers and particle accelerators.",
+                "This magnetic force also acts on bulk electric currents. A wire of length $$L$$ carrying a conventional current $$I$$ in a magnetic field $$\\mathbf{B}$$ is subject to a collective magnetic force. This is the sum of the individual forces acting on all the moving charge carriers (drift electrons) inside the conductor. The magnitude of this macroscopic force is:"
+              ]
+            },
+            {
+              "id": "phys11-u2-tb7",
+              "type": "text",
+              "title": "2.2 Magnetic Force on Charges and Conductors (3/5)",
+              "page": 86,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "$$F_M = I L B \\sin \\theta$$",
+                "where $$\\theta$$ is the angle between the current direction (along the wire) and the magnetic field lines. The direction of this force is also found using the right-hand rule: point your thumb in the direction of the current $$I$$, your fingers in the direction of the magnetic field $$\\mathbf{B}$$, and your palm will push in the direction of the force.",
+                "When two long, parallel, current-carrying conductors are placed close to each other, they exert mutual magnetic forces. Wire 1 produces a magnetic field $$B_1 = \\frac{\\mu_0 I_1}{2\\pi d}$$ at the position of Wire 2. Wire 2, carrying current $$I_2$$ in this field, experiences a magnetic force. By combining these relationships, we find that the mutual force per unit length ($$F/L$$) between the two wires is:",
+                "$$\\frac{F}{L} = \\frac{\\mu_0 I_1 I_2}{2\\pi d}$$"
+              ]
+            },
+            {
+              "id": "phys11-u2-tb8",
+              "type": "text",
+              "title": "2.2 Magnetic Force on Charges and Conductors (4/5)",
+              "page": 86,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Using the right-hand rules, we observe a fundamental rule: **parallel currents attract** each other, while **antiparallel currents repel** each other. This physical interaction defines the SI base unit of electric current, the **Ampere**.",
+                "This force on current-carrying conductors is used to convert electrical energy into mechanical energy in **DC Motors**. A rectangular coil of wire is suspended between the poles of a permanent magnet. When current flows through the coil, opposite forces act on its two parallel sides, generating a net torque that rotates the loop. To keep the coil rotating in the same direction, a **split-ring commutator** reverses the current direction twice per rotation as the coil passes through the vertical position.",
+                "Physical Case — Governing Equation — Force Direction Rule — Key Variables | Moving Charge — $$F_M = q v B \\sin \\theta$$ — RHR-1 (Inverted for $$-q$$) — $$q$$ (charge), $$v$$ (velocity), $$B$$ (field) | Current-Carrying Wire — $$F_M = I L B \\sin \\theta$$ — RHR (Thumb=$$I$$, Fingers=$$B$$, Palm=Force) — $$I$$ (current), $$L$$ (length), $$B$$ (field) | Parallel Conductors — $$\\frac{F}{L} = \\frac{\\mu_0 I_1 I_2}{2\\pi d}$$ — Attract (same dir) / Repel (opp dir) — $$I_1, I_2$$ (currents), $$d$$ (separation)",
+                "> **💡 Did You Know?**: The standard definition of one Ampere is the constant current which, if maintained in two straight parallel conductors of infinite length, placed $$1 \\text{ m}$$ apart in a vacuum, produces a mutual force of exactly $$2 \\times 10^{-7} \\text{ N}$$ per meter of length."
+              ]
+            },
+            {
+              "id": "phys11-u2-tb9",
+              "type": "text",
+              "title": "2.2 Magnetic Force on Charges and Conductors (5/5)",
+              "page": 86,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "> **🧠 Pro-Tip**: When dealing with electrons moving through magnetic fields, always apply the standard Right-Hand Rule and then flip the final direction of your thumb by $$180^\\circ$$, as the electron carries a negative charge."
+              ]
+            },
+            {
+              "id": "phys11-u2-chk83",
+              "type": "check",
+              "title": "Quick check",
+              "page": 86,
+              "src": "study_notes",
+              "q": "Which of the following is NOT an application of electromagnets?",
+              "options": {
+                "A": "An electric bell",
+                "B": "A magnetic relay switch",
+                "C": "A pocket compass needle",
+                "D": "A heavy scrap metal crane"
+              },
+              "answer": "C",
+              "why": "**Step 1: Understand the difference between permanent magnets and electromagnets**\nAn electromagnet is a temporary magnet that requires electric current to generate its magnetic field.\n\n**Step 2: Evaluate the options**\nElectric bells, relays, and cranes use electromagnets because their magnetic fields need to be turned on and off. A pocket compass needle must be a **permanent magnet** to continuously align with the Earth's geomagnetism without an external power source.\n\n**Step 3: Final Result**\nTherefore, **a pocket compass needle** is not an application of electromagnets."
             }
           ]
         },
@@ -3616,6 +4026,36 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys11-u2-chk84",
+              "type": "check",
+              "title": "Quick check",
+              "page": 96,
+              "src": "study_notes",
+              "q": "Which parameter remains constant when a step-up transformer increases voltage in an ideal AC circuit?",
+              "options": {
+                "A": "Electric current",
+                "B": "Total electrical power",
+                "C": "Focal impedance",
+                "D": "Magnetic flux density"
+              },
+              "answer": "B",
+              "why": "**Step 1: State the Conservation of Energy for ideal electrical systems**\nFor an ideal transformer, there are no thermal or magnetic losses. Therefore, the power delivered to the secondary circuit is exactly equal to the power supplied to the primary circuit.\n\n**Step 2: Formulate the relationship**\n$$P_{\\text{primary}} = P_{\\text{secondary}} \\implies V_p I_p = V_s I_s$$\n\n**Step 3: Final Result**\nTherefore, **total electrical power** remains constant."
+            },
+            {
+              "id": "phys11-u2-tb15",
+              "type": "text",
+              "title": "Electromagnets and electromagnetic devices",
+              "page": 96,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "An electromagnet is a coil that becomes magnetic when current flows. Adding a soft-iron core greatly strengthens the field.",
+                "Electric bells, relays and scrapyard lifting magnets use electromagnets because the magnetism can be controlled.",
+                "A relay uses a small current in one circuit to close contacts that switch a larger current in another circuit — useful for safety and remote control.",
+                "Loudspeakers use the motor effect: a current in a coil within a magnet’s field experiences a force, moving a cone to create sound."
+              ]
             }
           ]
         },
@@ -3798,6 +4238,78 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys11-u2-tb10",
+              "type": "text",
+              "title": "2.3 Electromagnetic Induction, Generators, and Transformers (1/4)",
+              "page": 108,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Electromagnetic Induction** is the production of an electromotive force (EMF) across an electrical conductor in a changing magnetic field, first discovered by Michael Faraday and Joseph Henry.",
+                "To understand this phenomenon, we must first define **Magnetic Flux** ($$\\Phi_B$$). Magnetic flux is a measure of the total magnetic field passing through a given surface area. Mathematically, it is the dot product of the magnetic field vector $$\\mathbf{B}$$ and the area vector $$\\mathbf{A}$$ (which is perpendicular to the surface of the area):",
+                "$$\\Phi_B = B A \\cos \\theta$$",
+                "where $$\\theta$$ is the angle between the magnetic field vector and the normal to the surface area. The SI unit of magnetic flux is the **Weber** ($$\\text{Wb}$$, where $$1 \\text{ Wb} = 1 \\text{ T}\\cdot\\text{m}^2$$). If the field lines are perpendicular to the surface area ($$\\theta = 0^\\circ$$), the flux is maximized ($$\\Phi_B = BA$$); if the field lines run parallel to the surface area ($$\\theta = 90^\\circ$$), no lines pierce the surface, and the flux is zero."
+              ]
+            },
+            {
+              "id": "phys11-u2-tb11",
+              "type": "text",
+              "title": "2.3 Electromagnetic Induction, Generators, and Transformers (2/4)",
+              "page": 108,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Faraday's Law of Electromagnetic Induction states that the magnitude of the induced EMF ($$\\mathcal{E}$$) in a closed circuit is directly proportional to the time rate of change of the magnetic flux through the loop. For a coil consisting of $$N$$ turns, the law is written as:",
+                "$$\\mathcal{E} = -N \\frac{\\Delta \\Phi_B}{\\Delta t}$$",
+                "The negative sign in this equation is not just a mathematical placeholder; it represents **Lenz's Law**. Lenz's Law states that the polarity of an induced EMF is always such that it generates a current whose own magnetic field opposes the change in the original magnetic flux that produced it. This law is a direct consequence of the *Conservation of Energy*. If the induced field reinforced the flux change, the magnetic flux would increase infinitely, creating energy out of nothing and violating the first law of thermodynamics.",
+                "When a solid piece of metal moves through a magnetic field, the changing flux induces circulating loops of current within the bulk metal. These are called **Eddy Currents**. According to Lenz's law, these circulating currents generate magnetic fields that oppose the motion of the metal, creating a strong magnetic drag. This effect is used in electromagnetic braking systems. However, in devices like transformers and AC motors, eddy currents are highly undesirable because they cause significant energy loss through Joule heating ($$I^2 R$$). To minimize these losses, transformer cores are constructed from thin sheets of iron insulated from one another, a design called a **laminated core**."
+              ]
+            },
+            {
+              "id": "phys11-u2-tb12",
+              "type": "text",
+              "title": "2.3 Electromagnetic Induction, Generators, and Transformers (3/4)",
+              "page": 108,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Electromagnetic induction is used to generate large-scale electricity in **Electric Generators**. An AC Generator consists of a loop of wire rotated mechanically inside a strong magnetic field. As the loop rotates, the angle $$\\theta$$ changes continuously, causing the magnetic flux to vary sinusoidally. This generates an alternating EMF. The maximum EMF produced by a generator with $$N$$ turns of area $$A$$ rotating at an angular frequency $$\\omega = 2\\pi f$$ in a magnetic field $$B$$ is:",
+                "$$\\mathcal{E}_{\\text{max}} = N B A \\omega = N B A (2\\pi f)$$",
+                "Another essential application of induction is the **Transformer**, which increases or decreases AC voltages. It consists of two separate coils—the primary coil ($$N_p$$ turns) and the secondary coil ($$N_s$$ turns)—wound around a shared laminated iron core. When an alternating voltage ($$V_p$$) is applied to the primary coil, it creates a continuously changing magnetic flux in the core, which induces an alternating voltage ($$V_s$$) in the secondary coil. The relationship between these voltages is given by the transformer equation:",
+                "$$\\frac{V_s}{V_p} = \\frac{N_s}{N_p} = \\frac{I_p}{I_s}$$"
+              ]
+            },
+            {
+              "id": "phys11-u2-tb13",
+              "type": "text",
+              "title": "2.3 Electromagnetic Induction, Generators, and Transformers (4/4)",
+              "page": 108,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "If $$N_s > N_p$$, the output voltage is increased, creating a **step-up transformer**. If $$N_s < N_p$$, it is a **step-down transformer**. Due to the conservation of energy, an ideal transformer cannot increase power; therefore, stepping up the voltage proportionally steps down the current.",
+                "Device / Component — Operational Principle — Primary Energy Transfer — Key Design Features | AC Generator — Rotational flux change — Mechanical to Electrical — Slip-rings and brushes | DC Generator — Rotational flux change with commutator — Mechanical to Pulsating DC — Split-ring commutator | Transformer — Mutual induction between coils — Electrical (AC) to Electrical — Laminated soft-iron core",
+                "> **💡 Did You Know?**: Power grids transmit electricity over long distances at incredibly high voltages (up to $$500,000 \\text{ V}$$) and low currents. This minimizes energy loss due to heating in transmission wires, as power loss is proportional to the square of the current ($$P_{\\text{loss}} = I^2 R$$).",
+                "> **🧠 Pro-Tip**: Transformers strictly require alternating current (AC) to operate. If you connect a transformer's primary winding to a direct current (DC) battery, the constant current will produce a constant magnetic field, the change in flux ($$\\Delta \\Phi_B / \\Delta t$$) will be zero, and no voltage will be induced in the secondary coil."
+              ]
+            },
+            {
+              "id": "phys11-u2-chk85",
+              "type": "check",
+              "title": "Quick check",
+              "page": 108,
+              "src": "study_notes",
+              "q": "What is the primary function of carbon brushes in a DC electric motor?",
+              "options": {
+                "A": "To reduce mechanical friction between the axle and the magnets",
+                "B": "To provide a sliding electrical contact to the rotating commutator",
+                "C": "To magnetize the soft iron core of the armature",
+                "D": "To reverse the polarity of the permanent magnets"
+              },
+              "answer": "B",
+              "why": "**Step 1: Analyze DC motor components**\nA DC motor has a rotating coil connected to a split-ring commutator. The power source is external and stationary.\n\n**Step 2: Identify the brush function**\nTo transmit electric current from the stationary battery to the rotating commutator without tangling the wires, spring-loaded **carbon brushes** press lightly against the commutator, providing a sliding electrical contact.\n\n**Step 3: Final Result**\nTherefore, the primary function is **to provide a sliding electrical contact to the rotating commutator**."
             }
           ]
         }
@@ -5794,7 +6306,7 @@
         230
       ],
       "tone": "butter",
-      "intro": "A wave transfers energy without transferring the medium as a whole. Transverse: displacement ⊥ travel (string, EM). Longitudinal: // travel (sound in air — compressions and rarefactions).",
+      "intro": "is a repeating disturbance or oscillation that travels through space-time, accompanied by a transfer of energy from one point to another without the permanent physical transport of matter.\n\nWaves are categorized into two fundamental classes based on their propagation mechanisms: mechanical and electromagnetic.",
       "intro_page": 142,
       "lessons": [
         {
@@ -5931,6 +6443,20 @@
               },
               "answer": "D",
               "why": "**Step 1: Classify the waves**\n- Sound waves, water waves, and slinky waves are mechanical waves. They require a material medium (air, water, metal) to travel.\n- Radio waves are electromagnetic waves. They consist of oscillating electric and magnetic fields and can travel through a vacuum.\n\n**Step 2: Final Result**\nTherefore, **Radio waves** do not require a material medium."
+            },
+            {
+              "id": "phys11-u3-tb1",
+              "type": "text",
+              "title": "3.1 Fundamental Wave Mechanics and Wave Behaviors (1/4)",
+              "page": 143,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "A **wave** is a repeating disturbance or oscillation that travels through space-time, accompanied by a transfer of energy from one point to another without the permanent physical transport of matter.",
+                "Waves are categorized into two fundamental classes based on their propagation mechanisms: mechanical and electromagnetic. **Mechanical waves** require a physical medium (such as a solid, liquid, or gas) to travel. Examples include water ripples, slinky waves, and sound. These waves propagate because adjacent particles within the medium collide, transferring kinetic energy from one particle to the next. In contrast, **electromagnetic waves** (including visible light, radio waves, and X-rays) do not require a material medium. They consist of mutually perpendicular electric and magnetic field oscillations and propagate through empty space at the speed of light, $$c \\approx 3.00 \\times 10^8 \\text{ m/s}$$.",
+                "Additionally, waves are classified by the direction of particle oscillation relative to the direction of wave propagation. In a **transverse wave**, the particles of the medium oscillate perpendicular (at right angles) to the direction of energy transport. Light, waves on a vibrating string, and surface water waves are prime examples. In a **longitudinal wave**, the particles of the medium oscillate parallel to the direction of energy transport, creating alternating regions of high density (**compressions**) and low density (**rarefactions**). Sound waves are the most common longitudinal waves.",
+                "To analyze wave motion mathematically, we define several critical parameters. The *amplitude* ($$A$$) is the maximum displacement of a particle from its equilibrium position. The *wavelength* ($$\\lambda$$) is the distance between any two adjacent in-phase points, such as successive crests in a transverse wave or successive compressions in a longitudinal wave. The *frequency* ($$f$$) is the number of complete wave cycles that pass a given point in one second, measured in Hertz ($$\\text{Hz}$$, where $$1 \\text{ Hz} = 1 \\text{ s}^{-1}$$$). The *period* ($$T$$) is the time required for one complete wave cycle to pass a fixed point, which is the reciprocal of frequency:"
+              ]
             }
           ]
         },
@@ -6069,6 +6595,20 @@
                 }
               ],
               "answer": "C"
+            },
+            {
+              "id": "phys11-u3-tb2",
+              "type": "text",
+              "title": "3.1 Fundamental Wave Mechanics and Wave Behaviors (2/4)",
+              "page": 180,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "$$T = \\frac{1}{f}$$",
+                "These variables are related to the wave speed ($$v$$) by the fundamental **wave equation**:",
+                "$$v = f \\lambda = \\frac{\\lambda}{T}$$",
+                "When a wave encounters a boundary between different media, several fundamental behaviors occur: 1. **Reflection**: The wave bounces off the boundary and returns to its original medium. If a wave on a string hits a fixed boundary, the reflected pulse is inverted (upside down); if the boundary is free, the reflected pulse is not inverted. 2. **Refraction**: The wave crosses into the second medium, changing its speed and wavelength, which causes its direction of propagation to bend. Refraction is governed by the law of refraction:"
+              ]
             }
           ]
         },
@@ -6199,6 +6739,62 @@
                 }
               ],
               "answer": "D"
+            },
+            {
+              "id": "phys11-u3-tb3",
+              "type": "text",
+              "title": "3.1 Fundamental Wave Mechanics and Wave Behaviors (3/4)",
+              "page": 192,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "$$\\frac{\\sin i}{\\sin r} = \\frac{v_1}{v_2}$$",
+                "3. **Diffraction**: The wave bends around obstacles or spreads out after passing through narrow openings. The degree of diffraction is greatest when the wavelength is comparable to or larger than the size of the opening. 4. **Interference**: When two or more waves travel through the same medium simultaneously, they overlap. According to the *Principle of Superposition*, the resulting displacement is the algebraic sum of the individual wave displacements. If the waves are in phase, they reinforce each other (**constructive interference**), producing a larger amplitude. If they are out of phase, they cancel each other out (**destructive interference**).",
+                "Parameter — Definition — SI Unit — Formula / Relationship | Amplitude ($$A$$) — Maximum displacement from equilibrium — Meter ($$\\text{m}$$) — Determined by wave energy | Wavelength ($$\\lambda$$) — Distance between successive identical points — Meter ($$\\text{m}$$) — $$\\lambda = \\frac{v}{f}$$ | Frequency ($$f$$) — Number of cycles passing a point per second — Hertz ($$\\text{Hz}$$) — $$f = \\frac{1}{T}$$ | Period ($$T$$) — Time taken for one complete cycle — Second ($$\\text{s}$$) — $$T = \\frac{1}{f}$$ | Speed ($$v$$) — Distance traveled by a wave per unit time — Meter per second ($$\\text{m/s}$$) — $$v = f \\lambda$$",
+                "> **💡 Did You Know?**: Earthquakes produce both longitudinal and transverse mechanical waves. Seismologists discovered that only longitudinal waves (P-waves) can travel through the Earth's liquid outer core, while transverse waves (S-waves) are blocked. This provided the first definitive proof that the Earth's outer core is liquid."
+              ]
+            },
+            {
+              "id": "phys11-u3-tb5",
+              "type": "text",
+              "title": "3.2 Sound Waves: Production, Speed, and Behavior (1/3)",
+              "page": 192,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Sound** is a mechanical, longitudinal wave produced by vibrating objects, propagating through a compressible medium (solid, liquid, or gas) via a series of alternating high-pressure regions (compressions) and low-pressure regions (rarefactions).",
+                "All sounds originate from vibrating matter. For instance, when you speak, your vocal cords vibrate, forcing surrounding air molecules to oscillate. Because sound is a mechanical wave, it requires a material medium to travel. It cannot propagate through a vacuum because there are no particles to transmit collisions. This is demonstrated by the classic bell jar experiment: as air is pumped out of a jar containing a ringing electric bell, the sound becomes progressively fainter until it dies away completely, even though the hammer can still be seen striking the bell.",
+                "Sound travels at different speeds depending on the physical properties of the medium, specifically its elasticity (bulk modulus) and density. Sound travels fastest in solids because their closely packed, highly elastic atomic bonds transfer kinetic energy rapidly. It travels slower in liquids and slowest in gases, where molecules are far apart and collisions are less frequent. For example, at $$25^\\circ\\text{C}$$, sound travels at approximately $$347 \\text{ m/s}$$ in air, $$1498 \\text{ m/s}$$ in water, and $$4877 \\text{ m/s}$$ in aluminum.",
+                "In a gas like air, the speed of sound is highly dependent on temperature. As air temperature increases, its molecules move faster and collide more frequently, which increases the speed of sound. This relationship is given by the linear expression:"
+              ]
+            },
+            {
+              "id": "phys11-u3-tb6",
+              "type": "text",
+              "title": "3.2 Sound Waves: Production, Speed, and Behavior (2/3)",
+              "page": 192,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "$$v = 331 \\text{ m/s} + 0.60 T$$",
+                "where $$v$$ is the speed of sound in air in meters per second ($$\\text{m/s}$$) and $$T$$ is the air temperature in degrees Celsius ($$^\\circ\\text{C}$$$).",
+                "Additionally, sound waves are classified by frequency relative to human hearing limits: 1. **Audible Range**: Frequencies between $$20 \\text{ Hz}$$ and $$20,000 \\text{ Hz}$$ (approximately) that can be detected by the human ear. This range decreases with age due to natural wear and tear of sensory cells in the inner ear. 2. **Infrasound**: Frequencies below $$20 \\text{ Hz}$$. Sources of infrasound include earthquakes, volcanic eruptions, and heavy industrial machinery. Some animals, such as elephants, use infrasound to communicate over long distances. 3. **Ultrasound**: Frequencies above $$20,000 \\text{ Hz}$$. Ultrasound is used extensively in medicine for internal imaging (sonography), in industry to find internal flaws in metal castings, and by animals like bats and dolphins for echolocation and navigation.",
+                "When a sound wave strikes a hard surface, it is reflected. This reflected sound wave is called an **echo**. Because the human brain retains a sound sensation for about $$0.1 \\text{ s}$$ (persistence of hearing), the reflected sound must arrive at least $$0.1 \\text{ s}$$ after the original sound to be perceived as a distinct echo. At room temperature, this requires the reflecting surface to be at least $$17 \\text{ m}$$ away from the source. In smaller rooms, multiple overlapping reflections occur within $$0.1 \\text{ s}$$, merging into a continuous, decaying sound called **reverberation**. If two sound sources with slightly different frequencies ($$f_1$$ and $$f_2$$) are played together, they interfere to produce periodic fluctuations in loudness called **beats**. The number of beats heard per second is the *beat frequency* ($$f_b$$):"
+              ]
+            },
+            {
+              "id": "phys11-u3-tb7",
+              "type": "text",
+              "title": "3.2 Sound Waves: Production, Speed, and Behavior (3/3)",
+              "page": 192,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "$$f_b = |f_2 - f_1|$$",
+                "Medium Class — Elasticity / Density Characteristics — Typical Speed of Sound ($$v$$) — Physical Example | Solids — High elasticity, high density — $$3000 \\text{ m/s} - 6000 \\text{ m/s}$$ — Steel, Glass, Aluminium | Liquids — Moderate elasticity, moderate density — $$1000 \\text{ m/s} - 1600 \\text{ m/s}$$ — Water, Sea Water, Mercury | Gases — Low elasticity, low density — $$300 \\text{ m/s} - 1300 \\text{ m/s}$$ — Air ($$343 \\text{ m/s}$$), Hydrogen",
+                "> **💡 Did You Know?**: Bats emit high-frequency ultrasonic squeaks (up to $$100,000 \\text{ Hz}$$) and listen for the returning echoes. By analyzing the time delay and frequency shift of these echoes, they can calculate the exact position, distance, and speed of flying insects in absolute darkness.",
+                "> **🧠 Pro-Tip**: To find the distance to a reflecting wall using an echo, always divide the total travel time of the sound by $$2$$, since the sound must travel to the wall and back to the observer ($$d = v \\times \\frac{t}{2}$$)."
+              ]
             }
           ]
         },
@@ -6334,6 +6930,59 @@
                 }
               ],
               "answer": "C"
+            },
+            {
+              "id": "phys11-u3-tb4",
+              "type": "text",
+              "title": "3.1 Fundamental Wave Mechanics and Wave Behaviors (4/4)",
+              "page": 201,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "> **🧠 Pro-Tip**: When a wave transitions from one medium to another, its speed and wavelength change, but its **frequency remains constant** because it is determined solely by the source of the oscillation."
+              ]
+            },
+            {
+              "id": "phys11-u3-tb8",
+              "type": "text",
+              "title": "3.3 Acoustics (Intensity, Pitch, and Quality) and Electromagnetic Waves (1/3)",
+              "page": 201,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Acoustics** is the interdisciplinary science that deals with the study of mechanical waves in gases, liquids, and solids—including vibration, sound, ultrasound, and infrasound—characterized perceptually by intensity, pitch, and quality.",
+                "**Sound Intensity** ($$I$$) is defined as the power ($$P$$) carried by sound waves per unit area ($$A$$) perpendicular to the direction of wave propagation:",
+                "$$I = \\frac{\\text{Power}}{\\text{Area}} = \\frac{P}{A}$$",
+                "The SI unit of intensity is watts per square meter ($$\\text{W/m}^2$$). The human ear has an incredibly wide range of sensitivity, detecting sound intensities from $$10^{-12} \\text{ W/m}^2$$ (the *threshold of hearing*, $$I_0$$) up to $$1 \\text{ W/m}^2$$ (the *threshold of pain*). Due to this exponential range, we measure sound intensity levels ($$\\beta$$) on a logarithmic scale in **decibels** ($$\\text{dB}$$):"
+              ]
+            },
+            {
+              "id": "phys11-u3-tb9",
+              "type": "text",
+              "title": "3.3 Acoustics (Intensity, Pitch, and Quality) and Electromagnetic Waves (2/3)",
+              "page": 201,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "$$\\beta = 10 \\log_{10}\\left(\\frac{I}{I_0}\\\\right)$$",
+                "where $$I_0 = 1.00 \\times 10^{-12} \\text{ W/m}^2$$. An increase in intensity by a factor of $$10$$ corresponds to a level increase of $$10 \\text{ dB}$$. An increase by a factor of $$100$$ corresponds to an increase of $$20 \\text{ dB}$$. While loudness is a subjective sensation, a $$10 \\text{ dB}$$ increase is generally perceived by humans as a doubling of loudness.",
+                "Additionally, we describe sound using several subjective properties and their physical counterparts: 1. **Pitch**: The subjective perception of the frequency of a sound wave. A high-frequency wave is perceived as a high pitch (e.g., a flute), while a low-frequency wave is perceived as a low pitch (e.g., a bass drum). 2. **Loudness**: The subjective perception of the amplitude and intensity of the sound wave. 3. **Quality (Timbre)**: The acoustic character that allows us to distinguish between two sounds of the same pitch and loudness produced by different sources (such as a violin and a piano). This distinct quality is determined by the specific blend of **harmonics** (integer multiples of the fundamental frequency, $$f_1, 2f_1, 3f_1, \\dots$$) and **overtones** present in the sound wave.",
+                "In addition to acoustics, this unit covers **Electromagnetic (EM) Waves**. Unlike sound, EM waves are transverse, non-mechanical waves that travel through a vacuum. They are produced by accelerating charged particles, such as vibrating electrons within atoms. The electric ($$\\mathbf{E}$$) and magnetic ($$\\mathbf{B}$$) fields in an EM wave oscillate perpendicular to each other and to the direction of wave propagation."
+              ]
+            },
+            {
+              "id": "phys11-u3-tb10",
+              "type": "text",
+              "title": "3.3 Acoustics (Intensity, Pitch, and Quality) and Electromagnetic Waves (3/3)",
+              "page": 201,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "The complete **electromagnetic spectrum** is classified by frequency or wavelength, ranging from long radio waves to short gamma rays. All EM waves travel at the same speed in a vacuum ($$c = 3.00 \\times 10^8 \\text{ m/s}$$$). Because EM waves are transverse, they can be **polarized**. Polarization is the process of restricting the oscillations of the electric field vector to a single plane of vibration, a property that is impossible for longitudinal waves like sound.",
+                "EM Wave Band — Wavelength Range — Common Source — Key Practical Application | Radio Waves — $$> 1 \\text{ mm}$$ — Oscillating electronic circuits — Television and radio broadcasting | Microwaves — $$1 \\text{ mm} - 30 \\text{ cm}$$ — Electric devices, magnetrons — Satellite communications, microwave ovens | Infrared (IR) — $$700 \\text{ nm} - 1 \\text{ mm}$$ — Thermal vibration of molecules — TV remote controls, night-vision cameras | Visible Light — $$400 \\text{ nm} - 700 \\text{ nm}$$ — Energy changes in atomic electrons — Human vision, photography | Ultraviolet (UV) — $$10 \\text{ nm} - 380 \\text{ nm}$$ — Energy changes in atomic electrons — Sterilization, vitamin D production | X-rays — $$0.01 \\text{ nm} - 10 \\text{ nm}$$ — Firing fast electrons at metal targets — Medical imaging (bone fractures) | Gamma Rays — $$< 0.01 \\text{ nm}$$ — Radioactive decay in atomic nuclei — Cancer radiotherapy, sterilizing instruments",
+                "> **💡 Did You Know?**: Polarized sunglasses work by using a vertical polarizing filter to block horizontally polarized light. Since sunlight reflected off horizontal surfaces like wet roads or car hoods is horizontally polarized, these glasses significantly reduce glare.",
+                "> **🧠 Pro-Tip**: In decibel calculations, doubling the intensity of a sound source ($$I_2 = 2 I_1$$) increases the sound intensity level by approximately $$3 \\text{ dB}$$ ($$\\Delta \\beta = 10 \\log_{10}(2) \\approx 3.01 \\text{ dB}$$$)."
+              ]
             }
           ]
         },
@@ -6448,6 +7097,20 @@
                 }
               ],
               "answer": "C"
+            },
+            {
+              "id": "phys11-u3-tb11",
+              "type": "text",
+              "title": "Pitch and quality of sound",
+              "page": 206,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Pitch is how high or low a note sounds; it relates mainly to frequency. Higher frequency → higher pitch.",
+                "Quality (timbre) lets you tell a piano from a flute playing the same pitch. It depends on the waveform and overtones (harmonics) present with the fundamental frequency.",
+                "Loudness relates to amplitude/intensity, while pitch relates to frequency — students often mix these two up in exams.",
+                "Human hearing roughly spans about $$20\\text{ Hz}$$ to $$20\\text{ kHz}$$, with sensitivity best in the middle of that range."
+              ]
             }
           ]
         },
@@ -6565,6 +7228,20 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys11-u3-tb12",
+              "type": "text",
+              "title": "Musical sound and noise",
+              "page": 211,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Musical sounds usually have regular, repeating waveforms and definite pitch. Noise is irregular and often has no clear pitch.",
+                "Instruments produce standing waves in strings, air columns or membranes; the allowed frequencies set the notes.",
+                "Noise pollution matters because high sound levels can damage hearing and affect concentration and health.",
+                "Beats occur when two close frequencies sound together, producing a throbbing loudness variation at the difference frequency."
+              ]
             }
           ]
         },
@@ -6753,6 +7430,20 @@
                 }
               ],
               "answer": "D"
+            },
+            {
+              "id": "phys11-u3-tb13",
+              "type": "text",
+              "title": "Electromagnetic waves — overview",
+              "page": 213,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Electromagnetic (EM) waves are oscillating electric and magnetic fields that travel through space. In vacuum they move at $$c \\approx 3.0 \\times 10^8\\text{ m/s}$$.",
+                "The EM spectrum includes radio, microwave, infrared, visible light, ultraviolet, X-rays and gamma rays — same wave family, different frequency/wavelength.",
+                "Higher frequency means higher photon energy and usually greater penetration or ionizing ability (X-rays, gamma).",
+                "Visible light is only a thin band of the spectrum; radio waves have long wavelengths, gamma rays very short ones."
+              ]
             }
           ]
         }

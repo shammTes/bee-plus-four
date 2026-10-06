@@ -332,6 +332,71 @@
               },
               "answer": "B",
               "why": "**Step 1: Write the range formula**\nThe horizontal range $$R$$ of a projectile is given by:  \n$$R = \\frac{v_0^2 \\sin(2\\theta_0)}{g}$$\n\n**Step 2: Maximize the trigonometric function**\nThe maximum value of the sine function is $$1$$, which occurs when the angle argument is $$90^\\circ$$:  \n$$\\sin(2\\theta_0) = 1 \\implies 2\\theta_0 = 90^\\circ$$\n\n**Step 3: Solve for the launch angle**\n$$\\theta_0 = \\frac"
+            },
+            {
+              "id": "phys10-u1-tb1",
+              "type": "text",
+              "title": "1.1 Projectile Motion",
+              "page": 2,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Projectile Motion** is a form of motion experienced by an object or particle (a projectile) that is thrown near the Earth's surface and moves along a curved path under the action of gravity only."
+              ]
+            },
+            {
+              "id": "phys10-u1-tb2",
+              "type": "text",
+              "title": "1.1 Projectile Motion — Deep Dive (1/2)",
+              "page": 2,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "When an object is launched into space, it exhibits two independent, simultaneous one-dimensional motions: a horizontal motion with constant velocity (zero acceleration) and a vertical motion with constant downward acceleration due to gravity ($$g \\approx 9.8\\text{ m/s}^2$$). This independence of vertical and horizontal components is a cornerstone of classical mechanics, first systematically analyzed by Galileo Galilei.",
+                "The trajectory of a projectile is always parabolic in the absence of air resistance. The horizontal component of the velocity ($$v_x$$) remains constant throughout the flight because there are no horizontal forces acting on the projectile (neglecting air resistance). This means the horizontal acceleration ($$a_x$$) is strictly zero. Consequently, the horizontal displacement ($$x$$) is given by a simple linear equation: $$x = v_{0x} t = (v_0 \\cos\\theta_0) t$$.",
+                "Conversely, the vertical component of the velocity ($$v_y$$) is continuously modified by gravitational acceleration. The vertical acceleration ($$a_y$$) is constant and directed downwards, which is represented as $$-g$$ (or $$-9.8\\text{ m/s}^2$$). This component behaves exactly like a freely falling body or an object thrown vertically upward, governed by the standard kinematic equations: $$y = (v_0 \\sin\\theta_0) t - \\frac{1}{2}gt^2$$ and $$v_y = v_0 \\sin\\theta_0 - gt$$.",
+                "Why it matters: Understanding Projectile Motion is not only fundamental to athletic activities like kicking a football or launching a basketball, but it is also critical for engineering ballistic trajectories, launching satellites, and designing safety systems in aerospace engineering. The same principles dictate how packages dropped from planes land, requiring precise mathematical integration of horizontal and vertical vectors."
+              ]
+            },
+            {
+              "id": "phys10-u1-tb3",
+              "type": "text",
+              "title": "1.1 Projectile Motion — Deep Dive (2/2)",
+              "page": 2,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "To mathematically describe the path, we can eliminate the time variable ($$t$$) from the parametric equations. By solving for $$t = \\frac{x}{v_0 \\cos\\theta_0}$$ and substituting it into the vertical displacement equation, we derive the trajectory equation: $$y = (\\tan\\theta_0)x - \\frac{g}{2(v_0 \\cos\\theta_0)^2}x^2$$. This quadratic relationship explicitly proves that the geometric path of a projectile is a parabola."
+              ]
+            },
+            {
+              "id": "phys10-u1-tb4",
+              "type": "text",
+              "title": "1.1 Projectile Motion — Comparative Analysis",
+              "page": 2,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Motion Component — Acceleration — Velocity Behavior — Governing Kinematics Equation | Horizontal ($$x$$) — $$a_x = 0$$ — Constant ($$v_x = v_{0x}$$) — $$x = v_{0x} t$$ | Vertical ($$y$$) — $$a_y = -g$$ — Uniformly changing ($$v_y = v_{0y} - gt$$) — $$y = v_{0y}t - \\frac{1}{2}gt^2$$",
+                "> **💡 Did You Know?**: A bullet fired horizontally and a bullet dropped vertically from the same height at the exact same instant will strike flat ground at the same time, because their vertical motions are identical and independent of their horizontal speeds!",
+                "> **🧠 Pro-Tip**: In any projectile problem, always look for the 'time of flight' ($$t$$) first. Since time is a scalar, it is the fundamental bridge that connects the horizontal and vertical components of motion."
+              ]
+            },
+            {
+              "id": "phys10-u1-chk12",
+              "type": "check",
+              "title": "Quick check",
+              "page": 2,
+              "src": "study_notes",
+              "q": "Under what condition is the torque produced by a non-zero force acting on a lever arm equal to zero?",
+              "options": {
+                "A": "When the force is applied perpendicular to the lever arm",
+                "B": "When the force is applied at $$45^\\circ$$ to the lever arm",
+                "C": "When the line of action of the force passes directly through the pivot point",
+                "D": "The torque can never be zero for a non-zero force"
+              },
+              "answer": "C",
+              "why": "**Step 1: Write torque formula**\n$$\\tau = F \\cdot r \\cdot \\sin\\theta$$\n\n**Step 2: Analyze conditions for zero torque**\nFor a non-zero force ($$F \\neq 0$$):\n- Either $$r = 0$$ (force applied at the pivot).\n- Or $$\\sin\\theta = 0 \\implies \\theta = 0^\\circ \\text{ or } 180^\\circ$$ (force parallel to the lever arm).\n\n**Step 3: Relate to physical behavior**\nBoth conditions describe a line of force that passes directly through the pivot point, making the perpendicular lever arm length $$d = 0$$.\n\n**Step 4: Final Result**\nTorque is zero **when the line of action of the force passes directly through the pivot point**."
             }
           ]
         },
@@ -487,6 +552,71 @@
                 }
               ],
               "answer": "D"
+            },
+            {
+              "id": "phys10-u1-tb5",
+              "type": "text",
+              "title": "1.2 Circular Motion",
+              "page": 13,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Circular Motion** is the movement of an object along the circumference of a circle or rotation along a circular path."
+              ]
+            },
+            {
+              "id": "phys10-u1-tb6",
+              "type": "text",
+              "title": "1.2 Circular Motion — Deep Dive (1/2)",
+              "page": 13,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Circular motion can be broadly classified into Uniform Circular Motion (UCM) and Non-uniform Circular Motion. In Uniform Circular Motion, the object travels along a circular path at a constant speed. However, because velocity is a vector quantity having both magnitude and direction, the velocity is continuously changing because its direction is constantly changing tangent to the circular path. This constant change in direction implies that the object is continuously accelerating.",
+                "This acceleration is called centripetal acceleration ($$a_c$$), meaning \"center-seeking.\" It is always directed radially inward toward the center of the circular path, perpendicular to the linear velocity vector. The magnitude of centripetal acceleration is mathematically formulated as $$a_c = \\frac{v^2}{r}$$, where $$v$$ is the constant speed and $$r$$ is the radius of the circle. Without this inward acceleration (and the corresponding centripetal force), the object would fly off along a straight-line tangent to the circle, obeying Newton's first law of motion.",
+                "In Non-uniform Circular Motion, both the speed and the direction of the object change. In this scenario, the acceleration vector has two perpendicular components: centripetal (radial) acceleration ($$a_c$$) which changes the direction of velocity, and tangential acceleration ($$a_t$$) which changes the magnitude of velocity (speed). The total linear acceleration ($$a$$) is the vector sum of these two: $$a = \\sqrt{a_c^2 + a_t^2}$$.",
+                "Why it matters: Circular motion principles are vital for astronomical calculations, such as determining the orbits of planets and artificial satellites. They are also essential in everyday engineering, such as designing banked highways to prevent cars from skidding, manufacturing centrifuges for medical laboratories, and calculating the structural limits of high-speed roller coasters."
+              ]
+            },
+            {
+              "id": "phys10-u1-tb7",
+              "type": "text",
+              "title": "1.2 Circular Motion — Deep Dive (2/2)",
+              "page": 13,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "When a car rounds a flat curve, the centripetal force is provided entirely by the static friction between the tires and the road surface. If this frictional force is insufficient ($$f_s < \\frac{mv^2}{r}$$), the car slips outward. To mitigate this hazard, engineers bank roads at a specific angle $$\\theta$$ so that the normal force contributes to the centripetal force, allowing safe transit even in low-friction conditions: $$\\tan\\theta = \\frac{v^2}{rg}$$."
+              ]
+            },
+            {
+              "id": "phys10-u1-tb8",
+              "type": "text",
+              "title": "1.2 Circular Motion — Comparison of Circular Motion Types",
+              "page": 13,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Parameter — Uniform Circular Motion — Non-Uniform Circular Motion | Speed ($$v$$) — Constant — Variable | Tangential Acceleration ($$a_t$$) — Zero ($$a_t = 0$$) — Non-zero ($$a_t = \\frac{dv}{dt}$$) | Centripetal Acceleration ($$a_c$$) — Non-zero ($$a_c = \\frac{v^2}{r}$$) — Non-zero ($$a_c = \\frac{v^2}{r}$$) | Total Acceleration Vector — Radial only ($$a = a_c$$) — Resultant ($$a = \\sqrt{a_c^2 + a_t^2}$$)",
+                "> **💡 Did You Know?**: Astronauts orbiting the Earth are in a state of perpetual free-fall. They are moving horizontally at a speed so high ($$\\approx 7.9\\text{ km/s}$$) that as they fall toward the Earth, the Earth's surface curves away beneath them at the exact same rate, keeping them in a circular orbit!",
+                "> **🧠 Pro-Tip**: Centripetal force is not a new type of force; it is a label we apply to net physical forces (like tension, gravity, or friction) that act toward the center of a circular path."
+              ]
+            },
+            {
+              "id": "phys10-u1-chk9",
+              "type": "check",
+              "title": "Quick check",
+              "page": 13,
+              "src": "study_notes",
+              "q": "Two cars, A and B, are moving in the same direction along a straight road with velocities $$80\\text{ km/h}$$ and $$50\\text{ km/h}$$ respectively. What is the velocity of car A relative to car B?",
+              "options": {
+                "A": "$$130\\text{ km/h}$$",
+                "B": "$$30\\text{ km/h}$$",
+                "C": "$$-30\\text{ km/h}$$",
+                "D": "$$80\\text{ km/h}$$"
+              },
+              "answer": "B",
+              "why": "**Step 1: Write relative velocity formula**\n$$v_{AB} = v_A - v_B$$\n\n**Step 2: Assign values**\n$$v_A = +80\\text{ km/h}$$ (since both are in the same direction, assign positive)  \n$$v_B = +50\\text{ km/h}$$\n\n**Step 3: Calculate**\n$$v_{AB} = 80\\text{ km/h} - 50\\text{ km/h} = 30\\text{ km/h}$$\n\n**Step 4: Final Result**\nThe relative velocity is **$$30\\text{ km/h}$$**."
             }
           ]
         },
@@ -625,6 +755,71 @@
                 }
               ],
               "answer": "D"
+            },
+            {
+              "id": "phys10-u1-tb9",
+              "type": "text",
+              "title": "1.3 Relative Motion",
+              "page": 19,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Relative Motion** is the calculation of the motion of an object with regard to some other moving or stationary reference frame."
+              ]
+            },
+            {
+              "id": "phys10-u1-tb10",
+              "type": "text",
+              "title": "1.3 Relative Motion — Deep Dive (1/2)",
+              "page": 19,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "In the physical universe, there is no such thing as absolute rest or absolute motion. All motion measurements are inherently relative to a chosen frame of reference. A frame of reference is a coordinate system used to measure the position, velocity, and acceleration of an object. For example, a person sitting on a moving bus is at rest relative to the bus, but moving at $$60\\text{ km/h}$$ relative to an observer standing on the roadside.",
+                "To mathematically formulate relative velocity, let us consider two objects, $$A$$ and $$B$$, moving relative to the ground (fixed frame $$G$$). The velocity of $$A$$ relative to $$B$$ (denoted as $$\\vec{v}_{AB}$$) is given by the vector subtraction: $$\\vec{v}_{AB} = \\vec{v}_{AG} - \\vec{v}_{BG}$$ (or simply $$\\vec{v}_{AB} = \\vec{v}_A - \\vec{v}_B$$). This equation shows that the relative velocity of $$A$$ with respect to $$B$$ is the velocity of $$A$$ minus the velocity of $$B$$.",
+                "When dealing with motion in two dimensions, we must employ vector addition. For instance, if a boat attempts to cross a flowing river, its resultant velocity relative to the riverbank ($$\\vec{v}_{bg}$$) is the vector sum of the boat's velocity relative to the water ($$\\vec{v}_{bw}$$) and the water's velocity relative to the bank ($$\\vec{v}_{wg}$$): $$\\vec{v}_{bg} = \\vec{v}_{bw} + \\vec{v}_{wg}$$. This vector addition can be resolved into orthogonal components using trigonometric functions.",
+                "Why it matters: Relative motion calculations are essential for navigation. Pilots must continuously adjust their heading to account for wind speed and direction (wind drift) to stay on their planned flight path. Similarly, maritime vessels must calculate the effects of ocean currents, and radar tracking systems must calculate relative velocity to intercept incoming targets."
+              ]
+            },
+            {
+              "id": "phys10-u1-tb11",
+              "type": "text",
+              "title": "1.3 Relative Motion — Deep Dive (2/2)",
+              "page": 19,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "In classical mechanics, these transformations are known as Galilean transformations. They assume that space and time are absolute, meaning time passes at the same rate in all frames of reference. While this holds true for everyday speeds, Einstein's theory of Special Relativity reveals that at speeds approaching the speed of light, relative velocity calculations must be modified because time and space are no longer absolute."
+              ]
+            },
+            {
+              "id": "phys10-u1-tb12",
+              "type": "text",
+              "title": "1.3 Relative Motion — Relative Velocity Scenarios (1D and 2D)",
+              "page": 19,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Physical Scenario — Vector Equation — Magnitude Calculation | Collinear (Same Direction) — $$\\vec{v}_{AB} = \\vec{v}_A - \\vec{v}_B$$ — $$v_{AB} = v_A - v_B$$ | Collinear (Opposite Directions) — $$\\vec{v}_{AB} = \\vec{v}_A - (-\\vec{v}_B)$$ — $$v_{AB} = v_A + v_B$$ | Perpendicular (2D) — $$\\vec{v}_{AC} = \\vec{v}_{AB} + \\vec{v}_{BC}$$ — $$v_{AC} = \\sqrt{v_{AB}^2 + v_{BC}^2}$$",
+                "> **💡 Did You Know?**: When rain falls vertically, it appears to hit the windshield of a moving car at an angle. This is because the velocity of the rain relative to the car is the vector difference between the rain's vertical velocity and the car's horizontal velocity!",
+                "> **🧠 Pro-Tip**: When writing relative velocity subscripts, keep the order consistent: $$\\vec{v}_{AC} = \\vec{v}_{AB} + \\vec{v}_{BC}$$. Notice how the inner subscripts ($$B$$) 'cancel' out, leaving you with the outer subscripts ($$A$$ and $$C$$)."
+              ]
+            },
+            {
+              "id": "phys10-u1-chk10",
+              "type": "check",
+              "title": "Quick check",
+              "page": 19,
+              "src": "study_notes",
+              "q": "What is the SI unit of torque (moment of a force)?",
+              "options": {
+                "A": "$$\\text{N/m}$$",
+                "B": "$$\\text{N}\\cdot\\text{m}$$",
+                "C": "$$\\text{J/s}$$",
+                "D": "$$\\text{N}\\cdot\\text{s}$$"
+              },
+              "answer": "B",
+              "why": "**Step 1: Write torque formula**\n$$\\tau = F \\cdot d \\cdot \\sin\\theta$$\n\n**Step 2: Identify units of parameters**\nForce $$F$$ has unit Newton ($$\\text{N}$$).  \nDistance $$d$$ has unit meter ($$\\text{m}$$).  \nSine of an angle is dimensionless.\n\n**Step 3: Combine units**\n$$\\text{Unit of } \\tau = \\text{N} \\cdot \\text{m} = \\text{N}\\cdot\\text{m}$$\n\n**Step 4: Final Result**\nThe SI unit is **$$\\text{N}\\cdot\\text{m}$$**."
             }
           ]
         },
@@ -783,6 +978,71 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u1-tb13",
+              "type": "text",
+              "title": "1.4 Moment of a Force",
+              "page": 27,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Moment of a Force** (or torque) is a measure of the tendency of a force to cause a body to rotate about a specific point or axis."
+              ]
+            },
+            {
+              "id": "phys10-u1-tb14",
+              "type": "text",
+              "title": "1.4 Moment of a Force — Deep Dive (1/2)",
+              "page": 27,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Just as a net force is required to change the linear motion of an object (producing linear acceleration), a net moment of a force (or torque) is required to change the rotational motion of an object (producing angular acceleration). The point about which the object rotates is called the pivot, fulcrum, or axis of rotation.",
+                "The magnitude of the moment of a force depends on two primary factors: the magnitude of the applied force ($$F$$) and the perpendicular distance from the axis of rotation to the line of action of the force. This distance is called the moment arm or lever arm ($$d$$). Mathematically, the torque ($\\tau$, Greek letter tau) is defined as: $$\\tau = F r \\sin\\theta$$, where $$r$$ is the distance from the pivot point to the point of application of the force, and $$\\theta$$ is the angle between the force vector and the position vector. The SI unit of torque is the Newton-meter ($$\\text{N}\\cdot\\text{m}$$).",
+                "According to the convention of rotational mechanics, counter-clockwise moments are designated as positive ($$+$$), while clockwise moments are designated as negative ($$-$$). A body is said to be in complete mechanical equilibrium when two conditions are met: the net external force is zero (translational equilibrium: $$\\sum \\vec{F} = 0$$), and the net external torque about any axis is zero (rotational equilibrium: $$\\sum \\vec{\\tau} = 0$$). This second condition is known as the **Principle of Moments**.",
+                "Why it matters: The principle of moments is the bedrock of civil engineering and architecture. It dictates how bridges support heavy loads, how skyscrapers withstand wind forces, and how cranes lift immense loads without tipping over. It is also the operational mechanism behind simple machines like crowbars, pliers, scissors, and the human skeletal-muscular system."
+              ]
+            },
+            {
+              "id": "phys10-u1-tb15",
+              "type": "text",
+              "title": "1.4 Moment of a Force — Deep Dive (2/2)",
+              "page": 27,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "When a heavy load needs to be balanced, the positioning of the pivot is crucial. For a uniform rod balanced at its center of gravity, any weights placed on either side will create rotational tendencies. By applying $$\\sum \\tau = 0$$, we can find unknown weights or distances: $$W_1 d_1 = W_2 d_2$$. This simple equation allows a small force applied at a large distance to balance a massive weight at a short distance, which is the definition of mechanical advantage."
+              ]
+            },
+            {
+              "id": "phys10-u1-tb16",
+              "type": "text",
+              "title": "1.4 Moment of a Force — Factors Influencing Torque ($$\\tau = F d$$)",
+              "page": 27,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Factor — Physical Change — Effect on Rotational Tendency | Force Magnitude ($$F$$) — Increasing $$F$$ — Increases torque proportionally | Lever Arm ($$d$$) — Increasing distance from pivot — Increases torque proportionally | Angle of Application ($$\\theta$$) — Approaching $$90^\\circ$$ (perpendicular) — Maximizes torque ($$\\sin 90^\\circ = 1$$) | Angle of Application ($$\\theta$$) — Approaching $$0^\\circ$$ or $$180^\\circ$$ (parallel) — Reduces torque to zero ($$\\sin 0^\\circ = 0$$)",
+                "> **💡 Did You Know?**: Archimedes famously boasted about the power of levers, stating: \"Give me a place to stand on, and I will move the Earth.\" He understood that with an infinitely long lever and a suitable pivot, any force, no matter how small, could generate enough torque to move any mass!",
+                "> **🧠 Pro-Tip**: When calculating moments, always identify the pivot point first. Choosing a pivot point where an unknown force acts is a clever mathematical trick because it reduces the torque of that force to zero ($$r = 0$$), simplifying your equilibrium equations."
+              ]
+            },
+            {
+              "id": "phys10-u1-chk11",
+              "type": "check",
+              "title": "Quick check",
+              "page": 27,
+              "src": "study_notes",
+              "q": "Which sign convention is conventionally assigned to counter-clockwise torques?",
+              "options": {
+                "A": "Positive ($$+$$-sign)",
+                "B": "Negative ($$minus$$-sign)",
+                "C": "Neutral (always zero)",
+                "D": "It depends on the chosen pivot point"
+              },
+              "answer": "A",
+              "why": "**Step 1: Identify rotational sign conventions**\nIn physics and engineering, we adopt standard coordinate rules for rotational quantities.\n\n**Step 2: Match directions to signs**\nCounter-clockwise (CCW) rotations are standardly defined as **positive** ($$+$$).  \nClockwise (CW) rotations are defined as **negative** ($$-$$).\n\n**Step 3: Final Result**\nCounter-clockwise torques are **Positive**."
             }
           ]
         }
@@ -1517,7 +1777,8 @@
           }
         ],
         "src": "auto"
-      }
+      },
+      "intro": "| $$a_x = 0$$ | Constant ($$v_x = v_{0x}$$) | $$x = v_{0x} t$$ |\n|"
     },
     {
       "id": "phys10-u2",
@@ -1778,6 +2039,71 @@
               },
               "answer": "A",
               "why": "**Step 1: Understand temperature changes versus absolute temperatures**\nAn absolute temperature conversion is given by $$T_K = T_C + 273.15$$.\n\n**Step 2: Analyze temperature intervals (differences)**\nSince the Celsius and Kelvin degrees are identical in size, any temperature change ($\\Delta T$) is identical on both scales:\n$$\\Delta T_K = \\Delta T_C$$\n\n**Step 3: Apply the given values**\n$$\\Delta T_"
+            },
+            {
+              "id": "phys10-u2-tb1",
+              "type": "text",
+              "title": "2.1 Temperature and Heat",
+              "page": 41,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Temperature** is a quantitative measure of the average kinetic energy of the atoms or molecules in a substance, while **heat** is the spontaneous transfer of thermal energy between systems due to a temperature gradient."
+              ]
+            },
+            {
+              "id": "phys10-u2-tb2",
+              "type": "text",
+              "title": "2.1 Temperature and Heat — Deep Dive (1/2)",
+              "page": 41,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "To understand thermodynamics, we must distinguish between temperature and heat. Temperature is an intensive property, meaning it does not depend on the quantity of matter. It dictates the direction of spontaneous heat flow: thermal energy always flows from a region of higher temperature to a region of lower temperature. This concept is formalized by the **Zeroth Law of Thermodynamics**, which states that if two thermodynamic systems are each in thermal equilibrium with a third system, they are in thermal equilibrium with each other. This law justifies the use of thermometers as objective measuring devices.",
+                "Historically, various temperature scales were devised based on different reference physical states of water. The **Celsius scale** assigns $$0^\\circ\\text{C}$$ to the freezing point and $$100^\\circ\\text{C}$$ to the boiling point of pure water under standard atmospheric pressure. The **Fahrenheit scale** sets these points at $$32^\\circ\\text{F}$$ and $$212^\\circ\\text{F}$$, resulting in a fundamental interval of $$180$$ divisions instead of the Celsius scale's $$100$$. The conversions are governed by the linear equation: $$T_F = \\frac{9}{5}T_C + 32$$.",
+                "The **Kelvin scale**, also known as the absolute temperature scale, has its zero point ($$0\\text{ K}$$) at **absolute zero**, the theoretical state where all classical molecular motion ceases. Because a Kelvin degree is identical in size to a Celsius degree, the conversion is: $$T_K = T_C + 273.15$$. Absolute zero corresponds to $$-273.15^\\circ\\text{C}$$. On the Kelvin scale, temperatures can never be negative.",
+                "When thermal energy (heat) is added to a system without changing its state, its temperature rises. The quantity of heat ($$$Q$$$$) required is proportional to the mass ($$m$$) and the temperature change ($$\\Delta T$$). The constant of proportionality is the **specific heat capacity** ($$c$$), defined by the equation: $$Q = mc\\Delta T$$. Water has an exceptionally high specific heat capacity ($$c \\approx 4200\\text{ J}/(\\text{kg}\\cdot\\text{K})$$), which enables oceans to regulate global climates."
+              ]
+            },
+            {
+              "id": "phys10-u2-tb3",
+              "type": "text",
+              "title": "2.1 Temperature and Heat — Deep Dive (2/2)",
+              "page": 41,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "During a phase transition (such as melting ice or boiling water), heat is absorbed or released without any change in temperature. This thermal energy is used to break intermolecular bonds rather than increase molecular kinetic energy. The heat required per unit mass for a phase change is called **latent heat** ($$L$$), expressed as: $$Q = mL$$. The latent heat of fusion ($$L_f$$) applies to solid-to-liquid transitions, while the latent heat of vaporization ($$L_v$$) applies to liquid-to-gas transitions."
+              ]
+            },
+            {
+              "id": "phys10-u2-tb4",
+              "type": "text",
+              "title": "2.1 Temperature and Heat — Comparison of Temperature Scales",
+              "page": 41,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Temperature Reference Point — Celsius Scale ($$^\\circ\\text{C}$$) — Fahrenheit Scale ($$^\\circ\\text{F}$$) — Kelvin Scale (\\text{K}) | Absolute Zero — $$-273.15$$ — $$-459.67$$ — $$0$$ | Freezing Point of Water — $$0$$ — $$32$$ — $$273.15$$ | Boiling Point of Water — $$100$$ — $$212$$ — $$373.15$$",
+                "> **💡 Did You Know?**: Absolute zero ($$0\\text{ K}$$) is a theoretical limit. While scientists have cooled substances to within a billionth of a degree of absolute zero, the Third Law of Thermodynamics dictates that it is physically impossible to reach absolute zero in a finite number of steps.",
+                "> **🧠 Pro-Tip**: When solving calorimetry problems, the total heat lost by the warmer substances must equal the total heat gained by the cooler substances: $$Q_{\\text{lost}} = Q_{\\text{gained}}$$. Always write this conservation of energy equation first."
+              ]
+            },
+            {
+              "id": "phys10-u2-chk9",
+              "type": "check",
+              "title": "Quick check",
+              "page": 41,
+              "src": "study_notes",
+              "q": "What is the SI unit of heat?",
+              "options": {
+                "A": "Calorie",
+                "B": "Joule",
+                "C": "Watt",
+                "D": "Celsius"
+              },
+              "answer": "B",
+              "why": "**Step 1: Identify the nature of heat**\nHeat is a transfer of thermal energy between systems.\n\n**Step 2: Recall the SI unit of energy**\nSince heat is a form of energy in transit, its standard SI unit must be the same as the unit for energy and work.\n\n**Step 3: Final Result**\nThe SI unit of heat is the **Joule**."
             }
           ]
         },
@@ -1931,6 +2257,70 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u2-tb5",
+              "type": "text",
+              "title": "2.2 Transfer of Heat",
+              "page": 73,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Heat Transfer** is the movement of thermal energy from a system of higher temperature to a system of lower temperature through three physical mechanisms: conduction, convection, and radiation."
+              ]
+            },
+            {
+              "id": "phys10-u2-tb6",
+              "type": "text",
+              "title": "2.2 Transfer of Heat — Deep Dive (1/2)",
+              "page": 73,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Conduction is the process of heat transfer through a material medium by molecular collisions and the migration of free electrons. In solids, atoms vibrate about their fixed lattice positions; when heated, these vibrations become more energetic and are transmitted to neighboring atoms. Metals are highly efficient thermal conductors because they contain a sea of highly mobile free electrons that quickly transfer kinetic energy throughout the material. The rate of heat flow by conduction ($$\\frac{Q}{t}$$) through a slab of material is given by Fourier's Law: $$\\frac{Q}{t} = \\frac{kA\\Delta T}{L}$$, where $$k$$ is the thermal conductivity of the material, $$A$$ is the cross-sectional area, $$\\Delta T$$ is the temperature difference across the material, and $$L$$ is the thickness.",
+                "Convection is the transfer of heat within fluid media (liquids and gases) via the physical movement of the fluid itself. When a fluid is heated from below, it expands, becomes less dense, and rises due to buoyant forces. The cooler, denser fluid sinks to take its place, establishing a **convection current**. Natural convection drives global wind patterns, ocean currents, and tectonic plate movements. Forced convection occurs when a fan or pump actively circulates the heated fluid, as seen in car radiators and cooling fans for computer processors.",
+                "Radiation is the transfer of thermal energy via electromagnetic waves (primarily infrared radiation). Unlike conduction and convection, radiation does not require any material medium; it can propagate through a vacuum at the speed of light. Every object with a temperature above absolute zero continuously emits electromagnetic radiation. The rate of energy emission is governed by the Stefan-Boltzmann Law: $$P = \\sigma e A T^4$$, where $$\\sigma$$ is the Stefan-Boltzmann constant, $$e$$ is the emissivity of the surface, $$A$$ is the surface area, and $$T$$ is the absolute temperature in Kelvin."
+              ]
+            },
+            {
+              "id": "phys10-u2-tb7",
+              "type": "text",
+              "title": "2.2 Transfer of Heat — Deep Dive (2/2)",
+              "page": 73,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Why it matters: Understanding heat transfer is essential for building insulation, manufacturing energy-efficient windows, and designing spacesuits that protect astronauts from extreme solar radiation and absolute cold. It also explains how double-walled thermos flasks work: the vacuum between the double walls eliminates conduction and convection, while the silvered inner surfaces minimize radiation losses."
+              ]
+            },
+            {
+              "id": "phys10-u2-tb8",
+              "type": "text",
+              "title": "2.2 Transfer of Heat — Comparison of Heat Transfer Mechanisms",
+              "page": 73,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Mechanism — Medium Requirement — Physical Mechanism — Governing Scientific Law | Conduction — Required (primarily solids) — Molecular vibrations and free electron movement — Fourier's Law of Conduction | Convection — Required (fluids only) — Macroscopic mass movement of fluid densities — Newton's Law of Cooling | Radiation — Not Required (vacuum or transparent media) — Electromagnetic waves (infrared) — Stefan-Boltzmann Law",
+                "> **💡 Did You Know?**: The Earth is warmed by the Sun entirely through radiation. Because the vast space between the Sun and the Earth is a near-perfect vacuum, conduction and convection cannot transfer any energy to us.",
+                "> **🧠 Pro-Tip**: Air is an exceptionally poor conductor of heat. Double-pane windows and thermal blankets exploit this by trapping pockets of still air, which drastically reduces heat loss via conduction and prevents the setup of convection currents."
+              ]
+            },
+            {
+              "id": "phys10-u2-chk7",
+              "type": "check",
+              "title": "Quick check",
+              "page": 73,
+              "src": "study_notes",
+              "q": "In an isochoric thermodynamic process, which of the following quantities is strictly zero?",
+              "options": {
+                "A": "$$Q$$",
+                "B": "$$W$$",
+                "C": "$$\\Delta U$$",
+                "D": "$$\\Delta T$$"
+              },
+              "answer": "B",
+              "why": "**Step 1: Define an isochoric process**\nAn isochoric (isovolumetric) process is one in which the volume of the system remains constant:\n$$\\Delta V = 0$$\n\n**Step 2: Calculate work done**\nWork done by a gas is given by:\n$$W = \\int P dV$$\nSince volume is constant ($$dV = 0$$), no boundary displacement occurs, and:\n$$W = 0$$\n\n**Step 3: Final Result**\nTherefore, the work done ($$W$$) is strictly **Zero**."
             }
           ]
         },
@@ -2087,6 +2477,71 @@
                 }
               ],
               "answer": "C"
+            },
+            {
+              "id": "phys10-u2-tb9",
+              "type": "text",
+              "title": "2.3 The First Law of Thermodynamics and Thermodynamic Processes",
+              "page": 87,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "The **First Law of Thermodynamics** is a manifestation of the law of conservation of energy applied to thermodynamic systems, stating that the change in internal energy ($$\\Delta U$$) of a closed system is equal to the net heat ($$Q$$) added to the system minus the net work ($$W$$) done by the system."
+              ]
+            },
+            {
+              "id": "phys10-u2-tb10",
+              "type": "text",
+              "title": "2.3 The First Law of Thermodynamics and Thermodynamic Processes — Deep Dive (1/2)",
+              "page": 87,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Internal energy ($$U$$) is the sum of all microscopic kinetic and potential energies of the molecules making up a thermodynamic system. It is a state function, meaning its value depends solely on the current state of the system, not on the path taken to reach that state. On the other hand, heat ($$Q$$) and work ($$W$$) are path functions; they describe energy in transit. The First Law of Thermodynamics is mathematically written as: $$\\Delta U = Q - W$$. Here, $$Q$$ is positive when heat enters the system and negative when heat leaves. $$W$$ is positive when work is done by the system on its surroundings (causing expansion) and negative when work is done on the system by the surroundings (causing compression).",
+                "When a gas is held in a cylinder with a movable piston, the work done during an infinitesimal change in volume ($$dV$$) is given by: $$dW = P dV$$. For a finite change from an initial volume $$V_i$$ to a final volume $$V_f$$ at constant pressure (an **isobaric process**), the work done is: $$W = P(V_f - V_i) = P\\Delta V$$. This work corresponds to the area under the curve on a pressure-volume (**PV diagram**).",
+                "In an **isothermal process**, the temperature of the system remains constant ($$\\Delta T = 0$$). For an ideal gas, the internal energy depends only on temperature, so $$\\Delta U = 0$$. Consequently, the First Law reduces to: $$Q = W$$. This means that all heat added to an ideal gas during an isothermal expansion is converted entirely into mechanical work.",
+                "An **adiabatic process** occurs when no heat is transferred into or out of the system ($$Q = 0$$). This can be achieved by insulating the system or by performing the process so rapidly that heat does not have time to flow. For an adiabatic process, the First Law becomes: $$\\Delta U = -W$$. If the gas expands adiabatically ($$W > 0$$), its internal energy must decrease ($$\\Delta U < 0$$), causing the gas temperature to drop. Conversely, adiabatic compression increases the internal energy and temperature."
+              ]
+            },
+            {
+              "id": "phys10-u2-tb11",
+              "type": "text",
+              "title": "2.3 The First Law of Thermodynamics and Thermodynamic Processes — Deep Dive (2/2)",
+              "page": 87,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "In an **isochoric (or isovolumetric) process**, the volume of the system remains constant ($$\\Delta V = 0$$). Since there is no displacement, the work done is zero ($$W = 0$$). The First Law simplifies to: $$\\Delta U = Q$$. Thus, any thermal energy added to the system goes entirely into increasing its internal energy and temperature."
+              ]
+            },
+            {
+              "id": "phys10-u2-tb12",
+              "type": "text",
+              "title": "2.3 The First Law of Thermodynamics and Thermodynamic Processes — Thermodynamic Processes Summary",
+              "page": 87,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Process Type — Constant Parameter — First Law Simplification — Physical Significance | Isothermal — Temperature ($$T = \\text{const}$$) — $$\\Delta U = 0 \\implies Q = W$$ — Heat added equals work done by gas | Adiabatic — Heat flow ($$Q = 0$$) — $$\\Delta U = -W$$ — Compression heats gas; expansion cools gas | Isobaric — Pressure ($$P = \\text{const}$$) — $$\\Delta U = Q - P\\Delta V$$ — Work is represented by $$P\\Delta V$$ | Isochoric — Volume ($$V = \\text{const}$$) — $$\\Delta U = Q \\implies W = 0$$ — Heat added increases internal energy only",
+                "> **💡 Did You Know?**: When you spray an aerosol can (like spray paint or deodorant) for a long time, the can becomes very cold. This is a real-world example of an adiabatic expansion: the gas inside expands rapidly, performing work against atmospheric pressure, which forces its internal energy and temperature to drop.",
+                "> **🧠 Pro-Tip**: To easily remember the sign conventions of the First Law, think of a steam engine. We put heat *into* the engine ($$Q > 0$$) to get mechanical work *out* of the engine ($$W > 0$$). Both of these actions are positive."
+              ]
+            },
+            {
+              "id": "phys10-u2-chk8",
+              "type": "check",
+              "title": "Quick check",
+              "page": 87,
+              "src": "study_notes",
+              "q": "When an ideal gas undergoes a rapid adiabatic expansion, its temperature:",
+              "options": {
+                "A": "Increases",
+                "B": "Decreases",
+                "C": "Remains unchanged",
+                "D": "First increases, then decreases"
+              },
+              "answer": "B",
+              "why": "**Step 1: Define an adiabatic expansion**\n- Adiabatic: No heat transfer occurs ($$Q = 0$$).\n- Expansion: Gas does work on surroundings ($$W > 0$$).\n\n**Step 2: Apply the First Law of Thermodynamics**\n$$\\Delta U = Q - W$$\n$$\\Delta U = 0 - W = -W$$\nSince $$W > 0$$, the change in internal energy is negative:\n$$\\Delta U < 0$$\n\n**Step 3: Relate to temperature**\nFor an ideal gas, a decrease in internal energy ($$\\Delta U < 0$$) directly corresponds to a decrease in temperature ($$\\Delta T < 0$$).\n\n**Step 4: Final Result**\nThe temperature **Decreases**."
             }
           ]
         }
@@ -3038,7 +3493,8 @@
           }
         ],
         "src": "auto"
-      }
+      },
+      "intro": "is a quantitative measure of the average kinetic energy of the atoms or molecules in a substance, while"
     },
     {
       "id": "phys10-u3",
@@ -3233,6 +3689,55 @@
               },
               "answer": "B",
               "why": "**Step 1: Analyze the induction charging process**  \nWhen a charged rod (e.g., negative) is brought near a neutral object, it repels like charges (electrons) to the far side, leaving opposite charges (protons) on the near side.\n\n**Step 2: Determine ground flow**  \nGrounding allows the repelled like charges to escape to the Earth.\n\n**Step 3: Analyze the final state**  \nDisconnecting the ground and "
+            },
+            {
+              "id": "phys10-u3-tb1",
+              "type": "text",
+              "title": "3.1 Electric Charge and Electrostatic Charging",
+              "page": 108,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Electric Charge** is a fundamental, conserved physical property of subatomic particles that causes them to experience an attractive or repulsive force when placed within an electromagnetic field."
+              ]
+            },
+            {
+              "id": "phys10-u3-tb2",
+              "type": "text",
+              "title": "3.1 Electric Charge and Electrostatic Charging — Deep Dive (1/2)",
+              "page": 108,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Electrostatics is the branch of physics that studies electric charges at rest. All observable matter is composed of atoms containing three primary subatomic particles: positively charged protons, negatively charged electrons, and electrically neutral neutrons. Protons and neutrons reside in the dense nucleus, while electrons orbit the nucleus. The magnitude of the charge on a single electron or proton is called the elementary charge ($$e \\approx 1.602 \\times 10^{-19}\\text{ C}$$). An atom in its normal state is electrically neutral because the number of protons equals the number of electrons, resulting in a net charge of zero.",
+                "Materials are broadly classified by their electrical conductivity. **Conductors** (such as copper, silver, and aluminum) contain a high density of \"free electrons\" that are loosely bound to their parent atoms and can migrate easily through the material. **Insulators** (such as rubber, glass, wood, and plastic) have tightly bound valence electrons that cannot move freely, restricting the flow of electric charge. **Semiconductors** (such as silicon and germanium) have electrical properties intermediate between conductors and insulators, and their conductivity can be altered through temperature changes or doping.",
+                "Electrostatic charging is the process by which an object acquires a net positive or negative charge. This can be achieved through three main methods: 1. **Charging by Friction**: When two different insulating materials are rubbed together, electrons are physically transferred from the material with a lower electron affinity to the one with a higher electron affinity. For example, rubbing a glass rod with silk leaves the glass positively charged, while rubbing a rubber rod with fur leaves the rubber negatively charged. 2. **Charging by Contact**: When a charged conductor touches a neutral conductor, charge is directly transferred between them, leaving both objects with the same sign of charge. 3."
+              ]
+            },
+            {
+              "id": "phys10-u3-tb3",
+              "type": "text",
+              "title": "3.1 Electric Charge and Electrostatic Charging — Deep Dive (2/2)",
+              "page": 108,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Charging by Induction**: A charged object is brought near a neutral conductor without touching it. This causes a separation of charges (polarization) within the conductor. When the conductor is momentarily grounded (connected to the Earth, which acts as an infinite charge reservoir), electrons flow either into or out of the conductor. Removing the ground connection first, and then the charged object, leaves the conductor permanently charged with a sign opposite to that of the charging object.",
+                "To detect the presence and sign of an electric charge, we use a diagnostic instrument called the **Gold Leaf Electroscope**. It consists of a metal knob connected by a conducting rod to two extremely thin gold leaves inside a protective glass case. When a charged object is brought near or in contact with the knob, the electrostatic force repels like charges down to the leaves, causing them to diverge due to mutual repulsion."
+              ]
+            },
+            {
+              "id": "phys10-u3-tb4",
+              "type": "text",
+              "title": "3.1 Electric Charge and Electrostatic Charging — Comparison of Electrical Materials",
+              "page": 108,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Material Class — Charge Mobility — Atomic Structure — Common Examples | Conductors — Highly mobile free electrons — Sea of delocalized valence electrons — Copper, Silver, Aluminum, Mercury | Insulators — Tightly bound, static electrons — Strongly localized covalent or ionic bonds — Glass, Rubber, Dry Wood, Plastic | Semiconductors — Intermediate, controllable mobility — Covalent lattice with temperature sensitivity — Silicon, Germanium, Gallium Arsenide",
+                "> **💡 Did You Know?**: Lightning is a spectacular natural demonstration of electrostatic charging by friction. Within a storm cloud, violently colliding water droplets and ice crystals transfer charge, causing the top of the cloud to become positively charged and the bottom to become negatively charged. This induces a massive positive charge on the ground below, eventually resulting in a lightning strike to neutralize the potential difference.",
+                "> **🧠 Pro-Tip**: When charging by induction, always remember the correct sequence of steps: bring the charged rod near, connect the ground, disconnect the ground, and finally remove the charged rod. If you remove the rod before disconnecting the ground, the induced charge will simply escape back to the Earth, leaving the object neutral."
+              ]
             }
           ]
         },
@@ -3362,6 +3867,20 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u3-tb17",
+              "type": "text",
+              "title": "Conductors, insulators and semiconductors",
+              "page": 115,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Conductors allow electric charge to move freely through them. Metals such as copper and aluminium are good conductors because they have many free electrons.",
+                "Insulators (rubber, plastic, glass, dry wood) hold electrons tightly, so charge does not flow easily. That is why insulating covers protect wires.",
+                "Semiconductors (silicon, germanium) conduct better than insulators but worse than metals. Their conductivity can be controlled — the basis of diodes and transistors.",
+                "In electrostatics experiments, a conducting object can share charge across its surface, while an insulator keeps charge near where it was placed."
+              ]
             }
           ]
         },
@@ -3491,6 +4010,19 @@
                 }
               ],
               "answer": "C"
+            },
+            {
+              "id": "phys10-u3-tb5",
+              "type": "text",
+              "title": "3.2 Coulomb's Law — Comparison of Electrostatic and Gravitational Forces",
+              "page": 117,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Feature — Electrostatic Force (Coulomb's Law) — Gravitational Force (Newton's Law) | Governing Equation — $$F = k \\frac{ — q_1 q_2 — }{r^2}$$ — $$F_g = G \\frac{m_1 m_2}{r^2}$$ | Force Nature — Attractive or Repulsive — Strictly Attractive | Proportionality Constant — $$k \\approx 8.99 \\times 10^9\\text{ N}\\cdot\\text{m}^2/\\text{C}^2$$ (Extremely Strong) — $$G \\approx 6.67 \\times 10^{-11}\\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$$ (Extremely Weak) | Source of Force — Electric Charge ($$q$$) — Mass ($$m$$) | Medium Dependance — Yes (depends on the surrounding medium's permittivity) — No (independent of intervening matter)",
+                "> **💡 Did You Know?**: One Coulomb ($$1\\text{ C}$$) is an exceptionally large unit of charge. If two point charges, each containing $$1\\text{ C}$$, were placed exactly $$1\\text{ m}$$ apart in a vacuum, they would repel each other with a force of $$8.99 \\times 10^9\\text{ N}$$—equivalent to the weight of about $$900,000\\text{ tons}$$, or roughly $$10$$ aircraft carriers!",
+                "> **🧠 Pro-Tip**: When solving Coulomb's Law problems, do not substitute negative signs of charges directly into the equation. Use the absolute values to find the magnitude of the force first, and then determine the direction (attractive or repulsive) visually by drawing a vector diagram."
+              ]
             }
           ]
         },
@@ -3629,6 +4161,42 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u3-tb6",
+              "type": "text",
+              "title": "3.2 Coulomb's Law",
+              "page": 128,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Coulomb's Law** states that the electrostatic force ($$F$$) of attraction or repulsion between two point charges is directly proportional to the product of the magnitudes of the charges and inversely proportional to the square of the distance ($$r$$) between their centers."
+              ]
+            },
+            {
+              "id": "phys10-u3-tb7",
+              "type": "text",
+              "title": "3.2 Coulomb's Law — Deep Dive (1/2)",
+              "page": 128,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "In 1785, Charles-Augustin de Coulomb quantified the electrostatic force between two static point charges. A point charge is an idealized model where a physical charge is considered to be concentrated entirely at a single geometric point in space. The mathematical equation for Coulomb's Law is written as: $$F = k \\frac{|q_1 q_2|}{r^2}$$ where $$q_1$$ and $$q_2$$ are the magnitudes of the two charges in Coulombs ($$\\text{C}$$), $$r$$ is the separation distance in meters ($$\\text{m}$$), and $$k$$ is Coulomb's electrostatic constant.",
+                "In SI units, the constant $$k$$ is defined as: $$k = \\frac{1}{4\\pi \\varepsilon_0} \\approx 8.99 \\times 10^9\\text{ N}\\cdot\\text{m}^2/\\text{C}^2$$ where $$\\varepsilon_0$$ (epsilon-nought) is the **permittivity of free space** (or vacuum), having a value of: $$\\varepsilon_0 \\approx 8.854 \\times 10^{-12}\\text{ C}^2/\\text{N}\\cdot\\text{m}^2$$ This constant represents the capability of a vacuum to permit electric field lines to establish.",
+                "Coulomb's force is a vector quantity. The direction of the force is always along the straight line connecting the centers of the two charges. According to the law of charges, if the two charges have the same sign (both positive or both negative), the force is repulsive (directed away from each other). If the charges have opposite signs, the force is attractive (directed toward each other). These mutual forces obey Newton's Third Law of Motion; the force exerted by $$q_1$$ on $$q_2$$ ($$\\vec{F}_{12}$$) is equal in magnitude and opposite in direction to the force exerted by $$q_2$$ on $$q_1$$ ($$\\vec{F}_{21} = -\\vec{F}_{12}$$).",
+                "When multiple point charges are present, the net electrostatic force acting on any single charge is the vector sum of the individual forces exerted on it by all other charges. This fundamental property is called the **Principle of Superposition**. It allows us to analyze complex multi-charge configurations by treating each interaction as an independent pair."
+              ]
+            },
+            {
+              "id": "phys10-u3-tb8",
+              "type": "text",
+              "title": "3.2 Coulomb's Law — Deep Dive (2/2)",
+              "page": 128,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Why it matters: Coulomb's Law is structurally identical to Newton's Law of Universal Gravitation ($$F_g = G \\frac{m_1 m_2}{r^2}$$). Both are inverse-square laws. However, they differ in two fundamental ways: gravity is strictly attractive, whereas the electrostatic force can be either attractive or repulsive. Furthermore, the electrostatic force is immensely stronger than gravity. For example, the electrostatic attraction between a proton and an electron in a hydrogen atom is approximately $$10^{39}$$ times stronger than their mutual gravitational attraction, making gravity completely negligible in atomic physics."
+              ]
             }
           ]
         },
@@ -3765,6 +4333,20 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u3-tb18",
+              "type": "text",
+              "title": "Electric field strength",
+              "page": 135,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "An electric field is a region where an electric charge feels a force. The electric field strength $$E$$ at a point is the force per unit positive charge: $$E = \\dfrac{F}{q}$$.",
+                "Near a point charge $$Q$$, the field magnitude is $$E = k \\dfrac{|Q|}{r^2}$$, directed away from positive $$Q$$ and toward negative $$Q$$.",
+                "Field is a vector. The net field from several charges is the vector sum of the individual fields at that point.",
+                "Units: $$E$$ is measured in N/C (or V/m). A larger charge or a smaller distance produces a stronger field."
+              ]
             }
           ]
         },
@@ -3901,6 +4483,55 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u3-tb9",
+              "type": "text",
+              "title": "3.3 Electric Field and Field Lines",
+              "page": 141,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "An **Electric Field** is a vector field surrounding an electric charge that exerts an attractive or repulsive force on any other charged particle placed within its region of influence."
+              ]
+            },
+            {
+              "id": "phys10-u3-tb10",
+              "type": "text",
+              "title": "3.3 Electric Field and Field Lines — Deep Dive (1/2)",
+              "page": 141,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "To avoid the concept of \"action-at-a-distance,\" Michael Faraday introduced the concept of fields. Instead of one charge acting directly on another across empty space, we say that a source charge alters the space around itself by creating an electric field. When a second charge is placed in this field, it experiences a force. The electric field strength ($$\\vec{E}$$) at any point is defined as the electrostatic force ($$\\vec{F}$$) experienced by a small, positive test charge ($$q_0$$) placed at that point, divided by the magnitude of the test charge: $$\\vec{E} = \\frac{\\vec{F}}{q_0}$$ The SI unit of electric field is the Newton per Coulomb ($$\\text{N/C}$$) or equivalently, the Volt per meter ($$\\text{V/m}$$).",
+                "From Coulomb's Law, we can derive the electric field created by a single point charge $$q$$ at a distance $$r$$ from the charge: $$E = k \\frac{|q|}{r^2}$$ The electric field is a vector quantity. By convention, the direction of the electric field vector at any point is the direction of the force that a *positive* test charge would experience if placed at that point. Therefore, electric fields point radially outward (away from) positive source charges, and radially inward (toward) negative source charges.",
+                "To visualize electric fields, we draw **electric field lines** (or lines of force). These are imaginary lines whose direction at any point is tangent to the electric field vector. The spacing of the lines represents the field strength: where the lines are close together, the field is strong; where they are far apart, the field is weak. Electric field lines must obey these fundamental rules: 1. They must begin on positive charges (or at infinity) and terminate on negative charges (or at infinity). 2. They can never cross each other, because the net electric field vector at any point must have a single, unique direction. 3. The number of lines leaving a positive charge or entering a negative charge is directly proportional to the magnitude of the charge. 4. They always enter or leave a conducting surface perpendicularly."
+              ]
+            },
+            {
+              "id": "phys10-u3-tb11",
+              "type": "text",
+              "title": "3.3 Electric Field and Field Lines — Deep Dive (2/2)",
+              "page": 141,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "When a conductor is placed in an electric field, its free electrons redistribute themselves rapidly until the conductor reaches **electrostatic equilibrium**. Under this condition, several remarkable physical properties emerge: • **The electric field is strictly zero everywhere inside the conductor**. If a field existed, it would exert forces on the free electrons, causing them to move, which violates the equilibrium assumption. • **Any excess charge resides entirely on the outer surface of the conductor**. Free electrons repel each other and try to get as far apart as possible, migrating to the outer boundary. • **The electric field at the outer surface of a charged conductor is perpendicular to the surface**.",
+                "If there were a tangential component, it would cause free electrons to flow along the surface, violating equilibrium. • **On an irregularly shaped conductor, charge accumulates at sharp points**. The electric field is most intense near regions of high curvature (sharp points), which can cause the surrounding air to ionize and conduct charge, a phenomenon called corona discharge."
+              ]
+            },
+            {
+              "id": "phys10-u3-tb12",
+              "type": "text",
+              "title": "3.3 Electric Field and Field Lines — Electric Field Behavior of Configurations",
+              "page": 141,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Configuration — Field Line Appearance — Field Strength Relation — Physical Application | Single Positive Point Charge — Radially outward, symmetric — $$E \\propto \\frac{1}{r^2}$$ — Isolated charged sphere | Electric Dipole ($$+q$$ and $$-q$$) — Curved lines from $$+$$ to $$-$$ — Complex spatial variation — Polar molecules (water) | Parallel Metal Plates — Parallel, evenly spaced — Uniform field ($$E = \\text{constant}$$) — Capacitors, cathode-ray tubes | Inside any Conductor — No lines present — Strictly zero ($$E = 0$$) — Electrostatic shielding (Faraday cage)",
+                "> **💡 Did You Know?**: A car or an airplane acts as a **Faraday cage** during a thunderstorm. If lightning strikes a car, the excess charge resides entirely on the outer metallic surface and flows into the ground, leaving the passengers inside completely unharmed because the electric field inside the metal shell is strictly zero!",
+                "> **🧠 Pro-Tip**: When solving electric field problems with multiple source charges, treat the fields as vectors. Find the field vector ($$\\vec{E}_1, \\vec{E}_2, \\dots$$) from each charge independently, and then use vector addition to find the net field: $$\\vec{E}_{\\text{net}} = \\sum \\vec{E}_i$$."
+              ]
             }
           ]
         },
@@ -4033,6 +4664,55 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u3-tb13",
+              "type": "text",
+              "title": "3.4 Electric Potential Energy and Electric Potential",
+              "page": 147,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Electric Potential** (or voltage, $$V$$) is a scalar quantity defined as the amount of electric potential energy ($$U$$) per unit charge at a specific point within an electric field."
+              ]
+            },
+            {
+              "id": "phys10-u3-tb14",
+              "type": "text",
+              "title": "3.4 Electric Potential Energy and Electric Potential — Deep Dive (1/2)",
+              "page": 147,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "To understand electric potential, we can use an analogy with gravity. When a mass is raised in a gravitational field, work is performed against the gravitational force, and this work is stored as gravitational potential energy. Similarly, when a positive charge is moved against an electric field, work must be performed by an external force, and this work is stored as **electrical potential energy** ($$U$$). For a system of two point charges, $$q_A$$ and $$q_B$$, separated by a distance $$r$$, the mutual potential energy is given by: $$U = k \\frac{q_A q_B}{r}$$ This is a scalar quantity. If the charges have the same sign, the potential energy is positive, representing a repulsive configuration. If they have opposite signs, the potential energy is negative, representing a bound, attractive system.",
+                "To define a quantity that depends only on the source charges and not on the test charge, we introduce **Electric Potential** ($$V$$), defined as: $$V = \\frac{U}{q_0}$$ The SI unit of electric potential is the Volt ($$\\text{V}$$), named after Alessandro Volta, where $$1\\text{ V} = 1\\text{ J/C}$$. Often, electric potential is referred to as \"voltage.\"",
+                "The potential at a distance $$r$$ from a single point charge $$q$$ is calculated as: $$V = k \\frac{q}{r}$$ Since electric potential is a scalar quantity, we do not need to perform vector addition when multiple charges are present. The net potential at any point is simply the algebraic sum of the individual potentials: $$V_{\\text{net}} = \\sum V_i$$, where positive charges produce positive potentials and negative charges produce negative potentials."
+              ]
+            },
+            {
+              "id": "phys10-u3-tb15",
+              "type": "text",
+              "title": "3.4 Electric Potential Energy and Electric Potential — Deep Dive (2/2)",
+              "page": 147,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "In practical applications, we are usually interested in the **potential difference** (or voltage difference, $$\\Delta V$$) between two points. The work ($$W$$) done by an external force to move a charge $$q$$ from point A to point B without acceleration is directly proportional to the potential difference: $$W = q \\Delta V$$ On an atomic scale, the Joule is an inconveniently large unit of energy. Therefore, physicists use the **electron volt** ($$\\text{eV}$$), defined as the kinetic energy acquired by an electron when it is accelerated through a potential difference of exactly $$1\\text{ V}$$. $$1\\text{ eV} = 1.602 \\times 10^{-19}\\text{ J}$$",
+                "To generate exceptionally high electric potentials, we use electrostatic generators. The most common of these is the **Van de Graaff generator**, invented by Robert J. Van de Graaff in 1929. It uses a motor-driven insulating rubber belt running vertically around two pulleys. Frictional contact transfers charge to the belt, which carries it up to a large, hollow metal sphere. A metal comb collects the charge and distributes it to the outer surface of the sphere. Because the electric field inside a conductor is zero, charge can be continuously added to the sphere, building up potentials of several million volts."
+              ]
+            },
+            {
+              "id": "phys10-u3-tb16",
+              "type": "text",
+              "title": "3.4 Electric Potential Energy and Electric Potential — Comparison of Electrostatic Parameters",
+              "page": 147,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Quantity — Vector/Scalar — SI Unit — Formula (Point Charge) — Physical Significance | Electric Force ($$F$$) — Vector — Newton ($$\\text{N}$$) — $$F = k \\frac{ — q_1 q_2 — }{r^2}$$ — Interaction force between two charges | Electric Field ($$E$$) — Vector — Newton per Coulomb ($$\\text{N/C}$$) — $$E = k \\frac{q}{r^2}$$ — Force capability of space per unit charge | Electric Potential Energy ($$U$$) — Scalar — Joule ($$\\text{J}$$) — $$U = k \\frac{q_A q_B}{r}$$ — Stored energy due to charge configuration | Electric Potential ($$V$$) — Scalar — Volt ($$\\text{V}$$) — $$V = k \\frac{q}{r}$$ — Potential energy capability per unit charge",
+                "> **💡 Did You Know?**: Van de Graaff generators were originally developed as particle accelerators. By creating potential differences of several million volts, they were used to accelerate protons and other charged subatomic particles to high kinetic energies, allowing scientists to smash atoms and study nuclear physics!",
+                "> **🧠 Pro-Tip**: When calculating the net electric potential from multiple charges, always include the positive or negative signs of the charges directly in the sum. Because potential is a scalar, simple algebraic addition is used, which is mathematically much easier than calculating vector fields."
+              ]
             }
           ]
         },
@@ -4068,6 +4748,19 @@
               "src": "notes",
               "body": [
                 "Charge is conserved and quantised. Conductors: charges free (metals). Insulators: charges stuck. Field lines leave + and enter −, never cross, density = strength. Potential V: work per coulomb from a reference (often infinity). High V is not the same as lots of charge if C is small (Van de Graaff: high V, modest Q)."
+              ]
+            },
+            {
+              "id": "phys10-u3-tb19",
+              "type": "text",
+              "title": "Van de Graaff generator — idea",
+              "page": 158,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "A Van de Graaff generator builds up very high electrostatic potential on a hollow metal dome using a moving insulating belt that carries charge upward.",
+                "Charge is sprayed onto the belt at the bottom and transferred to the dome at the top. Because charge resides on the outer surface of a conductor, the dome can store a large charge.",
+                "It demonstrates charging by contact/induction, strong electric fields, and sometimes sparks when the air ionizes. It is a teaching tool for electrostatic potential and charge distribution."
               ]
             }
           ]
@@ -4913,7 +5606,8 @@
           }
         ],
         "src": "auto"
-      }
+      },
+      "intro": "(such as copper, silver, and aluminum) contain a high density of \"free electrons\" that are loosely bound to their parent atoms and can migrate easily through the material."
     },
     {
       "id": "phys10-u4",
@@ -5112,6 +5806,54 @@
               },
               "answer": "C",
               "why": "**Step 1: Write down the resistance formula**  \n$$R = \\rho \\frac{L}{A}$$\n\n**Step 2: Apply the constant volume condition**  \nVolume $$V = A \\cdot L = \\text{constant}$$. If the new length $$L' = 2L$$, then the new cross-sectional area $$A'$$ must satisfy:\n$$A' \\cdot (2L) = A \\cdot L \\implies A' = \\frac{A}{2}$$\n\n**Step 3: Calculate the new resistance $$R'$$**  \n$$R' = \\rho \\frac{L'}{A'} = \\rho \\frac{"
+            },
+            {
+              "id": "phys10-u4-tb1",
+              "type": "text",
+              "title": "4.1 Electric Current, Electromotive Force, and Ohm's Law",
+              "page": 165,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Electric Current** ($$I$$) is defined as the rate of net flow of electric charge through a cross-sectional area of a conductor, driven by a potential difference or **Electromotive Force** (emf)."
+              ]
+            },
+            {
+              "id": "phys10-u4-tb2",
+              "type": "text",
+              "title": "4.1 Electric Current, Electromotive Force, and Ohm's Law — Deep Dive (1/2)",
+              "page": 165,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "To understand direct current (DC) circuits, we must first establish the nature of charge carrier movement. In metallic conductors, the charge carriers are negatively charged free electrons. When a potential difference is applied across a wire, these electrons experience an electrostatic force that causes them to drift. By historical convention, **conventional current** is defined as the flow of imaginary positive charges from the positive terminal (higher potential) to the negative terminal (lower potential). This is mathematically opposite to the physical drift of electrons, which travel from negative to positive. The current is quantified by the equation: $$I = \\frac{Q}{t}$$, where $$Q$$ is the charge in Coulombs and $$t$$ is the time in seconds. The SI unit of current is the Ampere ($$\\text{A}$$), where $$1\\text{ A} = 1\\text{ C/s}$$.",
+                "To maintain a continuous current in a closed loop, the circuit must contain a source of electrical energy. This source provides an **Electromotive Force** (represented by $$\\mathcal{E}$$, emf). Despite the word \"force,\" emf is not a mechanical force; it is defined as the work performed per unit charge by a non-electrostatic source (such as a chemical battery, generator, or solar cell) to move a charge from a lower potential to a higher potential. For an ideal energy source, the potential difference across its terminals (terminal voltage, $$V$$) equals its emf. However, real sources possess an internal chemical resistance to current flow, known as **internal resistance** ($$r$$). When a current $$I$$ is drawn, the terminal voltage drops due to internal power loss, modeled by the equation: $$V = \\mathcal{E} - Ir$$.",
+                "The relationship between voltage, current, and resistance is formalized by **Ohm's Law**, formulated by George Simon Ohm in 1827. It states that the electric current flowing through a metallic conductor is directly proportional to the potential difference across its ends, provided its temperature and other physical conditions remain constant: $$V = IR$$. The constant of proportionality, $$R$$, is the **electrical resistance**, measured in Ohms ($$\\Omega$$), where $$1\\ \\Omega = 1\\text{ V/A}$$."
+              ]
+            },
+            {
+              "id": "phys10-u4-tb3",
+              "type": "text",
+              "title": "4.1 Electric Current, Electromotive Force, and Ohm's Law — Deep Dive (2/2)",
+              "page": 165,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Why it matters: Ohm's Law is the most fundamental design rule in electrical engineering. It allows engineers to select the correct thickness of wires and value of resistors to prevent circuits from overheating. Materials that obey this linear relationship are called \"Ohmic\" (such as copper and gold), while those that do not, such as diodes, transistors, and vacuum tubes, are \"non-Ohmic.\""
+              ]
+            },
+            {
+              "id": "phys10-u4-tb4",
+              "type": "text",
+              "title": "4.1 Electric Current, Electromotive Force, and Ohm's Law — Comparison of Potential Parameters",
+              "page": 165,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Parameter — Symbol — Definition — Physical Cause — Equation relation | Electromotive Force (emf) — $$\\mathcal{E}$$ — Work done per unit charge by the source — Chemical or magnetic energy conversion — $$\\mathcal{E} = V + Ir$$ | Terminal Potential Difference — $$V$$ — Work done per unit charge in the external circuit — Electrostatic field drive — $$V = IR$$ | Internal Resistance Drop — $$Ir$$ — Potential drop inside the source — Internal chemical/structural resistance — $$V_{\\text{drop}} = Ir$$",
+                "> **💡 Did You Know?**: The drift velocity of individual electrons in a typical household copper wire is incredibly slow—typically less than $$1\\text{ mm/s}$$! However, when you flip a light switch, the light turns on almost instantly because the electromagnetic wave (electric field) travels through the wire at nearly the speed of light, setting all free electrons in motion simultaneously.",
+                "> **🧠 Pro-Tip**: To distinguish between emf ($$\\mathcal{E}$$) and terminal voltage ($$V$$), remember that emf is the \"maximum\" possible voltage the source can supply when no current is flowing ($$I = 0$$), whereas terminal voltage is what you actually measure across the battery terminals during active operation."
+              ]
             }
           ]
         },
@@ -5241,6 +5983,17 @@
                 }
               ],
               "answer": "C"
+            },
+            {
+              "id": "phys10-u4-tb5",
+              "type": "text",
+              "title": "4.2 Resistors and Cells in Series and Parallel Networks",
+              "page": 168,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Resistors in Series** are connected sequentially along a single path so that the same current flows through each, whereas **Resistors in Parallel** are connected across the same two nodes, ensuring they share the same potential difference."
+              ]
             }
           ]
         },
@@ -5357,6 +6110,18 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u4-tb6",
+              "type": "text",
+              "title": "4.2 Resistors and Cells in Series and Parallel Networks — Deep Dive (1/2)",
+              "page": 170,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "To analyze complex circuit networks, we must understand how individual electrical components interact when grouped together. When resistors are connected in **series**, they form a single path for charge flow. Consequently, the conservation of charge dictates that the electric current must be identical through all series-connected resistors: $$I_{\\text{total}} = I_1 = I_2 = I_3 = \\dots$$. By applying Kirchhoff's Voltage Law (conservation of energy), the total potential difference across the entire group must equal the sum of the individual potential drops: $$V_{\\text{total}} = V_1 + V_2 + V_3 + \\dots$$. Substituting Ohm's Law ($$V = IR$$) into this expression yields the equivalent resistance of a series network: $$R_{\\text{eq}} = R_1 + R_2 + R_3 + \\dots$$.",
+                "Conversely, when resistors are connected in **parallel**, their terminals are connected to the same two junctions in the circuit. Therefore, they must share the exact same potential difference: $$V_{\\text{total}} = V_1 = V_2 = V_3 = \\dots$$. The total current entering the parallel junction must split among the available paths (conservation of charge): $$I_{\\text{total}} = I_1 + I_2 + I_3 + \\dots$$. Substituting Ohm's Law ($$I = \\frac{V}{R}$$) into this expression yields the equivalent resistance formula for parallel networks: $$\\frac{1}{R_{\\text{eq}}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3} + \\dots$$. This reciprocal relationship shows that adding parallel paths always *decreases* the overall equivalent resistance of the circuit."
+              ]
             }
           ]
         },
@@ -5492,6 +6257,18 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u4-tb7",
+              "type": "text",
+              "title": "4.2 Resistors and Cells in Series and Parallel Networks — Deep Dive (2/2)",
+              "page": 172,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Batteries (cells) can also be connected in series or parallel configurations to achieve specific power requirements. When cells are connected in series (with the positive terminal of one connected to the negative terminal of the next), their individual emfs add up to increase the total voltage: $$\\mathcal{E}_{\\text{eq}} = \\mathcal{E}_1 + \\mathcal{E}_2 + \\dots$$, and their internal resistances also add: $$r_{\\text{eq}} = r_1 + r_2 + \\dots$$. If identical cells are connected in parallel, the total equivalent emf remains equal to that of a single cell ($$\\mathcal{E}_{\\text{eq}} = \\mathcal{E}$$), but the equivalent internal resistance is significantly reduced: $$r_{\\text{eq}} = \\frac{r}{n}$$, where $$n$$ is the number of cells. This parallel cell configuration allows the battery to deliver a larger maximum current for a longer duration.",
+                "Why it matters: Solving complex electrical networks by dividing them into simpler series and parallel blocks is a fundamental skill in electronics. This method is used to design circuit boards, calculate power distribution in vehicles, and configure solar panel arrays, where panels are strategically connected in series to increase voltage and in parallel to increase current output."
+              ]
             }
           ]
         },
@@ -5634,6 +6411,19 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u4-tb8",
+              "type": "text",
+              "title": "4.2 Resistors and Cells in Series and Parallel Networks — Comparison of Series and Parallel Resis…",
+              "page": 177,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Circuit Parameter — Series Configuration — Parallel Configuration | Current ($$I$$) — Constant through all ($$I_{\\text{total}} = I_i$$) — Splits among paths ($$I_{\\text{total}} = \\sum I_i$$) | Voltage ($$V$$) — Splits among components ($$V_{\\text{total}} = \\sum V_i$$) — Constant across all ($$V_{\\text{total}} = V_i$$) | Equivalent Resistance ($$R_{\\text{eq}}$$) — $$R_{\\text{eq}} = R_1 + R_2 + R_3 + \\dots$$ — $$\\frac{1}{R_{\\text{eq}}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3} + \\dots$$ | Physical Effect — Increases total resistance — Decreases total resistance",
+                "> **💡 Did You Know?**: Old-fashioned holiday string lights were wired strictly in series. If a single bulb burned out or was removed, it broke the electrical path for the entire string, causing all the other lights to go out simultaneously, making troubleshooting a nightmare!",
+                "> **🧠 Pro-Tip**: When calculating the equivalent resistance of just *two* parallel resistors, always use the quick \"product-over-sum\" formula: $$R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$$. This eliminates the need to find a common denominator for reciprocal fractions."
+              ]
             }
           ]
         },
@@ -5757,6 +6547,104 @@
                 }
               ],
               "answer": "C"
+            },
+            {
+              "id": "phys10-u4-tb9",
+              "type": "text",
+              "title": "4.3 Electrical Measuring Instruments and Power",
+              "page": 195,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "An **Ammeter** is a low-resistance device connected in series to measure electric current, whereas a **Voltmeter** is a high-resistance device connected in parallel to measure potential difference."
+              ]
+            },
+            {
+              "id": "phys10-u4-tb10",
+              "type": "text",
+              "title": "4.3 Electrical Measuring Instruments and Power — Deep Dive (1/2)",
+              "page": 195,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "To measure electrical properties without altering the circuit's active behavior, we must understand the mechanics of measuring instruments. The core building block of analog meters is the **d'Arsonval galvanometer**, which uses a magnetic coil that deflects when current passes through it. A typical galvanometer is highly sensitive, often reaching full-scale deflection with a current ($$I_g$$) of only $$1.0\\text{ mA}$$ and having an internal coil resistance ($$R_g$$) of $$20.0\\ \\Omega$$. This means it can safely handle only tiny currents and voltages.",
+                "To convert a galvanometer into an **ammeter** capable of measuring large currents (e.g., up to $$10\\text{ A}$$), we must bypass the majority of the current around the sensitive galvanometer coil. This is achieved by connecting a very low resistance resistor, called a **shunt** ($$R_{\\text{sh}}$$), in parallel with the galvanometer. Because the shunt and the galvanometer are in parallel, they share the same voltage. Applying Ohm's Law yields the required shunt resistance: $$R_{\\text{sh}} = \\frac{I_g R_g}{I - I_g}$$, where $$I$$ is the desired full-scale current limit of the ammeter. An ideal ammeter should have zero resistance so that it does not decrease the current it is trying to measure when inserted in series.",
+                "To convert a galvanometer into a **voltmeter** capable of measuring large potential differences (e.g., up to $$10\\text{ V}$$), we must limit the current passing through the galvanometer coil. This is achieved by connecting a very high resistance resistor, called a **multiplier** ($$R_{\\text{s}}$$), in series with the galvanometer. The total series resistance must limit the current to $$I_g$$ at the maximum target voltage ($$V$$). Applying Ohm's Law yields: $$R_{\\text{s}} = \\frac{V}{I_g} - R_g$$. An ideal voltmeter should have infinite resistance so that it does not draw any current from the circuit when connected in parallel."
+              ]
+            },
+            {
+              "id": "phys10-u4-tb11",
+              "type": "text",
+              "title": "4.3 Electrical Measuring Instruments and Power — Deep Dive (2/2)",
+              "page": 195,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Electrical devices convert electrical energy into other forms of energy (such as heat, light, or mechanical work). The rate at which this energy conversion occurs is **electrical power** ($$P$$), measured in Watts ($$\\text{W}$$), where $$1\\text{ W} = 1\\text{ J/s}$$. By definition, potential difference is work per unit charge ($$V = \\frac{W}{Q}$$) and current is charge per unit time ($$I = \\frac{Q}{t}$$). Therefore, the power delivered to a circuit element is: $$P = VI$$. For purely resistive elements, we can combine this with Ohm's Law to derive alternative power formulations: $$P = I^2 R = \\frac{V^2}{R}$$. The commercial unit of electrical energy is the **kilowatt-hour** ($$\\text{kWh}$$), representing the energy consumed by a $$1000\\text{ W}$$ appliance operating for one hour: $$1\\text{ kWh} = (1000\\text{ W})(3600\\text{ s}) = 3.6 \\times 10^6\\text{ J}$$."
+              ]
+            },
+            {
+              "id": "phys10-u4-tb12",
+              "type": "text",
+              "title": "4.3 Electrical Measuring Instruments and Power — Comparison of Ammeters and Voltmeters",
+              "page": 195,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Instrument — Parameter Measured — Circuit Connection — Ideal Resistance — Internal Design | Ammeter — Current ($$I$$) — Strictly in **Series — Zero ($$R_A \\approx 0$$) — Galvanometer with low parallel **shunt** ($$R_{\\text{sh}}$$) | Voltmeter — Potential Difference ($$V$$) — Strictly in **Parallel — Infinite ($$R_V \\approx \\infty$$) — Galvanometer with high series **multiplier** ($$R_{\\text{s}}$$)",
+                "> **💡 Did You Know?**: Electric utility companies do not bill you for the \"power\" you use, but rather for the total \"electrical energy\" you consume over time. This is why your monthly bill is charged in kilowatt-hours ($$\\text{kWh}$$), which is a unit of energy, not power!",
+                "> **🧠 Pro-Tip**: Never connect an ammeter in parallel across a voltage source (like a battery or household wall outlet). Because an ammeter has nearly zero resistance, doing so will create a short circuit, causing a massive surge of current that can blow the meter's internal fuse, damage the circuit, or cause personal injury."
+              ]
+            },
+            {
+              "id": "phys10-u4-tb13",
+              "type": "text",
+              "title": "4.4 House Circuits and Electrical Safety",
+              "page": 195,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Household Circuits** are parallel electrical distribution networks that deliver electrical energy to appliances, protected by safety devices like circuit breakers, fuses, and ground fault interrupters (GFIs)."
+              ]
+            },
+            {
+              "id": "phys10-u4-tb14",
+              "type": "text",
+              "title": "4.4 House Circuits and Electrical Safety — Deep Dive (1/2)",
+              "page": 195,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "To safely distribute electrical energy to appliances, modern homes are wired using parallel distribution networks. The utility company delivers alternating current (AC) power to a house via a pair of insulated wires: the **live wire** and the **neutral wire**. The live wire carries an alternating potential that oscillates relative to ground (typically at a root-mean-square potential of $$220\\text{ V}$$ in Eritrea). The neutral wire is physically connected to the earth at the local power station, maintaining its potential at approximately $$0\\text{ V}$$.",
+                "Inside the house, all wall outlets, light fixtures, and appliances are connected in **parallel** across the live and neutral wires. This parallel configuration has two crucial physical advantages: 1. Every appliance receives the full rated line voltage of $$220\\text{ V}$$, allowing it to operate at its designed power rating. 2. Each appliance can be switched on or off independently without interrupting the flow of current to other parallel-connected appliances.",
+                "However, a parallel network has a major vulnerability: **overloading**. As more appliances are turned on, more parallel branches are added to the circuit. According to the rules of parallel resistance, adding branches decreases the total equivalent resistance of the household network. By Ohm's Law ($$I = \\frac{V}{R_{\\text{eq}}}$$), as resistance decreases, the total current drawn from the main live wire increases. If too many high-power appliances (such as space heaters, water heaters, and irons) are operated simultaneously, the current can exceed the safe carrying capacity of the copper wiring, causing the wires to overheat and potentially start an electrical fire."
+              ]
+            },
+            {
+              "id": "phys10-u4-tb15",
+              "type": "text",
+              "title": "4.4 House Circuits and Electrical Safety — Deep Dive (2/2)",
+              "page": 195,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "To prevent overloading and short-circuits, safety devices must be connected in series with the live wire before it branches into the home. A **fuse** is an older safety device containing a thin metal strip with a low melting point. If the current exceeds the fuse's rated limit (e.g., $$15\\text{ A}$$), the excessive heat causes the metal strip to melt (or \"blow\"), breaking the circuit and stopping the current. Fuses must be physically replaced once blown. Modern installations use **circuit breakers** instead. A circuit breaker uses a bimetallic strip or an electromagnet to trip a spring-loaded switch when the current exceeds safe limits. Once the overload is resolved, the circuit breaker can simply be reset.",
+                "For additional personal safety, high-power appliances with metallic casings (such as washing machines and refrigerators) use a **three-wire system** with a three-prong plug. In addition to the live and neutral wires, a third wire—the **safety ground wire**—connects the metal casing of the appliance directly to the Earth. If the insulation on the live wire wears off and touches the metal casing, the current takes the low-resistance path through the ground wire to the Earth, rather than passing through a person who touches the appliance. This high current surge instantly trips the circuit breaker, isolating the hazard.",
+                "In wet areas like kitchens and bathrooms, even a small leakage current can be fatal. To protect against shock, outlets in these areas are equipped with **Ground Fault Interrupters** (GFIs) or Residual Current Devices (RCDs). A GFI continuously monitors the current in both the live and neutral wires. In a safe circuit, the current flowing in must equal the current flowing out ($$I_{\\text{live}} = I_{\\text{neutral}}$$). If a tiny discrepancy is detected (as small as $$5\\text{ mA}$$), it indicates that some current is leaking (possibly through a person to the ground). The GFI instantly cuts off the power in less than $$1\\text{ millisecond}$$, preventing a fatal shock."
+              ]
+            },
+            {
+              "id": "phys10-u4-tb16",
+              "type": "text",
+              "title": "4.4 House Circuits and Electrical Safety — Electrical Safety Devices and Functions",
+              "page": 195,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Device — Circuit Connection — Trigger Mechanism — Primary Safety Function | Fuse — Series with Live Wire — Thermal melting of low-temp metal alloy — Prevents wire overheating and electrical fires | Circuit Breaker — Series with Live Wire — Magnetic or bimetallic thermal deflection — Reusable protection against overcurrent and shorts | Safety Ground Wire — Connected to metal chassis — Direct low-resistance path to Earth — Protects users from shock if live wire shorts to casing | GFI / RCD — Monitored across Live & Neutral — Senses differential current imbalance ($$> 5\\text{ mA}$$) — Cuts power instantly to prevent fatal shocks",
+                "> **💡 Did You Know?**: It is not the \"voltage\" that kills you, but the \"current\" that passes through your body! A current of just $$10\\text{ mA}$$ ($$0.01\\text{ A}$$) can cause painful muscle contractions, making it impossible to let go of the wire. A current of $$100\\text{ mA}$$ ($$0.1\\text{ A}$$) through the chest can paralyze the respiratory system and cause fatal heart fibrillation in less than a second!",
+                "> **🧠 Pro-Tip**: Never replace a blown fuse with a piece of copper wire or a fuse of a higher amperage rating. Doing so bypasses the safety mechanism, allowing dangerously high currents to flow through the household wiring, which can easily overheat the wires inside the walls and cause a fire."
+              ]
             }
           ]
         },
@@ -5887,6 +6775,20 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u4-tb17",
+              "type": "text",
+              "title": "House circuits — parallel wiring",
+              "page": 199,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Household appliances are usually connected in parallel across the supply so each device gets roughly the same voltage and can be switched independently.",
+                "If one lamp fails in a parallel branch, other branches still work. In a pure series string, one break would stop the whole circuit.",
+                "Fuses or circuit breakers protect wiring by interrupting excessive current. Earth/ground wires reduce shock risk if a live wire touches a metal case.",
+                "Power rating on an appliance ($$P = VI$$) helps estimate current draw so circuits are not overloaded."
+              ]
             }
           ]
         },
@@ -5922,6 +6824,20 @@
               "src": "notes",
               "body": [
                 "emf is the energy the cell gives per coulomb. Terminal V is less when current flows if there is internal r (V=emf−Ir). House: parallel sockets so one lamp dying does not kill the street; fuses / breakers in the live line; earth wire on metal cases."
+              ]
+            },
+            {
+              "id": "phys10-u4-tb18",
+              "type": "text",
+              "title": "Electrical safety rules",
+              "page": 201,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Never overload sockets; heat in wires rises with current ($$P = I^2 R$$ in the cable resistance).",
+                "Keep water away from mains electricity — water with dissolved ions conducts and increases shock risk.",
+                "Use insulated tools, proper plugs, and protective devices (fuse, breaker, residual-current device where available).",
+                "Do not touch exposed live conductors. If a cable is damaged, disconnect power and replace it rather than taping over bare wire as a permanent fix."
               ]
             }
           ]
@@ -6765,7 +7681,8 @@
           }
         ],
         "src": "auto"
-      }
+      },
+      "intro": "($$I$$) is defined as the rate of net flow of electric charge through a cross-sectional area of a conductor, driven by a potential difference or"
     },
     {
       "id": "phys10-u5",
@@ -6925,6 +7842,54 @@
               },
               "answer": "A",
               "why": "**Step 1: Define normal and angle of incidence**  \nThe normal is an imaginary line perpendicular to the mirror surface. If a ray strikes the mirror perpendicularly, it is aligned with the normal. Therefore, the angle between the incident ray and the normal is:\n$$i = 0^\\circ$$\n\n**Step 2: Apply the law of reflection**  \n$$r = i = 0^\\circ$$\n\n**Step 3: Final Result**  \nThe angle of reflection is **$$0"
+            },
+            {
+              "id": "phys10-u5-tb1",
+              "type": "text",
+              "title": "5.1 Nature, Sources, and Transmission of Light",
+              "page": 209,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Light** is a form of electromagnetic radiation that can be detected by the human eye, propagating in straight lines called rays and carrying energy through empty space or material media."
+              ]
+            },
+            {
+              "id": "phys10-u5-tb2",
+              "type": "text",
+              "title": "5.1 Nature, Sources, and Transmission of Light — Deep Dive (1/2)",
+              "page": 209,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Geometrical optics is the branch of physics that studies the propagation of light under the approximation that light behaves as a stream of particles moving along straight lines, called rays. In a homogeneous, isotropic medium, light rays travel in strictly straight lines—a fundamental principle known as the **rectilinear propagation of light**. This straight-line behavior explains many everyday optical phenomena, such as the formation of sharp shadows when an opaque object blocks a light source, and the operation of a **pinhole camera**, which produces a real, inverted image on a screen without using lenses.",
+                "Objects in our universe are classified based on their ability to emit light. **Luminous objects** generate and emit their own light through internal energy transformations (such as chemical, thermal, or nuclear processes). Examples include the Sun, stars, burning candles, and electric light bulbs. **Non-luminous (or illuminated) objects** do not produce their own light; instead, they become visible only when they reflect light from a luminous source into our eyes. Examples include the Moon, planets, books, walls, and human beings.",
+                "When light encounters a boundary with a material, its transmission behavior depends on the atomic structure of the medium. **Transparent materials** (such as clear glass, water, and air) allow almost all incident light to pass through them with negligible scattering, allowing objects behind them to be seen clearly. **Translucent materials** (such as frosted glass, oiled paper, and thin tissue) allow some light to pass through but scatter the rays in random directions, preventing clear images from forming. **Opaque materials** (such as wood, iron, and stone) do not permit any light to pass through; they either reflect or absorb the incident electromagnetic energy."
+              ]
+            },
+            {
+              "id": "phys10-u5-tb3",
+              "type": "text",
+              "title": "5.1 Nature, Sources, and Transmission of Light — Deep Dive (2/2)",
+              "page": 209,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Why it matters: The rectilinear propagation of light allows us to model complex optical systems using simple geometry. This forms the basis for designing spectacles, cameras, telescopes, and solar eclipses prediction. It also explains how light travels through the vast vacuum of space from distant stars to reach our planet, proving that light does not require a material medium to propagate."
+              ]
+            },
+            {
+              "id": "phys10-u5-tb4",
+              "type": "text",
+              "title": "5.1 Nature, Sources, and Transmission of Light — Comparison of Optical Materials",
+              "page": 209,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Material Class — Light Transmission — Ray Behavior — Practical Examples | Transparent — Highly efficient ($$\\approx 90\\%+$$) — Straight-line propagation without scattering — Optical glass, pure water, clean air | Translucent — Partial transmission — Scattered and diffused in random directions — Frosted glass, tracing paper, fog | Opaque — Zero transmission — Absorbed or reflected at the surface — Wood, steel, concrete, human skin",
+                "> **💡 Did You Know?**: The pinhole camera (or *camera obscura*) was known to ancient philosophers like Aristotle and Mozi. During a partial solar eclipse, the small gaps between the leaves of a tree act as natural pinholes, projecting hundreds of tiny, crescent-shaped images of the eclipsed Sun onto the ground below!",
+                "> **🧠 Pro-Tip**: In pinhole camera calculations, remember that the ratio of image size to object size is equal to the ratio of image distance to object distance: $$\\frac{h_i}{h_o} = \\frac{d_i}{d_o}$$. Use this simple geometry to solve any camera scale problem."
+              ]
             }
           ]
         },
@@ -7042,6 +8007,36 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u5-chk11",
+              "type": "check",
+              "title": "Quick check",
+              "page": 210,
+              "src": "study_notes",
+              "q": "A light ray strikes a plane mirror. If the angle between the incident ray and the mirror's flat surface is $$40^\\circ$$, what is the angle of incidence?",
+              "options": {
+                "A": "$$40^\\circ$$",
+                "B": "$$50^\\circ$$",
+                "C": "$$80^\\circ$$",
+                "D": "$$90^\\circ$$"
+              },
+              "answer": "B",
+              "why": "**Step 1: Understand the geometric definitions**  \nThe normal is perpendicular ($$90^\\circ$$) to the mirror surface. The angle between the incident ray and the surface is given as $$40^\\circ$$.\n\n**Step 2: Calculate the angle of incidence ($$i$$)**  \nThe angle of incidence is measured from the normal:\n$$i = 90^\\circ - 40^\\circ = 50^\\circ$$\n\n**Step 3: Final Result**  \nThe angle of incidence is **$$50^\\circ$$**."
+            },
+            {
+              "id": "phys10-u5-tb16",
+              "type": "text",
+              "title": "Transmission of light through materials",
+              "page": 210,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Transparent materials (clear glass, clean water) transmit light so objects can be seen clearly through them.",
+                "Translucent materials (frosted glass, thin paper) transmit some light but scatter it, so images are blurred.",
+                "Opaque materials (wood, metal) do not transmit light; they absorb and/or reflect it, casting shadows.",
+                "When light meets a boundary, it may be reflected, absorbed, or transmitted (often refracted). Real materials do a combination of these."
+              ]
             }
           ]
         },
@@ -7175,6 +8170,36 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u5-chk12",
+              "type": "check",
+              "title": "Quick check",
+              "page": 212,
+              "src": "study_notes",
+              "q": "If an object is placed at the principal focus ($$F$$) of a concave mirror, where is the image formed?",
+              "options": {
+                "A": "At the center of curvature ($$C$$)",
+                "B": "At the pole ($$P$$)",
+                "C": "At infinity",
+                "D": "No reflected rays exist"
+              },
+              "answer": "C",
+              "why": "**Step 1: Apply the mirror equation**  \n$$\\frac{1}{f} = \\frac{1}{d_o} + \\frac{1}{d_i}$$\nSince the object is at the focus, $$d_o = f$$:\n$$\\frac{1}{f} = \\frac{1}{f} + \\frac{1}{d_i} \\implies \\frac{1}{d_i} = 0 \\implies d_i = \\infty$$\n\n**Step 2: Analyze ray behavior**  \nLight rays originating from the focus reflect parallel to the principal axis. Parallel lines only meet at infinity.\n\n**Step 3: Final Result**  \nThe image is formed **at infinity**."
+            },
+            {
+              "id": "phys10-u5-tb17",
+              "type": "text",
+              "title": "Rectilinear propagation and shadows",
+              "page": 212,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "In a uniform medium, light travels in straight lines (rectilinear propagation). This explains sharp ray diagrams and the formation of shadows.",
+                "An opaque object blocking light from a small (point-like) source makes a sharp umbra. Extended sources create umbra and penumbra regions.",
+                "Pinhole cameras and eclipse geometry both rely on straight-line travel of light rays.",
+                "When light later enters a new medium at an angle, the path can bend (refraction) — studied in more detail in Grade 11 optics."
+              ]
             }
           ]
         },
@@ -7307,6 +8332,82 @@
                 }
               ],
               "answer": "C"
+            },
+            {
+              "id": "phys10-u5-tb5",
+              "type": "text",
+              "title": "5.2 Reflection of Light and Plane Mirrors",
+              "page": 216,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Reflection of Light** is the physical bouncing back of light rays when they strike the boundary of an opaque medium or a reflective interface."
+              ]
+            },
+            {
+              "id": "phys10-u5-tb6",
+              "type": "text",
+              "title": "5.2 Reflection of Light and Plane Mirrors — Deep Dive (1/2)",
+              "page": 216,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "When a ray of light strikes a reflective interface, its behavior is described by a set of geometric parameters. The incoming ray is the **incident ray**, the point where it strikes the surface is the **point of incidence**, and the line perpendicular to the surface at this point is the **normal**. The ray that bounces off the surface is the **reflected ray**. The **Angle of Incidence** ($$i$$) is the angle between the incident ray and the normal, while the **Angle of Reflection** ($$r$$) is the angle between the reflected ray and the normal.",
+                "These rays obey the **Laws of Reflection**, which state: 1. The incident ray, the reflected ray, and the normal at the point of incidence all lie in the same physical plane (called the *plane of incidence*). 2. The angle of incidence is always strictly equal to the angle of reflection ($$i = r$$).",
+                "Reflection is classified into two types depending on the surface topography. **Regular (or specular) reflection** occurs when parallel light rays strike a highly polished, perfectly smooth surface (such as a plane mirror or a calm pool of water). In this case, the reflected rays remain parallel, producing a sharp, clear image. **Irregular (or diffuse) reflection** occurs when parallel light rays strike a rough or unpolished surface (such as paper, wood, or a wall). Because the surface has microscopic irregularities, the normal at each point points in a different direction, causing the parallel rays to reflect in random directions. This prevents the formation of an image but allows the surface to be seen from any angle.",
+                "Images formed by reflecting surfaces are categorized as either real or virtual. A **real image** is formed when the reflected light rays actually intersect at a physical point in space. Real images are always inverted (upside down) and can be projected onto a physical screen. A **virtual image** is formed when the reflected light rays do not actually intersect but *appear* to diverge from a point behind the mirror. Virtual images are always erect (upright) and cannot be projected onto a screen."
+              ]
+            },
+            {
+              "id": "phys10-u5-tb7",
+              "type": "text",
+              "title": "5.2 Reflection of Light and Plane Mirrors — Deep Dive (2/2)",
+              "page": 216,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "A **plane mirror** is a flat, highly polished reflecting surface. The images formed by a plane mirror have five distinct geometric properties: 1. The image is virtual (located behind the mirror where light rays do not actually pass). 2. The image is erect (upright). 3. The image is of the exact same size as the object ($$h_i = h_o$$). 4. The image distance behind the mirror is equal to the object distance in front of the mirror ($$d_i = d_o$$). 5. The image exhibits **lateral inversion**, meaning it is reversed left-to-right (sideways)."
+              ]
+            },
+            {
+              "id": "phys10-u5-tb8",
+              "type": "text",
+              "title": "5.2 Reflection of Light and Plane Mirrors — Specular vs. Diffuse Reflection",
+              "page": 216,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Parameter — Specular (Regular) Reflection — Diffuse (Irregular) Reflection | Surface Texture — Highly polished and smooth — Microscopically rough or uneven | Reflected Ray Paths — Parallel rays remain parallel — Parallel rays reflect in random directions | Image Formation — Produces clear, sharp images — Does not produce an image | Laws of Reflection — Obeyed at every point — Obeyed at every point (but local normals differ)",
+                "> **💡 Did You Know?**: The lateral inversion of plane mirrors is the reason why the word \"AMBULANCE\" is printed backward on the front of emergency vehicles. When a driver looks in their rear-view mirror, the lateral inversion of the mirror reverses the text back to its correct orientation, allowing them to read it instantly and yield the way!",
+                "> **🧠 Pro-Tip**: When calculating reflection angles, always measure from the *normal* line, not from the mirror's surface. If a question states that a ray strikes a mirror at an angle of $$30^\\circ$$ to the *surface*, the angle of incidence is $$90^\\circ - 30^\\circ = 60^\\circ$$."
+              ]
+            },
+            {
+              "id": "phys10-u5-tb13",
+              "type": "text",
+              "title": "5.4 The Mirror Equation, Magnification, and Sign Conventions",
+              "page": 216,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "The **Mirror Equation** is an analytical formula relating the object distance ($$d_o$$), image distance ($$d_i$$), and focal length ($$f$$) of a spherical mirror: $$\\frac{1}{f} = \\frac{1}{d_o} + \\frac{1}{d_i}$$."
+              ]
+            },
+            {
+              "id": "phys10-u5-chk13",
+              "type": "check",
+              "title": "Quick check",
+              "page": 216,
+              "src": "study_notes",
+              "q": "Which type of mirror is primarily used as a rear-view mirror in vehicles to provide a wider field of view?",
+              "options": {
+                "A": "Concave mirror",
+                "B": "Plane mirror",
+                "C": "Convex mirror",
+                "D": "Parabolic mirror"
+              },
+              "answer": "C",
+              "why": "**Step 1: Identify optical requirements**  \nA rear-view mirror must show a wide, upright, but compressed view of the traffic behind.\n\n**Step 2: Match with mirror characteristics**  \n- Plane mirrors have a limited field of view.\n- Concave mirrors can flip the image upside down.\n- Convex mirrors diverge light, always forming upright, diminished virtual images with a very wide field of view.\n\n**Step 3: Final Result**  \nTherefore, a **Convex mirror** is used."
             }
           ]
         },
@@ -7537,6 +8638,82 @@
                 }
               ],
               "answer": "B"
+            },
+            {
+              "id": "phys10-u5-tb9",
+              "type": "text",
+              "title": "5.3 Spherical Mirrors and Ray Diagrams",
+              "page": 229,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**Spherical Mirrors** are reflecting surfaces that form a segment of a hollow sphere, classified into concave (converging) and convex (diverging) mirrors depending on which side is reflective."
+              ]
+            },
+            {
+              "id": "phys10-u5-tb10",
+              "type": "text",
+              "title": "5.3 Spherical Mirrors and Ray Diagrams — Deep Dive (1/2)",
+              "page": 229,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Spherical mirrors are widely used in optical systems where light must be converged or diverged. To analyze these mirrors, we must first define several key geometric parameters: • **Pole ($$P$$)**: The geometric center of the spherical mirror surface. • **Center of Curvature ($$C$$)**: The center of the hollow glass sphere of which the mirror forms a segment. • **Radius of Curvature ($$R$$)**: The radius of the hollow sphere ($$PC = R$$). • **Principal Axis**: The straight line passing through both the pole ($$P$$) and the center of curvature ($$C$$). • **Principal Focus ($$F$$)**: The point on the principal axis where rays parallel to the axis either converge after reflection (for concave mirrors) or appear to diverge from after reflection (for convex mirrors). • **Focal Length ($$f$$)**: The distance from the pole to the principal focus ($$PF = f$$).",
+                "For a spherical mirror with a small aperture, the focal length is exactly half of its radius of curvature: $$f = \\frac{R}{2} \\implies R = 2f$$ This means the principal focus ($$F$$) lies midway between the pole ($$P$$) and the center of curvature ($$C$$).",
+                "A **Concave Mirror** has its reflecting surface curved inward (like the inside of a spoon). It is also called a **converging mirror** because it brings parallel incident rays to a real focus in front of the mirror. A **Convex Mirror** has its reflecting surface curved outward (like the back of a spoon). It is also called a **diverging mirror** because it spreads parallel incident rays outward, making them appear to originate from a virtual focus behind the mirror.",
+                "To locate and characterize the image formed by a spherical mirror graphically, we construct **ray diagrams** using three principal rays originating from a point on the object: 1. **The Parallel Ray**: An incident ray parallel to the principal axis reflects through the principal focus $$F$$ (for a concave mirror) or appears to diverge from the virtual focus $$F$$ (for a convex mirror). 2. **The Focal Ray**: An incident ray passing through the focus $$F$$ (for a concave mirror) or directed toward the virtual focus $$F$$ (for a convex mirror) reflects parallel to the principal axis. 3."
+              ]
+            },
+            {
+              "id": "phys10-u5-tb11",
+              "type": "text",
+              "title": "5.3 Spherical Mirrors and Ray Diagrams — Deep Dive (2/2)",
+              "page": 229,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "**The Center of Curvature Ray**: An incident ray passing through the center of curvature $$C$$ (for a concave mirror) or directed toward the center of curvature $$C$$ (for a convex mirror) strikes the mirror normally and reflects back along its original path. The intersection of any two of these reflected rays determines the position, size, and orientation of the image."
+              ]
+            },
+            {
+              "id": "phys10-u5-tb12",
+              "type": "text",
+              "title": "5.3 Spherical Mirrors and Ray Diagrams — Concave vs. Convex Mirrors",
+              "page": 229,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Feature — Concave (Converging) Mirror — Convex (Diverging) Mirror | Reflecting Surface — Curved inward (inner segment) — Curved outward (outer segment) | Focal Length ($$f$$) — Positive ($$f > 0$$) — Negative ($$f < 0$$) | Image Types Produced — Real and inverted, or Virtual and erect — Strictly Virtual and erect | Image Size — Can be magnified, diminished, or same size — Strictly diminished (smaller than object) | Common Applications — Shaving mirrors, solar cookers, headlights — Passenger-side car mirrors, security mirrors",
+                "> **💡 Did You Know?**: Convex mirrors are used in convenience stores and parking garages as security mirrors because they provide a much wider angle of view (field of view) than flat plane mirrors, allowing one to see around blind corners!",
+                "> **🧠 Pro-Tip**: When drawing ray diagrams, always remember that real rays are drawn with solid lines and arrows, while virtual rays (the extensions behind the mirror surface) are drawn with dashed lines to show that light does not actually pass through that region."
+              ]
+            },
+            {
+              "id": "phys10-u5-tb14",
+              "type": "text",
+              "title": "5.4 The Mirror Equation, Magnification, and Sign Conventions — Deep Dive",
+              "page": 229,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "While ray diagrams are useful for visualizing how images are formed, we can calculate the exact position, size, and orientation of an image more quickly and accurately using analytical methods. The mathematical relationship between the object distance ($$d_o$$), image distance ($$d_i$$), and the focal length ($$f$$) of a spherical mirror is given by the **mirror equation**: $$\\frac{1}{f} = \\frac{1}{d_o} + \\frac{1}{d_i}$$ This equation can be derived geometrically from the triangles formed in a ray diagram under the paraxial approximation (which assumes that the mirror aperture is small and that the rays are close to the principal axis).",
+                "To find the relative size of the image compared to the object, we calculate the **linear magnification** ($$m$$). Magnification is defined as the ratio of the height of the image ($$h_i$$) to the height of the object ($$h_o$$): $$m = \\frac{h_i}{h_o}$$ Using similar triangles, we can also express magnification in terms of the image and object distances: $$m = -\\frac{d_i}{d_o}$$ The negative sign in this equation is a mathematical convention used to indicate the orientation of the image. If the magnification $$m$$ is positive, the image is upright (erect); if $$m$$ is negative, the image is upside down (inverted).",
+                "To ensure that the mirror equation and magnification formula yield mathematically consistent results for both concave and convex mirrors, we must follow a strict set of **sign conventions**: 1. **Object Distance ($$d_o$$)**: Positive ($$d_o > 0$$) if the object is in front of the mirror (real object); negative ($$d_o < 0$$) if the object is behind the mirror (virtual object). 2. **Image Distance ($$d_i$$)**: Positive ($$d_i > 0$$) if the image is in front of the mirror (real image); negative ($$d_i < 0$$) if the image is behind the mirror (virtual image). 3. **Focal Length ($$f$$) and Radius ($$R$$)**: Positive ($$f > 0$$) for a concave (converging) mirror; negative ($$f < 0$$) for a convex (diverging) mirror. 4.",
+                "**Heights ($$h_o$$ and $$h_i$$)**: Object height $$h_o$$ is always positive. Image height $$h_i$$ is positive if the image is upright (erect) and negative if the image is upside down (inverted)."
+              ]
+            },
+            {
+              "id": "phys10-u5-tb15",
+              "type": "text",
+              "title": "5.4 The Mirror Equation, Magnification, and Sign Conventions — Summary of Mirror Sign Conventions",
+              "page": 229,
+              "src": "study_notes",
+              "enriched": true,
+              "body": [
+                "Optical Parameter — Positive Sign ($$+$$) — Negative Sign ($$-$$) | Object Distance ($$d_o$$) — Real object (in front of mirror) — Virtual object (behind mirror) | Image Distance ($$d_i$$) — Real image (in front of mirror) — Virtual image (behind mirror) | Focal Length ($$f$$) — Concave mirror (converging) — Convex mirror (diverging) | Magnification ($$m$$) — Upright / Erect image (virtual) — Inverted / Upside down image (real)",
+                "> **💡 Did You Know?**: Dentists use a small concave mirror to inspect your teeth. When the mirror is positioned very close to a tooth (placing the tooth within the mirror's focal length, $$d_o < f$$), it produces a magnified, upright virtual image behind the mirror, allowing the dentist to spot tiny cavities easily!",
+                "> **🧠 Pro-Tip**: When solving for image distance ($$d_i$$), you can rearrange the mirror equation to avoid fraction mistakes: $$d_i = \\frac{d_o f}{d_o - f}$$. Always keep the signs of $$f$$ and $$d_o$$ in mind when substituting values into this formula!"
+              ]
             }
           ]
         }
@@ -8283,7 +9460,8 @@
           }
         ],
         "src": "auto"
-      }
+      },
+      "intro": ". This straight-line behavior explains many everyday optical phenomena, such as the formation of sharp shadows when an opaque object blocks a light source, and the operation of a"
     }
   ]
 }
