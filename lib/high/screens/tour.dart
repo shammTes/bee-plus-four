@@ -35,7 +35,7 @@ class _TourCardState extends State<TourCard> {
     return Padding(
       padding: EdgeInsets.only(bottom: bottom),
       child: DecoratedBox(
-        decoration: BoxDecoration(color: const Color(0xFFFFFCF7), borderRadius: BorderRadius.circular(24), boxShadow: const [BoxShadow(color: Color(0x332A1A12), blurRadius: 18, offset: Offset(0, 8))]),
+        decoration: BoxDecoration(color: const Color(0xFFFFFCF7), borderRadius: BorderRadius.circular(24), border: Border.all(color: const Color(0x332A1A12)), boxShadow: const [BoxShadow(color: Color(0x222A1A12), offset: Offset(0, 4))]),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
           child: Column(
@@ -82,7 +82,7 @@ class _TourCardState extends State<TourCard> {
     return Padding(
       padding: EdgeInsets.only(bottom: bottom),
       child: DecoratedBox(
-        decoration: BoxDecoration(color: const Color(0xFFFFFCF7), borderRadius: BorderRadius.circular(24), boxShadow: const [BoxShadow(color: Color(0x332A1A12), blurRadius: 18, offset: Offset(0, 8))]),
+        decoration: BoxDecoration(color: const Color(0xFFFFFCF7), borderRadius: BorderRadius.circular(24), border: Border.all(color: const Color(0x332A1A12)), boxShadow: const [BoxShadow(color: Color(0x222A1A12), offset: Offset(0, 4))]),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
           child: Column(

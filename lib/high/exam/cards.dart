@@ -6,6 +6,7 @@ import '../data/models.dart';
 import '../screens/toast.dart';
 import '../state/app_state.dart';
 import '../theme/tokens.dart';
+import '../theme/perf.dart' show Dim;
 import '../widgets/art.dart';
 import '../widgets/kit.dart';
 import '../widgets/page.dart';
@@ -142,7 +143,8 @@ class OptBtn extends StatelessWidget {
       child: row,
     );
     final down = st == 'sel' || st == 'wrong';
-    return Opacity(opacity: st == 'dim' ? .55 : 1, child: down ? Transform.translate(offset: const Offset(0, 4), child: w) : w);
+    final moved = down ? Transform.translate(offset: const Offset(0, 4), child: w) : w;
+    return st == 'dim' ? Dim(opacity: .55, over: p.surface, child: moved) : moved;
   }
 }
 
@@ -644,9 +646,12 @@ class _QCardState extends State<QCard> {
       stem = Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          ShaderMask(
-            shaderCallback: (r) => const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFF000000), Color(0x00000000)], stops: [.72, 1]).createShader(r),
-            blendMode: BlendMode.dstIn,
+          // fade-out at the bottom: a gradient veil in the card colour on top (a ShaderMask was an offscreen layer)
+          DecoratedBox(
+            position: DecorationPosition.foreground,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [withA(p.surface, 0), withA(p.surface, 0), p.surface], stops: const [0, .72, 1]),
+            ),
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxHeight: 280),
               child: SingleChildScrollView(physics: const ClampingScrollPhysics(), child: stem),
@@ -1075,8 +1080,9 @@ class _MatchCardState extends State<MatchCard> {
                   runSpacing: 6,
                   children: [
                     for (final e in ch.entries)
-                      Opacity(
+                      Dim(
                         opacity: used.containsKey(e.key) ? .5 : 1,
+                        over: p.surface,
                         child: Container(
                           constraints: const BoxConstraints(minWidth: 140),
                           padding: const EdgeInsets.fromLTRB(5, 5, 8, 5),

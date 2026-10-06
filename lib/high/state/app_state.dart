@@ -83,8 +83,9 @@ class HighState extends ChangeNotifier {
   String? name;
   String? theme;
 
-  /// Smooth scrolling (Lite effects): cheap clay shadows, no entrance fades. On unless the user picked "Full clay".
-  bool lite = true;
+  /// Flat look (solid soft colours, no blurred shadows): on unless the user picked "Clay" in Settings > Look.
+  /// Stored as 'flat' (the old 'lite' switch is not carried over: flat is the new default for everyone).
+  bool flat = true;
   String cat = 'matric';
   String lang = 'en';
   Map<String, dynamic> answers = {};
@@ -200,6 +201,47 @@ class HighState extends ChangeNotifier {
   }
 
   bool systemDark = false;
+
+  /// more content arrived in the background (an exercise set, unit_questions.json, board codes): rebuild the link index
+  /// and the screens that count questions
+  void contentChanged() {
+    _links = null;
+    notifyListeners();
+  }
+
+  /// Load the exercise sets the saved profile refers to (answers, mistakes, bookmarks, homework, the teacher's basket,
+  /// today's quiz), so stats and lists include them. Started after the first frame; the rest of the bank stays unread
+  /// until a subject is opened.
+  Future<void> restoreExerciseRefs() async {
+    final ids = <String>{
+      ...answers.keys,
+      ...mistakes,
+      ...bookmarks,
+      ...basket,
+      for (final h in homework) ...[for (final x in (h['ids'] as List? ?? const [])) '$x'],
+      for (final d in daily.values)
+        if (d is Map) ...[for (final x in (d['ids'] as List? ?? const [])) '$x'],
+    }.where((id) => !repo.byId.containsKey(id)).toList();
+    if (ids.isEmpty) return;
+    final v = repo.exerciseVersion;
+    await repo.ensureExercisesForIds(ids);
+    if (repo.exerciseVersion != v) contentChanged();
+  }
+
+  /// [ids] (a quiz, homework …) may hold exercise questions that are not read in yet: load them, then rebuild
+  Future<void> needQuestions(Iterable<String> ids) async {
+    final v = repo.exerciseVersion;
+    await repo.ensureExercisesForIds(ids);
+    if (repo.exerciseVersion != v) contentChanged();
+  }
+
+  /// load one grade + subject of the Exercise bank (first open of that subject), then rebuild
+  Future<void> needExercises(int grade, String subject) async {
+    if (repo.exercisesLoaded(grade, subject)) return;
+    await repo.ensureExercises(grade, subject);
+    contentChanged();
+  }
+
   UnitLinks? _links;
   UnitLinks get links {
     final l = _links;
@@ -250,8 +292,8 @@ class HighState extends ChangeNotifier {
   void fromJson(Map<String, dynamic> o) {
     name = o['name'] as String?;
     theme = (o['theme'] as String?) ?? 'light';
-    lite = o['lite'] != false;
-    Perf.lite = lite;
+    flat = o['flat'] != false;
+    Perf.flat = flat;
     lang = (o['lang'] as String?) == 'en' ? 'en' : 'ti';
     cat = (o['cat'] as String?) ?? 'matric';
     answers = Map<String, dynamic>.from(o['answers'] as Map? ?? {});
@@ -275,7 +317,7 @@ class HighState extends ChangeNotifier {
     'v': 2,
     'name': name,
     'theme': theme,
-    'lite': lite,
+    'flat': flat,
     'lang': lang,
     'cat': cat,
     'answers': answers,
@@ -326,9 +368,9 @@ class HighState extends ChangeNotifier {
     changed();
   }
 
-  void setLite(bool v) {
-    lite = v;
-    Perf.setLite(v);
+  void setFlat(bool v) {
+    flat = v;
+    Perf.setFlat(v);
     changed();
   }
 
@@ -512,7 +554,8 @@ class HighState extends ChangeNotifier {
   Map<String, dynamic> dailyQuiz() {
     final k = dayKey(nowMs());
     final cur = daily[k] as Map?;
-    if (cur != null && (cur['ids'] as List).isNotEmpty && (cur['ids'] as List).every((id) => repo.byId.containsKey(id))) {
+    // ids of exercise sets that are not read in yet still count (they load when the quiz opens)
+    if (cur != null && (cur['ids'] as List).isNotEmpty && (cur['ids'] as List).every((id) => repo.byId.containsKey(id) || repo.mayBePendingExercise('$id'))) {
       if (cur is! Map<String, dynamic> || cur['res'] is! Map<String, dynamic>) {
         daily[k] = {'ids': List<String>.from(cur['ids'] as List), 'res': Map<String, dynamic>.from((cur['res'] as Map?) ?? {})};
       }

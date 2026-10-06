@@ -2,6 +2,7 @@
 // Building blocks shared by the unit page, games, exercise questions and the exam player.
 import 'package:flutter/widgets.dart';
 
+import '../../../theme/perf.dart' show Dim;
 import '../theme/clay.dart';
 import '../theme/notes_styles.dart';
 import '../theme/tokens.dart';
@@ -175,7 +176,7 @@ class OptButton extends StatelessWidget {
         child: Center(widthFactor: 1, heightFactor: 1, child: body),
       );
     }
-    return state == OptState.dim ? Opacity(opacity: .6, child: w) : w;
+    return state == OptState.dim ? Dim(opacity: .6, over: p.surface, child: w) : w;
   }
 }
 

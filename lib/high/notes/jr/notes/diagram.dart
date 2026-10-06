@@ -113,8 +113,8 @@ class _PinDotState extends State<PinDot> with TickerProviderStateMixin {
   AnimationController? _pulse;
 
   void _sync() {
-    // Lite: the "ask" pin is gold and still, no endless 60 fps pulse inside the scrolling list
-    if (widget.look == PinLook.ask && !Perf.lite) {
+    // the "ask" pin is gold and still: no endless 60 fps pulse inside the scrolling list
+    if (widget.look == PinLook.ask && Perf.animations) {
       _pulse ??= AnimationController(vsync: this, duration: const Duration(milliseconds: 1000))..repeat();
     } else {
       _pulse?.dispose();

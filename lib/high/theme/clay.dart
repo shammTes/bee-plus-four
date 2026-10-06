@@ -1,6 +1,12 @@
 // Copied from Junior (junior_flutter/lib/junior/theme/clay.dart) + AngleFill for CSS linear-gradient(<angle>).
-// CSS-accurate clay painting: layered backgrounds (linear / radial gradients) + outer AND inset box-shadows
-// with CSS geometry (offset, blur, spread). Flutter's BoxShadow has no inset, so this Decoration paints them itself.
+// The notes renderer (notes/jr/theme/clay.dart) re-exports this file, so there is one painter for the whole app.
+//
+// Decorations are still described like the CSS (layered backgrounds + outer AND inset box-shadows), but by default
+// ([Perf.flat]) they are painted FLAT: one solid soft colour, a 1px border, at most one hard (non-blurred) offset "ledge"
+// under keys and buttons, and a solid ring for selected keys. No mask blur, no gradient shaders, no clip, no offscreen
+// layer: a card costs 2-3 rrect draws, which old Mali / Adreno GPUs handle at 60 fps. The pressed look still changes:
+// the ledge shrinks and a top inner shadow ("pushed in") darkens the fill. Settings > Look > Clay brings the soft clay
+// shadows back (blurred outer shadows + cheap gradient bands for the inset ones).
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 
@@ -40,6 +46,28 @@ sealed class Fill {
   const Fill();
   Paint paint(Rect r);
   Fill lerpTo(Fill other, double t) => t < .5 ? this : other;
+
+  /// the one solid colour this layer becomes in the flat look; null = drop it. [overlay]: something is painted under
+  /// this layer, so a gradient fading to transparent is a decorative sheen / glow and is dropped.
+  Color? flatColor(bool overlay);
+}
+
+/// colour of a gradient at [t] (0..1)
+Color _gradAt(List<Color> colors, List<double> stops, double t) {
+  if (colors.isEmpty) return const Color(0x00000000);
+  if (t <= stops.first || colors.length == 1) return colors.first;
+  for (var i = 1; i < colors.length && i < stops.length; i++) {
+    if (t <= stops[i]) {
+      final span = stops[i] - stops[i - 1];
+      return Color.lerp(colors[i - 1], colors[i], span <= 0 ? 1 : (t - stops[i - 1]) / span)!;
+    }
+  }
+  return colors.last;
+}
+
+Color? _flatGrad(List<Color> colors, List<double> stops, bool overlay, double t) {
+  if (overlay && colors.any((c) => c.a < .05)) return null;
+  return _gradAt(colors, stops, t);
 }
 
 class SolidFill extends Fill {
@@ -47,6 +75,8 @@ class SolidFill extends Fill {
   const SolidFill(this.color);
   @override
   Paint paint(Rect r) => Paint()..color = color;
+  @override
+  Color? flatColor(bool overlay) => color;
   @override
   Fill lerpTo(Fill other, double t) => other is SolidFill
       ? SolidFill(Color.lerp(color, other.color, t)!)
@@ -69,6 +99,8 @@ class LinearFill extends Fill {
   @override
   Paint paint(Rect r) =>
       Paint()..shader = ui.Gradient.linear(horizontal ? r.centerLeft : r.topCenter, horizontal ? r.centerRight : r.bottomCenter, colors, stops);
+  @override
+  Color? flatColor(bool overlay) => _flatGrad(colors, stops, overlay, .5);
   @override
   Fill lerpTo(Fill other, double t) {
     if (other is SolidFill) return lerpTo(LinearFill.vertical([for (final _ in colors) other.color], stops), t);
@@ -105,6 +137,9 @@ class AngleFill extends Fill {
   }
 
   @override
+  Color? flatColor(bool overlay) => _flatGrad(colors, stops, overlay, .5);
+
+  @override
   bool operator ==(Object o) => o is AngleFill && o.deg == deg && _listEq(o.colors, colors) && _listEq(o.stops, stops);
   @override
   int get hashCode => Object.hash(deg, Object.hashAll(colors), Object.hashAll(stops));
@@ -132,6 +167,10 @@ class RadialFill extends Fill {
       ..translateByDouble(-c.dx, -c.dy, 0, 1);
     return Paint()..shader = ui.Gradient.radial(c, ex, colors, stops, TileMode.clamp, m.storage);
   }
+
+  /// most of a radial knob is near its outer colour
+  @override
+  Color? flatColor(bool overlay) => _flatGrad(colors, stops, overlay, .6);
 
   @override
   Fill lerpTo(Fill other, double t) {
@@ -215,9 +254,17 @@ class ClayDecoration extends Decoration {
   int get hashCode => Object.hash(Object.hashAll(fills), Object.hashAll(shadows), radius);
 }
 
+extension ClayPress on ClayDecoration {
+  /// flat look: a key held down [t] (0..1) also darkens a little (the pressed decoration shrinks its ledge as well), so
+  /// every tap shows a pushed-in colour change without any shadow blur
+  ClayDecoration pressedBy(double t) =>
+      !Perf.flat || t <= 0 ? this : copyWith(shadows: [...shadows, Shadow3.inset(0, 1, 1, 0, Color.fromRGBO(0, 0, 0, .16 * math.min(t, 1)))]);
+}
+
 class _ClayPainter extends BoxPainter {
   _ClayPainter(this.d);
   final ClayDecoration d;
+  _FlatLook? _flat;
 
   static RRect _spread(RRect r, double s) {
     Radius adj(Radius x) => Radius.elliptical(math.max(0, x.x + s), math.max(0, x.y + s));
@@ -238,7 +285,9 @@ class _ClayPainter extends BoxPainter {
     final size = cfg.size!;
     final rect = offset & size;
     final rr = d.radius.resolve(TextDirection.ltr).toRRect(rect).scaleRadii();
-    // outer shadows, bottom-most (last in CSS) first
+    if (Perf.flat) return (_flat ??= _FlatLook.of(d)).paint(canvas, rr);
+    // Clay (opt-in): outer shadows, bottom-most (last in CSS) first. A blurred rounded rect is drawn analytically by
+    // both Skia and Impeller.
     for (final s in d.shadows.reversed) {
       if (s.inset || s.color.a == 0) continue;
       final p = Paint()..color = s.color;
@@ -254,23 +303,106 @@ class _ClayPainter extends BoxPainter {
     if (insets.isEmpty) return;
     canvas.save();
     canvas.clipRRect(rr);
-    final lite = Perf.lite;
     for (final s in insets) {
-      if (lite && s.blur > 0) {
-        // Lite: gradient bands instead of a mask blur over a card-sized offscreen layer (see theme/perf.dart)
+      if (s.blur > 0) {
+        // gradient bands instead of a mask blur over a card-sized offscreen layer (see theme/perf.dart)
         paintInsetBands(canvas, rr, s.dx, s.dy, s.blur, s.spread, s.color);
         continue;
       }
       final hole = _spread(rr, -s.spread).shift(Offset(s.dx, s.dy));
-      final pad = s.blur + s.spread.abs() + s.dx.abs() + s.dy.abs() + 4;
+      final pad = s.spread.abs() + s.dx.abs() + s.dy.abs() + 4;
       final path = Path()
         ..fillType = PathFillType.evenOdd
         ..addRect(rect.inflate(pad))
         ..addRRect(hole);
-      final p = Paint()..color = s.color;
-      if (s.blur > 0) p.maskFilter = MaskFilter.blur(BlurStyle.normal, s.blur / 2);
-      canvas.drawPath(path, p);
+      canvas.drawPath(path, Paint()..color = s.color);
     }
     canvas.restore();
+  }
+}
+
+/// The flat version of a [ClayDecoration] (see the top of this file). Worked out once per decoration.
+class _FlatLook {
+  _FlatLook(this.fill, this.halo, this.ledge, this.ring, this.border);
+  final Color? fill;
+
+  /// solid outer ring (CSS `0 0 0 5px`): highlighted pins / keys
+  final Shadow3? halo;
+
+  /// hard offset shadow under a key / button (CSS `0 5px 0 edge`): the only shadow kept
+  final Shadow3? ledge;
+
+  /// solid inner ring (CSS `inset 0 0 0 2px`): selected keys
+  final Shadow3? ring;
+
+  /// 1px hairline that replaces the soft shadows of raised panels and sunk tracks
+  final Color? border;
+
+  static bool _darkish(Color c) => .2126 * c.r + .7152 * c.g + .0722 * c.b < .5;
+
+  factory _FlatLook.of(ClayDecoration d) {
+    Color? fill;
+    for (var i = d.fills.length - 1; i >= 0; i--) {
+      final c = d.fills[i].flatColor(fill != null);
+      if (c == null || c.a == 0) continue;
+      fill = fill == null ? c : Color.alphaBlend(c, fill);
+    }
+    Shadow3? halo, ledge, ring;
+    Color? soft, sunk;
+    var press = 0.0;
+    Color? pressC;
+    for (final s in d.shadows) {
+      if (s.color.a == 0) continue;
+      if (!s.inset) {
+        if (s.blur == 0 && (s.dy > 0 || s.dx != 0) && s.spread >= 0) {
+          ledge ??= s;
+        } else if (s.blur == 0 && s.dx == 0 && s.dy == 0 && s.spread > 0) {
+          halo ??= s;
+        } else if (s.blur > 0) {
+          soft ??= s.color;
+        }
+      } else if (s.blur == 0 && s.dx == 0 && s.dy == 0 && s.spread > 0) {
+        ring ??= s;
+      } else if (s.dy > 0 && _darkish(s.color)) {
+        // a dark inner shadow along the top edge = pushed in: darken the fill a little instead
+        sunk ??= s.color;
+        if (s.color.a > press) {
+          press = s.color.a;
+          pressC = s.color;
+        }
+      }
+    }
+    if (fill != null && pressC != null) fill = Color.alphaBlend(withA(pressC, (press * .5).clamp(0.0, .3)), fill);
+    Color? border;
+    final b = soft ?? sunk;
+    if (ledge == null && ring == null && halo == null && b != null) border = withA(b, (b.a * .6).clamp(.10, .28));
+    return _FlatLook(fill, halo, ledge, ring, border);
+  }
+
+  void paint(Canvas canvas, RRect rr) {
+    final h = halo;
+    if (h != null) canvas.drawRRect(_ClayPainter._spread(rr, h.spread), Paint()..color = h.color);
+    final l = ledge;
+    if (l != null) canvas.drawRRect(_ClayPainter._spread(rr, l.spread).shift(Offset(l.dx, l.dy)), Paint()..color = l.color);
+    final f = fill;
+    if (f != null) canvas.drawRRect(rr, Paint()..color = f);
+    final r = ring;
+    if (r != null) {
+      canvas.drawRRect(
+        _ClayPainter._spread(rr, -r.spread / 2),
+        Paint()
+          ..color = r.color
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = r.spread,
+      );
+    } else if (border != null && rr.width > 2 && rr.height > 2) {
+      canvas.drawRRect(
+        _ClayPainter._spread(rr, -.5),
+        Paint()
+          ..color = border!
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1,
+      );
+    }
   }
 }

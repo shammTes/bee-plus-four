@@ -69,7 +69,13 @@ class _TeacherPageState extends State<TeacherPage> {
     super.dispose();
   }
 
-  List<Question> _pool(HighState s) => _src == 'matric'
+  List<Question> _pool(HighState s) {
+    // the exercise pool needs the whole bank: read the sets in (once, one after another) and rebuild
+    if (_src != 'matric' && !s.repo.allExercisesLoaded) s.repo.ensureAllExercises().then((_) => s.contentChanged());
+    return _poolNow(s);
+  }
+
+  List<Question> _poolNow(HighState s) => _src == 'matric'
       ? [for (final e in s.repo.exams) ...e.questions]
       : [for (final e in s.repo.exerciseExams.values.toList()..sort((a, b) => '${a.year}${a.subject}'.compareTo('${b.year}${b.subject}'))) ...e.questions];
 
@@ -354,6 +360,7 @@ class _EnterCodePageState extends State<EnterCodePage> {
     setState(() => _err = null);
     final code = QCodesX.label(cd.setCode(r.ids), r.ids.length);
     s.saveHomework(code, r.ids);
+    s.needQuestions(r.ids);
     HighNav.of(context).open('hw:$code', () => HomeworkPage(ids: r.ids, code: code));
   }
 
@@ -383,7 +390,8 @@ class _EnterCodePageState extends State<EnterCodePage> {
               Panel(
                 padding: const EdgeInsets.all(14),
                 onTap: () {
-                  final ids = [for (final x in h['ids'] as List) if (s.repo.byId.containsKey(x)) x as String];
+                  s.needQuestions([for (final x in h['ids'] as List) '$x']);
+                  final ids = [for (final x in h['ids'] as List) if (s.repo.byId.containsKey(x) || s.repo.mayBePendingExercise('$x')) x as String];
                   HighNav.of(context).open('hw:${h['code']}', () => HomeworkPage(ids: ids, code: h['code'] as String));
                 },
                 child: Row(

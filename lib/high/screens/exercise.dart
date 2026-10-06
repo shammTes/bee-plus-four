@@ -24,15 +24,20 @@ bool get _pluginEmpty => HighExercises.source is EmptyExerciseSource;
 /// subjects of a grade: notes books plus bank-only subjects (e.g. English)
 List<({String subject, IndexBook? book})> exerciseSubjects(HighState s, int g) {
   final books = s.notesRepo.grade(g);
-  final extra = s.repo.exerciseExams.keys.where((k) => k.startsWith('$g|')).map((k) => k.substring(k.indexOf('|') + 1)).where((sj) => !books.any((b) => b.subject == sj));
+  final extra = s.repo.exerciseIndex.keys.where((k) => k.startsWith('$g|')).map((k) => k.substring(k.indexOf('|') + 1)).where((sj) => !books.any((b) => b.subject == sj));
   return [for (final b in books) (subject: b.subject, book: b), for (final sj in extra) (subject: sj, book: null)];
 }
 
-int exerciseCount(HighState s, int g, String subject) => s.repo.exerciseExams['$g|$subject']?.questions.length ?? 0;
+int exerciseCount(HighState s, int g, String subject) => s.repo.exerciseCount(g, subject);
 
-/// open a unit: bank only -> quiz of the next [kExerciseSet] questions (unanswered, then wrong, then right)
-void openExercises(BuildContext c, {required int grade, required String subject, String? unitId, required String title}) {
+/// open a unit: bank only -> quiz of the next [kExerciseSet] questions (unanswered, then wrong, then right).
+/// The grade + subject's exercise files are read first if they are not in yet (background isolate, then cached).
+Future<void> openExercises(BuildContext c, {required int grade, required String subject, String? unitId, required String title}) async {
   final s = HighScope.read(c);
+  if (!s.repo.exercisesLoaded(grade, subject)) {
+    await s.needExercises(grade, subject);
+    if (!c.mounted) return;
+  }
   final ids = [...s.repo.exerciseIds(grade: grade, subject: subject, unitId: unitId)];
   if (ids.isNotEmpty && _pluginEmpty) {
     int rank(String id) => !s.answered(id) ? 0 : (s.ansOk(id) ? 2 : 1);
@@ -54,12 +59,14 @@ class _ExercisePageState extends State<ExercisePage> {
   @override
   Widget build(BuildContext context) {
     final k = Kit.of(context), p = k.p, s = k.s;
-    final gs = {...s.notesRepo.grades, for (final e in s.repo.exerciseExams.keys) int.parse(e.split('|').first)}.toList()..sort();
+    final gs = {...s.notesRepo.grades, for (final e in s.repo.exerciseIndex.keys) int.parse(e.split('|').first)}.toList()..sort();
     if (gs.isNotEmpty && !gs.contains(_g)) _g = gs.contains(9) ? 9 : gs.first;
     final subs = exerciseSubjects(s, _g);
     if (subs.isNotEmpty && (_subject == null || !subs.any((x) => x.subject == _subject))) _subject = subs.first.subject;
     final pick = subs.where((x) => x.subject == _subject).firstOrNull;
     final lk = pick == null ? null : notesSubject(pick.subject);
+    // only the picked subject's exercise files are read (rebuilds with exact counts when they are in)
+    if (pick != null) s.needExercises(_g, pick.subject);
     return PageShell(
       top: TopBar(title: 'Exercise', sub: 'Grade $_g · tap a subject, then a unit'),
       body: ScreenList(
@@ -104,7 +111,7 @@ Widget _unitTile(BuildContext context, {required int grade, required String subj
   final k = Kit.of(context), p = k.p, s = k.s;
   final ids = s.repo.exerciseIds(grade: grade, subject: subject, unitId: unitId);
   final extra = HighExercises.source.countFor(grade: grade, subject: subject, unitId: unitId ?? 'general');
-  final n = ids.length + (extra ?? 0), done = ids.where(s.answered).length, right = ids.where(s.ansOk).length;
+  final n = s.repo.exerciseUnitCount(unitId ?? 'general|$grade|$subject') + (extra ?? 0), done = ids.where(s.answered).length, right = ids.where(s.ansOk).length;
   return Panel(
     padding: const EdgeInsets.all(14),
     onTap: () => openExercises(context, grade: grade, subject: subject, unitId: unitId, title: openTitle),
@@ -137,6 +144,7 @@ class ExerciseSubjectPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = Kit.of(context).s, lk = notesSubject(subject);
     final book = s.notesRepo.grade(grade).where((b) => b.subject == subject).firstOrNull;
+    s.needExercises(grade, subject);
     final gen = s.repo.exerciseIds(grade: grade, subject: subject);
     return PageShell(
       top: TopBar(title: lk.key, sub: 'Grade $grade · exercises', onBack: HighNav.of(context).back, tab: false),
@@ -144,7 +152,7 @@ class ExerciseSubjectPage extends StatelessWidget {
         children: [
           if (book != null)
             for (final u in book.units) _unitTile(context, grade: grade, subject: subject, lk: lk, badge: '${u.number}', title: u.title, unitId: u.id, openTitle: 'Unit ${u.number} · ${u.title}'),
-          if (gen.isNotEmpty || book == null) _unitTile(context, grade: grade, subject: subject, lk: lk, badge: '★', title: 'General', unitId: null, openTitle: '${lk.key} · General'),
+          if (gen.isNotEmpty || s.repo.exerciseUnitCount('general|$grade|$subject') > 0 || book == null) _unitTile(context, grade: grade, subject: subject, lk: lk, badge: '★', title: 'General', unitId: null, openTitle: '${lk.key} · General'),
         ],
       ),
     );
@@ -169,6 +177,7 @@ class _ExerciseUnitPageState extends State<ExerciseUnitPage> {
   @override
   Widget build(BuildContext context) {
     final w = widget, s = Kit.of(context).s;
+    s.needExercises(w.grade, w.subject);
     final bank = s.repo.exerciseIds(grade: w.grade, subject: w.subject, unitId: w.unitId);
     final custom = HighExercises.source.buildUnit(context, grade: w.grade, subject: w.subject, unitId: w.unitId ?? 'general');
     final top = TopBar(title: 'Exercises', sub: w.title, onBack: HighNav.of(context).back, tab: false);

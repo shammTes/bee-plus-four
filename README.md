@@ -15,12 +15,24 @@ the Home card or the Matric page).
 ## Run
 ```
 source /opt/sdk/env.sh       # Flutter 3.47.x
+python3 tool/split_notes.py # per-unit notes files (assets/high/notes/split, git-ignored; run before every build)
 flutter pub get && flutter run
 flutter analyze
 flutter test            # ~20 s; test/exercise_shots_test.dart writes compare/exercise_*.png
 ```
 Content refresh: `bash tool/sync_assets.sh [exam_src] [notes_src]` (defaults /workspace/examprep/content,
 /workspace/high/content). If new notes books add SVG folders, list each `assets/high/notes/notes/svg/<book>/` in pubspec.
+
+## Performance notes
+- **Flat look** (default; Settings → Look → Clay brings the soft 3D look back): clay decorations paint one solid colour,
+  a 1px border or one hard offset ledge, no blurred shadows, no `saveLayer` (opacity is a colour veil, `Dim`).
+- **No decorative animations**: page enter fades, staggered cards, count-ups and pulsing pins are off (`Perf.animations`).
+- **Start-up**: exam packs + the two exercise indexes + the notes index; exercise sets, notes units, unit questions,
+  placements and board codes load later, off the UI thread.
+- **Notes units** open from `assets/high/notes/split/<unitId>.json` (built by `tool/split_notes.py`, which honours
+  `unit_<id>.json` overrides; `--check` fails if they are stale). Without them the app falls back to the full book file.
+- **Maths** is laid out once per formula with flutter_math off screen and drawn from a cached picture
+  (`lib/high/notes/jr/notes/math_pic.dart`); TeX errors fall back to the live widget.
 
 ## Merge into a host app
 1. Copy `lib/high/` → `<host>/lib/high/` and `assets/high/` → `<host>/assets/high/`.
@@ -48,7 +60,11 @@ File shape: `{"subject": "biology", "grade": 9, "questions": [{"id": "biology_9_
 "prompt": "…", "options": ["…", "…", "…", "…"], "answer": 1, "explanation": "…", "verified": "explanation" | "trusted",
 "src": "practice_g9_biology#12"}]}`; `index.json` has `grades.<g>.<subject> = {file, count, units: {unitId|general: n}}`.
 
-`ExamRepo` loads the bank at start-up as one synthetic exam per grade+subject (`Exam.isExercise`, not listed on Matric).
+`ExamRepo` turns the bank into one synthetic exam per grade+subject (`Exam.isExercise`, not listed on Matric). In the app
+(`ExamRepo(lazyExercises: true)`) only the two `index.json` files are read at start-up; a grade+subject's files (bank +
+school papers) are read and decoded in a background isolate, once, when that subject is opened in the Exercise tab, a
+unit's exercises are asked for, or saved progress (mistakes, bookmarks, homework, daily quiz) refers to its questions.
+Counts shown before that come from `index.json`, so keep `count` / `units` there in step with the files.
 Tapping a unit opens the standard quiz player with a set of 20 (unanswered first, then wrong), so answers count in stats,
 Mistakes and "Retry wrong". To add more, drop new raw files in the source folder and re-run the script (add a file stem
 to `TRUSTED` only if its keys are known good); new grades/subjects need no code changes.

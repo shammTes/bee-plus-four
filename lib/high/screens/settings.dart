@@ -106,7 +106,7 @@ class _SettingsPageState extends State<SettingsPage> {
               onPick: (t) => s.setTheme(t == 'auto' ? null : t),
             ),
           ),
-          const SectionLabel('Scrolling'),
+          const SectionLabel('Look'),
           Panel(
             padding: const EdgeInsets.all(12),
             child: Column(
@@ -114,17 +114,17 @@ class _SettingsPageState extends State<SettingsPage> {
               spacing: 8,
               children: [
                 Seg(
-                  current: s.lite ? 'lite' : 'full',
+                  current: s.flat ? 'flat' : 'clay',
                   items: const [
-                    (id: 'lite', label: 'Smooth', icon: 'flame', count: null, tone: 'sage', enabled: true),
-                    (id: 'full', label: 'Full clay', icon: 'sparkle', count: null, tone: 'sage', enabled: true),
+                    (id: 'flat', label: 'Flat', icon: 'flame', count: null, tone: 'sage', enabled: true),
+                    (id: 'clay', label: 'Clay', icon: 'sparkle', count: null, tone: 'sage', enabled: true),
                   ],
-                  onPick: (v) => s.setLite(v == 'lite'),
+                  onPick: (v) => s.setFlat(v == 'flat'),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4),
                   child: Text(
-                    s.lite ? 'Lighter shadows and no fade-ins, so Notes scroll smoothly on any phone.' : 'Every soft shadow and animation. Best on fast phones.',
+                    s.flat ? 'Flat soft colours, no shadows: fast and smooth on any phone.' : 'Soft clay shadows. Looks puffier, but slower on older phones.',
                     style: ts(12.5, w700, p.ink3),
                   ),
                 ),
