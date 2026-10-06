@@ -440,20 +440,63 @@
               ]
             },
             {
-              "id": "phys10-u1-chk12",
+              "id": "phys10-u1-chk4",
               "type": "check",
               "title": "Quick check",
-              "page": 2,
+              "page": 13,
               "src": "study_notes",
-              "q": "Under what condition is the torque produced by a non-zero force acting on a lever arm equal to zero?",
+              "src_qid": "phys_g10_c1_q5",
+              "q": "What is the shape of the mathematical trajectory of an ideal projectile?",
               "options": {
-                "A": "When the force is applied perpendicular to the lever arm",
-                "B": "When the force is applied at $$45^\\circ$$ to the lever arm",
-                "C": "When the line of action of the force passes directly through the pivot point",
-                "D": "The torque can never be zero for a non-zero force"
+                "A": "Hyperbola",
+                "B": "Circle",
+                "C": "Straight line",
+                "D": "Parabola"
               },
-              "answer": "C",
-              "why": "**Step 1: Write torque formula**\n$$\\tau = F \\cdot r \\cdot \\sin\\theta$$\n\n**Step 2: Analyze conditions for zero torque**\nFor a non-zero force ($$F \\neq 0$$):\n- Either $$r = 0$$ (force applied at the pivot).\n- Or $$\\sin\\theta = 0 \\implies \\theta = 0^\\circ \\text{ or } 180^\\circ$$ (force parallel to the lever arm).\n\n**Step 3: Relate to physical behavior**\nBoth conditions describe a line of force that passes directly through the pivot point, making the perpendicular lever arm length $$d = 0$$.\n\n**Step 4: Final Result**\nTorque is zero **when the line of action of the force passes directly through the pivot point**."
+              "answer": "D",
+              "why": "**Step 1: Write parametric equations**\n$$x = (v_0 \\cos\\theta_0)t \\implies t = \\frac{x}{v_0 \\cos\\theta_0}$$\n$$y = (v_0 \\sin\\theta_0)t - \\frac{1}{2}gt^2$$\n\n**Step 2: Eliminate time variable**\nSubstitute $$t$$ into the vertical equation:  \n$$y = (\\tan\\theta_0)x - \\left(\\frac{g}{2v_0^2 \\cos^2\\theta_0}\\right)x^2$$\n\n**Step 3: Analyze the equation form**\nThis is in the quadratic form $$y = ax - bx^2$$, which defines a parabola.\n\n**Step 4: Final Result**\nThe shape is a **Parabola**."
+            },
+            {
+              "id": "phys10-u1-wrk4",
+              "type": "worked",
+              "title": "Step-by-step",
+              "page": 13,
+              "src": "study_notes",
+              "src_qid": "phys_g10_c1_q5",
+              "problem": "What is the shape of the mathematical trajectory of an ideal projectile?",
+              "steps": [
+                {
+                  "text": "**Step 1: Write parametric equations**"
+                },
+                {
+                  "text": "$$x = (v_0 \\cos\\theta_0)t \\implies t = \\frac{x}{v_0 \\cos\\theta_0}$$"
+                },
+                {
+                  "text": "$$y = (v_0 \\sin\\theta_0)t - \\frac{1}{2}gt^2$$"
+                },
+                {
+                  "text": "**Step 2: Eliminate time variable**"
+                },
+                {
+                  "text": "Substitute $$t$$ into the vertical equation:"
+                },
+                {
+                  "text": "$$y = (\\tan\\theta_0)x - \\left(\\frac{g}{2v_0^2 \\cos^2\\theta_0}\\right)x^2$$"
+                },
+                {
+                  "text": "**Step 3: Analyze the equation form**"
+                },
+                {
+                  "text": "This is in the quadratic form $$y = ax - bx^2$$, which defines a parabola."
+                },
+                {
+                  "text": "**Step 4: Final Result**"
+                },
+                {
+                  "text": "The shape is a **Parabola**."
+                }
+              ],
+              "answer": "D. Parabola"
             }
           ]
         },
@@ -552,65 +595,6 @@
               "answer": "C. Horizontal velocity component"
             },
             {
-              "id": "phys10-u1-chk4",
-              "type": "check",
-              "title": "Quick check",
-              "page": 13,
-              "src": "study_notes",
-              "src_qid": "phys_g10_c1_q5",
-              "q": "What is the shape of the mathematical trajectory of an ideal projectile?",
-              "options": {
-                "A": "Hyperbola",
-                "B": "Circle",
-                "C": "Straight line",
-                "D": "Parabola"
-              },
-              "answer": "D",
-              "why": "**Step 1: Write parametric equations**\n$$x = (v_0 \\cos\\theta_0)t \\implies t = \\frac{x}{v_0 \\cos\\theta_0}$$\n$$y = (v_0 \\sin\\theta_0)t - \\frac{1}{2}gt^2$$\n\n**Step 2: Eliminate time variable**\nSubstitute $$t$$ into the vertical equation:  \n$$y = (\\tan\\theta_0)x - \\left(\\frac{g}{2v_0^2 \\cos^2\\theta_0}\\right)x^2$$\n\n**Step 3: Analyze the equation form**\nThis is in the quadratic form $$y = ax - bx^2$$, which defines a parabola.\n\n**Step 4: Final Result**\nThe shape is a **Parabola**."
-            },
-            {
-              "id": "phys10-u1-wrk4",
-              "type": "worked",
-              "title": "Step-by-step",
-              "page": 13,
-              "src": "study_notes",
-              "src_qid": "phys_g10_c1_q5",
-              "problem": "What is the shape of the mathematical trajectory of an ideal projectile?",
-              "steps": [
-                {
-                  "text": "**Step 1: Write parametric equations**"
-                },
-                {
-                  "text": "$$x = (v_0 \\cos\\theta_0)t \\implies t = \\frac{x}{v_0 \\cos\\theta_0}$$"
-                },
-                {
-                  "text": "$$y = (v_0 \\sin\\theta_0)t - \\frac{1}{2}gt^2$$"
-                },
-                {
-                  "text": "**Step 2: Eliminate time variable**"
-                },
-                {
-                  "text": "Substitute $$t$$ into the vertical equation:"
-                },
-                {
-                  "text": "$$y = (\\tan\\theta_0)x - \\left(\\frac{g}{2v_0^2 \\cos^2\\theta_0}\\right)x^2$$"
-                },
-                {
-                  "text": "**Step 3: Analyze the equation form**"
-                },
-                {
-                  "text": "This is in the quadratic form $$y = ax - bx^2$$, which defines a parabola."
-                },
-                {
-                  "text": "**Step 4: Final Result**"
-                },
-                {
-                  "text": "The shape is a **Parabola**."
-                }
-              ],
-              "answer": "D. Parabola"
-            },
-            {
               "id": "phys10-u1-tb5",
               "type": "text",
               "title": "1.2 Circular Motion",
@@ -674,6 +658,59 @@
               },
               "answer": "B",
               "why": "**Step 1: Write relative velocity formula**\n$$v_{AB} = v_A - v_B$$\n\n**Step 2: Assign values**\n$$v_A = +80\\text{ km/h}$$ (since both are in the same direction, assign positive)  \n$$v_B = +50\\text{ km/h}$$\n\n**Step 3: Calculate**\n$$v_{AB} = 80\\text{ km/h} - 50\\text{ km/h} = 30\\text{ km/h}$$\n\n**Step 4: Final Result**\nThe relative velocity is **$$30\\text{ km/h}$$**."
+            },
+            {
+              "id": "phys10-u1-chk7",
+              "type": "check",
+              "title": "Quick check",
+              "page": 27,
+              "src": "study_notes",
+              "src_qid": "phys_g10_c1_q8",
+              "q": "What is the magnitude of the tangential acceleration in Uniform Circular Motion?",
+              "options": {
+                "A": "$$\\frac{v^2}{r}$$",
+                "B": "Zero",
+                "C": "$$g$$",
+                "D": "Variable"
+              },
+              "answer": "B",
+              "why": "**Step 1: Define tangential acceleration**\nTangential acceleration ($$a_t$$) is the rate of change of the linear speed of the rotating object:  \n$$a_t = \\frac{dv}{dt}$$\n\n**Step 2: Apply UCM conditions**\nIn Uniform Circular Motion, the speed $$v$$ is constant:  \n$$v = \\text{constant} \\implies \\frac{dv}{dt} = 0$$\n\n**Step 3: Final Result**\nTherefore, the tangential acceleration is **Zero**."
+            },
+            {
+              "id": "phys10-u1-wrk7",
+              "type": "worked",
+              "title": "Step-by-step",
+              "page": 27,
+              "src": "study_notes",
+              "src_qid": "phys_g10_c1_q8",
+              "problem": "What is the magnitude of the tangential acceleration in Uniform Circular Motion?",
+              "steps": [
+                {
+                  "text": "**Step 1: Define tangential acceleration**"
+                },
+                {
+                  "text": "Tangential acceleration ($$a_t$$) is the rate of change of the linear speed of the rotating object:"
+                },
+                {
+                  "text": "$$a_t = \\frac{dv}{dt}$$"
+                },
+                {
+                  "text": "**Step 2: Apply UCM conditions**"
+                },
+                {
+                  "text": "In Uniform Circular Motion, the speed $$v$$ is constant:"
+                },
+                {
+                  "text": "$$v = \\text{constant} \\implies \\frac{dv}{dt} = 0$$"
+                },
+                {
+                  "text": "**Step 3: Final Result**"
+                },
+                {
+                  "text": "Therefore, the tangential acceleration is **Zero**."
+                }
+              ],
+              "answer": "B. Zero"
             }
           ]
         },
@@ -928,59 +965,6 @@
               ]
             },
             {
-              "id": "phys10-u1-chk7",
-              "type": "check",
-              "title": "Quick check",
-              "page": 27,
-              "src": "study_notes",
-              "src_qid": "phys_g10_c1_q8",
-              "q": "What is the magnitude of the tangential acceleration in Uniform Circular Motion?",
-              "options": {
-                "A": "$$\\frac{v^2}{r}$$",
-                "B": "Zero",
-                "C": "$$g$$",
-                "D": "Variable"
-              },
-              "answer": "B",
-              "why": "**Step 1: Define tangential acceleration**\nTangential acceleration ($$a_t$$) is the rate of change of the linear speed of the rotating object:  \n$$a_t = \\frac{dv}{dt}$$\n\n**Step 2: Apply UCM conditions**\nIn Uniform Circular Motion, the speed $$v$$ is constant:  \n$$v = \\text{constant} \\implies \\frac{dv}{dt} = 0$$\n\n**Step 3: Final Result**\nTherefore, the tangential acceleration is **Zero**."
-            },
-            {
-              "id": "phys10-u1-wrk7",
-              "type": "worked",
-              "title": "Step-by-step",
-              "page": 27,
-              "src": "study_notes",
-              "src_qid": "phys_g10_c1_q8",
-              "problem": "What is the magnitude of the tangential acceleration in Uniform Circular Motion?",
-              "steps": [
-                {
-                  "text": "**Step 1: Define tangential acceleration**"
-                },
-                {
-                  "text": "Tangential acceleration ($$a_t$$) is the rate of change of the linear speed of the rotating object:"
-                },
-                {
-                  "text": "$$a_t = \\frac{dv}{dt}$$"
-                },
-                {
-                  "text": "**Step 2: Apply UCM conditions**"
-                },
-                {
-                  "text": "In Uniform Circular Motion, the speed $$v$$ is constant:"
-                },
-                {
-                  "text": "$$v = \\text{constant} \\implies \\frac{dv}{dt} = 0$$"
-                },
-                {
-                  "text": "**Step 3: Final Result**"
-                },
-                {
-                  "text": "Therefore, the tangential acceleration is **Zero**."
-                }
-              ],
-              "answer": "B. Zero"
-            },
-            {
               "id": "phys10-u1-chk8",
               "type": "check",
               "title": "Quick check",
@@ -1100,6 +1084,22 @@
               },
               "answer": "A",
               "why": "**Step 1: Identify rotational sign conventions**\nIn physics and engineering, we adopt standard coordinate rules for rotational quantities.\n\n**Step 2: Match directions to signs**\nCounter-clockwise (CCW) rotations are standardly defined as **positive** ($$+$$).  \nClockwise (CW) rotations are defined as **negative** ($$-$$).\n\n**Step 3: Final Result**\nCounter-clockwise torques are **Positive**."
+            },
+            {
+              "id": "phys10-u1-chk12",
+              "type": "check",
+              "title": "Quick check",
+              "page": 2,
+              "src": "study_notes",
+              "q": "Under what condition is the torque produced by a non-zero force acting on a lever arm equal to zero?",
+              "options": {
+                "A": "When the force is applied perpendicular to the lever arm",
+                "B": "When the force is applied at $$45^\\circ$$ to the lever arm",
+                "C": "When the line of action of the force passes directly through the pivot point",
+                "D": "The torque can never be zero for a non-zero force"
+              },
+              "answer": "C",
+              "why": "**Step 1: Write torque formula**\n$$\\tau = F \\cdot r \\cdot \\sin\\theta$$\n\n**Step 2: Analyze conditions for zero torque**\nFor a non-zero force ($$F \\neq 0$$):\n- Either $$r = 0$$ (force applied at the pivot).\n- Or $$\\sin\\theta = 0 \\implies \\theta = 0^\\circ \\text{ or } 180^\\circ$$ (force parallel to the lever arm).\n\n**Step 3: Relate to physical behavior**\nBoth conditions describe a line of force that passes directly through the pivot point, making the perpendicular lever arm length $$d = 0$$.\n\n**Step 4: Final Result**\nTorque is zero **when the line of action of the force passes directly through the pivot point**."
             }
           ]
         }
@@ -3995,6 +3995,22 @@
                 "Semiconductors (silicon, germanium) conduct better than insulators but worse than metals. Their conductivity can be controlled — the basis of diodes and transistors.",
                 "In electrostatics experiments, a conducting object can share charge across its surface, while an insulator keeps charge near where it was placed."
               ]
+            },
+            {
+              "id": "phys10-u3-l3-2-r2c1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 115,
+              "src": "r2",
+              "q": "Which material is a good electrical insulator?",
+              "options": {
+                "A": "Aluminium",
+                "B": "Copper",
+                "C": "Silver",
+                "D": "Rubber"
+              },
+              "answer": "D",
+              "why": "**Step 1:** Conductors have many free electrons; insulators have almost none.\n\n**Step 2:** Metals such as copper, aluminium and silver are good conductors.\n\n**Step 3:** Rubber holds its electrons tightly, so it is an insulator.\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         },
@@ -4137,6 +4153,22 @@
                 "> **💡 Did You Know?**: One Coulomb ($$1\\text{ C}$$) is an exceptionally large unit of charge. If two point charges, each containing $$1\\text{ C}$$, were placed exactly $$1\\text{ m}$$ apart in a vacuum, they would repel each other with a force of $$8.99 \\times 10^9\\text{ N}$$—equivalent to the weight of about $$900,000\\text{ tons}$$, or roughly $$10$$ aircraft carriers!",
                 "> **🧠 Pro-Tip**: When solving Coulomb's Law problems, do not substitute negative signs of charges directly into the equation. Use the absolute values to find the magnitude of the force first, and then determine the direction (attractive or repulsive) visually by drawing a vector diagram."
               ]
+            },
+            {
+              "id": "phys10-u3-l3-3-r2c1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 117,
+              "src": "r2",
+              "q": "A plastic rod rubbed with wool becomes negatively charged because ____.",
+              "options": {
+                "A": "electrons move from the wool to the rod",
+                "B": "electrons move from the rod to the wool",
+                "C": "protons move from the wool to the rod",
+                "D": "the rod creates new charge"
+              },
+              "answer": "A",
+              "why": "**Step 1:** Only electrons move when objects are charged by friction.\n\n**Step 2:** The rod gains electrons, so it becomes negative; the wool loses them and becomes positive.\n\n**Step 3:** Charge is transferred, never created.\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         },
@@ -4311,6 +4343,22 @@
               "body": [
                 "Why it matters: Coulomb's Law is structurally identical to Newton's Law of Universal Gravitation ($$F_g = G \\frac{m_1 m_2}{r^2}$$). Both are inverse-square laws. However, they differ in two fundamental ways: gravity is strictly attractive, whereas the electrostatic force can be either attractive or repulsive. Furthermore, the electrostatic force is immensely stronger than gravity. For example, the electrostatic attraction between a proton and an electron in a hydrogen atom is approximately $$10^{39}$$ times stronger than their mutual gravitational attraction, making gravity completely negligible in atomic physics."
               ]
+            },
+            {
+              "id": "phys10-u3-l3-4-r2c1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 128,
+              "src": "r2",
+              "q": "Two point charges are separated by a distance $r$. If the distance is doubled, the force between them becomes ____.",
+              "options": {
+                "A": "half as large",
+                "B": "twice as large",
+                "C": "four times as large",
+                "D": "one quarter as large"
+              },
+              "answer": "D",
+              "why": "**Step 1:** Coulomb's law: $F = k q_1 q_2 / r^2$.\n\n**Step 2:** Doubling $r$ multiplies $r^2$ by 4.\n\n**Step 3:** So the force becomes $F/4$.\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         },
@@ -4461,6 +4509,22 @@
                 "Field is a vector. The net field from several charges is the vector sum of the individual fields at that point.",
                 "Units: $$E$$ is measured in N/C (or V/m). A larger charge or a smaller distance produces a stronger field."
               ]
+            },
+            {
+              "id": "phys10-u3-l3-5-r2c1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 135,
+              "src": "r2",
+              "q": "A charge of $2\\times10^{-6}$ C experiences a force of 0.01 N in an electric field. What is the field strength?",
+              "options": {
+                "A": "5000 N/C",
+                "B": "2×10⁻⁸ N/C",
+                "C": "0.02 N/C",
+                "D": "200 N/C"
+              },
+              "answer": "A",
+              "why": "**Step 1:** Electric field strength $E = F/q$.\n\n**Step 2:** $E = 0.01 / (2\\times10^{-6})$.\n\n**Step 3:** $= 5\\times10^{3}$ N/C = 5000 N/C.\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         },
@@ -4646,6 +4710,22 @@
                 "> **💡 Did You Know?**: A car or an airplane acts as a **Faraday cage** during a thunderstorm. If lightning strikes a car, the excess charge resides entirely on the outer metallic surface and flows into the ground, leaving the passengers inside completely unharmed because the electric field inside the metal shell is strictly zero!",
                 "> **🧠 Pro-Tip**: When solving electric field problems with multiple source charges, treat the fields as vectors. Find the field vector ($$\\vec{E}_1, \\vec{E}_2, \\dots$$) from each charge independently, and then use vector addition to find the net field: $$\\vec{E}_{\\text{net}} = \\sum \\vec{E}_i$$."
               ]
+            },
+            {
+              "id": "phys10-u3-l3-6-r2c1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 141,
+              "src": "r2",
+              "q": "Electric field lines around an isolated positive charge point ____.",
+              "options": {
+                "A": "in circles around the charge",
+                "B": "radially outward from the charge",
+                "C": "nowhere – there are no field lines",
+                "D": "radially inward toward the charge"
+              },
+              "answer": "B",
+              "why": "**Step 1:** Field lines show the direction of force on a small positive test charge.\n\n**Step 2:** A positive test charge is repelled by a positive charge.\n\n**Step 3:** So the lines point straight outward.\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         },
@@ -4827,6 +4907,22 @@
                 "> **💡 Did You Know?**: Van de Graaff generators were originally developed as particle accelerators. By creating potential differences of several million volts, they were used to accelerate protons and other charged subatomic particles to high kinetic energies, allowing scientists to smash atoms and study nuclear physics!",
                 "> **🧠 Pro-Tip**: When calculating the net electric potential from multiple charges, always include the positive or negative signs of the charges directly in the sum. Because potential is a scalar, simple algebraic addition is used, which is mathematically much easier than calculating vector fields."
               ]
+            },
+            {
+              "id": "phys10-u3-l3-7-r2c1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 147,
+              "src": "r2",
+              "q": "How much work is done moving a charge of 3 C through a potential difference of 12 V?",
+              "options": {
+                "A": "15 J",
+                "B": "4 J",
+                "C": "0.25 J",
+                "D": "36 J"
+              },
+              "answer": "D",
+              "why": "**Step 1:** Work done $W = qV$.\n\n**Step 2:** $W = 3 \\times 12$.\n\n**Step 3:** $= 36$ J.\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         },
@@ -4876,6 +4972,77 @@
                 "Charge is sprayed onto the belt at the bottom and transferred to the dome at the top. Because charge resides on the outer surface of a conductor, the dome can store a large charge.",
                 "It demonstrates charging by contact/induction, strong electric fields, and sometimes sparks when the air ionizes. It is a teaching tool for electrostatic potential and charge distribution."
               ]
+            },
+            {
+              "id": "phys10-u3-l3-8-r2wk1",
+              "type": "worked",
+              "title": "How a Van de Graaff generator builds up charge",
+              "page": 158,
+              "src": "r2",
+              "problem": "Explain how a Van de Graaff generator produces a very high voltage on its metal dome.",
+              "steps": [
+                {
+                  "text": "**Step 1: Charging the belt.** A motor drives a rubber belt over rollers; friction (or a comb at high voltage) puts charge on the belt."
+                },
+                {
+                  "text": "**Step 2: Carrying the charge.** The belt carries the charge up inside the hollow column."
+                },
+                {
+                  "text": "**Step 3: Transfer to the dome.** A metal comb near the top collects the charge, which moves to the outside surface of the dome (charge on a conductor sits on its outer surface)."
+                },
+                {
+                  "text": "**Step 4: Build-up.** Because the charge keeps arriving and spreads over the outside, the dome reaches a potential of hundreds of thousands of volts, until sparks discharge it."
+                }
+              ],
+              "answer": "A moving belt carries charge to a comb inside the dome; the charge moves to the dome's outer surface and builds up to a very high potential."
+            },
+            {
+              "id": "phys10-u3-l3-8-r2c2",
+              "type": "check",
+              "title": "Quick check",
+              "page": 158,
+              "src": "r2",
+              "q": "In a Van de Graaff generator, the charge is carried up to the dome by ____.",
+              "options": {
+                "A": "a moving rubber belt",
+                "B": "the air inside the column",
+                "C": "a copper wire from a battery",
+                "D": "magnets"
+              },
+              "answer": "A",
+              "why": "**Step 1:** A motor drives an insulating belt over two rollers.\n\n**Step 2:** Charge sprayed or rubbed onto the belt is carried upward.\n\n**Step 3:** A comb at the top transfers it to the dome.\n\n**Tip:** Read every option against the rule before choosing."
+            },
+            {
+              "id": "phys10-u3-l3-8-r2c3",
+              "type": "check",
+              "title": "Quick check",
+              "page": 158,
+              "src": "r2",
+              "q": "Why does the charge on a Van de Graaff dome collect on its outer surface?",
+              "options": {
+                "A": "Gravity pulls the charge outward",
+                "B": "The belt pushes the charge outward",
+                "C": "The inside of the dome is an insulator",
+                "D": "Like charges repel and move as far apart as possible on a conductor"
+              },
+              "answer": "D",
+              "why": "**Step 1:** Charges on a conductor are free to move.\n\n**Step 2:** Like charges repel each other.\n\n**Step 3:** They spread to the outer surface, where they are farthest apart.\n\n**Tip:** Read every option against the rule before choosing."
+            },
+            {
+              "id": "phys10-u3-l3-8-r2c4",
+              "type": "check",
+              "title": "Quick check",
+              "page": 158,
+              "src": "r2",
+              "q": "A person touching a charged Van de Graaff dome (while standing on an insulator) finds their hair stands up. Why?",
+              "options": {
+                "A": "Air pressure pushes the hairs up",
+                "B": "Each hair gets the same charge and the hairs repel each other",
+                "C": "The hairs lose all charge",
+                "D": "The hairs become magnetised"
+              },
+              "answer": "B",
+              "why": "**Step 1:** Charge flows from the dome onto the person and spreads over the body and hair.\n\n**Step 2:** All the hairs carry the same sign of charge.\n\n**Step 3:** Like charges repel, so the hairs push away from each other and stand up.\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         }
@@ -6141,6 +6308,22 @@
               "body": [
                 "**Resistors in Series** are connected sequentially along a single path so that the same current flows through each, whereas **Resistors in Parallel** are connected across the same two nodes, ensuring they share the same potential difference."
               ]
+            },
+            {
+              "id": "phys10-u4-l4-2-r2c1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 168,
+              "src": "r2",
+              "q": "A charge of 120 C flows through a lamp in 1 minute. What is the current?",
+              "options": {
+                "A": "120 A",
+                "B": "2 A",
+                "C": "0.5 A",
+                "D": "7200 A"
+              },
+              "answer": "B",
+              "why": "**Step 1:** Current $I = Q/t$; time must be in seconds: 1 min = 60 s.\n\n**Step 2:** $I = 120 / 60$.\n\n**Step 3:** $= 2$ A.\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         },
@@ -6269,6 +6452,22 @@
                 "To analyze complex circuit networks, we must understand how individual electrical components interact when grouped together. When resistors are connected in **series**, they form a single path for charge flow. Consequently, the conservation of charge dictates that the electric current must be identical through all series-connected resistors: $$I_{\\text{total}} = I_1 = I_2 = I_3 = \\dots$$. By applying Kirchhoff's Voltage Law (conservation of energy), the total potential difference across the entire group must equal the sum of the individual potential drops: $$V_{\\text{total}} = V_1 + V_2 + V_3 + \\dots$$. Substituting Ohm's Law ($$V = IR$$) into this expression yields the equivalent resistance of a series network: $$R_{\\text{eq}} = R_1 + R_2 + R_3 + \\dots$$.",
                 "Conversely, when resistors are connected in **parallel**, their terminals are connected to the same two junctions in the circuit. Therefore, they must share the exact same potential difference: $$V_{\\text{total}} = V_1 = V_2 = V_3 = \\dots$$. The total current entering the parallel junction must split among the available paths (conservation of charge): $$I_{\\text{total}} = I_1 + I_2 + I_3 + \\dots$$. Substituting Ohm's Law ($$I = \\frac{V}{R}$$) into this expression yields the equivalent resistance formula for parallel networks: $$\\frac{1}{R_{\\text{eq}}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3} + \\dots$$. This reciprocal relationship shows that adding parallel paths always *decreases* the overall equivalent resistance of the circuit."
               ]
+            },
+            {
+              "id": "phys10-u4-l4-3-r2c1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 170,
+              "src": "r2",
+              "q": "In a circuit diagram, the symbol of two parallel lines of different lengths represents a ____.",
+              "options": {
+                "A": "lamp",
+                "B": "cell",
+                "C": "switch",
+                "D": "resistor"
+              },
+              "answer": "B",
+              "why": "**Step 1:** A cell is drawn as a long thin line (positive) and a short thick line (negative).\n\n**Step 2:** A resistor is a rectangle; a lamp is a circle with a cross.\n\n**Step 3:** So the symbol is a cell.\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         },
@@ -6416,6 +6615,22 @@
                 "Batteries (cells) can also be connected in series or parallel configurations to achieve specific power requirements. When cells are connected in series (with the positive terminal of one connected to the negative terminal of the next), their individual emfs add up to increase the total voltage: $$\\mathcal{E}_{\\text{eq}} = \\mathcal{E}_1 + \\mathcal{E}_2 + \\dots$$, and their internal resistances also add: $$r_{\\text{eq}} = r_1 + r_2 + \\dots$$. If identical cells are connected in parallel, the total equivalent emf remains equal to that of a single cell ($$\\mathcal{E}_{\\text{eq}} = \\mathcal{E}$$), but the equivalent internal resistance is significantly reduced: $$r_{\\text{eq}} = \\frac{r}{n}$$, where $$n$$ is the number of cells. This parallel cell configuration allows the battery to deliver a larger maximum current for a longer duration.",
                 "Why it matters: Solving complex electrical networks by dividing them into simpler series and parallel blocks is a fundamental skill in electronics. This method is used to design circuit boards, calculate power distribution in vehicles, and configure solar panel arrays, where panels are strategically connected in series to increase voltage and in parallel to increase current output."
               ]
+            },
+            {
+              "id": "phys10-u4-l4-4-r2c1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 172,
+              "src": "r2",
+              "q": "A current of 0.5 A flows through a resistor with 6 V across it. What is its resistance?",
+              "options": {
+                "A": "0.083 Ω",
+                "B": "3 Ω",
+                "C": "12 Ω",
+                "D": "6.5 Ω"
+              },
+              "answer": "C",
+              "why": "**Step 1:** Ohm's law: $V = IR$, so $R = V/I$.\n\n**Step 2:** $R = 6 / 0.5$.\n\n**Step 3:** $= 12$ Ω.\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         },
@@ -6571,6 +6786,22 @@
                 "> **💡 Did You Know?**: Old-fashioned holiday string lights were wired strictly in series. If a single bulb burned out or was removed, it broke the electrical path for the entire string, causing all the other lights to go out simultaneously, making troubleshooting a nightmare!",
                 "> **🧠 Pro-Tip**: When calculating the equivalent resistance of just *two* parallel resistors, always use the quick \"product-over-sum\" formula: $$R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$$. This eliminates the need to find a common denominator for reciprocal fractions."
               ]
+            },
+            {
+              "id": "phys10-u4-l4-5-r2c1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 177,
+              "src": "r2",
+              "q": "Two 6 Ω resistors are connected in parallel. What is the total resistance?",
+              "options": {
+                "A": "6 Ω",
+                "B": "36 Ω",
+                "C": "3 Ω",
+                "D": "12 Ω"
+              },
+              "answer": "C",
+              "why": "**Step 1:** For parallel resistors: $1/R = 1/R_1 + 1/R_2$.\n\n**Step 2:** $1/R = 1/6 + 1/6 = 2/6$.\n\n**Step 3:** $R = 3$ Ω (equal resistors in parallel give half).\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         },
@@ -6792,6 +7023,22 @@
                 "> **💡 Did You Know?**: It is not the \"voltage\" that kills you, but the \"current\" that passes through your body! A current of just $$10\\text{ mA}$$ ($$0.01\\text{ A}$$) can cause painful muscle contractions, making it impossible to let go of the wire. A current of $$100\\text{ mA}$$ ($$0.1\\text{ A}$$) through the chest can paralyze the respiratory system and cause fatal heart fibrillation in less than a second!",
                 "> **🧠 Pro-Tip**: Never replace a blown fuse with a piece of copper wire or a fuse of a higher amperage rating. Doing so bypasses the safety mechanism, allowing dangerously high currents to flow through the household wiring, which can easily overheat the wires inside the walls and cause a fire."
               ]
+            },
+            {
+              "id": "phys10-u4-l4-6-r2c1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 195,
+              "src": "r2",
+              "q": "A 2 kW heater is used for 3 hours. How much electrical energy does it use?",
+              "options": {
+                "A": "5 kWh",
+                "B": "600 kWh",
+                "C": "1.5 kWh",
+                "D": "6 kWh"
+              },
+              "answer": "D",
+              "why": "**Step 1:** Energy $E = Pt$.\n\n**Step 2:** $E = 2 \\text{ kW} \\times 3 \\text{ h}$.\n\n**Step 3:** $= 6$ kWh (6 units).\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         },
@@ -6936,6 +7183,22 @@
                 "Fuses or circuit breakers protect wiring by interrupting excessive current. Earth/ground wires reduce shock risk if a live wire touches a metal case.",
                 "Power rating on an appliance ($$P = VI$$) helps estimate current draw so circuits are not overloaded."
               ]
+            },
+            {
+              "id": "phys10-u4-l4-7-r2c1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 199,
+              "src": "r2",
+              "q": "Why are household appliances connected in parallel?",
+              "options": {
+                "A": "It uses fewer wires so no fuse is needed",
+                "B": "It reduces the voltage for each appliance",
+                "C": "It makes the current the same in all appliances",
+                "D": "Each gets the full mains voltage and can be switched on or off independently"
+              },
+              "answer": "D",
+              "why": "**Step 1:** In parallel every branch is connected across the supply.\n\n**Step 2:** So each appliance receives the full mains voltage.\n\n**Step 3:** One appliance can be switched off without affecting the others.\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         },
@@ -6986,6 +7249,77 @@
                 "Use insulated tools, proper plugs, and protective devices (fuse, breaker, residual-current device where available).",
                 "Do not touch exposed live conductors. If a cable is damaged, disconnect power and replace it rather than taping over bare wire as a permanent fix."
               ]
+            },
+            {
+              "id": "phys10-u4-l4-8-r2wk1",
+              "type": "worked",
+              "title": "Choose the correct fuse",
+              "page": 201,
+              "src": "r2",
+              "problem": "A 2,300 W kettle runs on a 230 V supply. Fuses of 3 A, 5 A, 13 A and 30 A are available. Which should be fitted, and why?",
+              "steps": [
+                {
+                  "text": "**Step 1: Find the normal current.** $I = P/V = 2300 / 230 = 10$ A."
+                },
+                {
+                  "text": "**Step 2: Choose a fuse slightly above it.** 3 A and 5 A would melt in normal use."
+                },
+                {
+                  "text": "**Step 3: Reject too large a fuse.** 30 A would let a dangerous fault current flow without melting."
+                },
+                {
+                  "text": "**Step 4: Answer.** 13 A – just above the working current."
+                }
+              ],
+              "answer": "The 13 A fuse (normal current = 10 A)."
+            },
+            {
+              "id": "phys10-u4-l4-8-r2c2",
+              "type": "check",
+              "title": "Quick check",
+              "page": 201,
+              "src": "r2",
+              "q": "The earth wire in a plug is connected to ____.",
+              "options": {
+                "A": "the fuse only",
+                "B": "the switch",
+                "C": "the metal case of the appliance",
+                "D": "the neutral terminal"
+              },
+              "answer": "C",
+              "why": "**Step 1:** If the live wire touches a metal case, the case becomes live.\n\n**Step 2:** The earth wire gives the current a low-resistance path to the ground.\n\n**Step 3:** A large current flows and blows the fuse, protecting the user.\n\n**Tip:** Read every option against the rule before choosing."
+            },
+            {
+              "id": "phys10-u4-l4-8-r2c3",
+              "type": "check",
+              "title": "Quick check",
+              "page": 201,
+              "src": "r2",
+              "q": "A fuse protects a circuit by ____.",
+              "options": {
+                "A": "storing extra charge",
+                "B": "melting and breaking the circuit when the current is too large",
+                "C": "increasing the voltage",
+                "D": "keeping the current constant"
+              },
+              "answer": "B",
+              "why": "**Step 1:** A fuse is a thin wire that heats up as current flows.\n\n**Step 2:** If the current exceeds its rating, it melts.\n\n**Step 3:** The circuit breaks, preventing overheating and fire.\n\n**Tip:** Read every option against the rule before choosing."
+            },
+            {
+              "id": "phys10-u4-l4-8-r2c4",
+              "type": "check",
+              "title": "Quick check",
+              "page": 201,
+              "src": "r2",
+              "q": "Which is a safe practice with electricity?",
+              "options": {
+                "A": "Overload one socket with many adaptors",
+                "B": "Use appliances with damaged cables",
+                "C": "Push metal objects into sockets",
+                "D": "Dry your hands before touching switches"
+              },
+              "answer": "D",
+              "why": "**Step 1:** Water conducts electricity and lowers skin resistance.\n\n**Step 2:** Overloading sockets causes overheating and fire.\n\n**Step 3:** Damaged cables and metal objects in sockets can cause shocks.\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         }
@@ -7945,22 +8279,6 @@
               "why": "**Step 1: State the relationship between radius and focal length**  \n$$f = \\frac{R}{2}$$\n\n**Step 2: Apply sign conventions**  \nFor a concave (converging) mirror, the focal length is positive ($$f > 0$$):\n$$f = +\\frac{30.0\\text{ cm}}{2} = 15.0\\text{ cm}$$\n\n**Step 3: Final Result**  \nThe focal length of the concave mirror is **$$15.0\\text{ cm}$$**."
             },
             {
-              "id": "phys10-u5-chk2",
-              "type": "check",
-              "title": "Quick check",
-              "page": 1,
-              "src": "study_notes",
-              "q": "What are the constant characteristics of an image formed by a convex (diverging) mirror for any real object?",
-              "options": {
-                "A": "Real, inverted, and magnified",
-                "B": "Real, erect, and diminished",
-                "C": "Virtual, inverted, and magnified",
-                "D": "Virtual, erect, and diminished"
-              },
-              "answer": "D",
-              "why": "**Step 1: Analyze convex mirror optics**  \nFor a convex mirror, the focal length is negative ($$f < 0$$). Tracing incident parallel rays shows they diverge and their virtual extensions meet behind the mirror.\n\n**Step 2: Determine image properties**  \nThe image is always located behind the mirror (virtual), oriented upright (erect), and smaller than the object (diminished).\n\n**Step 3: Final Result**  \nThe characteristics are **Virtual, erect, and diminished**."
-            },
-            {
               "id": "phys10-u5-wrkM3",
               "type": "worked",
               "title": "Step-by-step",
@@ -8049,6 +8367,53 @@
                 "> **💡 Did You Know?**: The pinhole camera (or *camera obscura*) was known to ancient philosophers like Aristotle and Mozi. During a partial solar eclipse, the small gaps between the leaves of a tree act as natural pinholes, projecting hundreds of tiny, crescent-shaped images of the eclipsed Sun onto the ground below!",
                 "> **🧠 Pro-Tip**: In pinhole camera calculations, remember that the ratio of image size to object size is equal to the ratio of image distance to object distance: $$\\frac{h_i}{h_o} = \\frac{d_i}{d_o}$$. Use this simple geometry to solve any camera scale problem."
               ]
+            },
+            {
+              "id": "phys10-u5-chk10",
+              "type": "check",
+              "title": "Quick check",
+              "page": 229,
+              "src": "study_notes",
+              "src_qid": "phys_g10_c5_q12",
+              "q": "Which of the following describes a material that scatters light rays as they pass through, making objects behind it appear blurry and indistinct?",
+              "options": {
+                "A": "Transparent",
+                "B": "Translucent",
+                "C": "Opaque",
+                "D": "Specular"
+              },
+              "answer": "B",
+              "why": "**Step 1: Review material classes**  \n- Transparent: Transmits light cleanly without scattering.\n- Translucent: Transmits light partially but scatters it, blurring the view.\n- Opaque: Blocks all light transmission.\n\n**Step 2: Final Result**  \nTherefore, the described material is **Translucent**."
+            },
+            {
+              "id": "phys10-u5-wrk10",
+              "type": "worked",
+              "title": "Step-by-step",
+              "page": 229,
+              "src": "study_notes",
+              "src_qid": "phys_g10_c5_q12",
+              "problem": "Which of the following describes a material that scatters light rays as they pass through, making objects behind it appear blurry and indistinct?",
+              "steps": [
+                {
+                  "text": "**Step 1: Review material classes**"
+                },
+                {
+                  "text": "- Transparent: Transmits light cleanly without scattering."
+                },
+                {
+                  "text": "- Translucent: Transmits light partially but scatters it, blurring the view."
+                },
+                {
+                  "text": "- Opaque: Blocks all light transmission."
+                },
+                {
+                  "text": "**Step 2: Final Result**"
+                },
+                {
+                  "text": "Therefore, the described material is **Translucent**."
+                }
+              ],
+              "answer": "B. Translucent"
             }
           ]
         },
@@ -8752,53 +9117,6 @@
               "answer": "B. Real image"
             },
             {
-              "id": "phys10-u5-chk10",
-              "type": "check",
-              "title": "Quick check",
-              "page": 229,
-              "src": "study_notes",
-              "src_qid": "phys_g10_c5_q12",
-              "q": "Which of the following describes a material that scatters light rays as they pass through, making objects behind it appear blurry and indistinct?",
-              "options": {
-                "A": "Transparent",
-                "B": "Translucent",
-                "C": "Opaque",
-                "D": "Specular"
-              },
-              "answer": "B",
-              "why": "**Step 1: Review material classes**  \n- Transparent: Transmits light cleanly without scattering.\n- Translucent: Transmits light partially but scatters it, blurring the view.\n- Opaque: Blocks all light transmission.\n\n**Step 2: Final Result**  \nTherefore, the described material is **Translucent**."
-            },
-            {
-              "id": "phys10-u5-wrk10",
-              "type": "worked",
-              "title": "Step-by-step",
-              "page": 229,
-              "src": "study_notes",
-              "src_qid": "phys_g10_c5_q12",
-              "problem": "Which of the following describes a material that scatters light rays as they pass through, making objects behind it appear blurry and indistinct?",
-              "steps": [
-                {
-                  "text": "**Step 1: Review material classes**"
-                },
-                {
-                  "text": "- Transparent: Transmits light cleanly without scattering."
-                },
-                {
-                  "text": "- Translucent: Transmits light partially but scatters it, blurring the view."
-                },
-                {
-                  "text": "- Opaque: Blocks all light transmission."
-                },
-                {
-                  "text": "**Step 2: Final Result**"
-                },
-                {
-                  "text": "Therefore, the described material is **Translucent**."
-                }
-              ],
-              "answer": "B. Translucent"
-            },
-            {
               "id": "phys10-u5-tb9",
               "type": "text",
               "title": "5.3 Spherical Mirrors and Ray Diagrams",
@@ -8873,6 +9191,38 @@
                 "> **💡 Did You Know?**: Dentists use a small concave mirror to inspect your teeth. When the mirror is positioned very close to a tooth (placing the tooth within the mirror's focal length, $$d_o < f$$), it produces a magnified, upright virtual image behind the mirror, allowing the dentist to spot tiny cavities easily!",
                 "> **🧠 Pro-Tip**: When solving for image distance ($$d_i$$), you can rearrange the mirror equation to avoid fraction mistakes: $$d_i = \\frac{d_o f}{d_o - f}$$. Always keep the signs of $$f$$ and $$d_o$$ in mind when substituting values into this formula!"
               ]
+            },
+            {
+              "id": "phys10-u5-chk2",
+              "type": "check",
+              "title": "Quick check",
+              "page": 1,
+              "src": "study_notes",
+              "q": "What are the constant characteristics of an image formed by a convex (diverging) mirror for any real object?",
+              "options": {
+                "A": "Real, inverted, and magnified",
+                "B": "Real, erect, and diminished",
+                "C": "Virtual, inverted, and magnified",
+                "D": "Virtual, erect, and diminished"
+              },
+              "answer": "D",
+              "why": "**Step 1: Analyze convex mirror optics**  \nFor a convex mirror, the focal length is negative ($$f < 0$$). Tracing incident parallel rays shows they diverge and their virtual extensions meet behind the mirror.\n\n**Step 2: Determine image properties**  \nThe image is always located behind the mirror (virtual), oriented upright (erect), and smaller than the object (diminished).\n\n**Step 3: Final Result**  \nThe characteristics are **Virtual, erect, and diminished**."
+            },
+            {
+              "id": "phys10-u5-l5-5-r2c1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 229,
+              "src": "r2",
+              "q": "An object is placed beyond the centre of curvature of a concave mirror. The image is ____.",
+              "options": {
+                "A": "virtual, upright and magnified",
+                "B": "virtual and diminished behind the mirror",
+                "C": "real, inverted and diminished, between F and C",
+                "D": "real, inverted and the same size at C"
+              },
+              "answer": "C",
+              "why": "**Step 1:** Draw rays: one parallel to the axis reflects through F; one through C returns along itself.\n\n**Step 2:** They meet in front of the mirror between F and C.\n\n**Step 3:** So the image is real, inverted and smaller.\n\n**Tip:** Read every option against the rule before choosing."
             }
           ]
         }

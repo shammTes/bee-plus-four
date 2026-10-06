@@ -115,8 +115,15 @@ def strip_r2(o):
 def build(book):
     path = os.path.join(NOTES, book + '.json')
     d = strip_r2(json.load(open(path, encoding='utf-8')))
-    units = {u['id']: u for u in d['units']}
-    lessons = {l['id']: (u, l) for u in d['units'] for l in u['lessons']}
+    # a unit_<id>.json override replaces that unit in the app, so authored content goes there instead
+    ovs = {}
+    for u in d['units']:
+        op = os.path.join(NOTES, f"unit_{u['id']}.json")
+        if os.path.exists(op):
+            ovs[op] = strip_r2(json.load(open(op, encoding='utf-8')))
+    shown = [next((o for o in ovs.values() if o.get('id') == u['id']), u) for u in d['units']]
+    units = {u['id']: u for u in shown}
+    lessons = {l['id']: (u, l) for u in shown for l in u['lessons']}
     n = {'exercise': 0, 'check': 0, 'worked': 0, 'text': 0}
     counters = {}
     for b in parse(os.path.join(SRC, book + '.txt')):
@@ -178,6 +185,10 @@ def build(book):
                 cards.insert(at, card)
     s = json.dumps(d, ensure_ascii=False, indent=2) + '\n'
     open(path, 'w', encoding='utf-8').write(s)
+    for op, o in ovs.items():
+        compact = not open(op, encoding='utf-8').read(2).startswith('{\n')
+        txt = json.dumps(o, ensure_ascii=False, separators=(',', ':')) + '\n' if compact else json.dumps(o, ensure_ascii=False, indent=2) + '\n'
+        open(op, 'w', encoding='utf-8').write(txt)
     print(book, n)
 
 
