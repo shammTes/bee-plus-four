@@ -12,6 +12,7 @@ byte for byte, and the source file is never written):
   * question topics: the owner's tags (alg-*, geo-*) -> the Mathematics topic-index subtopic ids the other High
     papers use (TOPIC_MAP below), so topic titles, topic practice and the Tutor group it with the other papers.
     The owner's tags stay in "keywords".
+    QUESTION_TOPICS overrides the mapping for single questions.
   * exam.high_conversion records the source file and the tool.
 After converting: add OUT to assets/high/exams/index.json, then run tool/exam_summary.py, tools/map_unit_questions.py,
 tool/build_tutor_index.py (and tool/school_units.py --check).
@@ -46,7 +47,7 @@ TOPIC_MAP = {
     'alg-inequalities': ['quadratic-equations'],
     'alg-variation': ['linear-equations'],
     'alg-mixtures': ['linear-systems'],
-    'alg-ratio': ['business-mathematics'],
+    'alg-ratio': ['linear-equations'],
     'alg-percent': ['business-mathematics'],
     'alg-sequences': ['sequences-series'],
     'alg-series': ['sequences-series'],
@@ -61,6 +62,19 @@ TOPIC_MAP = {
     'geo-circles': ['circle-geometry'],
     'geo-transformations': ['transformations'],
     'geo-pythagoras': ['trigonometry'],
+    # 2001 paper uses geom-* for the geometry tags
+    'geom-triangles': ['geometric-reasoning'],
+    'geom-quadrilaterals': ['polygons-congruence', 'mensuration'],
+    'geom-polygons': ['polygons-congruence', 'mensuration'],
+    'geom-similarity': ['similar-triangles'],
+    'geom-circles': ['circle-geometry'],
+    'geom-coordinate': ['coordinate-geometry'],
+    'geom-transformations': ['transformations'],
+}
+
+# per-question overrides where one owner tag covers two High subtopics
+QUESTION_TOPICS = {
+    'alg-geo-2001-matric-p1-q21': ['circle-equation'],  # geom-circles, but it is the equation of a circle (coordinate geometry)
 }
 
 
@@ -82,7 +96,7 @@ def convert(src_rel):
                 missing.add(t)
                 continue
             mapped += [m for m in TOPIC_MAP[t] if m not in mapped]
-        q['topics'] = mapped
+        q['topics'] = QUESTION_TOPICS.get(q['id'], mapped)
     if missing:
         sys.exit(f'unmapped topic tags: {sorted(missing)} (add them to TOPIC_MAP)')
     # the parts that must never change
