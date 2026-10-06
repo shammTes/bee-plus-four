@@ -237,19 +237,32 @@ class _SubjTile extends StatelessWidget {
       label: s,
       child: ConstrainedBox(
         constraints: const BoxConstraints(minHeight: 150 - 28),
+        // spaceBetween, not a Spacer: EqualHeightRow measures its children with an unbounded height first
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Badge(l.tone, l.icon, s: 44),
-            const SizedBox(height: 6 + 8),
-            Tx(s, style: ts(15.5, w900, p.ink, height: 1.2)),
-            const SizedBox(height: 6),
-            Text('${ex.length} exam${ex.length > 1 ? 's' : ''} · ${pr.total} ${ex.any((e) => e.matches.isNotEmpty) ? 'auto-marked' : 'MCQs'}', style: ts(12.5, w700, mix(t.deep, .7, p.ink2))),
-            const Spacer(),
-            const SizedBox(height: 6),
-            Bar(pr.pct, tone: l.tone, onTile: true),
-            const SizedBox(height: 6),
-            Text(pr.done > 0 ? '${pr.pct}% done${pr.acc != null ? ' · ${pr.acc}% right' : ''}' : 'Not started', style: ts(11.5, w900, t.deep)),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Badge(l.tone, l.icon, s: 44),
+                const SizedBox(height: 6 + 8),
+                Tx(s, style: ts(15.5, w900, p.ink, height: 1.2)),
+                const SizedBox(height: 6),
+                Text('${ex.length} exam${ex.length > 1 ? 's' : ''} · ${pr.total} ${ex.any((e) => e.matches.isNotEmpty) ? 'auto-marked' : 'MCQs'}', style: ts(12.5, w700, mix(t.deep, .7, p.ink2))),
+              ],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 6),
+                Bar(pr.pct, tone: l.tone, onTile: true),
+                const SizedBox(height: 6),
+                Text(pr.done > 0 ? '${pr.pct}% done${pr.acc != null ? ' · ${pr.acc}% right' : ''}' : 'Not started', style: ts(11.5, w900, t.deep)),
+              ],
+            ),
           ],
         ),
       ),

@@ -360,22 +360,29 @@ class _StatGrid extends StatelessWidget implements Spaced {
         padding: const EdgeInsets.fromLTRB(14, 14, 14, 13),
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 132 - 27),
+          // spaceBetween, not a Spacer: EqualHeightRow measures its children with an unbounded height first
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Badge(tone, icon, s: 40),
-              const SizedBox(height: 10),
-              Text(lbl, style: ts(13, w800, p.ink2)),
-              const SizedBox(height: 2),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.baseline,
-                textBaseline: TextBaseline.alphabetic,
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  if (v is num && v != 0) CountUp(v, dec: dec, style: vs) else Text('$v', style: vs, strutStyle: strutOf(vs)),
-                  if (unit.isNotEmpty) Padding(padding: const EdgeInsets.only(left: 2), child: Text(unit, style: ts(14, w800, p.ink2))),
+                  Badge(tone, icon, s: 40),
+                  const SizedBox(height: 10),
+                  Text(lbl, style: ts(13, w800, p.ink2)),
+                  const SizedBox(height: 2),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      if (v is num && v != 0) CountUp(v, dec: dec, style: vs) else Text('$v', style: vs, strutStyle: strutOf(vs)),
+                      if (unit.isNotEmpty) Padding(padding: const EdgeInsets.only(left: 2), child: Text(unit, style: ts(14, w800, p.ink2))),
+                    ],
+                  ),
                 ],
               ),
-              const Spacer(),
               Padding(
                 padding: const EdgeInsets.only(top: 4),
                 child: Text(delta, style: ts(12, w800, dc == 'neg' ? p.peach.deep : dc == 'flat' ? p.ink3 : t.deep)),

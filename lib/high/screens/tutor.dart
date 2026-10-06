@@ -9,7 +9,6 @@ import '../theme/tokens.dart';
 import '../widgets/kit.dart';
 import '../widgets/page.dart';
 import '../widgets/rich.dart';
-import '../state/app_state.dart';
 import 'routes.dart';
 
 const _sub = {'₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4', '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9', '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁺': '+', '⁻': '-'};
@@ -119,15 +118,6 @@ class _TutorPageState extends State<TutorPage> {
   final _c = TextEditingController();
   final _sc = ScrollController();
 
-  @override
-  void initState() {
-    super.initState();
-    // first visit: read every exam pack + the concept texts (off the UI thread), then rebuild
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) HighScope.read(context).needAllExams(concepts: true);
-    });
-  }
-
   _Msg _reply(ExamRepo r, String text) {
     final ix = TutorIndex.of(r);
     final raw = tokens(text).toSet();
@@ -155,7 +145,7 @@ class _TutorPageState extends State<TutorPage> {
   void _ask(String t) {
     t = t.trim();
     if (t.isEmpty) return;
-    final r = HighScope.read(context).repo;
+    final r = Kit.of(context).s.repo;
     if (!tutorReady(r)) return;
     setState(() {
       _chat.add(_Msg(true, t));
@@ -187,6 +177,8 @@ class _TutorPageState extends State<TutorPage> {
   @override
   Widget build(BuildContext context) {
     final k = Kit.of(context), p = k.p, s = k.s, r = s.repo;
+    // first visit: read every exam pack + the concept texts (once, off the UI thread), then rebuild
+    if (!tutorReady(r)) s.needAllExams(concepts: true);
     Widget bot(Widget child, {bool refuse = false}) => Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(

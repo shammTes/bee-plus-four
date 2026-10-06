@@ -13,6 +13,8 @@ import 'package:flutter/widgets.dart';
 /// Row of children stretched to the tallest one. Children are sized like in a [Row]: [Expanded] / [Flexible] share
 /// the width left over after the others (which are laid out with loose width, e.g. a [SizedBox] with a width).
 /// The row is as wide as the incoming max width when it has flexible children (it needs bounded width).
+/// Children are measured with an unbounded height first, so a vertical [Column] inside one cannot use [Spacer] /
+/// [Expanded] (that throws, as in any scroll view); pin a footer with `MainAxisAlignment.spaceBetween` instead.
 class EqualHeightRow extends MultiChildRenderObjectWidget {
   const EqualHeightRow({super.key, this.spacing = 0, super.children});
   final double spacing;

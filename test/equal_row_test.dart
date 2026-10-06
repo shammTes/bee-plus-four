@@ -53,4 +53,25 @@ void main() {
     await t.tap(find.byType(ColoredBox));
     expect(taps, 1);
   });
+
+  // the Home stat tiles / Matric subject tiles: pinned-bottom footer via spaceBetween (a Spacer cannot be measured
+  // with an unbounded height); same result as the Spacer under IntrinsicHeight
+  testWidgets('tile with a bottom-pinned footer matches the old Spacer + IntrinsicHeight layout', (t) async {
+    Widget tile(String top, {required bool spacer}) => ConstrainedBox(
+      constraints: const BoxConstraints(minHeight: 105),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: spacer ? MainAxisAlignment.start : MainAxisAlignment.spaceBetween,
+        children: spacer
+            ? [Text(top, style: _st), const Spacer(), Text('foot', key: Key('f$top'), style: _st)]
+            : [Column(mainAxisSize: MainAxisSize.min, children: [Text(top, style: _st)]), Text('foot', key: Key('f$top'), style: _st)],
+      ),
+    );
+    const a = 'Questions answered', b = 'A much longer label that wraps over several lines in this narrow tile';
+    await t.pumpWidget(_host(IntrinsicHeight(child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, spacing: 12, children: [Expanded(child: tile(a, spacer: true)), Expanded(child: tile(b, spacer: true))])), 300));
+    final want = [t.getRect(find.byKey(const Key('f$a'))), t.getRect(find.byKey(const Key('f$b')))];
+    await t.pumpWidget(_host(EqualHeightRow(spacing: 12, children: [Expanded(child: tile(a, spacer: false)), Expanded(child: tile(b, spacer: false))]), 300));
+    expect(t.takeException(), isNull);
+    expect([t.getRect(find.byKey(const Key('f$a'))), t.getRect(find.byKey(const Key('f$b')))], want);
+  });
 }
