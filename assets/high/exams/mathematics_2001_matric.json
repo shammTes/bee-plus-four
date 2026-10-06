@@ -1,0 +1,1027 @@
+{
+  "schema_version": "1.0",
+  "exam": {
+    "id": "alg-geo-2001-matric",
+    "year": "2001",
+    "subject": "Mathematics",
+    "grade": 12,
+    "school": "Eritrean Secondary Education Certificate Examination (national)",
+    "type": "matriculation",
+    "semester": null,
+    "title": "Algebra and Geometry 2001",
+    "exam_code": null,
+    "duration": "3 hours",
+    "duration_minutes": 180,
+    "total_points": 100,
+    "parts": [
+      {
+        "part": 1,
+        "title": "Part I – Multiple Choice Questions",
+        "question_type": "mcq",
+        "question_count": 40,
+        "points": 80,
+        "instructions": "Part I contains 40 questions (A. Algebra 1–28, B. Geometry 29–40). Each question carries 2 points."
+      }
+    ],
+    "source": {
+      "document": "Google Drive Algebra and Geometry/2001__Algebra_and_Geometry.pdf",
+      "pages": 11,
+      "scan": "HP Scan image PDF; Part I MCQs typed from page images",
+      "official_answer_key": false
+    },
+    "answer_key_note": "No official key in the PDF. Answers solved independently. Skipped this batch: Q12 (rational expression not reliably read), Q13 (inverse-relation inequality direction), Q14 (absolute-value expression), Q17 (log equation options), Q19 (slope value), Q24 (sin x value), Q25 (frequency table), Q27 (counting exponents), Q32, Q35, Q37, Q39 (figures). Part II not included.",
+    "notation": "unicode",
+    "content_version": "1.0.0",
+    "language": "en",
+    "high_conversion": {
+      "source": "assets/high/exams/algebra_geometry_2001_matric.json",
+      "tool": "tool/content_to_high.py",
+      "changed": "subject filed under Mathematics; topics mapped to Mathematics subtopic ids (owner tags kept in keywords)"
+    }
+  },
+  "questions": [
+    {
+      "id": "alg-geo-2001-matric-p1-q01",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 1,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The fraction √3 / (√3 − √2) simplifies to",
+      "options": {
+        "A": "√3 + √2",
+        "B": "2(√3 − √2)",
+        "C": "4(√3 + √2)",
+        "D": "√3 − √2",
+        "E": "None of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Rationalize by multiplying numerator and denominator by √3 + √2.",
+        "Denominator: (√3)² − (√2)² = 3 − 2 = 1.",
+        "Numerator: √3(√3 + √2) = 3 + √6, which is not among A–D.",
+        "Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "absolute-value-radicals"
+      ],
+      "keywords": [
+        "alg-surds"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q02",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 2,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The ratio of a man's weight on Mars compared to his weight on Earth is 2:3. How much would a 180-kg man weigh on Mars?",
+      "options": {
+        "A": "180",
+        "B": "270",
+        "C": "120",
+        "D": "160",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Mars weight = (2/3) of Earth weight.",
+        "(2/3)×180 = 120.",
+        "Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "linear-equations"
+      ],
+      "keywords": [
+        "alg-ratio"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q03",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 3,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "A movie theatre charges Nakfa 4.00 for adults and Nakfa 1.50 for children under 15. One day when 325 people paid for admission, the total receipts were Nakfa 1025. How many of them were adults?",
+      "options": {
+        "A": "175",
+        "B": "110",
+        "C": "125",
+        "D": "255",
+        "E": "None of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Let a be the number of adults. Then children = 325 − a.",
+        "4a + 1.5(325 − a) = 1025.",
+        "4a + 487.5 − 1.5a = 1025, so 2.5a = 537.5 and a = 215.",
+        "215 is not among A–D. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "linear-equations"
+      ],
+      "keywords": [
+        "alg-linear-equations"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q04",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 4,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The solution set of x² + x − 1 = 0 is",
+      "options": {
+        "A": "{1, 0}",
+        "B": "{(1 + √5)/2}",
+        "C": "{(−1 ± √5)/2}",
+        "D": "{(−1 + √5)/2}",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Quadratic formula: x = [−1 ± √(1 + 4)] / 2 = (−1 ± √5)/2.",
+        "Both roots are required. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "quadratic-equations"
+      ],
+      "keywords": [
+        "alg-quadratic-equations"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q05",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 5,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "A ship leaves a port P due east. After sailing 100 km it changes course to S 30° E and travels another 100 km. How far is it then from P, in km?",
+      "options": {
+        "A": "100√3",
+        "B": "200",
+        "C": "100",
+        "D": "100√(2 + √3)",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Due east is bearing 90°. S 30° E is bearing 150°. The angle between the displacement vectors is 60°.",
+        "Law of cosines: d² = 100² + 100² − 2·100·100·cos 60° = 10000.",
+        "d = 100. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "trigonometry"
+      ],
+      "keywords": [
+        "alg-trigonometry"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q06",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 6,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "Two square tiles have a total area of 116 cm². The side of one is 6 cm longer than the side of the other. Their sides are",
+      "options": {
+        "A": "10, 4",
+        "B": "6, 10",
+        "C": "−4, −10",
+        "D": "10, 3",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Let the shorter side be x. Then x² + (x+6)² = 116.",
+        "2x² + 12x + 36 = 116, so x² + 6x − 40 = 0.",
+        "(x+10)(x−4)=0. The positive side is 4, so the sides are 4 cm and 10 cm.",
+        "Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "quadratic-equations"
+      ],
+      "keywords": [
+        "alg-quadratic-equations"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q07",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 7,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The solution set of x(x − 7) + 12 < 0 is",
+      "options": {
+        "A": "(−∞, 3] ∪ [4, ∞)",
+        "B": "(3, 4)",
+        "C": "(−∞, 3) ∪ (4, ∞)",
+        "D": "[−12, −5]",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "x² − 7x + 12 < 0 factors as (x−3)(x−4) < 0.",
+        "The product is negative strictly between the roots.",
+        "Solution: (3, 4). Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "quadratic-equations"
+      ],
+      "keywords": [
+        "alg-inequalities"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q08",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 8,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "log₅(0.008) is equal to",
+      "options": {
+        "A": "−1/3",
+        "B": "−3",
+        "C": "−3/5",
+        "D": "1/3",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "0.008 = 8/1000 = 1/125 = 5⁻³.",
+        "log₅(5⁻³) = −3. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "alg-logarithms"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q09",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 9,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The domain of f(x) = √(x² − 1) is",
+      "options": {
+        "A": "(−∞, −1]",
+        "B": "(−1, 1)",
+        "C": "(−∞, −1] ∪ [1, ∞)",
+        "D": "(−∞, 0)",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The radicand must be non-negative: x² − 1 ≥ 0.",
+        "|x| ≥ 1, so x ≤ −1 or x ≥ 1.",
+        "Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "functions-inverse"
+      ],
+      "keywords": [
+        "alg-functions"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q10",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 10,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "If 3x³ + 5x² + 3x − 7 is divided by x + 1, the remainder is",
+      "options": {
+        "A": "3",
+        "B": "10",
+        "C": "−8",
+        "D": "−7",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "By the remainder theorem the remainder is f(−1).",
+        "f(−1) = 3(−1) + 5(1) + 3(−1) − 7 = −3 + 5 − 3 − 7 = −8.",
+        "Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "polynomials"
+      ],
+      "keywords": [
+        "alg-polynomials"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q11",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 11,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The composition g∘f of f(x) = x − 3 and g(x) = x² + 5 is",
+      "options": {
+        "A": "x² + 6x + 14",
+        "B": "x² − 6x + 14",
+        "C": "x² − 6x − 14",
+        "D": "x² + 6x − 14",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "g(f(x)) = (x − 3)² + 5 = x² − 6x + 9 + 5 = x² − 6x + 14.",
+        "Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "functions-inverse"
+      ],
+      "keywords": [
+        "alg-functions"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q15",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 15,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "If the first term and common difference of an arithmetic sequence are 1 and 2, the sum of the first 40 terms is",
+      "options": {
+        "A": "800",
+        "B": "780",
+        "C": "400",
+        "D": "1600",
+        "E": "None of the above."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Sₙ = n/2 · [2a + (n−1)d].",
+        "S₄₀ = 20 · [2 + 39·2] = 20 · 80 = 1600.",
+        "Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "sequences-series"
+      ],
+      "keywords": [
+        "alg-sequences"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q16",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 16,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The solution set of 3^(x+1) = 9 is",
+      "options": {
+        "A": "{1, −1}",
+        "B": "{1}",
+        "C": "{0}",
+        "D": "{−1}",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "9 = 3², so 3^(x+1) = 3².",
+        "x + 1 = 2, hence x = 1.",
+        "Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "alg-exponents"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q18",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 18,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "A cell divides into three every 20 minutes. After 2 hours the total number of cells is 729,000. The initial number of cells was",
+      "options": {
+        "A": "3,000",
+        "B": "1,000",
+        "C": "10,000",
+        "D": "7,290",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Two hours is 6 intervals of 20 minutes, so the population is multiplied by 3⁶.",
+        "3⁶ = 729, so the initial number is 729,000 / 729 = 1,000.",
+        "Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "alg-exponents"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q20",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 20,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The points A(1, 2), B(5, 2) and C(3, 4) are vertices of a triangle. The slope of the altitude from A is",
+      "options": {
+        "A": "−1",
+        "B": "1",
+        "C": "−1/2",
+        "D": "−2",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Slope of BC = (4 − 2)/(3 − 5) = 2/(−2) = −1.",
+        "An altitude to BC has slope equal to the negative reciprocal of −1, which is 1.",
+        "Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "coordinate-geometry"
+      ],
+      "keywords": [
+        "geom-coordinate"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q21",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 21,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The equation of the circle with center (2, −3) passing through (1, 2) is",
+      "options": {
+        "A": "x² + y² − 4x + 6y = 13",
+        "B": "x² + y² − 4x + 6y = −3",
+        "C": "x² + y² + 4x − 6y = 13",
+        "D": "x² + y² + 4x + 6y = 13",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Radius squared = (1−2)² + (2−(−3))² = 1 + 25 = 26.",
+        "(x−2)² + (y+3)² = 26 expands to x² + y² − 4x + 6y + 13 = 26.",
+        "So x² + y² − 4x + 6y = 13. Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "circle-equation"
+      ],
+      "keywords": [
+        "geom-circles"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q22",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 22,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "cot 240° − cot 420° is equal to",
+      "options": {
+        "A": "−√3",
+        "B": "−1/√3",
+        "C": "1/√3",
+        "D": "0",
+        "E": "None of the above."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "cot 240° = cot(180° + 60°) = cot 60° = 1/√3.",
+        "cot 420° = cot(360° + 60°) = cot 60° = 1/√3.",
+        "Difference = 0. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "trigonometry"
+      ],
+      "keywords": [
+        "alg-trigonometry"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q23",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 23,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "In △ABC, m∠A = 30°, a = 2√3 and b = 4√3, where a is opposite ∠A and b is opposite ∠B. Then m∠B is",
+      "options": {
+        "A": "30°",
+        "B": "60°",
+        "C": "90°",
+        "D": "45°",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Law of sines: sin B / b = sin A / a.",
+        "sin B = 4√3 · sin 30° / (2√3) = (4√3 · 1/2) / (2√3) = 1.",
+        "∠B = 90°. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "trigonometry"
+      ],
+      "keywords": [
+        "alg-trigonometry"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q26",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 26,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The standard deviation of 5, 7, 1, 3 and 4 is",
+      "options": {
+        "A": "4",
+        "B": "2",
+        "C": "√20",
+        "D": "√5",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Mean = (5+7+1+3+4)/5 = 4.",
+        "Squared deviations: 1, 9, 9, 1, 0. Sum = 20.",
+        "Population standard deviation = √(20/5) = √4 = 2.",
+        "Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "statistics"
+      ],
+      "keywords": [
+        "alg-statistics"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q28",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 28,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "A coin is tossed three times. The probability of getting no heads is",
+      "options": {
+        "A": "1/8",
+        "B": "1/2",
+        "C": "1/4",
+        "D": "3/8",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Only TTT has no heads. There are 2³ = 8 equally likely outcomes.",
+        "Probability = 1/8. Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "probability"
+      ],
+      "keywords": [
+        "alg-probability"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q29",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 29,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "Which of the following is not true concerning similar triangles?",
+      "options": {
+        "A": "Corresponding sides are proportional.",
+        "B": "Corresponding angles are congruent.",
+        "C": "The ratio of the areas equals the ratio of the lengths of corresponding sides.",
+        "D": "The ratio of the areas equals the square of the ratio of corresponding sides.",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Corresponding sides of similar triangles are proportional, and corresponding angles are congruent.",
+        "The ratio of areas equals the square of the ratio of corresponding sides, not the ratio itself.",
+        "The statement that is not true is C in the printed wording only if C claims the unsquared ratio. Printed C is the unsquared claim, so C is not true.",
+        "The false statement is C. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "similar-triangles"
+      ],
+      "keywords": [
+        "geom-similarity"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q30",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 30,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "G is the centroid of △ABC and AG = 6 cm, where AG is part of a median. The length of the median from A is",
+      "options": {
+        "A": "8 cm",
+        "B": "9 cm",
+        "C": "12 cm",
+        "D": "4 cm",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "The centroid divides each median in the ratio 2:1, with the longer part from the vertex.",
+        "AG:GC = 2:1 and AG = 6, so GC = 3 and the median AC-side length is 9 cm.",
+        "Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "geometric-reasoning"
+      ],
+      "keywords": [
+        "geom-triangles"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q31",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 31,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "A square has side 4 cm. The area of the square drawn on its diagonal is",
+      "options": {
+        "A": "16 cm²",
+        "B": "32 cm²",
+        "C": "8√2 cm²",
+        "D": "16√2 cm²",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Diagonal = 4√2.",
+        "Area of the square on that diagonal = (4√2)² = 32 cm².",
+        "Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "polygons-congruence",
+        "mensuration"
+      ],
+      "keywords": [
+        "geom-quadrilaterals"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q33",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 33,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The area of a regular hexagon with side 6 cm is",
+      "options": {
+        "A": "54√3 cm²",
+        "B": "36√3 cm²",
+        "C": "108 cm²",
+        "D": "72√3 cm²",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "Area of a regular hexagon = (3√3/2) s².",
+        "(3√3/2)·36 = 54√3 cm².",
+        "Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "polygons-congruence",
+        "mensuration"
+      ],
+      "keywords": [
+        "geom-polygons"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q34",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 34,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "Each exterior angle of a regular polygon is 24°. The number of sides is",
+      "options": {
+        "A": "12",
+        "B": "24",
+        "C": "15",
+        "D": "18",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The exterior angles of a convex polygon sum to 360°.",
+        "n = 360/24 = 15.",
+        "Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "polygons-congruence",
+        "mensuration"
+      ],
+      "keywords": [
+        "geom-polygons"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q36",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 36,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "A chord of a circle is 8 cm long and is 3 cm from the center. The diameter is",
+      "options": {
+        "A": "5 cm",
+        "B": "10 cm",
+        "C": "6 cm",
+        "D": "√73 cm",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Half the chord is 4 cm. The radius is the hypotenuse of a 3-4-5 right triangle, so r = 5 cm.",
+        "Diameter = 10 cm. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "circle-geometry"
+      ],
+      "keywords": [
+        "geom-circles"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q38",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 38,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "Two secants from an external point P meet the circle at A, B and C, D respectively. PA = 8, PB = 12 and PC = 6. Then PD is",
+      "options": {
+        "A": "10",
+        "B": "16",
+        "C": "9",
+        "D": "14",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Power of a point: PA · PB = PC · PD.",
+        "8 · 12 = 6 · PD, so PD = 96/6 = 16.",
+        "Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "circle-geometry"
+      ],
+      "keywords": [
+        "geom-circles"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2001-matric-p1-q40",
+      "exam_id": "alg-geo-2001-matric",
+      "part": 1,
+      "number": 40,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "A triangle and its image under a translation are",
+      "options": {
+        "A": "similar but not congruent",
+        "B": "neither similar nor congruent",
+        "C": "congruent",
+        "D": "equal in area only",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "A translation is an isometry: it preserves lengths and angles.",
+        "The image is congruent to the original triangle.",
+        "Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "transformations"
+      ],
+      "keywords": [
+        "geom-transformations"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    }
+  ]
+}
