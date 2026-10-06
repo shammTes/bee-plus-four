@@ -171,4 +171,13 @@ B.add('math11-u5-l5-4', [check('math11-u5-pc4', 'Two similar triangles have area
     mnemonic('math11-u5-mn4', '"Length k, Area k², Volume k³"', ['Count the dimensions: **perimeter 1D → k, area 2D → k², volume 3D → k³.** Going backwards, take the square root (areas) or the cube root (volumes).'])])
 B.add('math11-u6-l6-2', [check('math11-u6-pc2', 'A invests 40 000 Nakfa for 6 months and B invests 30 000 Nakfa for 12 months. The profit is 15 000 Nakfa. What is B\'s share?', ['9 000 Nakfa', '6 000 Nakfa', '7 500 Nakfa', '8 571 Nakfa'], 'A',
     '**Capital × time:** A: 40 000 × 6 = 240 000; B: 30 000 × 12 = 360 000. Ratio A : B = 240 000 : 360 000 = 2 : 3.\n**Share:** B gets 3/5 × 15 000 = 9 000 Nakfa (A gets 6 000).', title=T)])
+B.add('math11-u3-l3-4', [
+    worked('math11-u3-xw4', 'Worked example: a rational equation with an extraneous root', 'Solve x/(x − 2) − 2/(x + 1) = 6/((x − 2)(x + 1)).', [
+        'Step 1: restrictions: x ≠ 2 and x ≠ −1 (denominators cannot be 0).', 'Step 2: multiply every term by (x − 2)(x + 1): x(x + 1) − 2(x − 2) = 6.',
+        'Step 3: x² + x − 2x + 4 = 6 → x² − x − 2 = 0 → (x − 2)(x + 1) = 0 → x = 2 or x = −1.',
+        'Step 4: both values are excluded by the restrictions, so both are extraneous.'], 'No solution'),
+    text('math11-u3-xt4', 'Sign charts for rational inequalities', [
+        'To solve an inequality such as (x − 1)/(x + 3) < 0: (1) move everything to one side and write it as a single fraction; (2) find the **critical numbers**: zeros of the numerator (x = 1) and of the denominator (x = −3); (3) mark them on a number line and test one value in each interval; (4) pick the intervals with the required sign.',
+        'For (x − 1)/(x + 3): x = −4 → (−5)/(−1) > 0; x = 0 → (−1)/3 < 0; x = 2 → 1/5 > 0. So the solution is −3 < x < 1. A zero of the denominator is **never** included, even for ≤ or ≥; a zero of the numerator is included only for ≤ or ≥.',
+        '**Do not** multiply both sides by an expression containing x unless you know its sign — it may be negative and reverse the inequality.'])])
 B.save()

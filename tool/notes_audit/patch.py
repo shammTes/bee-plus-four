@@ -69,6 +69,21 @@ class Book:
                 l['cards'].append(c)
             self.stats['cards_added'] += 1
 
+    def move(self, cids, lid, after=None):
+        """move existing cards (in order) to lesson lid (after card `after`, else at the end)"""
+        l = self.lesson(lid)
+        for cid in cids:
+            ol, oi = self.where(cid)
+            if ol is None:
+                continue
+            c = ol['cards'].pop(oi)
+            if after:
+                _, ai = self.where(after)
+                l['cards'].insert(ai + 1, c)
+                after = cid
+            else:
+                l['cards'].append(c)
+
     def ex(self, uid, qs):
         u = self.unit(uid)
         lst = u.setdefault('exercise', {}).setdefault('questions', [])
