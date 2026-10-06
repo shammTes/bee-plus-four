@@ -6,6 +6,7 @@ import json, os, re, sys
 HERE = os.path.dirname(__file__)
 BASE = os.path.join(HERE, '..', '..', 'assets/high/notes/notes')
 TB = re.compile(r'^Textbook p\.\s*\d+[:\.]?\s*', re.I)
+TB2 = re.compile(r'^(The )?textbook\b', re.I)  # 'The textbook: ...' quote lines are dropped too when we write a reason
 
 
 def main(book):
@@ -30,7 +31,7 @@ def main(book):
             w = q['why'] if isinstance(q['why'], list) else [q['why']]
             has_tb = any(TB.match(x) for x in w)
             if q['id'] in why:
-                keep = [x for x in w if not TB.match(x)]
+                keep = [x for x in w if not TB.match(x) and not TB2.match(x)]
                 if q.get('why_src') == 'written' and keep:
                     keep = keep[:-1]  # re-run: replace our own previous explanation
                 if q['type'] == 'short':
