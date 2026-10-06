@@ -114,14 +114,160 @@
      ],
      "cards": [
       {
+       "id": "math11-u3-c01",
+       "type": "mnemonic",
+       "title": "Asymptote cheat",
+       "page": 71,
+       "src": "notes",
+       "body": [
+        "deg N < deg D → y=0. Equal degrees → y = ratio of leading coefficients. deg N = deg D + 1 → slant (divide). Vertical: leftover D=0."
+       ]
+      },
+      {
+       "id": "math11-u3-c02",
+       "type": "worked",
+       "title": "Worked",
+       "page": 71,
+       "src": "notes",
+       "problem": "f(x)=(x²−1)/(x−1). Simplify and sketch idea.",
+       "steps": [
+        {
+         "text": "Numerator (x−1)(x+1). Cancel (x−1) for x≠1."
+        },
+        {
+         "text": "Simplifies to y=x+1, *except* a hole at x=1 (point (1,2) missing)."
+        },
+        {
+         "text": "No vertical asymptote — the factor cancelled. That is the trap."
+        }
+       ],
+       "answer": "No vertical asymptote — the factor cancelled. That is the trap.",
+       "mode": "show",
+       "reveal": "Steps"
+      },
+      {
+       "id": "math11-u3-tblE1",
+       "type": "table",
+       "title": "Key table",
+       "page": 1,
+       "src": "study_notes",
+       "head": [
+        "Expression Category",
+        "Mathematical Example",
+        "Is it a Rational Function?",
+        "Primary Reason"
+       ],
+       "rows": [
+        [
+         "**Polynomial**",
+         "$$f(x) = x^3 - 2x^2 + 5$$",
+         "Yes",
+         "Can be written as $$\\frac{x^3 - 2x^2 + 5}{1}$$"
+        ],
+        [
+         "**Rational**",
+         "$$f(x) = \\frac{3x - 5}{x^2 - 4}$$",
+         "Yes",
+         "Ratio of two valid polynomials with $$x^2 - 4 \\neq 0$$"
+        ],
+        [
+         "**Non-Rational (Radical)**",
+         "$$f(x) = \\frac{\\sqrt{x} + 2}{x - 1}$$",
+         "No",
+         "The numerator contains a radical, which is not a polynomial"
+        ],
+        [
+         "**Non-Rational (Exponential)**",
+         "$$f(x) = \\frac{e^x}{x^2 + 1}$$",
+         "No",
+         "The numerator is an exponential function, not a polynomial"
+        ]
+       ]
+      },
+      {
+       "id": "math11-u3-wrkE2",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "What is the natural domain of the rational function $$f(x) = \\frac{x - 3}{x + 4}$$?",
+       "steps": [
+        {
+         "text": "**Step 1: Identify denominator constraint**"
+        },
+        {
+         "text": "The function $$f(x) = \\frac{x - 3}{x + 4}$$ is undefined when the denominator is zero:"
+        },
+        {
+         "text": "$$x + 4 = 0 \\implies x = -4$$"
+        },
+        {
+         "text": "**Step 2: State the domain**"
+        },
+        {
+         "text": "The domain consists of all real numbers except $$-4$$, which is written as $$\\mathbf{\\{x \\in \\mathbb{R} : x \\neq -4\\}}$$."
+        }
+       ],
+       "answer": "$$\\{x \\in \\mathbb{R} : x \\neq -4\\}$$"
+      },
+      {
+       "id": "math11-u3-chkE1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Find the vertical asymptote of the rational function $$f(x) = \\frac{2x + 1}{x - 3}$$.",
+       "options": {
+        "A": "$$x = 3$$",
+        "B": "$$x = -3$$",
+        "C": "$$y = 2$$",
+        "D": "$$x = -1/2$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Simplify the function**\nThe function $$f(x) = \\frac{2x + 1}{x - 3}$$ is in its lowest terms because the numerator and denominator share no common factors.\n\n**Step 2: Find values that make denominator zero**\nSet the denominator equal to zero:\n$$x - 3 = 0 \\implies x = 3$$\n\n**Step 3: State the vertical asymptote**\nSince $$x = 3$$ does not cancel, the vertical asymptote is the vertical line $$x = 3$$.\n**Result:** **$$x = 3$$**."
+      },
+      {
+       "id": "math11-u3-chkE2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Determine the horizontal asymptote of the function $$f(x) = \\frac{3x^2 - x}{x^2 + 5}$$.",
+       "options": {
+        "A": "$$y = 3$$",
+        "B": "$$y = 0$$",
+        "C": "$$y = -1/5$$",
+        "D": "No horizontal asymptote"
+       },
+       "answer": "A",
+       "why": "**Step 1: Compare degrees of numerator and denominator**\nFor the function $$f(x) = \\frac{3x^2 - x}{x^2 + 5}$$, the numerator degree is $$m = 2$$ and the denominator degree is $$n = 2$$.\n\n**Step 2: Apply horizontal asymptote rules**\nSince $$m = n$$, the horizontal asymptote is the ratio of the leading coefficients:\n$$y = \\frac{a_m}{b_n} = \\frac{3}{1} = 3$$\n\n**Step 3: State final result**\nThe horizontal asymptote is $$y = 3$$.\n**Result:** **$$y = 3$$**."
+      },
+      {
+       "id": "math11-u3-chk73",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "What is the natural domain of the rational function $$f(x) = \\frac{x - 3}{x + 4}$$?",
+       "options": {
+        "A": "$$\\{x \\in \\mathbb{R} : x \\neq -4\\}$$",
+        "B": "$$\\{x \\in \\mathbb{R} : x \\neq 3\\}$$",
+        "C": "$$\\{x \\in \\mathbb{R} : x \\neq 4\\}$$",
+        "D": "$$\\{x \\in \\mathbb{R} : x > -4\\}$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Identify denominator constraint**\nThe function $$f(x) = \\frac{x - 3}{x + 4}$$ is undefined when the denominator is zero:\n$$x + 4 = 0 \\implies x = -4$$\n\n**Step 2: State the domain**\nThe domain consists of all real numbers except $$-4$$, which is written as $$\\mathbf{\\{x \\in \\mathbb{R} : x \\neq -4\\}}$$.\n**Result:** $$\\mathbf{\\{x \\in \\mathbb{R} : x \\neq -4\\}}$$."
+      },
+      {
        "id": "math11-u3-c07",
        "type": "text",
        "title": "Rational functions",
        "page": 71,
        "body": [
         "A **rational function** is f(x) = P(x) ÷ Q(x), where P and Q are polynomials and Q(x) ≠ 0. The domain is all real numbers **except** the zeros of Q.",
-        "**Vertical asymptote:** a line x = a where Q(a) = 0 (and P(a) ≠ 0). **Horizontal asymptote** (n = degree of P, m = degree of Q): n < m → y = 0; n = m → y = ratio of leading coeffic"
-       ]
+        "**Vertical asymptote:** a line x = a where Q(a) = 0 (and P(a) ≠ 0). **Horizontal asymptote** (n = degree of P, m = degree of Q): n < m → y = 0; n = m → y = ratio of leading coefficients; n > m → no horizontal asymptote. Example: f(x) = (2x + 1)/(x − 3) has the vertical asymptote x = 3 and the horizontal asymptote y = 2/1 = 2."
+       ],
+       "src": "notes"
       },
       {
        "id": "math11-u3-wrk-extra1",
@@ -137,38 +283,8 @@
          "text": "Cancel → f(x) = x + 1 with a hole at x = 1 (not a vertical asymptote)."
         }
        ],
-       "answer": "Hole at (1, 2); no vertical asymptote from the cancelled factor."
-      },
-      {
-       "type": "text",
-       "title": "Rational functions",
-       "page": 1,
-       "body": [
-        "f=P/Q with Q≠0. Vertical asymptotes: Q=0 after simplifying. Holes: cancelled factors.",
-        "Horizontal: compare deg P and deg Q."
-       ],
-       "id": "math11-u3-deep1"
-      },
-      {
-       "type": "text",
-       "title": "Oblique asymptotes",
-       "body": [
-        "If deg P = deg Q + 1, divide P÷Q; quotient is the slant asymptote.",
-        "Ignore remainder for the asymptote line."
-       ],
-       "id": "math11-u3-xtra1",
-       "page": 1
-      },
-      {
-       "id": "math11-u3-checklist",
-       "type": "text",
-       "title": "Rational Functions: checklist before exam",
-       "page": 1,
-       "body": [
-        "Can you define every bold term in **Rational Functions** without looking?",
-        "Can you redo each worked example with the answer covered?",
-        "Can you sketch one diagram/graph/map and label it in under 2 minutes?"
-       ]
+       "answer": "Hole at (1, 2); no vertical asymptote from the cancelled factor.",
+       "src": "notes"
       }
      ]
     },
@@ -184,13 +300,125 @@
       {
        "id": "math11-u3-c03",
        "type": "text",
-       "title": "Graphing Rational Functions",
+       "title": "3.2 Graphing rational functions",
        "page": 75,
+       "src": "notes",
        "body": [
-        "**Graphing Rational Functions.** A rational function is a ratio of polynomials P(x)/Q(x) with Q not identically 0.",
-        "Vertical asymptotes where Q = 0 and P ≠ 0 after simplifying. Holes where a common factor cancels.",
-        "Horizontal asymptote: compare degrees of P and Q (deg P < deg Q → y=0; equal → ratio of leading coeffs)."
+        "A **rational function** is f(x) = P(x)/Q(x) with P, Q polynomials and Q(x) ≠ 0. Its graph can have breaks: **vertical asymptotes**, **holes**, and it may approach a **horizontal** or **slant (oblique) asymptote** far to the left and right.",
+        "**Step-by-step graphing routine:** Step 1 — **Factor** numerator and denominator. Step 2 — **Domain:** exclude the zeros of the denominator. Step 3 — **Holes:** a factor that cancels from top and bottom gives a hole (a missing point), not an asymptote. Step 4 — **Vertical asymptotes:** zeros of the denominator that remain after cancelling. Step 5 — **Horizontal/slant asymptote** from the degrees n (top) and m (bottom): n < m → y = 0; n = m → y = (leading coeff. of P)/(leading coeff. of Q); n = m + 1 → slant asymptote found by long division. Step 6 — **Intercepts:** y-intercept f(0); x-intercepts where the (cancelled) numerator is 0. Step 7 — **Test points** in each interval between asymptotes and zeros, then sketch.",
+        "**Example:** f(x) = (2x + 1)/(x − 3). Domain x ≠ 3; vertical asymptote x = 3; degrees equal → horizontal asymptote y = 2/1 = 2; y-intercept f(0) = −1/3; x-intercept 2x + 1 = 0 → x = −1/2. Test x = 4: f = 9 (above y = 2, right of x = 3); x = 0: −1/3 (below). Sketch two branches, one in the upper right and one in the lower left of the crossing asymptotes.",
+        "**Hole example:** f(x) = (x² − 4)/(x − 2) = (x − 2)(x + 2)/(x − 2) = x + 2 for x ≠ 2. The graph is the line y = x + 2 with an open circle at (2, 4).",
+        "**Basic shape to remember:** y = 1/x has asymptotes x = 0 and y = 0 and two branches in the 1st and 3rd quadrants. y = a/(x − h) + k is the same curve moved so that the asymptotes are x = h and y = k."
        ]
+      },
+      {
+       "id": "math11-u3-chk74",
+       "type": "check",
+       "title": "Quick check",
+       "page": 75,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q4",
+       "q": "Find the coordinates of the point of discontinuity (hole) for the function $$f(x) = \\frac{x^2 - 4}{x - 2}$$.",
+       "options": {
+        "A": "$$(2, 4)$$",
+        "B": "$$(2, 0)$$",
+        "C": "No hole, only vertical asymptote",
+        "D": "$$(2, 2)$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Factor and simplify the function**\n$$f(x) = \\frac{x^2 - 4}{x - 2} = \\frac{(x - 2)(x + 2)}{x - 2}$$\n\n**Step 2: Find the point of discontinuity**\nThe common factor $$(x - 2)$$ cancels out, indicating a hole at $$x = 2$$.\n\n**Step 3: Calculate the y-coordinate of the hole**\nSubstitute $$x = 2$$ into the simplified function $$y = x + 2$$:\n$$y = 2 + 2 = 4$$\nThe coordinates of the hole are $$(2, 4)$$.\n**Result:** **$$(2, 4)$$**."
+      },
+      {
+       "id": "math11-u3-wrk1",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 75,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q4",
+       "problem": "Find the coordinates of the point of discontinuity (hole) for the function $$f(x) = \\frac{x^2 - 4}{x - 2}$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Factor and simplify the function**"
+        },
+        {
+         "text": "$$f(x) = \\frac{x^2 - 4}{x - 2} = \\frac{(x - 2)(x + 2)}{x - 2}$$"
+        },
+        {
+         "text": "**Step 2: Find the point of discontinuity**"
+        },
+        {
+         "text": "The common factor $$(x - 2)$$ cancels out, indicating a hole at $$x = 2$$."
+        },
+        {
+         "text": "**Step 3: Calculate the y-coordinate of the hole**"
+        },
+        {
+         "text": "Substitute $$x = 2$$ into the simplified function $$y = x + 2$$:"
+        },
+        {
+         "text": "$$y = 2 + 2 = 4$$"
+        },
+        {
+         "text": "The coordinates of the hole are $$(2, 4)$$."
+        }
+       ],
+       "answer": "$$(2, 4)$$"
+      },
+      {
+       "id": "math11-u3-chk75",
+       "type": "check",
+       "title": "Quick check",
+       "page": 75,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q5",
+       "q": "Simplify the rational expression completely: $$\\frac{3x^2 - 12}{x^2 - 5x + 6}$$.",
+       "options": {
+        "A": "$$\\frac{3(x + 2)}{x - 3}, x \\neq 2, 3$$",
+        "B": "$$\\frac{3(x - 2)}{x - 3}, x \\neq 2, 3$$",
+        "C": "$$\\frac{3x + 6}{x - 3}, x \\neq 3$$",
+        "D": "$$\\frac{3(x + 2)}{x - 2}, x \\neq 2, 3$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Factor numerator and denominator completely**\n$$\\text{Numerator: } 3x^2 - 12 = 3(x^2 - 4) = 3(x - 2)(x + 2)$$\n$$\\text{Denominator: } x^2 - 5x + 6 = (x - 2)(x - 3)$$\n\n**Step 2: Simplify the expression**\nState the original domain restrictions: $$x \\neq 2, 3$$.\n$$\\frac{3(x - 2)(x + 2)}{(x - 2)(x - 3)} = \\frac{3(x + 2)}{x - 3}$$\n\n**Step 3: State final simplified form**\nThe simplified form is $$\\frac{3(x + 2)}{x - 3}$$ for $$x \\neq 2, 3$$.\n**Result:** **$$\\frac{3(x + 2)}{x - 3}, x \\neq 2, 3$$**."
+      },
+      {
+       "id": "math11-u3-wrk2",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 75,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q5",
+       "problem": "Simplify the rational expression completely: $$\\frac{3x^2 - 12}{x^2 - 5x + 6}$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Factor numerator and denominator completely**"
+        },
+        {
+         "text": "$$\\text{Numerator: } 3x^2 - 12 = 3(x^2 - 4) = 3(x - 2)(x + 2)$$"
+        },
+        {
+         "text": "$$\\text{Denominator: } x^2 - 5x + 6 = (x - 2)(x - 3)$$"
+        },
+        {
+         "text": "**Step 2: Simplify the expression**"
+        },
+        {
+         "text": "State the original domain restrictions: $$x \\neq 2, 3$$."
+        },
+        {
+         "text": "$$\\frac{3(x - 2)(x + 2)}{(x - 2)(x - 3)} = \\frac{3(x + 2)}{x - 3}$$"
+        },
+        {
+         "text": "**Step 3: State final simplified form**"
+        },
+        {
+         "text": "The simplified form is $$\\frac{3(x + 2)}{x - 3}$$ for $$x \\neq 2, 3$$."
+        },
+        {
+         "text": "**Result:** **$$\\frac{3(x + 2)}{x - 3}, x \\neq 2, 3$$**."
+        }
+       ],
+       "answer": "$$\\frac{3(x + 2)}{x - 3}, x \\neq 2, 3$$"
       },
       {
        "id": "math11-u3-c08",
@@ -206,125 +434,8 @@
          "text": "Degrees equal (1 and 1): horizontal asymptote **y = 2 ÷ 1 = 2**."
         }
        ],
-       "answer": "x-intercept: 2x + 1 = 0 → **x = −1/2**. y-intercept: f(0) = 1 ÷ (−3) = **−1/3**."
-      },
-      {
-       "type": "worked",
-       "title": "Hole vs asymptote",
-       "page": 1,
-       "problem": "(x²−9)/(x−3).",
-       "steps": [
-        {
-         "text": "("
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "−"
-        },
-        {
-         "text": "3"
-        },
-        {
-         "text": ")"
-        },
-        {
-         "text": "("
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "+"
-        },
-        {
-         "text": "3"
-        },
-        {
-         "text": ")"
-        },
-        {
-         "text": "/"
-        },
-        {
-         "text": "("
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "−"
-        },
-        {
-         "text": "3"
-        },
-        {
-         "text": ")"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "→"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "+"
-        },
-        {
-         "text": "3"
-        },
-        {
-         "text": ","
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "h"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "="
-        },
-        {
-         "text": "3"
-        },
-        {
-         "text": "."
-        }
-       ],
-       "answer": "Hole (3,6); no V.A. from that factor.",
-       "id": "math11-u3-deep2"
+       "answer": "x-intercept: 2x + 1 = 0 → **x = −1/2**. y-intercept: f(0) = 1 ÷ (−3) = **−1/3**.",
+       "src": "notes"
       },
       {
        "type": "worked",
@@ -337,18 +448,51 @@
        ],
        "answer": "x-intercepts at 2 and −1.",
        "id": "math11-u3-xtra2",
-       "page": 1
+       "page": 1,
+       "src": "notes"
       },
       {
-       "id": "math11-u3-misconception",
-       "type": "text",
-       "title": "Common mix-ups in Rational Functions",
-       "page": 1,
+       "id": "math11-u3-pc2",
+       "type": "check",
+       "title": "Practice",
+       "q": "What are the asymptotes of $$f(x) = \\frac{3x}{x + 2}$$?",
+       "options": {
+        "A": "x = −2 and y = 3",
+        "B": "x = 2 and y = 3",
+        "C": "x = −2 and y = 0",
+        "D": "x = 0 and y = 3"
+       },
+       "answer": "A",
+       "why": "**Vertical:** the denominator is zero at x = −2 (and the numerator 3x is not zero there).\n**Horizontal:** top and bottom both have degree 1, so y = ratio of leading coefficients = 3/1 = 3.",
+       "page": 75,
+       "src": "notes"
+      },
+      {
+       "id": "math11-u3-mn2",
+       "type": "mnemonic",
+       "title": "Horizontal asymptote: \"BOBO BOTN EATS DC\"",
        "body": [
-        "Write one idea students often confuse with this topic, then the correct distinction.",
-        "Example pattern: “Looks like X, but actually Y because …”",
-        "Teaching the difference is better than re-reading the page."
-       ]
+        "**BOBO** — Bigger On Bottom: y = 0. **BOTN** — Bigger On Top: None (if top is exactly one degree bigger, a slant asymptote). **EATS DC** — Exponents Are The Same: Divide the leading Coefficients."
+       ],
+       "letters": [
+        {
+         "l": "B",
+         "w": "Bigger On Bottom",
+         "m": "y = 0"
+        },
+        {
+         "l": "B",
+         "w": "Bigger On Top",
+         "m": "no horizontal asymptote"
+        },
+        {
+         "l": "E",
+         "w": "Exponents the same",
+         "m": "divide the leading coefficients"
+        }
+       ],
+       "page": 75,
+       "src": "notes"
       }
      ]
     },
@@ -364,13 +508,123 @@
       {
        "id": "math11-u3-c04",
        "type": "text",
-       "title": "Operations on Rational Expressions",
+       "title": "3.3 Operations on rational expressions",
        "page": 105,
+       "src": "notes",
        "body": [
-        "**Operations on Rational Expressions.** A rational function is a ratio of polynomials P(x)/Q(x) with Q not identically 0.",
-        "Vertical asymptotes where Q = 0 and P ≠ 0 after simplifying. Holes where a common factor cancels.",
-        "Horizontal asymptote: compare degrees of P and Q (deg P < deg Q → y=0; equal → ratio of leading coeffs)."
+        "Rational expressions follow the same rules as fractions of numbers. Always **factor first**, and state the values of x that make any denominator zero (they are excluded).",
+        "**Simplifying:** factor the top and bottom and cancel common **factors** (never cancel terms that are added). Example: (3x² − 12)/(x² − 5x + 6) = 3(x − 2)(x + 2)/[(x − 2)(x − 3)] = 3(x + 2)/(x − 3), x ≠ 2, 3.",
+        "**Multiplying:** multiply tops and bottoms, then cancel. Example: (3x − 3)/x × x²/(x² − 1) = 3(x − 1)/x × x²/[(x − 1)(x + 1)] = 3x/(x + 1), x ≠ 0, ±1.",
+        "**Dividing:** multiply by the reciprocal of the second expression. Example: (x + 2)/x ÷ (x² − 4)/x² = (x + 2)/x × x²/[(x − 2)(x + 2)] = x/(x − 2).",
+        "**Adding and subtracting:** Step 1: factor the denominators. Step 2: find the LCD (least common denominator). Step 3: rewrite each fraction with the LCD. Step 4: add or subtract the numerators (use brackets when subtracting). Step 5: simplify. Example: 1/x + 1/(x + 1) = (x + 1)/[x(x + 1)] + x/[x(x + 1)] = (2x + 1)/[x(x + 1)].",
+        "**Common trap:** (x + 3)/x is NOT 3 — the x in \"x + 3\" is a term, not a factor, so it cannot be cancelled."
        ]
+      },
+      {
+       "id": "math11-u3-chk76",
+       "type": "check",
+       "title": "Quick check",
+       "page": 105,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q6",
+       "q": "Solve the rational equation: $$\\frac{8}{x - 2} = \\frac{4}{x + 1}$$.",
+       "options": {
+        "A": "$$x = -4$$",
+        "B": "$$x = 4$$",
+        "C": "$$x = -1$$",
+        "D": "No real solution"
+       },
+       "answer": "A",
+       "why": "**Step 1: Clear the fractions**\nMultiply both sides by the LCD, which is $$(x - 2)(x + 1)$$, or cross-multiply:\n$$8(x + 1) = 4(x - 2)$$\n\n**Step 2: Solve the linear equation**\n$$8x + 8 = 4x - 8$$\n$$4x = -16 \\implies x = -4$$\n\n**Step 3: Verify the solution**\nCheck if $$x = -4$$ makes any denominator zero in the original equation. Since it does not, the solution is valid.\n**Result:** **$$x = -4$$**."
+      },
+      {
+       "id": "math11-u3-wrk3",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 105,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q6",
+       "problem": "Solve the rational equation: $$\\frac{8}{x - 2} = \\frac{4}{x + 1}$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Clear the fractions**"
+        },
+        {
+         "text": "Multiply both sides by the LCD, which is $$(x - 2)(x + 1)$$, or cross-multiply:"
+        },
+        {
+         "text": "$$8(x + 1) = 4(x - 2)$$"
+        },
+        {
+         "text": "**Step 2: Solve the linear equation**"
+        },
+        {
+         "text": "$$8x + 8 = 4x - 8$$"
+        },
+        {
+         "text": "$$4x = -16 \\implies x = -4$$"
+        },
+        {
+         "text": "**Step 3: Verify the solution**"
+        },
+        {
+         "text": "Check if $$x = -4$$ makes any denominator zero in the original equation. Since it does not, the solution is valid."
+        },
+        {
+         "text": "**Result:** **$$x = -4$$**."
+        }
+       ],
+       "answer": "$$x = -4$$"
+      },
+      {
+       "id": "math11-u3-chk77",
+       "type": "check",
+       "title": "Quick check",
+       "page": 105,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q7",
+       "q": "Find the critical boundary values for the rational inequality $$\\frac{x - 1}{x + 3} < 0$$.",
+       "options": {
+        "A": "$$x = 1$$ and $$x = -3$$",
+        "B": "$$x = -1$$ and $$x = 3$$",
+        "C": "$$x = 1$$ and $$x = 3$$",
+        "D": "$$x = -1$$ and $$x = -3$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Set numerator and denominator to zero**\nTo find the boundary values where the expression can change signs, solve:\n$$\\text{Numerator: } x - 1 = 0 \\implies x = 1$$\n$$\\text{Denominator: } x + 3 = 0 \\implies x = -3$$\n\n**Step 2: State critical values**\nThe critical boundary values are $$x = 1$$ and $$x = -3$$.\n**Result:** **$$x = 1$$ and $$x = -3$$**."
+      },
+      {
+       "id": "math11-u3-wrk4",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 105,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q7",
+       "problem": "Find the critical boundary values for the rational inequality $$\\frac{x - 1}{x + 3} < 0$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Set numerator and denominator to zero**"
+        },
+        {
+         "text": "To find the boundary values where the expression can change signs, solve:"
+        },
+        {
+         "text": "$$\\text{Numerator: } x - 1 = 0 \\implies x = 1$$"
+        },
+        {
+         "text": "$$\\text{Denominator: } x + 3 = 0 \\implies x = -3$$"
+        },
+        {
+         "text": "**Step 2: State critical values**"
+        },
+        {
+         "text": "The critical boundary values are $$x = 1$$ and $$x = -3$$."
+        },
+        {
+         "text": "**Result:** **$$x = 1$$ and $$x = -3$$**."
+        }
+       ],
+       "answer": "$$x = 1$$ and $$x = -3$$"
       },
       {
        "id": "math11-u3-c09",
@@ -386,54 +640,876 @@
          "text": "= (x + 1)/(x(x + 1)) + x/(x(x + 1)) = **(2x + 1) / (x(x + 1))**, x ≠ 0, −1."
         }
        ],
-       "answer": "= (x + 1)/(x(x + 1)) + x/(x(x + 1)) = **(2x + 1) / (x(x + 1))**, x ≠ 0, −1."
+       "answer": "= (x + 1)/(x(x + 1)) + x/(x(x + 1)) = **(2x + 1) / (x(x + 1))**, x ≠ 0, −1.",
+       "src": "notes"
       },
       {
-       "type": "table",
-       "title": "Asymptote rules",
-       "page": 1,
-       "head": [
-        "Degrees",
-        "Horizontal"
+       "id": "math11-u3-pc3",
+       "type": "check",
+       "title": "Practice",
+       "q": "Simplify $$\\frac{2}{x} - \\frac{1}{x + 2}$$.",
+       "options": {
+        "A": "$$\\frac{1}{x + 2}$$",
+        "B": "$$\\frac{x + 4}{x(x + 2)}$$",
+        "C": "$$\\frac{x}{x(x + 2)}$$",
+        "D": "$$\\frac{1}{-2}$$"
+       },
+       "answer": "B",
+       "why": "**LCD** = x(x + 2).\n2/x = 2(x + 2)/[x(x + 2)] and 1/(x + 2) = x/[x(x + 2)].\nSubtract the numerators: 2x + 4 − x = x + 4. Result: (x + 4)/[x(x + 2)].",
+       "page": 105,
+       "src": "notes"
+      }
+     ]
+    },
+    {
+     "id": "math11-u3-l3-4",
+     "number": "3.4",
+     "title": "Solving Rational Equations and Inequalities",
+     "pages": [
+      127,
+      141
+     ],
+     "cards": [
+      {
+       "id": "math11-u3-c05",
+       "type": "text",
+       "title": "Solving Rational Equations and Inequalities",
+       "page": 127,
+       "src": "notes",
+       "body": [
+        "Equations: multiply through by the common denominator, then **throw away** any root that makes a denominator zero. Inequalities: sign chart on the simplified expression, test intervals, exclude holes and verticals."
+       ]
+      },
+      {
+       "id": "math11-u3-chk78",
+       "type": "check",
+       "title": "Quick check",
+       "page": 127,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q8",
+       "q": "Determine whether the function $$f(x) = \\frac{x^2 - 6}{x^2 + 6}$$ is even, odd, or neither.",
+       "options": {
+        "A": "Even function",
+        "B": "Odd function",
+        "C": "Neither even nor odd",
+        "D": "Constant function"
+       },
+       "answer": "A",
+       "why": "**Step 1: Substitute $$-x$$ into the function**\n$$f(-x) = \\frac{(-x)^2 - 6}{(-x)^2 + 6}$$\n\n**Step 2: Simplify the expression**\nSince $$(-x)^2 = x^2$$:\n$$f(-x) = \\frac{x^2 - 6}{x^2 + 6} = f(x)$$\n\n**Step 3: State symmetry type**\nSince $$f(-x) = f(x)$$, the function is symmetric with respect to the y-axis, making it an even function.\n**Result:** **Even function**."
+      },
+      {
+       "id": "math11-u3-wrk5",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 127,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q8",
+       "problem": "Determine whether the function $$f(x) = \\frac{x^2 - 6}{x^2 + 6}$$ is even, odd, or neither.",
+       "steps": [
+        {
+         "text": "**Step 1: Substitute $$-x$$ into the function**"
+        },
+        {
+         "text": "$$f(-x) = \\frac{(-x)^2 - 6}{(-x)^2 + 6}$$"
+        },
+        {
+         "text": "**Step 2: Simplify the expression**"
+        },
+        {
+         "text": "Since $$(-x)^2 = x^2$$:"
+        },
+        {
+         "text": "$$f(-x) = \\frac{x^2 - 6}{x^2 + 6} = f(x)$$"
+        },
+        {
+         "text": "**Step 3: State symmetry type**"
+        },
+        {
+         "text": "Since $$f(-x) = f(x)$$, the function is symmetric with respect to the y-axis, making it an even function."
+        },
+        {
+         "text": "**Result:** **Even function**."
+        }
        ],
-       "rows": [
-        [
-         "deg P < deg Q",
-         "y=0"
-        ],
-        [
-         "deg P = deg Q",
-         "y = leading ratio"
-        ],
-        [
-         "deg P = deg Q+1",
-         "oblique (slant)"
-        ]
+       "answer": "Even function"
+      },
+      {
+       "id": "math11-u3-chk79",
+       "type": "check",
+       "title": "Quick check",
+       "page": 127,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q9",
+       "q": "Perform the multiplication and simplify: $$\\frac{3x - 3}{x} \\times \\frac{x^2}{x^2 - 1}$$.",
+       "options": {
+        "A": "$$\\frac{3x}{x + 1}, x \\neq 0, \\pm 1$$",
+        "B": "$$\\frac{3}{x + 1}, x \\neq 0, 1$$",
+        "C": "$$\\frac{3x}{x - 1}, x \\neq 0, 1$$",
+        "D": "$$\\frac{3(x - 1)}{x + 1}, x \\neq 0, \\pm 1$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Factor all polynomials**\n$$\\frac{3(x - 1)}{x} \\times \\frac{x^2}{(x - 1)(x + 1)}$$\n\n**Step 2: Simplify by canceling common factors**\nState domain restrictions first: $$x \\neq 0, \\pm 1$$.\nCancel $$(x - 1)$$ and cancel one $$x$$:\n$$\\frac{3}{1} \\times \\frac{x}{x + 1} = \\frac{3x}{x + 1}$$\n\n**Step 3: State final form**\nThe simplified product is $$\\frac{3x}{x + 1}$$ for $$x \\neq 0, \\pm 1$$.\n**Result:** **$$\\frac{3x}{x + 1}, x \\neq 0, \\pm 1$$**."
+      },
+      {
+       "id": "math11-u3-wrk6",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 127,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q9",
+       "problem": "Perform the multiplication and simplify: $$\\frac{3x - 3}{x} \\times \\frac{x^2}{x^2 - 1}$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Factor all polynomials**"
+        },
+        {
+         "text": "$$\\frac{3(x - 1)}{x} \\times \\frac{x^2}{(x - 1)(x + 1)}$$"
+        },
+        {
+         "text": "**Step 2: Simplify by canceling common factors**"
+        },
+        {
+         "text": "State domain restrictions first: $$x \\neq 0, \\pm 1$$."
+        },
+        {
+         "text": "Cancel $$(x - 1)$$ and cancel one $$x$$:"
+        },
+        {
+         "text": "$$\\frac{3}{1} \\times \\frac{x}{x + 1} = \\frac{3x}{x + 1}$$"
+        },
+        {
+         "text": "**Step 3: State final form**"
+        },
+        {
+         "text": "The simplified product is $$\\frac{3x}{x + 1}$$ for $$x \\neq 0, \\pm 1$$."
+        },
+        {
+         "text": "**Result:** **$$\\frac{3x}{x + 1}, x \\neq 0, \\pm 1$$**."
+        }
        ],
-       "id": "math11-u3-deep3"
+       "answer": "$$\\frac{3x}{x + 1}, x \\neq 0, \\pm 1$$"
+      },
+      {
+       "id": "math11-u3-pc4",
+       "type": "check",
+       "title": "Practice",
+       "q": "Solve $$\\frac{x + 1}{x - 2} \\ge 0$$.",
+       "options": {
+        "A": "$$x \\le -1$$ or $$x > 2$$",
+        "B": "$$-1 \\le x < 2$$",
+        "C": "$$x \\le -1$$ or $$x \\ge 2$$",
+        "D": "$$x > 2$$ only"
+       },
+       "answer": "A",
+       "why": "**Critical values:** numerator 0 at x = −1 (allowed, since ≥), denominator 0 at x = 2 (never allowed).\n**Test intervals:** x = −2: (−1)/(−4) > 0 ✔; x = 0: 1/(−2) < 0 ✘; x = 3: 4/1 > 0 ✔.\nAnswer: x ≤ −1 or x > 2.",
+       "page": 127,
+       "src": "notes"
+      },
+      {
+       "id": "math11-u3-xw4",
+       "type": "worked",
+       "title": "Worked example: a rational equation with an extraneous root",
+       "problem": "Solve x/(x − 2) − 2/(x + 1) = 6/((x − 2)(x + 1)).",
+       "steps": [
+        {
+         "text": "Step 1: restrictions: x ≠ 2 and x ≠ −1 (denominators cannot be 0)."
+        },
+        {
+         "text": "Step 2: multiply every term by (x − 2)(x + 1): x(x + 1) − 2(x − 2) = 6."
+        },
+        {
+         "text": "Step 3: x² + x − 2x + 4 = 6 → x² − x − 2 = 0 → (x − 2)(x + 1) = 0 → x = 2 or x = −1."
+        },
+        {
+         "text": "Step 4: both values are excluded by the restrictions, so both are extraneous."
+        }
+       ],
+       "answer": "No solution",
+       "page": 127,
+       "src": "notes"
+      },
+      {
+       "id": "math11-u3-xt4",
+       "type": "text",
+       "title": "Sign charts for rational inequalities",
+       "body": [
+        "To solve an inequality such as (x − 1)/(x + 3) < 0: (1) move everything to one side and write it as a single fraction; (2) find the **critical numbers**: zeros of the numerator (x = 1) and of the denominator (x = −3); (3) mark them on a number line and test one value in each interval; (4) pick the intervals with the required sign.",
+        "For (x − 1)/(x + 3): x = −4 → (−5)/(−1) > 0; x = 0 → (−1)/3 < 0; x = 2 → 1/5 > 0. So the solution is −3 < x < 1. A zero of the denominator is **never** included, even for ≤ or ≥; a zero of the numerator is included only for ≤ or ≥.",
+        "**Do not** multiply both sides by an expression containing x unless you know its sign — it may be negative and reverse the inequality."
+       ],
+       "page": 127,
+       "src": "notes"
       }
      ]
     }
    ],
-   "glossary": [
-    {
-     "term": "Rational",
-     "def": "Core topic of this unit — expand with your textbook definition for “Rational Functions”."
-    }
-   ],
+   "glossary": [],
    "tips": [
     {
-     "id": "math11-u3-tip-extra1",
-     "text": "Simplify first. A cancelled factor → hole; a leftover zero in the denominator → vertical asymptote."
-    },
-    {
-     "id": "math11-u3-deeptip1",
-     "text": "Simplify first, then read asymptotes from what remains."
+     "text": "Read 3.1 Describing Rational Functions again and say its main idea in one sentence.",
+     "page": 71
     }
    ],
-   "games": [],
+   "games": [
+    {
+     "type": "match",
+     "title": "Match each answer to its question",
+     "pairs": [
+      {
+       "a": "4.",
+       "b": "Simplify 4x/x , x≠0"
+      },
+      {
+       "a": "→3.",
+       "b": "Limit idea: as x→∞, (3x-1)/(x+8)"
+      },
+      {
+       "a": "x=2.",
+       "b": "Vertical asymptote of 1/(x-2)"
+      },
+      {
+       "a": "y=0.",
+       "b": "HA of (x+1)/(x^2+1)"
+      },
+      {
+       "a": "x+2.",
+       "b": "Simplify (x^2-4)/(x-2), x≠2"
+      },
+      {
+       "a": "x>0.",
+       "b": "Inequality 1/x>0"
+      }
+     ],
+     "src": "notes",
+     "id": "math11-u3-g1",
+     "lesson": null
+    },
+    {
+     "type": "flash",
+     "title": "Quick recall",
+     "cards": [
+      {
+       "front": "Vertical asymptote of 1/(x-2)",
+       "back": "x=2."
+      },
+      {
+       "front": "Horizontal asymptote of 1/(x-2)",
+       "back": "y=0 (deg N < deg D)."
+      },
+      {
+       "front": "HA of (2x+1)/(x-5)",
+       "back": "y=2 (equal degree, 2/1)."
+      },
+      {
+       "front": "HA of (x+1)/(x^2+1)",
+       "back": "y=0."
+      },
+      {
+       "front": "Hole or VA: (x^2-1)/(x-1)",
+       "back": "Hole at x=1; simplifies to x+1."
+      },
+      {
+       "front": "y-intercept of (x+2)/(x-3)",
+       "back": "f(0)=-2/3."
+      },
+      {
+       "front": "x-intercept of (x+2)/(x-3)",
+       "back": "Numerator 0: x=-2 (and -2≠3)."
+      },
+      {
+       "front": "Domain of (x+1)/(x^2-9)",
+       "back": "x≠±3."
+      },
+      {
+       "front": "Simplify (x^2-4)/(x-2), x≠2",
+       "back": "x+2."
+      },
+      {
+       "front": "Solve 1/x=2",
+       "back": "x=1/2."
+      }
+     ],
+     "src": "notes",
+     "id": "math11-u3-g2",
+     "lesson": null
+    }
+   ],
    "exercise": {
     "questions": [
+     {
+      "type": "short",
+      "q": "Vertical asymptote of 1/(x-2)",
+      "answer": "x=2.",
+      "why": [
+       "x=2."
+      ],
+      "src": "notes",
+      "label": "1. Vertical asymptote of 1/(x-2)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Horizontal asymptote of 1/(x-2)",
+        "a": "y=0 (deg N < deg D)."
+       }
+      ],
+      "id": "math11-u3-q01"
+     },
+     {
+      "type": "short",
+      "q": "Horizontal asymptote of 1/(x-2)",
+      "answer": "y=0 (deg N < deg D).",
+      "why": [
+       "y=0 (deg N < deg D)."
+      ],
+      "src": "notes",
+      "label": "2. Horizontal asymptote of 1/(x-2)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "HA of (2x+1)/(x-5)",
+        "a": "y=2 (equal degree, 2/1)."
+       }
+      ],
+      "id": "math11-u3-q02"
+     },
+     {
+      "type": "short",
+      "q": "HA of (2x+1)/(x-5)",
+      "answer": "y=2 (equal degree, 2/1).",
+      "why": [
+       "y=2 (equal degree, 2/1)."
+      ],
+      "src": "notes",
+      "label": "3. HA of (2x+1)/(x-5)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "The simplified form of (1/(x − 1) − 1/(x + 1)) ÷ (1/(x − 1) + 1/(x + 1)) in its domain is equal to  A) 1/(x − 1)  B) 1/x  C) 1  D) 1/(x + 1)  E) 2",
+        "a": "B. 1/x — Quotient = 2/(x² − 1) × (x² − 1)/(2x) = 1/x (x ≠ 0, ±1). Answer: B.",
+        "exam_question": "math-2018-matric-p1-q27"
+       }
+      ],
+      "id": "math11-u3-q03"
+     },
+     {
+      "type": "short",
+      "q": "HA of (x+1)/(x^2+1)",
+      "answer": "y=0.",
+      "why": [
+       "y=0."
+      ],
+      "src": "notes",
+      "label": "4. HA of (x+1)/(x^2+1)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Hole or VA: (x^2-1)/(x-1)",
+        "a": "Hole at x=1; simplifies to x+1."
+       }
+      ],
+      "id": "math11-u3-q04"
+     },
+     {
+      "type": "short",
+      "q": "Hole or VA: (x^2-1)/(x-1)",
+      "answer": "Hole at x=1; simplifies to x+1.",
+      "why": [
+       "Hole at x=1; simplifies to x+1."
+      ],
+      "src": "notes",
+      "label": "5. Hole or VA: (x^2-1)/(x-1)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "y-intercept of (x+2)/(x-3)",
+        "a": "f(0)=-2/3."
+       }
+      ],
+      "id": "math11-u3-q05"
+     },
+     {
+      "type": "short",
+      "q": "y-intercept of (x+2)/(x-3)",
+      "answer": "f(0)=-2/3.",
+      "why": [
+       "f(0)=-2/3."
+      ],
+      "src": "notes",
+      "label": "6. y-intercept of (x+2)/(x-3)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "x-intercept of (x+2)/(x-3)",
+        "a": "Numerator 0: x=-2 (and -2≠3)."
+       }
+      ],
+      "id": "math11-u3-q06"
+     },
+     {
+      "type": "short",
+      "q": "x-intercept of (x+2)/(x-3)",
+      "answer": "Numerator 0: x=-2 (and -2≠3).",
+      "why": [
+       "Numerator 0: x=-2 (and -2≠3)."
+      ],
+      "src": "notes",
+      "label": "7. x-intercept of (x+2)/(x-3)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Domain of (x+1)/(x^2-9)",
+        "a": "x≠±3."
+       }
+      ],
+      "id": "math11-u3-q07"
+     },
+     {
+      "type": "short",
+      "q": "Domain of (x+1)/(x^2-9)",
+      "answer": "x≠±3.",
+      "why": [
+       "x≠±3."
+      ],
+      "src": "notes",
+      "label": "8. Domain of (x+1)/(x^2-9)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Simplify (x^2-4)/(x-2), x≠2",
+        "a": "x+2."
+       }
+      ],
+      "id": "math11-u3-q08"
+     },
+     {
+      "type": "short",
+      "q": "Simplify (x^2-4)/(x-2), x≠2",
+      "answer": "x+2.",
+      "why": [
+       "x+2."
+      ],
+      "src": "notes",
+      "label": "9. Simplify (x^2-4)/(x-2), x≠2",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve 1/x=2",
+        "a": "x=1/2."
+       }
+      ],
+      "id": "math11-u3-q09"
+     },
+     {
+      "type": "short",
+      "q": "Solve 1/x=2",
+      "answer": "x=1/2.",
+      "why": [
+       "x=1/2."
+      ],
+      "src": "notes",
+      "label": "10. Solve 1/x=2",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve 3/(x-1)=1",
+        "a": "x-1=3, x=4."
+       }
+      ],
+      "id": "math11-u3-q10"
+     },
+     {
+      "type": "short",
+      "q": "Solve 3/(x-1)=1",
+      "answer": "x-1=3, x=4.",
+      "why": [
+       "x-1=3, x=4."
+      ],
+      "src": "notes",
+      "label": "11. Solve 3/(x-1)=1",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve x/(x-2)=3",
+        "a": "x=3(x-2) → x=3x-6 → 6=2x → x=3. Check 3≠2."
+       }
+      ],
+      "id": "math11-u3-q11"
+     },
+     {
+      "type": "short",
+      "q": "Solve x/(x-2)=3",
+      "answer": "x=3(x-2) → x=3x-6 → 6=2x → x=3. Check 3≠2.",
+      "why": [
+       "x=3(x-2) → x=3x-6 → 6=2x → x=3. Check 3≠2."
+      ],
+      "src": "notes",
+      "label": "12. Solve x/(x-2)=3",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Extraneous: 1/(x-1)+1=1/(x-1)",
+        "a": "Would force 1=0 after cancelling. No solution."
+       }
+      ],
+      "id": "math11-u3-q12"
+     },
+     {
+      "type": "short",
+      "q": "Extraneous: 1/(x-1)+1=1/(x-1)",
+      "answer": "Would force 1=0 after cancelling. No solution.",
+      "why": [
+       "Would force 1=0 after cancelling. No solution."
+      ],
+      "src": "notes",
+      "label": "13. Extraneous: 1/(x-1)+1=1/(x-1)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "The solution set of (x + 1)/(x − 1) + (x − 2)/(x + 2) = 3 is  A) {2, 5}  B) {−1, −9}  C) {−2, 5}  D) {1, −9}  E) {−5, 2}",
+        "a": "E. {−5, 2} — x² + 3x − 10 = 0 ⇒ (x + 5)(x − 2) = 0 ⇒ x = −5 or x = 2; both are in the domain. Answer: E.",
+        "exam_question": "math-2018-matric-p1-q25"
+       }
+      ],
+      "id": "math11-u3-q13"
+     },
+     {
+      "type": "short",
+      "q": "Sign of (x-1)/(x+2) for x=0",
+      "answer": "(-1)/2 <0.",
+      "why": [
+       "(-1)/2 <0."
+      ],
+      "src": "notes",
+      "label": "14. Sign of (x-1)/(x+2) for x=0",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "VA of (2x)/(x^2-x)",
+        "a": "x^2-x=x(x-1)=0 → x=0 and x=1."
+       }
+      ],
+      "id": "math11-u3-q14"
+     },
+     {
+      "type": "short",
+      "q": "VA of (2x)/(x^2-x)",
+      "answer": "x^2-x=x(x-1)=0 → x=0 and x=1.",
+      "why": [
+       "x^2-x=x(x-1)=0 → x=0 and x=1."
+      ],
+      "src": "notes",
+      "label": "15. VA of (2x)/(x^2-x)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Does (x-1)/(x^2-1) have VA at x=1?",
+        "a": "No: cancel (x-1), hole at 1, VA at x=-1."
+       }
+      ],
+      "id": "math11-u3-q15"
+     },
+     {
+      "type": "short",
+      "q": "Does (x-1)/(x^2-1) have VA at x=1?",
+      "answer": "No: cancel (x-1), hole at 1, VA at x=-1.",
+      "why": [
+       "No: cancel (x-1), hole at 1, VA at x=-1."
+      ],
+      "src": "notes",
+      "label": "16. Does (x-1)/(x^2-1) have VA at x=1?",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Slant? (x^2+1)/x",
+        "a": "Yes deg N = deg D+1. x + 1/x."
+       }
+      ],
+      "id": "math11-u3-q16"
+     },
+     {
+      "type": "short",
+      "q": "Slant? (x^2+1)/x",
+      "answer": "Yes deg N = deg D+1. x + 1/x.",
+      "why": [
+       "Yes deg N = deg D+1. x + 1/x."
+      ],
+      "src": "notes",
+      "label": "17. Slant? (x^2+1)/x",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "f even? 1/(x^2+1)",
+        "a": "f(-x)=f(x). Even."
+       }
+      ],
+      "id": "math11-u3-q17"
+     },
+     {
+      "type": "short",
+      "q": "f even? 1/(x^2+1)",
+      "answer": "f(-x)=f(x). Even.",
+      "why": [
+       "f(-x)=f(x). Even."
+      ],
+      "src": "notes",
+      "label": "18. f even? 1/(x^2+1)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve (x+1)/(x-1)=0",
+        "a": "Numerator 0: x=-1. Check -1≠1."
+       }
+      ],
+      "id": "math11-u3-q18"
+     },
+     {
+      "type": "short",
+      "q": "Solve (x+1)/(x-1)=0",
+      "answer": "Numerator 0: x=-1. Check -1≠1.",
+      "why": [
+       "Numerator 0: x=-1. Check -1≠1."
+      ],
+      "src": "notes",
+      "label": "19. Solve (x+1)/(x-1)=0",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Undefined at x=4: possible function",
+        "a": "Any rational with (x-4) in leftover denominator."
+       }
+      ],
+      "id": "math11-u3-q19"
+     },
+     {
+      "type": "short",
+      "q": "Undefined at x=4: possible function",
+      "answer": "Any rational with (x-4) in leftover denominator.",
+      "why": [
+       "Any rational with (x-4) in leftover denominator."
+      ],
+      "src": "notes",
+      "label": "20. Undefined at x=4: possible function",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Limit idea: as x→∞, (3x-1)/(x+8)",
+        "a": "→3."
+       }
+      ],
+      "id": "math11-u3-q20"
+     },
+     {
+      "type": "short",
+      "q": "Limit idea: as x→∞, (3x-1)/(x+8)",
+      "answer": "→3.",
+      "why": [
+       "→3."
+      ],
+      "src": "notes",
+      "label": "21. Limit idea: as x→∞, (3x-1)/(x+8)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Two VA of 1/(x^2-4)",
+        "a": "x=2 and x=-2."
+       }
+      ],
+      "id": "math11-u3-q21"
+     },
+     {
+      "type": "short",
+      "q": "Two VA of 1/(x^2-4)",
+      "answer": "x=2 and x=-2.",
+      "why": [
+       "x=2 and x=-2."
+      ],
+      "src": "notes",
+      "label": "22. Two VA of 1/(x^2-4)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Hole coordinates (x^2-9)/(x-3)",
+        "a": "Simplifies x+3, hole at x=3, point (3,6)."
+       }
+      ],
+      "id": "math11-u3-q22"
+     },
+     {
+      "type": "short",
+      "q": "Hole coordinates (x^2-9)/(x-3)",
+      "answer": "Simplifies x+3, hole at x=3, point (3,6).",
+      "why": [
+       "Simplifies x+3, hole at x=3, point (3,6)."
+      ],
+      "src": "notes",
+      "label": "23. Hole coordinates (x^2-9)/(x-3)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Multiply to solve 2/x + 1= x",
+        "a": "Times x: 2+x=x^2 → x^2-x-2=0 → (x-2)(x+1)=0. x=2 or -1. Both ok."
+       }
+      ],
+      "id": "math11-u3-q23"
+     },
+     {
+      "type": "short",
+      "q": "Multiply to solve 2/x + 1= x",
+      "answer": "Times x: 2+x=x^2 → x^2-x-2=0 → (x-2)(x+1)=0. x=2 or -1. Both ok.",
+      "why": [
+       "Times x: 2+x=x^2 → x^2-x-2=0 → (x-2)(x+1)=0. x=2 or -1. Both ok."
+      ],
+      "src": "notes",
+      "label": "24. Multiply to solve 2/x + 1= x",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Inequality 1/x>0",
+        "a": "x>0."
+       }
+      ],
+      "id": "math11-u3-q24"
+     },
+     {
+      "type": "short",
+      "q": "Inequality 1/x>0",
+      "answer": "x>0.",
+      "why": [
+       "x>0."
+      ],
+      "src": "notes",
+      "label": "25. Inequality 1/x>0",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "The solution set of the inequality 1/x < 3 is  A) {x : x > 1/3}.  B) {x : x < 1/3}.  C) {x : x < 0 or x > 1/3}.  D) {x : x > 0 or x < 1/3}.  E) {x : 0 < x < 1/3}.",
+        "a": "C. {x : x < 0 or x > 1/3}. — Solution: x < 0 or x > 1/3. Answer: C.",
+        "exam_question": "math-2019-matric-p1-q27"
+       }
+      ],
+      "id": "math11-u3-q25"
+     },
+     {
+      "type": "short",
+      "q": "Inequality (x-1)/(x+1)>0",
+      "answer": "Same sign: x<-1 or x>1.",
+      "why": [
+       "Same sign: x<-1 or x>1."
+      ],
+      "src": "notes",
+      "label": "26. Inequality (x-1)/(x+1)>0",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "The solution set of the rational inequality (2x − 3)/(3x − 5) ≥ 3 is  A) {x | x ≤ 5/3 or x ≥ 12/7}.  B) {x | x ≥ 3}.  C) {x | x ≤ 5/3}.  D) {x | 5/3 < x ≤ 12/7}.  E) {x | 5/3 ≤ x ≤ 3/2}.",
+        "a": "D. {x | 5/3 < x ≤ 12/7}. — Solution: 5/3 < x ≤ 12/7. Check x = 1.7: (0.4)/(0.1) = 4 ≥ 3 ✓. Answer: D.",
+        "exam_question": "math-2021-matric-p1-q24"
+       }
+      ],
+      "id": "math11-u3-q26"
+     },
+     {
+      "type": "short",
+      "q": "Common denominator of 1/x + 1/(x-1)",
+      "answer": "x(x-1).",
+      "why": [
+       "x(x-1)."
+      ],
+      "src": "notes",
+      "label": "27. Common denominator of 1/x + 1/(x-1)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Simplify 4x/x , x≠0",
+        "a": "4."
+       }
+      ],
+      "id": "math11-u3-q27"
+     },
+     {
+      "type": "short",
+      "q": "Simplify 4x/x , x≠0",
+      "answer": "4.",
+      "why": [
+       "4."
+      ],
+      "src": "notes",
+      "label": "28. Simplify 4x/x , x≠0",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Intercepts of (x-4)/(x+2)",
+        "a": "x-int 4, y-int -2."
+       }
+      ],
+      "id": "math11-u3-q28"
+     },
+     {
+      "type": "short",
+      "q": "Intercepts of (x-4)/(x+2)",
+      "answer": "x-int 4, y-int -2.",
+      "why": [
+       "x-int 4, y-int -2."
+      ],
+      "src": "notes",
+      "label": "29. Intercepts of (x-4)/(x+2)",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Why exclude after solving rationals",
+        "a": "A cancelled or original denominator zero is not in the domain."
+       }
+      ],
+      "id": "math11-u3-q29"
+     },
+     {
+      "type": "short",
+      "q": "Why exclude after solving rationals",
+      "answer": "A cancelled or original denominator zero is not in the domain.",
+      "why": [
+       "A cancelled or original denominator zero is not in the domain."
+      ],
+      "src": "notes",
+      "label": "30. Why exclude after solving rationals",
+      "page": 71,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Vertical asymptote of 1/(x-2)",
+        "a": "x=2."
+       }
+      ],
+      "id": "math11-u3-q30"
+     },
      {
       "id": "math11-u3-q31",
       "type": "mcq",
@@ -509,6 +1585,95 @@
       "similar": []
      }
     ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Rational Functions",
+      "kind": "unit",
+      "cards": [
+       "math11-u3-c01"
+      ]
+     },
+     {
+      "id": "l3_1",
+      "label": "Describing Rational Functions",
+      "kind": "topic",
+      "lesson": "math11-u3-l3-1",
+      "cards": [
+       "math11-u3-c01",
+       "math11-u3-c02"
+      ]
+     },
+     {
+      "id": "l3_2",
+      "label": "Graphing Rational Functions",
+      "kind": "topic",
+      "lesson": "math11-u3-l3-2",
+      "cards": [
+       "math11-u3-c03"
+      ]
+     },
+     {
+      "id": "l3_3",
+      "label": "Operations on Rational Expressions",
+      "kind": "topic",
+      "lesson": "math11-u3-l3-3",
+      "cards": [
+       "math11-u3-c04"
+      ]
+     },
+     {
+      "id": "l3_4",
+      "label": "Solving Rational Equations and…",
+      "kind": "topic",
+      "lesson": "math11-u3-l3-4",
+      "cards": [
+       "math11-u3-c05",
+       "math11-u3-c06"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l3_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l3_2",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l3_3",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l3_4",
+      "label": "includes"
+     },
+     {
+      "from": "l3_1",
+      "to": "l3_2",
+      "label": "next"
+     },
+     {
+      "from": "l3_2",
+      "to": "l3_3",
+      "label": "next"
+     },
+     {
+      "from": "l3_3",
+      "to": "l3_4",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
    }
   }
  ]

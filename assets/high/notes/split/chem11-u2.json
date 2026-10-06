@@ -81,6 +81,14 @@
    "tone": "peach",
    "intro": "**Oxidation** is loss of electrons. **Reduction** is gain. They always travel as a pair.",
    "intro_page": 27,
+   "diagrams": {
+    "f2": {
+     "svg": "svg/chemistry_11/chem11_f2.svg",
+     "title": "Cell: electrons leave the anode, enter the cathode. In electrolysis an outside battery forces the non-spontaneous way.",
+     "page": 42,
+     "pins": []
+    }
+   },
    "lessons": [
     {
      "id": "chem11-u2-l2-1",
@@ -92,13 +100,37 @@
      ],
      "cards": [
       {
+       "id": "chem11-u2-c01",
+       "type": "mnemonic",
+       "title": "OIL RIG",
+       "page": 37,
+       "src": "notes",
+       "body": [
+        "Oxidation Is Loss, Reduction Is Gain — of electrons. Oxidising agent is the thief (it is itself reduced)."
+       ]
+      },
+      {
+       "id": "chem11-u2-c02",
+       "type": "text",
+       "title": "The Nature of Oxidation-Reduction Reactions",
+       "page": 36,
+       "src": "notes",
+       "body": [
+        "Oxidation number rises when a species is oxidised. Example: Mg → Mg²⁺ + 2e⁻ (ox). Cu²⁺ + 2e⁻ → Cu (red)."
+       ]
+      },
+      {
        "id": "chem11-u2-c03",
        "type": "text",
        "title": "2.1.1 The Different Definitions of Oxidation and Reduction",
        "page": 30,
+       "src": "textbook p.30",
+       "enriched": true,
        "body": [
         "The oxidation number is the electrical charge assigned to each atom in a given compound.",
-        "Even when atoms of an element are bonded together to form molecules, they have a zero oxidation number."
+        "Even when atoms of an element are bonded together to form molecules, they have a zero oxidation number.",
+        "Examples: Na, Ca, N2, O2, etc. have zero oxidation numbers.",
+        "Rule 5: The sum of the oxidation numbers of the atoms in a compound is zero."
        ]
       },
       {
@@ -106,9 +138,13 @@
        "type": "text",
        "title": "2.1.2 Determining Oxidation Numbers of Common Elements",
        "page": 30,
+       "src": "textbook pp.30–31",
+       "enriched": true,
        "body": [
         "Rule 2: The oxidation number of any simple metal ion or nonmetal ion is equal to the charge on the ion.",
-        "The oxidation number of hydrogen is +1 (citing rule 4)."
+        "The oxidation number of hydrogen is +1 (citing rule 4).",
+        "The oxidation number of oxygen is –2 (citing rule 3).",
+        "Rule 6: In a poly atomic ion (radical), the sum of the oxidation numbers of the atoms equals the charge on the ion."
        ]
       },
       {
@@ -116,10 +152,164 @@
        "type": "text",
        "title": "2.1.3 Oxidizing and Reducing Agents",
        "page": 31,
+       "src": "textbook pp.31–32",
+       "enriched": true,
        "body": [
         "In general, chemical reactions can be grouped into two types based on the change of the oxidation numbers (the transfer of electrons).",
-        "Oxidation-reduction reactions (redox reactions), and non-oxidation reduction reactions (non-redox reactions)."
+        "Oxidation-reduction reactions (redox reactions), and non-oxidation reduction reactions (non-redox reactions).",
+        "Redox reactions involve a transfer of electrons (a change in oxidation numbers).",
+        "Non-redox reactions do not show a change in oxidation numbers."
        ]
+      },
+      {
+       "id": "chem11-u2-c06",
+       "type": "text",
+       "title": "2.1.4 Writing and Balancing Simple Redox Equations",
+       "page": 33,
+       "src": "textbook pp.33–34",
+       "enriched": true,
+       "body": [
+        "Two methods are used to balance redox chemical equations.",
+        "The other is based on splitting the redox reaction into two half-reactions – one involving oxidation and the other involving reduction.",
+        "In writing equations for redox reactions, just as for other reactions, the compositions and formulas of the substances that react, and of the products that are formed, must be known.",
+        "Step 1: Identify the oxidation number of each atom involved in the reaction."
+       ]
+      },
+      {
+       "id": "chem11-u2-tbl1",
+       "type": "table",
+       "title": "Key table",
+       "page": 1,
+       "src": "study_notes",
+       "head": [
+        "Definition Method",
+        "Oxidation",
+        "Reduction",
+        "Scope of Application"
+       ],
+       "rows": [
+        [
+         "**Traditional Method**",
+         "Addition of oxygen; removal of hydrogen",
+         "Removal of oxygen; addition of hydrogen",
+         "Limited to oxygen and hydrogen reactions"
+        ],
+        [
+         "**Electron Transfer Method**",
+         "Loss of electrons ($$\\text{e}^-$$)",
+         "Gain of electrons ($$\\text{e}^-$$)",
+         "Limited to ionic and basic transfer reactions"
+        ],
+        [
+         "**Oxidation Number Method**",
+         "Increase in oxidation number",
+         "Decrease in oxidation number",
+         "Universally applicable to all chemical reactions"
+        ]
+       ]
+      },
+      {
+       "id": "chem11-u2-wrk1",
+       "type": "worked",
+       "title": "Worked from review",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "What is the oxidation number of sulfur ($$S$$) in sulfuric acid ($$H_2SO_4$$)?",
+       "steps": [
+        {
+         "text": "**Step 1: Assign known oxidation numbers**"
+        },
+        {
+         "text": "Hydrogen is assigned $$+1$$ and oxygen is assigned $$-2$$."
+        },
+        {
+         "text": "**Step 2: Setup the algebraic sum for a neutral compound**"
+        },
+        {
+         "text": "The sum of the oxidation numbers in a neutral molecule must equal zero."
+        },
+        {
+         "text": "$$2(+1) + x + 4(-2) = 0$$"
+        },
+        {
+         "text": "$$2 + x - 8 = 0 \\Rightarrow x = +6$$"
+        }
+       ],
+       "answer": "Sulphur has oxidation number +6"
+      },
+      {
+       "id": "chem11-u2-wrk2",
+       "type": "worked",
+       "title": "Worked from review",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "Under the electron transfer framework, oxidation is defined as:",
+       "steps": [
+        {
+         "text": "**Step 1: Recall definitions of oxidation**"
+        },
+        {
+         "text": "Under the electron transfer framework, we monitor the gain or loss of electrons."
+        },
+        {
+         "text": "**Step 2: Apply the OILRIG mnemonic**"
+        },
+        {
+         "text": "**OIL** stands for **Oxidation Is Loss** (of electrons)."
+        },
+        {
+         "text": "**Step 3: Select matching definition**"
+        }
+       ],
+       "answer": "Oxidation Is Loss"
+      },
+      {
+       "id": "chem11-u2-chk1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Identify the reducing agent in the following displacement reaction: $$Fe(s) + CuSO_4(aq) \\rightarrow FeSO_4(aq) + Cu(s)$$.",
+       "options": {
+        "A": "$$Cu^{2+}$$",
+        "B": "$$Fe(s)$$",
+        "C": "$$SO_4^{2-}$$",
+        "D": "$$Cu(s)$$"
+       },
+       "answer": "B",
+       "why": "**Step 1: Assign oxidation numbers**\nReactants: $$Fe = 0$$, $$Cu = +2$$, $$S = +6$$, $$O = -2$$\nProducts: $$Fe = +2$$, $$S = +6$$, $$O = -2$$, $$Cu = 0$$\n\n**Step 2: Identify species undergoing changes**\n$$Fe$$ goes from $$0$$ to $$+2$$ (oxidized).\n$$Cu^{2+}$$ goes from $$+2$$ to $$0$$ (reduced).\n\n**Step 3: Identify the reducing agent**\nThe species that is oxidized acts as the reducing agent because it donates electrons. Since $$Fe(s)$$ is oxidized, it is the reducing agent.\n\n**Step 4: Final Result**\nThe reducing agent is **$$Fe(s)$$**."
+      },
+      {
+       "id": "chem11-u2-chk2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "During the electrolysis of molten lead bromide ($$PbBr_2$$), what product is formed at the negative cathode?",
+       "options": {
+        "A": "Bromine gas ($$Br_2$$)",
+        "B": "Lead metal ($$Pb$$)",
+        "C": "Oxygen gas ($$O_2$$)",
+        "D": "Hydrogen gas ($$H_2$$)"
+       },
+       "answer": "B",
+       "why": "**Step 1: Identify ions present in molten lead bromide**\nThe molten state contains only $$Pb^{2+}$$ and $$Br^-$$ ions.\n\n**Step 2: Determine which ion migrates to the negative cathode**\nCations (positively charged) migrate to the negative cathode. Thus, $$Pb^{2+}$$ migrates to the cathode.\n\n**Step 3: Determine the reaction at the cathode**\nAt the cathode, reduction occurs: $$Pb^{2+} + 2e^- \\rightarrow Pb(s)$$.\n\n**Step 4: Final Result**\nThe product at the cathode is **Lead metal ($$Pb$$)**."
+      },
+      {
+       "id": "chem11-u2-chk73",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "What is the oxidation number of sulfur ($$S$$) in sulfuric acid ($$H_2SO_4$$)?",
+       "options": {
+        "A": "$$+2$$",
+        "B": "$$+4$$",
+        "C": "$$+6$$",
+        "D": "$$-2$$"
+       },
+       "answer": "C",
+       "why": "**Step 1: Assign known oxidation numbers**\nHydrogen is assigned $$+1$$ and oxygen is assigned $$-2$$.\n\n**Step 2: Setup the algebraic sum for a neutral compound**\nThe sum of the oxidation numbers in a neutral molecule must equal zero.\n$$2(+1) + x + 4(-2) = 0$$\n\n**Step 3: Solve for $$x$$**\n$$2 + x - 8 = 0 \\implies x - 6 = 0 \\implies x = +6$$\n\n**Step 4: Final Result**\nThe oxidation number of sulfur in $$H_2SO_4$$ is **$$+6$$**."
       },
       {
        "id": "chem11-u2-wrk-extra1",
@@ -132,62 +322,8 @@
          "text": "mass = n × M = 0.50 × 18 = 9.0 g."
         }
        ],
-       "answer": "9.0 g of water."
-      },
-      {
-       "type": "text",
-       "title": "Oxidation–reduction",
-       "page": 1,
-       "body": [
-        "Oxidation: loss of electrons (or ↑ oxidation number). Reduction: gain of electrons.",
-        "OIL RIG. Oxidising agent is reduced; reducing agent is oxidised."
-       ],
-       "id": "chem11-u2-deep1"
-      },
-      {
-       "type": "table",
-       "title": "Memory",
-       "page": 1,
-       "head": [
-        "Word",
-        "Means"
-       ],
-       "rows": [
-        [
-         "Oxidation",
-         "lose e⁻"
-        ],
-        [
-         "Reduction",
-         "gain e⁻"
-        ],
-        [
-         "Oxidising agent",
-         "causes oxidation (is reduced)"
-        ]
-       ],
-       "id": "chem11-u2-deep3"
-      },
-      {
-       "type": "text",
-       "title": "Half-reactions",
-       "body": [
-        "Write oxidation and reduction separately; electrons must cancel when combined.",
-        "In acidic solution you may add H₂O / H⁺ to balance O/H."
-       ],
-       "id": "chem11-u2-xtra1",
-       "page": 1
-      },
-      {
-       "id": "chem11-u2-checklist",
-       "type": "text",
-       "title": "Oxidation-Reduction Reactions: checklist before exam",
-       "page": 1,
-       "body": [
-        "Can you define every bold term in **Oxidation-Reduction Reactions** without looking?",
-        "Can you redo each worked example with the answer covered?",
-        "Can you sketch one diagram/graph/map and label it in under 2 minutes?"
-       ]
+       "answer": "9.0 g of water.",
+       "src": "notes"
       }
      ]
     },
@@ -201,13 +337,46 @@
      ],
      "cards": [
       {
+       "id": "chem11-u2-c07",
+       "type": "diagram",
+       "title": "Cell: electrons leave the anode, enter the cathode. In electrolysis an outside battery forces the non-spontaneous way.",
+       "page": 42,
+       "src": "notes",
+       "diagram": "f2",
+       "mode": "plain"
+      },
+      {
+       "id": "chem11-u2-c08",
+       "type": "mnemonic",
+       "title": "Mnemonic — “An Ox, Red Cat”",
+       "page": 41,
+       "src": "notes",
+       "body": [
+        "Anode = oxidation. Reduction = cathode. In a galvanic cell the anode is negative; in electrolysis the anode is the positive electrode (attached to + of the pack)."
+       ]
+      },
+      {
+       "id": "chem11-u2-c09",
+       "type": "text",
+       "title": "Electrolysis",
+       "page": 52,
+       "src": "notes",
+       "body": [
+        "Electrochemical series: metals high up donate e⁻ easily (reactive, good reducing agents). A metal will displace a metal *below* it from solution."
+       ]
+      },
+      {
        "id": "chem11-u2-c10",
        "type": "text",
        "title": "2.2.1 What is Electrolysis?",
        "page": 38,
+       "src": "textbook p.38",
+       "enriched": true,
        "body": [
         "Electrolysis is the process in which electrical energy is used to cause a non-spontaneous chemical reaction to occur.",
-        "An electrolytic cell is an apparatus for carrying out electrolysis."
+        "An electrolytic cell is an apparatus for carrying out electrolysis.",
+        "The electrolytic cell consists of an electrolyte, electrodes and a source of electricity.",
+        "The electric source for electrolysis should be a direct current (DC) or small batteries (e.g., a few 1.5V cells in series)."
        ]
       },
       {
@@ -215,9 +384,13 @@
        "type": "text",
        "title": "2.2.2 The Mechanism of Electrolysis",
        "page": 42,
+       "src": "textbook pp.42–43",
+       "enriched": true,
        "body": [
         "The conduction of electricity through an electrolyte (either molten or aqueous state) is due to the migration of the ions towards their oppositely charged electrodes.",
-        "During the electrolysis, a battery or other DC sources move electrons through the wire to the electrodes."
+        "During the electrolysis, a battery or other DC sources move electrons through the wire to the electrodes.",
+        "The electrons enter the electrolyte through the cathode; positively charged ions (cations) move to the negative electrode (cathode) and thus receive electrons and are reduced.",
+        "After electrolysis, at both electrodes, the ions are converted into neutral atoms Therefore, there is a transfer of electrons between the electrodes and the ions."
        ]
       },
       {
@@ -225,119 +398,56 @@
        "type": "text",
        "title": "2.2.3 Electrolysis of Molten Electrolytes",
        "page": 44,
+       "src": "textbook pp.44–46",
+       "enriched": true,
        "body": [
         "Lead bromide can be used to demonstrate the electrolysis of molten electrolytes because it has fairly lower melting point.",
-        "Decomposition of the electrolyte into its ions by heat."
+        "Decomposition of the electrolyte into its ions by heat.",
+        "Discharge of the ions into their respective neutral substances at the surface of the electrodes, that is, reduction takes place at the cathode.",
+        "The atoms of lead are deposited at the surface of cathode with characteristic grayish color."
        ]
       },
       {
-       "type": "worked",
-       "title": "Assign numbers",
-       "page": 1,
-       "problem": "Fe₂O₃: Fe?",
-       "steps": [
-        {
-         "text": "O"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "i"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "−"
-        },
-        {
-         "text": "2"
-        },
-        {
-         "text": ";"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "2"
-        },
-        {
-         "text": "F"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "+"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "3"
-        },
-        {
-         "text": "("
-        },
-        {
-         "text": "−"
-        },
-        {
-         "text": "2"
-        },
-        {
-         "text": ")"
-        },
-        {
-         "text": "="
-        },
-        {
-         "text": "0"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "→"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "F"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "="
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "+"
-        },
-        {
-         "text": "3"
-        },
-        {
-         "text": "."
-        }
-       ],
-       "answer": "Fe is +3.",
-       "id": "chem11-u2-deep2"
+       "id": "chem11-u2-c13",
+       "type": "text",
+       "title": "2.2.4 Electrolysis of Aqueous Solutions of Electrolytes",
+       "page": 47,
+       "src": "textbook pp.47–48",
+       "enriched": true,
+       "body": [
+        "In the electrolysis of aqueous solutions, it is not only the electrolyte that dissociates but water also dissociates partially.",
+        "For example, in the electrolysis of aqueous solution of NaCl four ions exist in solution, that is, two ions (Na+ and Cl-) from sodium chloride and two ions from the water ( H+ and OH-).",
+        "\\eeping the other factors constant, if two different ions are present at the surface of the cathode, the one which readily receives electrons is preferentially discharged.",
+        "For example, if both sodium and hydrogen ions are present on the surface of the electrode, H+ is preferentially discharged to Na+."
+       ]
+      },
+      {
+       "id": "chem11-u2-c14",
+       "type": "text",
+       "title": "2.2.5 Applications of Electrolysis",
+       "page": 55,
+       "src": "textbook p.55",
+       "enriched": true,
+       "body": [
+        "Material required: 1 beaker, 2 carbon rods, 25 g Copper (II) chloride, 150mL water, teaspoon, 6 V battery, 2 wires.",
+        "Caution: To avoid possible shock or burns, do not touch bare wires from the power source or short the wires from the power source.",
+        "Add three teaspoons of copper(II) chloride to the beaker.",
+        "Stir the solution until all of the copper(II) chloride dissolves."
+       ]
+      },
+      {
+       "id": "chem11-u2-c15",
+       "type": "text",
+       "title": "2.2.6 Faraday’s Law of Electrolysis",
+       "page": 59,
+       "src": "textbook pp.59–60",
+       "enriched": true,
+       "body": [
+        "The quantitative relationship between the amount of electricity passed through an electrolytes solution and the extent of the product is given by Faraday’s laws.",
+        "Faraday’s First Law of Electrolysis states that the mass of a substance produced by electrolysis is proportional to the quantity of electricity used.",
+        "Calculate the time required to deposit 0.56g of silver from a silver nitrate solution using a current of 4.5A.",
+        "Faraday's second law states that the mass of two substances that are deposited or liberated from electrodes, given the same applied electrical charge, is directly proportional to the equivalent masses of the two substances."
+       ]
       },
       {
        "type": "worked",
@@ -350,45 +460,418 @@
        ],
        "answer": "Cu²⁺ is reduced (oxidising agent).",
        "id": "chem11-u2-xtra2",
-       "page": 1
+       "page": 1,
+       "src": "notes"
       },
       {
-       "id": "chem11-u2-misconception",
-       "type": "text",
-       "title": "Common mix-ups in Oxidation-Reduction Reactions",
-       "page": 1,
-       "body": [
-        "Write one idea students often confuse with this topic, then the correct distinction.",
-        "Example pattern: “Looks like X, but actually Y because …”",
-        "Teaching the difference is better than re-reading the page."
-       ]
+       "id": "chem11-u2-l2-2-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "During electrolysis;",
+       "options": {
+        "A": "Reduction takes place at the cathode",
+        "B": "Anions move toward the cathode",
+        "C": "Both oxidation and reduction takes place at the anode",
+        "D": "Cations move toward the anode",
+        "E": "Oxidation takes place at the cathode"
+       },
+       "answer": "A",
+       "why": "In any electrochemical cell, including electrolysis:\n1. **Reduction** always occurs at the **cathode** (gain of electrons).\n2. **Oxidation** always occurs at the **anode** (loss of electrons).\n3. Cations (positive) move toward the cathode (negative electrode).\n4. Anions (negative) move toward the anode (positive electrode).",
+       "src": "matric",
+       "src_qid": "chemistry_2016_q52",
+       "page": 38
+      },
+      {
+       "id": "chem11-u2-l2-2-mx2",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Which of the following species is produced at the cathode when an aqueous solution of potassium chloride is electrolyzed using carbon electrodes?",
+       "options": {
+        "A": "KCl",
+        "B": "K",
+        "C": "Cl₂",
+        "D": "H₂",
+        "E": "O₂"
+       },
+       "answer": "D",
+       "why": "In aqueous $$KCl$$, both $$K^+$$ and $$H^+$$ (from water) move to the cathode. Since $$H^+$$ is lower in the electrochemical series, it is more easily reduced than $$K^+$$. Therefore, **hydrogen gas ($$H_2$$)** is produced instead of potassium metal.",
+       "src": "matric",
+       "src_qid": "chemistry_2025_q23",
+       "page": 38
+      },
+      {
+       "id": "chem11-u2-l2-2-mx3",
+       "type": "check",
+       "title": "Quick check",
+       "q": "In the molten electrolysis of $$ NaBr $$ the product liberated at the anode is:",
+       "options": {
+        "A": "Na.",
+        "B": "NaBr",
+        "C": "$$ Br_2 $$",
+        "D": "H",
+        "E": "None."
+       },
+       "answer": "C",
+       "why": "In molten electrolysis, there are only two ions: $$ Na^+ $$ and $$ Br^- $$.\n\n- **At the Cathode (Reduction):** Positive ions ($$ Na^+ $$) move here to gain electrons: $$ Na^+ + e^- \\rightarrow Na(l) $$.\n- **At the Anode (Oxidation):** Negative ions ($$ Br^- $$) move here to lose electrons: $$ 2Br^- \\rightarrow Br_2(g) + 2e^- $$.\n\nTherefore, Bromine gas ($$ Br_2 $$) is liberated at the anode.",
+       "src": "matric",
+       "src_qid": "chemistry_2025_q12",
+       "page": 38
       }
      ]
     }
    ],
    "glossary": [
     {
-     "term": "Oxidation-Reduction",
-     "def": "Core topic of this unit — expand with your textbook definition for “Oxidation-Reduction Reactions”."
+     "term": "Oxidation",
+     "meaning": "The oxidation number is the electrical charge assigned to each atom in a given compound.",
+     "page": 30,
+     "src": "textbook p.30",
+     "enriched": true
+    },
+    {
+     "term": "Oxidation number",
+     "meaning": "The oxidation number is the electrical charge assigned to each atom in a given compound.",
+     "page": 30,
+     "src": "textbook p.30",
+     "enriched": true
+    },
+    {
+     "term": "Electrolysis",
+     "meaning": "Electrolysis is the process in which electrical energy is used to cause a non-spontaneous chemical reaction to occur.",
+     "page": 38,
+     "src": "textbook p.38",
+     "enriched": true
+    },
+    {
+     "term": "Electrolyte",
+     "meaning": "An electrolyte is a compound that conducts electricity when molten or dissolved in water.",
+     "page": 40,
+     "src": "textbook p.40",
+     "enriched": true
+    },
+    {
+     "term": "Oxidized",
+     "meaning": "An element that is oxidized is called a reducing agent, while an element that is reduced is called an oxidizing agent.",
+     "page": 37,
+     "src": "textbook p.37",
+     "enriched": true
+    },
+    {
+     "term": "Electrolytic cell",
+     "meaning": "An electrolytic cell is an apparatus for carrying out electrolysis.",
+     "page": 38,
+     "src": "textbook p.38",
+     "enriched": true
+    },
+    {
+     "term": "Electroplating",
+     "meaning": "Electroplating Electroplating is a process whereby a thin coating of desired material is applied on a required material.",
+     "page": 56,
+     "src": "textbook p.56",
+     "enriched": true
+    },
+    {
+     "term": "Water",
+     "meaning": "Water is a weak electrolyte and is only slightly dissociated.",
+     "page": 51,
+     "src": "textbook p.51",
+     "enriched": true
     }
    ],
    "tips": [
     {
-     "id": "chem11-u2-tip-extra1",
-     "text": "Always write the unit (g, mol, L) beside each number — most stoichiometry errors are unit slips."
+     "text": "The traditional method is limited to reactions that involve oxygen and hydrogen only.",
+     "page": 37,
+     "src": "textbook p.37",
+     "enriched": true
     },
     {
-     "id": "chem11-u2-deeptip1",
-     "text": "Balance atoms then charge when half-reactions feel messy."
+     "text": "The atom that gains an electron or electrons is said to be reduced, whereas the atom that loses an electron or electrons(s) is said to be oxidized.",
+     "page": 37,
+     "src": "textbook p.37",
+     "enriched": true
+    },
+    {
+     "text": "An element that oxidizes another species, it itself being reduced, is called an oxidizing agent; an element that reduces another species, it being oxidized, is called a reducing agent.",
+     "page": 37,
+     "src": "textbook p.37",
+     "enriched": true
+    },
+    {
+     "text": "An element that is oxidized is called a reducing agent, while an element that is reduced is called an oxidizing agent.",
+     "page": 37,
+     "src": "textbook p.37",
+     "enriched": true
+    },
+    {
+     "text": "Oxidation – reduction reactions (also called redox reactions), involve the transfer of electrons from one species to another (a change in oxidation number). Some reactions do not show a change in oxidation numbers, these are called non-redox reactions.",
+     "page": 37,
+     "src": "textbook p.37",
+     "enriched": true
+    },
+    {
+     "text": "There is one branch of chemistry called electrochemistry that studies the relationship between chemical energy and electrical energy.",
+     "page": 38,
+     "src": "textbook p.38",
+     "enriched": true
+    },
+    {
+     "text": "The two main kinds of reaction in electrochemistry are electrochemical reactions and electrolysis.",
+     "page": 38,
+     "src": "textbook p.38",
+     "enriched": true
+    },
+    {
+     "text": "In electrochemical reactions, chemical energy is converted into electrical energy. However, in electrolysis an electrical energy is used to bring about a chemical reaction.",
+     "page": 38,
+     "src": "textbook p.38",
+     "enriched": true
+    },
+    {
+     "text": "Electrolysis is the process in which electrical energy is used to cause a non-spontaneous chemical reaction to occur.",
+     "page": 38,
+     "src": "textbook p.38",
+     "enriched": true
+    },
+    {
+     "text": "An electrolytic cell is an apparatus for carrying out electrolysis.",
+     "page": 38,
+     "src": "textbook p.38",
+     "enriched": true
     }
    ],
-   "games": [],
+   "games": [
+    {
+     "type": "match",
+     "title": "Match the pairs",
+     "pairs": [
+      {
+       "a": "OIL",
+       "b": "Oxidation is loss"
+      },
+      {
+       "a": "Anode",
+       "b": "Oxidation electrode"
+      },
+      {
+       "a": "Oxidation",
+       "b": "The oxidation number is the electrical charge assigned to each atom in a given compound."
+      }
+     ],
+     "src": "notes",
+     "id": "chem11-u2-g1",
+     "lesson": null
+    },
+    {
+     "type": "match",
+     "title": "Match each key word to its meaning",
+     "pairs": [
+      {
+       "a": "Oxidation",
+       "b": "The oxidation number is the electrical charge assigned to each atom in a given compound."
+      },
+      {
+       "a": "Oxidation number",
+       "b": "The oxidation number is the electrical charge assigned to each atom in a given compound."
+      },
+      {
+       "a": "Electrolysis",
+       "b": "Electrolysis is the process in which electrical energy is used to cause a non-spontaneous chemical reaction…"
+      },
+      {
+       "a": "Electrolyte",
+       "b": "An electrolyte is a compound that conducts electricity when molten or dissolved in water."
+      },
+      {
+       "a": "Oxidized",
+       "b": "An element that is oxidized is called a reducing agent, while an element that is reduced is called an…"
+      },
+      {
+       "a": "Electrolytic cell",
+       "b": "An electrolytic cell is an apparatus for carrying out electrolysis."
+      }
+     ],
+     "src": "glossary",
+     "id": "chem11-u2-g2",
+     "lesson": null
+    },
+    {
+     "type": "tf",
+     "title": "True or false?",
+     "seconds": 12,
+     "items": [
+      {
+       "text": "Oxidation: The oxidation number is the electrical charge assigned to each atom in a given compound.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Oxidation number: An element that is oxidized is called a reducing agent, while an element that is reduced is called an oxidizing agent.",
+       "answer": false,
+       "why": "That describes Oxidized. Oxidation number: The oxidation number is the electrical charge assigned to each atom in a given compound."
+      },
+      {
+       "text": "Electrolysis: Electrolysis is the process in which electrical energy is used to cause a non-spontaneous chemical reaction to occur.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Electrolyte: Electroplating Electroplating is a process whereby a thin coating of desired material is applied on a required material.",
+       "answer": false,
+       "why": "That describes Electroplating. Electrolyte: An electrolyte is a compound that conducts electricity when molten or dissolved in water."
+      },
+      {
+       "text": "Oxidized: An element that is oxidized is called a reducing agent, while an element that is reduced is called an oxidizing agent.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Electrolytic cell: The oxidation number is the electrical charge assigned to each atom in a given compound.",
+       "answer": false,
+       "why": "That describes Oxidation. Electrolytic cell: An electrolytic cell is an apparatus for carrying out electrolysis."
+      },
+      {
+       "text": "Electroplating: Electroplating Electroplating is a process whereby a thin coating of desired material is applied on a required material.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Water: Electrolysis is the process in which electrical energy is used to cause a non-spontaneous chemical reaction to occur.",
+       "answer": false,
+       "why": "That describes Electrolysis. Water: Water is a weak electrolyte and is only slightly dissociated."
+      }
+     ],
+     "src": "glossary",
+     "id": "chem11-u2-g3",
+     "lesson": null
+    },
+    {
+     "type": "flash",
+     "title": "Key word flash cards",
+     "cards": [
+      {
+       "front": "Oxidation",
+       "back": "The oxidation number is the electrical charge assigned to each atom in a given compound."
+      },
+      {
+       "front": "Oxidation number",
+       "back": "The oxidation number is the electrical charge assigned to each atom in a given compound."
+      },
+      {
+       "front": "Electrolysis",
+       "back": "Electrolysis is the process in which electrical energy is used to cause a non-spontaneous chemical reaction to occur."
+      },
+      {
+       "front": "Electrolyte",
+       "back": "An electrolyte is a compound that conducts electricity when molten or dissolved in water."
+      },
+      {
+       "front": "Oxidized",
+       "back": "An element that is oxidized is called a reducing agent, while an element that is reduced is called an oxidizing agent."
+      },
+      {
+       "front": "Electrolytic cell",
+       "back": "An electrolytic cell is an apparatus for carrying out electrolysis."
+      },
+      {
+       "front": "Electroplating",
+       "back": "Electroplating Electroplating is a process whereby a thin coating of desired material is applied on a required material."
+      },
+      {
+       "front": "Water",
+       "back": "Water is a weak electrolyte and is only slightly dissociated."
+      }
+     ],
+     "src": "glossary",
+     "id": "chem11-u2-g4",
+     "lesson": null
+    },
+    {
+     "type": "fill",
+     "title": "Fill the gap",
+     "items": [
+      {
+       "text": "The ____ number is the electrical charge assigned to each atom in a given compound.",
+       "answer": "Oxidation",
+       "choices": [
+        "Oxidized",
+        "Oxidation",
+        "Electroplating"
+       ]
+      },
+      {
+       "text": "The ____ is the electrical charge assigned to each atom in a given compound.",
+       "answer": "Oxidation number",
+       "choices": [
+        "Electrolyte",
+        "Oxidation",
+        "Oxidation number"
+       ]
+      },
+      {
+       "text": "____ is the process in which electrical energy is used to cause a non-spontaneous chemical reaction to occur.",
+       "answer": "Electrolysis",
+       "choices": [
+        "Electrolyte",
+        "Oxidized",
+        "Electrolysis"
+       ]
+      },
+      {
+       "text": "An ____ is a compound that conducts electricity when molten or dissolved in water.",
+       "answer": "Electrolyte",
+       "choices": [
+        "Electrolyte",
+        "Water",
+        "Oxidized"
+       ]
+      },
+      {
+       "text": "An element that is ____ is called a reducing agent, while an element that is reduced is called an oxidizing agent.",
+       "answer": "Oxidized",
+       "choices": [
+        "Oxidation number",
+        "Oxidized",
+        "Oxidation"
+       ]
+      },
+      {
+       "text": "An ____ is an apparatus for carrying out electrolysis.",
+       "answer": "Electrolytic cell",
+       "choices": [
+        "Electrolytic cell",
+        "Oxidation",
+        "Oxidation number"
+       ]
+      },
+      {
+       "text": "____ Electroplating is a process whereby a thin coating of desired material is applied on a required material.",
+       "answer": "Electroplating",
+       "choices": [
+        "Water",
+        "Electroplating",
+        "Oxidation number"
+       ]
+      },
+      {
+       "text": "____ is a weak electrolyte and is only slightly dissociated.",
+       "answer": "Water",
+       "choices": [
+        "Water",
+        "Oxidation number",
+        "Electrolysis"
+       ]
+      }
+     ],
+     "src": "glossary",
+     "id": "chem11-u2-g5",
+     "lesson": null
+    }
+   ],
    "exercise": {
     "questions": [
      {
-      "id": "chem11-u2-q01",
       "type": "mcq",
-      "page": 64,
       "q": "OIL RIG says oxidation is",
       "options": {
        "A": "Loss of electrons",
@@ -400,13 +883,20 @@
       "why": [
        "Answer A: Loss of electrons"
       ],
+      "src": "notes",
+      "page": 64,
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "What is the oxidation number of ‘S’ in NaHSO₄?  A) +2  B) +6  C) −2  D) −6  E) −7",
+        "a": "B. +6 — Answer: B.",
+        "exam_question": "chem-2018-19-model-s2-p1-q47"
+       }
+      ],
+      "id": "chem11-u2-q01"
      },
      {
-      "id": "chem11-u2-q02",
       "type": "mcq",
-      "page": 56,
       "q": "Iron is protected sacrificially by coating with",
       "options": {
        "A": "Gold leaf only",
@@ -417,10 +907,176 @@
       "answer": "B",
       "why": [
        "Answer B: Zinc (galvanising)",
-       "Textbook p.66: Describe how they protect iron from corrosion."
+       "Zinc is more reactive than iron, so it corrodes first and gives electrons to the iron (sacrificial protection); even if the coating is scratched the iron does not rust."
       ],
+      "src": "notes",
+      "page": 56,
+      "why_src": "written",
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "The process of coating iron sheets with a thin coat of zinc to prevent from rusting is called  A) corrosion.  B) galvanization.  C) metal extraction.  D) electroplating.  E) roasting.",
+        "a": "B. galvanization. — Corrosion is the damage itself; electroplating uses electrolysis to deposit a metal (e.g. silver, chromium); roasting heats sulphide ores in air. Answer: B.",
+        "exam_question": "chem-2020-matric-p1-q51"
+       }
+      ],
+      "id": "chem11-u2-q02"
+     },
+     {
+      "type": "fill",
+      "q": "The ____ number is the electrical charge assigned to each atom in a given compound.",
+      "answer": "Oxidation",
+      "choices": [
+       "Oxidation number",
+       "Oxidation",
+       "Electrolyte",
+       "Electrolysis"
+      ],
+      "why": [
+       "The oxidation number is the electrical charge assigned to each atom in a given compound."
+      ],
+      "src": "textbook p.30",
+      "enriched": true,
+      "page": 30,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "The oxidation number of Mn in KMnO₄ is  A) +7.  B) +1.  C) +2.  D) −7.  E) −1.",
+        "a": "A. +7. — +1 + x − 8 = 0 → x = +7. Answer: A.",
+        "exam_question": "chem-2018-matric-p1-q41"
+       }
+      ],
+      "id": "chem11-u2-q03"
+     },
+     {
+      "type": "fill",
+      "q": "The ____ is the electrical charge assigned to each atom in a given compound.",
+      "answer": "Oxidation number",
+      "choices": [
+       "Electrolyte",
+       "Oxidation",
+       "Oxidation number",
+       "Electrolysis"
+      ],
+      "why": [
+       "The oxidation number is the electrical charge assigned to each atom in a given compound."
+      ],
+      "src": "textbook p.30",
+      "enriched": true,
+      "page": 30,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "In oxidation-reduction reactions, oxidation involves  A) an addition of oxygen to a substance.  B) a loss of electron(s) from a substance.  C) a removal of hydrogen from a substance.  D) an increase in oxidation number.  E) All of the above.",
+        "a": "E. All of the above. — All four statements describe oxidation. Answer: E.",
+        "exam_question": "chem-2019-matric-p1-q08"
+       }
+      ],
+      "id": "chem11-u2-q04"
+     },
+     {
+      "type": "fill",
+      "q": "____ is the process in which electrical energy is used to cause a non-spontaneous chemical reaction to occur.",
+      "answer": "Electrolysis",
+      "choices": [
+       "Oxidation number",
+       "Electrolysis",
+       "Oxidation",
+       "Electrolyte"
+      ],
+      "why": [
+       "Electrolysis is the process in which electrical energy is used to cause a non-spontaneous chemical reaction to occur."
+      ],
+      "src": "textbook p.38",
+      "enriched": true,
+      "page": 38,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "The process in which an electric current is used to bring about a chemical reaction which does not occur spontaneously.  A) Electrochemical reaction  B) nuclear reaction  C) chemical reaction  D) Electrolysis  E) spontaneous reaction",
+        "a": "D. Electrolysis — Answer: D.",
+        "exam_question": "chem-2018-19-model-s2-p1-q57"
+       }
+      ],
+      "id": "chem11-u2-q05"
+     },
+     {
+      "type": "fill",
+      "q": "An ____ is a compound that conducts electricity when molten or dissolved in water.",
+      "answer": "Electrolyte",
+      "choices": [
+       "Oxidation number",
+       "Electrolysis",
+       "Electrolyte",
+       "Oxidation"
+      ],
+      "why": [
+       "An electrolyte is a compound that conducts electricity when molten or dissolved in water."
+      ],
+      "src": "textbook p.40",
+      "enriched": true,
+      "page": 40,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "Strong electrolytes  A) dissociate into ions partially when dissolved in water.  B) conduct electricity slightly.  C) have few number of ions present in the solution.  D) represent covalently bonded compounds.  E) dissociate into ions completely when dissolved in water.",
+        "a": "E. dissociate into ions completely when dissolved in water. — Partial dissociation, few ions and weak conduction describe weak electrolytes (acetic acid, ammonia). Answer: E.",
+        "exam_question": "chem-2020-matric-p1-q44"
+       }
+      ],
+      "id": "chem11-u2-q06"
+     },
+     {
+      "type": "fill",
+      "q": "An element that is ____ is called a reducing agent, while an element that is reduced is called an oxidizing agent.",
+      "answer": "Oxidized",
+      "choices": [
+       "Electrolysis",
+       "Oxidation",
+       "Oxidized",
+       "Oxidation number"
+      ],
+      "why": [
+       "An element that is oxidized is called a reducing agent, while an element that is reduced is called an oxidizing agent."
+      ],
+      "src": "textbook p.37",
+      "enriched": true,
+      "page": 37,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "If a species accepts an electron in a redox reaction, it is  A) a reducing agent.  B) reduced.  C) an oxidizing agent.  D) oxidized.  E) B and C.",
+        "a": "E. B and C. — Both B and C are correct. Answer: E.",
+        "exam_question": "chem-2021-matric-p1-q07"
+       }
+      ],
+      "id": "chem11-u2-q07"
+     },
+     {
+      "type": "fill",
+      "q": "An ____ is an apparatus for carrying out electrolysis.",
+      "answer": "Electrolytic cell",
+      "choices": [
+       "Electrolysis",
+       "Oxidation number",
+       "Oxidation",
+       "Electrolytic cell"
+      ],
+      "why": [
+       "An electrolytic cell is an apparatus for carrying out electrolysis."
+      ],
+      "src": "textbook p.38",
+      "enriched": true,
+      "page": 38,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "Electrolysis is useful for  A) purification of copper.  B) extraction of potassium.  C) preparation of chlorine.  D) prevention of rusting.  E) All of the above.",
+        "a": "E. All of the above. — All four are applications. Answer: E.",
+        "exam_question": "chem-2018-matric-p1-q10"
+       }
+      ],
+      "id": "chem11-u2-q08"
      },
      {
       "id": "chem11-u2-xq1",
@@ -457,8 +1113,372 @@
       ],
       "tip": "Units reveal mistakes.",
       "similar": []
+     },
+     {
+      "id": "chem11-u2-mx1",
+      "type": "mcq",
+      "q": "__________ is defined as a gaining of electron by a substance.",
+      "options": {
+       "A": "Reduction",
+       "B": "Oxidation",
+       "C": "Reducing agent",
+       "D": "Oxidizing agent",
+       "E": "None"
+      },
+      "answer": "A",
+      "why": [
+       "In chemistry, the transfer of electrons is described by two processes:\n- **Oxidation:** Loss of electrons.\n- **Reduction:** Gain of electrons.\n\nMemory Aid: **OIL RIG** (Oxidation Is Loss, Reduction Is Gain).\n\n**Result:** A"
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2014_15_q64",
+      "exam_question": "chemistry_2014_15_q64",
+      "page": 27
+     },
+     {
+      "id": "chem11-u2-mx2",
+      "type": "mcq",
+      "q": "The oxidizing and reducing agents in the reaction: $$ Fe(s) + CuSO_4(aq) \\rightarrow FeSO_4(aq) + Cu(s) $$, are______and______respectively.",
+      "options": {
+       "A": "Fe and $$ CuSO_4 $$",
+       "B": "$$ CuSO_4 $$ and $$ SO_4 $$",
+       "C": "$$ FeSO_4 $$ and Fe",
+       "D": "$$ CuSO_4 $$ and Fe",
+       "E": "Cu and Fe"
+      },
+      "answer": "D",
+      "why": [
+       "**Step 1: Assign oxidation numbers.**\n- $$ Fe $$: 0 to +2 (Oxidized)\n- $$ Cu $$: +2 to 0 (Reduced)\n**Step 2: Identify agents.**\n- The substance that is oxidized is the **reducing agent** ($$ Fe $$).\n- The substance that is reduced is the **oxidizing agent** ($$ CuSO_4 $$ or $$ Cu^{2+} $$).\nOrder requested: Oxidizing agent, then Reducing agent -> $$ CuSO_4 $$ and $$ Fe $$."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2017_q47",
+      "exam_question": "chemistry_2017_q47",
+      "page": 27
+     },
+     {
+      "id": "chem11-u2-mx3",
+      "type": "mcq",
+      "q": "Reduction is a process of:",
+      "options": {
+       "A": "Removal of hydrogen",
+       "B": "Loosing of electron",
+       "C": "Addition of oxygen",
+       "D": "Gaining of electron",
+       "E": "None"
+      },
+      "answer": "D",
+      "why": [
+       "In Redox chemistry, **Reduction** is defined as the **gain of electrons**. \n- Mnemonic: **OIL RIG** (Oxidation Is Loss, Reduction Is Gain)."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2025_q28",
+      "exam_question": "chemistry_2025_q28",
+      "page": 27
+     },
+     {
+      "id": "chem11-u2-mx4",
+      "type": "mcq",
+      "q": "A reduction reaction is:",
+      "options": {
+       "A": "Takes place at anode during electrolysis.",
+       "B": "An increase in oxidation number.",
+       "C": "Formed by gaining of electrons.",
+       "D": "The addition of oxygen.",
+       "E": "All of them."
+      },
+      "answer": "C",
+      "why": [
+       "**Step 1:** Define Reduction using the OIL RIG mnemonic (Oxidation Is Loss, Reduction Is Gain of electrons).\n**Step 2:** Evaluate options:\n- A: Oxidation occurs at the anode (AnOx).\n- B: Oxidation involves an increase in oxidation number; Reduction involves a decrease.\n- C: Reduction is the gain of electrons. (Correct)\n- D: Addition of oxygen is Oxidation."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2021_q44",
+      "exam_question": "chemistry_2021_q44",
+      "page": 27
+     },
+     {
+      "id": "chem11-u2-mx5",
+      "type": "mcq",
+      "q": "The oxidation number of N in $$ Mg(NO_3)_2 $$ is:",
+      "options": {
+       "A": "-3",
+       "B": "-5",
+       "C": "+6",
+       "D": "+5",
+       "E": "-2"
+      },
+      "answer": "D",
+      "why": [
+       "1. $$ Mg(NO_3)_2 $$ dissociates into $$ Mg^{2+} $$ and two $$ NO_3^- $$ ions.\n2. Let's find N in the nitrate ion ($$ NO_3^- $$).\n3. Rule: Sum of oxidation numbers in an ion equals its charge.\n$$ x (N) + 3(-2) (O) = -1 $$\n$$ x - 6 = -1 $$\n$$ x = +5 $$"
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2021_q36",
+      "exam_question": "chemistry_2021_q36",
+      "page": 27
+     },
+     {
+      "id": "chem11-u2-mx6",
+      "type": "mcq",
+      "q": "In the reaction $$Zn(s) + 2AgNO_3(aq) \\rightarrow Zn(NO_3)_2(aq) + 2Ag(s)$$, Zn is",
+      "options": {
+       "A": "an oxidizing agent.",
+       "B": "reduced.",
+       "C": "a reducing agent.",
+       "D": "gaining an electron.",
+       "E": "A and B."
+      },
+      "answer": "C",
+      "why": [
+       "**Step 1:** Zinc ($$Zn$$) goes from an oxidation state of 0 to +2. LEO (Losing Electrons = Oxidation).\n**Step 2:** A substance that is oxidized acts as the **reducing agent** because it provides electrons to reduce the other substance ($$Ag^+$$ to $$Ag$$)."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2025_q67",
+      "exam_question": "chemistry_2025_q67",
+      "page": 27
+     },
+     {
+      "id": "chem11-u2-mx7",
+      "type": "mcq",
+      "q": "The oxidation number of chlorine in $$ClO_3^-$$ is",
+      "options": {
+       "A": "+2.",
+       "B": "+1.",
+       "C": "-7.",
+       "D": "+5.",
+       "E": "-1."
+      },
+      "answer": "D",
+      "why": [
+       "**Step 1:** Set up the equation. The sum of oxidation numbers in a polyatomic ion equals its charge ($$-1$$).\n**Step 2:** Oxygen usually has an oxidation number of $$-2$$.\n**Step 3:** $$Cl + 3(O) = -1$$\n**Step 4:** $$Cl + 3(-2) = -1 \\Rightarrow Cl - 6 = -1$$\n**Step 5:** $$Cl = -1 + 6 = +5$$."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2025_q9",
+      "exam_question": "chemistry_2025_q9",
+      "page": 27
+     },
+     {
+      "id": "chem11-u2-mx8",
+      "type": "mcq",
+      "q": "Which of the following reactions represents an oxidation reaction?",
+      "options": {
+       "A": "$$ S(s) + H_2(g) \\rightarrow H_2S(g) $$",
+       "B": "$$ H_2(g) + Cl_2(g) \\rightarrow 2HCl(g) $$",
+       "C": "$$ S(s) + O_2(g) \\rightarrow SO_2(g) $$",
+       "D": "$$ Cl_2(g) + 2e^- \\rightarrow 2Cl^-(aq) $$",
+       "E": "$$ S(s) + 2e^- \\rightarrow S^{2-}(aq) $$"
+      },
+      "answer": "C",
+      "why": [
+       "**Step 1:** Define oxidation. Oxidation is the loss of electrons or an increase in the oxidation state of an element.\n**Step 2:** Analyze Option C. Sulphur ($$ S $$) has an oxidation state of 0 as an element. In $$ SO_2 $$, Oxygen is -2, so Sulphur must be +4. \n**Result:** Since the oxidation state of Sulphur increases from 0 to +4, it is being oxidized."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2020_q41",
+      "exam_question": "chemistry_2020_q41",
+      "page": 27
+     },
+     {
+      "id": "chem11-u2-mx9",
+      "type": "mcq",
+      "q": "What is the oxidation number of **Br** in **KBrO**?",
+      "options": {
+       "A": "+2",
+       "B": "+1",
+       "C": "-2",
+       "D": "-1",
+       "E": "0"
+      },
+      "answer": "B",
+      "why": [
+       "**Step 1: Assign known oxidation numbers.**\n- Potassium ($$ K $$) is always $$ +1 $$ (Group 1).\n- Oxygen ($$ O $$) is usually $$ -2 $$.\n\n**Step 2: Set up the equation for the neutral compound (sum = 0).**\n- $$ (+1) + Br + (-2) = 0 $$\n- $$ Br - 1 = 0 $$\n- $$ Br = +1 $$\n\n**Result:** B"
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2014_15_q46",
+      "exam_question": "chemistry_2014_15_q46",
+      "page": 27
+     },
+     {
+      "id": "chem11-u2-mx10",
+      "type": "mcq",
+      "q": "The oxidation number of chlorine in $$ ClO_4^- $$ is",
+      "options": {
+       "A": "+7",
+       "B": "-7",
+       "C": "-8",
+       "D": "+8",
+       "E": "-1"
+      },
+      "answer": "A",
+      "why": [
+       "**Step 1: Set up the equation.**\nThe sum of oxidation numbers in a polyatomic ion equals its charge (-1).\nLet $$ Cl = x $$. Oxygen is usually -2.\n\n**Step 2: Solve for x.**\n$$ x + 4(-2) = -1 $$\n$$ x - 8 = -1 $$\n$$ x = -1 + 8 = +7 $$"
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2015_q69",
+      "exam_question": "chemistry_2015_q69",
+      "page": 27
      }
     ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Oxidation-Reduction Reactions",
+      "kind": "unit",
+      "cards": [
+       "chem11-u2-c01"
+      ]
+     },
+     {
+      "id": "l2_1",
+      "label": "The Nature of Oxidation-Reduction…",
+      "kind": "topic",
+      "lesson": "chem11-u2-l2-1",
+      "cards": [
+       "chem11-u2-c01",
+       "chem11-u2-c02",
+       "chem11-u2-c03",
+       "chem11-u2-c04",
+       "chem11-u2-c05",
+       "chem11-u2-c06"
+      ]
+     },
+     {
+      "id": "k_oxidation",
+      "label": "Oxidation",
+      "kind": "idea",
+      "cards": [
+       "chem11-u2-c01",
+       "chem11-u2-c02",
+       "chem11-u2-c03",
+       "chem11-u2-c04"
+      ]
+     },
+     {
+      "id": "k_oxidation_number",
+      "label": "Oxidation number",
+      "kind": "idea",
+      "cards": [
+       "chem11-u2-c02",
+       "chem11-u2-c03",
+       "chem11-u2-c04",
+       "chem11-u2-c06"
+      ]
+     },
+     {
+      "id": "l2_2",
+      "label": "Electrolysis",
+      "kind": "topic",
+      "lesson": "chem11-u2-l2-2",
+      "cards": [
+       "chem11-u2-c07",
+       "chem11-u2-c08",
+       "chem11-u2-c09",
+       "chem11-u2-c10",
+       "chem11-u2-c11",
+       "chem11-u2-c12",
+       "chem11-u2-c13",
+       "chem11-u2-c14"
+      ]
+     },
+     {
+      "id": "k_electrolysis",
+      "label": "Electrolysis",
+      "kind": "idea",
+      "cards": [
+       "chem11-u2-c07",
+       "chem11-u2-c08",
+       "chem11-u2-c09",
+       "chem11-u2-c10"
+      ]
+     },
+     {
+      "id": "k_electrolyte",
+      "label": "Electrolyte",
+      "kind": "idea",
+      "cards": [
+       "chem11-u2-c10",
+       "chem11-u2-c11",
+       "chem11-u2-c12",
+       "chem11-u2-c13"
+      ]
+     },
+     {
+      "id": "k_water",
+      "label": "Water",
+      "kind": "idea",
+      "cards": [
+       "chem11-u2-c13",
+       "chem11-u2-c14"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l2_1",
+      "label": "includes"
+     },
+     {
+      "from": "l2_1",
+      "to": "k_oxidation",
+      "label": "key idea"
+     },
+     {
+      "from": "k_oxidation",
+      "to": "l2_2",
+      "label": "also used in"
+     },
+     {
+      "from": "l2_1",
+      "to": "k_oxidation_number",
+      "label": "key idea"
+     },
+     {
+      "from": "unit",
+      "to": "l2_2",
+      "label": "includes"
+     },
+     {
+      "from": "l2_2",
+      "to": "k_electrolysis",
+      "label": "key idea"
+     },
+     {
+      "from": "l2_2",
+      "to": "k_electrolyte",
+      "label": "key idea"
+     },
+     {
+      "from": "l2_2",
+      "to": "k_water",
+      "label": "key idea"
+     },
+     {
+      "from": "l2_1",
+      "to": "l2_2",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
    }
   }
  ]

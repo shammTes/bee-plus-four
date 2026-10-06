@@ -104,7 +104,7 @@
    "diagrams": {
     "f1": {
      "svg": "svg/business_economics_12/be12_f1.svg",
-     "title": "Four-sector model in the book: C + I + G + (X − M).",
+     "title": "Four-sector model: C + I + G + (X − M).",
      "page": 2,
      "pins": []
     }
@@ -133,7 +133,7 @@
       {
        "id": "be12-u1-c02",
        "type": "diagram",
-       "title": "Four-sector model in the book: C + I + G + (X − M).",
+       "title": "Four-sector model: C + I + G + (X − M).",
        "page": 2,
        "src": "notes",
        "diagram": "f1",
@@ -167,12 +167,12 @@
        "page": 4,
        "src": "notes",
        "problem": [
-        "A toy economy in 2010 produces only final goods bought by households:",
+        "A toy economy in 2010 produces only two final goods, all bought by households: 500 bicycles sold at 2,000 Nfa each and 500 radios sold at 200 Nfa each.",
         "Calculate GDP."
        ],
        "steps": [
         {
-         "text": "**Given:** two final goods, prices and quantities."
+         "text": "**Given:** two final goods, their prices and quantities."
         },
         {
          "text": "**Required:** GDP."
@@ -184,16 +184,16 @@
          "text": "Bicycles = 500 × 2,000 = 1,000,000 Nfa."
         },
         {
-         "text": "Radios = 200 × 500 = 100,000 Nfa."
+         "text": "Radios = 500 × 200 = 100,000 Nfa."
         },
         {
          "text": "GDP = 1,000,000 + 100,000 = **1,100,000 Nfa**."
         },
         {
-         "text": "(The book’s longer Table 1.1 works the same way and totals 105,500,000 Nfa.)"
+         "text": "A longer table with more goods works the same way: multiply each final good’s price by its quantity and add."
         }
        ],
-       "answer": "(The book’s longer Table 1.1 works the same way and totals 105,500,000 Nfa.)",
+       "answer": "GDP = 1,100,000 Nfa",
        "mode": "show",
        "reveal": "Show steps"
       },
@@ -301,7 +301,7 @@
         "D": "Exports"
        },
        "answer": "C",
-       "why": "**Step 1: Define leakages and injections**\nIn macroeconomics, a leakage is any income that is diverted away from the main circular flow of domestic consumption. Injections are external additions to the spending flow.\n\n**Step 2: Classify the options**\n- Investment ($$I$$), Government Purchases ($$G$$), and Exports ($$X$$) are injections that add spending to the circular flow.\n- Savings ($$S$$) is i"
+       "why": "**Step 1: Define leakages and injections**\nIn macroeconomics, a leakage is any income that is diverted away from the main circular flow of domestic consumption. Injections are external additions to the spending flow.\n\n**Step 2: Classify the options**\n- Investment ($$I$$), Government Purchases ($$G$$), and Exports ($$X$$) are injections that add spending to the circular flow.\n- Savings ($$S$$) is income that households choose not to spend on current consumption, representing a withdrawal of funds from the domestic circular loop.\n\n**Step 3: Final Result**\nTherefore, **Savings** is the correct leakage."
       },
       {
        "id": "be12-u1-chkE2",
@@ -317,23 +317,25 @@
         "D": "National Income"
        },
        "answer": "C",
-       "why": "**Step 1: Understand the boundary constraint of national output measures**\nNational output is measured either geographically or by resource ownership nationality.\n\n**Step 2: Contrast GDP and GNP**\n- Gross National Product (GNP) measures output based on citizen ownership, regardless of location.\n- Gross Domestic Product (GDP) measures output strictly produced within the physical territory (geograph"
+       "why": "**Step 1: Understand the boundary constraint of national output measures**\nNational output is measured either geographically or by resource ownership nationality.\n\n**Step 2: Contrast GDP and GNP**\n- Gross National Product (GNP) measures output based on citizen ownership, regardless of location.\n- Gross Domestic Product (GDP) measures output strictly produced within the physical territory (geographic boundaries) of a country, regardless of who owns the resources.\n\n**Step 3: Final Result**\nThus, the correct definition represents **Gross Domestic Product**."
       },
       {
-       "id": "be12-u1-chk73",
+       "id": "be12-u1-l1-1-mx1",
        "type": "check",
        "title": "Quick check",
-       "page": 1,
-       "src": "study_notes",
-       "q": "Which of the following represents a leakage (withdrawal) from the circular flow of income and expenditure?",
+       "q": "The total value of all final goods and services produced in any country during a particular year is:",
        "options": {
-        "A": "Investment",
-        "B": "Government Purchases",
-        "C": "Savings",
-        "D": "Exports"
+        "A": "Net national income",
+        "B": "Gross domestic expenditure",
+        "C": "Gross national income",
+        "D": "Gross domestic product",
+        "E": "Gross national product"
        },
-       "answer": "C",
-       "why": "**Step 1: Define leakages and injections**\nIn macroeconomics, a leakage is any income that is diverted away from the main circular flow of domestic consumption. Injections are external additions to the spending flow.\n\n**Step 2: Classify the options**\n- Investment ($$I$$), Government Purchases ($$G$$), and Exports ($$X$$) are injections that add spending to the circular flow.\n- Savings ($$S$$) is i"
+       "answer": "D",
+       "why": "**Definition:**\n**Gross Domestic Product (GDP)** is the market value of all final goods and services produced **within the borders** of a country in a specific time period (usually a year).\n**Result:** D is the correct term.",
+       "src": "matric",
+       "src_qid": "be_2024_q27",
+       "page": 1
       }
      ]
     },
@@ -489,7 +491,7 @@
          "text": "**Expenditures on intermediate goods** must be excluded."
         }
        ],
-       "answer": "B"
+       "answer": "Expenditures on intermediate goods"
       },
       {
        "id": "be12-u1-chk75",
@@ -542,7 +544,25 @@
          "text": "The MPS is **0.20**."
         }
        ],
-       "answer": "B"
+       "answer": "0.20"
+      },
+      {
+       "id": "be12-u1-l1-2-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "If income increases from 500 Nakfa to 600 Nakfa and saving increases from 100 Nakfa to 150 Nakfa, then the Marginal Propensity to Save (MPS) is",
+       "options": {
+        "A": "0.25.",
+        "B": "0.50.",
+        "C": "0.75.",
+        "D": "0.20.",
+        "E": "0.40."
+       },
+       "answer": "B",
+       "why": "**Step 1: Find change in Income ($$ \\Delta Y $$).** \n$$ 600 - 500 = 100 $$.\n**Step 2: Find change in Saving ($$ \\Delta S $$).** \n$$ 150 - 100 = 50 $$.\n**Step 3: Calculate MPS.** \n$$ MPS = \\Delta S / \\Delta Y = 50 / 100 = 0.50 $$.",
+       "src": "matric",
+       "src_qid": "business_economics_2025_q75",
+       "page": 13
       }
      ]
     },
@@ -604,7 +624,7 @@
          "text": "How might it be financed?"
         },
         {
-         "text": "Borrowing (bonds / loans) — the usual textbook answer."
+         "text": "Borrowing (bonds / loans) — the usual answer."
         },
         {
          "text": "Printing money is possible but inflationary."
@@ -715,7 +735,7 @@
          "text": "It represents points where **Consumption expenditure equals disposable income**."
         }
        ],
-       "answer": "B"
+       "answer": "Consumption expenditure equals disposable income"
       },
       {
        "id": "be12-u1-chk77",
@@ -762,7 +782,25 @@
          "text": "This expected rate of return is called the **Marginal efficiency of capital**."
         }
        ],
-       "answer": "C"
+       "answer": "Marginal efficiency of capital"
+      },
+      {
+       "id": "be12-u1-l1-3-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Linear $$ 45^0 $$ line of consumption function indicates",
+       "options": {
+        "A": "saving = consumption.",
+        "B": "lending rate = borrowing rate.",
+        "C": "disposable income = consumption.",
+        "D": "saving = investment.",
+        "E": "interest rate = saving rate."
+       },
+       "answer": "C",
+       "why": "In the Keynesian Cross diagram, the 45-degree line represents points where total spending (consumption) equals total income ($$ Y = C $$). At any point on this line, saving is zero.",
+       "src": "matric",
+       "src_qid": "business_economics_2025_q7",
+       "page": 25
       }
      ]
     },
@@ -782,7 +820,7 @@
        "page": 36,
        "src": "notes",
        "body": [
-        "No country makes everything. Theories in the book: countries gain by specialising where they are better (absolute / comparative advantage).",
+        "No country makes everything. Trade theories: countries gain by specialising where they are better (absolute / comparative advantage).",
         "**Balance of payments:** current account (goods, services, transfers) + capital / financial account. A current deficit can be offset by capital inflow.",
         "**Exchange rate:** price of one currency in another. Demand for nakfa rises if foreigners want Eritrean goods or assets; supply rises if residents want imports."
        ]
@@ -805,10 +843,10 @@
          "text": "Overall ≈ −15 + 12 = **−3** (still a small deficit to finance from reserves or extra borrowing)."
         },
         {
-         "text": "The book’s Table-style surplus example (+2 million) is the same arithmetic with different signs."
+         "text": "If exports had been 45 instead, overall = −10 + 12 = +2 million (a surplus) — same arithmetic, different signs."
         }
        ],
-       "answer": "The book’s Table-style surplus example (+2 million) is the same arithmetic with different signs.",
+       "answer": "Current account −15 million (deficit), capital account +12 million, overall about −3 million Nfa (small deficit).",
        "mode": "show",
        "reveal": "Show steps"
       },
@@ -902,7 +940,7 @@
          "text": "Thus, public goods are characterized by **Non-rivalry and non-excludability**."
         }
        ],
-       "answer": "B"
+       "answer": "Non-rivalry and non-excludability"
       },
       {
        "id": "be12-u1-chk79",
@@ -955,7 +993,25 @@
          "text": "This tax system is a **Progressive tax**."
         }
        ],
-       "answer": "C"
+       "answer": "Progressive tax"
+      },
+      {
+       "id": "be12-u1-l1-4-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "When the tax decreases with the increase in income, the tax system is;",
+       "options": {
+        "A": "Regressive",
+        "B": "Proportional",
+        "C": "Direct",
+        "D": "Progressive",
+        "E": "Indirect"
+       },
+       "answer": "A",
+       "why": "**Analysis:**\n- **Progressive Tax:** Tax rate increases as income increases.\n- **Proportional Tax:** Tax rate stays the same for all income levels.\n- **Regressive Tax:** Tax rate decreases as income increases (it takes a larger percentage from low-income earners than high-income earners).",
+       "src": "matric",
+       "src_qid": "be_2024_q33",
+       "page": 36
       }
      ]
     }
@@ -1229,7 +1285,7 @@
       {
        "text": "GDP: Market value of all final goods and services produced in one year by factors located inside the country (citizens or foreigners).",
        "answer": true,
-       "why": "Correct (p.1)."
+       "why": "Correct."
       },
       {
        "text": "Fiscal policy: The consumption function is the functional relationship between the aggregate consumption expenditure of all households, and their disposable personal income.",
@@ -1239,7 +1295,7 @@
       {
        "text": "Average Propensity to Consume: Average propensity to consume (APC) is the ratio of total consumption expenditure to the disposable personal income.",
        "answer": true,
-       "why": "Correct (p.20)."
+       "why": "Correct."
       },
       {
        "text": "Circular flow of income and expenditure: Gross Domestic Product (GDP) is the total market value of all final goods and services produced in one year by factors of production located within the…",
@@ -1249,7 +1305,7 @@
       {
        "text": "Consumption function: The consumption function is the functional relationship between the aggregate consumption expenditure of all households, and their disposable personal income.",
        "answer": true,
-       "why": "Correct (p.14)."
+       "why": "Correct."
       },
       {
        "text": "Disposable Personal Income: • Gross private domestic investment (I) refers to expenditures incurred by business firms on new investment such as new equipment, machinery or buildings as…",
@@ -1259,7 +1315,7 @@
       {
        "text": "Gross Domestic Product: Gross Domestic Product (GDP) is the total market value of all final goods and services produced in one year by factors of production located within the…",
        "answer": true,
-       "why": "Correct (p.4)."
+       "why": "Correct."
       },
       {
        "text": "Gross National Product: National income accounting is the measurement and recording of the economic performance of a nation (the value of the output of goods and services it produced)…",
@@ -1367,11 +1423,11 @@
       "answer": "C",
       "why": [
        "Answer C: An intermediate good",
-       "Textbook p.13: In the circular flow of income and expenditure, goods and services produced by the business firms are sold to _________ 10. _________ are also included in GNP even though they are not sold during the current year."
+       "Flour bought by a bakery is used up to make bread; it is an intermediate good. Only the final good (bread) is counted in GDP, to avoid double counting."
       ],
       "src": "notes",
       "page": 10,
-      "why_src": "textbook p.13",
+      "why_src": "written",
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
       "similar": [
        {
@@ -1395,11 +1451,11 @@
       "answer": "A",
       "why": [
        "Answer A: 0.25",
-       "Textbook p.17: You may have noticed that that MPC is 0.8, while MPS is 0.2."
+       "Every extra unit of income is either consumed or saved, so MPC + MPS = 1 and MPS = 1 − 0.75 = 0.25."
       ],
       "src": "notes",
       "page": 17,
-      "why_src": "textbook p.17",
+      "why_src": "written",
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
       "similar": [
        {
@@ -1577,6 +1633,269 @@
        }
       ],
       "id": "be12-u1-q08"
+     },
+     {
+      "id": "be12-u1-mx1",
+      "type": "mcq",
+      "q": "The total market value of all final goods and services produced in any country in a year is",
+      "options": {
+       "A": "Investment.",
+       "B": "Imports.",
+       "C": "Gross National Product.",
+       "D": "Intermediate goods.",
+       "E": "Personal Income."
+      },
+      "answer": "C",
+      "why": [
+       "The total market value of all final goods and services produced by the residents of a country (even if produced abroad) is called **Gross National Product (GNP)**. If the focus is strictly on production within the country's borders, it is called Gross Domestic Product (GDP). In many introductory contexts, GNP is the primary measure of national output."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "business_economics_2017_q21",
+      "exam_question": "business_economics_2017_q21",
+      "page": 1
+     },
+     {
+      "id": "be12-u1-mx2",
+      "type": "mcq",
+      "q": "Which of the following transactions is not excluded from GDP\\GNP?",
+      "options": {
+       "A": "Illegal activities",
+       "B": "Transactions which have no market value",
+       "C": "Underground economy",
+       "D": "Final goods and services",
+       "E": "All"
+      },
+      "answer": "D",
+      "why": [
+       "**GDP (Gross Domestic Product)** measures the total market value of all **final goods and services** produced within a country in a given period. It excludes illegal activities, non-market transactions (like housework), and the underground economy because they are difficult to track or lack formal market prices."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "be_2024_q29",
+      "exam_question": "be_2024_q29",
+      "page": 1
+     },
+     {
+      "id": "be12-u1-mx3",
+      "type": "mcq",
+      "q": "Gross national product (GNP) includes:",
+      "options": {
+       "A": "the value of intermediate goods and services",
+       "B": "the value of capital goods only",
+       "C": "the value of both intermediate and final goods and services",
+       "D": "only the value of final goods and services produced in a period of one year"
+      },
+      "answer": "D",
+      "why": [
+       "GNP measures the total market value of all **final** goods and services produced by the residents of a country in a specific period. Intermediate goods (goods used to produce other goods) are excluded to avoid **double counting**."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "business_economics_2015_q28",
+      "exam_question": "business_economics_2015_q28",
+      "page": 1
+     },
+     {
+      "id": "be12-u1-mx4",
+      "type": "mcq",
+      "q": "Gross Domestic Product (GDP) includes",
+      "options": {
+       "A": "neither intermediate nor final goods.",
+       "B": "intermediate, but not final, goods.",
+       "C": "both intermediate and final goods.",
+       "D": "only intermediate goods.",
+       "E": "final, but not intermediate, goods."
+      },
+      "answer": "E",
+      "why": [
+       "GDP measures the market value of all **final goods and services** produced within a country. It excludes **intermediate goods** (goods used to make other goods, like flour used to bake bread) to avoid 'double counting' their value."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "business_economics_2024_q28",
+      "exam_question": "business_economics_2024_q28",
+      "page": 1
+     },
+     {
+      "id": "be12-u1-mx5",
+      "type": "mcq",
+      "q": "When calculating GDP, what matters is",
+      "options": {
+       "A": "the location of production only",
+       "B": "the ownership of production only",
+       "C": "both the location and the ownership of production",
+       "D": "neither the location nor the ownership of production",
+       "E": "all except D"
+      },
+      "answer": "A",
+      "why": [
+       "**Gross Domestic Product (GDP)** measures the value of goods produced **within a country's borders**, regardless of who owns the factory. \n- **GNP (Gross National Product)** is the measure that cares about **ownership** (citizenship of the producer)."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "business_economics_2016_17_q10",
+      "exam_question": "business_economics_2016_17_q10",
+      "page": 1
+     },
+     {
+      "id": "be12-u1-mx6",
+      "type": "mcq",
+      "q": "Gross Domestic Product (GDP) can be computed through",
+      "options": {
+       "A": "Straight line method",
+       "B": "Expenditure method",
+       "C": "Income approach",
+       "D": "Intermediate approach",
+       "E": "B and C"
+      },
+      "answer": "E",
+      "why": [
+       "GDP is measured using three primary methods:\n1. **Expenditure Approach:** Sum of all spending on final goods and services ($$ GDP = C + I + G + (X - M) $$).\n2. **Income Approach:** Sum of all incomes earned by factors of production (Wages + Rent + Interest + Profit).\n3. **Output (Value Added) Approach.**\n\nTherefore, both B and C are correct."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "business_economics_2023_q33",
+      "exam_question": "business_economics_2023_q33",
+      "page": 1
+     },
+     {
+      "id": "be12-u1-mx7",
+      "type": "mcq",
+      "q": "A tax whose rate remains the same for all income level is",
+      "options": {
+       "A": "Progressive tax",
+       "B": "Proportional tax",
+       "C": "Regressive tax",
+       "D": "Income tax",
+       "E": "All"
+      },
+      "answer": "B",
+      "why": [
+       "A **Proportional Tax** (also known as a flat tax) applies the same percentage rate to everyone, regardless of their income level."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "business_2021_q68",
+      "exam_question": "business_2021_q68",
+      "page": 1
+     },
+     {
+      "id": "be12-u1-mx8",
+      "type": "mcq",
+      "q": "When the MPS is 0.81 and APS is 0.95, then MPC and APC are ___________ and ________ respectively.",
+      "options": {
+       "A": "0.19 & 0.05",
+       "B": "0.19 & 0.5",
+       "C": "0.31 & 0. 08",
+       "D": "0.05 & 0.19",
+       "E": "0.29 & 0.05"
+      },
+      "answer": "A",
+      "why": [
+       "**Step 1: Use the Marginal Propensity formula.**\n$$ MPC + MPS = 1 $$\n$$ MPC = 1 - MPS $$\n$$ MPC = 1 - 0.81 = 0.19 $$\n\n**Step 2: Use the Average Propensity formula.**\n$$ APC + APS = 1 $$\n$$ APC = 1 - APS $$\n$$ APC = 1 - 0.95 = 0.05 $$\n\n**Result:** MPC = 0.19 and APC = 0.05."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "business_economics_2023_q40",
+      "exam_question": "business_economics_2023_q40",
+      "page": 1
+     },
+     {
+      "id": "be12-u1-mx9",
+      "type": "mcq",
+      "q": "Gross National Product (GNP) minus depreciation equals",
+      "options": {
+       "A": "Net Per Capita Income.",
+       "B": "Net Investment.",
+       "C": "Net National Product.",
+       "D": "Net Disposable Income.",
+       "E": "Net Personal Income."
+      },
+      "answer": "C",
+      "why": [
+       "**Formula:** $$ NNP = GNP - \\text{Depreciation} $$. \nNet National Product (NNP) measures the total value of goods and services produced by a nation's citizens minus the value of the capital used up (worn out) during production."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "business_economics_2025_q50",
+      "exam_question": "business_economics_2025_q50",
+      "page": 1
+     },
+     {
+      "id": "be12-u1-mx10",
+      "type": "mcq",
+      "q": "The three important injections into the circular flow of income and expenditure are",
+      "options": {
+       "A": "investment spending, government expenditure and imports.",
+       "B": "exports, taxes and savings.",
+       "C": "exports, investment and government expenditure.",
+       "D": "savings, imports and consumption.",
+       "E": "saving, taxes, and imports."
+      },
+      "answer": "C",
+      "why": [
+       "**Injections** are variables in an economy that add to the circular flow of income. These include:\n1. **Investment (I):** Spending by firms on capital.\n2. **Government Spending (G):** Spending by the state.\n3. **Exports (X):** Money coming from abroad for local goods."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "business_economics_2018_q28",
+      "exam_question": "business_economics_2018_q28",
+      "page": 1
+     },
+     {
+      "id": "be12-u1-mx11",
+      "type": "mcq",
+      "q": "The formula for the MPC (Marginal Propensity to Consume) is",
+      "options": {
+       "A": "the change in consumption divided by the change in income.",
+       "B": "consumption divided by income.",
+       "C": "consumption plus saving divided by income.",
+       "D": "the change in income divided by the change in consumption.",
+       "E": "consumption minus savings divided by income."
+      },
+      "answer": "A",
+      "why": [
+       "**Marginal Propensity to Consume (MPC):** Measures how much consumption changes when income increases by one unit. \n**Formula:** $$ MPC = \\frac{\\Delta C}{\\Delta Y} $$ where $$ C $$ is consumption and $$ Y $$ is income."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "business_2023_q23",
+      "exam_question": "business_2023_q23",
+      "page": 1
+     },
+     {
+      "id": "be12-u1-mx12",
+      "type": "mcq",
+      "q": "Gross national product less any capital consumption allowance is;",
+      "options": {
+       "A": "net domestic product",
+       "B": "gross domestic product",
+       "C": "national income",
+       "D": "net national product",
+       "E": "net foreign factor income"
+      },
+      "answer": "D",
+      "why": [
+       "**Net National Product (NNP)** is calculated by subtracting depreciation (also called **Capital Consumption Allowance**) from the Gross National Product (GNP).\n\n**Formula:** $$ NNP = GNP - \\text{Depreciation} $$"
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "business_economics_2016_17_q37",
+      "exam_question": "business_economics_2016_17_q37",
+      "page": 1
      }
     ]
    },

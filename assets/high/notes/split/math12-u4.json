@@ -198,7 +198,7 @@
         "D": "$$4 \\times 1$$"
        },
        "answer": "A",
-       "why": "**Step 1: Count the number of rows**\nThe horizontal lines of elements are the rows. Matrix $$A$$ has $$2$$ rows.\n\n**Step 2: Count the number of columns**\nThe vertical lines of elements are the columns. Matrix $$A$$ has $$2$$ columns.\n\n**Step 3: State the order**\nThe order is given as $$m \\times n$$ where $$m$$ is rows and $$n$$ is columns. Therefore, the order is $$2 \\times 2$$.\n\n**Step 4: Final R"
+       "why": "**Step 1: Count the number of rows**\nThe horizontal lines of elements are the rows. Matrix $$A$$ has $$2$$ rows.\n\n**Step 2: Count the number of columns**\nThe vertical lines of elements are the columns. Matrix $$A$$ has $$2$$ columns.\n\n**Step 3: State the order**\nThe order is given as $$m \\times n$$ where $$m$$ is rows and $$n$$ is columns. Therefore, the order is $$2 \\times 2$$.\n\n**Step 4: Final Result**\nThe order of the matrix is **$$2 \\times 2$$**."
       },
       {
        "id": "math12-u4-chkE2",
@@ -215,22 +215,6 @@
        },
        "answer": "A",
        "why": "**Step 1: Understand matrix equality**\nTwo matrices are equal if and only if their corresponding elements are equal.\n\n**Step 2: Set up equations for the variables**\nFrom the entry in row 1, column 1:\n$$x + 2 = 7 \\implies x = 7 - 2 = 5$$\n\nFrom the entry in row 2, column 2:\n$$y - 3 = 2 \\implies y = 2 + 3 = 5$$\n\n**Step 3: Final Result**\nThe values are **$$x = 5, y = 5$$**."
-      },
-      {
-       "id": "math12-u4-chk73",
-       "type": "check",
-       "title": "Quick check",
-       "page": 1,
-       "src": "study_notes",
-       "q": "What is the order of the following matrix: $$A = \\begin{pmatrix} -2 & 2 \\\\ 5 & 9 \\end{pmatrix}$$?",
-       "options": {
-        "A": "$$2 \\times 2$$",
-        "B": "$$1 \\times 2$$",
-        "C": "$$2 \\times 1$$",
-        "D": "$$4 \\times 1$$"
-       },
-       "answer": "A",
-       "why": "**Step 1: Count the number of rows**\nThe horizontal lines of elements are the rows. Matrix $$A$$ has $$2$$ rows.\n\n**Step 2: Count the number of columns**\nThe vertical lines of elements are the columns. Matrix $$A$$ has $$2$$ columns.\n\n**Step 3: State the order**\nThe order is given as $$m \\times n$$ where $$m$$ is rows and $$n$$ is columns. Therefore, the order is $$2 \\times 2$$.\n\n**Step 4: Final R"
       },
       {
        "id": "math12-u4-chk74",
@@ -286,7 +270,7 @@
          "text": "The sum matrix is **$$\\begin{pmatrix} 2 & 4 \\\\ 6 & 12 \\end{pmatrix}$$**."
         }
        ],
-       "answer": "A"
+       "answer": "$$\\begin{pmatrix} 2 & 4 \\\\ 6 & 12 \\end{pmatrix}$$"
       },
       {
        "id": "math12-u4-chk75",
@@ -342,7 +326,119 @@
          "text": "The resulting matrix is **$$\\begin{pmatrix} 30 & -35 \\\\ 5 & 10 \\end{pmatrix}$$**."
         }
        ],
-       "answer": "A"
+       "answer": "$$\\begin{pmatrix} 30 & -35 \\\\ 5 & 10 \\end{pmatrix}$$"
+      },
+      {
+       "id": "math12-u4-chk76",
+       "type": "check",
+       "title": "Quick check",
+       "page": 168,
+       "src": "study_notes",
+       "src_qid": "math_g12_c4_q5",
+       "q": "Find the negative matrix $$-A$$ if $$A = \\begin{pmatrix} 1 & 6 \\\\ -11 & 2 \\end{pmatrix}$$.",
+       "options": {
+        "A": "$$\\begin{pmatrix} -1 & -6 \\\\ 11 & -2 \\end{pmatrix}$$",
+        "B": "$$\\begin{pmatrix} -1 & 6 \\\\ -11 & -2 \\end{pmatrix}$$",
+        "C": "$$\\begin{pmatrix} -1 & -6 \\\\ -11 & -2 \\end{pmatrix}$$",
+        "D": "$$\\begin{pmatrix} 1 & 6 \\\\ 11 & 2 \\end{pmatrix}$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Understand the definition of negative matrix**\nThe negative of a matrix $$-A$$ is defined as $$-1 \\times A$$. This means we negate every element of $$A$$.\n\n**Step 2: Multiply each element of A by -1**\n$$-A = \\begin{pmatrix} -1(1) & -1(6) \\\\ -1(-11) & -1(2) \\end{pmatrix}$$\n\n**Step 3: Simplify the signs**\n$$-A = \\begin{pmatrix} -1 & -6 \\\\ 11 & -2 \\end{pmatrix}$$\n\n**Step 4: Final Result**\nThe negative matrix is **$$\\begin{pmatrix} -1 & -6 \\\\ 11 & -2 \\end{pmatrix}$$**."
+      },
+      {
+       "id": "math12-u4-wrk3",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 168,
+       "src": "study_notes",
+       "src_qid": "math_g12_c4_q5",
+       "problem": "Find the negative matrix $$-A$$ if $$A = \\begin{pmatrix} 1 & 6 \\\\ -11 & 2 \\end{pmatrix}$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Understand the definition of negative matrix**"
+        },
+        {
+         "text": "The negative of a matrix $$-A$$ is defined as $$-1 \\times A$$. This means we negate every element of $$A$$."
+        },
+        {
+         "text": "**Step 2: Multiply each element of A by -1**"
+        },
+        {
+         "text": "$$-A = \\begin{pmatrix} -1(1) & -1(6) \\\\ -1(-11) & -1(2) \\end{pmatrix}$$"
+        },
+        {
+         "text": "**Step 3: Simplify the signs**"
+        },
+        {
+         "text": "$$-A = \\begin{pmatrix} -1 & -6 \\\\ 11 & -2 \\end{pmatrix}$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The negative matrix is **$$\\begin{pmatrix} -1 & -6 \\\\ 11 & -2 \\end{pmatrix}$$**."
+        }
+       ],
+       "answer": "$$\\begin{pmatrix} -1 & -6 \\\\ 11 & -2 \\end{pmatrix}$$"
+      },
+      {
+       "id": "math12-u4-chk77",
+       "type": "check",
+       "title": "Quick check",
+       "page": 168,
+       "src": "study_notes",
+       "src_qid": "math_g12_c4_q6",
+       "q": "Find the product matrix $$AB$$ if $$A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 1 \\end{pmatrix}$$ and $$B = \\begin{pmatrix} 0 & -1 \\\\ -1 & 2 \\end{pmatrix}$$.",
+       "options": {
+        "A": "$$\\begin{pmatrix} -2 & 3 \\\\ -1 & 0 \\end{pmatrix}$$",
+        "B": "$$\\begin{pmatrix} 0 & -2 \\\\ -2 & 2 \\end{pmatrix}$$",
+        "C": "$$\\begin{pmatrix} -2 & -1 \\\\ 3 & 0 \\end{pmatrix}$$",
+        "D": "$$\\begin{pmatrix} -2 & 3 \\\\ -1 & 2 \\end{pmatrix}$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Check multiplication compatibility**\nOrder of $$A$$ is $$2 \\times 2$$. Order of $$B$$ is $$2 \\times 2$$. Since inner dimensions match, the product is defined and has order $$2 \\times 2$$.\n\n**Step 2: Calculate the product entries**\nRow 1, Column 1:\n$$c_{11} = 1(0) + 2(-1) = 0 - 2 = -2$$\n\nRow 1, Column 2:\n$$c_{12} = 1(-1) + 2(2) = -1 + 4 = 3$$\n\nRow 2, Column 1:\n$$c_{21} = 2(0) + 1(-1) = 0 - 1 = -1$$\n\nRow 2, Column 2:\n$$c_{22} = 2(-1) + 1(2) = -2 + 2 = 0$$\n\n**Step 3: Combine entries into matrix**\n$$AB = \\begin{pmatrix} -2 & 3 \\\\ -1 & 0 \\end{pmatrix}$$\n\n**Step 4: Final Result**\nThe product matrix is **$$\\begin{pmatrix} -2 & 3 \\\\ -1 & 0 \\end{pmatrix}$$**."
+      },
+      {
+       "id": "math12-u4-wrk4",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 168,
+       "src": "study_notes",
+       "src_qid": "math_g12_c4_q6",
+       "problem": "Find the product matrix $$AB$$ if $$A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 1 \\end{pmatrix}$$ and $$B = \\begin{pmatrix} 0 & -1 \\\\ -1 & 2 \\end{pmatrix}$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Check multiplication compatibility**"
+        },
+        {
+         "text": "Order of $$A$$ is $$2 \\times 2$$. Order of $$B$$ is $$2 \\times 2$$. Since inner dimensions match, the product is defined and has order $$2 \\times 2$$."
+        },
+        {
+         "text": "**Step 2: Calculate the product entries**"
+        },
+        {
+         "text": "Row 1, Column 1:"
+        },
+        {
+         "text": "$$c_{11} = 1(0) + 2(-1) = 0 - 2 = -2$$"
+        },
+        {
+         "text": "Row 1, Column 2:"
+        },
+        {
+         "text": "**Step 3: Combine entries into matrix**"
+        },
+        {
+         "text": "$$AB = \\begin{pmatrix} -2 & 3 \\\\ -1 & 0 \\end{pmatrix}$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The product matrix is **$$\\begin{pmatrix} -2 & 3 \\\\ -1 & 0 \\end{pmatrix}$$**."
+        }
+       ],
+       "answer": "$$\\begin{pmatrix} -2 & 3 \\\\ -1 & 0 \\end{pmatrix}$$"
       }
      ]
     },
@@ -458,116 +554,75 @@
        "reveal": "Step-by-step (elimination + Cramer check)"
       },
       {
-       "id": "math12-u4-chk76",
-       "type": "check",
-       "title": "Quick check",
-       "page": 168,
-       "src": "study_notes",
-       "src_qid": "math_g12_c4_q5",
-       "q": "Find the negative matrix $$-A$$ if $$A = \\begin{pmatrix} 1 & 6 \\\\ -11 & 2 \\end{pmatrix}$$.",
-       "options": {
-        "A": "$$\\begin{pmatrix} -1 & -6 \\\\ 11 & -2 \\end{pmatrix}$$",
-        "B": "$$\\begin{pmatrix} -1 & 6 \\\\ -11 & -2 \\end{pmatrix}$$",
-        "C": "$$\\begin{pmatrix} -1 & -6 \\\\ -11 & -2 \\end{pmatrix}$$",
-        "D": "$$\\begin{pmatrix} 1 & 6 \\\\ 11 & 2 \\end{pmatrix}$$"
-       },
-       "answer": "A",
-       "why": "**Step 1: Understand the definition of negative matrix**\nThe negative of a matrix $$-A$$ is defined as $$-1 \\times A$$. This means we negate every element of $$A$$.\n\n**Step 2: Multiply each element of A by -1**\n$$-A = \\begin{pmatrix} -1(1) & -1(6) \\\\ -1(-11) & -1(2) \\end{pmatrix}$$\n\n**Step 3: Simplify the signs**\n$$-A = \\begin{pmatrix} -1 & -6 \\\\ 11 & -2 \\end{pmatrix}$$\n\n**Step 4: Final Result**\nThe negative matrix is **$$\\begin{pmatrix} -1 & -6 \\\\ 11 & -2 \\end{pmatrix}$$**."
-      },
-      {
-       "id": "math12-u4-wrk3",
+       "id": "math12-u4-wk2",
        "type": "worked",
-       "title": "Step-by-step",
-       "page": 168,
-       "src": "study_notes",
-       "src_qid": "math_g12_c4_q5",
-       "problem": "Find the negative matrix $$-A$$ if $$A = \\begin{pmatrix} 1 & 6 \\\\ -11 & 2 \\end{pmatrix}$$.",
+       "title": "Worked example: Cramer’s rule",
+       "problem": "Solve 3x + 2y = 12 and x − y = −1 using determinants.",
        "steps": [
         {
-         "text": "**Step 1: Understand the definition of negative matrix**"
+         "text": "Step 1: D = |3 2; 1 −1| = 3(−1) − 2(1) = −5."
         },
         {
-         "text": "The negative of a matrix $$-A$$ is defined as $$-1 \\times A$$. This means we negate every element of $$A$$."
+         "text": "Step 2: Dx: replace the x-column by the constants: |12 2; −1 −1| = −12 + 2 = −10."
         },
         {
-         "text": "**Step 2: Multiply each element of A by -1**"
+         "text": "Step 3: Dy: replace the y-column: |3 12; 1 −1| = −3 − 12 = −15."
         },
         {
-         "text": "$$-A = \\begin{pmatrix} -1(1) & -1(6) \\\\ -1(-11) & -1(2) \\end{pmatrix}$$"
-        },
-        {
-         "text": "**Step 3: Simplify the signs**"
-        },
-        {
-         "text": "$$-A = \\begin{pmatrix} -1 & -6 \\\\ 11 & -2 \\end{pmatrix}$$"
-        },
-        {
-         "text": "**Step 4: Final Result**"
-        },
-        {
-         "text": "The negative matrix is **$$\\begin{pmatrix} -1 & -6 \\\\ 11 & -2 \\end{pmatrix}$$**."
+         "text": "Step 4: x = Dx/D = 2, y = Dy/D = 3. Check: 3(2) + 2(3) = 12 ✔, 2 − 3 = −1 ✔."
         }
        ],
-       "answer": "A"
+       "answer": "x = 2, y = 3",
+       "page": 168,
+       "src": "notes"
       },
       {
-       "id": "math12-u4-chk77",
+       "id": "math12-u4-pc21",
        "type": "check",
-       "title": "Quick check",
-       "page": 168,
-       "src": "study_notes",
-       "src_qid": "math_g12_c4_q6",
-       "q": "Find the product matrix $$AB$$ if $$A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 1 \\end{pmatrix}$$ and $$B = \\begin{pmatrix} 0 & -1 \\\\ -1 & 2 \\end{pmatrix}$$.",
+       "title": "Practice",
+       "q": "Evaluate |5 −2; 3 4|.",
        "options": {
-        "A": "$$\\begin{pmatrix} -2 & 3 \\\\ -1 & 0 \\end{pmatrix}$$",
-        "B": "$$\\begin{pmatrix} 0 & -2 \\\\ -2 & 2 \\end{pmatrix}$$",
-        "C": "$$\\begin{pmatrix} -2 & -1 \\\\ 3 & 0 \\end{pmatrix}$$",
-        "D": "$$\\begin{pmatrix} -2 & 3 \\\\ -1 & 2 \\end{pmatrix}$$"
+        "A": "26",
+        "B": "14",
+        "C": "−26",
+        "D": "23"
        },
        "answer": "A",
-       "why": "**Step 1: Check multiplication compatibility**\nOrder of $$A$$ is $$2 \\times 2$$. Order of $$B$$ is $$2 \\times 2$$. Since inner dimensions match, the product is defined and has order $$2 \\times 2$$.\n\n**Step 2: Calculate the product entries**\nRow 1, Column 1:\n$$c_{11} = 1(0) + 2(-1) = 0 - 2 = -2$$\n\nRow 1, Column 2:\n$$c_{12} = 1(-1) + 2(2) = -1 + 4 = 3$$\n\nRow 2, Column 1:\n$$c_{21} = 2(0) + 1(-1) = 0 - 1 = -1$$\n\nRow 2, Column 2:\n$$c_{22} = 2(-1) + 1(2) = -2 + 2 = 0$$\n\n**Step 3: Combine entries into matrix**\n$$AB = \\begin{pmatrix} -2 & 3 \\\\ -1 & 0 \\end{pmatrix}$$\n\n**Step 4: Final Result**\nThe product matrix is **$$\\begin{pmatrix} -2 & 3 \\\\ -1 & 0 \\end{pmatrix}$$**."
+       "why": "ad − bc = 5 × 4 − (−2)(3) = 20 + 6 = 26.",
+       "page": 168,
+       "src": "notes"
       },
       {
-       "id": "math12-u4-wrk4",
-       "type": "worked",
-       "title": "Step-by-step",
+       "id": "math12-u4-pc22",
+       "type": "check",
+       "title": "Practice",
+       "q": "A system has D = 0. What can you say?",
+       "options": {
+        "A": "Cramer’s rule cannot be used: no unique solution",
+        "B": "The solution is x = y = 0",
+        "C": "There are exactly two solutions",
+        "D": "x = Dx"
+       },
+       "answer": "A",
+       "why": "Cramer’s rule divides by D. If D = 0 the lines are parallel (no solution) or the same line (infinitely many solutions).",
        "page": 168,
-       "src": "study_notes",
-       "src_qid": "math_g12_c4_q6",
-       "problem": "Find the product matrix $$AB$$ if $$A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 1 \\end{pmatrix}$$ and $$B = \\begin{pmatrix} 0 & -1 \\\\ -1 & 2 \\end{pmatrix}$$.",
-       "steps": [
-        {
-         "text": "**Step 1: Check multiplication compatibility**"
-        },
-        {
-         "text": "Order of $$A$$ is $$2 \\times 2$$. Order of $$B$$ is $$2 \\times 2$$. Since inner dimensions match, the product is defined and has order $$2 \\times 2$$."
-        },
-        {
-         "text": "**Step 2: Calculate the product entries**"
-        },
-        {
-         "text": "Row 1, Column 1:"
-        },
-        {
-         "text": "$$c_{11} = 1(0) + 2(-1) = 0 - 2 = -2$$"
-        },
-        {
-         "text": "Row 1, Column 2:"
-        },
-        {
-         "text": "**Step 3: Combine entries into matrix**"
-        },
-        {
-         "text": "$$AB = \\begin{pmatrix} -2 & 3 \\\\ -1 & 0 \\end{pmatrix}$$"
-        },
-        {
-         "text": "**Step 4: Final Result**"
-        },
-        {
-         "text": "The product matrix is **$$\\begin{pmatrix} -2 & 3 \\\\ -1 & 0 \\end{pmatrix}$$**."
-        }
-       ],
-       "answer": "A"
+       "src": "notes"
+      },
+      {
+       "id": "math12-u4-pc23",
+       "type": "check",
+       "title": "Practice",
+       "q": "For 2x + y = 5 and x + 3y = 5, what is Dx?",
+       "options": {
+        "A": "10",
+        "B": "5",
+        "C": "−10",
+        "D": "15"
+       },
+       "answer": "A",
+       "why": "D = 2·3 − 1·1 = 5. Dx replaces the x-column by the constants: |5 1; 5 3| = 15 − 5 = 10, so x = 10/5 = 2 (and y = 1).",
+       "page": 168,
+       "src": "notes"
       }
      ]
     }
@@ -619,93 +674,27 @@
       },
       {
        "front": "A matrix is an ordered rectangular array of numbers.",
-       "back": "True. The textbook says this on p.158."
+       "back": "True. That is the definition: numbers arranged in rows and columns in a rectangle; a matrix with m rows and n columns has order m × n."
       },
       {
        "front": "The numbers are called the elements or the entries of the matrix.",
-       "back": "True. The textbook says this on p.158."
+       "back": "True. Each number in a matrix is an element (entry); aᵢⱼ is the entry in row i and column j."
       },
       {
        "front": "A matrix in which the number of rows is equal to the number of columns is called a square matrix.",
-       "back": "True. The textbook says this on p.160."
+       "back": "True. Square matrix: number of rows = number of columns (2 × 2, 3 × 3, …). Only square matrices have determinants and inverses."
       },
       {
        "front": "A square matrix in which elements in the diagonal are all 1 and rest are all zeros is called an identity matrix.",
-       "back": "True. The textbook says this on p.160."
+       "back": "True. The identity matrix I has 1s on the main diagonal and 0s elsewhere; AI = IA = A, like multiplying a number by 1."
       },
       {
-       "front": "Observe the sum of two matrices is a matrix obtained by adding the corresponding elements of the given matrices.",
-       "back": "True. The textbook says this on p.162."
+       "front": "The sum of two matrices of the same order is found by adding the corresponding elements.",
+       "back": "True. A + B is defined only for matrices of the same order; then (A + B)ᵢⱼ = aᵢⱼ + bᵢⱼ."
       }
      ],
      "src": "notes",
      "id": "math12-u4-g2",
-     "lesson": null
-    },
-    {
-     "type": "match",
-     "title": "Match key terms",
-     "pairs": [
-      {
-       "a": "Matrix",
-       "b": "is an ordered rectangular array of numbers arranged in rows (horizontal lines) and columns (vertical lines)"
-      },
-      {
-       "a": "Row Matrix",
-       "b": "| A matrix with only one row | Order $$1 \\times n$$ | $$\\begin{pmatrix} 12 & 3 & -6 \\end{pmatrix}$$ | | **Column Matrix*"
-      },
-      {
-       "a": "Column Matrix",
-       "b": "| A matrix with only one column | Order $$m \\times 1$$ | $$\\begin{pmatrix} 1 \\\\ -4 \\\\ 9 \\end{pmatrix}$$ | | **Square Mat"
-      },
-      {
-       "a": "Square Matrix",
-       "b": "| Number of rows equals columns | Order $$n \\times n$$ | $$\\begin{pmatrix} 2 & -3 \\\\ 5 & 13 \\end{pmatrix}$$ | | **Identi"
-      },
-      {
-       "a": "Identity Matrix",
-       "b": "| Diagonal elements are 1, others 0 | Square matrix ($$I_n$$) | $$\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$$ | > **💡"
-      },
-      {
-       "a": "💡 Did You Know?",
-       "b": "The concept of matrices was popularized in the 19th century by Arthur Cayley, but ancient Chinese mathematicians used si"
-      }
-     ],
-     "src": "study_notes",
-     "id": "math12-u4-g-drive2",
-     "lesson": null
-    },
-    {
-     "type": "match",
-     "title": "Match key terms",
-     "pairs": [
-      {
-       "a": "Matrix",
-       "b": "is an ordered rectangular array of numbers arranged in rows (horizontal lines) and columns (vertical lines)"
-      },
-      {
-       "a": "Row Matrix",
-       "b": "| A matrix with only one row | Order $$1 \\times n$$ | $$\\begin{pmatrix} 12 & 3 & -6 \\end{pmatrix}$$ | | **Column Matrix*"
-      },
-      {
-       "a": "Column Matrix",
-       "b": "| A matrix with only one column | Order $$m \\times 1$$ | $$\\begin{pmatrix} 1 \\\\ -4 \\\\ 9 \\end{pmatrix}$$ | | **Square Mat"
-      },
-      {
-       "a": "Square Matrix",
-       "b": "| Number of rows equals columns | Order $$n \\times n$$ | $$\\begin{pmatrix} 2 & -3 \\\\ 5 & 13 \\end{pmatrix}$$ | | **Identi"
-      },
-      {
-       "a": "Identity Matrix",
-       "b": "| Diagonal elements are 1, others 0 | Square matrix ($$I_n$$) | $$\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$$ | > **💡"
-      },
-      {
-       "a": "💡 Did You Know?",
-       "b": "The concept of matrices was popularized in the 19th century by Arthur Cayley, but ancient Chinese mathematicians used si"
-      }
-     ],
-     "src": "study_notes",
-     "id": "math12-u4-g-drive7",
      "lesson": null
     }
    ],
@@ -806,7 +795,7 @@
       "q": "A matrix is an ordered rectangular array of numbers.",
       "answer": true,
       "why": [
-       "The textbook says this on p.158."
+       "That is the definition: numbers arranged in rows and columns in a rectangle; a matrix with m rows and n columns has order m × n."
       ],
       "src": "textbook p.158",
       "enriched": true,
@@ -825,7 +814,7 @@
       "q": "The numbers are called the elements or the entries of the matrix.",
       "answer": true,
       "why": [
-       "The textbook says this on p.158."
+       "Each number in a matrix is an element (entry); aᵢⱼ is the entry in row i and column j."
       ],
       "src": "textbook p.158",
       "enriched": true,
@@ -844,7 +833,7 @@
       "q": "A matrix in which the number of rows is equal to the number of columns is called a square matrix.",
       "answer": true,
       "why": [
-       "The textbook says this on p.160."
+       "Square matrix: number of rows = number of columns (2 × 2, 3 × 3, …). Only square matrices have determinants and inverses."
       ],
       "src": "textbook p.160",
       "enriched": true,
@@ -863,7 +852,7 @@
       "q": "A square matrix in which elements in the diagonal are all 1 and rest are all zeros is called an identity matrix.",
       "answer": true,
       "why": [
-       "The textbook says this on p.160."
+       "The identity matrix I has 1s on the main diagonal and 0s elsewhere; AI = IA = A, like multiplying a number by 1."
       ],
       "src": "textbook p.160",
       "enriched": true,
@@ -879,10 +868,10 @@
      },
      {
       "type": "tf",
-      "q": "Observe the sum of two matrices is a matrix obtained by adding the corresponding elements of the given matrices.",
+      "q": "The sum of two matrices of the same order is found by adding the corresponding elements.",
       "answer": true,
       "why": [
-       "The textbook says this on p.162."
+       "A + B is defined only for matrices of the same order; then (A + B)ᵢⱼ = aᵢⱼ + bᵢⱼ."
       ],
       "src": "textbook p.162",
       "enriched": true,
@@ -895,6 +884,326 @@
        }
       ],
       "id": "math12-u4-q08"
+     },
+     {
+      "id": "math12-u4-q09",
+      "type": "mcq",
+      "q": "|4 3; 2 5| =",
+      "options": {
+       "A": "14",
+       "B": "26",
+       "C": "−14",
+       "D": "7"
+      },
+      "answer": "A",
+      "why": [
+       "ad − bc = 20 − 6 = 14."
+      ],
+      "tip": "Write the formula first, then substitute; check the answer with a quick estimate.",
+      "similar": [
+       {
+        "q": "|1 2; 3 4|?",
+        "a": "−2"
+       }
+      ],
+      "page": 168,
+      "src": "notes"
+     },
+     {
+      "id": "math12-u4-q10",
+      "type": "mcq",
+      "q": "If A = [[1, 2], [3, 4]], then 2A − I =",
+      "options": {
+       "A": "[[1, 4], [6, 7]]",
+       "B": "[[2, 4], [6, 8]]",
+       "C": "[[1, 3], [5, 7]]",
+       "D": "[[0, 4], [6, 6]]"
+      },
+      "answer": "A",
+      "why": [
+       "2A = [[2, 4], [6, 8]]; subtract I = [[1, 0], [0, 1]] → [[1, 4], [6, 7]]."
+      ],
+      "tip": "I only changes the diagonal.",
+      "similar": [
+       {
+        "q": "A + I for A = [[0, 1], [1, 0]]?",
+        "a": "[[1, 1], [1, 1]]"
+       }
+      ],
+      "page": 162,
+      "src": "notes"
+     },
+     {
+      "id": "math12-u4-q11",
+      "type": "mcq",
+      "q": "A = [[1, 0], [2, 1]], B = [[3, 1], [0, 2]]. AB =",
+      "options": {
+       "A": "[[3, 1], [6, 4]]",
+       "B": "[[3, 0], [0, 2]]",
+       "C": "[[5, 1], [2, 2]]",
+       "D": "[[3, 1], [6, 2]]"
+      },
+      "answer": "A",
+      "why": [
+       "Row 1 · columns: [1·3 + 0·0, 1·1 + 0·2] = [3, 1].",
+       "Row 2 · columns: [2·3 + 1·0, 2·1 + 1·2] = [6, 4]."
+      ],
+      "tip": "Row of A times column of B.",
+      "similar": [
+       {
+        "q": "BA?",
+        "a": "[[5, 1], [4, 2]] — different from AB"
+       }
+      ],
+      "page": 165,
+      "src": "notes"
+     },
+     {
+      "id": "math12-u4-q12",
+      "type": "mcq",
+      "q": "The inverse of [[2, 1], [5, 3]] is",
+      "options": {
+       "A": "[[3, −1], [−5, 2]]",
+       "B": "[[3, 1], [5, 2]]",
+       "C": "[[−3, 1], [5, −2]]",
+       "D": "[[2, −5], [−1, 3]]"
+      },
+      "answer": "A",
+      "why": [
+       "det = 6 − 5 = 1. Swap a and d, change the signs of b and c, divide by det: [[3, −1], [−5, 2]]."
+      ],
+      "tip": "Check: A·A⁻¹ should give I.",
+      "similar": [
+       {
+        "q": "Inverse of [[1, 1], [0, 1]]?",
+        "a": "[[1, −1], [0, 1]]"
+       }
+      ],
+      "page": 169,
+      "src": "notes"
+     },
+     {
+      "id": "math12-u4-q13",
+      "type": "mcq",
+      "q": "For which k is [[k, 4], [2, 2]] singular?",
+      "options": {
+       "A": "4",
+       "B": "2",
+       "C": "8",
+       "D": "−4"
+      },
+      "answer": "A",
+      "why": [
+       "Singular ⇔ det = 0: 2k − 8 = 0 → k = 4."
+      ],
+      "tip": "Write the formula first, then substitute; check the answer with a quick estimate.",
+      "similar": [
+       {
+        "q": "k for [[k, 3], [3, k]] singular?",
+        "a": "±3"
+       }
+      ],
+      "page": 169,
+      "src": "notes"
+     },
+     {
+      "id": "math12-u4-q14",
+      "type": "mcq",
+      "q": "Using determinants, solve 2x + y = 7, x − y = 2.",
+      "options": {
+       "A": "x = 3, y = 1",
+       "B": "x = 1, y = 3",
+       "C": "x = 2, y = 3",
+       "D": "x = 3, y = −1"
+      },
+      "answer": "A",
+      "why": [
+       "D = 2(−1) − 1(1) = −3; Dx = 7(−1) − 1(2) = −9; Dy = 2(2) − 7(1) = −3.",
+       "x = −9/−3 = 3, y = −3/−3 = 1."
+      ],
+      "tip": "x = Dx/D, y = Dy/D.",
+      "similar": [
+       {
+        "q": "x + y = 4, x − y = 2?",
+        "a": "x = 3, y = 1"
+       }
+      ],
+      "page": 170,
+      "src": "notes"
+     },
+     {
+      "id": "math12-u4-q15",
+      "type": "mcq",
+      "q": "A is 2 × 3 and B is 3 × 4. The order of AB is",
+      "options": {
+       "A": "2 × 4",
+       "B": "3 × 3",
+       "C": "4 × 2",
+       "D": "AB is not defined"
+      },
+      "answer": "A",
+      "why": [
+       "Inner numbers match (3 = 3), so AB exists; its order is given by the outer numbers: 2 × 4."
+      ],
+      "tip": "Write the formula first, then substitute; check the answer with a quick estimate.",
+      "similar": [
+       {
+        "q": "Is BA defined?",
+        "a": "No: 3 × 4 times 2 × 3, 4 ≠ 2"
+       }
+      ],
+      "page": 164,
+      "src": "notes"
+     },
+     {
+      "id": "math12-u4-q16",
+      "type": "tf",
+      "q": "For all 2 × 2 matrices, AB = BA.",
+      "answer": false,
+      "why": [
+       "Matrix multiplication is not commutative. Example in q11: AB = [[3, 1], [6, 4]] but BA = [[5, 1], [4, 2]]."
+      ],
+      "tip": "Write the formula first, then substitute; check the answer with a quick estimate.",
+      "similar": [
+       {
+        "q": "Does AI = IA always?",
+        "a": "Yes"
+       }
+      ],
+      "page": 166,
+      "src": "notes"
+     },
+     {
+      "id": "math12-u4-q17",
+      "type": "tf",
+      "q": "The transpose of [[1, 2], [3, 4]] is [[1, 3], [2, 4]].",
+      "answer": true,
+      "why": [
+       "The transpose turns rows into columns: row 1 (1, 2) becomes column 1."
+      ],
+      "tip": "Write the formula first, then substitute; check the answer with a quick estimate.",
+      "similar": [
+       {
+        "q": "Transpose of [[0, 5], [0, 0]]?",
+        "a": "[[0, 0], [5, 0]]"
+       }
+      ],
+      "page": 160,
+      "src": "notes"
+     },
+     {
+      "id": "math12-u4-q18",
+      "type": "short",
+      "q": "Evaluate |3 −2; 4 1|.",
+      "answer": "11",
+      "why": [
+       "ad − bc = 3·1 − (−2)(4) = 3 + 8 = 11."
+      ],
+      "tip": "Watch the double negative.",
+      "similar": [
+       {
+        "q": "|2 −1; 1 2|?",
+        "a": "5"
+       }
+      ],
+      "page": 168,
+      "src": "notes"
+     },
+     {
+      "id": "math12-u4-q19",
+      "type": "mcq",
+      "q": "A square matrix whose determinant is 0 is called",
+      "options": {
+       "A": "singular",
+       "B": "identity",
+       "C": "symmetric",
+       "D": "diagonal"
+      },
+      "answer": "A",
+      "why": [
+       "det = 0 means the matrix has no inverse: it is singular. If det ≠ 0 it is non-singular (invertible)."
+      ],
+      "tip": "Write the formula first, then substitute; check the answer with a quick estimate.",
+      "similar": [
+       {
+        "q": "Is I singular?",
+        "a": "No, det I = 1"
+       }
+      ],
+      "page": 169,
+      "src": "notes"
+     },
+     {
+      "id": "math12-u4-q20",
+      "type": "mcq",
+      "q": "If A has order 3 × 2, then its transpose has order",
+      "options": {
+       "A": "2 × 3",
+       "B": "3 × 2",
+       "C": "3 × 3",
+       "D": "2 × 2"
+      },
+      "answer": "A",
+      "why": [
+       "Transposing swaps rows and columns, so 3 × 2 becomes 2 × 3."
+      ],
+      "tip": "Write the formula first, then substitute; check the answer with a quick estimate.",
+      "similar": [
+       {
+        "q": "Transpose of a 1 × 4 row?",
+        "a": "4 × 1 column"
+       }
+      ],
+      "page": 160,
+      "src": "notes"
+     },
+     {
+      "id": "math12-u4-q21",
+      "type": "mcq",
+      "q": "A is 2 × 2 with det A = 5. Then det(3A) =",
+      "options": {
+       "A": "45",
+       "B": "15",
+       "C": "135",
+       "D": "8"
+      },
+      "answer": "A",
+      "why": [
+       "Multiplying a 2 × 2 matrix by 3 multiplies each row by 3, so det(3A) = 3² det A = 9 × 5 = 45."
+      ],
+      "tip": "Write the formula first, then substitute; check the answer with a quick estimate.",
+      "similar": [
+       {
+        "q": "det(2A) if det A = −1?",
+        "a": "−4"
+       }
+      ],
+      "page": 168,
+      "src": "notes"
+     },
+     {
+      "id": "math12-u4-q22",
+      "type": "mcq",
+      "q": "If |x 2; 3 x| = 10, then x =",
+      "options": {
+       "A": "±4",
+       "B": "4 only",
+       "C": "±2",
+       "D": "16"
+      },
+      "answer": "A",
+      "why": [
+       "x² − 6 = 10 → x² = 16 → x = 4 or x = −4."
+      ],
+      "tip": "Write the formula first, then substitute; check the answer with a quick estimate.",
+      "similar": [
+       {
+        "q": "|x 1; 4 x| = 0?",
+        "a": "x = ±2"
+       }
+      ],
+      "page": 168,
+      "src": "notes"
      }
     ]
    },

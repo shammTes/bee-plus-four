@@ -134,12 +134,15 @@
       {
        "id": "math9-u4-c01",
        "type": "text",
-       "title": "4.1 Representing Quadratic Function",
+       "title": "4.1 Representing a quadratic function",
        "page": 82,
-       "src": "textbook p.82",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "This section is on pages 82–84 of the textbook. Read it there, then do the exercises of this unit."
+        "A **quadratic function** has the form $$f(x) = ax^2 + bx + c$$ with a ≠ 0. Examples: f(x) = x², f(x) = 2x² − 3x + 1, the area of a square A(s) = s². Not quadratic: f(x) = 3x + 1 (no x² term) or f(x) = x³.",
+        "Like any function, a quadratic can be shown **in words, by a formula, by a table of values, or by a graph**. Example in words: \"a ball is thrown up; its height after t seconds is 20t − 5t² metres\" → h(t) = −5t² + 20t.",
+        "**Table of values for f(x) = x² − 4 (step by step):** choose x = −3, −2, −1, 0, 1, 2, 3 → f(x) = 5, 0, −3, −4, −3, 0, 5. Notice the values repeat symmetrically around x = 0 — every quadratic table is symmetric about its axis.",
+        "**Identifying a, b and c:** write the function in the order x², x, constant. f(x) = 5 − 2x + 3x² becomes 3x² − 2x + 5, so a = 3, b = −2, c = 5. The constant c is always the y-intercept: f(0) = c.",
+        "**Test from a table:** in a quadratic table (equal steps in x) the second differences are constant. For x² − 4: 5, 0, −3, −4 → differences −5, −3, −1 → second differences 2, 2."
        ]
       },
       {
@@ -266,32 +269,6 @@
        "why": "**Step 1: Understand the leading coefficient property**\nThe sign of the leading coefficient $$a$$ determines the direction of the parabola's opening.\n\n**Step 2: Evaluate direction**\nIf $$a < 0$$ (negative), the y-values decrease as $$|x|$$ grows, causing the parabola to open **downward**.\n\n**Step 3: Final Result**\nIt opens **downward**."
       },
       {
-       "id": "math9-u4-wrkM3",
-       "type": "worked",
-       "title": "Step-by-step",
-       "page": 1,
-       "src": "study_notes",
-       "problem": "Which of the following expressions represents a quadratic expression?",
-       "steps": [
-        {
-         "text": "**Step 1: Understand quadratic expression definition**"
-        },
-        {
-         "text": "A quadratic expression must be a second-degree polynomial, meaning its highest variable exponent is exactly 2, and the leading coefficient cannot be zero."
-        },
-        {
-         "text": "**Step 2: Evaluate options**"
-        },
-        {
-         "text": "*   $$bx + c$$ is first-degree (linear)."
-        },
-        {
-         "text": "*   $$ax^3 + bx^2 + c$$ is third-degree (cubic)."
-        }
-       ],
-       "answer": "$$ax^2 + bx + c \\quad (a \\neq 0)$$"
-      },
-      {
        "id": "math9-u4-chkM3",
        "type": "check",
        "title": "Quick check",
@@ -348,42 +325,6 @@
        "why": "**Step 1: Understand quadratic expression definition**\nA quadratic expression must be a second-degree polynomial, meaning its highest variable exponent is exactly 2, and the leading coefficient cannot be zero.\n\n**Step 2: Evaluate options**\n*   $$bx + c$$ is first-degree (linear).\n*   $$ax^3 + bx^2 + c$$ is third-degree (cubic).\n*   $$\\frac{a}{x^2}$$ is not a polynomial.\n*   $$ax^2 + bx + c \\quad (a \\neq 0)$$ is second-degree.\n\n**Step 3: Final Result**\nThe quadratic expression is **$$ax^2 + bx + c \\quad (a \\neq 0)$$**."
       },
       {
-       "id": "math9-u4-wrk3",
-       "type": "worked",
-       "title": "Step-by-step",
-       "page": 85,
-       "src": "study_notes",
-       "src_qid": "math_g9_c4_q1",
-       "problem": "Which of the following expressions represents a quadratic expression?",
-       "steps": [
-        {
-         "text": "**Step 1: Understand quadratic expression definition**"
-        },
-        {
-         "text": "A quadratic expression must be a second-degree polynomial, meaning its highest variable exponent is exactly 2, and the leading coefficient cannot be zero."
-        },
-        {
-         "text": "**Step 2: Evaluate options**"
-        },
-        {
-         "text": "*   $$bx + c$$ is first-degree (linear)."
-        },
-        {
-         "text": "*   $$ax^3 + bx^2 + c$$ is third-degree (cubic)."
-        },
-        {
-         "text": "*   $$\\frac{a}{x^2}$$ is not a polynomial."
-        },
-        {
-         "text": "**Step 3: Final Result**"
-        },
-        {
-         "text": "The quadratic expression is **$$ax^2 + bx + c \\quad (a \\neq 0)$$**."
-        }
-       ],
-       "answer": "C"
-      },
-      {
        "id": "math9-u4-chk4",
        "type": "check",
        "title": "Quick check",
@@ -428,7 +369,61 @@
          "text": "The vertex is **$$(0, -2)$$**."
         }
        ],
-       "answer": "C"
+       "answer": "$$(0, -2)$$"
+      },
+      {
+       "id": "math9-u4-st2",
+       "type": "text",
+       "title": "Step by step: graphing y = ax² + bx + c",
+       "body": [
+        "Step 1 — **direction:** a > 0 opens up, a < 0 opens down.",
+        "Step 2 — **axis and vertex:** x = −b/(2a); put this x into the function to get the y-coordinate of the vertex.",
+        "Step 3 — **y-intercept:** (0, c).",
+        "Step 4 — **x-intercepts:** solve ax² + bx + c = 0 (if there are real roots).",
+        "Step 5 — plot the points, use symmetry about the axis to get mirror points, and draw a smooth U-shape.",
+        "**Example y = x² − 4x + 3:** opens up; x = 4/2 = 2, y = 4 − 8 + 3 = −1, vertex (2, −1); y-intercept (0, 3), mirror point (4, 3); roots x = 1 and x = 3."
+       ],
+       "page": 85,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u4-pc2",
+       "type": "check",
+       "title": "Practice",
+       "q": "What is the vertex of y = x² + 6x + 5?",
+       "options": {
+        "A": "(−3, −4)",
+        "B": "(3, 32)",
+        "C": "(−3, 4)",
+        "D": "(6, 5)"
+       },
+       "answer": "A",
+       "why": "x = −b/(2a) = −6/2 = −3. y = (−3)² + 6(−3) + 5 = 9 − 18 + 5 = −4. Vertex (−3, −4).",
+       "page": 85,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u4-xw2",
+       "type": "worked",
+       "title": "Worked example: sketch y = x² − 4x + 3",
+       "problem": "Find the direction, vertex, intercepts and axis of y = x² − 4x + 3, then sketch.",
+       "steps": [
+        {
+         "text": "Step 1: a = 1 > 0, so it opens upward."
+        },
+        {
+         "text": "Step 2: axis x = −b/(2a) = 4/2 = 2; vertex y = 4 − 8 + 3 = −1, so the vertex is (2, −1) (minimum)."
+        },
+        {
+         "text": "Step 3: y-intercept (x = 0): 3. x-intercepts: x² − 4x + 3 = (x − 1)(x − 3) = 0 → x = 1 and x = 3."
+        },
+        {
+         "text": "Step 4: plot (1, 0), (3, 0), (0, 3), its mirror image (4, 3) and the vertex (2, −1); join with a smooth U-shaped curve."
+        }
+       ],
+       "answer": "Vertex (2, −1), axis x = 2, x-intercepts 1 and 3, y-intercept 3; range y ≥ −1",
+       "page": 85,
+       "src": "notes"
       }
      ]
     },
@@ -444,12 +439,16 @@
       {
        "id": "math9-u4-c03",
        "type": "text",
-       "title": "4.3 Effects of Parametric Changes of Quadratic Functions",
+       "title": "4.3 Effects of changing a, h and k",
        "page": 88,
-       "src": "textbook p.88",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "This section is on pages 88–91 of the textbook. Read it there, then do the exercises of this unit."
+        "Start from the basic parabola **y = x²** (vertex (0, 0), opens up). Changing one number at a time changes the graph in a predictable way.",
+        "**Changing a in y = ax²:** a > 1 makes the parabola **narrower** (steeper), 0 < a < 1 makes it **wider**, and a negative a turns it **upside down** (opens downward). Example: y = 3x² is narrower than y = x²; y = ½x² is wider; y = −x² opens down.",
+        "**Changing k in y = x² + k:** the whole graph moves **up k units** (k > 0) or **down** (k < 0). y = x² + 3 has vertex (0, 3); y = x² − 2 has vertex (0, −2).",
+        "**Changing h in y = (x − h)²:** the graph moves **right h units** when h > 0 and left when h < 0. Careful: y = (x − 2)² moves RIGHT 2 (vertex (2, 0)); y = (x + 2)² moves LEFT 2 (vertex (−2, 0)).",
+        "**All together — vertex form y = a(x − h)² + k:** vertex (h, k), axis of symmetry x = h, shape and direction from a. Example: y = −2(x − 1)² + 4 has vertex (1, 4), opens downward, is narrower than y = x², and its maximum value is 4.",
+        "**Tip:** \"inside the bracket moves sideways the opposite way; outside moves up and down the same way\"."
        ]
       },
       {
@@ -503,7 +502,7 @@
          "text": "The range is **$$y \\le 8$$**."
         }
        ],
-       "answer": "B"
+       "answer": "$$y \\le 8$$"
       },
       {
        "id": "math9-u4-chk6",
@@ -556,7 +555,34 @@
          "text": "The solution set is **$$\\{0, -1\\}$$**."
         }
        ],
-       "answer": "B"
+       "answer": "$$\\{0, -1\\}$$"
+      },
+      {
+       "id": "math9-u4-pc3",
+       "type": "check",
+       "title": "Practice",
+       "q": "Compared with y = x², the graph of y = (x + 3)² − 1 is moved…",
+       "options": {
+        "A": "3 left and 1 down",
+        "B": "3 right and 1 down",
+        "C": "3 left and 1 up",
+        "D": "3 right and 1 up"
+       },
+       "answer": "A",
+       "why": "Write it as y = (x − (−3))² + (−1): h = −3 (3 units **left**) and k = −1 (1 unit **down**). The vertex is (−3, −1).",
+       "page": 88,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u4-mn3",
+       "type": "mnemonic",
+       "title": "\"Inside: opposite. Outside: same.\"",
+       "body": [
+        "Inside the bracket, (x − h) moves the graph sideways the **opposite** way to the sign you see: (x − 2)² → right 2.",
+        "Outside, + k moves it up/down the **same** way: + 3 → up 3. A minus in front of the whole thing flips it."
+       ],
+       "page": 88,
+       "src": "notes"
       }
      ]
     },
@@ -661,7 +687,7 @@
          "text": "The solution set is **$$\\{-4, 4\\}$$**."
         }
        ],
-       "answer": "C"
+       "answer": "$$\\{-4, 4\\}$$"
       },
       {
        "id": "math9-u4-chk8",
@@ -717,7 +743,43 @@
          "text": "The solution set is **$$\\{-2, -3\\}$$**."
         }
        ],
-       "answer": "B"
+       "answer": "$$\\{-2, -3\\}$$"
+      },
+      {
+       "id": "math9-u4-pc4",
+       "type": "check",
+       "title": "Practice",
+       "q": "How many real roots does 2x² − 4x + 5 = 0 have?",
+       "options": {
+        "A": "None",
+        "B": "One",
+        "C": "Two",
+        "D": "Infinitely many"
+       },
+       "answer": "A",
+       "why": "Discriminant D = b² − 4ac = (−4)² − 4(2)(5) = 16 − 40 = −24 < 0, so there are no real roots (the parabola stays above the x-axis).",
+       "page": 92,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u4-xw4",
+       "type": "worked",
+       "title": "Worked example: the quadratic formula",
+       "problem": "Solve 2x² − 3x − 4 = 0 (give answers to 2 decimal places).",
+       "steps": [
+        {
+         "text": "Step 1: a = 2, b = −3, c = −4. Discriminant Δ = b² − 4ac = 9 + 32 = 41 > 0, so there are two real roots."
+        },
+        {
+         "text": "Step 2: x = (3 ± √41)/4."
+        },
+        {
+         "text": "Step 3: √41 ≈ 6.403, so x ≈ (3 + 6.403)/4 ≈ 2.35 or x ≈ (3 − 6.403)/4 ≈ −0.85."
+        }
+       ],
+       "answer": "x ≈ 2.35 or x ≈ −0.85",
+       "page": 92,
+       "src": "notes"
       }
      ]
     }
@@ -813,72 +875,6 @@
      "src": "notes",
      "id": "math9-u4-g2",
      "lesson": null
-    },
-    {
-     "type": "match",
-     "title": "Match key terms",
-     "pairs": [
-      {
-       "a": "vertex",
-       "b": "(or turning point), which represents either the lowest point (minimum) or the highest point (maximum) on the graph"
-      },
-      {
-       "a": "Degree of Polynomial",
-       "b": "| 1 (First-degree) | 2 (Second-degree) | | **Graphical Shape** | Straight line | Parabola (U-shaped curve) | | **Rate of"
-      },
-      {
-       "a": "Graphical Shape",
-       "b": "| Straight line | Parabola (U-shaped curve) | | **Rate of Change** | Constant | Variable | | **Minimum / Maximum** | Non"
-      },
-      {
-       "a": "Rate of Change",
-       "b": "| Constant | Variable | | **Minimum / Maximum** | None (extends infinitely) | Exactly one vertex (turning point) | | **R"
-      },
-      {
-       "a": "Minimum / Maximum",
-       "b": "| None (extends infinitely) | Exactly one vertex (turning point) | | **Required Points to Graph**| Exactly 2 points are "
-      },
-      {
-       "a": "Required Points to Graph",
-       "b": "| Exactly 2 points are sufficient | Multiple points (typically 5 or more) | > **💡 Did You Know?**: Galileo Galilei (1564"
-      }
-     ],
-     "src": "study_notes",
-     "id": "math9-u4-g-drive",
-     "lesson": null
-    },
-    {
-     "type": "match",
-     "title": "Match key terms",
-     "pairs": [
-      {
-       "a": "vertex",
-       "b": "(or turning point), which represents either the lowest point (minimum) or the highest point (maximum) on the graph"
-      },
-      {
-       "a": "Degree of Polynomial",
-       "b": "| 1 (First-degree) | 2 (Second-degree) | | **Graphical Shape** | Straight line | Parabola (U-shaped curve) | | **Rate of"
-      },
-      {
-       "a": "Graphical Shape",
-       "b": "| Straight line | Parabola (U-shaped curve) | | **Rate of Change** | Constant | Variable | | **Minimum / Maximum** | Non"
-      },
-      {
-       "a": "Rate of Change",
-       "b": "| Constant | Variable | | **Minimum / Maximum** | None (extends infinitely) | Exactly one vertex (turning point) | | **R"
-      },
-      {
-       "a": "Minimum / Maximum",
-       "b": "| None (extends infinitely) | Exactly one vertex (turning point) | | **Required Points to Graph**| Exactly 2 points are "
-      },
-      {
-       "a": "Required Points to Graph",
-       "b": "| Exactly 2 points are sufficient | Multiple points (typically 5 or more) | > **💡 Did You Know?**: Galileo Galilei (1564"
-      }
-     ],
-     "src": "study_notes",
-     "id": "math9-u4-g-drive3",
-     "lesson": null
     }
    ],
    "exercise": {
@@ -965,12 +961,12 @@
       "q": "Factor x²−4x+3=0.",
       "answer": "(x−1)(x−3)=0. x=1 or 3.",
       "why": [
-       "Textbook p.94: Fatima says the common factor of 4x2 and –6x is 2."
+       "Find two numbers with product +3 and sum −4: −1 and −3. So x² − 4x + 3 = (x − 1)(x − 3) = 0, and a product is 0 only if a factor is 0: x = 1 or x = 3."
       ],
       "src": "notes",
       "label": "5. Factor x²−4x+3=0.",
       "page": 95,
-      "why_src": "textbook p.94",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1080,12 +1076,12 @@
       "q": "Complete square x²+6x+5=0.",
       "answer": "x²+6x=−5, +9: (x+3)²=4, x+3=±2, x=−1 or −5.",
       "why": [
-       "Textbook p.100: Solve the following using the completing square method."
+       "Move the constant: x² + 6x = −5. Add (6/2)² = 9 to both sides: (x + 3)² = 4. Square root: x + 3 = ±2, so x = −1 or x = −5."
       ],
       "src": "notes",
       "label": "11. Complete square x²+6x+5=0.",
       "page": 83,
-      "why_src": "textbook p.100",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1177,12 +1173,12 @@
       "q": "Product of roots (monic)?",
       "answer": "c/a. Sum=−b/a.",
       "why": [
-       "Textbook p.97: The sum of the squares of 2 positive consecutive integers is 25."
+       "For ax² + bx + c = 0 with roots r₁ and r₂: r₁ + r₂ = −b/a and r₁·r₂ = c/a. Example: x² − 5x + 6 = 0 has roots 2 and 3; sum 5 = −(−5)/1, product 6 = 6/1."
       ],
       "src": "notes",
       "label": "16. Product of roots (monic)?",
       "page": 97,
-      "why_src": "textbook p.97",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1311,12 +1307,12 @@
       "q": "Check by expanding.",
       "answer": "Always — factor errors are common.",
       "why": [
-       "Textbook p.94: Fatima says the common factor of 4x2 and –6x is 2."
+       "Multiply the factors back out; if you get the original quadratic, the factorisation is right. Example: (x − 1)(x − 3) = x² − 3x − x + 3 = x² − 4x + 3 ✔."
       ],
       "src": "notes",
       "label": "23. Check by expanding.",
       "page": 95,
-      "why_src": "textbook p.94",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1331,12 +1327,12 @@
       "q": "a=0 would mean?",
       "answer": "Not quadratic — linear.",
       "why": [
-       "Textbook p.86: Kedija: It is not possible to draw the graph of y = x2 using only 2 points only, because it is not linear."
+       "If a = 0 the x² term disappears and ax² + bx + c = 0 becomes bx + c = 0, a linear equation with at most one root. That is why a quadratic needs a ≠ 0."
       ],
       "src": "notes",
       "label": "24. a=0 would mean?",
       "page": 85,
-      "why_src": "textbook p.86",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1389,12 +1385,12 @@
       "q": "Expand that to standard.",
       "answer": "2x²+8x−x−4=2x²+7x−4.",
       "why": [
-       "Textbook p.94: Expand each expression by removing parenthesis."
+       "Multiply each term of the first bracket by each term of the second (FOIL) and collect like terms: 8x − x = 7x, giving 2x² + 7x − 4."
       ],
       "src": "notes",
       "label": "27. Expand that to standard.",
       "page": 94,
-      "why_src": "textbook p.94",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1409,12 +1405,12 @@
       "q": "Δ for 2x²+7x−4.",
       "answer": "49+32=81. Nice square.",
       "why": [
-       "Textbook p.100: Solve the following using the completing square method."
+       "Δ = b² − 4ac = 7² − 4(2)(−4) = 49 + 32 = 81. Δ > 0 gives two real roots, and because 81 is a perfect square the roots are rational: x = (−7 ± 9)/4 = 1/2 or −4."
       ],
       "src": "notes",
       "label": "28. Δ for 2x²+7x−4.",
       "page": 83,
-      "why_src": "textbook p.100",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {

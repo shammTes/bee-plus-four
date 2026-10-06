@@ -101,7 +101,7 @@
     166
    ],
    "tone": "blue",
-   "intro": "Exponential: f(x)=a^x, a>0, a not 1. Log is the inverse: y=log_a x means a^y=x. Deepen Exponential and Logarithmic Functions with definitions, worked examples, and exam tips in the cards below.",
+   "intro": "Exponential: f(x)=a^x, a>0, a≠1. Always positive. a>1 grows; 0<a<1 decays. y-intercept 1.\n\nLog is the inverse: y=logₐx means a^y=x. Domain x>0. logₐ1=0, logₐa=1.",
    "intro_page": 142,
    "lessons": [
     {
@@ -120,7 +120,11 @@
        "page": 142,
        "src": "notes",
        "body": [
-        "An exponential function is f(x)=b^x with b>0 and b not 1. If b>1 it grows. If 0<b<1 it decays. The graph passes through (0,1)."
+        "An **exponential function** is f(x) = bˣ with base b > 0, b ≠ 1. The variable is in the exponent. Example: f(x) = 2ˣ gives 1/4, 1/2, 1, 2, 4, 8 for x = −2, −1, 0, 1, 2, 3.",
+        "**Graph facts:** domain all real numbers; range y > 0; y-intercept (0, 1); the x-axis (y = 0) is a horizontal asymptote. b > 1 → growth (increasing); 0 < b < 1 → decay (decreasing). y = (½)ˣ is the reflection of y = 2ˣ in the y-axis.",
+        "**Laws of exponents:** aᵐ·aⁿ = aᵐ⁺ⁿ; aᵐ ÷ aⁿ = aᵐ⁻ⁿ; (aᵐ)ⁿ = aᵐⁿ; a⁰ = 1; a⁻ⁿ = 1/aⁿ; a^(m/n) = ⁿ√(aᵐ).",
+        "**Solving exponential equations — same base method:** write both sides as powers of the same base and equate the exponents. Example: 32^(x+1) = 128 → 2^(5x+5) = 2⁷ → 5x + 5 = 7 → x = 2/5. If the bases cannot be matched, take logs of both sides: 3ˣ = 20 → x = log 20 / log 3 ≈ 2.73.",
+        "Logarithm laws used with exponentials: log(MN) = log M + log N; log(M/N) = log M − log N; log(Mᵏ) = k log M."
        ]
       },
       {
@@ -130,56 +134,137 @@
        "page": 142,
        "src": "notes",
        "body": [
-        "log_a b = log b / log a. Use the same base on top and bottom."
+        "logₐb = log b / log a (any legal base). On a calculator use ln or log₁₀ on both."
        ]
       },
       {
        "id": "math11-u4-c03",
        "type": "worked",
-       "title": "Worked example",
+       "title": "Worked — solve",
        "page": 142,
        "src": "notes",
-       "problem": "Solve 2^x=32 and log_2(x-1)=3.",
+       "problem": "2^x=32. And log₂(x−1)=3.",
        "steps": [
         {
-         "text": "32=2^5, so x=5."
+         "text": "32=2⁵ so x=5. (Same bases, equate exponents.)"
         },
         {
-         "text": "log_2(x-1)=3 means x-1=8, so x=9. Check that x-1 is positive."
+         "text": "log₂(x−1)=3 → x−1=2³=8 → x=9. Check: 9−1=8>0, legal."
+        },
+        {
+         "text": "If you had x−1 negative, dump the root."
         }
        ],
-       "answer": "x=5 and x=9"
+       "answer": "If you had x−1 negative, dump the root.",
+       "mode": "show",
+       "reveal": "Steps"
       },
       {
-       "type": "text",
-       "title": "Exponential & log",
+       "id": "math11-u4-tblE1",
+       "type": "table",
+       "title": "Key table",
        "page": 1,
-       "body": [
-        "aˣ grows/decays; log_a is inverse. log_a(xy)=log_a x+log_a y; log_a(x/y)=log_a x−log_a y; log_a(xⁿ)=n log_a x.",
-        "Change of base: log_a x = ln x / ln a."
+       "src": "study_notes",
+       "head": [
+        "Function Type",
+        "Base Condition",
+        "Graphical Behavior",
+        "Horizontal Asymptote"
        ],
-       "id": "math11-u4-deep1"
-      },
-      {
-       "type": "text",
-       "title": "Growth & decay models",
-       "body": [
-        "A=A₀e^(kt) or A₀(1+r)^t. k>0 growth, k<0 decay.",
-        "Half-life: amount halves when exponent hits ln(1/2)."
-       ],
-       "id": "math11-u4-xtra1",
-       "page": 1
-      },
-      {
-       "id": "math11-u4-checklist",
-       "type": "text",
-       "title": "Exponential and Logarithmic Functions: checklist before exam",
-       "page": 1,
-       "body": [
-        "Can you define every bold term in **Exponential and Logarithmic Functions** without looking?",
-        "Can you redo each worked example with the answer covered?",
-        "Can you sketch one diagram/graph/map and label it in under 2 minutes?"
+       "rows": [
+        [
+         "**Exponential Growth**",
+         "$$a > 1$$",
+         "Curves upward from left to right",
+         "$$y = 0$$ (as $$x \\to -\\infty$$)"
+        ],
+        [
+         "**Exponential Decay**",
+         "$$0 < a < 1$$",
+         "Curves downward from left to right",
+         "$$y = 0$$ (as $$x \\to \\infty$$)"
+        ],
+        [
+         "**Vertically Shifted**",
+         "$$a > 1, k \\neq 0$$",
+         "Curves upward, shifted vertically",
+         "$$y = k$$ (as $$x \\to -\\infty$$)"
+        ]
        ]
+      },
+      {
+       "id": "math11-u4-wrkE2",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "Simplify the exponential expression: $$(3^2)^3 \\times 9^2 \\div 3^3$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Express all terms with a base of 3**"
+        },
+        {
+         "text": "$$(3^2)^3 = 3^{2 \\times 3} = 3^6$$"
+        },
+        {
+         "text": "$$9^2 = (3^2)^2 = 3^4$$"
+        },
+        {
+         "text": "$$3^3 = 3^3$$"
+        },
+        {
+         "text": "**Step 2: Apply laws of exponents**"
+        }
+       ],
+       "answer": "$$3^7$$"
+      },
+      {
+       "id": "math11-u4-chkE1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Solve the exponential equation: $$32^{x+1} = 128$$.",
+       "options": {
+        "A": "$$x = 2/5$$",
+        "B": "$$x = 1/5$$",
+        "C": "$$x = -2/5$$",
+        "D": "$$x = 7/5$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Express both sides with a base of 2**\n$$32 = 2^5 \\implies 32^{x+1} = (2^5)^{x+1} = 2^{5x + 5}$$\n$$128 = 2^7$$\n\n**Step 2: Equate the exponents**\nSince the bases match, we can set the exponents equal:\n$$5x + 5 = 7$$\n\n**Step 3: Solve the linear equation**\n$$5x = 2 \\implies x = \\frac{2}{5} = 0.4$$\n\n**Step 4: Verify the solution**\n$$32^{0.4 + 1} = 32^{1.4} = (2^5)^{1.4} = 2^7 = 128$$. The solution is valid.\n**Result:** **$$x = 2/5$$**."
+      },
+      {
+       "id": "math11-u4-chkE2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Find the exact numerical value of the expression: $$\\log_2\\left(4 \\times \\sqrt[5]{4}\\right) - \\log_2\\left(8^{\\frac{1}{3}}\\right)$$.",
+       "options": {
+        "A": "$$7/5$$",
+        "B": "$$12/5$$",
+        "C": "$$12/5 - 1$$",
+        "D": "$$2/5$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Simplify the first logarithmic term**\n$$\\text{Term 1} = \\log_2\\left(4 \\times \\sqrt[5]{4}\\right)$$\n$$4 \\times \\sqrt[5]{4} = 2^2 \\times (2^2)^{1/5} = 2^2 \\times 2^{2/5} = 2^{2 + \\frac{2}{5}} = 2^{12/5}$$\n$$\\log_2\\left(2^{12/5}\\right) = \\frac{12}{5}$$\n\n**Step 2: Simplify the second logarithmic term**\n$$\\text{Term 2} = \\log_2\\left(8^{1/3}\\right)$$\n$$8^{1/3} = (2^3)^{1/3} = 2^1 = 2$$\n$$\\log_2(2) = 1$$\n\n**Step 3: Subtract the terms**\n$$\\text{Value} = \\frac{12}{5} - 1 = \\frac{12 - 5}{5} = \\frac{7}{5}$$\n**Result:** **$$7/5$$**."
+      },
+      {
+       "id": "math11-u4-chk73",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Simplify the exponential expression: $$(3^2)^3 \\times 9^2 \\div 3^3$$.",
+       "options": {
+        "A": "$$3^7$$",
+        "B": "$$3^5$$",
+        "C": "$$3^8$$",
+        "D": "$$3^9$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Express all terms with a base of 3**\n$$(3^2)^3 = 3^{2 \\times 3} = 3^6$$\n$$9^2 = (3^2)^2 = 3^4$$\n$$3^3 = 3^3$$\n\n**Step 2: Apply laws of exponents**\n$$\\text{Expression} = 3^6 \\times 3^4 \\div 3^3$$\n$$\\text{Expression} = 3^{6 + 4 - 3} = 3^7$$\n\n**Step 3: State final result**\nThe simplified expression is $$3^7$$.\n**Result:** **$$3^7$$**."
       }
      ]
     },
@@ -192,6 +277,133 @@
       159
      ],
      "cards": [
+      {
+       "id": "math11-u4-c04",
+       "type": "text",
+       "title": "4.2 The logarithmic function",
+       "page": 152,
+       "src": "notes",
+       "body": [
+        "**Definition:** for b > 0, b ≠ 1 and x > 0, $$\\log_b x = y \\iff b^y = x$$. A logarithm is an **exponent**: log₂ 8 = 3 because 2³ = 8. log₁₀ x is written log x (common log); logₑ x is written ln x (natural log).",
+        "The logarithmic function f(x) = log_b x is the **inverse** of the exponential function g(x) = bˣ. So its graph is the reflection of y = bˣ in the line y = x: **domain x > 0, range all real numbers**, x-intercept (1, 0), and the y-axis is a vertical asymptote. For b > 1 it increases; for 0 < b < 1 it decreases.",
+        "**Converting forms (step by step):** log₃ 81 = 4 ⇔ 3⁴ = 81; 5² = 25 ⇔ log₅ 25 = 2. To evaluate log₃ 9, ask \"3 to what power gives 9?\" → 2.",
+        "**Laws of logarithms** (M, N > 0): log_b(MN) = log_b M + log_b N; log_b(M/N) = log_b M − log_b N; log_b(Mᵏ) = k log_b M; log_b b = 1; log_b 1 = 0; change of base: log_b M = log M / log b.",
+        "**Domain of a transformed log:** the expression inside must be positive. f(x) = log₃(x − 4) needs x − 4 > 0, so the domain is x > 4 and the vertical asymptote is x = 4.",
+        "**Solving log equations:** write in exponential form, then check that the answer keeps every log argument positive. Example: log₂(x − 1) = 3 → x − 1 = 2³ = 8 → x = 9 (check: log₂ 8 = 3 ✔)."
+       ]
+      },
+      {
+       "id": "math11-u4-chk74",
+       "type": "check",
+       "title": "Quick check",
+       "page": 152,
+       "src": "study_notes",
+       "src_qid": "math_g11_c4_q4",
+       "q": "What is the domain of the logarithmic function $$f(x) = \\log_3(x - 4)$$?",
+       "options": {
+        "A": "$$(4, \\infty)$$",
+        "B": "$$[4, \\infty)$$",
+        "C": "$$(-\\infty, 4)$$",
+        "D": "$$\\text{all real } x \\neq 4$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Set up the domain inequality**\nThe argument of a logarithmic function must be strictly positive:\n$$x - 4 > 0$$\n\n**Step 2: Solve the inequality**\nAdd $$4$$ to both sides:\n$$x > 4$$\n\n**Step 3: State in interval notation**\nThis corresponds to the open interval $$(4, \\infty)$$.\n**Result:** **$$(4, \\infty)$$**."
+      },
+      {
+       "id": "math11-u4-wrk1",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 152,
+       "src": "study_notes",
+       "src_qid": "math_g11_c4_q4",
+       "problem": "What is the domain of the logarithmic function $$f(x) = \\log_3(x - 4)$$?",
+       "steps": [
+        {
+         "text": "**Step 1: Set up the domain inequality**"
+        },
+        {
+         "text": "The argument of a logarithmic function must be strictly positive:"
+        },
+        {
+         "text": "$$x - 4 > 0$$"
+        },
+        {
+         "text": "**Step 2: Solve the inequality**"
+        },
+        {
+         "text": "Add $$4$$ to both sides:"
+        },
+        {
+         "text": "$$x > 4$$"
+        },
+        {
+         "text": "**Step 3: State in interval notation**"
+        },
+        {
+         "text": "This corresponds to the open interval $$(4, \\infty)$$."
+        },
+        {
+         "text": "**Result:** **$$(4, \\infty)$$**."
+        }
+       ],
+       "answer": "$$(4, \\infty)$$"
+      },
+      {
+       "id": "math11-u4-chk75",
+       "type": "check",
+       "title": "Quick check",
+       "page": 152,
+       "src": "study_notes",
+       "src_qid": "math_g11_c4_q5",
+       "q": "Evaluate the logarithm: $$\\log_3 9$$.",
+       "options": {
+        "A": "$$2$$",
+        "B": "$$3$$",
+        "C": "$$1/2$$",
+        "D": "$$1/3$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Write in exponential form**\nLet $$y = \\log_3 9$$. This is equivalent to:\n$$3^y = 9$$\n\n**Step 2: Solve for $$y$$**\nSince $$9 = 3^2$$:\n$$3^y = 3^2 \\implies y = 2$$\n\n**Step 3: Final Result**\n$$\\log_3 9 = 2$$\n**Result:** **$$2$$**."
+      },
+      {
+       "id": "math11-u4-wrk2",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 152,
+       "src": "study_notes",
+       "src_qid": "math_g11_c4_q5",
+       "problem": "Evaluate the logarithm: $$\\log_3 9$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Write in exponential form**"
+        },
+        {
+         "text": "Let $$y = \\log_3 9$$. This is equivalent to:"
+        },
+        {
+         "text": "$$3^y = 9$$"
+        },
+        {
+         "text": "**Step 2: Solve for $$y$$**"
+        },
+        {
+         "text": "Since $$9 = 3^2$$:"
+        },
+        {
+         "text": "$$3^y = 3^2 \\implies y = 2$$"
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "$$\\log_3 9 = 2$$"
+        },
+        {
+         "text": "**Result:** **$$2$$**."
+        }
+       ],
+       "answer": "$$2$$"
+      },
       {
        "id": "math11-u4-c08",
        "type": "text",
@@ -233,55 +445,6 @@
       },
       {
        "type": "worked",
-       "title": "Solve exponential",
-       "page": 1,
-       "problem": "2ˣ=32.",
-       "steps": [
-        {
-         "text": "3"
-        },
-        {
-         "text": "2"
-        },
-        {
-         "text": "="
-        },
-        {
-         "text": "2"
-        },
-        {
-         "text": "⁵"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "="
-        },
-        {
-         "text": "5"
-        },
-        {
-         "text": "."
-        }
-       ],
-       "answer": "x=5.",
-       "id": "math11-u4-deep2"
-      },
-      {
-       "type": "worked",
        "title": "Worked: change of base",
        "problem": "Evaluate log₂ 8.",
        "steps": [
@@ -291,18 +454,35 @@
        ],
        "answer": "3",
        "id": "math11-u4-xtra2",
-       "page": 1
+       "page": 1,
+       "src": "notes"
       },
       {
-       "id": "math11-u4-misconception",
-       "type": "text",
-       "title": "Common mix-ups in Exponential and Logarithmic Functions",
-       "page": 1,
+       "id": "math11-u4-pc2",
+       "type": "check",
+       "title": "Practice",
+       "q": "Solve $$\\log_3(2x + 1) = 2$$.",
+       "options": {
+        "A": "x = 4",
+        "B": "x = 2.5",
+        "C": "x = 3",
+        "D": "x = 1"
+       },
+       "answer": "A",
+       "why": "**Exponential form:** 2x + 1 = 3² = 9, so 2x = 8 and x = 4.\n**Check:** the argument 2(4) + 1 = 9 > 0 and log₃ 9 = 2 ✔.",
+       "page": 152,
+       "src": "notes"
+      },
+      {
+       "id": "math11-u4-mn2",
+       "type": "mnemonic",
+       "title": "Log = exponent: \"the base goes to the other side\"",
        "body": [
-        "Write one idea students often confuse with this topic, then the correct distinction.",
-        "Example pattern: “Looks like X, but actually Y because …”",
-        "Teaching the difference is better than re-reading the page."
-       ]
+        "log_b x = y ⇔ b^y = x. Read it as a loop: **base b, raised to the answer y, gives x.**",
+        "Logs of products **add**, quotients **subtract**, powers come **down in front**."
+       ],
+       "page": 152,
+       "src": "notes"
       }
      ]
     },
@@ -315,6 +495,127 @@
       166
      ],
      "cards": [
+      {
+       "id": "math11-u4-c05",
+       "type": "text",
+       "title": "4.3 Applications of exponential and logarithmic functions",
+       "page": 160,
+       "src": "notes",
+       "body": [
+        "**Growth and decay model:** A = A₀(1 + r)ᵗ for growth at rate r per period, and A = A₀(1 − r)ᵗ for decay. A₀ is the starting amount and t the number of periods.",
+        "**Compound interest:** A = P(1 + r/n)ⁿᵗ where n is the number of compounding periods per year. Example: 1000 Nakfa at 10% per year compounded yearly for 2 years: A = 1000 × 1.1² = 1210 Nakfa.",
+        "**Population growth:** a town of 20 000 grows by 3% a year. After 5 years: 20 000 × 1.03⁵ ≈ 23 185 people.",
+        "**Half-life (radioactive decay):** the amount halves every half-life T: A = A₀(½)^(t/T). Example: 80 g with half-life 5 years, after 15 years: 80 × (½)³ = 10 g.",
+        "**Using logs to find the time:** when is 1000 Nakfa at 10% doubled? 1000 × 1.1ᵗ = 2000 → 1.1ᵗ = 2 → t = log 2 / log 1.1 ≈ 0.301/0.0414 ≈ 7.3 years.",
+        "**Logarithmic scales:** pH = −log[H⁺] (a solution with [H⁺] = 10⁻³ has pH 3); the Richter scale for earthquakes and the decibel scale for sound are also logarithmic — an increase of 1 on the Richter scale means 10 times the amplitude."
+       ]
+      },
+      {
+       "id": "math11-u4-chk76",
+       "type": "check",
+       "title": "Quick check",
+       "page": 160,
+       "src": "study_notes",
+       "src_qid": "math_g11_c4_q6",
+       "q": "Solve the exponential equation: $$2^{x^2 + 5x} = 4^{-3}$$.",
+       "options": {
+        "A": "$$x = -2$$ or $$x = -3$$",
+        "B": "$$x = 2$$ or $$x = 3$$",
+        "C": "$$x = -1$$ or $$x = -6$$",
+        "D": "No real solution"
+       },
+       "answer": "A",
+       "why": "**Step 1: Express both sides with a base of 2**\n$$4^{-3} = (2^2)^{-3} = 2^{-6}$$\nSo, the equation becomes:\n$$2^{x^2 + 5x} = 2^{-6}$$\n\n**Step 2: Equate the exponents**\n$$x^2 + 5x = -6$$\n\n**Step 3: Solve the quadratic equation**\n$$x^2 + 5x + 6 = 0$$\n$$(x + 2)(x + 3) = 0 \\implies x = -2 \\text{ or } x = -3$$\nBoth are valid real numbers.\n**Result:** **$$x = -2$$ or $$x = -3$$**."
+      },
+      {
+       "id": "math11-u4-wrk3",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 160,
+       "src": "study_notes",
+       "src_qid": "math_g11_c4_q6",
+       "problem": "Solve the exponential equation: $$2^{x^2 + 5x} = 4^{-3}$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Express both sides with a base of 2**"
+        },
+        {
+         "text": "$$4^{-3} = (2^2)^{-3} = 2^{-6}$$"
+        },
+        {
+         "text": "So, the equation becomes:"
+        },
+        {
+         "text": "$$2^{x^2 + 5x} = 2^{-6}$$"
+        },
+        {
+         "text": "**Step 2: Equate the exponents**"
+        },
+        {
+         "text": "$$x^2 + 5x = -6$$"
+        },
+        {
+         "text": "**Step 3: Solve the quadratic equation**"
+        },
+        {
+         "text": "$$x^2 + 5x + 6 = 0$$"
+        },
+        {
+         "text": "$$(x + 2)(x + 3) = 0 \\implies x = -2 \\text{ or } x = -3$$"
+        },
+        {
+         "text": "Both are valid real numbers."
+        }
+       ],
+       "answer": "$$x = -2$$ or $$x = -3$$"
+      },
+      {
+       "id": "math11-u4-chk77",
+       "type": "check",
+       "title": "Quick check",
+       "page": 160,
+       "src": "study_notes",
+       "src_qid": "math_g11_c4_q7",
+       "q": "Convert the logarithmic equation to its equivalent exponential form: $$\\log_2 16 = 4$$.",
+       "options": {
+        "A": "$$2^4 = 16$$",
+        "B": "$$4^2 = 16$$",
+        "C": "$$16^{1/2} = 4$$",
+        "D": "$$2^{16} = 4$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Apply the logarithmic definition**\nThe relationship is defined by $$\\log_a(x) = y \\iff a^y = x$$.\nHere, $$a = 2$$, $$x = 16$$, and $$y = 4$$.\n\n**Step 2: Rewrite in exponential form**\n$$2^4 = 16$$\n**Result:** **$$2^4 = 16$$**."
+      },
+      {
+       "id": "math11-u4-wrk4",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 160,
+       "src": "study_notes",
+       "src_qid": "math_g11_c4_q7",
+       "problem": "Convert the logarithmic equation to its equivalent exponential form: $$\\log_2 16 = 4$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Apply the logarithmic definition**"
+        },
+        {
+         "text": "The relationship is defined by $$\\log_a(x) = y \\iff a^y = x$$."
+        },
+        {
+         "text": "Here, $$a = 2$$, $$x = 16$$, and $$y = 4$$."
+        },
+        {
+         "text": "**Step 2: Rewrite in exponential form**"
+        },
+        {
+         "text": "$$2^4 = 16$$"
+        },
+        {
+         "text": "**Result:** **$$2^4 = 16$$**."
+        }
+       ],
+       "answer": "$$2^4 = 16$$"
+      },
       {
        "id": "math11-u4-c10",
        "type": "worked",
@@ -385,50 +686,689 @@
        ]
       },
       {
-       "type": "worked",
-       "title": "Solve log",
-       "page": 1,
-       "problem": "log₁₀(x)=2.",
-       "steps": [
-        {
-         "text": "x"
-        },
-        {
-         "text": "="
-        },
-        {
-         "text": "1"
-        },
-        {
-         "text": "0"
-        },
-        {
-         "text": "²"
-        },
-        {
-         "text": "="
-        },
-        {
-         "text": "1"
-        },
-        {
-         "text": "0"
-        },
-        {
-         "text": "0"
-        },
-        {
-         "text": "."
-        }
-       ],
-       "answer": "x=100 (and x>0).",
-       "id": "math11-u4-deep3"
+       "id": "math11-u4-pc3",
+       "type": "check",
+       "title": "Practice",
+       "q": "A sample of 64 g of a radioactive substance has a half-life of 3 days. How much remains after 12 days?",
+       "options": {
+        "A": "4 g",
+        "B": "8 g",
+        "C": "16 g",
+        "D": "2 g"
+       },
+       "answer": "A",
+       "why": "**Number of half-lives:** 12 ÷ 3 = 4.\n**Halve four times:** 64 → 32 → 16 → 8 → 4 g. (Formula: 64 × (½)⁴ = 4.)",
+       "page": 160,
+       "src": "notes"
       }
      ]
     }
    ],
+   "glossary": [],
+   "tips": [
+    {
+     "text": "Read 4.1 Exponential Functions again and say its main idea in one sentence.",
+     "page": 142
+    }
+   ],
+   "games": [
+    {
+     "type": "match",
+     "title": "Match each answer to its question",
+     "pairs": [
+      {
+       "a": "3.",
+       "b": "log2 8"
+      },
+      {
+       "a": "0.",
+       "b": "log5 1"
+      },
+      {
+       "a": "1.",
+       "b": "log3 3"
+      },
+      {
+       "a": "5.",
+       "b": "log_a a^5"
+      },
+      {
+       "a": "-3.",
+       "b": "log2 (1/8)"
+      },
+      {
+       "a": "x=0.",
+       "b": "5^x=1"
+      }
+     ],
+     "src": "notes",
+     "id": "math11-u4-g1",
+     "lesson": null
+    },
+    {
+     "type": "flash",
+     "title": "Quick recall",
+     "cards": [
+      {
+       "front": "2^x=8",
+       "back": "2^x=2^3 so x=3."
+      },
+      {
+       "front": "3^x=81",
+       "back": "3^4=81, x=4."
+      },
+      {
+       "front": "5^x=1",
+       "back": "x=0."
+      },
+      {
+       "front": "10^x=0.01",
+       "back": "10^{-2}=0.01, x=-2."
+      },
+      {
+       "front": "2^{x+1}=16",
+       "back": "2^{x+1}=2^4, x+1=4, x=3."
+      },
+      {
+       "front": "log2 8",
+       "back": "3."
+      },
+      {
+       "front": "log10 1000",
+       "back": "3."
+      },
+      {
+       "front": "log5 1",
+       "back": "0."
+      },
+      {
+       "front": "log3 3",
+       "back": "1."
+      },
+      {
+       "front": "log2 (1/8)",
+       "back": "-3."
+      }
+     ],
+     "src": "notes",
+     "id": "math11-u4-g2",
+     "lesson": null
+    }
+   ],
    "exercise": {
     "questions": [
+     {
+      "type": "short",
+      "q": "2^x=8",
+      "answer": "2^x=2^3 so x=3.",
+      "why": [
+       "2^x=2^3 so x=3."
+      ],
+      "src": "notes",
+      "label": "1. 2^x=8",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "3^x=81",
+        "a": "3^4=81, x=4."
+       }
+      ],
+      "id": "math11-u4-q01"
+     },
+     {
+      "type": "short",
+      "q": "3^x=81",
+      "answer": "3^4=81, x=4.",
+      "why": [
+       "3^4=81, x=4."
+      ],
+      "src": "notes",
+      "label": "2. 3^x=81",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "5^x=1",
+        "a": "x=0."
+       }
+      ],
+      "id": "math11-u4-q02"
+     },
+     {
+      "type": "short",
+      "q": "5^x=1",
+      "answer": "x=0.",
+      "why": [
+       "x=0."
+      ],
+      "src": "notes",
+      "label": "3. 5^x=1",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "10^x=0.01",
+        "a": "10^{-2}=0.01, x=-2."
+       }
+      ],
+      "id": "math11-u4-q03"
+     },
+     {
+      "type": "short",
+      "q": "10^x=0.01",
+      "answer": "10^{-2}=0.01, x=-2.",
+      "why": [
+       "10^{-2}=0.01, x=-2."
+      ],
+      "src": "notes",
+      "label": "4. 10^x=0.01",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "2^{x+1}=16",
+        "a": "2^{x+1}=2^4, x+1=4, x=3."
+       }
+      ],
+      "id": "math11-u4-q04"
+     },
+     {
+      "type": "short",
+      "q": "2^{x+1}=16",
+      "answer": "2^{x+1}=2^4, x+1=4, x=3.",
+      "why": [
+       "2^{x+1}=2^4, x+1=4, x=3."
+      ],
+      "src": "notes",
+      "label": "5. 2^{x+1}=16",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "log2 8",
+        "a": "3."
+       }
+      ],
+      "id": "math11-u4-q05"
+     },
+     {
+      "type": "short",
+      "q": "log2 8",
+      "answer": "3.",
+      "why": [
+       "3."
+      ],
+      "src": "notes",
+      "label": "6. log2 8",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "The solution set of log₃(x − 1) < log₂(x − 1) is  A) {x | x > 2}  B) {x | 0 < x < 2}  C) {x | 1 < x < 2}  D) {x | x < 5}  E) {x | −1 < x < 0}",
+        "a": "A. {x | x > 2} — x − 1 > 1 ⇒ x > 2. (For 1 < x < 2 the inequality is reversed; at x = 2 both sides are 0.) Answer: A.",
+        "exam_question": "math-2018-matric-p1-q26"
+       }
+      ],
+      "id": "math11-u4-q06"
+     },
+     {
+      "type": "short",
+      "q": "log10 1000",
+      "answer": "3.",
+      "why": [
+       "3."
+      ],
+      "src": "notes",
+      "label": "7. log10 1000",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "If x = log₃ 5 and y = log₁₇ 25, then  A) x < y.  B) x > y.  C) 1/x > 1/y.  D) 1/y < x.  E) 1/x < y.",
+        "a": "B. x > y. — However, because x > 1 and y > 1, also 1/y < 1 < x (D true) and 1/x < 1 < y (E true); only C (1/x > 1/y ⇔ y > x) is false besides A. As printed, three options are true.",
+        "exam_question": "math-2020-matric-p1-q18"
+       }
+      ],
+      "id": "math11-u4-q07"
+     },
+     {
+      "type": "short",
+      "q": "log5 1",
+      "answer": "0.",
+      "why": [
+       "0."
+      ],
+      "src": "notes",
+      "label": "8. log5 1",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "log3 3",
+        "a": "1."
+       }
+      ],
+      "id": "math11-u4-q08"
+     },
+     {
+      "type": "short",
+      "q": "log3 3",
+      "answer": "1.",
+      "why": [
+       "1."
+      ],
+      "src": "notes",
+      "label": "9. log3 3",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "log2 (1/8)",
+        "a": "-3."
+       }
+      ],
+      "id": "math11-u4-q09"
+     },
+     {
+      "type": "short",
+      "q": "log2 (1/8)",
+      "answer": "-3.",
+      "why": [
+       "-3."
+      ],
+      "src": "notes",
+      "label": "10. log2 (1/8)",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Change log2 8 using log10",
+        "a": "log10 8 / log10 2 = 0.903/0.301≈3."
+       }
+      ],
+      "id": "math11-u4-q10"
+     },
+     {
+      "type": "short",
+      "q": "Change log2 8 using log10",
+      "answer": "log10 8 / log10 2 = 0.903/0.301≈3.",
+      "why": [
+       "log10 8 / log10 2 = 0.903/0.301≈3."
+      ],
+      "src": "notes",
+      "label": "11. Change log2 8 using log10",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "log 4 + log 25 (base 10)",
+        "a": "log 100=2."
+       }
+      ],
+      "id": "math11-u4-q11"
+     },
+     {
+      "type": "short",
+      "q": "log 4 + log 25 (base 10)",
+      "answer": "log 100=2.",
+      "why": [
+       "log 100=2."
+      ],
+      "src": "notes",
+      "label": "12. log 4 + log 25 (base 10)",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "log 50 - log 2",
+        "a": "log 25=2 log5."
+       }
+      ],
+      "id": "math11-u4-q12"
+     },
+     {
+      "type": "short",
+      "q": "log 50 - log 2",
+      "answer": "log 25=2 log5.",
+      "why": [
+       "log 25=2 log5."
+      ],
+      "src": "notes",
+      "label": "13. log 50 - log 2",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "3 log2 2",
+        "a": "3×1=3."
+       }
+      ],
+      "id": "math11-u4-q13"
+     },
+     {
+      "type": "short",
+      "q": "3 log2 2",
+      "answer": "3×1=3.",
+      "why": [
+       "3×1=3."
+      ],
+      "src": "notes",
+      "label": "14. 3 log2 2",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve log2(x)=5",
+        "a": "x=32."
+       }
+      ],
+      "id": "math11-u4-q14"
+     },
+     {
+      "type": "short",
+      "q": "Solve log2(x)=5",
+      "answer": "x=32.",
+      "why": [
+       "x=32."
+      ],
+      "src": "notes",
+      "label": "15. Solve log2(x)=5",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve log3(x-1)=2",
+        "a": "x-1=9, x=10."
+       }
+      ],
+      "id": "math11-u4-q15"
+     },
+     {
+      "type": "short",
+      "q": "Solve log3(x-1)=2",
+      "answer": "x-1=9, x=10.",
+      "why": [
+       "x-1=9, x=10."
+      ],
+      "src": "notes",
+      "label": "16. Solve log3(x-1)=2",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve log x + log 2 = log 10 (base 10)",
+        "a": "log(2x)=log10, 2x=10, x=5."
+       }
+      ],
+      "id": "math11-u4-q16"
+     },
+     {
+      "type": "short",
+      "q": "Solve log x + log 2 = log 10 (base 10)",
+      "answer": "log(2x)=log10, 2x=10, x=5.",
+      "why": [
+       "log(2x)=log10, 2x=10, x=5."
+      ],
+      "src": "notes",
+      "label": "17. Solve log x + log 2 = log 10 (base 10)",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve 2^{2x}=2^{x+3}",
+        "a": "2x=x+3, x=3."
+       }
+      ],
+      "id": "math11-u4-q17"
+     },
+     {
+      "type": "short",
+      "q": "Solve 2^{2x}=2^{x+3}",
+      "answer": "2x=x+3, x=3.",
+      "why": [
+       "2x=x+3, x=3."
+      ],
+      "src": "notes",
+      "label": "18. Solve 2^{2x}=2^{x+3}",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Domain of log(x-4)",
+        "a": "x>4."
+       }
+      ],
+      "id": "math11-u4-q18"
+     },
+     {
+      "type": "short",
+      "q": "Domain of log(x-4)",
+      "answer": "x>4.",
+      "why": [
+       "x>4."
+      ],
+      "src": "notes",
+      "label": "19. Domain of log(x-4)",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Domain of log(3-x)",
+        "a": "x<3."
+       }
+      ],
+      "id": "math11-u4-q19"
+     },
+     {
+      "type": "short",
+      "q": "Domain of log(3-x)",
+      "answer": "x<3.",
+      "why": [
+       "x<3."
+      ],
+      "src": "notes",
+      "label": "20. Domain of log(3-x)",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "y-intercept of y=2^x",
+        "a": "(0,1)."
+       }
+      ],
+      "id": "math11-u4-q20"
+     },
+     {
+      "type": "short",
+      "q": "y-intercept of y=2^x",
+      "answer": "(0,1).",
+      "why": [
+       "(0,1)."
+      ],
+      "src": "notes",
+      "label": "21. y-intercept of y=2^x",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Does y=2^x meet the x-axis?",
+        "a": "Never (always positive)."
+       }
+      ],
+      "id": "math11-u4-q21"
+     },
+     {
+      "type": "short",
+      "q": "Does y=2^x meet the x-axis?",
+      "answer": "Never (always positive).",
+      "why": [
+       "Never (always positive)."
+      ],
+      "src": "notes",
+      "label": "22. Does y=2^x meet the x-axis?",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve e^x=1",
+        "a": "x=0."
+       }
+      ],
+      "id": "math11-u4-q22"
+     },
+     {
+      "type": "short",
+      "q": "Solve e^x=1",
+      "answer": "x=0.",
+      "why": [
+       "x=0."
+      ],
+      "src": "notes",
+      "label": "23. Solve e^x=1",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "If 4^x=2^{x+4}",
+        "a": "(2^2)^x=2^{x+4} → 2x=x+4, x=4."
+       }
+      ],
+      "id": "math11-u4-q23"
+     },
+     {
+      "type": "short",
+      "q": "If 4^x=2^{x+4}",
+      "answer": "(2^2)^x=2^{x+4} → 2x=x+4, x=4.",
+      "why": [
+       "(2^2)^x=2^{x+4} → 2x=x+4, x=4."
+      ],
+      "src": "notes",
+      "label": "24. If 4^x=2^{x+4}",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "log_a a^5",
+        "a": "5."
+       }
+      ],
+      "id": "math11-u4-q24"
+     },
+     {
+      "type": "short",
+      "q": "log_a a^5",
+      "answer": "5.",
+      "why": [
+       "5."
+      ],
+      "src": "notes",
+      "label": "25. log_a a^5",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "a^{log_a 7}",
+        "a": "7 (a>0,a≠1)."
+       }
+      ],
+      "id": "math11-u4-q25"
+     },
+     {
+      "type": "short",
+      "q": "a^{log_a 7}",
+      "answer": "7 (a>0,a≠1).",
+      "why": [
+       "7 (a>0,a≠1)."
+      ],
+      "src": "notes",
+      "label": "26. a^{log_a 7}",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Growth or decay: (0.5)^x",
+        "a": "Decay."
+       }
+      ],
+      "id": "math11-u4-q26"
+     },
+     {
+      "type": "short",
+      "q": "Growth or decay: (0.5)^x",
+      "answer": "Decay.",
+      "why": [
+       "Decay."
+      ],
+      "src": "notes",
+      "label": "27. Growth or decay: (0.5)^x",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Growth or decay: 1.04^x",
+        "a": "Growth."
+       }
+      ],
+      "id": "math11-u4-q27"
+     },
+     {
+      "type": "short",
+      "q": "Growth or decay: 1.04^x",
+      "answer": "Growth.",
+      "why": [
+       "Growth."
+      ],
+      "src": "notes",
+      "label": "28. Growth or decay: 1.04^x",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve 10^{2x}=100",
+        "a": "10^{2x}=10^2, 2x=2, x=1."
+       }
+      ],
+      "id": "math11-u4-q28"
+     },
+     {
+      "type": "short",
+      "q": "Solve 10^{2x}=100",
+      "answer": "10^{2x}=10^2, 2x=2, x=1.",
+      "why": [
+       "10^{2x}=10^2, 2x=2, x=1."
+      ],
+      "src": "notes",
+      "label": "29. Solve 10^{2x}=100",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Check log2(x+1)= -1",
+        "a": "x+1=1/2, x=-1/2. Inside 1/2>0 ok."
+       }
+      ],
+      "id": "math11-u4-q29"
+     },
+     {
+      "type": "short",
+      "q": "Check log2(x+1)= -1",
+      "answer": "x+1=1/2, x=-1/2. Inside 1/2>0 ok.",
+      "why": [
+       "x+1=1/2, x=-1/2. Inside 1/2>0 ok."
+      ],
+      "src": "notes",
+      "label": "30. Check log2(x+1)= -1",
+      "page": 142,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "2^x=8",
+        "a": "2^x=2^3 so x=3."
+       }
+      ],
+      "id": "math11-u4-q30"
+     },
      {
       "id": "math11-u4-q31",
       "type": "mcq",
@@ -442,7 +1382,8 @@
       "answer": "B",
       "why": [
        "2^3=8."
-      ]
+      ],
+      "similar": []
      },
      {
       "id": "math11-u4-q32",
@@ -457,7 +1398,8 @@
       "answer": "B",
       "why": [
        "x+1=5."
-      ]
+      ],
+      "similar": []
      },
      {
       "id": "math11-u4-q33",
@@ -472,7 +1414,8 @@
       "answer": "A",
       "why": [
        "log 100=2."
-      ]
+      ],
+      "similar": []
      },
      {
       "id": "math11-u4-q34",
@@ -487,7 +1430,8 @@
       "answer": "C",
       "why": [
        "Three half-lives."
-      ]
+      ],
+      "similar": []
      },
      {
       "id": "math11-u4-xq1",
@@ -527,18 +1471,77 @@
      }
     ]
    },
-   "tips": [
-    {
-     "id": "math11-u4-deeptip1",
-     "text": "Logs only take positive arguments — check domain after solving."
-    }
-   ],
-   "glossary": [
-    {
-     "term": "Exponential",
-     "def": "Core topic of this unit — expand with your textbook definition for “Exponential and Logarithmic Functions”."
-    }
-   ]
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Exponential and Logarithmic…",
+      "kind": "unit",
+      "cards": [
+       "math11-u4-c01"
+      ]
+     },
+     {
+      "id": "l4_1",
+      "label": "Exponential Functions",
+      "kind": "topic",
+      "lesson": "math11-u4-l4-1",
+      "cards": [
+       "math11-u4-c01",
+       "math11-u4-c02",
+       "math11-u4-c03"
+      ]
+     },
+     {
+      "id": "l4_2",
+      "label": "Logarithmic Function",
+      "kind": "topic",
+      "lesson": "math11-u4-l4-2",
+      "cards": [
+       "math11-u4-c04"
+      ]
+     },
+     {
+      "id": "l4_3",
+      "label": "Applications of Exponential and…",
+      "kind": "topic",
+      "lesson": "math11-u4-l4-3",
+      "cards": [
+       "math11-u4-c05",
+       "math11-u4-c06"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l4_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l4_2",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l4_3",
+      "label": "includes"
+     },
+     {
+      "from": "l4_1",
+      "to": "l4_2",
+      "label": "next"
+     },
+     {
+      "from": "l4_2",
+      "to": "l4_3",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
+   }
   }
  ]
 }

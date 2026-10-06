@@ -103,6 +103,14 @@
    "tone": "peach",
    "intro": "f(x)=√(x−h)+k starts at the point (h,k) and grows slowly to the right. Domain: inside ≥ 0. Inverse of a piece of a parabola.",
    "intro_page": 62,
+   "diagrams": {
+    "f1": {
+     "svg": "svg/mathematics_11/math11_f1.svg",
+     "title": "Shift: √(x−2)+1 starts at (2,1), not at the origin.",
+     "page": 65,
+     "pins": []
+    }
+   },
    "lessons": [
     {
      "id": "math11-u2-l2-1",
@@ -116,13 +124,129 @@
       {
        "id": "math11-u2-c01",
        "type": "text",
-       "title": "Graphs of Square Root Functions",
+       "title": "2.1 Graphs of square root functions",
        "page": 62,
+       "src": "notes",
        "body": [
-        "**Graphs of Square Root Functions.** The principal square root √x is defined for x ≥ 0 and is never negative.",
-        "Domain of y = √(g(x)) is where g(x) ≥ 0. Shifts: √(x − h) + k moves the graph right h and up k.",
-        "To solve √A = B, square both sides only when B ≥ 0, then check for extraneous roots."
+        "The **square root function** is $$f(x) = \\sqrt{x}$$. Because we cannot take the real square root of a negative number, its domain is x ≥ 0, and because √x is never negative, its range is y ≥ 0.",
+        "**Table of values (choose perfect squares):** x = 0, 1, 4, 9, 16 gives y = 0, 1, 2, 3, 4. Plot the points and join them with a smooth curve. The graph starts at the origin and rises to the right, getting flatter and flatter — it is the upper half of a parabola lying on its side (x = y², y ≥ 0).",
+        "**Transformations of y = a√(x − h) + k:** h moves the graph right (h > 0) or left; k moves it up or down; the starting point (endpoint) moves from (0, 0) to **(h, k)**. If a < 0 the graph is reflected in the horizontal line through the start (it goes down instead of up); |a| > 1 stretches it vertically. y = √(−x) is the reflection in the y-axis: it starts at (0, 0) and goes to the left.",
+        "**Step by step — sketch g(x) = √(x − 2) + 1:** Step 1: starting point (h, k) = (2, 1). Step 2: a = 1 > 0, so the curve goes up and to the right. Step 3: a second point: x = 3 gives √1 + 1 = 2, so (3, 2); x = 6 gives √4 + 1 = 3, so (6, 3). Step 4: domain x ≥ 2, range y ≥ 1.",
+        "**Tip:** to find the starting point of y = √(bx + c) + k, set the inside equal to zero: bx + c = 0. For y = √(2x − 8) + 3: 2x − 8 = 0 gives x = 4, so the curve starts at (4, 3)."
        ]
+      },
+      {
+       "id": "math11-u2-tblE1",
+       "type": "table",
+       "title": "Key table",
+       "page": 1,
+       "src": "study_notes",
+       "head": [
+        "Function",
+        "Starting Point",
+        "Direction of Curve",
+        "Vertical reflection?"
+       ],
+       "rows": [
+        [
+         "$$y = \\sqrt{x}$$",
+         "$$(0, 0)$$",
+         "Right, Upward",
+         "No"
+        ],
+        [
+         "$$y = -\\sqrt{x}$$",
+         "$$(0, 0)$$",
+         "Right, Downward",
+         "Yes (across x-axis)"
+        ],
+        [
+         "$$y = \\sqrt{-x}$$",
+         "$$(0, 0)$$",
+         "Left, Upward",
+         "No (reflected across y-axis)"
+        ],
+        [
+         "$$y = \\sqrt{x - 3} + 2$$",
+         "$$(3, 2)$$",
+         "Right, Upward",
+         "No"
+        ]
+       ]
+      },
+      {
+       "id": "math11-u2-wrkE2",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "What is the domain of the square root function $$f(x) = \\sqrt{x - 5}$$?",
+       "steps": [
+        {
+         "text": "**Step 1: Set up the domain inequality**"
+        },
+        {
+         "text": "For the function $$f(x) = \\sqrt{x - 5}$$, the radicand must be non-negative to yield real-valued outputs:"
+        },
+        {
+         "text": "$$x - 5 \\geq 0$$"
+        },
+        {
+         "text": "**Step 2: Solve the inequality**"
+        },
+        {
+         "text": "Add $$5$$ to both sides:"
+        }
+       ],
+       "answer": "$[5, \\infty)$"
+      },
+      {
+       "id": "math11-u2-chkE1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Determine the range of the function $$f(x) = -\\sqrt{x} + 4$$.",
+       "options": {
+        "A": "$$(-\\infty, 4]$$",
+        "B": "$$[4, \\infty)$$",
+        "C": "$$[0, \\infty)$$",
+        "D": "$$(-\\infty, 0]$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Determine the sign of the radical**\nSince the principal square root is non-negative, we have:\n$$\\sqrt{x} \\geq 0$$\n\n**Step 2: Apply the negative coefficient**\nMultiplying by $$-1$$ reverses the inequality:\n$$-\\sqrt{x} \\leq 0$$\n\n**Step 3: Add the vertical translation**\nAdd $$4$$ to both sides:\n$$-\\sqrt{x} + 4 \\leq 4$$\nThis means $$f(x) \\leq 4$$.\n\n**Step 4: Represent in interval notation**\nThe range is all real numbers less than or equal to $$4$$, which is $$(-\\infty, 4]$$.\n**Result:** **$$(-\\infty, 4]$$**."
+      },
+      {
+       "id": "math11-u2-chkE2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Solve the radical equation $$\\sqrt{3x + 1} = 4$$.",
+       "options": {
+        "A": "$$x = 5$$",
+        "B": "$$x = 1$$",
+        "C": "$$x = 15$$",
+        "D": "No real solution"
+       },
+       "answer": "A",
+       "why": "**Step 1: Square both sides**\nGiven:\n$$\\sqrt{3x + 1} = 4$$\nSquare both sides of the equation to eliminate the radical:\n$$(\\sqrt{3x + 1})^2 = 4^2$$\n$$3x + 1 = 16$$\n\n**Step 2: Solve the linear equation**\nSubtract $$1$$ from both sides:\n$$3x = 15$$\n\nDivide by $$3$$:\n$$x = 5$$\n\n**Step 3: Verify the solution**\nSubstitute $$x = 5$$ back into the original equation:\n$$\\sqrt{3(5) + 1} = \\sqrt{16} = 4$$\nSince $$4 = 4$$, the solution is valid.\n**Result:** **$$x = 5$$**."
+      },
+      {
+       "id": "math11-u2-chk73",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "What is the domain of the square root function $$f(x) = \\sqrt{x - 5}$$?",
+       "options": {
+        "A": "$$[5, \\infty)$$",
+        "B": "$$(5, \\infty)$$",
+        "C": "$$[-5, \\infty)$$",
+        "D": "$$(-\\infty, 5]$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Set up the domain inequality**\nFor the function $$f(x) = \\sqrt{x - 5}$$, the radicand must be non-negative to yield real-valued outputs:\n$$x - 5 \\geq 0$$\n\n**Step 2: Solve the inequality**\nAdd $$5$$ to both sides:\n$$x \\geq 5$$\n\n**Step 3: Represent in interval notation**\nThis corresponds to the interval $$[5, \\infty)$$.\n**Result:** **$$[5, \\infty)$$**."
       },
       {
        "id": "math11-u2-c07",
@@ -130,9 +254,10 @@
        "title": "Square root functions",
        "page": 62,
        "body": [
-        "The basic square root function is f(x) = √x. Its graph starts at (0, 0) and rises more and more slowly to the right. The general form f(x) = a√(x − h) + k moves the starting point ",
+        "The basic square root function is f(x) = √x. Its graph starts at (0, 0) and rises more and more slowly to the right. The general form f(x) = a√(x − h) + k moves the starting point from (0, 0) to (h, k); a > 0 keeps the graph above the starting point, a < 0 reflects it below. Domain: x ≥ h. Example: f(x) = √(x − 2) + 1 starts at (2, 1); its domain is x ≥ 2 and its range is y ≥ 1.",
         "**Domain:** the expression under the root must be ≥ 0, so for √(x − h) the domain is x ≥ h. **Range** (with a > 0): y ≥ k."
-       ]
+       ],
+       "src": "notes"
       },
       {
        "id": "math11-u2-wrk-extra1",
@@ -148,38 +273,8 @@
          "text": "2x ≥ 6 → x ≥ 3."
         }
        ],
-       "answer": "Domain: [3, ∞)."
-      },
-      {
-       "type": "text",
-       "title": "Square-root functions",
-       "page": 1,
-       "body": [
-        "y=√x has domain [0,∞) and range [0,∞).",
-        "√(x−h)+k shifts right h and up k. Reflect in x-axis with −√x."
-       ],
-       "id": "math11-u2-deep1"
-      },
-      {
-       "type": "text",
-       "title": "Graphing √",
-       "body": [
-        "Start from y=√x, then apply shifts/reflections in order.",
-        "Domain restriction always comes from the inside ≥ 0 after shifts."
-       ],
-       "id": "math11-u2-xtra1",
-       "page": 1
-      },
-      {
-       "id": "math11-u2-checklist",
-       "type": "text",
-       "title": "Square Root Functions: checklist before exam",
-       "page": 1,
-       "body": [
-        "Can you define every bold term in **Square Root Functions** without looking?",
-        "Can you redo each worked example with the answer covered?",
-        "Can you sketch one diagram/graph/map and label it in under 2 minutes?"
-       ]
+       "answer": "Domain: [3, ∞).",
+       "src": "notes"
       }
      ]
     },
@@ -192,6 +287,152 @@
       66
      ],
      "cards": [
+      {
+       "id": "math11-u2-c02",
+       "type": "diagram",
+       "title": "Shift: √(x−2)+1 starts at (2,1), not at the origin.",
+       "page": 65,
+       "src": "notes",
+       "diagram": "f1",
+       "mode": "plain"
+      },
+      {
+       "id": "math11-u2-c03",
+       "type": "worked",
+       "title": "Worked — domain",
+       "page": 65,
+       "src": "notes",
+       "problem": "g(x)=√(2x−6). Domain?",
+       "steps": [
+        {
+         "text": "2x−6 ≥ 0 → 2x ≥ 6 → x ≥ 3."
+        },
+        {
+         "text": "Do not write “all real x”. Square roots in this course stay non-negative inside."
+        }
+       ],
+       "answer": "Do not write “all real x”. Square roots in this course stay non-negative inside.",
+       "mode": "show",
+       "reveal": "Steps"
+      },
+      {
+       "id": "math11-u2-chk74",
+       "type": "check",
+       "title": "Quick check",
+       "page": 65,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q4",
+       "q": "What is the starting point of the graph of $$g(x) = \\sqrt{2x - 8} + 3$$?",
+       "options": {
+        "A": "$$(4, 3)$$",
+        "B": "$$(8, 3)$$",
+        "C": "$$(2, 3)$$",
+        "D": "$$(4, -3)$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Set the radicand to zero to find the starting x-coordinate**\n$$2x - 8 = 0$$\n$$2x = 8 \\implies x = 4$$\n\n**Step 2: Identify the starting y-coordinate**\nThe constant term outside the radical represents the vertical shift:\n$$y = 3$$\n\n**Step 3: Combine coordinates**\nThe starting point of the graph is $$(4, 3)$$.\n**Result:** **$$(4, 3)$$**."
+      },
+      {
+       "id": "math11-u2-wrk1",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 65,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q4",
+       "problem": "What is the starting point of the graph of $$g(x) = \\sqrt{2x - 8} + 3$$?",
+       "steps": [
+        {
+         "text": "**Step 1: Set the radicand to zero to find the starting x-coordinate**"
+        },
+        {
+         "text": "$$2x - 8 = 0$$"
+        },
+        {
+         "text": "$$2x = 8 \\implies x = 4$$"
+        },
+        {
+         "text": "**Step 2: Identify the starting y-coordinate**"
+        },
+        {
+         "text": "The constant term outside the radical represents the vertical shift:"
+        },
+        {
+         "text": "$$y = 3$$"
+        },
+        {
+         "text": "**Step 3: Combine coordinates**"
+        },
+        {
+         "text": "The starting point of the graph is $$(4, 3)$$."
+        },
+        {
+         "text": "**Result:** **$$(4, 3)$$**."
+        }
+       ],
+       "answer": "$$(4, 3)$$"
+      },
+      {
+       "id": "math11-u2-chk75",
+       "type": "check",
+       "title": "Quick check",
+       "page": 65,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q5",
+       "q": "Find the inverse function of $$f(x) = \\sqrt{x - 1}$$ for $$x \\geq 1$$.",
+       "options": {
+        "A": "$$f^{-1}(x) = x^2 + 1, x \\geq 0$$",
+        "B": "$$f^{-1}(x) = x^2 - 1, x \\geq 0$$",
+        "C": "$$f^{-1}(x) = (x - 1)^2, x \\geq 1$$",
+        "D": "$$f^{-1}(x) = x^2 + 1, \\text{all real } x$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Swap variables**\nLet $$y = \\sqrt{x - 1}$$. Swap $$x$$ and $$y$$:\n$$x = \\sqrt{y - 1}$$\n\n**Step 2: Solve for $$y$$**\nSquare both sides:\n$$x^2 = y - 1$$\nAdd $$1$$ to both sides:\n$$y = x^2 + 1$$\nSo, $$f^{-1}(x) = x^2 + 1$$.\n\n**Step 3: Identify the domain restriction**\nThe domain of the inverse function is equal to the range of the original function.\nSince $$f(x) = \\sqrt{x - 1} \\geq 0$$, the range is $$[0, \\infty)$$, which means the domain of the inverse is restricted to $$x \\geq 0$$.\n**Result:** **$$f^{-1}(x) = x^2 + 1, x \\geq 0$$**."
+      },
+      {
+       "id": "math11-u2-wrk2",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 65,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q5",
+       "problem": "Find the inverse function of $$f(x) = \\sqrt{x - 1}$$ for $$x \\geq 1$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Swap variables**"
+        },
+        {
+         "text": "Let $$y = \\sqrt{x - 1}$$. Swap $$x$$ and $$y$$:"
+        },
+        {
+         "text": "$$x = \\sqrt{y - 1}$$"
+        },
+        {
+         "text": "**Step 2: Solve for $$y$$**"
+        },
+        {
+         "text": "Square both sides:"
+        },
+        {
+         "text": "$$x^2 = y - 1$$"
+        },
+        {
+         "text": "Add $$1$$ to both sides:"
+        },
+        {
+         "text": "**Step 3: Identify the domain restriction**"
+        },
+        {
+         "text": "The domain of the inverse function is equal to the range of the original function."
+        },
+        {
+         "text": "Since $$f(x) = \\sqrt{x - 1} \\geq 0$$, the range is $$[0, \\infty)$$, which means the domain of the inverse is restricted to $$x \\geq 0$$."
+        },
+        {
+         "text": "**Result:** **$$f^{-1}(x) = x^2 + 1, x \\geq 0$$**."
+        }
+       ],
+       "answer": "$$f^{-1}(x) = x^2 + 1, x \\geq 0$$"
+      },
       {
        "id": "math11-u2-c08",
        "type": "table",
@@ -223,83 +464,8 @@
          "x ≥ 0",
          "y ≤ 0"
         ]
-       ]
-      },
-      {
-       "type": "worked",
-       "title": "Domain",
-       "page": 1,
-       "problem": "Domain of √(5−2x).",
-       "steps": [
-        {
-         "text": "5"
-        },
-        {
-         "text": "−"
-        },
-        {
-         "text": "2"
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "≥"
-        },
-        {
-         "text": "0"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "→"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "2"
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "≤"
-        },
-        {
-         "text": "5"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "→"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "≤"
-        },
-        {
-         "text": "5"
-        },
-        {
-         "text": "/"
-        },
-        {
-         "text": "2"
-        },
-        {
-         "text": "."
-        }
        ],
-       "answer": "Domain (−∞, 5/2].",
-       "id": "math11-u2-deep2"
+       "src": "notes"
       },
       {
        "type": "worked",
@@ -315,18 +481,24 @@
        ],
        "answer": "They are inverse functions on [0,∞).",
        "id": "math11-u2-xtra2",
-       "page": 1
+       "page": 1,
+       "src": "notes"
       },
       {
-       "id": "math11-u2-misconception",
-       "type": "text",
-       "title": "Common mix-ups in Square Root Functions",
-       "page": 1,
-       "body": [
-        "Write one idea students often confuse with this topic, then the correct distinction.",
-        "Example pattern: “Looks like X, but actually Y because …”",
-        "Teaching the difference is better than re-reading the page."
-       ]
+       "id": "math11-u2-pc2",
+       "type": "check",
+       "title": "Practice",
+       "q": "What are the domain and range of $$f(x) = -\\sqrt{x + 3} + 2$$?",
+       "options": {
+        "A": "Domain x ≥ −3, range y ≤ 2",
+        "B": "Domain x ≥ 3, range y ≥ 2",
+        "C": "Domain x ≥ −3, range y ≥ 2",
+        "D": "Domain x ≤ −3, range y ≤ 2"
+       },
+       "answer": "A",
+       "why": "**Domain:** x + 3 ≥ 0, so x ≥ −3.\n**Range:** √(x + 3) ≥ 0, so −√(x + 3) ≤ 0 and adding 2 gives y ≤ 2. The minus sign in front reflects the curve downward from its starting point (−3, 2).",
+       "page": 65,
+       "src": "notes"
       }
      ]
     },
@@ -342,13 +514,132 @@
       {
        "id": "math11-u2-c05",
        "type": "text",
-       "title": "Solving Square Root Equations",
+       "title": "2.3 Solving square root (radical) equations",
        "page": 67,
+       "src": "notes",
        "body": [
-        "**Solving Square Root Equations.** The principal square root √x is defined for x ≥ 0 and is never negative.",
-        "Domain of y = √(g(x)) is where g(x) ≥ 0. Shifts: √(x − h) + k moves the graph right h and up k.",
-        "To solve √A = B, square both sides only when B ≥ 0, then check for extraneous roots."
+        "A **radical equation** has the unknown inside a square root, e.g. √(3x + 1) = 4. The method is to isolate the root and square both sides — but squaring can create false answers, so every answer must be checked in the original equation.",
+        "**Steps:** (1) Isolate the square root on one side. (2) Square both sides. (3) Solve the resulting linear or quadratic equation. (4) **Check** each answer in the original equation and reject any that do not work (these are called **extraneous** roots).",
+        "**Example 1:** √(3x + 1) = 4. Square: 3x + 1 = 16, 3x = 15, x = 5. Check: √16 = 4 ✔.",
+        "**Example 2:** √(x + 3) = x − 3. Square: x + 3 = x² − 6x + 9, so x² − 7x + 6 = 0, (x − 1)(x − 6) = 0, x = 1 or x = 6. Check x = 1: √4 = 2 but 1 − 3 = −2 ✘ (extraneous). Check x = 6: √9 = 3 and 6 − 3 = 3 ✔. Solution: x = 6 only.",
+        "**Quick rejection:** a square root is never negative, so √(x − 3) = −2 has **no solution** — you can see this before doing any algebra.",
+        "**Why false roots appear:** squaring turns both a = b and a = −b into a² = b². In Example 2, x = 1 solves √(x + 3) = −(x − 3), not the equation we were given."
        ]
+      },
+      {
+       "id": "math11-u2-chk76",
+       "type": "check",
+       "title": "Quick check",
+       "page": 67,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q7",
+       "q": "When solving $$\\sqrt{3x + 1} = x - 3$$ by squaring both sides, we get the quadratic equation $$x^2 - 9x + 8 = 0$$, which has roots $$x = 1$$ and $$x = 8$$. Identify any extraneous solutions.",
+       "options": {
+        "A": "$$x = 1$$ is extraneous",
+        "B": "$$x = 8$$ is extraneous",
+        "C": "Both are valid solutions",
+        "D": "Both are extraneous solutions"
+       },
+       "answer": "A",
+       "why": "**Step 1: Test $$x = 1$$ in the original equation**\n$$\\text{Left Side: } \\sqrt{3(1) + 1} = \\sqrt{4} = 2$$\n$$\\text{Right Side: } 1 - 3 = -2$$\nSince $$2 \\neq -2$$, the root $$x = 1$$ is extraneous.\n\n**Step 2: Test $$x = 8$$ in the original equation**\n$$\\text{Left Side: } \\sqrt{3(8) + 1} = \\sqrt{25} = 5$$\n$$\\text{Right Side: } 8 - 3 = 5$$\nSince $$5 = 5$$, $$x = 8$$ is a valid solution.\n\n**Step 3: State the final result**\nOnly $$x = 1$$ is extraneous.\n**Result:** **$$x = 1$$ is extraneous**."
+      },
+      {
+       "id": "math11-u2-wrk3",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 67,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q7",
+       "problem": "When solving $$\\sqrt{3x + 1} = x - 3$$ by squaring both sides, we get the quadratic equation $$x^2 - 9x + 8 = 0$$, which has roots $$x = 1$$ and $$x = 8$$. Identify any extraneous solutions.",
+       "steps": [
+        {
+         "text": "**Step 1: Test $$x = 1$$ in the original equation**"
+        },
+        {
+         "text": "$$\\text{Left Side: } \\sqrt{3(1) + 1} = \\sqrt{4} = 2$$"
+        },
+        {
+         "text": "$$\\text{Right Side: } 1 - 3 = -2$$"
+        },
+        {
+         "text": "Since $$2 \\neq -2$$, the root $$x = 1$$ is extraneous."
+        },
+        {
+         "text": "**Step 2: Test $$x = 8$$ in the original equation**"
+        },
+        {
+         "text": "$$\\text{Left Side: } \\sqrt{3(8) + 1} = \\sqrt{25} = 5$$"
+        },
+        {
+         "text": "$$\\text{Right Side: } 8 - 3 = 5$$"
+        },
+        {
+         "text": "Since $$5 = 5$$, $$x = 8$$ is a valid solution."
+        },
+        {
+         "text": "**Step 3: State the final result**"
+        },
+        {
+         "text": "Only $$x = 1$$ is extraneous."
+        },
+        {
+         "text": "**Result:** **$$x = 1$$ is extraneous**."
+        }
+       ],
+       "answer": "$$x = 1$$ is extraneous"
+      },
+      {
+       "id": "math11-u2-chk77",
+       "type": "check",
+       "title": "Quick check",
+       "page": 67,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q8",
+       "q": "Evaluate $$f(4)$$ for the function $$f(x) = 2\\sqrt{x + 5} - 1$$.",
+       "options": {
+        "A": "$$5$$",
+        "B": "$$2$$",
+        "C": "$$7$$",
+        "D": "$$3$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Substitute $$x = 4$$ into the function**\n$$f(4) = 2\\sqrt{4 + 5} - 1$$\n\n**Step 2: Simplify inside the radical**\n$$f(4) = 2\\sqrt{9} - 1$$\n\n**Step 3: Calculate the square root and multiply**\n$$f(4) = 2(3) - 1$$\n$$f(4) = 6 - 1 = 5$$\n**Result:** **$$5$$**."
+      },
+      {
+       "id": "math11-u2-wrk4",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 67,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q8",
+       "problem": "Evaluate $$f(4)$$ for the function $$f(x) = 2\\sqrt{x + 5} - 1$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Substitute $$x = 4$$ into the function**"
+        },
+        {
+         "text": "$$f(4) = 2\\sqrt{4 + 5} - 1$$"
+        },
+        {
+         "text": "**Step 2: Simplify inside the radical**"
+        },
+        {
+         "text": "$$f(4) = 2\\sqrt{9} - 1$$"
+        },
+        {
+         "text": "**Step 3: Calculate the square root and multiply**"
+        },
+        {
+         "text": "$$f(4) = 2(3) - 1$$"
+        },
+        {
+         "text": "$$f(4) = 6 - 1 = 5$$"
+        },
+        {
+         "text": "**Result:** **$$5$$**."
+        }
+       ],
+       "answer": "$$5$$"
       },
       {
        "id": "math11-u2-c09",
@@ -364,161 +655,855 @@
          "text": "x² − 7x + 6 = 0 → (x − 1)(x − 6) = 0 → x = 1 or 6."
         }
        ],
-       "answer": "Check x = 6: √9 = 3 and 6 − 3 = 3 ✔. Answer: **x = 6**."
+       "answer": "Check x = 6: √9 = 3 and 6 − 3 = 3 ✔. Answer: **x = 6**.",
+       "src": "notes"
       },
       {
+       "id": "math11-u2-pc3",
+       "type": "check",
+       "title": "Practice",
+       "q": "Solve $$\\sqrt{2x + 3} = x$$.",
+       "options": {
+        "A": "x = −1 or x = 3",
+        "B": "x = 3 only",
+        "C": "x = −1 only",
+        "D": "No solution"
+       },
+       "answer": "B",
+       "why": "**Square:** 2x + 3 = x², so x² − 2x − 3 = 0, (x − 3)(x + 1) = 0, x = 3 or x = −1.\n**Check x = 3:** √9 = 3 ✔. **Check x = −1:** √1 = 1 but the right side is −1 ✘ (extraneous).\nSo x = 3 only.",
+       "page": 67,
+       "src": "notes"
+      },
+      {
+       "id": "math11-u2-rm3",
+       "type": "remember",
+       "title": "Always check",
+       "body": [
+        "Squaring both sides can add false (extraneous) roots. **Substitute every answer into the original equation** and reject those that fail. A square root can never equal a negative number."
+       ],
+       "page": 67,
+       "src": "notes"
+      }
+     ]
+    },
+    {
+     "id": "math11-u2-l2-4",
+     "number": "2.4",
+     "title": "Inverses of Square Root Functions",
+     "pages": [
+      69,
+      70
+     ],
+     "cards": [
+      {
+       "id": "math11-u2-c06",
+       "type": "text",
+       "title": "2.4 Inverses of square root functions",
+       "page": 69,
+       "src": "notes",
+       "body": [
+        "Two functions are **inverses** when each undoes the other: f(f⁻¹(x)) = x and f⁻¹(f(x)) = x. The graph of f⁻¹ is the reflection of the graph of f in the line y = x, so the domain of f becomes the range of f⁻¹ and the range of f becomes the domain of f⁻¹.",
+        "**y = √x and y = x² are inverse partners only when x² is restricted to x ≥ 0.** On all real numbers x² is not one-to-one (2² = (−2)² = 4), so it has no inverse function; on x ≥ 0 it is one-to-one and its inverse is √x.",
+        "**Steps to find the inverse of f(x) = √(x − 1), x ≥ 1:** Step 1: write y = √(x − 1) and note the range y ≥ 0. Step 2: swap x and y: x = √(y − 1). Step 3: solve for y: square both sides, x² = y − 1, so y = x² + 1. Step 4: state the domain of the inverse = range of f: f⁻¹(x) = x² + 1, **x ≥ 0**.",
+        "**Check:** f(f⁻¹(3)) = f(10) = √9 = 3 ✔.",
+        "**Going the other way:** the inverse of g(x) = x² − 4 with x ≥ 0 is g⁻¹(x) = √(x + 4), x ≥ −4. Always restrict the quadratic to one side of its vertex first."
+       ]
+      },
+      {
+       "id": "math11-u2-chk78",
+       "type": "check",
+       "title": "Quick check",
+       "page": 69,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q10",
+       "q": "Solve the radical equation $$\\sqrt{x - 3} = -2$$.",
+       "options": {
+        "A": "No real solution",
+        "B": "$$x = 7$$",
+        "C": "$$x = 1$$",
+        "D": "$$x = -1$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Analyze the properties of the principal square root**\nThe principal square root of any real expression, $$\\sqrt{x - 3}$$, is defined as a non-negative real number:\n$$\\sqrt{x - 3} \\geq 0$$\n\n**Step 2: Compare with the equation's output**\nThe equation sets this non-negative value equal to $$-2$$:\n$$\\sqrt{x - 3} = -2$$\n\nSince a non-negative number can never equal a negative number, this equation has no real solutions.\n**Result:** **No real solution**."
+      },
+      {
+       "id": "math11-u2-wrk5",
        "type": "worked",
-       "title": "Solve carefully",
-       "page": 1,
-       "problem": "Solve √(x+3)=x−1.",
+       "title": "Step-by-step",
+       "page": 69,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q10",
+       "problem": "Solve the radical equation $$\\sqrt{x - 3} = -2$$.",
        "steps": [
         {
-         "text": "S"
+         "text": "**Step 1: Analyze the properties of the principal square root**"
         },
         {
-         "text": "q"
+         "text": "The principal square root of any real expression, $$\\sqrt{x - 3}$$, is defined as a non-negative real number:"
         },
         {
-         "text": "u"
+         "text": "$$\\sqrt{x - 3} \\geq 0$$"
         },
         {
-         "text": "a"
+         "text": "**Step 2: Compare with the equation's output**"
         },
         {
-         "text": "r"
+         "text": "The equation sets this non-negative value equal to $$-2$$:"
         },
         {
-         "text": "e"
+         "text": "$$\\sqrt{x - 3} = -2$$"
         },
         {
-         "text": ":"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "+"
-        },
-        {
-         "text": "3"
-        },
-        {
-         "text": "="
-        },
-        {
-         "text": "("
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "−"
-        },
-        {
-         "text": "1"
-        },
-        {
-         "text": ")"
-        },
-        {
-         "text": "²"
-        },
-        {
-         "text": "="
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "²"
-        },
-        {
-         "text": "−"
-        },
-        {
-         "text": "2"
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "+"
-        },
-        {
-         "text": "1"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "→"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "0"
-        },
-        {
-         "text": "="
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "²"
-        },
-        {
-         "text": "−"
-        },
-        {
-         "text": "3"
-        },
-        {
-         "text": "x"
-        },
-        {
-         "text": "−"
-        },
-        {
-         "text": "2"
-        },
-        {
-         "text": "."
+         "text": "Since a non-negative number can never equal a negative number, this equation has no real solutions."
         }
        ],
-       "answer": "Check candidates; discard extraneous. Only roots that satisfy original and x−1≥0.",
-       "id": "math11-u2-deep3"
+       "answer": "No real solution"
+      },
+      {
+       "id": "math11-u2-chk79",
+       "type": "check",
+       "title": "Quick check",
+       "page": 69,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q11",
+       "q": "Identify the direction of opening and the starting point of the graph of $$y = \\sqrt{3 - x}$$.",
+       "options": {
+        "A": "Curves left; starting point at $$(3, 0)$$",
+        "B": "Curves right; starting point at $$(3, 0)$$",
+        "C": "Curves left; starting point at $$(-3, 0)$$",
+        "D": "Curves right; starting point at $$(0, 3)$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Set the radicand to zero to find the starting x-coordinate**\n$$3 - x = 0 \\implies x = 3$$\nThe starting point is $$(3, 0)$$.\n\n**Step 2: Determine the direction of the horizontal arch**\nBecause the coefficient of $$x$$ inside the radical is negative ($$-1$$), the domain is restricted to:\n$$3 - x \\geq 0 \\implies x \\leq 3$$\nSince $$x \\leq 3$$, the graph curves to the left.\n\n**Step 3: Combine findings**\nThe graph starts at $$(3, 0)$$ and curves to the left.\n**Result:** **Curves left; starting point at $$(3, 0)$$**."
+      },
+      {
+       "id": "math11-u2-wrk6",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 69,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q11",
+       "problem": "Identify the direction of opening and the starting point of the graph of $$y = \\sqrt{3 - x}$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Set the radicand to zero to find the starting x-coordinate**"
+        },
+        {
+         "text": "$$3 - x = 0 \\implies x = 3$$"
+        },
+        {
+         "text": "The starting point is $$(3, 0)$$."
+        },
+        {
+         "text": "**Step 2: Determine the direction of the horizontal arch**"
+        },
+        {
+         "text": "Because the coefficient of $$x$$ inside the radical is negative ($$-1$$), the domain is restricted to:"
+        },
+        {
+         "text": "$$3 - x \\geq 0 \\implies x \\leq 3$$"
+        },
+        {
+         "text": "Since $$x \\leq 3$$, the graph curves to the left."
+        },
+        {
+         "text": "**Step 3: Combine findings**"
+        },
+        {
+         "text": "The graph starts at $$(3, 0)$$ and curves to the left."
+        },
+        {
+         "text": "**Result:** **Curves left; starting point at $$(3, 0)$$**."
+        }
+       ],
+       "answer": "Curves left; starting point at $$(3, 0)$$"
+      },
+      {
+       "id": "math11-u2-pc4",
+       "type": "check",
+       "title": "Practice",
+       "q": "Find the inverse of $$f(x) = \\sqrt{x + 2}$$, $$x \\ge -2$$.",
+       "options": {
+        "A": "$$f^{-1}(x) = x^2 - 2$$, x ≥ 0",
+        "B": "$$f^{-1}(x) = x^2 + 2$$, x ≥ 0",
+        "C": "$$f^{-1}(x) = (x - 2)^2$$, x ≥ 2",
+        "D": "$$f^{-1}(x) = \\sqrt{x - 2}$$"
+       },
+       "answer": "A",
+       "why": "**Swap and solve:** x = √(y + 2) → x² = y + 2 → y = x² − 2.\n**Domain of the inverse** = range of f = y ≥ 0, so f⁻¹(x) = x² − 2, x ≥ 0.\nCheck: f(f⁻¹(3)) = f(7) = √9 = 3 ✔.",
+       "page": 69,
+       "src": "notes"
       }
      ]
     }
    ],
-   "glossary": [
-    {
-     "term": "Square",
-     "def": "Core topic of this unit — expand with your textbook definition for “Square Root Functions”."
-    }
-   ],
+   "glossary": [],
    "tips": [
     {
-     "id": "math11-u2-tip-extra1",
-     "text": "After squaring both sides of an equation with √, always substitute back — squaring can invent false roots."
-    },
-    {
-     "id": "math11-u2-deeptip1",
-     "text": "Squaring can invent roots — always substitute back."
+     "text": "Read 2.1 Graphs of Square Root Functions again and say its main idea in one sentence.",
+     "page": 62
     }
    ],
-   "games": [],
+   "games": [
+    {
+     "type": "match",
+     "title": "Match each answer to its question",
+     "pairs": [
+      {
+       "a": "3x.",
+       "b": "√(9x^2) for x≥0"
+      },
+      {
+       "a": "x≥0.",
+       "b": "Domain of √x"
+      },
+      {
+       "a": "x≤3.",
+       "b": "Domain of √(3-x)"
+      },
+      {
+       "a": "x≥4.",
+       "b": "Domain of √(2x-8)"
+      },
+      {
+       "a": "y≥0.",
+       "b": "Range of y=√x"
+      },
+      {
+       "a": "y≥2.",
+       "b": "Range of y=√x+2"
+      }
+     ],
+     "src": "notes",
+     "id": "math11-u2-g1",
+     "lesson": null
+    },
+    {
+     "type": "flash",
+     "title": "Quick recall",
+     "cards": [
+      {
+       "front": "Domain of √x",
+       "back": "x≥0."
+      },
+      {
+       "front": "Domain of √(x+5)",
+       "back": "x≥-5."
+      },
+      {
+       "front": "Domain of √(3-x)",
+       "back": "x≤3."
+      },
+      {
+       "front": "Domain of √(2x-8)",
+       "back": "x≥4."
+      },
+      {
+       "front": "Range of y=√x",
+       "back": "y≥0."
+      },
+      {
+       "front": "Range of y=√x+2",
+       "back": "y≥2."
+      },
+      {
+       "front": "Start of y=√(x-3)+1",
+       "back": "(3,1)."
+      },
+      {
+       "front": "Start of y=√(x+4)-2",
+       "back": "(-4,-2)."
+      },
+      {
+       "front": "Solve √x=4",
+       "back": "Square: x=16. Check √16=4."
+      },
+      {
+       "front": "Solve √(x-1)=3",
+       "back": "x-1=9, x=10. Check ok."
+      }
+     ],
+     "src": "notes",
+     "id": "math11-u2-g2",
+     "lesson": null
+    }
+   ],
    "exercise": {
     "questions": [
      {
-      "id": "math11-u2-q31",
-      "type": "mcq",
+      "type": "short",
+      "q": "Domain of √x",
+      "answer": "x≥0.",
+      "why": [
+       "x≥0."
+      ],
+      "src": "notes",
+      "label": "1. Domain of √x",
       "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "The domain of f(x) = √(3 − 2x − x²) is  A) {x : −2 ≤ x ≤ 1}.  B) {x : −3 ≤ x ≤ 1}.  C) {x : −1 ≤ x ≤ 2}.  D) {x : −3 ≤ x ≤ 2}.  E) None of the above.",
+        "a": "B. {x : −3 ≤ x ≤ 1}. — The product is ≤ 0 between the roots: −3 ≤ x ≤ 1. Answer: B.",
+        "exam_question": "math-2020-matric-p1-q09"
+       }
+      ],
+      "id": "math11-u2-q01"
+     },
+     {
+      "type": "short",
+      "q": "Domain of √(x+5)",
+      "answer": "x≥-5.",
+      "why": [
+       "x≥-5."
+      ],
+      "src": "notes",
+      "label": "2. Domain of √(x+5)",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Domain of √(3-x)",
+        "a": "x≤3."
+       }
+      ],
+      "id": "math11-u2-q02"
+     },
+     {
+      "type": "short",
+      "q": "Domain of √(3-x)",
+      "answer": "x≤3.",
+      "why": [
+       "x≤3."
+      ],
+      "src": "notes",
+      "label": "3. Domain of √(3-x)",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Domain of √(2x-8)",
+        "a": "x≥4."
+       }
+      ],
+      "id": "math11-u2-q03"
+     },
+     {
+      "type": "short",
+      "q": "Domain of √(2x-8)",
+      "answer": "x≥4.",
+      "why": [
+       "x≥4."
+      ],
+      "src": "notes",
+      "label": "4. Domain of √(2x-8)",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Range of y=√x",
+        "a": "y≥0."
+       }
+      ],
+      "id": "math11-u2-q04"
+     },
+     {
+      "type": "short",
+      "q": "Range of y=√x",
+      "answer": "y≥0.",
+      "why": [
+       "y≥0."
+      ],
+      "src": "notes",
+      "label": "5. Range of y=√x",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Range of y=√x+2",
+        "a": "y≥2."
+       }
+      ],
+      "id": "math11-u2-q05"
+     },
+     {
+      "type": "short",
+      "q": "Range of y=√x+2",
+      "answer": "y≥2.",
+      "why": [
+       "y≥2."
+      ],
+      "src": "notes",
+      "label": "6. Range of y=√x+2",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Start of y=√(x-3)+1",
+        "a": "(3,1)."
+       }
+      ],
+      "id": "math11-u2-q06"
+     },
+     {
+      "type": "short",
+      "q": "Start of y=√(x-3)+1",
+      "answer": "(3,1).",
+      "why": [
+       "(3,1)."
+      ],
+      "src": "notes",
+      "label": "7. Start of y=√(x-3)+1",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Start of y=√(x+4)-2",
+        "a": "(-4,-2)."
+       }
+      ],
+      "id": "math11-u2-q07"
+     },
+     {
+      "type": "short",
+      "q": "Start of y=√(x+4)-2",
+      "answer": "(-4,-2).",
+      "why": [
+       "(-4,-2)."
+      ],
+      "src": "notes",
+      "label": "8. Start of y=√(x+4)-2",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve √x=4",
+        "a": "Square: x=16. Check √16=4."
+       }
+      ],
+      "id": "math11-u2-q08"
+     },
+     {
+      "type": "short",
+      "q": "Solve √x=4",
+      "answer": "Square: x=16. Check √16=4.",
+      "why": [
+       "Square: x=16. Check √16=4."
+      ],
+      "src": "notes",
+      "label": "9. Solve √x=4",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve √(x-1)=3",
+        "a": "x-1=9, x=10. Check ok."
+       }
+      ],
+      "id": "math11-u2-q09"
+     },
+     {
+      "type": "short",
+      "q": "Solve √(x-1)=3",
+      "answer": "x-1=9, x=10. Check ok.",
+      "why": [
+       "x-1=9, x=10. Check ok."
+      ],
+      "src": "notes",
+      "label": "10. Solve √(x-1)=3",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve √(2x+1)=5",
+        "a": "2x+1=25, x=12."
+       }
+      ],
+      "id": "math11-u2-q10"
+     },
+     {
+      "type": "short",
+      "q": "Solve √(2x+1)=5",
+      "answer": "2x+1=25, x=12.",
+      "why": [
+       "2x+1=25, x=12."
+      ],
+      "src": "notes",
+      "label": "11. Solve √(2x+1)=5",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Is x=-3 valid for √(x+7)=2?",
+        "a": "-3+7=4, √4=2. Yes valid."
+       }
+      ],
+      "id": "math11-u2-q11"
+     },
+     {
+      "type": "short",
+      "q": "Is x=-3 valid for √(x+7)=2?",
+      "answer": "-3+7=4, √4=2. Yes valid.",
+      "why": [
+       "-3+7=4, √4=2. Yes valid."
+      ],
+      "src": "notes",
+      "label": "12. Is x=-3 valid for √(x+7)=2?",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve √x=-1",
+        "a": "No real solution (principal square root ≥0)."
+       }
+      ],
+      "id": "math11-u2-q12"
+     },
+     {
+      "type": "short",
+      "q": "Solve √x=-1",
+      "answer": "No real solution (principal square root ≥0).",
+      "why": [
+       "No real solution (principal square root ≥0)."
+      ],
+      "src": "notes",
+      "label": "13. Solve √x=-1",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Simplify √(x^2)",
+        "a": "|x|."
+       }
+      ],
+      "id": "math11-u2-q13"
+     },
+     {
+      "type": "short",
+      "q": "Simplify √(x^2)",
+      "answer": "|x|.",
+      "why": [
+       "|x|."
+      ],
+      "src": "notes",
+      "label": "14. Simplify √(x^2)",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Inverse of y=√x, x≥0",
+        "a": "y=x^2 with x≥0."
+       }
+      ],
+      "id": "math11-u2-q14"
+     },
+     {
+      "type": "short",
+      "q": "Inverse of y=√x, x≥0",
+      "answer": "y=x^2 with x≥0.",
+      "why": [
+       "y=x^2 with x≥0."
+      ],
+      "src": "notes",
+      "label": "15. Inverse of y=√x, x≥0",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "The inverse of the function f(x) = √(x − 2) is  A) y = x² + 2  B) y = x² − 2  C) y = log(√(x − 2))  D) y = x + 2  E) y = log(x² + 2)",
+        "a": "A. y = x² + 2 — Because the range of f is y ≥ 0, the inverse is y = x² + 2 restricted to x ≥ 0. Answer: A.",
+        "exam_question": "math-2018-matric-p1-q24"
+       }
+      ],
+      "id": "math11-u2-q15"
+     },
+     {
+      "type": "short",
+      "q": "√9+√16",
+      "answer": "3+4=7.",
+      "why": [
+       "3+4=7."
+      ],
+      "src": "notes",
+      "label": "16. √9+√16",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "√50 compared with 7",
+        "a": "√49=7 so √50>7."
+       }
+      ],
+      "id": "math11-u2-q16"
+     },
+     {
+      "type": "short",
+      "q": "√50 compared with 7",
+      "answer": "√49=7 so √50>7.",
+      "why": [
+       "√49=7 so √50>7."
+      ],
+      "src": "notes",
+      "label": "17. √50 compared with 7",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Simplify √12",
+        "a": "2√3."
+       }
+      ],
+      "id": "math11-u2-q17"
+     },
+     {
+      "type": "short",
+      "q": "Simplify √12",
+      "answer": "2√3.",
+      "why": [
+       "2√3."
+      ],
+      "src": "notes",
+      "label": "18. Simplify √12",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Simplify √75",
+        "a": "5√3."
+       }
+      ],
+      "id": "math11-u2-q18"
+     },
+     {
+      "type": "short",
+      "q": "Simplify √75",
+      "answer": "5√3.",
+      "why": [
+       "5√3."
+      ],
+      "src": "notes",
+      "label": "19. Simplify √75",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "√a·√b for a,b≥0",
+        "a": "√(ab)."
+       }
+      ],
+      "id": "math11-u2-q19"
+     },
+     {
+      "type": "short",
+      "q": "√a·√b for a,b≥0",
+      "answer": "√(ab).",
+      "why": [
+       "√(ab)."
+      ],
+      "src": "notes",
+      "label": "20. √a·√b for a,b≥0",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "√(9x^2) for x≥0",
+        "a": "3x."
+       }
+      ],
+      "id": "math11-u2-q20"
+     },
+     {
+      "type": "short",
+      "q": "√(9x^2) for x≥0",
+      "answer": "3x.",
+      "why": [
+       "3x."
+      ],
+      "src": "notes",
+      "label": "21. √(9x^2) for x≥0",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "√x shifted left 2",
+        "a": "√(x+2)."
+       }
+      ],
+      "id": "math11-u2-q21"
+     },
+     {
+      "type": "short",
+      "q": "√x shifted left 2",
+      "answer": "√(x+2).",
+      "why": [
+       "√(x+2)."
+      ],
+      "src": "notes",
+      "label": "22. √x shifted left 2",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "√x shifted up 3",
+        "a": "√x+3."
+       }
+      ],
+      "id": "math11-u2-q22"
+     },
+     {
+      "type": "short",
+      "q": "√x shifted up 3",
+      "answer": "√x+3.",
+      "why": [
+       "√x+3."
+      ],
+      "src": "notes",
+      "label": "23. √x shifted up 3",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Reflect √x in x-axis",
+        "a": "y=-√x."
+       }
+      ],
+      "id": "math11-u2-q23"
+     },
+     {
+      "type": "short",
+      "q": "Reflect √x in x-axis",
+      "answer": "y=-√x.",
+      "why": [
+       "y=-√x."
+      ],
+      "src": "notes",
+      "label": "24. Reflect √x in x-axis",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Domain of √(x^2-9)",
+        "a": "x≤-3 or x≥3."
+       }
+      ],
+      "id": "math11-u2-q24"
+     },
+     {
+      "type": "short",
+      "q": "Domain of √(x^2-9)",
+      "answer": "x≤-3 or x≥3.",
+      "why": [
+       "x≤-3 or x≥3."
+      ],
+      "src": "notes",
+      "label": "25. Domain of √(x^2-9)",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "√(x-1) at x=1",
+        "a": "0, defined."
+       }
+      ],
+      "id": "math11-u2-q25"
+     },
+     {
+      "type": "short",
+      "q": "√(x-1) at x=1",
+      "answer": "0, defined.",
+      "why": [
+       "0, defined."
+      ],
+      "src": "notes",
+      "label": "26. √(x-1) at x=1",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "√(x-1) at x=0",
+        "a": "Not defined."
+       }
+      ],
+      "id": "math11-u2-q26"
+     },
+     {
+      "type": "short",
+      "q": "√(x-1) at x=0",
+      "answer": "Not defined.",
+      "why": [
+       "Not defined."
+      ],
+      "src": "notes",
+      "label": "27. √(x-1) at x=0",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Solve √(x+5)=√(2x-1)",
+        "a": "x+5=2x-1 → x=6. Check insides ≥0."
+       }
+      ],
+      "id": "math11-u2-q27"
+     },
+     {
+      "type": "short",
+      "q": "Solve √(x+5)=√(2x-1)",
+      "answer": "x+5=2x-1 → x=6. Check insides ≥0.",
+      "why": [
+       "x+5=2x-1 → x=6. Check insides ≥0."
+      ],
+      "src": "notes",
+      "label": "28. Solve √(x+5)=√(2x-1)",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "√(4x-8)=0",
+        "a": "4x-8=0, x=2."
+       }
+      ],
+      "id": "math11-u2-q28"
+     },
+     {
+      "type": "short",
+      "q": "√(4x-8)=0",
+      "answer": "4x-8=0, x=2.",
+      "why": [
+       "4x-8=0, x=2."
+      ],
+      "src": "notes",
+      "label": "29. √(4x-8)=0",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Quadrants for y=√x",
+        "a": "First quadrant and the origin."
+       }
+      ],
+      "id": "math11-u2-q29"
+     },
+     {
+      "type": "short",
+      "q": "Quadrants for y=√x",
+      "answer": "First quadrant and the origin.",
+      "why": [
+       "First quadrant and the origin."
+      ],
+      "src": "notes",
+      "label": "30. Quadrants for y=√x",
+      "page": 62,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Domain of √(x−4)  A) x ≥ 4  B) x ≤ 4  C) all real x  D) x=0 only",
+        "a": "A. x ≥ 4"
+       }
+      ],
+      "id": "math11-u2-q30"
+     },
+     {
+      "type": "mcq",
       "q": "Domain of √(x−4)",
       "options": {
        "A": "x ≥ 4",
@@ -530,8 +1515,16 @@
       "why": [
        "Answer A: x ≥ 4"
       ],
+      "src": "notes",
+      "page": 62,
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "Domain of √x",
+        "a": "x≥0."
+       }
+      ],
+      "id": "math11-u2-q31"
      },
      {
       "id": "math11-u2-q32",
@@ -589,6 +1582,95 @@
       "similar": []
      }
     ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Square Root Functions",
+      "kind": "unit",
+      "cards": [
+       "math11-u2-c01"
+      ]
+     },
+     {
+      "id": "l2_1",
+      "label": "Graphs of Square Root Functions",
+      "kind": "topic",
+      "lesson": "math11-u2-l2-1",
+      "cards": [
+       "math11-u2-c01"
+      ]
+     },
+     {
+      "id": "l2_2",
+      "label": "Domain and Range of Square Root…",
+      "kind": "topic",
+      "lesson": "math11-u2-l2-2",
+      "cards": [
+       "math11-u2-c02",
+       "math11-u2-c03",
+       "math11-u2-c04"
+      ]
+     },
+     {
+      "id": "l2_3",
+      "label": "Solving Square Root Equations",
+      "kind": "topic",
+      "lesson": "math11-u2-l2-3",
+      "cards": [
+       "math11-u2-c05"
+      ]
+     },
+     {
+      "id": "l2_4",
+      "label": "Inverses of Square Root Functions",
+      "kind": "topic",
+      "lesson": "math11-u2-l2-4",
+      "cards": [
+       "math11-u2-c06"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l2_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l2_2",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l2_3",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l2_4",
+      "label": "includes"
+     },
+     {
+      "from": "l2_1",
+      "to": "l2_2",
+      "label": "next"
+     },
+     {
+      "from": "l2_2",
+      "to": "l2_3",
+      "label": "next"
+     },
+     {
+      "from": "l2_3",
+      "to": "l2_4",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
    }
   }
  ]

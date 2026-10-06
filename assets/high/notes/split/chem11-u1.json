@@ -81,6 +81,14 @@
    "tone": "sage",
    "intro": "Rate = how fast a reactant disappears or a product appears — change in concentration (or volume of gas, or mass) per time.",
    "intro_page": 1,
+   "diagrams": {
+    "f1": {
+     "svg": "svg/chemistry_11/chem11_f1.svg",
+     "title": "Collision theory: more successful collisions per second → faster rate.",
+     "page": 6,
+     "pins": []
+    }
+   },
    "lessons": [
     {
      "id": "chem11-u1-l1-1",
@@ -92,13 +100,87 @@
      ],
      "cards": [
       {
+       "id": "chem11-u1-c01",
+       "type": "diagram",
+       "title": "Collision theory: more successful collisions per second → faster rate.",
+       "page": 6,
+       "src": "notes",
+       "diagram": "f1",
+       "mode": "plain"
+      },
+      {
+       "id": "chem11-u1-c02",
+       "type": "remember",
+       "title": "Temperature",
+       "page": 6,
+       "src": "notes",
+       "body": [
+        "Particles fly faster → more collisions AND a bigger share clear the activation energy Ea."
+       ]
+      },
+      {
+       "id": "chem11-u1-c03",
+       "type": "remember",
+       "title": "Concentration / pressure",
+       "page": 12,
+       "src": "notes",
+       "body": [
+        "Crowded flask → more hits. For gases, squeeze the volume (higher P) does the same."
+       ]
+      },
+      {
+       "id": "chem11-u1-c04",
+       "type": "remember",
+       "title": "Surface area",
+       "page": 13,
+       "src": "notes",
+       "body": [
+        "Powder vs lump: more faces exposed. That’s why kindling lights and a log sulks."
+       ]
+      },
+      {
+       "id": "chem11-u1-c05",
+       "type": "remember",
+       "title": "Catalyst",
+       "page": 15,
+       "src": "notes",
+       "body": [
+        "New path with lower Ea. Not used up. Enzymes are biological catalysts."
+       ]
+      },
+      {
+       "id": "chem11-u1-c06",
+       "type": "mnemonic",
+       "title": "Mnemonic — T.C.S.C.",
+       "page": 9,
+       "src": "notes",
+       "body": [
+        "*Temp, Concentration, Surface, Catalyst.* (Pressure sits with concentration for gases.) Write “more successful collisions” in every explain-question."
+       ]
+      },
+      {
+       "id": "chem11-u1-c07",
+       "type": "text",
+       "title": "Rate of a Chemical Reaction",
+       "page": 4,
+       "src": "notes",
+       "body": [
+        "**Typical explain**",
+        "Why does warming the acid make the Mg disappear faster?"
+       ]
+      },
+      {
        "id": "chem11-u1-c08",
        "type": "text",
        "title": "1.1.1 Measuring the Rate of a Chemical Reaction",
        "page": 2,
+       "src": "textbook pp.2–3",
+       "enriched": true,
        "body": [
         "The phrase “rate of reaction” means how fast the reaction is occurring or the speed of the reaction.",
-        "The rate of a reaction can be measured either in terms of how much of a reactant is being used up per unit of time or in terms of how much of a product is being formed per unit of "
+        "The rate of a reaction can be measured either in terms of how much of a reactant is being used up per unit of time or in terms of how much of a product is being formed per unit of time, depending on which is easier to do as the reaction proceeds.",
+        "The rate will then be measured by reading the volume of gas collected per unit of time.",
+        "The rate of a given reaction is not always the same."
        ]
       },
       {
@@ -106,9 +188,13 @@
        "type": "text",
        "title": "1.1.2 The Collision Theory of Reaction Rates",
        "page": 6,
+       "src": "textbook pp.6–7",
+       "enriched": true,
        "body": [
         "As the number of collisions between reactants increases, the rate of the reaction increases.",
-        "Others have a high activation energy, are slow and therefore generally require an external supply of energy to get going."
+        "Others have a high activation energy, are slow and therefore generally require an external supply of energy to get going.",
+        "A hydrogen atom gets attached to one of the carbons and a chlorine atom to the other.",
+        "The reaction can happen only if the hydrogen end of the H-Cl bond approaches the carbon-carbon double bond."
        ]
       },
       {
@@ -116,69 +202,153 @@
        "type": "text",
        "title": "1.1.3 Factors Affecting the Rate of Reaction",
        "page": 8,
+       "src": "textbook pp.8–10",
+       "enriched": true,
        "body": [
         "As discussed earlier, certain reactions are slow whereas others are fast.",
-        "Caution: The reaction produces sulphur dioxide (SO2) gas."
+        "Caution: The reaction produces sulphur dioxide (SO2) gas.",
+        "Hydrogen chloride (HCl) gas may also be given off from the acid solution, especially when heated.",
+        "Most collisions do not result in a chemical reaction."
        ]
       },
       {
-       "type": "text",
-       "title": "Reaction rate",
-       "page": 1,
-       "body": [
-        "Rate = change in concentration / time. Faster with higher concentration, temperature, surface area, catalyst.",
-        "Collision theory: more effective collisions → faster rate."
-       ],
-       "id": "chem11-u1-deep1"
-      },
-      {
+       "id": "chem11-u1-tbl1",
        "type": "table",
-       "title": "Factors",
+       "title": "Key table",
        "page": 1,
+       "src": "study_notes",
        "head": [
-        "Factor",
-        "Effect"
+        "Factor Affecting Rate",
+        "Molecular Mechanism",
+        "Practical Example"
        ],
        "rows": [
         [
-         "Concentration",
-         "↑ collisions"
+         "**Temperature**",
+         "Increases average kinetic energy and the fraction of particles exceeding $$E_a$$",
+         "Food spoils faster at room temperature than in a refrigerator"
         ],
         [
-         "Temperature",
-         "↑ energy + collisions"
+         "**Concentration**",
+         "Increases collision frequency due to more particles in a unit volume",
+         "Magnesium reacts faster in $$2.0\\text{ M HCl}$$ than in $$0.5\\text{ M HCl}$$"
         ],
         [
-         "Catalyst",
-         "lowers Eₐ"
+         "**Surface Area**",
+         "Exposes more reactive sites of a solid, increasing collision rate",
+         "Powdered coal burns explosively, whereas large lumps burn slowly"
         ],
         [
-         "Surface area",
-         "more contact"
+         "**Pressure (Gases)**",
+         "Forces gas molecules closer together, increasing effective concentration",
+         "Gaseous synthesis of ammonia accelerates under high pressure"
+        ],
+        [
+         "**Catalyst**",
+         "Provides an alternative path with a lower activation energy ($$E_a$$)",
+         "Vanadium(V) oxide ($$V_2O_5$$) accelerates sulfur dioxide oxidation"
         ]
-       ],
-       "id": "chem11-u1-deep3"
-      },
-      {
-       "type": "text",
-       "title": "Rate graphs",
-       "body": [
-        "Concentration–time: steeper slope ⇒ faster rate.",
-        "Catalysts increase rate without changing ΔH of overall reaction."
-       ],
-       "id": "chem11-u1-xtra1",
-       "page": 1
-      },
-      {
-       "id": "chem11-u1-checklist",
-       "type": "text",
-       "title": "Rate of a Chemical Reaction and Factors Affecting it: checklist before exam",
-       "page": 1,
-       "body": [
-        "Can you define every bold term in **Rate of a Chemical Reaction and Factors Affecting it** without looking?",
-        "Can you redo each worked example with the answer covered?",
-        "Can you sketch one diagram/graph/map and label it in under 2 minutes?"
        ]
+      },
+      {
+       "id": "chem11-u1-wrk1",
+       "type": "worked",
+       "title": "Worked from review",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "A chemical system reaches dynamic equilibrium when:",
+       "steps": [
+        {
+         "text": "**Step 1: Identify the definition of equilibrium**"
+        },
+        {
+         "text": "Chemical equilibrium is a dynamic state."
+        },
+        {
+         "text": "This means the reactions do not stop, but rather occur in both directions simultaneously."
+        },
+        {
+         "text": "**Step 2: Compare rates**"
+        },
+        {
+         "text": "At equilibrium, the forward rate of reaction equals the reverse rate of reaction."
+        }
+       ],
+       "answer": "When the rate of the forward reaction equals the rate of the reverse reaction"
+      },
+      {
+       "id": "chem11-u1-wrk2",
+       "type": "worked",
+       "title": "Worked from review",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "For the equilibrium system: $$2S(s) + 5F_2(g) \\rightleftharpoons SF_4(g) + SF_6(g)$$, in which direction will the equilibrium shift if the pressure of the system is increased?",
+       "steps": [
+        {
+         "text": "**Step 1: Apply Le Chatelier's Principle for pressure**"
+        },
+        {
+         "text": "Increasing pressure shifts the equilibrium to the side with fewer moles of gas."
+        },
+        {
+         "text": "**Step 2: Count gas moles on reactant side**"
+        },
+        {
+         "text": "Only gases are counted. $$2S(s)$$ is solid."
+        },
+        {
+         "text": "Gaseous reactant is $$5F_2(g)$$, which is **$$5\\text{ moles}$$**."
+        }
+       ],
+       "answer": "$$5\\text{ moles}$$"
+      },
+      {
+       "id": "chem11-u1-chk1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "If the forward reaction of a system in equilibrium is endothermic, increasing the temperature of the system will:",
+       "options": {
+        "A": "Shift the equilibrium to the left.",
+        "B": "Shift the equilibrium to the right.",
+        "C": "Decrease the rate of the forward reaction.",
+        "D": "Have no effect on the equilibrium constant $$K_c$$."
+       },
+       "answer": "B",
+       "why": "**Step 1: Treat heat as a reactant or product**\nFor an endothermic reaction, heat is absorbed: $$\\text{Reactants} + \\text{Heat} \\rightleftharpoons \\text{Products}$$.\n\n**Step 2: Apply Le Chatelier's Principle**\nIncreasing temperature is equivalent to adding heat to the reactant side.\n\n**Step 3: Predict the shift**\nTo consume the added heat, the system shifts to the **right** (towards products)."
+      },
+      {
+       "id": "chem11-u1-chk2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Which of the following parameters cannot be used directly to monitor the rate of a chemical reaction?",
+       "options": {
+        "A": "The volume of gas evolved over time.",
+        "B": "The loss of mass of the reaction flask on a balance.",
+        "C": "The total molecular mass of the inert nitrogen atmosphere above the reaction.",
+        "D": "The change in color intensity of a transition metal ion solution."
+       },
+       "answer": "C",
+       "why": "**Step 1: Understand how rate is measured**\nTo measure rate, we must track a changing property of reactants or products over time.\n\n**Step 2: Evaluate options**\nOption A (volume of gas) changes as product gas forms. Option B (mass loss) changes as gas escapes. Option D (color intensity) changes as concentration of colorful species changes.\n\n**Step 3: Analyze the inert gas**\nThe inert nitrogen gas above the reaction does not participate in the chemical reaction, so its properties remain constant and cannot monitor reaction rate.\n\n**Step 4: Final Result**\nThe correct option is **C**."
+      },
+      {
+       "id": "chem11-u1-chk73",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "A chemical system reaches dynamic equilibrium when:",
+       "options": {
+        "A": "The concentrations of reactants and products are exactly equal.",
+        "B": "The reactants are entirely converted into products and the reaction stops.",
+        "C": "The rate of the forward reaction equals the rate of the reverse reaction.",
+        "D": "The activation energy of the forward reaction becomes zero."
+       },
+       "answer": "C",
+       "why": "**Step 1: Identify the definition of equilibrium**\nChemical equilibrium is a dynamic state. This means the reactions do not stop, but rather occur in both directions simultaneously.\n\n**Step 2: Compare rates**\nAt equilibrium, the forward rate of reaction equals the reverse rate of reaction.\n\n**Step 3: Analyze concentrations**\nBecause the rates are equal, the net concentrations of reactants and products remain constant, but they are not necessarily equal in value.\n\n**Step 4: Final Result**\nThe correct choice is **C**."
       }
      ]
     },
@@ -196,9 +366,13 @@
        "type": "text",
        "title": "1.2.1 Chemical Equilibrium and Its Characteristics",
        "page": 16,
+       "src": "textbook pp.16–17",
+       "enriched": true,
        "body": [
         "A chemical reaction may be either reversible or irreversible.",
-        "A reversible reaction is one in which the reactants can form the products, and the products can also form the reactants under the conditions of the reaction."
+        "A reversible reaction is one in which the reactants can form the products, and the products can also form the reactants under the conditions of the reaction.",
+        "As time passes and the reaction proceeds, the concentration of A and B will decrease whereas that of C and D will increase.",
+        "Since a decrease in concentration of the reactants reduces the rate of a reaction, the forward reaction rate will be decreasing with time."
        ]
       },
       {
@@ -206,9 +380,12 @@
        "type": "text",
        "title": "1.2.2 Le Chatelier’s Principle",
        "page": 22,
+       "src": "textbook p.22",
+       "enriched": true,
        "body": [
         "In doing so, the system will react to restore equilibrium.",
-        "For example, if the concentration of ammonia is increased, the rate of the backward reaction will increase and more hydrogen and nitrogen will be produced, resulting in more of the"
+        "For example, if the concentration of ammonia is increased, the rate of the backward reaction will increase and more hydrogen and nitrogen will be produced, resulting in more of the ammonia being used up.",
+        "In other words the equilibrium shifts to the left until equilibrium is restored."
        ]
       },
       {
@@ -217,202 +394,10 @@
        "title": "Reversible reactions and equilibrium",
        "page": 16,
        "body": [
-        "A **reversible reaction** can go both ways (⇌). In a closed system it reaches **dynamic equilibrium**: the forward and reverse rates are equal, so concentrations stay constant, tho",
-        "**Le Chatelier’s principle:** if a change is made to a system at equilibrium, the position of equilibrium shifts to oppose the change. Example, the Haber process N₂ + 3H₂ ⇌ 2NH₃ (e"
-       ]
-      },
-      {
-       "type": "worked",
-       "title": "Effect of T",
-       "page": 1,
-       "problem": "Why heating speeds reactions.",
-       "steps": [
-        {
-         "text": "P"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "i"
-        },
-        {
-         "text": "c"
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "m"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "v"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "f"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "→"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "m"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "c"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "i"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": "i"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "n"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "n"
-        },
-        {
-         "text": "d"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "m"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "w"
-        },
-        {
-         "text": "i"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "h"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "E"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "≥"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "E"
-        },
-        {
-         "text": "ₐ"
-        },
-        {
-         "text": "."
-        }
+        "A **reversible reaction** can go both ways (⇌). In a closed system it reaches **dynamic equilibrium**: the forward and reverse rates are equal, so concentrations stay constant, though both reactions are still going on.",
+        "**Le Chatelier’s principle:** if a change is made to a system at equilibrium, the position of equilibrium shifts to oppose the change. Example, the Haber process N₂ + 3H₂ ⇌ 2NH₃ (exothermic forward reaction): increasing the pressure shifts the equilibrium to the right (fewer gas molecules, 4 → 2), so more ammonia forms; increasing the temperature shifts it to the left, so less ammonia forms."
        ],
-       "answer": "Rate rises with temperature.",
-       "id": "chem11-u1-deep2"
+       "src": "notes"
       },
       {
        "type": "worked",
@@ -425,41 +410,354 @@
        ],
        "answer": "Powder reacts faster.",
        "id": "chem11-u1-xtra2",
-       "page": 1
+       "page": 1,
+       "src": "notes"
       },
       {
-       "id": "chem11-u1-misconception",
-       "type": "text",
-       "title": "Common mix-ups in Rate of a Chemical Reaction and Factors Affecting it",
-       "page": 1,
-       "body": [
-        "Write one idea students often confuse with this topic, then the correct distinction.",
-        "Example pattern: “Looks like X, but actually Y because …”",
-        "Teaching the difference is better than re-reading the page."
-       ]
+       "id": "chem11-u1-l1-2-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "A chemical reaction is in equilibrium when",
+       "options": {
+        "A": "there is visible change.",
+        "B": "there is change in concentration of the reactants and products.",
+        "C": "the rate at which the reactants are used up and products produced are different.",
+        "D": "there is no change in concentration of the reactants and products.",
+        "E": "the quantities of reactants and products are changed."
+       },
+       "answer": "D",
+       "why": "Chemical equilibrium is a dynamic state where the rate of the forward reaction equals the rate of the reverse reaction. As a result, the concentrations of reactants and products remain constant (unchanged) over time.",
+       "src": "matric",
+       "src_qid": "chemistry_2023_q5",
+       "page": 16
+      },
+      {
+       "id": "chem11-u1-l1-2-mx2",
+       "type": "check",
+       "title": "Quick check",
+       "q": "For the system $$ H_2(g) + I_2(g) \\rightleftharpoons 2HI(g) $$ at equilibrium, according to Le Chatelier's Principle, the reaction proceeds",
+       "options": {
+        "A": "forward if pressure is increased.",
+        "B": "backward if pressure is increased.",
+        "C": "forward if concentration of $$ H_2 $$ is decreased.",
+        "D": "in neither way if pressure is increased.",
+        "E": "A and C."
+       },
+       "answer": "D",
+       "why": "**Step 1: Analyze the effect of pressure.**\nPressure affects equilibrium only if there is a change in the total number of moles of gas between reactants and products.\n\n**Step 2: Count gas moles.**\n- Reactants: 1 mole $$ H_2 $$ + 1 mole $$ I_2 $$ = 2 moles of gas.\n- Products: 2 moles of $$ HI $$ = 2 moles of gas.\n\n**Result:** Since the number of moles is equal on both sides ($$ 2 = 2 $$), changing the pressure has no effect on the equilibrium position.",
+       "src": "matric",
+       "src_qid": "chemistry_2017_q54",
+       "page": 16
+      },
+      {
+       "id": "chem11-u1-l1-2-mx3",
+       "type": "check",
+       "title": "Quick check",
+       "q": "For the equilibrium reaction $$ 4A(g) + B(g) \\rightleftharpoons 2C(g) + 2D(g) $$, which of the following will shifts the reaction to the right:",
+       "options": {
+        "A": "Increasing pressure",
+        "B": "Decreasing pressure",
+        "C": "Increasing volume",
+        "D": "Decrease volume",
+        "E": "A and D"
+       },
+       "answer": "E",
+       "why": "According to **Le Chatelier's Principle**:\n- Reactant side has $$ 4 + 1 = 5 $$ moles of gas.\n- Product side has $$ 2 + 2 = 4 $$ moles of gas.\n- **Increasing pressure** (or decreasing volume) shifts the equilibrium toward the side with **fewer moles** of gas (the right side).",
+       "src": "matric",
+       "src_qid": "chemistry_2025_q27",
+       "page": 16
       }
      ]
     }
    ],
    "glossary": [
     {
-     "term": "Rate",
-     "def": "Core topic of this unit — expand with your textbook definition for “Rate of a Chemical Reaction and Factors Affecting it”."
+     "term": "Equilibrium quotient",
+     "meaning": "The equilibrium quotient Q is the value of the equilibrium expression of a reaction for any arbitrary set of concentrations or partial pressures of the reaction components.",
+     "page": 20,
+     "src": "textbook p.20",
+     "enriched": true
+    },
+    {
+     "term": "Catalyst",
+     "meaning": "The word “catalyst” means an added substance, in contact with the reactants, that changes the rate of a chemical reaction without itself being chemically changed.",
+     "page": 14,
+     "src": "textbook p.14",
+     "enriched": true
+    },
+    {
+     "term": "Rate of reaction",
+     "meaning": "The phrase “rate of reaction” means how fast the reaction is occurring or the speed of the reaction.",
+     "page": 2,
+     "src": "textbook p.2",
+     "enriched": true
+    },
+    {
+     "term": "Equilibrium",
+     "meaning": "Such an equilibrium system is called a dynamic equilibrium.",
+     "page": 17,
+     "src": "textbook p.17",
+     "enriched": true
     }
    ],
    "tips": [
     {
-     "id": "chem11-u1-deeptip1",
-     "text": "A catalyst is not consumed; it opens a lower-energy path."
+     "text": "Rate or speed refers to the amount of change in something per unit of time.",
+     "page": 15,
+     "src": "textbook p.15",
+     "enriched": true
+    },
+    {
+     "text": "In a chemical reaction the quantity changing is the concentration of reactants and products or a certain physical property that is related to one of the concentrations.",
+     "page": 15,
+     "src": "textbook p.15",
+     "enriched": true
+    },
+    {
+     "text": "The rate of reaction can be expressed in terms of the rate of change in concentration of either the reactants or the products.",
+     "page": 15,
+     "src": "textbook p.15",
+     "enriched": true
+    },
+    {
+     "text": "Two conditions we impose on the reaction rate are that it must be a positive quantity, and that it must be of the same quantity regardless of the substance we use to express it.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "A rate law (equation) shows us how the rate of a reaction varies with reactant concentration. But chemists also need an equation to show how reactant concentration changes with time.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "This equation would allow us to summarize experimental data, which are usually reactant concentrations versus time.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "We can also answer such questions as, how long will it take for a reaction to be 50 per cent complete, or what will the reactant concentration be after 5 hours.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "The rate constant’s dependence on temperature can be explained by the collision theory. This theory assumes that, for a reaction to occur, reactant molecules must collide with an energy greater than a certain minimum value and with the proper orientation.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "This minimum energy required for a collision between two reactant molecules, causing them to react, is called the activation energy, EA.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "Some of the main factors that affect the rate of a reaction are: the temperature, the size of the particles of a solid reactant, the concentration of reactants in a solution, the pressure of reactants in the gas phase, the nature of the reactants and the presence or absence of catalyst.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "Temperature: Particles fly faster → more collisions AND a bigger share clear the activation energy Ea.",
+     "page": 6,
+     "src": "notes",
+     "card": "chem11-u1-c02"
+    },
+    {
+     "text": "Concentration / pressure: Crowded flask → more hits. For gases, squeeze the volume (higher P) does the same.",
+     "page": 12,
+     "src": "notes",
+     "card": "chem11-u1-c03"
+    },
+    {
+     "text": "Surface area: Powder vs lump: more faces exposed. That’s why kindling lights and a log sulks.",
+     "page": 13,
+     "src": "notes",
+     "card": "chem11-u1-c04"
+    },
+    {
+     "text": "Catalyst: New path with lower Ea. Not used up. Enzymes are biological catalysts.",
+     "page": 15,
+     "src": "notes",
+     "card": "chem11-u1-c05"
     }
    ],
-   "games": [],
+   "games": [
+    {
+     "type": "match",
+     "title": "Match the pairs",
+     "pairs": [
+      {
+       "a": "Ea",
+       "b": "Minimum energy to react"
+      },
+      {
+       "a": "Boyle",
+       "b": "P up, V down"
+      },
+      {
+       "a": "Equilibrium quotient",
+       "b": "The equilibrium quotient Q is the value of the equilibrium expression of a reaction for any arbitrary set of…"
+      }
+     ],
+     "src": "notes",
+     "id": "chem11-u1-g1",
+     "lesson": null
+    },
+    {
+     "type": "match",
+     "title": "Match each key word to its meaning",
+     "pairs": [
+      {
+       "a": "Equilibrium quotient",
+       "b": "The equilibrium quotient Q is the value of the equilibrium expression of a reaction for any arbitrary set of…"
+      },
+      {
+       "a": "Catalyst",
+       "b": "The word “catalyst” means an added substance, in contact with the reactants, that changes the rate of a…"
+      },
+      {
+       "a": "Rate of reaction",
+       "b": "The phrase “rate of reaction” means how fast the reaction is occurring or the speed of the reaction."
+      },
+      {
+       "a": "Equilibrium",
+       "b": "Such an equilibrium system is called a dynamic equilibrium."
+      }
+     ],
+     "src": "glossary",
+     "id": "chem11-u1-g2",
+     "lesson": null
+    },
+    {
+     "type": "tf",
+     "title": "True or false?",
+     "seconds": 12,
+     "items": [
+      {
+       "text": "Equilibrium quotient: The equilibrium quotient Q is the value of the equilibrium expression of a reaction for any arbitrary set of concentrations or partial pressures of the…",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Catalyst: The equilibrium quotient Q is the value of the equilibrium expression of a reaction for any arbitrary set of concentrations or partial pressures of the…",
+       "answer": false,
+       "why": "That describes Equilibrium quotient. Catalyst: The word “catalyst” means an added substance, in contact with the reactants, that changes the rate of a chemical reaction without itself being chemically…"
+      },
+      {
+       "text": "Rate of reaction: The phrase “rate of reaction” means how fast the reaction is occurring or the speed of the reaction.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Equilibrium: The phrase “rate of reaction” means how fast the reaction is occurring or the speed of the reaction.",
+       "answer": false,
+       "why": "That describes Rate of reaction. Equilibrium: Such an equilibrium system is called a dynamic equilibrium."
+      }
+     ],
+     "src": "glossary",
+     "id": "chem11-u1-g3",
+     "lesson": null
+    },
+    {
+     "type": "flash",
+     "title": "Key word flash cards",
+     "cards": [
+      {
+       "front": "Equilibrium quotient",
+       "back": "The equilibrium quotient Q is the value of the equilibrium expression of a reaction for any arbitrary set of concentrations or partial pressures of the reaction components."
+      },
+      {
+       "front": "Catalyst",
+       "back": "The word “catalyst” means an added substance, in contact with the reactants, that changes the rate of a chemical reaction without itself being chemically changed."
+      },
+      {
+       "front": "Rate of reaction",
+       "back": "The phrase “rate of reaction” means how fast the reaction is occurring or the speed of the reaction."
+      },
+      {
+       "front": "Equilibrium",
+       "back": "Such an equilibrium system is called a dynamic equilibrium."
+      }
+     ],
+     "src": "glossary",
+     "id": "chem11-u1-g4",
+     "lesson": null
+    },
+    {
+     "type": "fill",
+     "title": "Fill the gap",
+     "items": [
+      {
+       "text": "The ____ Q is the value of the equilibrium expression of a reaction for any arbitrary set of concentrations or partial pressures of the reaction components.",
+       "answer": "Equilibrium quotient",
+       "choices": [
+        "Rate of reaction",
+        "Catalyst",
+        "Equilibrium quotient"
+       ]
+      },
+      {
+       "text": "The word “____” means an added substance, in contact with the reactants, that changes the rate of a chemical reaction without itself being chemically changed.",
+       "answer": "Catalyst",
+       "choices": [
+        "Equilibrium quotient",
+        "Catalyst",
+        "Equilibrium"
+       ]
+      },
+      {
+       "text": "The phrase “____” means how fast the reaction is occurring or the speed of the reaction.",
+       "answer": "Rate of reaction",
+       "choices": [
+        "Catalyst",
+        "Rate of reaction",
+        "Equilibrium"
+       ]
+      },
+      {
+       "text": "Such an ____ system is called a dynamic equilibrium.",
+       "answer": "Equilibrium",
+       "choices": [
+        "Rate of reaction",
+        "Equilibrium",
+        "Catalyst"
+       ]
+      }
+     ],
+     "src": "glossary",
+     "id": "chem11-u1-g5",
+     "lesson": null
+    }
+   ],
    "exercise": {
     "questions": [
      {
-      "id": "chem11-u1-q02",
+      "type": "short",
+      "q": "Model answer steps",
+      "answer": "1. Particles gain kinetic energy.\n2. They collide more often.\n3. A larger fraction have E ≥ Ea so more collisions are successful.\n4. Rate rises. (Don’t stop at “they move faster”.)",
+      "why": [
+       "Raising the temperature gives particles more kinetic energy, so they collide more often and, more importantly, a larger fraction of collisions have energy equal to or greater than the activation energy, so the rate increases."
+      ],
+      "src": "notes",
+      "page": 10,
+      "why_src": "written",
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "The effect of an increase in temperature on the rate of a reaction is to increase the  A) activation energy.  B) reactant concentration.  C) number of particle collisions.  D) energy barrier.  E) All of the above.",
+        "a": "C. number of particle collisions. — Temperature does not change the activation energy (energy barrier) or the concentration. Answer: C.",
+        "exam_question": "gensci-2019-matric-p1-q58"
+       }
+      ],
+      "id": "chem11-u1-q01"
+     },
+     {
       "type": "mcq",
-      "page": 25,
       "q": "A catalyst speeds a reaction by",
       "options": {
        "A": "Raising Ea",
@@ -470,15 +768,24 @@
       "answer": "C",
       "why": [
        "Answer C: Offering a path with lower Ea",
-       "Textbook p.25: A _____________ is a substance which speeds up a reaction, but is chemically unchanged itself at the end of the reaction. 9."
+       "A catalyst provides an alternative reaction pathway with a lower activation energy, so more collisions succeed; it is not used up and does not change ΔH."
       ],
+      "src": "notes",
+      "page": 25,
+      "why_src": "written",
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "The rate of chemical reaction increases with:-  A) decrease particle size  B) decrease in surface area  C) increase in temperature in exothermic reaction.  D) addition of prohibitory catalyst  E) A and B",
+        "a": "A. decrease particle size — Keyed answer: A (the unambiguous statement). A student choosing C is also scientifically right.",
+        "exam_question": "chem-2018-19-model-s2-p1-q53"
+       }
+      ],
+      "id": "chem11-u1-q02",
+      "section": "Mini-game · match · Quiz"
      },
      {
-      "id": "chem11-u1-q03",
       "type": "mcq",
-      "page": 16,
       "q": "Charles’s law needs temperature in",
       "options": {
        "A": "°C only",
@@ -489,10 +796,148 @@
       "answer": "D",
       "why": [
        "Answer D: kelvin",
-       "Textbook p.16: A rate law (equation) shows us how the rate of a reaction varies with reactant concentration."
+       "Charles's law (V ∝ T) only works with absolute temperature: in kelvin, 0 K means zero volume in theory, whereas 0 °C is not a true zero. Convert with T(K) = t(°C) + 273."
       ],
+      "src": "notes",
+      "page": 16,
+      "why_src": "written",
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "When the temperature of reversible exothermic reaction is increased at equilibrium:  A) forward reaction is favored  B) reverse reaction is favored  C) reaction is kept at equilibrium  D) concentration of reaction is decrease  E) can't be determined",
+        "a": "B. reverse reaction is favored — Answer: B (the reverse reaction is favoured, K decreases).",
+        "exam_question": "chem-2018-19-model-s2-p1-q22"
+       }
+      ],
+      "id": "chem11-u1-q03"
+     },
+     {
+      "type": "mcq",
+      "q": "P₁V₁ = P₂V₂ is",
+      "options": {
+       "A": "Charles",
+       "B": "Boyle",
+       "C": "Avogadro",
+       "D": "OIL RIG"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: Boyle"
+      ],
+      "src": "notes",
+      "page": 1,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "The ____ Q is the value of the equilibrium expression of a reaction for any arbitrary set of concentrations or partial pressures of the reaction components.",
+        "a": "Equilibrium quotient"
+       }
+      ],
+      "id": "chem11-u1-q04"
+     },
+     {
+      "type": "fill",
+      "q": "The ____ Q is the value of the equilibrium expression of a reaction for any arbitrary set of concentrations or partial pressures of the reaction components.",
+      "answer": "Equilibrium quotient",
+      "choices": [
+       "Rate of reaction",
+       "Equilibrium quotient",
+       "Catalyst",
+       "Equilibrium"
+      ],
+      "why": [
+       "The equilibrium quotient Q is the value of the equilibrium expression of a reaction for any arbitrary set of concentrations or partial pressures of the reaction components."
+      ],
+      "src": "textbook p.20",
+      "enriched": true,
+      "page": 20,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "A reversible reaction reaches chemical equilibrium when  A) no new product is formed during forward reaction.  B) a backward reaction does not occur.  C) the concentrations of reactants is equal to products.  D) the rate of forward reaction equals to the rate of backward reaction.  E) A and D.",
+        "a": "D. the rate of forward reaction equals to the rate of backward reaction. — Products are still formed (A false), the backward reaction still occurs (B false) and concentrations need not be equal (C false). Answer: D.",
+        "exam_question": "chem-2019-matric-p1-q56"
+       }
+      ],
+      "id": "chem11-u1-q05"
+     },
+     {
+      "type": "fill",
+      "q": "The word “____” means an added substance, in contact with the reactants, that changes the rate of a chemical reaction without itself being chemically changed.",
+      "answer": "Catalyst",
+      "choices": [
+       "Equilibrium quotient",
+       "Catalyst",
+       "Equilibrium",
+       "Rate of reaction"
+      ],
+      "why": [
+       "The word “catalyst” means an added substance, in contact with the reactants, that changes the rate of a chemical reaction without itself being chemically changed."
+      ],
+      "src": "textbook p.14",
+      "enriched": true,
+      "page": 14,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "The rate of a reaction refers to ____ with time.  A) the consumption of a product  B) the formation of a reactant  C) an increase in the concentration of a reactant  D) a decrease in the concentration of a product  E) an increase in the concentration of a product",
+        "a": "E. an increase in the concentration of a product — A–D all have the direction reversed. Answer: E.",
+        "exam_question": "gensci-2018-matric-p1-q44"
+       }
+      ],
+      "id": "chem11-u1-q06"
+     },
+     {
+      "type": "fill",
+      "q": "The phrase “____” means how fast the reaction is occurring or the speed of the reaction.",
+      "answer": "Rate of reaction",
+      "choices": [
+       "Equilibrium quotient",
+       "Equilibrium",
+       "Catalyst",
+       "Rate of reaction"
+      ],
+      "why": [
+       "The phrase “rate of reaction” means how fast the reaction is occurring or the speed of the reaction."
+      ],
+      "src": "textbook p.2",
+      "enriched": true,
+      "page": 2,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "The rate of a reaction can be measured by the change in its  A) colour.  B) temperature.  C) pH.  D) conductivity.  E) All of the above.",
+        "a": "E. All of the above. — All four are listed. Answer: E.",
+        "exam_question": "gensci-2023-matric-p1-q43"
+       }
+      ],
+      "id": "chem11-u1-q07"
+     },
+     {
+      "type": "fill",
+      "q": "Such an ____ system is called a dynamic equilibrium.",
+      "answer": "Equilibrium",
+      "choices": [
+       "Catalyst",
+       "Rate of reaction",
+       "Equilibrium quotient",
+       "Equilibrium"
+      ],
+      "why": [
+       "Such an equilibrium system is called a dynamic equilibrium."
+      ],
+      "src": "textbook p.17",
+      "enriched": true,
+      "page": 17,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "The equation for the equilibrium constant Kc = [C]²/([A][B]²) is correct for the reaction  A) A + B₂ ⇌ C₂.  B) A₂ + B ⇌ C₂.  C) A + 2B ⇌ 2C.  D) 2A + B ⇌ 2C.  E) 2A₂ + B ⇌ 2C₂.",
+        "a": "C. A + 2B ⇌ 2C. — The expression has [A]¹, [B]² and [C]², so a = 1, b = 2, c = 2: A + 2B ⇌ 2C. Answer: C.",
+        "exam_question": "chem-2019-matric-p1-q32"
+       }
+      ],
+      "id": "chem11-u1-q08"
      },
      {
       "id": "chem11-u1-xq1",
@@ -529,8 +974,327 @@
       ],
       "tip": "Units reveal mistakes.",
       "similar": []
+     },
+     {
+      "id": "chem11-u1-mx1",
+      "type": "mcq",
+      "q": "Ammonia gas can be prepared in the Haber process from nitrogen and hydrogen gas as follows:\n$$ N_2(g) + 3H_2(g) \\rightleftharpoons 2NH_3(g) \\quad \\Delta H = -92 \\text{ KJ/mole} $$\nThen large amount of ammonia is produced by:",
+      "options": {
+       "A": "Decreasing the temperature of the reactant",
+       "B": "Increasing pressure on the reacting substance",
+       "C": "Continuous addition of nitrogen gas and hydrogen gas",
+       "D": "By increasing temperature",
+       "E": "All except D"
+      },
+      "answer": "E",
+      "why": [
+       "According to **Le Chatelier's Principle**:\n1. Since the reaction is **exothermic** ($$ \\Delta H $$ is negative), decreasing temperature (A) shifts the equilibrium to the right.\n2. Increasing pressure (B) shifts the equilibrium to the side with fewer gas moles (the product side).\n3. Adding more reactants (C) shifts the equilibrium to the right.\nTherefore, A, B, and C all increase ammonia production."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2015_q36",
+      "exam_question": "chemistry_2015_q36",
+      "page": 1
+     },
+     {
+      "id": "chem11-u1-mx2",
+      "type": "mcq",
+      "q": "In the reaction $$ N_2(g) + 3H_2(g) \\rightarrow 2NH_3(g) $$. The increase in pressure shifts the equilibrium state to",
+      "options": {
+       "A": "Left",
+       "B": "Right",
+       "C": "Both",
+       "D": "No effect",
+       "E": "None"
+      },
+      "answer": "B",
+      "why": [
+       "**Step 1:** Count the number of moles of gas on each side of the equation.\n- Reactants: $$ 1 (N_2) + 3 (H_2) = 4 $$ moles of gas.\n- Products: $$ 2 (NH_3) = 2 $$ moles of gas.\n\n**Step 2:** Apply Le Chatelier's Principle.\n- An increase in pressure shifts the equilibrium toward the side with the **fewer** number of gas moles to reduce the pressure.\n- Since 2 is less than 4, the equilibrium shifts to the **Right**.\n\n**Result:** B"
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2014_15_q61",
+      "exam_question": "chemistry_2014_15_q61",
+      "page": 1
+     },
+     {
+      "id": "chem11-u1-mx3",
+      "type": "mcq",
+      "q": "The following parameters increase the rate of a reaction by increasing the rate of collision, **except**:",
+      "options": {
+       "A": "Temperature.",
+       "B": "Concentration of reactant.",
+       "C": "Surface area of reactants.",
+       "D": "Pressure.",
+       "E": "Catalyst."
+      },
+      "answer": "E",
+      "why": [
+       "**Step 1: Analyze how each factor affects the reaction rate.**\n- **Temperature:** Increases kinetic energy, leading to more frequent and energetic collisions.\n- **Concentration:** More particles in a given volume increase collision frequency.\n- **Surface Area:** More exposed particles increase collision frequency.\n- **Pressure:** For gases, increases particle density, increasing collision frequency.\n- **Catalyst:** Increases the rate by providing an alternative pathway with a **lower activation energy**, not by increasing the collision frequency.\n\n**Result:** Catalyst is the exception."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2024_q44",
+      "exam_question": "chemistry_2024_q44",
+      "page": 1
+     },
+     {
+      "id": "chem11-u1-mx4",
+      "type": "mcq",
+      "q": "For a reaction $$ A + B \\leftrightarrow C + \\text{heat} $$, increase in temperature will increase",
+      "options": {
+       "A": "Forward reaction",
+       "B": "Backward reaction",
+       "C": "Doesn`t affect the reaction",
+       "D": "It`s impossible to determined",
+       "E": "None"
+      },
+      "answer": "B",
+      "why": [
+       "According to **Le Chatelier's Principle**, if a system at equilibrium is disturbed, it shifts to counteract the disturbance.\n- The reaction is **exothermic** (heat is a product).\n- Adding heat (increasing temperature) will shift the equilibrium to the **left** (the endothermic direction) to absorb the excess heat.\n- Shifting left means the **backward reaction** is favored.\n\n**Result:** B"
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2014_15_q54",
+      "exam_question": "chemistry_2014_15_q54",
+      "page": 1
+     },
+     {
+      "id": "chem11-u1-mx5",
+      "type": "mcq",
+      "q": "For a reaction $$ \\text{A} + \\text{B} \\leftrightarrow \\text{C} + \\text{heat} $$, increase in temperature will increase",
+      "options": {
+       "A": "Forward reaction",
+       "B": "Backward reaction",
+       "C": "Doesn't affect the reaction",
+       "D": "It's impossible to determined",
+       "E": "None"
+      },
+      "answer": "B",
+      "why": [
+       "According to Le Chatelier's Principle, for an **exothermic** reaction (where heat is a product), increasing the temperature is like adding more product. The system will shift to the left to consume the excess heat, thereby increasing the **backward reaction**."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2017_q29",
+      "exam_question": "chemistry_2017_q29",
+      "page": 1
+     },
+     {
+      "id": "chem11-u1-mx6",
+      "type": "mcq",
+      "q": "According to the collision theory, rate of a reaction decreases when ____.",
+      "options": {
+       "A": "Pressure increases",
+       "B": "Surface area increases",
+       "C": "Concentration of reactant increases",
+       "D": "temperature increase",
+       "E": "particle size increase"
+      },
+      "answer": "E",
+      "why": [
+       "According to **Collision Theory**, the rate of reaction is proportional to the frequency of effective collisions. \n- Increasing pressure, surface area, concentration, or temperature all **increase** the rate. \n- Increasing **particle size** (e.g., using a large lump instead of powder) **decreases** the surface area, which leads to fewer collisions and a **decreased** reaction rate."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2015_q51",
+      "exam_question": "chemistry_2015_q51",
+      "page": 1
+     },
+     {
+      "id": "chem11-u1-mx7",
+      "type": "mcq",
+      "q": "Consider the reaction: $$ 2H_{2(g)} + O_{2(g)} \\rightleftharpoons 2H_2O_{(g)} \\quad \\Delta H = -483.6 kJ $$. Which of the following is true about the reaction?",
+      "options": {
+       "A": "Increasing temperature will shift the equilibrium to the left.",
+       "B": "Increasing pressure will shift the equilibrium to the left.",
+       "C": "Increasing Volume will not have any effect on the equilibrium.",
+       "D": "Increasing concentration of O2(g) will shift the equilibrium to the left",
+       "E": "All"
+      },
+      "answer": "A",
+      "why": [
+       "**Step 1: Temperature.** The reaction is exothermic ($$ \\Delta H < 0 $$). According to Le Chatelier's Principle, increasing temperature shifts the equilibrium toward the endothermic direction (left). (True)\n**Step 2: Pressure.** Reactant moles = 3, Product moles = 2. Increasing pressure shifts to the side with fewer moles (right). (False)\n**Step 3: Concentration.** Increasing $$ O_2 $$ (reactant) shifts equilibrium to the product side (right). (False)."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2024_q45",
+      "exam_question": "chemistry_2024_q45",
+      "page": 1
+     },
+     {
+      "id": "chem11-u1-mx8",
+      "type": "mcq",
+      "q": "The rate of reaction is increased by the following, except;",
+      "options": {
+       "A": "Increase in temperature",
+       "B": "Increase in concentration",
+       "C": "Increasing the size of the particle",
+       "D": "Adding catalyst",
+       "E": "Increasing surface area"
+      },
+      "answer": "C",
+      "why": [
+       "**Step 1:** Review factors that increase reaction rate.\n- **Temp:** Increases kinetic energy and collisions (Increases rate).\n- **Conc:** More particles per volume, more collisions (Increases rate).\n- **Catalyst:** Lowers activation energy (Increases rate).\n- **Surface Area:** More area for collisions (Increases rate).\n**Step 2:** **Increasing particle size** actually **decreases** the surface area. Therefore, it **decreases** the rate of reaction."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2021_q65",
+      "exam_question": "chemistry_2021_q65",
+      "page": 1
+     },
+     {
+      "id": "chem11-u1-mx9",
+      "type": "mcq",
+      "q": "For the decomposition of $$ SO_3 $$ to form $$ SO_2 $$ and $$ O_2 $$, $$ K_c $$ is $$ 2.43 \\times 10^{-3} $$ at $$ 273 ^\\circ\\text{C} $$. Then what is the $$ K_c $$ for the **reverse reaction**?",
+      "options": {
+       "A": "$$ 2.43 \\times 10^3 $$",
+       "B": "$$ 2.43 \\times 10^{-3} $$",
+       "C": "$$ 4.12 \\times 10^2 $$",
+       "D": "$$ 4.12 \\times 10^{-2} $$",
+       "E": "None"
+      },
+      "answer": "C",
+      "why": [
+       "The equilibrium constant for a reverse reaction ($$ K' $$) is the reciprocal of the equilibrium constant for the forward reaction ($$ K $$).\n$$ K' = 1 / K $$\n$$ K' = 1 / (2.43 \\times 10^{-3}) $$\n$$ K' \\approx 411.52 \\approx 4.12 \\times 10^2 $$."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2024_q68",
+      "exam_question": "chemistry_2024_q68",
+      "page": 1
+     },
+     {
+      "id": "chem11-u1-mx10",
+      "type": "mcq",
+      "q": "All of the following factors affect the industrial preparation of ammonia, **except**",
+      "options": {
+       "A": "temperature.",
+       "B": "catalyst.",
+       "C": "concentration.",
+       "D": "pressure.",
+       "E": "light."
+      },
+      "answer": "E",
+      "why": [
+       "The industrial preparation of ammonia (Haber process) is an equilibrium reaction: $$ N_2 + 3H_2 \\rightleftharpoons 2NH_3 $$. According to Le Chatelier's principle, it is affected by temperature, pressure, and concentration. A catalyst increases the rate. **Light** does not significantly affect this specific gaseous reaction."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2020_q50",
+      "exam_question": "chemistry_2020_q50",
+      "page": 1
      }
     ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Rate of a Chemical Reaction and…",
+      "kind": "unit",
+      "cards": [
+       "chem11-u1-c01"
+      ]
+     },
+     {
+      "id": "l1_1",
+      "label": "Rate of a Chemical Reaction",
+      "kind": "topic",
+      "lesson": "chem11-u1-l1-1",
+      "cards": [
+       "chem11-u1-c01",
+       "chem11-u1-c02",
+       "chem11-u1-c03",
+       "chem11-u1-c04",
+       "chem11-u1-c05",
+       "chem11-u1-c06",
+       "chem11-u1-c07",
+       "chem11-u1-c08"
+      ]
+     },
+     {
+      "id": "k_catalyst",
+      "label": "Catalyst",
+      "kind": "idea",
+      "cards": [
+       "chem11-u1-c05",
+       "chem11-u1-c06"
+      ]
+     },
+     {
+      "id": "k_rate_of_reaction",
+      "label": "Rate of reaction",
+      "kind": "idea",
+      "cards": [
+       "chem11-u1-c08",
+       "chem11-u1-c10"
+      ]
+     },
+     {
+      "id": "l1_2",
+      "label": "Reversible Reactions",
+      "kind": "topic",
+      "lesson": "chem11-u1-l1-2",
+      "cards": [
+       "chem11-u1-c11",
+       "chem11-u1-c12"
+      ]
+     },
+     {
+      "id": "k_equilibrium",
+      "label": "Equilibrium",
+      "kind": "idea",
+      "cards": [
+       "chem11-u1-c11",
+       "chem11-u1-c12"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l1_1",
+      "label": "includes"
+     },
+     {
+      "from": "l1_1",
+      "to": "k_catalyst",
+      "label": "key idea"
+     },
+     {
+      "from": "l1_1",
+      "to": "k_rate_of_reaction",
+      "label": "key idea"
+     },
+     {
+      "from": "unit",
+      "to": "l1_2",
+      "label": "includes"
+     },
+     {
+      "from": "l1_2",
+      "to": "k_equilibrium",
+      "label": "key idea"
+     },
+     {
+      "from": "l1_1",
+      "to": "l1_2",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
    }
   }
  ]

@@ -333,32 +333,6 @@
        "why": "**Step 1: Use the Quotient Law of Exponents**\nWhen dividing powers with identical bases, keep the base and subtract the exponents:\n$$\\frac{a^m}{a^n} = a^{m-n}$$\n\n**Step 2: Apply to the expression**\n$$\\frac{7^6}{7^2} = 7^{6-2} = 7^4$$\n\n**Step 3: Final Result**\nThe simplified expression is **$$7^4$$**."
       },
       {
-       "id": "math9-u5-wrkM3",
-       "type": "worked",
-       "title": "Step-by-step",
-       "page": 1,
-       "src": "study_notes",
-       "problem": "What are the base and exponent of the expression $$(-5)^6$$?",
-       "steps": [
-        {
-         "text": "**Step 1: Identify parts of the power**"
-        },
-        {
-         "text": "In the expression $$a^n$$, $$a$$ is the base and $$n$$ is the exponent."
-        },
-        {
-         "text": "**Step 2: Apply to the given expression**"
-        },
-        {
-         "text": "For $$(-5)^6$$, the base inside the parentheses is $$-5$$ and the superscript exponent is $$6$$."
-        },
-        {
-         "text": "**Step 3: Final Result**"
-        }
-       ],
-       "answer": "Base: $$-5$$, Exponent: $$6$$"
-      },
-      {
        "id": "math9-u5-chkM3",
        "type": "check",
        "title": "Quick check",
@@ -448,36 +422,6 @@
        "why": "**Step 1: Identify parts of the power**\nIn the expression $$a^n$$, $$a$$ is the base and $$n$$ is the exponent.\n\n**Step 2: Apply to the given expression**\nFor $$(-5)^6$$, the base inside the parentheses is $$-5$$ and the superscript exponent is $$6$$.\n\n**Step 3: Final Result**\nThe base is **$$-5$$** and the exponent is **$$6$$**."
       },
       {
-       "id": "math9-u5-wrk3",
-       "type": "worked",
-       "title": "Step-by-step",
-       "page": 116,
-       "src": "study_notes",
-       "src_qid": "math_g9_c5_q1",
-       "problem": "What are the base and exponent of the expression $$(-5)^6$$?",
-       "steps": [
-        {
-         "text": "**Step 1: Identify parts of the power**"
-        },
-        {
-         "text": "In the expression $$a^n$$, $$a$$ is the base and $$n$$ is the exponent."
-        },
-        {
-         "text": "**Step 2: Apply to the given expression**"
-        },
-        {
-         "text": "For $$(-5)^6$$, the base inside the parentheses is $$-5$$ and the superscript exponent is $$6$$."
-        },
-        {
-         "text": "**Step 3: Final Result**"
-        },
-        {
-         "text": "The base is **$$-5$$** and the exponent is **$$6$$**."
-        }
-       ],
-       "answer": "B"
-      },
-      {
        "id": "math9-u5-chk4",
        "type": "check",
        "title": "Quick check",
@@ -522,7 +466,63 @@
          "text": "The simplified expression is **$$2^3 \\times 3^3$$**."
         }
        ],
-       "answer": "C"
+       "answer": "$$2^3 \\times 3^3$$"
+      },
+      {
+       "id": "math9-u5-pc2",
+       "type": "check",
+       "title": "Practice",
+       "q": "Simplify log₂ 32 − log₂ 4.",
+       "options": {
+        "A": "3",
+        "B": "28",
+        "C": "8",
+        "D": "5"
+       },
+       "answer": "A",
+       "why": "Quotient rule: log₂ 32 − log₂ 4 = log₂(32/4) = log₂ 8 = 3, because 2³ = 8. (Or: 5 − 2 = 3.)",
+       "page": 116,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u5-mn2",
+       "type": "mnemonic",
+       "title": "Log laws: \"times → plus, divide → minus, power → front\"",
+       "body": [
+        "log(MN) = log M + log N; log(M/N) = log M − log N; log Mᵏ = k log M.",
+        "There is **no** law for log(M + N)."
+       ],
+       "page": 116,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u5-xt2",
+       "type": "text",
+       "title": "Logarithms in practice",
+       "body": [
+        "**Definition:** log_b a = c means b^c = a (b > 0, b ≠ 1, a > 0). log₂ 8 = 3 because 2³ = 8; log₁₀ 0.01 = −2 because 10⁻² = 0.01; log_b 1 = 0 and log_b b = 1.",
+        "**Common logarithms** use base 10 (written log x). Write the number in scientific notation: 3 450 = 3.45 × 10³, so log 3450 = 3 + log 3.45 ≈ 3 + 0.5378 = 3.5378. The whole-number part (3) is the **characteristic**, the decimal part (0.5378, from the table) is the **mantissa**.",
+        "**Antilogarithm:** if log x = 2.5378 then x = 10^2.5378 = 3.45 × 10² = 345."
+       ],
+       "page": 116,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u5-xw2",
+       "type": "worked",
+       "title": "Worked example: using the laws of logarithms",
+       "problem": "Given log 2 ≈ 0.3010 and log 3 ≈ 0.4771, find log 12 and log 1.5.",
+       "steps": [
+        {
+         "text": "Step 1: 12 = 2² × 3, so log 12 = 2 log 2 + log 3 = 0.6020 + 0.4771 = 1.0791."
+        },
+        {
+         "text": "Step 2: 1.5 = 3/2, so log 1.5 = log 3 − log 2 = 0.4771 − 0.3010 = 0.1761."
+        }
+       ],
+       "answer": "log 12 ≈ 1.0791, log 1.5 ≈ 0.1761",
+       "page": 116,
+       "src": "notes"
       }
      ]
     }
@@ -617,72 +617,6 @@
      ],
      "src": "notes",
      "id": "math9-u5-g2",
-     "lesson": null
-    },
-    {
-     "type": "match",
-     "title": "Match key terms",
-     "pairs": [
-      {
-       "a": "Product Law of Exponents",
-       "b": ", which states that when multiplying powers with the same base, we keep the base and add the exponents: $$a^m \\times a^n"
-      },
-      {
-       "a": "Quotient Law of Exponents",
-       "b": "states that when dividing powers with the same base, we keep the base and subtract the exponent of the denominator from "
-      },
-      {
-       "a": "Power of a Product:",
-       "b": "$$(ab)^n = a^n \\times b^n$$"
-      },
-      {
-       "a": "Power of a Quotient:",
-       "b": "$$\\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}$$ (where $$b \\neq 0$$)"
-      },
-      {
-       "a": "Power of a Power:",
-       "b": "$$(a^m)^n = a^{mn}$$"
-      },
-      {
-       "a": "Zero Exponent Property",
-       "b": "states that any non-zero real number raised to the power of zero is exactly one: $$a^0 = 1$$ (where $$a \\neq 0$$)"
-      }
-     ],
-     "src": "study_notes",
-     "id": "math9-u5-g-drive",
-     "lesson": null
-    },
-    {
-     "type": "match",
-     "title": "Match key terms",
-     "pairs": [
-      {
-       "a": "Product Law of Exponents",
-       "b": ", which states that when multiplying powers with the same base, we keep the base and add the exponents: $$a^m \\times a^n"
-      },
-      {
-       "a": "Quotient Law of Exponents",
-       "b": "states that when dividing powers with the same base, we keep the base and subtract the exponent of the denominator from "
-      },
-      {
-       "a": "Power of a Product:",
-       "b": "$$(ab)^n = a^n \\times b^n$$"
-      },
-      {
-       "a": "Power of a Quotient:",
-       "b": "$$\\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}$$ (where $$b \\neq 0$$)"
-      },
-      {
-       "a": "Power of a Power:",
-       "b": "$$(a^m)^n = a^{mn}$$"
-      },
-      {
-       "a": "Zero Exponent Property",
-       "b": "states that any non-zero real number raised to the power of zero is exactly one: $$a^0 = 1$$ (where $$a \\neq 0$$)"
-      }
-     ],
-     "src": "study_notes",
-     "id": "math9-u5-g-drive3",
      "lesson": null
     }
    ],
@@ -827,12 +761,12 @@
       "q": "log₁₀ 1000.",
       "answer": "3.",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "log₁₀ 1000 asks \"10 to what power is 1000?\" Since 10³ = 1000, the answer is 3."
       ],
       "src": "notes",
       "label": "8. log₁₀ 1000.",
       "page": 103,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -848,12 +782,12 @@
       "q": "log₂ 8.",
       "answer": "3.",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "log₂ 8 asks \"2 to what power is 8?\" 2³ = 8, so log₂ 8 = 3."
       ],
       "src": "notes",
       "label": "9. log₂ 8.",
       "page": 103,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -869,12 +803,12 @@
       "q": "log_b 1.",
       "answer": "0.",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "b⁰ = 1 for any base b > 0, b ≠ 1, so log_b 1 = 0."
       ],
       "src": "notes",
       "label": "10. log_b 1.",
       "page": 103,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -890,12 +824,12 @@
       "q": "log_b b.",
       "answer": "1.",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "b¹ = b, so log_b b = 1."
       ],
       "src": "notes",
       "label": "11. log_b b.",
       "page": 103,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -911,12 +845,12 @@
       "q": "log 4 + log 25 (base 10).",
       "answer": "log 100=2.",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "Product rule: log a + log b = log(ab). log 4 + log 25 = log 100 = 2, because 10² = 100."
       ],
       "src": "notes",
       "label": "12. log 4 + log 25 (base 10).",
       "page": 122,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -932,12 +866,12 @@
       "q": "log 100 − log 4.",
       "answer": "log 25.",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "Quotient rule: log a − log b = log(a/b). log 100 − log 4 = log(100/4) = log 25."
       ],
       "src": "notes",
       "label": "13. log 100 − log 4.",
       "page": 122,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -952,12 +886,12 @@
       "q": "2 log 5.",
       "answer": "log 25.",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "Power rule: n log a = log(aⁿ). 2 log 5 = log 5² = log 25."
       ],
       "src": "notes",
       "label": "14. 2 log 5.",
       "page": 122,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -972,12 +906,12 @@
       "q": "Expand log(x²y).",
       "answer": "2 log x + log y (x,y>0).",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "Product rule first: log(x²y) = log x² + log y; then power rule: log x² = 2 log x. Result: 2 log x + log y (valid for x, y > 0)."
       ],
       "src": "notes",
       "label": "15. Expand log(x²y).",
       "page": 122,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1030,12 +964,12 @@
       "q": "log x=2 (base 10).",
       "answer": "x=100.",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "Rewrite in exponential form: log x = 2 means 10² = x, so x = 100."
       ],
       "src": "notes",
       "label": "18. log x=2 (base 10).",
       "page": 122,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1050,12 +984,12 @@
       "q": "Domain of log x?",
       "answer": "x>0.",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "10 to any power is positive, so log x is defined only for x > 0. Zero and negative numbers have no logarithm."
       ],
       "src": "notes",
       "label": "19. Domain of log x?",
       "page": 122,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1127,12 +1061,12 @@
       "q": "Trap: log(x+y)=log x+log y.",
       "answer": "False.",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "There is no rule for the log of a sum. Counter-example: log(1 + 1) = log 2 ≈ 0.301, but log 1 + log 1 = 0. The product rule is log(xy) = log x + log y."
       ],
       "src": "notes",
       "label": "23. Trap: log(x+y)=log x+log y.",
       "page": 122,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1147,12 +1081,12 @@
       "q": "10^{log 7}.",
       "answer": "7.",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "Logarithm and exponential undo each other: log 7 is the power of 10 that gives 7, so 10 raised to that power is 7."
       ],
       "src": "notes",
       "label": "24. 10^{log 7}.",
       "page": 103,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1167,12 +1101,12 @@
       "q": "log(10^x).",
       "answer": "x (base 10).",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "log(10ˣ) asks \"10 to what power gives 10ˣ?\" The answer is x."
       ],
       "src": "notes",
       "label": "25. log(10^x).",
       "page": 122,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1206,12 +1140,12 @@
       "q": "Scientific 3.2×10⁴ as ordinary.",
       "answer": "32000.",
       "why": [
-       "Textbook p.121: The method of writing a given number as the product of 2 factors, 1 of which is greater than or equal to 1 but less than 10, and the other is a power of 10, is called the scientific notation."
+       "Multiplying by 10⁴ moves the decimal point 4 places to the right: 3.2 → 32 000."
       ],
       "src": "notes",
       "label": "27. Scientific 3.2×10⁴ as ordinary.",
       "page": 121,
-      "why_src": "textbook p.121",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1226,12 +1160,12 @@
       "q": "Growth y=2^t doubles when t increases 1.",
       "answer": "Yes.",
       "why": [
-       "Textbook p.103: The number of insects in a laboratory doubles every month."
+       "y = 2ᵗ⁺¹ = 2·2ᵗ, so each time t increases by 1, y is multiplied by 2: it doubles."
       ],
       "src": "notes",
       "label": "28. Growth y=2^t doubles when t increases 1.",
       "page": 116,
-      "why_src": "textbook p.103",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1265,12 +1199,12 @@
       "q": "Change log₂ 10.",
       "answer": "log 10 / log 2 = 1/log 2.",
       "why": [
-       "Textbook p.122: From the definition of logarithm; a) What is log101? b) What is log1010 ?"
+       "Change of base: log_a b = log b / log a (any common base). log₂ 10 = log 10 / log 2 = 1/log 2 ≈ 1/0.301 ≈ 3.32."
       ],
       "src": "notes",
       "label": "30. Change log₂ 10.",
       "page": 122,
-      "why_src": "textbook p.122",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {

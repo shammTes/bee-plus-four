@@ -272,32 +272,6 @@
        "why": "**Step 1: Check for Equality**\nEqual sets must have identical elements. Since $$1, 2, 3$$ are numbers and $$x, y, z$$ are letters, $$A \\neq B$$.\n\n**Step 2: Check for Equivalence**\nEquivalent sets must have the same number of elements ($$n(A) = n(B)$$).\n$$n(A) = 3$$ and $$n(B) = 3$$. Since $$n(A) = n(B)$$, the sets are equivalent.\n\n**Step 3: Final Result**\nThey are equivalent sets."
       },
       {
-       "id": "math9-u1-wrkM3",
-       "type": "worked",
-       "title": "Step-by-step",
-       "page": 1,
-       "src": "study_notes",
-       "problem": "Which of the following collections represents a well-defined set?",
-       "steps": [
-        {
-         "text": "**Step 1: Understand 'well-defined'**"
-        },
-        {
-         "text": "A collection is a set only if there is an objective, non-subjective rule to determine membership."
-        },
-        {
-         "text": "**Step 2: Evaluate options**"
-        },
-        {
-         "text": "Beauty, tallness, and difficulty are subjective criteria that depend on individual opinions. 'Positive even integers less than 20' is objective and mathematically precise."
-        },
-        {
-         "text": "**Step 3: Final Result**"
-        }
-       ],
-       "answer": "The collection of positive even integers less than 20"
-      },
-      {
        "id": "math9-u1-chkM3",
        "type": "check",
        "title": "Quick check",
@@ -311,7 +285,7 @@
         "D": "$$\\{16, -16\\}$$"
        },
        "answer": "B",
-       "why": "**Step 1: Solve the equation**\n$$x^2 - 16 = 0 \\implies x^2 = 16 \\implies x = 4$$ or $$x = -4$$.\n\n**Step 2: Apply the set constraints**\nThe definition specifies $$x \\in \\mathbb{N}$$ (natural numbers). Natural numbers include only positive integers ($$\\{1, 2, 3, 4, \\dots\\}$$).\n\n**Step 3: Filter the solutions**\nSince $$-4$$ is not a natural number ($$-4 \\notin \\mathbb{N}$$), the only valid element is"
+       "why": "**Step 1: Solve the equation**\n$$x^2 - 16 = 0 \\implies x^2 = 16 \\implies x = 4$$ or $$x = -4$$.\n\n**Step 2: Apply the set constraints**\nThe definition specifies $$x \\in \\mathbb{N}$$ (natural numbers). Natural numbers include only positive integers ($$\\{1, 2, 3, 4, \\dots\\}$$).\n\n**Step 3: Filter the solutions**\nSince $$-4$$ is not a natural number ($$-4 \\notin \\mathbb{N}$$), the only valid element is $$4$$.\n\n**Step 4: Final Result**\nSet $$A = \\{4\\}$$."
       }
      ]
     },
@@ -352,36 +326,6 @@
        },
        "answer": "C",
        "why": "**Step 1: Understand 'well-defined'**\nA collection is a set only if there is an objective, non-subjective rule to determine membership.\n\n**Step 2: Evaluate options**\nBeauty, tallness, and difficulty are subjective criteria that depend on individual opinions. 'Positive even integers less than 20' is objective and mathematically precise.\n\n**Step 3: Final Result**\nThe correct choice is **The collection of positive even integers less than 20**."
-      },
-      {
-       "id": "math9-u1-wrk3",
-       "type": "worked",
-       "title": "Step-by-step",
-       "page": 4,
-       "src": "study_notes",
-       "src_qid": "math_g9_c1_q1",
-       "problem": "Which of the following collections represents a well-defined set?",
-       "steps": [
-        {
-         "text": "**Step 1: Understand 'well-defined'**"
-        },
-        {
-         "text": "A collection is a set only if there is an objective, non-subjective rule to determine membership."
-        },
-        {
-         "text": "**Step 2: Evaluate options**"
-        },
-        {
-         "text": "Beauty, tallness, and difficulty are subjective criteria that depend on individual opinions. 'Positive even integers less than 20' is objective and mathematically precise."
-        },
-        {
-         "text": "**Step 3: Final Result**"
-        },
-        {
-         "text": "The correct choice is **The collection of positive even integers less than 20**."
-        }
-       ],
-       "answer": "C"
       },
       {
        "id": "math9-u1-chk4",
@@ -431,7 +375,68 @@
          "text": "The number of proper subsets is **$$31$$**."
         }
        ],
-       "answer": "B"
+       "answer": "$$31$$"
+      },
+      {
+       "id": "math9-u1-st2",
+       "type": "text",
+       "title": "Step by step: equal or equivalent?",
+       "body": [
+        "**Equal sets (A = B):** exactly the same elements; order and repetition do not matter. {1, 2, 3} = {3, 1, 2} = {1, 1, 2, 3}.",
+        "**Equivalent sets (A ↔ B):** the same number of elements, n(A) = n(B), so they can be matched one-to-one. {a, b, c} ↔ {1, 2, 3}.",
+        "**How to decide:** Step 1: list both sets without repeats. Step 2: count the elements — different counts → neither equal nor equivalent. Step 3: same count → equivalent; if also the very same elements → equal.",
+        "Every pair of equal sets is equivalent, but equivalent sets need not be equal."
+       ],
+       "page": 4,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u1-pc2",
+       "type": "check",
+       "title": "Practice",
+       "q": "A = {letters of the word \"BOOK\"} and B = {K, O, B}. Which statement is true?",
+       "options": {
+        "A": "A and B are equivalent but not equal",
+        "B": "A and B are equal",
+        "C": "A has 4 elements",
+        "D": "A and B are neither equal nor equivalent"
+       },
+       "answer": "B",
+       "why": "Listing the letters of \"BOOK\" without repetition gives A = {B, O, K}. B has exactly the same three elements (order does not matter), so A = B. Equal sets are of course also equivalent.",
+       "page": 4,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u1-xt2",
+       "type": "text",
+       "title": "Equal vs equivalent — with examples",
+       "body": [
+        "**Equal sets** have exactly the same elements: {2, 4, 6} = {6, 2, 4} = {x : x is an even number, 0 < x < 8}. **Equivalent sets** (A ~ B) only need the same number of elements, n(A) = n(B), so their elements can be matched one-to-one.",
+        "{a, b, c} and {1, 2, 3} are equivalent but not equal. Every pair of equal sets is equivalent, but not every pair of equivalent sets is equal.",
+        "**Finite and infinite sets:** {1, 2, …, 100} is finite (n = 100); the set of natural numbers {1, 2, 3, …} is infinite. The empty set ∅ = { } has n(∅) = 0, and {0} is NOT empty (it has one element)."
+       ],
+       "page": 4,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u1-xw2",
+       "type": "worked",
+       "title": "Worked example: equal or equivalent?",
+       "problem": "A = {x : x is a letter of the word \"LEVEL\"}, B = {E, V, L}, C = {1, 2, 3}. Compare the sets.",
+       "steps": [
+        {
+         "text": "Step 1: list A without repeats: A = {L, E, V}."
+        },
+        {
+         "text": "Step 2: A and B contain exactly the same letters, so A = B."
+        },
+        {
+         "text": "Step 3: n(A) = 3 = n(C), so A ~ C (equivalent), but A ≠ C because the elements are different."
+        }
+       ],
+       "answer": "A = B; A and C are equivalent, not equal.",
+       "page": 4,
+       "src": "notes"
       }
      ]
     },
@@ -503,7 +508,7 @@
          "text": "Therefore, **$$A = B$$**."
         }
        ],
-       "answer": "C"
+       "answer": "$$A = B$$"
       },
       {
        "id": "math9-u1-chk6",
@@ -550,7 +555,36 @@
          "text": "$$A \\cap B = \\{3, 4\\}$$."
         }
        ],
-       "answer": "B"
+       "answer": "$$\\{3, 4\\}$$"
+      },
+      {
+       "id": "math9-u1-st3",
+       "type": "text",
+       "title": "Step by step: subsets",
+       "body": [
+        "A ⊆ B (A is a **subset** of B) means every element of A is also in B. A ⊂ B (**proper subset**) means A ⊆ B and B has at least one element that A does not have.",
+        "Facts: ∅ ⊆ A for every set A; A ⊆ A for every set A; but A is never a proper subset of itself.",
+        "**Counting subsets:** a set with n elements has **2ⁿ subsets** and **2ⁿ − 1 proper subsets**. Example: {a, b} has 2² = 4 subsets: ∅, {a}, {b}, {a, b}; 3 of them are proper.",
+        "**Tip:** to list all subsets of {1, 2, 3} systematically, list by size: ∅; {1}, {2}, {3}; {1, 2}, {1, 3}, {2, 3}; {1, 2, 3} — 8 subsets."
+       ],
+       "page": 6,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u1-pc3",
+       "type": "check",
+       "title": "Practice",
+       "q": "How many proper subsets does {2, 4, 6, 8} have?",
+       "options": {
+        "A": "15",
+        "B": "16",
+        "C": "8",
+        "D": "4"
+       },
+       "answer": "A",
+       "why": "A set with n = 4 elements has 2⁴ = 16 subsets. All except the set itself are proper, so there are 16 − 1 = 15 proper subsets.",
+       "page": 6,
+       "src": "notes"
       }
      ]
     },
@@ -580,7 +614,9 @@
        "title": "∪ is umbrella (or). ∩ is pinch (and).",
        "page": 9,
        "src": "notes",
-       "body": []
+       "body": [
+        "**∪ (union)** looks like a cup or umbrella that collects everything from both sets — think \"**or**\". **∩ (intersection)** looks like a bridge/pinch that keeps only what is in both — think \"**and**\"."
+       ]
       },
       {
        "id": "math9-u1-c06",
@@ -663,7 +699,7 @@
          "text": "$$A \\cup B = \\{1, 2, 3, 4, 5, 6\\}$$."
         }
        ],
-       "answer": "A"
+       "answer": "$$\\{1, 2, 3, 4, 5, 6\\}$$"
       },
       {
        "id": "math9-u1-chk8",
@@ -710,7 +746,36 @@
          "text": "The correct answer is **$$\\varnothing$$**."
         }
        ],
-       "answer": "C"
+       "answer": "$$\\varnothing$$"
+      },
+      {
+       "id": "math9-u1-st4",
+       "type": "text",
+       "title": "Step by step: union and intersection",
+       "body": [
+        "**A ∪ B** = all elements that are in A **or** B (or both). **A ∩ B** = elements in **both** A and B.",
+        "Example: A = {1, 2, 3, 4}, B = {3, 4, 5}. A ∪ B = {1, 2, 3, 4, 5} (write 3 and 4 only once); A ∩ B = {3, 4}.",
+        "**Counting formula:** n(A ∪ B) = n(A) + n(B) − n(A ∩ B). The overlap is subtracted once because it was counted twice. Check: 4 + 3 − 2 = 5 ✔.",
+        "**Word problem:** in a class of 40, 25 like football, 18 like volleyball and 8 like both. Students who like at least one = 25 + 18 − 8 = 35; students who like neither = 40 − 35 = 5."
+       ],
+       "page": 9,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u1-pc4",
+       "type": "check",
+       "title": "Practice",
+       "q": "n(A) = 12, n(B) = 9 and n(A ∪ B) = 17. Find n(A ∩ B).",
+       "options": {
+        "A": "4",
+        "B": "3",
+        "C": "21",
+        "D": "5"
+       },
+       "answer": "A",
+       "why": "Use n(A ∪ B) = n(A) + n(B) − n(A ∩ B): 17 = 12 + 9 − n(A ∩ B), so n(A ∩ B) = 21 − 17 = 4.",
+       "page": 9,
+       "src": "notes"
       }
      ]
     },
@@ -792,7 +857,7 @@
          "text": "$$A' = \\{1, 4, 5\\}$$."
         }
        ],
-       "answer": "A"
+       "answer": "$$\\{1, 4, 5\\}$$"
       },
       {
        "id": "math9-u1-chk10",
@@ -839,7 +904,36 @@
          "text": "$$A - B = \\{a\\}$$."
         }
        ],
-       "answer": "A"
+       "answer": "$$\\{a\\}$$"
+      },
+      {
+       "id": "math9-u1-st5",
+       "type": "text",
+       "title": "Step by step: complement and difference",
+       "body": [
+        "The **universal set U** contains everything under discussion. The **complement** A′ (also written Aᶜ) is everything in U that is **not** in A. The **difference** A − B (also A \\ B) is everything in A that is **not** in B.",
+        "Example: U = {1, 2, …, 10}, A = {2, 4, 6, 8, 10}, B = {1, 2, 3, 4}. A′ = {1, 3, 5, 7, 9}; A − B = {6, 8, 10}; B − A = {1, 3}. Note A − B ≠ B − A.",
+        "Useful facts: A − B = A ∩ B′; n(A′) = n(U) − n(A); (A′)′ = A.",
+        "**De Morgan's laws:** (A ∪ B)′ = A′ ∩ B′ and (A ∩ B)′ = A′ ∪ B′."
+       ],
+       "page": 12,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u1-pc5",
+       "type": "check",
+       "title": "Practice",
+       "q": "U = {1, 2, 3, 4, 5, 6}, A = {1, 2, 3} and B = {2, 4, 6}. What is (A ∪ B)′?",
+       "options": {
+        "A": "{5}",
+        "B": "{4, 5, 6}",
+        "C": "{1, 3}",
+        "D": "∅"
+       },
+       "answer": "A",
+       "why": "A ∪ B = {1, 2, 3, 4, 6}. The only element of U not in it is 5, so (A ∪ B)′ = {5}. Check with De Morgan: A′ ∩ B′ = {4, 5, 6} ∩ {1, 3, 5} = {5} ✔.",
+       "page": 12,
+       "src": "notes"
       }
      ]
     },
@@ -918,7 +1012,7 @@
          "text": "The cardinality is **$$4$$**."
         }
        ],
-       "answer": "B"
+       "answer": "$$4$$"
       },
       {
        "id": "math9-u1-chk12",
@@ -968,7 +1062,36 @@
          "text": "$$A \\times B = \\{(3, 1), (3, 2)\\}$$."
         }
        ],
-       "answer": "A"
+       "answer": "$$\\{(3, 1), (3, 2)\\}$$"
+      },
+      {
+       "id": "math9-u1-st6",
+       "type": "text",
+       "title": "Step by step: Cartesian product",
+       "body": [
+        "The **Cartesian product** A × B is the set of all ordered pairs (a, b) with a ∈ A and b ∈ B. Order matters: (1, x) is not the same as (x, 1).",
+        "Example: A = {1, 2}, B = {x, y, z}. A × B = {(1, x), (1, y), (1, z), (2, x), (2, y), (2, z)}. Method: take each element of A in turn and pair it with every element of B.",
+        "**Counting:** n(A × B) = n(A) × n(B) = 2 × 3 = 6. In general A × B ≠ B × A (but they have the same number of elements).",
+        "A × B can be shown as a grid of points (lattice) — this is the idea behind the coordinate plane ℝ × ℝ."
+       ],
+       "page": 15,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u1-pc6",
+       "type": "check",
+       "title": "Practice",
+       "q": "If n(A) = 3 and n(A × B) = 15, how many elements does B have?",
+       "options": {
+        "A": "5",
+        "B": "12",
+        "C": "18",
+        "D": "45"
+       },
+       "answer": "A",
+       "why": "n(A × B) = n(A) × n(B), so 15 = 3 × n(B) and n(B) = 5.",
+       "page": 15,
+       "src": "notes"
       }
      ]
     }
@@ -1036,72 +1159,6 @@
      "src": "notes",
      "id": "math9-u1-g2",
      "lesson": null
-    },
-    {
-     "type": "match",
-     "title": "Match key terms",
-     "pairs": [
-      {
-       "a": "Complete Listing Method (Roster Method):",
-       "b": "This involves listing every single element of the set inside braces, separated by commas"
-      },
-      {
-       "a": "Partial Listing Method:",
-       "b": "Used for large or infinite sets that follow a clear, repeating pattern"
-      },
-      {
-       "a": "Set-Builder Notation:",
-       "b": "This method describes the qualifying properties that an object must satisfy to be an element of the set"
-      },
-      {
-       "a": "finite",
-       "b": "if its elements can be counted and the counting process comes to an end"
-      },
-      {
-       "a": "infinite",
-       "b": "if the counting process continues indefinitely"
-      },
-      {
-       "a": "Empty Set",
-       "b": "(or null set), which contains no elements at all"
-      }
-     ],
-     "src": "study_notes",
-     "id": "math9-u1-g-drive",
-     "lesson": null
-    },
-    {
-     "type": "match",
-     "title": "Match key terms",
-     "pairs": [
-      {
-       "a": "Complete Listing Method (Roster Method):",
-       "b": "This involves listing every single element of the set inside braces, separated by commas"
-      },
-      {
-       "a": "Partial Listing Method:",
-       "b": "Used for large or infinite sets that follow a clear, repeating pattern"
-      },
-      {
-       "a": "Set-Builder Notation:",
-       "b": "This method describes the qualifying properties that an object must satisfy to be an element of the set"
-      },
-      {
-       "a": "finite",
-       "b": "if its elements can be counted and the counting process comes to an end"
-      },
-      {
-       "a": "infinite",
-       "b": "if the counting process continues indefinitely"
-      },
-      {
-       "a": "Empty Set",
-       "b": "(or null set), which contains no elements at all"
-      }
-     ],
-     "src": "study_notes",
-     "id": "math9-u1-g-drive3",
-     "lesson": null
     }
    ],
    "exercise": {
@@ -1111,12 +1168,12 @@
       "q": "Roster for even digits.",
       "answer": "{0,2,4,6,8}.",
       "why": [
-       "Textbook p.2: Both, the complete and partial listings are called the roster method."
+       "The digits are 0–9; the even ones are those divisible by 2: 0, 2, 4, 6 and 8. In roster form we list them inside braces, each once."
       ],
       "src": "notes",
       "label": "1. Roster for even digits.",
       "page": 2,
-      "why_src": "textbook p.2",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1151,12 +1208,12 @@
       "q": "Equivalent but not equal example.",
       "answer": "{a,b} and {1,2}.",
       "why": [
-       "Textbook p.5: Two sets A and B are said to be equivalent sets if there is a one-to-one correspondence between them (i.e. if they have the same number of elements)."
+       "Equivalent sets have the same number of elements (a one-to-one match a↔1, b↔2). Equal sets must have exactly the same elements, so {a, b} and {1, 2} are equivalent but not equal."
       ],
       "src": "notes",
       "label": "3. Equivalent but not equal example.",
       "page": 2,
-      "why_src": "textbook p.5",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1172,12 +1229,12 @@
       "q": "Is {1}⊆{1,2}?",
       "answer": "Yes.",
       "why": [
-       "Textbook p.7: Yes, since each element of A is an element of B and B contains an element that is not an element of A. 2. a) True, every element of C is an element of A. b) False, 1 is in A but not in B. c) False, 1 is in C but not in B. d) True, every element of D is an element of A. e) True, every element of A is an element of D."
+       "Every element of {1} (just 1) is also in {1, 2}, so {1} ⊆ {1, 2}. It is even a proper subset because 2 is missing from it."
       ],
       "src": "notes",
       "label": "4. Is {1}⊆{1,2}?",
       "page": 7,
-      "why_src": "textbook p.7",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1192,12 +1249,12 @@
       "q": "Is {1,2}⊂{1,2}?",
       "answer": "No — proper subset must miss something.",
       "why": [
-       "Textbook p.18: How many proper subsets does a set with 10 elements have?"
+       "A ⊂ B (proper subset) needs every element of A in B AND at least one element of B not in A. The two sets are equal, so {1, 2} ⊆ {1, 2} is true but {1, 2} ⊂ {1, 2} is false."
       ],
       "src": "notes",
       "label": "5. Is {1,2}⊂{1,2}?",
       "page": 7,
-      "why_src": "textbook p.18",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1212,12 +1269,12 @@
       "q": "∅⊆A always?",
       "answer": "Yes. Empty is a subset of every set.",
       "why": [
-       "Textbook p.7: Every set is a subset of itself, and the empty set is a subset of every set."
+       "To fail being a subset, ∅ would need an element that is not in A. It has no elements at all, so nothing can fail: ∅ ⊆ A for every set A."
       ],
       "src": "notes",
       "label": "6. ∅⊆A always?",
       "page": 7,
-      "why_src": "textbook p.7",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1327,12 +1384,12 @@
       "q": "Disjoint means?",
       "answer": "Intersection empty.",
       "why": [
-       "Textbook p.4: A set which contains no elements is called the empty set."
+       "Two sets are disjoint when they share no element: A ∩ B = ∅. Example: {1, 3} and {2, 4}. On a Venn diagram the circles do not overlap."
       ],
       "src": "notes",
       "label": "12. Disjoint means?",
       "page": 4,
-      "why_src": "textbook p.4",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1385,12 +1442,12 @@
       "q": "{x∈N: x<4} roster?",
       "answer": "{1,2,3} if N starts at 1.",
       "why": [
-       "Textbook p.2: Both, the complete and partial listings are called the roster method."
+       "The natural numbers are 1, 2, 3, …; those less than 4 are 1, 2 and 3. If your class counts 0 as natural, the set is {0, 1, 2, 3}."
       ],
       "src": "notes",
       "label": "15. {x∈N: x<4} roster?",
       "page": 2,
-      "why_src": "textbook p.2",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1405,12 +1462,12 @@
       "q": "Finite vs infinite?",
       "answer": "You can finish counting vs not (ℕ).",
       "why": [
-       "Textbook p.3: If the elements can be counted, but the counting process carried on indefinitely, we say that the set is infinite."
+       "A finite set has a definite number of elements, so counting ends (e.g. the months of the year: 12). An infinite set never ends, e.g. ℕ = {1, 2, 3, …}."
       ],
       "src": "notes",
       "label": "16. Finite vs infinite?",
       "page": 3,
-      "why_src": "textbook p.3",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1425,12 +1482,12 @@
       "q": "Element of vs subset?",
       "answer": "2∈{1,2} but 2⊈{1,2}. {2}⊆{1,2}.",
       "why": [
-       "Textbook p.7: Every set is a subset of itself, and the empty set is a subset of every set."
+       "\"∈\" links an element to a set; \"⊆\" links a set to a set. 2 is an element of {1, 2}, but 2 is not a set of elements of {1, 2}; the set {2} is the subset."
       ],
       "src": "notes",
       "label": "17. Element of vs subset?",
       "page": 7,
-      "why_src": "textbook p.7",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1464,12 +1521,12 @@
       "q": "Two sets equal iff?",
       "answer": "Each is a subset of the other.",
       "why": [
-       "Textbook p.7: Every set is a subset of itself, and the empty set is a subset of every set."
+       "A = B exactly when A ⊆ B and B ⊆ A: then every element of each set is in the other. This is how equality of sets is proved."
       ],
       "src": "notes",
       "label": "19. Two sets equal iff?",
       "page": 7,
-      "why_src": "textbook p.7",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1484,12 +1541,12 @@
       "q": "Shade A−B on a Venn: steps?",
       "answer": "Draw both circles; shade A except the overlap.",
       "why": [
-       "Textbook p.11: Construct a Venn diagram with two circles, one for learners owning a bicycle, and one for learners owning a calculator."
+       "A − B is the set of elements in A but not in B. Step 1: draw two overlapping circles A and B. Step 2: shade the whole of A. Step 3: un-shade the overlap A ∩ B. The crescent left in A is A − B."
       ],
       "src": "notes",
       "label": "20. Shade A−B on a Venn: steps?",
       "page": 10,
-      "why_src": "textbook p.11",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1542,12 +1599,12 @@
       "q": "Singleton?",
       "answer": "A set with one element.",
       "why": [
-       "Textbook p.7: Yes, since each element of A is an element of B and B contains an element that is not an element of A. 2. a) True, every element of C is an element of A. b) False, 1 is in A but not in B. c) False, 1 is in C but not in B. d) True, every element of D is an element of A. e) True, every element of A is an element of D."
+       "A singleton (unit set) has exactly one element, e.g. {5} or {x ∈ ℕ : x + 1 = 2} = {1}."
       ],
       "src": "notes",
       "label": "23. Singleton?",
       "page": 7,
-      "why_src": "textbook p.7",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1563,12 +1620,12 @@
       "q": "{∅} vs ∅?",
       "answer": "First has one element (the empty set); second has none.",
       "why": [
-       "Textbook p.4: A set which contains no elements is called the empty set."
+       "∅ has no elements, so n(∅) = 0. {∅} is a set with one element (the element happens to be the empty set), so n({∅}) = 1. They are not equal."
       ],
       "src": "notes",
       "label": "24. {∅} vs ∅?",
       "page": 4,
-      "why_src": "textbook p.4",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1640,12 +1697,12 @@
       "q": "Pair (2,3)=(3,2)?",
       "answer": "No — order matters in pairs.",
       "why": [
-       "Textbook p.16: A pair of numbers in which x is the first and y is the second is called an ordered pair and is written as (x, y)."
+       "In an ordered pair the first entry and the second entry have different roles, so (a, b) = (c, d) only if a = c and b = d. Since 2 ≠ 3, (2, 3) ≠ (3, 2). (As sets, {2, 3} = {3, 2}.)"
       ],
       "src": "notes",
       "label": "28. Pair (2,3)=(3,2)?",
       "page": 16,
-      "why_src": "textbook p.16",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1660,12 +1717,12 @@
       "q": "Specify odds less than 10 by rule.",
       "answer": "{x∈N: x odd, x<10}.",
       "why": [
-       "Textbook p.6: B = {x: x is an odd natural number less than 8} Every element in set A is found in set B and every element in B is in set A."
+       "Set-builder (rule) form: name a variable, then give the condition. Here {x : x is an odd natural number and x < 10} = {1, 3, 5, 7, 9}."
       ],
       "src": "notes",
       "label": "29. Specify odds less than 10 by rule.",
       "page": 6,
-      "why_src": "textbook p.6",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1680,12 +1737,12 @@
       "q": "Trap: repeating 2 in roster.",
       "answer": "{2,2,2}={2}.",
       "why": [
-       "Textbook p.2: Both, the complete and partial listings are called the roster method."
+       "Repeating an element does not change a set: listing 2 three times still gives one element. So {2, 2, 2} = {2} and n = 1."
       ],
       "src": "notes",
       "label": "30. Trap: repeating 2 in roster.",
       "page": 9,
-      "why_src": "textbook p.2",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
