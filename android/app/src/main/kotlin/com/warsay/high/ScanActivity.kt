@@ -12,7 +12,6 @@ import android.graphics.RectF
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.os.SystemClock
-import android.util.Log
 import android.util.Size
 import android.util.TypedValue
 import android.view.Gravity
@@ -49,7 +48,9 @@ import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.TextRecognizer
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
+import java.util.concurrent.Executor
 import java.util.concurrent.ExecutorService
+import java.util.concurrent.RejectedExecutionException
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
@@ -68,7 +69,8 @@ import java.util.concurrent.atomic.AtomicBoolean
  */
 class ScanActivity : ComponentActivity() {
     companion object {
-        private const val TAG = "HighSecure"
+        /** elapsedRealtime of the last successful onCreate — MainActivity's "did it open?" watchdog reads it. */
+        @Volatile @JvmStatic var createdAt = 0L
         const val EXTRA_DEVICE_ID = "deviceId"
         const val EXTRA_PAYLOAD = "payload"
         const val EXTRA_VIA = "via"
@@ -89,6 +91,19 @@ class ScanActivity : ComponentActivity() {
     private var camera: Camera? = null
     private var cameraProvider: ProcessCameraProvider? = null
     private var analysisExecutor: ExecutorService? = null
+    /**
+     * ML Kit completes tasks on its own threads and then posts the listener to this executor. After
+     * onDestroy shut the executor down, a late frame would throw RejectedExecutionException on an
+     * ML Kit thread and kill the whole app — so late callbacks are dropped instead.
+     */
+    private val listenerExecutor = Executor { r ->
+        val exec = analysisExecutor
+        if (exec == null || exec.isShutdown) return@Executor
+        try {
+            exec.execute(r)
+        } catch (_: RejectedExecutionException) {
+        }
+    }
     private var barcodeScanner: BarcodeScanner? = null
     private var textRecognizer: TextRecognizer? = null
     private val finished = AtomicBoolean(false)
@@ -102,24 +117,32 @@ class ScanActivity : ComponentActivity() {
 
     private val permissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
-            Log.i(TAG, "ScanActivity permission granted=$granted")
+            HighLog.i("ScanActivity permission granted=$granted")
             if (granted) startCamera() else finishError("permission_denied", "Camera permission denied")
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
-        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        deviceId = intent.getStringExtra(EXTRA_DEVICE_ID)
-        // Android 16 / targetSdk 36: onBackPressed() is no longer called; use the dispatcher.
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() = finishCancelled()
-        })
-        buildUi()
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-            startCamera()
-        } else {
-            permissionLauncher.launch(Manifest.permission.CAMERA)
+        createdAt = SystemClock.elapsedRealtime()
+        HighLog.i("ScanActivity onCreate sdk=${android.os.Build.VERSION.SDK_INT} abi=${android.os.Build.SUPPORTED_ABIS.firstOrNull()} ocr=${OcrSupport.available}")
+        // Anything failing here must come back to the lock screen as an error, never a crash.
+        try {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+            deviceId = intent.getStringExtra(EXTRA_DEVICE_ID)
+            // Android 16 / targetSdk 36: onBackPressed() is no longer called; use the dispatcher.
+            onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() = finishCancelled()
+            })
+            buildUi()
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                startCamera()
+            } else {
+                permissionLauncher.launch(Manifest.permission.CAMERA)
+            }
+        } catch (e: Throwable) {
+            HighLog.e("ScanActivity onCreate failed", e)
+            finishError("init", "Scanner screen failed: ${e.javaClass.simpleName}: ${e.message}")
         }
     }
 
@@ -209,14 +232,20 @@ class ScanActivity : ComponentActivity() {
     }
 
     private fun startCamera() {
-        val future = ProcessCameraProvider.getInstance(this)
+        val future = try {
+            ProcessCameraProvider.getInstance(this)
+        } catch (e: Throwable) {
+            HighLog.e("ScanActivity CameraX init failed", e)
+            finishError("camera", "Camera could not start: ${e.message ?: e.javaClass.simpleName}")
+            return
+        }
         future.addListener({
             try {
                 val provider = future.get()
                 cameraProvider = provider
                 bindUseCases(provider)
-            } catch (e: Exception) {
-                Log.e(TAG, "ScanActivity camera provider failed", e)
+            } catch (e: Throwable) {
+                HighLog.e("ScanActivity camera provider failed", e)
                 finishError("camera", "Camera could not start: ${e.message ?: e.javaClass.simpleName}")
             }
         }, ContextCompat.getMainExecutor(this))
@@ -253,13 +282,13 @@ class ScanActivity : ComponentActivity() {
             } else {
                 val max = cam.cameraInfo.zoomState.value?.maxZoomRatio ?: 1f
                 val r = ratio.coerceIn(1f, max)
-                Log.i(TAG, "ScanActivity auto-zoom -> $r")
+                HighLog.i("ScanActivity auto-zoom -> $r")
                 cam.cameraControl.setZoomRatio(r)
                 true
             }
         }
         val zoomOptions = ZoomSuggestionOptions.Builder(zoomCallback).setMaxSupportedZoomRatio(4f).build()
-        barcodeScanner = BarcodeScanning.getClient(
+        barcodeScanner = try { BarcodeScanning.getClient(
             BarcodeScannerOptions.Builder()
                 .setBarcodeFormats(
                     Barcode.FORMAT_QR_CODE,
@@ -269,12 +298,17 @@ class ScanActivity : ComponentActivity() {
                 )
                 .setZoomSuggestionOptions(zoomOptions)
                 .build(),
-        )
+        ) } catch (e: Throwable) {
+            // e.g. ML Kit components stripped by R8: report it so Dart falls back to photo scan (ZXing).
+            HighLog.e("ScanActivity ML Kit barcode client failed", e)
+            finishError("mlkit", "QR reader could not start: ${e.javaClass.simpleName}: ${e.message}")
+            return
+        }
         textRecognizer = if (OcrSupport.available) {
             try {
                 TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
             } catch (e: Throwable) {
-                Log.e(TAG, "text recognizer unavailable", e)
+                HighLog.e("text recognizer unavailable", e)
                 null
             }
         } else {
@@ -286,18 +320,27 @@ class ScanActivity : ComponentActivity() {
             provider.unbindAll()
             camera = provider.bindToLifecycle(this, selector, preview, analysis)
             val maxZoom = camera?.cameraInfo?.zoomState?.value?.maxZoomRatio ?: 1f
-            Log.i(TAG, "ScanActivity camera bound selector=$selector maxZoom=$maxZoom hasFlash=${camera?.cameraInfo?.hasFlashUnit()}")
+            HighLog.i("ScanActivity camera bound selector=$selector maxZoom=$maxZoom hasFlash=${camera?.cameraInfo?.hasFlashUnit()}")
             if (camera?.cameraInfo?.hasFlashUnit() != true) torchBtn.visibility = View.GONE
             // Start centred focus once so phones without continuous AF still focus on the code.
             previewView.post { focusAt(previewView.width / 2f, previewView.height / 2f) }
-        } catch (e: Exception) {
-            Log.e(TAG, "ScanActivity bindToLifecycle failed", e)
+        } catch (e: Throwable) {
+            HighLog.e("ScanActivity bindToLifecycle failed", e)
             finishError("camera", "Camera could not start: ${e.message ?: e.javaClass.simpleName}")
         }
     }
 
-    @androidx.annotation.OptIn(markerClass = [ExperimentalGetImage::class])
     private fun analyze(proxy: ImageProxy) {
+        try {
+            analyzeFrame(proxy)
+        } catch (e: Throwable) {
+            HighLog.e("ScanActivity frame failed", e)
+            try { proxy.close() } catch (_: Throwable) {}
+        }
+    }
+
+    @androidx.annotation.OptIn(markerClass = [ExperimentalGetImage::class])
+    private fun analyzeFrame(proxy: ImageProxy) {
         if (finished.get()) {
             proxy.close()
             return
@@ -308,6 +351,7 @@ class ScanActivity : ComponentActivity() {
             return
         }
         frames++
+        if (frames == 1) HighLog.i("ScanActivity first frame ${proxy.width}x${proxy.height} rot=${proxy.imageInfo.rotationDegrees}")
         val image = InputImage.fromMediaImage(media, proxy.imageInfo.rotationDegrees)
         val scanner = barcodeScanner
         if (scanner == null) {
@@ -315,7 +359,7 @@ class ScanActivity : ComponentActivity() {
             return
         }
         scanner.process(image)
-            .addOnSuccessListener(analysisExecutor!!) { barcodes ->
+            .addOnSuccessListener(listenerExecutor) { barcodes ->
                 val values = barcodes.mapNotNull { b ->
                     b.rawValue?.trim()?.takeIf { it.isNotEmpty() }
                         ?: b.displayValue?.trim()?.takeIf { it.isNotEmpty() }
@@ -323,7 +367,7 @@ class ScanActivity : ComponentActivity() {
                 }
                 val bee = values.firstOrNull { it.contains("BEE1", ignoreCase = true) }
                 if (bee != null) {
-                    Log.i(TAG, "ScanActivity QR hit frame=$frames len=${bee.length} preview=${redact(bee)}")
+                    HighLog.i("ScanActivity QR hit frame=$frames len=${bee.length} preview=${redact(bee)}")
                     proxy.close()
                     finishOk(bee, "qr")
                     return@addOnSuccessListener
@@ -337,14 +381,14 @@ class ScanActivity : ComponentActivity() {
                         finishOk(rec.payload, "qr")
                         return@addOnSuccessListener
                     }
-                    if (nonBee != v) Log.i(TAG, "ScanActivity non-unlock QR len=${v.length} preview=${redact(v)}")
+                    if (nonBee != v) HighLog.i("ScanActivity non-unlock QR len=${v.length} preview=${redact(v)}")
                     nonBee = v
                     setStatus("That QR is not a Bee Seller unlock code (it says “${redact(v)}”). Point at the seller’s unlock code.")
                 }
                 maybeText(image, proxy)
             }
-            .addOnFailureListener(analysisExecutor!!) { e ->
-                Log.w(TAG, "ScanActivity barcode frame failed: ${e.message}")
+            .addOnFailureListener(listenerExecutor) { e ->
+                HighLog.w("ScanActivity barcode frame failed: ${e.message}")
                 maybeText(image, proxy)
             }
     }
@@ -359,17 +403,17 @@ class ScanActivity : ComponentActivity() {
         }
         lastTextAt = now
         rec.process(image)
-            .addOnSuccessListener(analysisExecutor!!) { text ->
+            .addOnSuccessListener(listenerExecutor) { text ->
                 val raw = text.text
                 if (raw.isNotBlank() && UnlockCodeRecovery.looksLikeCode(raw)) {
-                    if (!sawCodeText) Log.i(TAG, "ScanActivity code text visible frame=$frames chars=${raw.length}")
+                    if (!sawCodeText) HighLog.i("ScanActivity code text visible frame=$frames chars=${raw.length}")
                     sawCodeText = true
                     // Try the whole text, then line-joined blocks (reading order can vary).
                     val joined = text.textBlocks.joinToString("\n") { b -> b.lines.joinToString("") { it.text } }
                     val hit = UnlockCodeRecovery.recover(raw, deviceId)
                         ?: UnlockCodeRecovery.recover(joined, deviceId)
                     if (hit != null) {
-                        Log.i(TAG, "ScanActivity TEXT hit layout=${hit.layout} frame=$frames preview=${redact(hit.payload)}")
+                        HighLog.i("ScanActivity TEXT hit layout=${hit.layout} frame=$frames preview=${redact(hit.payload)}")
                         proxy.close()
                         finishOk(hit.payload, "text")
                         return@addOnSuccessListener
@@ -381,8 +425,8 @@ class ScanActivity : ComponentActivity() {
                 }
                 proxy.close()
             }
-            .addOnFailureListener(analysisExecutor!!) { e ->
-                Log.w(TAG, "ScanActivity text frame failed: ${e.message}")
+            .addOnFailureListener(listenerExecutor) { e ->
+                HighLog.w("ScanActivity text frame failed: ${e.message}")
                 proxy.close()
             }
     }
@@ -413,7 +457,7 @@ class ScanActivity : ComponentActivity() {
                 .build()
             cam.cameraControl.startFocusAndMetering(action)
         } catch (e: Exception) {
-            Log.d(TAG, "focusAt failed: ${e.message}")
+            HighLog.i("focusAt failed: ${e.message}")
         }
     }
 
@@ -433,7 +477,7 @@ class ScanActivity : ComponentActivity() {
 
     private fun finishCancelled() {
         if (!finished.compareAndSet(false, true)) return
-        Log.i(TAG, "ScanActivity cancelled frames=$frames sawCodeText=$sawCodeText nonBee=${nonBee?.let { redact(it) }}")
+        HighLog.i("ScanActivity cancelled frames=$frames sawCodeText=$sawCodeText nonBee=${nonBee?.let { redact(it) }}")
         runOnUiThread {
             setResult(Activity.RESULT_CANCELED, baseResult())
             finish()
@@ -442,7 +486,7 @@ class ScanActivity : ComponentActivity() {
 
     private fun finishError(code: String, message: String) {
         if (!finished.compareAndSet(false, true)) return
-        Log.e(TAG, "ScanActivity error code=$code msg=$message")
+        HighLog.e("ScanActivity error code=$code msg=$message")
         runOnUiThread {
             setResult(Activity.RESULT_CANCELED, baseResult().putExtra(EXTRA_ERROR, code).putExtra(EXTRA_MESSAGE, message))
             finish()
