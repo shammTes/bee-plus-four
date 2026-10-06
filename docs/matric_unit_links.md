@@ -17,11 +17,12 @@ it is based on that branch and re-tags and fixes items in the exercise files #21
 | `tool/matric_unit_sync/textbook_ref_links.json`, `prior_text_links.json`, `before_counts.json` | Snapshot of the previous `unit_questions.json`: textbook-ref links (kept as the strongest evidence), earlier text links (low-confidence fallback), and per-unit counts before this change. |
 | `tool/matric_unit_sync/report.json` | Output: every dropped (broken) question with its reason, key conflicts between copies, every question that could not be placed, and counts before/after per unit. |
 | `tools/fix_legacy_exercises.py` + `tool/matric_unit_sync/exercise_fixes.json` | Hand-checked key/explanation fixes and drops for older practice items, plus unit tags for the English 11 "General" items. Idempotent. Run it again after `tools/clean_exercises.py`. |
+| `tools/tag_general_exercises.py` + `tool/matric_unit_sync/general_tags.json` | Tags the remaining untagged ("General") exercise items of every other book to notes units (see "Tagging the General exercise items"). `general_tags.json` holds the hand decisions. `--calibrate` prints accuracy on already-tagged items, `--flags` prints key-check flags for untagged items, `--sample N` prints tags to check by hand. Only touches items with `unit: null` (plus the hand `retag` list). Idempotent. |
 
 Re-run everything:
 
 ```
-python3 tools/fix_legacy_exercises.py && python3 tools/verify_exercises.py
+python3 tools/fix_legacy_exercises.py && python3 tools/tag_general_exercises.py && python3 tools/verify_exercises.py
 python3 tools/map_unit_questions.py && python3 tools/verify_unit_links.py
 ```
 
@@ -153,7 +154,7 @@ Most of the questions that are not placed are General Knowledge items, about cur
 ## Exercises
 
 - The notes "Exercises (N)" chip and the Exercise tab unit tile read the same map, `ExamRepo.exerciseUnits` keyed by the item's `unit`. So the counts match and the chip opens that unit's items, as long as the `unit` is a real notes unit id. The checker verifies this for every main and school item.
-  - Exception: 4 Grade 10 school items on torque are tagged `phys9-u3`. They show under that Grade 9 unit, both in the notes and in the Exercise tab.
+  - The 4 Grade 10 school items on torque (`physics_10_barka2020s1_q7`, `_q7_s1..s3`) were tagged `phys9-u3`; they are now `phys10-u1` (Motion in Two Dimensions, lesson "Moment of a Force"), via the `retag` list in `general_tags.json`.
 - **English 11 "General"**: the 421 items with `unit: null` were tagged with keyword rules on the prompt and explanation (`ENG11_RULES` in `tools/fix_legacy_exercises.py`). 19 were dropped and 402 tagged. English 11 now has no General items: u1 158 · u2 34 · u3 36 · u4 44 · u5 140 · u6 31 · u7 53 · u8 66 · u9 53 · u10 40 · u11 40 · u12 30 · u13 30 · u14 34 · u15 30 · u16 62 · u17 30 · u18 37 · u19 30 · u20 30 · u21 30 · u22 33 · u23 30 · u24 44.
 - **Key fixes**: 43 answers were corrected.
   - 40 are English 11 punctuation and reported-speech items that had been keyed to option A by default.
@@ -176,6 +177,52 @@ Most of the questions that are not placed are General Knowledge items, about cur
 
 Exercise bank total: 8274 → 8243 items. Every unit still has ≥ 25 (`tools/verify_exercises.py`).
 
+## Tagging the General exercise items
+
+Every exercise book except English 11 still had items with `unit: null`, which show only under "General". `tools/tag_general_exercises.py` tags them, strongest evidence first:
+
+1. **Hand decisions** in `tool/matric_unit_sync/general_tags.json` (`unit`: id → unit, or null to keep General; `move`; `retag`). 350 items tagged and 20 kept General (no unit covers them), each read: the rule/classifier misses found while checking samples, and the leftovers the tools left General (History 11, Biology 9 animal/fungus taxonomy, Agriculture economics, Geography 10/11, Maths ratio/series items...).
+2. **Textbook refs** carried in `src` (e.g. `practice_g9_biology#bio9_u3_q032`): 107 items. The 25 weather/climate items in the Physics 9 book have `geo9_u03` refs, so they were **moved to `geography_9.json`** under `geo9-u3` Weather and Climate (ids kept).
+3. **Keyword rules** per subject (`SUBJ_RULES`: Maths, Chemistry, Physics, Agriculture) and English 9 grammar rules (`ENG9_RULES`) for the school papers: 809 items.
+4. **Text classifier** (TF-IDF of the item against every notes unit of the subject: title, lessons, text; plus nearest tagged exercise items and textbook-ref/medium matric links; own grade preferred): 423 items, only above the calibrated thresholds. `--calibrate` on already-tagged practice items: medium 94%, low 84%, weak 83% (text subjects only); labels are noisy, so these are lower bounds.
+5. **Sequence neighbours**: practice items are numbered in topic blocks. An item the classifier is unsure about takes the unit of its nearest tagged neighbours before and after (within 3 ids) when both agree and that unit is in the classifier's top 3: 148 items (83% on the calibration set).
+
+A unit of another grade of the same subject is allowed (the item shows under that unit, and the checker lists it as cross-grade): e.g. sequence items in the Maths 10 file go to Maths 12 u1, organic items in the Chemistry 10 file to Chemistry 12 u2, livestock and farm-management items in Agriculture 11 to Agriculture 12 u1/u4.
+
+Each book's tags were checked by hand on a sample (`--sample`); the misses found went into `general_tags.json`, and two rule bugs were fixed (the Agriculture livestock rule matched "hen" inside "when"; agricultural economics terms now go to farm management).
+
+General items per book (main files, plus the English 9 school paper):
+
+| Book | General before | General after | items before | items after |
+|---|---:|---:|---:|---:|
+| agriculture 11 | 225 | 0 | 486 | 486 |
+| biology 10 | 46 | 0 | 201 | 201 |
+| biology 11 | 59 | 0 | 294 | 294 |
+| biology 9 | 158 | 0 | 498 | 498 |
+| business economics 10 | 28 | 0 | 114 | 114 |
+| business economics 11 | 39 | 17 | 139 | 139 |
+| chemistry 10 | 111 | 0 | 220 | 217 |
+| chemistry 11 | 60 | 0 | 150 | 149 |
+| geography 10 | 13 | 3 | 89 | 89 |
+| geography 11 | 98 | 0 | 361 | 361 |
+| history 11 | 407 | 0 | 910 | 910 |
+| mathematics 10 | 212 | 0 | 388 | 383 |
+| mathematics 11 | 60 | 0 | 215 | 213 |
+| mathematics 9 | 67 | 0 | 350 | 348 |
+| physics 10 | 45 | 0 | 290 | 290 |
+| physics 11 | 7 | 0 | 56 | 56 |
+| physics 9 | 84 | 0 | 193 | 164 |
+| english 9 (school) | 212 | 57 | 212 | 212 |
+| **total** | 1931 | 77 | | |
+
+What is still General, and why: English 9 (school) 57 — reading-passage questions (Senait's exhibition, Abraham's story), true/false story items, spelling items and present-continuous cloze items; no Grade 9 unit teaches them. Business Economics 11 17 — PESTLE, quality management (TQM, PDCA), marketing research, promotion and distribution; no Business Economics unit covers them. Geography 10 3 — map projections and the compass; no Geography unit covers them.
+
+**Keys checked while tagging** (the `--flags` checks: explanation contradicting the key, "wait/recalculate", key text in two options; plus reading every numeric Maths/Physics/Chemistry item and every "Both A and B" item):
+- 23 answers corrected (in `exercise_fixes.json`): Maths 10 ×10 (|-5| = 5, cos 0° = 1, sec 60° = 2, sec 45° = √2, tan 60° = √3, apothem of hexagon side 2 = √3, f(f⁻¹(x)) = x, perpendicular slope to x + y = 1 is 1, 2(x+3) = 2x + 2x + 6 gives x = 0, ...), Maths 9 85% = "Both A and B", Maths 11 cos 45° = √2/2, Physics 10 net force zero = "Either A or B", Physics 11 magnifier M = 25/f, Chemistry 10 oxidation state of C in CO2 (+4) and CH4 (−4), CH2O empirical formula = "Both A and B", Chemistry 11 Kc of reverse doubled reaction = 0.0001 and 0.20 mol NaOH for 0.10 mol H2SO4, Biology 9 photosynthesis reactants = CO2 and water and the FALSE aerobic/anaerobic statement, Business Economics 11 PESTLE social factor = population age structure, History 11 Napoleon's collapse = "Both A and B".
+- 17 items dropped (no correct option, or two options with the same value): Maths 10 ×5, Maths 9 ×2, Maths 11 ×2, Physics 9 ×4, Chemistry 10 ×3, Chemistry 11 ×1; reasons are in `exercise_fixes.json`.
+
+1837 items tagged in all (1914 untagged after the drops; 77 left General). Exercise bank (main files): 8243 → 8226 items (17 dropped; the 25 moved items stay in the bank). Every unit still has ≥ 25 (`tools/verify_exercises.py`).
+
 ## Checker (`tools/verify_unit_links.py`)
 
 Fails on any of these:
@@ -196,6 +243,7 @@ It reports units under `--min` (10) links with the reason, untagged exercise cou
 - 2353 questions are not placed. Most are General Knowledge, plus English reading questions whose passage is missing from the paper data.
 - 318 questions point at figures that are not shipped.
 - The lazy `matric_lazy` packs are not linked. They load on demand, and about 96% of them duplicate the eager bank.
-- Other subjects still have untagged ("General") exercise items, for example History 11 (407), Agriculture 11 (225), Maths 10 (212) and English 9 (212). Only English 11 was in scope here.
+- 77 exercise items are still General (English 9 reading/spelling, Business Economics 11 marketing/PESTLE, Geography 10 projections); see "Tagging the General exercise items".
+- `unit_questions.json` was not rebuilt after the new tags (its kNN also learns from exercise tags); `verify_unit_links.py` passes on the current file.
 - The loader maps an untagged exercise item to the unit `eng<grade>-practice` for every subject (`repository.dart`). It is harmless, because the item still shows under General.
 - `unit_questions.json` is about 1.1 MB and is parsed on the main thread when the notes load.
