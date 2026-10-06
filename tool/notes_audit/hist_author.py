@@ -98,6 +98,15 @@ def clean(t):
     return ' '.join(t.split()) if '\n' not in t else t.strip()
 
 
+def stem(t):
+    # past-paper stems often end in ';' or ',' – show them as a proper lead-in ending in ':'
+    t = re.sub(r'\s*[;,]\s*$', ':', clean(t))
+    # sentence-completion stems ("... was founded in") read as complete prompts with a trailing ellipsis
+    if re.search(r'\b(?:the|a|an|and|or|of|to|is|are|was|were|with|for|in|by|from|that|which|at|as)\s*$', t, re.I):
+        t += ' ...'
+    return t
+
+
 def best_sentence(q, sents):
     key = q['opts'][q['ans']]
     kt = set(toks(q['q'] + ' ' + key + ' ' + key))
@@ -183,13 +192,13 @@ def build(book):
                 cid = f"{l['id']}-r3c{counters[l['id']]}"
                 why = '\n\n'.join(f'**Step {i + 1}:** {s_}' for i, s_ in enumerate(steps)) + f'\n\n**Tip:** {tip}'
                 cards.append({'id': cid, 'type': 'check', 'title': f'Past exam ({exam})', 'page': page_of(l) or page_of(u), 'src': TAG + 'm',
-                              'src_qid': q['id'], 'q': clean(q['q']), 'options': {k: clean(v) for k, v in o.items()}, 'answer': ans, 'why': why})
+                              'src_qid': q['id'], 'q': stem(q['q']), 'options': {k: clean(v) for k, v in o.items()}, 'answer': ans, 'why': why})
                 n['check'] += 1
             else:
                 qs = u.setdefault('exercise', {}).setdefault('questions', [])
                 counters[u['id']] = counters.get(u['id'], 0) + 1
                 qid = f"{u['id']}-r3q{counters[u['id']]:02d}"
-                qs.append({'id': qid, 'q': clean(q['q']), 'src': TAG + 'm', 'page': page_of(u), 'label': f"{len(qs) + 1}. {short(clean(q['q']))}",
+                qs.append({'id': qid, 'q': stem(q['q']), 'src': TAG + 'm', 'page': page_of(u), 'label': f"{len(qs) + 1}. {short(stem(q['q']))}",
                            'similar': [], 'type': 'mcq', 'options': {k: clean(v) for k, v in o.items()}, 'answer': ans,
                            'why': [f"Answer {ans}: {clean(o[ans])}"] + steps, 'tip': tip, 'exam_question': q['id']})
                 n['exercise'] += 1
