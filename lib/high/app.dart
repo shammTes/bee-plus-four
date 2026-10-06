@@ -9,6 +9,7 @@ import 'notes/jr/state/app_state.dart' as jr;
 import 'screens/notes_home.dart';
 import 'screens/tour.dart';
 import 'state/app_state.dart';
+import 'state/page_gate.dart';
 import 'theme/tokens.dart';
 import 'widgets/art.dart';
 import 'widgets/kit.dart';
@@ -247,7 +248,7 @@ class HighShellState extends State<HighShell> implements HighNav {
               key: pg.key,
               child: Offstage(
                 offstage: !identical(pg, top),
-                child: TickerMode(enabled: identical(pg, top), child: pg),
+                child: TickerMode(enabled: identical(pg, top), child: PageGate(active: identical(pg, top), child: pg)),
               ),
             ),
           if (showNav) Positioned(left: 14, right: 14, bottom: 14 + MediaQuery.paddingOf(context).bottom, child: NavBar(current: _tab, onTap: tab)),

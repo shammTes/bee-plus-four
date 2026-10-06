@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../data/models.dart';
 import '../data/repository.dart';
 import 'links.dart';
+import 'page_gate.dart';
 import '../theme/perf.dart';
 import '../notes/jr/data/repository.dart' show NotesRepo;
 
@@ -606,6 +607,7 @@ class HighState extends ChangeNotifier {
 
 class HighScope extends InheritedNotifier<HighState> {
   const HighScope({super.key, required HighState state, required super.child}) : super(notifier: state);
-  static HighState of(BuildContext c) => c.dependOnInheritedWidgetOfExactType<HighScope>()!.notifier!;
+  /// the state, rebuilding [c] when it changes. Inside a page ([PageGate]) only while that page is on screen.
+  static HighState of(BuildContext c) => PageGateScope.depend(c) ? read(c) : c.dependOnInheritedWidgetOfExactType<HighScope>()!.notifier!;
   static HighState read(BuildContext c) => c.getInheritedWidgetOfExactType<HighScope>()!.notifier!;
 }
