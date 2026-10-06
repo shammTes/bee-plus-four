@@ -187,13 +187,10 @@
        "type": "text",
        "title": "4.1.3 Nets and Views of Solids",
        "page": 118,
-       "src": "textbook pp.118–120",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "The illustrations in Fig. 4.20 show nets for the cube and tetrahedron.",
-        "For example, there are a total of 11 distinct nets for cube.",
-        "The relationship between the number of faces, edges, and vertices is given by F+V-E =2 .",
-        "A 3 dimensional object can look different from different positions so that can be drawn from different perspectives."
+        "A **net** is a flat pattern that folds up into a solid. A cube has 6 square faces, so every net of a cube is made of 6 squares joined edge to edge — there are 11 different cube nets (for example a \"cross\" of 4 squares in a row with one square above and one below the second square). A regular tetrahedron has 4 equilateral-triangle faces; its common net is one large triangle divided into 4 smaller triangles.",
+        "Solids are also drawn by their **views**: the **front view**, **side view** and **top view (plan)**. A cylinder standing upright has a rectangle as front view and a circle as top view; a square pyramid has a triangle as front view and a square with its diagonals as top view."
        ]
       },
       {
@@ -283,7 +280,7 @@
         "D": "A regular tetrahedron"
        },
        "answer": "A",
-       "why": "**Step 1: Recall the definition of a polyhedron**\nA polyhedron is a three-dimensional solid bounded strictly by flat, polygonal plane surfaces.\n\n**Step 2: Analyze the geometric shapes**\n- Triangular prisms, square pyramids, and regular tetrahedrons are all bounded strictly by flat polygons (triangles, squares, rectangles). Thus, they are polyhedrons.\n- A cylinder has a curved lateral surface and c"
+       "why": "**Step 1: Recall the definition of a polyhedron**\nA polyhedron is a three-dimensional solid bounded strictly by flat, polygonal plane surfaces.\n\n**Step 2: Analyze the geometric shapes**\n- Triangular prisms, square pyramids, and regular tetrahedrons are all bounded strictly by flat polygons (triangles, squares, rectangles). Thus, they are polyhedrons.\n- A cylinder has a curved lateral surface and circular bases, which are not polygons. Thus, it is not a polyhedron.\n\n**Step 3: Final Result**\nThe curved solid that is not a polyhedron is **A cylinder**."
       },
       {
        "id": "math10-u4-chk7c3",
@@ -295,11 +292,11 @@
        "options": {
         "A": "$$6$$",
         "B": "$$14$$",
-        "C": "$$\\\\sqrt{116}$$",
+        "C": "$$\\sqrt{116}$$",
         "D": "$$10$$"
        },
        "answer": "A",
-       "why": "**Step 1: Write down the Distance Formula**\n$$d = \\\\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$\n\n**Step 2: Substitute coordinate values**\nHere, $$(x_1, y_1) = (2, 4)$$ and $$(x_2, y_2) = (2, 10)$$:\n$$d = \\\\sqrt{(2 - 2)^2 + (10 - 4)^2}$$\n\n**Step 3: Simplify the expression**\n$$d = \\\\sqrt{0^2 + 6^2}$$\n$$d = \\\\sqrt{36} = 6$$\n\n**Step 4: Final Result**\nThe distance between the points is **$$6$$**."
+       "why": "**Step 1: Write down the Distance Formula**\n$$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$\n\n**Step 2: Substitute coordinate values**\nHere, $$(x_1, y_1) = (2, 4)$$ and $$(x_2, y_2) = (2, 10)$$:\n$$d = \\sqrt{(2 - 2)^2 + (10 - 4)^2}$$\n\n**Step 3: Simplify the expression**\n$$d = \\sqrt{0^2 + 6^2}$$\n$$d = \\sqrt{36} = 6$$\n\n**Step 4: Final Result**\nThe distance between the points is **$$6$$**."
       },
       {
        "id": "math10-u4-wrk7c1",
@@ -363,12 +360,12 @@
        "type": "text",
        "title": "4.2.1 Coordinates in a Plane",
        "page": 123,
-       "src": "textbook pp.123–124",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "The axes divide the plane into four regions.",
-        "The first entry of the pair (a, b) is called the x-coordinate or the abscissa of P, and the second entry is called the y-coordinate or the ordinate of P.",
-        "The point O where the two axes meet is called the origin."
+        "The **x-axis** and **y-axis** meet at the origin O(0, 0) and divide the plane into four **quadrants**: I (+, +), II (−, +), III (−, −), IV (+, −). In the pair (a, b), a is the x-coordinate (abscissa) and b the y-coordinate (ordinate).",
+        "**Distance formula:** $$PQ = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$ — Pythagoras on the grid. **Midpoint formula:** $$M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$$.",
+        "**Example:** show that P(−2, 3), Q(3, 8), R(4, 1) form an isosceles triangle. PQ = √(5² + 5²) = √50; QR = √(1² + (−7)²) = √50; PR = √(6² + (−2)²) = √40. Two sides are equal (PQ = QR), so the triangle is isosceles.",
+        "**Collinear test:** three points are collinear if the two shorter distances add up to the longest one (or if the slopes between them are equal)."
        ]
       },
       {
@@ -394,6 +391,74 @@
        "body": [
         "Find the coordinates of the midpoints of the line segments determined by the pairs of points in (1) and (2)."
        ]
+      },
+      {
+       "id": "math10-u4-wk2",
+       "type": "worked",
+       "title": "Worked example: find an endpoint from the midpoint",
+       "problem": "M(2, −1) is the midpoint of AB and A = (−3, 4). Find B.",
+       "steps": [
+        {
+         "text": "Step 1: x-coordinate: (−3 + x)/2 = 2 → −3 + x = 4 → x = 7."
+        },
+        {
+         "text": "Step 2: y-coordinate: (4 + y)/2 = −1 → 4 + y = −2 → y = −6."
+        },
+        {
+         "text": "Step 3: check: midpoint of (−3, 4) and (7, −6) is (2, −1) ✔."
+        }
+       ],
+       "answer": "B = (7, −6)",
+       "page": 122,
+       "src": "notes"
+      },
+      {
+       "id": "math10-u4-pc21",
+       "type": "check",
+       "title": "Practice",
+       "q": "What is the distance between (−1, 2) and (5, 10)?",
+       "options": {
+        "A": "10",
+        "B": "14",
+        "C": "8",
+        "D": "√28"
+       },
+       "answer": "A",
+       "why": "d = √((5 − (−1))² + (10 − 2)²) = √(36 + 64) = √100 = 10.",
+       "page": 122,
+       "src": "notes"
+      },
+      {
+       "id": "math10-u4-pc22",
+       "type": "check",
+       "title": "Practice",
+       "q": "In which quadrant is the point (−4, −7)?",
+       "options": {
+        "A": "III",
+        "B": "II",
+        "C": "IV",
+        "D": "I"
+       },
+       "answer": "A",
+       "why": "Both coordinates negative → quadrant III (left of the y-axis and below the x-axis).",
+       "page": 122,
+       "src": "notes"
+      },
+      {
+       "id": "math10-u4-pc23",
+       "type": "check",
+       "title": "Practice",
+       "q": "Find the midpoint of (−2, 5) and (6, −1).",
+       "options": {
+        "A": "(2, 2)",
+        "B": "(4, 4)",
+        "C": "(8, −6)",
+        "D": "(2, 3)"
+       },
+       "answer": "A",
+       "why": "M = ((−2 + 6)/2, (5 + (−1))/2) = (4/2, 4/2) = (2, 2).",
+       "page": 122,
+       "src": "notes"
       }
      ]
     },
@@ -463,6 +528,118 @@
         "When a shape is resized it gets bigger or smaller but it still looks similar that is, all angles stay the same and the relative sizes are the same.",
         "Show that the midpoint of the hypotenuse of a right triangle is equidistant from the vertices."
        ]
+      },
+      {
+       "id": "math10-u4-tb3",
+       "type": "table",
+       "title": "Coordinate rules for transformations",
+       "head": [
+        "Transformation",
+        "Rule",
+        "Example: (3, −2) →"
+       ],
+       "rows": [
+        [
+         "Reflection in the x-axis",
+         "(x, y) → (x, −y)",
+         "(3, 2)"
+        ],
+        [
+         "Reflection in the y-axis",
+         "(x, y) → (−x, y)",
+         "(−3, −2)"
+        ],
+        [
+         "Reflection in y = x",
+         "(x, y) → (y, x)",
+         "(−2, 3)"
+        ],
+        [
+         "Translation by (a, b)",
+         "(x, y) → (x + a, y + b)",
+         "by (1, 4): (4, 2)"
+        ],
+        [
+         "Dilation, centre O, factor k",
+         "(x, y) → (kx, ky)",
+         "k = 2: (6, −4)"
+        ],
+        [
+         "Rotation 180° about O",
+         "(x, y) → (−x, −y)",
+         "(−3, 2)"
+        ]
+       ],
+       "page": 131,
+       "src": "notes"
+      },
+      {
+       "id": "math10-u4-wk3",
+       "type": "worked",
+       "title": "Worked example: translate then reflect",
+       "problem": "Triangle ABC has A(1, 2), B(4, 2), C(1, 5). Translate it by (−3, 1), then reflect the image in the x-axis.",
+       "steps": [
+        {
+         "text": "Step 1: translate (add −3 to x and 1 to y): A′(−2, 3), B′(1, 3), C′(−2, 6)."
+        },
+        {
+         "text": "Step 2: reflect in the x-axis (change the sign of y): A″(−2, −3), B″(1, −3), C″(−2, −6)."
+        },
+        {
+         "text": "Step 3: both are isometries, so A″B″C″ is congruent to ABC (AB = 3 and A″B″ = 3 ✔)."
+        }
+       ],
+       "answer": "A″(−2, −3), B″(1, −3), C″(−2, −6)",
+       "page": 131,
+       "src": "notes"
+      },
+      {
+       "id": "math10-u4-pc31",
+       "type": "check",
+       "title": "Practice",
+       "q": "The point (−5, 2) is reflected in the line y = x. What is the image?",
+       "options": {
+        "A": "(2, −5)",
+        "B": "(5, −2)",
+        "C": "(−2, 5)",
+        "D": "(−5, −2)"
+       },
+       "answer": "A",
+       "why": "Reflection in y = x swaps the coordinates: (x, y) → (y, x), so (−5, 2) → (2, −5).",
+       "page": 131,
+       "src": "notes"
+      },
+      {
+       "id": "math10-u4-pc32",
+       "type": "check",
+       "title": "Practice",
+       "q": "A dilation with centre O and factor 3 maps a triangle of area 5 cm² to an image of area…",
+       "options": {
+        "A": "45 cm²",
+        "B": "15 cm²",
+        "C": "8 cm²",
+        "D": "125 cm²"
+       },
+       "answer": "A",
+       "why": "Lengths are multiplied by k = 3 and areas by k² = 9: 5 × 9 = 45 cm².",
+       "page": 131,
+       "src": "notes"
+      },
+      {
+       "id": "math10-u4-pc33",
+       "type": "check",
+       "title": "Practice",
+       "q": "Which transformation does NOT always give a congruent image?",
+       "options": {
+        "A": "Dilation",
+        "B": "Reflection",
+        "C": "Translation",
+        "D": "Rotation"
+       },
+       "answer": "A",
+       "why": "Reflections, translations and rotations keep all lengths (isometries). A dilation with k ≠ ±1 changes the size, giving a similar but not congruent image.",
+       "page": 131,
+       "src": "notes"
       }
      ]
     }
@@ -530,72 +707,6 @@
      "src": "notes",
      "id": "math10-u4-g2",
      "lesson": null
-    },
-    {
-     "type": "match",
-     "title": "Match key terms",
-     "pairs": [
-      {
-       "a": "Cube (Hexahedron)",
-       "b": "| Polyhedron (Prism) | $$6$$ | $$8$$ | $$12$$ | $$6 + 8 - 12 = 2$$ | | **Triangular Prism** | Polyhedron (Prism) | $$5$$"
-      },
-      {
-       "a": "Triangular Prism",
-       "b": "| Polyhedron (Prism) | $$5$$ | $$6$$ | $$9$$ | $$5 + 6 - 9 = 2$$ | | **Square Pyramid** | Polyhedron (Pyramid) | $$5$$ |"
-      },
-      {
-       "a": "Square Pyramid",
-       "b": "| Polyhedron (Pyramid) | $$5$$ | $$5$$ | $$8$$ | $$5 + 5 - 8 = 2$$ | | **Hexagonal Prism** | Polyhedron (Prism) | $$8$$ "
-      },
-      {
-       "a": "Hexagonal Prism",
-       "b": "| Polyhedron (Prism) | $$8$$ | $$12$$ | $$18$$ | $$8 + 12 - 18 = 2$$ | | **Cylinder** | Curved Solid | N/A | N/A | N/A |"
-      },
-      {
-       "a": "Cylinder",
-       "b": "| Curved Solid | N/A | N/A | N/A | Does not apply (Curved) | > **💡 Did You Know?**: Euler's Formula is one of the foundi"
-      },
-      {
-       "a": "💡 Did You Know?",
-       "b": "Euler's Formula is one of the founding pillars of topology, a branch of mathematics that studies the properties of space"
-      }
-     ],
-     "src": "study_notes",
-     "id": "math10-u4-g-drive",
-     "lesson": null
-    },
-    {
-     "type": "match",
-     "title": "Match key terms",
-     "pairs": [
-      {
-       "a": "Cube (Hexahedron)",
-       "b": "| Polyhedron (Prism) | $$6$$ | $$8$$ | $$12$$ | $$6 + 8 - 12 = 2$$ | | **Triangular Prism** | Polyhedron (Prism) | $$5$$"
-      },
-      {
-       "a": "Triangular Prism",
-       "b": "| Polyhedron (Prism) | $$5$$ | $$6$$ | $$9$$ | $$5 + 6 - 9 = 2$$ | | **Square Pyramid** | Polyhedron (Pyramid) | $$5$$ |"
-      },
-      {
-       "a": "Square Pyramid",
-       "b": "| Polyhedron (Pyramid) | $$5$$ | $$5$$ | $$8$$ | $$5 + 5 - 8 = 2$$ | | **Hexagonal Prism** | Polyhedron (Prism) | $$8$$ "
-      },
-      {
-       "a": "Hexagonal Prism",
-       "b": "| Polyhedron (Prism) | $$8$$ | $$12$$ | $$18$$ | $$8 + 12 - 18 = 2$$ | | **Cylinder** | Curved Solid | N/A | N/A | N/A |"
-      },
-      {
-       "a": "Cylinder",
-       "b": "| Curved Solid | N/A | N/A | N/A | Does not apply (Curved) | > **💡 Did You Know?**: Euler's Formula is one of the foundi"
-      },
-      {
-       "a": "💡 Did You Know?",
-       "b": "Euler's Formula is one of the founding pillars of topology, a branch of mathematics that studies the properties of space"
-      }
-     ],
-     "src": "study_notes",
-     "id": "math10-u4-g-drive3",
-     "lesson": null
     }
    ],
    "exercise": {
@@ -605,12 +716,12 @@
       "q": "Distance (1,2) to (4,6)?",
       "answer": "√(3²+4²)=5.",
       "why": [
-       "Textbook p.126: This is called the distance formula and can be used to find the distance between any two points on the coordinate plane."
+       "d = √((x₂ − x₁)² + (y₂ − y₁)²) = √(3² + 4²) = √25 = 5."
       ],
       "src": "notes",
       "label": "1. Distance (1,2) to (4,6)?",
       "page": 126,
-      "why_src": "textbook p.126",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -626,12 +737,12 @@
       "q": "Midpoint of (1,2) and (5,8)?",
       "answer": "(3,5).",
       "why": [
-       "Textbook p.131: The midpoint of a line segment is (3, 2)."
+       "Midpoint = (average of x, average of y) = ((1 + 5)/2, (2 + 8)/2) = (3, 5)."
       ],
       "src": "notes",
       "label": "2. Midpoint of (1,2) and (5,8)?",
       "page": 131,
-      "why_src": "textbook p.131",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -646,12 +757,12 @@
       "q": "Prism volume?",
       "answer": "Base area × height.",
       "why": [
-       "Textbook p.110: All cross sections of a prism have the same area."
+       "A prism has the same cross-section all along its length, so V = (area of the base) × (height or length)."
       ],
       "src": "notes",
       "label": "3. Prism volume?",
       "page": 110,
-      "why_src": "textbook p.110",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -666,12 +777,12 @@
       "q": "Cylinder volume?",
       "answer": "πr²h.",
       "why": [
-       "Textbook p.113: Take a horizontal cross-section of the cylinder. a) What is the shape of the cross section? b) How does the shape relate to the base of the cylinder?"
+       "A cylinder is a prism with a circular base of area πr², so V = πr²h."
       ],
       "src": "notes",
       "label": "4. Cylinder volume?",
       "page": 113,
-      "why_src": "textbook p.113",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -686,12 +797,12 @@
       "q": "Pyramid volume?",
       "answer": "(1/3)×base area×height.",
       "why": [
-       "Textbook p.111: The line segment from the apex perpendicular to the base is the altitude and its length is the height of the pyramid."
+       "A pyramid holds one third of the prism with the same base and height: V = ⅓ × base area × height."
       ],
       "src": "notes",
       "label": "5. Pyramid volume?",
       "page": 112,
-      "why_src": "textbook p.111",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -706,12 +817,12 @@
       "q": "Sphere surface?",
       "answer": "4πr².",
       "why": [
-       "Textbook p.115: A sphere is a solid such that every point on its surface is at an equal distance from the same point its centre."
+       "The surface area of a sphere of radius r is 4πr² (four times the area of its great circle πr²)."
       ],
       "src": "notes",
       "label": "6. Sphere surface?",
       "page": 115,
-      "why_src": "textbook p.115",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -726,12 +837,12 @@
       "q": "Sphere volume?",
       "answer": "(4/3)πr³.",
       "why": [
-       "Textbook p.115: A sphere is a solid such that every point on its surface is at an equal distance from the same point its centre."
+       "V = (4/3)πr³. Example: r = 3 cm gives V = (4/3)π(27) = 36π ≈ 113 cm³."
       ],
       "src": "notes",
       "label": "7. Sphere volume?",
       "page": 116,
-      "why_src": "textbook p.115",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -746,12 +857,12 @@
       "q": "A net of a cube has how many squares?",
       "answer": "6, attached so they fold without clash.",
       "why": [
-       "Textbook p.109: A cube is a rectangular solid bounded by six squares."
+       "A cube has 6 square faces, so every net of a cube has 6 squares (there are 11 different nets)."
       ],
       "src": "notes",
       "label": "8. A net of a cube has how many squares?",
       "page": 117,
-      "why_src": "textbook p.109",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -766,12 +877,12 @@
       "q": "Reflection in y-axis: (3,−2) goes to?",
       "answer": "(−3,−2).",
       "why": [
-       "Textbook p.123: Let N be the foot of the perpendicular from P to the y-axis, and b the coordinate of N on the y-axis."
+       "Reflecting in the y-axis changes the sign of x and keeps y: (x, y) → (−x, y), so (3, −2) → (−3, −2)."
       ],
       "src": "notes",
       "label": "9. Reflection in y-axis: (3,−2) goes to?",
       "page": 125,
-      "why_src": "textbook p.123",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -806,12 +917,12 @@
       "q": "Dilate from origin k=3: (2,−1) goes to?",
       "answer": "(6,−3).",
       "why": [
-       "Textbook p.139: A translation takes the origin to (-2, 1)."
+       "A dilation from the origin with factor k multiplies both coordinates by k: (2, −1) → (3·2, 3·(−1)) = (6, −3)."
       ],
       "src": "notes",
       "label": "11. Dilate from origin k=3: (2,−1) goes to?",
       "page": 124,
-      "why_src": "textbook p.139",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -827,12 +938,12 @@
       "q": "Which maps keep length?",
       "answer": "Reflection and translation (and rotation, if listed).",
       "why": [
-       "Textbook p.140: Reflection and translation are transformations which preserve the size and the shape of an object."
+       "Reflections, translations and rotations are isometries: they move a figure without changing lengths or angles, so the image is congruent. A dilation (k ≠ ±1) changes lengths."
       ],
       "src": "notes",
       "label": "12. Which maps keep length?",
       "page": 139,
-      "why_src": "textbook p.140",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -847,12 +958,12 @@
       "q": "Dilation k=2 multiplies area by?",
       "answer": "4.",
       "why": [
-       "Textbook p.110: All cross sections of a prism have the same area."
+       "Lengths are multiplied by k = 2, and area is length × length, so area is multiplied by k² = 4."
       ],
       "src": "notes",
       "label": "13. Dilation k=2 multiplies area by?",
       "page": 140,
-      "why_src": "textbook p.110",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -867,12 +978,12 @@
       "q": "Why midpoint is not distance?",
       "answer": "One averages coordinates; the other is Pythagoras.",
       "why": [
-       "Textbook p.130: Find the coordinates of the midpoint S of S1S2 ? d) Find the coordinates of P. e) Write a formula for the midpoint of a line segment. f) Does the formula for the midpoint of a line segment hold if the segment is horizontal or vertical?"
+       "The midpoint formula averages the coordinates to find a point; the distance formula uses Pythagoras to find a length. They answer different questions."
       ],
       "src": "notes",
       "label": "14. Why midpoint is not distance?",
       "page": 130,
-      "why_src": "textbook p.130",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -887,12 +998,12 @@
       "q": "Cone volume?",
       "answer": "(1/3)πr²h.",
       "why": [
-       "Textbook p.114: Note that a circular cone is referred as a cone."
+       "A cone is a pyramid with a circular base: V = ⅓ × πr² × h."
       ],
       "src": "notes",
       "label": "15. Cone volume?",
       "page": 114,
-      "why_src": "textbook p.114",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -907,12 +1018,12 @@
       "q": "Top view of a vertical cylinder?",
       "answer": "A circle.",
       "why": [
-       "Textbook p.120: What do you think the solid figure to be, if its top is a circle, and side a rectangle and base is a circle?"
+       "Seen from directly above, a standing cylinder shows its circular top, so the top view (plan) is a circle; the front view is a rectangle."
       ],
       "src": "notes",
       "label": "16. Top view of a vertical cylinder?",
       "page": 120,
-      "why_src": "textbook p.120",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -927,12 +1038,12 @@
       "q": "Polyhedron faces are?",
       "answer": "Polygons.",
       "why": [
-       "Textbook p.109: A polyhedron is regular if its faces are made up of regular polygons and the same number of faces meet at each vertex."
+       "A polyhedron is a solid bounded by flat faces, and each face is a polygon (triangles, squares, pentagons, …)."
       ],
       "src": "notes",
       "label": "17. Polyhedron faces are?",
       "page": 109,
-      "why_src": "textbook p.109",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -947,12 +1058,12 @@
       "q": "Distance never negative because?",
       "answer": "Squares inside the root.",
       "why": [
-       "Textbook p.111: This is because the upper base is a cross section."
+       "The distance formula adds two squares, which are never negative, and takes the positive square root, so a distance is always ≥ 0."
       ],
       "src": "notes",
       "label": "18. Distance never negative because?",
       "page": 126,
-      "why_src": "textbook p.111",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -967,12 +1078,12 @@
       "q": "k=1/2 dilation?",
       "answer": "Half-size, same centre, same rays.",
       "why": [
-       "Textbook p.115: A sphere is a solid such that every point on its surface is at an equal distance from the same point its centre."
+       "With k = 1/2 every point moves halfway towards the centre along its ray, so the image is a reduced copy with all lengths halved."
       ],
       "src": "notes",
       "label": "19. k=1/2 dilation?",
       "page": 140,
-      "why_src": "textbook p.115",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -987,12 +1098,12 @@
       "q": "(0,0) to (0,7) distance?",
       "answer": "7 — a grid side.",
       "why": [
-       "Textbook p.126: This is called the distance formula and can be used to find the distance between any two points on the coordinate plane."
+       "The points have the same x, so the distance is the difference of the y-values: |7 − 0| = 7."
       ],
       "src": "notes",
       "label": "20. (0,0) to (0,7) distance?",
       "page": 126,
-      "why_src": "textbook p.126",
+      "why_src": "written",
       "tip": "Say or write your answer first, then open the model answer and compare the key words.",
       "similar": [
        {
@@ -1014,11 +1125,11 @@
       "answer": "C",
       "why": [
        "Answer C: 90°",
-       "Textbook p.115: A sphere is formed by revolving a semicircle about its diameter as an axis."
+       "An angle inscribed in a semicircle stands on a diameter; the central angle is 180°, so the inscribed angle is half of it: 90°."
       ],
       "src": "notes",
       "page": 115,
-      "why_src": "textbook p.115",
+      "why_src": "written",
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
       "similar": [
        {
@@ -1040,11 +1151,11 @@
       "answer": "D",
       "why": [
        "Answer D: 10",
-       "Textbook p.126: This is called the distance formula and can be used to find the distance between any two points on the coordinate plane."
+       "d = √(6² + 8²) = √(36 + 64) = √100 = 10. Option A (14) just adds the coordinates."
       ],
       "src": "notes",
       "page": 126,
-      "why_src": "textbook p.126",
+      "why_src": "written",
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
       "similar": [
        {

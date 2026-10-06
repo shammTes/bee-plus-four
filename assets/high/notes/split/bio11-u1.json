@@ -157,8 +157,65 @@
     24
    ],
    "tone": "sage",
-   "intro": "**Exocrine** glands have ducts (sweat, saliva). **Endocrine** glands are ductless — hormones go straight into blood and hunt a *target organ*. Compared with nerves: hormones are slower and last longer (growth, metabolism",
+   "intro": "**Exocrine** glands have ducts (sweat, saliva). **Endocrine** glands are ductless — hormones go straight into blood and hunt a *target organ*. Compared with nerves: hormones are slower and last longer (growth, metabolism, cycles).\n\nA gland fires when nerves poke it, or when another hormone pokes it (the pituitary is the usual “boss”).",
    "intro_page": 1,
+   "diagrams": {
+    "f1": {
+     "svg": "svg/biology_11/bio11_f1.svg",
+     "title": "Schematic body — not to scale. Coloured dots mark the main endocrine glands.",
+     "page": 1,
+     "pins": [
+      {
+       "id": "pituitary",
+       "text": "Pituitary: Pea under the brain. Anterior: GH, TSH, ACTH, FSH, LH, prolactin. Posterior: ADH + oxytocin (made in hypothalamus).",
+       "x": 140.0,
+       "y": 88.0
+      },
+      {
+       "id": "pineal",
+       "text": "Pineal: Tiny, mid-brain. Melatonin — sleep / day-night clock.",
+       "x": 155.0,
+       "y": 78.0
+      },
+      {
+       "id": "thyroid",
+       "text": "Thyroid: Neck, butterfly. Thyroxine speeds metabolism. Needs iodine. Over = thin + jittery; under = tired + goitre.",
+       "x": 140.0,
+       "y": 125.0
+      },
+      {
+       "id": "parathyroids",
+       "text": "Parathyroids: Four dots on the thyroid. PTH raises blood calcium (bone + kidney + gut).",
+       "x": 158.0,
+       "y": 128.0
+      },
+      {
+       "id": "thymus",
+       "text": "Thymus: Behind the sternum, big in children. Trains T-lymphocytes. Shrinks with age.",
+       "x": 140.0,
+       "y": 165.0
+      },
+      {
+       "id": "adrenals",
+       "text": "Adrenals: Hats on the kidneys. Cortex: cortisol, aldosterone. Medulla: adrenaline (fight-or-flight).",
+       "x": 168.0,
+       "y": 230.0
+      },
+      {
+       "id": "pancreas_islets",
+       "text": "Pancreas (islets): Islets of Langerhans. Insulin lowers blood glucose; glucagon raises it. Diabetes if insulin fails.",
+       "x": 155.0,
+       "y": 248.0
+      },
+      {
+       "id": "ovary_testis",
+       "text": "Ovary / testis: Ovary: oestrogen + progesterone. Testis: testosterone. Also make gametes (exocrine + endocrine in one organ).",
+       "x": 140.0,
+       "y": 320.0
+      }
+     ]
+    }
+   },
    "lessons": [
     {
      "id": "bio11-u1-l1-1",
@@ -170,13 +227,112 @@
      ],
      "cards": [
       {
+       "id": "bio11-u1-c01",
+       "type": "diagram",
+       "title": "Schematic body — not to scale. Coloured dots mark the main endocrine glands.",
+       "page": 1,
+       "src": "notes",
+       "diagram": "f1",
+       "mode": "explore"
+      },
+      {
+       "id": "bio11-u1-c02",
+       "type": "text",
+       "title": "The Endocrine Glands",
+       "page": 6,
+       "src": "notes",
+       "body": [
+        "Tap a gland on the figure to see what it secretes.",
+        "The main endocrine glands are the **hypothalamus** and **pituitary** (in the head; the pituitary is the \"master gland\" that controls other glands), the **thyroid** and **parathyroids** (neck), the **thymus** (chest), the **adrenal glands** (on top of the kidneys), the **islets of Langerhans** in the pancreas, and the **gonads** — ovaries and testes.",
+        "Endocrine glands are ductless: they release hormones straight into the blood, which carries them to target organs."
+       ]
+      },
+      {
+       "id": "bio11-u1-c03",
+       "type": "mnemonic",
+       "title": "Mnemonic — “PET PAPT S”",
+       "page": 2,
+       "src": "notes",
+       "body": [
+        "Pituitary, Endocrine pancreas, Thyroid, Parathyroid, Adrenal, Pineal, Thymus, Sex glands. Or: *The pituitary Tells The Adrenals and Pancreas the Sex plan; Pineal and Thymus keep time and immunity.*"
+       ]
+      },
+      {
+       "id": "bio11-u1-c04",
+       "type": "table",
+       "title": "Table",
+       "page": 9,
+       "src": "notes",
+       "head": [
+        "Gland",
+        "Hormone (exam set)",
+        "If it fails"
+       ],
+       "rows": [
+        [
+         "Pituitary",
+         "GH, TSH, ADH…",
+         "Dwarfism / gigantism; diabetes insipidus (no ADH)"
+        ],
+        [
+         "Thyroid",
+         "Thyroxine",
+         "Goitre, hypo- or hyperthyroidism"
+        ],
+        [
+         "Parathyroid",
+         "PTH",
+         "Ca²⁺ too low or too high; tetany if too low"
+        ],
+        [
+         "Adrenal medulla",
+         "Adrenaline",
+         "Poor stress response"
+        ],
+        [
+         "Adrenal cortex",
+         "Cortisol, aldosterone",
+         "Addison-type salt/sugar problems (book: malfunction list)"
+        ],
+        [
+         "Islets",
+         "Insulin / glucagon",
+         "Diabetes mellitus"
+        ]
+       ]
+      },
+      {
+       "id": "bio11-u1-c05",
+       "type": "remember",
+       "title": "Pituitary",
+       "page": 4,
+       "src": "notes",
+       "body": [
+        "Pea under the brain. Anterior: GH, TSH, ACTH, FSH, LH, prolactin. Posterior: ADH + oxytocin (made in hypothalamus)."
+       ]
+      },
+      {
+       "id": "bio11-u1-c06",
+       "type": "remember",
+       "title": "Ovary / testis",
+       "page": 3,
+       "src": "notes",
+       "body": [
+        "Ovary: oestrogen + progesterone. Testis: testosterone. Also make gametes (exocrine + endocrine in one organ)."
+       ]
+      },
+      {
        "id": "bio11-u1-c07",
        "type": "text",
        "title": "1.1.1 The Pituitary Gland",
        "page": 3,
+       "src": "textbook p.3",
+       "enriched": true,
        "body": [
         "The pituitary gland is a small, bean-shaped gland located in the lower part of the brain.",
-        "The pituitary gland is structurally and functionally divided into two major lobes."
+        "The pituitary gland is structurally and functionally divided into two major lobes.",
+        "The growth hormone (GH), or somatotropic hormone, promotes normal skeletal and muscular growth by regulating cell division, protein synthesis, and bone growth.",
+        "Prolactin causes the mammary glands in breasts to develop and produce milk in women who are breastfeeding."
        ]
       },
       {
@@ -184,9 +340,13 @@
        "type": "text",
        "title": "1.1.2 The Thyroid Gland",
        "page": 6,
+       "src": "textbook p.6",
+       "enriched": true,
        "body": [
         "The human thyroid gland is a butterfly-shaped gland, located at the base of the neck in front of the trachea (windpipe).",
-        "The thyroid gland is critical to the healthy development and maturation of vertebrates, and regulates metabolism."
+        "The thyroid gland is critical to the healthy development and maturation of vertebrates, and regulates metabolism.",
+        "The thyroid gland secretes thyroxine and calcitonin hormones.",
+        "Iodine is an essential component of thyroxine, and its synthesis requires iodine to be present in the diet."
        ]
       },
       {
@@ -194,10 +354,168 @@
        "type": "text",
        "title": "1.1.3 The Parathyroid Glands",
        "page": 8,
+       "src": "textbook p.8",
+       "enriched": true,
        "body": [
         "Parathyroid (para – meaning beside) glands are usually four small, flattened glands which are located behind the thyroid gland.",
-        "The parathyroid glands secrete a parathyroid hormone (PTH), or parathormone, that controls the concentration of calcium ions in the blood."
+        "The parathyroid glands secrete a parathyroid hormone (PTH), or parathormone, that controls the concentration of calcium ions in the blood.",
+        "The correct amounts of calcium ions in the bloodstream are necessary for muscle contraction, nerve impulse transmission, bone and teeth development, blood clotting and other tasks.",
+        "When the concentration of calcium ions in the blood decreases, PTH activates bone cells to release calcium and phosphate ions, and stimulates the kidneys to conserve them."
        ]
+      },
+      {
+       "id": "bio11-u1-c10",
+       "type": "text",
+       "title": "1.1.4 The Adrenal Glands",
+       "page": 9,
+       "src": "textbook p.9",
+       "enriched": true,
+       "body": [
+        "The adrenal cortex is the bulky, outer portion of the gland and secretes many steroid hormones, collectively known as corticosteroids, or corticoids.",
+        "Corticosteroids fall into three categories: glucocorticoids, mineralocorticoids and sex steroids.",
+        "Glucocorticoids regulate metabolism (fat and protein), help the body adapt to stress, and repair damaged tissues.",
+        "One of the most important glucocorticoid hormones is cortisol, which increases the metabolic rate of fats, proteins and carbohydrates."
+       ]
+      },
+      {
+       "id": "bio11-u1-c11",
+       "type": "text",
+       "title": "1.1.5 The Pancreas",
+       "page": 10,
+       "src": "textbook pp.10–11",
+       "enriched": true,
+       "body": [
+        "Exocrine cells secrete digestive juices or pancreatic juices.",
+        "Scattered through the pancreas are groups of endocrine cells called the islets of Langerhans.",
+        "The islets of Langerhans constantly monitor the amount of glucose in the blood.",
+        "Insulin triggers the liver to convert excess glucose into glycogen."
+       ]
+      },
+      {
+       "id": "bio11-u1-c12",
+       "type": "text",
+       "title": "1.1.6 The Sex Glands",
+       "page": 12,
+       "src": "textbook p.12",
+       "enriched": true,
+       "body": [
+        "Gamete production also takes place in these sex glands.",
+        "The human reproductive system consists of a pair of primary reproductive organs (gonads), accessory glands and ducts.",
+        "The male has two oval gonads, called testes, and the female has two gonads, called ovaries.",
+        "The testes contain endocrine tissue referred to as Leydig cells (interstitial cells)."
+       ]
+      },
+      {
+       "id": "bio11-u1-c13",
+       "type": "text",
+       "title": "1.1.7 The Thymus Gland",
+       "page": 13,
+       "src": "textbook p.13",
+       "enriched": true,
+       "body": [
+        "The size of the thymus varies considerably from person to person; however, the thymus gland is relatively large in newborns and children, and sharply decreases in size after puberty.",
+        "In adults, the gland gradually degenerates (shrinks) until it almost disappears.",
+        "The thymus gland therefore is functional primarily in childhood.",
+        "White blood cells multiply, differentiate and mature in this gland."
+       ]
+      },
+      {
+       "id": "bio11-u1-c14",
+       "type": "text",
+       "title": "1.1.8 The Pineal gland",
+       "page": 13,
+       "src": "textbook p.13",
+       "enriched": true,
+       "body": [
+        "The pineal (“pinealis” meaning “shaped like a pine cone”) gland is a small mass; a cone-shaped tissue located in the brain.",
+        "The pineal gland contains cells that are light sensitive (photosensitive).",
+        "The blood levels of melatonin therefore vary from day to night, and they also change according to the season (spring, summer, autumn, winter).",
+        "Melatonin controls skin pigmentation (colour)."
+       ]
+      },
+      {
+       "id": "bio11-u1-wrk1",
+       "type": "worked",
+       "title": "Worked from review",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "Which of the following describes the mechanism of secretion of an endocrine gland compared to an exocrine gland?",
+       "steps": [
+        {
+         "text": "**Step 1: Understand gland anatomy**"
+        },
+        {
+         "text": "Endocrine glands are ductless glands that release their secretions, called hormones, directly into the surrounding interstitial fluid and blood vessels."
+        },
+        {
+         "text": "Exocrine glands, such as sweat and salivary glands, possess ducts that carry their secretions to a body surface or cavity."
+        },
+        {
+         "text": "**Step 2: Evaluate options**"
+        },
+        {
+         "text": "The option correctly specifying that endocrine glands secrete directly into the bloodstream and exocrine glands use ducts is the accurate description."
+        }
+       ],
+       "answer": "Endocrine glands secrete hormones directly into the bloodstream, whereas exocrine glands secrete substances through ducts."
+      },
+      {
+       "id": "bio11-u1-wrk2",
+       "type": "worked",
+       "title": "Worked from review",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "Hormone target specificity is determined by which of the following cellular features?",
+       "steps": [
+        {
+         "text": "**Step 1: Define hormone-receptor binding**"
+        },
+        {
+         "text": "Hormones circulate throughout the entire body via the blood, but only affect cells that express specific protein receptors that can bind that hormone."
+        },
+        {
+         "text": "**Step 2: Relate to cell characteristics**"
+        },
+        {
+         "text": "Cells without these specialized receptors are blind to the hormonal signal, making receptor presence the key factor in specificity."
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        }
+       ],
+       "answer": "The presence of unique protein receptors on or inside the target cell"
+      },
+      {
+       "id": "bio11-u1-chk1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Which of the following hormones is synthesized by neurosecretory cells in the hypothalamus but released by the posterior pituitary?",
+       "options": {
+        "A": "Thyroid-Stimulating Hormone ($$TSH$$)",
+        "B": "Antidiuretic Hormone ($$ADH$$)",
+        "C": "Growth Hormone ($$GH$$)",
+        "D": "Adrenocorticotropic Hormone ($$ACTH$$)"
+       },
+       "answer": "B",
+       "why": "**Step 1: Identify posterior pituitary physiology**\nThe posterior pituitary gland does not synthesize its own hormones. It stores and secretes hormones synthesized in the hypothalamus.\n\n**Step 2: Recognize the specific hormones**\nThese hormones are oxytocin and antidiuretic hormone ($$ADH$$, also known as vasopressin).\n\n**Step 3: Final Result**\nTherefore, the correct choice is **Antidiuretic Hormone ($$ADH$$)**."
+      },
+      {
+       "id": "bio11-u1-chk2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Which anterior pituitary hormone directly stimulates the development of ovarian follicles in females and sperm production in males?",
+       "options": {
+        "A": "Luteinizing Hormone ($$LH$$)",
+        "B": "Prolactin",
+        "C": "Follicle-Stimulating Hormone ($$FSH$$)",
+        "D": "Adrenocorticotropic Hormone ($$ACTH$$)"
+       },
+       "answer": "C",
+       "why": "**Step 1: Review gonadotropic hormones**\n$$FSH$$ and $$LH$$ are gonadotropic hormones from the anterior pituitary that regulate reproductive functions.\n\n**Step 2: Define specific role of FSH**\n$$FSH$$ stimulates follicle growth in females and spermatogenesis in the seminiferous tubules of males.\n\n**Step 3: Final Result**\nTherefore, the correct choice is **Follicle-Stimulating Hormone ($$FSH$$)**."
       },
       {
        "id": "bio11-u1-wrk-extra1",
@@ -213,76 +531,26 @@
          "text": "Cardiac muscle is a tissue; the heart (muscle + connective + vessels) is an organ."
         }
        ],
-       "answer": "Cardiac muscle = tissue; heart = organ."
+       "answer": "Cardiac muscle = tissue; heart = organ.",
+       "src": "notes"
       },
       {
-       "type": "text",
-       "title": "Endocrine system",
-       "page": 1,
-       "body": [
-        "Glands release hormones into blood; slower but longer-lasting than nerves.",
-        "Examples: insulin (↓ blood glucose), glucagon (↑), adrenaline (fight/flight), thyroxine (metabolism)."
-       ],
-       "id": "bio11-u1-deep1"
-      },
-      {
-       "type": "table",
-       "title": "Gland → hormone",
-       "page": 1,
-       "head": [
-        "Gland",
-        "Hormone"
-       ],
-       "rows": [
-        [
-         "Pancreas",
-         "insulin, glucagon"
-        ],
-        [
-         "Adrenal",
-         "adrenaline"
-        ],
-        [
-         "Thyroid",
-         "thyroxine"
-        ],
-        [
-         "Pituitary",
-         "many masters"
-        ]
-       ],
-       "id": "bio11-u1-deep3"
-      },
-      {
-       "type": "text",
-       "title": "Feedback in hormones",
-       "body": [
-        "High glucose → insulin → glucose falls → stimulus reduces (negative feedback).",
-        "Disorders: diabetes links to insulin signalling problems."
-       ],
-       "id": "bio11-u1-xtra1",
+       "id": "bio11-u1-l1-1-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "An endocrine gland frequently referred to as the body's master gland is the",
+       "options": {
+        "A": "thyroid gland.",
+        "B": "pituitary gland.",
+        "C": "adrenal gland.",
+        "D": "pancreas.",
+        "E": "thymus gland."
+       },
+       "answer": "B",
+       "why": "The **pituitary gland** is called the 'master gland' because it secretes several hormones that control the activities of other endocrine glands, such as the thyroid, adrenal glands, and reproductive organs.",
+       "src": "matric",
+       "src_qid": "biology_2024_q22",
        "page": 1
-      },
-      {
-       "id": "bio11-u1-checklist",
-       "type": "text",
-       "title": "The Endocrine System: checklist before exam",
-       "page": 1,
-       "body": [
-        "Can you define every bold term in **The Endocrine System** without looking?",
-        "Can you redo each worked example with the answer covered?",
-        "Can you sketch one diagram/graph/map and label it in under 2 minutes?"
-       ]
-      },
-      {
-       "id": "bio11-u1-eritrea",
-       "type": "text",
-       "title": "Local / Eritrea link",
-       "page": 1,
-       "body": [
-        "Connect **The Endocrine System** to an Eritrean place, crop, climate zone, or classroom example from your textbook.",
-        "Local examples make recall stronger in exams."
-       ]
       }
      ]
     },
@@ -300,10 +568,69 @@
        "type": "text",
        "title": "1.2 Malfunctioning of the Endocrine Glands",
        "page": 17,
+       "src": "textbook p.17",
+       "enriched": true,
        "body": [
         "People with one form of the disease, diabetes mellitus, cannot produce insulin.",
-        "Occasionally, glands of the endocrine system are defective."
+        "Occasionally, glands of the endocrine system are defective.",
+        "Naturally, the metabolism and health of the body is affected.",
+        "Abnormal Hormonal Secretions of the Pituitary Gland An abnormal functioning of the pituitary gland leads to serious complications, including gigantism (excessive growth or tallness) and dwarfism (stunted growth).",
+        "Gigantism is an abnormal increase in the length of bones."
        ]
+      },
+      {
+       "id": "bio11-u1-c16",
+       "type": "remember",
+       "title": "Thyroid",
+       "page": 18,
+       "src": "notes",
+       "body": [
+        "Neck, butterfly. Thyroxine speeds metabolism. Needs iodine. Over = thin + jittery; under = tired + goitre."
+       ]
+      },
+      {
+       "id": "bio11-u1-c17",
+       "type": "remember",
+       "title": "Pancreas (islets)",
+       "page": 22,
+       "src": "notes",
+       "body": [
+        "Islets of Langerhans. Insulin lowers blood glucose; glucagon raises it. Diabetes if insulin fails."
+       ]
+      },
+      {
+       "id": "bio11-u1-chk3",
+       "type": "check",
+       "title": "Quick check",
+       "page": 17,
+       "src": "study_notes",
+       "src_qid": "bio_g11_c1_q1",
+       "q": "Which of the following describes the mechanism of secretion of an endocrine gland compared to an exocrine gland?",
+       "options": {
+        "A": "Endocrine glands secrete substances into ducts, whereas exocrine glands secrete directly into the bloodstream.",
+        "B": "Endocrine glands secrete hormones directly into the bloodstream, whereas exocrine glands secrete substances through ducts.",
+        "C": "Both glands secrete substances directly into the lymphatic system.",
+        "D": "Endocrine glands utilize exocytosis, while exocrine glands exclusively use passive diffusion."
+       },
+       "answer": "B",
+       "why": "**Step 1: Understand gland anatomy**\nEndocrine glands are ductless glands that release their secretions, called hormones, directly into the surrounding interstitial fluid and blood vessels. Exocrine glands, such as sweat and salivary glands, possess ducts that carry their secretions to a body surface or cavity.\n\n**Step 2: Evaluate options**\nThe option correctly specifying that endocrine glands secrete directly into the bloodstream and exocrine glands use ducts is the accurate description.\n\n**Step 3: Final Result**\nTherefore, the correct choice is **Endocrine glands secrete hormones directly into the bloodstream, whereas exocrine glands secrete substances through ducts.**"
+      },
+      {
+       "id": "bio11-u1-chk4",
+       "type": "check",
+       "title": "Quick check",
+       "page": 17,
+       "src": "study_notes",
+       "src_qid": "bio_g11_c1_q2",
+       "q": "Hormone target specificity is determined by which of the following cellular features?",
+       "options": {
+        "A": "The density of mitochondria within the cell",
+        "B": "The presence of unique protein receptors on or inside the target cell",
+        "C": "The lipid composition of the target cell membrane",
+        "D": "The distance of the cell from the secreting endocrine gland"
+       },
+       "answer": "B",
+       "why": "**Step 1: Define hormone-receptor binding**\nHormones circulate throughout the entire body via the blood, but only affect cells that express specific protein receptors that can bind that hormone.\n\n**Step 2: Relate to cell characteristics**\nCells without these specialized receptors are blind to the hormonal signal, making receptor presence the key factor in specificity.\n\n**Step 3: Final Result**\nTherefore, the correct choice is **The presence of unique protein receptors on or inside the target cell**."
       },
       {
        "id": "bio11-u1-c18",
@@ -311,8 +638,9 @@
        "title": "Disorders of the endocrine glands",
        "page": 17,
        "body": [
-        "**Too little growth hormone** in childhood → dwarfism; **too much** → gigantism. **Lack of iodine** → goitre. **Too little insulin** (or cells not responding) → **diabetes mellitus"
-       ]
+        "**Too little growth hormone** in childhood → dwarfism; **too much** → gigantism. **Lack of iodine** → goitre. **Too little insulin** (or cells not responding) → **diabetes mellitus (high blood glucose). **Too much thyroxine** → overactive thyroid (fast heartbeat, weight loss); **too little** in children → stunted growth and slow mental development."
+       ],
+       "src": "notes"
       },
       {
        "id": "bio11-u1-c20",
@@ -345,185 +673,8 @@
          "Short",
          "Long-lasting"
         ]
-       ]
-      },
-      {
-       "type": "worked",
-       "title": "Insulin vs glucagon",
-       "page": 1,
-       "problem": "After a sugary meal?",
-       "steps": [
-        {
-         "text": "I"
-        },
-        {
-         "text": "n"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": "u"
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "i"
-        },
-        {
-         "text": "n"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "f"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "m"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "p"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "n"
-        },
-        {
-         "text": "c"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "p"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "m"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "g"
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "u"
-        },
-        {
-         "text": "c"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "u"
-        },
-        {
-         "text": "p"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "k"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "/"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "g"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "."
-        }
        ],
-       "answer": "Blood glucose falls toward normal.",
-       "id": "bio11-u1-deep2"
+       "src": "notes"
       },
       {
        "type": "worked",
@@ -536,78 +687,514 @@
        ],
        "answer": "Any two fight/flight effects.",
        "id": "bio11-u1-xtra2",
-       "page": 1
+       "page": 1,
+       "src": "notes"
       },
       {
-       "id": "bio11-u1-misconception",
-       "type": "text",
-       "title": "Common mix-ups in The Endocrine System",
-       "page": 1,
-       "body": [
-        "Write one idea students often confuse with this topic, then the correct distinction.",
-        "Example pattern: “Looks like X, but actually Y because …”",
-        "Teaching the difference is better than re-reading the page."
-       ]
+       "id": "bio11-u1-l1-2-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Pancreas is a common gland to both____ and ______systems.",
+       "options": {
+        "A": "nervous and endocrine",
+        "B": "endocrine and digestive",
+        "C": "digestive and nervous",
+        "D": "endocrine and exocrine",
+        "E": "B and D"
+       },
+       "answer": "E",
+       "why": "**Step 1: Identify the roles of the pancreas.**\n- **Endocrine:** Secretes hormones like insulin directly into the blood.\n- **Digestive/Exocrine:** Secretes digestive enzymes through ducts into the small intestine.\n\n**Step 2: Evaluate options.**\nBoth B (endocrine/digestive) and D (endocrine/exocrine) are correct descriptions of the dual-nature of the pancreas.",
+       "src": "matric",
+       "src_qid": "biology_2015_q24",
+       "page": 17
       }
      ]
     }
    ],
    "glossary": [
     {
-     "term": "The",
-     "def": "Core topic of this unit — expand with your textbook definition for “The Endocrine System”."
+     "term": "Gigantism",
+     "meaning": "Gigantism is an abnormal increase in the length of bones.",
+     "page": 17,
+     "src": "textbook p.17",
+     "enriched": true
+    },
+    {
+     "term": "Goitre",
+     "meaning": "Goitre is a condition characterized by the swelling of the thyroid gland in the neck region.",
+     "page": 18,
+     "src": "textbook p.18",
+     "enriched": true
+    },
+    {
+     "term": "Impotence",
+     "meaning": "The term “impotence” refers to the inability to have an erection.",
+     "page": 18,
+     "src": "textbook p.18",
+     "enriched": true
+    },
+    {
+     "term": "Iodine",
+     "meaning": "Iodine is an essential component of thyroxine, and its synthesis requires iodine to be present in the diet.",
+     "page": 6,
+     "src": "textbook p.6",
+     "enriched": true
+    },
+    {
+     "term": "Endocrine glands",
+     "meaning": "Endocrine glands are called ductless glands.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
     }
    ],
    "tips": [
     {
-     "id": "bio11-u1-tip-extra1",
-     "text": "Levels: cell → tissue → organ → system → organism."
+     "text": "In addition to the nervous system, endocrine system is the system for coordination in animals.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
     },
     {
-     "id": "bio11-u1-deeptip1",
-     "text": "Hormones are chemical messengers — match gland, hormone, and effect in a table."
+     "text": "The human body contains both exocrine glands and endocrine glands.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "Sweat and salivary glands are examples of exocrine glands.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "Endocrine glands are called ductless glands.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "Examples include the pancreas; and the pituitary, thyroid, parathyroid, adrenal and thymus glands.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "Endocrine glands secrete hormones, which are chemical messengers that are released directly into the bloodstream. They are transported over long distances and alter metabolic activities in target cells.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "The production of hormones from ductless glands is, however, either directly or indirectly influenced by the nervous system.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "The hypothalamus is the major integrating link between the nervous and endocrine systems, by regulating the activity of the pituitary gland.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "Hormones play an important role in regulating growth and development in sexual reproduction and in the proper functioning of cells.",
+     "page": 16,
+     "src": "textbook p.16",
+     "enriched": true
+    },
+    {
+     "text": "Have you observed a person who has goitre?",
+     "page": 17,
+     "src": "textbook p.17",
+     "enriched": true
+    },
+    {
+     "text": "Pituitary: Pea under the brain. Anterior: GH, TSH, ACTH, FSH, LH, prolactin. Posterior: ADH + oxytocin (made in hypothalamus).",
+     "page": 4,
+     "src": "notes",
+     "card": "bio11-u1-c05"
+    },
+    {
+     "text": "Ovary / testis: Ovary: oestrogen + progesterone. Testis: testosterone. Also make gametes (exocrine + endocrine in one organ).",
+     "page": 3,
+     "src": "notes",
+     "card": "bio11-u1-c06"
+    },
+    {
+     "text": "Thyroid: Neck, butterfly. Thyroxine speeds metabolism. Needs iodine. Over = thin + jittery; under = tired + goitre.",
+     "page": 18,
+     "src": "notes",
+     "card": "bio11-u1-c16"
+    },
+    {
+     "text": "Pancreas (islets): Islets of Langerhans. Insulin lowers blood glucose; glucagon raises it. Diabetes if insulin fails.",
+     "page": 22,
+     "src": "notes",
+     "card": "bio11-u1-c17"
     }
    ],
-   "games": [],
+   "games": [
+    {
+     "type": "flash",
+     "title": "Flip cards",
+     "cards": [
+      {
+       "front": "Tap: insulin vs glucagon",
+       "back": "Insulin: glucose → glycogen in liver, blood sugar DOWN. Glucagon: glycogen → glucose, blood sugar UP. Negative feedback keeps the band tight."
+      },
+      {
+       "front": "Gigantism",
+       "back": "Gigantism is an abnormal increase in the length of bones."
+      },
+      {
+       "front": "Goitre",
+       "back": "Goitre is a condition characterized by the swelling of the thyroid gland in the neck region."
+      }
+     ],
+     "src": "notes",
+     "id": "bio11-u1-g1",
+     "lesson": null
+    },
+    {
+     "type": "match",
+     "title": "Match each key word to its meaning",
+     "pairs": [
+      {
+       "a": "Gigantism",
+       "b": "Gigantism is an abnormal increase in the length of bones."
+      },
+      {
+       "a": "Goitre",
+       "b": "Goitre is a condition characterized by the swelling of the thyroid gland in the neck region."
+      },
+      {
+       "a": "Impotence",
+       "b": "The term “impotence” refers to the inability to have an erection."
+      },
+      {
+       "a": "Iodine",
+       "b": "Iodine is an essential component of thyroxine, and its synthesis requires iodine to be present in the diet."
+      },
+      {
+       "a": "Endocrine glands",
+       "b": "Endocrine glands are called ductless glands."
+      }
+     ],
+     "src": "glossary",
+     "id": "bio11-u1-g2",
+     "lesson": null
+    },
+    {
+     "type": "tf",
+     "title": "True or false?",
+     "seconds": 12,
+     "items": [
+      {
+       "text": "Gigantism: Gigantism is an abnormal increase in the length of bones.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Goitre: Endocrine glands are called ductless glands.",
+       "answer": false,
+       "why": "That describes Endocrine glands. Goitre: Goitre is a condition characterized by the swelling of the thyroid gland in the neck region."
+      },
+      {
+       "text": "Impotence: The term “impotence” refers to the inability to have an erection.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Iodine: Goitre is a condition characterized by the swelling of the thyroid gland in the neck region.",
+       "answer": false,
+       "why": "That describes Goitre. Iodine: Iodine is an essential component of thyroxine, and its synthesis requires iodine to be present in the diet."
+      },
+      {
+       "text": "Endocrine glands: Endocrine glands are called ductless glands.",
+       "answer": true,
+       "why": "Correct."
+      }
+     ],
+     "src": "glossary",
+     "id": "bio11-u1-g3",
+     "lesson": null
+    },
+    {
+     "type": "fill",
+     "title": "Fill the gap",
+     "items": [
+      {
+       "text": "____ is an abnormal increase in the length of bones.",
+       "answer": "Gigantism",
+       "choices": [
+        "Gigantism",
+        "Impotence",
+        "Goitre"
+       ]
+      },
+      {
+       "text": "____ is a condition characterized by the swelling of the thyroid gland in the neck region.",
+       "answer": "Goitre",
+       "choices": [
+        "Endocrine glands",
+        "Iodine",
+        "Goitre"
+       ]
+      },
+      {
+       "text": "The term “____” refers to the inability to have an erection.",
+       "answer": "Impotence",
+       "choices": [
+        "Iodine",
+        "Gigantism",
+        "Impotence"
+       ]
+      },
+      {
+       "text": "____ is an essential component of thyroxine, and its synthesis requires iodine to be present in the diet.",
+       "answer": "Iodine",
+       "choices": [
+        "Iodine",
+        "Goitre",
+        "Gigantism"
+       ]
+      },
+      {
+       "text": "____ are called ductless glands.",
+       "answer": "Endocrine glands",
+       "choices": [
+        "Iodine",
+        "Endocrine glands",
+        "Impotence"
+       ]
+      }
+     ],
+     "src": "glossary",
+     "id": "bio11-u1-g4",
+     "lesson": null
+    }
+   ],
    "exercise": {
     "questions": [
      {
-      "id": "bio11-u1-q06",
+      "type": "fill",
+      "q": "____ is an abnormal increase in the length of bones.",
+      "answer": "Gigantism",
+      "choices": [
+       "Gigantism",
+       "Impotence",
+       "Iodine",
+       "Goitre"
+      ],
+      "why": [
+       "Gigantism is an abnormal increase in the length of bones."
+      ],
+      "src": "textbook p.17",
+      "enriched": true,
+      "page": 17,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "Abnormal hormonal secretion of Pituitary Gland results in  A) gigantism.  B) cretinism.  C) goiter.  D) diabetes.  E) myxoedema.",
+        "a": "A. gigantism. — Cretinism, goitre and myxoedema are thyroid disorders; diabetes mellitus is a pancreas (insulin) disorder. Answer: A.",
+        "exam_question": "bio-2020-matric-p1-q16"
+       }
+      ],
+      "id": "bio11-u1-q01"
+     },
+     {
+      "type": "fill",
+      "q": "____ is a condition characterized by the swelling of the thyroid gland in the neck region.",
+      "answer": "Goitre",
+      "choices": [
+       "Gigantism",
+       "Iodine",
+       "Goitre",
+       "Impotence"
+      ],
+      "why": [
+       "Goitre is a condition characterized by the swelling of the thyroid gland in the neck region."
+      ],
+      "src": "textbook p.18",
+      "enriched": true,
+      "page": 18,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "The hormones thyroxin and calcitonin are secreted by the  A) thyroid gland.  B) pituitary gland.  C) thymus gland.  D) parathyroid gland.  E) pineal gland.",
+        "a": "A. thyroid gland. — Thyroxine controls the metabolic rate; calcitonin lowers blood calcium by promoting its deposition in bone (the parathyroid hormone raises it). Answer: A.",
+        "exam_question": "bio-2021-matric-p1-q31"
+       }
+      ],
+      "id": "bio11-u1-q02"
+     },
+     {
+      "type": "fill",
+      "q": "The term “____” refers to the inability to have an erection.",
+      "answer": "Impotence",
+      "choices": [
+       "Impotence",
+       "Goitre",
+       "Iodine",
+       "Gigantism"
+      ],
+      "why": [
+       "The term “impotence” refers to the inability to have an erection."
+      ],
+      "src": "textbook p.18",
+      "enriched": true,
+      "page": 18,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ is an essential component of thyroxine, and its synthesis requires iodine to be present in the diet.",
+        "a": "Iodine"
+       }
+      ],
+      "id": "bio11-u1-q03"
+     },
+     {
+      "type": "fill",
+      "q": "____ is an essential component of thyroxine, and its synthesis requires iodine to be present in the diet.",
+      "answer": "Iodine",
+      "choices": [
+       "Impotence",
+       "Iodine",
+       "Goitre",
+       "Gigantism"
+      ],
+      "why": [
+       "Iodine is an essential component of thyroxine, and its synthesis requires iodine to be present in the diet."
+      ],
+      "src": "textbook p.6",
+      "enriched": true,
+      "page": 6,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ are called ductless glands.",
+        "a": "Endocrine glands"
+       }
+      ],
+      "id": "bio11-u1-q04"
+     },
+     {
+      "type": "fill",
+      "q": "____ are called ductless glands.",
+      "answer": "Endocrine glands",
+      "choices": [
+       "Endocrine glands",
+       "Goitre",
+       "Impotence",
+       "Gigantism"
+      ],
+      "why": [
+       "Endocrine glands are called ductless glands."
+      ],
+      "src": "textbook p.16",
+      "enriched": true,
+      "page": 16,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "The endocrine gland that controls the activities of almost all of the other endocrine glands is called  A) thymus.  B) thyroid.  C) pituitary.  D) adrenal.  E) parathyroid.",
+        "a": "C. pituitary. — Answer: C.",
+        "exam_question": "gensci-2019-matric-p1-q27"
+       }
+      ],
+      "id": "bio11-u1-q05"
+     },
+     {
       "type": "mcq",
-      "page": 10,
       "q": "The protein secreted by the beta cells of the pancreas is known as ______",
       "options": {
        "A": "insulin",
        "B": "glycogen",
        "C": "glucagon",
-       "D": "ATP"
+       "D": "ATP",
+       "E": "all"
       },
       "answer": "A",
       "why": [
-       "The textbook: in the islets of Langerhans, the alpha cells secrete glucagon and the beta cells secrete insulin.",
+       "In the islets of Langerhans, the alpha cells secrete glucagon and the beta cells secrete insulin (a protein hormone that lowers blood glucose).",
        "Glycogen is a stored carbohydrate (not secreted); ATP is an energy molecule. Answer: A."
       ],
+      "src": "exam",
+      "exam_question": "bio-2018-19-model-s2-p1-q19",
+      "label": "bio-2018-19-model-s2",
+      "enriched": true,
+      "page": 10,
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "Where is the antidiuretic hormone (ADH) produced?  A) Pituitary gland  B) Kidneys  C) Liver  D) Pancreas  E) Thyroid",
+        "a": "A. Pituitary gland — Strictly, the posterior pituitary does not produce hormones; it stores and releases ADH and oxytocin – they are made in the hypothalamus. The hypothalamus is not an option, so the pituitary is the best choice. Answer: A.",
+        "exam_question": "gensci-2020-matric-p1-q13"
+       }
+      ],
+      "id": "bio11-u1-q06"
      },
      {
-      "id": "bio11-u1-q07",
       "type": "mcq",
-      "page": 7,
       "q": "Calcium level in the blood is regulated by the",
       "options": {
        "A": "parathyroid and thyroid.",
        "B": "adrenal medulla and pancreas.",
        "C": "testes and ovary.",
-       "D": "parathyroid and thymus."
+       "D": "parathyroid and thymus.",
+       "E": "pancreas and ovary."
       },
       "answer": "A",
       "why": [
        "Parathyroid hormone raises blood calcium; calcitonin from the thyroid gland lowers it. Answer: A.",
-       "Textbook p.7: Calcitonin is secreted when blood calcium level rises."
+       "Parathyroid hormone raises blood calcium (releasing it from bone, increasing absorption); calcitonin from the thyroid gland lowers it. Together they keep blood calcium constant."
       ],
+      "src": "exam",
+      "exam_question": "bio-2018-matric-p1-q31",
+      "label": "bio-2018-matric",
+      "enriched": true,
+      "page": 7,
+      "why_src": "written",
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "The luteinizing hormone (LH), that stimulates the production of testosterone and progesterone, is secreted by the  A) testes.  B) corpus luteum.  C) ovaries.  D) pituitary gland.  E) hypothalamus.",
+        "a": "D. pituitary gland."
+       }
+      ],
+      "id": "bio11-u1-q07"
+     },
+     {
+      "type": "mcq",
+      "q": "The luteinizing hormone (LH), that stimulates the production of testosterone and progesterone, is secreted by the",
+      "options": {
+       "A": "testes.",
+       "B": "corpus luteum.",
+       "C": "ovaries.",
+       "D": "pituitary gland.",
+       "E": "hypothalamus."
+      },
+      "answer": "D",
+      "why": [
+       "LH is a gonadotrophin made by the anterior pituitary gland; it acts on the testes (testosterone) and ovaries (ovulation, corpus luteum → progesterone). Answer: D.",
+       "LH is a gonadotrophin from the anterior pituitary gland; it stimulates testosterone production in the testes and ovulation and progesterone production (corpus luteum) in the ovary."
+      ],
+      "src": "exam",
+      "exam_question": "bio-2018-matric-p1-q47",
+      "label": "bio-2018-matric",
+      "enriched": true,
+      "page": 12,
+      "why_src": "written",
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "The release of male sex hormones (androgen) into the bloodstream is stimulated by  A) follicle stimulating hormone.  B) luteinizing hormone.  C) aldosterone.  D) cortisol.  E) growth hormone.",
+        "a": "B. luteinizing hormone. — FSH stimulates sperm production; aldosterone and cortisol are adrenal hormones. Answer: B.",
+        "exam_question": "bio-2019-matric-p1-q52"
+       }
+      ],
+      "id": "bio11-u1-q08"
      },
      {
       "id": "bio11-u1-xq1",
@@ -644,8 +1231,445 @@
       ],
       "tip": "Units reveal mistakes.",
       "similar": []
+     },
+     {
+      "id": "bio-g11-c1-q1",
+      "type": "mcq",
+      "q": "A group of Grade 11 students in Asmara are classifying the glands of the human body according to how their secretions leave the gland. Which ONE of the following structures is classified as an endocrine gland?",
+      "options": {
+       "A": "Thyroid gland",
+       "B": "Sweat gland",
+       "C": "Salivary gland",
+       "D": "Digestive gland opening into the small intestine"
+      },
+      "answer": "A",
+      "why": [
+       "**Recall the defining structural feature.** The unit defines endocrine glands as entirely ductless glands that secrete hormones directly into the bloodstream or surrounding interstitial fluid, using a rich capillary network rather than a duct.",
+       "**Recall the defining feature of exocrine glands.** Exocrine glands synthesize secretions that are channelled through anatomical ducts directly to an epithelial surface. Sweat glands, salivary glands and digestive organs are named in the unit as exocrine examples.",
+       "**Test each option in turn.** B (sweat gland) and C (salivary gland) deliver their secretions through ducts onto the skin and into the mouth respectively, and D (digestive gland) delivers digestive secretion through a duct into the intestinal lumen; all three are therefore exocrine. The thyroid gland has no duct and releases its hormones, such as thyroxine, into the blood.",
+       "**Conclude.** Only the thyroid gland is ductless and blood-borne in its secretion, so it is the only endocrine structure listed."
+      ],
+      "tip": "Eliminate options that contradict the unit notes, then choose the one that matches every detail in the question.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q1",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q1-s1",
+      "type": "short",
+      "q": "Which ONE of the following glands releases its secretion through an anatomical duct onto an epithelial surface?",
+      "answer": "C. Salivary gland",
+      "why": [
+       "**State the criterion.** A gland whose product travels along an anatomical duct to an epithelial surface is by definition an exocrine gland.",
+       "**Check the options.** The anterior pituitary (A), the parathyroid gland (B) and the adrenal cortex (D) are all ductless endocrine tissues that pour their hormones into the blood. The salivary gland pours saliva along a duct into the mouth.",
+       "**Conclude.** Only the salivary gland uses a duct, so it is the exocrine gland required."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q1",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q1-s2",
+      "type": "short",
+      "q": "A gland in the neck of a patient in Keren is found to possess an extremely rich capillary network but no excretory duct of any kind. State, with a reason, whether this gland is endocrine or exocrine.",
+      "answer": "The gland is endocrine, because it is ductless and its dense capillary network allows its hormonal product to diffuse directly into the bloodstream.",
+      "why": [
+       "**Use the two structural criteria given.** The unit distinguishes the two gland types by the presence or absence of ducts and by the route the secretion takes: ducts to an epithelial surface for exocrine glands, capillaries and blood for endocrine glands.",
+       "**Apply the criteria to the observation.** No duct is present, so the secretion cannot be channelled to an epithelial surface; a very rich capillary network is exactly the feature the unit describes in endocrine glands.",
+       "**Conclude.** The gland is endocrine and its secretion consists of hormones released into the blood for systemic transport."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q1",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q2",
+      "type": "short",
+      "q": "Complete the following statement by writing the correct word or phrase in each numbered blank. The posterior lobe of the pituitary gland does not synthesize hormones of its own; instead it stores and releases (1) ______ and (2) ______, both of which are produced by neurosecretory cells of the (3) ______.",
+      "answer": "(1) Antidiuretic Hormone (ADH), (2) Oxytocin, (3) hypothalamus",
+      "why": [
+       "**Separate the two lobes of the pituitary.** The unit divides the pituitary into the anterior lobe (adenohypophysis), which acts as a cellular factory and synthesizes GH, TSH, ACTH, FSH, LH and prolactin, and the posterior lobe (neurohypophysis).",
+       "**Identify what the posterior lobe handles.** The posterior lobe does not synthesize hormones; it stores and releases Antidiuretic Hormone (ADH) and Oxytocin.",
+       "**Trace the site of synthesis.** Both stored hormones are produced by neurosecretory cells in the hypothalamus and are transported to the posterior lobe for storage and release.",
+       "**Complete the statement.** Blank (1) = Antidiuretic Hormone (ADH); blank (2) = Oxytocin; blank (3) = hypothalamus."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q2",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q2-s1",
+      "type": "short",
+      "q": "Complete the following statement. The anterior lobe of the pituitary gland synthesizes and releases trophic hormones such as (1) ______, which acts on bones, skeletal muscles and the liver, and (2) ______, which stimulates the thyroid gland to synthesize and release thyroxine.",
+      "answer": "(1) Growth Hormone (GH), (2) Thyroid-Stimulating Hormone (TSH)",
+      "why": [
+       "**Read the target tissue clues.** The table of the unit lists GH with bones, skeletal muscles and liver as its principal targets, where it promotes cellular division, protein synthesis and somatic growth.",
+       "**Match the second clue.** The hormone whose principal target is the thyroid gland and whose action is to stimulate the synthesis and release of thyroxine is Thyroid-Stimulating Hormone (TSH).",
+       "**Confirm the gland.** Both GH and TSH are listed among the trophic hormones synthesized by the anterior lobe of the pituitary, so both blanks are consistent with the stated gland."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q2",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q2-s2",
+      "type": "short",
+      "q": "Complete the following statement. A patient who cannot reabsorb sufficient water in the renal distal tubules and collecting ducts is likely to be deficient in (1) ______, which is released by the (2) ______ lobe of the pituitary gland; the other hormone released from the same lobe is (3) ______, which is involved in childbirth.",
+      "answer": "(1) Antidiuretic Hormone (ADH), (2) posterior, (3) Oxytocin",
+      "why": [
+       "**Use the target tissue clue.** The unit table assigns ADH the renal distal tubules and collecting ducts as principal target tissue, with the action of increasing water reabsorption to regulate blood volume and pressure.",
+       "**Locate the release site.** ADH is stored and released by the posterior lobe of the pituitary, although it is synthesized by hypothalamic neurosecretory cells.",
+       "**Supply the second posterior-lobe hormone.** The only other hormone listed as stored and released by the posterior lobe is Oxytocin, so blank (3) is Oxytocin."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q2",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q3",
+      "type": "short",
+      "q": "A patient in Asmara has a blood sample analysed after a meal and again after an overnight fast. Complete the following paragraph by supplying the missing terms. After a meal, the beta cells of the pancreatic islets release (1) ______, which facilitates glucose transport into skeletal muscle and adipose tissue and promotes the storage of glucose as glycogen, a process called (2) ______. During fasting, the alpha cells release (3) ______, which acts on liver tissue to raise blood glucose by stimulating glycogenolysis and (4) ______, the synthesis of glucose from non-carbohydrate sources.",
+      "answer": "(1) insulin, (2) glycogenesis, (3) glucagon, (4) gluconeogenesis",
+      "why": [
+       "**Identify the postprandial hormone and its source.** The unit states that beta cells of the islets of Langerhans produce insulin, which facilitates glucose transport into muscle and adipose tissues during postprandial states and lowers blood glucose by promoting cellular intake and glycogenesis.",
+       "**Name the storage process.** The conversion of absorbed glucose into stored glycogen is termed glycogenesis, so blank (2) is glycogenesis.",
+       "**Identify the fasting hormone.** Alpha cells of the same islets synthesize and secrete glucagon to elevate blood glucose during fasting, acting principally on liver tissue.",
+       "**Name the second hepatic route to glucose.** Besides breaking glycogen down (glycogenolysis), glucagon stimulates gluconeogenesis, the synthesis of glucose from non-carbohydrate sources, which fills blank (4).",
+       "**State the completed paragraph.** (1) insulin, (2) glycogenesis, (3) glucagon, (4) gluconeogenesis."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q3",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q3-s1",
+      "type": "short",
+      "q": "Complete the following paragraph. The islets of Langerhans form the endocrine portion of the (1) ______, which is described as a dual exocrine-endocrine gland. Within the islets, the cells that secrete glucagon are the (2) ______ cells, while the cells that secrete insulin are the (3) ______ cells.",
+      "answer": "(1) pancreas, (2) alpha, (3) beta",
+      "why": [
+       "**Name the gland holding the islets.** The unit locates the islets of Langerhans inside the pancreas and describes the pancreas as operating as a dual exocrine-endocrine gland.",
+       "**Assign the glucagon-secreting cell.** Within the islets, alpha cells synthesize and secrete glucagon to elevate blood glucose during fasting.",
+       "**Assign the insulin-secreting cell.** Beta cells of the same islets produce insulin to facilitate glucose transport into muscle and adipose tissues in postprandial states."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q3",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q3-s2",
+      "type": "short",
+      "q": "Complete the following paragraph describing emergency stress adaptation. The outer region of the adrenal gland, called the (1) ______, secretes steroid corticosteroids such as cortisol and aldosterone, whereas the inner region, called the (2) ______, produces the amine catecholamines (3) ______ and norepinephrine that orchestrate the fight-or-flight response.",
+      "answer": "(1) cortex, (2) medulla, (3) epinephrine (adrenaline)",
+      "why": [
+       "**Recall the two zones of the adrenal gland.** The unit describes the adrenal glands, situated atop each kidney, as consisting of an outer cortex and an inner medulla.",
+       "**Match each zone to its secretion.** The outer cortex secretes steroid corticosteroids (glucocorticoids such as cortisol and mineralocorticoids such as aldosterone); the inner medulla produces the amine catecholamines epinephrine and norepinephrine.",
+       "**Fill the third blank.** The catecholamine named together with norepinephrine is epinephrine (adrenaline), which stimulates rapid flight-or-fight sympathetic adaptations in the heart, blood vessels and liver."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q3",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q4",
+      "type": "short",
+      "q": "A clinical laboratory in Asmara measures the effect of two pancreatic hormones on isolated liver hepatocytes. Explain how insulin and glucagon exert opposing effects on blood glucose concentration, and state the two processes by which glucagon raises blood glucose.",
+      "answer": "Insulin lowers blood glucose by promoting glucose uptake into muscle, adipose tissue and liver and by promoting glycogenesis; glucagon raises blood glucose by stimulating glycogenolysis and gluconeogenesis in liver tissue, making the two hormones antagonistic.",
+      "why": [
+       "**State the source and trigger of each hormone.** Within the islets of Langerhans, beta cells secrete insulin during postprandial (fed) states, while alpha cells secrete glucagon during fasting, so the two hormones are released under opposite physiological conditions.",
+       "**Describe the action of insulin on hepatocytes.** Insulin lowers blood glucose by promoting cellular intake of glucose and by promoting glycogenesis, that is, the conversion of glucose into stored glycogen in the liver; it also facilitates glucose transport into skeletal muscle and adipose tissue.",
+       "**Describe the action of glucagon on hepatocytes.** Glucagon acts on liver tissue to raise blood glucose. It stimulates glycogenolysis, the breakdown of stored glycogen back into glucose, and gluconeogenesis, the synthesis of glucose from non-carbohydrate sources.",
+       "**Explain why the pair is described as antagonistic.** Because insulin drives glucose out of the blood into storage while glucagon mobilises glucose from storage into the blood, the two hormones produce opposite net movements of glucose and therefore hold blood glucose within its narrow physiological range.",
+       "**Summarise the answer.** Insulin promotes cellular glucose uptake and glycogenesis (lowering blood glucose); glucagon promotes glycogenolysis and gluconeogenesis in the liver (raising blood glucose). The two processes by which glucagon raises blood glucose are glycogenolysis and gluconeogenesis."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q4",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q4-s1",
+      "type": "short",
+      "q": "A student in Keren writes that glucagon and insulin are secreted by the same cells of the pancreatic islets. Correct this statement and explain how the two hormones together maintain glucose homeostasis.",
+      "answer": "The statement is wrong: glucagon is secreted by the alpha cells and insulin by the beta cells of the islets of Langerhans. Together they maintain homeostasis because insulin lowers blood glucose during postprandial states (cellular uptake and glycogenesis), while glucagon raises it during fasting (glycogenolysis and gluconeogenesis).",
+      "why": [
+       "**Correct the cell assignment.** The unit states that alpha cells synthesize and secrete glucagon to elevate blood glucose during fasting, while beta cells produce insulin to facilitate glucose transport into muscle and adipose tissues during postprandial states, so two distinct cell populations are involved.",
+       "**State the glucose-lowering arm.** Insulin lowers blood glucose by promoting cellular intake of glucose and by promoting glycogenesis, the storage of glucose as glycogen.",
+       "**State the glucose-raising arm.** Glucagon acts on liver tissue, stimulating glycogenolysis and gluconeogenesis to release glucose into the blood during fasting.",
+       "**Explain the homeostatic outcome.** Because the two hormones are released in opposite nutritional states and drive glucose in opposite directions, their balance keeps blood glucose within tight physiological bounds."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q4",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q4-s2",
+      "type": "short",
+      "q": "A student athlete in Asmara has not eaten for fourteen hours but continues to train. Identify the pancreatic hormone whose secretion predominates in this state, name its principal target tissue, and list the two metabolic processes it stimulates there.",
+      "answer": "Glucagon predominates during fasting; its principal target tissue is the liver, where it stimulates glycogenolysis and gluconeogenesis to raise blood glucose.",
+      "why": [
+       "**Identify the fasting hormone.** The unit states that alpha cells secrete glucagon to elevate blood glucose during fasting, whereas insulin acts in postprandial states.",
+       "**Name the target tissue.** The summary table of the unit lists glucagon with liver tissue as its principal target.",
+       "**List the two processes.** In the liver glucagon stimulates glycogenolysis, the breakdown of glycogen to glucose, and gluconeogenesis, the synthesis of glucose from non-carbohydrate sources, both of which raise blood glucose."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q4",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q5",
+      "type": "short",
+      "q": "A 50 kg woman in Asmara is diagnosed with myxoedema and is prescribed thyroxine replacement at a dose of 3.4 micrograms per kilogram of body mass, given once daily. Each 200-microgram tablet costs 0.40 Nakfa.\n(a) Calculate her daily thyroxine dose in micrograms.\n(b) Express this daily dose in milligrams.\n(c) Calculate the total cost in Nakfa of her thyroxine supply for 30 days.\n(d) State the endocrine reason why she must take thyroxine, and explain what will happen to her blood TSH level while the treatment is adequate.",
+      "answer": "(a) 170 micrograms per day; (b) 0.17 milligram per day; (c) 2.04 Nakfa for a 30-day supply; (d) the thyroxine must be supplied because of hyposecretion of thyroxine (myxoedema), and once the dose restores normal thyroxine the negative feedback on the hypothalamus and anterior pituitary reduces the blood TSH level back towards normal.",
+      "why": [
+       "**Identify the given data and the relation needed.** Body mass = 50 kg; dose = 3.4 micrograms per kg per day; tablet content = 200 micrograms; tablet cost = 0.40 Nakfa; duration = 30 days. The daily dose equals the dose per kilogram multiplied by body mass. The unit notes that hormones act in minute quantities measured in micrograms or picograms, so microgram units are appropriate here.",
+       "**Calculate the daily dose in micrograms.** Daily dose = 3.4 micrograms per kg x 50 kg = 170 micrograms per day.",
+       "**Convert micrograms to milligrams.** Since 1 milligram = 1000 micrograms, divide by 1000: 170 micrograms per day / 1000 = 0.17 milligram per day.",
+       "**Calculate the 30-day supply and its cost.** Total mass required = 170 micrograms per day x 30 days = 5100 micrograms = 5.1 milligrams. Cost = 5.1 milligrams x 0.40 Nakfa per milligram = 2.04 Nakfa for the 30-day supply.",
+       "**Give the endocrine explanation.** Myxoedema is caused by hyposecretion of thyroxine in an adult, and because thyroxine is the primary regulator of basal metabolic rate, the missing hormone must be supplied from outside. Thyroxine normally exerts negative feedback on the hypothalamus and anterior pituitary; when the replacement dose restores a normal circulating thyroxine concentration, that feedback is re-established and the pituitary stops over-secreting TSH, so blood TSH falls back towards normal.",
+       "**State the final results.** (a) 170 micrograms per day; (b) 0.17 milligram per day; (c) 2.04 Nakfa for 30 days; (d) thyroxine replacement is required because the gland hyposecretes the hormone, and adequate treatment suppresses the previously elevated blood TSH back to normal through negative feedback."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q5",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q5-s1",
+      "type": "short",
+      "q": "A 60 kg man in Keren is prescribed thyroxine at 2.5 micrograms per kilogram of body mass once daily after his thyroid gland was removed. Each 250-microgram tablet costs 0.50 Nakfa.\n(a) Calculate his daily dose in micrograms.\n(b) Express the daily dose in milligrams.\n(c) Calculate the cost in Nakfa of a 60-day supply.",
+      "answer": "(a) 150 micrograms per day; (b) 0.15 milligram per day; (c) 4.50 Nakfa for a 60-day supply.",
+      "why": [
+       "**Set up the dose relation.** Daily dose = dose per kilogram x body mass = 2.5 micrograms per kg x 60 kg.",
+       "**Compute the daily dose.** 2.5 x 60 = 150, so the daily dose is 150 micrograms per day.",
+       "**Convert to milligrams.** 150 micrograms / 1000 = 0.15 milligram per day.",
+       "**Cost the 60-day supply.** Total mass = 150 micrograms per day x 60 days = 9000 micrograms = 9.0 milligrams. Cost = 9.0 milligrams x 0.50 Nakfa per milligram = 4.50 Nakfa."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q5",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q5-s2",
+      "type": "short",
+      "q": "A 40 kg woman with adult thyroxine hyposecretion receives a total daily thyroxine dose of 136 micrograms from 200-microgram tablets costing 0.40 Nakfa each.\n(a) Calculate the dose per kilogram of body mass in micrograms per kg.\n(b) Calculate how many whole tablets she must take each day to meet this dose without exceeding it.\n(c) Calculate the cost of a 30-day supply based on the tablets actually taken.",
+      "answer": "(a) 3.4 micrograms per kg; (b) she must take 1 whole tablet per day, providing 200 micrograms, since no whole number of tablets supplies 136 micrograms exactly; (c) 12.00 Nakfa for 30 days.",
+      "why": [
+       "**Find the dose per kilogram.** Dose per kg = total daily dose / body mass = 136 micrograms / 40 kg = 3.4 micrograms per kg.",
+       "**Test whole-tablet amounts.** One tablet provides 200 micrograms, which exceeds 136 micrograms by 64 micrograms, so it is the smallest whole-tablet dose that covers the requirement and is the practical choice; any smaller whole number of tablets gives zero micrograms.",
+       "**Cost the 30-day supply.** Cost = 1 tablet per day x 0.40 Nakfa per tablet x 30 days = 12.00 Nakfa."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q5",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q6",
+      "type": "short",
+      "q": "A 70 kg fisherman from Massawa is diagnosed with hyperthyroidism caused by Graves' disease, and his basal metabolic rate is measured at 168 percent of the value expected for a healthy man of his age and body mass. His expected normal basal metabolic rate is 6800 kJ per day.\n(a) Calculate his actual basal metabolic rate in kJ per day.\n(b) Calculate the excess energy in kJ per day that his body expends above the normal value.\n(c) Express this excess as a percentage of the normal basal metabolic rate.\n(d) Explain the endocrine basis of this raised metabolic rate and name the gland and the hormone responsible.",
+      "answer": "(a) 11,424 kJ per day; (b) 4624 kJ per day of excess expenditure; (c) 68 percent above the normal basal metabolic rate; (d) the thyroid gland is hypersecreting thyroxine, and because thyroxine acts on most somatic cells to elevate the basal metabolic rate, energy expenditure rises far above normal.",
+      "why": [
+       "**Identify the given data and the principle.** Normal basal metabolic rate = 6800 kJ per day; measured rate = 168 percent of normal. Thyroxine is described in the unit as the primary regulator of basal metabolic rate, and hyperthyroidism accelerates metabolic rate to pathological levels.",
+       "**Calculate the actual basal metabolic rate.** Actual rate = 1.68 x 6800 kJ per day = 11,424 kJ per day.",
+       "**Calculate the excess expenditure.** Excess = 11,424 kJ per day - 6800 kJ per day = 4624 kJ per day.",
+       "**Express the excess as a percentage.** Percentage excess = (4624 / 6800) x 100 percent = 0.68 x 100 percent = 68 percent, which agrees with the measured value being 68 percent above the normal 100 percent.",
+       "**Explain the endocrine mechanism.** The gland responsible is the thyroid gland, which is hypersecreting thyroxine. Thyroxine acts on most somatic cells to elevate the basal metabolic rate and regulate heat production, so an excess of thyroxine raises oxygen and fuel consumption above normal. This explains the unit's clinical picture of hyperthyroidism: rapid weight loss despite eating, heat intolerance, hyperactive reflexes and anxiety, together with chronic strain on the cardiovascular system from elevated heart rate and blood pressure.",
+       "**State the final results.** (a) 11,424 kJ per day; (b) 4624 kJ per day in excess; (c) 68 percent above normal; (d) hypersecretion of thyroxine by the thyroid gland elevates the basal metabolic rate of most somatic cells."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q6",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q6-s1",
+      "type": "short",
+      "q": "A 55 kg woman in Asmara with adult thyroxine hyposecretion has a basal metabolic rate measured at 82 percent of the value expected for a healthy woman of her age and body mass. Her expected normal rate is 5400 kJ per day.\n(a) Calculate her actual basal metabolic rate in kJ per day.\n(b) Calculate the energy deficit in kJ per day relative to the normal value.\n(c) Express this deficit as a percentage of the normal basal metabolic rate.\n(d) Name the hormone that is deficient and explain why this reduces her basal metabolic rate.",
+      "answer": "(a) 4428 kJ per day; (b) 972 kJ per day below normal; (c) 18 percent below normal; (d) thyroxine is deficient, and since thyroxine acts on most somatic cells to elevate the basal metabolic rate and regulate heat production, its shortage lowers metabolism, matching the sluggish metabolism, weight gain and cold sensitivity of myxoedema.",
+      "why": [
+       "**Convert the percentage to a multiplier.** A rate at 82 percent of normal corresponds to a multiplying factor of 0.82 applied to the normal value of 5400 kJ per day.",
+       "**Calculate the actual rate.** 0.82 x 5400 kJ per day = 4428 kJ per day.",
+       "**Calculate the deficit.** Deficit = 5400 kJ per day - 4428 kJ per day = 972 kJ per day.",
+       "**Express the deficit as a percentage.** (972 / 5400) x 100 percent = 18 percent, consistent with 100 percent - 82 percent = 18 percent.",
+       "**Explain the endocrine cause.** The deficient hormone is thyroxine, the primary regulator of basal metabolic rate. With less thyroxine acting on most somatic cells, heat production and metabolic rate fall, producing the low metabolic rate, weight gain and cold sensitivity characteristic of myxoedema."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q6",
+      "src": "practice_bank",
+      "page": 1
+     },
+     {
+      "id": "bio-g11-c1-q6-s2",
+      "type": "short",
+      "q": "A 16-year-old boy in Keren with a pituitary tumour has a basal metabolic rate measured at 120 percent of the normal value for his age and body mass, his normal rate being 6000 kJ per day. The tumour is hypersecreting Thyroid-Stimulating Hormone (TSH).\n(a) Calculate his actual basal metabolic rate in kJ per day.\n(b) Calculate the excess energy expended per day.\n(c) Express the excess as a percentage of the normal rate.\n(d) Explain the full chain of events from the pituitary tumour to the raised metabolic rate.",
+      "answer": "(a) 7200 kJ per day; (b) 1200 kJ per day in excess; (c) 20 percent above normal; (d) excess TSH from the tumour over-stimulates the thyroid gland, which synthesizes and releases excess thyroxine; thyroxine then acts on most somatic cells to elevate the basal metabolic rate, raising energy expenditure by 20 percent.",
+      "why": [
+       "**Calculate the actual rate.** 1.20 x 6000 kJ per day = 7200 kJ per day.",
+       "**Calculate the excess.** Excess = 7200 kJ per day - 6000 kJ per day = 1200 kJ per day.",
+       "**Express the excess as a percentage.** (1200 / 6000) x 100 percent = 20 percent, consistent with 120 percent - 100 percent = 20 percent.",
+       "**Trace the hormonal chain.** TSH has the thyroid gland as its principal target tissue and stimulates the synthesis and release of thyroxine, so a TSH-secreting pituitary tumour drives thyroxine secretion upward.",
+       "**Link thyroxine to metabolism.** Thyroxine's target is most somatic cells, where it elevates the basal metabolic rate and regulates heat production; the excess hormone therefore accounts for the measured 20 percent rise in energy expenditure."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "bio_g11_c1_q6",
+      "src": "practice_bank",
+      "page": 1
      }
     ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "The Endocrine System",
+      "kind": "unit",
+      "cards": [
+       "bio11-u1-c01"
+      ]
+     },
+     {
+      "id": "l1_1",
+      "label": "The Endocrine Glands",
+      "kind": "topic",
+      "lesson": "bio11-u1-l1-1",
+      "cards": [
+       "bio11-u1-c01",
+       "bio11-u1-c02",
+       "bio11-u1-c03",
+       "bio11-u1-c04",
+       "bio11-u1-c05",
+       "bio11-u1-c06",
+       "bio11-u1-c07",
+       "bio11-u1-c08"
+      ]
+     },
+     {
+      "id": "k_iodine",
+      "label": "Iodine",
+      "kind": "idea",
+      "cards": [
+       "bio11-u1-c08"
+      ]
+     },
+     {
+      "id": "k_gigantism",
+      "label": "Gigantism",
+      "kind": "idea",
+      "cards": [
+       "bio11-u1-c04"
+      ]
+     },
+     {
+      "id": "k_goitre",
+      "label": "Goitre",
+      "kind": "idea",
+      "cards": [
+       "bio11-u1-c04"
+      ]
+     },
+     {
+      "id": "l1_2",
+      "label": "Malfunctioning of the Endocrine…",
+      "kind": "topic",
+      "lesson": "bio11-u1-l1-2",
+      "cards": [
+       "bio11-u1-c15",
+       "bio11-u1-c16",
+       "bio11-u1-c17"
+      ]
+     },
+     {
+      "id": "k_endocrine_glands",
+      "label": "Endocrine glands",
+      "kind": "idea",
+      "cards": [
+       "bio11-u1-c15"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l1_1",
+      "label": "includes"
+     },
+     {
+      "from": "l1_1",
+      "to": "k_iodine",
+      "label": "key idea"
+     },
+     {
+      "from": "k_iodine",
+      "to": "l1_2",
+      "label": "also used in"
+     },
+     {
+      "from": "l1_1",
+      "to": "k_gigantism",
+      "label": "key idea"
+     },
+     {
+      "from": "k_gigantism",
+      "to": "l1_2",
+      "label": "also used in"
+     },
+     {
+      "from": "l1_1",
+      "to": "k_goitre",
+      "label": "key idea"
+     },
+     {
+      "from": "k_goitre",
+      "to": "l1_2",
+      "label": "also used in"
+     },
+     {
+      "from": "unit",
+      "to": "l1_2",
+      "label": "includes"
+     },
+     {
+      "from": "l1_2",
+      "to": "k_endocrine_glands",
+      "label": "key idea"
+     },
+     {
+      "from": "l1_1",
+      "to": "l1_2",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
    }
   }
  ]

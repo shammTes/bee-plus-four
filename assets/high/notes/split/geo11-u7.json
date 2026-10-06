@@ -158,8 +158,14 @@
     135
    ],
    "tone": "sage",
-   "intro": "Relief and Drainage Patterns in Eritrea Deepen Relief and Drainage Patterns in Eritrea with definitions, worked examples, and exam tips in the cards below.",
-   "intro_page": 1,
+   "diagrams": {
+    "f2": {
+     "svg": "svg/geography_11/geo11_f2.svg",
+     "title": "Tap-level sketch (same idea as Grade 12). East drainage to the Red Sea; west to Sudan; some streams die in Danakil.",
+     "page": 130,
+     "pins": []
+    }
+   },
    "lessons": [
     {
      "id": "geo11-u7-l7-1",
@@ -171,13 +177,38 @@
      ],
      "cards": [
       {
+       "id": "geo11-u7-c01",
+       "type": "text",
+       "title": "Relief — five belts to be able to sketch",
+       "page": 123,
+       "src": "notes",
+       "body": [
+        "1. **Western lowlands** — broad, hot, falling toward Sudan. Sorghum / pastoral country; rivers like Barka and Gash.\n2. **Highlands** — the spine. Cooler, more densely settled, rain-fed cereals. Asmara sits here.\n3. **Eastern escarpment** — a steep drop toward the sea. Orographic moisture can make this the greenest strip; roads zigzag.\n4. **Coastal plain** — narrow, hot, humid to arid depending on stretch; Massawa and the ports.\n5. **Danakil / southern depression** — below or near sea level in parts, extreme heat, salt, rift geology (tie back to Unit 1)."
+       ]
+      },
+      {
+       "id": "geo11-u7-c02",
+       "type": "text",
+       "title": "Revision checklist (say these out loud)",
+       "page": 126,
+       "src": "notes",
+       "body": [
+        "- Massawa = harbour + sea lane + highland road. Asmara = cool plateau + corridor control."
+       ],
+       "from_global": true
+      },
+      {
        "id": "geo11-u7-c03",
        "type": "text",
        "title": "7.1.1 The lowlands",
        "page": 123,
+       "src": "textbook pp.123–124",
+       "enriched": true,
        "body": [
         "A lowland is a land feature with an elevation of less than 1500m.a.s.l.",
-        "In Eritrea, there are two major divisions of lowlands separated by the highlands."
+        "In Eritrea, there are two major divisions of lowlands separated by the highlands.",
+        "The ground water could also be used for irrigated agriculture in the coastal plains.",
+        "Draw the map of Eritrea and indicate the location of the two major divisions of the lowlands."
        ]
       },
       {
@@ -185,9 +216,13 @@
        "type": "text",
        "title": "7.1.2 The Eastern escarpment",
        "page": 124,
+       "src": "textbook p.124",
+       "enriched": true,
        "body": [
         "The rivers Haddas, Comayli, Endeli, Dandero, Alighede and Labka have cut deep valleys.",
-        "The Escarpment is varied and so fascinating."
+        "The Escarpment is varied and so fascinating.",
+        "The part of the Eastern Escarpment, locally known as Bahri, is highly vegetated.",
+        "The lowest elevation is about 500m.a.s.l. but it rises sharply to the upper edge."
        ]
       },
       {
@@ -195,41 +230,144 @@
        "type": "text",
        "title": "7.1.3 The highlands",
        "page": 125,
+       "src": "textbook pp.125–126",
+       "enriched": true,
        "body": [
         "The highlands of Eritrea occupy the central portion of the country extending from south to north.",
-        "The highlands are divided into six land features."
+        "The highlands are divided into six land features.",
+        "Hager Nues being 2770m.a.s.l. is the highest peak in this highland region.",
+        "The region has limited importance for agriculture because of the absence of thick soils."
        ]
       },
       {
-       "type": "text",
-       "title": "Relief & drainage in Eritrea",
+       "id": "geo11-u7-tbl1",
+       "type": "table",
+       "title": "Key table",
        "page": 1,
-       "body": [
-        "Highlands, escarpments, western lowlands, coastal plains.",
-        "Drainage toward Red Sea or inland systems — know major rivers named in your notes."
+       "src": "study_notes",
+       "head": [
+        "Process Type",
+        "Primary Action",
+        "Energy Source",
+        "Key Geological Agents",
+        "Resulting Landforms"
        ],
-       "id": "geo11-u7-deep1"
-      },
-      {
-       "type": "text",
-       "title": "Drainage basins",
-       "body": [
-        "Watershed / divide separates basins. Tributaries join main river.",
-        "Seasonal rivers matter in semi-arid lowlands."
-       ],
-       "id": "geo11-u7-xtra1",
-       "page": 1
-      },
-      {
-       "id": "geo11-u7-checklist",
-       "type": "text",
-       "title": "Relief and Drainage Patterns in Eritrea: checklist before exam",
-       "page": 1,
-       "body": [
-        "Can you define every bold term in **Relief and Drainage Patterns in Eritrea** without looking?",
-        "Can you redo each worked example with the answer covered?",
-        "Can you sketch one diagram/graph/map and label it in under 2 minutes?"
+       "rows": [
+        [
+         "**Degradation**",
+         "Lowering of high landmasses",
+         "Solar radiation and gravity",
+         "Weathering, running water, glaciers, wind",
+         "Gorges, weathered valleys, stripped peaks"
+        ],
+        [
+         "**Aggradation**",
+         "Elevating of low basins",
+         "Kinetic energy loss and gravity",
+         "River deposition, wind-blown silt, ocean waves",
+         "Flood plains, sand dunes, deltas, alluvial fans"
+        ]
        ]
+      },
+      {
+       "id": "geo11-u7-wrk1",
+       "type": "worked",
+       "title": "Worked from review",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "By what percentage does water volume expand when it undergoes freezing inside rock crevices?",
+       "steps": [
+        {
+         "text": "**Step 1: Recall frost action parameters**"
+        },
+        {
+         "text": "Liquid water transitioning into crystalline solid ice undergoes volumetric expansion."
+        },
+        {
+         "text": "**Step 2: Identify expansion percentage**"
+        },
+        {
+         "text": "Water volume expands by exactly $$10\\%$$ upon freezing, producing the destructive pressure responsible for frost wedging."
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        }
+       ],
+       "answer": "$$10\\%$$"
+      },
+      {
+       "id": "geo11-u7-wrk2",
+       "type": "worked",
+       "title": "Worked from review",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "What is the geomorphic term for the physical weathering process in which concentric rock shells peel off due to diurnal thermal expansion and contraction?",
+       "steps": [
+        {
+         "text": "**Step 1: Analyze process mechanics**"
+        },
+        {
+         "text": "The process involves rock sheets peeling off in concentric layers parallel to the surface."
+        },
+        {
+         "text": "**Step 2: Link to thermal stress**"
+        },
+        {
+         "text": "This is caused by daily solar heating (expansion) and nightly cooling (contraction) in arid environments, structurally defined as exfoliation."
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        }
+       ],
+       "answer": "Exfoliation"
+      },
+      {
+       "id": "geo11-u7-chk1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Which of the following is categorized as an external, gradational geomorphic force?",
+       "options": {
+        "A": "Volcanism",
+        "B": "Faulting",
+        "C": "Running water",
+        "D": "Folding"
+       },
+       "answer": "C",
+       "why": "**Step 1: Distinguish geomorphic forces**\nInternal (endogenous) forces build up topography from inside. External (exogenous) forces wear down topography from outside.\n\n**Step 2: Categorize options**\nVolcanism, faulting, and folding are internal tectonic forces. Running water is an external gradational force.\n\n**Step 3: Final Result**\nThe correct exogenous agent is **Running water**."
+      },
+      {
+       "id": "geo11-u7-chk2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "The narrow, shallow channel cut in soil at a river's source is called a/an:",
+       "options": {
+        "A": "Stream",
+        "B": "Rill",
+        "C": "Tributary",
+        "D": "Estuary"
+       },
+       "answer": "B",
+       "why": "**Step 1: Trace river source structures**\nAt a river's headwaters, rainwater initially accumulates in tiny channels.\n\n**Step 2: Identify channel dimensions**\nThese tiny channels, about $$5\\text{ to } 8\\text{ cm}$$ deep, are defined as rills.\n\n**Step 3: Final Result**\nThe correct term is **Rill**."
+      },
+      {
+       "id": "geo11-u7-chk73",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "By what percentage does water volume expand when it undergoes freezing inside rock crevices?",
+       "options": {
+        "A": "$$2\\%$$",
+        "B": "$$5\\%$$",
+        "C": "$$10\\%$$",
+        "D": "$$20\\%$$"
+       },
+       "answer": "C",
+       "why": "**Step 1: Recall frost action parameters**\nLiquid water transitioning into crystalline solid ice undergoes volumetric expansion.\n\n**Step 2: Identify expansion percentage**\nWater volume expands by exactly $$10\\%$$ upon freezing, producing the destructive pressure responsible for frost wedging.\n\n**Step 3: Final Result**\nThe expansion is **$$10\\%$$**."
       }
      ]
     },
@@ -243,10 +381,45 @@
      ],
      "cards": [
       {
+       "id": "geo11-u7-c06",
+       "type": "diagram",
+       "title": "Tap-level sketch (same idea as Grade 12). East drainage to the Red Sea; west to Sudan; some streams die in Danakil.",
+       "page": 130,
+       "src": "notes",
+       "diagram": "f2",
+       "mode": "plain"
+      },
+      {
+       "id": "geo11-u7-c07",
+       "type": "text",
+       "title": "Drainage — three stories, not one national river",
+       "page": 132,
+       "src": "notes",
+       "body": [
+        "**Eastern system:** short, steep catchments racing down the escarpment to the Red Sea. Flashy after rain; little room for long flood plains.",
+        "**Western system:** longer rivers (Barka, Anseba, Gash–Mereb, Setit on the border) that drain toward Sudan. More useful for alluvial farming where the bed is wide, still seasonal.",
+        "**Danakil interior:** some streams never reach the sea; they evaporate or sink in the depression. Endorheic = closed basin.",
+        "Lakes in Eritrea are few and often seasonal or coastal / lagoonal rather than great inland seas. Do not invent a “Lake Victoria of Eritrea” on the paper."
+       ]
+      },
+      {
+       "id": "geo11-u7-c08",
+       "type": "text",
+       "title": "Revision checklist (say these out loud)",
+       "page": 130,
+       "src": "notes",
+       "body": [
+        "- Five relief belts west to east. Three drainages: east to sea, west to Sudan, Danakil closed."
+       ],
+       "from_global": true
+      },
+      {
        "id": "geo11-u7-c09",
        "type": "text",
        "title": "7.2.1 The eastern drainage system",
        "page": 130,
+       "src": "textbook pp.130–131",
+       "enriched": true,
        "body": [
         "The stream finally enters the Red Sea through Marsa Teklai.",
         "Te river Haddas has dissected the Eastern Escarpment into deep gorges."
@@ -257,9 +430,13 @@
        "type": "text",
        "title": "7.2.2 The western drainage system",
        "page": 131,
+       "src": "textbook pp.131–132",
+       "enriched": true,
        "body": [
         "The longest tributary of the river Anseba is River Zara, which originates from Halhal Highlands.",
-        "The river Anseba joins river Barka close to the Sudanese border at Sala where both drain into the Sudan."
+        "The river Anseba joins river Barka close to the Sudanese border at Sala where both drain into the Sudan.",
+        "The river first flows southeast close to Dbarwa and reaches Hazemo, turning south before it turns west.",
+        "The river Mereb is the longest river with a total length of 560kms."
        ]
       },
       {
@@ -267,203 +444,12 @@
        "type": "text",
        "title": "7.2.3 Rivers that drain into the Danakil Depression",
        "page": 132,
+       "src": "textbook p.132",
+       "enriched": true,
        "body": [
         "Many of the rivers that drain into the Danakil Depression dry up in the sandy surface.",
         "Endeli originates from the area south of Senafe."
        ]
-      },
-      {
-       "type": "worked",
-       "title": "Relief → climate",
-       "page": 1,
-       "problem": "Why highlands are cooler.",
-       "steps": [
-        {
-         "text": "T"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "m"
-        },
-        {
-         "text": "p"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "u"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "f"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "w"
-        },
-        {
-         "text": "i"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "h"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "i"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "u"
-        },
-        {
-         "text": "d"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "("
-        },
-        {
-         "text": "~"
-        },
-        {
-         "text": "0"
-        },
-        {
-         "text": "."
-        },
-        {
-         "text": "6"
-        },
-        {
-         "text": "°"
-        },
-        {
-         "text": "C"
-        },
-        {
-         "text": "/"
-        },
-        {
-         "text": "1"
-        },
-        {
-         "text": "0"
-        },
-        {
-         "text": "0"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "m"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "u"
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "f"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "h"
-        },
-        {
-         "text": "u"
-        },
-        {
-         "text": "m"
-        },
-        {
-         "text": "b"
-        },
-        {
-         "text": ")"
-        },
-        {
-         "text": "."
-        }
-       ],
-       "answer": "Relief controls settlement/crops too.",
-       "id": "geo11-u7-deep2"
       },
       {
        "type": "worked",
@@ -476,18 +462,62 @@
        ],
        "answer": "Better moisture/temperature for some crops.",
        "id": "geo11-u7-xtra2",
-       "page": 1
+       "page": 1,
+       "src": "notes"
       },
       {
-       "id": "geo11-u7-misconception",
-       "type": "text",
-       "title": "Common mix-ups in Relief and Drainage Patterns in Eritrea",
-       "page": 1,
-       "body": [
-        "Write one idea students often confuse with this topic, then the correct distinction.",
-        "Example pattern: “Looks like X, but actually Y because …”",
-        "Teaching the difference is better than re-reading the page."
-       ]
+       "id": "geo11-u7-l7-2-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "The rivers of Eritrea that drain into **Danakil Depression** are:",
+       "options": {
+        "A": "Aderbabo and Labka",
+        "B": "Endeli and Dandero",
+        "C": "Haddas and Comayle",
+        "D": "Alighede and Dandero",
+        "E": "Felket and Labka"
+       },
+       "answer": "B",
+       "why": "The Danakil (Internal) drainage system consists of rivers that do not reach the sea but disappear in the Danakil Depression. Major rivers in this system include the **Endeli** and **Dandero**.",
+       "src": "matric",
+       "src_qid": "geography_2016_q33",
+       "page": 129
+      },
+      {
+       "id": "geo11-u7-l7-2-mx2",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Which one of the following rivers **does not** drain to the east?",
+       "options": {
+        "A": "Alighede",
+        "B": "Haddas",
+        "C": "Labka",
+        "D": "Aderbabo",
+        "E": "None"
+       },
+       "answer": "D",
+       "why": "In Eritrea, rivers like Alighede, Haddas, and Labka drain East into the Red Sea. The **Aderbabo** river is part of the western drainage system, flowing toward the Gash/Barka system and eventually toward Sudan.",
+       "src": "matric",
+       "src_qid": "geography_2024_q42",
+       "page": 129
+      },
+      {
+       "id": "geo11-u7-l7-2-mx3",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Which of the following rivers of Eritrea, flows eastward?",
+       "options": {
+        "A": "River Gash",
+        "B": "River Labka",
+        "C": "River Barka",
+        "D": "River Anseba",
+        "E": "River Mereb"
+       },
+       "answer": "B",
+       "why": "Rivers like Gash, Barka, Anseba, and Mereb flow westward or northward towards the Nile basin or the Sudanese plains. River Labka, originating from the eastern escarpments, flows eastward into the Red Sea.",
+       "src": "matric",
+       "src_qid": "geography_2023_q7",
+       "page": 129
       }
      ]
     },
@@ -505,9 +535,24 @@
        "type": "text",
        "title": "7.3 Lakes in Eritrea",
        "page": 133,
+       "src": "textbook p.133",
+       "enriched": true,
        "body": [
         "In Eritrea, there are no significant natural lakes.",
-        "Lake Bordole is located in the Buri Peninsula where salt is extracted."
+        "Lake Bordole is located in the Buri Peninsula where salt is extracted.",
+        "Lake Bada and Lake Aba Adad are found in the Danakil Depression.",
+        "All are salty lakes, which carry water during the rainy season and dry up during the dry season.",
+        "Depositions are found in the lower sections of the river courses."
+       ]
+      },
+      {
+       "id": "geo11-u7-c13",
+       "type": "text",
+       "title": "Where, how big, why it matters",
+       "page": 134,
+       "src": "notes",
+       "body": [
+        "The administrative regions (zobas) are the structure you use when you locate a case study (highlands vs Northern / Southern Red Sea vs Gash-Barka vs Anseba, etc.). You do not need to memorise every boundary — you need to know *which belt* a named town sits in."
        ]
       },
       {
@@ -528,7 +573,8 @@
          "The Danakil is a highland",
          "It is a depression, partly below sea level."
         ]
-       ]
+       ],
+       "src": "notes"
       },
       {
        "id": "geo11-u7-c19",
@@ -537,49 +583,214 @@
        "page": 133,
        "body": [
         "Relief west to east: *\"Lowlands, Highlands, Escarpment, Coast\"* (and the Danakil in the south-east)."
-       ]
-      },
-      {
-       "type": "text",
-       "title": "Map skill",
-       "page": 1,
-       "body": [
-        "On contour maps, close lines = steep; V shapes in contours often point upstream."
        ],
-       "id": "geo11-u7-deep3"
-      },
-      {
-       "id": "geo11-u7-eritrea",
-       "type": "text",
-       "title": "Local / Eritrea link",
-       "page": 1,
-       "body": [
-        "Connect **Relief and Drainage Patterns in Eritrea** to an Eritrean place, crop, climate zone, or classroom example from your textbook.",
-        "Local examples make recall stronger in exams."
-       ]
+       "src": "notes"
       }
      ]
     }
    ],
    "glossary": [
     {
+     "term": "Western lowlands",
+     "meaning": "Broad, hot, falling toward Sudan.",
+     "page": 123,
+     "src": "notes"
+    },
+    {
+     "term": "Eastern escarpment",
+     "meaning": "A steep drop toward the sea.",
+     "page": 123,
+     "src": "notes"
+    },
+    {
+     "term": "Coastal plain",
+     "meaning": "Narrow, hot, humid to arid depending on stretch;",
+     "page": 123,
+     "src": "notes"
+    },
+    {
+     "term": "Danakil / southern depression",
+     "meaning": "Below or near sea level in parts, extreme heat, salt, rift geology (tie back to Unit 1).",
+     "page": 123,
+     "src": "notes"
+    },
+    {
+     "term": "Lowland",
+     "meaning": "A lowland is a land feature with an elevation of less than 1500m.a.s.l.",
+     "page": 123,
+     "src": "textbook p.123",
+     "enriched": true
+    },
+    {
      "term": "Relief",
-     "def": "Core topic of this unit — expand with your textbook definition for “Relief and Drainage Patterns in Eritrea”."
+     "meaning": "Relief is the physical shape of the earth’s surface.",
+     "page": 122,
+     "src": "textbook p.122",
+     "enriched": true
     }
    ],
    "tips": [
     {
-     "id": "geo11-u7-deeptip1",
-     "text": "Link relief regions to rainfall and population patterns."
+     "text": "The present relief of Eritrea is highly diversified and consists of different types of features that include mountain ranges, deep gorges, plains and offshore islands.",
+     "page": 134,
+     "src": "textbook p.134",
+     "enriched": true
+    },
+    {
+     "text": "The country’s relief is broadly divided into three major divisions. These are the Highlands, the Lowlands and the Escarpments.",
+     "page": 134,
+     "src": "textbook p.134",
+     "enriched": true
+    },
+    {
+     "text": "The Highlands extend from south to north.",
+     "page": 134,
+     "src": "textbook p.134",
+     "enriched": true
+    },
+    {
+     "text": "The Northern Highlands are very much dissected by major river systems such as River Anseba.",
+     "page": 134,
+     "src": "textbook p.134",
+     "enriched": true
+    },
+    {
+     "text": "The Central Plateau occupies geographically important location as major rivers of Eritrea originate from this plateau.",
+     "page": 134,
+     "src": "textbook p.134",
+     "enriched": true
+    },
+    {
+     "text": "The Southern Plateau is agriculturally rich because of its flat terrain, adequate rainfall and fertile soil. There are two major divisions of lowlands. These are the Eastern Lowlands and the Western Lowlands.",
+     "page": 134,
+     "src": "textbook p.134",
+     "enriched": true
+    },
+    {
+     "text": "Eritrea has a drainage system, which is divided into three major groups: The Eastern Drainage System, Western Drainage System and rivers that drain into the Danakil Depression.",
+     "page": 134,
+     "src": "textbook p.134",
+     "enriched": true
+    },
+    {
+     "text": "Most of the rivers are seasonal in character with high erosive power due to the steep slopes.",
+     "page": 134,
+     "src": "textbook p.134",
+     "enriched": true
     }
    ],
-   "games": [],
+   "games": [
+    {
+     "type": "match",
+     "title": "Match each key word to its meaning",
+     "pairs": [
+      {
+       "a": "Western lowlands",
+       "b": "Broad, hot, falling toward Sudan."
+      },
+      {
+       "a": "Eastern escarpment",
+       "b": "A steep drop toward the sea."
+      },
+      {
+       "a": "Coastal plain",
+       "b": "Narrow, hot, humid to arid depending on stretch;"
+      },
+      {
+       "a": "Danakil / southern depression",
+       "b": "Below or near sea level in parts, extreme heat, salt, rift geology (tie back to Unit 1)."
+      },
+      {
+       "a": "Lowland",
+       "b": "A lowland is a land feature with an elevation of less than 1500m.a.s.l."
+      },
+      {
+       "a": "Relief",
+       "b": "Relief is the physical shape of the earth’s surface."
+      }
+     ],
+     "src": "glossary",
+     "id": "geo11-u7-g1",
+     "lesson": null
+    },
+    {
+     "type": "tf",
+     "title": "True or false?",
+     "seconds": 12,
+     "items": [
+      {
+       "text": "Western lowlands: Broad, hot, falling toward Sudan.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Eastern escarpment: A lowland is a land feature with an elevation of less than 1500m.a.s.l.",
+       "answer": false,
+       "why": "That describes Lowland. Eastern escarpment: A steep drop toward the sea."
+      },
+      {
+       "text": "Coastal plain: Narrow, hot, humid to arid depending on stretch;",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Danakil / southern depression: Broad, hot, falling toward Sudan.",
+       "answer": false,
+       "why": "That describes Western lowlands. Danakil / southern depression: Below or near sea level in parts, extreme heat, salt, rift geology (tie back to Unit 1)."
+      },
+      {
+       "text": "Lowland: A lowland is a land feature with an elevation of less than 1500m.a.s.l.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Relief: Narrow, hot, humid to arid depending on stretch;",
+       "answer": false,
+       "why": "That describes Coastal plain. Relief: Relief is the physical shape of the earth’s surface."
+      }
+     ],
+     "src": "glossary",
+     "id": "geo11-u7-g2",
+     "lesson": null
+    },
+    {
+     "type": "flash",
+     "title": "Key word flash cards",
+     "cards": [
+      {
+       "front": "Western lowlands",
+       "back": "Broad, hot, falling toward Sudan."
+      },
+      {
+       "front": "Eastern escarpment",
+       "back": "A steep drop toward the sea."
+      },
+      {
+       "front": "Coastal plain",
+       "back": "Narrow, hot, humid to arid depending on stretch;"
+      },
+      {
+       "front": "Danakil / southern depression",
+       "back": "Below or near sea level in parts, extreme heat, salt, rift geology (tie back to Unit 1)."
+      },
+      {
+       "front": "Lowland",
+       "back": "A lowland is a land feature with an elevation of less than 1500m.a.s.l."
+      },
+      {
+       "front": "Relief",
+       "back": "Relief is the physical shape of the earth’s surface."
+      }
+     ],
+     "src": "glossary",
+     "id": "geo11-u7-g3",
+     "lesson": null
+    }
+   ],
    "exercise": {
     "questions": [
      {
-      "id": "geo11-u7-q01",
       "type": "mcq",
-      "page": 125,
       "q": "Eastern escarpment of Eritrea is typically",
       "options": {
        "A": "The flattest desert floor",
@@ -590,30 +801,204 @@
       "answer": "D",
       "why": [
        "Answer D: Steep and relatively green",
-       "Textbook p.124: Where is the Eastern Escarpment located? 2."
+       "The eastern escarpment drops steeply from the highlands to the coastal plain; moist air from the Red Sea gives it rain in winter, so it is relatively green (e.g. around Filfil)."
       ],
+      "src": "notes",
+      "page": 125,
+      "why_src": "written",
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "The most elevated relief region in Eritrea is the  A) Central Plateau.  B) Southern Plateau.  C) Upper Anseba Highlands.  D) Northern Highlands.  E) Eastern Highlands.",
+        "a": "E. Eastern Highlands. — Seven of the eight highest peaks (e.g. Emba Soira 3013 m) are in the Eastern Highlands. Answer: E.",
+        "exam_question": "geo-2018-matric-p1-q45"
+       }
+      ],
+      "id": "geo11-u7-q01"
      },
      {
-      "id": "geo11-u7-q08",
+      "type": "fill",
+      "q": "____ : Broad, hot, falling toward Sudan.",
+      "answer": "Western lowlands",
+      "choices": [
+       "Coastal plain",
+       "Eastern escarpment",
+       "Western lowlands",
+       "Danakil / southern depression"
+      ],
+      "why": [
+       "Broad, hot, falling toward Sudan."
+      ],
+      "src": "notes",
+      "enriched": true,
+      "page": 123,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "In Eritrea, basalt rocks are more widespread on the  A) Mereb Trough.  B) Eastern Highlands.  C) Western Lowlands.  D) Northern Highlands.  E) Southern Plateau.",
+        "a": "E. Southern Plateau. — The G12 geology unit adds basalt covers 'from Dubaruwa southwards up to Adi Quala'. Answer: E.",
+        "exam_question": "geo-2018-matric-p1-q46"
+       }
+      ],
+      "id": "geo11-u7-q02"
+     },
+     {
+      "type": "fill",
+      "q": "____ : A steep drop toward the sea.",
+      "answer": "Eastern escarpment",
+      "choices": [
+       "Danakil / southern depression",
+       "Western lowlands",
+       "Eastern escarpment",
+       "Coastal plain"
+      ],
+      "why": [
+       "A steep drop toward the sea."
+      ],
+      "src": "notes",
+      "enriched": true,
+      "page": 123,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "Asmara is located  A) on a plateau.  B) along a valley.  C) on a steep slope.  D) on the escarpment.  E) on top of a mountain.",
+        "a": "A. on a plateau. — Asmara (≈2,300 m) sits on this flat, fertile plateau. Answer: A.",
+        "exam_question": "socst-2018-matric-p1-q07"
+       }
+      ],
+      "id": "geo11-u7-q03"
+     },
+     {
+      "type": "fill",
+      "q": "____ : Narrow, hot, humid to arid depending on stretch;",
+      "answer": "Coastal plain",
+      "choices": [
+       "Western lowlands",
+       "Coastal plain",
+       "Danakil / southern depression",
+       "Eastern escarpment"
+      ],
+      "why": [
+       "Narrow, hot, humid to arid depending on stretch;"
+      ],
+      "src": "notes",
+      "enriched": true,
+      "page": 123,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ : Below or near sea level in parts, extreme heat, salt, rift geology (tie back to Unit 1).",
+        "a": "Danakil / southern depression"
+       }
+      ],
+      "id": "geo11-u7-q04"
+     },
+     {
+      "type": "fill",
+      "q": "____ : Below or near sea level in parts, extreme heat, salt, rift geology (tie back to Unit 1).",
+      "answer": "Danakil / southern depression",
+      "choices": [
+       "Eastern escarpment",
+       "Danakil / southern depression",
+       "Coastal plain",
+       "Western lowlands"
+      ],
+      "why": [
+       "Below or near sea level in parts, extreme heat, salt, rift geology (tie back to Unit 1)."
+      ],
+      "src": "notes",
+      "enriched": true,
+      "page": 123,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "Identify the river that flows towards the Danakil Depression.  A) Aderbabo  B) Dandero  C) Comayle  D) Labka  E) None of the above.",
+        "a": "B. Dandero — Comayle and Labka drain to the Red Sea. Answer: B.",
+        "exam_question": "geo-2019-matric-p1-q46"
+       }
+      ],
+      "id": "geo11-u7-q05"
+     },
+     {
+      "type": "fill",
+      "q": "A ____ is a land feature with an elevation of less than 1500m.a.s.l.",
+      "answer": "Lowland",
+      "choices": [
+       "Eastern escarpment",
+       "Western lowlands",
+       "Lowland",
+       "Coastal plain"
+      ],
+      "why": [
+       "A lowland is a land feature with an elevation of less than 1500m.a.s.l."
+      ],
+      "src": "textbook p.123",
+      "enriched": true,
+      "page": 123,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ is the physical shape of the earth’s surface.",
+        "a": "Relief"
+       }
+      ],
+      "id": "geo11-u7-q06"
+     },
+     {
+      "type": "fill",
+      "q": "____ is the physical shape of the earth’s surface.",
+      "answer": "Relief",
+      "choices": [
+       "Eastern escarpment",
+       "Relief",
+       "Coastal plain",
+       "Western lowlands"
+      ],
+      "why": [
+       "Relief is the physical shape of the earth’s surface."
+      ],
+      "src": "textbook p.122",
+      "enriched": true,
+      "page": 122,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "The highest peak in the Central Plateau is:  A) Emba Tekilo  B) Emba Tekera  C) Hager Nues  D) Ghini  E) Emba Soira",
+        "a": "B. Emba Tekera"
+       }
+      ],
+      "id": "geo11-u7-q07"
+     },
+     {
       "type": "mcq",
-      "page": 135,
       "q": "The highest peak in the Central Plateau is:",
       "options": {
        "A": "Emba Tekilo",
        "B": "Emba Tekera",
        "C": "Hager Nues",
-       "D": "Ghini"
+       "D": "Ghini",
+       "E": "Emba Soira"
       },
       "answer": "B",
       "why": [
-       "The textbook: in the Central (Hamasien) Plateau, 'Emba Tekera, 2579 m above sea level, is the highest peak.'",
+       "In the Central (Hamasien) Plateau, 'Emba Tekera, 2579 m above sea level, is the highest peak.'",
        "Emba Soira (3013 m) is in the Eastern Highlands, Hager Nues in the Northern Highlands, Mt Ghini in the Upper Anseba Highlands and Emba Tekillo in the Mereb Trough.",
        "Answer: B."
       ],
+      "src": "exam",
+      "exam_question": "geo-2018-19-model-s2-p1-q21",
+      "label": "geo-2018-19-model-s2",
+      "enriched": true,
+      "page": 135,
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "The granitic rocks are found widespread in the  A) Upper Anseba Highlands.  B) Central Highlands.  C) Southern Plateau.  D) Kohaito Plateau.  E) Eastern Lowlands.",
+        "a": "A. Upper Anseba Highlands. — The Southern Plateau is basalt and Qohaito is sandstone. Answer: A.",
+        "exam_question": "geo-2018-matric-p1-q48"
+       }
+      ],
+      "id": "geo11-u7-q08"
      },
      {
       "id": "geo11-u7-xq1",
@@ -650,8 +1035,320 @@
       ],
       "tip": "Units reveal mistakes.",
       "similar": []
+     },
+     {
+      "id": "geo11-u7-mx1",
+      "type": "mcq",
+      "q": "Which of the following rivers **does not** flow towards the Red Sea?",
+      "options": {
+       "A": "Alighede",
+       "B": "Anseba",
+       "C": "Hadas",
+       "D": "Felket",
+       "E": "Labka"
+      },
+      "answer": "B",
+      "why": [
+       "The **Anseba River** flows northwards and is a major tributary of the Barka River. The Barka-Anseba system flows towards the plains of Sudan (Western Drainage). Rivers like Alighede, Hadas, Felket, and Labka flow eastward into the Red Sea (Eastern Drainage)."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "geography_2018_q47",
+      "exam_question": "geography_2018_q47",
+      "page": 122
+     },
+     {
+      "id": "geo11-u7-mx2",
+      "type": "mcq",
+      "q": "One of the following rivers **does not** drain towards the east.",
+      "options": {
+       "A": "River Felket",
+       "B": "River Labka",
+       "C": "River Haddas",
+       "D": "River Mereb",
+       "E": "River Comayle"
+      },
+      "answer": "D",
+      "why": [
+       "The Mereb River (known as the Gash in its lower course) flows westward toward the Sudanese plains. Rivers like Felket, Labka, Haddas, and Comayle all drain eastward into the Red Sea."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "geography_2024_q28",
+      "exam_question": "geography_2024_q28",
+      "page": 122
+     },
+     {
+      "id": "geo11-u7-mx3",
+      "type": "mcq",
+      "q": "Which one of the following Eritrean Rivers enter to the Red sea through **Marsa Teklay**?",
+      "options": {
+       "A": "Aderbabo",
+       "B": "Haddas",
+       "C": "Felket",
+       "D": "Labka",
+       "E": "Alighede"
+      },
+      "answer": "D",
+      "why": [
+       "The **Labka** river is one of the seasonal rivers in the eastern drainage system of Eritrea that flows into the Red Sea near **Marsa Teklay**."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "geography_2023_q50",
+      "exam_question": "geography_2023_q50",
+      "page": 122
+     },
+     {
+      "id": "geo11-u7-mx4",
+      "type": "mcq",
+      "q": "Which of the following major rivers in Eritrea originates from west of Asmara around Adi Guadad and Mai Nefhi and flows toward western lowland?",
+      "options": {
+       "A": "River Anseba",
+       "B": "River Mereb",
+       "C": "River Barka",
+       "D": "River Setit",
+       "E": "River Hadas"
+      },
+      "answer": "C",
+      "why": [
+       "River Barka originates in the central highlands of Eritrea, specifically in the areas west of Asmara near Adi Guadad. It flows in a northwesterly direction through the western lowlands toward the Sudanese border."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "geo_2025_q31",
+      "exam_question": "geo_2025_q31",
+      "page": 122
+     },
+     {
+      "id": "geo11-u7-mx5",
+      "type": "mcq",
+      "q": "Which one of the following is **not** tributary of Mereb River?",
+      "options": {
+       "A": "Ubel",
+       "B": "Gala",
+       "C": "Tsorena",
+       "D": "Aibaba",
+       "E": "Belessa"
+      },
+      "answer": "E",
+      "why": [
+       "The **Belessa** river is a major tributary of the **Tekeze** (Setit) river system. Ubel, Gala, and Tsorena are all tributaries that feed into the Mereb-Gash system."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "geography_2023_q59",
+      "exam_question": "geography_2023_q59",
+      "page": 122
+     },
+     {
+      "id": "geo11-u7-mx6",
+      "type": "mcq",
+      "q": "A highland relief which is characterized with the highest elevation in Eritrea is",
+      "options": {
+       "A": "central plateau.",
+       "B": "northern plateau.",
+       "C": "southern plateau.",
+       "D": "eastern plateau.",
+       "E": "upper Anseba plateau."
+      },
+      "answer": "D",
+      "why": [
+       "The **Eastern Plateau** (or Eastern Escarpment) contains the highest peaks in Eritrea, including **Emba Soira**, which is the highest point in the country at approximately 3,018 meters above sea level."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "geo_2025_q34",
+      "exam_question": "geo_2025_q34",
+      "page": 122
+     },
+     {
+      "id": "geo11-u7-mx7",
+      "type": "mcq",
+      "q": "Which one of the following rivers **do not** pass through the Gulf of Zula to enter the Red sea?",
+      "options": {
+       "A": "Alighede",
+       "B": "Haddas",
+       "C": "Labka",
+       "D": "Comayle",
+       "E": "Siyah-gede"
+      },
+      "answer": "C",
+      "why": [
+       "The Gulf of Zula is a major inlet of the Red Sea in Eritrea. Rivers like Alighede, Haddas, Comayle, and Siyah-gede drain into this specific gulf. The Labka river, however, drains into the Red Sea further north, near the Massawa area, and does not pass through the Gulf of Zula."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "geography_2020_2021_q42",
+      "exam_question": "geography_2020_2021_q42",
+      "page": 122
+     },
+     {
+      "id": "geo11-u7-mx8",
+      "type": "mcq",
+      "q": "All of the following are tributaries of river Mereb except",
+      "options": {
+       "A": "Belessa",
+       "B": "Ubel",
+       "C": "Ambessa",
+       "D": "Balwa",
+       "E": "Gala"
+      },
+      "answer": "E",
+      "why": [
+       "Belessa, Ubel, Ambessa, and Balwa are known tributaries of the Mereb-Gash river system. **Gala** is a tributary associated with the Barka-Anseba drainage system."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "geography_2017_q65",
+      "exam_question": "geography_2017_q65",
+      "page": 122
      }
     ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Relief and Drainage Patterns in…",
+      "kind": "unit",
+      "cards": [
+       "geo11-u7-c01"
+      ]
+     },
+     {
+      "id": "l7_1",
+      "label": "Relief of Eritrea",
+      "kind": "topic",
+      "lesson": "geo11-u7-l7-1",
+      "cards": [
+       "geo11-u7-c01",
+       "geo11-u7-c02",
+       "geo11-u7-c03",
+       "geo11-u7-c04",
+       "geo11-u7-c05"
+      ]
+     },
+     {
+      "id": "k_eastern_escarpment",
+      "label": "Eastern escarpment",
+      "kind": "idea",
+      "cards": [
+       "geo11-u7-c01",
+       "geo11-u7-c04"
+      ]
+     },
+     {
+      "id": "k_western_lowlands",
+      "label": "Western lowlands",
+      "kind": "idea",
+      "cards": [
+       "geo11-u7-c01"
+      ]
+     },
+     {
+      "id": "k_coastal_plain",
+      "label": "Coastal plain",
+      "kind": "idea",
+      "cards": [
+       "geo11-u7-c01"
+      ]
+     },
+     {
+      "id": "l7_2",
+      "label": "Drainage System in Eritrea",
+      "kind": "topic",
+      "lesson": "geo11-u7-l7-2",
+      "cards": [
+       "geo11-u7-c06",
+       "geo11-u7-c07",
+       "geo11-u7-c08",
+       "geo11-u7-c09",
+       "geo11-u7-c10",
+       "geo11-u7-c11"
+      ]
+     },
+     {
+      "id": "k_relief",
+      "label": "Relief",
+      "kind": "idea",
+      "cards": [
+       "geo11-u7-c08"
+      ]
+     },
+     {
+      "id": "l7_3",
+      "label": "Lakes in Eritrea",
+      "kind": "topic",
+      "lesson": "geo11-u7-l7-3",
+      "cards": [
+       "geo11-u7-c12",
+       "geo11-u7-c13"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l7_1",
+      "label": "includes"
+     },
+     {
+      "from": "l7_1",
+      "to": "k_eastern_escarpment",
+      "label": "key idea"
+     },
+     {
+      "from": "k_eastern_escarpment",
+      "to": "l7_2",
+      "label": "also used in"
+     },
+     {
+      "from": "l7_1",
+      "to": "k_western_lowlands",
+      "label": "key idea"
+     },
+     {
+      "from": "l7_1",
+      "to": "k_coastal_plain",
+      "label": "key idea"
+     },
+     {
+      "from": "unit",
+      "to": "l7_2",
+      "label": "includes"
+     },
+     {
+      "from": "l7_2",
+      "to": "k_relief",
+      "label": "key idea"
+     },
+     {
+      "from": "unit",
+      "to": "l7_3",
+      "label": "includes"
+     },
+     {
+      "from": "l7_1",
+      "to": "l7_2",
+      "label": "next"
+     },
+     {
+      "from": "l7_2",
+      "to": "l7_3",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
    }
   }
  ]

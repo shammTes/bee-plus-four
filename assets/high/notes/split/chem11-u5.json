@@ -76,10 +76,10 @@
    "status": "done",
    "pages": [
     162,
-    183
+    162
    ],
    "tone": "lilac",
-   "intro": "Gases fill the container and are easy to compress. Pressure comes from particles hitting the walls. Use kelvin in every gas law.",
+   "intro": "Gases fill the container, are easy to compress, mix, and their pressure comes from wall hits.",
    "intro_page": 162,
    "lessons": [
     {
@@ -88,9 +88,54 @@
      "title": "The Gaseous State",
      "pages": [
       162,
-      163
+      162
      ],
      "cards": [
+      {
+       "id": "chem11-u5-c01",
+       "type": "text",
+       "title": "5.1 The gaseous state",
+       "page": 162,
+       "src": "notes",
+       "body": [
+        "Gas particles are far apart and move rapidly and randomly, so gases **have no fixed shape or volume**, are easily **compressed**, **expand** to fill their container, have **low density** and **diffuse** quickly into each other.",
+        "A gas sample is described by four measurable quantities: **pressure P** (Pa, kPa, atm, mmHg; 1 atm = 101.3 kPa = 760 mmHg), **volume V** (m³, L, cm³; 1 L = 1 dm³ = 1000 cm³), **temperature T** (always in kelvin for gas calculations: T = t °C + 273) and **amount n** (mol).",
+        "**Pressure** is caused by gas particles hitting the walls of the container; it is measured with a barometer (atmospheric pressure) or a manometer (gas in a container).",
+        "**STP** (standard temperature and pressure) = 0 °C (273 K) and 1 atm (101.3 kPa). At STP one mole of any ideal gas occupies about **22.4 L**."
+       ]
+      },
+      {
+       "id": "chem11-u5-chk1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Boyle's Law describes the mathematical relationship between which physical variables of a gas at constant temperature?",
+       "options": {
+        "A": "Volume and absolute temperature.",
+        "B": "Pressure and absolute temperature.",
+        "C": "Volume and pressure.",
+        "D": "Volume and number of moles."
+       },
+       "answer": "C",
+       "why": "**Step 1: Recall the definition of Boyle's Law**\nBoyle's Law state that at constant temperature, the volume of a fixed mass of gas is inversely proportional to its pressure.\n\n**Step 2: Identify variables**\nThe variables are volume ($$V$$) and pressure ($$P$$).\n\n**Step 3: Final Result**\nThe correct option is **C**."
+      },
+      {
+       "id": "chem11-u5-chk2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Absolute zero, the theoretical point of zero molecular volume and motion, is mathematically defined as:",
+       "options": {
+        "A": "$$0^\\circ\\text{C}$$",
+        "B": "$$-273.15^\\circ\\text{C}$$",
+        "C": "$$100\\text{ K}$$",
+        "D": "$$-100^\\circ\\text{C}$$"
+       },
+       "answer": "B",
+       "why": "**Step 1: Define Absolute Zero**\nAbsolute zero is the zero point on the Kelvin scale ($$0\\text{ K}$$).\n\n**Step 2: Convert to Celsius scale**\n$$T(\\text{K}) = T(^\\circ\\text{C}) + 273.15 \\implies 0 = T(^\\circ\\text{C}) + 273.15 \\implies T(^\\circ\\text{C}) = -273.15^\\circ\\text{C}$$\n\n**Step 3: Final Result**\nAbsolute zero is **$$-273.15^\\circ\\text{C}$$**, option **B**."
+      },
       {
        "id": "chem11-u5-c08",
        "type": "text",
@@ -104,35 +149,56 @@
        ]
       },
       {
-       "type": "text",
-       "title": "Gas behaviour",
-       "page": 1,
-       "body": [
-        "P, V, T, n linked by gas laws. Boyle: PV=const (T fixed). Charles: V/T=const (P fixed).",
-        "Ideal gas: PV=nRT (use consistent units)."
+       "id": "chem11-u5-wrk-st1",
+       "type": "worked",
+       "title": "Worked: converting units",
+       "problem": "A gas is at 25 °C and 380 mmHg in a 500 cm³ flask. Express T in kelvin, P in atm and kPa, and V in litres.",
+       "steps": [
+        {
+         "text": "T = 25 + 273 = 298 K."
+        },
+        {
+         "text": "P = 380/760 = 0.50 atm = 0.50 × 101.3 = 50.7 kPa."
+        },
+        {
+         "text": "V = 500 cm³ = 500/1000 = 0.500 L."
+        }
        ],
-       "id": "chem11-u5-deep1"
+       "answer": "298 K; 0.50 atm (50.7 kPa); 0.500 L",
+       "src": "notes",
+       "page": 162
       },
       {
-       "type": "text",
-       "title": "Combined gas law",
-       "body": [
-        "P₁V₁/T₁ = P₂V₂/T₂ when n fixed.",
-        "Always use Kelvin for T."
-       ],
-       "id": "chem11-u5-xtra1",
-       "page": 1
+       "id": "chem11-u5-chk-st1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Gases are easily compressed because:",
+       "options": {
+        "A": "Their particles are far apart with lots of empty space",
+        "B": "Their particles are very large",
+        "C": "They have strong forces between particles",
+        "D": "Their particles do not move"
+       },
+       "answer": "A",
+       "why": "Most of the volume of a gas is empty space between particles, so pushing the particles closer together is easy.",
+       "src": "notes",
+       "page": 162
       },
       {
-       "id": "chem11-u5-checklist",
-       "type": "text",
-       "title": "Behaviour of Gases: checklist before exam",
-       "page": 1,
-       "body": [
-        "Can you define every bold term in **Behaviour of Gases** without looking?",
-        "Can you redo each worked example with the answer covered?",
-        "Can you sketch one diagram/graph/map and label it in under 2 minutes?"
-       ]
+       "id": "chem11-u5-chk-st2",
+       "type": "check",
+       "title": "Quick check",
+       "q": "What is the pressure of 2.0 atm in kPa?",
+       "options": {
+        "A": "202.6 kPa",
+        "B": "101.3 kPa",
+        "C": "1520 kPa",
+        "D": "50.7 kPa"
+       },
+       "answer": "A",
+       "why": "1 atm = 101.3 kPa, so 2.0 atm = 2.0 × 101.3 = 202.6 kPa. (1520 would be the value in mmHg.)",
+       "src": "notes",
+       "page": 162
       }
      ]
     },
@@ -142,9 +208,24 @@
      "title": "Gas laws",
      "pages": [
       164,
-      182
+      164
      ],
      "cards": [
+      {
+       "id": "chem11-u5-c02",
+       "type": "text",
+       "title": "5.2 The gas laws",
+       "page": 164,
+       "src": "notes",
+       "body": [
+        "**Boyle's law:** at constant temperature, the volume of a fixed mass of gas is inversely proportional to its pressure: P₁V₁ = P₂V₂ (a graph of P against 1/V is a straight line through the origin).",
+        "**Charles' law:** at constant pressure, the volume of a fixed mass of gas is directly proportional to its kelvin temperature: V₁/T₁ = V₂/T₂. Extending the V–t graph to V = 0 gives **absolute zero, −273 °C (0 K)**.",
+        "**Gay-Lussac's (pressure) law:** at constant volume, P₁/T₁ = P₂/T₂. **Combined gas law:** P₁V₁/T₁ = P₂V₂/T₂.",
+        "**Avogadro's law:** equal volumes of all gases at the same temperature and pressure contain equal numbers of molecules (V ∝ n).",
+        "**Ideal gas equation:** PV = nRT, with R = 8.314 J mol⁻¹ K⁻¹ (P in Pa, V in m³) or 0.0821 L atm mol⁻¹ K⁻¹. Using n = m/M it also gives molar mass: M = mRT/(PV), and density d = PM/(RT).",
+        "**Dalton's law of partial pressures:** the total pressure of a gas mixture equals the sum of the partial pressures: P_total = P₁ + P₂ + … . **Graham's law:** rate of diffusion ∝ 1/√M, so light gases (H₂, He) diffuse fastest."
+       ]
+      },
       {
        "id": "chem11-u5-c09",
        "type": "table",
@@ -217,106 +298,6 @@
       },
       {
        "type": "worked",
-       "title": "Boyle",
-       "page": 1,
-       "problem": "P₁=2 atm, V₁=3 L → P₂ at V₂=1 L (T fixed).",
-       "steps": [
-        {
-         "text": "P"
-        },
-        {
-         "text": "₁"
-        },
-        {
-         "text": "V"
-        },
-        {
-         "text": "₁"
-        },
-        {
-         "text": "="
-        },
-        {
-         "text": "P"
-        },
-        {
-         "text": "₂"
-        },
-        {
-         "text": "V"
-        },
-        {
-         "text": "₂"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "→"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "6"
-        },
-        {
-         "text": "="
-        },
-        {
-         "text": "P"
-        },
-        {
-         "text": "₂"
-        },
-        {
-         "text": "×"
-        },
-        {
-         "text": "1"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "→"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "P"
-        },
-        {
-         "text": "₂"
-        },
-        {
-         "text": "="
-        },
-        {
-         "text": "6"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "m"
-        },
-        {
-         "text": "."
-        }
-       ],
-       "answer": "6 atm.",
-       "id": "chem11-u5-deep2"
-      },
-      {
-       "type": "worked",
        "title": "Worked: Charles",
        "problem": "V₁=2 L at 300 K; find V at 600 K (P fixed).",
        "steps": [
@@ -326,30 +307,205 @@
        ],
        "answer": "4 L",
        "id": "chem11-u5-xtra2",
-       "page": 1
+       "page": 1,
+       "src": "notes"
       },
       {
-       "id": "chem11-u5-misconception",
-       "type": "text",
-       "title": "Common mix-ups in Behaviour of Gases",
-       "page": 1,
-       "body": [
-        "Write one idea students often confuse with this topic, then the correct distinction.",
-        "Example pattern: “Looks like X, but actually Y because …”",
-        "Teaching the difference is better than re-reading the page."
-       ]
+       "id": "chem11-u5-wrk-gl1",
+       "type": "worked",
+       "title": "Worked: combined gas law",
+       "problem": "A gas occupies 300 mL at 27 °C and 100 kPa. What volume will it occupy at 127 °C and 200 kPa?",
+       "steps": [
+        {
+         "text": "T₁ = 300 K, T₂ = 400 K."
+        },
+        {
+         "text": "V₂ = V₁ × (P₁/P₂) × (T₂/T₁) = 300 × (100/200) × (400/300)."
+        },
+        {
+         "text": "V₂ = 300 × 0.5 × 1.333 = 200 mL."
+        }
+       ],
+       "answer": "200 mL",
+       "src": "notes",
+       "page": 164
+      },
+      {
+       "id": "chem11-u5-wrk-gl2",
+       "type": "worked",
+       "title": "Worked: molar mass from PV = nRT",
+       "problem": "0.64 g of a gas occupies 0.224 L at STP. Find its molar mass.",
+       "steps": [
+        {
+         "text": "At STP 1 mol occupies 22.4 L, so n = 0.224/22.4 = 0.010 mol."
+        },
+        {
+         "text": "M = m/n = 0.64/0.010 = 64 g/mol (e.g. SO₂)."
+        }
+       ],
+       "answer": "64 g/mol",
+       "src": "notes",
+       "page": 164
+      },
+      {
+       "id": "chem11-u5-chk-gl1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "At constant temperature, the pressure on a gas is tripled. The volume becomes:",
+       "options": {
+        "A": "One third of the original",
+        "B": "Three times the original",
+        "C": "Nine times the original",
+        "D": "Unchanged"
+       },
+       "answer": "A",
+       "why": "Boyle's law: P₁V₁ = P₂V₂. If P is multiplied by 3, V must be divided by 3.",
+       "src": "notes",
+       "page": 164
+      },
+      {
+       "id": "chem11-u5-chk-gl2",
+       "type": "check",
+       "title": "Quick check",
+       "q": "A gas mixture contains N₂ at 60 kPa, O₂ at 30 kPa and CO₂ at 10 kPa. The total pressure is:",
+       "options": {
+        "A": "100 kPa",
+        "B": "60 kPa",
+        "C": "33.3 kPa",
+        "D": "1800 kPa"
+       },
+       "answer": "A",
+       "why": "Dalton's law: P_total = 60 + 30 + 10 = 100 kPa.",
+       "src": "notes",
+       "page": 164
+      },
+      {
+       "id": "chem11-u5-chk-gl3",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Which gas diffuses fastest at the same temperature?",
+       "options": {
+        "A": "H₂ (M = 2)",
+        "B": "O₂ (M = 32)",
+        "C": "CO₂ (M = 44)",
+        "D": "Cl₂ (M = 71)"
+       },
+       "answer": "A",
+       "why": "Graham's law: rate ∝ 1/√M. Hydrogen has the smallest molar mass, so it diffuses fastest — 4 times faster than O₂ (√(32/2) = 4).",
+       "src": "notes",
+       "page": 164
       }
      ]
     },
     {
      "id": "chem11-u5-l5-3",
      "number": "5.3",
-     "title": "Kinetic molecular theory",
+     "title": "The Kinetic Molecular Theory of Gases",
      "pages": [
       183,
       183
      ],
      "cards": [
+      {
+       "id": "chem11-u5-c03",
+       "type": "table",
+       "title": "Table",
+       "page": 183,
+       "src": "notes",
+       "head": [
+        "Law",
+        "Hold constant",
+        "Relation"
+       ],
+       "rows": [
+        [
+         "Boyle",
+         "T, n",
+         "P ∝ 1/V P₁V₁ = P₂V₂"
+        ],
+        [
+         "Charles",
+         "P, n",
+         "V ∝ T(K) V₁/T₁ = V₂/T₂"
+        ],
+        [
+         "Avogadro",
+         "P, T",
+         "V ∝ n"
+        ],
+        [
+         "Combined",
+         "n",
+         "P₁V₁/T₁ = P₂V₂/T₂"
+        ],
+        [
+         "Ideal",
+         "—",
+         "PV = nRT"
+        ]
+       ]
+      },
+      {
+       "id": "chem11-u5-c04",
+       "type": "mnemonic",
+       "title": "Tricks",
+       "page": 183,
+       "src": "notes",
+       "body": [
+        "Always convert °C → K (+273). Never use °C in Charles or ideal-gas sums. Real gases misbehave at high P / low T (particles have volume and attract — van der Waals)."
+       ]
+      },
+      {
+       "id": "chem11-u5-c05",
+       "type": "worked",
+       "title": "Worked — Boyle",
+       "page": 183,
+       "src": "notes",
+       "problem": "A gas at 2 atm occupies 4 L. Pressure becomes 8 atm, T fixed. New V?",
+       "steps": [
+        {
+         "text": "P₁V₁ = P₂V₂ → 2 × 4 = 8 × V₂."
+        },
+        {
+         "text": "8 = 8 V₂ → V₂ = 1 L."
+        },
+        {
+         "text": "Sense check: P ×4, so V ÷4. Yes."
+        }
+       ],
+       "answer": "V₂ = 1 L",
+       "mode": "show",
+       "reveal": "Steps"
+      },
+      {
+       "id": "chem11-u5-c06",
+       "type": "worked",
+       "title": "Worked — Charles",
+       "page": 183,
+       "src": "notes",
+       "problem": "V = 300 mL at 27 °C. Find V at 127 °C, P fixed.",
+       "steps": [
+        {
+         "text": "T₁ = 300 K, T₂ = 400 K."
+        },
+        {
+         "text": "V₂ = V₁ × T₂/T₁ = 300 × 400/300 = 400 mL."
+        }
+       ],
+       "answer": "V₂ = 400 mL",
+       "mode": "show",
+       "reveal": "Steps"
+      },
+      {
+       "id": "chem11-u5-c07",
+       "type": "text",
+       "title": "The Kinetic Molecular Theory of Gases",
+       "page": 183,
+       "src": "notes",
+       "body": [
+        "**Kinetic theory:** tiny particles, random motion, elastic hits, T is average KE. Ideal gas = no attraction, point masses."
+       ]
+      },
       {
        "id": "chem11-u5-c12",
        "type": "table",
@@ -403,6 +559,54 @@
        ]
       },
       {
+       "id": "chem11-u5-chk-kt1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "According to the kinetic theory, the average kinetic energy of gas particles is proportional to:",
+       "options": {
+        "A": "The kelvin temperature",
+        "B": "The pressure only",
+        "C": "The volume of the container",
+        "D": "The Celsius temperature"
+       },
+       "answer": "A",
+       "why": "Average KE ∝ T in kelvin. At 0 K the particles would have minimum energy; doubling the kelvin temperature doubles the average KE.",
+       "src": "notes",
+       "page": 183
+      },
+      {
+       "id": "chem11-u5-chk-kt2",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Real gases deviate most from ideal behaviour at:",
+       "options": {
+        "A": "High pressure and low temperature",
+        "B": "Low pressure and high temperature",
+        "C": "STP only",
+        "D": "Any temperature above 0 °C"
+       },
+       "answer": "A",
+       "why": "At high pressure particles are close, so their own volume matters; at low temperature they move slowly, so attractions matter. Both break the ideal-gas assumptions.",
+       "src": "notes",
+       "page": 183
+      },
+      {
+       "id": "chem11-u5-chk-kt3",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Heating a gas in a closed rigid container increases its pressure because the particles:",
+       "options": {
+        "A": "Move faster and hit the walls harder and more often",
+        "B": "Get bigger",
+        "C": "Increase in number",
+        "D": "Stop colliding with each other"
+       },
+       "answer": "A",
+       "why": "Higher temperature means higher average speed, so collisions with the walls are more frequent and more forceful — the pressure rises (Gay-Lussac’s law).",
+       "src": "notes",
+       "page": 183
+      },
+      {
        "id": "chem11-u5-c15",
        "type": "remember",
        "title": "Unit summary",
@@ -412,58 +616,318 @@
        "body": [
         "Boyle: P1 V1 = P2 V2. Charles: V/T constant. PV = nRT. 1 mol is about 22.4 L at STP."
        ]
-      },
-      {
-       "type": "text",
-       "title": "STP reminder",
-       "page": 1,
-       "body": [
-        "Many tables use 0 °C and 1 atm; molar volume ≈ 22.4 L/mol for ideal gas at STP."
-       ],
-       "id": "chem11-u5-deep3"
       }
      ]
     }
    ],
-   "glossary": [
+   "glossary": [],
+   "tips": [
     {
-     "term": "Kelvin",
-     "meaning": "T(K) = t(C) + 273."
-    },
-    {
-     "term": "Boyle's law",
-     "meaning": "At constant T, pressure times volume is constant."
-    },
-    {
-     "term": "Behaviour",
-     "def": "Core topic of this unit — expand with your textbook definition for “Behaviour of Gases”."
+     "text": "Read 5.1 The Gaseous State again and say its main idea in one sentence.",
+     "page": 162
     }
    ],
    "games": [
     {
-     "id": "chem11-u5-g1",
      "type": "flash",
-     "title": "Gas laws",
+     "title": "Flip cards",
      "cards": [
       {
-       "front": "Boyle",
-       "back": "P1 V1 = P2 V2"
+       "front": "Kelvin",
+       "back": "T for gas laws"
       },
       {
-       "front": "Charles",
-       "back": "V/T constant, kelvin"
+       "front": "What is the molecular weight of a gas if 150 ml of the gas measured at STP weighs 0.228 gm?",
+       "back": "A. 34 g/mol"
       },
       {
-       "front": "STP",
-       "back": "0 C, 1 atm, 22.4 L per mol"
+       "front": "Under what conditions would a gas be expected to behave most ideally?",
+       "back": "A. High temperature and low pressure"
       }
-     ]
+     ],
+     "src": "notes",
+     "id": "chem11-u5-g1",
+     "lesson": null
+    },
+    {
+     "type": "match",
+     "title": "Match each answer to its question",
+     "pairs": [
+      {
+       "a": "0°C.",
+       "b": "Standard temperature is exactly"
+      },
+      {
+       "a": "34 g/mol",
+       "b": "What is the molecular weight of a gas if 150 ml of the gas measured at STP weighs 0.228 gm?"
+      },
+      {
+       "a": "High temperature and low pressure",
+       "b": "Under what conditions would a gas be expected to behave most ideally?"
+      },
+      {
+       "a": "The pressure of the gas decreased",
+       "b": "If a gas expands at constant temperature,"
+      },
+      {
+       "a": "kinetic energy of the molecules remains constant.",
+       "b": "If a gas expands at constant temperature, the"
+      },
+      {
+       "a": "the kinetic energy of a gas is directly proportional to absolute temperature.",
+       "b": "The kinetic molecular theory of gases assumes that"
+      }
+     ],
+     "src": "exam",
+     "id": "chem11-u5-g2",
+     "lesson": null
     }
    ],
    "exercise": {
     "questions": [
      {
-      "id": "chem11-u5-q01",
+      "type": "mcq",
+      "q": "What is the molecular weight of a gas if 150 ml of the gas measured at STP weighs 0.228 gm?",
+      "options": {
+       "A": "34 g/mol",
+       "B": "17.4 g/mol",
+       "C": "68 g/mol",
+       "D": "44 g/mol",
+       "E": "48 g/mol"
+      },
+      "answer": "A",
+      "why": [
+       "Moles at STP: n = V/22.4 L = 0.150 L ÷ 22.4 L/mol = 6.70×10⁻³ mol.",
+       "M = m/n = 0.228 g ÷ 6.70×10⁻³ mol = 34.0 g/mol.",
+       "Answer: A (e.g. H₂S)."
+      ],
+      "src": "exam",
+      "exam_question": "chem-2018-19-model-s2-p1-q16",
+      "label": "chem-2018-19-model-s2",
+      "enriched": true,
+      "page": 162,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "Under what conditions would a gas be expected to behave most ideally?  A) High temperature and low pressure  B) High temperature and high pressure  C) Low temperature and high pressure  D) Low temperature and low pressure  E) “B” and “D”",
+        "a": "A. High temperature and low pressure"
+       }
+      ],
+      "id": "chem11-u5-q01"
+     },
+     {
+      "type": "mcq",
+      "q": "Under what conditions would a gas be expected to behave most ideally?",
+      "options": {
+       "A": "High temperature and low pressure",
+       "B": "High temperature and high pressure",
+       "C": "Low temperature and high pressure",
+       "D": "Low temperature and low pressure",
+       "E": "“B” and “D”"
+      },
+      "answer": "A",
+      "why": [
+       "Ideal-gas assumptions: negligible molecular volume and no intermolecular attractions.",
+       "Low pressure → molecules far apart, so their own volume is negligible.",
+       "High temperature → high kinetic energy, so attractions are negligible.",
+       "Answer: A."
+      ],
+      "src": "exam",
+      "exam_question": "chem-2018-19-model-s2-p1-q46",
+      "label": "chem-2018-19-model-s2",
+      "enriched": true,
+      "page": 162,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "When the temperature of a gas increases within a closed container, pressure increases because  A) the frequency of collisions between molecules and the container walls decreases.  B) the frequency of collisions between molecules and the container walls increases.  C) the spaces between the molecules of gas decrease.  D) of the compressible property of gases.  E) gas turns into a liquid.",
+        "a": "B. the frequency of collisions between molecules and the container walls increases. — At higher temperature the molecules move faster, so they hit the walls more often and with more force → higher pressure (volume fixed, so spacing is unchanged). Answer: B.",
+        "exam_question": "chem-2020-matric-p1-q58"
+       }
+      ],
+      "id": "chem11-u5-q02"
+     },
+     {
+      "type": "mcq",
+      "q": "If a gas expands at constant temperature,",
+      "options": {
+       "A": "The number of molecules of the gas decrease",
+       "B": "The kinetic energy of the molecules increase",
+       "C": "The kinetic energy of the molecules decrease",
+       "D": "The pressure of the gas decreased",
+       "E": "The pressure of the gas remains constant"
+      },
+      "answer": "D",
+      "why": [
+       "Constant T → average kinetic energy of the molecules stays constant (B, C false). The number of molecules is fixed (A false).",
+       "Boyle's law: P ∝ 1/V at constant T and n. Expansion (V ↑) → fewer collisions per unit area → P ↓.",
+       "Answer: D."
+      ],
+      "src": "exam",
+      "exam_question": "chem-2018-19-model-s2-p1-q60",
+      "label": "chem-2018-19-model-s2",
+      "enriched": true,
+      "page": 162,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "The law that refers to the direct relationship between temperature and volume at constant pressure is  A) Boyle's Law.  B) Charles's Law.  C) Avogadro's Law.  D) Ideal Gas Law.  E) C and D.",
+        "a": "B. Charles's Law. — Boyle's law relates P and V at constant T; Avogadro's law relates V and moles. The ideal gas law PV = nRT contains the V–T relation but is not 'the law' of it. Answer: B.",
+        "exam_question": "chem-2021-matric-p1-q17"
+       }
+      ],
+      "id": "chem11-u5-q03"
+     },
+     {
+      "type": "mcq",
+      "q": "The kinetic molecular theory of gases assumes that",
+      "options": {
+       "A": "volume of all of the molecules of a gas is enormous.",
+       "B": "there is strong attraction forces between the gases.",
+       "C": "collision between gas particles is inelastic.",
+       "D": "the kinetic energy of a gas is directly proportional to absolute temperature.",
+       "E": "None of the above."
+      },
+      "answer": "D",
+      "why": [
+       "KMT postulates: molecular volume negligible (A false), no attractive forces (B false), perfectly elastic collisions (C false),",
+       "average kinetic energy ∝ absolute temperature (D true). Answer: D."
+      ],
+      "src": "exam",
+      "exam_question": "chem-2018-matric-p1-q45",
+      "label": "chem-2018-matric",
+      "enriched": true,
+      "page": 162,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "The gas law that describes the relation between volume and the number of moles at constant temperature and pressure is called  A) Boyle's law.  B) Charles's law.  C) Avogadro's law.  D) Ideal gas law.  E) All of the above.",
+        "a": "C. Avogadro's law."
+       }
+      ],
+      "id": "chem11-u5-q04"
+     },
+     {
+      "type": "mcq",
+      "q": "The gas law that describes the relation between volume and the number of moles at constant temperature and pressure is called",
+      "options": {
+       "A": "Boyle's law.",
+       "B": "Charles's law.",
+       "C": "Avogadro's law.",
+       "D": "Ideal gas law.",
+       "E": "All of the above."
+      },
+      "answer": "C",
+      "why": [
+       "Boyle: V vs P (T, n constant). Charles: V vs T (P, n constant).",
+       "Avogadro's law: at constant T and P, the volume of a gas is directly proportional to the number of moles (V = kn). Answer: C."
+      ],
+      "src": "exam",
+      "exam_question": "chem-2019-matric-p1-q25",
+      "label": "chem-2019-matric",
+      "enriched": true,
+      "page": 162,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "If the pressure of an ideal gas is doubled at constant temperature for a fixed amount of gas, the volume will be  A) doubled.  B) halved.  C) the same.  D) tripled.  E) quadrupled.",
+        "a": "B. halved. — P₂ = 2P₁ → V₂ = P₁V₁/(2P₁) = V₁/2. Answer: B.",
+        "exam_question": "chem-2021-matric-p1-q74"
+       }
+      ],
+      "id": "chem11-u5-q05"
+     },
+     {
+      "type": "mcq",
+      "q": "If a gas expands at constant temperature, the",
+      "options": {
+       "A": "number of molecules of the gas decreases.",
+       "B": "kinetic energy of the molecules decreases.",
+       "C": "kinetic energy of the molecules remains constant.",
+       "D": "kinetic energy of the molecules increases.",
+       "E": "All of the above."
+      },
+      "answer": "C",
+      "why": [
+       "By kinetic molecular theory, the average kinetic energy of gas molecules is proportional to the absolute temperature only.",
+       "At constant temperature the average kinetic energy is constant, whatever the volume; the number of molecules also does not change. Answer: C."
+      ],
+      "src": "exam",
+      "exam_question": "chem-2019-matric-p1-q30",
+      "label": "chem-2019-matric",
+      "enriched": true,
+      "page": 162,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "According to the ideal gas equation, the pressure of a given amount of gas increases if the  A) temperature and volume remain constant.  B) temperature and volume decrease.  C) temperature decreases and volume increases.  D) temperature and volume increase.  E) temperature increases and volume decreases.",
+        "a": "E. temperature increases and volume decreases. — If both increase or both decrease, the result depends on the amounts. Answer: E.",
+        "exam_question": "gensci-2020-matric-p1-q62"
+       }
+      ],
+      "id": "chem11-u5-q06"
+     },
+     {
+      "type": "mcq",
+      "q": "If at a constant temperature, a moving piston reduces the volume of a cylinder by one half, the gas pressure inside the cylinder will",
+      "options": {
+       "A": "decrease by one fourth.",
+       "B": "remain the same.",
+       "C": "be doubled.",
+       "D": "increase by one half.",
+       "E": "decrease by one half."
+      },
+      "answer": "C",
+      "why": [
+       "Boyle's law (T and n constant): P₁V₁ = P₂V₂.",
+       "V₂ = V₁/2 → P₂ = P₁V₁/(V₁/2) = 2P₁. The pressure doubles. Answer: C."
+      ],
+      "src": "exam",
+      "exam_question": "chem-2019-matric-p1-q73",
+      "label": "chem-2019-matric",
+      "enriched": true,
+      "page": 162,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "Boyle's Law states that the  A) temperature of a gas is directly proportional to the gas pressure.  B) pressure of a gas is inversely proportional to the volume of the gas.  C) temperature of a gas is inversely proportional to the volume of the gas.  D) volume of a gas is directly proportional to the gas pressure.  E) temperature of a gas is inversely proportional to the gas pressure.",
+        "a": "B. pressure of a gas is inversely proportional to the volume of the gas. — A describes Gay-Lussac's law; C and E are false; D contradicts Boyle's law. Answer: B.",
+        "exam_question": "gensci-2018-matric-p1-q48"
+       }
+      ],
+      "id": "chem11-u5-q07"
+     },
+     {
+      "type": "mcq",
+      "q": "Standard temperature is exactly",
+      "options": {
+       "A": "20°C.",
+       "B": "100 °C.",
+       "C": "273 °C.",
+       "D": "0°C.",
+       "E": "0K."
+      },
+      "answer": "D",
+      "why": [
+       "Standard temperature and pressure (STP) are 0 °C (273.15 K) and 1 atm (760 mmHg).",
+       "273 °C (C) confuses the kelvin value with Celsius; 0 K is absolute zero. Answer: D."
+      ],
+      "src": "exam",
+      "exam_question": "chem-2020-matric-p1-q49",
+      "label": "chem-2020-matric",
+      "enriched": true,
+      "page": 162,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "What is the molecular weight of a gas if 150 ml of the gas measured at STP weighs 0.228 gm?  A) 34 g/mol  B) 17.4 g/mol  C) 68 g/mol  D) 44 g/mol  E) 48 g/mol",
+        "a": "A. 34 g/mol"
+       }
+      ],
+      "id": "chem11-u5-q08"
+     },
+     {
+      "id": "chem11-u5-q01x",
       "type": "mcq",
       "q": "150 ml of gas at STP weighs 0.228 g. Molecular weight?",
       "options": {
@@ -475,10 +939,11 @@
       "answer": "A",
       "why": [
        "n = 0.150/22.4. M = 0.228/n = 34."
-      ]
+      ],
+      "similar": []
      },
      {
-      "id": "chem11-u5-q02",
+      "id": "chem11-u5-q02x",
       "type": "mcq",
       "q": "A gas is most ideal at",
       "options": {
@@ -490,10 +955,11 @@
       "answer": "A",
       "why": [
        "Particles far apart, attractions negligible."
-      ]
+      ],
+      "similar": []
      },
      {
-      "id": "chem11-u5-q07",
+      "id": "chem11-u5-q07x",
       "type": "mcq",
       "q": "Volume is halved at constant T. Pressure",
       "options": {
@@ -505,10 +971,11 @@
       "answer": "C",
       "why": [
        "Boyle: P doubles."
-      ]
+      ],
+      "similar": []
      },
      {
-      "id": "chem11-u5-q08",
+      "id": "chem11-u5-q08x",
       "type": "mcq",
       "q": "Standard temperature is",
       "options": {
@@ -520,7 +987,8 @@
       "answer": "D",
       "why": [
        "STP is 0 C and 1 atm."
-      ]
+      ],
+      "similar": []
      },
      {
       "id": "chem11-u5-q10",
@@ -535,7 +1003,8 @@
       "answer": "B",
       "why": [
        "27 + 273."
-      ]
+      ],
+      "similar": []
      },
      {
       "id": "chem11-u5-xq1",
@@ -572,15 +1041,191 @@
       ],
       "tip": "Units reveal mistakes.",
       "similar": []
+     },
+     {
+      "id": "chem11-u5-mx1",
+      "type": "mcq",
+      "q": "Which of the following is **not true** about kinetic molecular theory of gases?",
+      "options": {
+       "A": "Force of attraction between gas molecules is negligible",
+       "B": "Collisions between gas particles are inelastic",
+       "C": "Gas molecules are in a continuous random motion",
+       "D": "Average kinetic energy is directly proportional to absolute temperature",
+       "E": "The greater the number of collisions, the greater the pressure due to the gas"
+      },
+      "answer": "B",
+      "why": [
+       "According to the Kinetic Molecular Theory, collisions between gas particles are **perfectly elastic**. This means there is no net loss of total kinetic energy during a collision. Choice B states they are 'inelastic', which is false."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2023_q27",
+      "exam_question": "chemistry_2023_q27",
+      "page": 162
+     },
+     {
+      "id": "chem11-u5-mx2",
+      "type": "mcq",
+      "q": "If a gas **expands** at a **constant temperature**:",
+      "options": {
+       "A": "Number of molecules decreases",
+       "B": "Pressure decreases",
+       "C": "Pressure remains constant",
+       "D": "Kinetic energy increase",
+       "E": "Volume remains constant"
+      },
+      "answer": "B",
+      "why": [
+       "According to **Boyle's Law**, at constant temperature, pressure and volume are inversely proportional ($$ P \\propto 1/V $$). If the gas expands (volume increases), the **pressure must decrease**."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2023_q39",
+      "exam_question": "chemistry_2023_q39",
+      "page": 162
+     },
+     {
+      "id": "chem11-u5-mx3",
+      "type": "mcq",
+      "q": "A gas exerts a pressure of 1.5 atm on a 5.0 L container at 27 °C and has a density of 1.06 g/L. The molecular mass of the gas is [Ideal gas constant (R) = 0.082 L.atm/mol.K]",
+      "options": {
+       "A": "16.89 g/mol.",
+       "B": "2.12 g/mol.",
+       "C": "0.09 g/mol.",
+       "D": "17.38 g/mol.",
+       "E": "34.76 g/mol."
+      },
+      "answer": "D",
+      "why": [
+       "**Step 1:** Convert Temp to Kelvin: $$27 + 273 = 300\\text{ K}$$.\n**Step 2:** Use the Ideal Gas Law formula involving density ($$\\rho$$): $$M = (\\rho RT) / P$$.\n**Step 3:** $$M = (1.06 \\times 0.082 \\times 300) / 1.5$$\n**Step 4:** $$M = (1.06 \\times 24.6) / 1.5 = 26.076 / 1.5 = 17.384\\text{ g/mol}$$."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2025_q70",
+      "exam_question": "chemistry_2025_q70",
+      "page": 162
+     },
+     {
+      "id": "chem11-u5-mx4",
+      "type": "mcq",
+      "q": "A given mass of gas occupies a volume of 500cc at a pressure P absolute temperature T. What will its volume be when the temperature and pressure doubled?",
+      "options": {
+       "A": "1000cc",
+       "B": "250cc",
+       "C": "500cc",
+       "D": "750cc",
+       "E": "125cc"
+      },
+      "answer": "C",
+      "why": [
+       "**Step 1: Use the Combined Gas Law.**\n$$ \\frac{P_1V_1}{T_1} = \\frac{P_2V_2}{T_2} $$\n\n**Step 2: Substitute the new conditions.**\n- $$ P_2 = 2P_1 $$\n- $$ T_2 = 2T_1 $$\n- $$ V_1 = 500cc $$\n\n**Step 3: Solve for $$ V_2 $$.**\n$$ \\frac{P_1 \\times 500}{T_1} = \\frac{2P_1 \\times V_2}{2T_1} $$\n$$ \\frac{P_1 \\times 500}{T_1} = \\frac{P_1 \\times V_2}{T_1} $$\n$$ V_2 = 500cc $$."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2017_q48",
+      "exam_question": "chemistry_2017_q48",
+      "page": 162
+     },
+     {
+      "id": "chem11-u5-mx5",
+      "type": "mcq",
+      "q": "Which of the following relationships of gases is stated by Boyle’s Law?",
+      "options": {
+       "A": "$$ V \\propto 1/P $$ (at constant n and T)",
+       "B": "$$ V \\propto n $$ (at constant P and T)",
+       "C": "$$ V \\propto T $$ (at constant n and P)",
+       "D": "$$ P \\propto T $$ (at constant m and V)",
+       "E": "$$ V \\propto P $$ (at constant n and T)"
+      },
+      "answer": "A",
+      "why": [
+       "**Boyle's Law** states that for a fixed mass of gas at constant temperature, the volume ($$ V $$) is inversely proportional to the pressure ($$ P $$). \nFormula: $$ P_1V_1 = P_2V_2 $$ or $$ V \\propto 1/P $$."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "chemistry_2016_q58",
+      "exam_question": "chemistry_2016_q58",
+      "page": 162
      }
     ]
    },
-   "tips": [
-    {
-     "id": "chem11-u5-deeptip1",
-     "text": "Convert °C to K: T(K)=t(°C)+273 before Charles/ideal-gas work."
-    }
-   ]
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Behaviour of Gases",
+      "kind": "unit",
+      "cards": [
+       "chem11-u5-c01"
+      ]
+     },
+     {
+      "id": "l5_1",
+      "label": "The Gaseous State",
+      "kind": "topic",
+      "lesson": "chem11-u5-l5-1",
+      "cards": [
+       "chem11-u5-c01"
+      ]
+     },
+     {
+      "id": "l5_2",
+      "label": "Gas laws",
+      "kind": "topic",
+      "lesson": "chem11-u5-l5-2",
+      "cards": [
+       "chem11-u5-c02"
+      ]
+     },
+     {
+      "id": "l5_3",
+      "label": "The Kinetic Molecular Theory of…",
+      "kind": "topic",
+      "lesson": "chem11-u5-l5-3",
+      "cards": [
+       "chem11-u5-c03",
+       "chem11-u5-c04",
+       "chem11-u5-c05",
+       "chem11-u5-c06",
+       "chem11-u5-c07"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l5_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l5_2",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l5_3",
+      "label": "includes"
+     },
+     {
+      "from": "l5_1",
+      "to": "l5_2",
+      "label": "next"
+     },
+     {
+      "from": "l5_2",
+      "to": "l5_3",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
+   }
   }
  ]
 }

@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'screens/exams.dart';
 import 'screens/home.dart';
 import 'screens/exercise.dart';
-import 'screens/tutor.dart';
+import 'tutor/tutor_page.dart';
 import 'notes/jr/state/app_state.dart' as jr;
 import 'screens/notes_home.dart';
 import 'screens/tour.dart';

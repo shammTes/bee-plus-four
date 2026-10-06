@@ -144,11 +144,15 @@ class UnitPageState extends State<UnitPage> {
   final _keyIndex = <GlobalKey, int>{};
   int _itemCount = 0;
 
+  /// direction of the last item-based estimate in [_seek] (-1 up, 1 down, 0 none yet)
+  int _seekDir = 0;
+
   /// [key]'s item is not built yet (it is further than the read-ahead): jump towards it, estimating from the items that
   /// are built, and try again next frame (the jump bar and "open at card" would otherwise do nothing)
   void _seek(GlobalKey key, int tries) {
     final idx = _keyIndex[key];
-    if (idx == null || tries >= 12 || !_scroll.hasClients) return;
+    if (idx == null || tries >= 24 || !_scroll.hasClients) return;
+    if (tries == 0) _seekDir = 0;
     int? lo, hi;
     var h = 0.0, n = 0;
     for (final e in _keyIndex.entries) {
@@ -163,10 +167,17 @@ class UnitPageState extends State<UnitPage> {
     final avg = n == 0 ? pos.viewportDimension * .5 : h / n;
     final double target;
     if (lo == null || hi == null) {
-      target = pos.maxScrollExtent * idx / (_itemCount < 1 ? 1 : _itemCount);
+      // nothing keyed is built here (a tall unkeyed item fills the screen): keep stepping the way the last estimate
+      // pointed, a screen at a time; the max-extent ratio is only a first guess, and alternating it with the
+      // item-height estimate can bounce between two spots without ever building the target
+      target = tries > 0 && _seekDir != 0
+          ? pos.pixels + _seekDir * pos.viewportDimension
+          : pos.maxScrollExtent * idx / (_itemCount < 1 ? 1 : _itemCount);
     } else if (idx < lo) {
+      _seekDir = -1;
       target = pos.pixels - (lo - idx) * avg;
     } else {
+      _seekDir = 1;
       target = pos.pixels + (idx - hi + 1) * avg;
     }
     _scroll.jumpTo(target.clamp(pos.minScrollExtent, pos.maxScrollExtent));

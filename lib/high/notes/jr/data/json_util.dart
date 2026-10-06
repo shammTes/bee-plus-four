@@ -29,12 +29,17 @@ class J {
     throw FormatException('$where.$k: expected String?, got ${v.runtimeType}');
   }
 
-  int integer(String k) => _req<num>(k).toInt();
+  // High: tolerate numbers stored as strings ("12"); anything unparsable falls back to 0 instead of failing the book
+  int integer(String k) {
+    final v = m[k];
+    if (v is String) return int.tryParse(v.trim()) ?? double.tryParse(v.trim())?.toInt() ?? 0;
+    return _req<num>(k).toInt();
+  }
   int? intOr(String k) {
     final v = m[k];
     if (v == null) return null;
     if (v is num) return v.toInt();
-    if (v is String && int.tryParse(v) != null) return int.parse(v);
+    if (v is String) return int.tryParse(v.trim()); // High: lenient
     throw FormatException('$where.$k: expected int?, got ${v.runtimeType}');
   }
 

@@ -116,13 +116,91 @@
       {
        "id": "math11-u1-c01",
        "type": "text",
-       "title": "Representation of Quadratic Functions",
+       "title": "1.1 Representing a quadratic function",
        "page": 1,
+       "src": "notes",
        "body": [
-        "**Representation of Quadratic Functions.** A polynomial is built from terms aₙxⁿ. Degree is the highest power with a ≠ 0.",
-        "For a **quadratic** ax² + bx + c (a ≠ 0): the graph is a parabola. a > 0 opens up; a < 0 opens down.",
-        "Remember the three forms: **standard** ax²+bx+c, **vertex** a(x−h)²+k, **factored** a(x−r₁)(x−r₂). Switch forms to read intercepts, vertex, and roots quickly."
+        "A **quadratic function** is a function of the form $$f(x) = ax^2 + bx + c$$ where a, b, c are real numbers and **a ≠ 0**. The highest power of x is 2, so its degree is 2.",
+        "A quadratic function can be represented in four ways: **(1) in words** (\"the area of a square of side x plus 3x\"), **(2) by an equation** f(x) = x² + 3x, **(3) by a table of values** and **(4) by a graph**, which is always a U-shaped curve called a **parabola**.",
+        "**Step by step — making a table and a graph for f(x) = x² − 2x − 3:** Step 1: choose x-values on both sides of the middle, e.g. −2, −1, 0, 1, 2, 3, 4. Step 2: work out f(x): f(−2) = 4 + 4 − 3 = 5, f(−1) = 0, f(0) = −3, f(1) = −4, f(2) = −3, f(3) = 0, f(4) = 5. Step 3: plot the points and join them with a smooth curve (not straight segments).",
+        "Reading the table: the y-values are **symmetric** about x = 1 (f(0) = f(2) = −3, f(−1) = f(3) = 0). The middle point (1, −4) is the **vertex** — the lowest point because a = 1 > 0. The line x = 1 is the **axis of symmetry**. The x-intercepts (−1, 0) and (3, 0) are where f(x) = 0, and the y-intercept is (0, c) = (0, −3).",
+        "The sign of a decides the shape: **a > 0** → opens upward, has a minimum value; **a < 0** → opens downward, has a maximum value. The bigger |a| is, the narrower the parabola. The **range** depends on the vertex: for f(x) = x² − 2x − 3 the minimum is −4, so the range is y ≥ −4.",
+        "**Tip:** In a table of a quadratic, the first differences are not constant but the **second differences are constant** (equal to 2a). For x² − 2x − 3: values 5, 0, −3, −4, −3 → first differences −5, −3, −1, 1 → second differences 2, 2, 2. This is a quick test that a table comes from a quadratic."
        ]
+      },
+      {
+       "id": "math11-u1-wrkE2",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "What is the range of the quadratic function $$f(x) = x^2 - 2x - 3$$?",
+       "steps": [
+        {
+         "text": "**Step 1: Identify coefficients**"
+        },
+        {
+         "text": "For the quadratic function $$f(x) = x^2 - 2x - 3$$, we have $$a = 1$$, $$b = -2$$, and $$c = -3$$."
+        },
+        {
+         "text": "**Step 2: Find the vertex coordinates**"
+        },
+        {
+         "text": "Since $$a = 1 > 0$$, the parabola opens upward, and the vertex represents the minimum value of the function."
+        },
+        {
+         "text": "The x-coordinate of the vertex is:"
+        }
+       ],
+       "answer": "$$\\{y \\in \\mathbb{R} : y \\geq -4\\}$$"
+      },
+      {
+       "id": "math11-u1-chkE1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Solve the quadratic equation $$3x^2 - 10x + 8 = 0$$ using factorization. What are the solutions?",
+       "options": {
+        "A": "$$x = 2$$ or $$x = \\frac{4}{3}$$",
+        "B": "$$x = -2$$ or $$x = -\\frac{4}{3}$$",
+        "C": "$$x = 2$$ or $$x = \\frac{3}{4}$$",
+        "D": "$$x = 4$$ or $$x = \\frac{2}{3}$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Find two numbers that multiply to $$ac$$ and add to $$b$$**\nFor $$3x^2 - 10x + 8 = 0$$, we have $$a = 3$$, $$b = -10$$, and $$c = 8$$.\nThe product $$ac = 3 \\times 8 = 24$$, and the sum $$b = -10$$.\nWe need two numbers $$m$$ and $$n$$ such that $$mn = 24$$ and $$m + n = -10$$.\nThese numbers are $$-6$$ and $$-4$$.\n\n**Step 2: Rewrite and factor by grouping**\n$$3x^2 - 6x - 4x + 8 = 0$$\n$$3x(x - 2) - 4(x - 2) = 0$$\n$$(3x - 4)(x - 2) = 0$$\n\n**Step 3: Solve for $$x$$**\nEither $$3x - 4 = 0 \\implies x = \\frac{4}{3}$$\nOr $$x - 2 = 0 \\implies x = 2$$\n**Result:** **$$x = 2$$ or $$x = \\frac{4}{3}$$**."
+      },
+      {
+       "id": "math11-u1-chkE2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "What is the value of the discriminant for the quadratic equation $$-x^2 + 5x - 7 = 0$$, and what does it reveal about the roots?",
+       "options": {
+        "A": "$$\\Delta = -3$$, no real roots",
+        "B": "$$\\Delta = 53$$, two real roots",
+        "C": "$$\\Delta = -3$$, two real roots",
+        "D": "$$\\Delta = 3$$, no real roots"
+       },
+       "answer": "A",
+       "why": "**Step 1: Identify coefficients**\nIn the equation $$-x^2 + 5x - 7 = 0$$, we have $$a = -1$$, $$b = 5$$, and $$c = -7$$.\n\n**Step 2: Calculate the discriminant ($$\\Delta$$)**\n$$\\Delta = b^2 - 4ac$$\n$$\\Delta = (5)^2 - 4(-1)(-7)$$\n$$\\Delta = 25 - 28 = -3$$\n\n**Step 3: Analyze the nature of the roots**\nSince $$\\Delta = -3 < 0$$, the equation has no real roots.\n**Result:** **$$\\Delta = -3$$, no real roots**."
+      },
+      {
+       "id": "math11-u1-chk73",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "What is the range of the quadratic function $$f(x) = x^2 - 2x - 3$$?",
+       "options": {
+        "A": "$$\\{y \\in \\mathbb{R} : y \\geq -4\\}$$",
+        "B": "$$\\{y \\in \\mathbb{R} : y \\geq -3\\}$$",
+        "C": "$$\\{y \\in \\mathbb{R} : y \\geq 0\\}$$",
+        "D": "$$\\{y \\in \\mathbb{R} : y \\leq -4\\}$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Identify coefficients**\nFor the quadratic function $$f(x) = x^2 - 2x - 3$$, we have $$a = 1$$, $$b = -2$$, and $$c = -3$$.\n\n**Step 2: Find the vertex coordinates**\nSince $$a = 1 > 0$$, the parabola opens upward, and the vertex represents the minimum value of the function.\nThe x-coordinate of the vertex is:\n$$h = -\\frac{b}{2a} = -\\frac{-2}{2(1)} = 1$$\n\nThe y-coordinate of the vertex (minimum value) is:\n$$k = f(1) = (1)^2 - 2(1) - 3 = 1 - 2 - 3 = -4$$\n\n**Step 3: State the range**\nSince the minimum value is $$-4$$ and the parabola opens upward, the range is all values greater than or equal to $$-4$$.\n**Result:** $$\\mathbf{\\{y \\in \\mathbb{R} : y \\geq -4\\}}$$."
       },
       {
        "id": "math11-u1-c09",
@@ -131,40 +209,20 @@
        "page": 1,
        "body": [
         "A **quadratic function** has the form f(x) = ax² + bx + c with a ≠ 0. Its graph is a **parabola**: it opens upward if a > 0 and downward if a < 0.",
-        "**Standard form:** f(x) = ax² + bx + c (the y-intercept is c). **Vertex form:** f(x) = a(x − h)² + k (vertex (h, k), axis of symmetry x = h). **Factored form:** f(x) = a(x − r₁)(x "
-       ]
-      },
-      {
-       "type": "text",
-       "title": "Polynomial basics",
-       "page": 1,
-       "body": [
-        "A polynomial is aₙxⁿ+…+a₁x+a₀. Degree = highest power with a≠0.",
-        "Leading coefficient aₙ sets end behaviour: for even degree, both ends same side; odd degree, opposite sides."
+        "**Standard form:** f(x) = ax² + bx + c (the y-intercept is c). **Vertex form:** f(x) = a(x − h)² + k (vertex (h, k), axis of symmetry x = h). **Factored form:** f(x) = a(x − r₁)(x − r₂) (the x-intercepts are r₁ and r₂). For example, f(x) = x² − 4x + 3 = (x − 2)² − 1 = (x − 1)(x − 3): the y-intercept is 3, the vertex is (2, −1) and the roots are 1 and 3."
        ],
-       "id": "math11-u1-deep1"
+       "src": "notes"
       },
       {
-       "type": "text",
-       "title": "Factor & remainder tips",
+       "id": "math11-u1-mn1",
+       "type": "mnemonic",
+       "title": "Shape of a parabola: \"a decides the face\"",
        "body": [
-        "Factor theorem: (x−a) divides f iff f(a)=0.",
-        "Synthetic division speeds polynomial division by (x−a).",
-        "Graph crosses x-axis at real roots; multiplicity even → touch & turn."
+        "**a > 0 → smile** (opens up, minimum at the vertex). **a < 0 → frown** (opens down, maximum at the vertex).",
+        "Vertex x-coordinate: **\"minus b over two a\"**, x = −b/(2a). Then put it back in to get the y-coordinate."
        ],
-       "id": "math11-u1-xtra1",
-       "page": 1
-      },
-      {
-       "id": "math11-u1-checklist",
-       "type": "text",
-       "title": "Polynomial Function: checklist before exam",
        "page": 1,
-       "body": [
-        "Can you define every bold term in **Polynomial Function** without looking?",
-        "Can you redo each worked example with the answer covered?",
-        "Can you sketch one diagram/graph/map and label it in under 2 minutes?"
-       ]
+       "src": "notes"
       }
      ]
     },
@@ -180,13 +238,136 @@
       {
        "id": "math11-u1-c02",
        "type": "text",
-       "title": "Simplifying and Solving Quadratic Equations and Inequalities",
+       "title": "1.2 Solving quadratic equations and inequalities",
        "page": 6,
+       "src": "notes",
        "body": [
-        "**Simplifying and Solving Quadratic Equations and Inequalities.** A polynomial is built from terms aₙxⁿ. Degree is the highest power with a ≠ 0.",
-        "For a **quadratic** ax² + bx + c (a ≠ 0): the graph is a parabola. a > 0 opens up; a < 0 opens down.",
-        "Remember the three forms: **standard** ax²+bx+c, **vertex** a(x−h)²+k, **factored** a(x−r₁)(x−r₂). Switch forms to read intercepts, vertex, and roots quickly."
+        "A **quadratic equation** is ax² + bx + c = 0 (a ≠ 0). Its solutions are called **roots** or **zeros**; they are the x-intercepts of y = ax² + bx + c. There are three standard methods.",
+        "**Method 1 — Factorising.** Write the left side as a product and use \"if pq = 0 then p = 0 or q = 0\". Example: x² − 5x + 6 = 0. Find two numbers with product 6 and sum −5: −2 and −3. So (x − 2)(x − 3) = 0 and x = 2 or x = 3. For a ≠ 1 use the \"ac method\": 3x² − 10x + 8: ac = 24, numbers −4 and −6: 3x² − 4x − 6x + 8 = x(3x − 4) − 2(3x − 4) = (x − 2)(3x − 4), so x = 2 or x = 4/3.",
+        "**Method 2 — Completing the square.** Example: x² + 6x − 7 = 0. Step 1: move the constant: x² + 6x = 7. Step 2: add (half of 6)² = 9 to both sides: x² + 6x + 9 = 16. Step 3: write as a square: (x + 3)² = 16. Step 4: take square roots: x + 3 = ±4, so x = 1 or x = −7.",
+        "**Method 3 — The quadratic formula** (works for every quadratic): $$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$. The number **D = b² − 4ac** is the **discriminant**: D > 0 → two different real roots; D = 0 → one repeated real root; D < 0 → no real roots (the parabola does not meet the x-axis).",
+        "**Simplifying first:** always write the equation in the form ax² + bx + c = 0 and divide by any common factor. Example: 2x² = 8x − 6 → 2x² − 8x + 6 = 0 → x² − 4x + 3 = 0 → (x − 1)(x − 3) = 0.",
+        "**Quadratic inequalities** (e.g. x² − x − 12 > 0). Step 1: solve the equation x² − x − 12 = 0: (x − 4)(x + 3) = 0, so x = −3 or x = 4. Step 2: these critical values cut the number line into three intervals: x < −3, −3 < x < 4, x > 4. Step 3: test one number in each: x = −4 gives 8 > 0 ✔; x = 0 gives −12 ✘; x = 5 gives 8 ✔. Step 4: answer x < −3 or x > 4. Picture: the parabola opens upward, so it is above the x-axis outside the roots and below it between them.",
+        "**Sum and product of roots:** if r₁ and r₂ are the roots of ax² + bx + c = 0, then r₁ + r₂ = −b/a and r₁r₂ = c/a. Use this to check answers quickly: for x² − 5x + 6 = 0, 2 + 3 = 5 ✔ and 2 × 3 = 6 ✔."
        ]
+      },
+      {
+       "id": "math11-u1-chk74",
+       "type": "check",
+       "title": "Quick check",
+       "page": 6,
+       "src": "study_notes",
+       "src_qid": "math_g11_c1_q4",
+       "q": "Find the constant term and degree of the polynomial function $$f(x) = (3x^2 + 7x^5 - 1)(2x - x^3 + 6)$$.",
+       "options": {
+        "A": "Degree: 8, Constant Term: -6",
+        "B": "Degree: 15, Constant Term: -1",
+        "C": "Degree: 8, Constant Term: 6",
+        "D": "Degree: 6, Constant Term: -6"
+       },
+       "answer": "A",
+       "why": "**Step 1: Determine the degree of the polynomial**\nThe degree of a product of two polynomials is the sum of the degrees of the individual factors.\nThe degree of the first factor $$(3x^2 + 7x^5 - 1)$$ is $$5$$.\nThe degree of the second factor $$(2x - x^3 + 6)$$ is $$3$$.\nTherefore, the degree of the product is:\n$$\\text{Degree} = 5 + 3 = 8$$\n\n**Step 2: Determine the constant term**\nThe constant term of the product is the product of the constant terms of the individual factors.\n$$\\text{Constant} = (-1) \\times 6 = -6$$\n\n**Step 3: Combine findings**\nThe degree is $$8$$ and the constant term is $$-6$$.\n**Result:** **Degree: 8, Constant Term: -6**."
+      },
+      {
+       "id": "math11-u1-wrk1",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 6,
+       "src": "study_notes",
+       "src_qid": "math_g11_c1_q4",
+       "problem": "Find the constant term and degree of the polynomial function $$f(x) = (3x^2 + 7x^5 - 1)(2x - x^3 + 6)$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Determine the degree of the polynomial**"
+        },
+        {
+         "text": "The degree of a product of two polynomials is the sum of the degrees of the individual factors."
+        },
+        {
+         "text": "The degree of the first factor $$(3x^2 + 7x^5 - 1)$$ is $$5$$."
+        },
+        {
+         "text": "The degree of the second factor $$(2x - x^3 + 6)$$ is $$3$$."
+        },
+        {
+         "text": "**Step 2: Determine the constant term**"
+        },
+        {
+         "text": "The constant term of the product is the product of the constant terms of the individual factors."
+        },
+        {
+         "text": "$$\\text{Constant} = (-1) \\times 6 = -6$$"
+        },
+        {
+         "text": "**Step 3: Combine findings**"
+        },
+        {
+         "text": "The degree is $$8$$ and the constant term is $$-6$$."
+        },
+        {
+         "text": "**Result:** **Degree: 8, Constant Term: -6**."
+        }
+       ],
+       "answer": "Degree: 8, Constant Term: -6"
+      },
+      {
+       "id": "math11-u1-chk75",
+       "type": "check",
+       "title": "Quick check",
+       "page": 6,
+       "src": "study_notes",
+       "src_qid": "math_g11_c1_q5",
+       "q": "According to the Remainder Theorem, what is the remainder when $$P(x) = 2x^3 - 5x + 1$$ is divided by $$x - 2$$?",
+       "options": {
+        "A": "$$7$$",
+        "B": "$$-7$$",
+        "C": "$$17$$",
+        "D": "$$1$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Apply the Remainder Theorem**\nThe Remainder Theorem states that when a polynomial $$P(x)$$ is divided by $$(x - c)$$, the remainder is $$P(c)$$.\nHere, the divisor is $$x - 2$$, so $$c = 2$$.\n\n**Step 2: Evaluate $$P(2)$$**\n$$P(2) = 2(2)^3 - 5(2) + 1$$\n$$P(2) = 2(8) - 10 + 1$$\n$$P(2) = 16 - 10 + 1 = 7$$\n\n**Step 3: State the final result**\nThe remainder is $$7$$.\n**Result:** **$$7$$**."
+      },
+      {
+       "id": "math11-u1-wrk2",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 6,
+       "src": "study_notes",
+       "src_qid": "math_g11_c1_q5",
+       "problem": "According to the Remainder Theorem, what is the remainder when $$P(x) = 2x^3 - 5x + 1$$ is divided by $$x - 2$$?",
+       "steps": [
+        {
+         "text": "**Step 1: Apply the Remainder Theorem**"
+        },
+        {
+         "text": "The Remainder Theorem states that when a polynomial $$P(x)$$ is divided by $$(x - c)$$, the remainder is $$P(c)$$."
+        },
+        {
+         "text": "Here, the divisor is $$x - 2$$, so $$c = 2$$."
+        },
+        {
+         "text": "**Step 2: Evaluate $$P(2)$$**"
+        },
+        {
+         "text": "$$P(2) = 2(2)^3 - 5(2) + 1$$"
+        },
+        {
+         "text": "$$P(2) = 2(8) - 10 + 1$$"
+        },
+        {
+         "text": "$$P(2) = 16 - 10 + 1 = 7$$"
+        },
+        {
+         "text": "**Step 3: State the final result**"
+        },
+        {
+         "text": "The remainder is $$7$$."
+        },
+        {
+         "text": "**Result:** **$$7$$**."
+        }
+       ],
+       "answer": "$$7$$"
       },
       {
        "id": "math11-u1-c10",
@@ -214,7 +395,8 @@
          "Always works",
          "x = (−b ± √(b² − 4ac)) ÷ 2a"
         ]
-       ]
+       ],
+       "src": "notes"
       },
       {
        "id": "math11-u1-c11",
@@ -230,110 +412,8 @@
          "text": "x = (−3 ± 5) ÷ 4."
         }
        ],
-       "answer": "Check: 2(1/4) + 3/2 − 2 = 0 ✔."
-      },
-      {
-       "type": "worked",
-       "title": "End behaviour",
-       "page": "Odd degree + negative leading: left up, right down.",
-       "problem": "Describe ends of f(x)=−2x³+x.",
-       "steps": [
-        {
-         "text": "D"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "g"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "3"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "("
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "d"
-        },
-        {
-         "text": "d"
-        },
-        {
-         "text": ")"
-        },
-        {
-         "text": ","
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "d"
-        },
-        {
-         "text": "i"
-        },
-        {
-         "text": "n"
-        },
-        {
-         "text": "g"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "−"
-        },
-        {
-         "text": "2"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "<"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "0"
-        },
-        {
-         "text": "."
-        }
-       ],
-       "answer": "As x→∞, f→−∞; as x→−∞, f→∞.",
-       "id": "math11-u1-deep2"
+       "answer": "Check: 2(1/4) + 3/2 − 2 = 0 ✔.",
+       "src": "notes"
       },
       {
        "type": "worked",
@@ -349,18 +429,24 @@
        ],
        "answer": "Yes — (x−2) is a factor.",
        "id": "math11-u1-xtra2",
-       "page": 1
+       "page": 1,
+       "src": "notes"
       },
       {
-       "id": "math11-u1-misconception",
-       "type": "text",
-       "title": "Common mix-ups in Polynomial Function",
-       "page": 1,
-       "body": [
-        "Write one idea students often confuse with this topic, then the correct distinction.",
-        "Example pattern: “Looks like X, but actually Y because …”",
-        "Teaching the difference is better than re-reading the page."
-       ]
+       "id": "math11-u1-pc2",
+       "type": "check",
+       "title": "Practice",
+       "q": "Solve $$x^2 - 2x - 8 \\le 0$$.",
+       "options": {
+        "A": "$$x \\le -2$$ or $$x \\ge 4$$",
+        "B": "$$-2 \\le x \\le 4$$",
+        "C": "$$-4 \\le x \\le 2$$",
+        "D": "$$x \\le 4$$"
+       },
+       "answer": "B",
+       "why": "**Step 1:** Solve x² − 2x − 8 = 0: (x − 4)(x + 2) = 0, so x = −2 or x = 4.\n**Step 2:** The parabola opens upward (a = 1 > 0), so it is below or on the x-axis between the roots.\n**Step 3:** Test x = 0: −8 ≤ 0 ✔. Answer: −2 ≤ x ≤ 4 (closed ends because of ≤).",
+       "page": 6,
+       "src": "notes"
       }
      ]
     },
@@ -373,6 +459,195 @@
       40
      ],
      "cards": [
+      {
+       "id": "math11-u1-c03",
+       "type": "table",
+       "title": "Polynomials by degree",
+       "page": 30,
+       "src": "notes",
+       "head": [
+        "Degree",
+        "Name",
+        "Typical shape"
+       ],
+       "rows": [
+        [
+         "1",
+         "Linear",
+         "Straight line"
+        ],
+        [
+         "2",
+         "Quadratic",
+         "Parabola"
+        ],
+        [
+         "3",
+         "Cubic",
+         "S-ish, one inflection"
+        ]
+       ]
+      },
+      {
+       "id": "math11-u1-c04",
+       "type": "text",
+       "title": "Graphs of Quadratic Functions",
+       "page": 30,
+       "src": "notes",
+       "body": [
+        "**Even function:** f(−x)=f(x) — mirror in y-axis. **Odd:** f(−x)=−f(x) — rotate 180° about origin. x² is even; x³ is odd; x²+x is neither."
+       ]
+      },
+      {
+       "id": "math11-u1-c05",
+       "type": "mnemonic",
+       "title": "End behaviour",
+       "page": 30,
+       "src": "notes",
+       "body": [
+        "Even degree + positive leading → both ends up (smile). Odd degree + positive leading → left down, right up. Flip all of that if leading is negative."
+       ]
+      },
+      {
+       "id": "math11-u1-c06",
+       "type": "worked",
+       "title": "Worked — factor / zeros",
+       "page": 30,
+       "src": "notes",
+       "problem": "f(x)=x³−3x²−x+3. Find zeros if (x−1) is a factor.",
+       "steps": [
+        {
+         "text": "Synthetic / long divide by (x−1): x³−3x²−x+3 = (x−1)(x²−2x−3)."
+        },
+        {
+         "text": "x²−2x−3=(x−3)(x+1)."
+        },
+        {
+         "text": "Zeros: x=1, x=3, x=−1. Cross the x-axis at three points."
+        }
+       ],
+       "answer": "Zeros: x=1, x=3, x=−1. Cross the x-axis at three points.",
+       "mode": "show",
+       "reveal": "Steps"
+      },
+      {
+       "id": "math11-u1-chk76",
+       "type": "check",
+       "title": "Quick check",
+       "page": 30,
+       "src": "study_notes",
+       "src_qid": "math_g11_c1_q6",
+       "q": "For what value of $$k$$ is $$(x + 3)$$ a factor of the polynomial $$P(x) = x^3 + kx^2 - 10x - 2k$$?",
+       "options": {
+        "A": "$$k = -53/7$$",
+        "B": "$$k = -3/7$$",
+        "C": "$$k = 3$$",
+        "D": "$$k = -27/7$$"
+       },
+       "answer": "B",
+       "why": "**Step 1: Apply the Factor Theorem**\nAccording to the Factor Theorem, $$(x + 3)$$ is a factor of $$P(x)$$ if and only if $$P(-3) = 0$$.\n\n**Step 2: Setup the algebraic equation**\nSubstitute $$x = -3$$ into the polynomial:\n$$P(-3) = (-3)^3 + k(-3)^2 - 10(-3) - 2k = 0$$\n$$-27 + 9k + 30 - 2k = 0$$\n$$7k + 3 = 0$$\n\n**Step 3: Solve for $$k$$**\n$$7k = -3 \\implies k = -\\frac{3}{7}$$\n**Result:** **$$k = -3/7$$**."
+      },
+      {
+       "id": "math11-u1-wrk3",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 30,
+       "src": "study_notes",
+       "src_qid": "math_g11_c1_q6",
+       "problem": "For what value of $$k$$ is $$(x + 3)$$ a factor of the polynomial $$P(x) = x^3 + kx^2 - 10x - 2k$$?",
+       "steps": [
+        {
+         "text": "**Step 1: Apply the Factor Theorem**"
+        },
+        {
+         "text": "According to the Factor Theorem, $$(x + 3)$$ is a factor of $$P(x)$$ if and only if $$P(-3) = 0$$."
+        },
+        {
+         "text": "**Step 2: Setup the algebraic equation**"
+        },
+        {
+         "text": "Substitute $$x = -3$$ into the polynomial:"
+        },
+        {
+         "text": "$$P(-3) = (-3)^3 + k(-3)^2 - 10(-3) - 2k = 0$$"
+        },
+        {
+         "text": "$$-27 + 9k + 30 - 2k = 0$$"
+        },
+        {
+         "text": "**Step 3: Solve for $$k$$**"
+        },
+        {
+         "text": "$$7k = -3 \\implies k = -\\frac{3}{7}$$"
+        },
+        {
+         "text": "**Result:** **$$k = -3/7$$**."
+        }
+       ],
+       "answer": "$$k = -3/7$$"
+      },
+      {
+       "id": "math11-u1-chk77",
+       "type": "check",
+       "title": "Quick check",
+       "page": 30,
+       "src": "study_notes",
+       "src_qid": "math_g11_c1_q7",
+       "q": "Find the vertex of the parabola defined by the equation $$f(x) = -3x^2 + 12x - 5$$.",
+       "options": {
+        "A": "$$(2, 7)$$",
+        "B": "$$(2, -5)$$",
+        "C": "$$(-2, -41)$$",
+        "D": "$$(2, 19)$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Find the x-coordinate of the vertex**\nFor $$f(x) = -3x^2 + 12x - 5$$, the coefficients are $$a = -3$$, $$b = 12$$, and $$c = -5$$.\nThe x-coordinate is:\n$$h = -\\frac{b}{2a} = -\\frac{12}{2(-3)} = -\\frac{12}{-6} = 2$$\n\n**Step 2: Find the y-coordinate of the vertex**\nSubstitute $$x = 2$$ back into the function:\n$$k = f(2) = -3(2)^2 + 12(2) - 5$$\n$$k = -3(4) + 24 - 5$$\n$$k = -12 + 24 - 5 = 7$$\n\n**Step 3: State the vertex coordinates**\nThe vertex is located at $$(2, 7)$$.\n**Result:** **$$(2, 7)$$**."
+      },
+      {
+       "id": "math11-u1-wrk4",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 30,
+       "src": "study_notes",
+       "src_qid": "math_g11_c1_q7",
+       "problem": "Find the vertex of the parabola defined by the equation $$f(x) = -3x^2 + 12x - 5$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Find the x-coordinate of the vertex**"
+        },
+        {
+         "text": "For $$f(x) = -3x^2 + 12x - 5$$, the coefficients are $$a = -3$$, $$b = 12$$, and $$c = -5$$."
+        },
+        {
+         "text": "The x-coordinate is:"
+        },
+        {
+         "text": "$$h = -\\frac{b}{2a} = -\\frac{12}{2(-3)} = -\\frac{12}{-6} = 2$$"
+        },
+        {
+         "text": "**Step 2: Find the y-coordinate of the vertex**"
+        },
+        {
+         "text": "Substitute $$x = 2$$ back into the function:"
+        },
+        {
+         "text": "$$k = f(2) = -3(2)^2 + 12(2) - 5$$"
+        },
+        {
+         "text": "$$k = -3(4) + 24 - 5$$"
+        },
+        {
+         "text": "**Step 3: State the vertex coordinates**"
+        },
+        {
+         "text": "The vertex is located at $$(2, 7)$$."
+        },
+        {
+         "text": "**Result:** **$$(2, 7)$$**."
+        }
+       ],
+       "answer": "$$(2, 7)$$"
+      },
       {
        "id": "math11-u1-c13",
        "type": "worked",
@@ -387,54 +662,853 @@
          "text": "f(2) = 4 − 8 + 1 = −3, so the vertex is **(2, −3)**; axis x = 2."
         }
        ],
-       "answer": "Vertex form: f(x) = (x − 2)² − 3. Since a = 1 > 0 the minimum value is −3."
+       "answer": "Vertex form: f(x) = (x − 2)² − 3. Since a = 1 > 0 the minimum value is −3.",
+       "src": "notes"
       },
       {
-       "type": "table",
-       "title": "Quadratic forms",
-       "page": 1,
-       "head": [
-        "Form",
-        "Reads easily"
+       "id": "math11-u1-pc3",
+       "type": "check",
+       "title": "Practice",
+       "q": "What are the vertex and the maximum or minimum value of $$f(x) = -2(x - 1)^2 + 5$$?",
+       "options": {
+        "A": "Vertex (1, 5), maximum value 5",
+        "B": "Vertex (−1, 5), maximum value 5",
+        "C": "Vertex (1, 5), minimum value 5",
+        "D": "Vertex (1, −5), minimum value −5"
+       },
+       "answer": "A",
+       "why": "In vertex form a(x − h)² + k the vertex is (h, k) = (1, 5). Since a = −2 < 0 the parabola opens downward, so the vertex is the highest point: the **maximum** value is 5. Option B uses the wrong sign for h.",
+       "page": 30,
+       "src": "notes"
+      }
+     ]
+    },
+    {
+     "id": "math11-u1-l1-4",
+     "number": "1.4",
+     "title": "Polynomial Functions",
+     "pages": [
+      41,
+      61
+     ],
+     "cards": [
+      {
+       "id": "math11-u1-c08",
+       "type": "text",
+       "title": "1.4 Polynomial functions",
+       "page": 41,
+       "src": "notes",
+       "body": [
+        "A **polynomial function** of degree n is $$f(x) = a_nx^n + a_{n-1}x^{n-1} + \\dots + a_1x + a_0$$ with a_n ≠ 0 and n a whole number. a_n is the **leading coefficient**, a₀ the **constant term** (the y-intercept). Examples: f(x) = 4x³ − x + 2 (degree 3, cubic). Not polynomials: 1/x, √x, 2ˣ.",
+        "**Operations.** Add/subtract by collecting like terms; multiply by multiplying every term of one by every term of the other. The degree of a product is the sum of the degrees: (x² + 1)(x³ − 2) has degree 5 and constant term (1)(−2) = −2.",
+        "**Division algorithm:** dividing f(x) by d(x) gives a quotient q(x) and remainder r(x): f(x) = d(x)·q(x) + r(x), where r has smaller degree than d. Dividing by (x − c) is fastest with **synthetic division**: write c and the coefficients, bring down the first one, multiply by c, add to the next coefficient, and repeat.",
+        "**Remainder Theorem:** when f(x) is divided by (x − c), the remainder is f(c). Example: f(x) = 2x³ − 5x + 1 divided by (x − 2): remainder f(2) = 16 − 10 + 1 = 7.",
+        "**Factor Theorem:** (x − c) is a factor of f(x) exactly when f(c) = 0. Example: f(x) = x³ − 4x² + x + 6. f(2) = 8 − 16 + 2 + 6 = 0, so (x − 2) is a factor. Dividing gives x² − 2x − 3 = (x − 3)(x + 1), so f(x) = (x − 2)(x − 3)(x + 1) and the zeros are 2, 3 and −1.",
+        "**Rational Root Theorem:** if a polynomial with integer coefficients has a rational zero p/q (in lowest terms), then p divides the constant term and q divides the leading coefficient. So for x³ − 4x² + x + 6 the only possible rational zeros are ±1, ±2, ±3, ±6 — test them with the Factor Theorem.",
+        "**Graphs.** A polynomial of degree n has at most n real zeros and at most n − 1 turning points. At a zero of odd multiplicity the graph **crosses** the x-axis; at a zero of even multiplicity (e.g. (x − 1)²) it **touches and turns back**. **End behaviour** depends only on the leading term: even degree → both ends go the same way (up if a_n > 0); odd degree → the ends go opposite ways (left down, right up if a_n > 0)."
+       ]
+      },
+      {
+       "id": "math11-u1-chk78",
+       "type": "check",
+       "title": "Quick check",
+       "page": 41,
+       "src": "study_notes",
+       "src_qid": "math_g11_c1_q8",
+       "q": "What is the axis of symmetry of the graph of $$y = 2x^2 + 5x + 6$$?",
+       "options": {
+        "A": "$$x = -5/4$$",
+        "B": "$$x = 5/4$$",
+        "C": "$$x = -5/2$$",
+        "D": "$$y = -5/4$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Identify coefficients**\nIn the quadratic equation $$y = 2x^2 + 5x + 6$$, we have $$a = 2$$ and $$b = 5$$.\n\n**Step 2: Apply the axis of symmetry formula**\nThe vertical line of symmetry is given by the formula:\n$$x = -\\frac{b}{2a}$$\n$$x = -\\frac{5}{2(2)} = -\\frac{5}{4}$$\n\n**Step 3: State the equation**\nThe equation of the line of symmetry is $$x = -\\frac{5}{4}$$.\n**Result:** **$$x = -5/4$$**."
+      },
+      {
+       "id": "math11-u1-wrk5",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 41,
+       "src": "study_notes",
+       "src_qid": "math_g11_c1_q8",
+       "problem": "What is the axis of symmetry of the graph of $$y = 2x^2 + 5x + 6$$?",
+       "steps": [
+        {
+         "text": "**Step 1: Identify coefficients**"
+        },
+        {
+         "text": "In the quadratic equation $$y = 2x^2 + 5x + 6$$, we have $$a = 2$$ and $$b = 5$$."
+        },
+        {
+         "text": "**Step 2: Apply the axis of symmetry formula**"
+        },
+        {
+         "text": "The vertical line of symmetry is given by the formula:"
+        },
+        {
+         "text": "$$x = -\\frac{b}{2a}$$"
+        },
+        {
+         "text": "$$x = -\\frac{5}{2(2)} = -\\frac{5}{4}$$"
+        },
+        {
+         "text": "**Step 3: State the equation**"
+        },
+        {
+         "text": "The equation of the line of symmetry is $$x = -\\frac{5}{4}$$."
+        },
+        {
+         "text": "**Result:** **$$x = -5/4$$**."
+        }
        ],
-       "rows": [
-        [
-         "Standard ax²+bx+c",
-         "y-intercept c"
-        ],
-        [
-         "Vertex a(x−h)²+k",
-         "vertex (h,k)"
-        ],
-        [
-         "Factored a(x−r₁)(x−r₂)",
-         "roots r₁,r₂"
-        ]
+       "answer": "$$x = -5/4$$"
+      },
+      {
+       "id": "math11-u1-chk79",
+       "type": "check",
+       "title": "Quick check",
+       "page": 41,
+       "src": "study_notes",
+       "src_qid": "math_g11_c1_q9",
+       "q": "Solve the quadratic inequality $$x^2 - x - 12 > 0$$. Choose the correct solution set.",
+       "options": {
+        "A": "$$(-\\infty, -3) \\cup (4, \\infty)$$",
+        "B": "$$(-3, 4)$$",
+        "C": "$$(-\\infty, -4) \\cup (3, \\infty)$$",
+        "D": "$$[-3, 4]$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Find the critical values**\nSolve the equation $$x^2 - x - 12 = 0$$:\n$$(x - 4)(x + 3) = 0 \\implies x = 4 \\text{ or } x = -3$$\nThese roots divide the real line into three intervals: $$(-\\infty, -3)$$, $$(-3, 4)$$, and $$(4, \\infty)$$.\n\n**Step 2: Test sign in each interval**\n- For $$x \\in (-\\infty, -3)$$, choose $$x = -4$$:\n$$(-4 - 4)(-4 + 3) = (-8)(-1) = 8 > 0$$ (Satisfied)\n- For $$x \\in (-3, 4)$$, choose $$x = 0$$:\n$$(0 - 4)(0 + 3) = -12 < 0$$ (Not satisfied)\n- For $$x \\in (4, \\infty)$$, choose $$x = 5$$:\n$$(5 - 4)(5 + 3) = 8 > 0$$ (Satisfied)\n\n**Step 3: Combine intervals**\nThe solution set is $$(-\\infty, -3) \\cup (4, \\infty)$$.\n**Result:** **$$(-\\infty, -3) \\cup (4, \\infty)$$**."
+      },
+      {
+       "id": "math11-u1-wrk6",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 41,
+       "src": "study_notes",
+       "src_qid": "math_g11_c1_q9",
+       "problem": "Solve the quadratic inequality $$x^2 - x - 12 > 0$$. Choose the correct solution set.",
+       "steps": [
+        {
+         "text": "**Step 1: Find the critical values**"
+        },
+        {
+         "text": "Solve the equation $$x^2 - x - 12 = 0$$:"
+        },
+        {
+         "text": "$$(x - 4)(x + 3) = 0 \\implies x = 4 \\text{ or } x = -3$$"
+        },
+        {
+         "text": "These roots divide the real line into three intervals: $$(-\\infty, -3)$$, $$(-3, 4)$$, and $$(4, \\infty)$$."
+        },
+        {
+         "text": "**Step 2: Test sign in each interval**"
+        },
+        {
+         "text": "- For $$x \\in (-\\infty, -3)$$, choose $$x = -4$$:"
+        },
+        {
+         "text": "$$(-4 - 4)(-4 + 3) = (-8)(-1) = 8 > 0$$ (Satisfied)"
+        },
+        {
+         "text": "- For $$x \\in (-3, 4)$$, choose $$x = 0$$:"
+        },
+        {
+         "text": "**Step 3: Combine intervals**"
+        },
+        {
+         "text": "The solution set is $$(-\\infty, -3) \\cup (4, \\infty)$$."
+        },
+        {
+         "text": "**Result:** **$$(-\\infty, -3) \\cup (4, \\infty)$$**."
+        }
        ],
-       "id": "math11-u1-deep3"
+       "answer": "$$(-\\infty, -3) \\cup (4, \\infty)$$"
+      },
+      {
+       "id": "math11-u1-pc4",
+       "type": "check",
+       "title": "Practice",
+       "q": "Which is a factor of $$P(x) = x^3 - 2x^2 - 5x + 6$$?",
+       "options": {
+        "A": "$$x + 1$$",
+        "B": "$$x - 2$$",
+        "C": "$$x - 1$$",
+        "D": "$$x + 3$$"
+       },
+       "answer": "C",
+       "why": "**Factor Theorem:** (x − c) is a factor when P(c) = 0.\nP(1) = 1 − 2 − 5 + 6 = 0 ✔, so (x − 1) is a factor.\nCheck the others: P(−1) = −1 − 2 + 5 + 6 = 8, P(2) = 8 − 8 − 10 + 6 = −4, P(−3) = −27 − 18 + 15 + 6 = −24. (In fact P(x) = (x − 1)(x + 2)(x − 3).)",
+       "page": 41,
+       "src": "notes"
+      },
+      {
+       "id": "math11-u1-mn4",
+       "type": "mnemonic",
+       "title": "Remainder and factor: \"plug in c\"",
+       "body": [
+        "To divide by (x − c), **plug in c**: the answer P(c) is the remainder. **Remainder 0 ⇒ factor.**",
+        "Careful with the sign: dividing by (x + 3) means c = −3."
+       ],
+       "page": 41,
+       "src": "notes"
       }
      ]
     }
    ],
-   "glossary": [
-    {
-     "term": "Polynomial",
-     "def": "Core topic of this unit — expand with your textbook definition for “Polynomial Function”."
-    }
-   ],
+   "glossary": [],
    "tips": [
     {
-     "id": "math11-u1-deeptip1",
-     "text": "Complete the square to move between standard and vertex form."
+     "text": "Read 1.1 Representation of Quadratic Functions again and say its main idea in one sentence.",
+     "page": 1
     }
    ],
-   "games": [],
+   "games": [
+    {
+     "type": "match",
+     "title": "Match the pairs",
+     "pairs": [
+      {
+       "a": "Even f",
+       "b": "Mirror in y-axis"
+      },
+      {
+       "a": "Hole",
+       "b": "Cancelled factor"
+      },
+      {
+       "a": "log a a",
+       "b": "1"
+      },
+      {
+       "a": "k²",
+       "b": "Area scale"
+      },
+      {
+       "a": "I=Prt",
+       "b": "Simple interest"
+      }
+     ],
+     "src": "notes",
+     "id": "math11-u1-g1",
+     "lesson": null
+    },
+    {
+     "type": "match",
+     "title": "Match each answer to its question",
+     "pairs": [
+      {
+       "a": "3",
+       "b": "log₂8 ="
+      },
+      {
+       "a": "5.",
+       "b": "Even f and f(3)=5. f(-3)?"
+      },
+      {
+       "a": "k²",
+       "b": "Lengths scale by k. Areas scale by"
+      },
+      {
+       "a": "-5.",
+       "b": "Odd f and f(3)=5. f(-3)?"
+      },
+      {
+       "a": "400",
+       "b": "Simple interest two years at 10% on 2000 is"
+      },
+      {
+       "a": "x=3.",
+       "b": "Axis of y=x^2-6x+5"
+      }
+     ],
+     "src": "notes",
+     "id": "math11-u1-g2",
+     "lesson": null
+    }
+   ],
    "exercise": {
     "questions": [
      {
-      "id": "math11-u1-q31",
-      "type": "mcq",
+      "type": "short",
+      "q": "f(x)=2x+3 even, odd, or neither?",
+      "answer": "f(-x)=-2x+3. Not equal to f and not equal to -f. Neither.",
+      "why": [
+       "f(-x)=-2x+3. Not equal to f and not equal to -f. Neither."
+      ],
+      "src": "notes",
+      "label": "1. f(x)=2x+3 even, odd, or neither?",
       "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "The minimum value of the function given by f(x) = −2x² − 5x + 3 is equal to  A) 49/8  B) −5/4  C) 7  D) −49/8  E) −5/2",
+        "a": "A. 49/8 — The extreme (maximum) value is 49/8. The paper says 'minimum' – the intended answer is 49/8. Answer: A.",
+        "exam_question": "math-2018-matric-p1-q33"
+       }
+      ],
+      "id": "math11-u1-q01"
+     },
+     {
+      "type": "short",
+      "q": "End behaviour of -x^4+x",
+      "answer": "Even degree, negative leading coefficient → both ends down.",
+      "why": [
+       "Even degree, negative leading coefficient → both ends down."
+      ],
+      "src": "notes",
+      "label": "2. End behaviour of -x^4+x",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "End behaviour of 5x^3-x",
+        "a": "Odd degree, positive leading → left down, right up."
+       }
+      ],
+      "id": "math11-u1-q02"
+     },
+     {
+      "type": "short",
+      "q": "End behaviour of 5x^3-x",
+      "answer": "Odd degree, positive leading → left down, right up.",
+      "why": [
+       "Odd degree, positive leading → left down, right up."
+      ],
+      "src": "notes",
+      "label": "3. End behaviour of 5x^3-x",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Zeros of (x-2)(x+1)(x-4)",
+        "a": "x=2, x=-1, x=4."
+       }
+      ],
+      "id": "math11-u1-q03"
+     },
+     {
+      "type": "short",
+      "q": "Zeros of (x-2)(x+1)(x-4)",
+      "answer": "x=2, x=-1, x=4.",
+      "why": [
+       "x=2, x=-1, x=4."
+      ],
+      "src": "notes",
+      "label": "4. Zeros of (x-2)(x+1)(x-4)",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Degree and leading coefficient of 7-4x^2+x^5",
+        "a": "Degree 5, leading coefficient 1."
+       }
+      ],
+      "id": "math11-u1-q04"
+     },
+     {
+      "type": "short",
+      "q": "Degree and leading coefficient of 7-4x^2+x^5",
+      "answer": "Degree 5, leading coefficient 1.",
+      "why": [
+       "Degree 5, leading coefficient 1."
+      ],
+      "src": "notes",
+      "label": "5. Degree and leading coefficient of 7-4x^2+x^5",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Divide x^3-6x^2+11x-6 by x-1",
+        "a": "Synthetic division gives x^2-5x+6=(x-2)(x-3). Zeros 1,2,3."
+       }
+      ],
+      "id": "math11-u1-q05"
+     },
+     {
+      "type": "short",
+      "q": "Divide x^3-6x^2+11x-6 by x-1",
+      "answer": "Synthetic division gives x^2-5x+6=(x-2)(x-3). Zeros 1,2,3.",
+      "why": [
+       "Synthetic division gives x^2-5x+6=(x-2)(x-3). Zeros 1,2,3."
+      ],
+      "src": "notes",
+      "label": "6. Divide x^3-6x^2+11x-6 by x-1",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "y-intercept of 2x^3-5x+8",
+        "a": "f(0)=8."
+       }
+      ],
+      "id": "math11-u1-q06"
+     },
+     {
+      "type": "short",
+      "q": "y-intercept of 2x^3-5x+8",
+      "answer": "f(0)=8.",
+      "why": [
+       "f(0)=8."
+      ],
+      "src": "notes",
+      "label": "7. y-intercept of 2x^3-5x+8",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Is x^4+1 even?",
+        "a": "f(-x)=x^4+1=f(x). Yes."
+       }
+      ],
+      "id": "math11-u1-q07"
+     },
+     {
+      "type": "short",
+      "q": "Is x^4+1 even?",
+      "answer": "f(-x)=x^4+1=f(x). Yes.",
+      "why": [
+       "f(-x)=x^4+1=f(x). Yes."
+      ],
+      "src": "notes",
+      "label": "8. Is x^4+1 even?",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Is 2x^3-x odd?",
+        "a": "f(-x)=-2x^3+x=-(2x^3-x). Yes."
+       }
+      ],
+      "id": "math11-u1-q08"
+     },
+     {
+      "type": "short",
+      "q": "Is 2x^3-x odd?",
+      "answer": "f(-x)=-2x^3+x=-(2x^3-x). Yes.",
+      "why": [
+       "f(-x)=-2x^3+x=-(2x^3-x). Yes."
+      ],
+      "src": "notes",
+      "label": "9. Is 2x^3-x odd?",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Maximum turning points of a cubic",
+        "a": "At most 2."
+       }
+      ],
+      "id": "math11-u1-q09"
+     },
+     {
+      "type": "short",
+      "q": "Maximum turning points of a cubic",
+      "answer": "At most 2.",
+      "why": [
+       "At most 2."
+      ],
+      "src": "notes",
+      "label": "10. Maximum turning points of a cubic",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Shape of y=(x+2)^2",
+        "a": "Parabola, vertex (-2,0), opens upward."
+       }
+      ],
+      "id": "math11-u1-q10"
+     },
+     {
+      "type": "short",
+      "q": "Shape of y=(x+2)^2",
+      "answer": "Parabola, vertex (-2,0), opens upward.",
+      "why": [
+       "Parabola, vertex (-2,0), opens upward."
+      ],
+      "src": "notes",
+      "label": "11. Shape of y=(x+2)^2",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Factor x^2-9",
+        "a": "(x-3)(x+3)."
+       }
+      ],
+      "id": "math11-u1-q11"
+     },
+     {
+      "type": "short",
+      "q": "Factor x^2-9",
+      "answer": "(x-3)(x+3).",
+      "why": [
+       "(x-3)(x+3)."
+      ],
+      "src": "notes",
+      "label": "12. Factor x^2-9",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Let x + 2 be a factor of f(x) = x³ + 3x² + kx − 2. Then the remainder when f(x) is divided by x − 3 is  A) 27.  B) 54.  C) 55.  D) 59.  E) 64.",
+        "a": "C. 55. — Remainder theorem: f(3) = 27 + 27 + 3 − 2 = 55. Answer: C.",
+        "exam_question": "math-2019-matric-p1-q15"
+       }
+      ],
+      "id": "math11-u1-q12"
+     },
+     {
+      "type": "short",
+      "q": "Remainder of x^3+1 divided by x+1",
+      "answer": "f(-1)=-1+1=0. Factor, remainder 0.",
+      "why": [
+       "f(-1)=-1+1=0. Factor, remainder 0."
+      ],
+      "src": "notes",
+      "label": "13. Remainder of x^3+1 divided by x+1",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "If f(x) = (x − 1)(x − 2)(x − 3), then the remainder when f(x) is divided by x − 4 is  A) 9.  B) 24.  C) 12.  D) 6.  E) −210.",
+        "a": "D. 6. — f(4) = (4 − 1)(4 − 2)(4 − 3) = 3 × 2 × 1 = 6. Answer: D.",
+        "exam_question": "math-2020-matric-p1-q07"
+       }
+      ],
+      "id": "math11-u1-q13"
+     },
+     {
+      "type": "short",
+      "q": "Sum of zeros of x^2-5x+6",
+      "answer": "2+3=5 (also -b/a=5).",
+      "why": [
+       "2+3=5 (also -b/a=5)."
+      ],
+      "src": "notes",
+      "label": "14. Sum of zeros of x^2-5x+6",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "If the sum of the squares of the roots of x² + px − 3 = 0 is 10, then p = ______.  A) ±3  B) ±5  C) ±6  D) ±2  E) ±4",
+        "a": "D. ±2 — r² + s² = (r + s)² − 2rs = p² + 6 = 10 → p² = 4 → p = ±2. Answer: D.",
+        "exam_question": "math-2021-matric-p1-q16"
+       }
+      ],
+      "id": "math11-u1-q14"
+     },
+     {
+      "type": "short",
+      "q": "Product of zeros of x^2-5x+6",
+      "answer": "c/a=6.",
+      "why": [
+       "c/a=6."
+      ],
+      "src": "notes",
+      "label": "15. Product of zeros of x^2-5x+6",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "f(x)=x(x-1)(x-2). Find f(3)",
+        "a": "3×2×1=6."
+       }
+      ],
+      "id": "math11-u1-q15"
+     },
+     {
+      "type": "short",
+      "q": "f(x)=x(x-1)(x-2). Find f(3)",
+      "answer": "3×2×1=6.",
+      "why": [
+       "3×2×1=6."
+      ],
+      "src": "notes",
+      "label": "16. f(x)=x(x-1)(x-2). Find f(3)",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Line through (0,4) slope -2",
+        "a": "y=-2x+4."
+       }
+      ],
+      "id": "math11-u1-q16"
+     },
+     {
+      "type": "short",
+      "q": "Line through (0,4) slope -2",
+      "answer": "y=-2x+4.",
+      "why": [
+       "y=-2x+4."
+      ],
+      "src": "notes",
+      "label": "17. Line through (0,4) slope -2",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Discriminant of x^2-4x+4",
+        "a": "16-16=0 → one real zero x=2."
+       }
+      ],
+      "id": "math11-u1-q17"
+     },
+     {
+      "type": "short",
+      "q": "Discriminant of x^2-4x+4",
+      "answer": "16-16=0 → one real zero x=2.",
+      "why": [
+       "16-16=0 → one real zero x=2."
+      ],
+      "src": "notes",
+      "label": "18. Discriminant of x^2-4x+4",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "If 8 and 2 are the roots (solutions) of x² + bx + c = 0 and 3 is the only root of x² + dx + e = 0, where b, c, d and e are real numbers, then the roots of x² + bx + e = 0 are  A) 1 and 9  B) −1 and −9  C) 9 and −1  D) 9 and −2  E) 2 and 9",
+        "a": "A. 1 and 9 — x² + bx + e = x² − 10x + 9 = (x − 1)(x − 9) = 0 ⇒ x = 1 or 9. Answer: A.",
+        "exam_question": "math-2018-matric-p1-q23"
+       }
+      ],
+      "id": "math11-u1-q18"
+     },
+     {
+      "type": "short",
+      "q": "Discriminant of x^2+x+1",
+      "answer": "1-4=-3 → no real zeros.",
+      "why": [
+       "1-4=-3 → no real zeros."
+      ],
+      "src": "notes",
+      "label": "19. Discriminant of x^2+x+1",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "The solution of the quadratic inequality x² − 6x + 12 ≥ 0 is  A) {x | x ≥ 3}  B) {x | x ≤ 3}  C) The set of all real numbers.  D) {x | x ≥ 12}  E) {x | x ≥ 0}",
+        "a": "C. The set of all real numbers. — So the inequality holds for all real numbers. Answer: C.",
+        "exam_question": "math-2018-matric-p1-q28"
+       }
+      ],
+      "id": "math11-u1-q19"
+     },
+     {
+      "type": "short",
+      "q": "Monic cubic with zeros -1,0,2",
+      "answer": "x(x+1)(x-2)=x^3-x^2-2x.",
+      "why": [
+       "x(x+1)(x-2)=x^3-x^2-2x."
+      ],
+      "src": "notes",
+      "label": "20. Monic cubic with zeros -1,0,2",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Leading term of (2x-1)(x+3)(x-4)",
+        "a": "2x·x·x=2x^3."
+       }
+      ],
+      "id": "math11-u1-q20"
+     },
+     {
+      "type": "short",
+      "q": "Leading term of (2x-1)(x+3)(x-4)",
+      "answer": "2x·x·x=2x^3.",
+      "why": [
+       "2x·x·x=2x^3."
+      ],
+      "src": "notes",
+      "label": "21. Leading term of (2x-1)(x+3)(x-4)",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Even f and f(3)=5. f(-3)?",
+        "a": "5."
+       }
+      ],
+      "id": "math11-u1-q21"
+     },
+     {
+      "type": "short",
+      "q": "Even f and f(3)=5. f(-3)?",
+      "answer": "5.",
+      "why": [
+       "5."
+      ],
+      "src": "notes",
+      "label": "22. Even f and f(3)=5. f(-3)?",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Odd f and f(3)=5. f(-3)?",
+        "a": "-5."
+       }
+      ],
+      "id": "math11-u1-q22"
+     },
+     {
+      "type": "short",
+      "q": "Odd f and f(3)=5. f(-3)?",
+      "answer": "-5.",
+      "why": [
+       "-5."
+      ],
+      "src": "notes",
+      "label": "23. Odd f and f(3)=5. f(-3)?",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Constant 7: even or odd?",
+        "a": "Even (f(-x)=7=f(x)). Only the zero function is both."
+       }
+      ],
+      "id": "math11-u1-q23"
+     },
+     {
+      "type": "short",
+      "q": "Constant 7: even or odd?",
+      "answer": "Even (f(-x)=7=f(x)). Only the zero function is both.",
+      "why": [
+       "Even (f(-x)=7=f(x)). Only the zero function is both."
+      ],
+      "src": "notes",
+      "label": "24. Constant 7: even or odd?",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Let f(x) = ax² + bx + c be a quadratic function. If f(1) = 6, f(0) = 1 and f(−1) = 0, then the quadratic function is given by  A) f(x) = 2x² + 4.  B) f(x) = 2x² + 1.  C) f(x) = 2x² + 3x + 1.  D) f(x) = 2x² − x − 3.  E) f(x) = 2x² + 3x − 1.",
+        "a": "C. f(x) = 2x² + 3x + 1. — a = 2, b = 3 → f(x) = 2x² + 3x + 1. Answer: C.",
+        "exam_question": "math-2019-matric-p1-q13"
+       }
+      ],
+      "id": "math11-u1-q24"
+     },
+     {
+      "type": "short",
+      "q": "Expand (x-1)^3",
+      "answer": "x^3-3x^2+3x-1.",
+      "why": [
+       "x^3-3x^2+3x-1."
+      ],
+      "src": "notes",
+      "label": "25. Expand (x-1)^3",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "2x^2-3x+1 at x=2",
+        "a": "8-6+1=3."
+       }
+      ],
+      "id": "math11-u1-q25"
+     },
+     {
+      "type": "short",
+      "q": "2x^2-3x+1 at x=2",
+      "answer": "8-6+1=3.",
+      "why": [
+       "8-6+1=3."
+      ],
+      "src": "notes",
+      "label": "26. 2x^2-3x+1 at x=2",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Axis of y=x^2-6x+5",
+        "a": "x=3."
+       }
+      ],
+      "id": "math11-u1-q26"
+     },
+     {
+      "type": "short",
+      "q": "Axis of y=x^2-6x+5",
+      "answer": "x=3.",
+      "why": [
+       "x=3."
+      ],
+      "src": "notes",
+      "label": "27. Axis of y=x^2-6x+5",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Vertex of y=x^2-6x+5",
+        "a": "(3,-4)."
+       }
+      ],
+      "id": "math11-u1-q27"
+     },
+     {
+      "type": "short",
+      "q": "Vertex of y=x^2-6x+5",
+      "answer": "(3,-4).",
+      "why": [
+       "(3,-4)."
+      ],
+      "src": "notes",
+      "label": "28. Vertex of y=x^2-6x+5",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Minimum of x^2+4x+7",
+        "a": "(x+2)^2+3 so minimum value 3."
+       }
+      ],
+      "id": "math11-u1-q28"
+     },
+     {
+      "type": "short",
+      "q": "Minimum of x^2+4x+7",
+      "answer": "(x+2)^2+3 so minimum value 3.",
+      "why": [
+       "(x+2)^2+3 so minimum value 3."
+      ],
+      "src": "notes",
+      "label": "29. Minimum of x^2+4x+7",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "What is the value of k, if x − 1 is a factor of P(x) = 4x³ + 3x² − 4x + k?  A) −2  B) 3  C) 2  D) 1  E) −3",
+        "a": "E. −3 — P(1) = 4 + 3 − 4 + k = 3 + k = 0 → k = −3. Answer: E.",
+        "exam_question": "math-2021-matric-p1-q07"
+       }
+      ],
+      "id": "math11-u1-q29"
+     },
+     {
+      "type": "short",
+      "q": "Degree 4, leading positive, x→∞",
+      "answer": "f(x)→+∞.",
+      "why": [
+       "f(x)→+∞."
+      ],
+      "src": "notes",
+      "label": "30. Degree 4, leading positive, x→∞",
+      "page": 1,
+      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "similar": [
+       {
+        "q": "Odd function means  A) f(−x)=f(x)  B) Always a parabola  C) f(−x)=−f(x)  D) No real graph",
+        "a": "C. f(−x)=−f(x)"
+       }
+      ],
+      "id": "math11-u1-q30"
+     },
+     {
+      "type": "mcq",
       "q": "Odd function means",
       "options": {
        "A": "f(−x)=f(x)",
@@ -446,13 +1520,20 @@
       "why": [
        "Answer C: f(−x)=−f(x)"
       ],
+      "src": "notes",
+      "page": 1,
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "After cancelling (x−1) in (x²−1)/(x−1) you still mark  A) A vertical asymptote at x=1  B) A hole at x=1  C) No restriction  D) y=0 only",
+        "a": "B. A hole at x=1"
+       }
+      ],
+      "id": "math11-u1-q31",
+      "section": "Mini-game · match · Quiz"
      },
      {
-      "id": "math11-u1-q32",
       "type": "mcq",
-      "page": 1,
       "q": "After cancelling (x−1) in (x²−1)/(x−1) you still mark",
       "options": {
        "A": "A vertical asymptote at x=1",
@@ -464,8 +1545,88 @@
       "why": [
        "Answer B: A hole at x=1"
       ],
+      "src": "notes",
+      "page": 1,
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "log₂8 =  A) 8  B) 16  C) 1/3  D) 3",
+        "a": "D. 3"
+       }
+      ],
+      "id": "math11-u1-q32"
+     },
+     {
+      "type": "mcq",
+      "q": "log₂8 =",
+      "options": {
+       "A": "8",
+       "B": "16",
+       "C": "1/3",
+       "D": "3"
+      },
+      "answer": "D",
+      "why": [
+       "Answer D: 3"
+      ],
+      "src": "notes",
+      "page": 1,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "Lengths scale by k. Areas scale by  A) k  B) k²  C) k³  D) 1/k",
+        "a": "B. k²"
+       }
+      ],
+      "id": "math11-u1-q33"
+     },
+     {
+      "type": "mcq",
+      "q": "Lengths scale by k. Areas scale by",
+      "options": {
+       "A": "k",
+       "B": "k²",
+       "C": "k³",
+       "D": "1/k"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: k²"
+      ],
+      "src": "notes",
+      "page": 1,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "Simple interest two years at 10% on 2000 is  A) 400  B) 2000  C) 20  D) 2420",
+        "a": "A. 400"
+       }
+      ],
+      "id": "math11-u1-q34"
+     },
+     {
+      "type": "mcq",
+      "q": "Simple interest two years at 10% on 2000 is",
+      "options": {
+       "A": "400",
+       "B": "2000",
+       "C": "20",
+       "D": "2420"
+      },
+      "answer": "A",
+      "why": [
+       "Answer A: 400"
+      ],
+      "src": "notes",
+      "page": 1,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "f(x)=2x+3 even, odd, or neither?",
+        "a": "f(-x)=-2x+3. Not equal to f and not equal to -f. Neither."
+       }
+      ],
+      "id": "math11-u1-q35"
      },
      {
       "id": "math11-u1-xq1",
@@ -504,6 +1665,97 @@
       "similar": []
      }
     ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Polynomial Function",
+      "kind": "unit",
+      "cards": [
+       "math11-u1-c01"
+      ]
+     },
+     {
+      "id": "l1_1",
+      "label": "Representation of Quadratic…",
+      "kind": "topic",
+      "lesson": "math11-u1-l1-1",
+      "cards": [
+       "math11-u1-c01"
+      ]
+     },
+     {
+      "id": "l1_2",
+      "label": "Simplifying and Solving Quadratic…",
+      "kind": "topic",
+      "lesson": "math11-u1-l1-2",
+      "cards": [
+       "math11-u1-c02"
+      ]
+     },
+     {
+      "id": "l1_3",
+      "label": "Graphs of Quadratic Functions",
+      "kind": "topic",
+      "lesson": "math11-u1-l1-3",
+      "cards": [
+       "math11-u1-c03",
+       "math11-u1-c04",
+       "math11-u1-c05",
+       "math11-u1-c06",
+       "math11-u1-c07"
+      ]
+     },
+     {
+      "id": "l1_4",
+      "label": "Polynomial Functions",
+      "kind": "topic",
+      "lesson": "math11-u1-l1-4",
+      "cards": [
+       "math11-u1-c08"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l1_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l1_2",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l1_3",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l1_4",
+      "label": "includes"
+     },
+     {
+      "from": "l1_1",
+      "to": "l1_2",
+      "label": "next"
+     },
+     {
+      "from": "l1_2",
+      "to": "l1_3",
+      "label": "next"
+     },
+     {
+      "from": "l1_3",
+      "to": "l1_4",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
    }
   }
  ]

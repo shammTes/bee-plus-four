@@ -119,6 +119,14 @@
    "tone": "peach",
    "intro": "Crops do not grow on hope. They grow on **soil + climate + water + living things**.",
    "intro_page": 38,
+   "diagrams": {
+    "f1": {
+     "svg": "svg/agriculture_11/agri11_f1.svg",
+     "title": "If you strip the green cover, the brown walks downhill at the next storm.",
+     "page": 38,
+     "pins": []
+    }
+   },
    "lessons": [
     {
      "id": "agri11-u2-l2-1",
@@ -130,13 +138,26 @@
      ],
      "cards": [
       {
+       "id": "agri11-u2-c01",
+       "type": "diagram",
+       "title": "If you strip the green cover, the brown walks downhill at the next storm.",
+       "page": 38,
+       "src": "notes",
+       "diagram": "f1",
+       "mode": "plain"
+      },
+      {
        "id": "agri11-u2-c02",
        "type": "text",
        "title": "2.1.1 Temperature",
        "page": 40,
+       "src": "textbook p.40",
+       "enriched": true,
        "body": [
         "Temperature is one of the most important climatic factors affecting the distribution and abundance of plants and animals.",
-        "Temperature is a significant factor as both low and high temperature ranges limit plant and animal growth and development."
+        "Temperature is a significant factor as both low and high temperature ranges limit plant and animal growth and development.",
+        "Several parameters are used to delineate and describe geographical areas within the same climate.",
+        "Isotherms (e.g. the yearly isotherms) are the lines connecting the locations with the same mean yearly temperature of 20 °C or a yearly isotherm of 25 °C."
        ]
       },
       {
@@ -144,9 +165,12 @@
        "type": "text",
        "title": "2.1.2 Relative Humidity",
        "page": 41,
+       "src": "textbook pp.41–42",
+       "enriched": true,
        "body": [
         "Relative humidity is the measure of the amount of atmospheric moisture in relation to saturated air.",
-        "Temperature also affects relative humidity."
+        "Temperature also affects relative humidity.",
+        "Explain the importance of light for a plant."
        ]
       },
       {
@@ -154,41 +178,208 @@
        "type": "text",
        "title": "2.1.3 Rainfall",
        "page": 42,
+       "src": "textbook p.42",
+       "enriched": true,
        "body": [
         "Water is essential for all crops and livestock and forms an integral part of all living systems.",
-        "Water is important because it is a major force in shaping climatic patterns."
+        "Water is important because it is a major force in shaping climatic patterns.",
+        "Water stress can vary in degree from a small decrease in water potential to a lethal limit of desiccation.",
+        "Temperature and precipitation act together to affect the physiological and ecological status of plants."
        ]
       },
       {
+       "id": "agri11-u2-c05",
        "type": "text",
-       "title": "Natural resource base",
-       "page": 1,
+       "title": "2.1.4 Solar Radiation",
+       "page": 42,
+       "src": "textbook p.42",
+       "enriched": true,
        "body": [
-        "Soil, water, climate, vegetation, biodiversity underpin farming.",
-        "Degradation: erosion, salinisation, overgrazing — prevent with cover, terraces, rotation."
-       ],
-       "id": "agri11-u2-deep1"
-      },
-      {
-       "type": "text",
-       "title": "Sustainable use",
-       "body": [
-        "Renewable vs non-renewable. Overuse today costs tomorrow.",
-        "Agroforestry and soil cover protect resources."
-       ],
-       "id": "agri11-u2-xtra1",
-       "page": 1
-      },
-      {
-       "id": "agri11-u2-checklist",
-       "type": "text",
-       "title": "Natural Resource Base: checklist before exam",
-       "page": 1,
-       "body": [
-        "Can you define every bold term in **Natural Resource Base** without looking?",
-        "Can you redo each worked example with the answer covered?",
-        "Can you sketch one diagram/graph/map and label it in under 2 minutes?"
+        "Solar radiation consists of a range of electromagnetic spectra including radiowaves, ultraviolet (UV) rays, visible light, X-rays and gamma rays.",
+        "The components have different level of energy.",
+        "When electromagnetic energy is strikes any given surface, three fundamental energy interactions are possible: reflection, absorption and transmission.",
+        "A fraction of the radiant energy is reflected, absorbed and/or transmitted."
        ]
+      },
+      {
+       "id": "agri11-u2-c06",
+       "type": "text",
+       "title": "2.1.5 Light",
+       "page": 42,
+       "src": "textbook p.42",
+       "enriched": true,
+       "body": [
+        "Changes in day length or photoperiod regulate the phenological development (germination up to seed setting) of crops and rangelands."
+       ]
+      },
+      {
+       "id": "agri11-u2-c07",
+       "type": "text",
+       "title": "2.1.6 Topography",
+       "page": 43,
+       "src": "textbook p.43",
+       "enriched": true,
+       "body": [
+        "Topography refers to a relief feature of land.",
+        "Topography determines the amount of light absorbed, wind speed, direction and rainfall.",
+        "Soils on slopes and hilltops are eroded and deposited in the valleys, hence, the soils in the valleys are richer and deeper than those on the slopes.",
+        "Because of this, these lands are generally suitable for cultivation."
+       ]
+      },
+      {
+       "id": "agri11-u2-enrich-steps",
+       "type": "remember",
+       "title": "Study steps",
+       "page": 38,
+       "src": "notes",
+       "body": [
+        "1. Read the key definition cards once without notes.",
+        "2. Cover the examples and say the rule in your own words.",
+        "3. Do the unit exercise; check each why-step before the next question.",
+        "4. Replay the match game until you can finish it without peeking."
+       ]
+      },
+      {
+       "id": "agri11-u2-tbl1",
+       "type": "table",
+       "title": "Key table",
+       "page": 1,
+       "src": "study_notes",
+       "head": [
+        "Meteorological Instrument",
+        "Climate Element Measured",
+        "Standard Unit of Measurement",
+        "Practical Agricultural Value"
+       ],
+       "rows": [
+        [
+         "**Standard Rain Gauge**",
+         "Precipitation (Rainfall)",
+         "Millimeters ($$\\text{mm}$$)",
+         "Determines crop planting dates and water availability"
+        ],
+        [
+         "**Digital Thermometer**",
+         "Temperature",
+         "Degrees Celsius ($$^\\circ\\text{C}$$)",
+         "Identifies frost risks and crop growth thresholds"
+        ],
+        [
+         "**Thermo-hygrograph**",
+         "Temperature & Relative Humidity",
+         "$^\\circ\\text{C}$$ and Percentage ($$\\%$$)",
+         "Predicts disease outbreaks (e.g., downy mildew)"
+        ],
+        [
+         "**Anemometer**",
+         "Wind Speed",
+         "Meters per second ($$\\text{m/s}$$) or Knots",
+         "Evaluates soil erosion risk and crop lodging hazards"
+        ],
+        [
+         "**Evaporation Pan**",
+         "Evaporation Rate",
+         "Millimeters ($$\\text{mm}$$)",
+         "Calculates irrigation water requirements"
+        ]
+       ]
+      },
+      {
+       "id": "agri11-u2-wrk1",
+       "type": "worked",
+       "title": "Worked from review",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "Which meteorological instrument is used to continuously and simultaneously record both ambient temperature and relative humidity?",
+       "steps": [
+        {
+         "text": "**Reasoning**"
+        },
+        {
+         "text": "A thermo-hygrograph is a specialized meteorological instrument designed to record both temperature (thermo) and relative humidity (hygro) continuously and simultaneously on a single rotating chart."
+        },
+        {
+         "text": "**Conclusion**"
+        },
+        {
+         "text": "Therefore, the correct answer is **Thermo-hygrograph**."
+        }
+       ],
+       "answer": "Thermo-hygrograph"
+      },
+      {
+       "id": "agri11-u2-wrk2",
+       "type": "worked",
+       "title": "Worked from review",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "The scientific study of soil properties specifically in relation to plant growth and crop production is called:",
+       "steps": [
+        {
+         "text": "**Reasoning**"
+        },
+        {
+         "text": "While pedology is the study of soil origin, classification, and description, edaphology is the study of soil properties in relation to plant growth, crop production, and agricultural management."
+        },
+        {
+         "text": "**Conclusion**"
+        },
+        {
+         "text": "Thus, this branch of soil science is **Edaphology**."
+        }
+       ],
+       "answer": "Edaphology"
+      },
+      {
+       "id": "agri11-u2-chk1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Under standard soil profile classification, which horizon is known as the zone of accumulation or illuviation of clays and oxides?",
+       "options": {
+        "A": "O-horizon",
+        "B": "A-horizon",
+        "C": "B-horizon",
+        "D": "C-horizon",
+        "E": "R-horizon"
+       },
+       "answer": "C",
+       "why": "**Reasoning**\nThe B-horizon (subsoil) is characterized as the zone of accumulation (illuviation), where fine silicate clays, iron, aluminum, or organic matter washed down from the overlying A-horizon accumulate.\n\n**Conclusion**\nTherefore, the zone of accumulation is the **B-horizon**."
+      },
+      {
+       "id": "agri11-u2-chk2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "What is the average volume composition of mineral solids in a loam surface soil under ideal conditions for crop growth?",
+       "options": {
+        "A": "$$5\\%$$",
+        "B": "$$25\\%$$",
+        "C": "$$45\\%$$",
+        "D": "$$50\\%$$",
+        "E": "$$80\\%$$"
+       },
+       "answer": "C",
+       "why": "**Reasoning**\nBy volume, an ideal loam surface soil contains $$45\\%$$ mineral solids, $$5\\%$$ organic matter, and approximately $$25\\%$$ air and $$25\\%$$ water.\n\n**Conclusion**\nThus, the volume share of mineral solids is **$$45\\%$$**."
+      },
+      {
+       "id": "agri11-u2-chkM3",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "The scientific study of soil properties specifically in relation to plant growth and crop production is called:",
+       "options": {
+        "A": "Pedology",
+        "B": "Edaphology",
+        "C": "Geology",
+        "D": "Meteorology",
+        "E": "Agronomy"
+       },
+       "answer": "B",
+       "why": "**Reasoning**\nWhile pedology is the study of soil origin, classification, and description, edaphology is the study of soil properties in relation to plant growth, crop production, and agricultural management.\n\n**Conclusion**\nThus, this branch of soil science is **Edaphology**."
       }
      ]
     },
@@ -202,13 +393,49 @@
      ],
      "cards": [
       {
+       "id": "agri11-u2-c08",
+       "type": "text",
+       "title": "Soil in one page",
+       "page": 53,
+       "src": "notes",
+       "body": [
+        "Mineral particles (sand, silt, clay) + organic matter + air + water + organisms. Texture = how coarse. Structure = how it crumbs. pH, nutrients (N, P, K plus micros), depth and drainage decide what you can grow."
+       ]
+      },
+      {
+       "id": "agri11-u2-c09",
+       "type": "mnemonic",
+       "title": "Mnemonic — “SOAP + life”",
+       "page": 54,
+       "src": "notes",
+       "body": [
+        "*Sand, Organic matter, Air, Particles (silt/clay), plus living roots and microbes.* Dead powder is not a soil."
+       ]
+      },
+      {
+       "id": "agri11-u2-c10",
+       "type": "text",
+       "title": "Soil in one page",
+       "page": 44,
+       "src": "notes",
+       "body": [
+        "**Climate:** rainfall amount and timing, temperature (altitude!), wind, length of growing season. Highland mild + short season; western and coastal heat + higher PET.",
+        "**Water:** rain, rivers/wadis, groundwater, stored dams. Conservation = same story as later grades: hold it, sink it, don’t waste it.",
+        "**Biodiversity:** local landraces, pollinators, soil life, wild relatives. Losing varieties is losing drought insurance."
+       ]
+      },
+      {
        "id": "agri11-u2-c11",
        "type": "text",
        "title": "2.2.1 Soil Formation",
        "page": 46,
+       "src": "textbook pp.46–48",
+       "enriched": true,
        "body": [
         "Weathering is the chemical alteration and physical breakdown of rocks during exposure to the atmosphere, hydrosphere and biosphere.",
-        "A soil profile is the vertical cross-sectional view of the soil through all its horizons extending into the parent material."
+        "A soil profile is the vertical cross-sectional view of the soil through all its horizons extending into the parent material.",
+        "A cross-sectional view of soil is called a soil profile.",
+        "A soil horizon is a layer of soil revealed in a soil profile lying approximately parallel to the Earth’s surface."
        ]
       },
       {
@@ -216,9 +443,13 @@
        "type": "text",
        "title": "2.2.2 Soil Profile Description",
        "page": 48,
+       "src": "textbook pp.48–50",
+       "enriched": true,
        "body": [
         "Soils developed from sandy parent materials will rapidly show a mature soil profile because they contain few soluble materials.",
-        "Clay soils are slower in their drainage capacity and are, therefore, slower to develop a fully mature soil profile."
+        "Clay soils are slower in their drainage capacity and are, therefore, slower to develop a fully mature soil profile.",
+        "The master horizons are denoted by O, A, B and C.",
+        "Examples include beach sand, windblown silt, alluvium deposited by rivers, etc."
        ]
       },
       {
@@ -226,149 +457,206 @@
        "type": "text",
        "title": "2.2.3 Soil Composition",
        "page": 50,
+       "src": "textbook pp.50–51",
+       "enriched": true,
        "body": [
         "Soil phases are regions inside a system, which are internally physically uniform.",
-        "The solid phase constitutes the soil matrix, which is the combination of solids and pores in a soil."
+        "The solid phase constitutes the soil matrix, which is the combination of solids and pores in a soil.",
+        "Water and air make-up the liquid and gas parts of the soil; the gaseous phase is the soil atmosphere.",
+        "Soil is rather like a big sponge containing numerous tiny pores that wind through its structure."
        ]
       },
       {
+       "id": "agri11-u2-c14",
+       "type": "text",
+       "title": "2.2.4 Soil Properties",
+       "page": 53,
+       "src": "textbook pp.53–54",
+       "enriched": true,
+       "body": [
+        "Soil is a unique material with its own physical, chemical and biological properties.",
+        "Physical properties of soil include: soil texture, soil structure, soil consistency, the soil liquid phase, soil gases and others (temperature, depth, colour).",
+        "Quantitatively, soil texture is the measure of the distribution of particle sizes or the proportion of the various size ranges of particles.",
+        "Based on particle size, there are three broad groups of soil textural classes."
+       ]
+      },
+      {
+       "id": "agri11-u2-c15",
+       "type": "text",
+       "title": "2.2.5 Methods of Soil Texture Determination",
+       "page": 54,
+       "src": "textbook pp.54–55",
+       "enriched": true,
+       "body": [
+        "Determination of soil textural classes is done in two ways: these are the feel method and mechanical analysis.",
+        "In silt loam, it form aggregates with some level of roughness.",
+        "In the case of clay, it forms smooth surface without any gritty feelings.",
+        "In the laboratory the proportions are estimated using either hydrometer or pipette methods."
+       ]
+      },
+      {
+       "id": "agri11-u2-c16",
+       "type": "text",
+       "title": "2.2.6 Soil Structure",
+       "page": 56,
+       "src": "textbook p.56",
+       "enriched": true,
+       "body": [
+        "Soil structure refers to the grouping or arrangement of primary particles into secondary units or peds/aggregates.",
+        "The units are characterized and classified based on size, shape and degree of distinctness.",
+        "Presence of organic matter and inorganic cation such as Ca2+, Mg2+, Fe3+ and Al3+ promote flocculation (binding) of aggregates and aggregate stability.",
+        "The presence of sodium disperses or separates aggregates and the soil becomes unstable aggregates."
+       ]
+      },
+      {
+       "id": "agri11-u2-c17",
+       "type": "text",
+       "title": "2.2.7 Measurement Techniques for Soil-water and Soil-water Potentials",
+       "page": 59,
+       "src": "textbook pp.59–60",
+       "enriched": true,
+       "body": [
+        "Soil-water content can be measured directly and indirectly in the field and laboratory.",
+        "Among the techniques used are the gravimetric (weighing or direct) method.",
+        "Likewise, neutron scattering uses a neutron probe directly to measure the soil-water relations in the field.",
+        "The result in the example shows that the soil moisture is adequate for plant growth."
+       ]
+      },
+      {
+       "id": "agri11-u2-c18",
+       "type": "text",
+       "title": "2.2.8 Soil-water Potential",
+       "page": 61,
+       "src": "textbook p.61",
+       "enriched": true,
+       "body": [
+        "Soil-water potential can be measured in the field by using tensiometers (0.0–0.8 bar) or in the laboratory with a tension plate (usually up to 0.8 bar) and a pressure plate (from 1–100 bars).",
+        "Saturated movement of water occurs when the soil pores are filled or saturated with water.",
+        "Unsaturated soil-water movement occurs, when the pores are partially filled with water.",
+        "Vapour movement of water is a movement in the form of vapour, which occurs both internally within the soil pores and externally on the land by surface-by-surface evaporation because of a vapour pressure differential."
+       ]
+      },
+      {
+       "id": "agri11-u2-c19",
+       "type": "text",
+       "title": "2.2.9 The Soil Gaseous Phase",
+       "page": 61,
+       "src": "textbook pp.61–62",
+       "enriched": true,
+       "body": [
+        "Soil aeration expresses the rate of gas exchange between soil air and the atmosphere.",
+        "Soil aeration controls the level of oxygen and carbon dioxide in the soil.",
+        "Air can move into the soil only once water has drained out of the pores.",
+        "Carbon dioxide content is sometimes 5–10 times higher than the atmospheric carbon dioxide content and may even reach 10 per cent."
+       ]
+      },
+      {
+       "id": "agri11-u2-c20",
+       "type": "text",
+       "title": "2.2.10 Other Physical Properties of Soil",
+       "page": 62,
+       "src": "textbook pp.62–63",
+       "enriched": true,
+       "body": [
+        "Generally, dark soil surfaces will absorb more heat than light surfaces.",
+        "Losses of absorbed heat occur by radiation back into the atmosphere as long-wave radiation, heating the air and cooling the soil.",
+        "Farmers in Eritrea cover seedbeds with stubble, grasses and tree branches in order to facilitate germination of seeds.",
+        "Reddish-brown colours indicate well-drained soils."
+       ]
+      },
+      {
+       "id": "agri11-u2-c21",
+       "type": "text",
+       "title": "2.2.11 Chemical Properties of Soil",
+       "page": 63,
+       "src": "textbook pp.63–64",
+       "enriched": true,
+       "body": [
+        "The most important chemical properties of soil include: soil colloid, soil reaction (acidity and alkalinity) and salinity.",
+        "The most important chemical properties of soil include: soil colloid, soil reaction (acidity and alkalinity), salinity.",
+        "Colloids can hold ions because they have an overall negative (−) or positive (+) charge on their surfaces, depending upon the chemical structure and soil pH conditions.",
+        "Humus has a complex chemical composition consisting mainly of C, H and O, and smaller amounts of S, P and N, among others."
+       ]
+      },
+      {
+       "id": "agri11-u2-c22",
+       "type": "text",
+       "title": "2.2.12 Biological Properties",
+       "page": 68,
+       "src": "textbook p.68",
+       "enriched": true,
+       "body": [
+        "Soil biological properties refer to the organisms living in soils as well as nutrient cycling.",
+        "Soil micro-organisms are important in the carbon cycle and nitrogen cycle, and in the decomposition of organic materials.",
+        "Immense communities of living organisms inhabit healthy soils.",
+        "For example one hectare of land may contain approximately 20 000 kg of soil organisms – equivalent to the weight of 40 horses!"
+       ]
+      },
+      {
+       "id": "agri11-u2-c23",
+       "type": "text",
+       "title": "2.2.13 Soil Types",
+       "page": 71,
+       "src": "textbook pp.71–72",
+       "enriched": true,
+       "body": [
+        "Soil classification is crucial for creation of soil maps.",
+        "Allocation to one of these groupings is determined by the presence or absence of a limited number of indicative horizons and soil properties."
+       ]
+      },
+      {
+       "id": "agri11-u2-chk3",
+       "type": "check",
+       "title": "Quick check",
+       "page": 44,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q1",
+       "q": "Which meteorological instrument is used to continuously and simultaneously record both ambient temperature and relative humidity?",
+       "options": {
+        "A": "Anemometer",
+        "B": "Sunshine recorder",
+        "C": "Thermo-hygrograph",
+        "D": "Barograph",
+        "E": "Evaporation pan"
+       },
+       "answer": "C",
+       "why": "**Reasoning**\nA thermo-hygrograph is a specialized meteorological instrument designed to record both temperature (thermo) and relative humidity (hygro) continuously and simultaneously on a single rotating chart.\n\n**Conclusion**\nTherefore, the correct answer is **Thermo-hygrograph**."
+      },
+      {
+       "id": "agri11-u2-chk4",
+       "type": "check",
+       "title": "Quick check",
+       "page": 44,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q5",
+       "q": "Which soil textural class has particle diameters strictly less than $$0.002\\text{ mm}$$, forming the highly active soil colloids?",
+       "options": {
+        "A": "Coarse Sand",
+        "B": "Fine Sand",
+        "C": "Silt",
+        "D": "Clay",
+        "E": "Gravel"
+       },
+       "answer": "D",
+       "why": "**Reasoning**\nIn the standard soil separate size classes, clay particles have a diameter of less than $$0.002\\text{ mm}$$. Due to this extremely small size, they possess a large surface area and act as chemically active soil colloids.\n\n**Conclusion**\nTherefore, the correct textural class is **Clay**."
+      },
+      {
+       "id": "agri11-u2-wrk4",
        "type": "worked",
-       "title": "Erosion control",
-       "page": 1,
-       "problem": "Sloping field loses topsoil in rains.",
+       "title": "Step-by-step",
+       "page": 44,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q5",
+       "problem": "Which soil textural class has particle diameters strictly less than $$0.002\\text{ mm}$$, forming the highly active soil colloids?",
        "steps": [
         {
-         "text": "T"
+         "text": "**Reasoning**\nIn the standard soil separate size classes, clay particles have a diameter of less than $$0.002\\text{ mm}$$. Due to this extremely small size, they possess a large surface area and act as chemically active soil colloids."
         },
         {
-         "text": "e"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "c"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "/"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "c"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "n"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "u"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "p"
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "u"
-        },
-        {
-         "text": "g"
-        },
-        {
-         "text": "h"
-        },
-        {
-         "text": "i"
-        },
-        {
-         "text": "n"
-        },
-        {
-         "text": "g"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "/"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "c"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "v"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "c"
-        },
-        {
-         "text": "r"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "p"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": "."
+         "text": "**Conclusion**\nTherefore, the correct textural class is **Clay**."
         }
        ],
-       "answer": "Keep soil in place = keep fertility.",
-       "id": "agri11-u2-deep2"
+       "answer": "Clay"
       },
       {
        "type": "worked",
@@ -381,18 +669,26 @@
        ],
        "answer": "Irrigation + evaporation + weak drainage.",
        "id": "agri11-u2-xtra2",
-       "page": 1
+       "page": 1,
+       "src": "notes"
       },
       {
-       "id": "agri11-u2-misconception",
-       "type": "text",
-       "title": "Common mix-ups in Natural Resource Base",
-       "page": 1,
-       "body": [
-        "Write one idea students often confuse with this topic, then the correct distinction.",
-        "Example pattern: “Looks like X, but actually Y because …”",
-        "Teaching the difference is better than re-reading the page."
-       ]
+       "id": "agri11-u2-l2-2-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Which of the following is **not** physical property of soil?",
+       "options": {
+        "A": "Soil depth",
+        "B": "Soil color",
+        "C": "Soil colloid",
+        "D": "Soil temperature",
+        "E": "Soil consistency"
+       },
+       "answer": "C",
+       "why": "Physical properties of soil describe its physical state (depth, color, temperature, texture, and consistency). Soil colloids (clay and humus particles) are primarily studied under chemical properties because they govern ion exchange and chemical reactivity, though they are physical particles.",
+       "src": "matric",
+       "src_qid": "agriculture_2024_q3",
+       "page": 44
       }
      ]
     },
@@ -410,9 +706,13 @@
        "type": "text",
        "title": "2.3.1 Terrestrial Biodiversity",
        "page": 74,
+       "src": "textbook pp.74–75",
+       "enriched": true,
        "body": [
         "Terrestrial biodiversity refers to all land area that is dominated by natural habitats.",
-        "Terrestrial biodiversity is described at two levels: ecosystem level and species level."
+        "Terrestrial biodiversity is described at two levels: ecosystem level and species level.",
+        "Eastern Escarpment: The forests in the Eastern Escarpment receive a relatively high amount of rainfall.",
+        "Riverine forests of the Western Lowlands: The riverine forest has been relatively intact until recent years."
        ]
       },
       {
@@ -420,9 +720,13 @@
        "type": "text",
        "title": "2.3.2 Importance of Biodiversity",
        "page": 76,
+       "src": "textbook pp.76–77",
+       "enriched": true,
        "body": [
-        "The development of new varieties such as plants that are resistant to drought and pests, and the development of high-yielding varieties is possible through the introduction of new ",
-        "Genetic diversity has a significant role in increasing agricultural production and productivity."
+        "The development of new varieties such as plants that are resistant to drought and pests, and the development of high-yielding varieties is possible through the introduction of new genes.",
+        "Genetic diversity has a significant role in increasing agricultural production and productivity.",
+        "During the past 50 years, due to artificial and natural calamities (e.g. war, drought, pests), plants, animals and ecosystems have been seriously affected by genetic loss.",
+        "Two methods used to offset this genetic loss: ex-situ and in-situ conservation measures."
        ]
       },
       {
@@ -430,52 +734,724 @@
        "type": "text",
        "title": "2.3.3 The Status of Eritrean Biodiversity",
        "page": 79,
+       "src": "textbook pp.79–80",
+       "enriched": true,
        "body": [
         "Land degradation, climate change and other human induced factors pose the greatest threat to local biodiversity.",
-        "Change in agricultural practices – mainly replacing one crop species with another – is also a reason for the disappearance of landraces."
+        "Change in agricultural practices – mainly replacing one crop species with another – is also a reason for the disappearance of landraces.",
+        "Land degradation, mainly a loss of soil fertility, has been a cause of genetic loss.",
+        "The major factors affecting livestock biodiversity are drought, inter-breeding, changing geographical distribution and lower or higher numbers of a specific breed."
        ]
       },
       {
-       "type": "text",
-       "title": "Water",
-       "page": 1,
-       "body": [
-        "Harvest rain, protect catchments, efficient irrigation where used."
+       "id": "agri11-u2-chk5",
+       "type": "check",
+       "title": "Quick check",
+       "page": 74,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q6",
+       "q": "Which of the following cations is known to cause clay dispersion, breaking down soil aggregates and causing soil-crusting?",
+       "options": {
+        "A": "Calcium ($$Ca^{2+}$$)",
+        "B": "Magnesium ($$Mg^{2+}$$)",
+        "C": "Sodium ($$Na^+$$)",
+        "D": "Aluminum ($$Al^{3+}$$)",
+        "E": "Ammonium ($$NH_4^+$$)"
+       },
+       "answer": "C",
+       "why": "**Reasoning**\nSodium ($$Na^+$$) ions have a large hydrated radius and single charge. When dominant, they cause clay particles to disperse (separate), which destroys soil structure. Calcium, magnesium, and aluminum promote flocculation (aggregation).\n\n**Conclusion**\nThus, the dispersing cation is **Sodium**."
+      },
+      {
+       "id": "agri11-u2-wrk5",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 74,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q6",
+       "problem": "Which of the following cations is known to cause clay dispersion, breaking down soil aggregates and causing soil-crusting?",
+       "steps": [
+        {
+         "text": "**Reasoning**\nSodium ($$Na^+$$) ions have a large hydrated radius and single charge. When dominant, they cause clay particles to disperse (separate), which destroys soil structure. Calcium, magnesium, and aluminum promote flocculation (aggregation)."
+        },
+        {
+         "text": "**Conclusion**\nThus, the dispersing cation is **Sodium**."
+        }
        ],
-       "id": "agri11-u2-deep3"
+       "answer": "Sodium ($$Na^+$$)"
       },
       {
-       "id": "agri11-u2-eritrea",
+       "id": "agri11-u2-chk6",
+       "type": "check",
+       "title": "Quick check",
+       "page": 74,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q7",
+       "q": "A salt-affected soil characterized by an electrical conductivity ($$EC_{se}$$) greater than $$4\\text{ dS/m}$$, an exchangeable sodium percentage (ESP) less than $$15\\%$$, and a pH less than $$8.5$$ is classified as:",
+       "options": {
+        "A": "Sodic",
+        "B": "Saline",
+        "C": "Saline-Sodic",
+        "D": "Alkaline-Sodic",
+        "E": "Calcareous"
+       },
+       "answer": "B",
+       "why": "**Reasoning**\nIn the classification of salt-affected soils, a saline soil has high soluble salts ($$EC_{se} > 4\\text{ dS/m}$$), but low exchangeable sodium ($$ESP < 15\\%$$\\) and a moderate pH ($$pH < 8.5$$\\). Sodic and saline-sodic soils have an ESP greater than $$15\\%$$.\n\n**Conclusion**\nThis soil is classified as **Saline**."
+      },
+      {
+       "id": "agri11-u2-wrk6",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 74,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q7",
+       "problem": "A salt-affected soil characterized by an electrical conductivity ($$EC_{se}$$) greater than $$4\\text{ dS/m}$$, an exchangeable sodium percentage (ESP) less than $$15\\%$$, and a pH less than $$8.5$$ is classified as:",
+       "steps": [
+        {
+         "text": "**Reasoning**\nIn the classification of salt-affected soils, a saline soil has high soluble salts ($$EC_{se} > 4\\text{ dS/m}$$), but low exchangeable sodium ($$ESP < 15\\%$$\\) and a moderate pH ($$pH < 8.5$$\\). Sodic and saline-sodic soils have an ESP greater than $$15\\%$$."
+        },
+        {
+         "text": "**Conclusion**\nThis soil is classified as **Saline**."
+        }
+       ],
+       "answer": "Saline"
+      },
+      {
+       "id": "agri11-u2-l2-3-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Soil having exchangeable sodium percentage (ESP) $$> 15\\%$$, electrical conductivity (EC) $$> 4\\text{ mmhos/cm}$$ and pH $$< 8.5$$ are classified as",
+       "options": {
+        "A": "saline.",
+        "B": "sodic.",
+        "C": "saline-sodic.",
+        "D": "calcareous.",
+        "E": "neutral."
+       },
+       "answer": "C",
+       "why": "Soils are classified based on salt and sodium content:\n- **Saline:** EC $$> 4$$, ESP $$< 15$$.\n- **Sodic:** EC $$< 4$$, ESP $$> 15$$.\n- **Saline-Sodic:** EC $$> 4$$ AND ESP $$> 15$$.",
+       "src": "matric",
+       "src_qid": "agr_2025_q62",
+       "page": 74
+      }
+     ]
+    },
+    {
+     "id": "agri11-u2-l2-4",
+     "number": "2.4",
+     "title": "Water Resources",
+     "pages": [
+      85,
+      90
+     ],
+     "cards": [
+      {
+       "id": "agri11-u2-c27",
        "type": "text",
-       "title": "Local / Eritrea link",
-       "page": 1,
+       "title": "2.4.1 Ground Water",
+       "page": 86,
+       "src": "textbook p.86",
+       "enriched": true,
        "body": [
-        "Connect **Natural Resource Base** to an Eritrean place, crop, climate zone, or classroom example from your textbook.",
-        "Local examples make recall stronger in exams."
+        "Ground water is described in terms of its depth, quantity, quality and purposes of use.",
+        "In Eritrea these aquifers are unconsolidated deposits of alluvial soils which are found in riverbeds.",
+        "The riverbeds of Barka, Gash and Anseba rivers have substantial potential for irrigation from shallow ground water.",
+        "A limited amount of ground water potential is found along the main riverbeds of the northern Red Sea coasts."
        ]
+      },
+      {
+       "id": "agri11-u2-c28",
+       "type": "text",
+       "title": "2.4.2 Surface Water",
+       "page": 87,
+       "src": "textbook p.87",
+       "enriched": true,
+       "body": [
+        "Surface water resources are intermittent rivers, streams and runoff stored in reservoirs.",
+        "The precipitation that falls in an area may evaporate, flow as runoff or infiltrate into the soil.",
+        "Water collected from roofs can also be stored in cisterns for domestic use."
+       ]
+      },
+      {
+       "id": "agri11-u2-c29",
+       "type": "text",
+       "title": "2.4.3 The Major River Basins of Eritrea",
+       "page": 88,
+       "src": "textbook p.88",
+       "enriched": true,
+       "body": [
+        "Eritrea has five major river basins and a number of rivers that drain into the Sudan.",
+        "All, except the Setit, are ephemeral (seasonal, or non-perennial) rivers.",
+        "The Setit River basin rises in central Ethiopia.",
+        "The water discharge here is highly seasonal, exceeding 900 m3/s in the period July–September, but when reduced to base flow ranges from 5–10 m3/s."
+       ]
+      },
+      {
+       "id": "agri11-u2-chk7",
+       "type": "check",
+       "title": "Quick check",
+       "page": 85,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q8",
+       "q": "What is the recommended chemical amendment used to reclaim sodic soils by supplying Calcium ($$Ca^{2+}$$) to displace exchangeable Sodium ($$Na^+$$)?",
+       "options": {
+        "A": "Urea",
+        "B": "Limestone ($$CaCO_3$$)",
+        "C": "Gypsum ($$CaSO_4$$)",
+        "D": "Sodium Carbonate ($$Na_2CO_3$$)",
+        "E": "Dolomite"
+       },
+       "answer": "C",
+       "why": "**Reasoning**\nGypsum ($$CaSO_4$$) is highly effective for sodic soil reclamation. It dissolves to supply $$Ca^{2+}$$ ions, which replace the exchangeable $$Na^+$$ on clay colloid surfaces. The displaced $$Na^+$$ is then washed out as soluble $$Na_2SO_4$$.\n\n**Conclusion**\nTherefore, the correct amendment is **Gypsum**."
+      },
+      {
+       "id": "agri11-u2-wrk7",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 85,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q8",
+       "problem": "What is the recommended chemical amendment used to reclaim sodic soils by supplying Calcium ($$Ca^{2+}$$) to displace exchangeable Sodium ($$Na^+$$)?",
+       "steps": [
+        {
+         "text": "**Reasoning**\nGypsum ($$CaSO_4$$) is highly effective for sodic soil reclamation. It dissolves to supply $$Ca^{2+}$$ ions, which replace the exchangeable $$Na^+$$ on clay colloid surfaces. The displaced $$Na^+$$ is then washed out as soluble $$Na_2SO_4$$."
+        },
+        {
+         "text": "**Conclusion**\nTherefore, the correct amendment is **Gypsum**."
+        }
+       ],
+       "answer": "Gypsum ($$CaSO_4$$)"
+      },
+      {
+       "id": "agri11-u2-chk8",
+       "type": "check",
+       "title": "Quick check",
+       "page": 85,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q9",
+       "q": "According to Eritrea's national wildlife status list, which of the following mammals is classified as endangered?",
+       "options": {
+        "A": "Dugong",
+        "B": "African wild ass",
+        "C": "Nubian ibex",
+        "D": "African wild dog",
+        "E": "Gelada"
+       },
+       "answer": "C",
+       "why": "**Reasoning**\nEritrea's national wildlife status list classes the Nubian ibex (*Capra ibex nubiana*) and Red-fronted gazelle as endangered. The Dugong is common, the African wild ass is rare, the African wild dog is critical, and the Gelada is extinct.\n\n**Conclusion**\nThus, the endangered mammal is the **Nubian ibex**."
+      },
+      {
+       "id": "agri11-u2-wrk8",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 85,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q9",
+       "problem": "According to Eritrea's national wildlife status list, which of the following mammals is classified as endangered?",
+       "steps": [
+        {
+         "text": "**Reasoning**\nEritrea's national wildlife status list classes the Nubian ibex (*Capra ibex nubiana*) and Red-fronted gazelle as endangered. The Dugong is common, the African wild ass is rare, the African wild dog is critical, and the Gelada is extinct."
+        },
+        {
+         "text": "**Conclusion**\nThus, the endangered mammal is the **Nubian ibex**."
+        }
+       ],
+       "answer": "Nubian ibex"
+      },
+      {
+       "id": "agri11-u2-l2-4-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Which of the following mammalian wild species are classified as **rare**, according to the Eritrean classification?",
+       "options": {
+        "A": "Warthog, Soemmerring gazelle and Dugong.",
+        "B": "Elephant and African wild ass.",
+        "C": "Hartebeest, Red fronted gazelle and Nubian ibex.",
+        "D": "African wild dog and Lion.",
+        "E": "All are categorized as rare."
+       },
+       "answer": "B",
+       "why": "According to Eritrea's biodiversity records, the **African Wild Ass** is one of the rarest mammals globally, found mainly in the Danakil region, and the **Elephant** population is small and restricted to the Gash-Barka area.",
+       "src": "matric",
+       "src_qid": "agr_2025_q25",
+       "page": 85
+      }
+     ]
+    },
+    {
+     "id": "agri11-u2-l2-5",
+     "number": "2.5",
+     "title": "Agro-ecological Zones",
+     "pages": [
+      91,
+      100
+     ],
+     "cards": [
+      {
+       "id": "agri11-u2-c30",
+       "type": "text",
+       "title": "2.5.1 The Sudano-Sahelian Region Agro-ecological Zone",
+       "page": 91,
+       "src": "textbook p.91",
+       "enriched": true,
+       "body": [
+        "Eritrea is located in the Sudano-Sahelian region of Africa.",
+        "The Sahelian region is drier than the Sudanian region and supports relatively poor amounts of flora and fauna.",
+        "Eritrea shares many similarities with countries in the SudanoSahelian region of Africa in terms of climate and vegetation.",
+        "In Africa, there are 20 major centres of endemism."
+       ]
+      },
+      {
+       "id": "agri11-u2-c31",
+       "type": "text",
+       "title": "2.5.2 The Agro-ecological Zones of Eritrea",
+       "page": 92,
+       "src": "textbook pp.92–93",
+       "enriched": true,
+       "body": [
+        "Eritrea has large variations in landscape and climatic features.",
+        "The agro-ecological map of Eritrea shows six major zones.",
+        "The major crops grown in this zone are barley, wheat, taff, sorghum, maize and pulses.",
+        "The major livestock found are sheep, goats and cattle."
+       ]
+      },
+      {
+       "id": "agri11-u2-c32",
+       "type": "text",
+       "title": "2.5.3 Major Agricultural Land Use Practices in Eritrea",
+       "page": 96,
+       "src": "textbook p.96",
+       "enriched": true,
+       "body": [
+        "Traditionally, each village is divided into grazing, agricultural, forest, water resources and settlement areas.",
+        "For example the agricultural area in the Highlands is divided into three categories based on soil quality: fertile, medium and poor.",
+        "In a traditional land-management system, fertile lands are never allocated for settlement, as they represent the village breadbasket and are essential to its livelihood.",
+        "Cultivated land accounts for approximately 7 per cent of the total land area."
+       ]
+      },
+      {
+       "id": "agri11-u2-chk9",
+       "type": "check",
+       "title": "Quick check",
+       "page": 91,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q10",
+       "q": "What percentage of the annual precipitation (rainfall) in dry regions is estimated to be lost through evaporation and transpiration before reaching streams or aquifers?",
+       "options": {
+        "A": "$$5\\%$$ to $$10\\%$$",
+        "B": "$$20\\%$$ to $$30\\%$$",
+        "C": "$$50\\%$$ to $$60\\%$$",
+        "D": "$$80\\%$$ to $$87\\%$$",
+        "E": "$$95\\%$$ to $$100\\%$$"
+       },
+       "answer": "D",
+       "why": "**Reasoning**\nIn Eritrea, water resources are highly limited because almost $$80-87\\%$$ of the precipitation is lost through evaporation and transpiration before ever reaching surface streams or groundwater aquifers.\n\n**Conclusion**\nTherefore, the correct percentage range is **$$80\\%$$ to $$87\\%$$**."
+      },
+      {
+       "id": "agri11-u2-wrk9",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 91,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q10",
+       "problem": "What percentage of the annual precipitation (rainfall) in dry regions is estimated to be lost through evaporation and transpiration before reaching streams or aquifers?",
+       "steps": [
+        {
+         "text": "**Reasoning**\nIn Eritrea, water resources are highly limited because almost $$80-87\\%$$ of the precipitation is lost through evaporation and transpiration before ever reaching surface streams or groundwater aquifers."
+        },
+        {
+         "text": "**Conclusion**\nTherefore, the correct percentage range is **$$80\\%$$ to $$87\\%$$**."
+        }
+       ],
+       "answer": "$$80\\%$$ to $$87\\%$$"
+      },
+      {
+       "id": "agri11-u2-chk10",
+       "type": "check",
+       "title": "Quick check",
+       "page": 91,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q11",
+       "q": "Which of the five major river basins is the only perennial (flowing all year round) river basin?",
+       "options": {
+        "A": "Setit",
+        "B": "Mereb-Gash",
+        "C": "Barka-Anseba",
+        "D": "Red Sea",
+        "E": "Danakil Depression"
+       },
+       "answer": "A",
+       "why": "**Reasoning**\nOf the five major river basins, all except the Setit are seasonal or ephemeral (non-perennial) rivers. The Setit flows continuously throughout the year.\n\n**Conclusion**\nThus, the only perennial river basin is **Setit**."
+      },
+      {
+       "id": "agri11-u2-wrk10",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 91,
+       "src": "study_notes",
+       "src_qid": "agri_g11_c2_q11",
+       "problem": "Which of the five major river basins is the only perennial (flowing all year round) river basin?",
+       "steps": [
+        {
+         "text": "**Reasoning**\nOf the five major river basins, all except the Setit are seasonal or ephemeral (non-perennial) rivers. The Setit flows continuously throughout the year."
+        },
+        {
+         "text": "**Conclusion**\nThus, the only perennial river basin is **Setit**."
+        }
+       ],
+       "answer": "Setit"
+      },
+      {
+       "id": "agri11-u2-l2-5-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "All rivers in Eritrea are ephemeral rivers, except _________.",
+       "options": {
+        "A": "Barka- Anseba",
+        "B": "Setit",
+        "C": "Denakil depression",
+        "D": "Red Sea",
+        "E": "Mereb- Gash"
+       },
+       "answer": "B",
+       "why": "The **Setit (Tekeze)** river is the only perennial river in Eritrea, meaning it flows year-round. All other major rivers like the Barka, Anseba, and Gash are ephemeral (seasonal), flowing only during the rainy season.",
+       "src": "matric",
+       "src_qid": "agriculture_2016_17_q15",
+       "page": 91
       }
      ]
     }
    ],
    "glossary": [
     {
-     "term": "Natural",
-     "def": "Core topic of this unit — expand with your textbook definition for “Natural Resource Base”."
+     "term": "Temperature",
+     "meaning": "Temperature is a significant factor as both low and high temperature ranges limit plant and animal growth and development.",
+     "page": 40,
+     "src": "textbook p.40",
+     "enriched": true
+    },
+    {
+     "term": "Relative humidity",
+     "meaning": "Relative humidity is the measure of the amount of atmospheric moisture in relation to saturated air.",
+     "page": 41,
+     "src": "textbook p.41",
+     "enriched": true
+    },
+    {
+     "term": "Soil",
+     "meaning": "Soil is an indispensable resource upon which the livelihoods of urban and rural peoples depend.",
+     "page": 44,
+     "src": "textbook p.44",
+     "enriched": true
+    },
+    {
+     "term": "Weathering",
+     "meaning": "Weathering is the chemical alteration and physical breakdown of rocks during exposure to the atmosphere, hydrosphere and biosphere.",
+     "page": 46,
+     "src": "textbook p.46",
+     "enriched": true
+    },
+    {
+     "term": "Soil quality",
+     "meaning": "Soil quality is the soil’s ability to support crop growth without resulting in soil degradation or otherwise harming the environment.",
+     "page": 70,
+     "src": "textbook p.70",
+     "enriched": true
+    },
+    {
+     "term": "Humus",
+     "meaning": "Humus is a by-product of organic matter decomposition.",
+     "page": 70,
+     "src": "textbook p.70",
+     "enriched": true
+    },
+    {
+     "term": "Soil texture",
+     "meaning": "Soil texture is the measure of the distribution of particle sizes.",
+     "page": 73,
+     "src": "textbook p.73",
+     "enriched": true
+    },
+    {
+     "term": "Mechanical analysis",
+     "meaning": "Mechanical analysis is a laboratory procedure for separating the soil textural groups.",
+     "page": 73,
+     "src": "textbook p.73",
+     "enriched": true
     }
    ],
    "tips": [
     {
-     "id": "agri11-u2-deeptip1",
-     "text": "Healthy soil = organic matter + structure + living organisms."
+     "text": "Knowledge about climatic factors is crucial for agricultural production as crops and livestock have optimal climatic requirements for higher yield.",
+     "page": 43,
+     "src": "textbook p.43",
+     "enriched": true
+    },
+    {
+     "text": "Some of the most important elements of climate are the amount and distribution of rainfall, temperature ranges, relative humidity, solar radiation, wind and evaporation.",
+     "page": 43,
+     "src": "textbook p.43",
+     "enriched": true
+    },
+    {
+     "text": "Commonly used meteorological equipment comprises rain gauges, anemometers, barometers, evaporation pans and maximum-minimum temperature sensors.",
+     "page": 43,
+     "src": "textbook p.43",
+     "enriched": true
+    },
+    {
+     "text": "Examine the soil in your area carefully.",
+     "page": 44,
+     "src": "textbook p.44",
+     "enriched": true
+    },
+    {
+     "text": "Do you think that soil is just dust or something different? 2.",
+     "page": 44,
+     "src": "textbook p.44",
+     "enriched": true
+    },
+    {
+     "text": "How does soil quality affect the livelihoods of rural and urban people?",
+     "page": 44,
+     "src": "textbook p.44",
+     "enriched": true
+    },
+    {
+     "text": "Soil is much more than dust and is a loose earth material derived from parent materials (rocks).",
+     "page": 44,
+     "src": "textbook p.44",
+     "enriched": true
+    },
+    {
+     "text": "For a mining engineer, soil means the debris covering rocks or quarried minerals.",
+     "page": 44,
+     "src": "textbook p.44",
+     "enriched": true
+    },
+    {
+     "text": "For a highway engineer, it means the material on which a roadbed is placed based on its suitability.",
+     "page": 44,
+     "src": "textbook p.44",
+     "enriched": true
+    },
+    {
+     "text": "Farmers see soil as a habitat for plants.",
+     "page": 44,
+     "src": "textbook p.44",
+     "enriched": true
     }
    ],
-   "games": [],
+   "games": [
+    {
+     "type": "match",
+     "title": "Match each key word to its meaning",
+     "pairs": [
+      {
+       "a": "Temperature",
+       "b": "Temperature is a significant factor as both low and high temperature ranges limit plant and animal growth and…"
+      },
+      {
+       "a": "Relative humidity",
+       "b": "Relative humidity is the measure of the amount of atmospheric moisture in relation to saturated air."
+      },
+      {
+       "a": "Soil",
+       "b": "Soil is an indispensable resource upon which the livelihoods of urban and rural peoples depend."
+      },
+      {
+       "a": "Weathering",
+       "b": "Weathering is the chemical alteration and physical breakdown of rocks during exposure to the atmosphere,…"
+      },
+      {
+       "a": "Soil quality",
+       "b": "Soil quality is the soil’s ability to support crop growth without resulting in soil degradation or otherwise…"
+      },
+      {
+       "a": "Humus",
+       "b": "Humus is a by-product of organic matter decomposition."
+      }
+     ],
+     "src": "glossary",
+     "id": "agri11-u2-g1",
+     "lesson": null
+    },
+    {
+     "type": "tf",
+     "title": "True or false?",
+     "seconds": 12,
+     "items": [
+      {
+       "text": "Temperature: Temperature is a significant factor as both low and high temperature ranges limit plant and animal growth and development.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Relative humidity: Soil quality is the soil’s ability to support crop growth without resulting in soil degradation or otherwise harming the environment.",
+       "answer": false,
+       "why": "That describes Soil quality. Relative humidity: Relative humidity is the measure of the amount of atmospheric moisture in relation to saturated air."
+      },
+      {
+       "text": "Soil: Soil is an indispensable resource upon which the livelihoods of urban and rural peoples depend.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Weathering: Soil texture is the measure of the distribution of particle sizes.",
+       "answer": false,
+       "why": "That describes Soil texture. Weathering: Weathering is the chemical alteration and physical breakdown of rocks during exposure to the atmosphere, hydrosphere and biosphere."
+      },
+      {
+       "text": "Soil quality: Soil quality is the soil’s ability to support crop growth without resulting in soil degradation or otherwise harming the environment.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Humus: Temperature is a significant factor as both low and high temperature ranges limit plant and animal growth and development.",
+       "answer": false,
+       "why": "That describes Temperature. Humus: Humus is a by-product of organic matter decomposition."
+      },
+      {
+       "text": "Soil texture: Soil texture is the measure of the distribution of particle sizes.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Mechanical analysis: Soil is an indispensable resource upon which the livelihoods of urban and rural peoples depend.",
+       "answer": false,
+       "why": "That describes Soil. Mechanical analysis: Mechanical analysis is a laboratory procedure for separating the soil textural groups."
+      }
+     ],
+     "src": "glossary",
+     "id": "agri11-u2-g2",
+     "lesson": null
+    },
+    {
+     "type": "flash",
+     "title": "Key word flash cards",
+     "cards": [
+      {
+       "front": "Temperature",
+       "back": "Temperature is a significant factor as both low and high temperature ranges limit plant and animal growth and development."
+      },
+      {
+       "front": "Relative humidity",
+       "back": "Relative humidity is the measure of the amount of atmospheric moisture in relation to saturated air."
+      },
+      {
+       "front": "Soil",
+       "back": "Soil is an indispensable resource upon which the livelihoods of urban and rural peoples depend."
+      },
+      {
+       "front": "Weathering",
+       "back": "Weathering is the chemical alteration and physical breakdown of rocks during exposure to the atmosphere, hydrosphere and biosphere."
+      },
+      {
+       "front": "Soil quality",
+       "back": "Soil quality is the soil’s ability to support crop growth without resulting in soil degradation or otherwise harming the environment."
+      },
+      {
+       "front": "Humus",
+       "back": "Humus is a by-product of organic matter decomposition."
+      },
+      {
+       "front": "Soil texture",
+       "back": "Soil texture is the measure of the distribution of particle sizes."
+      },
+      {
+       "front": "Mechanical analysis",
+       "back": "Mechanical analysis is a laboratory procedure for separating the soil textural groups."
+      }
+     ],
+     "src": "glossary",
+     "id": "agri11-u2-g3",
+     "lesson": null
+    },
+    {
+     "type": "fill",
+     "title": "Fill the gap",
+     "items": [
+      {
+       "text": "____ is a significant factor as both low and high temperature ranges limit plant and animal growth and development.",
+       "answer": "Temperature",
+       "choices": [
+        "Temperature",
+        "Humus",
+        "Mechanical analysis"
+       ]
+      },
+      {
+       "text": "____ is the measure of the amount of atmospheric moisture in relation to saturated air.",
+       "answer": "Relative humidity",
+       "choices": [
+        "Soil",
+        "Relative humidity",
+        "Soil quality"
+       ]
+      },
+      {
+       "text": "____ is an indispensable resource upon which the livelihoods of urban and rural peoples depend.",
+       "answer": "Soil",
+       "choices": [
+        "Soil",
+        "Mechanical analysis",
+        "Temperature"
+       ]
+      },
+      {
+       "text": "____ is the chemical alteration and physical breakdown of rocks during exposure to the atmosphere, hydrosphere and biosphere.",
+       "answer": "Weathering",
+       "choices": [
+        "Soil",
+        "Weathering",
+        "Soil quality"
+       ]
+      },
+      {
+       "text": "____ is the soil’s ability to support crop growth without resulting in soil degradation or otherwise harming the environment.",
+       "answer": "Soil quality",
+       "choices": [
+        "Soil",
+        "Weathering",
+        "Soil quality"
+       ]
+      },
+      {
+       "text": "____ is a by-product of organic matter decomposition.",
+       "answer": "Humus",
+       "choices": [
+        "Temperature",
+        "Weathering",
+        "Humus"
+       ]
+      },
+      {
+       "text": "____ is the measure of the distribution of particle sizes.",
+       "answer": "Soil texture",
+       "choices": [
+        "Mechanical analysis",
+        "Relative humidity",
+        "Soil texture"
+       ]
+      },
+      {
+       "text": "____ is a laboratory procedure for separating the soil textural groups.",
+       "answer": "Mechanical analysis",
+       "choices": [
+        "Soil quality",
+        "Weathering",
+        "Mechanical analysis"
+       ]
+      }
+     ],
+     "src": "glossary",
+     "id": "agri11-u2-g4",
+     "lesson": null
+    }
+   ],
    "exercise": {
     "questions": [
      {
-      "id": "agri11-u2-q01",
       "type": "mcq",
-      "page": 68,
       "q": "A living soil must include",
       "options": {
        "A": "Only dry sand",
@@ -486,15 +1462,24 @@
       "answer": "D",
       "why": [
        "Answer D: Mineral mix + organic matter + air + water + organisms",
-       "Textbook p.62: For most plants, the oxygen supply in the soil air must be above 10 percent."
+       "A productive soil is a mixture of mineral particles (sand, silt, clay), organic matter (humus), air and water in the pore spaces, and living organisms such as bacteria and earthworms."
       ],
+      "src": "notes",
+      "page": 68,
+      "why_src": "written",
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "The soil horizon having limited air and water movement, with soil particles more closely packed, is ______.  A) A-horizon  B) B-horizon  C) C-horizon  D) O-horizon  E) None of the above",
+        "a": "B. B-horizon — The O-horizon is loose organic litter, the A-horizon is the porous humus-rich topsoil, and the C-horizon is weathered parent material. Answer: B.",
+        "exam_question": "agri-2018-19-model-s2-p1-q26"
+       }
+      ],
+      "id": "agri11-u2-q01",
+      "section": "Quiz 2"
      },
      {
-      "id": "agri11-u2-q02",
       "type": "mcq",
-      "page": 40,
       "q": "In Eritrea, temperature is most strongly steered by",
       "options": {
        "A": "The day of the week",
@@ -504,10 +1489,184 @@
       },
       "answer": "B",
       "why": [
-       "Answer B: Altitude / relief"
+       "Correct answer: B.",
+       "Read all the options before you choose; cross out the ones that belong to a different idea.",
+       "Check definitions in the lesson cards above, then restate the rule in your own words."
       ],
+      "src": "notes",
+      "page": 40,
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "The lines connecting locations with the same mean yearly temperature are called ______.  A) Isobars  B) Isotherms  C) Isotopes  D) Contours  E) Isotemperature",
+        "a": "B. Isotherms — Answer: B.",
+        "exam_question": "agri-2018-19-model-s2-p1-q30"
+       }
+      ],
+      "id": "agri11-u2-q02"
+     },
+     {
+      "type": "mcq",
+      "q": "Local crop varieties matter because they often",
+      "options": {
+       "A": "Carry drought / pest tolerance adapted to place",
+       "B": "Have no genes",
+       "C": "Replace rainfall",
+       "D": "Are a type of terrace stone"
+      },
+      "answer": "A",
+      "why": [
+       "Answer A: Carry drought / pest tolerance adapted to place",
+       "Local (landrace) varieties have been selected by farmers over many generations in that place, so they often carry genes for drought, pest and disease tolerance suited to local conditions."
+      ],
+      "src": "notes",
+      "page": 76,
+      "why_src": "written",
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "A growing crop that is ploughed under to enrich soil is called  A) humus.  B) organic matter.  C) compost.  D) green manure.  E) crop rotation.",
+        "a": "D. green manure. — Humus is decomposed organic matter; compost is decomposed plant and animal waste made in a heap; crop rotation is a cropping system. Answer: D.",
+        "exam_question": "agri-2020-matric-p1-q17"
+       }
+      ],
+      "id": "agri11-u2-q03"
+     },
+     {
+      "type": "fill",
+      "q": "____ is a significant factor as both low and high temperature ranges limit plant and animal growth and development.",
+      "answer": "Temperature",
+      "choices": [
+       "Soil",
+       "Relative humidity",
+       "Temperature",
+       "Weathering"
+      ],
+      "why": [
+       "Correct answer: Temperature.",
+       "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+       "Check definitions in the lesson cards above, then restate the rule in your own words."
+      ],
+      "src": "textbook p.40",
+      "enriched": true,
+      "page": 40,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "If the term \"fauna\" refers to animal life, the corresponding term for plant life is  A) flower.  B) epiflora.  C) flora.  D) ethno botany.  E) zoo.",
+        "a": "C. flora. — Answer: C.",
+        "exam_question": "agri-2019-matric-p1-q42"
+       }
+      ],
+      "id": "agri11-u2-q04"
+     },
+     {
+      "type": "fill",
+      "q": "____ is the measure of the amount of atmospheric moisture in relation to saturated air.",
+      "answer": "Relative humidity",
+      "choices": [
+       "Weathering",
+       "Relative humidity",
+       "Temperature",
+       "Soil"
+      ],
+      "why": [
+       "Correct answer: Relative humidity.",
+       "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+       "Check definitions in the lesson cards above, then restate the rule in your own words."
+      ],
+      "src": "textbook p.41",
+      "enriched": true,
+      "page": 41,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ is an indispensable resource upon which the livelihoods of urban and rural peoples depend.",
+        "a": "Soil"
+       }
+      ],
+      "id": "agri11-u2-q05"
+     },
+     {
+      "type": "fill",
+      "q": "____ is an indispensable resource upon which the livelihoods of urban and rural peoples depend.",
+      "answer": "Soil",
+      "choices": [
+       "Temperature",
+       "Soil",
+       "Weathering",
+       "Relative humidity"
+      ],
+      "why": [
+       "Correct answer: Soil.",
+       "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+       "Check definitions in the lesson cards above, then restate the rule in your own words."
+      ],
+      "src": "textbook p.44",
+      "enriched": true,
+      "page": 44,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ is the chemical alteration and physical breakdown of rocks during exposure to the atmosphere, hydrosphere and biosphere.",
+        "a": "Weathering"
+       }
+      ],
+      "id": "agri11-u2-q06"
+     },
+     {
+      "type": "fill",
+      "q": "____ is the chemical alteration and physical breakdown of rocks during exposure to the atmosphere, hydrosphere and biosphere.",
+      "answer": "Weathering",
+      "choices": [
+       "Temperature",
+       "Weathering",
+       "Soil",
+       "Relative humidity"
+      ],
+      "why": [
+       "Correct answer: Weathering.",
+       "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+       "Check definitions in the lesson cards above, then restate the rule in your own words."
+      ],
+      "src": "textbook p.46",
+      "enriched": true,
+      "page": 46,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ is the soil’s ability to support crop growth without resulting in soil degradation or otherwise harming the environment.",
+        "a": "Soil quality"
+       }
+      ],
+      "id": "agri11-u2-q07"
+     },
+     {
+      "type": "fill",
+      "q": "____ is the soil’s ability to support crop growth without resulting in soil degradation or otherwise harming the environment.",
+      "answer": "Soil quality",
+      "choices": [
+       "Soil",
+       "Soil quality",
+       "Temperature",
+       "Relative humidity"
+      ],
+      "why": [
+       "Correct answer: Soil quality.",
+       "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+       "Check definitions in the lesson cards above, then restate the rule in your own words."
+      ],
+      "src": "textbook p.70",
+      "enriched": true,
+      "page": 70,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "A living soil must include  A) Only dry sand  B) Only plastic  C) Only bedrock  D) Mineral mix + organic matter + air + water + organisms",
+        "a": "D. Mineral mix + organic matter + air + water + organisms"
+       }
+      ],
+      "id": "agri11-u2-q08"
      },
      {
       "id": "agri11-u2-xq1",
@@ -544,8 +1703,507 @@
       ],
       "tip": "Units reveal mistakes.",
       "similar": []
+     },
+     {
+      "id": "agri-g11-c2-q1",
+      "type": "mcq",
+      "q": "A meteorological station at Keren must find out how much water is lost from an open water surface so that the irrigation requirement of a nearby vegetable field can be estimated. Which instrument should the technician read?",
+      "options": {
+       "A": "Sunshine Recorder",
+       "B": "Barograph",
+       "C": "Evaporation Pan",
+       "D": "Self-recording Anemometer"
+      },
+      "answer": "C",
+      "why": [
+       "**Identify the climate element needed.** The task is to measure the rate at which water evaporates from an open surface, which is the water loss the crop field must replace through irrigation.",
+       "**Match the element to the instrument.** The unit lists the Evaporation Pan as the instrument that measures the rate of water evaporation from an open surface, and states its practical value as calculating irrigation water requirements.",
+       "**Check every distractor.** The Sunshine Recorder records the daily duration of bright sunlight hours; the Barograph continuously records atmospheric pressure changes; the Self-recording Anemometer measures wind speed and direction. None of these three measures evaporation, so none is also correct.",
+       "**Conclude.** Only option C measures the evaporation rate of an open water surface, so C is the single defensible answer."
+      ],
+      "tip": "Eliminate options that contradict the unit notes, then choose the one that matches every detail in the question.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q1",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q1-s1",
+      "type": "short",
+      "q": "A station near Massawa is required to record the daily duration of bright sunlight hours for a crop-weather summary. Which instrument should be installed?",
+      "answer": "B. Sunshine Recorder",
+      "why": [
+       "**State the element required.** The station needs the daily duration of bright sunlight hours, not rainfall, temperature or humidity.",
+       "**Match element to instrument.** The unit assigns the recording of daily bright sunshine duration to the Sunshine Recorder.",
+       "**Eliminate the distractors.** The Standard Rain Gauge measures the quantity and rate of precipitation; the Thermo-hygrograph records temperature and relative humidity together; the Digital Thermometer measures maximum and minimum daily ambient temperatures. None records sunshine duration.",
+       "**Conclude.** The correct and only fitting instrument is the Sunshine Recorder, so the answer is B."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q1",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q1-s2",
+      "type": "short",
+      "q": "At a station in the Arid Highland, an officer must keep a continuous record of atmospheric pressure changes. Which instrument is designed for this?",
+      "answer": "A. Barograph",
+      "why": [
+       "**Identify the element.** The requirement is a continuous record of atmospheric pressure changes.",
+       "**Recall the instrument list.** The unit states that the Barograph continuously records atmospheric pressure changes.",
+       "**Test the distractors.** The Evaporation Pan measures the evaporation rate from an open surface, the Standard Rain Gauge measures precipitation quantity and rate, and the Digital Thermometer measures maximum and minimum daily ambient temperatures. All three measure different elements.",
+       "**Conclude.** Only the Barograph records pressure, so the answer is A."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q1",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q2",
+      "type": "short",
+      "q": "Complete the following statement with the correct term: __________ is the general state of the atmosphere over a long period of time, resulting from energy and mass exchange within the atmosphere and between the atmosphere and the Earth's surface.",
+      "answer": "Climate",
+      "why": [
+       "**Read the definition for its key phrases.** The decisive phrases are 'general state of the atmosphere' and 'over a long period of time'.",
+       "**Rule out the short-term concept.** Weather describes short-term atmospheric changes, so weather does not fit a definition built on a long period of time.",
+       "**Match the unit definition.** The unit defines climate as the general state of the atmosphere over a long period of time, resulting from energy and mass exchange within the atmosphere and between the atmosphere and the Earth's surface.",
+       "**Conclude.** The missing term is Climate, which is the long-term condition that determines an area's suitability for crop and livestock production."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q2",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q2-s1",
+      "type": "short",
+      "q": "Complete the following statement with the correct term: the soil moisture level at which plants can no longer extract water and therefore wilt permanently is called the __________.",
+      "answer": "Wilting Point",
+      "why": [
+       "**Recall the three soil water states.** The unit gives saturation, field capacity and wilting point as the key water states of soil.",
+       "**Distinguish them.** At saturation all pores are completely filled with water; at field capacity the excess water has already drained away under gravity.",
+       "**Match the description given.** The level at which plants can no longer extract water and wilt permanently is by definition the wilting point.",
+       "**Conclude.** The missing term is wilting point."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q2",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q2-s2",
+      "type": "short",
+      "q": "Complete the following statement with the correct term: the upper portion of the regolith, consisting of the O, A and B horizons, is called the __________.",
+      "answer": "Solum",
+      "why": [
+       "**Recall the soil profile horizons.** A vertical cross-section of soil shows the O, A, B and C horizons, which together make up the soil profile.",
+       "**Note what the C-horizon is.** The C-horizon is unconsolidated parent material, little affected by soil-forming processes, so it lies outside the biochemically active upper section.",
+       "**Recall the unit term.** The unit states that the upper portion of the regolith, comprising the O, A and B horizons, is called the solum and represents the true biochemically active soil layer.",
+       "**Conclude.** The missing term is solum."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q2",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q3",
+      "type": "short",
+      "q": "A soil scientist collected a core sample from a barley field near Asmara. The core has a total volume of $$200\\text{ cm}^3$$. Its moist mass is $$300\\text{ g}$$, and its mass after oven drying is $$260\\text{ g}$$. Calculate the bulk density of this soil and state its standard unit.",
+      "answer": "$$BD = 1.3\\text{ g/cm}^3$$",
+      "why": [
+       "**Name the formula.** Bulk density is the mass of oven-dry soil per unit of total volume: $$BD = \\frac{W_d}{V_t}$$, where $$W_d$$ is the mass of dry soil and $$V_t$$ is the total volume including both solids and pore spaces.",
+       "**Select the correct mass and volume.** The formula requires the oven-dry mass, so $$W_d = 260\\text{ g}$$ and $$V_t = 200\\text{ cm}^3$$. The moist mass of $$300\\text{ g}$$ includes water held in the pores and must not be used.",
+       "**Substitute into the formula.** $$BD = \\frac{260\\text{ g}}{200\\text{ cm}^3}$$",
+       "**Carry out the division.** $$260 \\div 200 = 1.3$$",
+       "**State the result with its unit.** Bulk density is reported in grams per cubic centimeter, so $$BD = 1.3\\text{ g/cm}^3$$. This is a moderately dense soil, since the pore spaces occupy the remaining volume fraction."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q3",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q3-s1",
+      "type": "short",
+      "q": "A core sample taken from a sorghum plot in the Mereb-Gash area has a total volume of $$250\\text{ cm}^3$$. Its moist mass is $$400\\text{ g}$$ and its oven-dry mass is $$350\\text{ g}$$. Calculate the bulk density of this soil.",
+      "answer": "$$BD = 1.4\\text{ g/cm}^3$$",
+      "why": [
+       "**Name the formula.** $$BD = \\frac{W_d}{V_t}$$, the mass of oven-dry soil divided by the total volume of soil.",
+       "**Pick the oven-dry mass.** Use $$W_d = 350\\text{ g}$$; the moist mass of $$400\\text{ g}$$ contains water and would overstate the density.",
+       "**Substitute.** $$BD = \\frac{350\\text{ g}}{250\\text{ cm}^3}$$",
+       "**Compute.** $$350 \\div 250 = 1.4$$",
+       "**Conclude.** $$BD = 1.4\\text{ g/cm}^3$$, a slightly denser soil than the Asmara barley-field sample."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q3",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q3-s2",
+      "type": "short",
+      "q": "A cylindrical core of total volume $$400\\text{ cm}^3$$ is taken from a pasture in the Central Highlands; its oven-dry mass is $$500\\text{ g}$$. Calculate the bulk density, and state what a much higher bulk density value would indicate about the pore spaces of a soil.",
+      "answer": "$$BD = 1.25\\text{ g/cm}^3$$; a much higher bulk density indicates a compacted soil whose pore spaces have been compressed.",
+      "why": [
+       "**Name the formula.** $$BD = \\frac{W_d}{V_t}$$, with volume taken as the total volume of solids plus pores.",
+       "**Substitute the given values.** $$W_d = 500\\text{ g}$$ and $$V_t = 400\\text{ cm}^3$$, so $$BD = \\frac{500}{400}$$.",
+       "**Compute the density.** $$500 \\div 400 = 1.25$$, giving $$BD = 1.25\\text{ g/cm}^3$$.",
+       "**Interpret a higher value.** Because the total volume includes the pore spaces, a higher bulk density means more solid mass packed into the same volume, that is, compressed pore spaces; the unit notes that compacted soils have high bulk density due to compressed pore spaces.",
+       "**Conclude.** The pasture soil has $$BD = 1.25\\text{ g/cm}^3$$, and a much higher figure would signal compaction."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q3",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q4",
+      "type": "short",
+      "q": "Two adjacent fields at Keren have developed from the same parent material and both have a particle density of $$2.65\\text{ g/cm}^3$$. Field A has received organic matter additions and has a bulk density of $$1.325\\text{ g/cm}^3$$. Field B was repeatedly worked with heavy machinery while wet and has a bulk density of $$1.855\\text{ g/cm}^3$$. (a) Calculate the total porosity of each field. (b) State which field has the greater water-holding capacity and explain why in terms of pore spaces.",
+      "answer": "(a) Field A = $$50\\%$$ porosity, Field B = $$30\\%$$ porosity. (b) Field A has the greater water-holding capacity because its higher porosity leaves more pore space to hold water, while compaction in Field B has compressed the macropores that store and transmit water.",
+      "why": [
+       "**Name the porosity formula.** Porosity can be derived from the two densities as $$f = \\left(1 - \\frac{BD}{PD}\\right) \\times 100$$, where $$BD$$ is bulk density and $$PD$$ is particle density.",
+       "**Substitute the values for Field A.** $$f_A = \\left(1 - \\frac{1.325}{2.65}\\right) \\times 100$$",
+       "**Compute the porosity of Field A.** $$1.325 \\div 2.65 = 0.5$$, so $$f_A = (1 - 0.5) \\times 100 = 50\\%$$.",
+       "**Substitute and compute for Field B.** $$f_B = \\left(1 - \\frac{1.855}{2.65}\\right) \\times 100$$; since $$1.855 \\div 2.65 = 0.7$$, $$f_B = (1 - 0.7) \\times 100 = 30\\%$$.",
+       "**Interpret the pore-space difference.** Field A has 50% of its volume as pore space while Field B has only 30%. The unit states that compacted soils have a lower water-holding capacity because compressing the soil reduces the larger pores (macropores), which are critical for soil aeration and rapid water movement.",
+       "**Conclude.** Field A has the greater water-holding capacity. Its higher porosity means more pore volume available to store water, whereas the machinery traffic on wet Field B compressed the pore spaces and lowered its porosity to 30%."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q4",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q4-s1",
+      "type": "short",
+      "q": "Two plots at Massawa are formed from the same material and both have a particle density of $$2.65\\text{ g/cm}^3$$. Plot X has a bulk density of $$1.06\\text{ g/cm}^3$$ and Plot Y has a bulk density of $$1.59\\text{ g/cm}^3$$. Calculate the total porosity of each plot and say which plot is the more compacted.",
+      "answer": "Plot X = $$60\\%$$ porosity, Plot Y = $$40\\%$$ porosity; Plot Y is the more compacted soil.",
+      "why": [
+       "**Name the formula.** $$f = \\left(1 - \\frac{BD}{PD}\\right) \\times 100$$",
+       "**Compute Plot X.** $$f_X = \\left(1 - \\frac{1.06}{2.65}\\right) \\times 100 = (1 - 0.4) \\times 100 = 60\\%$$",
+       "**Compute Plot Y.** $$f_Y = \\left(1 - \\frac{1.59}{2.65}\\right) \\times 100 = (1 - 0.6) \\times 100 = 40\\%$$",
+       "**Compare and conclude.** Plot Y has the higher bulk density and therefore the lower porosity, so its pore spaces are more compressed and Plot Y is the more compacted soil."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q4",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q4-s2",
+      "type": "short",
+      "q": "A $$300\\text{ cm}^3$$ soil sample from the Arid Lowland contains $$135\\text{ cm}^3$$ of pore space. (a) Calculate its porosity using the pore-volume form of the formula. (b) Compare it with an ideal loam surface soil of 50% porosity and state whether this sample can be described as compacted.",
+      "answer": "$$f = 45\\%$$; since 45% is below the 50% porosity of an ideal loam surface soil, the sample has less pore space than ideal and can be described as somewhat compacted.",
+      "why": [
+       "**Name the pore-volume formula.** Porosity is the percentage of total soil volume occupied by pore spaces: $$f = \\left(\\frac{V_p}{V_t}\\right) \\times 100$$.",
+       "**Substitute the values.** $$V_p = 135\\text{ cm}^3$$ and $$V_t = 300\\text{ cm}^3$$, so $$f = \\left(\\frac{135}{300}\\right) \\times 100$$.",
+       "**Compute the porosity.** $$135 \\div 300 = 0.45$$, so $$f = 0.45 \\times 100 = 45\\%$$.",
+       "**Compare with the ideal loam.** An ideal loam surface soil has about 50% pore space, split between air and water. At 45% the sample has fewer pores, which is consistent with compression of pore spaces in a compacted soil.",
+       "**Conclude.** The sample has a porosity of 45% and, being below the 50% ideal, can be described as somewhat compacted."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q4",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q5",
+      "type": "short",
+      "q": "A development agency plans to expand an irrigated cotton and sesame scheme on the south-western plains and the Upper Mereb valley. (a) Name the agro-ecological zone that covers this area. (b) State the percentage of the national land area it occupies and its average annual rainfall range. (c) Name two other crops listed for this zone.",
+      "answer": "(a) The Moist Lowland zone. (b) It occupies $$16\\%$$ of the total land area and receives an average annual rainfall of $$500 - 800\\text{ mm}$$. (c) Sorghum and maize (the zone also supports cattle, goats and camels).",
+      "why": [
+       "**Use the geographical clue.** The unit locates the Moist Lowland in the south-western plains and the Upper Mereb valley, which matches the area described by the agency.",
+       "**Confirm with the vegetation and crop description.** The zone is dominated by savannah woodlands and the unit states it has high potential for sorghum, sesame, cotton and maize, which is consistent with a cotton and sesame scheme.",
+       "**Read the share of land area and rainfall.** The unit table gives the Moist Lowland as $$16\\%$$ of the total land area with an average annual rainfall of $$500 - 800\\text{ mm}$$.",
+       "**Identify two other crops.** Besides cotton and sesame, the zone is listed for sorghum and maize; its livestock types are cattle, goats and camels.",
+       "**Conclude.** (a) Moist Lowland; (b) $$16\\%$$ of the total land area and $$500 - 800\\text{ mm}$$ average annual rainfall; (c) sorghum and maize."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q5",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q5-s1",
+      "type": "short",
+      "q": "A farmers' cooperative on the Eastern Escarpment wants to grow coffee and maize under rain-fed conditions. Name the agro-ecological zone of this area, state the percentage of the national land area it occupies and its average annual rainfall range, and name the two tree genera that dominate its forests.",
+      "answer": "The Sub-humid Escarpment, occupying $$1\\%$$ of the total land area with an average annual rainfall of $$700 - 1\\,100\\text{ mm}$$; its forests are dominated by *Juniperus* and *Olea*.",
+      "why": [
+       "**Match the location to the zone.** The unit places the Sub-humid Escarpment on the Eastern Escarpment, with steep terrain and high rainfall.",
+       "**Check the crop clue.** The crops listed for this zone are coffee and maize, which matches the cooperative's plan.",
+       "**Read the area share and rainfall.** The table gives the Sub-humid zone as $$1\\%$$ of the total land area with $$700 - 1\\,100\\text{ mm}$$ average annual rainfall.",
+       "**Identify the dominant tree genera.** The high rainfall supports *Juniperus* and *Olea* forests.",
+       "**Conclude.** The zone is the Sub-humid Escarpment ($$1\\%$$ of land area; $$700 - 1\\,100\\text{ mm}$$ rainfall), forested mainly with *Juniperus* and *Olea*."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q5",
+      "src": "practice_bank",
+      "page": 38
+     },
+     {
+      "id": "agri-g11-c2-q5-s2",
+      "type": "short",
+      "q": "Eritrea's water resources are unevenly distributed. (a) Name the only perennial river basin listed among the country's five major basins. (b) State the approximate percentage range of precipitation that is lost through evaporation and transpiration before it reaches streams or aquifers. (c) Name the type of underground water-bearing formation that stores groundwater, and give one example of an alluvial aquifer named in the unit.",
+      "answer": "(a) The Setit basin. (b) Approximately $$80\\%\\text{ to }87\\%$$ of precipitation is lost through evaporation and transpiration. (c) Groundwater is stored in aquifers; examples given are the alluvial aquifers along seasonal riverbeds such as the Gash, Barka and Anseba.",
+      "why": [
+       "**Recall the river basins.** The five major basins are the Setit, Mereb-Gash, Barka-Anseba, Red Sea and the arid Danakil Depression.",
+       "**Identify the perennial one.** The unit identifies the Setit as the only perennial river among these basins.",
+       "**Recall the loss fraction.** Approximately $$80\\%\\text{ to }87\\%$$ of the precipitation is lost through evaporation and transpiration before reaching streams or aquifers.",
+       "**Name the storage formation.** Groundwater is stored in underground layers of water-bearing rock or sediment called aquifers; major alluvial aquifers lie along seasonal riverbeds such as the Gash, Barka and Anseba.",
+       "**Conclude.** The Setit is the only perennial basin, $$80\\%\\text{ to }87\\%$$ of precipitation is lost to evaporation and transpiration, and groundwater is held in aquifers such as those along the Gash, Barka and Anseba riverbeds."
+      ],
+      "tip": "Write your answer first, then open the worked solution and compare the key facts and numbers.",
+      "similar": [],
+      "src_qid": "agri_g11_c2_q5",
+      "src": "practice_bank",
+      "page": 38
      }
     ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Natural Resource Base",
+      "kind": "unit",
+      "cards": [
+       "agri11-u2-c01"
+      ]
+     },
+     {
+      "id": "l2_1",
+      "label": "Climate",
+      "kind": "topic",
+      "lesson": "agri11-u2-l2-1",
+      "cards": [
+       "agri11-u2-c01",
+       "agri11-u2-c02",
+       "agri11-u2-c03",
+       "agri11-u2-c04",
+       "agri11-u2-c05",
+       "agri11-u2-c06",
+       "agri11-u2-c07"
+      ]
+     },
+     {
+      "id": "k_temperature",
+      "label": "Temperature",
+      "kind": "idea",
+      "cards": [
+       "agri11-u2-c02",
+       "agri11-u2-c03",
+       "agri11-u2-c04"
+      ]
+     },
+     {
+      "id": "k_relative_humidity",
+      "label": "Relative humidity",
+      "kind": "idea",
+      "cards": [
+       "agri11-u2-c03"
+      ]
+     },
+     {
+      "id": "k_soil",
+      "label": "Soil",
+      "kind": "idea",
+      "cards": [
+       "agri11-u2-c01"
+      ]
+     },
+     {
+      "id": "l2_2",
+      "label": "Soil",
+      "kind": "topic",
+      "lesson": "agri11-u2-l2-2",
+      "cards": [
+       "agri11-u2-c08",
+       "agri11-u2-c09",
+       "agri11-u2-c10",
+       "agri11-u2-c11",
+       "agri11-u2-c12",
+       "agri11-u2-c13",
+       "agri11-u2-c14",
+       "agri11-u2-c15"
+      ]
+     },
+     {
+      "id": "k_soil_texture",
+      "label": "Soil texture",
+      "kind": "idea",
+      "cards": [
+       "agri11-u2-c14",
+       "agri11-u2-c15"
+      ]
+     },
+     {
+      "id": "k_weathering",
+      "label": "Weathering",
+      "kind": "idea",
+      "cards": [
+       "agri11-u2-c11"
+      ]
+     },
+     {
+      "id": "k_humus",
+      "label": "Humus",
+      "kind": "idea",
+      "cards": [
+       "agri11-u2-c21"
+      ]
+     },
+     {
+      "id": "l2_3",
+      "label": "Biodiversity",
+      "kind": "topic",
+      "lesson": "agri11-u2-l2-3",
+      "cards": [
+       "agri11-u2-c24",
+       "agri11-u2-c25",
+       "agri11-u2-c26"
+      ]
+     },
+     {
+      "id": "l2_4",
+      "label": "Water Resources",
+      "kind": "topic",
+      "lesson": "agri11-u2-l2-4",
+      "cards": [
+       "agri11-u2-c27",
+       "agri11-u2-c28",
+       "agri11-u2-c29"
+      ]
+     },
+     {
+      "id": "l2_5",
+      "label": "Agro-ecological Zones",
+      "kind": "topic",
+      "lesson": "agri11-u2-l2-5",
+      "cards": [
+       "agri11-u2-c30",
+       "agri11-u2-c31",
+       "agri11-u2-c32"
+      ]
+     },
+     {
+      "id": "k_soil_quality",
+      "label": "Soil quality",
+      "kind": "idea",
+      "cards": [
+       "agri11-u2-c32"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l2_1",
+      "label": "includes"
+     },
+     {
+      "from": "l2_1",
+      "to": "k_temperature",
+      "label": "key idea"
+     },
+     {
+      "from": "k_temperature",
+      "to": "l2_2",
+      "label": "also used in"
+     },
+     {
+      "from": "l2_1",
+      "to": "k_relative_humidity",
+      "label": "key idea"
+     },
+     {
+      "from": "l2_1",
+      "to": "k_soil",
+      "label": "key idea"
+     },
+     {
+      "from": "k_soil",
+      "to": "l2_2",
+      "label": "also used in"
+     },
+     {
+      "from": "unit",
+      "to": "l2_2",
+      "label": "includes"
+     },
+     {
+      "from": "l2_2",
+      "to": "k_soil_texture",
+      "label": "key idea"
+     },
+     {
+      "from": "l2_2",
+      "to": "k_weathering",
+      "label": "key idea"
+     },
+     {
+      "from": "l2_2",
+      "to": "k_humus",
+      "label": "key idea"
+     },
+     {
+      "from": "unit",
+      "to": "l2_3",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l2_4",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l2_5",
+      "label": "includes"
+     },
+     {
+      "from": "l2_5",
+      "to": "k_soil_quality",
+      "label": "key idea"
+     },
+     {
+      "from": "l2_1",
+      "to": "l2_2",
+      "label": "next"
+     },
+     {
+      "from": "l2_2",
+      "to": "l2_3",
+      "label": "next"
+     },
+     {
+      "from": "l2_3",
+      "to": "l2_4",
+      "label": "next"
+     },
+     {
+      "from": "l2_4",
+      "to": "l2_5",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
    }
   }
  ]

@@ -157,8 +157,16 @@
     101
    ],
    "tone": "lilac",
-   "intro": "Homeostasis = keeping the internal bath (temperature, water, glucose, pH) inside a narrow band so enzymes do not quit. Detector → coordinator (brain / gland) → effector. Always **negative feedback** (the result shuts the",
+   "intro": "Homeostasis = keeping the internal bath (temperature, water, glucose, pH) inside a narrow band so enzymes do not quit. Detector → coordinator (brain / gland) → effector. Always **negative feedback** (the result shuts the process down).",
    "intro_page": 82,
+   "diagrams": {
+    "f3": {
+     "svg": "svg/biology_11/bio11_f3.svg",
+     "title": "Filter everything small in the glomerulus; take back what you still want; ADH makes the collecting duct extra leaky to w",
+     "page": 87,
+     "pins": []
+    }
+   },
    "lessons": [
     {
      "id": "bio11-u5-l5-1",
@@ -174,10 +182,142 @@
        "type": "text",
        "title": "5.1.1 The Need for Homeostasis",
        "page": 83,
+       "src": "textbook p.83",
+       "enriched": true,
        "body": [
         "Controlling the concentration of substances in the body is also important to maintain good health condition.",
-        "As deficiency of iron can lead to anemia; excess absorption of iron can be toxic, especially to children."
+        "As deficiency of iron can lead to anemia; excess absorption of iron can be toxic, especially to children.",
+        "The disease associated with excess iron in the body is called haemochromatosis.",
+        "Maintaining the blood glucose level is another important aspect of homeostasis."
        ]
+      },
+      {
+       "id": "bio11-u5-tbl1",
+       "type": "table",
+       "title": "Key table",
+       "page": 1,
+       "src": "study_notes",
+       "head": [
+        "Nephron Segment",
+        "Primary Transport Mechanism",
+        "Substances Reabsorbed / Secreted"
+       ],
+       "rows": [
+        [
+         "**Glomerulus / Bowman's**",
+         "Passive Ultrafiltration",
+         "Filters water, ions, glucose, urea (excludes proteins and cells)"
+        ],
+        [
+         "**Proximal Tubule (PCT)**",
+         "Active Transport / Osmosis",
+         "Reabsorbs $$100\\%$$ glucose and amino acids, $$65\\%$$ water and sodium"
+        ],
+        [
+         "**Descending Loop**",
+         "Passive Osmosis",
+         "Reabsorbs water (impermeable to solutes)"
+        ],
+        [
+         "**Ascending Loop**",
+         "Active Ion Pumping",
+         "Reabsorbs sodium ($$\\text{Na}^+$$) and chloride ($$\\text{Cl}^-$$) (impermeable to water)"
+        ],
+        [
+         "**Distal Tubule (DCT)**",
+         "Facultative Ion Exchange",
+         "Regulates sodium, potassium ($$\\text{K}^+$$), and hydrogen ($$\\text{H}^+$$) ions"
+        ],
+        [
+         "**Collecting Duct**",
+         "Hormonally Regulated Osmosis",
+         "Reabsorbs water under the direct control of $$ADH$$"
+        ]
+       ]
+      },
+      {
+       "id": "bio11-u5-wrk1",
+       "type": "worked",
+       "title": "Worked from review",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "Which of the following represents the correct sequence of components in a standard homeostatic negative-feedback loop?",
+       "steps": [
+        {
+         "text": "**Step 1: Understand homeostatic feedback sequences**"
+        },
+        {
+         "text": "A negative-feedback loop begins with a change in the environment, which is the stimulus."
+        },
+        {
+         "text": "**Step 2: Trace the pathway**"
+        },
+        {
+         "text": "The stimulus is detected by a receptor, which sends input to the control center."
+        },
+        {
+         "text": "The control center processes this and directs the effector to produce a response that reverses the stimulus."
+        }
+       ],
+       "answer": "Stimulus -> Receptor -> Control Center -> Effector -> Response"
+      },
+      {
+       "id": "bio11-u5-wrk2",
+       "type": "worked",
+       "title": "Worked from review",
+       "page": 1,
+       "src": "study_notes",
+       "problem": "Which anatomical region of the kidney contains the glomeruli and Bowman's capsules of the nephrons?",
+       "steps": [
+        {
+         "text": "**Step 1: Identify kidney histology and regions**"
+        },
+        {
+         "text": "The kidney is divided into the outer cortex, inner medulla, and central pelvis."
+        },
+        {
+         "text": "**Step 2: Locate nephron segments**"
+        },
+        {
+         "text": "The renal corpuscles (glomerulus and Bowman's capsule) and convoluted tubules ($$PCT$$ and $$DCT$$) are situated exclusively in the renal cortex."
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        }
+       ],
+       "answer": "Renal cortex"
+      },
+      {
+       "id": "bio11-u5-chk1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "The Descending Loop of Henle is highly permeable to which of the following substances?",
+       "options": {
+        "A": "Sodium ions ($$\\text{Na}^+$$)",
+        "B": "Urea",
+        "C": "Water",
+        "D": "Glucose"
+       },
+       "answer": "C",
+       "why": "**Step 1: Review transport features of the Loop of Henle**\nThe Loop of Henle has structurally asymmetric limbs with differing permeabilities.\n\n**Step 2: Identify descending limb properties**\nThe descending limb is highly permeable to water but virtually impermeable to solutes (like sodium and urea), allowing water to enter the hypertonic medulla via osmosis.\n\n**Step 3: Final Result**\nTherefore, the correct choice is **Water**."
+      },
+      {
+       "id": "bio11-u5-chk2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Antidiuretic Hormone (ADH) regulates water reabsorption by binding to receptors on cells of which nephron segment?",
+       "options": {
+        "A": "Bowman's capsule",
+        "B": "Proximal Convoluted Tubule ($$PCT$$)",
+        "C": "Ascending Loop of Henle",
+        "D": "Collecting Duct"
+       },
+       "answer": "D",
+       "why": "**Step 1: Identify hormone action site**\nWhile most water is reabsorbed passively in the $$PCT$$, facultative (regulated) water reabsorption occurs in the final segments of the nephron.\n\n**Step 2: Match with ADH target**\n$$ADH$$ targets the cells of the collecting ducts (and to a lesser extent, the distal tubules), stimulating them to insert aquaporins for water reabsorption.\n\n**Step 3: Final Result**\nTherefore, the correct choice is **Collecting Duct**."
       },
       {
        "id": "bio11-u5-c13",
@@ -185,39 +325,27 @@
        "title": "Homeostasis and negative feedback",
        "page": 82,
        "body": [
-        "**Homeostasis** is keeping the internal environment (temperature, water, glucose, pH) nearly constant. It works by **negative feedback**: a change from the normal level is detected"
-       ]
-      },
-      {
-       "type": "text",
-       "title": "Homeostasis",
-       "page": 1,
-       "body": [
-        "Keep internal conditions steady (temp, glucose, water). Negative feedback reverses change.",
-        "Skin, liver, kidneys, hormones all help."
+        "**Homeostasis** is keeping the internal environment (temperature, water, glucose, pH) nearly constant. It works by **negative feedback**: a change from the normal level is detected by receptors, a control centre (often the brain or a gland) sends a message, and an effector brings the level back to normal. Example: when body temperature rises, sweating and widening of skin blood vessels cool the body down."
        ],
-       "id": "bio11-u5-deep1"
+       "src": "notes"
       },
       {
-       "type": "text",
-       "title": "Osmoregulation sketch",
-       "body": [
-        "ADH ↑ → kidneys reabsorb more water → urine concentrated.",
-        "Thirst + behaviour also restore balance."
-       ],
-       "id": "bio11-u5-xtra1",
-       "page": 1
-      },
-      {
-       "id": "bio11-u5-checklist",
-       "type": "text",
-       "title": "Homeostasis: checklist before exam",
-       "page": 1,
-       "body": [
-        "Can you define every bold term in **Homeostasis** without looking?",
-        "Can you redo each worked example with the answer covered?",
-        "Can you sketch one diagram/graph/map and label it in under 2 minutes?"
-       ]
+       "id": "bio11-u5-l5-1-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Part of the nephron responsible for making the urine concentrated is the",
+       "options": {
+        "A": "descending limb of loop of Henle.",
+        "B": "proximal tubule.",
+        "C": "ascending limb of loop of Henle.",
+        "D": "ureter.",
+        "E": "urinary bladder."
+       },
+       "answer": "A",
+       "why": "Concentrating urine involves reabsorbing water. The **descending limb of the loop of Henle** is highly permeable to water but not to salts. As the filtrate moves down, water leaves the tubule by osmosis, making the remaining fluid more concentrated.",
+       "src": "matric",
+       "src_qid": "biology_2024_q25",
+       "page": 82
       }
      ]
     },
@@ -231,13 +359,29 @@
      ],
      "cards": [
       {
+       "id": "bio11-u5-c02",
+       "type": "diagram",
+       "title": "Water — the kidney",
+       "page": 87,
+       "src": "notes",
+       "diagram": "f3",
+       "mode": "plain",
+       "body": [
+        "Filter everything small in the glomerulus; take back what you still want; ADH makes the collecting duct extra leaky to water when you are dry."
+       ]
+      },
+      {
        "id": "bio11-u5-c03",
        "type": "text",
        "title": "5.2.1 Structure of the Mammalian Kidney",
        "page": 85,
+       "src": "textbook p.85",
+       "enriched": true,
        "body": [
         "The kidneys are a pair of vital organs that perform a variety of functions.",
-        "Every day, a person’s kidneys process approximately 189 litres of blood and filters out about two litres of waste products and excess water."
+        "Every day, a person’s kidneys process approximately 189 litres of blood and filters out about two litres of waste products and excess water.",
+        "The waste and excess water becomes urine, which flows to the urinary bladder through tubes called ureters.",
+        "The urinary bladder stores urine until releasing it through urination."
        ]
       },
       {
@@ -245,10 +389,48 @@
        "type": "text",
        "title": "5.2.2 Osmoregulation by the Kidney",
        "page": 88,
+       "src": "textbook pp.88–89",
+       "enriched": true,
        "body": [
         "Osmoregulation is the process which regulates the concentration and osmotic pressure of blood by regulating the water contents of blood plasma.",
-        "At the same time excess water intake may dilute the body fluids."
+        "At the same time excess water intake may dilute the body fluids.",
+        "The human kidney is extremely flexible in handling different types of activities.",
+        "During this state there will be ultra filtration and decreased reabsorption."
        ]
+      },
+      {
+       "id": "bio11-u5-chk3",
+       "type": "check",
+       "title": "Quick check",
+       "page": 84,
+       "src": "study_notes",
+       "src_qid": "bio_g11_c5_q1",
+       "q": "Which of the following represents the correct sequence of components in a standard homeostatic negative-feedback loop?",
+       "options": {
+        "A": "Effector -> Receptor -> Control Center -> Stimulus",
+        "B": "Stimulus -> Receptor -> Control Center -> Effector -> Response",
+        "C": "Receptor -> Response -> Stimulus -> Control Center",
+        "D": "Control Center -> Stimulus -> Receptor -> Effector"
+       },
+       "answer": "B",
+       "why": "**Step 1: Understand homeostatic feedback sequences**\nA negative-feedback loop begins with a change in the environment, which is the stimulus.\n\n**Step 2: Trace the pathway**\nThe stimulus is detected by a receptor, which sends input to the control center. The control center processes this and directs the effector to produce a response that reverses the stimulus.\n\n**Step 3: Final Result**\nTherefore, the correct choice is **Stimulus -> Receptor -> Control Center -> Effector -> Response**."
+      },
+      {
+       "id": "bio11-u5-chk4",
+       "type": "check",
+       "title": "Quick check",
+       "page": 84,
+       "src": "study_notes",
+       "src_qid": "bio_g11_c5_q2",
+       "q": "Which anatomical region of the kidney contains the glomeruli and Bowman's capsules of the nephrons?",
+       "options": {
+        "A": "Renal medulla",
+        "B": "Renal pelvis",
+        "C": "Renal cortex",
+        "D": "Ureter cavity"
+       },
+       "answer": "C",
+       "why": "**Step 1: Identify kidney histology and regions**\nThe kidney is divided into the outer cortex, inner medulla, and central pelvis.\n\n**Step 2: Locate nephron segments**\nThe renal corpuscles (glomerulus and Bowman's capsule) and convoluted tubules ($$PCT$$ and $$DCT$$) are situated exclusively in the renal cortex.\n\n**Step 3: Final Result**\nTherefore, the correct choice is **Renal cortex**."
       },
       {
        "id": "bio11-u5-c16",
@@ -274,110 +456,8 @@
          "Less water reabsorbed",
          "Large volume, dilute"
         ]
-       ]
-      },
-      {
-       "type": "worked",
-       "title": "Temperature",
-       "page": 1,
-       "problem": "Too hot?",
-       "steps": [
-        {
-         "text": "S"
-        },
-        {
-         "text": "w"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "+"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "v"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "d"
-        },
-        {
-         "text": "i"
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "i"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "n"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "l"
-        },
-        {
-         "text": "o"
-        },
-        {
-         "text": "s"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": " "
-        },
-        {
-         "text": "h"
-        },
-        {
-         "text": "e"
-        },
-        {
-         "text": "a"
-        },
-        {
-         "text": "t"
-        },
-        {
-         "text": "."
-        }
        ],
-       "answer": "Core temperature falls toward set point.",
-       "id": "bio11-u5-deep2"
+       "src": "notes"
       },
       {
        "type": "worked",
@@ -390,18 +470,26 @@
        ],
        "answer": "Increases.",
        "id": "bio11-u5-xtra2",
-       "page": 1
+       "page": 1,
+       "src": "notes"
       },
       {
-       "id": "bio11-u5-misconception",
-       "type": "text",
-       "title": "Common mix-ups in Homeostasis",
-       "page": 1,
-       "body": [
-        "Write one idea students often confuse with this topic, then the correct distinction.",
-        "Example pattern: “Looks like X, but actually Y because …”",
-        "Teaching the difference is better than re-reading the page."
-       ]
+       "id": "bio11-u5-l5-2-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Leading from each kidney is a **tube**, called______.",
+       "options": {
+        "A": "Urethra",
+        "B": "Ureter",
+        "C": "medulla",
+        "D": "Urinary bladder",
+        "E": "None"
+       },
+       "answer": "B",
+       "why": "The **ureter** is the duct/tube by which urine passes from the kidney to the bladder.",
+       "src": "matric",
+       "src_qid": "biology_2024_q9",
+       "page": 84
       }
      ]
     },
@@ -415,13 +503,27 @@
      ],
      "cards": [
       {
+       "id": "bio11-u5-c05",
+       "type": "text",
+       "title": "Glucose",
+       "page": 92,
+       "src": "notes",
+       "body": [
+        "High sugar → insulin → liver stores glycogen. Low sugar → glucagon → liver releases glucose. (Same islets as Unit 1 — the book wants you to connect them.)"
+       ]
+      },
+      {
        "id": "bio11-u5-c06",
        "type": "text",
        "title": "5.3.1 The Pancreas and its Hormones",
        "page": 91,
+       "src": "textbook p.91",
+       "enriched": true,
        "body": [
         "The pancreas secretes the hormones insulin and glucagon to control the level of glucose in the blood.",
-        "The body of a healthy person, who has not eaten for some time, releases a small amount of insulin into the bloodstream throughout the day and night."
+        "The body of a healthy person, who has not eaten for some time, releases a small amount of insulin into the bloodstream throughout the day and night.",
+        "Maintaining this steady supply of insulin is important in allowing the body to utilize blood sugar for a longer period after a meal.",
+        "The insulin also sends signal to the liver to convert glucose into the glucosereserve known as glycogen."
        ]
       },
       {
@@ -429,10 +531,108 @@
        "type": "text",
        "title": "5.3.2 The Liver and Sugar Control",
        "page": 92,
+       "src": "textbook pp.92–93",
+       "enriched": true,
        "body": [
         "The liver acts as a storehouse for glycogen.",
-        "Insulin - Insulin is released as a result of an increase in glucose levels, and stimulates the liver to convert glucose into glycogen, where the excess glucose can be stored for la"
+        "Insulin - Insulin is released as a result of an increase in glucose levels, and stimulates the liver to convert glucose into glycogen, where the excess glucose can be stored for later use in the liver.",
+        "Insulin also signals the liver when more glucose is needed.",
+        "If a person has exhausted his/her glycogen stores, as can happen on a low carbohydrate intake, the liver converts fats or protein into glucose to provide the glucose the body needs."
        ]
+      },
+      {
+       "id": "bio11-u5-chk5",
+       "type": "check",
+       "title": "Quick check",
+       "page": 91,
+       "src": "study_notes",
+       "src_qid": "bio_g11_c5_q5",
+       "q": "Which pancreatic hormone is secreted in response to hypoglycemia (low blood glucose), and what is its primary effect?",
+       "options": {
+        "A": "Insulin; lowers blood glucose",
+        "B": "Glucagon; raises blood glucose by stimulating glycogenolysis",
+        "C": "Thyroxine; increases basal metabolic rate",
+        "D": "Insulin; raises blood glucose by storing glycogen"
+       },
+       "answer": "B",
+       "why": "**Step 1: Differentiate pancreatic hormones**\nInsulin is secreted during hyperglycemia (high blood sugar). Glucagon is secreted during hypoglycemia (low blood sugar).\n\n**Step 2: Define glucagon function**\nGlucagon directs the liver to perform glycogenolysis (breaking down glycogen to release glucose), raising blood glucose back to normal.\n\n**Step 3: Final Result**\nTherefore, the correct choice is **Glucagon; raises blood glucose by stimulating glycogenolysis**."
+      },
+      {
+       "id": "bio11-u5-wrk5",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 91,
+       "src": "study_notes",
+       "src_qid": "bio_g11_c5_q5",
+       "problem": "Which pancreatic hormone is secreted in response to hypoglycemia (low blood glucose), and what is its primary effect?",
+       "steps": [
+        {
+         "text": "**Step 1: Differentiate pancreatic hormones**"
+        },
+        {
+         "text": "Insulin is secreted during hyperglycemia (high blood sugar). Glucagon is secreted during hypoglycemia (low blood sugar)."
+        },
+        {
+         "text": "**Step 2: Define glucagon function**"
+        },
+        {
+         "text": "Glucagon directs the liver to perform glycogenolysis (breaking down glycogen to release glucose), raising blood glucose back to normal."
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "Therefore, the correct choice is **Glucagon; raises blood glucose by stimulating glycogenolysis**."
+        }
+       ],
+       "answer": "Glucagon; raises blood glucose by stimulating glycogenolysis"
+      },
+      {
+       "id": "bio11-u5-chk6",
+       "type": "check",
+       "title": "Quick check",
+       "page": 91,
+       "src": "study_notes",
+       "src_qid": "bio_g11_c5_q6",
+       "q": "Which of the following represents the master coordinating center for thermoregulation in the human brain?",
+       "options": {
+        "A": "Cerebellum",
+        "B": "Preoptic area of the hypothalamus",
+        "C": "Medulla oblongata",
+        "D": "Thalamus"
+       },
+       "answer": "B",
+       "why": "**Step 1: Identify brain regulatory centers**\nThe medulla regulates heart rate and respiration. The cerebellum coordinates balance.\n\n**Step 2: Locate the thermal thermostat**\nThe hypothalamus, specifically the preoptic area, operates as the body's master thermostat, integrating temperature signals to coordinate thermal reflexes.\n\n**Step 3: Final Result**\nTherefore, the correct choice is **Preoptic area of the hypothalamus**."
+      },
+      {
+       "id": "bio11-u5-wrk6",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 91,
+       "src": "study_notes",
+       "src_qid": "bio_g11_c5_q6",
+       "problem": "Which of the following represents the master coordinating center for thermoregulation in the human brain?",
+       "steps": [
+        {
+         "text": "**Step 1: Identify brain regulatory centers**"
+        },
+        {
+         "text": "The medulla regulates heart rate and respiration. The cerebellum coordinates balance."
+        },
+        {
+         "text": "**Step 2: Locate the thermal thermostat**"
+        },
+        {
+         "text": "The hypothalamus, specifically the preoptic area, operates as the body's master thermostat, integrating temperature signals to coordinate thermal reflexes."
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "Therefore, the correct choice is **Preoptic area of the hypothalamus**."
+        }
+       ],
+       "answer": "Preoptic area of the hypothalamus"
       },
       {
        "id": "bio11-u5-c14",
@@ -440,65 +640,525 @@
        "title": "Control of blood glucose",
        "page": 91,
        "body": [
-        "After a meal, glucose rises → the pancreas releases **insulin** → liver and muscles change glucose to **glycogen** and cells take up glucose → level falls. Between meals, glucose f"
-       ]
+        "After a meal, glucose rises → the pancreas releases **insulin** → liver and muscles change glucose to **glycogen** and cells take up glucose → level falls. Between meals, glucose falls → the pancreas releases **glucagon** → the liver changes glycogen back to glucose → level rises again. Both hormones act by negative feedback."
+       ],
+       "src": "notes"
       },
       {
-       "type": "table",
-       "title": "Examples",
-       "page": 1,
-       "head": [
-        "Variable",
-        "Control"
-       ],
-       "rows": [
-        [
-         "Glucose",
-         "insulin/glucagon"
-        ],
-        [
-         "Water",
-         "ADH / thirst"
-        ],
-        [
-         "Temp",
-         "sweat, shiver"
-        ]
-       ],
-       "id": "bio11-u5-deep3"
-      },
+       "id": "bio11-u5-l5-3-mx1",
+       "type": "check",
+       "title": "Quick check",
+       "q": "Which of the following hormones lowers blood sugar levels by increasing the rate of entry of glucose into the cells?",
+       "options": {
+        "A": "Follicle-Stimulating Hormone",
+        "B": "Thyroid hormone",
+        "C": "Adrenalin",
+        "D": "Insulin",
+        "E": "Glucagon."
+       },
+       "answer": "D",
+       "why": "**Insulin**, produced by the pancreas, lowers blood glucose levels by signaling cells to take up glucose from the blood. **Glucagon** has the opposite effect (raises blood sugar).",
+       "src": "matric",
+       "src_qid": "biology_2017_q19",
+       "page": 91
+      }
+     ]
+    },
+    {
+     "id": "bio11-u5-l5-4",
+     "number": "5.4",
+     "title": "The Control of Body Temperature",
+     "pages": [
+      94,
+      101
+     ],
+     "cards": [
       {
-       "id": "bio11-u5-eritrea",
+       "id": "bio11-u5-c08",
        "type": "text",
-       "title": "Local / Eritrea link",
-       "page": 1,
+       "title": "Temperature — skin",
+       "page": 94,
+       "src": "notes",
        "body": [
-        "Connect **Homeostasis** to an Eritrean place, crop, climate zone, or classroom example from your textbook.",
-        "Local examples make recall stronger in exams."
+        "Hot: sweat + vasodilation (skin red) + hair down. Cold: shiver (muscle heat) + vasoconstriction + hair up (little use in humans). Hypothalamus is the thermostat."
        ]
+      },
+      {
+       "id": "bio11-u5-c09",
+       "type": "mnemonic",
+       "title": "Mnemonic — “Sweat, open pipes, lie flat”",
+       "page": 96,
+       "src": "notes",
+       "body": [
+        "When hot: sweat, skin arterioles open, hairs lie flat. Reverse the three when cold, plus shiver."
+       ]
+      },
+      {
+       "id": "bio11-u5-c10",
+       "type": "text",
+       "title": "5.4.1 The Structure of Human Skin",
+       "page": 94,
+       "src": "textbook pp.94–95",
+       "enriched": true,
+       "body": [
+        "One of the major organs for regulating the temperature is the skin.",
+        "The skin has a very large surface area and is in direct contact with the external environment.",
+        "The skin is divided into two layers: the outer epidermis and inner dermis.",
+        "The malpighian layer is the boundary between these two layers."
+       ]
+      },
+      {
+       "id": "bio11-u5-c11",
+       "type": "text",
+       "title": "5.4.2 Mechanisms of Heat Loss",
+       "page": 95,
+       "src": "textbook p.95",
+       "enriched": true,
+       "body": [
+        "All mammals and birds maintain a constant body temperature despite the change in the temperature of the environment.",
+        "The temperature of the body is regulated by feedback mechanisms which operate primarily through the hypothalamus.",
+        "The hypothalamus contains not only the control mechanisms, but also the key temperature sensors.",
+        "A rise in body temperature is compensated for by increasing heat loss and reducing heat production."
+       ]
+      },
+      {
+       "id": "bio11-u5-c12",
+       "type": "text",
+       "title": "5.4.3 Mechanisms of Heat Gain",
+       "page": 96,
+       "src": "textbook pp.96–97",
+       "enriched": true,
+       "body": [
+        "The heat production of the body under a normal temperature range remains almost constant.",
+        "The effectors for this response are the body’s skeletal muscles, which contract and relax involuntarily to generate heat.",
+        "The capillaries in the skin become constricted.",
+        "Hair-erection: When the body is cold, the muscles attached to the hair follicles contract."
+       ]
+      },
+      {
+       "id": "bio11-u5-chk7",
+       "type": "check",
+       "title": "Quick check",
+       "page": 94,
+       "src": "study_notes",
+       "src_qid": "bio_g11_c5_q7",
+       "q": "How does cutaneous vasodilation assist in cooling the human body in a hot environment?",
+       "options": {
+        "A": "It diverts blood inward to deep abdominal organs to decrease metabolic rates.",
+        "B": "It widens dermal blood vessels, bringing warm blood close to the skin surface to maximize heat loss via radiation and convection.",
+        "C": "It constricts superficial capillaries to decrease sweating.",
+        "D": "It increases the thickness of the insulating subcutaneous fat layer."
+       },
+       "answer": "B",
+       "why": "**Step 1: Understand vasodilation mechanics**\nVasodilation refers to the relaxation of smooth muscles in blood vessel walls, increasing their diameter.\n\n**Step 2: Analyze thermal heat exchange**\nWidening dermal blood vessels increases blood flow to the skin, allowing core heat carried by blood to be lost to the external environment through radiation and convection.\n\n**Step 3: Final Result**\nTherefore, the correct choice is **It widens dermal blood vessels, bringing warm blood close to the skin surface to maximize heat loss via radiation and convection.**"
+      },
+      {
+       "id": "bio11-u5-wrk7",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 94,
+       "src": "study_notes",
+       "src_qid": "bio_g11_c5_q7",
+       "problem": "How does cutaneous vasodilation assist in cooling the human body in a hot environment?",
+       "steps": [
+        {
+         "text": "**Step 1: Understand vasodilation mechanics**"
+        },
+        {
+         "text": "Vasodilation refers to the relaxation of smooth muscles in blood vessel walls, increasing their diameter."
+        },
+        {
+         "text": "**Step 2: Analyze thermal heat exchange**"
+        },
+        {
+         "text": "Widening dermal blood vessels increases blood flow to the skin, allowing core heat carried by blood to be lost to the external environment through radiation and convection."
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "Therefore, the correct choice is **It widens dermal blood vessels, bringing warm blood close to the skin surface to maximize heat loss via radiation and convection.**"
+        }
+       ],
+       "answer": "It widens dermal blood vessels, bringing warm blood close to the skin surface to maximize heat loss via radiation and convection."
+      },
+      {
+       "id": "bio11-u5-chk8",
+       "type": "check",
+       "title": "Quick check",
+       "page": 94,
+       "src": "study_notes",
+       "src_qid": "bio_g11_c5_q8",
+       "q": "What is the biological mechanism and purpose of shivering during cold exposure?",
+       "options": {
+        "A": "Voluntary movement designed to increase blood flow to the skin surface",
+        "B": "Involuntary, synchronous contractions of skeletal muscles to release thermal energy as a byproduct of ATP hydrolysis",
+        "C": "Autonomic stimulation of sweat glands to produce insulating fluids",
+        "D": "Thyroxine-mediated breakdown of glycogen in the liver"
+       },
+       "answer": "B",
+       "why": "**Step 1: Identify shivering tissue**\nShivering involves skeletal muscles, which are normally voluntary but act involuntarily under hypothalamic control during cold stress.\n\n**Step 2: Describe energy conversion**\nRapid, synchronous contractions hydrolyze $$ATP$$. Since muscle contraction is only partially efficient, a large portion of this energy is released as heat to warm the body.\n\n**Step 3: Final Result**\nTherefore, the correct choice is **Involuntary, synchronous contractions of skeletal muscles to release thermal energy as a byproduct of ATP hydrolysis**."
+      },
+      {
+       "id": "bio11-u5-wrk8",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 94,
+       "src": "study_notes",
+       "src_qid": "bio_g11_c5_q8",
+       "problem": "What is the biological mechanism and purpose of shivering during cold exposure?",
+       "steps": [
+        {
+         "text": "**Step 1: Identify shivering tissue**"
+        },
+        {
+         "text": "Shivering involves skeletal muscles, which are normally voluntary but act involuntarily under hypothalamic control during cold stress."
+        },
+        {
+         "text": "**Step 2: Describe energy conversion**"
+        },
+        {
+         "text": "Rapid, synchronous contractions hydrolyze $$ATP$$. Since muscle contraction is only partially efficient, a large portion of this energy is released as heat to warm the body."
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "Therefore, the correct choice is **Involuntary, synchronous contractions of skeletal muscles to release thermal energy as a byproduct of ATP hydrolysis**."
+        }
+       ],
+       "answer": "Involuntary, synchronous contractions of skeletal muscles to release thermal energy as a byproduct of ATP hydrolysis"
       }
      ]
     }
    ],
    "glossary": [
     {
+     "term": "Loop of Henle",
+     "meaning": "The Loop of Henle is the part of the nephron that contains the basic pathway for the glomerular filtrate.",
+     "page": 87,
+     "src": "textbook p.87",
+     "enriched": true
+    },
+    {
+     "term": "Dermis",
+     "meaning": "Beneath the dermis is a subcutaneous fat layer, the region which contains adipose tissue (fat storage tissue).",
+     "page": 95,
+     "src": "textbook p.95",
+     "enriched": true
+    },
+    {
+     "term": "Malpighian layer",
+     "meaning": "The malpighian layer is the boundary between these two layers.",
+     "page": 95,
+     "src": "textbook p.95",
+     "enriched": true
+    },
+    {
+     "term": "Osmoregulation",
+     "meaning": "Osmoregulation is the process which regulates the concentration and osmotic pressure of blood by regulating the water contents of blood plasma.",
+     "page": 88,
+     "src": "textbook p.88",
+     "enriched": true
+    },
+    {
+     "term": "Glomerulus",
+     "meaning": "The glomerulus is the main filter, located within a structure known as the Bowman’s capsule.",
+     "page": 86,
+     "src": "textbook p.86",
+     "enriched": true
+    },
+    {
      "term": "Homeostasis",
-     "def": "Core topic of this unit — expand with your textbook definition for “Homeostasis”."
+     "meaning": "Homeostasis is the process by which the body adjusts itself internally and physiologically in response to internal and external environmental changes.",
+     "page": 82,
+     "src": "textbook p.82",
+     "enriched": true
+    },
+    {
+     "term": "Vasoconstriction",
+     "meaning": "Vasoconstriction: This is the opposite of vasodilation.",
+     "page": 97,
+     "src": "textbook p.97",
+     "enriched": true
     }
    ],
    "tips": [
     {
-     "id": "bio11-u5-deeptip1",
-     "text": "Negative feedback = detect → correct → stop when normal."
+     "text": "Homeostasis is the process of keeping our the body stable internally stable. It is a dynamic process that works to keep the body stable despite the variations in the external environment.",
+     "page": 90,
+     "src": "textbook p.90",
+     "enriched": true
+    },
+    {
+     "text": "Maintaining homeostasis is important for the proper functioning of the internal organs.",
+     "page": 90,
+     "src": "textbook p.90",
+     "enriched": true
+    },
+    {
+     "text": "The control of the water levels is carried out by the kidneys, which are closely linked to the excretion of urea.",
+     "page": 90,
+     "src": "textbook p.90",
+     "enriched": true
+    },
+    {
+     "text": "The kidneys remove wastes and water from the blood to forming urine.",
+     "page": 91,
+     "src": "textbook p.91",
+     "enriched": true
+    },
+    {
+     "text": "Urine flows from the kidneys to the urinary bladder through the ureters.",
+     "page": 91,
+     "src": "textbook p.91",
+     "enriched": true
+    },
+    {
+     "text": "Osmoregulation is vital because the body does not lose or gain water by osmosis (tissue metabolism) if the concentration of water and salts is not the same inside and outside cells.",
+     "page": 91,
+     "src": "textbook p.91",
+     "enriched": true
+    },
+    {
+     "text": "The osmotic strength of the blood depends on how much glucose, mineral salts and water is present.",
+     "page": 91,
+     "src": "textbook p.91",
+     "enriched": true
+    },
+    {
+     "text": "What are the conditions that our body needs to maintain? 2.",
+     "page": 91,
+     "src": "textbook p.91",
+     "enriched": true
+    },
+    {
+     "text": "What are the main causes of diabetes? 4.",
+     "page": 91,
+     "src": "textbook p.91",
+     "enriched": true
+    },
+    {
+     "text": "Which hormones are secreted by the pancreas?",
+     "page": 91,
+     "src": "textbook p.91",
+     "enriched": true
     }
    ],
-   "games": [],
+   "games": [
+    {
+     "type": "match",
+     "title": "Match the pairs",
+     "pairs": [
+      {
+       "a": "Insulin",
+       "b": "Lowers blood glucose"
+      },
+      {
+       "a": "Glucagon",
+       "b": "Raises blood glucose"
+      },
+      {
+       "a": "ADH",
+       "b": "Saves water in kidney"
+      }
+     ],
+     "src": "notes",
+     "id": "bio11-u5-g1",
+     "lesson": null
+    },
+    {
+     "type": "match",
+     "title": "Match each key word to its meaning",
+     "pairs": [
+      {
+       "a": "Loop of Henle",
+       "b": "The Loop of Henle is the part of the nephron that contains the basic pathway for the glomerular filtrate."
+      },
+      {
+       "a": "Dermis",
+       "b": "Beneath the dermis is a subcutaneous fat layer, the region which contains adipose tissue (fat storage tissue)."
+      },
+      {
+       "a": "Malpighian layer",
+       "b": "The malpighian layer is the boundary between these two layers."
+      },
+      {
+       "a": "Osmoregulation",
+       "b": "Osmoregulation is the process which regulates the concentration and osmotic pressure of blood by regulating…"
+      },
+      {
+       "a": "Glomerulus",
+       "b": "The glomerulus is the main filter, located within a structure known as the Bowman’s capsule."
+      },
+      {
+       "a": "Homeostasis",
+       "b": "Homeostasis is the process by which the body adjusts itself internally and physiologically in response to…"
+      }
+     ],
+     "src": "glossary",
+     "id": "bio11-u5-g2",
+     "lesson": null
+    },
+    {
+     "type": "tf",
+     "title": "True or false?",
+     "seconds": 12,
+     "items": [
+      {
+       "text": "Loop of Henle: The Loop of Henle is the part of the nephron that contains the basic pathway for the glomerular filtrate.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Dermis: The glomerulus is the main filter, located within a structure known as the Bowman’s capsule.",
+       "answer": false,
+       "why": "That describes Glomerulus. Dermis: Beneath the dermis is a subcutaneous fat layer, the region which contains adipose tissue (fat storage tissue)."
+      },
+      {
+       "text": "Malpighian layer: The malpighian layer is the boundary between these two layers.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Osmoregulation: Vasoconstriction: This is the opposite of vasodilation.",
+       "answer": false,
+       "why": "That describes Vasoconstriction. Osmoregulation: Osmoregulation is the process which regulates the concentration and osmotic pressure of blood by regulating the water contents of blood plasma."
+      },
+      {
+       "text": "Glomerulus: The glomerulus is the main filter, located within a structure known as the Bowman’s capsule.",
+       "answer": true,
+       "why": "Correct."
+      },
+      {
+       "text": "Homeostasis: Beneath the dermis is a subcutaneous fat layer, the region which contains adipose tissue (fat storage tissue).",
+       "answer": false,
+       "why": "That describes Dermis. Homeostasis: Homeostasis is the process by which the body adjusts itself internally and physiologically in response to internal and external environmental changes."
+      },
+      {
+       "text": "Vasoconstriction: Vasoconstriction: This is the opposite of vasodilation.",
+       "answer": true,
+       "why": "Correct."
+      }
+     ],
+     "src": "glossary",
+     "id": "bio11-u5-g3",
+     "lesson": null
+    },
+    {
+     "type": "flash",
+     "title": "Key word flash cards",
+     "cards": [
+      {
+       "front": "Loop of Henle",
+       "back": "The Loop of Henle is the part of the nephron that contains the basic pathway for the glomerular filtrate."
+      },
+      {
+       "front": "Dermis",
+       "back": "Beneath the dermis is a subcutaneous fat layer, the region which contains adipose tissue (fat storage tissue)."
+      },
+      {
+       "front": "Malpighian layer",
+       "back": "The malpighian layer is the boundary between these two layers."
+      },
+      {
+       "front": "Osmoregulation",
+       "back": "Osmoregulation is the process which regulates the concentration and osmotic pressure of blood by regulating the water contents of blood plasma."
+      },
+      {
+       "front": "Glomerulus",
+       "back": "The glomerulus is the main filter, located within a structure known as the Bowman’s capsule."
+      },
+      {
+       "front": "Homeostasis",
+       "back": "Homeostasis is the process by which the body adjusts itself internally and physiologically in response to internal and external environmental changes."
+      },
+      {
+       "front": "Vasoconstriction",
+       "back": "Vasoconstriction: This is the opposite of vasodilation."
+      }
+     ],
+     "src": "glossary",
+     "id": "bio11-u5-g4",
+     "lesson": null
+    },
+    {
+     "type": "fill",
+     "title": "Fill the gap",
+     "items": [
+      {
+       "text": "The ____ is the part of the nephron that contains the basic pathway for the glomerular filtrate.",
+       "answer": "Loop of Henle",
+       "choices": [
+        "Vasoconstriction",
+        "Homeostasis",
+        "Loop of Henle"
+       ]
+      },
+      {
+       "text": "Beneath the ____ is a subcutaneous fat layer, the region which contains adipose tissue (fat storage tissue).",
+       "answer": "Dermis",
+       "choices": [
+        "Vasoconstriction",
+        "Glomerulus",
+        "Dermis"
+       ]
+      },
+      {
+       "text": "The ____ is the boundary between these two layers.",
+       "answer": "Malpighian layer",
+       "choices": [
+        "Loop of Henle",
+        "Dermis",
+        "Malpighian layer"
+       ]
+      },
+      {
+       "text": "____ is the process which regulates the concentration and osmotic pressure of blood by regulating the water contents of blood plasma.",
+       "answer": "Osmoregulation",
+       "choices": [
+        "Osmoregulation",
+        "Dermis",
+        "Malpighian layer"
+       ]
+      },
+      {
+       "text": "The ____ is the main filter, located within a structure known as the Bowman’s capsule.",
+       "answer": "Glomerulus",
+       "choices": [
+        "Glomerulus",
+        "Dermis",
+        "Loop of Henle"
+       ]
+      },
+      {
+       "text": "____ is the process by which the body adjusts itself internally and physiologically in response to internal and external environmental changes.",
+       "answer": "Homeostasis",
+       "choices": [
+        "Homeostasis",
+        "Vasoconstriction",
+        "Glomerulus"
+       ]
+      },
+      {
+       "text": "____: This is the opposite of vasodilation.",
+       "answer": "Vasoconstriction",
+       "choices": [
+        "Vasoconstriction",
+        "Dermis",
+        "Osmoregulation"
+       ]
+      }
+     ],
+     "src": "glossary",
+     "id": "bio11-u5-g5",
+     "lesson": null
+    }
+   ],
    "exercise": {
     "questions": [
      {
-      "id": "bio11-u5-q01",
       "type": "mcq",
-      "page": 84,
       "q": "ADH is released when you are",
       "options": {
        "A": "Over-hydrated on purpose",
@@ -509,10 +1169,198 @@
       "answer": "D",
       "why": [
        "Answer D: Short of water — so the kidney saves it",
-       "Textbook p.92: When this happens, glucagon is released and the liver converts glycogen into glucose, releasing it into the bloodstream."
+       "When the body is short of water the blood becomes concentrated; the pituitary releases ADH, which makes the kidney tubules reabsorb more water, giving small amounts of concentrated urine."
       ],
+      "src": "notes",
+      "page": 84,
+      "why_src": "written",
       "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
-      "similar": []
+      "similar": [
+       {
+        "q": "Antidiuretic hormone (ADH) has an effect on the  A) lungs.  B) brain.  C) kidneys.  D) heart.  E) testes.",
+        "a": "C. kidneys. — Answer: C.",
+        "exam_question": "gensci-2021-matric-p1-q33"
+       }
+      ],
+      "id": "bio11-u5-q01"
+     },
+     {
+      "type": "fill",
+      "q": "The ____ is the part of the nephron that contains the basic pathway for the glomerular filtrate.",
+      "answer": "Loop of Henle",
+      "choices": [
+       "Dermis",
+       "Malpighian layer",
+       "Loop of Henle",
+       "Osmoregulation"
+      ],
+      "why": [
+       "The Loop of Henle is the part of the nephron that contains the basic pathway for the glomerular filtrate."
+      ],
+      "src": "textbook p.87",
+      "enriched": true,
+      "page": 87,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "Beneath the ____ is a subcutaneous fat layer, the region which contains adipose tissue (fat storage tissue).",
+        "a": "Dermis"
+       }
+      ],
+      "id": "bio11-u5-q02"
+     },
+     {
+      "type": "fill",
+      "q": "Beneath the ____ is a subcutaneous fat layer, the region which contains adipose tissue (fat storage tissue).",
+      "answer": "Dermis",
+      "choices": [
+       "Osmoregulation",
+       "Malpighian layer",
+       "Loop of Henle",
+       "Dermis"
+      ],
+      "why": [
+       "Beneath the dermis is a subcutaneous fat layer, the region which contains adipose tissue (fat storage tissue)."
+      ],
+      "src": "textbook p.95",
+      "enriched": true,
+      "page": 95,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "The ____ is the boundary between these two layers.",
+        "a": "Malpighian layer"
+       }
+      ],
+      "id": "bio11-u5-q03"
+     },
+     {
+      "type": "fill",
+      "q": "The ____ is the boundary between these two layers.",
+      "answer": "Malpighian layer",
+      "choices": [
+       "Malpighian layer",
+       "Osmoregulation",
+       "Dermis",
+       "Loop of Henle"
+      ],
+      "why": [
+       "The malpighian layer is the boundary between these two layers."
+      ],
+      "src": "textbook p.95",
+      "enriched": true,
+      "page": 95,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ is the process which regulates the concentration and osmotic pressure of blood by regulating the water contents of blood plasma.",
+        "a": "Osmoregulation"
+       }
+      ],
+      "id": "bio11-u5-q04"
+     },
+     {
+      "type": "fill",
+      "q": "____ is the process which regulates the concentration and osmotic pressure of blood by regulating the water contents of blood plasma.",
+      "answer": "Osmoregulation",
+      "choices": [
+       "Malpighian layer",
+       "Osmoregulation",
+       "Dermis",
+       "Loop of Henle"
+      ],
+      "why": [
+       "Osmoregulation is the process which regulates the concentration and osmotic pressure of blood by regulating the water contents of blood plasma."
+      ],
+      "src": "textbook p.88",
+      "enriched": true,
+      "page": 88,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "The organ responsible for controlling the water level and regulation of salt content in the blood is the  A) kidney.  B) heart.  C) brain.  D) liver.  E) skin.",
+        "a": "A. kidney. — Answer: A.",
+        "exam_question": "gensci-2019-matric-p1-q29"
+       }
+      ],
+      "id": "bio11-u5-q05"
+     },
+     {
+      "type": "fill",
+      "q": "The ____ is the main filter, located within a structure known as the Bowman’s capsule.",
+      "answer": "Glomerulus",
+      "choices": [
+       "Glomerulus",
+       "Dermis",
+       "Loop of Henle",
+       "Malpighian layer"
+      ],
+      "why": [
+       "The glomerulus is the main filter, located within a structure known as the Bowman’s capsule."
+      ],
+      "src": "textbook p.86",
+      "enriched": true,
+      "page": 86,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ is the process by which the body adjusts itself internally and physiologically in response to internal and external environmental changes.",
+        "a": "Homeostasis"
+       }
+      ],
+      "id": "bio11-u5-q06"
+     },
+     {
+      "type": "fill",
+      "q": "____ is the process by which the body adjusts itself internally and physiologically in response to internal and external environmental changes.",
+      "answer": "Homeostasis",
+      "choices": [
+       "Homeostasis",
+       "Malpighian layer",
+       "Loop of Henle",
+       "Dermis"
+      ],
+      "why": [
+       "Homeostasis is the process by which the body adjusts itself internally and physiologically in response to internal and external environmental changes."
+      ],
+      "src": "textbook p.82",
+      "enriched": true,
+      "page": 82,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "What is the best definition of homeostasis?  A) Getting rid of wastes  B) Maintenance of a constant internal environment  C) Keeping a constant temperature  D) Taking in oxygen and getting rid of carbon dioxide  E) Maintenance of constant external environment",
+        "a": "B. Maintenance of a constant internal environment — A is excretion, C only one part of homeostasis (thermoregulation), D gas exchange. Answer: B.",
+        "exam_question": "bio-2020-matric-p1-q49"
+       }
+      ],
+      "id": "bio11-u5-q07"
+     },
+     {
+      "type": "fill",
+      "q": "____: This is the opposite of vasodilation.",
+      "answer": "Vasoconstriction",
+      "choices": [
+       "Loop of Henle",
+       "Vasoconstriction",
+       "Dermis",
+       "Malpighian layer"
+      ],
+      "why": [
+       "Vasoconstriction: This is the opposite of vasodilation."
+      ],
+      "src": "textbook p.97",
+      "enriched": true,
+      "page": 97,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "Vasodilation is a mechanism of  A) heat loss.  B) heat gain.  C) carbon dioxide elimination.  D) oxygen generation.  E) keeping water balance.",
+        "a": "A. heat loss. — Vasoconstriction does the opposite (heat conservation). Answer: A.",
+        "exam_question": "gensci-2021-matric-p1-q32"
+       }
+      ],
+      "id": "bio11-u5-q08"
      },
      {
       "id": "bio11-u5-q09",
@@ -568,8 +1416,246 @@
       ],
       "tip": "Units reveal mistakes.",
       "similar": []
+     },
+     {
+      "id": "bio11-u5-mx1",
+      "type": "mcq",
+      "q": "Which of the following is correct pathway of urine formed by the kidney to outside?",
+      "options": {
+       "A": "renal artery-- Bowman’s capsule-- proximal tubule-- loop of henle --collecting Duct-- renal pelvis – ureter -- urinary bladder-- urethra",
+       "B": "urinary bladder—ureter-- renal vein",
+       "C": "Bowman’s capsule -- renal vein-- loop of henle-- collecting duct -- urethra",
+       "D": "urinary bladder-- renal vein-- collecting duct-- loop of henle-- proximal tubule-- bowman’s capsule-- renal artery",
+       "E": "none"
+      },
+      "answer": "A",
+      "why": [
+       "**Logic:**\nUrine formation and excretion follow this anatomical route:\n1. **Renal Artery:** Blood enters.\n2. **Nephron:** Bowman's capsule $$\\rightarrow$$ Proximal tubule $$\\rightarrow$$ Loop of Henle $$\\rightarrow$$ Collecting Duct.\n3. **Exit:** Renal pelvis $$\\rightarrow$$ Ureter (tube to bladder) $$\\rightarrow$$ Urinary bladder (storage) $$\\rightarrow$$ Urethra (exit).\n\n**Result:**\nChoice A correctly follows the flow."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "biology_2017_q24",
+      "exam_question": "biology_2017_q24",
+      "page": 82
+     },
+     {
+      "id": "bio11-u5-mx2",
+      "type": "mcq",
+      "q": "Which of the following terms work **antagonistically**?",
+      "options": {
+       "A": "Insulin and Glucagon",
+       "B": "Noradrenalin and Acetylcholine",
+       "C": "Biceps and Triceps muscles",
+       "D": "All",
+       "E": "none"
+      },
+      "answer": "D",
+      "why": [
+       "**Step 1: Define antagonistic.** Working in opposition to each other to maintain balance.\n**Step 2: Evaluate A.** Insulin lowers blood sugar; Glucagon raises it. (Antagonistic)\n**Step 3: Evaluate B.** Noradrenalin (Sympathetic) speeds up heart; Acetylcholine (Parasympathetic) slows it down. (Antagonistic)\n**Step 4: Evaluate C.** Biceps flexes the arm; Triceps extends it. (Antagonistic)\n**Step 5: Conclusion.** All the listed pairs work antagonistically."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "biology_2022_2023_q40",
+      "exam_question": "biology_2022_2023_q40",
+      "page": 82
+     },
+     {
+      "id": "bio11-u5-mx3",
+      "type": "mcq",
+      "q": "Which of the following substances transports actively in to and out of the cell?",
+      "options": {
+       "A": "Water",
+       "B": "Glucose",
+       "C": "Oxygen",
+       "D": "Sodium ion"
+      },
+      "answer": "D",
+      "why": [
+       "**Step 1: Identify transport types.**\n- **Oxygen:** Moves by simple diffusion (passive).\n- **Water:** Moves by osmosis (passive).\n- **Glucose:** Often moves by facilitated diffusion (passive) or secondary active transport.\n- **Sodium ion ($$Na^+$$):** Frequently moved against its concentration gradient using ATP via the **Sodium-Potassium Pump** (Active Transport)."
+      ],
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [],
+      "src": "matric",
+      "src_qid": "biology_2015_q32",
+      "exam_question": "biology_2015_q32",
+      "page": 82
      }
     ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Homeostasis",
+      "kind": "unit",
+      "cards": [
+       "bio11-u5-c01"
+      ]
+     },
+     {
+      "id": "l5_1",
+      "label": "What is Homeostasis?",
+      "kind": "topic",
+      "lesson": "bio11-u5-l5-1",
+      "cards": [
+       "bio11-u5-c01"
+      ]
+     },
+     {
+      "id": "k_homeostasis",
+      "label": "Homeostasis",
+      "kind": "idea",
+      "cards": [
+       "bio11-u5-c01"
+      ]
+     },
+     {
+      "id": "l5_2",
+      "label": "The Control of Water Balance",
+      "kind": "topic",
+      "lesson": "bio11-u5-l5-2",
+      "cards": [
+       "bio11-u5-c02",
+       "bio11-u5-c03",
+       "bio11-u5-c04"
+      ]
+     },
+     {
+      "id": "k_osmoregulation",
+      "label": "Osmoregulation",
+      "kind": "idea",
+      "cards": [
+       "bio11-u5-c04"
+      ]
+     },
+     {
+      "id": "k_glomerulus",
+      "label": "Glomerulus",
+      "kind": "idea",
+      "cards": [
+       "bio11-u5-c02"
+      ]
+     },
+     {
+      "id": "l5_3",
+      "label": "The Control of the Blood Glucose",
+      "kind": "topic",
+      "lesson": "bio11-u5-l5-3",
+      "cards": [
+       "bio11-u5-c05",
+       "bio11-u5-c06",
+       "bio11-u5-c07"
+      ]
+     },
+     {
+      "id": "l5_4",
+      "label": "The Control of Body Temperature",
+      "kind": "topic",
+      "lesson": "bio11-u5-l5-4",
+      "cards": [
+       "bio11-u5-c08",
+       "bio11-u5-c09",
+       "bio11-u5-c10",
+       "bio11-u5-c11",
+       "bio11-u5-c12"
+      ]
+     },
+     {
+      "id": "k_dermis",
+      "label": "Dermis",
+      "kind": "idea",
+      "cards": [
+       "bio11-u5-c10"
+      ]
+     },
+     {
+      "id": "k_malpighian_layer",
+      "label": "Malpighian layer",
+      "kind": "idea",
+      "cards": [
+       "bio11-u5-c10"
+      ]
+     },
+     {
+      "id": "k_vasoconstriction",
+      "label": "Vasoconstriction",
+      "kind": "idea",
+      "cards": [
+       "bio11-u5-c08"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l5_1",
+      "label": "includes"
+     },
+     {
+      "from": "l5_1",
+      "to": "k_homeostasis",
+      "label": "key idea"
+     },
+     {
+      "from": "unit",
+      "to": "l5_2",
+      "label": "includes"
+     },
+     {
+      "from": "l5_2",
+      "to": "k_osmoregulation",
+      "label": "key idea"
+     },
+     {
+      "from": "l5_2",
+      "to": "k_glomerulus",
+      "label": "key idea"
+     },
+     {
+      "from": "unit",
+      "to": "l5_3",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l5_4",
+      "label": "includes"
+     },
+     {
+      "from": "l5_4",
+      "to": "k_dermis",
+      "label": "key idea"
+     },
+     {
+      "from": "l5_4",
+      "to": "k_malpighian_layer",
+      "label": "key idea"
+     },
+     {
+      "from": "l5_4",
+      "to": "k_vasoconstriction",
+      "label": "key idea"
+     },
+     {
+      "from": "l5_1",
+      "to": "l5_2",
+      "label": "next"
+     },
+     {
+      "from": "l5_2",
+      "to": "l5_3",
+      "label": "next"
+     },
+     {
+      "from": "l5_3",
+      "to": "l5_4",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
    }
   }
  ]
