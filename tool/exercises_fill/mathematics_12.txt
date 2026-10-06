@@ -1,0 +1,351 @@
+# Authored Grade 12 mathematics top-ups. Every answer was computed and checked.
+@ math12-u1
+Q: Find the 20th term of the arithmetic sequence 3, 7, 11, 15, ...
++ 79
+- 83
+- 80
+- 76
+E: For an arithmetic sequence, $$a_n = a_1 + (n-1)d$$.
+Here $$a_1 = 3$$ and $$d = 7 - 3 = 4$$.
+$$a_{20} = 3 + 19 \times 4 = 3 + 76 = 79$$
+83 comes from using 20 instead of 19 (3 + 20×4). 76 forgets to add the first term.
+
+Q: Find the sum of the first 10 terms of the arithmetic sequence 2, 5, 8, ...
++ 155
+- 29
+- 145
+- 165
+E: $$S_n = \frac{n}{2}[2a_1 + (n-1)d]$$ with $$a_1 = 2$$, $$d = 3$$, $$n = 10$$.
+$$S_{10} = 5[4 + 27] = 5 \times 31 = 155$$
+29 is only the 10th term ($$2 + 9 \times 3$$), not the sum.
+
+Q: Find the 8th term of the geometric sequence 3, 6, 12, 24, ...
++ 384
+- 768
+- 192
+- 48
+E: For a geometric sequence, $$a_n = a_1 r^{n-1}$$. Here $$a_1 = 3$$ and $$r = 2$$.
+$$a_8 = 3 \times 2^7 = 3 \times 128 = 384$$
+768 uses $$2^8$$ (one power too many), and 192 uses $$2^6$$.
+
+Q: Find the sum to infinity of the geometric series 12 + 6 + 3 + 1.5 + ...
++ 24
+- 21
+- 36
+- The sum does not exist.
+E: Here $$a_1 = 12$$ and $$r = \frac{6}{12} = \frac{1}{2}$$. Because $$|r| < 1$$, the sum to infinity exists:
+$$S_\infty = \frac{a_1}{1 - r} = \frac{12}{1 - \frac{1}{2}} = \frac{12}{\frac{1}{2}} = 24$$
+21 is only the sum of the first three terms (12 + 6 + 3).
+
+Q: Evaluate $$\sum_{k=1}^{5} (2k + 1)$$.
++ 35
+- 30
+- 25
+- 36
+E: Write out the terms: k = 1, 2, 3, 4, 5 gives 3, 5, 7, 9, 11.
+Sum = 3 + 5 + 7 + 9 + 11 = 35.
+(Check: it is an arithmetic series with 5 terms, first 3 and last 11, so $$S = \frac{5}{2}(3 + 11) = 35$$.) 30 is the sum of 2k only (2 + 4 + 6 + 8 + 10), forgetting the +1 in each of the 5 terms.
+
+Q: Insert three arithmetic means between 2 and 18.
++ 6, 10, 14
+- 4, 8, 12
+- 5, 9, 13
+- 6, 12, 18
+E: With three means, the sequence 2, _, _, _, 18 has 5 terms, so $$18 = 2 + 4d$$ and $$d = 4$$.
+The means are 2 + 4 = 6, 6 + 4 = 10, 10 + 4 = 14. Check: 14 + 4 = 18.
+
+Q: Which of these sequences is geometric?
++ 2, −6, 18, −54, ...
+- 2, 4, 6, 8, ...
+- 1, 4, 9, 16, ...
+- 5, 3, 1, −1, ...
+E: A sequence is geometric when the ratio between consecutive terms is constant.
+$$\frac{-6}{2} = \frac{18}{-6} = \frac{-54}{18} = -3$$, so r = −3.
+2, 4, 6, 8 and 5, 3, 1, −1 are arithmetic (constant difference), and 1, 4, 9, 16 are square numbers (neither).
+
+@ math12-u2
+Q: Find the mean of the data 4, 8, 6, 10, 12.
++ 8
+- 6
+- 10
+- 40
+E: Mean = (sum of values) ÷ (number of values).
+Sum = 4 + 8 + 6 + 10 + 12 = 40, and there are 5 values.
+Mean = 40 ÷ 5 = 8. (40 is the sum, not the mean.)
+
+Q: Find the median of 3, 9, 1, 7, 5, 11.
++ 6
+- 7
+- 5
+- 6.5
+E: First arrange in order: 1, 3, 5, 7, 9, 11.
+There are 6 values (even), so the median is the mean of the two middle values (3rd and 4th):
+Median = (5 + 7) ÷ 2 = 6.
+Choosing 7 or 5 forgets that there are two middle values.
+
+Q: Find the range of 12, 7, 19, 3, 15.
++ 16
+- 19
+- 12
+- 9
+E: Range = largest value − smallest value = 19 − 3 = 16.
+
+Q: Find the mode of 2, 3, 3, 5, 7, 7, 7, 9.
++ 7
+- 3
+- 5
+- 9
+E: The mode is the value that appears most often. 7 appears three times, 3 appears twice, and the others once. So the mode is 7.
+
+Q: Find the variance of the population 2, 4, 6, 8.
++ 5
+- 20
+- √5
+- 6.67
+E: Mean $$\bar{x} = \frac{2+4+6+8}{4} = 5$$.
+Squared deviations: $$(2-5)^2 = 9$$, $$(4-5)^2 = 1$$, $$(6-5)^2 = 1$$, $$(8-5)^2 = 9$$. Sum = 20.
+Population variance $$\sigma^2 = \frac{20}{4} = 5$$.
+20 is only the sum of squares, √5 is the standard deviation, and 6.67 divides by n − 1 = 3 (sample variance).
+
+Q: Two fair dice are thrown. What is the probability that the sum is 7?
++ 1/6
+- 7/36
+- 1/12
+- 1/36
+E: There are 6 × 6 = 36 equally likely outcomes.
+Pairs with sum 7: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1), which is 6 outcomes.
+P = 6/36 = 1/6.
+
+Q: A bag has 5 red and 3 blue balls. Two balls are taken out one after the other without replacement. What is the probability that both are red?
++ 5/14
+- 25/64
+- 5/8
+- 4/7
+E: P(first red) = 5/8. After one red ball is removed, 4 red balls remain out of 7.
+P(both red) = (5/8) × (4/7) = 20/56 = 5/14.
+25/64 = (5/8)(5/8) is the answer WITH replacement. 5/8 is only the first draw, and 4/7 is only the second draw.
+
+Q: In how many ways can a committee of 3 students be chosen from 7 students?
++ 35
+- 210
+- 21
+- 343
+E: Order does not matter in a committee, so we use combinations:
+$$\binom{7}{3} = \frac{7!}{3!\,4!} = \frac{7 \times 6 \times 5}{3 \times 2 \times 1} = 35$$
+210 is the number of ordered arrangements (permutations $$7 \times 6 \times 5$$).
+
+Q: A and B are independent events with P(A) = 0.3 and P(B) = 0.5. Find P(A ∪ B).
++ 0.65
+- 0.8
+- 0.15
+- 0.35
+E: For independent events, $$P(A \cap B) = P(A)P(B) = 0.3 \times 0.5 = 0.15$$.
+Then $$P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0.3 + 0.5 - 0.15 = 0.65$$.
+0.8 forgets to subtract the overlap, and 0.15 is P(A ∩ B).
+
+@ math12-u3
+Q: Find the distance between the points (−2, 3) and (4, −5).
++ 10
+- 14
+- 8
+- 6
+E: $$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} = \sqrt{(4 - (-2))^2 + (-5 - 3)^2} = \sqrt{36 + 64} = \sqrt{100} = 10$$
+14 adds the differences (6 + 8) instead of using Pythagoras.
+
+Q: Find the centre and radius of the circle $$x^2 + y^2 + 6x - 4y - 12 = 0$$.
++ centre (−3, 2), radius 5
+- centre (3, −2), radius 5
+- centre (−3, 2), radius √12
+- centre (−6, 4), radius 5
+E: Complete the square:
+$$(x^2 + 6x + 9) + (y^2 - 4y + 4) = 12 + 9 + 4$$
+$$(x + 3)^2 + (y - 2)^2 = 25$$
+So the centre is (−3, 2) and the radius is √25 = 5. The signs of the centre are the opposite of the signs inside the brackets, which is why (3, −2) is wrong.
+
+Q: Find the equation of the line through (1, 2) and (3, 8).
++ y = 3x − 1
+- y = 3x + 1
+- y = −3x + 5
+- y = (1/3)x + 5/3
+E: Slope $$m = \frac{8 - 2}{3 - 1} = \frac{6}{2} = 3$$.
+Using point (1, 2): y − 2 = 3(x − 1), so y = 3x − 1.
+Check with (3, 8): 3(3) − 1 = 8 ✓. The line y = 3x + 1 has the right slope but passes through (1, 4), not (1, 2).
+
+Q: Find the distance from the point (3, 4) to the line 3x + 4y − 5 = 0.
++ 4
+- 5
+- 20
+- 6
+E: The distance from $$(x_0, y_0)$$ to $$Ax + By + C = 0$$ is $$d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}}$$.
+$$d = \frac{|3(3) + 4(4) - 5|}{\sqrt{9 + 16}} = \frac{|20|}{5} = 4$$
+20 forgets to divide by $$\sqrt{A^2 + B^2} = 5$$.
+
+Q: Find the tangent of the acute angle between two lines with slopes 1 and 3.
++ 1/2
+- 2
+- 1
+- 1/4
+E: $$\tan\theta = \left|\frac{m_2 - m_1}{1 + m_1 m_2}\right| = \left|\frac{3 - 1}{1 + 3}\right| = \frac{2}{4} = \frac{1}{2}$$
+The answer 2 forgets the denominator $$1 + m_1 m_2$$.
+
+Q: Find the equation of the circle whose diameter has endpoints (1, 2) and (5, 6).
++ (x − 3)² + (y − 4)² = 8
+- (x − 3)² + (y − 4)² = 32
+- (x + 3)² + (y + 4)² = 8
+- (x − 3)² + (y − 4)² = 16
+E: The centre is the midpoint: $$\left(\frac{1+5}{2}, \frac{2+6}{2}\right) = (3, 4)$$.
+The diameter length is $$\sqrt{4^2 + 4^2} = \sqrt{32}$$, so the radius is $$\frac{\sqrt{32}}{2}$$ and $$r^2 = \frac{32}{4} = 8$$.
+Equation: (x − 3)² + (y − 4)² = 8. Using 32 uses the diameter squared instead of the radius squared.
+
+Q: Where is the point (4, 1) relative to the circle $$x^2 + y^2 = 16$$?
++ outside the circle
+- on the circle
+- inside the circle
+- at the centre
+E: Substitute: $$4^2 + 1^2 = 17$$. Compare with $$r^2 = 16$$.
+Since 17 > 16, the point is farther from the centre than the radius, so it is outside the circle. (If the result were equal to 16 it would be on the circle; less than 16, inside.)
+
+Q: Find the equation of the tangent to the circle $$x^2 + y^2 = 25$$ at the point (3, 4).
++ 3x + 4y = 25
+- 4x + 3y = 25
+- 3x + 4y = 5
+- 4x − 3y = 0
+E: The radius from (0, 0) to (3, 4) has slope 4/3. The tangent is perpendicular to the radius, so its slope is −3/4.
+y − 4 = −(3/4)(x − 3) → 4y − 16 = −3x + 9 → 3x + 4y = 25.
+(Shortcut: the tangent to $$x^2 + y^2 = r^2$$ at $$(x_1, y_1)$$ is $$x_1 x + y_1 y = r^2$$.) The line 4x − 3y = 0 is the radius itself, not the tangent.
+
+Q: Find the line through (2, −1) parallel to 2x − y + 3 = 0.
++ 2x − y − 5 = 0
+- 2x − y + 5 = 0
+- x + 2y = 0
+- 2x + y − 3 = 0
+E: The given line is y = 2x + 3, so its slope is 2. A parallel line has the same slope.
+y − (−1) = 2(x − 2) → y = 2x − 5 → 2x − y − 5 = 0.
+x + 2y = 0 passes through (2, −1) but is perpendicular (slope −1/2), and 2x + y − 3 = 0 also passes through the point but has slope −2.
+
+@ math12-u4
+Q: Find the determinant of $$\begin{pmatrix} 4 & 7 \\ 2 & 5 \end{pmatrix}$$.
++ 6
+- 34
+- −6
+- 13
+E: For $$\begin{pmatrix} a & b \\ c & d \end{pmatrix}$$, the determinant is $$ad - bc$$.
+$$4 \times 5 - 7 \times 2 = 20 - 14 = 6$$
+34 adds the products (20 + 14) instead of subtracting.
+
+Q: Let $$A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$$ and $$B = \begin{pmatrix} 2 & 0 \\ 1 & 3 \end{pmatrix}$$. Find AB.
++ $$\begin{pmatrix} 4 & 6 \\ 10 & 12 \end{pmatrix}$$
+- $$\begin{pmatrix} 2 & 4 \\ 10 & 14 \end{pmatrix}$$
+- $$\begin{pmatrix} 2 & 0 \\ 3 & 12 \end{pmatrix}$$
+- $$\begin{pmatrix} 3 & 2 \\ 4 & 7 \end{pmatrix}$$
+E: Multiply rows of A by columns of B:
+Row 1 · Col 1: 1(2) + 2(1) = 4; Row 1 · Col 2: 1(0) + 2(3) = 6
+Row 2 · Col 1: 3(2) + 4(1) = 10; Row 2 · Col 2: 3(0) + 4(3) = 12
+So $$AB = \begin{pmatrix} 4 & 6 \\ 10 & 12 \end{pmatrix}$$. The matrix with 2, 4, 10, 14 is BA (order matters), the one with 2, 0, 3, 12 multiplies entry by entry, and the one with 3, 2, 4, 7 is A + B.
+
+Q: Find the inverse of $$\begin{pmatrix} 3 & 1 \\ 5 & 2 \end{pmatrix}$$.
++ $$\begin{pmatrix} 2 & -1 \\ -5 & 3 \end{pmatrix}$$
+- $$\begin{pmatrix} -2 & 1 \\ 5 & -3 \end{pmatrix}$$
+- $$\begin{pmatrix} 3 & -1 \\ -5 & 2 \end{pmatrix}$$
+- $$\begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix}$$
+E: For $$\begin{pmatrix} a & b \\ c & d \end{pmatrix}$$, the inverse is $$\frac{1}{ad - bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$$.
+det = 3(2) − 1(5) = 1, so the inverse is $$\begin{pmatrix} 2 & -1 \\ -5 & 3 \end{pmatrix}$$.
+Check: 3(2) + 1(−5) = 1 and 3(−1) + 1(3) = 0 ✓. Swapping a and d is necessary; only changing signs gives the wrong matrix.
+
+Q: For what value of k is $$\begin{pmatrix} k & 4 \\ 2 & 2 \end{pmatrix}$$ singular (has no inverse)?
++ 4
+- −4
+- 1
+- 8
+E: A matrix is singular when its determinant is 0.
+det = 2k − 4(2) = 2k − 8 = 0 → k = 4.
+
+Q: Find the transpose of $$\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$$.
++ $$\begin{pmatrix} 1 & 3 \\ 2 & 4 \end{pmatrix}$$
+- $$\begin{pmatrix} 4 & 3 \\ 2 & 1 \end{pmatrix}$$
+- $$\begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix}$$
+- $$\begin{pmatrix} 2 & 1 \\ 4 & 3 \end{pmatrix}$$
+E: The transpose $$A^T$$ is made by writing the rows as columns. Row 1 (1, 2) becomes column 1, and row 2 (3, 4) becomes column 2. The matrix with 4, −2, −3, 1 is the adjoint, used for the inverse, not the transpose.
+
+Q: Use Cramer's rule to find y for the system 2x + 3y = 12 and x − y = 1.
++ y = 2
+- y = 3
+- y = −2
+- y = 10
+E: $$D = \begin{vmatrix} 2 & 3 \\ 1 & -1 \end{vmatrix} = -2 - 3 = -5$$
+$$D_y = \begin{vmatrix} 2 & 12 \\ 1 & 1 \end{vmatrix} = 2 - 12 = -10$$
+$$y = \frac{D_y}{D} = \frac{-10}{-5} = 2$$
+(Also x = 3.) Check: 2(3) + 3(2) = 12 and 3 − 2 = 1 ✓. 3 is the value of x.
+
+Q: A is a 2 × 2 matrix with det A = 5. Find det(2A).
++ 20
+- 10
+- 5
+- 25
+E: Multiplying a 2 × 2 matrix by 2 multiplies EACH row by 2, so the determinant is multiplied by $$2 \times 2 = 4$$.
+det(2A) = $$2^2 \times 5 = 20$$. The answer 10 forgets that both rows are multiplied.
+
+Q: det A = 3 and det B = −2 for 2 × 2 matrices A and B. Find det(AB).
++ −6
+- 1
+- 6
+- −1
+E: The determinant of a product is the product of the determinants: det(AB) = det A × det B = 3 × (−2) = −6.
+
+Q: If det A = 4, find det(A⁻¹).
++ 1/4
+- 4
+- −4
+- 16
+E: Since $$AA^{-1} = I$$ and det I = 1, we get det A × det(A⁻¹) = 1, so det(A⁻¹) = 1/4.
+
+Q: Let $$A = \begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix}$$ and $$B = \begin{pmatrix} 1 & 1 \\ 0 & 2 \end{pmatrix}$$. Find 3A − 2B.
++ $$\begin{pmatrix} 1 & -2 \\ 6 & -1 \end{pmatrix}$$
+- $$\begin{pmatrix} 1 & 2 \\ 6 & -1 \end{pmatrix}$$
+- $$\begin{pmatrix} 5 & 2 \\ 6 & 7 \end{pmatrix}$$
+- $$\begin{pmatrix} 1 & -2 \\ 6 & 1 \end{pmatrix}$$
+E: $$3A = \begin{pmatrix} 3 & 0 \\ 6 & 3 \end{pmatrix}$$ and $$2B = \begin{pmatrix} 2 & 2 \\ 0 & 4 \end{pmatrix}$$.
+Subtract entry by entry: 3 − 2 = 1, 0 − 2 = −2, 6 − 0 = 6, 3 − 4 = −1.
+The matrix with 5, 2, 6, 7 is 3A + 2B.
+
+Q: Find $$A^2$$ for $$A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$$.
++ $$\begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$$
+- $$\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$$
+- $$\begin{pmatrix} 2 & 2 \\ 0 & 2 \end{pmatrix}$$
+- $$\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$$
+E: $$A^2 = AA$$: Row 1 · Col 1 = 1(1) + 1(0) = 1; Row 1 · Col 2 = 1(1) + 1(1) = 2; Row 2 · Col 1 = 0; Row 2 · Col 2 = 0(1) + 1(1) = 1.
+So $$A^2 = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$$. Squaring each entry separately would wrongly give A again, and 2A is not the same as $$A^2$$.
+
+Q: Solve $$\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 5 \\ 3 \end{pmatrix}$$.
++ x = 2, y = 1
+- x = 1, y = 2
+- x = 3, y = −1
+- x = 1, y = 3
+E: The matrix equation means 2x + y = 5 and x + y = 3.
+Subtract the second from the first: x = 2. Then y = 3 − 2 = 1.
+Check: 2(2) + 1 = 5 ✓ and 2 + 1 = 3 ✓. (Using the inverse: det = 1, inverse $$\begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$$, which gives the same result.)
+
+Q: Which statement is NOT true in general for 2 × 2 matrices A, B and C?
++ AB = BA
+- A + B = B + A
+- (AB)C = A(BC)
+- A(B + C) = AB + AC
+E: Matrix addition is commutative, and multiplication is associative and distributive. But matrix multiplication is NOT commutative in general: AB and BA are usually different (see the example with A = [[1, 2], [3, 4]] and B = [[2, 0], [1, 3]]).
+
+Q: If $$\begin{vmatrix} a & b \\ c & d \end{vmatrix} = 7$$, find $$\begin{vmatrix} c & d \\ a & b \end{vmatrix}$$.
++ −7
+- 7
+- 0
+- 14
+E: $$\begin{vmatrix} c & d \\ a & b \end{vmatrix} = cb - da = -(ad - bc) = -7$$.
+Swapping two rows of a determinant changes its sign.
+
+Q: Use a determinant to find the area of the triangle with vertices (0, 0), (4, 1) and (2, 5).
++ 9 square units
+- 18 square units
+- 11 square units
+- 22 square units
+E: For a triangle with one vertex at the origin and the others at $$(x_1, y_1)$$ and $$(x_2, y_2)$$:
+$$\text{Area} = \frac{1}{2}\left|\begin{vmatrix} x_1 & y_1 \\ x_2 & y_2 \end{vmatrix}\right| = \frac{1}{2}|4(5) - 1(2)| = \frac{1}{2}(18) = 9$$
+18 forgets the factor 1/2, and 11 adds the products instead of subtracting.
+
