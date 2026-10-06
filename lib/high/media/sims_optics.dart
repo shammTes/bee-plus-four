@@ -396,6 +396,58 @@ final Map<String, SimSpec Function(Map<String, dynamic>)> opticsLabs = {
       }
     },
   ),
+  'telescope': (_) => LabSpec(
+    height: 240,
+    sliders: const [
+      Sl('fo', 'Objective focal length fₒ', 20, 100, 60, step: 5, unit: 'cm'),
+      Sl('fe', 'Eyepiece focal length fₑ', 2, 15, 6, step: 1, unit: 'cm'),
+      Sl('a', 'Angle of the distant object α', 1, 6, 3, step: .5, unit: '°'),
+    ],
+    formula: 'M = β/α ≈ fₒ/fₑ;    tube length L = fₒ + fₑ  (normal adjustment: final image at infinity)',
+    tryThis:
+        'A long-focus objective and a short-focus eyepiece give a big magnification. The rays leave the eyepiece parallel (relaxed eye) and the image is upside down: fine for stars, not for a terrestrial telescope.',
+    read: (v, t) {
+      final fo = v['fo']!, fe = v['fe']!, a = v['a']! * deg, b = math.atan(fo / fe * math.tan(a));
+      return [('M', '${fx(fo / fe, 1)}×'), ('L', '${fx(fo + fe, 0)} cm'), ('β', '${fx(b / deg, 1)}°'), ('image', 'inverted, at infinity')];
+    },
+    draw: (c, s, v, t, p) {
+      final fo = v['fo']!, fe = v['fe']!, a = v['a']! * deg, ay = s.height / 2 + 6, x0 = 56.0, sc = (s.width - 150) / (fo + fe), xe = x0 + (fo + fe) * sc;
+      c.drawLine(Offset(0, ay), Offset(s.width, ay), sk(p.line, 1));
+      void lens(double x, double h, String lab) {
+        final w = h * .16,
+            path = Path()
+              ..moveTo(x, ay - h)
+              ..quadraticBezierTo(x + w * 2, ay, x, ay + h)
+              ..quadraticBezierTo(x - w * 2, ay, x, ay - h);
+        c.drawPath(path, fi(_glass));
+        c.drawPath(path, sk(_glassEdge, 1.5));
+        tx(c, lab, Offset(x, ay + h + 3), p.ink2, size: 10, ax: .5);
+      }
+
+      lens(x0, 64, 'objective');
+      lens(xe, 40, 'eyepiece');
+      // common focus F (objective) = F (eyepiece): the intermediate image forms there
+      final xf = x0 + fo * sc, yI = ay + fo * sc * math.tan(a);
+      c.drawCircle(Offset(xf, ay), 2.5, fi(p.ink));
+      tx(c, 'Fₒ = Fₑ', Offset(xf, ay - 16), p.ink, size: 10, ax: .5);
+      c.drawLine(Offset(xf, ay), Offset(xf, yI), sk(p.peach.deep, 2.5));
+      tx(c, 'image', Offset(xf - 4, yI + 2), p.peach.deep, size: 10, ax: 1);
+      final out = Offset(fe * sc, -(yI - ay)) / math.sqrt(fe * sc * fe * sc + (yI - ay) * (yI - ay));
+      for (final h in const [-40.0, 0.0, 40.0]) {
+        final hit = Offset(x0, ay + h), start = hit - Offset(math.cos(a), math.sin(a)) * 60;
+        final d = Offset(xf, yI) - hit, ye = hit.dy + d.dy / d.dx * (xe - x0);
+        c.drawLine(start, hit, sk(laser, 1.8));
+        c.drawLine(hit, Offset(xe, ye), sk(laser, 1.8));
+        midHead(c, start, hit, laser, 6);
+        final end = Offset(xe, ye) + out * 120;
+        c.drawLine(Offset(xe, ye), end, sk(laser, 1.8));
+      }
+      angArc(c, Offset(x0, ay), 26, math.pi, math.pi + a, p.blue.deep, 'α');
+      final b = math.atan(fo / fe * math.tan(a));
+      angArc(c, Offset(xe, ay), 22, 0, -b, p.blue.deep, 'β');
+      tx(c, 'M = ${fx(fo / fe, 1)}×', Offset(s.width - 8, 8), p.ink, size: 12, ax: 1);
+    },
+  ),
   'lens': (_) => _lensLab(),
   'mirror': (m) => _mirrorLab(),
 };
