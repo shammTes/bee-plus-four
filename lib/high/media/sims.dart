@@ -11,6 +11,8 @@ import '../notes/jr/theme/tokens.dart';
 import '../notes/jr/widgets/clay_widgets.dart';
 import '../state/app_state.dart';
 import '../widgets/page.dart' show highDecorAnimations;
+import 'lab_kit.dart';
+import 'lab_sims.dart';
 import 'mesh3d.dart';
 import 'sims_bio_geo.dart';
 import 'sims_chem.dart';
@@ -39,7 +41,7 @@ class SimSpec {
   final BallStickPainter Function(V v, double yaw, double pitch, double zoom)? ballStick;
 }
 
-final Map<String, SimSpec Function(Map<String, dynamic> p)> kSims = {...physSims, ...chemSims, ...bioGeoSims, ...mathEconSims};
+final Map<String, SimSpec Function(Map<String, dynamic> p)> kSims = {...physSims, ...chemSims, ...bioGeoSims, ...mathEconSims, ...labSims};
 
 class SimBox extends StatefulWidget {
   const SimBox({super.key, required this.sim, required this.p, required this.gameKey, required this.unitId});
@@ -81,6 +83,7 @@ class _SimBoxState extends State<SimBox> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     final k = Kit.of(context), p = k.p, s = spec;
     if (s == null) return Text('(unknown sim ${widget.sim})', style: ts(14, FontWeight.w600, p.ink2));
+    if (s is LabSpec) return LabView(spec: s, p: widget.p, gameKey: widget.gameKey);
     final outs = s.out(v);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
