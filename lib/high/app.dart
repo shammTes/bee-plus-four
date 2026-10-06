@@ -231,20 +231,26 @@ class HighShellState extends State<HighShell> implements HighNav {
       onPopInvokedWithResult: (did, _) {
         if (!did && !(_sheets.isNotEmpty && _sheets.last.lock)) back();
       },
-      child: Stack(
-        children: [
-          for (final pg in pages)
-            Positioned.fill(
-              key: pg.key,
-              child: Offstage(
-                offstage: !identical(pg, top),
-                child: TickerMode(enabled: identical(pg, top), child: Enter(child: pg)),
-              ),
-            ),
-          if (showNav) Positioned(left: 14, right: 14, bottom: 14 + MediaQuery.paddingOf(context).bottom, child: NavBar(current: _tab, onTap: tab)),
-          for (final s in _sheets) Positioned.fill(key: s.key, child: SheetLayer(lock: s.lock, bare: s.bare, onClose: back, child: s.child)),
-          const Positioned(left: 14, right: 14, bottom: 0, child: TourCard()),
-        ],
+      child: KeyboardInset(
+        child: Builder(
+          builder: (context) => Stack(
+            children: [
+              for (final pg in pages)
+                Positioned.fill(
+                  key: pg.key,
+                  child: Offstage(
+                    offstage: !identical(pg, top),
+                    child: TickerMode(enabled: identical(pg, top), child: Enter(child: pg)),
+                  ),
+                ),
+              // The floating nav hides while typing so the input and keyboard get the room.
+              if (showNav && !KeyboardInset.isOpen(context))
+                Positioned(left: 14, right: 14, bottom: 14 + MediaQuery.paddingOf(context).bottom, child: NavBar(current: _tab, onTap: tab)),
+              for (final s in _sheets) Positioned.fill(key: s.key, child: SheetLayer(lock: s.lock, bare: s.bare, onClose: back, child: s.child)),
+              const Positioned(left: 14, right: 14, bottom: 0, child: TourCard()),
+            ],
+          ),
+        ),
       ),
     );
   }
