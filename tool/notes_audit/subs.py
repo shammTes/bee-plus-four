@@ -35,3 +35,27 @@ def apply(book, pairs, strict=True):
     json.dump(b, open(p, 'w'), ensure_ascii=False, indent=2)
     open(p, 'a').write('\n')
     return sum(hits.values())
+
+
+def apply_re(book, pairs):
+    """Regex substitutions (pattern, repl) on every string except `src`."""
+    import re
+    comp = [(re.compile(a), c) for a, c in pairs]
+    p = os.path.join(D, book + '.json')
+    b = json.load(open(p)); n = [0]
+    def walk(o):
+        it = o.items() if isinstance(o, dict) else enumerate(o) if isinstance(o, list) else []
+        for k, v in list(it):
+            if k == 'src':
+                continue
+            if isinstance(v, str):
+                s = v
+                for r, c in comp:
+                    s = r.sub(c, s)
+                if s != v:
+                    n[0] += 1; o[k] = s
+            else:
+                walk(v)
+    walk(b)
+    json.dump(b, open(p, 'w'), ensure_ascii=False, indent=2); open(p, 'a').write('\n')
+    return n[0]
