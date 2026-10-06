@@ -17,7 +17,12 @@ Output: a gzip'd little-endian binary (see lib/high/tutor/tutor_index.dart for t
   unit u16[n] lesson u16[n] pos u16[n] len u16[n] | u32 keysLen keys utf8 ('\\n' separated)
   | u32 nTerms | u32 termsLen terms utf8 ('\\n' separated, sorted) | (pad 4) u32 off[nTerms+1] | postings
   postings per term: (varint docId delta, u8 tf)*
-and tool/tutor_index_sources.json (sha256 of every source file; test/tutor_index_test.dart fails when it is stale).
+plus assets/high/tutor/tutor_concepts.json (the concept texts by doc id, read only when a concept is the answer, so the
+app never needs the 5 MB topic indexes for the tutor) and tool/tutor_index_sources.json (sha256 of every source file;
+test/tutor_index_test.dart fails when it is stale). Question stems and notes bodies are NOT copied: the app resolves a
+hit from its own files (one notes unit via assets/high/notes/split, one exam pack via ExamRepo.ensureExamsFor, one
+Exercise set via ensureExercisesForIds). Output is deterministic (same sources -> byte-identical files), so after a
+merge that touched any source just re-run the script.
 
 Re-run after any content change:   python3 tool/build_tutor_index.py
 """
