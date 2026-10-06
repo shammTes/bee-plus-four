@@ -124,7 +124,7 @@
        "enriched": true,
        "body": [
         "The chemical action within a cell generates the potential difference across the terminals of the cell, even when no current is drawn from it.",
-        "Potential difference is a scalar quantity.",
+        "**Potential difference** is a scalar quantity.",
         "In a water fountain, the water sprays out of an opening at the top falls down and collects in a receiving pool or reservoir at the bottom.",
         "A pump then lifts the water in the reservoir back to the top, against gravity, , to be recirculated for another trip.",
         "Without the pump, the water would remain in the reservoir."
@@ -393,8 +393,7 @@
        "src": "textbook pp.168–169",
        "enriched": true,
        "body": [
-        "Electric current is a measure of the amount of electric charge moving through the conductor.",
-        "Electric current is a measure of the amount of electric charge moving through the conductor.",
+        "**Electric current** is a measure of the amount of electric charge moving through the conductor.",
         "Electric current whose magnitude remains constant and the sense of the current is continuous along one direction at all times and is known as direct current (dc).",
         "Electric current whose magnitude alternates (from positive to negative and negative to positive) periodically with time is known as alternating current (ac).",
         "Alternating current can be produced by an ac generator."
@@ -513,6 +512,22 @@
        "body": [
         "**Resistors in Series** are connected sequentially along a single path so that the same current flows through each, whereas **Resistors in Parallel** are connected across the same two nodes, ensuring they share the same potential difference."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-2-r2c1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 168,
+       "src": "r2",
+       "q": "A charge of 120 C flows through a lamp in 1 minute. What is the current?",
+       "options": {
+        "A": "120 A",
+        "B": "2 A",
+        "C": "0.5 A",
+        "D": "7200 A"
+       },
+       "answer": "B",
+       "why": "**Step 1:** Current $I = Q/t$; time must be in seconds: 1 min = 60 s.\n\n**Step 2:** $I = 120 / 60$.\n\n**Step 3:** $= 2$ A.\n\n**Tip:** Read every option against the rule before choosing."
       }
      ]
     },
@@ -533,7 +548,7 @@
        "src": "textbook p.170",
        "enriched": true,
        "body": [
-        "A closed electrical path comprises a source of emf (or a battery), a switch, an ammeter, an electric bulb, connecting wires, and any other electrical or electronic devices, and is known as the electric circuit (Fig. 4.2)."
+        "A closed electrical path comprises a source of emf (or a battery), a switch, an ammeter, an electric bulb, connecting wires, and any other electrical or electronic devices, and is known as the **electric circuit**."
        ]
       },
       {
@@ -641,6 +656,22 @@
         "To analyze complex circuit networks, we must understand how individual electrical components interact when grouped together. When resistors are connected in **series**, they form a single path for charge flow. Consequently, the conservation of charge dictates that the electric current must be identical through all series-connected resistors: $$I_{\\text{total}} = I_1 = I_2 = I_3 = \\dots$$. By applying Kirchhoff's Voltage Law (conservation of energy), the total potential difference across the entire group must equal the sum of the individual potential drops: $$V_{\\text{total}} = V_1 + V_2 + V_3 + \\dots$$. Substituting Ohm's Law ($$V = IR$$) into this expression yields the equivalent resistance of a series network: $$R_{\\text{eq}} = R_1 + R_2 + R_3 + \\dots$$.",
         "Conversely, when resistors are connected in **parallel**, their terminals are connected to the same two junctions in the circuit. Therefore, they must share the exact same potential difference: $$V_{\\text{total}} = V_1 = V_2 = V_3 = \\dots$$. The total current entering the parallel junction must split among the available paths (conservation of charge): $$I_{\\text{total}} = I_1 + I_2 + I_3 + \\dots$$. Substituting Ohm's Law ($$I = \\frac{V}{R}$$) into this expression yields the equivalent resistance formula for parallel networks: $$\\frac{1}{R_{\\text{eq}}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3} + \\dots$$. This reciprocal relationship shows that adding parallel paths always *decreases* the overall equivalent resistance of the circuit."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-3-r2c1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 170,
+       "src": "r2",
+       "q": "In a circuit diagram, the symbol of two parallel lines of different lengths represents a ____.",
+       "options": {
+        "A": "lamp",
+        "B": "cell",
+        "C": "switch",
+        "D": "resistor"
+       },
+       "answer": "B",
+       "why": "**Step 1:** A cell is drawn as a long thin line (positive) and a short thick line (negative).\n\n**Step 2:** A resistor is a rectangle; a lamp is a circle with a cross.\n\n**Step 3:** So the symbol is a cell.\n\n**Tip:** Read every option against the rule before choosing."
       }
      ]
     },
@@ -663,7 +694,7 @@
        "body": [
         "A 10 Ω resistor, ammeter, a toggle switch, a voltmeter, and four cells of 1.5 V each.",
         "In many practical cases it is necessary to increase or decrease the current in an electric circuit.",
-        "A component used to regulate current without changing the voltage source is called variable resistance.",
+        "A component used to regulate current without changing the voltage source is called **variable resistance**.",
         "In an electric circuit, a device called rheostat is often used to change the resistance in the circuit.",
         "The current through the heater becomes 8 A."
        ]
@@ -788,6 +819,22 @@
         "Batteries (cells) can also be connected in series or parallel configurations to achieve specific power requirements. When cells are connected in series (with the positive terminal of one connected to the negative terminal of the next), their individual emfs add up to increase the total voltage: $$\\mathcal{E}_{\\text{eq}} = \\mathcal{E}_1 + \\mathcal{E}_2 + \\dots$$, and their internal resistances also add: $$r_{\\text{eq}} = r_1 + r_2 + \\dots$$. If identical cells are connected in parallel, the total equivalent emf remains equal to that of a single cell ($$\\mathcal{E}_{\\text{eq}} = \\mathcal{E}$$), but the equivalent internal resistance is significantly reduced: $$r_{\\text{eq}} = \\frac{r}{n}$$, where $$n$$ is the number of cells. This parallel cell configuration allows the battery to deliver a larger maximum current for a longer duration.",
         "Why it matters: Solving complex electrical networks by dividing them into simpler series and parallel blocks is a fundamental skill in electronics. This method is used to design circuit boards, calculate power distribution in vehicles, and configure solar panel arrays, where panels are strategically connected in series to increase voltage and in parallel to increase current output."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-4-r2c1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 172,
+       "src": "r2",
+       "q": "A current of 0.5 A flows through a resistor with 6 V across it. What is its resistance?",
+       "options": {
+        "A": "0.083 Ω",
+        "B": "3 Ω",
+        "C": "12 Ω",
+        "D": "6.5 Ω"
+       },
+       "answer": "C",
+       "why": "**Step 1:** Ohm's law: $V = IR$, so $R = V/I$.\n\n**Step 2:** $R = 6 / 0.5$.\n\n**Step 3:** $= 12$ Ω.\n\n**Tip:** Read every option against the rule before choosing."
       }
      ]
     },
@@ -822,7 +869,7 @@
         "Cells can be connected either in series or in parallel.",
         "Two or more cells are combined to form a battery.",
         "When identical cells are connected in series the total emf increases and when the same cells are connected in parallel, the resultant emf is that of only one of the cells.",
-        "I1 and I2 are the currents leaving the positive electrodes of the cells."
+        "**I1 and I2** are the currents leaving the positive electrodes of the cells."
        ]
       },
       {
@@ -943,6 +990,22 @@
         "> **💡 Did You Know?**: Old-fashioned holiday string lights were wired strictly in series. If a single bulb burned out or was removed, it broke the electrical path for the entire string, causing all the other lights to go out simultaneously, making troubleshooting a nightmare!",
         "> **🧠 Pro-Tip**: When calculating the equivalent resistance of just *two* parallel resistors, always use the quick \"product-over-sum\" formula: $$R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$$. This eliminates the need to find a common denominator for reciprocal fractions."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-5-r2c1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 177,
+       "src": "r2",
+       "q": "Two 6 Ω resistors are connected in parallel. What is the total resistance?",
+       "options": {
+        "A": "6 Ω",
+        "B": "36 Ω",
+        "C": "3 Ω",
+        "D": "12 Ω"
+       },
+       "answer": "C",
+       "why": "**Step 1:** For parallel resistors: $1/R = 1/R_1 + 1/R_2$.\n\n**Step 2:** $1/R = 1/6 + 1/6 = 2/6$.\n\n**Step 3:** $R = 3$ Ω (equal resistors in parallel give half).\n\n**Tip:** Read every option against the rule before choosing."
       }
      ]
     },
@@ -967,7 +1030,7 @@
         "If only a resistor is connected to a battery, the source energy continually gets dissipated entirely in the form of heat.",
         "The power P is given by P = VI = I2R = V2 R.",
         "The SI unit of electric power is the watt (W).",
-        "Because electrical energy is the product of power and time, the unit of electric energy is, therefore, watthour (Wh)."
+        "**Because electrical energy** is the product of power and time, the unit of electric energy is, therefore, watthour (Wh)."
        ]
       },
       {
@@ -1164,6 +1227,22 @@
         "> **💡 Did You Know?**: It is not the \"voltage\" that kills you, but the \"current\" that passes through your body! A current of just $$10\\text{ mA}$$ ($$0.01\\text{ A}$$) can cause painful muscle contractions, making it impossible to let go of the wire. A current of $$100\\text{ mA}$$ ($$0.1\\text{ A}$$) through the chest can paralyze the respiratory system and cause fatal heart fibrillation in less than a second!",
         "> **🧠 Pro-Tip**: Never replace a blown fuse with a piece of copper wire or a fuse of a higher amperage rating. Doing so bypasses the safety mechanism, allowing dangerously high currents to flow through the household wiring, which can easily overheat the wires inside the walls and cause a fire."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-6-r2c1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 195,
+       "src": "r2",
+       "q": "A 2 kW heater is used for 3 hours. How much electrical energy does it use?",
+       "options": {
+        "A": "5 kWh",
+        "B": "600 kWh",
+        "C": "1.5 kWh",
+        "D": "6 kWh"
+       },
+       "answer": "D",
+       "why": "**Step 1:** Energy $E = Pt$.\n\n**Step 2:** $E = 2 \\text{ kW} \\times 3 \\text{ h}$.\n\n**Step 3:** $= 6$ kWh (6 units).\n\n**Tip:** Read every option against the rule before choosing."
       }
      ]
     },
@@ -1308,6 +1387,22 @@
         "Fuses or circuit breakers protect wiring by interrupting excessive current. Earth/ground wires reduce shock risk if a live wire touches a metal case.",
         "Power rating on an appliance ($$P = VI$$) helps estimate current draw so circuits are not overloaded."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-7-r2c1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 199,
+       "src": "r2",
+       "q": "Why are household appliances connected in parallel?",
+       "options": {
+        "A": "It uses fewer wires so no fuse is needed",
+        "B": "It reduces the voltage for each appliance",
+        "C": "It makes the current the same in all appliances",
+        "D": "Each gets the full mains voltage and can be switched on or off independently"
+       },
+       "answer": "D",
+       "why": "**Step 1:** In parallel every branch is connected across the supply.\n\n**Step 2:** So each appliance receives the full mains voltage.\n\n**Step 3:** One appliance can be switched off without affecting the others.\n\n**Tip:** Read every option against the rule before choosing."
       }
      ]
     },
@@ -1358,6 +1453,77 @@
         "Use insulated tools, proper plugs, and protective devices (fuse, breaker, residual-current device where available).",
         "Do not touch exposed live conductors. If a cable is damaged, disconnect power and replace it rather than taping over bare wire as a permanent fix."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-8-r2wk1",
+       "type": "worked",
+       "title": "Choose the correct fuse",
+       "page": 201,
+       "src": "r2",
+       "problem": "A 2,300 W kettle runs on a 230 V supply. Fuses of 3 A, 5 A, 13 A and 30 A are available. Which should be fitted, and why?",
+       "steps": [
+        {
+         "text": "**Step 1: Find the normal current.** $I = P/V = 2300 / 230 = 10$ A."
+        },
+        {
+         "text": "**Step 2: Choose a fuse slightly above it.** 3 A and 5 A would melt in normal use."
+        },
+        {
+         "text": "**Step 3: Reject too large a fuse.** 30 A would let a dangerous fault current flow without melting."
+        },
+        {
+         "text": "**Step 4: Answer.** 13 A – just above the working current."
+        }
+       ],
+       "answer": "The 13 A fuse (normal current = 10 A)."
+      },
+      {
+       "id": "phys10-u4-l4-8-r2c2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 201,
+       "src": "r2",
+       "q": "The earth wire in a plug is connected to ____.",
+       "options": {
+        "A": "the fuse only",
+        "B": "the switch",
+        "C": "the metal case of the appliance",
+        "D": "the neutral terminal"
+       },
+       "answer": "C",
+       "why": "**Step 1:** If the live wire touches a metal case, the case becomes live.\n\n**Step 2:** The earth wire gives the current a low-resistance path to the ground.\n\n**Step 3:** A large current flows and blows the fuse, protecting the user.\n\n**Tip:** Read every option against the rule before choosing."
+      },
+      {
+       "id": "phys10-u4-l4-8-r2c3",
+       "type": "check",
+       "title": "Quick check",
+       "page": 201,
+       "src": "r2",
+       "q": "A fuse protects a circuit by ____.",
+       "options": {
+        "A": "storing extra charge",
+        "B": "melting and breaking the circuit when the current is too large",
+        "C": "increasing the voltage",
+        "D": "keeping the current constant"
+       },
+       "answer": "B",
+       "why": "**Step 1:** A fuse is a thin wire that heats up as current flows.\n\n**Step 2:** If the current exceeds its rating, it melts.\n\n**Step 3:** The circuit breaks, preventing overheating and fire.\n\n**Tip:** Read every option against the rule before choosing."
+      },
+      {
+       "id": "phys10-u4-l4-8-r2c4",
+       "type": "check",
+       "title": "Quick check",
+       "page": 201,
+       "src": "r2",
+       "q": "Which is a safe practice with electricity?",
+       "options": {
+        "A": "Overload one socket with many adaptors",
+        "B": "Use appliances with damaged cables",
+        "C": "Push metal objects into sockets",
+        "D": "Dry your hands before touching switches"
+       },
+       "answer": "D",
+       "why": "**Step 1:** Water conducts electricity and lowers skin resistance.\n\n**Step 2:** Overloading sockets causes overheating and fire.\n\n**Step 3:** Damaged cables and metal objects in sockets can cause shocks.\n\n**Tip:** Read every option against the rule before choosing."
       }
      ]
     }

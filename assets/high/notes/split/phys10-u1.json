@@ -161,10 +161,9 @@
        "src": "textbook pp.3–4",
        "enriched": true,
        "body": [
-        "Give examples of projectiles thrown horizontally.",
         "When an object is thrown with a horizontal initial velocity, it does not fall vertically or continue horizontally.",
         "Instead, it both moves horizontally and falls vertically at the same time.",
-        "The path followed by the projectile is called its trajectory."
+        "The path followed by the projectile is called **its trajectory**."
        ]
       },
       {
@@ -439,20 +438,63 @@
        ]
       },
       {
-       "id": "phys10-u1-chk12",
+       "id": "phys10-u1-chk4",
        "type": "check",
        "title": "Quick check",
-       "page": 2,
+       "page": 13,
        "src": "study_notes",
-       "q": "Under what condition is the torque produced by a non-zero force acting on a lever arm equal to zero?",
+       "src_qid": "phys_g10_c1_q5",
+       "q": "What is the shape of the mathematical trajectory of an ideal projectile?",
        "options": {
-        "A": "When the force is applied perpendicular to the lever arm",
-        "B": "When the force is applied at $$45^\\circ$$ to the lever arm",
-        "C": "When the line of action of the force passes directly through the pivot point",
-        "D": "The torque can never be zero for a non-zero force"
+        "A": "Hyperbola",
+        "B": "Circle",
+        "C": "Straight line",
+        "D": "Parabola"
        },
-       "answer": "C",
-       "why": "**Step 1: Write torque formula**\n$$\\tau = F \\cdot r \\cdot \\sin\\theta$$\n\n**Step 2: Analyze conditions for zero torque**\nFor a non-zero force ($$F \\neq 0$$):\n- Either $$r = 0$$ (force applied at the pivot).\n- Or $$\\sin\\theta = 0 \\implies \\theta = 0^\\circ \\text{ or } 180^\\circ$$ (force parallel to the lever arm).\n\n**Step 3: Relate to physical behavior**\nBoth conditions describe a line of force that passes directly through the pivot point, making the perpendicular lever arm length $$d = 0$$.\n\n**Step 4: Final Result**\nTorque is zero **when the line of action of the force passes directly through the pivot point**."
+       "answer": "D",
+       "why": "**Step 1: Write parametric equations**\n$$x = (v_0 \\cos\\theta_0)t \\implies t = \\frac{x}{v_0 \\cos\\theta_0}$$\n$$y = (v_0 \\sin\\theta_0)t - \\frac{1}{2}gt^2$$\n\n**Step 2: Eliminate time variable**\nSubstitute $$t$$ into the vertical equation:  \n$$y = (\\tan\\theta_0)x - \\left(\\frac{g}{2v_0^2 \\cos^2\\theta_0}\\right)x^2$$\n\n**Step 3: Analyze the equation form**\nThis is in the quadratic form $$y = ax - bx^2$$, which defines a parabola.\n\n**Step 4: Final Result**\nThe shape is a **Parabola**."
+      },
+      {
+       "id": "phys10-u1-wrk4",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 13,
+       "src": "study_notes",
+       "src_qid": "phys_g10_c1_q5",
+       "problem": "What is the shape of the mathematical trajectory of an ideal projectile?",
+       "steps": [
+        {
+         "text": "**Step 1: Write parametric equations**"
+        },
+        {
+         "text": "$$x = (v_0 \\cos\\theta_0)t \\implies t = \\frac{x}{v_0 \\cos\\theta_0}$$"
+        },
+        {
+         "text": "$$y = (v_0 \\sin\\theta_0)t - \\frac{1}{2}gt^2$$"
+        },
+        {
+         "text": "**Step 2: Eliminate time variable**"
+        },
+        {
+         "text": "Substitute $$t$$ into the vertical equation:"
+        },
+        {
+         "text": "$$y = (\\tan\\theta_0)x - \\left(\\frac{g}{2v_0^2 \\cos^2\\theta_0}\\right)x^2$$"
+        },
+        {
+         "text": "**Step 3: Analyze the equation form**"
+        },
+        {
+         "text": "This is in the quadratic form $$y = ax - bx^2$$, which defines a parabola."
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The shape is a **Parabola**."
+        }
+       ],
+       "answer": "D. Parabola"
       }
      ]
     },
@@ -551,65 +593,6 @@
        "answer": "C. Horizontal velocity component"
       },
       {
-       "id": "phys10-u1-chk4",
-       "type": "check",
-       "title": "Quick check",
-       "page": 13,
-       "src": "study_notes",
-       "src_qid": "phys_g10_c1_q5",
-       "q": "What is the shape of the mathematical trajectory of an ideal projectile?",
-       "options": {
-        "A": "Hyperbola",
-        "B": "Circle",
-        "C": "Straight line",
-        "D": "Parabola"
-       },
-       "answer": "D",
-       "why": "**Step 1: Write parametric equations**\n$$x = (v_0 \\cos\\theta_0)t \\implies t = \\frac{x}{v_0 \\cos\\theta_0}$$\n$$y = (v_0 \\sin\\theta_0)t - \\frac{1}{2}gt^2$$\n\n**Step 2: Eliminate time variable**\nSubstitute $$t$$ into the vertical equation:  \n$$y = (\\tan\\theta_0)x - \\left(\\frac{g}{2v_0^2 \\cos^2\\theta_0}\\right)x^2$$\n\n**Step 3: Analyze the equation form**\nThis is in the quadratic form $$y = ax - bx^2$$, which defines a parabola.\n\n**Step 4: Final Result**\nThe shape is a **Parabola**."
-      },
-      {
-       "id": "phys10-u1-wrk4",
-       "type": "worked",
-       "title": "Step-by-step",
-       "page": 13,
-       "src": "study_notes",
-       "src_qid": "phys_g10_c1_q5",
-       "problem": "What is the shape of the mathematical trajectory of an ideal projectile?",
-       "steps": [
-        {
-         "text": "**Step 1: Write parametric equations**"
-        },
-        {
-         "text": "$$x = (v_0 \\cos\\theta_0)t \\implies t = \\frac{x}{v_0 \\cos\\theta_0}$$"
-        },
-        {
-         "text": "$$y = (v_0 \\sin\\theta_0)t - \\frac{1}{2}gt^2$$"
-        },
-        {
-         "text": "**Step 2: Eliminate time variable**"
-        },
-        {
-         "text": "Substitute $$t$$ into the vertical equation:"
-        },
-        {
-         "text": "$$y = (\\tan\\theta_0)x - \\left(\\frac{g}{2v_0^2 \\cos^2\\theta_0}\\right)x^2$$"
-        },
-        {
-         "text": "**Step 3: Analyze the equation form**"
-        },
-        {
-         "text": "This is in the quadratic form $$y = ax - bx^2$$, which defines a parabola."
-        },
-        {
-         "text": "**Step 4: Final Result**"
-        },
-        {
-         "text": "The shape is a **Parabola**."
-        }
-       ],
-       "answer": "D. Parabola"
-      },
-      {
        "id": "phys10-u1-tb5",
        "type": "text",
        "title": "1.2 Circular Motion",
@@ -673,6 +656,59 @@
        },
        "answer": "B",
        "why": "**Step 1: Write relative velocity formula**\n$$v_{AB} = v_A - v_B$$\n\n**Step 2: Assign values**\n$$v_A = +80\\text{ km/h}$$ (since both are in the same direction, assign positive)  \n$$v_B = +50\\text{ km/h}$$\n\n**Step 3: Calculate**\n$$v_{AB} = 80\\text{ km/h} - 50\\text{ km/h} = 30\\text{ km/h}$$\n\n**Step 4: Final Result**\nThe relative velocity is **$$30\\text{ km/h}$$**."
+      },
+      {
+       "id": "phys10-u1-chk7",
+       "type": "check",
+       "title": "Quick check",
+       "page": 27,
+       "src": "study_notes",
+       "src_qid": "phys_g10_c1_q8",
+       "q": "What is the magnitude of the tangential acceleration in Uniform Circular Motion?",
+       "options": {
+        "A": "$$\\frac{v^2}{r}$$",
+        "B": "Zero",
+        "C": "$$g$$",
+        "D": "Variable"
+       },
+       "answer": "B",
+       "why": "**Step 1: Define tangential acceleration**\nTangential acceleration ($$a_t$$) is the rate of change of the linear speed of the rotating object:  \n$$a_t = \\frac{dv}{dt}$$\n\n**Step 2: Apply UCM conditions**\nIn Uniform Circular Motion, the speed $$v$$ is constant:  \n$$v = \\text{constant} \\implies \\frac{dv}{dt} = 0$$\n\n**Step 3: Final Result**\nTherefore, the tangential acceleration is **Zero**."
+      },
+      {
+       "id": "phys10-u1-wrk7",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 27,
+       "src": "study_notes",
+       "src_qid": "phys_g10_c1_q8",
+       "problem": "What is the magnitude of the tangential acceleration in Uniform Circular Motion?",
+       "steps": [
+        {
+         "text": "**Step 1: Define tangential acceleration**"
+        },
+        {
+         "text": "Tangential acceleration ($$a_t$$) is the rate of change of the linear speed of the rotating object:"
+        },
+        {
+         "text": "$$a_t = \\frac{dv}{dt}$$"
+        },
+        {
+         "text": "**Step 2: Apply UCM conditions**"
+        },
+        {
+         "text": "In Uniform Circular Motion, the speed $$v$$ is constant:"
+        },
+        {
+         "text": "$$v = \\text{constant} \\implies \\frac{dv}{dt} = 0$$"
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "Therefore, the tangential acceleration is **Zero**."
+        }
+       ],
+       "answer": "B. Zero"
       }
      ]
     },
@@ -927,59 +963,6 @@
        ]
       },
       {
-       "id": "phys10-u1-chk7",
-       "type": "check",
-       "title": "Quick check",
-       "page": 27,
-       "src": "study_notes",
-       "src_qid": "phys_g10_c1_q8",
-       "q": "What is the magnitude of the tangential acceleration in Uniform Circular Motion?",
-       "options": {
-        "A": "$$\\frac{v^2}{r}$$",
-        "B": "Zero",
-        "C": "$$g$$",
-        "D": "Variable"
-       },
-       "answer": "B",
-       "why": "**Step 1: Define tangential acceleration**\nTangential acceleration ($$a_t$$) is the rate of change of the linear speed of the rotating object:  \n$$a_t = \\frac{dv}{dt}$$\n\n**Step 2: Apply UCM conditions**\nIn Uniform Circular Motion, the speed $$v$$ is constant:  \n$$v = \\text{constant} \\implies \\frac{dv}{dt} = 0$$\n\n**Step 3: Final Result**\nTherefore, the tangential acceleration is **Zero**."
-      },
-      {
-       "id": "phys10-u1-wrk7",
-       "type": "worked",
-       "title": "Step-by-step",
-       "page": 27,
-       "src": "study_notes",
-       "src_qid": "phys_g10_c1_q8",
-       "problem": "What is the magnitude of the tangential acceleration in Uniform Circular Motion?",
-       "steps": [
-        {
-         "text": "**Step 1: Define tangential acceleration**"
-        },
-        {
-         "text": "Tangential acceleration ($$a_t$$) is the rate of change of the linear speed of the rotating object:"
-        },
-        {
-         "text": "$$a_t = \\frac{dv}{dt}$$"
-        },
-        {
-         "text": "**Step 2: Apply UCM conditions**"
-        },
-        {
-         "text": "In Uniform Circular Motion, the speed $$v$$ is constant:"
-        },
-        {
-         "text": "$$v = \\text{constant} \\implies \\frac{dv}{dt} = 0$$"
-        },
-        {
-         "text": "**Step 3: Final Result**"
-        },
-        {
-         "text": "Therefore, the tangential acceleration is **Zero**."
-        }
-       ],
-       "answer": "B. Zero"
-      },
-      {
        "id": "phys10-u1-chk8",
        "type": "check",
        "title": "Quick check",
@@ -1099,6 +1082,22 @@
        },
        "answer": "A",
        "why": "**Step 1: Identify rotational sign conventions**\nIn physics and engineering, we adopt standard coordinate rules for rotational quantities.\n\n**Step 2: Match directions to signs**\nCounter-clockwise (CCW) rotations are standardly defined as **positive** ($$+$$).  \nClockwise (CW) rotations are defined as **negative** ($$-$$).\n\n**Step 3: Final Result**\nCounter-clockwise torques are **Positive**."
+      },
+      {
+       "id": "phys10-u1-chk12",
+       "type": "check",
+       "title": "Quick check",
+       "page": 2,
+       "src": "study_notes",
+       "q": "Under what condition is the torque produced by a non-zero force acting on a lever arm equal to zero?",
+       "options": {
+        "A": "When the force is applied perpendicular to the lever arm",
+        "B": "When the force is applied at $$45^\\circ$$ to the lever arm",
+        "C": "When the line of action of the force passes directly through the pivot point",
+        "D": "The torque can never be zero for a non-zero force"
+       },
+       "answer": "C",
+       "why": "**Step 1: Write torque formula**\n$$\\tau = F \\cdot r \\cdot \\sin\\theta$$\n\n**Step 2: Analyze conditions for zero torque**\nFor a non-zero force ($$F \\neq 0$$):\n- Either $$r = 0$$ (force applied at the pivot).\n- Or $$\\sin\\theta = 0 \\implies \\theta = 0^\\circ \\text{ or } 180^\\circ$$ (force parallel to the lever arm).\n\n**Step 3: Relate to physical behavior**\nBoth conditions describe a line of force that passes directly through the pivot point, making the perpendicular lever arm length $$d = 0$$.\n\n**Step 4: Final Result**\nTorque is zero **when the line of action of the force passes directly through the pivot point**."
       }
      ]
     }
