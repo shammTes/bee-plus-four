@@ -143,7 +143,7 @@ def scan(subjects=None):
                             add(book=name, file=file, unit=uid, lesson=lid, card=cid, kind='pointer', field=p, text=s)
                         if s.count('$$') % 2:
                             add(book=name, file=file, unit=uid, lesson=lid, card=cid, kind='odd_dollars', field=p, text=s)
-                        if len(s) > 25 and CUT_END.search(s) and not s.rstrip().endswith('...') and not (s.rstrip().endswith(':') and ('steps[' in p or '**' in s)):
+                        if len(s) > 25 and CUT_END.search(s) and not s.rstrip().endswith('...') and not (s.rstrip().endswith(':') and ('steps[' in p or '**' in s or p.split('.')[-1] in ('q', 'problem') or p.endswith('.q'))):
                             add(book=name, file=file, unit=uid, lesson=lid, card=cid, kind='cut_off', field=p, text=s)
                         if s.count('(') > s.count(')') and len(s) > 20:
                             add(book=name, file=file, unit=uid, lesson=lid, card=cid, kind='cut_off', field=p, text=s)
