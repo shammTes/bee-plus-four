@@ -66,3 +66,7 @@ Sanity check: 1280 source questions carry a unit hint in their id/prefix (`-u6-`
 - Trusted files keep their key when the explanation names no option or names the key among others.
 - Dropped: malformed (not 3–5 distinct non-empty options, bad index), exact duplicates (same grade/subject/prompt/options), and everything that could not be verified.
 - Unit mapping: TF-IDF-style score of prompt (×2), options and explanation tokens against unit title (×6), topic titles (×3) and the unit's notes text (×1); confident when top ≥ 8 and ≥ 1.4 × runner-up (tuned on the questions whose source ids carry a unit hint), else General.
+
+## Per-unit fill
+
+After cleaning, `tools/fill_exercises.py` tops every notes unit up to at least 25 items (Grade 12 and English rebuilt per unit). See `docs/exercises_fill.md`; check with `tools/verify_exercises.py`.
