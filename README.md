@@ -7,7 +7,8 @@ the Home card or the Matric page).
   questions per unit), matric & notes cards, stats, weekly chart, daily quiz, mistakes, recent, weak topics, tutor.
 - **Notes**: 29 textbook note books / 149 units (`assets/high/notes/notes`), rendered by the ported Junior notes stack
   (`lib/high/notes/jr`): lessons, cards, diagrams, games, unit quiz, concept map, and "Matric questions" mapped by
-  `assets/high/notes/unit_questions.json`.
+  `assets/high/notes/unit_questions.json` (rebuilt by `tools/map_unit_questions.py`, checked by
+  `tools/verify_unit_links.py`; see `docs/matric_unit_links.md`).
 - **Matric**: Matriculation + Model exams (`assets/high/exams`), practice player (MCQ, matching, written with model
   answers / marking points, passages, stem/answer tables, figures), quizzes, subject page, mistakes & bookmarks, weak topics.
 - **Tutor**: Kokob, an offline BM25 tutor over the exam packs' concepts and questions.
@@ -43,6 +44,7 @@ Built from raw MCQ dumps by `python3 tools/clean_exercises.py [src_dir] [notes_d
 `/workspace/high/content/notes`). The script strips `A) ` labels and `[G9 MATH U4]` prefixes, re-verifies every answer key
 against its explanation (drops what it cannot verify, except in the trusted files), removes malformed and duplicate items,
 maps each question to a notes unit, and writes `<subject>_<grade>.json` + `index.json` + `docs/exercises_report.md`.
+After a rebuild, re-apply the hand-checked key fixes and English 11 unit tags with `python3 tools/fix_legacy_exercises.py`.
 
 File shape: `{"subject": "biology", "grade": 9, "questions": [{"id": "biology_9_practice_g9_biology_1", "unit": "bio9-u1" | null,
 "prompt": "…", "options": ["…", "…", "…", "…"], "answer": 1, "explanation": "…", "verified": "explanation" | "trusted",
