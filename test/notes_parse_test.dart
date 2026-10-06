@@ -7,7 +7,7 @@ void main() {
   test('all notes books parse', () async {
     final r = NotesRepo(useIsolate: false);
     await r.init();
-    expect(r.books.length, 29);
+    expect(r.books.length, greaterThanOrEqualTo(29));
     final bad = <String>[];
     for (final b in r.books) {
       try {

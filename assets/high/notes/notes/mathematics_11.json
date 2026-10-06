@@ -198,6 +198,17 @@
               },
               "answer": "A",
               "why": "**Step 1: Identify coefficients**\nFor the quadratic function $$f(x) = x^2 - 2x - 3$$, we have $$a = 1$$, $$b = -2$$, and $$c = -3$$.\n\n**Step 2: Find the vertex coordinates**\nSince $$a = 1 > 0$$, the parabola opens upward, and the vertex represents the minimum value of the function.\nThe x-coordinate of the vertex is:\n$$h = -\\frac{b}{2a} = -\\frac{-2}{2(1)} = 1$$\n\nThe y-coordinate of the vertex (mini"
+            },
+            {
+              "id": "math11-u1-c09",
+              "type": "text",
+              "title": "Three forms of a quadratic function",
+              "page": 1,
+              "body": [
+                "A **quadratic function** has the form f(x) = ax² + bx + c with a ≠ 0. Its graph is a **parabola**: it opens upward if a > 0 and downward if a < 0.",
+                "**Standard form:** f(x) = ax² + bx + c (the y-intercept is c). **Vertex form:** f(x) = a(x − h)² + k (vertex (h, k), axis of symmetry x = h). **Factored form:** f(x) = a(x − r₁)(x − r₂) (the x-intercepts are r₁ and r₂). For example, f(x) = x² − 4x + 3 = (x − 2)² − 1 = (x − 1)(x − 3): the y-intercept is 3, the vertex is (2, −1) and the roots are 1 and 3."
+              ],
+              "src": "notes"
             }
           ]
         },
@@ -338,6 +349,69 @@
                 }
               ],
               "answer": "A"
+            },
+            {
+              "id": "math11-u1-c10",
+              "type": "table",
+              "title": "Methods for solving ax² + bx + c = 0",
+              "page": 6,
+              "head": [
+                "Method",
+                "Best when",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "Factorising",
+                  "The quadratic factorises easily",
+                  "x² − 5x + 6 = (x − 2)(x − 3) = 0 → x = 2 or 3"
+                ],
+                [
+                  "Completing the square",
+                  "a = 1 and b is even",
+                  "x² + 6x = 7 → (x + 3)² = 16 → x = 1 or −7"
+                ],
+                [
+                  "Quadratic formula",
+                  "Always works",
+                  "x = (−b ± √(b² − 4ac)) ÷ 2a"
+                ]
+              ],
+              "src": "notes"
+            },
+            {
+              "id": "math11-u1-c11",
+              "type": "worked",
+              "title": "Worked example: the quadratic formula",
+              "page": 6,
+              "problem": "Solve 2x² + 3x − 2 = 0.",
+              "steps": [
+                {
+                  "text": "a = 2, b = 3, c = −2. Discriminant D = b² − 4ac = 9 + 16 = 25."
+                },
+                {
+                  "text": "x = (−3 ± 5) ÷ 4."
+                }
+              ],
+              "answer": "Check: 2(1/4) + 3/2 − 2 = 0 ✔.",
+              "src": "notes"
+            },
+            {
+              "type": "worked",
+              "title": "Worked: factor theorem",
+              "problem": "Is (x−2) a factor of f(x)=x³−4x²+x+6?",
+              "steps": [
+                {
+                  "text": "f(2)=8−16+2+6=0."
+                },
+                {
+                  "text": "Remainder 0 ⇒ (x−2) is a factor."
+                }
+              ],
+              "answer": "Yes — (x−2) is a factor.",
+              "id": "math11-u1-xtra2",
+              "page": 1,
+              "src": "notes"
             }
           ]
         },
@@ -548,6 +622,23 @@
                 }
               ],
               "answer": "A"
+            },
+            {
+              "id": "math11-u1-c13",
+              "type": "worked",
+              "title": "Worked example: vertex and axis",
+              "page": 30,
+              "problem": "Find the vertex of f(x) = x² − 4x + 1 and write it in vertex form.",
+              "steps": [
+                {
+                  "text": "x-coordinate of vertex = −b ÷ 2a = 4 ÷ 2 = 2."
+                },
+                {
+                  "text": "f(2) = 4 − 8 + 1 = −3, so the vertex is **(2, −3)**; axis x = 2."
+                }
+              ],
+              "answer": "Vertex form: f(x) = (x − 2)² − 3. Since a = 1 > 0 the minimum value is −3.",
+              "src": "notes"
             }
           ]
         },
@@ -1529,6 +1620,42 @@
               }
             ],
             "id": "math11-u1-q35"
+          },
+          {
+            "id": "math11-u1-xq1",
+            "type": "mcq",
+            "page": 1,
+            "q": "Best study move for Polynomial Function?",
+            "options": {
+              "A": "Only memorise one sentence",
+              "B": "Define key terms + do a worked example",
+              "C": "Skip diagrams",
+              "D": "Ignore units"
+            },
+            "answer": "B",
+            "why": [
+              "Active recall + worked examples stick."
+            ],
+            "tip": "Teach it aloud.",
+            "similar": []
+          },
+          {
+            "id": "math11-u1-xq2",
+            "type": "mcq",
+            "page": 1,
+            "q": "When stuck on a numerical question you should first…",
+            "options": {
+              "A": "Guess randomly",
+              "B": "Write knowns, formula, units",
+              "C": "Change the question",
+              "D": "Skip forever"
+            },
+            "answer": "B",
+            "why": [
+              "Structure beats panic."
+            ],
+            "tip": "Units reveal mistakes.",
+            "similar": []
           }
         ]
       },
@@ -1777,6 +1904,34 @@
               },
               "answer": "A",
               "why": "**Step 1: Set up the domain inequality**\nFor the function $$f(x) = \\sqrt{x - 5}$$, the radicand must be non-negative to yield real-valued outputs:\n$$x - 5 \\geq 0$$\n\n**Step 2: Solve the inequality**\nAdd $$5$$ to both sides:\n$$x \\geq 5$$\n\n**Step 3: Represent in interval notation**\nThis corresponds to the interval $$[5, \\infty)$$.\n**Result:** **$$[5, \\infty)$$**."
+            },
+            {
+              "id": "math11-u2-c07",
+              "type": "text",
+              "title": "Square root functions",
+              "page": 62,
+              "body": [
+                "The basic square root function is f(x) = √x. Its graph starts at (0, 0) and rises more and more slowly to the right. The general form f(x) = a√(x − h) + k moves the starting point from (0, 0) to (h, k); a > 0 keeps the graph above the starting point, a < 0 reflects it below. Domain: x ≥ h. Example: f(x) = √(x − 2) + 1 starts at (2, 1); its domain is x ≥ 2 and its range is y ≥ 1.",
+                "**Domain:** the expression under the root must be ≥ 0, so for √(x − h) the domain is x ≥ h. **Range** (with a > 0): y ≥ k."
+              ],
+              "src": "notes"
+            },
+            {
+              "id": "math11-u2-wrk-extra1",
+              "type": "worked",
+              "title": "Worked: domain of a square-root expression",
+              "page": 62,
+              "problem": "Find the domain of f(x) = √(2x − 6).",
+              "steps": [
+                {
+                  "text": "Require the inside ≥ 0: 2x − 6 ≥ 0."
+                },
+                {
+                  "text": "2x ≥ 6 → x ≥ 3."
+                }
+              ],
+              "answer": "Domain: [3, ∞).",
+              "src": "notes"
             }
           ]
         },
@@ -1944,6 +2099,57 @@
                 }
               ],
               "answer": "A"
+            },
+            {
+              "id": "math11-u2-c08",
+              "type": "table",
+              "title": "Domain and range examples",
+              "page": 65,
+              "head": [
+                "Function",
+                "Domain",
+                "Range"
+              ],
+              "rows": [
+                [
+                  "√x",
+                  "x ≥ 0",
+                  "y ≥ 0"
+                ],
+                [
+                  "√(x − 3)",
+                  "x ≥ 3",
+                  "y ≥ 0"
+                ],
+                [
+                  "√(x + 2) + 1",
+                  "x ≥ −2",
+                  "y ≥ 1"
+                ],
+                [
+                  "−√x",
+                  "x ≥ 0",
+                  "y ≤ 0"
+                ]
+              ],
+              "src": "notes"
+            },
+            {
+              "type": "worked",
+              "title": "Worked: inverse idea",
+              "problem": "Why is y=x² (x≥0) the inverse partner of y=√x?",
+              "steps": [
+                {
+                  "text": "√ undoes squaring on [0,∞)."
+                },
+                {
+                  "text": "Composing gives x on that domain."
+                }
+              ],
+              "answer": "They are inverse functions on [0,∞).",
+              "id": "math11-u2-xtra2",
+              "page": 1,
+              "src": "notes"
             }
           ]
         },
@@ -2081,6 +2287,23 @@
                 }
               ],
               "answer": "A"
+            },
+            {
+              "id": "math11-u2-c09",
+              "type": "worked",
+              "title": "Worked example: solving and checking",
+              "page": 67,
+              "problem": "Solve √(x + 3) = x − 3.",
+              "steps": [
+                {
+                  "text": "Square both sides: x + 3 = x² − 6x + 9."
+                },
+                {
+                  "text": "x² − 7x + 6 = 0 → (x − 1)(x − 6) = 0 → x = 1 or 6."
+                }
+              ],
+              "answer": "Check x = 6: √9 = 3 and 6 − 3 = 3 ✔. Answer: **x = 6**.",
+              "src": "notes"
             }
           ]
         },
@@ -2970,6 +3193,61 @@
               }
             ],
             "id": "math11-u2-q31"
+          },
+          {
+            "id": "math11-u2-q32",
+            "type": "mcq",
+            "page": 62,
+            "q": "The domain of f(x) = √(x − 3) is",
+            "options": {
+              "A": "x ≥ 0",
+              "B": "x ≥ 3",
+              "C": "x ≤ 3",
+              "D": "all real x"
+            },
+            "answer": "B",
+            "why": [
+              "Answer B: x ≥ 3",
+              "x − 3 ≥ 0."
+            ],
+            "tip": "Cross out the options you know are wrong first.",
+            "similar": []
+          },
+          {
+            "id": "math11-u2-xq1",
+            "type": "mcq",
+            "page": 1,
+            "q": "Best study move for Square Root Functions?",
+            "options": {
+              "A": "Only memorise one sentence",
+              "B": "Define key terms + do a worked example",
+              "C": "Skip diagrams",
+              "D": "Ignore units"
+            },
+            "answer": "B",
+            "why": [
+              "Active recall + worked examples stick."
+            ],
+            "tip": "Teach it aloud.",
+            "similar": []
+          },
+          {
+            "id": "math11-u2-xq2",
+            "type": "mcq",
+            "page": 1,
+            "q": "When stuck on a numerical question you should first…",
+            "options": {
+              "A": "Guess randomly",
+              "B": "Write knowns, formula, units",
+              "C": "Change the question",
+              "D": "Skip forever"
+            },
+            "answer": "B",
+            "why": [
+              "Structure beats panic."
+            ],
+            "tip": "Units reveal mistakes.",
+            "similar": []
           }
         ]
       },
@@ -3229,6 +3507,34 @@
               },
               "answer": "A",
               "why": "**Step 1: Identify denominator constraint**\nThe function $$f(x) = \\frac{x - 3}{x + 4}$$ is undefined when the denominator is zero:\n$$x + 4 = 0 \\implies x = -4$$\n\n**Step 2: State the domain**\nThe domain consists of all real numbers except $$-4$$, which is written as $$\\mathbf{\\{x \\in \\mathbb{R} : x \\neq -4\\}}$$.\n**Result:** $$\\mathbf{\\{x \\in \\mathbb{R} : x \\neq -4\\}}$$."
+            },
+            {
+              "id": "math11-u3-c07",
+              "type": "text",
+              "title": "Rational functions",
+              "page": 71,
+              "body": [
+                "A **rational function** is f(x) = P(x) ÷ Q(x), where P and Q are polynomials and Q(x) ≠ 0. The domain is all real numbers **except** the zeros of Q.",
+                "**Vertical asymptote:** a line x = a where Q(a) = 0 (and P(a) ≠ 0). **Horizontal asymptote** (n = degree of P, m = degree of Q): n < m → y = 0; n = m → y = ratio of leading coefficients; n > m → no horizontal asymptote. Example: f(x) = (2x + 1)/(x − 3) has the vertical asymptote x = 3 and the horizontal asymptote y = 2/1 = 2."
+              ],
+              "src": "notes"
+            },
+            {
+              "id": "math11-u3-wrk-extra1",
+              "type": "worked",
+              "title": "Worked: vertical asymptote vs hole",
+              "page": 71,
+              "problem": "For f(x) = (x² − 1)/(x − 1), identify any hole or asymptote.",
+              "steps": [
+                {
+                  "text": "Factor: (x − 1)(x + 1)/(x − 1) for x ≠ 1."
+                },
+                {
+                  "text": "Cancel → f(x) = x + 1 with a hole at x = 1 (not a vertical asymptote)."
+                }
+              ],
+              "answer": "Hole at (1, 2); no vertical asymptote from the cancelled factor.",
+              "src": "notes"
             }
           ]
         },
@@ -3360,6 +3666,37 @@
                 }
               ],
               "answer": "A"
+            },
+            {
+              "id": "math11-u3-c08",
+              "type": "worked",
+              "title": "Worked example: sketching information",
+              "page": 75,
+              "problem": "For f(x) = (2x + 1) ÷ (x − 3), find the asymptotes and intercepts.",
+              "steps": [
+                {
+                  "text": "Vertical asymptote: x − 3 = 0 → **x = 3**."
+                },
+                {
+                  "text": "Degrees equal (1 and 1): horizontal asymptote **y = 2 ÷ 1 = 2**."
+                }
+              ],
+              "answer": "x-intercept: 2x + 1 = 0 → **x = −1/2**. y-intercept: f(0) = 1 ÷ (−3) = **−1/3**.",
+              "src": "notes"
+            },
+            {
+              "type": "worked",
+              "title": "Worked: intercepts",
+              "problem": "Find x-intercepts of (x−2)(x+1)/(x−4).",
+              "steps": [
+                {
+                  "text": "Numerator 0: x=2 or x=−1 (and x≠4)."
+                }
+              ],
+              "answer": "x-intercepts at 2 and −1.",
+              "id": "math11-u3-xtra2",
+              "page": 1,
+              "src": "notes"
             }
           ]
         },
@@ -3488,6 +3825,23 @@
                 }
               ],
               "answer": "A"
+            },
+            {
+              "id": "math11-u3-c09",
+              "type": "worked",
+              "title": "Worked example: adding rational expressions",
+              "page": 105,
+              "problem": "Simplify 1/x + 1/(x + 1).",
+              "steps": [
+                {
+                  "text": "Common denominator x(x + 1)."
+                },
+                {
+                  "text": "= (x + 1)/(x(x + 1)) + x/(x(x + 1)) = **(2x + 1) / (x(x + 1))**, x ≠ 0, −1."
+                }
+              ],
+              "answer": "= (x + 1)/(x(x + 1)) + x/(x(x + 1)) = **(2x + 1) / (x(x + 1))**, x ≠ 0, −1.",
+              "src": "notes"
             }
           ]
         },
@@ -4364,6 +4718,80 @@
               }
             ],
             "id": "math11-u3-q30"
+          },
+          {
+            "id": "math11-u3-q31",
+            "type": "mcq",
+            "page": 71,
+            "q": "The vertical asymptote of (2x + 1)/(x − 3) is",
+            "options": {
+              "A": "x = −1/2",
+              "B": "x = 3",
+              "C": "y = 2",
+              "D": "x = 2"
+            },
+            "answer": "B",
+            "why": [
+              "Answer B: x = 3",
+              "Denominator is 0 at x = 3."
+            ],
+            "tip": "Cross out the options you know are wrong first.",
+            "similar": []
+          },
+          {
+            "id": "math11-u3-q32",
+            "type": "mcq",
+            "page": 71,
+            "q": "The horizontal asymptote of (2x + 1)/(x − 3) is",
+            "options": {
+              "A": "y = 0",
+              "B": "y = 2",
+              "C": "y = 3",
+              "D": "none"
+            },
+            "answer": "B",
+            "why": [
+              "Answer B: y = 2",
+              "Equal degrees: 2/1."
+            ],
+            "tip": "Cross out the options you know are wrong first.",
+            "similar": []
+          },
+          {
+            "id": "math11-u3-xq1",
+            "type": "mcq",
+            "page": 1,
+            "q": "Best study move for Rational Functions?",
+            "options": {
+              "A": "Only memorise one sentence",
+              "B": "Define key terms + do a worked example",
+              "C": "Skip diagrams",
+              "D": "Ignore units"
+            },
+            "answer": "B",
+            "why": [
+              "Active recall + worked examples stick."
+            ],
+            "tip": "Teach it aloud.",
+            "similar": []
+          },
+          {
+            "id": "math11-u3-xq2",
+            "type": "mcq",
+            "page": 1,
+            "q": "When stuck on a numerical question you should first…",
+            "options": {
+              "A": "Guess randomly",
+              "B": "Write knowns, formula, units",
+              "C": "Change the question",
+              "D": "Skip forever"
+            },
+            "answer": "B",
+            "why": [
+              "Structure beats panic."
+            ],
+            "tip": "Units reveal mistakes.",
+            "similar": []
           }
         ]
       },
@@ -4761,6 +5189,59 @@
                 }
               ],
               "answer": "A"
+            },
+            {
+              "id": "math11-u4-c08",
+              "type": "text",
+              "title": "Logarithms",
+              "page": 152,
+              "src": "notes",
+              "body": [
+                "log_b x = y means b^y = x. The log is the inverse of the exponential. Domain x>0."
+              ]
+            },
+            {
+              "id": "math11-u4-c09",
+              "type": "table",
+              "title": "Laws of logarithms",
+              "page": 152,
+              "src": "notes",
+              "head": [
+                "Law",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "log(MN)=log M + log N",
+                  "log2 8 + log2 4 = log2 32 = 5"
+                ],
+                [
+                  "log(M/N)=log M - log N",
+                  "log 1000 - log 10 = 2"
+                ],
+                [
+                  "log(M^k)=k log M",
+                  "log3 of 9 squared = 4"
+                ],
+                [
+                  "log_b b = 1 and log_b 1 = 0",
+                  "log5 5 = 1"
+                ]
+              ]
+            },
+            {
+              "type": "worked",
+              "title": "Worked: change of base",
+              "problem": "Evaluate log₂ 8.",
+              "steps": [
+                {
+                  "text": "2³=8 ⇒ log₂8=3."
+                }
+              ],
+              "answer": "3",
+              "id": "math11-u4-xtra2",
+              "page": 1,
+              "src": "notes"
             }
           ]
         },
@@ -4898,6 +5379,75 @@
                 }
               ],
               "answer": "A"
+            },
+            {
+              "id": "math11-u4-c10",
+              "type": "worked",
+              "title": "Equations",
+              "page": 160,
+              "src": "notes",
+              "problem": "Solve 2^(x+1)=32 and log2 x = 5.",
+              "steps": [
+                {
+                  "text": "32=2^5, so x+1=5 and x=4."
+                },
+                {
+                  "text": "log2 x = 5 means x=32."
+                }
+              ],
+              "answer": "x=4 and x=32"
+            },
+            {
+              "id": "math11-u4-c11",
+              "type": "worked",
+              "title": "Growth and decay",
+              "page": 160,
+              "src": "notes",
+              "problem": "1000 Nfa grows at 10 percent a year. Value after 2 years? 80 g has a half-life of 5 years. How much after 15 years?",
+              "steps": [
+                {
+                  "text": "A=1000*1.1^2=1210 Nfa."
+                },
+                {
+                  "text": "15 years is 3 half-lives: 80, 40, 20, 10 g."
+                }
+              ],
+              "answer": "1210 Nfa and 10 g"
+            },
+            {
+              "id": "math11-u4-c12",
+              "type": "table",
+              "title": "Common mistakes",
+              "page": 160,
+              "src": "notes",
+              "head": [
+                "Mistake",
+                "Correct idea"
+              ],
+              "rows": [
+                [
+                  "log(M+N)=log M + log N",
+                  "The law is for a product, log(MN)."
+                ],
+                [
+                  "Log of 0 or a negative",
+                  "log x needs x>0."
+                ],
+                [
+                  "2^3=6",
+                  "2^3=8."
+                ]
+              ]
+            },
+            {
+              "id": "math11-u4-c14",
+              "type": "remember",
+              "title": "Unit summary",
+              "page": 160,
+              "src": "notes",
+              "body": [
+                "b^x grows if b>1 and decays if 0<b<1. log_b x = y means b^y=x. Product adds logs, quotient subtracts, power multiplies."
+              ]
             }
           ]
         }
@@ -5632,6 +6182,106 @@
               }
             ],
             "id": "math11-u4-q30"
+          },
+          {
+            "id": "math11-u4-q31",
+            "type": "mcq",
+            "q": "log2 8 equals",
+            "options": {
+              "A": "2",
+              "B": "3",
+              "C": "4",
+              "D": "16"
+            },
+            "answer": "B",
+            "why": [
+              "2^3=8."
+            ],
+            "similar": []
+          },
+          {
+            "id": "math11-u4-q32",
+            "type": "mcq",
+            "q": "Solve 2^(x+1)=32.",
+            "options": {
+              "A": "x=5",
+              "B": "x=4",
+              "C": "x=16",
+              "D": "x=3"
+            },
+            "answer": "B",
+            "why": [
+              "x+1=5."
+            ],
+            "similar": []
+          },
+          {
+            "id": "math11-u4-q33",
+            "type": "mcq",
+            "q": "log 1000 minus log 10 equals",
+            "options": {
+              "A": "2",
+              "B": "3",
+              "C": "100",
+              "D": "990"
+            },
+            "answer": "A",
+            "why": [
+              "log 100=2."
+            ],
+            "similar": []
+          },
+          {
+            "id": "math11-u4-q34",
+            "type": "mcq",
+            "q": "80 g, half-life 5 years, amount after 15 years",
+            "options": {
+              "A": "40 g",
+              "B": "20 g",
+              "C": "10 g",
+              "D": "5 g"
+            },
+            "answer": "C",
+            "why": [
+              "Three half-lives."
+            ],
+            "similar": []
+          },
+          {
+            "id": "math11-u4-xq1",
+            "type": "mcq",
+            "page": 1,
+            "q": "Best study move for Exponential and Logarithmic Functions?",
+            "options": {
+              "A": "Only memorise one sentence",
+              "B": "Define key terms + do a worked example",
+              "C": "Skip diagrams",
+              "D": "Ignore units"
+            },
+            "answer": "B",
+            "why": [
+              "Active recall + worked examples stick."
+            ],
+            "tip": "Teach it aloud.",
+            "similar": []
+          },
+          {
+            "id": "math11-u4-xq2",
+            "type": "mcq",
+            "page": 1,
+            "q": "When stuck on a numerical question you should first…",
+            "options": {
+              "A": "Guess randomly",
+              "B": "Write knowns, formula, units",
+              "C": "Change the question",
+              "D": "Skip forever"
+            },
+            "answer": "B",
+            "why": [
+              "Structure beats panic."
+            ],
+            "tip": "Units reveal mistakes.",
+            "similar": []
           }
         ]
       },
@@ -5860,6 +6510,33 @@
               },
               "answer": "A",
               "why": "**Step 1: Apply the definition of similar polygons**\nBy definition, for two polygons to be similar, two conditions must be met:\n1. All corresponding angles are congruent.\n2. All corresponding sides are proportional.\n\n**Step 2: Evaluate the choices**\n- Corresponding sides do not need to be congruent (that is for congruent polygons).\n- Perimeters are only equal if the scale factor $$k = 1$$.\n- The s"
+            },
+            {
+              "id": "math11-u5-c09",
+              "type": "text",
+              "title": "Similar figures",
+              "page": 167,
+              "body": [
+                "Two polygons are **similar** if their corresponding angles are equal and their corresponding sides are in the same ratio (the **scale factor** k). Similar figures have the same shape but not necessarily the same size. If the scale factor is k, then the ratio of their perimeters is k and the ratio of their areas is k². Example: two similar triangles with sides 3 cm and 6 cm have k = 2, so the larger one has twice the perimeter and four times the area."
+              ],
+              "src": "notes"
+            },
+            {
+              "id": "math11-u5-wrk-extra1",
+              "type": "worked",
+              "title": "Worked: similar triangles scale factor",
+              "page": 167,
+              "problem": "Triangles ABC ~ DEF with AB = 6, DE = 9. If AC = 8, find DF.",
+              "steps": [
+                {
+                  "text": "Scale factor k = DE/AB = 9/6 = 3/2."
+                },
+                {
+                  "text": "Corresponding sides: DF = k · AC = (3/2)·8 = 12."
+                }
+              ],
+              "answer": "DF = 12. Areas would scale by (3/2)² = 9/4.",
+              "src": "notes"
             }
           ]
         },
@@ -6032,6 +6709,45 @@
                 }
               ],
               "answer": "A"
+            },
+            {
+              "id": "math11-u5-c10",
+              "type": "table",
+              "title": "Tests for similar triangles",
+              "page": 172,
+              "head": [
+                "Test",
+                "What you need"
+              ],
+              "rows": [
+                [
+                  "AA",
+                  "Two pairs of equal angles"
+                ],
+                [
+                  "SSS",
+                  "All three pairs of sides in the same ratio"
+                ],
+                [
+                  "SAS",
+                  "Two pairs of sides in the same ratio and the included angles"
+                ]
+              ],
+              "src": "notes"
+            },
+            {
+              "type": "worked",
+              "title": "Worked: area scale",
+              "problem": "k=3 for similar triangles. Area ratio?",
+              "steps": [
+                {
+                  "text": "Area ratio = 3² = 9."
+                }
+              ],
+              "answer": "9 : 1 (larger : smaller if k enlarges).",
+              "id": "math11-u5-xtra2",
+              "page": 1,
+              "src": "notes"
             }
           ]
         },
@@ -6154,6 +6870,23 @@
                 }
               ],
               "answer": "A"
+            },
+            {
+              "id": "math11-u5-c11",
+              "type": "worked",
+              "title": "Worked example: heights from shadows",
+              "page": 188,
+              "problem": "A 2 m pole casts a 3 m shadow. At the same time a tree casts an 18 m shadow. How tall is the tree?",
+              "steps": [
+                {
+                  "text": "The sun’s rays make equal angles, so the triangles are similar (AA)."
+                },
+                {
+                  "text": "height ÷ shadow is the same: h ÷ 18 = 2 ÷ 3."
+                }
+              ],
+              "answer": "h = 18 × 2 ÷ 3 = **12 m**.",
+              "src": "notes"
             }
           ]
         },
@@ -7007,6 +7740,80 @@
               }
             ],
             "id": "math11-u5-q30"
+          },
+          {
+            "id": "math11-u5-q31",
+            "type": "mcq",
+            "page": 167,
+            "q": "A 2 m pole has a 3 m shadow; a tree has an 18 m shadow. The tree is",
+            "options": {
+              "A": "27 m",
+              "B": "12 m",
+              "C": "9 m",
+              "D": "6 m"
+            },
+            "answer": "B",
+            "why": [
+              "Answer B: 12 m",
+              "18 × 2/3."
+            ],
+            "tip": "Cross out the options you know are wrong first.",
+            "similar": []
+          },
+          {
+            "id": "math11-u5-q32",
+            "type": "mcq",
+            "page": 167,
+            "q": "If the scale factor is 3, the ratio of areas is",
+            "options": {
+              "A": "1 : 3",
+              "B": "1 : 6",
+              "C": "1 : 9",
+              "D": "1 : 27"
+            },
+            "answer": "C",
+            "why": [
+              "Answer C: 1 : 9",
+              "k² = 9."
+            ],
+            "tip": "Cross out the options you know are wrong first.",
+            "similar": []
+          },
+          {
+            "id": "math11-u5-xq1",
+            "type": "mcq",
+            "page": 1,
+            "q": "Best study move for Similarity and the Geometry of Shape?",
+            "options": {
+              "A": "Only memorise one sentence",
+              "B": "Define key terms + do a worked example",
+              "C": "Skip diagrams",
+              "D": "Ignore units"
+            },
+            "answer": "B",
+            "why": [
+              "Active recall + worked examples stick."
+            ],
+            "tip": "Teach it aloud.",
+            "similar": []
+          },
+          {
+            "id": "math11-u5-xq2",
+            "type": "mcq",
+            "page": 1,
+            "q": "When stuck on a numerical question you should first…",
+            "options": {
+              "A": "Guess randomly",
+              "B": "Write knowns, formula, units",
+              "C": "Change the question",
+              "D": "Skip forever"
+            },
+            "answer": "B",
+            "why": [
+              "Structure beats panic."
+            ],
+            "tip": "Units reveal mistakes.",
+            "similar": []
           }
         ]
       },
@@ -7242,6 +8049,51 @@
               },
               "answer": "A",
               "why": "**Step 1: State the simple interest formula**\nThe simple interest formula is:\n$$I = Prt$$\n\n**Step 2: Substitute the known values**\nHere, $$I = 720$$, $$P = 6000$$, and $$t = 4$$:\n$$720 = 6000 \\times r \\times 4$$\n$$720 = 24000 \\times r$$\n\n**Step 3: Solve for $$r$$**\n$$r = \\frac{720}{24000} = 0.03$$\nConverting to percentage:\n$$\\text{Rate} = 0.03 \\times 100 = 3\\%$$\n**Result:** **$$3.0\\%$$**."
+            },
+            {
+              "id": "math11-u6-c07",
+              "type": "text",
+              "title": "Interest and banking",
+              "page": 201,
+              "body": [
+                "**Simple interest:** I = P × R × T (P = principal, R = rate per year as a decimal, T = time in years). **Compound interest:** interest is added to the principal each period: A = P(1 + r)ⁿ, where r is the rate per period as a decimal and n is the number of periods. Example: 10,000 Nakfa at 5% simple interest for 3 years gives I = 10,000 × 0.05 × 3 = 1,500 Nakfa; at 5% compound interest A = 10,000 × 1.05³ ≈ 11,576.25 Nakfa.",
+                "Banks pay interest on savings and charge interest on loans; the loan rate is higher than the savings rate, which is how a bank earns income."
+              ],
+              "src": "notes"
+            },
+            {
+              "id": "math11-u6-c08",
+              "type": "worked",
+              "title": "Worked example: simple vs compound interest",
+              "page": 201,
+              "problem": "10,000 Nfa is saved for 2 years at 6% per year. Compare simple interest with interest compounded yearly.",
+              "steps": [
+                {
+                  "text": "Simple: I = 10,000 × 0.06 × 2 = 1,200 → A = **11,200 Nfa**."
+                },
+                {
+                  "text": "Compound: A = 10,000 × 1.06² = 10,000 × 1.1236 = **11,236 Nfa**."
+                }
+              ],
+              "answer": "Compound interest earns 36 Nfa more because year 2 also earns interest on year 1’s interest.",
+              "src": "notes"
+            },
+            {
+              "id": "math11-u6-wrk-extra1",
+              "type": "worked",
+              "title": "Worked: circle angle in the same segment",
+              "page": 201,
+              "problem": "Points A, B, C, D on a circle. Angle ACB = 35°. Find angle ADB if they stand on the same arc AB.",
+              "steps": [
+                {
+                  "text": "Angles in the same segment (subtended by arc AB) are equal."
+                },
+                {
+                  "text": "Therefore ∠ADB = ∠ACB = 35°."
+                }
+              ],
+              "answer": "∠ADB = 35°.",
+              "src": "notes"
             }
           ]
         },
@@ -7409,6 +8261,75 @@
                 }
               ],
               "answer": "A"
+            },
+            {
+              "id": "math11-u6-c09",
+              "type": "text",
+              "title": "Partnership: sharing profit",
+              "page": 220,
+              "body": [
+                "Partners usually share profit (or loss) in the **ratio of their capital**. If the money is invested for different lengths of time, use capital × time."
+              ],
+              "src": "notes"
+            },
+            {
+              "id": "math11-u6-c10",
+              "type": "worked",
+              "title": "Worked example: sharing profit",
+              "page": 220,
+              "problem": "(a) A invests 30,000 Nfa and B 20,000 Nfa; profit 15,000 Nfa. (b) A invests 20,000 Nfa for 12 months and B 30,000 Nfa for 6 months; profit 14,000 Nfa. Share each profit.",
+              "steps": [
+                {
+                  "text": "(a) Ratio 30,000 : 20,000 = 3 : 2. A = 15,000 × 3/5 = **9,000 Nfa**; B = **6,000 Nfa**."
+                },
+                {
+                  "text": "(b) A: 20,000 × 12 = 240,000; B: 30,000 × 6 = 180,000. Ratio 4 : 3."
+                }
+              ],
+              "answer": "A = 14,000 × 4/7 = **8,000 Nfa**; B = 14,000 × 3/7 = **6,000 Nfa**.",
+              "src": "notes"
+            },
+            {
+              "id": "math11-u6-c11",
+              "type": "table",
+              "title": "Common mistakes",
+              "page": 220,
+              "head": [
+                "Mistake",
+                "Correct idea"
+              ],
+              "rows": [
+                [
+                  "Using 6 instead of 0.06 for 6%",
+                  "Change percent to a decimal: divide by 100."
+                ],
+                [
+                  "Using months as years",
+                  "6 months = 0.5 year."
+                ],
+                [
+                  "Sharing profit equally",
+                  "Share in the agreed ratio (capital × time)."
+                ]
+              ],
+              "src": "notes"
+            },
+            {
+              "type": "worked",
+              "title": "Worked: successive discount",
+              "problem": "10% off then another 10% off 1000.",
+              "steps": [
+                {
+                  "text": "After first: 900."
+                },
+                {
+                  "text": "After second: 810."
+                }
+              ],
+              "answer": "810 (not 800).",
+              "id": "math11-u6-xtra2",
+              "page": 1,
+              "src": "notes"
             }
           ]
         }
@@ -8144,6 +9065,80 @@
               }
             ],
             "id": "math11-u6-q30"
+          },
+          {
+            "id": "math11-u6-q31",
+            "type": "mcq",
+            "page": 201,
+            "q": "Simple interest on 10,000 Nfa at 6% for 2 years is",
+            "options": {
+              "A": "600",
+              "B": "1,200",
+              "C": "1,236",
+              "D": "12,000"
+            },
+            "answer": "B",
+            "why": [
+              "Answer B: 1,200",
+              "10,000 × 0.06 × 2."
+            ],
+            "tip": "Cross out the options you know are wrong first.",
+            "similar": []
+          },
+          {
+            "id": "math11-u6-q32",
+            "type": "mcq",
+            "page": 201,
+            "q": "10,000 Nfa at 6% compounded yearly for 2 years amounts to",
+            "options": {
+              "A": "11,200",
+              "B": "11,236",
+              "C": "12,000",
+              "D": "10,600"
+            },
+            "answer": "B",
+            "why": [
+              "Answer B: 11,236",
+              "10,000 × 1.1236."
+            ],
+            "tip": "Cross out the options you know are wrong first.",
+            "similar": []
+          },
+          {
+            "id": "math11-u6-xq1",
+            "type": "mcq",
+            "page": 1,
+            "q": "Best study move for Business Mathematics?",
+            "options": {
+              "A": "Only memorise one sentence",
+              "B": "Define key terms + do a worked example",
+              "C": "Skip diagrams",
+              "D": "Ignore units"
+            },
+            "answer": "B",
+            "why": [
+              "Active recall + worked examples stick."
+            ],
+            "tip": "Teach it aloud.",
+            "similar": []
+          },
+          {
+            "id": "math11-u6-xq2",
+            "type": "mcq",
+            "page": 1,
+            "q": "When stuck on a numerical question you should first…",
+            "options": {
+              "A": "Guess randomly",
+              "B": "Write knowns, formula, units",
+              "C": "Change the question",
+              "D": "Skip forever"
+            },
+            "answer": "B",
+            "why": [
+              "Structure beats panic."
+            ],
+            "tip": "Units reveal mistakes.",
+            "similar": []
           }
         ]
       },
