@@ -96,6 +96,21 @@ class TutorIndex {
     return offThread(decode, data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes));
   }();
 
+  static const conceptsAsset = 'assets/high/tutor/tutor_concepts.json';
+  static Future<Map<String, (String, String)>>? _concepts;
+
+  /// the exam-pack concept texts by doc id (tool/build_tutor_index.py), read the first time a concept is the answer,
+  /// so the tutor never needs the 5 MB topic indexes (ExamRepo.ensureConcepts)
+  static Future<Map<String, (String, String)>> concepts([AssetBundle? bundle]) => _concepts ??= () async {
+    final raw = await (bundle ?? rootBundle).loadString(conceptsAsset, cache: false);
+    return offThread(parseConcepts, raw);
+  }();
+
+  static Map<String, (String, String)> parseConcepts(String raw) {
+    final m = (jsonDecode(raw) as Map)['concepts'] as Map;
+    return {for (final e in m.entries) '${e.key}': ('${(e.value as List)[0]}', '${(e.value as List)[1]}')};
+  }
+
   static TutorIndex decode(Uint8List gz) {
     final raw = Uint8List.fromList(GZipCodec().decode(gz));
     final bd = ByteData.sublistView(raw);

@@ -59,11 +59,12 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    _ix.then((ix) {
-      if (mounted) setState(() => _ready = ix);
-    }, onError: (Object _) {});
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
+      // the tab paints first; the index (1.7 MB) is then read and decoded in a background isolate, once per app run
+      _ix.then((ix) {
+        if (mounted) setState(() => _ready = ix);
+      }, onError: (Object _) {});
       try {
         final last = jr.AppScope.read(context).lastUnit;
         final b = last == null ? null : Kit.of(context).s.notesRepo.byId(last.book);
@@ -119,7 +120,10 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
     TutorAnswer a;
     try {
       final ix = await _ix;
+      final w = s.repo.examVersion, v = s.repo.exerciseVersion;
       a = await TutorAnswerer(ix, s.repo, s.notesRepo).answer(t, _scope);
+      // the answer may have read an exam pack / an Exercise set: pages showing those refresh (as HighState.needExam does)
+      if (s.repo.examVersion != w || s.repo.exerciseVersion != v) s.contentChanged();
     } catch (_) {
       a = TutorAnswer(query: t, refuse: true);
     }

@@ -85,6 +85,8 @@ void main() {
     final dump = '{${[for (final k in keys) '"$k": "${files[k]}"'].join(', ')}}';
     expect(sha256.convert(utf8.encode(dump)).toString().substring(0, 16), man['digest']);
     expect(ix.sources, man['digest'], reason: 'assets/high/tutor/tutor_index.bin and tool/tutor_index_sources.json come from different builds');
+    final concepts = jsonDecode(File(TutorIndex.conceptsAsset).readAsStringSync()) as Map;
+    expect(concepts['sources'], man['digest'], reason: '${TutorIndex.conceptsAsset} comes from a different build');
   });
 
   test('Dart tokenizer = builder tokenizer', () {
@@ -185,6 +187,39 @@ void main() {
     expect(ok / all, greaterThan(.85));
   });
 
+  test('concept texts sidecar: one per concept doc', () {
+    final c = TutorIndex.parseConcepts(File(TutorIndex.conceptsAsset).readAsStringSync());
+    final docs = [
+      for (var d = 0; d < ix.length; d++)
+        if (ix.kind[d] == TK.concept) d,
+    ];
+    expect(c.length, docs.length);
+    expect(docs.every((d) => c.containsKey('$d')), isTrue);
+    expect(c.values.where((x) => x.$1.trim().isNotEmpty).length, greaterThan(docs.length * .9));
+  });
+
+  test('with the app\'s lazy repo the tutor reads only the packs it shows', () async {
+    // the app's settings (lib/high/high.dart): exam packs and the Exercise bank are read on demand
+    final lazy = ExamRepo(useIsolate: false, lazyExercises: true, lazyExams: true, deferCodes: true);
+    await lazy.init();
+    expect(lazy.fromSummary, isTrue);
+    final before = lazy.exams.where((e) => e.full).length;
+    final a = TutorAnswerer(ix, lazy, notes);
+    for (final q in ['what is refraction', 'law of demand', 'causes of the Battle of Adwa', 'what is the mole concept']) {
+      final r = await a.answer(q);
+      expect(r.refuse, isFalse, reason: q);
+      expect(r.matric, isNotEmpty, reason: q);
+      expect(r.practice, isNotEmpty, reason: q);
+      expect([...r.matric, ...r.practice].every((x) => !x.isStub && x.stem.isNotEmpty), isTrue, reason: q);
+    }
+    final read = lazy.exams.where((e) => e.full).length - before;
+    // ignore: avoid_print
+    print('lazy repo: 4 answers read $read of ${lazy.exams.length} exam packs, concepts loaded: ${lazy.conceptsLoaded}');
+    expect(lazy.allExamsLoaded, isFalse);
+    expect(lazy.conceptsLoaded, isFalse);
+    expect(read, lessThan(lazy.exams.length ~/ 3));
+  });
+
   group('answers with the real content', () {
     test('notes card, deep link, practice and matric', () async {
       final a = TutorAnswerer(ix, repo, notes);
@@ -243,7 +278,9 @@ void main() {
     t.view.physicalSize = const Size(780, 1688);
     t.view.devicePixelRatio = 2;
     addTearDown(t.view.reset);
+    final repo = ExamRepo(useIsolate: false, lazyExercises: true, lazyExams: true, deferCodes: true);
     await t.runAsync(() async {
+      await repo.init();
       await TutorIndex.load();
       await notes.book('physics_11');
     });

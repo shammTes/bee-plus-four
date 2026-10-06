@@ -33,6 +33,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = 'assets/high/tutor/tutor_index.bin'
 MANIFEST = 'tool/tutor_index_sources.json'
+CONCEPTS = 'assets/high/tutor/tutor_concepts.json'  # concept texts, read only when a concept is the answer
 VERSION = 1
 MAX_TOKENS = 400
 
@@ -145,6 +146,7 @@ class Builder:
         self.units = []      # [id, bookId, grade, subjIdx, number, title]
         self.unit_ix = {}
         self.lessons = []    # [id, unitIdx, number, title]
+        self.concept_text = {}  # doc id -> [concept text, textbook ref]
         self.docs = []       # (kind, subj, grade, unit, lesson, pos, key, toks)
         self.qseen = set()
         self.qsig = set()
@@ -271,6 +273,11 @@ class Builder:
                     if refs and isinstance(refs[0], dict) and isinstance(refs[0].get('grade'), int):
                         grade = refs[0]['grade']
                     kw = flat(s.get('keywords'))
+                    ref = ''
+                    if refs and isinstance(refs[0], dict):
+                        r0 = refs[0]
+                        ref = f"Textbook: Grade {r0.get('grade')} · {r0.get('section') or r0.get('unit') or ''} · p.{r0.get('page')}"
+                    self.concept_text[str(len(self.docs))] = [str(s.get('concept') or ''), ref]
                     self.add('concept', subj, grade, None, None, 0, f"{s['id']}\t{s.get('title', '')}",
                              f"{s.get('title', '')} {s.get('title', '')} {s.get('concept', '')} {kw} {kw} {t.get('title', '')}")
 
@@ -451,6 +458,9 @@ def main():
         'tokSamples': [[s, tokens(s)] for s in TOK_SAMPLES],
     }
     raw, gz, nt, npost = b.write(meta)
+    with open(os.path.join(ROOT, CONCEPTS), 'w', encoding='utf-8') as f:
+        json.dump({'sources': digest, 'concepts': b.concept_text}, f, ensure_ascii=False, separators=(',', ':'))
+        f.write('\n')
     with open(os.path.join(ROOT, MANIFEST), 'w', encoding='utf-8') as f:
         json.dump({'about': 'sha256[:16] of every Tutor index source; regenerate with: python3 tool/build_tutor_index.py',
                    'index': OUT, 'digest': digest, 'files': hashes}, f, indent=1, sort_keys=True)
@@ -461,6 +471,7 @@ def main():
     inv = {v: k for k, v in K.items() if k not in ('steps', 'states', 'vocab', 'model', 'graph')}
     print(f'{len(b.docs)} docs, {nt} terms, {npost} postings; raw {raw / 1e6:.2f} MB, gzip {gz / 1e6:.2f} MB -> {OUT}')
     print('  ' + ', '.join(f'{inv[k]}={v}' for k, v in sorted(kinds.items())))
+    print(f'  concept texts: {os.path.getsize(os.path.join(ROOT, CONCEPTS)) / 1e3:.0f} KB -> {CONCEPTS}')
     print(f'  {len(b.units)} units, {len(b.lessons)} lessons, subjects: {", ".join(b.subjects)}')
 
 

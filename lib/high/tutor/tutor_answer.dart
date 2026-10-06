@@ -155,9 +155,22 @@ class TutorAnswerer {
     return TRef(d, tab < 0 ? key : key.substring(tab + 1), ix.where(d), ix.unitOf(d), focus, media: k == TK.media && tab > 0 ? key.substring(0, tab) : '');
   }
 
+  /// the hits' questions, reading only the packs they are in: the exam packs of those ids (stubs until read, see
+  /// ExamRepo.lazyExams), the Exercise bank sets of their grade + subject, a lazy matric subject when needed
   Future<List<Question>> _questions(List<TutorHit> hits, int max) async {
+    final head = hits.take(max + 1).toList();
+    final ids = [for (final h in head) ix.keys[h.doc]];
+    final exams = [
+      for (final (i, h) in head.indexed)
+        if (ix.kind[h.doc] == TK.exam) ids[i],
+    ];
+    final bank = [
+      for (final (i, h) in head.indexed)
+        if (TK.practice(ix.kind[h.doc]) && repo.exerciseKeyOf(ids[i]) != null) ids[i],
+    ];
+    await Future.wait([if (exams.isNotEmpty) repo.ensureExamsFor(exams), if (bank.isNotEmpty) repo.ensureExercisesForIds(bank)]);
     final out = <Question>[];
-    for (final h in hits) {
+    for (final h in head) {
       if (out.length >= max) break;
       final id = ix.keys[h.doc];
       var q = repo.byId[id];
@@ -166,7 +179,7 @@ class TutorAnswerer {
         if (label != null) await repo.ensureLazySubject(label);
         q = repo.byId[id];
       }
-      if (q != null && !out.any((x) => x.stem == q!.stem)) out.add(q);
+      if (q != null && !q.isStub && !out.any((x) => x.stem == q!.stem)) out.add(q);
     }
     return out;
   }
@@ -204,21 +217,15 @@ class TutorAnswerer {
   Future<TutorAnswer?> _fromDoc(String query, int d, TutorResult r) async {
     final k = ix.kind[d], ref = _ref(d);
     if (k == TK.concept) {
-      final id = ix.keys[d].split('\t').first;
-      final c = repo.concepts.where((c) => '${c.sub['id']}' == id).firstOrNull;
-      if (c == null) return null;
-      final refs = c.sub['textbook_refs'];
-      String? tb;
-      if (refs is List && refs.isNotEmpty && refs.first is Map) {
-        final f = refs.first as Map;
-        tb = 'Textbook: Grade ${f['grade']} · ${f['section'] ?? f['unit'] ?? ''} · p.${f['page']}';
-      }
+      final c = (await TutorIndex.concepts())['$d'];
+      if (c == null || c.$1.trim().isEmpty) return null;
+      final tb = c.$2.isEmpty ? null : c.$2;
       final notesHit = r.explain.where((h) => ix.kind[h.doc] != TK.concept).firstOrNull;
       return TutorAnswer(
         query: query,
         title: ref.title,
         where: ix.where(d),
-        blocks: _paras('${c.sub['concept'] ?? ''}'),
+        blocks: _paras(c.$1),
         notesTex: false,
         open: notesHit == null ? null : _ref(notesHit.doc),
         notes: [?tb],
@@ -229,7 +236,7 @@ class TutorAnswerer {
     if (u == null) return null;
     final NotesBook book;
     try {
-      book = await notesRepo.book(u.book);
+      book = await notesRepo.unitBook(u.book, u.id); // just this unit (assets/high/notes/split), cached
     } catch (_) {
       return null;
     }
