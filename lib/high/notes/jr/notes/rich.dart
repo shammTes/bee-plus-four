@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 
 import '../theme/tokens.dart';
+import 'math_pic.dart';
 
 /// one piece of a paragraph: text (with inline markup) or maths
 class _Seg {
@@ -251,21 +252,40 @@ class _Lru<K, V> {
   }
 }
 
-Widget _math(String src, bool display, TextStyle base) {
-  final fs = (base.fontSize ?? 18) * 1.06 * (display ? .92 : 1);
-  // parsed fresh every time on purpose: flutter_math keeps GlobalKeys and build results inside the parsed tree, so a
-  // shared tree shown twice on screen throws "Multiple widgets used the same GlobalKey"
-  return Math.tex(
-    src,
-    mathStyle: display ? MathStyle.display : MathStyle.text,
-    textStyle: TextStyle(fontSize: fs, color: base.color, fontWeight: FontWeight.normal),
-    onErrorFallback: (e) => Text(src, style: base),
-  );
+Widget _math(String src, bool display, TextStyle base) => _MathView(src, display, base);
+
+/// one formula. Drawn from the cached offscreen picture ([MathPictures]); the live flutter_math widget is only used
+/// when a formula cannot be pictured. Inline maths shrink to the line width (like the old FittedBox.scaleDown).
+class _MathView extends StatelessWidget {
+  const _MathView(this.src, this.display, this.base);
+  final String src;
+  final bool display;
+  final TextStyle base;
+  @override
+  Widget build(BuildContext context) {
+    final fs = (base.fontSize ?? 18) * 1.06 * (display ? .92 : 1);
+    final scale = MediaQuery.maybeTextScalerOf(context)?.scale(fs) ?? fs;
+    final ts = scale / fs;
+    final bold = MediaQuery.maybeBoldTextOf(context) ?? false;
+    final color = base.color ?? DefaultTextStyle.of(context).style.color ?? const Color(0xFF000000);
+    final pic = MathPictures.of(src, display: display, fontSize: fs, color: color, scale: ts, bold: bold);
+    if (pic != null) return MathPictureBox(pic, scaleDown: !display);
+    // parsed fresh every time on purpose: flutter_math keeps GlobalKeys and build results inside the parsed tree, so a
+    // shared tree shown twice on screen throws "Multiple widgets used the same GlobalKey"
+    final live = Math.tex(
+      src,
+      mathStyle: display ? MathStyle.display : MathStyle.text,
+      textStyle: TextStyle(fontSize: fs, color: base.color, fontWeight: FontWeight.normal),
+      textScaleFactor: ts,
+      onErrorFallback: (e) => Text(src, style: base),
+    );
+    return display ? live : FittedBox(fit: BoxFit.scaleDown, child: live);
+  }
 }
 
 /// what a [RichPara] renders depends only on these, so a paragraph's widget tree is cached and reused (same widget
 /// instance = Flutter skips rebuilding that subtree; no re-parsing of the markup when a card scrolls back into view).
-/// Paragraphs with maths are not cached (see [_math]).
+/// Formulas inside are [_MathView]s, which pick their picture / live widget at build time, so maths paragraphs are cached too.
 @immutable
 class _ParaKey {
   const _ParaKey(this.text, this.style, this.c, this.hx, this.notes, this.strikeHx, this.align);
@@ -307,7 +327,6 @@ class RichPara extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = colors ?? const RichColors(Color(0xFFF7D46E), Color(0xFF2F6B3A), Color(0xFFA8412A));
     final segs = _cache.putIfAbsent('$notes|$text', () => _split(text, notes: notes));
-    if (segs.any((s) => s.math != null)) return _build(c, segs);
     return _paraCache.putIfAbsent(_ParaKey(text, style, c, hx, notes, strikeHx, textAlign), () => _build(c, segs));
   }
 
@@ -334,7 +353,7 @@ class RichPara extends StatelessWidget {
           WidgetSpan(
             alignment: PlaceholderAlignment.baseline,
             baseline: TextBaseline.alphabetic,
-            child: FittedBox(fit: BoxFit.scaleDown, child: _math(s.math!, false, style)),
+            child: _math(s.math!, false, style),
           ),
         );
       } else {
@@ -412,7 +431,7 @@ class RichSpans {
           WidgetSpan(
             alignment: PlaceholderAlignment.baseline,
             baseline: TextBaseline.alphabetic,
-            child: FittedBox(fit: BoxFit.scaleDown, child: _math(s.math!, false, style)),
+            child: _math(s.math!, false, style),
           ),
         );
       } else {

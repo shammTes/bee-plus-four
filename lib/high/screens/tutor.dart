@@ -69,6 +69,8 @@ class TutorIndex {
   final df = <String, int>{};
   double avg = 0;
   static TutorIndex? _i;
+
+  /// built once, from the full packs (the tutor reads them in first: [tutorReady])
   static TutorIndex of(ExamRepo r) => _i ??= TutorIndex(r);
 
   List<({_Doc d, double s, double cov})> bm25(List<String> qt) {
@@ -92,6 +94,9 @@ class TutorIndex {
     return out;
   }
 }
+
+/// every exam pack and the concept texts are read in (they are not at start-up, see ExamRepo.lazyExams)
+bool tutorReady(ExamRepo r) => r.allExamsLoaded && r.conceptsLoaded;
 
 class _Msg {
   _Msg(this.me, this.text, {this.title, this.ref, this.qs = const [], this.refuse = false});
@@ -165,6 +170,7 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
     t = t.trim();
     if (t.isEmpty) return;
     final r = Kit.of(context).s.repo;
+    if (!tutorReady(r)) return;
     setState(() {
       _chat.add(_Msg(true, t));
       _chat.add(_reply(r, t));
@@ -196,6 +202,8 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     final k = Kit.of(context), p = k.p, s = k.s, r = s.repo;
+    // first visit: read every exam pack + the concept texts (once, off the UI thread), then rebuild
+    if (!tutorReady(r)) s.needAllExams(concepts: true);
     Widget bot(Widget child, {bool refuse = false}) => Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
@@ -217,6 +225,7 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
           ],
         ),
       ),
+      if (!tutorReady(r)) bot(Text('One moment: I am reading your exam packs for the first time…', style: ts(13.5, w700, p.ink2, height: 1.45))),
       for (final m in _chat)
         m.me
             ? Align(

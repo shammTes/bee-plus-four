@@ -78,7 +78,8 @@ class UnitPageState extends State<UnitPage> {
 
   Future<void> _load() async {
     final s = AppScope.read(context);
-    final b = await s.repo.book(widget.bookId);
+    // only this unit is read and parsed (split file, background isolate), not the whole textbook
+    final b = await s.repo.unitBook(widget.bookId, widget.unitId);
     final u = b.unit(widget.unitId);
     if (u != null) {
       final ctx = UnitCtx(u, widget.bookId, s.repo.svgPath);
@@ -312,11 +313,11 @@ class UnitPageState extends State<UnitPage> {
   ];
 
   // ---- High: concept map + matric questions for this unit
-  UnitMap? get _map => _s.repo.extras(widget.bookId)?.maps[widget.unitId];
+  UnitMap? get _map => _s.repo.unitExtras(widget.bookId, widget.unitId)?.maps[widget.unitId];
   List<String> get _matricIds => hr.Routes.unitQuestionIds(context, widget.unitId);
 
   void _jumpToCard(String cardId) {
-    final key = _s.repo.extras(widget.bookId)?.cardKey[cardId];
+    final key = _s.repo.unitExtras(widget.bookId, widget.unitId)?.cardKey[cardId];
     final gk = key == null ? null : _cardKeys[key];
     if (gk != null) {
       _holdKey = null;

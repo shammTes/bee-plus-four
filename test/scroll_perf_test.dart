@@ -49,15 +49,18 @@ void main() {
     }
   }
 
-  testWidgets('Lite is on by default and stored with the profile', (t) async {
+  testWidgets('Flat is on by default and stored with the profile', (t) async {
     final s = await open(t);
-    expect(s.lite, isTrue);
-    expect(Perf.lite, isTrue);
-    expect(s.toJson()['lite'], isTrue);
+    expect(s.flat, isTrue);
+    expect(Perf.flat, isTrue);
+    expect(s.toJson()['flat'], isTrue);
+    // the old Smooth/Full switch is not carried over: flat is the default for everyone
     s.fromJson({...s.toJson(), 'lite': false});
-    expect(Perf.lite, isFalse);
-    s.fromJson({...s.toJson(), 'lite': true});
-    expect(Perf.lite, isTrue);
+    expect(Perf.flat, isTrue);
+    s.fromJson({...s.toJson(), 'flat': false});
+    expect(Perf.flat, isFalse);
+    s.fromJson({...s.toJson(), 'flat': true});
+    expect(Perf.flat, isTrue);
   });
 
   testWidgets('notes unit page scrolls, jumps and tracks progress', (t) async {

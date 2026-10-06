@@ -15,7 +15,7 @@ import 'cards.dart';
 
 /// fixed header strip (web `.sticky`) + scrolling blocks; scrolls to [focus] after the first frame
 class _CardsScreen extends StatefulWidget {
-  const _CardsScreen({required this.top, required this.header, required this.children, required this.keys, this.focus});
+  const _CardsScreen({super.key, required this.top, required this.header, required this.children, required this.keys, this.focus});
   final Widget top, header;
   final List<Widget> children;
   final Map<String, GlobalKey> keys;
@@ -113,6 +113,9 @@ class _CardsScreenState extends State<_CardsScreen> {
   }
 }
 
+/// shown while an exam pack / exercise set is read in (lazy loading, see HighState.readyToShow)
+const _loadingCard = EmptyCard(title: 'Opening the questions…', text: 'Reading this paper for the first time. One moment.');
+
 Widget _chips(List<Widget> c) => SingleChildScrollView(
   scrollDirection: Axis.horizontal,
   clipBehavior: Clip.none,
@@ -141,6 +144,12 @@ class _PracticePageState extends State<PracticePage> {
   @override
   Widget build(BuildContext context) {
     final k = Kit.of(context), s = k.s, e = s.repo.exam[widget.examId]!, l = look(e.subject);
+    if (!e.full) {
+      s.needExam(e.id);
+      final top = TopBar(title: e.name, sub: '${yearShort(e.year)} · practice · instant feedback', onBack: HighNav.of(context).back, tab: false);
+      // own key: the real screen gets a fresh state, so it still scrolls to [focus] after loading
+      return _CardsScreen(key: const ValueKey('loading'), keys: _keys, top: top, header: const SizedBox.shrink(), children: const [_loadingCard]);
+    }
     final parts = {for (final q in e.questions) q.part}.toList()..sort();
     const roman = ['', 'I', 'II', 'III', 'IV'];
     final f = [
@@ -205,6 +214,15 @@ class _QuizPageState extends State<QuizPage> {
   Widget build(BuildContext context) {
     final k = Kit.of(context), p = k.p, s = k.s;
     final qs = [for (final id in widget.ids) ?s.repo.byId[id]];
+    if (!s.readyToShow(qs, widget.ids)) {
+      return _CardsScreen(
+        key: const ValueKey('loading'),
+        keys: _keys,
+        top: TopBar(title: widget.title, sub: widget.sub ?? '${widget.ids.length} questions', onBack: HighNav.of(context).back, tab: false),
+        header: const SizedBox.shrink(),
+        children: const [_loadingCard],
+      );
+    }
     final mcq = qs.where((q) => q.isScored).map((q) => q.id).toList();
     final done = mcq.where((id) => _res[id] != null).toList(), right = done.where((id) => _res[id] == true).length;
     final o = CardOpts(
@@ -504,6 +522,7 @@ class _MistakesPageState extends State<MistakesPage> {
     for (final id in ids) {
       (groups[r.byId[id]!.exam.id] ??= []).add(id);
     }
+    final ready = s.readyToShow([for (final id in ids) r.byId[id]!]);
     return PageShell(
       top: TopBar(title: 'Mistakes', sub: 'Mistakes & bookmarks · all subjects', onBack: HighNav.of(context).back, tab: false),
       body: ScreenList(
@@ -555,51 +574,54 @@ class _MistakesPageState extends State<MistakesPage> {
             _rtab == 'bm'
                 ? const EmptyCard(title: 'No bookmarks yet', text: 'Tap the bookmark on any question to save it here for later.', art: 'kokob')
                 : const EmptyCard(title: 'No mistakes — yet!', text: 'Wrong answers land here so you can retry them until they stick.'),
-          for (final g in groups.entries) ...[
-            SectionLabel('${r.exam[g.key]!.name} · ${yearShort(r.exam[g.key]!.year)}', n: g.value.length),
-            for (final id in g.value)
-              () {
-                final q = r.byId[id]!, a = s.ans(id), lk = look(q.exam.subject), pt = r.primaryTopic(q);
-                return Panel(
-                  margin: const EdgeInsets.symmetric(vertical: 12),
-                  padding: const EdgeInsets.all(14),
-                  onTap: () => HighNav.of(context).push(q.exam.isExercise ? QuizPage(ids: [id], title: q.exam.name, sub: q.exam.year) : PracticePage(examId: q.exam.id, focus: id)),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    spacing: 12,
-                    children: [
-                      Knob(tone: lk.tone, size: 44, child: Badge(lk.tone, lk.icon, s: 30)),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Text.rich(
-                              TextSpan(children: [
-                                TextSpan(text: q.label, style: ts(14, w900, k.tone(lk.tone).deep)),
-                                TextSpan(text: ' · ${q.isMatch ? 'Match: ${q.matchPrompt}' : q.stem}'),
-                              ]),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: ts(14, w700, p.ink, height: 1.45),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8),
-                              child: Wrap(
-                                spacing: 6,
-                                runSpacing: 6,
-                                children: _rtab == 'mi' && a != null
-                                    ? [Tag('You: ${a['c']}', tone: 'peach'), Tag('Answer: ${q.isMatch ? q.answerText : q.answer}', tone: 'sage')]
-                                    : [Tag(pt != null ? r.topicTitle(q.exam.subject, pt) : q.exam.subject, tone: lk.tone), if (a != null) Tag(a['ok'] == true ? '✓ correct' : '✗ wrong', tone: a['ok'] == true ? 'sage' : 'peach')],
+          if (!ready)
+            _loadingCard
+          else
+            for (final g in groups.entries) ...[
+              SectionLabel('${r.exam[g.key]!.name} · ${yearShort(r.exam[g.key]!.year)}', n: g.value.length),
+              for (final id in g.value)
+                () {
+                  final q = r.byId[id]!, a = s.ans(id), lk = look(q.exam.subject), pt = r.primaryTopic(q);
+                  return Panel(
+                    margin: const EdgeInsets.symmetric(vertical: 12),
+                    padding: const EdgeInsets.all(14),
+                    onTap: () => HighNav.of(context).push(q.exam.isExercise ? QuizPage(ids: [id], title: q.exam.name, sub: q.exam.year) : PracticePage(examId: q.exam.id, focus: id)),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      spacing: 12,
+                      children: [
+                        Knob(tone: lk.tone, size: 44, child: Badge(lk.tone, lk.icon, s: 30)),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text.rich(
+                                TextSpan(children: [
+                                  TextSpan(text: q.label, style: ts(14, w900, k.tone(lk.tone).deep)),
+                                  TextSpan(text: ' · ${q.isMatch ? 'Match: ${q.matchPrompt}' : q.stem}'),
+                                ]),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: ts(14, w700, p.ink, height: 1.45),
                               ),
-                            ),
-                          ],
+                              Padding(
+                                padding: const EdgeInsets.only(top: 8),
+                                child: Wrap(
+                                  spacing: 6,
+                                  runSpacing: 6,
+                                  children: _rtab == 'mi' && a != null
+                                      ? [Tag('You: ${a['c']}', tone: 'peach'), Tag('Answer: ${q.isMatch ? q.answerText : q.answer}', tone: 'sage')]
+                                      : [Tag(pt != null ? r.topicTitle(q.exam.subject, pt) : q.exam.subject, tone: lk.tone), if (a != null) Tag(a['ok'] == true ? '✓ correct' : '✗ wrong', tone: a['ok'] == true ? 'sage' : 'peach')],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                );
-              }(),
-          ],
+                      ],
+                    ),
+                  );
+                }(),
+            ],
         ],
       ),
     );
@@ -703,7 +725,8 @@ class UnitMatricCard extends StatelessWidget {
     final k = Kit.of(context), p = k.p, s = k.s;
     final scored = ids.where((id) => s.repo.byId[id]!.isScored).toList();
     final done = scored.where(s.answered).length, right = scored.where(s.ansOk).length;
-    final preview = ids.take(3).map((id) => s.repo.byId[id]!).toList();
+    final preview0 = ids.take(3).map((id) => s.repo.byId[id]!).toList();
+    final preview = s.readyToShow(preview0) ? preview0 : const <Question>[];
     return Panel(
       margin: EdgeInsets.zero,
       child: Column(
