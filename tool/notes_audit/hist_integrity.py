@@ -17,15 +17,30 @@ ref = sys.argv[1] if len(sys.argv) > 1 else 'fix/high-notes-round3'
 bad = 0
 stats = {}
 # Approved by the owner on 2026-10-06 (PR #31): correct 4 dates/figures to match the Grade 10/11 History textbooks.
-APPROVED = [
+APPROVED = [(i, a, b, 'teacher-text correction') for i, a, b in [
     ('hist10-u9-n04', 'captured Kabul (Afghanistan) in 1508', 'captured Kabul (Afghanistan) in 1504'),
     ('hist11-u3-n28', 'communist manifesto written in 1875', 'communist manifesto written in 1848'),
     ('hist11-u10-n01', 'Manchuria in 1939 and invade invaded Beijing and Nanjing in 1936',
      'Manchuria in 1931 and invade invaded Beijing and Nanjing in 1937'),
     ('hist11-u12-n09', '9 peoples were killed and 534 were wounded', 'scores of people were killed and over 80 were wounded'),
-]
+]]
+# Own-content corrections (approved 2026-10-06): round-3 practice items (src "r3", added by us, not teacher text) that
+# repeated the wrong figures. Substitutions are applied in order to the item's compact serialisation.
+APPROVED += [(i, a, b, 'own-content correction (r3 item)') for i, a, b in [
+    ('hist10-u9-r3q04', 'who captured Kabul in 1508', 'who captured Kabul in 1504'),
+    ('hist11-u12-t9-r3c2', '"How many people were killed in the suppression of the 1958 strike?"',
+     '"Roughly how many people were wounded when the 1958 workers\' demonstration was suppressed?"'),
+    ('hist11-u12-t9-r3c2', '"A": "90"', '"A": "About 20"'),
+    ('hist11-u12-t9-r3c2', '"B": "900"', '"B": "Over 80"'),
+    ('hist11-u12-t9-r3c2', '"C": "9"', '"C": "About 500"'),
+    ('hist11-u12-t9-r3c2', '"D": "534"', '"D": "Over 1,000"'),
+    ('hist11-u12-t9-r3c2', '"answer": "C"', '"answer": "B"'),
+    ('hist11-u12-t9-r3c2', 'civilians: 9 people were killed and 534 wounded.', 'civilians: scores of people were killed and over 80 were wounded.'),
+    ('hist11-u12-t9-r3wk4', '9 killed, 534 wounded; organisers jailed', 'scores of people killed and over 80 wounded; organisers jailed'),
+    ('hist11-u12-t9-r3wk4', 'crushed (9 killed, 534 wounded)', 'crushed (scores of people killed and over 80 wounded)'),
+]]
 APPROVED_BY_ID = {}
-for _id, _a, _b in APPROVED:
+for _id, _a, _b, _k in APPROVED:
     APPROVED_BY_ID.setdefault(_id, []).append((_a, _b))
 applied = {}  # file -> list of applied (id, old) pairs
 
@@ -106,7 +121,7 @@ for p in files[:4]:
     dels = [l[1:] for l in diff if l.startswith('-') and not l.startswith('---')]
     adds = set(l[1:] for l in diff if l.startswith('+') and not l.startswith('+++'))
     def fixed(l):
-        for _id, a, b in APPROVED:
+        for _id, a, b, _k in APPROVED:
             l = l.replace(a, b)
         return l
     orphan = [l for l in dels if l + ',' not in adds and l not in adds and fixed(l) not in adds and fixed(l) + ',' not in adds]
@@ -117,12 +132,12 @@ for p in files[:4]:
     for l in orphan[:5]:
         print('   DELETED:', l[:100])
 # every approved edit must be applied exactly once in the notes file and in its split file
-for _id, a, b in APPROVED:
+for _id, a, b, kind in APPROVED:
     hits = [p for p in stats if _id in stats[p]['approved']]
     books = [p for p in hits if '/notes/notes/' in p]
     splits = [p for p in hits if '/split/' in p]
     ok = len(books) == 1 and len(splits) == 1 and all(stats[p]['approved'].count(_id) == 1 for p in hits)
-    print(f'approved correction {_id}: "{a}" -> "{b}":', 'applied in ' + ', '.join(os.path.basename(p) for p in hits) if ok else 'NOT APPLIED CORRECTLY ' + str(hits))
+    print(f'approved {kind} {_id}: "{a}" -> "{b}":', 'applied in ' + ', '.join(os.path.basename(p) for p in hits) if ok else 'NOT APPLIED CORRECTLY ' + str(hits))
     if not ok:
         bad += 1
 sp = [p for p in files[4:] if p in stats]
