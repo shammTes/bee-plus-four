@@ -3,6 +3,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../../state/app_state.dart' show HighState, nowMs;
+import '../../../state/page_gate.dart' show PageGateScope;
 import '../data/notes_models.dart';
 import '../data/repository.dart';
 import '../l10n/labels.dart';
@@ -130,6 +131,7 @@ class AppState extends ChangeNotifier {
 
 class AppScope extends InheritedNotifier<AppState> {
   const AppScope({super.key, required AppState state, required super.child}) : super(notifier: state);
-  static AppState of(BuildContext c) => c.dependOnInheritedWidgetOfExactType<AppScope>()!.notifier!;
+  /// inside a page ([PageGate]) this rebuilds [c] only while the page is on screen
+  static AppState of(BuildContext c) => PageGateScope.depend(c) ? read(c) : c.dependOnInheritedWidgetOfExactType<AppScope>()!.notifier!;
   static AppState read(BuildContext c) => c.getInheritedWidgetOfExactType<AppScope>()!.notifier!;
 }

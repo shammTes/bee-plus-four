@@ -38,9 +38,11 @@ abstract final class Routes {
     HighNav.of(c).push(PracticePage(examId: examId, focus: f?.id));
   }
 
-  static void dailyQuiz(BuildContext c) {
-    final d = _s(c).dailyQuiz();
+  static Future<void> dailyQuiz(BuildContext c) async {
+    final s = _s(c), d = s.dailyQuiz();
     d['res'] ??= <String, dynamic>{};
+    // today's quiz may hold exercise sets / exam packs that are not read in yet: QuizPage shows a loading card and
+    // loads them (HighState.readyToShow)
     HighNav.of(c).push(QuizPage(ids: [for (final x in d['ids'] as List) x as String], title: 'Daily Quiz', sub: '10 questions · mixed subjects', kind: 'daily'));
   }
 
@@ -106,7 +108,7 @@ class UnitLinkBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = Kit.of(context).s, l = s.links;
-    final ne = l.exercisesFor(unitId).length, nm = l.matricFor(unitId).length;
+    final ne = l.exerciseCountFor(unitId), nm = l.matricFor(unitId).length;
     final items = <(String, String, BtnKind, VoidCallback)>[
       if (notes) ('Read the notes', 'book', BtnKind.soft, () => Routes.unitNotes(context, unitId)),
       if (exercises && ne > 0) ('Exercises ($ne)', 'pen', BtnKind.tone, () => Routes.unitExercises(context, unitId)),

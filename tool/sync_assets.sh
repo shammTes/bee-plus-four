@@ -15,7 +15,7 @@ src, dst = sys.argv[1], sys.argv[2]
 exams, topics = [], []
 for p in sorted(glob.glob(os.path.join(src, '*.json'))):
     n = os.path.basename(p)
-    if n in ('schema.json', 'catalog.json') or n.startswith(('.', '_')) or n.endswith('.tmp.json'):
+    if n in ('schema.json', 'catalog.json', 'summary.json') or n.startswith(('.', '_')) or n.endswith('.tmp.json'):
         continue
     if n == 'matric_phy_matric_2023.json':   # never used
         continue
@@ -45,3 +45,6 @@ if [ -d "$NO" ]; then
   cp -r "$NO"/. "$DST/notes/"
   echo "notes content copied from $NO"
 fi
+# the derived files the app reads at start-up (committed; see README → Performance notes)
+python3 "$ROOT/tool/exam_summary.py"
+if [ -f "$DST/notes/notes/index.json" ]; then python3 "$ROOT/tool/split_notes.py"; fi

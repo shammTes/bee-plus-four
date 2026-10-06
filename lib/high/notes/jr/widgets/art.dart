@@ -1,6 +1,5 @@
 // Ported from Junior (junior_flutter/lib/junior/widgets/art.dart) by tool/port_junior_notes.py; High glue edits marked "High:".
 // SVG icons and illustrations from the web template, themed like the CSS (currentColor, var(--…), dark .hl opacity).
-import 'dart:ui' as ui;
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -71,7 +70,8 @@ class ArtIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pic = SvgPicture.string(_svg, width: size, height: size);
-    if (shadow == null) return SizedBox(width: size, height: size, child: pic);
+    // flat look: no drop shadow (a colour-filtered copy of the picture is an offscreen layer per icon)
+    if (shadow == null || Perf.flat) return SizedBox(width: size, height: size, child: pic);
     return RepaintBoundary(
       child: SizedBox(
         width: size,
@@ -82,12 +82,7 @@ class ArtIcon extends StatelessWidget {
             Positioned.fill(
               child: Transform.translate(
                 offset: Offset(0, shadowDy),
-                child: Perf.lite
-                    ? ColorFiltered(colorFilter: ColorFilter.mode(withA(shadow!, shadow!.a * .7), BlendMode.srcIn), child: pic)
-                    : ImageFiltered(
-                        imageFilter: ui.ImageFilter.blur(sigmaX: shadowBlur / 2, sigmaY: shadowBlur / 2, tileMode: TileMode.decal),
-                        child: ColorFiltered(colorFilter: ColorFilter.mode(shadow!, BlendMode.srcIn), child: pic),
-                      ),
+                child: ColorFiltered(colorFilter: ColorFilter.mode(withA(shadow!, shadow!.a * .7), BlendMode.srcIn), child: pic),
               ),
             ),
             pic,

@@ -5,6 +5,8 @@ import 'package:flutter/widgets.dart';
 import '../data/notes_models.dart';
 import '../theme/notes_styles.dart';
 import '../theme/tokens.dart';
+import '../../../theme/perf.dart' show Dim;
+import '../../../widgets/equal_row.dart';
 import '../widgets/clay_widgets.dart';
 import '../widgets/tx.dart';
 import 'diagram.dart';
@@ -336,8 +338,9 @@ class _NoteCardViewState extends State<NoteCardView> {
   );
 
   Widget _cb(Kit k, String icon, VoidCallback? tap) => tap == null
-      ? Opacity(
+      ? Dim(
           opacity: .4,
+          over: k.p.surface,
           child: DecoratedBox(
             decoration: k.c.cbtn(),
             child: SizedBox(
@@ -714,7 +717,6 @@ class _NoteCardViewState extends State<NoteCardView> {
                   color: const Color(0xFFFFFDF7),
                   borderRadius: BorderRadius.circular(14),
                   border: Border(left: BorderSide(color: p.lilac.deep, width: 6)),
-                  boxShadow: [BoxShadow(offset: const Offset(1, 2), blurRadius: 6, color: p.sh(.18))],
                 ),
                 child: RichParas(c.model, style: ts(19, FontWeight.w700, const Color(0xFF2B2622), height: 1.5), colors: rc, hx: true),
               ),
@@ -936,12 +938,9 @@ class FlexWrap extends StatelessWidget {
         spacing: gap,
         children: [
           for (final l in lines)
-            IntrinsicHeight(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                spacing: gap,
-                children: [for (final c in l) Expanded(child: c)],
-              ),
+            EqualHeightRow(
+              spacing: gap,
+              children: [for (final c in l) Expanded(child: c)],
             ),
         ],
       );

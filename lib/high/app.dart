@@ -4,11 +4,12 @@ import 'package:flutter/widgets.dart';
 import 'screens/exams.dart';
 import 'screens/home.dart';
 import 'screens/exercise.dart';
-import 'screens/tutor.dart';
+import 'tutor/tutor_page.dart';
 import 'notes/jr/state/app_state.dart' as jr;
 import 'screens/notes_home.dart';
 import 'screens/tour.dart';
 import 'state/app_state.dart';
+import 'state/page_gate.dart';
 import 'theme/tokens.dart';
 import 'widgets/art.dart';
 import 'widgets/kit.dart';
@@ -110,6 +111,15 @@ class HighShellState extends State<HighShell> implements HighNav {
 
   @override
   HighTab get current => _tab;
+
+  @override
+  void initState() {
+    super.initState();
+    // after the first frame: read in the exercise sets the saved answers / mistakes / homework refer to
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) HighScope.read(context).restoreExerciseRefs();
+    });
+  }
 
   /// tabs visited so far: their pages stay mounted (offstage) so scroll / filters survive tab switches
   final Set<HighTab> _visited = {};
@@ -231,54 +241,35 @@ class HighShellState extends State<HighShell> implements HighNav {
       onPopInvokedWithResult: (did, _) {
         if (!did && !(_sheets.isNotEmpty && _sheets.last.lock)) back();
       },
-      child: Stack(
-        children: [
-          for (final pg in pages)
-            Positioned.fill(
-              key: pg.key,
-              child: Offstage(
-                offstage: !identical(pg, top),
-                child: TickerMode(enabled: identical(pg, top), child: Enter(child: pg)),
-              ),
-            ),
-          if (showNav) Positioned(left: 14, right: 14, bottom: 14 + MediaQuery.paddingOf(context).bottom, child: NavBar(current: _tab, onTap: tab)),
-          for (final s in _sheets) Positioned.fill(key: s.key, child: SheetLayer(lock: s.lock, bare: s.bare, onClose: back, child: s.child)),
-          const Positioned(left: 14, right: 14, bottom: 0, child: TourCard()),
-        ],
+      child: KeyboardInset(
+        child: Builder(
+          builder: (context) => Stack(
+            children: [
+              for (final pg in pages)
+                Positioned.fill(
+                  key: pg.key,
+                  child: Offstage(
+                    offstage: !identical(pg, top),
+                    child: TickerMode(enabled: identical(pg, top), child: PageGate(active: identical(pg, top), child: pg)),
+                  ),
+                ),
+              // The floating nav hides while typing so the input and keyboard get the room.
+              if (showNav && !KeyboardInset.isOpen(context))
+                Positioned(left: 14, right: 14, bottom: 14 + MediaQuery.paddingOf(context).bottom, child: NavBar(current: _tab, onTap: tab)),
+              for (final s in _sheets) Positioned.fill(key: s.key, child: SheetLayer(lock: s.lock, bare: s.bare, onClose: back, child: s.child)),
+              const Positioned(left: 14, right: 14, bottom: 0, child: TourCard()),
+            ],
+          ),
+        ),
       ),
     );
   }
 }
 
 
-/// `.enter` page entrance (.42s cubic-bezier(.2,.8,.2,1): fade + translateY 12px)
-class Enter extends StatefulWidget {
-  const Enter({super.key, required this.child});
-  final Widget child;
-  @override
-  State<Enter> createState() => _EnterState();
-}
-
+/// `.enter` page entrance curve. Pages now switch instantly (an Opacity + transform wrapper around every stacked page
+/// cost a layer per page for nothing); kept for callers that ease other things with it.
 const enterCurve = Cubic(.2, .8, .2, 1);
-
-class _EnterState extends State<Enter> with SingleTickerProviderStateMixin {
-  late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(milliseconds: 420))..value = 1;
-  @override
-  void dispose() {
-    _c.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => AnimatedBuilder(
-    animation: _c,
-    child: widget.child,
-    builder: (_, child) {
-      final t = enterCurve.transform(_c.value);
-      return Opacity(opacity: t, child: Transform.translate(offset: Offset(0, 12 * (1 - t)), child: child));
-    },
-  );
-}
 
 /// floating raised nav bar: keys raised, current key pressed in (sage)
 class NavBar extends StatelessWidget {
@@ -356,7 +347,8 @@ class SheetLayer extends StatefulWidget {
 }
 
 class _SheetLayerState extends State<SheetLayer> with SingleTickerProviderStateMixin {
-  late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(milliseconds: 500))..forward();
+  // short, plain slide up (was a 500 ms spring): one cheap transform, done before the finger lifts
+  late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(milliseconds: 200))..forward();
   @override
   void dispose() {
     _c.dispose();
@@ -370,7 +362,7 @@ class _SheetLayerState extends State<SheetLayer> with SingleTickerProviderStateM
     return AnimatedBuilder(
       animation: _c,
       builder: (context, child) {
-        final o = (_c.value / .6).clamp(0.0, 1.0), y = 1 - springCurve.transform(_c.value);
+        final o = _c.value, y = 1 - Curves.easeOutCubic.transform(_c.value);
         return Stack(
           children: [
             Positioned.fill(

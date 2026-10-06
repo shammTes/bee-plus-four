@@ -1,0 +1,1536 @@
+{
+ "book": {
+  "id": "mathematics_12",
+  "subject": "mathematics",
+  "grade": 12,
+  "title": "Mathematics Grade 12",
+  "pdf": "textbook_mathematics_12.pdf",
+  "page_offset": 6,
+  "source": "High notes (Grade_12_Mathematics.html) regrouped into the units of the official Grade 12 Mathematics textbook (Eritrea MoE)",
+  "lang": "en",
+  "intro": [
+   "Eritrea · Ministry of Education · Grade 12 · 2011",
+   "Write the formula first",
+   "Then plug ♥",
+   "Mathematics Notes"
+  ],
+  "source_outline": [
+   {
+    "level": 1,
+    "text": "Mathematics Notes"
+   },
+   {
+    "level": 2,
+    "text": "Chapter 1 · Sequence and series"
+   },
+   {
+    "level": 3,
+    "text": "Arithmetic (AP)"
+   },
+   {
+    "level": 3,
+    "text": "Geometric (GP)"
+   },
+   {
+    "level": 2,
+    "text": "Chapter 2 · Statistics and probability"
+   },
+   {
+    "level": 3,
+    "text": "Averages"
+   },
+   {
+    "level": 3,
+    "text": "Spread"
+   },
+   {
+    "level": 3,
+    "text": "Probability"
+   },
+   {
+    "level": 2,
+    "text": "Chapter 3 · Coordinate geometry"
+   },
+   {
+    "level": 2,
+    "text": "Chapter 4 · Matrices and determinants"
+   },
+   {
+    "level": 2,
+    "text": "Formula wall"
+   },
+   {
+    "level": 2,
+    "text": "Tap quiz"
+   }
+  ],
+  "intro_cards": [
+   {
+    "id": "math12-intro-c01",
+    "type": "text",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "Four chapters · worked steps · exam tricks",
+     "Every example hides the working. Try it on paper, then open the steps. Trick boxes are the shortcuts markers use."
+    ]
+   },
+   {
+    "id": "math12-intro-c02",
+    "type": "mnemonic",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "AP: $a_n=a+(n-1)d$ GP: $a_n=ar^{n-1}$"
+    ]
+   },
+   {
+    "id": "math12-intro-c03",
+    "type": "mnemonic",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "$AB=\\sqrt{\\Delta x^2+\\Delta y^2}$ $m=\\Delta y/\\Delta x$"
+    ]
+   },
+   {
+    "id": "math12-intro-c04",
+    "type": "mnemonic",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "$\\det=ad-bc$ $P=1-P(\\text{none})$"
+    ]
+   }
+  ]
+ },
+ "units": [
+  {
+   "id": "math12-u1",
+   "number": 1,
+   "title": "Sequence and Series",
+   "status": "done",
+   "pages": [
+    1,
+    39
+   ],
+   "tone": "sage",
+   "intro": "A **sequence** is a list $a_1,a_2,a_3,\\ldots$. A **series** is the sum $S_n=a_1+\\cdots+a_n$.",
+   "intro_page": 1,
+   "lessons": [
+    {
+     "id": "math12-u1-l1-1",
+     "number": "1.1",
+     "title": "Basic Ideas of Sequence",
+     "pages": [
+      1,
+      8
+     ],
+     "cards": [
+      {
+       "id": "math12-u1-c01",
+       "type": "text",
+       "title": "1.1 Basic Ideas of Sequence",
+       "page": 3,
+       "src": "textbook pp.3–7",
+       "enriched": true,
+       "body": [
+        "For each of the sequences in task (3) try to find a general formula that describes the given sequence.",
+        "A sequence in mathematics is a function whose domain is the set of positive integers.",
+        "If the domain consists of the first “n” positive integers only, then the sequence is a finite sequence.",
+        "Remark: The general formula of a sequence is also known as the nth term formula of the sequence.",
+        "For n a natural number n, nfactorial, denoted by n! is the product of the first n natural numbers."
+       ]
+      },
+      {
+       "id": "math12-u1-tblE1",
+       "type": "table",
+       "title": "Key table",
+       "page": 1,
+       "src": "study_notes",
+       "head": [
+        "Sequence Type",
+        "Domain",
+        "General Term Example",
+        "Key Characteristic"
+       ],
+       "rows": [
+        [
+         "**Explicit**",
+         "$$\\mathbb{Z}^+$$",
+         "$$a_n = 2n + 5$$",
+         "Directly calculated from position $$n$$"
+        ],
+        [
+         "**Recursive**",
+         "$$\\mathbb{Z}^+$$",
+         "$$a_n = a_{n-1} + 3$$",
+         "Each term depends on previous terms"
+        ],
+        [
+         "**Finite**",
+         "$1, 2, \\dots, k$",
+         "$$a_n = n^2$$ for $$n \\le 5$$",
+         "Terminates after a specific number of terms"
+        ],
+        [
+         "**Infinite**",
+         "$$\\mathbb{Z}^+$$",
+         "$$a_n = \\frac{1}{n}$$",
+         "Continues indefinitely without terminating"
+        ]
+       ]
+      },
+      {
+       "id": "math12-u1-chkE1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "What are the first five terms of the sequence given by the explicit formula $$a_n = 4n - 1$$?",
+       "options": {
+        "A": "$$3, 7, 11, 15, 19$$",
+        "B": "$$4, 8, 12, 16, 20$$",
+        "C": "$$1, 5, 9, 13, 17$$",
+        "D": "$$3, 6, 9, 12, 15$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Understand the given formula**\nWe are given the explicit formula $$a_n = 4n - 1$$ for $$n \\ge 1$$.\n\n**Step 2: Calculate the terms systematically**\nFor $$n = 1$$: $$a_1 = 4(1) - 1 = 3$$\nFor $$n = 2$$: $$a_2 = 4(2) - 1 = 7$$\nFor $$n = 3$$: $$a_3 = 4(3) - 1 = 11$$\nFor $$n = 4$$: $$a_4 = 4(4) - 1 = 15$$\nFor $$n = 5$$: $$a_5 = 4(5) - 1 = 19$$\n\n**Step 3: Combine the results**\nThe first five te"
+      },
+      {
+       "id": "math12-u1-chkE2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Find the $$7^{\\text{th}}$$ term of the sequence given by $$a_n = (-1)^n(2n + 3)$$.",
+       "options": {
+        "A": "$$17$$",
+        "B": "$$-17$$",
+        "C": "$$15$$",
+        "D": "$$-15$$"
+       },
+       "answer": "B",
+       "why": "**Step 1: Identify the given values**\nWe need to find the term for $$n = 7$$ in the formula $$a_n = (-1)^n(2n + 3)$$.\n\n**Step 2: Substitute $$n = 7$$**\n$$a_7 = (-1)^7(2(7) + 3)$$\n\n**Step 3: Compute the expression**\n$$a_7 = (-1) \\times (14 + 3)$$\n$$a_7 = -17$$\n\n**Step 4: Final Result**\nThe seventh term is **$$-17$$**."
+      },
+      {
+       "id": "math12-u1-chk73",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "What are the first five terms of the sequence given by the explicit formula $$a_n = 4n - 1$$?",
+       "options": {
+        "A": "$$3, 7, 11, 15, 19$$",
+        "B": "$$4, 8, 12, 16, 20$$",
+        "C": "$$1, 5, 9, 13, 17$$",
+        "D": "$$3, 6, 9, 12, 15$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Understand the given formula**\nWe are given the explicit formula $$a_n = 4n - 1$$ for $$n \\ge 1$$.\n\n**Step 2: Calculate the terms systematically**\nFor $$n = 1$$: $$a_1 = 4(1) - 1 = 3$$\nFor $$n = 2$$: $$a_2 = 4(2) - 1 = 7$$\nFor $$n = 3$$: $$a_3 = 4(3) - 1 = 11$$\nFor $$n = 4$$: $$a_4 = 4(4) - 1 = 15$$\nFor $$n = 5$$: $$a_5 = 4(5) - 1 = 19$$\n\n**Step 3: Combine the results**\nThe first five te"
+      },
+      {
+       "id": "math12-u1-chk74",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q3",
+       "q": "Find the next three terms of the sequence: $$8, 5, 2, -1, -4, \\dots$$",
+       "options": {
+        "A": "$$-7, -10, -13$$",
+        "B": "$$-6, -8, -10$$",
+        "C": "$$-7, -9, -11$$",
+        "D": "$$-8, -11, -14$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Determine the pattern of the sequence**\nObserve the difference between consecutive terms:\n$$5 - 8 = -3$$\n$$2 - 5 = -3$$\n$$-1 - 2 = -3$$\nSince the difference is constant, this is an AP with first term $$a_1 = 8$$ and common difference $$d = -3$$.\n\n**Step 2: Calculate the next three terms**\nThe last given term is $$-4$$.\nTerm 6: $$-4 + (-3) = -7$$\nTerm 7: $$-7 + (-3) = -10$$\nTerm 8: $$-10 + (-3) = -13$$\n\n**Step 3: Conclude**\nThe next three terms are **$$-7, -10, -13$$**."
+      },
+      {
+       "id": "math12-u1-wrk1",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 1,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q3",
+       "problem": "Find the next three terms of the sequence: $$8, 5, 2, -1, -4, \\dots$$",
+       "steps": [
+        {
+         "text": "**Step 1: Determine the pattern of the sequence**"
+        },
+        {
+         "text": "Observe the difference between consecutive terms:"
+        },
+        {
+         "text": "$$5 - 8 = -3$$"
+        },
+        {
+         "text": "$$2 - 5 = -3$$"
+        },
+        {
+         "text": "**Step 2: Calculate the next three terms**"
+        },
+        {
+         "text": "The last given term is $$-4$$."
+        },
+        {
+         "text": "Term 6: $$-4 + (-3) = -7$$"
+        },
+        {
+         "text": "Term 7: $$-7 + (-3) = -10$$"
+        },
+        {
+         "text": "**Step 3: Conclude**"
+        },
+        {
+         "text": "The next three terms are **$$-7, -10, -13$$**."
+        }
+       ],
+       "answer": "A"
+      },
+      {
+       "id": "math12-u1-chk75",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q4",
+       "q": "Simplify the algebraic factorial expression: $$\\frac{(n+1)!}{n!}$$ where $$n$$ is a positive integer.",
+       "options": {
+        "A": "$$n$$",
+        "B": "$$n + 1$$",
+        "C": "$$\\frac{1}{n}$$",
+        "D": "$$n!$$"
+       },
+       "answer": "B",
+       "why": "**Step 1: Write down the definition of factorial**\nBy definition, $$(n+1)! = (n+1) \\times n \\times (n-1) \\times \\dots \\times 1 = (n+1) \\times n!$$.\n\n**Step 2: Substitute this expression into the fraction**\n$$\\frac{(n+1)!}{n!} = \\frac{(n+1) \\times n!}{n!}$$\n\n**Step 3: Simplify by canceling out the common terms**\nCancel the common term $$n!$$ from numerator and denominator to get $$n + 1$$.\n\n**Step 4: Final Result**\nThe simplified expression is **$$n + 1$$**."
+      },
+      {
+       "id": "math12-u1-wrk2",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 1,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q4",
+       "problem": "Simplify the algebraic factorial expression: $$\\frac{(n+1)!}{n!}$$ where $$n$$ is a positive integer.",
+       "steps": [
+        {
+         "text": "**Step 1: Write down the definition of factorial**"
+        },
+        {
+         "text": "By definition, $$(n+1)! = (n+1) \\times n \\times (n-1) \\times \\dots \\times 1 = (n+1) \\times n!$$."
+        },
+        {
+         "text": "**Step 2: Substitute this expression into the fraction**"
+        },
+        {
+         "text": "$$\\frac{(n+1)!}{n!} = \\frac{(n+1) \\times n!}{n!}$$"
+        },
+        {
+         "text": "**Step 3: Simplify by canceling out the common terms**"
+        },
+        {
+         "text": "Cancel the common term $$n!$$ from numerator and denominator to get $$n + 1$$."
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The simplified expression is **$$n + 1$$**."
+        }
+       ],
+       "answer": "B"
+      }
+     ]
+    },
+    {
+     "id": "math12-u1-l1-2",
+     "number": "1.2",
+     "title": "Arithmetic Progression",
+     "pages": [
+      9,
+      18
+     ],
+     "cards": [
+      {
+       "id": "math12-u1-c02",
+       "type": "text",
+       "title": "1.2 Arithmetic Progression",
+       "page": 11,
+       "src": "textbook pp.11–13",
+       "enriched": true,
+       "body": [
+        "A business makes a profit of 10,000 Nakfa during its first year.",
+        "Solution: The profit during the first year is 10,000 Nakfa.",
+        "If three numbers a, b and c are in arithmetic progression, then b is the arithmetic mean of a and c.",
+        "Determine if the given sequence is arithmetic progression.",
+        "The temperature at the top of a mountain at 5 PM is 36o F."
+       ]
+      },
+      {
+       "id": "math12-u1-chk76",
+       "type": "check",
+       "title": "Quick check",
+       "page": 9,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q5",
+       "q": "Simplify the expression: $$\\frac{(n+1)!}{(n+3)!}$$.",
+       "options": {
+        "A": "$$\\frac{1}{(n+2)(n+3)}$$",
+        "B": "$$\\frac{1}{n+2}$$",
+        "C": "$$(n+2)(n+3)$$",
+        "D": "$$\\frac{1}{n^2}$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Expand the larger factorial term**\nExpress $$(n+3)!$$ in terms of $$(n+1)!$$:\n$$(n+3)! = (n+3) \\times (n+2) \\times (n+1)!$$\n\n**Step 2: Rewrite the fraction**\n$$\\frac{(n+1)!}{(n+3)!} = \\frac{(n+1)!}{(n+3) \\times (n+2) \\times (n+1)!}$$\n\n**Step 3: Simplify by division**\nCancel out the common $$(n+1)!$$ factor from both the numerator and the denominator:\n$$\\frac{1}{(n+2)(n+3)}$$\n\n**Step 4: Final Result**\nThe simplified form is **$$\\frac{1}{(n+2)(n+3)}$$**."
+      },
+      {
+       "id": "math12-u1-wrk3",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 9,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q5",
+       "problem": "Simplify the expression: $$\\frac{(n+1)!}{(n+3)!}$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Expand the larger factorial term**"
+        },
+        {
+         "text": "Express $$(n+3)!$$ in terms of $$(n+1)!$$:"
+        },
+        {
+         "text": "$$(n+3)! = (n+3) \\times (n+2) \\times (n+1)!$$"
+        },
+        {
+         "text": "**Step 2: Rewrite the fraction**"
+        },
+        {
+         "text": "$$\\frac{(n+1)!}{(n+3)!} = \\frac{(n+1)!}{(n+3) \\times (n+2) \\times (n+1)!}$$"
+        },
+        {
+         "text": "**Step 3: Simplify by division**"
+        },
+        {
+         "text": "Cancel out the common $$(n+1)!$$ factor from both the numerator and the denominator:"
+        },
+        {
+         "text": "$$\\frac{1}{(n+2)(n+3)}$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The simplified form is **$$\\frac{1}{(n+2)(n+3)}$$**."
+        }
+       ],
+       "answer": "A"
+      },
+      {
+       "id": "math12-u1-chk77",
+       "type": "check",
+       "title": "Quick check",
+       "page": 9,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q6",
+       "q": "Determine whether the sequence $$3, 7, 11, 15, 19, \\dots$$ is an Arithmetic Progression, and find its common difference $$d$$.",
+       "options": {
+        "A": "Yes, $$d = 4$$",
+        "B": "Yes, $$d = 3$$",
+        "C": "No, it is not an AP",
+        "D": "Yes, $$d = -4$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Check the difference between consecutive terms**\nCalculate $$a_n - a_{n-1}$$ for all consecutive terms:\n$$7 - 3 = 4$$\n$$11 - 7 = 4$$\n$$15 - 11 = 4$$\n$$19 - 15 = 4$$\n\n**Step 2: Formulate the conclusion**\nSince the difference is a constant value of $$4$$, the sequence is indeed an Arithmetic Progression.\n\n**Step 3: Final Result**\nIt is an AP with common difference **$$d = 4$$**."
+      },
+      {
+       "id": "math12-u1-wrk4",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 9,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q6",
+       "problem": "Determine whether the sequence $$3, 7, 11, 15, 19, \\dots$$ is an Arithmetic Progression, and find its common difference $$d$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Check the difference between consecutive terms**"
+        },
+        {
+         "text": "Calculate $$a_n - a_{n-1}$$ for all consecutive terms:"
+        },
+        {
+         "text": "$$7 - 3 = 4$$"
+        },
+        {
+         "text": "$$11 - 7 = 4$$"
+        },
+        {
+         "text": "**Step 2: Formulate the conclusion**"
+        },
+        {
+         "text": "Since the difference is a constant value of $$4$$, the sequence is indeed an Arithmetic Progression."
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "It is an AP with common difference **$$d = 4$$**."
+        }
+       ],
+       "answer": "A"
+      }
+     ]
+    },
+    {
+     "id": "math12-u1-l1-3",
+     "number": "1.3",
+     "title": "Geometric Progression",
+     "pages": [
+      19,
+      29
+     ],
+     "cards": [
+      {
+       "id": "math12-u1-c03",
+       "type": "text",
+       "title": "1.3 Geometric Progression",
+       "page": 20,
+       "src": "textbook pp.20–24",
+       "enriched": true,
+       "body": [
+        "In a sequence, where the first term is given and every next term is obtained by multiplying by a fixed number called common ratio r is a geometric sequence or a geometric progression.",
+        "A single cell of bacteria reproduces through the process called binary fission.",
+        "Escherichia coli cells divide into two every 20 minutes.",
+        "Show that MP is the geometric mean of MB and MA."
+       ]
+      },
+      {
+       "id": "math12-u1-chk78",
+       "type": "check",
+       "title": "Quick check",
+       "page": 19,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q7",
+       "q": "Find the general formula for the Arithmetic Progression whose first term $$A_1 = 7$$ and common difference $$d = 8$$.",
+       "options": {
+        "A": "$$a_n = 8n - 1$$",
+        "B": "$$a_n = 8n + 7$$",
+        "C": "$$a_n = 7n + 8$$",
+        "D": "$$a_n = 8n + 1$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Recall the general term formula for an AP**\nThe formula is $$a_n = a_1 + (n - 1)d$$.\n\n**Step 2: Substitute the given values**\nSubstitute $$a_1 = 7$$ and $$d = 8$$:\n$$a_n = 7 + (n - 1)8$$\n\n**Step 3: Simplify the expression**\n$$a_n = 7 + 8n - 8$$\n$$a_n = 8n - 1$$\n\n**Step 4: Final Result**\nThe general formula is **$$a_n = 8n - 1$$**."
+      },
+      {
+       "id": "math12-u1-wrk5",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 19,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q7",
+       "problem": "Find the general formula for the Arithmetic Progression whose first term $$A_1 = 7$$ and common difference $$d = 8$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Recall the general term formula for an AP**"
+        },
+        {
+         "text": "The formula is $$a_n = a_1 + (n - 1)d$$."
+        },
+        {
+         "text": "**Step 2: Substitute the given values**"
+        },
+        {
+         "text": "Substitute $$a_1 = 7$$ and $$d = 8$$:"
+        },
+        {
+         "text": "$$a_n = 7 + (n - 1)8$$"
+        },
+        {
+         "text": "**Step 3: Simplify the expression**"
+        },
+        {
+         "text": "$$a_n = 7 + 8n - 8$$"
+        },
+        {
+         "text": "$$a_n = 8n - 1$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The general formula is **$$a_n = 8n - 1$$**."
+        }
+       ],
+       "answer": "A"
+      },
+      {
+       "id": "math12-u1-chk79",
+       "type": "check",
+       "title": "Quick check",
+       "page": 19,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q8",
+       "q": "Find the Arithmetic Mean of the numbers $$3.5$$ and $$7$$.",
+       "options": {
+        "A": "$$5.25$$",
+        "B": "$$4.25$$",
+        "C": "$$5.5$$",
+        "D": "$$5.0$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: State the formula for the Arithmetic Mean**\nFor any two numbers $$a$$ and $$b$$, the Arithmetic Mean $$x$$ is given by:\n$$x = \\frac{a + b}{2}$$\n\n**Step 2: Substitute the given values**\nSubstitute $$a = 3.5$$ and $$b = 7$$:\n$$x = \\frac{3.5 + 7}{2}$$\n\n**Step 3: Perform the calculations**\n$$x = \\frac{10.5}{2} = 5.25$$\n\n**Step 4: Final Result**\nThe Arithmetic Mean is **$$5.25$$**."
+      },
+      {
+       "id": "math12-u1-wrk6",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 19,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q8",
+       "problem": "Find the Arithmetic Mean of the numbers $$3.5$$ and $$7$$.",
+       "steps": [
+        {
+         "text": "**Step 1: State the formula for the Arithmetic Mean**"
+        },
+        {
+         "text": "For any two numbers $$a$$ and $$b$$, the Arithmetic Mean $$x$$ is given by:"
+        },
+        {
+         "text": "$$x = \\frac{a + b}{2}$$"
+        },
+        {
+         "text": "**Step 2: Substitute the given values**"
+        },
+        {
+         "text": "Substitute $$a = 3.5$$ and $$b = 7$$:"
+        },
+        {
+         "text": "$$x = \\frac{3.5 + 7}{2}$$"
+        },
+        {
+         "text": "**Step 3: Perform the calculations**"
+        },
+        {
+         "text": "$$x = \\frac{10.5}{2} = 5.25$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The Arithmetic Mean is **$$5.25$$**."
+        }
+       ],
+       "answer": "A"
+      }
+     ]
+    },
+    {
+     "id": "math12-u1-l1-4",
+     "number": "1.4",
+     "title": "Harmonic Progression",
+     "pages": [
+      30,
+      31
+     ],
+     "cards": [
+      {
+       "id": "math12-u1-c04",
+       "type": "text",
+       "title": "1.4 Harmonic Progression",
+       "page": 31,
+       "src": "textbook p.31",
+       "enriched": true,
+       "body": [
+        "A sequence of numbers is said to form a harmonic progression provided that the reciprocals of the numbers form an arithmetic progression."
+       ]
+      },
+      {
+       "id": "math12-u1-chk80",
+       "type": "check",
+       "title": "Quick check",
+       "page": 30,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q9",
+       "q": "Calculate the sum of the first 10 terms ($$S_{10}$$) of an Arithmetic Progression where $$A_1 = 7$$ and $$d = 2$$.",
+       "options": {
+        "A": "$$160$$",
+        "B": "$$170$$",
+        "C": "$$150$$",
+        "D": "$$180$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: State the arithmetic series sum formula**\nThe formula is $$S_n = \\frac{n}{2}[2a_1 + (n - 1)d]$$.\n\n**Step 2: Substitute the known values**\nHere $$n = 10$$, $$a_1 = 7$$, and $$d = 2$$:\n$$S_{10} = \\frac{10}{2}[2(7) + (10 - 1)2]$$\n\n**Step 3: Solve inside the bracket**\n$$S_{10} = 5[14 + (9)2]$$\n$$S_{10} = 5[14 + 18]$$\n$$S_{10} = 5[32] = 160$$\n\n**Step 4: Final Result**\nThe sum of the first 10 terms is **$$160$$**."
+      },
+      {
+       "id": "math12-u1-wrk7",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 30,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q9",
+       "problem": "Calculate the sum of the first 10 terms ($$S_{10}$$) of an Arithmetic Progression where $$A_1 = 7$$ and $$d = 2$$.",
+       "steps": [
+        {
+         "text": "**Step 1: State the arithmetic series sum formula**"
+        },
+        {
+         "text": "The formula is $$S_n = \\frac{n}{2}[2a_1 + (n - 1)d]$$."
+        },
+        {
+         "text": "**Step 2: Substitute the known values**"
+        },
+        {
+         "text": "Here $$n = 10$$, $$a_1 = 7$$, and $$d = 2$$:"
+        },
+        {
+         "text": "$$S_{10} = \\frac{10}{2}[2(7) + (10 - 1)2]$$"
+        },
+        {
+         "text": "**Step 3: Solve inside the bracket**"
+        },
+        {
+         "text": "$$S_{10} = 5[14 + (9)2]$$"
+        },
+        {
+         "text": "$$S_{10} = 5[14 + 18]$$"
+        },
+        {
+         "text": "$$S_{10} = 5[32] = 160$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The sum of the first 10 terms is **$$160$$**."
+        }
+       ],
+       "answer": "A"
+      },
+      {
+       "id": "math12-u1-chk81",
+       "type": "check",
+       "title": "Quick check",
+       "page": 30,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q10",
+       "q": "Find the next term of the geometric progression: $$27, 9, 3, 1, \\dots$$",
+       "options": {
+        "A": "$$\\frac{1}{3}$$",
+        "B": "$$0$$",
+        "C": "$$\\frac{1}{9}$$",
+        "D": "$$-3$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Find the common ratio $$r$$**\nCalculate the ratio of consecutive terms:\n$$r = \\frac{g_2}{g_1} = \\frac{9}{27} = \\frac{1}{3}$$\nLet's verify:\n$$g_3 = 9 \\times \\frac{1}{3} = 3$$\n$$g_4 = 3 \\times \\frac{1}{3} = 1$$ (correct).\n\n**Step 2: Find the next term ($$g_5$$)**\nMultiply the fourth term by the common ratio:\n$$g_5 = g_4 \\times r = 1 \\times \\frac{1}{3} = \\frac{1}{3}$$\n\n**Step 3: Final Result**\nThe next term is **$$\\frac{1}{3}$$**."
+      },
+      {
+       "id": "math12-u1-wrk8",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 30,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q10",
+       "problem": "Find the next term of the geometric progression: $$27, 9, 3, 1, \\dots$$",
+       "steps": [
+        {
+         "text": "**Step 1: Find the common ratio $$r$$**"
+        },
+        {
+         "text": "Calculate the ratio of consecutive terms:"
+        },
+        {
+         "text": "$$r = \\frac{g_2}{g_1} = \\frac{9}{27} = \\frac{1}{3}$$"
+        },
+        {
+         "text": "Let's verify:"
+        },
+        {
+         "text": "**Step 2: Find the next term ($$g_5$$)**"
+        },
+        {
+         "text": "Multiply the fourth term by the common ratio:"
+        },
+        {
+         "text": "$$g_5 = g_4 \\times r = 1 \\times \\frac{1}{3} = \\frac{1}{3}$$"
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "The next term is **$$\\frac{1}{3}$$**."
+        }
+       ],
+       "answer": "A"
+      }
+     ]
+    },
+    {
+     "id": "math12-u1-l1-5",
+     "number": "1.5",
+     "title": "Infinite Series",
+     "pages": [
+      32,
+      39
+     ],
+     "cards": [
+      {
+       "id": "math12-u1-c05",
+       "type": "text",
+       "title": "1.5 Infinite Series",
+       "page": 34,
+       "src": "textbook pp.34–38",
+       "enriched": true,
+       "body": [
+        "An infinite series whose sum approaches a finite number is called a convergent series.",
+        "Find the total distance that the ball travels.",
+        "A monument is constructed by first laying a row of 60 bricks at ground level.",
+        "A second row with two fewer bricks is centred on that; a third row, with two fewer bricks, is centred on the second; and so on.",
+        "On each bounce, it rises to 45% of its previous height."
+       ]
+      },
+      {
+       "id": "math12-u1-c06",
+       "type": "text",
+       "title": "Arithmetic (AP)",
+       "page": 38,
+       "src": "notes",
+       "body": [
+        "Common difference $d=a_{k+1}-a_k$ (constant).",
+        "$$a_n=a_1+(n-1)d\\qquad S_n=\\frac{n}{2}\\bigl(2a_1+(n-1)d\\bigr)=\\frac{n}{2}(a_1+a_n)$$"
+       ]
+      },
+      {
+       "id": "math12-u1-c07",
+       "type": "mnemonic",
+       "title": "Trick",
+       "page": 37,
+       "src": "notes",
+       "body": [
+        "If you know first and last, use $S_n=\\frac{n}{2}(a_1+a_n)$ — fewer slips than the $2a_1$ form. To find $n$, solve $a_n=a_1+(n-1)d$ for $n$ and check it is a whole number."
+       ]
+      },
+      {
+       "id": "math12-u1-c08",
+       "type": "worked",
+       "title": "Example 1 — AP",
+       "page": 38,
+       "src": "notes",
+       "problem": "First term $5$, common difference $3$. Find the 12th term and $S_{12}$.",
+       "steps": [
+        {
+         "text": "Write $a_n=a_1+(n-1)d$."
+        },
+        {
+         "text": "$a_{12}=5+(12-1)\\times 3=5+33=38$."
+        },
+        {
+         "text": "$S_{12}=\\frac{12}{2}(5+38)=6\\times 43=258$."
+        },
+        {
+         "text": "Check with the other sum formula: $\\frac{12}{2}(2\\times5+11\\times3)=6(10+33)=258$."
+        },
+        {
+         "text": "Same."
+        }
+       ],
+       "answer": "Same.",
+       "mode": "show",
+       "reveal": "Step-by-step"
+      },
+      {
+       "id": "math12-u1-c09",
+       "type": "text",
+       "title": "Geometric (GP)",
+       "page": 38,
+       "src": "notes",
+       "body": [
+        "Common ratio $r=a_{k+1}/a_k$ (constant, $r\\neq0$).",
+        "$$a_n=a_1 r^{n-1}\\qquad S_n=a_1\\frac{r^n-1}{r-1}\\ (r\\neq1)\\qquad |r|<1:\\ S_\\infty=\\frac{a_1}{1-r}$$"
+       ]
+      },
+      {
+       "id": "math12-u1-c10",
+       "type": "mnemonic",
+       "title": "Trick",
+       "page": 33,
+       "src": "notes",
+       "body": [
+        "Write the ratio as a fraction, not a rounded decimal, until the last line. For $S_\\infty$ first ask: is $|r|<1$? If $|r|\\ge 1$ there is no finite infinite sum."
+       ]
+      },
+      {
+       "id": "math12-u1-c11",
+       "type": "worked",
+       "title": "Example 2 — GP",
+       "page": 32,
+       "src": "notes",
+       "problem": "$3,6,12,24,\\ldots$ Find $a_8$ and $S_8$.",
+       "steps": [
+        {
+         "text": "$r=6/3=2$."
+        },
+        {
+         "text": "$a_8=3\\times 2^{7}=3\\times 128=384$."
+        },
+        {
+         "text": "$S_8=3\\frac{2^8-1}{2-1}=3(256-1)=765$."
+        },
+        {
+         "text": "Spot check: $3+6+12+24+48+96+192+384=765$."
+        }
+       ],
+       "answer": "Spot check: $3+6+12+24+48+96+192+384=765$.",
+       "mode": "show",
+       "reveal": "Step-by-step"
+      },
+      {
+       "id": "math12-u1-c12",
+       "type": "worked",
+       "title": "Example 3 — which is it?",
+       "page": 32,
+       "src": "notes",
+       "problem": "$2,6,18,54$. AP or GP? Next term?",
+       "steps": [
+        {
+         "text": "Differences: $4,12,36$ — not constant → not AP."
+        },
+        {
+         "text": "Ratios: $6/2=3$, $18/6=3$, $54/18=3$ → GP, $r=3$."
+        },
+        {
+         "text": "Next $=54\\times 3=162$."
+        }
+       ],
+       "answer": "Next $=54\\times 3=162$.",
+       "mode": "show",
+       "reveal": "Step-by-step"
+      },
+      {
+       "id": "math12-u1-chk82",
+       "type": "check",
+       "title": "Quick check",
+       "page": 32,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q11",
+       "q": "Find the Geometric Mean of the numbers $$3 - \\sqrt{5}$$ and $$3 + \\sqrt{5}$$.",
+       "options": {
+        "A": "$$2$$",
+        "B": "$$\\sqrt{14}$$",
+        "C": "$$4$$",
+        "D": "$$\\sqrt{2}$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Write down the geometric mean formula**\nFor two numbers $$a$$ and $$b$$, the Geometric Mean $$x$$ is:\n$$x = \\sqrt{ab}$$\n\n**Step 2: Substitute the given numbers**\n$$x = \\sqrt{(3 - \\sqrt{5})(3 + \\sqrt{5})}$$\n\n**Step 3: Simplify inside the radical**\nUse the difference of squares identity $$(A-B)(A+B) = A^2 - B^2$$:\n$$(3 - \\sqrt{5})(3 + \\sqrt{5}) = 3^2 - (\\sqrt{5})^2 = 9 - 5 = 4$$\n\n**Step 4: Compute the final square root**\n$$x = \\sqrt{4} = 2$$\nThe Geometric Mean is **$$2$$**."
+      },
+      {
+       "id": "math12-u1-wrk9",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 32,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q11",
+       "problem": "Find the Geometric Mean of the numbers $$3 - \\sqrt{5}$$ and $$3 + \\sqrt{5}$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Write down the geometric mean formula**"
+        },
+        {
+         "text": "For two numbers $$a$$ and $$b$$, the Geometric Mean $$x$$ is:"
+        },
+        {
+         "text": "$$x = \\sqrt{ab}$$"
+        },
+        {
+         "text": "**Step 2: Substitute the given numbers**"
+        },
+        {
+         "text": "$$x = \\sqrt{(3 - \\sqrt{5})(3 + \\sqrt{5})}$$"
+        },
+        {
+         "text": "**Step 3: Simplify inside the radical**"
+        },
+        {
+         "text": "Use the difference of squares identity $$(A-B)(A+B) = A^2 - B^2$$:"
+        },
+        {
+         "text": "$$(3 - \\sqrt{5})(3 + \\sqrt{5}) = 3^2 - (\\sqrt{5})^2 = 9 - 5 = 4$$"
+        },
+        {
+         "text": "**Step 4: Compute the final square root**"
+        },
+        {
+         "text": "$$x = \\sqrt{4} = 2$$"
+        },
+        {
+         "text": "The Geometric Mean is **$$2$$**."
+        }
+       ],
+       "answer": "A"
+      },
+      {
+       "id": "math12-u1-chk83",
+       "type": "check",
+       "title": "Quick check",
+       "page": 32,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q12",
+       "q": "Find the Harmonic Mean between the fractions $$\\frac{1}{3}$$ and $$\\frac{1}{7}$$.",
+       "options": {
+        "A": "$$\\frac{1}{5}$$",
+        "B": "$$\\frac{1}{10}$$",
+        "C": "$$\\frac{2}{21}$$",
+        "D": "$$\\frac{1}{4}$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Recall the definition of Harmonic Progression and Harmonic Mean**\nIf $$a, m, b$$ form a Harmonic Progression, then $$\\frac{1}{a}, \\frac{1}{m}, \\frac{1}{b}$$ are in Arithmetic Progression.\nAlternatively, the Harmonic Mean $$m$$ is defined as:\n$$m = \\frac{2ab}{a+b}$$\n\n**Step 2: Substitute $$a = \\frac{1}{3}$$ and $$b = \\frac{1}{7}$$**\n$$m = \\frac{2 \\times \\frac{1}{3} \\times \\frac{1}{7}}{\\frac{1}{3} + \\frac{1}{7}}$$\n\n**Step 3: Simplify the numerator and denominator**\nNumerator: $$2 \\times \\frac{1}{21} = \\frac{2}{21}$$\nDenominator: $$\\frac{1}{3} + \\frac{1}{7} = \\frac{7+3}{21} = \\frac{10}{21}$$\n\n**Step 4: Solve for $$m$$**\n$$m = \\frac{\\frac{2}{21}}{\\frac{10}{21}} = \\frac{2}{10} = \\frac{1}{5}$$\n\n**Step 5: Final Result**\nThe Harmonic Mean is **$$\\frac{1}{5}$$**."
+      },
+      {
+       "id": "math12-u1-wrk10",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 32,
+       "src": "study_notes",
+       "src_qid": "math_g12_c1_q12",
+       "problem": "Find the Harmonic Mean between the fractions $$\\frac{1}{3}$$ and $$\\frac{1}{7}$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Recall the definition of Harmonic Progression and Harmonic Mean**"
+        },
+        {
+         "text": "If $$a, m, b$$ form a Harmonic Progression, then $$\\frac{1}{a}, \\frac{1}{m}, \\frac{1}{b}$$ are in Arithmetic Progression."
+        },
+        {
+         "text": "Alternatively, the Harmonic Mean $$m$$ is defined as:"
+        },
+        {
+         "text": "$$m = \\frac{2ab}{a+b}$$"
+        },
+        {
+         "text": "**Step 2: Substitute $$a = \\frac{1}{3}$$ and $$b = \\frac{1}{7}$$**"
+        },
+        {
+         "text": "$$m = \\frac{2 \\times \\frac{1}{3} \\times \\frac{1}{7}}{\\frac{1}{3} + \\frac{1}{7}}$$"
+        },
+        {
+         "text": "**Step 3: Simplify the numerator and denominator**"
+        },
+        {
+         "text": "Numerator: $$2 \\times \\frac{1}{21} = \\frac{2}{21}$$"
+        },
+        {
+         "text": "Denominator: $$\\frac{1}{3} + \\frac{1}{7} = \\frac{7+3}{21} = \\frac{10}{21}$$"
+        },
+        {
+         "text": "**Step 4: Solve for $$m$$**"
+        },
+        {
+         "text": "$$m = \\frac{\\frac{2}{21}}{\\frac{10}{21}} = \\frac{2}{10} = \\frac{1}{5}$$"
+        }
+       ],
+       "answer": "A"
+      }
+     ]
+    }
+   ],
+   "glossary": [],
+   "tips": [
+    {
+     "text": "Read 1.1 Basic Ideas of Sequence again and say its main idea in one sentence.",
+     "page": 1
+    }
+   ],
+   "games": [
+    {
+     "type": "match",
+     "title": "Match each answer to its question",
+     "pairs": [
+      {
+       "a": "3",
+       "b": "GP 2,6,18. r=?"
+      },
+      {
+       "a": "1",
+       "b": "The sum of the geometric series with first term 0.9 and common ratio 0.1 is"
+      },
+      {
+       "a": "24",
+       "b": "In an AP, a_1=4, d=5. a_5=?"
+      },
+      {
+       "a": "30",
+       "b": "How many two digit numbers are divisible by 3?"
+      },
+      {
+       "a": "18",
+       "b": "The Arithmetic mean and Harmonic mean between two numbers are 27 and 12, respectively. Find their Geometric mean."
+      },
+      {
+       "a": "10.",
+       "b": "If f(0) = 0, f(1) = 1, f(2) = 2 and f(x) = f(x − 2) + f(x − 3) for x = 3, 4, 5, …, then f(9) ="
+      }
+     ],
+     "src": "exam",
+     "id": "math12-u1-g1",
+     "lesson": null
+    },
+    {
+     "type": "flash",
+     "title": "Quick recall",
+     "cards": [
+      {
+       "front": "In an AP, $a_1=4$, $d=5$. $a_5=$?",
+       "back": "B. 24"
+      },
+      {
+       "front": "GP $2,6,18$. $r=$?",
+       "back": "C. 3"
+      },
+      {
+       "front": "The sum of the geometric series with first term 0.9 and common ratio 0.1 is",
+       "back": "A. 1"
+      },
+      {
+       "front": "Given f(1) = 1 and f(n + 1) = 2f(n) + 1, for n > 1, then f(n) is equal to",
+       "back": "B. 2ⁿ − 1"
+      },
+      {
+       "front": "How many two digit numbers are divisible by 3?",
+       "back": "B. 30"
+      },
+      {
+       "front": "Given the sum of the first n terms of an arithmetic progression by Sₙ = n² + 2n, then the nth term is given by",
+       "back": "C. 2n + 1."
+      },
+      {
+       "front": "If f(0) = 0, f(1) = 1, f(2) = 2 and f(x) = f(x − 2) + f(x − 3) for x = 3, 4, 5, …, then f(9) =",
+       "back": "C. 10."
+      },
+      {
+       "front": "The Arithmetic mean and Harmonic mean between two numbers are 27 and 12, respectively. Find their Geometric mean.",
+       "back": "B. 18"
+      }
+     ],
+     "src": "notes",
+     "id": "math12-u1-g2",
+     "lesson": null
+    },
+    {
+     "type": "match",
+     "title": "Match key terms",
+     "pairs": [
+      {
+       "a": "Sequence",
+       "b": "is a mathematical function whose domain is the set of positive integers $$\\mathbb{Z}^+$$ (or a finite subset of consecut"
+      },
+      {
+       "a": "Explicit",
+       "b": "| $$\\mathbb{Z}^+$$ | $$a_n = 2n + 5$$ | Directly calculated from position $$n$$ | | **Recursive** | $$\\mathbb{Z}^+$$ | $"
+      },
+      {
+       "a": "Recursive",
+       "b": "| $$\\mathbb{Z}^+$$ | $$a_n = a_{n-1} + 3$$ | Each term depends on previous terms | | **Finite** | $1, 2, \\dots, k$ | $$a"
+      },
+      {
+       "a": "Finite",
+       "b": "| $1, 2, \\dots, k$ | $$a_n = n^2$$ for $$n \\le 5$$ | Terminates after a specific number of terms | | **Infinite** | $$\\m"
+      },
+      {
+       "a": "Infinite",
+       "b": "| $$\\mathbb{Z}^+$$ | $$a_n = \\frac{1}{n}$$ | Continues indefinitely without terminating | > **💡 Did You Know?**: The Fib"
+      },
+      {
+       "a": "💡 Did You Know?",
+       "b": "The Fibonacci sequence, a famous recursive sequence, is found throughout nature, from the spiral of pinecones and sunflo"
+      }
+     ],
+     "src": "study_notes",
+     "id": "math12-u1-g-drive2",
+     "lesson": null
+    },
+    {
+     "type": "match",
+     "title": "Match key terms",
+     "pairs": [
+      {
+       "a": "Sequence",
+       "b": "is a mathematical function whose domain is the set of positive integers $$\\mathbb{Z}^+$$ (or a finite subset of consecut"
+      },
+      {
+       "a": "Explicit",
+       "b": "| $$\\mathbb{Z}^+$$ | $$a_n = 2n + 5$$ | Directly calculated from position $$n$$ | | **Recursive** | $$\\mathbb{Z}^+$$ | $"
+      },
+      {
+       "a": "Recursive",
+       "b": "| $$\\mathbb{Z}^+$$ | $$a_n = a_{n-1} + 3$$ | Each term depends on previous terms | | **Finite** | $1, 2, \\dots, k$ | $$a"
+      },
+      {
+       "a": "Finite",
+       "b": "| $1, 2, \\dots, k$ | $$a_n = n^2$$ for $$n \\le 5$$ | Terminates after a specific number of terms | | **Infinite** | $$\\m"
+      },
+      {
+       "a": "Infinite",
+       "b": "| $$\\mathbb{Z}^+$$ | $$a_n = \\frac{1}{n}$$ | Continues indefinitely without terminating | > **💡 Did You Know?**: The Fib"
+      },
+      {
+       "a": "💡 Did You Know?",
+       "b": "The Fibonacci sequence, a famous recursive sequence, is found throughout nature, from the spiral of pinecones and sunflo"
+      }
+     ],
+     "src": "study_notes",
+     "id": "math12-u1-g-drive7",
+     "lesson": null
+    }
+   ],
+   "exercise": {
+    "questions": [
+     {
+      "type": "mcq",
+      "q": "In an AP, $a_1=4$, $d=5$. $a_5=$?",
+      "options": {
+       "A": "9",
+       "B": "24",
+       "C": "20",
+       "D": "4"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: 24"
+      ],
+      "src": "notes",
+      "page": 1,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "GP $2,6,18$. $r=$?  A) 4  B) 2  C) 3  D) 6",
+        "a": "C. 3"
+       }
+      ],
+      "id": "math12-u1-q01",
+      "section": "Tap quiz"
+     },
+     {
+      "type": "mcq",
+      "q": "GP $2,6,18$. $r=$?",
+      "options": {
+       "A": "4",
+       "B": "2",
+       "C": "3",
+       "D": "6"
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: 3"
+      ],
+      "src": "notes",
+      "page": 1,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "The sum of the geometric series with first term 0.9 and common ratio 0.1 is  A) 1  B) 1.1  C) 9  D) 0.99  E) 1.9",
+        "a": "A. 1"
+       }
+      ],
+      "id": "math12-u1-q02"
+     },
+     {
+      "type": "mcq",
+      "q": "The sum of the geometric series with first term 0.9 and common ratio 0.1 is",
+      "options": {
+       "A": "1",
+       "B": "1.1",
+       "C": "9",
+       "D": "0.99",
+       "E": "1.9"
+      },
+      "answer": "A",
+      "why": [
+       "The series 0.9 + 0.09 + 0.009 + … is infinite with |r| = 0.1 < 1.",
+       "S = a₁/(1 − r) = 0.9/(1 − 0.1) = 0.9/0.9 = 1. Answer: A."
+      ],
+      "src": "exam",
+      "exam_question": "math-2018-matric-p1-q08",
+      "label": "math-2018-matric",
+      "enriched": true,
+      "page": 20,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "If the second term of a geometric progression is 2 and the sum of its infinite terms is 8, then the first term is  A) 9.  B) 6.  C) 4.  D) 5.  E) 3.",
+        "a": "C. 4. — a = 2/r = 4. Check: 4/(1 − 1/2) = 8 ✓. Answer: C.",
+        "exam_question": "math-2021-matric-p1-q18"
+       }
+      ],
+      "id": "math12-u1-q03"
+     },
+     {
+      "type": "mcq",
+      "q": "Given f(1) = 1 and f(n + 1) = 2f(n) + 1, for n > 1, then f(n) is equal to",
+      "options": {
+       "A": "2ⁿ + 1",
+       "B": "2ⁿ − 1",
+       "C": "2ⁿ − n",
+       "D": "2ⁿ⁻¹ − 1",
+       "E": "2ⁿ⁻¹ + 1"
+      },
+      "answer": "B",
+      "why": [
+       "Generate terms: f(1) = 1, f(2) = 2·1 + 1 = 3, f(3) = 7, f(4) = 15.",
+       "1, 3, 7, 15 = 2¹ − 1, 2² − 1, 2³ − 1, 2⁴ − 1, so f(n) = 2ⁿ − 1.",
+       "Check the recursion: 2(2ⁿ − 1) + 1 = 2ⁿ⁺¹ − 1 ✓. Answer: B."
+      ],
+      "src": "exam",
+      "exam_question": "math-2018-matric-p1-q31",
+      "label": "math-2018-matric",
+      "enriched": true,
+      "page": 26,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "In a certain arithmetic progression, 5 times the 5th term is equal to 8 times the 8th term; then its 13th term is  A) 12.  B) 0.  C) 2.  D) −12.  E) 3.",
+        "a": "B. 0. — a₁₃ = a + 12d = −12d + 12d = 0. Answer: B.",
+        "exam_question": "math-2021-matric-p1-q15"
+       }
+      ],
+      "id": "math12-u1-q04"
+     },
+     {
+      "type": "mcq",
+      "q": "How many two digit numbers are divisible by 3?",
+      "options": {
+       "A": "21",
+       "B": "30",
+       "C": "25",
+       "D": "20",
+       "E": "15"
+      },
+      "answer": "B",
+      "why": [
+       "The two-digit multiples of 3 form an AP: 12, 15, …, 99 with d = 3.",
+       "n = (99 − 12)/3 + 1 = 29 + 1 = 30. Answer: B."
+      ],
+      "src": "exam",
+      "exam_question": "math-2019-matric-p1-q05",
+      "label": "math-2019-matric",
+      "enriched": true,
+      "page": 22,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "Three terms are in increasing geometric progression. If the middle number is doubled, then the new numbers are in arithmetic progression. The common ratio of the geometric progression is  A) 2 − √3.  B) 2 + √3.  C) √3 − 2.  D) 3 + √2.  E) None of the above.",
+        "a": "B. 2 + √3. — The GP is increasing, so r > 1: r = 2 + √3 (2 − √3 ≈ 0.27 would give a decreasing GP). Answer: B.",
+        "exam_question": "math-2020-matric-p1-q20"
+       }
+      ],
+      "id": "math12-u1-q05"
+     },
+     {
+      "type": "mcq",
+      "q": "Given the sum of the first n terms of an arithmetic progression by Sₙ = n² + 2n, then the nth term is given by",
+      "options": {
+       "A": "5n − 2.",
+       "B": "5n − 8.",
+       "C": "2n + 1.",
+       "D": "5n + 8.",
+       "E": "3n + 1."
+      },
+      "answer": "C",
+      "why": [
+       "aₙ = Sₙ − Sₙ₋₁ = (n² + 2n) − ((n − 1)² + 2(n − 1)) = n² + 2n − n² + 2n − 1 − 2n + 2 = 2n + 1.",
+       "Check: a₁ = S₁ = 3 = 2(1) + 1 ✓. Answer: C."
+      ],
+      "src": "exam",
+      "exam_question": "math-2019-matric-p1-q25",
+      "label": "math-2019-matric",
+      "enriched": true,
+      "page": 10,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "The fifth term of a Geometric progression is 2. Find the product of its first nine terms.  A) 1024  B) 512  C) 256  D) 2048  E) None of the above.",
+        "a": "B. 512 — ar⁴ is the 5th term = 2, so the product = 2⁹ = 512. Answer: B.",
+        "exam_question": "math-2020-matric-p1-q16"
+       }
+      ],
+      "id": "math12-u1-q06"
+     },
+     {
+      "type": "mcq",
+      "q": "If f(0) = 0, f(1) = 1, f(2) = 2 and f(x) = f(x − 2) + f(x − 3) for x = 3, 4, 5, …, then f(9) =",
+      "options": {
+       "A": "13.",
+       "B": "12.",
+       "C": "10.",
+       "D": "14.",
+       "E": "13."
+      },
+      "answer": "C",
+      "why": [
+       "Use the recursion step by step:",
+       "f(3) = f(1) + f(0) = 1; f(4) = f(2) + f(1) = 3; f(5) = f(3) + f(2) = 3; f(6) = f(4) + f(3) = 4;",
+       "f(7) = f(5) + f(4) = 6; f(8) = f(6) + f(5) = 7; f(9) = f(7) + f(6) = 6 + 4 = 10. Answer: C."
+      ],
+      "src": "exam",
+      "exam_question": "math-2020-matric-p1-q04",
+      "label": "math-2020-matric",
+      "enriched": true,
+      "page": 1,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "The Arithmetic mean and Harmonic mean between two numbers are 27 and 12, respectively. Find their Geometric mean.  A) 16  B) 18  C) 17  D) 19  E) 15",
+        "a": "B. 18"
+       }
+      ],
+      "id": "math12-u1-q07"
+     },
+     {
+      "type": "mcq",
+      "q": "The Arithmetic mean and Harmonic mean between two numbers are 27 and 12, respectively. Find their Geometric mean.",
+      "options": {
+       "A": "16",
+       "B": "18",
+       "C": "17",
+       "D": "19",
+       "E": "15"
+      },
+      "answer": "B",
+      "why": [
+       "For positive a, b: AM = (a + b)/2, GM = √(ab), HM = 2ab/(a + b), so AM × HM = ab = GM².",
+       "GM² = 27 × 12 = 324 → GM = 18. (The numbers are 9 and 45.) Answer: B."
+      ],
+      "src": "exam",
+      "exam_question": "math-2020-matric-p1-q15",
+      "label": "math-2020-matric",
+      "enriched": true,
+      "page": 12,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "In an AP, $a_1=4$, $d=5$. $a_5=$?  A) 9  B) 24  C) 20  D) 4",
+        "a": "B. 24"
+       }
+      ],
+      "id": "math12-u1-q08"
+     }
+    ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Sequence and Series",
+      "kind": "unit",
+      "cards": [
+       "math12-u1-c01"
+      ]
+     },
+     {
+      "id": "l1_1",
+      "label": "Basic Ideas of Sequence",
+      "kind": "topic",
+      "lesson": "math12-u1-l1-1",
+      "cards": [
+       "math12-u1-c01"
+      ]
+     },
+     {
+      "id": "l1_2",
+      "label": "Arithmetic Progression",
+      "kind": "topic",
+      "lesson": "math12-u1-l1-2",
+      "cards": [
+       "math12-u1-c02"
+      ]
+     },
+     {
+      "id": "l1_3",
+      "label": "Geometric Progression",
+      "kind": "topic",
+      "lesson": "math12-u1-l1-3",
+      "cards": [
+       "math12-u1-c03"
+      ]
+     },
+     {
+      "id": "l1_4",
+      "label": "Harmonic Progression",
+      "kind": "topic",
+      "lesson": "math12-u1-l1-4",
+      "cards": [
+       "math12-u1-c04"
+      ]
+     },
+     {
+      "id": "l1_5",
+      "label": "Infinite Series",
+      "kind": "topic",
+      "lesson": "math12-u1-l1-5",
+      "cards": [
+       "math12-u1-c05",
+       "math12-u1-c06",
+       "math12-u1-c07",
+       "math12-u1-c08",
+       "math12-u1-c09",
+       "math12-u1-c10",
+       "math12-u1-c11",
+       "math12-u1-c12"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l1_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l1_2",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l1_3",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l1_4",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l1_5",
+      "label": "includes"
+     },
+     {
+      "from": "l1_1",
+      "to": "l1_2",
+      "label": "next"
+     },
+     {
+      "from": "l1_2",
+      "to": "l1_3",
+      "label": "next"
+     },
+     {
+      "from": "l1_3",
+      "to": "l1_4",
+      "label": "next"
+     },
+     {
+      "from": "l1_4",
+      "to": "l1_5",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
+   }
+  }
+ ]
+}

@@ -1,4 +1,6 @@
 // `.toast`: small dark pill above the nav for 1.8 s.
+import 'dart:async';
+
 import 'package:flutter/widgets.dart';
 
 import '../theme/tokens.dart';
@@ -22,12 +24,18 @@ class _Toast extends StatefulWidget {
   State<_Toast> createState() => _ToastState();
 }
 
-class _ToastState extends State<_Toast> with SingleTickerProviderStateMixin {
-  late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(milliseconds: 2200))
-    ..forward().whenComplete(() => widget.onDone());
+class _ToastState extends State<_Toast> {
+  // shown as is for 2.2 s (no fade: nothing animates while the student scrolls underneath)
+  late final Timer _t = Timer(const Duration(milliseconds: 2200), () => widget.onDone());
+  @override
+  void initState() {
+    super.initState();
+    _t;
+  }
+
   @override
   void dispose() {
-    _c.dispose();
+    _t.cancel();
     super.dispose();
   }
 
@@ -37,24 +45,16 @@ class _ToastState extends State<_Toast> with SingleTickerProviderStateMixin {
     right: 0,
     bottom: 100 + MediaQuery.paddingOf(context).bottom,
     child: IgnorePointer(
-      child: AnimatedBuilder(
-        animation: _c,
-        builder: (_, child) {
-          final v = _c.value * 2200;
-          final o = v < 200 ? v / 200 : v > 2000 ? (2200 - v) / 200 : 1.0;
-          return Opacity(opacity: o, child: Transform.translate(offset: Offset(0, 10 * (1 - o)), child: child));
-        },
-        child: Center(
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: widget.p.ink,
-              borderRadius: BorderRadius.circular(99),
-              boxShadow: const [BoxShadow(color: Color.fromRGBO(0, 0, 0, .25), blurRadius: 20, offset: Offset(0, 8))],
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 11),
-              child: Text(widget.msg, style: ts(13.5, w900, widget.p.bg), textDirection: TextDirection.ltr),
-            ),
+      child: Center(
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: widget.p.ink,
+            borderRadius: BorderRadius.circular(99),
+            boxShadow: const [BoxShadow(color: Color.fromRGBO(0, 0, 0, .18), offset: Offset(0, 3))],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 11),
+            child: Text(widget.msg, style: ts(13.5, w900, widget.p.bg), textDirection: TextDirection.ltr),
           ),
         ),
       ),

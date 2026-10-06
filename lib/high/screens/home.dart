@@ -10,6 +10,7 @@ import '../state/app_state.dart';
 import '../theme/clay.dart';
 import '../theme/tokens.dart';
 import '../widgets/art.dart';
+import '../widgets/equal_row.dart';
 import '../widgets/kit.dart';
 import '../widgets/page.dart';
 import '../notes/jr/data/subjects.dart';
@@ -17,7 +18,6 @@ import '../notes/jr/state/app_state.dart' as jr;
 import 'notes_home.dart';
 import 'routes.dart';
 import '../teacher/teacher.dart';
-import '../theme/perf.dart';
 
 /// descent of the 16px Nunito strut under an inline `<svg>` (web line box)
 const kSvgDescent = 16 * .353;
@@ -75,8 +75,9 @@ class HomePage extends StatelessWidget {
   }
 }
 
-/// `.stagger > *` entrance (.5s, 40 ms steps, max .28 s)
-class Stagger extends StatefulWidget implements Delegating {
+/// `.stagger > *` used to fade + slide every Home block in (an Opacity layer per block for half a second on each
+/// visit). Home now shows at once; the wrapper stays so the block list keeps its shape.
+class Stagger extends StatelessWidget implements Delegating {
   const Stagger({super.key, required this.i, required this.child});
   final int i;
   final Widget child;
@@ -84,70 +85,17 @@ class Stagger extends StatefulWidget implements Delegating {
   Widget get inner => child;
   static List<Widget> wrap(List<Widget> l) => [for (var i = 0; i < l.length; i++) Stagger(i: i, child: l[i])];
   @override
-  State<Stagger> createState() => _StaggerState();
+  Widget build(BuildContext context) => child;
 }
 
-class _StaggerState extends State<Stagger> with SingleTickerProviderStateMixin {
-  late final AnimationController _c;
-  late final double _d = math.min(widget.i, 7) * 40.0;
-  @override
-  void initState() {
-    super.initState();
-    _c = AnimationController(vsync: this, duration: Duration(milliseconds: 500 + _d.round()));
-    // Lite: no fade-in. A fading card is an Opacity layer (offscreen pass) and lazily built rows would fade in while
-    // the list is being scrolled.
-    if (Perf.lite) {
-      _c.value = 1;
-    } else {
-      _c.forward();
-    }
-  }
-
-  @override
-  void dispose() {
-    _c.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => _c.isCompleted ? widget.child : AnimatedBuilder(
-    animation: _c,
-    child: widget.child,
-    builder: (_, child) {
-      final ms = _c.value * (500 + _d) - _d;
-      final t = const Cubic(.2, .8, .2, 1).transform((ms / 500).clamp(0.0, 1.0));
-      if (t >= 1) return child!;
-      return Opacity(opacity: t, child: Transform.translate(offset: Offset(0, 12 * (1 - t)), child: child));
-    },
-  );
-}
-
-/// number that counts up over 800 ms (ease-out cubic), like the web countUp()
-class CountUp extends StatefulWidget {
+/// a number (the web counted it up over 800 ms; shown straight away here: no per-frame rebuilds of the stat tiles)
+class CountUp extends StatelessWidget {
   const CountUp(this.to, {super.key, this.dec = 0, required this.style});
   final num to;
   final int dec;
   final TextStyle style;
   @override
-  State<CountUp> createState() => _CountUpState();
-}
-
-class _CountUpState extends State<CountUp> with SingleTickerProviderStateMixin {
-  late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(milliseconds: 800))..forward();
-  @override
-  void dispose() {
-    _c.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => AnimatedBuilder(
-    animation: _c,
-    builder: (_, _) {
-      final e = 1 - math.pow(1 - _c.value, 3);
-      return Text((widget.to * e).toStringAsFixed(widget.dec), style: widget.style);
-    },
-  );
+  Widget build(BuildContext context) => Text(to.toStringAsFixed(dec), style: style);
 }
 
 class _Hero extends StatelessWidget {
@@ -168,51 +116,48 @@ class _Hero extends StatelessWidget {
                 constraints: const BoxConstraints(minHeight: 150),
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(6, 10, 16, 0),
-                  child: IntrinsicHeight(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        SizedBox(
-                          width: 126,
-                          child: Align(
-                            alignment: Alignment.bottomLeft,
-                            // inline <svg> in a div: the line box adds the font descent (16px Nunito: 5.65) under it
-                            child: SizedBox(
-                              width: 126,
-                              height: 136 + kSvgDescent - 2,
-                              child: OverflowBox(
-                                alignment: Alignment.topLeft,
-                                minWidth: 136,
-                                maxWidth: 136,
-                                minHeight: 136,
-                                maxHeight: 136,
-                                child: Transform.translate(offset: const Offset(-4, 0), child: Art('student', palette: p, width: 136, height: 136)),
-                              ),
+                  child: EqualHeightRow(
+                    children: [
+                      SizedBox(
+                        width: 126,
+                        child: Align(
+                          alignment: Alignment.bottomLeft,
+                          // inline <svg> in a div: the line box adds the font descent (16px Nunito: 5.65) under it
+                          child: SizedBox(
+                            width: 126,
+                            height: 136 + kSvgDescent - 2,
+                            child: OverflowBox(
+                              alignment: Alignment.topLeft,
+                              minWidth: 136,
+                              maxWidth: 136,
+                              minHeight: 136,
+                              maxHeight: 136,
+                              child: Transform.translate(offset: const Offset(-4, 0), child: Art('student', palette: p, width: 136, height: 136)),
                             ),
                           ),
                         ),
-                        const SizedBox(width: 4),
-                        Expanded(
-                          child: Center(
-                            child: Padding(
-                              padding: const EdgeInsets.only(bottom: 16),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(height: 6),
-                                  Tx('${greeting()}, $name!', style: ts(20, w900, p.ink, height: 1.2, spacing: -.2)),
-                                  const SizedBox(height: 4),
-                                  Tx(sub, style: ts(13.5, w700, p.ink2, height: 1.4)),
-                                  const SizedBox(height: 11),
-                                  Btn(cta, icon: 'play', onTap: () => Routes.continueStudying(context)),
-                                ],
-                              ),
+                      ),
+                      const SizedBox(width: 4),
+                      Expanded(
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 16),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(height: 6),
+                                Tx('${greeting()}, $name!', style: ts(20, w900, p.ink, height: 1.2, spacing: -.2)),
+                                const SizedBox(height: 4),
+                                Tx(sub, style: ts(13.5, w700, p.ink2, height: 1.4)),
+                                const SizedBox(height: 11),
+                                Btn(cta, icon: 'play', onTap: () => Routes.continueStudying(context)),
+                              ],
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -415,22 +360,29 @@ class _StatGrid extends StatelessWidget implements Spaced {
         padding: const EdgeInsets.fromLTRB(14, 14, 14, 13),
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 132 - 27),
+          // spaceBetween, not a Spacer: EqualHeightRow measures its children with an unbounded height first
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Badge(tone, icon, s: 40),
-              const SizedBox(height: 10),
-              Text(lbl, style: ts(13, w800, p.ink2)),
-              const SizedBox(height: 2),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.baseline,
-                textBaseline: TextBaseline.alphabetic,
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  if (v is num && v != 0) CountUp(v, dec: dec, style: vs) else Text('$v', style: vs, strutStyle: strutOf(vs)),
-                  if (unit.isNotEmpty) Padding(padding: const EdgeInsets.only(left: 2), child: Text(unit, style: ts(14, w800, p.ink2))),
+                  Badge(tone, icon, s: 40),
+                  const SizedBox(height: 10),
+                  Text(lbl, style: ts(13, w800, p.ink2)),
+                  const SizedBox(height: 2),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      if (v is num && v != 0) CountUp(v, dec: dec, style: vs) else Text('$v', style: vs, strutStyle: strutOf(vs)),
+                      if (unit.isNotEmpty) Padding(padding: const EdgeInsets.only(left: 2), child: Text(unit, style: ts(14, w800, p.ink2))),
+                    ],
+                  ),
                 ],
               ),
-              const Spacer(),
               Padding(
                 padding: const EdgeInsets.only(top: 4),
                 child: Text(delta, style: ts(12, w800, dc == 'neg' ? p.peach.deep : dc == 'flat' ? p.ink3 : t.deep)),
@@ -447,12 +399,9 @@ class _StatGrid extends StatelessWidget implements Spaced {
         spacing: 12,
         children: [
           for (var r = 0; r < 2; r++)
-            IntrinsicHeight(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                spacing: 12,
-                children: [Expanded(child: tile(tiles[r * 2])), Expanded(child: tile(tiles[r * 2 + 1]))],
-              ),
+            EqualHeightRow(
+              spacing: 12,
+              children: [Expanded(child: tile(tiles[r * 2])), Expanded(child: tile(tiles[r * 2 + 1]))],
             ),
         ],
       ),
@@ -591,34 +540,13 @@ class _Weekly extends StatelessWidget implements Spaced {
   }
 }
 
-/// `.chart .b` grow animation (.8s spring from scaleY 0, 50 ms stagger)
-class GrowBar extends StatefulWidget {
+/// `.chart .b` bar (the web grew it in with a spring; drawn at full height straight away here)
+class GrowBar extends StatelessWidget {
   const GrowBar({super.key, required this.i, required this.child});
   final int i;
   final Widget child;
   @override
-  State<GrowBar> createState() => _GrowBarState();
-}
-
-class _GrowBarState extends State<GrowBar> with SingleTickerProviderStateMixin {
-  late final AnimationController _c = AnimationController(vsync: this, duration: Duration(milliseconds: 800 + widget.i * 50))..forward();
-  @override
-  void dispose() {
-    _c.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => AnimatedBuilder(
-    animation: _c,
-    child: widget.child,
-    builder: (_, child) {
-      final d = widget.i * 50.0, ms = _c.value * (800 + d) - d;
-      final v = springCurve.transform((ms / 800).clamp(0.0, 1.0));
-      if (_c.isCompleted) return child!;
-      return Transform(alignment: Alignment.bottomCenter, transform: Matrix4.diagonal3Values(1, v, 1), child: child);
-    },
-  );
+  Widget build(BuildContext context) => child;
 }
 
 /// CSS `border-top: 1.5px dashed` as Chrome draws it at 2x (1px line, ~3px dashes)
@@ -817,8 +745,9 @@ class _Daily extends StatelessWidget implements Spaced {
     final res = (dq['res'] as Map?) ?? const {};
     final done = ids.where((id) => res[id] != null).length, right = ids.where((id) => res[id] == true).length;
     final all = done == ids.length;
-    const sh1 = [Shadow(offset: Offset(0, 2), blurRadius: 6, color: Color.fromRGBO(80, 40, 20, .35))];
-    const sh2 = [Shadow(offset: Offset(0, 1), blurRadius: 4, color: Color.fromRGBO(80, 40, 20, .4))];
+    // hard (unblurred) text shadows: still readable on the picture, no blur pass per glyph run
+    const sh1 = [Shadow(offset: Offset(0, 1.5), color: Color.fromRGBO(80, 40, 20, .45))];
+    const sh2 = [Shadow(offset: Offset(0, 1), color: Color.fromRGBO(80, 40, 20, .45))];
     return Panel(
       margin: bareM(context, this, blockMargin),
       padding: EdgeInsets.zero,
