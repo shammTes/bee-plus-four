@@ -211,7 +211,7 @@ class _ExamsPageState extends State<ExamsPage> {
             const SliverToBoxAdapter(child: SizedBox(height: 4)),
             SliverPadding(padding: const EdgeInsets.symmetric(horizontal: 12), sliver: PinnedHeaderSliver(child: sticky)),
             SliverPadding(
-              padding: EdgeInsets.fromLTRB(16, 0, 16, kScreenBottom + MediaQuery.paddingOf(context).bottom),
+              padding: EdgeInsets.fromLTRB(16, 0, 16, screenBottom(context)),
               sliver: SliverList.list(children: collapse(body)),
             ),
           ],

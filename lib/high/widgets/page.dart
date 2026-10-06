@@ -9,6 +9,61 @@ import '../screens/settings.dart' show SettingsPage;
 
 const kScreenBottom = 116.0;
 
+/// Bottom space a screen keeps free: room for the floating nav bar, or just a small gap while the
+/// keyboard is open (the nav bar is hidden then and [KeyboardInset] already lifted the page).
+double screenBottom(BuildContext context, [double base = kScreenBottom]) =>
+    KeyboardInset.isOpen(context) ? 12 : base + MediaQuery.paddingOf(context).bottom;
+
+/// The app uses WidgetsApp (no Material Scaffold), so nothing moved content above the soft keyboard
+/// and inputs ended up underneath it. This does what `Scaffold.resizeToAvoidBottomInset` does: the
+/// child is laid out above the keyboard (so scroll views shrink and the focused field can scroll
+/// into view), the bottom inset / safe-area padding is consumed, and [isOpen] tells descendants.
+class KeyboardInset extends StatelessWidget {
+  const KeyboardInset({super.key, required this.child});
+  final Widget child;
+
+  static bool isOpen(BuildContext context) => context.dependOnInheritedWidgetOfExactType<_KeyboardScope>()?.open ?? false;
+
+  @override
+  Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context);
+    final kb = mq.viewInsets.bottom;
+    final open = kb > 0;
+    return _KeyboardScope(
+      open: open,
+      child: Padding(
+        padding: EdgeInsets.only(bottom: kb),
+        child: MediaQuery(
+          data: mq.copyWith(
+            viewInsets: mq.viewInsets.copyWith(bottom: 0),
+            padding: open ? mq.padding.copyWith(bottom: 0) : mq.padding,
+          ),
+          child: child,
+        ),
+      ),
+    );
+  }
+}
+
+class _KeyboardScope extends InheritedWidget {
+  const _KeyboardScope({required this.open, required super.child});
+  final bool open;
+  @override
+  bool updateShouldNotify(_KeyboardScope old) => old.open != open;
+}
+
+/// Scrolls the widget at [context] into view once the keyboard has opened (call after focus).
+void revealAboveKeyboard(BuildContext context) {
+  if (!context.mounted || Scrollable.maybeOf(context) == null) return;
+  Scrollable.ensureVisible(
+    context,
+    alignment: .5,
+    alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtEnd,
+    duration: const Duration(milliseconds: 180),
+    curve: Curves.easeOut,
+  );
+}
+
 /// Idle float/pulse. Off by default so weak GPUs are not repainting off-screen.
 bool highDecorAnimations = false;
 
@@ -146,7 +201,7 @@ class ScreenList extends StatelessWidget {
       behavior: const NoGlow(),
       child: ListView.builder(
         controller: controller,
-        padding: EdgeInsets.fromLTRB(16, top, 16, bottom + MediaQuery.paddingOf(context).bottom),
+        padding: EdgeInsets.fromLTRB(16, top, 16, screenBottom(context, bottom)),
         cacheExtent: cache,
         addAutomaticKeepAlives: false,
         addRepaintBoundaries: true,
