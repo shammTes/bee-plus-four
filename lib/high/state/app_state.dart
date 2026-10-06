@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../data/models.dart';
 import '../data/repository.dart';
 import 'links.dart';
+import '../theme/perf.dart';
 import '../notes/jr/data/repository.dart' show NotesRepo;
 
 DateTime Function() highNow = DateTime.now;
@@ -81,6 +82,9 @@ class HighState extends ChangeNotifier {
 
   String? name;
   String? theme;
+
+  /// Smooth scrolling (Lite effects): cheap clay shadows, no entrance fades. On unless the user picked "Full clay".
+  bool lite = true;
   String cat = 'matric';
   String lang = 'en';
   Map<String, dynamic> answers = {};
@@ -221,6 +225,12 @@ class HighState extends ChangeNotifier {
 
   Future<void> load() async {
     _prefs ??= await SharedPreferences.getInstance();
+    // write a pending save as soon as the app is hidden / paused (saves are debounced)
+    _life ??= AppLifecycleListener(
+      onStateChange: (st) {
+        if (st != AppLifecycleState.resumed && _saveT != null) save();
+      },
+    );
     final raw = _prefs!.getString(key);
     if (raw != null) {
       try {
@@ -240,6 +250,8 @@ class HighState extends ChangeNotifier {
   void fromJson(Map<String, dynamic> o) {
     name = o['name'] as String?;
     theme = (o['theme'] as String?) ?? 'light';
+    lite = o['lite'] != false;
+    Perf.lite = lite;
     lang = (o['lang'] as String?) == 'en' ? 'en' : 'ti';
     cat = (o['cat'] as String?) ?? 'matric';
     answers = Map<String, dynamic>.from(o['answers'] as Map? ?? {});
@@ -263,6 +275,7 @@ class HighState extends ChangeNotifier {
     'v': 2,
     'name': name,
     'theme': theme,
+    'lite': lite,
     'lang': lang,
     'cat': cat,
     'answers': answers,
@@ -293,6 +306,15 @@ class HighState extends ChangeNotifier {
     _saveT = Timer(const Duration(milliseconds: 250), save);
   }
 
+  /// low-priority save (notes reading progress, marked while scrolling): waits until the user pauses, so encoding the
+  /// whole record (up to 20k answer events) does not land in the middle of a fling. Flushed when the app is backgrounded.
+  void saveIdle() {
+    _saveT?.cancel();
+    _saveT = Timer(const Duration(milliseconds: 2500), save);
+  }
+
+  AppLifecycleListener? _life;
+
   Future<void> save() async {
     _saveT?.cancel();
     _saveT = null;
@@ -301,6 +323,12 @@ class HighState extends ChangeNotifier {
 
   void setTheme(String? t) {
     theme = t;
+    changed();
+  }
+
+  void setLite(bool v) {
+    lite = v;
+    Perf.setLite(v);
     changed();
   }
 

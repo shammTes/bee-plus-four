@@ -62,6 +62,13 @@ class CreditLine extends StatelessWidget {
   }
 }
 
+/// pixels to decode a bundled picture shown [logicalW] wide: what the screen needs, never more than the file has. A
+/// full-size Commons photo decoded at native size is several MB of texture and a long decode while the notes scroll.
+int decodeWidth(BuildContext context, Credit c, double logicalW) {
+  final px = (logicalW * MediaQuery.devicePixelRatioOf(context)).ceil().clamp(64, 1400);
+  return c.w > 64 && c.w < px ? c.w.round() : px;
+}
+
 /// a bundled photo / diagram with a caption + credit; tap to zoom
 class PhotoBox extends StatelessWidget {
   const PhotoBox(this.id, {super.key, this.caption, this.maxH = 460});
@@ -88,7 +95,9 @@ class PhotoBox extends StatelessWidget {
                   aspectRatio: c.w / c.h < .45 ? .45 : c.w / c.h,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
-                    child: Image.asset(c.asset, fit: BoxFit.contain),
+                    child: LayoutBuilder(
+                      builder: (context, box) => Image.asset(c.asset, fit: BoxFit.contain, cacheWidth: decodeWidth(context, c, box.maxWidth), filterQuality: FilterQuality.medium),
+                    ),
                   ),
                 ),
               ),

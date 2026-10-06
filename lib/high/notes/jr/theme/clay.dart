@@ -7,6 +7,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/widgets.dart';
 
 import 'tokens.dart';
+import '../../../theme/perf.dart';
 
 /// One CSS box-shadow.
 @immutable
@@ -232,7 +233,13 @@ class _ClayPainter extends BoxPainter {
     if (insets.isEmpty) return;
     canvas.save();
     canvas.clipRRect(rr);
+    final lite = Perf.lite;
     for (final s in insets) {
+      if (lite && s.blur > 0) {
+        // Lite: gradient bands instead of a mask blur over a card-sized offscreen layer (see theme/perf.dart)
+        paintInsetBands(canvas, rr, s.dx, s.dy, s.blur, s.spread, s.color);
+        continue;
+      }
       final hole = _spread(rr, -s.spread).shift(Offset(s.dx, s.dy));
       final pad = s.blur + s.spread.abs() + s.dx.abs() + s.dy.abs() + 4;
       final path = Path()

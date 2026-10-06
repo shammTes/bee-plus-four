@@ -1,6 +1,7 @@
 // Icons (`ic()`) and illustrations (`ART.*`) from the web app, themed like the CSS (currentColor, var(--…)).
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:vector_graphics/vector_graphics_compat.dart' show RenderingStrategy;
 
 import '../theme/tokens.dart';
 import 'art_data.dart';
@@ -57,6 +58,7 @@ class Art extends StatelessWidget {
       palette,
       palette.ink,
     );
-    return SvgPicture.string(svg, width: width, height: height, fit: fit);
+    // illustrations are detailed: draw once into a cached raster instead of replaying every path each frame
+    return SvgPicture.string(svg, width: width, height: height, fit: fit, renderingStrategy: RenderingStrategy.raster);
   }
 }

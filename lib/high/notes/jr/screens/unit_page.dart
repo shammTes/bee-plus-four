@@ -29,6 +29,7 @@ import '../data/repository.dart';
 import '../../concept_map.dart';
 import '../../../teacher/presenter.dart';
 import '../../../widgets/kit.dart' as hc;
+import '../../../theme/perf.dart';
 
 class UnitPage extends StatefulWidget with hp.NoNav {
   const UnitPage({super.key, required this.bookId, required this.unitId, this.focus, this.section});
@@ -52,6 +53,14 @@ class UnitPageState extends State<UnitPage> {
   String? _jumpOn;
   Timer? _progT;
   bool _focused = false;
+
+  /// bumped when reading progress changes: only the progress line + bar rebuild, not every card on screen
+  final _progTick = ValueNotifier<int>(0);
+
+  /// scroll tracking runs at most every [_trackGap] (plus once when the list settles), not for every scrolled pixel
+  static const _trackGap = Duration(milliseconds: 90);
+  final _trackClock = Stopwatch();
+  Timer? _trackT;
 
   /// the opened-at element is held at the top while pictures / maths above it finish sizing (until the user scrolls)
   GlobalKey? _holdKey;
@@ -102,6 +111,8 @@ class UnitPageState extends State<UnitPage> {
   @override
   void dispose() {
     _progT?.cancel();
+    _trackT?.cancel();
+    _progTick.dispose();
     _scroll.dispose();
     NotesSession.stopTimers();
     super.dispose();
@@ -109,9 +120,10 @@ class UnitPageState extends State<UnitPage> {
 
   // ---- scrolling
   /// scroll an element just under the sticky jump bar (web `scroll-margin-top: 84px`, lands 96px below the screen top): smooth when near, a jump when far
-  void scrollToKey(GlobalKey key, {bool smooth = true}) {
+  void scrollToKey(GlobalKey key, {bool smooth = true, int tries = 0}) {
     final ctx = key.currentContext;
-    if (ctx == null || !_scroll.hasClients) return;
+    if (ctx == null) return _seek(key, tries);
+    if (!_scroll.hasClients) return;
     final ro = ctx.findRenderObject() as RenderBox?;
     final vpBox = _scroll.position.context.notificationContext?.findRenderObject() as RenderBox?;
     if (ro == null || !ro.hasSize || vpBox == null || !vpBox.hasSize) return;
@@ -127,7 +139,59 @@ class UnitPageState extends State<UnitPage> {
     }
   }
 
-  void _onScroll() => _track();
+  /// list index of every keyed item (cards, sections, games): the list is lazy, so a far target has no context yet
+  final _keyIndex = <GlobalKey, int>{};
+  int _itemCount = 0;
+
+  /// [key]'s item is not built yet (it is further than the read-ahead): jump towards it, estimating from the items that
+  /// are built, and try again next frame (the jump bar and "open at card" would otherwise do nothing)
+  void _seek(GlobalKey key, int tries) {
+    final idx = _keyIndex[key];
+    if (idx == null || tries >= 12 || !_scroll.hasClients) return;
+    int? lo, hi;
+    var h = 0.0, n = 0;
+    for (final e in _keyIndex.entries) {
+      final ro = e.key.currentContext?.findRenderObject();
+      if (ro is! RenderBox || !ro.hasSize) continue;
+      lo = lo == null || e.value < lo ? e.value : lo;
+      hi = hi == null || e.value > hi ? e.value : hi;
+      h += ro.size.height;
+      n++;
+    }
+    final pos = _scroll.position;
+    final avg = n == 0 ? pos.viewportDimension * .5 : h / n;
+    final double target;
+    if (lo == null || hi == null) {
+      target = pos.maxScrollExtent * idx / (_itemCount < 1 ? 1 : _itemCount);
+    } else if (idx < lo) {
+      target = pos.pixels - (lo - idx) * avg;
+    } else {
+      target = pos.pixels + (idx - hi + 1) * avg;
+    }
+    _scroll.jumpTo(target.clamp(pos.minScrollExtent, pos.maxScrollExtent));
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) scrollToKey(key, smooth: false, tries: tries + 1);
+    });
+  }
+
+  void _onScroll() => _trackSoon();
+
+  /// throttled [_track]: the card / section scan touches every mounted card's render box, so it is not run per pixel
+  void _trackSoon() {
+    if (!_trackClock.isRunning || _trackClock.elapsed >= _trackGap) {
+      _trackClock
+        ..reset()
+        ..start();
+      _trackT?.cancel();
+      _trackT = null;
+      _track();
+      return;
+    }
+    _trackT ??= Timer(_trackGap, () {
+      _trackT = null;
+      if (mounted) _track();
+    });
+  }
 
   /// reading progress (a card counts once ≥30 % of it is on screen) + the jump bar's section (band 18 %–28 % of the screen)
   void _track() {
@@ -153,7 +217,7 @@ class UnitPageState extends State<UnitPage> {
     if (dirty && _progT == null) {
       _progT = Timer(const Duration(milliseconds: 400), () {
         _progT = null;
-        if (mounted) setState(() {});
+        if (mounted) _progTick.value++;
       });
     }
     String? on;
@@ -210,13 +274,14 @@ class UnitPageState extends State<UnitPage> {
                   if (mounted && _holdKey == hk) scrollToKey(hk, smooth: false);
                 });
               }
-              _track();
+              _trackSoon();
             }
+            if (n is ScrollEndNotification) _track();
             return false;
           },
           child: CustomScrollView(
             controller: _scroll,
-            cacheExtent: MediaQuery.sizeOf(context).height * 0.4,
+            cacheExtent: Perf.cacheExtent(context),
             slivers: [
               SliverPersistentHeader(pinned: true, delegate: _JumpDelegate(this, u, k)),
               SliverPadding(
@@ -270,7 +335,9 @@ class UnitPageState extends State<UnitPage> {
   List<Widget Function()> _contentBuilders(BuildContext context, Kit k, Unit u) {
     final p = k.p, s = k.s, b = _book!.info, sub = notesSubject(b.subject), tone = p.tone(sub.tone);
     final ctx = UnitCtx(u, widget.bookId, s.repo.svgPath);
-    final pct = s.unitPct(u), rc = richColors(p);
+    final rc = richColors(p);
+    // progress line + bar listen to [_progTick], so marking cards read while scrolling only rebuilds these two
+    Widget progress(Widget Function(int pct) b) => ValueListenableBuilder<int>(valueListenable: _progTick, builder: (_, _, _) => b(s.unitPct(u)));
 
     Widget secPill(String key, String icon, String title, Tone t) => Padding(
       padding: const EdgeInsets.only(bottom: 16), // margin-top 34 sits outside the section (it collapses through .usec)
@@ -292,17 +359,29 @@ class UnitPageState extends State<UnitPage> {
         ),
       ),
     );
-    List<Widget Function()> sectionBuilders(String key, String icon, String title, Tone t, List<Widget Function()> kids) => [
-      () => Padding(
-        padding: const EdgeInsets.only(top: 34),
-        child: Column(
-          key: _secKeys.putIfAbsent(key, GlobalKey.new),
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [secPill(key, icon, title, t)],
+    // builders whose item carries a GlobalKey (for [_keyIndex])
+    final keyed = <Widget Function(), GlobalKey>{};
+    Widget Function() tag(GlobalKey k, Widget Function() f) {
+      keyed[f] = k;
+      return f;
+    }
+    List<Widget Function()> sectionBuilders(String key, String icon, String title, Tone t, List<Widget Function()> kids) {
+      final sk = _secKeys.putIfAbsent(key, GlobalKey.new);
+      return [
+        tag(
+          sk,
+          () => Padding(
+            padding: const EdgeInsets.only(top: 34),
+            child: Column(
+              key: sk,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [secPill(key, icon, title, t)],
+            ),
+          ),
         ),
-      ),
-      ...kids,
-    ];
+        ...kids,
+      ];
+    }
 
     // notes: lesson heads + cards — each card is its own lazy list item
     final noteBuilders = <Widget Function()>[];
@@ -337,11 +416,12 @@ class UnitPageState extends State<UnitPage> {
       for (final (i, c) in lesson.cards.indexed) {
         final card = c;
         final key = '${lesson.id}~$i';
-        noteBuilders.add(() => Padding(
-          key: _cardKeys.putIfAbsent(key, GlobalKey.new),
+        final ck = _cardKeys.putIfAbsent(key, GlobalKey.new);
+        noteBuilders.add(tag(ck, () => Padding(
+          key: ck,
           padding: const EdgeInsets.only(bottom: 20),
           child: NoteCardView(ctx: ctx, card: card, ckey: key, onGloss: (gi) => _gloss(u, gi)),
-        ));
+        )));
       }
     }
 
@@ -400,14 +480,14 @@ class UnitPageState extends State<UnitPage> {
 
     final gameBuilders = <Widget Function()>[
       for (final g in u.games)
-        () {
+        tag(_gameKeys.putIfAbsent(g.id, GlobalKey.new), () {
           final game = g;
           return Padding(
-            key: _gameKeys.putIfAbsent(game.id, GlobalKey.new),
+            key: _gameKeys[game.id],
             padding: const EdgeInsets.only(bottom: 22),
             child: GameCard(ctx: ctx, game: game, onEnd: () => setState(() {})),
           );
-        },
+        }),
     ];
 
     final quizBuilders = <Widget Function()>[
@@ -433,13 +513,15 @@ class UnitPageState extends State<UnitPage> {
       ),
     ];
 
-    return <Widget Function()>[
+    final out = <Widget Function()>[
       () => Tx(u.title, style: ts(30, FontWeight.w900, p.ink, height: 1.15, spacing: -.3)),
-      () => Padding(
-        padding: const EdgeInsets.only(top: 4, bottom: 10),
-        child: Tx('${k.t(sub.key)} ${b.grade} · ${k.t('progress', {'n': pct})}', style: ts(19, FontWeight.w700, p.ink2)),
+      () => progress(
+        (pct) => Padding(
+          padding: const EdgeInsets.only(top: 4, bottom: 10),
+          child: Tx('${k.t(sub.key)} ${b.grade} · ${k.t('progress', {'n': pct})}', style: ts(19, FontWeight.w700, p.ink2)),
+        ),
       ),
-      () => PBar(pct / 100),
+      () => progress((pct) => PBar(pct / 100)),
       () => Padding(padding: const EdgeInsets.only(top: 16), child: hr.UnitLinkBar(unitId: u.id)),
       if (u.intro.isNotEmpty)
         () => NCard(
@@ -498,6 +580,13 @@ class UnitPageState extends State<UnitPage> {
         ),
       ],
     ];
+    _keyIndex
+      ..clear()
+      ..addAll({
+        for (final (i, f) in out.indexed) ?keyed[f]: i,
+      });
+    _itemCount = out.length;
+    return out;
   }
 }
 
@@ -516,7 +605,7 @@ class _JumpDelegate extends SliverPersistentHeaderDelegate {
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     final p = k.p, js = page.jumps(k, u), on = page.jumpOn;
     final st = ts(15.5, FontWeight.w900, p.ink2, normal: true);
-    return ClipRect(
+    final bar = ClipRect(
       clipper: const _OpenBottom(),
       child: SizedBox(
         height: 82,
@@ -572,6 +661,8 @@ class _JumpDelegate extends SliverPersistentHeaderDelegate {
         ),
       ),
     );
+    // own layer: the pinned bar (clay track + 6 keys) is not re-recorded for every scrolled frame
+    return RepaintBoundary(child: bar);
   }
 
   @override

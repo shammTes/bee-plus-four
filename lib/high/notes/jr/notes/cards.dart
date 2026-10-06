@@ -53,7 +53,7 @@ class _NoteCardViewState extends State<NoteCardView> {
     final k = Kit.of(context), p = k.p, c = widget.card;
     final card = _card(context, k, p, c);
     if (widget.compact) return card;
-    final gl = glossFor(u, [
+    final gl = glossForCard(u, c, () => [
       ...c.body,
       if (c is GrammarCard) ...c.rule,
       if (c is WorkedCard) c.problem,
@@ -870,6 +870,10 @@ class _NoteCardViewState extends State<NoteCardView> {
 }
 
 /// glossary entries whose term / forms are **bold** on the card (max 6)
+/// key words of a card, computed once per card (was a regex over all its text on every rebuild while scrolling)
+final _glossCache = Expando<List<int>>();
+List<int> glossForCard(Unit u, NoteCard c, List<String> Function() texts) => _glossCache[c] ??= glossFor(u, texts());
+
 List<int> glossFor(Unit u, List<String> texts) {
   final words = <String>{};
   for (final m in RegExp(r'\*\*(.+?)\*\*').allMatches(texts.join(' '))) {

@@ -17,6 +17,7 @@ import '../notes/jr/state/app_state.dart' as jr;
 import 'notes_home.dart';
 import 'routes.dart';
 import '../teacher/teacher.dart';
+import '../theme/perf.dart';
 
 /// descent of the 16px Nunito strut under an inline `<svg>` (web line box)
 const kSvgDescent = 16 * .353;
@@ -92,7 +93,14 @@ class _StaggerState extends State<Stagger> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _c = AnimationController(vsync: this, duration: Duration(milliseconds: 500 + _d.round()))..forward();
+    _c = AnimationController(vsync: this, duration: Duration(milliseconds: 500 + _d.round()));
+    // Lite: no fade-in. A fading card is an Opacity layer (offscreen pass) and lazily built rows would fade in while
+    // the list is being scrolled.
+    if (Perf.lite) {
+      _c.value = 1;
+    } else {
+      _c.forward();
+    }
   }
 
   @override
@@ -102,7 +110,7 @@ class _StaggerState extends State<Stagger> with SingleTickerProviderStateMixin {
   }
 
   @override
-  Widget build(BuildContext context) => AnimatedBuilder(
+  Widget build(BuildContext context) => _c.isCompleted ? widget.child : AnimatedBuilder(
     animation: _c,
     child: widget.child,
     builder: (_, child) {

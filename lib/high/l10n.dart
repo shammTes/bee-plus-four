@@ -255,7 +255,7 @@ const Map<String, Map<String, String>> kHighLabels = {
     'allYears': 'ኩሉ ዓመታት',
     'mistakes': 'ጌጋታት',
     'weakTopics': 'ድክምቲ ክፈለ ዓርዑታት',
-    'notStarted': ገና አይጀመረን',
+    'notStarted': 'ገና አይጀመረን',
     'notStartedShort': 'አይጀመረን',
     'noMatch': 'ዚርከብ የለን',
     'noMatchSub': 'ካልኡ ዓመት ወይ ቃል ፈትኑ።',

@@ -2,6 +2,7 @@
 // `.nfig` figure: a textbook SVG (prepared by svg_prep.dart) with numbered pins on top, positioned in viewBox units.
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:vector_graphics/vector_graphics_compat.dart' show RenderingStrategy;
 
 import '../data/notes_models.dart';
 import '../theme/clay.dart';
@@ -9,6 +10,7 @@ import '../theme/tokens.dart';
 import '../widgets/clay_widgets.dart';
 import 'graph_svg.dart';
 import 'svg_prep.dart';
+import '../../../theme/perf.dart';
 
 enum PinLook { normal, seen, on, onSeen, ask, hidden }
 
@@ -60,7 +62,11 @@ class DiagramFig extends StatelessWidget {
             child: LayoutBuilder(
               builder: (context, box) {
                 final w = box.maxWidth, h = box.maxHeight;
-                final kids = <Widget>[Positioned.fill(child: SvgPicture.string(svg, fit: BoxFit.fill))];
+                // textbook diagrams have hundreds of paths: rasterise once and reuse the bitmap while scrolling (own layer, so a
+                // pin animating on top does not repaint the figure)
+                final kids = <Widget>[
+                  Positioned.fill(child: RepaintBoundary(child: SvgPicture.string(svg, fit: BoxFit.fill, renderingStrategy: RenderingStrategy.raster))),
+                ];
                 if (pins) {
                   // the one "on" pin is drawn last (z-index 3)
                   final idx = List.generate(diagram.pins.length, (i) => i);
@@ -107,7 +113,8 @@ class _PinDotState extends State<PinDot> with TickerProviderStateMixin {
   AnimationController? _pulse;
 
   void _sync() {
-    if (widget.look == PinLook.ask) {
+    // Lite: the "ask" pin is gold and still, no endless 60 fps pulse inside the scrolling list
+    if (widget.look == PinLook.ask && !Perf.lite) {
       _pulse ??= AnimationController(vsync: this, duration: const Duration(milliseconds: 1000))..repeat();
     } else {
       _pulse?.dispose();
@@ -164,13 +171,16 @@ class _PinDotState extends State<PinDot> with TickerProviderStateMixin {
       ),
     );
     if (_pulse != null) {
-      disc = AnimatedBuilder(
-        animation: _pulse!,
-        child: disc,
-        builder: (_, ch) {
-          final t = _pulse!.value, s = 1 + .2 * (t < .5 ? Curves.easeInOut.transform(t * 2) : Curves.easeInOut.transform((1 - t) * 2));
-          return Transform.scale(scale: s, child: ch);
-        },
+      // own layer: only the 30px disc repaints each frame, not the whole card with its shadows and diagram
+      disc = RepaintBoundary(
+        child: AnimatedBuilder(
+          animation: _pulse!,
+          child: disc,
+          builder: (_, ch) {
+            final t = _pulse!.value, s = 1 + .2 * (t < .5 ? Curves.easeInOut.transform(t * 2) : Curves.easeInOut.transform((1 - t) * 2));
+            return Transform.scale(scale: s, child: ch);
+          },
+        ),
       );
     } else if (on) {
       disc = Transform.scale(scale: 1.25, child: disc);
@@ -201,7 +211,7 @@ class GraphFig extends StatelessWidget {
     return FigBox(
       child: AspectRatio(
         aspectRatio: vb[2] / vb[3],
-        child: SvgPicture.string(svg, fit: BoxFit.fill),
+        child: SvgPicture.string(svg, fit: BoxFit.fill, renderingStrategy: RenderingStrategy.raster),
       ),
     );
   }
