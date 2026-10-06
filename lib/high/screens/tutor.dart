@@ -69,6 +69,8 @@ class TutorIndex {
   final df = <String, int>{};
   double avg = 0;
   static TutorIndex? _i;
+
+  /// built once, from the full packs (the tutor reads them in first: [tutorReady])
   static TutorIndex of(ExamRepo r) => _i ??= TutorIndex(r);
 
   List<({_Doc d, double s, double cov})> bm25(List<String> qt) {
@@ -93,6 +95,9 @@ class TutorIndex {
   }
 }
 
+/// every exam pack and the concept texts are read in (they are not at start-up, see ExamRepo.lazyExams)
+bool tutorReady(ExamRepo r) => r.allExamsLoaded && r.conceptsLoaded;
+
 class _Msg {
   _Msg(this.me, this.text, {this.title, this.ref, this.qs = const [], this.refuse = false});
   final bool me, refuse;
@@ -109,7 +114,31 @@ class TutorPage extends StatefulWidget {
   State<TutorPage> createState() => _TutorPageState();
 }
 
-class _TutorPageState extends State<TutorPage> {
+class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
+  bool _kbOpen = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  /// Keyboard opened: the chat list just got shorter, so keep the latest messages in view.
+  @override
+  void didChangeMetrics() {
+    if (!mounted) return;
+    final view = View.maybeOf(context);
+    final open = (view?.viewInsets.bottom ?? 0) > 0;
+    if (open == _kbOpen) return;
+    _kbOpen = open;
+    if (!open) return;
+    for (final d in const [Duration(milliseconds: 60), Duration(milliseconds: 320)]) {
+      Future<void>.delayed(d, () {
+        if (mounted && _sc.hasClients) _sc.jumpTo(_sc.position.maxScrollExtent);
+      });
+    }
+  }
+
   final _c = TextEditingController();
   final _sc = ScrollController();
 
@@ -141,6 +170,7 @@ class _TutorPageState extends State<TutorPage> {
     t = t.trim();
     if (t.isEmpty) return;
     final r = Kit.of(context).s.repo;
+    if (!tutorReady(r)) return;
     setState(() {
       _chat.add(_Msg(true, t));
       _chat.add(_reply(r, t));
@@ -163,6 +193,7 @@ class _TutorPageState extends State<TutorPage> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _c.dispose();
     _sc.dispose();
     super.dispose();
@@ -171,6 +202,8 @@ class _TutorPageState extends State<TutorPage> {
   @override
   Widget build(BuildContext context) {
     final k = Kit.of(context), p = k.p, s = k.s, r = s.repo;
+    // first visit: read every exam pack + the concept texts (once, off the UI thread), then rebuild
+    if (!tutorReady(r)) s.needAllExams(concepts: true);
     Widget bot(Widget child, {bool refuse = false}) => Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
@@ -192,6 +225,7 @@ class _TutorPageState extends State<TutorPage> {
           ],
         ),
       ),
+      if (!tutorReady(r)) bot(Text('One moment: I am reading your exam packs for the first time…', style: ts(13.5, w700, p.ink2, height: 1.45))),
       for (final m in _chat)
         m.me
             ? Align(
@@ -238,7 +272,7 @@ class _TutorPageState extends State<TutorPage> {
             child: Row(spacing: 8, children: [for (final t in _sugg(r)) ChipX(t, small: true, icon: 'sparkle', onTap: () => _ask(t))]),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(16, 0, 16, kScreenBottom - 20 + MediaQuery.paddingOf(context).bottom),
+            padding: EdgeInsets.fromLTRB(16, 0, 16, screenBottom(context, kScreenBottom - 20)),
             child: Row(
               spacing: 8,
               children: [

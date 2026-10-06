@@ -10,6 +10,7 @@ import '../widgets/art.dart' show Ic;
 import '../widgets/kit.dart';
 import '../widgets/page.dart';
 import '../widgets/rich.dart';
+import '../screens/routes.dart' show EmptyCard;
 import 'presenter.dart';
 
 // ---------------------------------------------------------------- teacher: browse + tick
@@ -69,8 +70,16 @@ class _TeacherPageState extends State<TeacherPage> {
     super.dispose();
   }
 
-  List<Question> _pool(HighState s) => _src == 'matric'
-      ? [for (final e in s.repo.exams) ...e.questions]
+  List<Question> _pool(HighState s) {
+    // the exercise pool needs the whole bank: read the sets in (once, one after another) and rebuild
+    if (_src != 'matric' && !s.repo.allExercisesLoaded) s.repo.ensureAllExercises().then((_) => s.contentChanged());
+    // the matric pool needs every exam pack (stems for search and the list): read them in, then rebuild
+    if (_src == 'matric' && !s.repo.allExamsLoaded) s.needAllExams();
+    return _poolNow(s);
+  }
+
+  List<Question> _poolNow(HighState s) => _src == 'matric'
+      ? [for (final e in s.repo.exams) if (e.full) ...e.questions]
       : [for (final e in s.repo.exerciseExams.values.toList()..sort((a, b) => '${a.year}${a.subject}'.compareTo('${b.year}${b.subject}'))) ...e.questions];
 
   @override
@@ -220,7 +229,7 @@ class _TeacherPageState extends State<TeacherPage> {
               children: [
                 Expanded(child: Text(n == 0 ? 'Tick questions to build a set' : '$n selected', style: ts(15, w900, p.ink))),
                 if (n > 0) Btn('Clear', kind: BtnKind.soft, onTap: s.clearBasket),
-                if (n > 0) CBtn('play', label: 'Present on TV', onTap: () => HighNav.of(context).push(PresenterPage(slides: [for (final (i, id) in cd!.canonical(s.basket).indexed) QuestionSlide(s.repo.byId[id]!, n: i + 1)]))),
+                if (n > 0) CBtn('play', label: 'Present on TV', onTap: () => _present(context, cd!.canonical(s.basket))),
                 Btn('Show on board', icon: 'play', enabled: n > 0, onTap: () => HighNav.of(context).push(BoardPage(ids: List.of(s.basket)))),
               ],
             ),
@@ -290,7 +299,7 @@ class BoardPage extends StatelessWidget with NoNav {
         sub: '${list.length} questions · students tap "Enter class code"',
         onBack: HighNav.of(context).back,
         tab: false,
-        actions: [CBtn('play', label: 'Present on TV', onTap: () => HighNav.of(context).push(PresenterPage(slides: [for (final (i, id) in list.indexed) QuestionSlide(k.s.repo.byId[id]!, n: i + 1)])))],
+        actions: [CBtn('play', label: 'Present on TV', onTap: () => _present(context, list))],
       ),
       body: ScreenList(
         children: [
@@ -354,6 +363,7 @@ class _EnterCodePageState extends State<EnterCodePage> {
     setState(() => _err = null);
     final code = QCodesX.label(cd.setCode(r.ids), r.ids.length);
     s.saveHomework(code, r.ids);
+    s.needQuestions(r.ids);
     HighNav.of(context).open('hw:$code', () => HomeworkPage(ids: r.ids, code: code));
   }
 
@@ -383,7 +393,8 @@ class _EnterCodePageState extends State<EnterCodePage> {
               Panel(
                 padding: const EdgeInsets.all(14),
                 onTap: () {
-                  final ids = [for (final x in h['ids'] as List) if (s.repo.byId.containsKey(x)) x as String];
+                  s.needQuestions([for (final x in h['ids'] as List) '$x']);
+                  final ids = [for (final x in h['ids'] as List) if (s.repo.byId.containsKey(x) || s.repo.mayBePendingExercise('$x')) x as String];
                   HighNav.of(context).open('hw:${h['code']}', () => HomeworkPage(ids: ids, code: h['code'] as String));
                 },
                 child: Row(
@@ -410,6 +421,14 @@ class _EnterCodePageState extends State<EnterCodePage> {
   }
 }
 
+/// presenter slides for [ids]: their exam packs are read in first (they may still be summary stubs)
+Future<void> _present(BuildContext context, List<String> ids) async {
+  final s = HighScope.read(context);
+  await s.needQuestions(ids);
+  if (!context.mounted) return;
+  HighNav.of(context).push(PresenterPage(slides: [for (final (i, id) in ids.indexed) if (s.repo.byId[id] case final q?) QuestionSlide(q, n: i + 1)]));
+}
+
 abstract final class QCodesX {
   static String label(String setCode, int n) => setCode;
 }
@@ -424,6 +443,12 @@ class HomeworkPage extends StatelessWidget {
     final k = Kit.of(context), p = k.p, s = k.s, cd = s.repo.codes;
     final qs = [for (final id in ids) ?s.repo.byId[id]];
     final shownPassages = <String>{};
+    if (!s.readyToShow(qs, ids)) {
+      return PageShell(
+        top: TopBar(title: 'Homework', sub: '$code · ${ids.length} questions', onBack: HighNav.of(context).back, tab: false),
+        body: const ScreenList(children: [EmptyCard(title: 'Opening the questions…', text: 'Reading these papers for the first time. One moment.')]),
+      );
+    }
     return PageShell(
       top: TopBar(title: 'Homework', sub: '$code · ${qs.length} questions', onBack: HighNav.of(context).back, tab: false),
       body: ScreenList(

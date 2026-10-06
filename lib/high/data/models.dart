@@ -32,9 +32,16 @@ class SimilarQ {
 }
 
 class Question {
-  Question(this.j, this.exam);
+  Question(this.j, this.exam) : _flags = null;
+
+  /// light stand-in built from assets/high/exams/summary.json until its exam's pack is read (ExamRepo.lazyExams):
+  /// id, topics and the auto-marked / review-flag bits only. Never rendered: pages that show questions load the pack
+  /// first (HighState.needQuestions / needExam) and then get the full question from byId.
+  Question.stub(String id, this.exam, int flags, List<String> topics) : j = {'id': id, 'topics': topics}, _flags = flags;
   final Json j;
   final Exam exam;
+  final int? _flags; // 1 MCQ, 2 matching, 4 review flag (stubs only)
+  bool get isStub => _flags != null;
   String get id => j['id'] as String;
   int get part => (j['part'] as num?)?.toInt() ?? 1;
   int get number => (j['number'] as num?)?.toInt() ?? 0;
@@ -52,7 +59,7 @@ class Question {
   late final List<String> keywords = strs(j['keywords']);
   Json? get textbookRef => j['textbook_ref'] is Map ? Json.from(j['textbook_ref'] as Map) : null;
   String? get confidence => optStr(j['confidence']);
-  String? get reviewFlag => optStr(j['review_flag']);
+  String? get reviewFlag => _flags != null ? (_flags & 4 != 0 ? '⚑' : null) : optStr(j['review_flag']);
   String? get image => optStr(j['image']);
   String? get imageAlt => optStr(j['image_alt']);
   String? get matchListId => optStr(j['match_list_id']);
@@ -61,9 +68,9 @@ class Question {
   List<Json> get subparts => [for (final x in (j['subparts'] as List? ?? const [])) if (x is Map) Json.from(x)];
   List<String> get markingPoints => strs(j['marking_points']);
 
-  bool get isMCQ => type == 'mcq' && options != null && options!.length > 1;
+  bool get isMCQ => _flags != null ? _flags & 1 != 0 : type == 'mcq' && options != null && options!.length > 1;
   MatchList? get matchList => matchListId == null ? null : exam.matchLists[matchListId];
-  bool get isMatch => matchAnswer != null && matchList != null && matchList!.choices.containsKey(matchAnswer);
+  bool get isMatch => _flags != null ? _flags & 2 != 0 : matchAnswer != null && matchList != null && matchList!.choices.containsKey(matchAnswer);
   bool get isScored => isMCQ || isMatch;
   Map<String, String> get opts => isMCQ ? options! : isMatch ? matchList!.choices : const {};
   String get matchPrompt {
@@ -101,10 +108,20 @@ class Exam {
   String get cat => isExercise ? 'exercise' : (isMatric ? 'matric' : 'model');
   final Map<String, MatchList> matchLists = {};
   final Map<String, Json> passages = {};
-  List<Question> questions = [];
-  late final List<Question> mcqs = questions.where((q) => q.isMCQ).toList();
-  late final List<Question> matches = questions.where((q) => q.isMatch).toList();
-  late final List<Question> scored = questions.where((q) => q.isScored).toList();
+
+  /// false while [questions] are only the summary's stubs (see Question.stub); ExamRepo.ensureExam reads the pack
+  bool full = true;
+  List<Question> _qs = [];
+  List<Question> get questions => _qs;
+  set questions(List<Question> v) {
+    _qs = v;
+    _mcqs = _matches = _scored = null;
+  }
+
+  List<Question>? _mcqs, _matches, _scored;
+  List<Question> get mcqs => _mcqs ??= questions.where((q) => q.isMCQ).toList();
+  List<Question> get matches => _matches ??= questions.where((q) => q.isMatch).toList();
+  List<Question> get scored => _scored ??= questions.where((q) => q.isScored).toList();
   List<Question> get timedQs => scored;
 
   String get short => isExercise ? 'Exercise' : '${isMatric ? 'Matric' : 'Model'}${semester != null ? ' · Sem $semester' : ''}';

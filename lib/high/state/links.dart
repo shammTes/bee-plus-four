@@ -4,7 +4,7 @@ import '../data/repository.dart';
 import '../notes/jr/data/repository.dart';
 
 class UnitLinks {
-  UnitLinks(ExamRepo r, NotesRepo n) {
+  UnitLinks(ExamRepo r, NotesRepo n) : _r = r {
     for (final e in n.unitQuestions.entries) {
       final seen = <String>{};
       final l = [
@@ -37,7 +37,7 @@ class UnitLinks {
       for (final u in b.units) {
         m.addAll(matric[u.id] ?? const []);
       }
-      ex = r.exerciseExams['${b.grade}|${b.subject}']?.questions.length ?? 0;
+      ex = r.exerciseCount(b.grade, b.subject);
       bookMatric[b.id] = m.toList();
       bookExercises[b.id] = ex;
     }
@@ -63,4 +63,9 @@ class UnitLinks {
 
   List<String> matricFor(String unitId) => matric[unitId] ?? const [];
   List<String> exercisesFor(String unitId) => exercises[unitId] ?? const [];
+
+  final ExamRepo _r;
+
+  /// bundled exercises of a unit: exact once its set is read in, the bank index's count before (sets load lazily)
+  int exerciseCountFor(String unitId) => _r.exerciseUnitCount(unitId);
 }

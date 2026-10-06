@@ -1,5 +1,4 @@
 // Theme access + the clay widgets used by every screen (one widget per web component).
-import 'dart:ui' as ui show ImageFilter;
 import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/rendering.dart';
@@ -166,7 +165,7 @@ class _PressState extends State<Press> with SingleTickerProviderStateMixin {
       child: Padding(padding: w.padding, child: w.child),
       builder: (context, child) {
         final t = _c.value;
-        final deco = w.deco == null ? null : (w.pressedDeco == null ? w.deco! : ClayDecoration.lerp(w.deco!, w.pressedDeco!, t.clamp(0.0, 1.0)));
+        final deco = w.deco == null ? null : (w.pressedDeco == null ? w.deco! : ClayDecoration.lerp(w.deco!, w.pressedDeco!, t.clamp(0.0, 1.0))).pressedBy(t);
         Widget b = deco == null ? child! : DecoratedBox(decoration: deco, child: child);
         if (w.constraints != null) b = ConstrainedBox(constraints: w.constraints!, child: b);
         final s = lerpDouble(1, w.scale, t)!;
@@ -218,15 +217,8 @@ class Badge extends StatelessWidget {
             child: Stack(
               clipBehavior: Clip.none,
               children: [
-                // filter: drop-shadow(0 1px 1px rgba(0,0,0,.18))
-                // Lite: the .5 sigma blur is invisible at this size but costs an offscreen layer per badge
-                Positioned(
-                  left: 0,
-                  top: 1,
-                  child: Perf.lite
-                      ? Ic(icon, size: isz, color: const Color.fromRGBO(0, 0, 0, .14))
-                      : ImageFiltered(imageFilter: _blur1, child: Ic(icon, size: isz, color: const Color.fromRGBO(0, 0, 0, .18))),
-                ),
+                // filter: drop-shadow(0 1px 1px rgba(0,0,0,.18)), drawn unblurred and only in the Clay look
+                if (!Perf.flat) Positioned(left: 0, top: 1, child: Ic(icon, size: isz, color: const Color.fromRGBO(0, 0, 0, .14))),
                 Ic(icon, size: isz, color: fg),
               ],
             ),
@@ -237,7 +229,6 @@ class Badge extends StatelessWidget {
   }
 }
 
-final _blur1 = ui.ImageFilter.blur(sigmaX: .5, sigmaY: .5, tileMode: TileMode.decal);
 
 // ---------------------------------------------------------------- buttons
 enum BtnKind { coral, tone, soft }
@@ -266,7 +257,7 @@ class Btn extends StatelessWidget {
       pd = deco;
       fg = p.ink3;
     }
-    final shadow = kind == BtnKind.tone && !p.dark && enabled ? const [Shadow(offset: Offset(0, 1), blurRadius: 1, color: Color.fromRGBO(0, 0, 0, .15))] : null;
+    final shadow = kind == BtnKind.tone && !p.dark && enabled ? const [Shadow(offset: Offset(0, 1), color: Color.fromRGBO(0, 0, 0, .12))] : null;
     final st = ts(fontSize, w900, fg).copyWith(shadows: shadow);
     final ic = icon == null ? null : Ic(icon!, size: 18, color: fg);
     final row = Row(
@@ -595,19 +586,39 @@ class Field extends StatefulWidget {
   State<Field> createState() => _FieldState();
 }
 
-class _FieldState extends State<Field> {
+class _FieldState extends State<Field> with WidgetsBindingObserver {
   late final TextEditingController _c = widget.controller ?? TextEditingController();
   final _f = FocusNode();
+  bool _had = false;
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _c.addListener(_l);
     _f.addListener(_l);
   }
 
-  void _l() => setState(() {});
+  void _l() {
+    setState(() {});
+    if (_f.hasFocus && !_had) {
+      // Wait for the keyboard to open (and KeyboardInset to shrink the page), then reveal the field.
+      for (final d in const [Duration(milliseconds: 120), Duration(milliseconds: 420)]) {
+        Future<void>.delayed(d, () {
+          if (mounted && _f.hasFocus) revealAboveKeyboard(context);
+        });
+      }
+    }
+    _had = _f.hasFocus;
+  }
+
+  @override
+  void didChangeMetrics() {
+    if (_f.hasFocus) WidgetsBinding.instance.addPostFrameCallback((_) => mounted && _f.hasFocus ? revealAboveKeyboard(context) : null);
+  }
+
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _c.removeListener(_l);
     if (widget.controller == null) _c.dispose();
     _f.dispose();
@@ -626,6 +637,7 @@ class _FieldState extends State<Field> {
           key: widget.fieldKey,
           controller: _c,
           focusNode: _f,
+          scrollPadding: const EdgeInsets.fromLTRB(20, 20, 20, 72),
           style: st,
           cursorColor: p.sage.deep,
           backgroundCursorColor: p.ink3,

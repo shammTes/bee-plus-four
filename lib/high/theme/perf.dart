@@ -1,11 +1,12 @@
 // Performance switches shared by High and the notes renderer.
 //
-// "Smooth scrolling" (Lite effects) is ON by default: the clay look stays, but the expensive parts are drawn cheaply so
-// long lists scroll at 60 fps on low-end Android GPUs:
-//  * inset (inner) clay shadows are painted as soft gradient bands at the edges instead of a Gaussian mask blur over a
-//    card-sized offscreen layer (that blur pass is what made tall notes cards stutter while scrolling)
-//  * entrance fades (Opacity layers), tiny icon drop-shadow blurs and idle pulses are skipped
-// Outer clay shadows keep their blur: a blurred rounded rect is drawn analytically by both Skia and Impeller, so it is cheap.
+// The FLAT look is ON by default (Settings > Look): every clay decoration is painted as a solid soft colour with a 1px
+// border, plus one hard offset ledge under keys and buttons (see theme/clay.dart). No blur, gradient shader, clip or
+// offscreen layer is drawn for a card, so long lists scroll at 60 fps on 1-2 GB phones with old Mali / Adreno GPUs.
+// Decorative animations (entrance fades, count-ups, floating art, pulses) are gone in both looks.
+//
+// "Clay" (opt-in) brings back the soft shadows: blurred outer shadows (drawn analytically, fairly cheap) and inset
+// shadows painted as gradient bands at the edges instead of a Gaussian mask blur over a card-sized offscreen layer.
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 
@@ -14,17 +15,20 @@ import 'package:flutter/widgets.dart';
 class Perf {
   Perf._();
 
-  /// cheap clay effects (default). Settings > Smooth scrolling turns it off for the full CSS-accurate look.
-  static bool lite = true;
+  /// flat look (default). Settings > Look > Clay turns it off.
+  static bool flat = true;
+
+  /// decorative looping animations (pulsing pins …): off. They kept the GPU busy at 60 fps while the student reads.
+  static bool animations = false;
 
   /// read-ahead for long lists, in logical px: enough for one fling, not so much that off-screen cards are laid out early
   static double cacheExtent(BuildContext context) => (MediaQuery.sizeOf(context).height * .4).clamp(250.0, 400.0);
 
-  /// switch Lite on / off at runtime and repaint everything (decorations compare equal, so a plain rebuild would not
+  /// switch Flat on / off at runtime and repaint everything (decorations compare equal, so a plain rebuild would not
   /// repaint them)
-  static void setLite(bool v) {
-    if (lite == v) return;
-    lite = v;
+  static void setFlat(bool v) {
+    if (flat == v) return;
+    flat = v;
     WidgetsBinding.instance.reassembleApplication();
   }
 }
@@ -80,5 +84,30 @@ void paintInsetBands(Canvas canvas, RRect rr, double dx, double dy, double blur,
       _ => (Rect.fromLTWH(r.right - len, r.top, len, r.height), r.topRight, Offset(r.right - len, r.top)),
     };
     canvas.drawRect(band, Paint()..shader = ui.Gradient.linear(from, to, cols, stops));
+  }
+}
+
+// ---------------------------------------------------------------- cheap dimming
+
+/// Dims [child] like `Opacity(opacity)` without an offscreen layer: in the flat look a translucent veil of the colour
+/// behind the child ([over], usually the card surface) is painted on top, which on a solid background looks the same.
+/// An Opacity layer per dimmed option was a saveLayer per answered question while scrolling.
+bool get flatNow => Perf.flat;
+
+class Dim extends StatelessWidget {
+  const Dim({super.key, required this.opacity, required this.over, required this.child, this.radius});
+  final double opacity;
+  final Color over;
+  final BorderRadius? radius;
+  final Widget child;
+  @override
+  Widget build(BuildContext context) {
+    if (opacity >= 1) return child;
+    if (!flatNow) return Opacity(opacity: opacity, child: child);
+    return DecoratedBox(
+      position: DecorationPosition.foreground,
+      decoration: BoxDecoration(color: over.withValues(alpha: (1 - opacity).clamp(0.0, 1.0)), borderRadius: radius),
+      child: child,
+    );
   }
 }

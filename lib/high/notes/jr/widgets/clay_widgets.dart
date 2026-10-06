@@ -108,10 +108,11 @@ class _PressState extends State<Press> with SingleTickerProviderStateMixin {
       child: Padding(padding: w.padding, child: w.child),
       builder: (context, child) {
         final t = _c.value;
-        final deco = w.deco == null ? null : (w.pressedDeco == null ? w.deco! : ClayDecoration.lerp(w.deco!, w.pressedDeco!, t.clamp(0.0, 1.0)));
+        final deco = w.deco == null ? null : (w.pressedDeco == null ? w.deco! : ClayDecoration.lerp(w.deco!, w.pressedDeco!, t.clamp(0.0, 1.0))).pressedBy(t);
         Widget b = deco == null ? child! : DecoratedBox(decoration: deco, child: child);
         if (w.constraints != null) b = ConstrainedBox(constraints: w.constraints!, child: b);
         final s = lerpDouble(1, w.scale, t)!;
+        if (t == 0) return b;
         return Transform(
           alignment: Alignment.center,
           transform: Matrix4.identity()
@@ -281,7 +282,7 @@ class MiniBar extends StatelessWidget {
       height: 12,
       margin: const EdgeInsets.only(top: 6),
       decoration: k.c.minibar(),
-      clipBehavior: Clip.antiAlias,
+      // no clip: the fill has the same 9px corners as the track (a clip per unit row was an extra clip layer while scrolling)
       child: Align(
         alignment: Alignment.centerLeft,
         child: FractionallySizedBox(
