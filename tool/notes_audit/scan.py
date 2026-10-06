@@ -183,7 +183,7 @@ def scan(subjects=None):
                         c0 = cr.get(m.get('id'))
                         if not c0 or not os.path.exists(os.path.join(MEDIA, c0.get('file', '~'))):
                             add(book=name, file=src, unit=uid, lesson=lid, card=m.get('id'), kind='missing_asset', field='media', text=str(m.get('id')))
-                    if k == 'label' and not os.path.exists(os.path.join(MEDIA, str(m.get('img')))) and not os.path.exists(os.path.join(ROOT, str(m.get('img')))):
+                    if k == 'label' and not os.path.exists(os.path.join(MEDIA, (cr.get(str(m.get('img'))) or {}).get('file', '~'))):
                         add(book=name, file=src, unit=uid, lesson=lid, card=m.get('id'), kind='missing_asset', field='media.img', text=str(m.get('img')))
                     for p, s in walk_strings(m):
                         if POINTER_RE.search(s):
