@@ -312,65 +312,6 @@
               "answer": "Degree: 8, Constant Term: -6"
             },
             {
-              "id": "math11-u1-chk75",
-              "type": "check",
-              "title": "Quick check",
-              "page": 6,
-              "src": "study_notes",
-              "src_qid": "math_g11_c1_q5",
-              "q": "According to the Remainder Theorem, what is the remainder when $$P(x) = 2x^3 - 5x + 1$$ is divided by $$x - 2$$?",
-              "options": {
-                "A": "$$7$$",
-                "B": "$$-7$$",
-                "C": "$$17$$",
-                "D": "$$1$$"
-              },
-              "answer": "A",
-              "why": "**Step 1: Apply the Remainder Theorem**\nThe Remainder Theorem states that when a polynomial $$P(x)$$ is divided by $$(x - c)$$, the remainder is $$P(c)$$.\nHere, the divisor is $$x - 2$$, so $$c = 2$$.\n\n**Step 2: Evaluate $$P(2)$$**\n$$P(2) = 2(2)^3 - 5(2) + 1$$\n$$P(2) = 2(8) - 10 + 1$$\n$$P(2) = 16 - 10 + 1 = 7$$\n\n**Step 3: State the final result**\nThe remainder is $$7$$.\n**Result:** **$$7$$**."
-            },
-            {
-              "id": "math11-u1-wrk2",
-              "type": "worked",
-              "title": "Step-by-step",
-              "page": 6,
-              "src": "study_notes",
-              "src_qid": "math_g11_c1_q5",
-              "problem": "According to the Remainder Theorem, what is the remainder when $$P(x) = 2x^3 - 5x + 1$$ is divided by $$x - 2$$?",
-              "steps": [
-                {
-                  "text": "**Step 1: Apply the Remainder Theorem**"
-                },
-                {
-                  "text": "The Remainder Theorem states that when a polynomial $$P(x)$$ is divided by $$(x - c)$$, the remainder is $$P(c)$$."
-                },
-                {
-                  "text": "Here, the divisor is $$x - 2$$, so $$c = 2$$."
-                },
-                {
-                  "text": "**Step 2: Evaluate $$P(2)$$**"
-                },
-                {
-                  "text": "$$P(2) = 2(2)^3 - 5(2) + 1$$"
-                },
-                {
-                  "text": "$$P(2) = 2(8) - 10 + 1$$"
-                },
-                {
-                  "text": "$$P(2) = 16 - 10 + 1 = 7$$"
-                },
-                {
-                  "text": "**Step 3: State the final result**"
-                },
-                {
-                  "text": "The remainder is $$7$$."
-                },
-                {
-                  "text": "**Result:** **$$7$$**."
-                }
-              ],
-              "answer": "$$7$$"
-            },
-            {
               "id": "math11-u1-c10",
               "type": "table",
               "title": "Methods for solving ax² + bx + c = 0",
@@ -448,6 +389,68 @@
               "why": "**Step 1:** Solve x² − 2x − 8 = 0: (x − 4)(x + 2) = 0, so x = −2 or x = 4.\n**Step 2:** The parabola opens upward (a = 1 > 0), so it is below or on the x-axis between the roots.\n**Step 3:** Test x = 0: −8 ≤ 0 ✔. Answer: −2 ≤ x ≤ 4 (closed ends because of ≤).",
               "page": 6,
               "src": "notes"
+            },
+            {
+              "id": "math11-u1-chk79",
+              "type": "check",
+              "title": "Quick check",
+              "page": 41,
+              "src": "study_notes",
+              "src_qid": "math_g11_c1_q9",
+              "q": "Solve the quadratic inequality $$x^2 - x - 12 > 0$$. Choose the correct solution set.",
+              "options": {
+                "A": "$$(-\\infty, -3) \\cup (4, \\infty)$$",
+                "B": "$$(-3, 4)$$",
+                "C": "$$(-\\infty, -4) \\cup (3, \\infty)$$",
+                "D": "$$[-3, 4]$$"
+              },
+              "answer": "A",
+              "why": "**Step 1: Find the critical values**\nSolve the equation $$x^2 - x - 12 = 0$$:\n$$(x - 4)(x + 3) = 0 \\implies x = 4 \\text{ or } x = -3$$\nThese roots divide the real line into three intervals: $$(-\\infty, -3)$$, $$(-3, 4)$$, and $$(4, \\infty)$$.\n\n**Step 2: Test sign in each interval**\n- For $$x \\in (-\\infty, -3)$$, choose $$x = -4$$:\n$$(-4 - 4)(-4 + 3) = (-8)(-1) = 8 > 0$$ (Satisfied)\n- For $$x \\in (-3, 4)$$, choose $$x = 0$$:\n$$(0 - 4)(0 + 3) = -12 < 0$$ (Not satisfied)\n- For $$x \\in (4, \\infty)$$, choose $$x = 5$$:\n$$(5 - 4)(5 + 3) = 8 > 0$$ (Satisfied)\n\n**Step 3: Combine intervals**\nThe solution set is $$(-\\infty, -3) \\cup (4, \\infty)$$.\n**Result:** **$$(-\\infty, -3) \\cup (4, \\infty)$$**."
+            },
+            {
+              "id": "math11-u1-wrk6",
+              "type": "worked",
+              "title": "Step-by-step",
+              "page": 41,
+              "src": "study_notes",
+              "src_qid": "math_g11_c1_q9",
+              "problem": "Solve the quadratic inequality $$x^2 - x - 12 > 0$$. Choose the correct solution set.",
+              "steps": [
+                {
+                  "text": "**Step 1: Find the critical values**"
+                },
+                {
+                  "text": "Solve the equation $$x^2 - x - 12 = 0$$:"
+                },
+                {
+                  "text": "$$(x - 4)(x + 3) = 0 \\implies x = 4 \\text{ or } x = -3$$"
+                },
+                {
+                  "text": "These roots divide the real line into three intervals: $$(-\\infty, -3)$$, $$(-3, 4)$$, and $$(4, \\infty)$$."
+                },
+                {
+                  "text": "**Step 2: Test sign in each interval**"
+                },
+                {
+                  "text": "- For $$x \\in (-\\infty, -3)$$, choose $$x = -4$$:"
+                },
+                {
+                  "text": "$$(-4 - 4)(-4 + 3) = (-8)(-1) = 8 > 0$$ (Satisfied)"
+                },
+                {
+                  "text": "- For $$x \\in (-3, 4)$$, choose $$x = 0$$:"
+                },
+                {
+                  "text": "**Step 3: Combine intervals**"
+                },
+                {
+                  "text": "The solution set is $$(-\\infty, -3) \\cup (4, \\infty)$$."
+                },
+                {
+                  "text": "**Result:** **$$(-\\infty, -3) \\cup (4, \\infty)$$**."
+                }
+              ],
+              "answer": "$$(-\\infty, -3) \\cup (4, \\infty)$$"
             }
           ]
         },
@@ -766,68 +769,6 @@
               "answer": "$$x = -5/4$$"
             },
             {
-              "id": "math11-u1-chk79",
-              "type": "check",
-              "title": "Quick check",
-              "page": 41,
-              "src": "study_notes",
-              "src_qid": "math_g11_c1_q9",
-              "q": "Solve the quadratic inequality $$x^2 - x - 12 > 0$$. Choose the correct solution set.",
-              "options": {
-                "A": "$$(-\\infty, -3) \\cup (4, \\infty)$$",
-                "B": "$$(-3, 4)$$",
-                "C": "$$(-\\infty, -4) \\cup (3, \\infty)$$",
-                "D": "$$[-3, 4]$$"
-              },
-              "answer": "A",
-              "why": "**Step 1: Find the critical values**\nSolve the equation $$x^2 - x - 12 = 0$$:\n$$(x - 4)(x + 3) = 0 \\implies x = 4 \\text{ or } x = -3$$\nThese roots divide the real line into three intervals: $$(-\\infty, -3)$$, $$(-3, 4)$$, and $$(4, \\infty)$$.\n\n**Step 2: Test sign in each interval**\n- For $$x \\in (-\\infty, -3)$$, choose $$x = -4$$:\n$$(-4 - 4)(-4 + 3) = (-8)(-1) = 8 > 0$$ (Satisfied)\n- For $$x \\in (-3, 4)$$, choose $$x = 0$$:\n$$(0 - 4)(0 + 3) = -12 < 0$$ (Not satisfied)\n- For $$x \\in (4, \\infty)$$, choose $$x = 5$$:\n$$(5 - 4)(5 + 3) = 8 > 0$$ (Satisfied)\n\n**Step 3: Combine intervals**\nThe solution set is $$(-\\infty, -3) \\cup (4, \\infty)$$.\n**Result:** **$$(-\\infty, -3) \\cup (4, \\infty)$$**."
-            },
-            {
-              "id": "math11-u1-wrk6",
-              "type": "worked",
-              "title": "Step-by-step",
-              "page": 41,
-              "src": "study_notes",
-              "src_qid": "math_g11_c1_q9",
-              "problem": "Solve the quadratic inequality $$x^2 - x - 12 > 0$$. Choose the correct solution set.",
-              "steps": [
-                {
-                  "text": "**Step 1: Find the critical values**"
-                },
-                {
-                  "text": "Solve the equation $$x^2 - x - 12 = 0$$:"
-                },
-                {
-                  "text": "$$(x - 4)(x + 3) = 0 \\implies x = 4 \\text{ or } x = -3$$"
-                },
-                {
-                  "text": "These roots divide the real line into three intervals: $$(-\\infty, -3)$$, $$(-3, 4)$$, and $$(4, \\infty)$$."
-                },
-                {
-                  "text": "**Step 2: Test sign in each interval**"
-                },
-                {
-                  "text": "- For $$x \\in (-\\infty, -3)$$, choose $$x = -4$$:"
-                },
-                {
-                  "text": "$$(-4 - 4)(-4 + 3) = (-8)(-1) = 8 > 0$$ (Satisfied)"
-                },
-                {
-                  "text": "- For $$x \\in (-3, 4)$$, choose $$x = 0$$:"
-                },
-                {
-                  "text": "**Step 3: Combine intervals**"
-                },
-                {
-                  "text": "The solution set is $$(-\\infty, -3) \\cup (4, \\infty)$$."
-                },
-                {
-                  "text": "**Result:** **$$(-\\infty, -3) \\cup (4, \\infty)$$**."
-                }
-              ],
-              "answer": "$$(-\\infty, -3) \\cup (4, \\infty)$$"
-            },
-            {
               "id": "math11-u1-pc4",
               "type": "check",
               "title": "Practice",
@@ -853,6 +794,65 @@
               ],
               "page": 41,
               "src": "notes"
+            },
+            {
+              "id": "math11-u1-chk75",
+              "type": "check",
+              "title": "Quick check",
+              "page": 6,
+              "src": "study_notes",
+              "src_qid": "math_g11_c1_q5",
+              "q": "According to the Remainder Theorem, what is the remainder when $$P(x) = 2x^3 - 5x + 1$$ is divided by $$x - 2$$?",
+              "options": {
+                "A": "$$7$$",
+                "B": "$$-7$$",
+                "C": "$$17$$",
+                "D": "$$1$$"
+              },
+              "answer": "A",
+              "why": "**Step 1: Apply the Remainder Theorem**\nThe Remainder Theorem states that when a polynomial $$P(x)$$ is divided by $$(x - c)$$, the remainder is $$P(c)$$.\nHere, the divisor is $$x - 2$$, so $$c = 2$$.\n\n**Step 2: Evaluate $$P(2)$$**\n$$P(2) = 2(2)^3 - 5(2) + 1$$\n$$P(2) = 2(8) - 10 + 1$$\n$$P(2) = 16 - 10 + 1 = 7$$\n\n**Step 3: State the final result**\nThe remainder is $$7$$.\n**Result:** **$$7$$**."
+            },
+            {
+              "id": "math11-u1-wrk2",
+              "type": "worked",
+              "title": "Step-by-step",
+              "page": 6,
+              "src": "study_notes",
+              "src_qid": "math_g11_c1_q5",
+              "problem": "According to the Remainder Theorem, what is the remainder when $$P(x) = 2x^3 - 5x + 1$$ is divided by $$x - 2$$?",
+              "steps": [
+                {
+                  "text": "**Step 1: Apply the Remainder Theorem**"
+                },
+                {
+                  "text": "The Remainder Theorem states that when a polynomial $$P(x)$$ is divided by $$(x - c)$$, the remainder is $$P(c)$$."
+                },
+                {
+                  "text": "Here, the divisor is $$x - 2$$, so $$c = 2$$."
+                },
+                {
+                  "text": "**Step 2: Evaluate $$P(2)$$**"
+                },
+                {
+                  "text": "$$P(2) = 2(2)^3 - 5(2) + 1$$"
+                },
+                {
+                  "text": "$$P(2) = 2(8) - 10 + 1$$"
+                },
+                {
+                  "text": "$$P(2) = 16 - 10 + 1 = 7$$"
+                },
+                {
+                  "text": "**Step 3: State the final result**"
+                },
+                {
+                  "text": "The remainder is $$7$$."
+                },
+                {
+                  "text": "**Result:** **$$7$$**."
+                }
+              ],
+              "answer": "$$7$$"
             }
           ]
         }
