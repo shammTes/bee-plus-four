@@ -9,6 +9,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:high/high/app.dart';
 import 'package:high/high/data/repository.dart';
+import 'package:high/high/notes/jr/data/notes_models.dart';
 import 'package:high/high/notes/jr/data/repository.dart';
 import 'package:high/high/notes/jr/screens/unit_page.dart';
 import 'package:high/high/state/app_state.dart';
@@ -218,6 +219,31 @@ void main() {
     expect(lazy.allExamsLoaded, isFalse);
     expect(lazy.conceptsLoaded, isFalse);
     expect(read, lessThan(lazy.exams.length ~/ 3));
+  });
+
+  test('every lab / media hit deep-links to its card in the notes unit (placements incl. the physics lab sims)', () async {
+    var sims = 0;
+    final bad = <String>[];
+    for (var d = 0; d < ix.length; d++) {
+      if (ix.kind[d] != TK.media) continue;
+      final u = ix.unitOf(d)!, l = ix.lessonOf(d);
+      Lesson? lesson;
+      try {
+        lesson = (await notes.unitBook(u.book, u.id)).unit(u.id)?.lessons.where((x) => x.id == l?.id).firstOrNull;
+      } on FormatException {
+        lesson = null;
+      }
+      final c = lesson == null || ix.pos[d] >= lesson.cards.length ? null : lesson.cards[ix.pos[d]];
+      final kind = ix.keys[d].split('\t').first;
+      if (c is! MediaCard || c.kind != kind || !ix.keys[d].endsWith(c.title)) {
+        bad.add('${ix.keys[d]} @ ${l?.id}~${ix.pos[d]}');
+      } else if (kind == 'sim') {
+        sims++;
+      }
+    }
+    // a unit whose source file does not parse (see notes_parse_test) cannot open; nothing else may miss
+    expect(bad.where((b) => !b.contains('math11-u1')), isEmpty, reason: bad.take(10).join('\n'));
+    expect(sims, greaterThan(40));
   });
 
   group('answers with the real content', () {
