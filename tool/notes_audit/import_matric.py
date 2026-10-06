@@ -3,7 +3,7 @@ questions from the Drive question bank, matched to the best lesson by TF-IDF sim
 Usage: python3 import_matric.py [--dry] subject ..."""
 import sys, os, json, re, math, collections
 sys.path.insert(0, os.path.dirname(__file__))
-from patch import Book, check, mcq
+from patch import Book, check, mcq, worked
 SRC = '/workspace/tmp-sync/drive/Matric_Questions.json'
 SUBJ = {'biology': ['Biology'], 'chemistry': ['Chemistry'], 'geography': ['Geography'], 'agriculture': ['Agriculture'],
         'business_economics': ['Business and Economics', 'Business & Economics'], 'english': ['English', 'English Language']}
@@ -103,6 +103,15 @@ def run(subject, dry=False, need_checks=3, need_ex=20, thr=0.15):
             if dry: print(f'  [{s:.2f}] {bk} {l["title"][:40]!r} <- {q["q"][:90]!r}')
         if add and not dry:
             B[bk].add(l['id'], add)
+        if not any(c.get('type') == 'worked' for c in l['cards']) and cand:
+            s_, q = cand.pop(0)
+            used.add(q['id']); stats[bk + ' worked'] += 1
+            sents = [x.strip() for x in re.split(r'(?<=[.!?])\s+(?=[A-Z])', q['why']) if x.strip()]
+            steps = [f'**Step {k+1}.** {t}' for k, t in enumerate(sents[:5])] or [q['why']]
+            prob = q['q'] + '  ' + '  '.join(f'{k}) {v}' for k, v in q['opts'].items())
+            w = worked(f"{l['id']}-mxw1", 'Exam question, solved', prob, steps, f"{q['ans']}) {q['opts'][q['ans']]}", src='matric', src_qid=q['id'])
+            if dry: print(f'  WK [{s_:.2f}] {bk} {l["title"][:40]!r} <- {q["q"][:90]!r}')
+            else: B[bk].add(l['id'], [w])
         assign[i] = cand
     for bk, b in B.items():
         for u in b.d['units']:
