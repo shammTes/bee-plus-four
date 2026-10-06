@@ -8,7 +8,7 @@ import 'package:high/high/notes/jr/data/repository.dart';
 import 'package:high/high/notes/jr/screens/unit_page.dart';
 import 'package:high/high/screens/exercise.dart';
 import 'package:high/high/screens/notes_home.dart';
-import 'package:high/high/screens/tutor.dart';
+import 'package:high/high/tutor/tutor_page.dart';
 import 'package:high/high/state/app_state.dart';
 import 'package:high/high/widgets/page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
