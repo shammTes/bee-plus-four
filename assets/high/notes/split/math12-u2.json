@@ -1,0 +1,1614 @@
+{
+ "book": {
+  "id": "mathematics_12",
+  "subject": "mathematics",
+  "grade": 12,
+  "title": "Mathematics Grade 12",
+  "pdf": "textbook_mathematics_12.pdf",
+  "page_offset": 6,
+  "source": "High notes (Grade_12_Mathematics.html) regrouped into the units of the official Grade 12 Mathematics textbook (Eritrea MoE)",
+  "lang": "en",
+  "intro": [
+   "Eritrea · Ministry of Education · Grade 12 · 2011",
+   "Write the formula first",
+   "Then plug ♥",
+   "Mathematics Notes"
+  ],
+  "source_outline": [
+   {
+    "level": 1,
+    "text": "Mathematics Notes"
+   },
+   {
+    "level": 2,
+    "text": "Chapter 1 · Sequence and series"
+   },
+   {
+    "level": 3,
+    "text": "Arithmetic (AP)"
+   },
+   {
+    "level": 3,
+    "text": "Geometric (GP)"
+   },
+   {
+    "level": 2,
+    "text": "Chapter 2 · Statistics and probability"
+   },
+   {
+    "level": 3,
+    "text": "Averages"
+   },
+   {
+    "level": 3,
+    "text": "Spread"
+   },
+   {
+    "level": 3,
+    "text": "Probability"
+   },
+   {
+    "level": 2,
+    "text": "Chapter 3 · Coordinate geometry"
+   },
+   {
+    "level": 2,
+    "text": "Chapter 4 · Matrices and determinants"
+   },
+   {
+    "level": 2,
+    "text": "Formula wall"
+   },
+   {
+    "level": 2,
+    "text": "Tap quiz"
+   }
+  ],
+  "intro_cards": [
+   {
+    "id": "math12-intro-c01",
+    "type": "text",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "Four chapters · worked steps · exam tricks",
+     "Every example hides the working. Try it on paper, then open the steps. Trick boxes are the shortcuts markers use."
+    ]
+   },
+   {
+    "id": "math12-intro-c02",
+    "type": "mnemonic",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "AP: $a_n=a+(n-1)d$ GP: $a_n=ar^{n-1}$"
+    ]
+   },
+   {
+    "id": "math12-intro-c03",
+    "type": "mnemonic",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "$AB=\\sqrt{\\Delta x^2+\\Delta y^2}$ $m=\\Delta y/\\Delta x$"
+    ]
+   },
+   {
+    "id": "math12-intro-c04",
+    "type": "mnemonic",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "$\\det=ad-bc$ $P=1-P(\\text{none})$"
+    ]
+   }
+  ]
+ },
+ "units": [
+  {
+   "id": "math12-u2",
+   "number": 2,
+   "title": "Descriptive Statistics and Probability",
+   "status": "done",
+   "pages": [
+    40,
+    125
+   ],
+   "tone": "peach",
+   "lessons": [
+    {
+     "id": "math12-u2-l2-1",
+     "number": "2.1",
+     "title": "Population and Sampling",
+     "pages": [
+      40,
+      45
+     ],
+     "cards": [
+      {
+       "id": "math12-u2-c01",
+       "type": "text",
+       "title": "2.1 Population and Sampling",
+       "page": 41,
+       "src": "textbook pp.41–43",
+       "enriched": true,
+       "body": [
+        "Statistics is the collection, presentation , analysis and interpretation of the numerical data.",
+        "Population is the collection of all elements (individuals, objects, areas, etc.) under consideration in a study.",
+        "Population describes the entire group under consideration in a study.",
+        "Sample describes a group chosen to represent the population under consideration in a study.",
+        "Determine the population and the sample."
+       ]
+      },
+      {
+       "id": "math12-u2-tblE1",
+       "type": "table",
+       "title": "Key table",
+       "page": 1,
+       "src": "study_notes",
+       "head": [
+        "Term",
+        "Scope",
+        "Real-World Example",
+        "Mathematical Label"
+       ],
+       "rows": [
+        [
+         "**Population**",
+         "Complete Group",
+         "All books in a school library",
+         "Parameter (e.g., $$\\mu$$)"
+        ],
+        [
+         "**Sample**",
+         "Selected Subset",
+         "50 randomly selected library books",
+         "Statistic (e.g., $$\\bar{x}$$)"
+        ],
+        [
+         "**Census**",
+         "Full Enumeration",
+         "National population count",
+         "Exact parameter value"
+        ],
+        [
+         "**Sampling**",
+         "Selection Method",
+         "Drawing numbers out of a lottery hat",
+         "Unbiased estimate"
+        ]
+       ]
+      },
+      {
+       "id": "math12-u2-chkE1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "A researcher studies the health status of students in a school and classifies the data as 'Healthy', 'Mildly Ill', or 'Severely Ill'. What type of variable is this?",
+       "options": {
+        "A": "Qualitative (Categorical)",
+        "B": "Quantitative Discrete",
+        "C": "Quantitative Continuous",
+        "D": "Numerical Parameter"
+       },
+       "answer": "A",
+       "why": "**Step 1: Analyze the nature of the data**\nThe values 'Healthy', 'Mildly Ill', and 'Severely Ill' describe non-numerical attributes or characteristics of the students.\n\n**Step 2: Compare with statistical definitions**\nVariables that allow for classification based on attributes are qualitative (or categorical) variables. Quantitative variables must represent numerical counts or measurements.\n\n**Ste"
+      },
+      {
+       "id": "math12-u2-chkE2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Which of the following represents a quantitative continuous variable?",
+       "options": {
+        "A": "The yearly amount of rainfall in Asmara",
+        "B": "The number of children in a family",
+        "C": "The number of bicycles parked in a school compound",
+        "D": "The blood type of a student"
+       },
+       "answer": "A",
+       "why": "**Step 1: Understand quantitative continuous variables**\nA continuous variable is a quantitative variable that can take any value within an interval, representing a measured quantity (not countable).\n\n**Step 2: Evaluate the options**\n'Number of children' and 'Number of bicycles' are countable integers, making them discrete.\n'Blood type' is categorical, making it qualitative.\n'Yearly amount of rain"
+      },
+      {
+       "id": "math12-u2-chk73",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "A researcher studies the health status of students in a school and classifies the data as 'Healthy', 'Mildly Ill', or 'Severely Ill'. What type of variable is this?",
+       "options": {
+        "A": "Qualitative (Categorical)",
+        "B": "Quantitative Discrete",
+        "C": "Quantitative Continuous",
+        "D": "Numerical Parameter"
+       },
+       "answer": "A",
+       "why": "**Step 1: Analyze the nature of the data**\nThe values 'Healthy', 'Mildly Ill', and 'Severely Ill' describe non-numerical attributes or characteristics of the students.\n\n**Step 2: Compare with statistical definitions**\nVariables that allow for classification based on attributes are qualitative (or categorical) variables. Quantitative variables must represent numerical counts or measurements.\n\n**Ste"
+      },
+      {
+       "id": "math12-u2-chk74",
+       "type": "check",
+       "title": "Quick check",
+       "page": 40,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q3",
+       "q": "A family's monthly income is $$1500\\text{ Nakfa}$$. They spend $$35\\%$$ of their income on food. How much money do they spend on food monthly?",
+       "options": {
+        "A": "$$525\\text{ Nakfa}$$",
+        "B": "$$500\\text{ Nakfa}$$",
+        "C": "$$475\\text{ Nakfa}$$",
+        "D": "$$550\\text{ Nakfa}$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: State the parameters**\nTotal Income = $$1500\\text{ Nakfa}$$\nPercentage spent on food = $$35\\% = 0.35$$\n\n**Step 2: Calculate the food expenditure**\n$$\\text{Food Expenditure} = \\text{Total Income} \\times \\text{Percentage}$$\n$$\\text{Food Expenditure} = 1500 \\times 0.35$$\n$$\\text{Food Expenditure} = 525$$\n\n**Step 3: Final Result**\nThe family spends **$$525\\text{ Nakfa}$$** on food."
+      },
+      {
+       "id": "math12-u2-wrk1",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 40,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q3",
+       "problem": "A family's monthly income is $$1500\\text{ Nakfa}$$. They spend $$35\\%$$ of their income on food. How much money do they spend on food monthly?",
+       "steps": [
+        {
+         "text": "**Step 1: State the parameters**"
+        },
+        {
+         "text": "Total Income = $$1500\\text{ Nakfa}$$"
+        },
+        {
+         "text": "Percentage spent on food = $$35\\% = 0.35$$"
+        },
+        {
+         "text": "**Step 2: Calculate the food expenditure**"
+        },
+        {
+         "text": "$$\\text{Food Expenditure} = \\text{Total Income} \\times \\text{Percentage}$$"
+        },
+        {
+         "text": "$$\\text{Food Expenditure} = 1500 \\times 0.35$$"
+        },
+        {
+         "text": "$$\\text{Food Expenditure} = 525$$"
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "The family spends **$$525\\text{ Nakfa}$$** on food."
+        }
+       ],
+       "answer": "A"
+      },
+      {
+       "id": "math12-u2-chk75",
+       "type": "check",
+       "title": "Quick check",
+       "page": 40,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q4",
+       "q": "Find the arithmetic mean of the following children counts of 10 families: $$3, 4, 2, 5, 1, 3, 4, 2, 3, 3$$.",
+       "options": {
+        "A": "$$3$$",
+        "B": "$$3.2$$",
+        "C": "$$2.8$$",
+        "D": "$$3.5$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: State the mean formula**\n$$\\bar{x} = \\frac{\\sum x_i}{N}$$\n\n**Step 2: Sum the values**\n$$\\sum x_i = 3 + 4 + 2 + 5 + 1 + 3 + 4 + 2 + 3 + 3 = 30$$\n\n**Step 3: Divide by the count $$N = 10$$**\n$$\\bar{x} = \\frac{30}{10} = 3$$\n\n**Step 4: Final Result**\nThe arithmetic mean of children count is **$$3$$**."
+      },
+      {
+       "id": "math12-u2-wrk2",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 40,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q4",
+       "problem": "Find the arithmetic mean of the following children counts of 10 families: $$3, 4, 2, 5, 1, 3, 4, 2, 3, 3$$.",
+       "steps": [
+        {
+         "text": "**Step 1: State the mean formula**"
+        },
+        {
+         "text": "$$\\bar{x} = \\frac{\\sum x_i}{N}$$"
+        },
+        {
+         "text": "**Step 2: Sum the values**"
+        },
+        {
+         "text": "$$\\sum x_i = 3 + 4 + 2 + 5 + 1 + 3 + 4 + 2 + 3 + 3 = 30$$"
+        },
+        {
+         "text": "**Step 3: Divide by the count $$N = 10$$**"
+        },
+        {
+         "text": "$$\\bar{x} = \\frac{30}{10} = 3$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The arithmetic mean of children count is **$$3$$**."
+        }
+       ],
+       "answer": "A"
+      }
+     ]
+    },
+    {
+     "id": "math12-u2-l2-2",
+     "number": "2.2",
+     "title": "Organizing Data",
+     "pages": [
+      46,
+      62
+     ],
+     "cards": [
+      {
+       "id": "math12-u2-c02",
+       "type": "text",
+       "title": "2.2 Organizing Data",
+       "page": 47,
+       "src": "textbook pp.47–48",
+       "enriched": true,
+       "body": [
+        "Variable is the characteristic of interest of an element that can assume different values for the different elements in the population or sample.",
+        "Datum: The values that a variable can assume are called data (single measured value (singular of data)) Data or Data Set: collection of numerical / non-numerical values (plural of datum).",
+        "Data are facts or figures from which conclusions can be drawn.",
+        "Qualitative (or categorical) variables allow for classification of individuals based on some attribute or characteristic.",
+        "Quantitative variable represents a counted or measured quantity."
+       ]
+      },
+      {
+       "id": "math12-u2-chk76",
+       "type": "check",
+       "title": "Quick check",
+       "page": 46,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q5",
+       "q": "Find the median weight from the following list of packed fruits in grams: $$0.89, 0.902, 0.902, 0.911, 0.93, 0.949, 1.002$$.",
+       "options": {
+        "A": "$$0.911\\text{ g}$$",
+        "B": "$$0.902\\text{ g}$$",
+        "C": "$$0.93\\text{ g}$$",
+        "D": "$$0.92\\text{ g}$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Order the data**\nThe data is already sorted in ascending order:\n$$0.89, 0.902, 0.902, 0.911, 0.93, 0.949, 1.002$$\n\n**Step 2: Identify the count of data points $$n$$**\n$$n = 7$$ (which is odd).\n\n**Step 3: Find the median position**\n$$\\text{Position} = \\frac{n+1}{2} = \\frac{7+1}{2} = 4$$\n\n**Step 4: Locate the fourth value**\nThe 4th value in the sorted list is $$0.911$$.\n\n**Step 5: Final Result**\nThe median weight is **$$0.911\\text{ g}$$**."
+      },
+      {
+       "id": "math12-u2-wrk3",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 46,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q5",
+       "problem": "Find the median weight from the following list of packed fruits in grams: $$0.89, 0.902, 0.902, 0.911, 0.93, 0.949, 1.002$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Order the data**"
+        },
+        {
+         "text": "The data is already sorted in ascending order:"
+        },
+        {
+         "text": "$$0.89, 0.902, 0.902, 0.911, 0.93, 0.949, 1.002$$"
+        },
+        {
+         "text": "**Step 2: Identify the count of data points $$n$$**"
+        },
+        {
+         "text": "$$n = 7$$ (which is odd)."
+        },
+        {
+         "text": "**Step 3: Find the median position**"
+        },
+        {
+         "text": "$$\\text{Position} = \\frac{n+1}{2} = \\frac{7+1}{2} = 4$$"
+        },
+        {
+         "text": "**Step 4: Locate the fourth value**"
+        },
+        {
+         "text": "The 4th value in the sorted list is $$0.911$$."
+        },
+        {
+         "text": "**Step 5: Final Result**"
+        },
+        {
+         "text": "The median weight is **$$0.911\\text{ g}$$**."
+        }
+       ],
+       "answer": "A"
+      },
+      {
+       "id": "math12-u2-chk77",
+       "type": "check",
+       "title": "Quick check",
+       "page": 46,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q6",
+       "q": "Find the median of the following sorted dataset of 8 values: $$1.6, 1.8, 2.2, 2.5, 2.6, 2.6, 2.9, 3.0$$.",
+       "options": {
+        "A": "$$2.55$$",
+        "B": "$$2.5$$",
+        "C": "$$2.6$$",
+        "D": "$$2.2$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Check sorting and count**\nThe dataset of $$n = 8$$ values is sorted in ascending order.\n\n**Step 2: Identify the middle terms**\nSince $$n$$ is even, the median is the average of the two middle terms located at positions $$\\frac{n}{2}$$ and $$\\frac{n}{2} + 1$$.\n$$\\text{Positions} = 4\\text{ and }5$$\n\n**Step 3: Calculate the average of the 4th and 5th terms**\n4th term = $$2.5$$, 5th term = $$2.6$$\n$$\\text{Median} = \\frac{2.5 + 2.6}{2} = \\frac{5.1}{2} = 2.55$$\n\n**Step 4: Final Result**\nThe median value is **$$2.55$$**."
+      },
+      {
+       "id": "math12-u2-wrk4",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 46,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q6",
+       "problem": "Find the median of the following sorted dataset of 8 values: $$1.6, 1.8, 2.2, 2.5, 2.6, 2.6, 2.9, 3.0$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Check sorting and count**"
+        },
+        {
+         "text": "The dataset of $$n = 8$$ values is sorted in ascending order."
+        },
+        {
+         "text": "**Step 2: Identify the middle terms**"
+        },
+        {
+         "text": "Since $$n$$ is even, the median is the average of the two middle terms located at positions $$\\frac{n}{2}$$ and $$\\frac{n}{2} + 1$$."
+        },
+        {
+         "text": "$$\\text{Positions} = 4\\text{ and }5$$"
+        },
+        {
+         "text": "**Step 3: Calculate the average of the 4th and 5th terms**"
+        },
+        {
+         "text": "4th term = $$2.5$$, 5th term = $$2.6$$"
+        },
+        {
+         "text": "$$\\text{Median} = \\frac{2.5 + 2.6}{2} = \\frac{5.1}{2} = 2.55$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The median value is **$$2.55$$**."
+        }
+       ],
+       "answer": "A"
+      }
+     ]
+    },
+    {
+     "id": "math12-u2-l2-3",
+     "number": "2.3",
+     "title": "Statistical graphs",
+     "pages": [
+      63,
+      77
+     ],
+     "cards": [
+      {
+       "id": "math12-u2-c03",
+       "type": "text",
+       "title": "2.3 Statistical graphs",
+       "page": 64,
+       "src": "textbook pp.64–65",
+       "enriched": true,
+       "body": [
+        "A pie chart is a circle divided into sectors.",
+        "The area of each sector is proportional to the frequency of the category.",
+        "A bar graph is constructed by labelling each category of data on a horizontal axis and the frequency or relative frequency of the category on the vertical axis.",
+        "Rectangles of equal width are drawn for each category.",
+        "The height of each rectangle is the category’s frequency or relative frequency."
+       ]
+      },
+      {
+       "id": "math12-u2-chk78",
+       "type": "check",
+       "title": "Quick check",
+       "page": 63,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q7",
+       "q": "What is the mode of this dataset: $$2, 2, 1, 1, 1, 3, 3, 4, 4, 2, 2, 2$$?",
+       "options": {
+        "A": "$$2$$",
+        "B": "$$1$$",
+        "C": "$$3$$",
+        "D": "There is no unique mode"
+       },
+       "answer": "A",
+       "why": "**Step 1: Count the frequency of each unique value**\nValue $$1$$ appears 3 times.\nValue $$2$$ appears 5 times.\nValue $$3$$ appears 2 times.\nValue $$4$$ appears 2 times.\n\n**Step 2: Find the value with the highest frequency**\nThe value with the highest frequency of occurrence is $$2$$, which appears 5 times.\n\n**Step 3: Final Result**\nThe unique mode of this dataset is **$$2$$**."
+      },
+      {
+       "id": "math12-u2-wrk5",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 63,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q7",
+       "problem": "What is the mode of this dataset: $$2, 2, 1, 1, 1, 3, 3, 4, 4, 2, 2, 2$$?",
+       "steps": [
+        {
+         "text": "**Step 1: Count the frequency of each unique value**"
+        },
+        {
+         "text": "Value $$1$$ appears 3 times."
+        },
+        {
+         "text": "Value $$2$$ appears 5 times."
+        },
+        {
+         "text": "Value $$3$$ appears 2 times."
+        },
+        {
+         "text": "**Step 2: Find the value with the highest frequency**"
+        },
+        {
+         "text": "The value with the highest frequency of occurrence is $$2$$, which appears 5 times."
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "The unique mode of this dataset is **$$2$$**."
+        }
+       ],
+       "answer": "A"
+      },
+      {
+       "id": "math12-u2-chk79",
+       "type": "check",
+       "title": "Quick check",
+       "page": 63,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q8",
+       "q": "Find the range of this set of numbers: $$-194, -94, 8, 108, 208$$.",
+       "options": {
+        "A": "$$400$$",
+        "B": "$$302$$",
+        "C": "$$208$$",
+        "D": "$$14$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Identify the largest and smallest values**\nLargest value = $$208$$\nSmallest value = $$-194$$\n\n**Step 2: Apply the range formula**\n$$\\text{Range} = \\text{Largest Value} - \\text{Smallest Value}$$\n$$\\text{Range} = 208 - (-194)$$\n$$\\text{Range} = 208 + 194 = 400$$\n\n**Step 3: Final Result**\nThe range is **$$400$$**."
+      },
+      {
+       "id": "math12-u2-wrk6",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 63,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q8",
+       "problem": "Find the range of this set of numbers: $$-194, -94, 8, 108, 208$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Identify the largest and smallest values**"
+        },
+        {
+         "text": "Largest value = $$208$$"
+        },
+        {
+         "text": "Smallest value = $$-194$$"
+        },
+        {
+         "text": "**Step 2: Apply the range formula**"
+        },
+        {
+         "text": "$$\\text{Range} = \\text{Largest Value} - \\text{Smallest Value}$$"
+        },
+        {
+         "text": "$$\\text{Range} = 208 - (-194)$$"
+        },
+        {
+         "text": "$$\\text{Range} = 208 + 194 = 400$$"
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "The range is **$$400$$**."
+        }
+       ],
+       "answer": "A"
+      }
+     ]
+    },
+    {
+     "id": "math12-u2-l2-4",
+     "number": "2.4",
+     "title": "Statistical Analysis of Ungrouped Data",
+     "pages": [
+      78,
+      92
+     ],
+     "cards": [
+      {
+       "id": "math12-u2-c04",
+       "type": "text",
+       "title": "2.4 Statistical Analysis of Ungrouped Data",
+       "page": 78,
+       "src": "textbook pp.78–80",
+       "enriched": true,
+       "body": [
+        "The test had five questions, each carrying ten marks.",
+        "A measure of central tendency is a single value that can be used to represent all the other values in the collection.",
+        "The median divides the array into two equal parts.",
+        "If the number of observations is even, the median is simply the middle observation in the array while if the number of observations is odd, the median is the average of the two middle observations in the array.",
+        "The median of a variable is the value that lies in the middle of the data when arranged in ascending order."
+       ]
+      },
+      {
+       "id": "math12-u2-c05",
+       "type": "text",
+       "title": "Averages",
+       "page": 82,
+       "src": "notes",
+       "body": [
+        "Raw data mean $\\bar x=\\dfrac{\\sum x}{n}$. Grouped: $\\bar x=\\dfrac{\\sum f x}{\\sum f}$ (use class midpoints as $x$).",
+        "Median: middle value when ordered (or $L+\\dfrac{\\frac{n}{2}-F}{f}\\times c$ for grouped). Mode: most frequent class."
+       ]
+      },
+      {
+       "id": "math12-u2-c06",
+       "type": "mnemonic",
+       "title": "Trick — which average?",
+       "page": 80,
+       "src": "notes",
+       "body": [
+        "Mean uses every number (sensitive to outliers). Median is the “typical middle”. Mode is the fashion — useful for sizes/shoes. If the question says “average” with no adjective, they usually want the mean."
+       ]
+      },
+      {
+       "id": "math12-u2-c07",
+       "type": "worked",
+       "title": "Example 4 — mean from a table",
+       "page": 79,
+       "src": "notes",
+       "problem": "Scores: $2$ pupils scored $10$, $5$ scored $12$, $3$ scored $16$. Mean?",
+       "steps": [
+        {
+         "text": "$n=\\sum f=2+5+3=10$."
+        },
+        {
+         "text": "$\\sum fx=2(10)+5(12)+3(16)=20+60+48=128$."
+        },
+        {
+         "text": "$\\bar x=128/10=12.8$."
+        }
+       ],
+       "answer": "$\\bar x=128/10=12.8$.",
+       "mode": "show",
+       "reveal": "Step-by-step"
+      },
+      {
+       "id": "math12-u2-c08",
+       "type": "text",
+       "title": "Spread",
+       "page": 91,
+       "src": "notes",
+       "body": [
+        "Range $= \\max-\\min$. Variance uses squared deviations; standard deviation $\\sigma$ is the square root (same units as the data). Larger $\\sigma$ → more spread."
+       ]
+      },
+      {
+       "id": "math12-u2-chk80",
+       "type": "check",
+       "title": "Quick check",
+       "page": 78,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q9",
+       "q": "Calculate the population variance of the following set of numbers: $$6, 7, 8, 9, 10$$.",
+       "options": {
+        "A": "$$2$$",
+        "B": "$$1$$",
+        "C": "$$\\sqrt{2}$$",
+        "D": "$$2.5$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Calculate the mean of the dataset**\n$$\\bar{x} = \\frac{6 + 7 + 8 + 9 + 10}{5} = \\frac{40}{5} = 8$$\n\n**Step 2: Calculate the squared deviations from the mean**\n$$(6 - 8)^2 = (-2)^2 = 4$$\n$$(7 - 8)^2 = (-1)^2 = 1$$\n$$(8 - 8)^2 = (0)^2 = 0$$\n$$(9 - 8)^2 = (1)^2 = 1$$\n$$(10 - 8)^2 = (2)^2 = 4$$\n\n**Step 3: Sum the squared deviations**\n$$\\sum (x_i - \\bar{x})^2 = 4 + 1 + 0 + 1 + 4 = 10$$\n\n**Step 4: Divide by the count $$N = 5$$ to find variance ($$\\sigma^2$$)**\n$$\\sigma^2 = \\frac{10}{5} = 2$$\n\n**Step 5: Final Result**\nThe variance of the dataset is **$$2$$**."
+      },
+      {
+       "id": "math12-u2-wrk7",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 78,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q9",
+       "problem": "Calculate the population variance of the following set of numbers: $$6, 7, 8, 9, 10$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Calculate the mean of the dataset**"
+        },
+        {
+         "text": "$$\\bar{x} = \\frac{6 + 7 + 8 + 9 + 10}{5} = \\frac{40}{5} = 8$$"
+        },
+        {
+         "text": "**Step 2: Calculate the squared deviations from the mean**"
+        },
+        {
+         "text": "$$(6 - 8)^2 = (-2)^2 = 4$$"
+        },
+        {
+         "text": "$$(7 - 8)^2 = (-1)^2 = 1$$"
+        },
+        {
+         "text": "$$(8 - 8)^2 = (0)^2 = 0$$"
+        },
+        {
+         "text": "**Step 3: Sum the squared deviations**"
+        },
+        {
+         "text": "$$\\sum (x_i - \\bar{x})^2 = 4 + 1 + 0 + 1 + 4 = 10$$"
+        },
+        {
+         "text": "**Step 4: Divide by the count $$N = 5$$ to find variance ($$\\sigma^2$$)**"
+        },
+        {
+         "text": "$$\\sigma^2 = \\frac{10}{5} = 2$$"
+        }
+       ],
+       "answer": "A"
+      },
+      {
+       "id": "math12-u2-chk81",
+       "type": "check",
+       "title": "Quick check",
+       "page": 78,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q10",
+       "q": "Calculate the population standard deviation of the numbers $$28, 44, 36, 25, 34, 30, 32, 19$$ knowing that the variance is $$49.25$$.",
+       "options": {
+        "A": "$$7.018$$",
+        "B": "$$7.02$$",
+        "C": "$$49.25$$",
+        "D": "$$6.85$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: State the relationship between standard deviation and variance**\nThe population standard deviation $$\\sigma$$ is the positive square root of the population variance $$\\sigma^2$$.\n$$\\sigma = \\sqrt{\\sigma^2}$$\n\n**Step 2: Substitute the variance value**\n$$\\sigma = \\sqrt{49.25}$$\n\n**Step 3: Perform the calculation**\n$$\\sigma \\approx 7.018$$\n\n**Step 4: Final Result**\nThe population standard deviation is **$$7.018$$**."
+      },
+      {
+       "id": "math12-u2-wrk8",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 78,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q10",
+       "problem": "Calculate the population standard deviation of the numbers $$28, 44, 36, 25, 34, 30, 32, 19$$ knowing that the variance is $$49.25$$.",
+       "steps": [
+        {
+         "text": "**Step 1: State the relationship between standard deviation and variance**"
+        },
+        {
+         "text": "The population standard deviation $$\\sigma$$ is the positive square root of the population variance $$\\sigma^2$$."
+        },
+        {
+         "text": "$$\\sigma = \\sqrt{\\sigma^2}$$"
+        },
+        {
+         "text": "**Step 2: Substitute the variance value**"
+        },
+        {
+         "text": "$$\\sigma = \\sqrt{49.25}$$"
+        },
+        {
+         "text": "**Step 3: Perform the calculation**"
+        },
+        {
+         "text": "$$\\sigma \\approx 7.018$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The population standard deviation is **$$7.018$$**."
+        }
+       ],
+       "answer": "A"
+      }
+     ]
+    },
+    {
+     "id": "math12-u2-l2-5",
+     "number": "2.5",
+     "title": "Probability",
+     "pages": [
+      93,
+      125
+     ],
+     "cards": [
+      {
+       "id": "math12-u2-c09",
+       "type": "text",
+       "title": "2.5 Probability",
+       "page": 94,
+       "src": "textbook p.94",
+       "enriched": true,
+       "body": [
+        "In statistics, the word experiment is used to describe any process that generates a set of data.",
+        "A phenomenon is called random if individual outcomes are uncertain but there is nonetheless a regular distribution of outcomes in a large number of repetitions.",
+        "Any process which generates well defined outcomes is called an experiment.",
+        "The number of trials is the total number of times the experiment is repeated.",
+        "The outcomes are the different results possible for one trial of the experiment."
+       ]
+      },
+      {
+       "id": "math12-u2-c10",
+       "type": "text",
+       "title": "Probability",
+       "page": 98,
+       "src": "notes",
+       "body": [
+        "$$P(A)=\\frac{n(A)}{n(S)}\\qquad 0\\le P(A)\\le 1$$",
+        "Complement: $P(A')=1-P(A)$. If $A$ and $B$ cannot happen together (mutually exclusive), $P(A\\cup B)=P(A)+P(B)$. If independent, $P(A\\cap B)=P(A)P(B)$."
+       ]
+      },
+      {
+       "id": "math12-u2-c11",
+       "type": "mnemonic",
+       "title": "Trick",
+       "page": 98,
+       "src": "notes",
+       "body": [
+        "“At least one” → use the complement: $1-P(\\text{none})$. Write the sample space if $n$ is small (dice, coins)."
+       ]
+      },
+      {
+       "id": "math12-u2-c12",
+       "type": "worked",
+       "title": "Example 5",
+       "page": 103,
+       "src": "notes",
+       "problem": "A fair die. $P(\\text{even})$ and $P(\\text{at least }5)$.",
+       "steps": [
+        {
+         "text": "$S=\\{1,2,3,4,5,6\\}$, $n(S)=6$."
+        },
+        {
+         "text": "Even $=\\{2,4,6\\}$ → $3/6=1/2$."
+        },
+        {
+         "text": "At least 5 $=\\{5,6\\}$ → $2/6=1/3$."
+        }
+       ],
+       "answer": "At least 5 $=\\{5,6\\}$ → $2/6=1/3$.",
+       "mode": "show",
+       "reveal": "Step-by-step"
+      },
+      {
+       "id": "math12-u2-c13",
+       "type": "text",
+       "title": "Probability",
+       "page": 121,
+       "src": "notes",
+       "body": [
+        "Based on Mathematics for Grade 12, Ministry of Education, Eritrea (2011). Formula first, numbers second."
+       ]
+      },
+      {
+       "id": "math12-u2-chk82",
+       "type": "check",
+       "title": "Quick check",
+       "page": 93,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q11",
+       "q": "If you roll a fair die followed by tossing a coin, what is the probability of rolling a '4' on the first die and getting a 'Head' on the coin?",
+       "options": {
+        "A": "$$\\frac{1}{12}$$",
+        "B": "$$\\frac{1}{6}$$",
+        "C": "$$\\frac{1}{4}$$",
+        "D": "$$\\frac{1}{2}$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Identify the nature of events**\nRolling a die and tossing a coin are independent events because the outcome of one does not affect the outcome of the other.\n\n**Step 2: Calculate individual probabilities**\nProbability of rolling a 4 on a fair 6-sided die: $$P(4) = \\frac{1}{6}$$\nProbability of getting a Head on a fair coin: $$P(\\text{Head}) = \\frac{1}{2}$$\n\n**Step 3: Apply the multiplication rule for independent events**\n$$P(4 \\cap \\text{Head}) = P(4) \\times P(\\text{Head})$$\n$$P(4 \\cap \\text{Head}) = \\frac{1}{6} \\times \\frac{1}{2} = \\frac{1}{12}$$\n\n**Step 4: Final Result**\nThe probability of both occurring is **$$\\frac{1}{12}$$**."
+      },
+      {
+       "id": "math12-u2-wrk9",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 93,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q11",
+       "problem": "If you roll a fair die followed by tossing a coin, what is the probability of rolling a '4' on the first die and getting a 'Head' on the coin?",
+       "steps": [
+        {
+         "text": "**Step 1: Identify the nature of events**"
+        },
+        {
+         "text": "Rolling a die and tossing a coin are independent events because the outcome of one does not affect the outcome of the other."
+        },
+        {
+         "text": "**Step 2: Calculate individual probabilities**"
+        },
+        {
+         "text": "Probability of rolling a 4 on a fair 6-sided die: $$P(4) = \\frac{1}{6}$$"
+        },
+        {
+         "text": "Probability of getting a Head on a fair coin: $$P(\\text{Head}) = \\frac{1}{2}$$"
+        },
+        {
+         "text": "**Step 3: Apply the multiplication rule for independent events**"
+        },
+        {
+         "text": "$$P(4 \\cap \\text{Head}) = P(4) \\times P(\\text{Head})$$"
+        },
+        {
+         "text": "$$P(4 \\cap \\text{Head}) = \\frac{1}{6} \\times \\frac{1}{2} = \\frac{1}{12}$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The probability of both occurring is **$$\\frac{1}{12}$$**."
+        }
+       ],
+       "answer": "A"
+      },
+      {
+       "id": "math12-u2-chk83",
+       "type": "check",
+       "title": "Quick check",
+       "page": 93,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q12",
+       "q": "In how many distinguishable ways can the letters of the word 'STATISTICS' be arranged in a line?",
+       "options": {
+        "A": "$$50400$$",
+        "B": "$$3628800$$",
+        "C": "$$120$$",
+        "D": "$$5040$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Count the total number of letters ($$n$$)**\nThe word 'STATISTICS' has $$n = 10$$ letters.\n\n**Step 2: Identify the repeated letters and their frequencies**\nLetter 'S' appears $$3$$ times.\nLetter 'T' appears $$3$$ times.\nLetter 'I' appears $$2$$ times.\nLetter 'A' appears $$1$$ time.\nLetter 'C' appears $$1$$ time.\n\n**Step 3: Apply the distinguishable permutations formula**\n$$\\text{Arrangements} = \\frac{n!}{n_1! \\times n_2! \\times n_3! \\times \\dots}$$\n$$\\text{Arrangements} = \\frac{10!}{3! \\times 3! \\times 2!}$$\n$$\\text{Arrangements} = \\frac{3628800}{6 \\times 6 \\times 2} = \\frac{3628800}{72} = 50400$$\n\n**Step 4: Final Result**\nThe number of distinguishable arrangements is **$$50400$$**."
+      },
+      {
+       "id": "math12-u2-wrk10",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 93,
+       "src": "study_notes",
+       "src_qid": "math_g12_c2_q12",
+       "problem": "In how many distinguishable ways can the letters of the word 'STATISTICS' be arranged in a line?",
+       "steps": [
+        {
+         "text": "**Step 1: Count the total number of letters ($$n$$)**"
+        },
+        {
+         "text": "The word 'STATISTICS' has $$n = 10$$ letters."
+        },
+        {
+         "text": "**Step 2: Identify the repeated letters and their frequencies**"
+        },
+        {
+         "text": "Letter 'S' appears $$3$$ times."
+        },
+        {
+         "text": "Letter 'T' appears $$3$$ times."
+        },
+        {
+         "text": "Letter 'I' appears $$2$$ times."
+        },
+        {
+         "text": "**Step 3: Apply the distinguishable permutations formula**"
+        },
+        {
+         "text": "$$\\text{Arrangements} = \\frac{n!}{n_1! \\times n_2! \\times n_3! \\times \\dots}$$"
+        },
+        {
+         "text": "$$\\text{Arrangements} = \\frac{10!}{3! \\times 3! \\times 2!}$$"
+        },
+        {
+         "text": "$$\\text{Arrangements} = \\frac{3628800}{6 \\times 6 \\times 2} = \\frac{3628800}{72} = 50400$$"
+        }
+       ],
+       "answer": "A"
+      }
+     ]
+    }
+   ],
+   "glossary": [
+    {
+     "term": "Statistics",
+     "meaning": "Statistics is the collection, presentation , analysis and interpretation of the numerical data.",
+     "page": 41,
+     "src": "textbook p.41",
+     "enriched": true
+    },
+    {
+     "term": "Population",
+     "meaning": "Population is the collection of all elements (individuals, objects, areas, etc.) under consideration in a study.",
+     "page": 42,
+     "src": "textbook p.42",
+     "enriched": true
+    },
+    {
+     "term": "Variable",
+     "meaning": "Variable is the characteristic of interest of an element that can assume different values for the different elements in the population or sample.",
+     "page": 47,
+     "src": "textbook p.47",
+     "enriched": true
+    },
+    {
+     "term": "Frequency distribution table",
+     "meaning": "Frequency distribution table is a summary table that shows the number of observations that belong in the different classes (groups).",
+     "page": 53,
+     "src": "textbook p.53",
+     "enriched": true
+    },
+    {
+     "term": "If an event",
+     "meaning": "If an event is a set containing only one element of the sample space, then it is called a simple event.",
+     "page": 96,
+     "src": "textbook p.96",
+     "enriched": true
+    }
+   ],
+   "tips": [
+    {
+     "text": "Statistics: Statistics is the collection, presentation , analysis and interpretation of the numerical data.",
+     "page": 41,
+     "src": "textbook p.41"
+    },
+    {
+     "text": "Population: Population is the collection of all elements (individuals, objects, areas, etc.) under consideration in a study.",
+     "page": 42,
+     "src": "textbook p.42"
+    },
+    {
+     "text": "Variable: Variable is the characteristic of interest of an element that can assume different values for the different elements in the population or sample.",
+     "page": 47,
+     "src": "textbook p.47"
+    },
+    {
+     "text": "Frequency distribution table: Frequency distribution table is a summary table that shows the number of observations that belong in the different classes (groups).",
+     "page": 53,
+     "src": "textbook p.53"
+    },
+    {
+     "text": "If an event: If an event is a set containing only one element of the sample space, then it is called a simple event.",
+     "page": 96,
+     "src": "textbook p.96"
+    }
+   ],
+   "games": [
+    {
+     "type": "match",
+     "title": "Match each key word to its meaning",
+     "pairs": [
+      {
+       "a": "Statistics",
+       "b": "Statistics is the collection, presentation , analysis and interpretation of the numerical data."
+      },
+      {
+       "a": "Population",
+       "b": "Population is the collection of all elements (individuals, objects, areas, etc.) under consideration in a…"
+      },
+      {
+       "a": "Variable",
+       "b": "Variable is the characteristic of interest of an element that can assume different values for the different…"
+      },
+      {
+       "a": "Frequency distribution table",
+       "b": "Frequency distribution table is a summary table that shows the number of observations that belong in the…"
+      },
+      {
+       "a": "If an event",
+       "b": "If an event is a set containing only one element of the sample space, then it is called a simple event."
+      }
+     ],
+     "src": "glossary",
+     "id": "math12-u2-g1",
+     "lesson": null
+    },
+    {
+     "type": "tf",
+     "title": "True or false?",
+     "seconds": 12,
+     "items": [
+      {
+       "text": "Statistics: Statistics is the collection, presentation , analysis and interpretation of the numerical data.",
+       "answer": true,
+       "why": "Correct (p.41)."
+      },
+      {
+       "text": "Population: If an event is a set containing only one element of the sample space, then it is called a simple event.",
+       "answer": false,
+       "why": "That describes If an event. Population: Population is the collection of all elements (individuals, objects, areas, etc.) under consideration in a study."
+      },
+      {
+       "text": "Variable: Variable is the characteristic of interest of an element that can assume different values for the different elements in the population or sample.",
+       "answer": true,
+       "why": "Correct (p.47)."
+      },
+      {
+       "text": "Frequency distribution table: Population is the collection of all elements (individuals, objects, areas, etc.) under consideration in a study.",
+       "answer": false,
+       "why": "That describes Population. Frequency distribution table: Frequency distribution table is a summary table that shows the number of observations that belong in the different classes (groups)."
+      },
+      {
+       "text": "If an event: If an event is a set containing only one element of the sample space, then it is called a simple event.",
+       "answer": true,
+       "why": "Correct (p.96)."
+      }
+     ],
+     "src": "glossary",
+     "id": "math12-u2-g2",
+     "lesson": null
+    },
+    {
+     "type": "flash",
+     "title": "Key word flash cards",
+     "cards": [
+      {
+       "front": "Statistics",
+       "back": "Statistics is the collection, presentation , analysis and interpretation of the numerical data."
+      },
+      {
+       "front": "Population",
+       "back": "Population is the collection of all elements (individuals, objects, areas, etc.) under consideration in a study."
+      },
+      {
+       "front": "Variable",
+       "back": "Variable is the characteristic of interest of an element that can assume different values for the different elements in the population or sample."
+      },
+      {
+       "front": "Frequency distribution table",
+       "back": "Frequency distribution table is a summary table that shows the number of observations that belong in the different classes (groups)."
+      },
+      {
+       "front": "If an event",
+       "back": "If an event is a set containing only one element of the sample space, then it is called a simple event."
+      }
+     ],
+     "src": "glossary",
+     "id": "math12-u2-g3",
+     "lesson": null
+    },
+    {
+     "type": "fill",
+     "title": "Fill the gap",
+     "items": [
+      {
+       "text": "____ is the collection, presentation , analysis and interpretation of the numerical data.",
+       "answer": "Statistics",
+       "choices": [
+        "If an event",
+        "Statistics",
+        "Variable"
+       ]
+      },
+      {
+       "text": "____ is the collection of all elements (individuals, objects, areas, etc.) under consideration in a study.",
+       "answer": "Population",
+       "choices": [
+        "Population",
+        "Statistics",
+        "If an event"
+       ]
+      },
+      {
+       "text": "____ is the characteristic of interest of an element that can assume different values for the different elements in the population or sample.",
+       "answer": "Variable",
+       "choices": [
+        "Variable",
+        "Statistics",
+        "Population"
+       ]
+      },
+      {
+       "text": "____ is a summary table that shows the number of observations that belong in the different classes (groups).",
+       "answer": "Frequency distribution table",
+       "choices": [
+        "Frequency distribution table",
+        "Statistics",
+        "If an event"
+       ]
+      },
+      {
+       "text": "____ is a set containing only one element of the sample space, then it is called a simple event.",
+       "answer": "If an event",
+       "choices": [
+        "If an event",
+        "Variable",
+        "Frequency distribution table"
+       ]
+      }
+     ],
+     "src": "glossary",
+     "id": "math12-u2-g4",
+     "lesson": null
+    }
+   ],
+   "exercise": {
+    "questions": [
+     {
+      "type": "mcq",
+      "q": "$\\begin{vmatrix}2&3\\\\1&4\\end{vmatrix}$",
+      "options": {
+       "A": "11",
+       "B": "5",
+       "C": "8",
+       "D": "−1"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: 5",
+       "Textbook p.104: Determine the probability that: a) The first names begin with B. b) The first name does not begin with D. c) The first names with A, B or D. d) The first name begins with T."
+      ],
+      "src": "notes",
+      "page": 104,
+      "why_src": "textbook p.104",
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "“At least one head” in two coin tosses  A) $1/4$  B) $3/4$  C) $1$  D) $0$",
+        "a": "B. $3/4$"
+       }
+      ],
+      "id": "math12-u2-q01"
+     },
+     {
+      "type": "mcq",
+      "q": "“At least one head” in two coin tosses",
+      "options": {
+       "A": "$1/4$",
+       "B": "$3/4$",
+       "C": "$1$",
+       "D": "$0$"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: $3/4$",
+       "Textbook p.94: For instance, tossing of a coin which has two possible outcomes head or tail is a statistical experiment."
+      ],
+      "src": "notes",
+      "page": 107,
+      "why_src": "textbook p.94",
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "Two different coins are tossed simultaneously. What is the probability of getting at least one head?  A) 1/2  B) 3/4  C) 1/4  D) 2/3  E) None of the above.",
+        "a": "B. 3/4 — P(at least one head) = 1 − P(no head) = 1 − 1/4 = 3/4. Answer: B.",
+        "exam_question": "math-2021-matric-p1-q27"
+       }
+      ],
+      "id": "math12-u2-q02"
+     },
+     {
+      "type": "fill",
+      "q": "____ is the collection, presentation , analysis and interpretation of the numerical data.",
+      "answer": "Statistics",
+      "choices": [
+       "Population",
+       "Frequency distribution table",
+       "Statistics",
+       "Variable"
+      ],
+      "why": [
+       "Statistics is the collection, presentation , analysis and interpretation of the numerical data."
+      ],
+      "src": "textbook p.41",
+      "enriched": true,
+      "page": 41,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ is the collection of all elements (individuals, objects, areas, etc.) under consideration in a study.",
+        "a": "Population"
+       }
+      ],
+      "id": "math12-u2-q03"
+     },
+     {
+      "type": "fill",
+      "q": "____ is the collection of all elements (individuals, objects, areas, etc.) under consideration in a study.",
+      "answer": "Population",
+      "choices": [
+       "Statistics",
+       "Frequency distribution table",
+       "Population",
+       "Variable"
+      ],
+      "why": [
+       "Population is the collection of all elements (individuals, objects, areas, etc.) under consideration in a study."
+      ],
+      "src": "textbook p.42",
+      "enriched": true,
+      "page": 42,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ is the characteristic of interest of an element that can assume different values for the different elements in the population or sample.",
+        "a": "Variable"
+       }
+      ],
+      "id": "math12-u2-q04"
+     },
+     {
+      "type": "fill",
+      "q": "____ is the characteristic of interest of an element that can assume different values for the different elements in the population or sample.",
+      "answer": "Variable",
+      "choices": [
+       "Statistics",
+       "Population",
+       "Frequency distribution table",
+       "Variable"
+      ],
+      "why": [
+       "Variable is the characteristic of interest of an element that can assume different values for the different elements in the population or sample."
+      ],
+      "src": "textbook p.47",
+      "enriched": true,
+      "page": 47,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ is a summary table that shows the number of observations that belong in the different classes (groups).",
+        "a": "Frequency distribution table"
+       }
+      ],
+      "id": "math12-u2-q05"
+     },
+     {
+      "type": "fill",
+      "q": "____ is a summary table that shows the number of observations that belong in the different classes (groups).",
+      "answer": "Frequency distribution table",
+      "choices": [
+       "Population",
+       "Frequency distribution table",
+       "Variable",
+       "Statistics"
+      ],
+      "why": [
+       "Frequency distribution table is a summary table that shows the number of observations that belong in the different classes (groups)."
+      ],
+      "src": "textbook p.53",
+      "enriched": true,
+      "page": 53,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ is a set containing only one element of the sample space, then it is called a simple event.",
+        "a": "If an event"
+       }
+      ],
+      "id": "math12-u2-q06"
+     },
+     {
+      "type": "fill",
+      "q": "____ is a set containing only one element of the sample space, then it is called a simple event.",
+      "answer": "If an event",
+      "choices": [
+       "Statistics",
+       "Variable",
+       "If an event",
+       "Population"
+      ],
+      "why": [
+       "If an event is a set containing only one element of the sample space, then it is called a simple event."
+      ],
+      "src": "textbook p.96",
+      "enriched": true,
+      "page": 96,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "If a fair coin is tossed three times in succession, then what is the probability of getting at least two heads assuming one side of the coin is head and the other is tail?  A) 0.30  B) 0.20  C) 0.33  D) 0.50  E) 0.25",
+        "a": "D. 0.50"
+       }
+      ],
+      "id": "math12-u2-q07"
+     },
+     {
+      "type": "mcq",
+      "q": "If a fair coin is tossed three times in succession, then what is the probability of getting at least two heads assuming one side of the coin is head and the other is tail?",
+      "options": {
+       "A": "0.30",
+       "B": "0.20",
+       "C": "0.33",
+       "D": "0.50",
+       "E": "0.25"
+      },
+      "answer": "D",
+      "why": [
+       "Sample space: 2³ = 8 equally likely outcomes.",
+       "At least two heads: HHT, HTH, THH, HHH → 4 outcomes.",
+       "P = 4/8 = 0.50. Answer: D."
+      ],
+      "src": "exam",
+      "exam_question": "math-2018-matric-p1-q19",
+      "label": "math-2018-matric",
+      "enriched": true,
+      "page": 107,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "$\\begin{vmatrix}2&3\\\\1&4\\end{vmatrix}$  A) 11  B) 5  C) 8  D) −1",
+        "a": "B. 5"
+       }
+      ],
+      "id": "math12-u2-q08"
+     }
+    ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Descriptive Statistics and…",
+      "kind": "unit",
+      "cards": [
+       "math12-u2-c01"
+      ]
+     },
+     {
+      "id": "l2_1",
+      "label": "Population and Sampling",
+      "kind": "topic",
+      "lesson": "math12-u2-l2-1",
+      "cards": [
+       "math12-u2-c01"
+      ]
+     },
+     {
+      "id": "k_population",
+      "label": "Population",
+      "kind": "idea",
+      "cards": [
+       "math12-u2-c01"
+      ]
+     },
+     {
+      "id": "k_statistics",
+      "label": "Statistics",
+      "kind": "idea",
+      "cards": [
+       "math12-u2-c01"
+      ]
+     },
+     {
+      "id": "l2_2",
+      "label": "Organizing Data",
+      "kind": "topic",
+      "lesson": "math12-u2-l2-2",
+      "cards": [
+       "math12-u2-c02"
+      ]
+     },
+     {
+      "id": "k_variable",
+      "label": "Variable",
+      "kind": "idea",
+      "cards": [
+       "math12-u2-c02"
+      ]
+     },
+     {
+      "id": "l2_3",
+      "label": "Statistical graphs",
+      "kind": "topic",
+      "lesson": "math12-u2-l2-3",
+      "cards": [
+       "math12-u2-c03"
+      ]
+     },
+     {
+      "id": "l2_4",
+      "label": "Statistical Analysis of Ungrouped…",
+      "kind": "topic",
+      "lesson": "math12-u2-l2-4",
+      "cards": [
+       "math12-u2-c04",
+       "math12-u2-c05",
+       "math12-u2-c06",
+       "math12-u2-c07",
+       "math12-u2-c08"
+      ]
+     },
+     {
+      "id": "l2_5",
+      "label": "Probability",
+      "kind": "topic",
+      "lesson": "math12-u2-l2-5",
+      "cards": [
+       "math12-u2-c09",
+       "math12-u2-c10",
+       "math12-u2-c11",
+       "math12-u2-c12",
+       "math12-u2-c13"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l2_1",
+      "label": "includes"
+     },
+     {
+      "from": "l2_1",
+      "to": "k_population",
+      "label": "key idea"
+     },
+     {
+      "from": "k_population",
+      "to": "l2_2",
+      "label": "also used in"
+     },
+     {
+      "from": "l2_1",
+      "to": "k_statistics",
+      "label": "key idea"
+     },
+     {
+      "from": "k_statistics",
+      "to": "l2_5",
+      "label": "also used in"
+     },
+     {
+      "from": "unit",
+      "to": "l2_2",
+      "label": "includes"
+     },
+     {
+      "from": "l2_2",
+      "to": "k_variable",
+      "label": "key idea"
+     },
+     {
+      "from": "k_variable",
+      "to": "l2_4",
+      "label": "also used in"
+     },
+     {
+      "from": "unit",
+      "to": "l2_3",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l2_4",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l2_5",
+      "label": "includes"
+     },
+     {
+      "from": "l2_1",
+      "to": "l2_2",
+      "label": "next"
+     },
+     {
+      "from": "l2_2",
+      "to": "l2_3",
+      "label": "next"
+     },
+     {
+      "from": "l2_3",
+      "to": "l2_4",
+      "label": "next"
+     },
+     {
+      "from": "l2_4",
+      "to": "l2_5",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
+   }
+  }
+ ]
+}

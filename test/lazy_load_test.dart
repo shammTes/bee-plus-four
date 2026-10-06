@@ -91,13 +91,6 @@ void main() {
   });
 
   group('notes split per unit', () {
-    final hasSplit = Directory('assets/high/notes/split').listSync().any((f) => f.path.endsWith('.json'));
-
-    test('split_notes.py output is up to date', () async {
-      final r = await Process.run('python3', ['tool/split_notes.py', '--check']);
-      expect(r.exitCode, 0, reason: '${r.stdout}\n${r.stderr}\nrun: python3 tool/split_notes.py');
-    }, skip: !hasSplit ? 'split files not generated (python3 tool/split_notes.py)' : false);
-
     test('every unit from its split file equals the unit from the full book', () async {
       final full = NotesRepo();
       await full.init();
@@ -123,7 +116,7 @@ void main() {
         }
       }
       expect(n, greaterThan(100), reason: 'broken books: $broken');
-    }, timeout: const Timeout(Duration(minutes: 5)), skip: !hasSplit ? 'split files not generated (python3 tool/split_notes.py)' : false);
+    }, timeout: const Timeout(Duration(minutes: 5)));
 
     test('without split files a unit comes from the full book', () async {
       final r = NotesRepo(bundle: _NoSplit());

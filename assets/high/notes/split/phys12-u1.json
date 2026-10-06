@@ -1,0 +1,1744 @@
+{
+ "book": {
+  "id": "physics_12",
+  "subject": "physics",
+  "grade": 12,
+  "title": "Physics Grade 12",
+  "pdf": "textbook_physics_12.pdf",
+  "page_offset": 6,
+  "source": "High notes (Grade_12_Physics.html) regrouped into the units of the official Grade 12 Physics textbook (Eritrea MoE)",
+  "lang": "en",
+  "intro": [
+   "Eritrea · Ministry of Education · Grade 12",
+   "Observe",
+   "Think",
+   "Solve ♥",
+   "Physics Notes"
+  ],
+  "source_outline": [
+   {
+    "level": 1,
+    "text": "Physics Notes"
+   },
+   {
+    "level": 2,
+    "text": "Unit 1 · Fluid mechanics"
+   },
+   {
+    "level": 3,
+    "text": "1.1.2 Density and relative density"
+   },
+   {
+    "level": 3,
+    "text": "1.2 Pressure"
+   },
+   {
+    "level": 4,
+    "text": "Liquid pressure"
+   },
+   {
+    "level": 4,
+    "text": "Atmospheric pressure & applications"
+   },
+   {
+    "level": 3,
+    "text": "1.3 Pascal’s principle"
+   },
+   {
+    "level": 3,
+    "text": "1.4–1.5 Buoyancy, Archimedes, flotation"
+   },
+   {
+    "level": 2,
+    "text": "Unit 2 · Quantum physics"
+   },
+   {
+    "level": 3,
+    "text": "2.1 Atom — a picture good enough for this course"
+   },
+   {
+    "level": 3,
+    "text": "2.2 Particle–wave duality & the photon"
+   },
+   {
+    "level": 3,
+    "text": "2.2.3 Photoelectric effect"
+   },
+   {
+    "level": 3,
+    "text": "2.3 Atomic spectra"
+   },
+   {
+    "level": 2,
+    "text": "Formula sticky-wall"
+   },
+   {
+    "level": 2,
+    "text": "Tap quiz — then open the steps"
+   }
+  ],
+  "intro_cards": [
+   {
+    "id": "phys12-intro-c01",
+    "type": "text",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "Fluids + Quantum — phone pack with worked steps",
+     "Two units only, as in the 2011 textbook. Worked problems use the book’s habit: **Given → Required → Solution**. Tap yellow cards and “Show steps” to open the path, not just the final number."
+    ]
+   },
+   {
+    "id": "phys12-intro-c02",
+    "type": "remember",
+    "title": "Formula sticky-wall",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "ρ = m/V · RD = ρ/ρ_water · P = F/A · P = ρgh · P_abs = P_atm + ρgh"
+    ]
+   },
+   {
+    "id": "phys12-intro-c03",
+    "type": "remember",
+    "title": "Rule",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "E = hf = hc/λ · φ = hf₀ · K_max = hf − φ"
+    ]
+   },
+   {
+    "id": "phys12-intro-c04",
+    "type": "text",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "Based on Physics for Grade 12, Ministry of Education, Eritrea (2011). Worked steps follow the textbook Given / Required / Solution pattern."
+    ]
+   }
+  ]
+ },
+ "units": [
+  {
+   "id": "phys12-u1",
+   "number": 1,
+   "title": "Fluid Mechanics",
+   "status": "done",
+   "pages": [
+    1,
+    90
+   ],
+   "tone": "sage",
+   "intro": "A **fluid** is anything that can flow: liquids and gases. Solids keep shape and volume; liquids keep volume but take the container’s shape; gases take both shape and volume and squash easily.",
+   "intro_page": 1,
+   "diagrams": {
+    "f1": {
+     "svg": "svg/physics_12/phys12_f1.svg",
+     "title": "Same water: ice below 0 °C, liquid, steam above 100 °C. Plasma is a fourth, ionised state.",
+     "page": 3,
+     "pins": []
+    },
+    "f2": {
+     "svg": "svg/physics_12/phys12_f2.svg",
+     "title": "Why a sharp knife cuts: same push, tiny area, huge pressure.",
+     "page": 11,
+     "pins": []
+    },
+    "f3": {
+     "svg": "svg/physics_12/phys12_f3.svg",
+     "title": "Gauge pressure is just ρgh. Absolute pressure adds the air sitting on the surface.",
+     "page": 26,
+     "pins": []
+    },
+    "f4": {
+     "svg": "svg/physics_12/phys12_f4.svg",
+     "title": "Hydraulic press / jack / car brake: small force on small piston → large force on large piston.",
+     "page": 60,
+     "pins": []
+    },
+    "f5": {
+     "svg": "svg/physics_12/phys12_f5.svg",
+     "title": "Apparent weight in a liquid = true weight − upthrust. That is the “loss of weight” in the textbook activity.",
+     "page": 70,
+     "pins": []
+    }
+   },
+   "lessons": [
+    {
+     "id": "phys12-u1-l1-1",
+     "number": "1.1",
+     "title": "Fluids",
+     "pages": [
+      2,
+      10
+     ],
+     "cards": [
+      {
+       "id": "phys12-u1-c01",
+       "type": "diagram",
+       "title": "Same water: ice below 0 °C, liquid, steam above 100 °C. Plasma is a fourth, ionised state.",
+       "page": 3,
+       "src": "notes",
+       "diagram": "f1",
+       "mode": "plain"
+      },
+      {
+       "id": "phys12-u1-c02",
+       "type": "text",
+       "title": "1.1.1 States of Matter",
+       "page": 2,
+       "src": "textbook p.2",
+       "enriched": true,
+       "body": [
+        "Matter is anything that has mass and occupies space.",
+        "Solid iron, liquid water and helium gas are examples of different states of matter at room temperature.",
+        "A brick, for example, maintains its familiar shape and size day in and day out.",
+        "Solid materials expand with increasing temperatures, but they retain their shape."
+       ]
+      },
+      {
+       "id": "phys12-u1-c03",
+       "type": "text",
+       "title": "1.1.2 Density and relative density",
+       "page": 4,
+       "src": "notes",
+       "body": [
+        "ρ = m / V unit kg/m³ (or g/cm³). Water: 1000 kg/m³ = 1 g/cm³.",
+        "**Relative density** (specific gravity) = density of substance ÷ density of water. No unit. A RD of 0.8 means “0.8 times as dense as water” — it will float."
+       ]
+      },
+      {
+       "id": "phys12-u1-c04",
+       "type": "mnemonic",
+       "title": "Mnemonic",
+       "page": 8,
+       "src": "notes",
+       "body": [
+        "Density is how *crowded* the mass is. Relative density is a comparison with water — drop the units and compare with 1."
+       ]
+      },
+      {
+       "id": "phys12-u1-c05",
+       "type": "worked",
+       "title": "Exercise A — density",
+       "page": 8,
+       "src": "notes",
+       "problem": "A stone has mass 75 g and volume 25 cm³. Find (i) density in g/cm³ (ii) relative density (iii) whether it sinks in water.",
+       "steps": [
+        {
+         "text": "**Given:** m = 75 g, V = 25 cm³."
+        },
+        {
+         "text": "Water density = 1 g/cm³."
+        },
+        {
+         "text": "**Required:** ρ, RD, sink or float. ρ = m/V = 75 / 25 = **3 g/cm³**."
+        },
+        {
+         "text": "RD = 3 / 1 = **3** (no unit)."
+        },
+        {
+         "text": "RD > 1, so the stone is denser than water → **sinks**."
+        },
+        {
+         "text": "Same density in SI: 3 g/cm³ = 3000 kg/m³."
+        }
+       ],
+       "answer": "Same density in SI: 3 g/cm³ = 3000 kg/m³.",
+       "mode": "show",
+       "reveal": "Show step-by-step"
+      },
+      {
+       "id": "phys12-u1-c06",
+       "type": "text",
+       "title": "1.1.2 Density and Relative Density",
+       "page": 4,
+       "src": "textbook p.4",
+       "enriched": true,
+       "body": [
+        "Aeoroplanes are made chiefly of aluminium alloys.",
+        "Equal masses of iron and wood cubes have an important physical difference.",
+        "The wood takes up more space than the iron.",
+        "The reasons for this difference lie at the atomic and nuclear levels."
+       ]
+      },
+      {
+       "id": "phys12-u1-enrich-steps",
+       "type": "remember",
+       "title": "Study steps",
+       "page": 2,
+       "src": "notes",
+       "body": [
+        "1. Read the key definition cards once without notes.",
+        "2. Cover the examples and say the rule in your own words.",
+        "3. Do the unit exercise; check each why-step before the next question.",
+        "4. Replay the match game until you can finish it without peeking."
+       ]
+      },
+      {
+       "id": "phys12-u1-tblE1",
+       "type": "table",
+       "title": "Key table",
+       "page": 1,
+       "src": "study_notes",
+       "head": [
+        "Material",
+        "Density ($$\\text{kg/m}^3$$)",
+        "Relative Density"
+       ],
+       "rows": [
+        [
+         "Gold",
+         "$$19\\,300$$",
+         "$$19.3$$"
+        ],
+        [
+         "Pure Iron",
+         "$$7850$$",
+         "$$7.85$$"
+        ],
+        [
+         "Mercury",
+         "$$13\\,600$$",
+         "$$13.6$$"
+        ],
+        [
+         "Sea Water",
+         "$$1025$$",
+         "$$1.025$$"
+        ],
+        [
+         "Gasoline",
+         "$$700$$",
+         "$$0.700$$"
+        ]
+       ]
+      },
+      {
+       "id": "phys12-u1-chkE1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Which of the following states of matter possesses neither a definite volume nor a definite shape?",
+       "options": {
+        "A": "Solid",
+        "B": "Liquid",
+        "C": "Gas",
+        "D": "Plasma"
+       },
+       "answer": "C",
+       "why": "**Step 1: Understand physical properties of states of matter**\nSolids have both definite shape and volume. Liquids have definite volume but indefinite shape. Gases have neither definite volume nor definite shape as their intermolecular bonds are extremely weak, permitting free molecular expansion.\n\n**Step 2: Compare with options**\nTherefore, the correct physical state matching the description is **Gas**."
+      },
+      {
+       "id": "phys12-u1-chkE2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Which instrument is specifically designed to measure atmospheric pressure?",
+       "options": {
+        "A": "Thermometer",
+        "B": "Manometer",
+        "C": "Barometer",
+        "D": "Sphygmomanometer"
+       },
+       "answer": "C",
+       "why": "**Step 1: Operational review of pressure instruments**\nA thermometer measures temperature. A manometer measures gauge pressure of a confined gas. A sphygmomanometer measures blood pressure. A barometer is specifically engineered to measure the ambient atmospheric pressure.\n\n**Step 2: Conclusion**\nThus, the correct instrument is the **Barometer**."
+      },
+      {
+       "id": "phys12-u1-chk73",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Which of the following states of matter possesses neither a definite volume nor a definite shape?",
+       "options": {
+        "A": "Solid",
+        "B": "Liquid",
+        "C": "Gas",
+        "D": "Plasma"
+       },
+       "answer": "C",
+       "why": "**Step 1: Understand physical properties of states of matter**\nSolids have both definite shape and volume. Liquids have definite volume but indefinite shape. Gases have neither definite volume nor definite shape as their intermolecular bonds are extremely weak, permitting free molecular expansion.\n\n**Step 2: Compare with options**\nTherefore, the correct physical state matching the description is **Gas**."
+      }
+     ]
+    },
+    {
+     "id": "phys12-u1-l1-2",
+     "number": "1.2",
+     "title": "Pressure",
+     "pages": [
+      11,
+      50
+     ],
+     "cards": [
+      {
+       "id": "phys12-u1-c07",
+       "type": "text",
+       "title": "1.2 Pressure",
+       "page": 11,
+       "src": "notes",
+       "body": [
+        "P = F / A Force must be perpendicular to the area. Unit: N/m² = **pascal (Pa)**. Also used: 1 atm = 1.01 × 10⁵ Pa ≈ 76 cmHg."
+       ]
+      },
+      {
+       "id": "phys12-u1-c08",
+       "type": "diagram",
+       "title": "Why a sharp knife cuts: same push, tiny area, huge pressure.",
+       "page": 11,
+       "src": "notes",
+       "diagram": "f2",
+       "mode": "plain"
+      },
+      {
+       "id": "phys12-u1-c09",
+       "type": "text",
+       "title": "Liquid pressure",
+       "page": 20,
+       "src": "notes",
+       "body": [
+        "At depth h in a liquid of density ρ:",
+        "P = ρ g h",
+        "Depends only on depth and density — not on the shape of the container. Same depth → same pressure (that is why dam walls are thicker at the bottom).",
+        "Absolute pressure under the atmosphere:",
+        "P = Pₐₜₘ + ρ g h"
+       ]
+      },
+      {
+       "id": "phys12-u1-c10",
+       "type": "diagram",
+       "title": "Gauge pressure is just ρgh. Absolute pressure adds the air sitting on the surface.",
+       "page": 26,
+       "src": "notes",
+       "diagram": "f3",
+       "mode": "plain"
+      },
+      {
+       "id": "phys12-u1-c11",
+       "type": "mnemonic",
+       "title": "Mnemonic — deeper, denser, heavier air",
+       "page": 22,
+       "src": "notes",
+       "body": [
+        "Pressure grows with *ρ*, *g* and *h*. Double the depth, double the liquid pressure. Salt water (bigger ρ) presses harder than fresh water at the same depth."
+       ]
+      },
+      {
+       "id": "phys12-u1-c12",
+       "type": "worked",
+       "title": "Exercise B — liquid pressure",
+       "page": 26,
+       "src": "notes",
+       "problem": "Find the pressure due to sea water (ρ = 1030 kg/m³) at 12 m. Take g = 10 N/kg. Then find the absolute pressure if Pₐₜₘ = 1.01 × 10⁵ Pa.",
+       "steps": [
+        {
+         "text": "**Given:** ρ = 1030 kg/m³, h = 12 m, g = 10 N/kg, Pₐₜₘ = 1.01 × 10⁵ Pa."
+        },
+        {
+         "text": "**Required:** P_liquid and P_absolute."
+        },
+        {
+         "text": "Write the formula that matches “pressure due to the liquid only”: P = ρgh."
+        },
+        {
+         "text": "Substitute: P = 1030 × 10 × 12. 1030 × 10 = 10 300."
+        },
+        {
+         "text": "Then × 12 = **1.236 × 10⁵ Pa** (123.6 kPa)."
+        },
+        {
+         "text": "Absolute: P_abs = Pₐₜₘ + ρgh = 1.01×10⁵ + 1.236×10⁵ = **2.246 × 10⁵ Pa**."
+        },
+        {
+         "text": "Common slip: forgetting to add Pₐₜₘ when the question says “total / absolute / actual pressure”."
+        }
+       ],
+       "answer": "Common slip: forgetting to add Pₐₜₘ when the question says “total / absolute / actual pressure”.",
+       "mode": "show",
+       "reveal": "Show step-by-step"
+      },
+      {
+       "id": "phys12-u1-c13",
+       "type": "text",
+       "title": "Atmospheric pressure & applications",
+       "page": 28,
+       "src": "notes",
+       "body": [
+        "Air has weight, so it presses. A mercury barometer supports about 76 cm of Hg. Manometers (U-tubes) compare an unknown pressure with the atmosphere using a liquid column ρgh.",
+        "Everyday uses in the book: drinking with a straw (you lower pressure in your mouth; atmosphere pushes the drink up), syringes, siphons, pumps, dam design, hydraulic machines."
+       ]
+      },
+      {
+       "id": "phys12-u1-c14",
+       "type": "text",
+       "title": "1.2.1 Pressure and its Units",
+       "page": 11,
+       "src": "textbook pp.11–12",
+       "enriched": true,
+       "body": [
+        "A learner standing on his feet on the ground experiences pressure due to his weight on the ground.",
+        "The total force due to the weight of the learner remains the same but the pressure varies when the learner stands on one foot to when the learner stands on both feet.",
+        "The SI unit of pressure is newton per square metre (N/m²).",
+        "A block (a cuboid of mass with three different dimensions), a ruler and a spring balance."
+       ]
+      },
+      {
+       "id": "phys12-u1-c15",
+       "type": "text",
+       "title": "1.2.2 Liquid Pressure",
+       "page": 15,
+       "src": "textbook pp.15–16",
+       "enriched": true,
+       "body": [
+        "A learner filled water in a plastic bag.",
+        "Using a pin the learner poked several holes in the plastic while squeezing the bag gently.",
+        "Alternatively, the pressure at any point in a liquid acts in all directions.",
+        "If pressure is exerted on the rubber by hand, the air inside is compressed and pushes up the water in the U-tube."
+       ]
+      },
+      {
+       "id": "phys12-u1-c16",
+       "type": "text",
+       "title": "1.2.3 Atmospheric Pressure",
+       "page": 32,
+       "src": "textbook pp.32–33",
+       "enriched": true,
+       "body": [
+        "The force on 1000 square centimeters is about a ton!",
+        "Although air molecules are invisible, they still have weight and take up space.",
+        "Since there’s a lot of “empty” space between air molecules, air can be compressed to fit into a smaller volume.",
+        "When it’s compressed, air is said to be under high pressure."
+       ]
+      },
+      {
+       "id": "phys12-u1-c17",
+       "type": "text",
+       "title": "1.2.4 Applications of Liquid and Atmospheric Pressure",
+       "page": 44,
+       "src": "textbook p.44",
+       "enriched": true,
+       "body": [
+        "The syringe and the rubber sucker function by means of atmospheric pressure.",
+        "A rubber sucker is a circular device with a concave surface.",
+        "When pressed flat against a smooth surface, such as glass, the natural spring of the rubber will try to regain the concave shape, but air pressure will force the surface to remain flattened against the glass for as long as there is no air leak to the underside.",
+        "Rubber suckers operate by atmospheric pressure."
+       ]
+      },
+      {
+       "id": "phys12-u1-chk74",
+       "type": "check",
+       "title": "Quick check",
+       "page": 11,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q4",
+       "q": "The value of standard atmospheric pressure at sea level is equivalent to which of the following?",
+       "options": {
+        "A": "$$1.013 \\times 10^5\\, \\text{Pa}$$",
+        "B": "$$1.013 \\times 10^3\\, \\text{Pa}$$",
+        "C": "$$760\\, \\text{Pa}$$",
+        "D": "$$100\\, \\text{Pa}$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Standard constants**\nStandard atmospheric pressure ($$P_{\\text{atm}}$$) at sea level is defined by international conventions to be exactly $$1\\, \\text{atm}$$.\n\n**Step 2: Conversion to SI units**\n$$1\\, \\text{atm} = 1.01325 \\times 10^5\\, \\text{N/m}^2 = 1.013 \\times 10^5\\, \\text{Pa}$$.\nTherefore, the correct option is **$$1.013 \\times 10^5\\, \\text{Pa}$$**."
+      },
+      {
+       "id": "phys12-u1-wrk1",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 11,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q4",
+       "problem": "The value of standard atmospheric pressure at sea level is equivalent to which of the following?",
+       "steps": [
+        {
+         "text": "**Step 1: Standard constants**"
+        },
+        {
+         "text": "Standard atmospheric pressure ($$P_{\\text{atm}}$$) at sea level is defined by international conventions to be exactly $$1\\, \\text{atm}$$."
+        },
+        {
+         "text": "**Step 2: Conversion to SI units**"
+        },
+        {
+         "text": "$$1\\, \\text{atm} = 1.01325 \\times 10^5\\, \\text{N/m}^2 = 1.013 \\times 10^5\\, \\text{Pa}$$."
+        },
+        {
+         "text": "Therefore, the correct option is **$$1.013 \\times 10^5\\, \\text{Pa}$$**."
+        }
+       ],
+       "answer": "A. $$1.013 \\times 10^5\\, \\text{Pa}$$"
+      },
+      {
+       "id": "phys12-u1-chk75",
+       "type": "check",
+       "title": "Quick check",
+       "page": 11,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q5",
+       "q": "Which physical principle states that any change in pressure applied to an enclosed fluid is transmitted undiminished to all portions of the fluid?",
+       "options": {
+        "A": "Archimedes' Principle",
+        "B": "Pascal's Principle",
+        "C": "Bernoulli's Principle",
+        "D": "Newton's Third Law"
+       },
+       "answer": "B",
+       "why": "**Step 1: Analyze statement definitions**\nArchimedes' principle concerns buoyancy. Bernoulli's principle relates fluid speed to pressure in dynamic systems. Pascal's Principle explicitly defines the transmission of static pressure changes in enclosed, incompressible fluids.\n\n**Step 2: Match principle**\nThus, the principle defined in the question is **Pascal's Principle**."
+      },
+      {
+       "id": "phys12-u1-wrk2",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 11,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q5",
+       "problem": "Which physical principle states that any change in pressure applied to an enclosed fluid is transmitted undiminished to all portions of the fluid?",
+       "steps": [
+        {
+         "text": "**Step 1: Analyze statement definitions**"
+        },
+        {
+         "text": "Archimedes' principle concerns buoyancy. Bernoulli's principle relates fluid speed to pressure in dynamic systems. Pascal's Principle explicitly defines the transmission of static pressure changes in enclosed, incompressible fluids."
+        },
+        {
+         "text": "**Step 2: Match principle**"
+        },
+        {
+         "text": "Thus, the principle defined in the question is **Pascal's Principle**."
+        }
+       ],
+       "answer": "B. Pascal's Principle"
+      }
+     ]
+    },
+    {
+     "id": "phys12-u1-l1-3",
+     "number": "1.3",
+     "title": "Pascal’s Principle",
+     "pages": [
+      51,
+      64
+     ],
+     "cards": [
+      {
+       "id": "phys12-u1-c18",
+       "type": "text",
+       "title": "1.3 Pascal’s principle",
+       "page": 51,
+       "src": "notes",
+       "body": [
+        "A change of pressure applied to an enclosed fluid is transmitted undiminished to every part of the fluid and to the walls.",
+        "F₁ / A₁ = F₂ / A₂ ⇒ F₂ = F₁ (A₂ / A₁)"
+       ]
+      },
+      {
+       "id": "phys12-u1-c19",
+       "type": "diagram",
+       "title": "Hydraulic press / jack / car brake: small force on small piston → large force on large piston.",
+       "page": 60,
+       "src": "notes",
+       "diagram": "f4",
+       "mode": "plain"
+      },
+      {
+       "id": "phys12-u1-c20",
+       "type": "mnemonic",
+       "title": "Trade-off",
+       "page": 57,
+       "src": "notes",
+       "body": [
+        "You multiply force, but the small piston must travel farther. Work in ≈ work out if we ignore friction."
+       ]
+      },
+      {
+       "id": "phys12-u1-c21",
+       "type": "worked",
+       "title": "Exercise C — hydraulic jack",
+       "page": 60,
+       "src": "notes",
+       "problem": "A driver presses with 40 N on a piston of area 5 cm². The car sits on a piston of area 400 cm². What force lifts the car?",
+       "steps": [
+        {
+         "text": "**Given:** F₁ = 40 N, A₁ = 5 cm², A₂ = 400 cm²."
+        },
+        {
+         "text": "**Required:** F₂."
+        },
+        {
+         "text": "Pascal: pressure is equal, so F₁/A₁ = F₂/A₂."
+        },
+        {
+         "text": "Areas can stay in cm² — the ratio A₂/A₁ is the same in any unit as long as both match."
+        },
+        {
+         "text": "A₂/A₁ = 400 / 5 = 80."
+        },
+        {
+         "text": "F₂ = 40 × 80 = **3200 N**."
+        },
+        {
+         "text": "The jack multiplies the force 80 times."
+        },
+        {
+         "text": "The car’s weight that can be held is 3200 N (about 320 kg-force if g = 10)."
+        }
+       ],
+       "answer": "The car’s weight that can be held is 3200 N (about 320 kg-force if g = 10).",
+       "mode": "show",
+       "reveal": "Show step-by-step"
+      },
+      {
+       "id": "phys12-u1-c22",
+       "type": "remember",
+       "title": "Rule",
+       "page": 51,
+       "src": "notes",
+       "body": [
+        "Pascal: F₁/A₁ = F₂/A₂ · Archimedes: F_B = ρVg · An object floats when W = F_B."
+       ]
+      },
+      {
+       "id": "phys12-u1-c23",
+       "type": "text",
+       "title": "1.3.1 Applications of Pascal’s Principle",
+       "page": 55,
+       "src": "textbook p.55",
+       "enriched": true,
+       "body": [
+        "Pascal’s principle became the basis for one of the most important machines ever developed, that is the hydraulic lift (press).",
+        "A simple hydraulic lift of the variety used to raise a car in an auto shop typically consists of two large cylinders side by side.",
+        "Valves control the flow of the fluid between the two cylinders.",
+        "When a person applies force by pressing down the piston in one cylinder (the input cylinder), this yields a uniform pressure that causes output in the second cylinder, pushing up a piston that raises the car."
+       ]
+      },
+      {
+       "id": "phys12-u1-chk76",
+       "type": "check",
+       "title": "Quick check",
+       "page": 51,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q6",
+       "q": "The magnitude of the buoyant force acting on a submerged object is always equal to:",
+       "options": {
+        "A": "The weight of the submerged object",
+        "B": "The volume of the submerged object",
+        "C": "The weight of the fluid displaced by the object",
+        "D": "The volume of the fluid displaced by the object"
+       },
+       "answer": "C",
+       "why": "**Step 1: Apply Archimedes' Principle**\nArchimedes' principle states that the buoyant force on a submerged body is equal in magnitude to the gravitational weight of the volume of fluid that the body displaces ($$F_B = m_f g = \\rho_f V_f g$$).\n\n**Step 2: Select option**\nHence, the correct answer is **The weight of the fluid displaced by the object**."
+      },
+      {
+       "id": "phys12-u1-wrk3",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 51,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q6",
+       "problem": "The magnitude of the buoyant force acting on a submerged object is always equal to:",
+       "steps": [
+        {
+         "text": "**Step 1: Apply Archimedes' Principle**"
+        },
+        {
+         "text": "Archimedes' principle states that the buoyant force on a submerged body is equal in magnitude to the gravitational weight of the volume of fluid that the body displaces ($$F_B = m_f g = \\rho_f V_f g$$)."
+        },
+        {
+         "text": "**Step 2: Select option**"
+        },
+        {
+         "text": "Hence, the correct answer is **The weight of the fluid displaced by the object**."
+        }
+       ],
+       "answer": "C. The weight of the fluid displaced by the object"
+      },
+      {
+       "id": "phys12-u1-chk77",
+       "type": "check",
+       "title": "Quick check",
+       "page": 51,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q7",
+       "q": "For an object to float on the surface of a liquid, its average density must be:",
+       "options": {
+        "A": "Greater than the density of the liquid",
+        "B": "Equal to or less than the density of the liquid",
+        "C": "Exactly twice the density of the liquid",
+        "D": "Completely independent of the density of the liquid"
+       },
+       "answer": "B",
+       "why": "**Step 1: Formulate flotation requirements**\nFor flotation, the static vertical forces must be balanced ($$F_B = W$$). This mathematically requires:\n$$\\frac{V_f}{V_o} = \\frac{\\rho_o}{\\rho_f} \\le 1.0$$\n\n**Step 2: Deduce density constraints**\nThis ratio is only valid and stable at or near the surface if the object's average density ($$\\rho_o$$) is **equal to or less than the density of the liquid ($$\\rho_f$$)**."
+      },
+      {
+       "id": "phys12-u1-wrk4",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 51,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q7",
+       "problem": "For an object to float on the surface of a liquid, its average density must be:",
+       "steps": [
+        {
+         "text": "**Step 1: Formulate flotation requirements**"
+        },
+        {
+         "text": "For flotation, the static vertical forces must be balanced ($$F_B = W$$). This mathematically requires:"
+        },
+        {
+         "text": "$$\\frac{V_f}{V_o} = \\frac{\\rho_o}{\\rho_f} \\le 1.0$$"
+        },
+        {
+         "text": "**Step 2: Deduce density constraints**"
+        },
+        {
+         "text": "This ratio is only valid and stable at or near the surface if the object's average density ($$\\rho_o$$) is **equal to or less than the density of the liquid ($$\\rho_f$$)**."
+        }
+       ],
+       "answer": "B. Equal to or less than the density of the liquid"
+      }
+     ]
+    },
+    {
+     "id": "phys12-u1-l1-4",
+     "number": "1.4",
+     "title": "Buoyancy and Archimedes’ Principle",
+     "pages": [
+      65,
+      76
+     ],
+     "cards": [
+      {
+       "id": "phys12-u1-c24",
+       "type": "text",
+       "title": "1.4 Buoyancy and Archimedes’ Principle",
+       "page": 65,
+       "src": "textbook pp.65–70",
+       "enriched": true,
+       "body": [
+        "The arrows show two vertical pressures that act on the submersed log.",
+        "An object placed in a fluid is buoyed up by the fluid.",
+        "Solution: Objects submerged in a fluid have buoyant force acting on them and FB = Weight of a fluid displaced.",
+        "When the object A is totally submersed in the liquid, the spring balance reading (Fig. 1.39) is less than the true weight because the liquid pushes upwards (or exerts an upthrust) on A.",
+        "The reading of 0.9 N in Fig. 1.39 is known as the“apparent weight” of A in the liquid."
+       ]
+      },
+      {
+       "id": "phys12-u1-c25",
+       "type": "text",
+       "title": "1.4–1.5 Buoyancy, Archimedes, flotation",
+       "page": 65,
+       "src": "notes",
+       "body": [
+        "**Upthrust** (buoyant force) is the upward force a fluid exerts on a body. It exists because pressure on the bottom face is larger than on the top face (greater depth).",
+        "**Archimedes’ principle:** upthrust = weight of fluid displaced.",
+        "F_B = ρ_fluid × V_displaced × g"
+       ]
+      },
+      {
+       "id": "phys12-u1-c26",
+       "type": "diagram",
+       "title": "Apparent weight in a liquid = true weight − upthrust. That is the “loss of weight” in the textbook activity.",
+       "page": 70,
+       "src": "notes",
+       "diagram": "f5",
+       "mode": "plain"
+      },
+      {
+       "id": "phys12-u1-c27",
+       "type": "text",
+       "title": "1.4–1.5 Buoyancy, Archimedes, flotation",
+       "page": 65,
+       "src": "notes",
+       "body": [
+        "**Principle of flotation:** a floating object displaces its own weight of fluid. Ships are hollow steel — large V_displaced so F_B can equal the ship’s weight."
+       ]
+      },
+      {
+       "id": "phys12-u1-c28",
+       "type": "mnemonic",
+       "title": "RD test",
+       "page": 73,
+       "src": "notes",
+       "body": [
+        "RD < 1 floats on water. RD = 1 hangs anywhere in the water. RD > 1 sinks. Ice RD ≈ 0.92, so about 8% sticks out — the famous iceberg tip."
+       ]
+      },
+      {
+       "id": "phys12-u1-c29",
+       "type": "worked",
+       "title": "Exercise D — upthrust",
+       "page": 74,
+       "src": "notes",
+       "problem": "A cube of side 0.10 m and mass 1.2 kg hangs fully under water (ρ = 1000 kg/m³). Find the upthrust and the apparent weight. g = 10 N/kg.",
+       "steps": [
+        {
+         "text": "**Given:** side = 0.10 m, m = 1.2 kg, ρ_water = 1000 kg/m³, fully immersed, g = 10."
+        },
+        {
+         "text": "**Required:** F_B and apparent weight."
+        },
+        {
+         "text": "Volume of cube = 0.10³ = 0.001 m³."
+        },
+        {
+         "text": "Fully under → V_displaced = 0.001 m³."
+        },
+        {
+         "text": "True weight W = mg = 1.2 × 10 = 12 N."
+        },
+        {
+         "text": "F_B = ρ V g = 1000 × 0.001 × 10 = **10 N**."
+        },
+        {
+         "text": "Apparent weight = W − F_B = 12 − 10 = **2 N**."
+        },
+        {
+         "text": "Check with RD: density of cube = 1.2 / 0.001 = 1200 kg/m³ → RD = 1.2 > 1, so it would sink if not held."
+        },
+        {
+         "text": "Matches a leftover downward force of 2 N."
+        }
+       ],
+       "answer": "Matches a leftover downward force of 2 N.",
+       "mode": "show",
+       "reveal": "Show step-by-step"
+      },
+      {
+       "id": "phys12-u1-chk78",
+       "type": "check",
+       "title": "Quick check",
+       "page": 65,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q8",
+       "q": "What is the relative density of pure water at $$4^\\circ\\text{C}$$?",
+       "options": {
+        "A": "$$1000$$",
+        "B": "$$1.0$$",
+        "C": "$$10.0$$",
+        "D": "$$0.1$$"
+       },
+       "answer": "B",
+       "why": "**Step 1: Analyze relative density formula**\n$$\\text{Relative Density} = \\frac{\\rho_{\\text{substance}}}{\\rho_{\\text{water}}}$$\n\n**Step 2: Substitute for pure water**\nFor pure water at $$4^\\circ\\text{C}$$, the substance is water itself:\n$$\\text{Relative Density} = \\frac{\\rho_{\\text{water}}}{\\rho_{\\text{water}}} = 1.0$$\nThus, the relative density of pure water is **$$1.0$$**."
+      },
+      {
+       "id": "phys12-u1-wrk5",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 65,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q8",
+       "problem": "What is the relative density of pure water at $$4^\\circ\\text{C}$$?",
+       "steps": [
+        {
+         "text": "**Step 1: Analyze relative density formula**"
+        },
+        {
+         "text": "$$\\text{Relative Density} = \\frac{\\rho_{\\text{substance}}}{\\rho_{\\text{water}}}$$"
+        },
+        {
+         "text": "**Step 2: Substitute for pure water**"
+        },
+        {
+         "text": "For pure water at $$4^\\circ\\text{C}$$, the substance is water itself:"
+        },
+        {
+         "text": "$$\\text{Relative Density} = \\frac{\\rho_{\\text{water}}}{\\rho_{\\text{water}}} = 1.0$$"
+        },
+        {
+         "text": "Thus, the relative density of pure water is **$$1.0$$**."
+        }
+       ],
+       "answer": "B. $$1.0$$"
+      },
+      {
+       "id": "phys12-u1-chk79",
+       "type": "check",
+       "title": "Quick check",
+       "page": 65,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q10",
+       "q": "As depth in a static fluid increases, the hydrostatic pressure within the fluid:",
+       "options": {
+        "A": "Decreases exponentially",
+        "B": "Increases linearly",
+        "C": "Remains constant",
+        "D": "Decreases linearly"
+       },
+       "answer": "B",
+       "why": "**Step 1: Write hydrostatic pressure formula**\n$$P = \\rho g h$$\n\n**Step 2: Determine proportionality**\nSince fluid density ($$\\rho$$) and gravitational acceleration ($$g$$) are constant, pressure $$P$$ is directly proportional to depth $$h$$. Thus, pressure **increases linearly** with depth."
+      },
+      {
+       "id": "phys12-u1-wrk6",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 65,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q10",
+       "problem": "As depth in a static fluid increases, the hydrostatic pressure within the fluid:",
+       "steps": [
+        {
+         "text": "**Step 1: Write hydrostatic pressure formula**"
+        },
+        {
+         "text": "$$P = \\rho g h$$"
+        },
+        {
+         "text": "**Step 2: Determine proportionality**"
+        },
+        {
+         "text": "Since fluid density ($$\\rho$$) and gravitational acceleration ($$g$$) are constant, pressure $$P$$ is directly proportional to depth $$h$$. Thus, pressure **increases linearly** with depth."
+        }
+       ],
+       "answer": "B. Increases linearly"
+      }
+     ]
+    },
+    {
+     "id": "phys12-u1-l1-5",
+     "number": "1.5",
+     "title": "Principle of Flotation",
+     "pages": [
+      77,
+      90
+     ],
+     "cards": [
+      {
+       "id": "phys12-u1-c30",
+       "type": "text",
+       "title": "1.5 Principle of Flotation",
+       "page": 79,
+       "src": "textbook pp.79–81",
+       "enriched": true,
+       "body": [
+        "Fmin = wf - wo = 1.96 N – 0.98 N = 0.98 N So a minimum of 0.98 N force is needed to submerge the block completely.",
+        "If the balloon together with its gondola has a mass of M, and the hydrogen has a mass of m, the total mass of the balloon is (M + m).",
+        "Notice that the air in the upper atmosphere is less dense than the air near the ground.",
+        "A balloon’s fabric and its gondola have a total mass of 400 kg and hydrogen has a mass of 50 kg.",
+        "When the balloon is filled, it contains 500 m³ of hydrogen."
+       ]
+      },
+      {
+       "id": "phys12-u1-chk80",
+       "type": "check",
+       "title": "Quick check",
+       "page": 77,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q11",
+       "q": "Why do our ears pop when we climb high mountains?",
+       "options": {
+        "A": "The temperature decreases rapidly, compressing the eardrum",
+        "B": "The external atmospheric pressure decreases below the internal ear pressure",
+        "C": "The internal fluid density of the ear decreases",
+        "D": "The gravitational force pulling on the ear increases"
+       },
+       "answer": "B",
+       "why": "**Step 1: Analyze physical processes at altitude**\nAs altitude increases, atmospheric density and pressure drop exponentially.\n\n**Step 2: Relate to inner ear pressure**\nThe air trapped inside the middle ear remains initially at the higher sea-level pressure. The imbalance (internal pressure > external atmospheric pressure) forces the eardrum outward until air escapes through the Eustachian tube, creating a \"popping\" sensation to restore equilibrium. Thus, the correct option is **The external atmospheric pressure decreases below the internal ear pressure**."
+      },
+      {
+       "id": "phys12-u1-wrk7",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 77,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q11",
+       "problem": "Why do our ears pop when we climb high mountains?",
+       "steps": [
+        {
+         "text": "**Step 1: Analyze physical processes at altitude**"
+        },
+        {
+         "text": "As altitude increases, atmospheric density and pressure drop exponentially."
+        },
+        {
+         "text": "**Step 2: Relate to inner ear pressure**"
+        },
+        {
+         "text": "The air trapped inside the middle ear remains initially at the higher sea-level pressure. The imbalance (internal pressure > external atmospheric pressure) forces the eardrum outward until air escapes through the Eustachian tube, creating a \"popping\" sensation to restore equilibrium. Thus, the correct option is **The external atmospheric pressure decreases below the internal ear pressure**."
+        }
+       ],
+       "answer": "B. The external atmospheric pressure decreases below the internal ear pressure"
+      },
+      {
+       "id": "phys12-u1-chk81",
+       "type": "check",
+       "title": "Quick check",
+       "page": 77,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q12",
+       "q": "A fully submerged stone sinks deeper into a deep pool of fresh water. What happens to the buoyant force acting on it?",
+       "options": {
+        "A": "It increases linearly with depth",
+        "B": "It decreases as pressure increases",
+        "C": "It remains virtually constant",
+        "D": "It drops to zero at extreme depths"
+       },
+       "answer": "C",
+       "why": "**Step 1: Analyze the variables in buoyant force formula**\n$$F_B = \\rho_f V_o g$$\n\n**Step 2: Evaluate constants**\nWater density ($$\\rho_f$$) is essentially constant because liquids are highly incompressible. The volume of the submerged stone ($$V_o$$) and gravity ($$g$$) are constant. Therefore, the buoyant force **remains virtually constant** regardless of depth."
+      },
+      {
+       "id": "phys12-u1-wrk8",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 77,
+       "src": "study_notes",
+       "src_qid": "physics_g12_u1_q12",
+       "problem": "A fully submerged stone sinks deeper into a deep pool of fresh water. What happens to the buoyant force acting on it?",
+       "steps": [
+        {
+         "text": "**Step 1: Analyze the variables in buoyant force formula**"
+        },
+        {
+         "text": "$$F_B = \\rho_f V_o g$$"
+        },
+        {
+         "text": "**Step 2: Evaluate constants**"
+        },
+        {
+         "text": "Water density ($$\\rho_f$$) is essentially constant because liquids are highly incompressible. The volume of the submerged stone ($$V_o$$) and gravity ($$g$$) are constant. Therefore, the buoyant force **remains virtually constant** regardless of depth."
+        }
+       ],
+       "answer": "C. It remains virtually constant"
+      }
+     ]
+    }
+   ],
+   "glossary": [
+    {
+     "term": "Relative density",
+     "meaning": "Density of substance ÷ density of water.",
+     "page": 4,
+     "src": "notes"
+    },
+    {
+     "term": "Upthrust",
+     "meaning": "The upward force a fluid exerts on a body.",
+     "page": 65,
+     "src": "notes"
+    },
+    {
+     "term": "Density",
+     "meaning": "Density is a physical property of matter, as each element and compound has a unique density associated with it.",
+     "page": 4,
+     "src": "textbook p.4",
+     "enriched": true
+    },
+    {
+     "term": "Solid",
+     "meaning": "Solid is the state in which matter maintains a fixed volume and shape; liquid is the state in which matter maintains a fixed volume but takes the shape of its container; and gas is the state in which matter expands to occupy whatever volume is available.",
+     "page": 10,
+     "src": "textbook p.10",
+     "enriched": true
+    }
+   ],
+   "tips": [
+    {
+     "text": "There are three accepted states of matter: solid, liquid and gas.",
+     "page": 10,
+     "src": "textbook p.10",
+     "enriched": true
+    },
+    {
+     "text": "Solid is the state in which matter maintains a fixed volume and shape; liquid is the state in which matter maintains a fixed volume but takes the shape of its container; and gas is the state in which matter expands to occupy whatever volume is available.",
+     "page": 10,
+     "src": "textbook p.10",
+     "enriched": true
+    },
+    {
+     "text": "Solids are not easily compressible and do not flow easily.",
+     "page": 10,
+     "src": "textbook p.10",
+     "enriched": true
+    },
+    {
+     "text": "Liquids are not easily compressible but flow easily.",
+     "page": 10,
+     "src": "textbook p.10",
+     "enriched": true
+    },
+    {
+     "text": "As the energy of the moving molecules overcomes the molecular forces of attraction, the material will change its state from solid to liquid to gas.",
+     "page": 10,
+     "src": "textbook p.10",
+     "enriched": true
+    },
+    {
+     "text": "Solid iron, liquid water and helium gas are examples of different states of matter at room temperature.",
+     "page": 10,
+     "src": "textbook p.10",
+     "enriched": true
+    },
+    {
+     "text": "The density of a substance is the total mass of the substance divided by its volume.",
+     "page": 10,
+     "src": "textbook p.10",
+     "enriched": true
+    },
+    {
+     "text": "A concept related to density is the relative density (or specific gravity) of a material, which is the ratio of the material’s density to the density of water.",
+     "page": 10,
+     "src": "textbook p.10",
+     "enriched": true
+    },
+    {
+     "text": "Relative density is a dimensionless quantity.",
+     "page": 10,
+     "src": "textbook p.10",
+     "enriched": true
+    },
+    {
+     "text": "The density of any substance in grams per cubic centimetre is identical with the relative density; its density in kilograms per cubic metre is 1000 times its relative density.",
+     "page": 10,
+     "src": "textbook p.10",
+     "enriched": true
+    },
+    {
+     "text": "Pascal: F₁/A₁ = F₂/A₂ · Archimedes: F_B = ρVg · An object floats when W = F_B.",
+     "page": 51,
+     "src": "notes",
+     "card": "phys12-u1-c22"
+    }
+   ],
+   "games": [
+    {
+     "type": "match",
+     "title": "Match each key word to its meaning",
+     "pairs": [
+      {
+       "a": "Relative density",
+       "b": "Density of substance ÷ density of water."
+      },
+      {
+       "a": "Upthrust",
+       "b": "The upward force a fluid exerts on a body."
+      },
+      {
+       "a": "Density",
+       "b": "Density is a physical property of matter, as each element and compound has a unique density associated with…"
+      },
+      {
+       "a": "Solid",
+       "b": "Solid is the state in which matter maintains a fixed volume and shape; liquid is the state in which matter…"
+      }
+     ],
+     "src": "glossary",
+     "id": "phys12-u1-g1",
+     "lesson": null
+    },
+    {
+     "type": "tf",
+     "title": "True or false?",
+     "seconds": 12,
+     "items": [
+      {
+       "text": "Relative density: Density of substance ÷ density of water.",
+       "answer": true,
+       "why": "Correct (p.4)."
+      },
+      {
+       "text": "Upthrust: Density of substance ÷ density of water.",
+       "answer": false,
+       "why": "That describes Relative density. Upthrust: The upward force a fluid exerts on a body."
+      },
+      {
+       "text": "Density: Density is a physical property of matter, as each element and compound has a unique density associated with it.",
+       "answer": true,
+       "why": "Correct (p.4)."
+      },
+      {
+       "text": "Solid: Density is a physical property of matter, as each element and compound has a unique density associated with it.",
+       "answer": false,
+       "why": "That describes Density. Solid: Solid is the state in which matter maintains a fixed volume and shape; liquid is the state in which matter maintains a fixed volume but takes the shape of its…"
+      }
+     ],
+     "src": "glossary",
+     "id": "phys12-u1-g2",
+     "lesson": null
+    },
+    {
+     "type": "flash",
+     "title": "Key word flash cards",
+     "cards": [
+      {
+       "front": "Relative density",
+       "back": "Density of substance ÷ density of water."
+      },
+      {
+       "front": "Upthrust",
+       "back": "The upward force a fluid exerts on a body."
+      },
+      {
+       "front": "Density",
+       "back": "Density is a physical property of matter, as each element and compound has a unique density associated with it."
+      },
+      {
+       "front": "Solid",
+       "back": "Solid is the state in which matter maintains a fixed volume and shape; liquid is the state in which matter maintains a fixed volume but takes the shape of its container; and gas is the state in which matter expands to…"
+      }
+     ],
+     "src": "glossary",
+     "id": "phys12-u1-g3",
+     "lesson": null
+    },
+    {
+     "type": "match",
+     "title": "Match key terms",
+     "pairs": [
+      {
+       "a": "Fluids",
+       "b": "are defined as substances that can flow and conform to the boundaries of their containers because they cannot withstand shearing forces at rest."
+      },
+      {
+       "a": "💡 Did You Know?",
+       "b": "Aerospace engineers prefer high-strength aluminium alloys over steel for aircraft construction because aluminium has a density of only $$2700\\, \\text{kg/m}^3$$ compared to steel's $$7800\\, \\text{kg/m}^3$$, significantly minimizing structural mass while maintaining safety."
+      },
+      {
+       "a": "🧠 Pro-Tip",
+       "b": "To convert a density value from $$\\text{g/cm}^3$$ to the SI unit $$\\text{kg/m}^3$$, simply multiply by $$1000$$"
+      },
+      {
+       "a": "Pressure",
+       "b": "($$P$$) is defined as the magnitude of the normal force ($$F$$) acting per unit surface area ($$A$$): $$P = \\frac{F}{A}$$."
+      },
+      {
+       "a": "Pascal's Principle",
+       "b": "states that any change in pressure applied to an enclosed, incompressible fluid is transmitted undiminished to every portion of the fluid and to the walls of its container."
+      },
+      {
+       "a": "Buoyancy",
+       "b": "is the net upward force exerted on an object placed in a fluid, arising from the difference in hydrostatic pressure between the top and bottom of the object."
+      }
+     ],
+     "src": "study_notes",
+     "id": "phys12-u1-g-drive7",
+     "lesson": null
+    }
+   ],
+   "exercise": {
+    "questions": [
+     {
+      "type": "mcq",
+      "q": "SI unit of pressure?",
+      "options": {
+       "A": "Newton",
+       "B": "Pascal (N/m²)",
+       "C": "Joule",
+       "D": "Watt"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: Pascal (N/m²)",
+       "Textbook p.11: The SI unit of pressure is newton per square metre (N/m²)."
+      ],
+      "src": "notes",
+      "page": 1,
+      "why_src": "textbook p.11",
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "Pressure is the force per unit  A) volume.  B) surface area.  C) length.  D) depth.  E) kilogram.",
+        "a": "B. surface area. — Answer: B.",
+        "exam_question": "gensci-2020-matric-p1-q70"
+       }
+      ],
+      "id": "phys12-u1-q01",
+      "section": "Tap quiz — then open the steps"
+     },
+     {
+      "type": "mcq",
+      "q": "What does liquid pressure at a point depend on?",
+      "options": {
+       "A": "Shape of the container only",
+       "B": "Surface area of the liquid only",
+       "C": "Depth and density (and g)",
+       "D": "Mass of the whole lake only"
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: Depth and density (and g)",
+       "Textbook p.68: The pressure on the cylinder depends on its depth, h."
+      ],
+      "src": "notes",
+      "page": 20,
+      "why_src": "textbook p.68",
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "A 2.5 m difference in depth between any two points in a liquid of density 2.6 g/cm³ corresponds to a pressure difference of ___ kPa between the points. [g = 10 m/s²]  A) 86.4  B) 65.0  C) 78.6  D) 56.4  E) 47.8",
+        "a": "B. 65.0 — ρ = 2.6 g/cm³ = 2600 kg/m³. Δp = ρ g Δh (G12 pp.15–20) = 2600 × 10 × 2.5 = 65 000 Pa = 65.0 kPa. Answer: B.",
+        "exam_question": "gensci-2020-matric-p1-q99"
+       }
+      ],
+      "id": "phys12-u1-q02"
+     },
+     {
+      "type": "mcq",
+      "q": "How much water does a floating boat displace?",
+      "options": {
+       "A": "Its own weight of water",
+       "B": "Its own volume of water always",
+       "C": "No water if it is steel",
+       "D": "Air equal to its cabin size"
+      },
+      "answer": "A",
+      "why": [
+       "Answer A: Its own weight of water",
+       "Textbook p.76: C. the weight of the water the boat displaces is greater than the buoyant force on the boat."
+      ],
+      "src": "notes",
+      "page": 82,
+      "why_src": "textbook p.76",
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "____ : Density of substance ÷ density of water.",
+        "a": "Relative density"
+       }
+      ],
+      "id": "phys12-u1-q03"
+     },
+     {
+      "type": "fill",
+      "q": "____ : Density of substance ÷ density of water.",
+      "answer": "Relative density",
+      "choices": [
+       "Density",
+       "Relative density",
+       "Upthrust",
+       "Solid"
+      ],
+      "why": [
+       "Correct answer: Relative density.",
+       "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+       "Check definitions in the lesson cards above, then restate the rule in your own words."
+      ],
+      "src": "notes",
+      "enriched": true,
+      "page": 4,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "In a tube resting vertically, a column of water 56 cm high supports a column of an unknown liquid of relative density 1.6. The height of the column of the unknown liquid is  A) 140 cm.  B) 70 cm.  C) 18 cm.  D) 35 cm.  E) 90 cm.",
+        "a": "D. 35 cm. — h(liquid) = h(water) × ρ(water)/ρ(liquid) = 56 × 1/1.6 = 35 cm. Answer: D. (The denser liquid stands lower.)",
+        "exam_question": "gensci-2018-matric-p1-q99"
+       }
+      ],
+      "id": "phys12-u1-q04"
+     },
+     {
+      "type": "fill",
+      "q": "____ : The upward force a fluid exerts on a body.",
+      "answer": "Upthrust",
+      "choices": [
+       "Upthrust",
+       "Relative density",
+       "Density",
+       "Solid"
+      ],
+      "why": [
+       "Correct answer: Upthrust.",
+       "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+       "Check definitions in the lesson cards above, then restate the rule in your own words."
+      ],
+      "src": "notes",
+      "enriched": true,
+      "page": 65,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "According to pascal's principle, if an external force causes an increase in pressure at any point in a confined incompressible fluid, every point in the fluid experiences  A) increasing pressure change.  B) the same pressure change.  C) no pressure change.  D) decreasing pressure change.  E) increasing force change.",
+        "a": "B. the same pressure change. — Answer: B.",
+        "exam_question": "gensci-2023-matric-p1-q97"
+       }
+      ],
+      "id": "phys12-u1-q05"
+     },
+     {
+      "type": "fill",
+      "q": "____ is a physical property of matter, as each element and compound has a unique density associated with it.",
+      "answer": "Density",
+      "choices": [
+       "Density",
+       "Upthrust",
+       "Solid",
+       "Relative density"
+      ],
+      "why": [
+       "Correct answer: Density.",
+       "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+       "Check definitions in the lesson cards above, then restate the rule in your own words."
+      ],
+      "src": "textbook p.4",
+      "enriched": true,
+      "page": 4,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "____ is the state in which matter maintains a fixed volume and shape; liquid is the state in which matter maintains a fixed volume but takes the shape of its container; and gas is the state in which matter expands to occupy whatever volume is available.",
+        "a": "Solid"
+       }
+      ],
+      "id": "phys12-u1-q06"
+     },
+     {
+      "type": "fill",
+      "q": "____ is the state in which matter maintains a fixed volume and shape; liquid is the state in which matter maintains a fixed volume but takes the shape of its container; and gas is the state in which matter expands to occupy whatever volume is available.",
+      "answer": "Solid",
+      "choices": [
+       "Relative density",
+       "Solid",
+       "Upthrust",
+       "Density"
+      ],
+      "why": [
+       "Correct answer: Solid.",
+       "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+       "Check definitions in the lesson cards above, then restate the rule in your own words."
+      ],
+      "src": "textbook p.10",
+      "enriched": true,
+      "page": 10,
+      "tip": "Read the whole sentence first; the missing word must fit both the meaning and the grammar.",
+      "similar": [
+       {
+        "q": "In addition to the three states of matter (solid, liquid and gas), the fourth state of matter is  A) fluid.  B) plasma.  C) acoustics.  D) atmosphere.  E) mercury.",
+        "a": "B. plasma. — Answer: B.",
+        "exam_question": "gensci-2023-matric-p1-q95"
+       }
+      ],
+      "id": "phys12-u1-q07"
+     },
+     {
+      "type": "mcq",
+      "q": "The pressure at a point in a liquid:",
+      "options": {
+       "A": "acts non-uniformly in all directions.",
+       "B": "decreases with depth in the liquid.",
+       "C": "increases with elevation in the liquid.",
+       "D": "acts equally in all directions.",
+       "E": "acts only in one direction."
+      },
+      "answer": "D",
+      "why": [
+       "Liquid pressure at a point acts equally in all directions and increases with depth: p = ρgh (G12 pp.15–17).",
+       "Answer: D."
+      ],
+      "src": "exam",
+      "exam_question": "gensci-2018-matric-p1-q97",
+      "label": "gensci-2018-matric",
+      "enriched": true,
+      "page": 16,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "When a solid object is fully submerged in water,  A) density of the solid decreases.  B) mass of the solid increases.  C) the water exerts an outward normal force on the object.  D) volume of the object decreases.  E) the pressure exerted by water at any point on the object is the same.",
+        "a": "C. the water exerts an outward normal force on the object. — A fluid at rest exerts its pressure force perpendicular (normal) to every surface it touches (G12 p.11–15). C is the only option describing this, although the force of the water on the object is directed inward (onto the object's surface); 'outward' must be read as 'from the water, normal to the surface'. Answer: C.",
+        "exam_question": "phys-2021-matric-p1-q42"
+       }
+      ],
+      "id": "phys12-u1-q08"
+     }
+    ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Fluid Mechanics",
+      "kind": "unit",
+      "cards": [
+       "phys12-u1-c01"
+      ]
+     },
+     {
+      "id": "l1_1",
+      "label": "Fluids",
+      "kind": "topic",
+      "lesson": "phys12-u1-l1-1",
+      "cards": [
+       "phys12-u1-c01",
+       "phys12-u1-c02",
+       "phys12-u1-c03",
+       "phys12-u1-c04",
+       "phys12-u1-c05",
+       "phys12-u1-c06"
+      ]
+     },
+     {
+      "id": "k_density",
+      "label": "Density",
+      "kind": "idea",
+      "cards": [
+       "phys12-u1-c03",
+       "phys12-u1-c04",
+       "phys12-u1-c05",
+       "phys12-u1-c06"
+      ]
+     },
+     {
+      "id": "k_relative_density",
+      "label": "Relative density",
+      "kind": "idea",
+      "cards": [
+       "phys12-u1-c03",
+       "phys12-u1-c04",
+       "phys12-u1-c05",
+       "phys12-u1-c06"
+      ]
+     },
+     {
+      "id": "k_solid",
+      "label": "Solid",
+      "kind": "idea",
+      "cards": [
+       "phys12-u1-c01",
+       "phys12-u1-c02"
+      ]
+     },
+     {
+      "id": "l1_2",
+      "label": "Pressure",
+      "kind": "topic",
+      "lesson": "phys12-u1-l1-2",
+      "cards": [
+       "phys12-u1-c07",
+       "phys12-u1-c08",
+       "phys12-u1-c09",
+       "phys12-u1-c10",
+       "phys12-u1-c11",
+       "phys12-u1-c12",
+       "phys12-u1-c13",
+       "phys12-u1-c14"
+      ]
+     },
+     {
+      "id": "l1_3",
+      "label": "Pascal’s Principle",
+      "kind": "topic",
+      "lesson": "phys12-u1-l1-3",
+      "cards": [
+       "phys12-u1-c18",
+       "phys12-u1-c19",
+       "phys12-u1-c20",
+       "phys12-u1-c21",
+       "phys12-u1-c22",
+       "phys12-u1-c23"
+      ]
+     },
+     {
+      "id": "l1_4",
+      "label": "Buoyancy and Archimedes’ Principle",
+      "kind": "topic",
+      "lesson": "phys12-u1-l1-4",
+      "cards": [
+       "phys12-u1-c24",
+       "phys12-u1-c25",
+       "phys12-u1-c26",
+       "phys12-u1-c27",
+       "phys12-u1-c28",
+       "phys12-u1-c29"
+      ]
+     },
+     {
+      "id": "k_upthrust",
+      "label": "Upthrust",
+      "kind": "idea",
+      "cards": [
+       "phys12-u1-c24",
+       "phys12-u1-c25",
+       "phys12-u1-c26",
+       "phys12-u1-c29"
+      ]
+     },
+     {
+      "id": "l1_5",
+      "label": "Principle of Flotation",
+      "kind": "topic",
+      "lesson": "phys12-u1-l1-5",
+      "cards": [
+       "phys12-u1-c30"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l1_1",
+      "label": "includes"
+     },
+     {
+      "from": "l1_1",
+      "to": "k_density",
+      "label": "key idea"
+     },
+     {
+      "from": "k_density",
+      "to": "l1_2",
+      "label": "also used in"
+     },
+     {
+      "from": "l1_1",
+      "to": "k_relative_density",
+      "label": "key idea"
+     },
+     {
+      "from": "l1_1",
+      "to": "k_solid",
+      "label": "key idea"
+     },
+     {
+      "from": "unit",
+      "to": "l1_2",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l1_3",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l1_4",
+      "label": "includes"
+     },
+     {
+      "from": "l1_4",
+      "to": "k_upthrust",
+      "label": "key idea"
+     },
+     {
+      "from": "unit",
+      "to": "l1_5",
+      "label": "includes"
+     },
+     {
+      "from": "l1_1",
+      "to": "l1_2",
+      "label": "next"
+     },
+     {
+      "from": "l1_2",
+      "to": "l1_3",
+      "label": "next"
+     },
+     {
+      "from": "l1_3",
+      "to": "l1_4",
+      "label": "next"
+     },
+     {
+      "from": "l1_4",
+      "to": "l1_5",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
+   }
+  }
+ ]
+}

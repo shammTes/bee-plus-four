@@ -9,13 +9,16 @@ Why: opening a unit used to load and parse the whole textbook (150-500 KB of JSO
 background isolate and keeps the last few units in memory (lib/high/notes/jr/data/repository.dart, NotesRepo.unitBook).
 
 The sources are NOT touched: assets/high/notes/notes/<book>.json stay the single source of truth (other branches edit
-them). This script only reads them. The generated files are git-ignored (assets/high/notes/split/*.json) and are made
-fresh by CI (.github/workflows/build-four-apk.yml, step "Split notes per unit") and by this command locally. If they
-are missing the app falls back to the full book file, so a build without this step still works, just slower.
+them). This script only reads them. The generated files ARE committed (so every build, including CI, ships them) and
+marked linguist-generated in .gitattributes. Re-run this script after editing any notes book or unit override, or after
+a rebase/merge that touched notes; `flutter test` (test/notes_split_test.dart) fails while they are stale. If a file is
+missing the app falls back to the full book file.
 
 Each output file is {"book": <the book's "book" block>, "units": [<one unit>]}, i.e. a one-unit book, so the app parses
 it with the same code. A unit_<id>.json override next to the books replaces that unit, exactly like the app does at
-runtime. Output is compact UTF-8 JSON; values are copied unchanged (json load -> dump keeps numbers and strings).
+runtime. Output is deterministic: UTF-8 JSON, one-space indent, keys in source order (key order is meaningful, e.g.
+diagram order), trailing newline; values are copied unchanged (json load -> dump keeps numbers and strings). Same
+sources -> byte-identical files, so after a conflicting rebase just re-run the script.
 """
 import argparse
 import json
@@ -44,7 +47,7 @@ def book_files():
 
 
 def build():
-    """{unitId: compact json text}"""
+    """{unitId: json text}"""
     out, owner = {}, {}
     for fn in book_files():
         p = os.path.join(NOTES, fn)
@@ -72,7 +75,7 @@ def build():
                         u = json.load(f)
                 except ValueError:
                     pass  # the app ignores a broken override too
-            out[uid] = json.dumps({'book': raw.get('book'), 'units': [u]}, ensure_ascii=False, separators=(',', ':'))
+            out[uid] = json.dumps({'book': raw.get('book'), 'units': [u]}, ensure_ascii=False, indent=1) + '\n'
     return out
 
 
@@ -85,7 +88,7 @@ def main():
         sys.exit('no notes units found')
     have = {f[:-5] for f in os.listdir(OUT) if f.endswith('.json')} if os.path.isdir(OUT) else set()
     if a.check:
-        bad = [u for u, t in files.items() if not os.path.exists(os.path.join(OUT, f'{u}.json')) or open(os.path.join(OUT, f'{u}.json'), encoding='utf-8').read() != t]
+        bad = [u for u, t in files.items() if not os.path.exists(os.path.join(OUT, f'{u}.json')) or open(os.path.join(OUT, f'{u}.json'), encoding='utf-8', newline='').read() != t]
         extra = sorted(have - set(files))
         if bad or extra:
             sys.exit(f'split notes out of date ({len(bad)} changed/missing, {len(extra)} stale): run python3 tool/split_notes.py')
@@ -96,7 +99,7 @@ def main():
         os.remove(os.path.join(OUT, f'{u}.json'))
     for u, t in files.items():
         json.loads(t)  # sanity
-        with open(os.path.join(OUT, f'{u}.json'), 'w', encoding='utf-8') as f:
+        with open(os.path.join(OUT, f'{u}.json'), 'w', encoding='utf-8', newline='\n') as f:
             f.write(t)
     sizes = sorted(len(t.encode('utf-8')) for t in files.values())
     print(f'split {len(files)} units into {os.path.relpath(OUT, ROOT)}: median {sizes[len(sizes) // 2] // 1024} KB, max {sizes[-1] // 1024} KB')

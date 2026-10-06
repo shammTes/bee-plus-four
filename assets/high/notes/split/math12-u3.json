@@ -1,0 +1,1201 @@
+{
+ "book": {
+  "id": "mathematics_12",
+  "subject": "mathematics",
+  "grade": 12,
+  "title": "Mathematics Grade 12",
+  "pdf": "textbook_mathematics_12.pdf",
+  "page_offset": 6,
+  "source": "High notes (Grade_12_Mathematics.html) regrouped into the units of the official Grade 12 Mathematics textbook (Eritrea MoE)",
+  "lang": "en",
+  "intro": [
+   "Eritrea · Ministry of Education · Grade 12 · 2011",
+   "Write the formula first",
+   "Then plug ♥",
+   "Mathematics Notes"
+  ],
+  "source_outline": [
+   {
+    "level": 1,
+    "text": "Mathematics Notes"
+   },
+   {
+    "level": 2,
+    "text": "Chapter 1 · Sequence and series"
+   },
+   {
+    "level": 3,
+    "text": "Arithmetic (AP)"
+   },
+   {
+    "level": 3,
+    "text": "Geometric (GP)"
+   },
+   {
+    "level": 2,
+    "text": "Chapter 2 · Statistics and probability"
+   },
+   {
+    "level": 3,
+    "text": "Averages"
+   },
+   {
+    "level": 3,
+    "text": "Spread"
+   },
+   {
+    "level": 3,
+    "text": "Probability"
+   },
+   {
+    "level": 2,
+    "text": "Chapter 3 · Coordinate geometry"
+   },
+   {
+    "level": 2,
+    "text": "Chapter 4 · Matrices and determinants"
+   },
+   {
+    "level": 2,
+    "text": "Formula wall"
+   },
+   {
+    "level": 2,
+    "text": "Tap quiz"
+   }
+  ],
+  "intro_cards": [
+   {
+    "id": "math12-intro-c01",
+    "type": "text",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "Four chapters · worked steps · exam tricks",
+     "Every example hides the working. Try it on paper, then open the steps. Trick boxes are the shortcuts markers use."
+    ]
+   },
+   {
+    "id": "math12-intro-c02",
+    "type": "mnemonic",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "AP: $a_n=a+(n-1)d$ GP: $a_n=ar^{n-1}$"
+    ]
+   },
+   {
+    "id": "math12-intro-c03",
+    "type": "mnemonic",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "$AB=\\sqrt{\\Delta x^2+\\Delta y^2}$ $m=\\Delta y/\\Delta x$"
+    ]
+   },
+   {
+    "id": "math12-intro-c04",
+    "type": "mnemonic",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "$\\det=ad-bc$ $P=1-P(\\text{none})$"
+    ]
+   }
+  ]
+ },
+ "units": [
+  {
+   "id": "math12-u3",
+   "number": 3,
+   "title": "Analytic Geometry",
+   "status": "done",
+   "pages": [
+    126,
+    157
+   ],
+   "tone": "butter",
+   "intro": "Distance $A(x_1,y_1)$, $B(x_2,y_2)$:\n\n$$AB=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$$",
+   "intro_page": 126,
+   "lessons": [
+    {
+     "id": "math12-u3-l3-1",
+     "number": "3.1",
+     "title": "Division of Line Segment",
+     "pages": [
+      126,
+      129
+     ],
+     "cards": [
+      {
+       "id": "math12-u3-c01",
+       "type": "text",
+       "title": "3.1 Division of Line Segment",
+       "page": 127,
+       "src": "textbook pp.127–129",
+       "enriched": true,
+       "body": [
+        "The formula for the coordinates of P in terms of r and of the coordinates of P1 and P2 are found as follows.",
+        "Solution: Let the point P(x, y) be the point that divides the segment P1P2 in the ratio 2 : 3 .",
+        "Solution: Let P(x, y) be the required point.",
+        "Find the coordinates of the points that trisect the segment joining the points A(2, -2) and B(-7, 4).",
+        "Find the ratio in which the y-axis divides the line segment joining the points (5, -6) and (-1, -4)."
+       ]
+      },
+      {
+       "id": "math12-u3-c02",
+       "type": "text",
+       "title": "Division of Line Segment",
+       "page": 126,
+       "src": "notes",
+       "body": [
+        "Section formula, divide $AB$ in ratio $m:n$ (internal):"
+       ]
+      },
+      {
+       "id": "math12-u3-tblE1",
+       "type": "table",
+       "title": "Key table",
+       "page": 1,
+       "src": "study_notes",
+       "head": [
+        "Division Type",
+        "Location of Point $$P$$",
+        "Ratio Sign",
+        "Formula ($$r_1 : r_2$$)"
+       ],
+       "rows": [
+        [
+         "**Internal**",
+         "Between $$P_1$$ and $$P_2$$",
+         "Positive ($$r > 0$$)",
+         "$$x = \\frac{r_2 x_1 + r_1 x_2}{r_1 + r_2}, \\ y = \\frac{r_2 y_1 + r_1 y_2}{r_1 + r_2}$$"
+        ],
+        [
+         "**External**",
+         "Outside $$P_1$$ and $$P_2$$",
+         "Negative ($$r < 0$$)",
+         "$$x = \\frac{r_2 x_1 - r_1 x_2}{r_2 - r_1}, \\ y = \\frac{r_2 y_1 - r_1 y_2}{r_2 - r_1}$$"
+        ],
+        [
+         "**Midpoint**",
+         "Exactly in the center",
+         "$$r = 1$$ ($$1:1$$ ratio)",
+         "$$x = \\frac{x_1 + x_2}{2}, \\ y = \\frac{y_1 + y_2}{2}$$"
+        ],
+        [
+         "**Trisection**",
+         "One-third/Two-thirds way",
+         "Positive",
+         "Two points: dividing in $$1:2$$ and $$2:1$$ ratios"
+        ]
+       ]
+      },
+      {
+       "id": "math12-u3-chkE1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Calculate the distance between the two endpoints of a line segment given as $$A(3, 2)$$ and $$B(13, 10)$$.",
+       "options": {
+        "A": "$$2\\sqrt{41}$$",
+        "B": "$$\\sqrt{106}$$",
+        "C": "$$12$$",
+        "D": "$$18$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: State the distance formula**\nThe distance between two points $$(x_1, y_1)$$ and $$(x_2, y_2)$$ is:\n$$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$\n\n**Step 2: Substitute the coordinates**\nHere, $$A(3, 2)$$ and $$B(13, 10)$$ are given. Substitute these coordinates:\n$$d = \\sqrt{(13 - 3)^2 + (10 - 2)^2}$$\n\n**Step 3: Simplify the terms**\n$$d = \\sqrt{(10)^2 + (8)^2}$$\n$$d = \\sqrt{100 + 64}$$\n$$d "
+      },
+      {
+       "id": "math12-u3-chkE2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Find the coordinates of the midpoint of the line segment joining the endpoints $$A(3, 2)$$ and $$B(13, 10)$$.",
+       "options": {
+        "A": "$$(8, 6)$$",
+        "B": "$$(10, 8)$$",
+        "C": "$$(5, 4)$$",
+        "D": "$$(8, 8)$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: State the midpoint formula**\n$$\\text{Midpoint } M(x, y) = \\left( \\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2} \\right)$$\n\n**Step 2: Substitute the coordinate values**\nHere, $$x_1 = 3$$, $$y_1 = 2$$, $$x_2 = 13$$, and $$y_2 = 10$$:\n$$M = \\left( \\frac{3 + 13}{2}, \\frac{2 + 10}{2} \\right)$$\n\n**Step 3: Perform the calculations**\n$$M = \\left( \\frac{16}{2}, \\frac{12}{2} \\right)$$\n$$M = (8, 6)$$\n\n**"
+      },
+      {
+       "id": "math12-u3-chk73",
+       "type": "check",
+       "title": "Quick check",
+       "page": 1,
+       "src": "study_notes",
+       "q": "Calculate the distance between the two endpoints of a line segment given as $$A(3, 2)$$ and $$B(13, 10)$$.",
+       "options": {
+        "A": "$$2\\sqrt{41}$$",
+        "B": "$$\\sqrt{106}$$",
+        "C": "$$12$$",
+        "D": "$$18$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: State the distance formula**\nThe distance between two points $$(x_1, y_1)$$ and $$(x_2, y_2)$$ is:\n$$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$\n\n**Step 2: Substitute the coordinates**\nHere, $$A(3, 2)$$ and $$B(13, 10)$$ are given. Substitute these coordinates:\n$$d = \\sqrt{(13 - 3)^2 + (10 - 2)^2}$$\n\n**Step 3: Simplify the terms**\n$$d = \\sqrt{(10)^2 + (8)^2}$$\n$$d = \\sqrt{100 + 64}$$\n$$d "
+      },
+      {
+       "id": "math12-u3-chk74",
+       "type": "check",
+       "title": "Quick check",
+       "page": 126,
+       "src": "study_notes",
+       "src_qid": "math_g12_c3_q3",
+       "q": "Find the slope $$m$$ of a line whose angle of inclination with the positive direction of the $$x$$-axis is $$60^\\circ$$.",
+       "options": {
+        "A": "$$\\sqrt{3}$$",
+        "B": "$$\\frac{1}{\\sqrt{3}}$$",
+        "C": "$$1$$",
+        "D": "$$0$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: State the relationship between slope and angle of inclination**\nThe slope $$m$$ of a straight line is the tangent of its angle of inclination $$\\theta$$:\n$$m = \\tan \\theta$$\n\n**Step 2: Substitute the given angle**\nWe are given $$\\theta = 60^\\circ$$:\n$$m = \\tan 60^\\circ$$\n\n**Step 3: Evaluate the trigonometric tangent**\nUsing exact values of trigonometric functions, we know that:\n$$\\tan 60^\\circ = \\sqrt{3}$$\n\n**Step 4: Final Result**\nThe slope of the line is **$$\\sqrt{3}$$**."
+      },
+      {
+       "id": "math12-u3-wrk1",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 126,
+       "src": "study_notes",
+       "src_qid": "math_g12_c3_q3",
+       "problem": "Find the slope $$m$$ of a line whose angle of inclination with the positive direction of the $$x$$-axis is $$60^\\circ$$.",
+       "steps": [
+        {
+         "text": "**Step 1: State the relationship between slope and angle of inclination**"
+        },
+        {
+         "text": "The slope $$m$$ of a straight line is the tangent of its angle of inclination $$\\theta$$:"
+        },
+        {
+         "text": "$$m = \\tan \\theta$$"
+        },
+        {
+         "text": "**Step 2: Substitute the given angle**"
+        },
+        {
+         "text": "We are given $$\\theta = 60^\\circ$$:"
+        },
+        {
+         "text": "$$m = \\tan 60^\\circ$$"
+        },
+        {
+         "text": "**Step 3: Evaluate the trigonometric tangent**"
+        },
+        {
+         "text": "Using exact values of trigonometric functions, we know that:"
+        },
+        {
+         "text": "$$\\tan 60^\\circ = \\sqrt{3}$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The slope of the line is **$$\\sqrt{3}$$**."
+        }
+       ],
+       "answer": "A"
+      },
+      {
+       "id": "math12-u3-chk75",
+       "type": "check",
+       "title": "Quick check",
+       "page": 126,
+       "src": "study_notes",
+       "src_qid": "math_g12_c3_q4",
+       "q": "Calculate the slope of the line passing through the pair of points: $$(2, 3)$$ and $$(9, 12)$$.",
+       "options": {
+        "A": "$$\\frac{9}{7}$$",
+        "B": "$$\\frac{7}{9}$$",
+        "C": "$$\\frac{15}{11}$$",
+        "D": "$$1$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: State the slope formula**\n$$m = \\frac{y_2 - y_1}{x_2 - x_1}$$\n\n**Step 2: Substitute the coordinate values**\nLet $$(x_1, y_1) = (2, 3)$$ and $$(x_2, y_2) = (9, 12)$$. Substitute these values:\n$$m = \\frac{12 - 3}{9 - 2}$$\n\n**Step 3: Perform subtraction and division**\n$$m = \\frac{9}{7}$$\n\n**Step 4: Final Result**\nThe slope of the line is **$$\\frac{9}{7}$$**."
+      },
+      {
+       "id": "math12-u3-wrk2",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 126,
+       "src": "study_notes",
+       "src_qid": "math_g12_c3_q4",
+       "problem": "Calculate the slope of the line passing through the pair of points: $$(2, 3)$$ and $$(9, 12)$$.",
+       "steps": [
+        {
+         "text": "**Step 1: State the slope formula**"
+        },
+        {
+         "text": "$$m = \\frac{y_2 - y_1}{x_2 - x_1}$$"
+        },
+        {
+         "text": "**Step 2: Substitute the coordinate values**"
+        },
+        {
+         "text": "Let $$(x_1, y_1) = (2, 3)$$ and $$(x_2, y_2) = (9, 12)$$. Substitute these values:"
+        },
+        {
+         "text": "$$m = \\frac{12 - 3}{9 - 2}$$"
+        },
+        {
+         "text": "**Step 3: Perform subtraction and division**"
+        },
+        {
+         "text": "$$m = \\frac{9}{7}$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The slope of the line is **$$\\frac{9}{7}$$**."
+        }
+       ],
+       "answer": "A"
+      }
+     ]
+    },
+    {
+     "id": "math12-u3-l3-2",
+     "number": "3.2",
+     "title": "Straight Lines",
+     "pages": [
+      130,
+      148
+     ],
+     "cards": [
+      {
+       "id": "math12-u3-c03",
+       "type": "text",
+       "title": "3.2 Straight Lines",
+       "page": 132,
+       "src": "textbook pp.132–136",
+       "enriched": true,
+       "body": [
+        "The inclination of a vertical (parallel to or coinciding with y-axis) is 90 0 .",
+        "Find the slope of the line that makes an angle of inclination of 60 º with positive direction of the x-axis.",
+        "For negative slopes, the smaller the slope, the steeper the line.",
+        "In a coordinate plane, suppose that non vertical lines l1 and l2 have slopes m1 and m 2 respectively.",
+        "Two non vertical lines are parallel if they have the same slope."
+       ]
+      },
+      {
+       "id": "math12-u3-c04",
+       "type": "text",
+       "title": "Straight Lines",
+       "page": 133,
+       "src": "notes",
+       "body": [
+        "$$\\left(\\frac{nx_1+mx_2}{m+n},\\ \\frac{ny_1+my_2}{m+n}\\right)$$",
+        "Midpoint is the special case $m=n=1$: $\\bigl(\\frac{x_1+x_2}{2},\\frac{y_1+y_2}{2}\\bigr)$.",
+        "Slope $m=\\dfrac{y_2-y_1}{x_2-x_1}$. Line: $y-y_1=m(x-x_1)$ or $y=mx+c$. Parallel ⇒ same $m$. Perpendicular ⇒ $m_1 m_2=-1$."
+       ]
+      },
+      {
+       "id": "math12-u3-c05",
+       "type": "mnemonic",
+       "title": "Tricks",
+       "page": 133,
+       "src": "notes",
+       "body": [
+        "Sketch a rough axes before calculating — catch sign errors. “$m$ of ratio” is the part toward $B$; $n$ is the part toward $A$. Vertical line: $x=$ constant, slope undefined. Horizontal: $y=$ constant, slope $0$."
+       ]
+      },
+      {
+       "id": "math12-u3-c06",
+       "type": "worked",
+       "title": "Example 6 — distance and midpoint",
+       "page": 141,
+       "src": "notes",
+       "problem": "$A(1,2)$, $B(4,6)$.",
+       "steps": [
+        {
+         "text": "$AB=\\sqrt{(4-1)^2+(6-2)^2}=\\sqrt{9+16}=\\sqrt{25}=5$."
+        },
+        {
+         "text": "Midpoint $=\\bigl(\\frac{1+4}{2},\\frac{2+6}{2}\\bigr)=(2.5,\\ 4)$."
+        },
+        {
+         "text": "Slope $m=\\frac{6-2}{4-1}=\\frac{4}{3}$."
+        },
+        {
+         "text": "Equation: $y-2=\\frac{4}{3}(x-1)$ → $3y-6=4x-4$ → $4x-3y-2=0$."
+        }
+       ],
+       "answer": "Equation: $y-2=\\frac{4}{3}(x-1)$ → $3y-6=4x-4$ → $4x-3y-2=0$.",
+       "mode": "show",
+       "reveal": "Step-by-step"
+      },
+      {
+       "id": "math12-u3-c07",
+       "type": "worked",
+       "title": "Example 7 — section",
+       "page": 143,
+       "src": "notes",
+       "problem": "Point dividing $A(1,2)$ and $B(7,8)$ in $1:2$.",
+       "steps": [
+        {
+         "text": "$m=1$, $n=2$, so closer to $A$."
+        },
+        {
+         "text": "$x=\\frac{2\\cdot1+1\\cdot7}{3}=\\frac{9}{3}=3$."
+        },
+        {
+         "text": "$y=\\frac{2\\cdot2+1\\cdot8}{3}=\\frac{12}{3}=4$."
+        },
+        {
+         "text": "Point $(3,4)$."
+        },
+        {
+         "text": "Check: from $A$ to $B$ the run is $6$; one-third of that is $2$, so $1+2=3$."
+        },
+        {
+         "text": "Yes."
+        }
+       ],
+       "answer": "Yes.",
+       "mode": "show",
+       "reveal": "Step-by-step"
+      },
+      {
+       "id": "math12-u3-chk76",
+       "type": "check",
+       "title": "Quick check",
+       "page": 130,
+       "src": "study_notes",
+       "src_qid": "math_g12_c3_q5",
+       "q": "Determine if the two straight lines defined by $$l_1: y = \\frac{2}{3}x + 1$$ and $$l_2: y = -\\frac{3}{2}x + 5$$ are perpendicular.",
+       "options": {
+        "A": "Yes, because their slopes are negative reciprocals",
+        "B": "No, they are parallel",
+        "C": "No, they intersect at a non-right angle",
+        "D": "Yes, because they have identical slopes"
+       },
+       "answer": "A",
+       "why": "**Step 1: Identify the slopes of both lines**\nBoth equations are in slope-intercept form ($$y = mx + b$$).\nSlope of line $$l_1$$ is $$m_1 = \\frac{2}{3}$$.\nSlope of line $$l_2$$ is $$m_2 = -\\frac{3}{2}$$.\n\n**Step 2: Apply the perpendicularity condition**\nTwo lines are perpendicular if and only if $$m_1 \\cdot m_2 = -1$$:\n$$m_1 \\cdot m_2 = \\left(\\frac{2}{3}\\right) \\cdot \\left(-\\frac{3}{2}\\right) = -\\frac{6}{6} = -1$$\n\n**Step 3: Conclude**\nSince the product of their slopes is exactly $$-1$$, the lines are mathematically perpendicular.\n\n**Step 4: Final Result**\n**Yes, because their slopes are negative reciprocals**."
+      },
+      {
+       "id": "math12-u3-wrk3",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 130,
+       "src": "study_notes",
+       "src_qid": "math_g12_c3_q5",
+       "problem": "Determine if the two straight lines defined by $$l_1: y = \\frac{2}{3}x + 1$$ and $$l_2: y = -\\frac{3}{2}x + 5$$ are perpendicular.",
+       "steps": [
+        {
+         "text": "**Step 1: Identify the slopes of both lines**"
+        },
+        {
+         "text": "Both equations are in slope-intercept form ($$y = mx + b$$)."
+        },
+        {
+         "text": "Slope of line $$l_1$$ is $$m_1 = \\frac{2}{3}$$."
+        },
+        {
+         "text": "Slope of line $$l_2$$ is $$m_2 = -\\frac{3}{2}$$."
+        },
+        {
+         "text": "**Step 2: Apply the perpendicularity condition**"
+        },
+        {
+         "text": "Two lines are perpendicular if and only if $$m_1 \\cdot m_2 = -1$$:"
+        },
+        {
+         "text": "$$m_1 \\cdot m_2 = \\left(\\frac{2}{3}\\right) \\cdot \\left(-\\frac{3}{2}\\right) = -\\frac{6}{6} = -1$$"
+        },
+        {
+         "text": "**Step 3: Conclude**"
+        },
+        {
+         "text": "Since the product of their slopes is exactly $$-1$$, the lines are mathematically perpendicular."
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "**Yes, because their slopes are negative reciprocals**."
+        }
+       ],
+       "answer": "A"
+      },
+      {
+       "id": "math12-u3-chk77",
+       "type": "check",
+       "title": "Quick check",
+       "page": 130,
+       "src": "study_notes",
+       "src_qid": "math_g12_c3_q6",
+       "q": "Find the slope-intercept equation of the straight line passing through the point $$(2, 7)$$ with a slope of $$2$$.",
+       "options": {
+        "A": "$$y = 2x + 3$$",
+        "B": "$$y = 2x + 7$$",
+        "C": "$$y = 2x - 3$$",
+        "D": "$$y = 3x + 2$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: State the point-slope form equation**\n$$y - y_1 = m(x - x_1)$$\n\n**Step 2: Substitute the point and slope**\nSubstitute $$m = 2$$ and $$(x_1, y_1) = (2, 7)$$:\n$$y - 7 = 2(x - 2)$$\n\n**Step 3: Simplify to slope-intercept form**\n$$y - 7 = 2x - 4$$\n$$y = 2x - 4 + 7$$\n$$y = 2x + 3$$\n\n**Step 4: Final Result**\nThe equation of the line is **$$y = 2x + 3$$**."
+      },
+      {
+       "id": "math12-u3-wrk4",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 130,
+       "src": "study_notes",
+       "src_qid": "math_g12_c3_q6",
+       "problem": "Find the slope-intercept equation of the straight line passing through the point $$(2, 7)$$ with a slope of $$2$$.",
+       "steps": [
+        {
+         "text": "**Step 1: State the point-slope form equation**"
+        },
+        {
+         "text": "$$y - y_1 = m(x - x_1)$$"
+        },
+        {
+         "text": "**Step 2: Substitute the point and slope**"
+        },
+        {
+         "text": "Substitute $$m = 2$$ and $$(x_1, y_1) = (2, 7)$$:"
+        },
+        {
+         "text": "$$y - 7 = 2(x - 2)$$"
+        },
+        {
+         "text": "**Step 3: Simplify to slope-intercept form**"
+        },
+        {
+         "text": "$$y - 7 = 2x - 4$$"
+        },
+        {
+         "text": "$$y = 2x - 4 + 7$$"
+        },
+        {
+         "text": "$$y = 2x + 3$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The equation of the line is **$$y = 2x + 3$$**."
+        }
+       ],
+       "answer": "A"
+      }
+     ]
+    },
+    {
+     "id": "math12-u3-l3-3",
+     "number": "3.3",
+     "title": "Circle",
+     "pages": [
+      149,
+      157
+     ],
+     "cards": [
+      {
+       "id": "math12-u3-c08",
+       "type": "text",
+       "title": "3.3 Circle",
+       "page": 150,
+       "src": "textbook pp.150–152",
+       "enriched": true,
+       "body": [
+        "A circle is the set of all points in a plane that are equidistant from a fixed point.",
+        "The fixed point is called the centre of the circle and the fixed distance is called the radius of the circle.",
+        "Fig. 3.11 shows a circle with radius r units and centre at a point with coordinates (h, k).",
+        "Find the standard form of the equation of a circle with radius 5 and centre at (2, -1) and draw its graph.",
+        "Find a point on the circle by assigning value to one of the variables and using the equation to determine the corresponding value of the other variable."
+       ]
+      },
+      {
+       "id": "math12-u3-chk78",
+       "type": "check",
+       "title": "Quick check",
+       "page": 149,
+       "src": "study_notes",
+       "src_qid": "math_g12_c3_q7",
+       "q": "Find the equation of the line that passes through the y-intercept $$(0, 7)$$ and has a slope of $$-3$$.",
+       "options": {
+        "A": "$$y = -3x + 7$$",
+        "B": "$$y = 3x + 7$$",
+        "C": "$$y = -3x - 7$$",
+        "D": "$$3y + x = 7$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Recognize the given parts**\nWe are given the slope $$m = -3$$ and the y-intercept point $$(0, b) = (0, 7)$$, which means $$b = 7$$.\n\n**Step 2: State the slope-intercept form**\n$$y = mx + b$$\n\n**Step 3: Substitute the parameters**\nSubstitute $$m = -3$$ and $$b = 7$$:\n$$y = -3x + 7$$\n\n**Step 4: Final Result**\nThe equation of the line is **$$y = -3x + 7$$**."
+      },
+      {
+       "id": "math12-u3-wrk5",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 149,
+       "src": "study_notes",
+       "src_qid": "math_g12_c3_q7",
+       "problem": "Find the equation of the line that passes through the y-intercept $$(0, 7)$$ and has a slope of $$-3$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Recognize the given parts**"
+        },
+        {
+         "text": "We are given the slope $$m = -3$$ and the y-intercept point $$(0, b) = (0, 7)$$, which means $$b = 7$$."
+        },
+        {
+         "text": "**Step 2: State the slope-intercept form**"
+        },
+        {
+         "text": "$$y = mx + b$$"
+        },
+        {
+         "text": "**Step 3: Substitute the parameters**"
+        },
+        {
+         "text": "Substitute $$m = -3$$ and $$b = 7$$:"
+        },
+        {
+         "text": "$$y = -3x + 7$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The equation of the line is **$$y = -3x + 7$$**."
+        }
+       ],
+       "answer": "A"
+      },
+      {
+       "id": "math12-u3-chk79",
+       "type": "check",
+       "title": "Quick check",
+       "page": 149,
+       "src": "study_notes",
+       "src_qid": "math_g12_c3_q8",
+       "q": "Find the coordinates of the center of the circle represented by the standard form equation: $$(x - 1)^2 + (y + 4)^2 = 25$$.",
+       "options": {
+        "A": "$$(1, -4)$$",
+        "B": "$$(-1, 4)$$",
+        "C": "$$(1, 4)$$",
+        "D": "$$(-1, -4)$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: State the standard form equation of a circle**\n$$(x - h)^2 + (y - k)^2 = r^2$$\nWhere $$(h, k)$$ is the center and $$r$$ is the radius.\n\n**Step 2: Compare the given equation**\nGiven equation: $$(x - 1)^2 + (y + 4)^2 = 25$$\nWe rewrite it to match standard signs:\n$$(x - 1)^2 + (y - (-4))^2 = 5^2$$\n\n**Step 3: Identify $$h$$ and $$k$$**\n$$h = 1$$, $$k = -4$$\n\n**Step 4: Final Result**\nThe center of the circle is **$$(1, -4)$$**."
+      },
+      {
+       "id": "math12-u3-wrk6",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 149,
+       "src": "study_notes",
+       "src_qid": "math_g12_c3_q8",
+       "problem": "Find the coordinates of the center of the circle represented by the standard form equation: $$(x - 1)^2 + (y + 4)^2 = 25$$.",
+       "steps": [
+        {
+         "text": "**Step 1: State the standard form equation of a circle**"
+        },
+        {
+         "text": "$$(x - h)^2 + (y - k)^2 = r^2$$"
+        },
+        {
+         "text": "Where $$(h, k)$$ is the center and $$r$$ is the radius."
+        },
+        {
+         "text": "**Step 2: Compare the given equation**"
+        },
+        {
+         "text": "Given equation: $$(x - 1)^2 + (y + 4)^2 = 25$$"
+        },
+        {
+         "text": "We rewrite it to match standard signs:"
+        },
+        {
+         "text": "$$(x - 1)^2 + (y - (-4))^2 = 5^2$$"
+        },
+        {
+         "text": "**Step 3: Identify $$h$$ and $$k$$**"
+        },
+        {
+         "text": "$$h = 1$$, $$k = -4$$"
+        },
+        {
+         "text": "**Step 4: Final Result**"
+        },
+        {
+         "text": "The center of the circle is **$$(1, -4)$$**."
+        }
+       ],
+       "answer": "A"
+      }
+     ]
+    }
+   ],
+   "glossary": [],
+   "tips": [
+    {
+     "text": "Read 3.1 Division of Line Segment again and say its main idea in one sentence.",
+     "page": 126
+    }
+   ],
+   "games": [
+    {
+     "type": "match",
+     "title": "Match each answer to its question",
+     "pairs": [
+      {
+       "a": "5",
+       "b": "Distance from (0,0) to (3,4)"
+      },
+      {
+       "a": "a/b.",
+       "b": "The slope of the line perpendicular to x/a + y/b = 1 is"
+      },
+      {
+       "a": "3y + 2x = 29",
+       "b": "The equation of a line which is a perpendicular bisector of the segment with end points (2, 4) and (6, 10) is"
+      },
+      {
+       "a": "x − 2y − 6 = 0.",
+       "b": "The equation of the perpendicular bisector of the line segment joining the points A(2, 3) and B(6, −5) is"
+      },
+      {
+       "a": "y − 11x + 36 = 0.",
+       "b": "The equation of the line that is perpendicular to the line x + 11y = 5 and has the same y-intercept as 3x − y = 36 is"
+      },
+      {
+       "a": "x² + y² − 8x − 10y + 21 = 0.",
+       "b": "The equation of the circle whose radius is 2√5 and whose center is at (4, 5) is"
+      }
+     ],
+     "src": "exam",
+     "id": "math12-u3-g1",
+     "lesson": null
+    },
+    {
+     "type": "flash",
+     "title": "Quick recall",
+     "cards": [
+      {
+       "front": "Distance from $(0,0)$ to $(3,4)$",
+       "back": "A. 5"
+      },
+      {
+       "front": "The equation of a line which is a perpendicular bisector of the segment with end points (2, 4) and (6, 10) is",
+       "back": "C. 3y + 2x = 29"
+      },
+      {
+       "front": "If circle x² + y² − 2y = 0 and line y = x − 1 are given, then the line",
+       "back": "A. does not intersect the circle."
+      },
+      {
+       "front": "The equation of the line that is perpendicular to the line x + 11y = 5 and has the same y-intercept as 3x − y = 36 is",
+       "back": "D. y − 11x + 36 = 0."
+      },
+      {
+       "front": "The equation of the circle whose radius is 2√5 and whose center is at (4, 5) is",
+       "back": "C. x² + y² − 8x − 10y + 21 = 0."
+      },
+      {
+       "front": "The slope of the line perpendicular to x/a + y/b = 1 is",
+       "back": "C. a/b."
+      },
+      {
+       "front": "The equation of the perpendicular bisector of the line segment joining the points A(2, 3) and B(6, −5) is",
+       "back": "B. x − 2y − 6 = 0."
+      },
+      {
+       "front": "Find the coordinates of the point which divides the line segment joining the points (6, 3) and (−4, 5) in the ratio 3 : 2.",
+       "back": "D. (0, 21/5)"
+      }
+     ],
+     "src": "notes",
+     "id": "math12-u3-g2",
+     "lesson": null
+    },
+    {
+     "type": "match",
+     "title": "Match key terms",
+     "pairs": [
+      {
+       "a": "Division of a Line Segment",
+       "b": "refers to finding the coordinates of a point $$P(x, y)$$ that divides a line segment joining two given points $$P_1(x_1,"
+      },
+      {
+       "a": "Internal Division",
+       "b": ", the point $$P$$ lies strictly between the two endpoints $$P_1$$ and $$P_2$$"
+      },
+      {
+       "a": "External Division",
+       "b": ", the point $$P$$ lies on the extension of the line segment outside the interval $$[P_1, P_2]$$, making the ratio $$r$$ "
+      },
+      {
+       "a": "Internal",
+       "b": "| Between $$P_1$$ and $$P_2$$ | Positive ($$r > 0$$) | $$x = \\frac{r_2 x_1 + r_1 x_2}{r_1 + r_2}, \\ y = \\frac{r_2 y_1 + "
+      },
+      {
+       "a": "External",
+       "b": "| Outside $$P_1$$ and $$P_2$$ | Negative ($$r < 0$$) | $$x = \\frac{r_2 x_1 - r_1 x_2}{r_2 - r_1}, \\ y = \\frac{r_2 y_1 - "
+      },
+      {
+       "a": "Midpoint",
+       "b": "| Exactly in the center | $$r = 1$$ ($$1:1$$ ratio) | $$x = \\frac{x_1 + x_2}{2}, \\ y = \\frac{y_1 + y_2}{2}$$ | | **Trise"
+      }
+     ],
+     "src": "study_notes",
+     "id": "math12-u3-g-drive2",
+     "lesson": null
+    },
+    {
+     "type": "match",
+     "title": "Match key terms",
+     "pairs": [
+      {
+       "a": "Division of a Line Segment",
+       "b": "refers to finding the coordinates of a point $$P(x, y)$$ that divides a line segment joining two given points $$P_1(x_1,"
+      },
+      {
+       "a": "Internal Division",
+       "b": ", the point $$P$$ lies strictly between the two endpoints $$P_1$$ and $$P_2$$"
+      },
+      {
+       "a": "External Division",
+       "b": ", the point $$P$$ lies on the extension of the line segment outside the interval $$[P_1, P_2]$$, making the ratio $$r$$ "
+      },
+      {
+       "a": "Internal",
+       "b": "| Between $$P_1$$ and $$P_2$$ | Positive ($$r > 0$$) | $$x = \\frac{r_2 x_1 + r_1 x_2}{r_1 + r_2}, \\ y = \\frac{r_2 y_1 + "
+      },
+      {
+       "a": "External",
+       "b": "| Outside $$P_1$$ and $$P_2$$ | Negative ($$r < 0$$) | $$x = \\frac{r_2 x_1 - r_1 x_2}{r_2 - r_1}, \\ y = \\frac{r_2 y_1 - "
+      },
+      {
+       "a": "Midpoint",
+       "b": "| Exactly in the center | $$r = 1$$ ($$1:1$$ ratio) | $$x = \\frac{x_1 + x_2}{2}, \\ y = \\frac{y_1 + y_2}{2}$$ | | **Trise"
+      }
+     ],
+     "src": "study_notes",
+     "id": "math12-u3-g-drive7",
+     "lesson": null
+    }
+   ],
+   "exercise": {
+    "questions": [
+     {
+      "type": "mcq",
+      "q": "Distance from $(0,0)$ to $(3,4)$",
+      "options": {
+       "A": "5",
+       "B": "7",
+       "C": "12",
+       "D": "1"
+      },
+      "answer": "A",
+      "why": [
+       "Answer A: 5",
+       "Textbook p.150: What is the formula for the distance between (x, y) and the centre of the circle?"
+      ],
+      "src": "notes",
+      "page": 150,
+      "why_src": "textbook p.150",
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "The equation of a line which is a perpendicular bisector of the segment with end points (2, 4) and (6, 10) is  A) y − x = 2  B) 3y + 2x = 16  C) 3y + 2x = 29  D) 2y − 3x = 2  E) y + x = 2",
+        "a": "C. 3y + 2x = 29"
+       }
+      ],
+      "id": "math12-u3-q01"
+     },
+     {
+      "type": "mcq",
+      "q": "The equation of a line which is a perpendicular bisector of the segment with end points (2, 4) and (6, 10) is",
+      "options": {
+       "A": "y − x = 2",
+       "B": "3y + 2x = 16",
+       "C": "3y + 2x = 29",
+       "D": "2y − 3x = 2",
+       "E": "y + x = 2"
+      },
+      "answer": "C",
+      "why": [
+       "Midpoint = ((2 + 6)/2, (4 + 10)/2) = (4, 7).",
+       "Slope of the segment = (10 − 4)/(6 − 2) = 3/2 ⇒ perpendicular slope = −2/3.",
+       "y − 7 = −(2/3)(x − 4) ⇒ 3y − 21 = −2x + 8 ⇒ 3y + 2x = 29. Answer: C."
+      ],
+      "src": "exam",
+      "exam_question": "math-2018-matric-p1-q45",
+      "label": "math-2018-matric",
+      "enriched": true,
+      "page": 149,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "If circle x² + y² − 2y = 0 and line y = x − 1 are given, then the line  A) does not intersect the circle.  B) passes through the center of the circle.  C) intersects the circle at two points.  D) is tangent to the circle.  E) None of the above.",
+        "a": "A. does not intersect the circle."
+       }
+      ],
+      "id": "math12-u3-q02"
+     },
+     {
+      "type": "mcq",
+      "q": "If circle x² + y² − 2y = 0 and line y = x − 1 are given, then the line",
+      "options": {
+       "A": "does not intersect the circle.",
+       "B": "passes through the center of the circle.",
+       "C": "intersects the circle at two points.",
+       "D": "is tangent to the circle.",
+       "E": "None of the above."
+      },
+      "answer": "A",
+      "why": [
+       "x² + (y − 1)² = 1: centre (0, 1), radius 1.",
+       "Distance from (0, 1) to x − y − 1 = 0: |0 − 1 − 1|/√2 = 2/√2 = √2 ≈ 1.41 > 1.",
+       "(Algebraically: x² + (x − 1)² − 2(x − 1) = 2x² − 4x + 3 = 0 has Δ = 16 − 24 < 0.) The line does not meet the circle. Answer: A."
+      ],
+      "src": "exam",
+      "exam_question": "math-2018-matric-p1-q48",
+      "label": "math-2018-matric",
+      "enriched": true,
+      "page": 155,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "The equation of the line that is perpendicular to the line x + 11y = 5 and has the same y-intercept as 3x − y = 36 is  A) 11y − x − 36 = 0.  B) 11y + 11x + 36 = 0.  C) 3y − 11x − 36 = 0.  D) y − 11x + 36 = 0.  E) None of the above.",
+        "a": "D. y − 11x + 36 = 0."
+       }
+      ],
+      "id": "math12-u3-q03"
+     },
+     {
+      "type": "mcq",
+      "q": "The equation of the line that is perpendicular to the line x + 11y = 5 and has the same y-intercept as 3x − y = 36 is",
+      "options": {
+       "A": "11y − x − 36 = 0.",
+       "B": "11y + 11x + 36 = 0.",
+       "C": "3y − 11x − 36 = 0.",
+       "D": "y − 11x + 36 = 0.",
+       "E": "None of the above."
+      },
+      "answer": "D",
+      "why": [
+       "Slope of x + 11y = 5 is −1/11, so a perpendicular line has slope 11.",
+       "3x − y = 36 → y = 3x − 36, y-intercept −36.",
+       "y = 11x − 36 → y − 11x + 36 = 0. Answer: D."
+      ],
+      "src": "exam",
+      "exam_question": "math-2019-matric-p1-q33",
+      "label": "math-2019-matric",
+      "enriched": true,
+      "page": 144,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "The equation of the circle whose radius is 2√5 and whose center is at (4, 5) is  A) x² + y² − 8x + 5y + 11 = 0.  B) x² + y² − 8x + 10y − 1 = 0.  C) x² + y² − 8x − 10y + 21 = 0.  D) x² + y² − 8x − 10y + 1 = 0.  E) None of the above.",
+        "a": "C. x² + y² − 8x − 10y + 21 = 0."
+       }
+      ],
+      "id": "math12-u3-q04"
+     },
+     {
+      "type": "mcq",
+      "q": "The equation of the circle whose radius is 2√5 and whose center is at (4, 5) is",
+      "options": {
+       "A": "x² + y² − 8x + 5y + 11 = 0.",
+       "B": "x² + y² − 8x + 10y − 1 = 0.",
+       "C": "x² + y² − 8x − 10y + 21 = 0.",
+       "D": "x² + y² − 8x − 10y + 1 = 0.",
+       "E": "None of the above."
+      },
+      "answer": "C",
+      "why": [
+       "(x − 4)² + (y − 5)² = (2√5)² = 20.",
+       "x² − 8x + 16 + y² − 10y + 25 − 20 = 0 → x² + y² − 8x − 10y + 21 = 0. Answer: C."
+      ],
+      "src": "exam",
+      "exam_question": "math-2019-matric-p1-q47",
+      "label": "math-2019-matric",
+      "enriched": true,
+      "page": 155,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "The slope of the line perpendicular to x/a + y/b = 1 is  A) b/a.  B) −b/a.  C) a/b.  D) −a/b.  E) None of the above.",
+        "a": "C. a/b."
+       }
+      ],
+      "id": "math12-u3-q05"
+     },
+     {
+      "type": "mcq",
+      "q": "The slope of the line perpendicular to x/a + y/b = 1 is",
+      "options": {
+       "A": "b/a.",
+       "B": "−b/a.",
+       "C": "a/b.",
+       "D": "−a/b.",
+       "E": "None of the above."
+      },
+      "answer": "C",
+      "why": [
+       "x/a + y/b = 1 → y = b − (b/a)x, slope m₁ = −b/a (it passes through (a, 0) and (0, b)).",
+       "Perpendicular: m₁m₂ = −1 → m₂ = a/b. Answer: C."
+      ],
+      "src": "exam",
+      "exam_question": "math-2020-matric-p1-q11",
+      "label": "math-2020-matric",
+      "enriched": true,
+      "page": 141,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "The equation of the perpendicular bisector of the line segment joining the points A(2, 3) and B(6, −5) is  A) x + 2y + 6 = 0.  B) x − 2y − 6 = 0.  C) 2x − 3y + 5 = 0.  D) 2x − 3y − 6 = 0.  E) 3x − 2y − 6 = 0.",
+        "a": "B. x − 2y − 6 = 0."
+       }
+      ],
+      "id": "math12-u3-q06"
+     },
+     {
+      "type": "mcq",
+      "q": "The equation of the perpendicular bisector of the line segment joining the points A(2, 3) and B(6, −5) is",
+      "options": {
+       "A": "x + 2y + 6 = 0.",
+       "B": "x − 2y − 6 = 0.",
+       "C": "2x − 3y + 5 = 0.",
+       "D": "2x − 3y − 6 = 0.",
+       "E": "3x − 2y − 6 = 0."
+      },
+      "answer": "B",
+      "why": [
+       "Midpoint M = ((2 + 6)/2, (3 − 5)/2) = (4, −1).",
+       "Slope of AB = (−5 − 3)/(6 − 2) = −2, so the perpendicular slope is 1/2.",
+       "y + 1 = ½(x − 4) → 2y + 2 = x − 4 → x − 2y − 6 = 0. Check: M satisfies 4 + 2 − 6 = 0 ✓. Answer: B."
+      ],
+      "src": "exam",
+      "exam_question": "math-2021-matric-p1-q34",
+      "label": "math-2021-matric",
+      "enriched": true,
+      "page": 149,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "Find the coordinates of the point which divides the line segment joining the points (6, 3) and (−4, 5) in the ratio 3 : 2.  A) (1, 2)  B) (1, 25/4)  C) (1, 21/5)  D) (0, 21/5)  E) (0, 25/4)",
+        "a": "D. (0, 21/5)"
+       }
+      ],
+      "id": "math12-u3-q07"
+     },
+     {
+      "type": "mcq",
+      "q": "Find the coordinates of the point which divides the line segment joining the points (6, 3) and (−4, 5) in the ratio 3 : 2.",
+      "options": {
+       "A": "(1, 2)",
+       "B": "(1, 25/4)",
+       "C": "(1, 21/5)",
+       "D": "(0, 21/5)",
+       "E": "(0, 25/4)"
+      },
+      "answer": "D",
+      "why": [
+       "Internal division formula with m : n = 3 : 2, P₁(6, 3), P₂(−4, 5): x = (m x₂ + n x₁)/(m + n), y = (m y₂ + n y₁)/(m + n).",
+       "x = (3(−4) + 2(6))/5 = 0; y = (3(5) + 2(3))/5 = 21/5.",
+       "Point (0, 21/5). Answer: D."
+      ],
+      "src": "exam",
+      "exam_question": "math-2021-matric-p1-q36",
+      "label": "math-2021-matric",
+      "enriched": true,
+      "page": 129,
+      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "similar": [
+       {
+        "q": "Distance from $(0,0)$ to $(3,4)$  A) 5  B) 7  C) 12  D) 1",
+        "a": "A. 5"
+       }
+      ],
+      "id": "math12-u3-q08"
+     }
+    ]
+   },
+   "unitMap": {
+    "root": "unit",
+    "nodes": [
+     {
+      "id": "unit",
+      "label": "Analytic Geometry",
+      "kind": "unit",
+      "cards": [
+       "math12-u3-c01"
+      ]
+     },
+     {
+      "id": "l3_1",
+      "label": "Division of Line Segment",
+      "kind": "topic",
+      "lesson": "math12-u3-l3-1",
+      "cards": [
+       "math12-u3-c01",
+       "math12-u3-c02"
+      ]
+     },
+     {
+      "id": "l3_2",
+      "label": "Straight Lines",
+      "kind": "topic",
+      "lesson": "math12-u3-l3-2",
+      "cards": [
+       "math12-u3-c03",
+       "math12-u3-c04",
+       "math12-u3-c05",
+       "math12-u3-c06",
+       "math12-u3-c07"
+      ]
+     },
+     {
+      "id": "l3_3",
+      "label": "Circle",
+      "kind": "topic",
+      "lesson": "math12-u3-l3-3",
+      "cards": [
+       "math12-u3-c08"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "from": "unit",
+      "to": "l3_1",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l3_2",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "l3_3",
+      "label": "includes"
+     },
+     {
+      "from": "l3_1",
+      "to": "l3_2",
+      "label": "next"
+     },
+     {
+      "from": "l3_2",
+      "to": "l3_3",
+      "label": "next"
+     }
+    ],
+    "src": "auto"
+   }
+  }
+ ]
+}

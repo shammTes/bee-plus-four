@@ -15,7 +15,7 @@ the Home card or the Matric page).
 ## Run
 ```
 source /opt/sdk/env.sh       # Flutter 3.47.x
-python3 tool/split_notes.py # per-unit notes files (assets/high/notes/split, git-ignored; run before every build)
+python3 tool/split_notes.py # after editing notes: regenerates the committed per-unit files (assets/high/notes/split)
 flutter pub get && flutter run
 flutter analyze
 flutter test            # ~20 s; test/exercise_shots_test.dart writes compare/exercise_*.png

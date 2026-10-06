@@ -1,0 +1,515 @@
+{
+ "book": {
+  "id": "mathematics_11",
+  "subject": "mathematics",
+  "grade": 11,
+  "title": "Mathematics Grade 11",
+  "pdf": "textbook_mathematics_11.pdf",
+  "page_offset": 8,
+  "source": "High notes (Grade_11_Mathematics.html) regrouped into the units of the official Grade 11 Mathematics textbook (Eritrea MoE)",
+  "lang": "en",
+  "intro": [
+   "Eritrea · Ministry of Education · Grade 11 · 2011",
+   "Given → formula",
+   "Then check ♥",
+   "Mathematics Notes"
+  ],
+  "source_outline": [
+   {
+    "level": 1,
+    "text": "Mathematics Notes"
+   },
+   {
+    "level": 2,
+    "text": "Unit 1 · Polynomial functions"
+   },
+   {
+    "level": 2,
+    "text": "Unit 2 · Square-root functions"
+   },
+   {
+    "level": 2,
+    "text": "Unit 3 · Rational functions"
+   },
+   {
+    "level": 2,
+    "text": "Unit 4 · Exponential and log"
+   },
+   {
+    "level": 2,
+    "text": "Unit 5 · Similarity"
+   },
+   {
+    "level": 2,
+    "text": "Unit 6 · Business mathematics"
+   },
+   {
+    "level": 3,
+    "text": "Unit 1 · 30 extra examples"
+   },
+   {
+    "level": 3,
+    "text": "Unit 2 · 30 extra examples"
+   },
+   {
+    "level": 3,
+    "text": "Unit 3 · 30 extra examples"
+   },
+   {
+    "level": 3,
+    "text": "Unit 4 · 30 extra examples"
+   },
+   {
+    "level": 3,
+    "text": "Unit 5 · 30 extra examples"
+   },
+   {
+    "level": 3,
+    "text": "Unit 6 · 30 extra examples"
+   },
+   {
+    "level": 2,
+    "text": "Mini-game · match"
+   },
+   {
+    "level": 3,
+    "text": "Quiz"
+   }
+  ],
+  "intro_cards": [
+   {
+    "id": "math11-intro-c01",
+    "type": "text",
+    "title": "About these notes",
+    "page": 1,
+    "src": "notes",
+    "body": [
+     "6 units · functions to interest",
+     "Grade 12 later does sequences, stats, coordinate geometry and matrices. This year is graphs of functions, plus similar triangles and money maths. Every worked box: *Given → formula → algebra → check forbidden values*."
+    ]
+   }
+  ]
+ },
+ "units": [
+  {
+   "id": "math11-u3",
+   "number": 3,
+   "title": "Rational Functions",
+   "status": "done",
+   "pages": [
+    71,
+    141
+   ],
+   "tone": "butter",
+   "intro": "Ratio of polynomials. Holes where a factor cancels; vertical asymptotes where the leftover denominator is zero; horizontal / slant from degrees.",
+   "intro_page": 71,
+   "lessons": [
+    {
+     "id": "math11-u3-l3-1",
+     "number": "3.1",
+     "title": "Describing Rational Functions",
+     "pages": [
+      71,
+      74
+     ],
+     "cards": [
+      {
+       "id": "math11-u3-c07",
+       "type": "text",
+       "title": "Rational functions",
+       "page": 71,
+       "body": [
+        "A **rational function** is f(x) = P(x) ÷ Q(x), where P and Q are polynomials and Q(x) ≠ 0. The domain is all real numbers **except** the zeros of Q.",
+        "**Vertical asymptote:** a line x = a where Q(a) = 0 (and P(a) ≠ 0). **Horizontal asymptote** (n = degree of P, m = degree of Q): n < m → y = 0; n = m → y = ratio of leading coeffic"
+       ]
+      },
+      {
+       "id": "math11-u3-wrk-extra1",
+       "type": "worked",
+       "title": "Worked: vertical asymptote vs hole",
+       "page": 71,
+       "problem": "For f(x) = (x² − 1)/(x − 1), identify any hole or asymptote.",
+       "steps": [
+        {
+         "text": "Factor: (x − 1)(x + 1)/(x − 1) for x ≠ 1."
+        },
+        {
+         "text": "Cancel → f(x) = x + 1 with a hole at x = 1 (not a vertical asymptote)."
+        }
+       ],
+       "answer": "Hole at (1, 2); no vertical asymptote from the cancelled factor."
+      },
+      {
+       "type": "text",
+       "title": "Rational functions",
+       "page": 1,
+       "body": [
+        "f=P/Q with Q≠0. Vertical asymptotes: Q=0 after simplifying. Holes: cancelled factors.",
+        "Horizontal: compare deg P and deg Q."
+       ],
+       "id": "math11-u3-deep1"
+      },
+      {
+       "type": "text",
+       "title": "Oblique asymptotes",
+       "body": [
+        "If deg P = deg Q + 1, divide P÷Q; quotient is the slant asymptote.",
+        "Ignore remainder for the asymptote line."
+       ],
+       "id": "math11-u3-xtra1",
+       "page": 1
+      },
+      {
+       "id": "math11-u3-checklist",
+       "type": "text",
+       "title": "Rational Functions: checklist before exam",
+       "page": 1,
+       "body": [
+        "Can you define every bold term in **Rational Functions** without looking?",
+        "Can you redo each worked example with the answer covered?",
+        "Can you sketch one diagram/graph/map and label it in under 2 minutes?"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "math11-u3-l3-2",
+     "number": "3.2",
+     "title": "Graphing Rational Functions",
+     "pages": [
+      75,
+      104
+     ],
+     "cards": [
+      {
+       "id": "math11-u3-c03",
+       "type": "text",
+       "title": "Graphing Rational Functions",
+       "page": 75,
+       "body": [
+        "**Graphing Rational Functions.** A rational function is a ratio of polynomials P(x)/Q(x) with Q not identically 0.",
+        "Vertical asymptotes where Q = 0 and P ≠ 0 after simplifying. Holes where a common factor cancels.",
+        "Horizontal asymptote: compare degrees of P and Q (deg P < deg Q → y=0; equal → ratio of leading coeffs)."
+       ]
+      },
+      {
+       "id": "math11-u3-c08",
+       "type": "worked",
+       "title": "Worked example: sketching information",
+       "page": 75,
+       "problem": "For f(x) = (2x + 1) ÷ (x − 3), find the asymptotes and intercepts.",
+       "steps": [
+        {
+         "text": "Vertical asymptote: x − 3 = 0 → **x = 3**."
+        },
+        {
+         "text": "Degrees equal (1 and 1): horizontal asymptote **y = 2 ÷ 1 = 2**."
+        }
+       ],
+       "answer": "x-intercept: 2x + 1 = 0 → **x = −1/2**. y-intercept: f(0) = 1 ÷ (−3) = **−1/3**."
+      },
+      {
+       "type": "worked",
+       "title": "Hole vs asymptote",
+       "page": 1,
+       "problem": "(x²−9)/(x−3).",
+       "steps": [
+        {
+         "text": "("
+        },
+        {
+         "text": "x"
+        },
+        {
+         "text": "−"
+        },
+        {
+         "text": "3"
+        },
+        {
+         "text": ")"
+        },
+        {
+         "text": "("
+        },
+        {
+         "text": "x"
+        },
+        {
+         "text": "+"
+        },
+        {
+         "text": "3"
+        },
+        {
+         "text": ")"
+        },
+        {
+         "text": "/"
+        },
+        {
+         "text": "("
+        },
+        {
+         "text": "x"
+        },
+        {
+         "text": "−"
+        },
+        {
+         "text": "3"
+        },
+        {
+         "text": ")"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "→"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "x"
+        },
+        {
+         "text": "+"
+        },
+        {
+         "text": "3"
+        },
+        {
+         "text": ","
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "h"
+        },
+        {
+         "text": "o"
+        },
+        {
+         "text": "l"
+        },
+        {
+         "text": "e"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "a"
+        },
+        {
+         "text": "t"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "x"
+        },
+        {
+         "text": "="
+        },
+        {
+         "text": "3"
+        },
+        {
+         "text": "."
+        }
+       ],
+       "answer": "Hole (3,6); no V.A. from that factor.",
+       "id": "math11-u3-deep2"
+      },
+      {
+       "type": "worked",
+       "title": "Worked: intercepts",
+       "problem": "Find x-intercepts of (x−2)(x+1)/(x−4).",
+       "steps": [
+        {
+         "text": "Numerator 0: x=2 or x=−1 (and x≠4)."
+        }
+       ],
+       "answer": "x-intercepts at 2 and −1.",
+       "id": "math11-u3-xtra2",
+       "page": 1
+      },
+      {
+       "id": "math11-u3-misconception",
+       "type": "text",
+       "title": "Common mix-ups in Rational Functions",
+       "page": 1,
+       "body": [
+        "Write one idea students often confuse with this topic, then the correct distinction.",
+        "Example pattern: “Looks like X, but actually Y because …”",
+        "Teaching the difference is better than re-reading the page."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "math11-u3-l3-3",
+     "number": "3.3",
+     "title": "Operations on Rational Expressions",
+     "pages": [
+      105,
+      126
+     ],
+     "cards": [
+      {
+       "id": "math11-u3-c04",
+       "type": "text",
+       "title": "Operations on Rational Expressions",
+       "page": 105,
+       "body": [
+        "**Operations on Rational Expressions.** A rational function is a ratio of polynomials P(x)/Q(x) with Q not identically 0.",
+        "Vertical asymptotes where Q = 0 and P ≠ 0 after simplifying. Holes where a common factor cancels.",
+        "Horizontal asymptote: compare degrees of P and Q (deg P < deg Q → y=0; equal → ratio of leading coeffs)."
+       ]
+      },
+      {
+       "id": "math11-u3-c09",
+       "type": "worked",
+       "title": "Worked example: adding rational expressions",
+       "page": 105,
+       "problem": "Simplify 1/x + 1/(x + 1).",
+       "steps": [
+        {
+         "text": "Common denominator x(x + 1)."
+        },
+        {
+         "text": "= (x + 1)/(x(x + 1)) + x/(x(x + 1)) = **(2x + 1) / (x(x + 1))**, x ≠ 0, −1."
+        }
+       ],
+       "answer": "= (x + 1)/(x(x + 1)) + x/(x(x + 1)) = **(2x + 1) / (x(x + 1))**, x ≠ 0, −1."
+      },
+      {
+       "type": "table",
+       "title": "Asymptote rules",
+       "page": 1,
+       "head": [
+        "Degrees",
+        "Horizontal"
+       ],
+       "rows": [
+        [
+         "deg P < deg Q",
+         "y=0"
+        ],
+        [
+         "deg P = deg Q",
+         "y = leading ratio"
+        ],
+        [
+         "deg P = deg Q+1",
+         "oblique (slant)"
+        ]
+       ],
+       "id": "math11-u3-deep3"
+      }
+     ]
+    }
+   ],
+   "glossary": [
+    {
+     "term": "Rational",
+     "def": "Core topic of this unit — expand with your textbook definition for “Rational Functions”."
+    }
+   ],
+   "tips": [
+    {
+     "id": "math11-u3-tip-extra1",
+     "text": "Simplify first. A cancelled factor → hole; a leftover zero in the denominator → vertical asymptote."
+    },
+    {
+     "id": "math11-u3-deeptip1",
+     "text": "Simplify first, then read asymptotes from what remains."
+    }
+   ],
+   "games": [],
+   "exercise": {
+    "questions": [
+     {
+      "id": "math11-u3-q31",
+      "type": "mcq",
+      "page": 71,
+      "q": "The vertical asymptote of (2x + 1)/(x − 3) is",
+      "options": {
+       "A": "x = −1/2",
+       "B": "x = 3",
+       "C": "y = 2",
+       "D": "x = 2"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: x = 3",
+       "Denominator is 0 at x = 3."
+      ],
+      "tip": "Cross out the options you know are wrong first.",
+      "similar": []
+     },
+     {
+      "id": "math11-u3-q32",
+      "type": "mcq",
+      "page": 71,
+      "q": "The horizontal asymptote of (2x + 1)/(x − 3) is",
+      "options": {
+       "A": "y = 0",
+       "B": "y = 2",
+       "C": "y = 3",
+       "D": "none"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: y = 2",
+       "Equal degrees: 2/1."
+      ],
+      "tip": "Cross out the options you know are wrong first.",
+      "similar": []
+     },
+     {
+      "id": "math11-u3-xq1",
+      "type": "mcq",
+      "page": 1,
+      "q": "Best study move for Rational Functions?",
+      "options": {
+       "A": "Only memorise one sentence",
+       "B": "Define key terms + do a worked example",
+       "C": "Skip diagrams",
+       "D": "Ignore units"
+      },
+      "answer": "B",
+      "why": [
+       "Active recall + worked examples stick."
+      ],
+      "tip": "Teach it aloud.",
+      "similar": []
+     },
+     {
+      "id": "math11-u3-xq2",
+      "type": "mcq",
+      "page": 1,
+      "q": "When stuck on a numerical question you should first…",
+      "options": {
+       "A": "Guess randomly",
+       "B": "Write knowns, formula, units",
+       "C": "Change the question",
+       "D": "Skip forever"
+      },
+      "answer": "B",
+      "why": [
+       "Structure beats panic."
+      ],
+      "tip": "Units reveal mistakes.",
+      "similar": []
+     }
+    ]
+   }
+  }
+ ]
+}
