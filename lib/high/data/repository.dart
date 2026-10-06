@@ -198,7 +198,8 @@ class ExamRepo {
   /// question count of a grade + subject (index count until it is loaded)
   int exerciseCount(int grade, String subject) => exerciseExams['$grade|$subject']?.questions.length ?? (exercisesLoaded(grade, subject) ? 0 : exerciseIndex['$grade|$subject']?.count ?? 0);
 
-  /// question count of a unit (or the 'general|g|subject' bucket): exact when loaded, else the bank index's count
+  /// question count of a unit (or the 'general|g|subject' bucket): exact when loaded, else the bank + school index
+  /// counts (exact too while the indexes are current)
   int exerciseUnitCount(String unitOrGeneral) {
     final l = exerciseUnits[unitOrGeneral];
     final key = _exUnitKey[unitOrGeneral];
@@ -235,14 +236,20 @@ class ExamRepo {
           final old = exerciseIndex[key];
           final n = (e['count'] as num?)?.toInt() ?? 0;
           exerciseIndex[key] = (files: [...?old?.files, ('$root/${e['file']}', school)], count: (old?.count ?? 0) + n);
-          _exUnitKey['general|$key'] = key;
-          _exUnitHint['general|$key'] = (_exUnitHint['general|$key'] ?? 0) + n;
           final units = e['units'];
+          // the 'general' row lists every bank question, but only the school questions without a unit (school index
+          // "units", written by tool/school_units.py; older indexes without it: all of them, an overcount)
+          final gen = school && units is Map && units['general'] is num ? (units['general'] as num).toInt() : (school && units is Map ? 0 : n);
+          _exUnitKey['general|$key'] = key;
+          _exUnitHint['general|$key'] = (_exUnitHint['general|$key'] ?? 0) + gen;
           if (units is Map) {
             for (final u in units.entries) {
-              if (u.key == 'general') continue;
-              _exUnitKey['${u.key}'] = key;
-              _exUnitHint['${u.key}'] = (_exUnitHint['${u.key}'] ?? 0) + ((u.value as num?)?.toInt() ?? 0);
+              // bank questions without a unit are filed under 'eng<g>-practice' (see _addBankFile); school ones
+              // only in the 'general' row (counted above)
+              final uid = u.key == 'general' ? (school ? null : 'eng$g-practice') : '${u.key}';
+              if (uid == null) continue;
+              _exUnitKey[uid] = key;
+              _exUnitHint[uid] = (_exUnitHint[uid] ?? 0) + ((u.value as num?)?.toInt() ?? 0);
             }
           }
         }

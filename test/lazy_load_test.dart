@@ -51,6 +51,15 @@ void main() {
       expect(lazy.exams.length, eager.exams.length);
     });
 
+    test('unit counts are exact before a set is loaded (bank + school indexes)', () {
+      final bad = <String>[];
+      for (final u in eager.exerciseUnits.keys) {
+        // runs before the next test loads [lazy]'s sets
+        if (lazy.exerciseUnitCount(u) != eager.exerciseUnits[u]!.length) bad.add('$u: index ${lazy.exerciseUnitCount(u)} vs loaded ${eager.exerciseUnits[u]!.length}');
+      }
+      expect(bad, isEmpty, reason: 'run python3 tool/school_units.py\n${bad.take(30).join('\n')}');
+    });
+
     test('each set loads on demand with the same questions as eager loading', () async {
       for (final k in lazy.exerciseIndex.keys) {
         final [g, s] = k.split('|');
