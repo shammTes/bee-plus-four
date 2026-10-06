@@ -15,12 +15,13 @@ export 'widgets/page.dart' show HighTab;
 abstract final class High {
   static Future<HighState>? _f;
 
-  /// Loads all exam packs (assets/high/exams) and the saved state (SharedPreferences key 'high:v1').
+  /// Loads the exam summary (assets/high/exams/summary.json), the notes index and the saved state (SharedPreferences key 'high:v1').
   /// Safe to call many times; the same state is shared by every HighScreen.
   static Future<HighState> init({bool useIsolate = true}) => _f ??= () async {
-    // Exercise bank, board codes, unit_questions.json and media placements are not read before the first screen:
-    // exercise sets load per grade + subject when needed, the rest right after start in the background.
-    final repo = ExamRepo(useIsolate: useIsolate, lazyExercises: true, deferCodes: true);
+    // Exam packs, exercise bank, board codes, unit_questions.json and media placements are not read before the first
+    // screen: the exams start from a small summary (packs are read when shown), exercise sets load per grade +
+    // subject when needed, the rest right after start in the background.
+    final repo = ExamRepo(useIsolate: useIsolate, lazyExercises: true, lazyExams: true, deferCodes: true);
     final notes = NotesRepo(useIsolate: useIsolate, deferExtras: true);
     SvgStore.useIsolate = useIsolate;
     await Future.wait([repo.init(), notes.init()]);

@@ -9,6 +9,7 @@ import '../theme/tokens.dart';
 import '../widgets/kit.dart';
 import '../widgets/page.dart';
 import '../widgets/rich.dart';
+import '../state/app_state.dart';
 import 'routes.dart';
 
 const _sub = {'₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4', '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9', '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁺': '+', '⁻': '-'};
@@ -69,6 +70,8 @@ class TutorIndex {
   final df = <String, int>{};
   double avg = 0;
   static TutorIndex? _i;
+
+  /// built once, from the full packs (the tutor reads them in first: [tutorReady])
   static TutorIndex of(ExamRepo r) => _i ??= TutorIndex(r);
 
   List<({_Doc d, double s, double cov})> bm25(List<String> qt) {
@@ -93,6 +96,9 @@ class TutorIndex {
   }
 }
 
+/// every exam pack and the concept texts are read in (they are not at start-up, see ExamRepo.lazyExams)
+bool tutorReady(ExamRepo r) => r.allExamsLoaded && r.conceptsLoaded;
+
 class _Msg {
   _Msg(this.me, this.text, {this.title, this.ref, this.qs = const [], this.refuse = false});
   final bool me, refuse;
@@ -112,6 +118,15 @@ class TutorPage extends StatefulWidget {
 class _TutorPageState extends State<TutorPage> {
   final _c = TextEditingController();
   final _sc = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    // first visit: read every exam pack + the concept texts (off the UI thread), then rebuild
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) HighScope.read(context).needAllExams(concepts: true);
+    });
+  }
 
   _Msg _reply(ExamRepo r, String text) {
     final ix = TutorIndex.of(r);
@@ -140,7 +155,8 @@ class _TutorPageState extends State<TutorPage> {
   void _ask(String t) {
     t = t.trim();
     if (t.isEmpty) return;
-    final r = Kit.of(context).s.repo;
+    final r = HighScope.read(context).repo;
+    if (!tutorReady(r)) return;
     setState(() {
       _chat.add(_Msg(true, t));
       _chat.add(_reply(r, t));
@@ -192,6 +208,7 @@ class _TutorPageState extends State<TutorPage> {
           ],
         ),
       ),
+      if (!tutorReady(r)) bot(Text('One moment: I am reading your exam packs for the first time…', style: ts(13.5, w700, p.ink2, height: 1.45))),
       for (final m in _chat)
         m.me
             ? Align(

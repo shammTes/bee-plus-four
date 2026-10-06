@@ -22,11 +22,16 @@ class Concept {
 }
 
 class ExamRepo {
-  ExamRepo({this.useIsolate = false, AssetBundle? bundle, this.lazyExercises = false, this.deferCodes = false}) : _bundle = bundle ?? rootBundle;
+  ExamRepo({this.useIsolate = false, AssetBundle? bundle, this.lazyExercises = false, this.lazyExams = false, this.deferCodes = false}) : _bundle = bundle ?? rootBundle;
   final bool useIsolate;
 
   /// app: read the Exercise bank per grade + subject when needed (see [ensureExercises]); tests: everything at init
   final bool lazyExercises;
+
+  /// app: start from assets/high/exams/summary.json (tool/exam_summary.py) with question stubs, and read an exam pack
+  /// only when its questions are shown ([ensureExam], [ensureExamsFor]); the tutor reads all ([ensureAllExams],
+  /// [ensureConcepts]). Falls back to reading every pack when the summary is missing or does not match index.json.
+  final bool lazyExams;
 
   /// app: board codes (codes.json) are read in the background after init instead of before the first screen
   final bool deferCodes;
@@ -39,6 +44,8 @@ class ExamRepo {
   final List<String> subjects = [];
   final Map<String, String> topicTitleMap = {}, topicParent = {};
   final Map<String, List<String>> topicQs = {};
+
+  /// textbook concepts of the topic indexes (tutor). With [lazyExams] empty until [ensureConcepts].
   final List<Concept> concepts = [];
 
   /// board codes (assets/high/codes.json); null if not bundled
@@ -49,102 +56,37 @@ class ExamRepo {
   List<String> media = [];
   bool loaded = false;
 
+  /// the exams came from the summary (stubs until each pack is read)
+  bool fromSummary = false;
+
+  /// bumped whenever an exam pack is read in after start-up
+  int examVersion = 0;
+
   Future<void>? _init;
   Future<void> init() => _init ??= _load();
+
+  List<String> _topicFiles = const [];
 
   Future<void> _load() async {
     final idx = jsonDecode(await _bundle.loadString('$root/index.json')) as Map<String, dynamic>;
     media = strs(idx['media']);
     final examFiles = strs(idx['exams']);
-    final topicFiles = strs(idx['topics']);
-    final files = [...examFiles, ...topicFiles];
-    final parsed = <Object?>[];
-    // Load a few papers at a time so a low-end phone is not asked to hold every paper at once.
-    for (var start = 0; start < files.length; start += 8) {
-      final end = start + 8 > files.length ? files.length : start + 8;
-      final batch = files.sublist(start, end);
-      final raws = await Future.wait(batch.map((f) async {
-        try {
-          return await _bundle.loadString('$root/$f', cache: false);
-        } catch (_) {
-          return '';
-        }
-      }));
-      final batchParsed = useIsolate ? await offThread(decodeJsonListLenient, raws) : decodeJsonListLenient(raws);
-      parsed.addAll(batchParsed);
-    }
-    final nEx = examFiles.length;
-    for (var i = 0; i < nEx; i++) {
-      final raw = parsed[i];
-      if (raw is! Map) continue;
-      final examMap = raw['exam'];
-      if (examMap is! Map) continue;
-      try {
-        final d = Map<String, dynamic>.from(raw);
-        final e = Exam(Map<String, dynamic>.from(examMap), files[i]);
-        if (exam.containsKey(e.id)) continue;
-        final lists = d['match_lists'];
-        if (lists is List) {
-          for (final ml in lists) {
-            if (ml is Map && ml['id'] != null && ml['choices'] != null) e.matchLists[ml['id'] as String] = MatchList(Map<String, dynamic>.from(ml));
-          }
-        }
-        final passages = d['passages'];
-        if (passages is List) {
-          for (final ps in passages) {
-            if (ps is Map && ps['id'] != null) e.passages[ps['id'] as String] = Map<String, dynamic>.from(ps);
-          }
-        }
-        e.questions = [
-          for (final q in (d['questions'] as List? ?? const []))
-            if (q is Map && q['id'] != null) Question(q is Map<String, dynamic> ? q : Map<String, dynamic>.from(q), e),
-        ];
-        for (final q in e.questions) {
-          byId[q.id] = q;
-        }
-        exams.add(e);
-        exam[e.id] = e;
-      } catch (_) {}
+    final topicFiles = _topicFiles = strs(idx['topics']);
+    List<(Object?, String)>? topicIx;
+    if (lazyExams) topicIx = await _loadSummary(examFiles, topicFiles);
+    if (topicIx == null) {
+      final files = [...examFiles, ...topicFiles];
+      final parsed = await _readMany([for (final f in files) '$root/$f']);
+      for (var i = 0; i < examFiles.length; i++) {
+        _addExam(parsed[i], files[i]);
+      }
+      topicIx = [for (var i = examFiles.length; i < files.length; i++) (parsed[i], files[i])];
+      _conceptsDone = true;
     }
     final subs = {for (final e in exams) e.subject}.toList()..sort((a, b) => subjOrder(a) != subjOrder(b) ? subjOrder(a) - subjOrder(b) : a.compareTo(b));
     subjects.addAll(subs);
-    for (var i = nEx; i < files.length; i++) {
-      final rawIx = parsed[i];
-      if (rawIx is! Map) continue;
-      final ix = Map<String, dynamic>.from(rawIx);
-      String? subj;
-      for (final id in strs(ix['exam_ids'])) {
-        if (exam[id] != null) {
-          subj = exam[id]!.subject;
-          break;
-        }
-      }
-      subj ??= ix['subject'] as String?;
-      if (subj == null) {
-        final pre = files[i].split(RegExp(r'[_.]'))[0].toLowerCase();
-        final pp = pre.replaceAll(RegExp('[^a-z]'), '');
-        for (final s in subjects) {
-          final sl = s.toLowerCase();
-          if (sl.replaceAll(RegExp('[^a-z]'), '').startsWith(pp) || pre.startsWith(sl.substring(0, sl.length < 4 ? sl.length : 4))) {
-            subj = s;
-            break;
-          }
-        }
-      }
-      subj ??= 'General';
-      final seen = {for (final c in concepts) if (c.subject == subj) c.sub['id']};
-      for (final t in (ix['topics'] as List? ?? const [])) {
-        if (t is! Map) continue;
-        final tt = Map<String, dynamic>.from(t);
-        if (tt['id'] != null) topicParent.putIfAbsent('$subj|${tt['id']}', () => shortTitle(str(tt['title'])));
-        for (final s in (tt['subtopics'] as List? ?? const [])) {
-          if (s is! Map || s['id'] == null) continue;
-          final ss = Map<String, dynamic>.from(s);
-          topicParent.putIfAbsent('$subj|${ss['id']}', () => shortTitle(str(tt['title'])));
-          topicTitleMap.putIfAbsent('$subj|${ss['id']}', () => shortTitle(str(ss['title'])));
-          if (seen.add(ss['id'])) concepts.add(Concept(subj, tt, ss));
-        }
-      }
+    for (final (ix, file) in topicIx) {
+      _addTopicIndex(ix, file, concepts: !fromSummary);
     }
     for (final e in exams) {
       for (final q in e.questions) {
@@ -161,6 +103,245 @@ class ExamRepo {
       codesReady = Future.value(codes);
     }
     loaded = true;
+  }
+
+  /// read + decode asset files, a few at a time (a low-end phone is not asked to hold every paper at once), off the
+  /// UI thread when [useIsolate]; unreadable / broken files come back as null
+  Future<List<Object?>> _readMany(List<String> paths) async {
+    final out = <Object?>[];
+    for (var start = 0; start < paths.length; start += 8) {
+      final batch = paths.sublist(start, math.min(start + 8, paths.length));
+      final raws = await Future.wait(batch.map((f) => _bundle.loadString(f, cache: false).then((t) => t, onError: (Object _) => '')));
+      List<Object?> parsed;
+      try {
+        parsed = useIsolate ? await offThread(decodeJsonListLenient, raws) : decodeJsonListLenient(raws);
+      } catch (_) {
+        parsed = decodeJsonListLenient(raws); // isolate could not start: decode here
+      }
+      out.addAll(parsed);
+    }
+    return out;
+  }
+
+  /// one exam pack -> [exams] / [exam] / [byId] (skips broken files and repeated exam ids)
+  void _addExam(Object? raw, String file) {
+    if (raw is! Map) return;
+    final examMap = raw['exam'];
+    if (examMap is! Map) return;
+    try {
+      final e = Exam(Map<String, dynamic>.from(examMap), file);
+      if (exam.containsKey(e.id)) return;
+      _readExamBody(e, raw);
+      for (final q in e.questions) {
+        byId[q.id] = q;
+      }
+      exams.add(e);
+      exam[e.id] = e;
+    } catch (_) {}
+  }
+
+  /// match lists, passages and questions of pack [d] into [e]
+  static void _readExamBody(Exam e, Map d) {
+    final lists = d['match_lists'];
+    if (lists is List) {
+      for (final ml in lists) {
+        if (ml is Map && ml['id'] != null && ml['choices'] != null) e.matchLists[ml['id'] as String] = MatchList(Map<String, dynamic>.from(ml));
+      }
+    }
+    final passages = d['passages'];
+    if (passages is List) {
+      for (final ps in passages) {
+        if (ps is Map && ps['id'] != null) e.passages[ps['id'] as String] = Map<String, dynamic>.from(ps);
+      }
+    }
+    final qs = [
+      for (final q in (d['questions'] as List? ?? const []))
+        if (q is Map && q['id'] != null) Question(q is Map<String, dynamic> ? q : Map<String, dynamic>.from(q), e),
+    ];
+    for (final q in qs) {
+      q.id; // throws on a non-string id, like the eager loader always did (the exam is skipped)
+    }
+    e.questions = qs;
+  }
+
+  /// a topic index -> topic titles / parents (and [concepts] when [concepts] is true and the index is the full file)
+  void _addTopicIndex(Object? rawIx, String file, {required bool concepts}) {
+    if (rawIx is! Map) return;
+    final ix = Map<String, dynamic>.from(rawIx);
+    String? subj;
+    for (final id in strs(ix['exam_ids'])) {
+      if (exam[id] != null) {
+        subj = exam[id]!.subject;
+        break;
+      }
+    }
+    subj ??= ix['subject'] as String?;
+    if (subj == null) {
+      final pre = file.split(RegExp(r'[_.]'))[0].toLowerCase();
+      final pp = pre.replaceAll(RegExp('[^a-z]'), '');
+      for (final s in subjects) {
+        final sl = s.toLowerCase();
+        if (sl.replaceAll(RegExp('[^a-z]'), '').startsWith(pp) || pre.startsWith(sl.substring(0, sl.length < 4 ? sl.length : 4))) {
+          subj = s;
+          break;
+        }
+      }
+    }
+    subj ??= 'General';
+    final seen = {for (final c in this.concepts) if (c.subject == subj) c.sub['id']};
+    for (final t in (ix['topics'] as List? ?? const [])) {
+      if (t is! Map) continue;
+      final tt = Map<String, dynamic>.from(t);
+      if (tt['id'] != null) topicParent.putIfAbsent('$subj|${tt['id']}', () => shortTitle(str(tt['title'])));
+      for (final s in (tt['subtopics'] as List? ?? const [])) {
+        if (s is! Map || s['id'] == null) continue;
+        final ss = Map<String, dynamic>.from(s);
+        topicParent.putIfAbsent('$subj|${ss['id']}', () => shortTitle(str(tt['title'])));
+        topicTitleMap.putIfAbsent('$subj|${ss['id']}', () => shortTitle(str(ss['title'])));
+        if (concepts && seen.add(ss['id'])) this.concepts.add(Concept(subj, tt, ss));
+      }
+    }
+  }
+
+  // ---------------------------------------------------------------- lazy exam packs (summary + stubs)
+
+  static const summaryFile = 'summary.json';
+
+  /// stubs from the summary; null (nothing added) if it is missing, broken or does not match index.json. Returns the
+  /// slim topic indexes to read titles from.
+  Future<List<(Object?, String)>?> _loadSummary(List<String> examFiles, List<String> topicFiles) async {
+    Object? d;
+    try {
+      final raw = await _bundle.loadString('$root/$summaryFile', cache: false);
+      d = useIsolate ? await offThread(decodeJson, raw) : jsonDecode(raw);
+    } catch (_) {
+      return null;
+    }
+    if (d is! Map || d['v'] != 1 || d['exams'] is! List || d['topics'] is! List) return null;
+    final sExams = (d['exams'] as List).whereType<Map>().toList(), sTopics = (d['topics'] as List).whereType<Map>().toList();
+    // stale-summary guard: same topic files, and the summary's exams are index.json's (minus broken ones) in order
+    if (sTopics.length != topicFiles.length || [for (var i = 0; i < topicFiles.length; i++) sTopics[i]['file'] == topicFiles[i]].contains(false)) return null;
+    var at = 0;
+    for (final m in sExams) {
+      at = examFiles.indexOf('${m['file']}', at);
+      if (at < 0) return null;
+      at++;
+    }
+    final built = <Exam>[];
+    try {
+      for (final m in sExams) {
+        final e = Exam(Map<String, dynamic>.from(m['exam'] as Map), '${m['file']}')..full = false;
+        final topics = strs(m['t']);
+        e.questions = [
+          for (final q in m['q'] as List)
+            () {
+              final l = q as List, sid = l[0] as String;
+              return Question.stub(sid.startsWith('=') ? sid.substring(1) : '${e.id}$sid', e, (l[1] as num).toInt(), [for (final i in l[2] as List) topics[(i as num).toInt()]]);
+            }(),
+        ];
+        built.add(e);
+      }
+    } catch (_) {
+      return null;
+    }
+    for (final e in built) {
+      if (exam.containsKey(e.id)) continue;
+      for (final q in e.questions) {
+        byId[q.id] = q;
+      }
+      exams.add(e);
+      exam[e.id] = e;
+    }
+    fromSummary = true;
+    return [for (final t in sTopics) (t['ix'], '${t['file']}')];
+  }
+
+  final Map<String, Future<void>> _examLoads = {};
+
+  bool get allExamsLoaded => exams.every((e) => e.full);
+
+  /// read one exam's pack (once); its stubs in [byId] / [Exam.questions] are replaced by the full questions
+  Future<void> ensureExam(String examId) {
+    final e = exam[examId];
+    if (e == null || e.full) return Future.value();
+    return _examLoads[examId] ??= () async {
+      try {
+        final r = await _readMany(['$root/${e.file}']);
+        _fillExam(e, r.first);
+      } catch (_) {
+        if (!e.full) _fillExam(e, null); // unreadable pack: no questions (as the eager load skips it), never a stuck spinner
+      } finally {
+        _examLoads.remove(examId);
+      }
+    }();
+  }
+
+  /// read the packs of whichever [ids] are still stubs (exercise ids: see [ensureExercisesForIds])
+  Future<void> ensureExamsFor(Iterable<String> ids) {
+    final need = <String>{
+      for (final id in ids)
+        if (byId[id]?.isStub ?? false) byId[id]!.exam.id,
+    };
+    return need.isEmpty ? Future.value() : Future.wait(need.map(ensureExam));
+  }
+
+  /// every pack (tutor; teacher's question pool), a few at a time
+  Future<void> ensureAllExams() => allExamsLoaded ? Future.value() : _allLoad ??= _loadAll().whenComplete(() => _allLoad = null);
+  Future<void>? _allLoad;
+
+  Future<void> _loadAll() async {
+    final todo = exams.where((e) => !e.full && !_examLoads.containsKey(e.id)).toList();
+    for (var i = 0; i < todo.length; i += 8) {
+      final batch = todo.sublist(i, math.min(i + 8, todo.length));
+      List<Object?> parsed;
+      try {
+        parsed = await _readMany([for (final e in batch) '$root/${e.file}']);
+      } catch (_) {
+        await Future.wait(batch.map((e) => ensureExam(e.id))); // one by one, so one bad pack doesn't sink the batch
+        continue;
+      }
+      for (final (j, e) in batch.indexed) {
+        if (!e.full) _fillExam(e, parsed[j]);
+      }
+    }
+    await Future.wait(_examLoads.values.toList());
+  }
+
+  void _fillExam(Exam e, Object? raw) {
+    final old = e.questions;
+    final tmp = Exam(e.j, e.file);
+    try {
+      if (raw is Map) _readExamBody(tmp, raw);
+    } catch (_) {
+      tmp.questions = [];
+    }
+    e.matchLists.addAll(tmp.matchLists);
+    e.passages.addAll(tmp.passages);
+    e.questions = [for (final q in tmp.questions) Question(q.j, e)];
+    for (final q in old) {
+      if (identical(byId[q.id], q)) byId.remove(q.id);
+    }
+    for (final q in e.questions) {
+      byId[q.id] = q;
+    }
+    e.full = true;
+    examVersion++;
+  }
+
+  bool _conceptsDone = false;
+  Future<void>? _conceptLoad;
+  bool get conceptsLoaded => _conceptsDone;
+
+  /// the topic indexes' concept texts (tutor), read once
+  Future<void> ensureConcepts() {
+    if (_conceptsDone) return Future.value();
+    return _conceptLoad ??= () async {
+      final parsed = await _readMany([for (final f in _topicFiles) '$root/$f']);
+      for (final (i, f) in _topicFiles.indexed) {
+        _addTopicIndex(parsed[i], f, concepts: true);
+      }
+      _conceptsDone = true;
+    }();
   }
 
   static const exRoot = 'assets/high/exercises';

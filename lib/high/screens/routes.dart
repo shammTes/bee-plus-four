@@ -41,9 +41,8 @@ abstract final class Routes {
   static Future<void> dailyQuiz(BuildContext c) async {
     final s = _s(c), d = s.dailyQuiz();
     d['res'] ??= <String, dynamic>{};
-    // today's quiz may hold exercise questions whose set is not read in yet
-    await s.needQuestions([for (final x in d['ids'] as List) '$x']);
-    if (!c.mounted) return;
+    // today's quiz may hold exercise sets / exam packs that are not read in yet: QuizPage shows a loading card and
+    // loads them (HighState.readyToShow)
     HighNav.of(c).push(QuizPage(ids: [for (final x in d['ids'] as List) x as String], title: 'Daily Quiz', sub: '10 questions · mixed subjects', kind: 'daily'));
   }
 

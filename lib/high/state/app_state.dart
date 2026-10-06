@@ -229,11 +229,35 @@ class HighState extends ChangeNotifier {
     if (repo.exerciseVersion != v) contentChanged();
   }
 
-  /// [ids] (a quiz, homework …) may hold exercise questions that are not read in yet: load them, then rebuild
+  /// [ids] (a quiz, homework …) may hold exercise questions that are not read in yet, or exam questions that are
+  /// still summary stubs: load them, then rebuild
   Future<void> needQuestions(Iterable<String> ids) async {
-    final v = repo.exerciseVersion;
-    await repo.ensureExercisesForIds(ids);
-    if (repo.exerciseVersion != v) contentChanged();
+    final l = ids.toList();
+    final v = repo.exerciseVersion, w = repo.examVersion;
+    await repo.ensureExercisesForIds(l);
+    await repo.ensureExamsFor(l);
+    if (repo.exerciseVersion != v || repo.examVersion != w) contentChanged();
+  }
+
+  /// [qs] are ready to show (no stubs); otherwise starts loading them (rebuilds when done) and returns false
+  bool readyToShow(Iterable<Question> qs, [Iterable<String>? ids]) {
+    if (!qs.any((q) => q.isStub) && !(ids ?? const <String>[]).any((id) => !repo.byId.containsKey(id) && repo.mayBePendingExercise(id))) return true;
+    needQuestions(ids ?? [for (final q in qs) q.id]);
+    return false;
+  }
+
+  /// one exam's pack (practice page), then rebuild
+  Future<void> needExam(String examId) async {
+    final w = repo.examVersion;
+    await repo.ensureExam(examId);
+    if (repo.examVersion != w) contentChanged();
+  }
+
+  /// every pack (+ the concept texts for the tutor), then rebuild
+  Future<void> needAllExams({bool concepts = false}) async {
+    final w = repo.examVersion, c = repo.conceptsLoaded;
+    await Future.wait([repo.ensureAllExams(), if (concepts) repo.ensureConcepts()]);
+    if (repo.examVersion != w || repo.conceptsLoaded != c) contentChanged();
   }
 
   /// load one grade + subject of the Exercise bank (first open of that subject), then rebuild
