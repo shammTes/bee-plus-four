@@ -2,7 +2,8 @@
 // 'mirror' resolve to the extended lab versions.
 import 'sims.dart';
 import 'sims_em.dart';
+import 'sims_mech.dart';
 import 'sims_optics.dart';
 import 'sims_waves.dart';
 
-final Map<String, SimSpec Function(Map<String, dynamic>)> labSims = {...opticsLabs, ...emLabs, ...wavesLabs};
+final Map<String, SimSpec Function(Map<String, dynamic>)> labSims = {...opticsLabs, ...emLabs, ...wavesLabs, ...mechLabs};
