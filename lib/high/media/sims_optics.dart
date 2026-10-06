@@ -504,12 +504,13 @@ SimSpec _lensLab() => LabSpec(
   },
   read: (v, t) {
     final f = v['kind'] == 0 ? v['f']! : -v['f']!;
-    if (v['mode'] == 1)
+    if (v['mode'] == 1) {
       return [
         ('f', '${fx(f, 0)} cm'),
         ('P = 1/f', '${fx(100 / f)} D'),
         ('', f > 0 ? 'rays meet at the real focus F' : 'rays spread as if from the virtual focus F'),
       ];
+    }
     return _imgRead(f, v['u']!, mirror: false);
   },
   draw: (c, s, v, t, p) {

@@ -58,6 +58,7 @@ class LabSpec extends SimSpec {
     super.height = 260,
     this.drag,
     this.pan = false,
+    this.playOnDrag = false,
     this.step,
     this.reset,
     this.changed,
@@ -78,6 +79,9 @@ class LabSpec extends SimSpec {
   /// canvas touch: horizontal drags (or free 2-D drags when [pan]) and taps; set values in [V]
   final void Function(V v, Offset at, Size s)? drag;
   final bool pan;
+
+  /// start the ticker when the canvas is dragged (labs whose [step] measures the drag speed)
+  final bool playOnDrag;
 
   /// per-frame integration (dt in s) and its reset, for labs that are not closed-form in t
   final void Function(double dt, V v)? step;
@@ -265,6 +269,10 @@ class LabViewState extends State<LabView> with SingleTickerProviderStateMixin {
       }
     }
     if (!diff) return;
+    if (s.playOnDrag && s.anim && !playing) {
+      playing = true;
+      _sync();
+    }
     setState(() {
       rev++;
       if (s.replay) {
