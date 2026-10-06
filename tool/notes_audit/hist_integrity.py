@@ -7,15 +7,41 @@
    identical, with the same keys in the same order.
 2) Text level: every line deleted by `git diff <ref>` in a History notes file must reappear as an added line that
    differs at most by a trailing comma (JSON list continuation).
-Also checks the per-unit split files assets/high/notes/split/hist*-u*.json the same way."""
+Also checks the per-unit split files assets/high/notes/split/hist*-u*.json the same way.
+3) Owner-approved corrections: APPROVED lists the ONLY permitted edits to pre-existing teacher text (card id, old
+   substring, new substring). For those cards the old card with exactly that one substitution applied must match the
+   new card byte-for-byte, and every approved edit must be present (applied exactly once) in the notes file and in
+   the split file that contains the card. Any other difference is still reported."""
 import json, subprocess, sys, glob, os
 ref = sys.argv[1] if len(sys.argv) > 1 else 'fix/high-notes-round3'
 bad = 0
 stats = {}
+# Approved by the owner on 2026-10-06 (PR #31): correct 4 dates/figures to match the Grade 10/11 History textbooks.
+APPROVED = [
+    ('hist10-u9-n04', 'captured Kabul (Afghanistan) in 1508', 'captured Kabul (Afghanistan) in 1504'),
+    ('hist11-u3-n28', 'communist manifesto written in 1875', 'communist manifesto written in 1848'),
+    ('hist11-u10-n01', 'Manchuria in 1939 and invade invaded Beijing and Nanjing in 1936',
+     'Manchuria in 1931 and invade invaded Beijing and Nanjing in 1937'),
+    ('hist11-u12-n09', '9 peoples were killed and 534 were wounded', 'scores of people were killed and over 80 were wounded'),
+]
+APPROVED_BY_ID = {}
+for _id, _a, _b in APPROVED:
+    APPROVED_BY_ID.setdefault(_id, []).append((_a, _b))
+applied = {}  # file -> list of applied (id, old) pairs
 
 
 def ser(x):
     return json.dumps(x, ensure_ascii=False)
+
+
+def expected(x, st):
+    """Serialisation the old item must have now: unchanged, or with its approved substitution(s) applied."""
+    sx = ser(x)
+    for a, b in APPROVED_BY_ID.get(x.get('id') if isinstance(x, dict) else None, []):
+        if sx.count(a) != 1:
+            return sx
+        sx = sx.replace(a, b)
+    return sx
 
 
 def is_item(x):
@@ -36,7 +62,7 @@ def walk(o, n, path, st):
             # item list: old items must appear in order, byte-identical; extra items must be new r4 cards
             j = 0
             for x in o:
-                sx = ser(x)
+                sx = expected(x, st)
                 while j < len(n) and ser(n[j]) != sx:
                     if '-r4' not in str(n[j].get('id', '')) if isinstance(n[j], dict) else True:
                         print('UNEXPECTED ITEM / ORDER CHANGE', f'{path}[{j}]', str(n[j].get('id') if isinstance(n[j], dict) else n[j])[:60]); bad += 1
@@ -46,7 +72,10 @@ def walk(o, n, path, st):
                 if j == len(n):
                     print('ITEM MISSING OR CHANGED', path, x.get('id')); bad += 1
                     return
-                st['items'] += 1
+                if sx != ser(x):
+                    st['approved'].append(x.get('id'))
+                else:
+                    st['items'] += 1
                 j += 1
             for y in n[j:]:
                 if isinstance(y, dict) and '-r4' in str(y.get('id', '')):
@@ -69,19 +98,33 @@ for p in files:
         old = json.loads(subprocess.check_output(['git', 'show', f'{ref}:{p}'], stderr=subprocess.DEVNULL))
     except subprocess.CalledProcessError:
         print('NEW FILE (no base)', p); bad += 1; continue
-    st = {'items': 0, 'inserted': 0}
+    st = {'items': 0, 'inserted': 0, 'approved': []}
     walk(old, json.load(open(p, encoding='utf-8')), os.path.basename(p), st)
     stats[p] = st
 for p in files[:4]:
     diff = subprocess.check_output(['git', 'diff', '-U0', ref, '--', p], text=True).splitlines()
     dels = [l[1:] for l in diff if l.startswith('-') and not l.startswith('---')]
     adds = set(l[1:] for l in diff if l.startswith('+') and not l.startswith('+++'))
-    orphan = [l for l in dels if l + ',' not in adds and l not in adds]
+    def fixed(l):
+        for _id, a, b in APPROVED:
+            l = l.replace(a, b)
+        return l
+    orphan = [l for l in dels if l + ',' not in adds and l not in adds and fixed(l) not in adds and fixed(l) + ',' not in adds]
+    corrected = [l for l in dels if fixed(l) != l and (fixed(l) in adds or fixed(l) + ',' in adds)]
     print(os.path.basename(p), f"old items byte-identical & in order: {stats[p]['items']}, new r4 cards inserted: {stats[p]['inserted']},",
-          f'deleted lines: {len(dels)} (each only gained a trailing comma)' if not orphan else f'{len(orphan)} REAL DELETIONS')
+          f'deleted lines: {len(dels)} (approved corrections: {len(corrected)}, the rest only gained a trailing comma)' if not orphan else f'{len(orphan)} REAL DELETIONS')
     bad += len(orphan)
     for l in orphan[:5]:
         print('   DELETED:', l[:100])
+# every approved edit must be applied exactly once in the notes file and in its split file
+for _id, a, b in APPROVED:
+    hits = [p for p in stats if _id in stats[p]['approved']]
+    books = [p for p in hits if '/notes/notes/' in p]
+    splits = [p for p in hits if '/split/' in p]
+    ok = len(books) == 1 and len(splits) == 1 and all(stats[p]['approved'].count(_id) == 1 for p in hits)
+    print(f'approved correction {_id}: "{a}" -> "{b}":', 'applied in ' + ', '.join(os.path.basename(p) for p in hits) if ok else 'NOT APPLIED CORRECTLY ' + str(hits))
+    if not ok:
+        bad += 1
 sp = [p for p in files[4:] if p in stats]
 print('split files checked:', len(sp), '- old items byte-identical & in order:', sum(stats[p]['items'] for p in sp),
       '- new r4 cards:', sum(stats[p]['inserted'] for p in sp))
