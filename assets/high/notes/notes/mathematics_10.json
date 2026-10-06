@@ -521,12 +521,12 @@
             "q": "Relation vs function?",
             "answer": "Function: each x pairs with only one y.",
             "why": [
-              "Textbook p.7: In a relation, if there are two different ordered pairs with the same first element, then the relation is not a function."
+              "Every function is a relation (a set of ordered pairs), but a relation is a function only if no input x is paired with two different outputs. Example: {(1, 2), (2, 2)} is a function; {(1, 2), (1, 3)} is not."
             ],
             "src": "notes",
             "label": "1. Relation vs function?",
             "page": 7,
-            "why_src": "textbook p.7",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -543,12 +543,12 @@
             "q": "Domain of {(1,2),(1,3)}?",
             "answer": "{1} — and it is not a function.",
             "why": [
-              "Textbook p.18: A one-to-one function is a function in which no two elements in the domain of the function are assigned to the same element in the range of the function."
+              "The domain is the set of first coordinates: here only 1 appears, so the domain is {1}. Because 1 goes to both 2 and 3, the relation is not a function."
             ],
             "src": "notes",
             "label": "2. Domain of {(1,2),(1,3)}?",
             "page": 18,
-            "why_src": "textbook p.18",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -563,12 +563,12 @@
             "q": "Vertical-line test says?",
             "answer": "If some vertical line hits twice, not a function.",
             "why": [
-              "Textbook p.19: This is called the horizontal line test."
+              "A vertical line is a set of points with the same x. If it meets the graph twice, that x has two y-values, so the graph is not a function."
             ],
             "src": "notes",
             "label": "3. Vertical-line test says?",
             "page": 19,
-            "why_src": "textbook p.19",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -602,12 +602,12 @@
             "q": "Domain of 1/(x-4)?",
             "answer": "x≠4.",
             "why": [
-              "Textbook p.22: Consequently, the domain of R-1 is the range of R, and the range of R-1 is the domain of R."
+              "Division by zero is undefined, so the denominator x − 4 must not be 0. Domain: all real numbers except 4, i.e. x ≠ 4."
             ],
             "src": "notes",
             "label": "5. Domain of 1/(x-4)?",
             "page": 18,
-            "why_src": "textbook p.22",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -622,12 +622,12 @@
             "q": "Domain of √(x-2)?",
             "answer": "x≥2.",
             "why": [
-              "Textbook p.22: Consequently, the domain of R-1 is the range of R, and the range of R-1 is the domain of R."
+              "A real square root needs a non-negative number inside: x − 2 ≥ 0, so x ≥ 2. Domain: [2, ∞)."
             ],
             "src": "notes",
             "label": "6. Domain of √(x-2)?",
             "page": 18,
-            "why_src": "textbook p.22",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -642,12 +642,12 @@
             "q": "Is y=x² a function on ℝ?",
             "answer": "Yes (one y each x). Not one-to-one.",
             "why": [
-              "Textbook p.20: Which ones? c) Is f a one-to-one function?"
+              "Each x gives exactly one value x², so y = x² is a function. It is not one-to-one because two inputs give the same output, e.g. 2² = (−2)² = 4."
             ],
             "src": "notes",
             "label": "7. Is y=x² a function on ℝ?",
             "page": 18,
-            "why_src": "textbook p.20",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -662,12 +662,12 @@
             "q": "Horizontal-line test?",
             "answer": "If a horizontal line hits twice, no inverse function on that domain.",
             "why": [
-              "Textbook p.19: This is called the horizontal line test."
+              "A horizontal line has one y-value. If it meets the graph twice, two different x have the same y, so the function is not one-to-one and its inverse would not be a function."
             ],
             "src": "notes",
             "label": "8. Horizontal-line test?",
             "page": 19,
-            "why_src": "textbook p.19",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -682,12 +682,12 @@
             "q": "Inverse of y=2x+1?",
             "answer": "x=2y+1 → y=(x-1)/2. f⁻¹(x)=(x-1)/2.",
             "why": [
-              "Textbook p.22: Why? d) Is the inverse of a function always a function? e) When is the inverse of a function itself a function?"
+              "Step 1: swap x and y: x = 2y + 1. Step 2: solve for y: 2y = x − 1, y = (x − 1)/2. Check: f(f⁻¹(x)) = 2·(x − 1)/2 + 1 = x ✔."
             ],
             "src": "notes",
             "label": "9. Inverse of y=2x+1?",
             "page": 27,
-            "why_src": "textbook p.22",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -702,12 +702,12 @@
             "q": "Graph of inverse?",
             "answer": "Reflect in y=x.",
             "why": [
-              "Textbook p.26: Thus, to draw the graph f -1 from the graph of f, first draw the graph of f and then reflect the resulting graph about the line y = x."
+              "The inverse swaps every point (a, b) to (b, a), which is the reflection in the line y = x. So the graphs of f and f⁻¹ are mirror images in y = x."
             ],
             "src": "notes",
             "label": "10. Graph of inverse?",
             "page": 27,
-            "why_src": "textbook p.26",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -722,12 +722,12 @@
             "q": "f(x)=x³ on ℝ, inverse?",
             "answer": "∛x. One-to-one.",
             "why": [
-              "Textbook p.22: However, the inverse of a one-to-one function is always a function."
+              "f(x) = x³ is strictly increasing, so it is one-to-one on ℝ. Swap and solve: x = y³ gives y = ∛x, so f⁻¹(x) = ∛x."
             ],
             "src": "notes",
             "label": "11. f(x)=x³ on ℝ, inverse?",
             "page": 27,
-            "why_src": "textbook p.22",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -742,12 +742,12 @@
             "q": "f(f⁻¹(5)) if inverse exists?",
             "answer": "5.",
             "why": [
-              "Textbook p.10: If there exists a vertical line that crosses the graph of a relation at more than one point, then the relation is not a function."
+              "f and f⁻¹ undo each other: f⁻¹ sends 5 to some a with f(a) = 5, then f sends a back to 5. So f(f⁻¹(5)) = 5."
             ],
             "src": "notes",
             "label": "12. f(f⁻¹(5)) if inverse exists?",
             "page": 27,
-            "why_src": "textbook p.10",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -762,12 +762,12 @@
             "q": "Ordered pair language?",
             "answer": "(x,y) means x related to y; first = input.",
             "why": [
-              "Textbook p.5: Which ones? e) Are there more than one ordered pair in a) with the same first element?"
+              "In an ordered pair (x, y) the first entry is the input (from the domain) and the second is the output (in the range); order matters, (2, 5) ≠ (5, 2)."
             ],
             "src": "notes",
             "label": "13. Ordered pair language?",
             "page": 5,
-            "why_src": "textbook p.5",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -782,12 +782,12 @@
             "q": "Range of f(x)=x², x∈ℝ?",
             "answer": "[0,∞).",
             "why": [
-              "Textbook p.22: Consequently, the domain of R-1 is the range of R, and the range of R-1 is the domain of R."
+              "A square is never negative, and every non-negative number is a square (e.g. 9 = 3²). So the range is all y ≥ 0, written [0, ∞)."
             ],
             "src": "notes",
             "label": "14. Range of f(x)=x², x∈ℝ?",
             "page": 18,
-            "why_src": "textbook p.22",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -802,12 +802,12 @@
             "q": "Why restrict x² to x≥0 for an inverse?",
             "answer": "So each y≥0 comes from only one x.",
             "why": [
-              "Textbook p.22: Why? d) Is the inverse of a function always a function? e) When is the inverse of a function itself a function?"
+              "On ℝ, each y > 0 comes from two inputs (x and −x), so x² is not one-to-one. Keeping only x ≥ 0 leaves one input for each y, and then f⁻¹(x) = √x."
             ],
             "src": "notes",
             "label": "15. Why restrict x² to x≥0 for an inverse?",
             "page": 27,
-            "why_src": "textbook p.22",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -822,12 +822,12 @@
             "q": "f(x)=5. Function? Inverse function?",
             "answer": "Yes a function (constant). Not one-to-one, no inverse function.",
             "why": [
-              "Textbook p.22: However, the inverse of a one-to-one function is always a function."
+              "Every x gives the same output 5, so it is a function. All inputs share one output, so it is not one-to-one and has no inverse function (its graph fails the horizontal-line test)."
             ],
             "src": "notes",
             "label": "16. f(x)=5. Function? Inverse function?",
             "page": 23,
-            "why_src": "textbook p.22",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -842,12 +842,12 @@
             "q": "If f(2)=7 and f is one-to-one, f⁻¹(7)?",
             "answer": "2.",
             "why": [
-              "Textbook p.20: Which ones? c) Is f a one-to-one function?"
+              "f⁻¹ reverses f: since f(2) = 7, f⁻¹(7) = 2. One-to-one guarantees 2 is the only input with output 7."
             ],
             "src": "notes",
             "label": "17. If f(2)=7 and f is one-to-one, f⁻¹(7)?",
             "page": 29,
-            "why_src": "textbook p.20",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -862,12 +862,12 @@
             "q": "Slope of y=x?",
             "answer": "1 — the mirror line for inverses.",
             "why": [
-              "Textbook p.26: From Activity 1.18, you should be able to see that the effect of reversing the elements of an ordered pair in the number plane is to move the point about the line y = x as if the line were a mirror."
+              "y = x rises 1 unit for every 1 unit to the right, so its slope is 1. It is the mirror line between a function and its inverse."
             ],
             "src": "notes",
             "label": "18. Slope of y=x?",
             "page": 26,
-            "why_src": "textbook p.26",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -882,12 +882,12 @@
             "q": "Set of pairs that fails to be a function?",
             "answer": "Any two pairs with the same first and different seconds.",
             "why": [
-              "Textbook p.7: In a relation, if there are two different ordered pairs with the same first element, then the relation is not a function."
+              "A set of pairs fails to be a function when one first entry has two different second entries, e.g. (3, 1) and (3, 4)."
             ],
             "src": "notes",
             "label": "19. Set of pairs that fails to be a function?",
             "page": 18,
-            "why_src": "textbook p.7",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -902,12 +902,12 @@
             "q": "Application flavour?",
             "answer": "Temperature C↔F is a linear inverse pair — good exam story.",
             "why": [
-              "Textbook p.24: In measuring temperature, the Celsius scale (y) is a linear function of Fahrenheit scale (x)."
+              "F = (9/5)C + 32 converts Celsius to Fahrenheit; its inverse C = (5/9)(F − 32) converts back. Both are linear, one-to-one functions, so each undoes the other."
             ],
             "src": "notes",
             "label": "20. Application flavour?",
             "page": 24,
-            "why_src": "textbook p.24",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -929,11 +929,11 @@
             "answer": "B",
             "why": [
               "Answer B: Exactly one y for each x",
-              "Textbook p.14: Solution: First, the equation needs to be rewritten so that the independent variable y is isolated on the left side of the equation."
+              "Definition: a function assigns exactly one output to each input. A relation where some x has two y-values (option A) is not a function."
             ],
             "src": "notes",
             "page": 14,
-            "why_src": "textbook p.14",
+            "why_src": "written",
             "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
             "similar": [
               {
@@ -956,11 +956,11 @@
             "answer": "B",
             "why": [
               "Answer B: Congruence",
-              "Textbook p.19: This is called the horizontal line test."
+              "SSS (three pairs of equal sides) proves two triangles are congruent, i.e. the same shape and size. Similarity uses equal angles or proportional sides."
             ],
             "src": "notes",
             "page": 19,
-            "why_src": "textbook p.19",
+            "why_src": "written",
             "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
             "similar": [
               {
@@ -1464,12 +1464,12 @@
             "q": "Three layers of a system?",
             "answer": "Undefined terms, axioms, theorems.",
             "why": [
-              "Textbook p.35: An axiomatic system (structure) in mathematics contains some undefined terms and terms that can be defined; and some unproved statements (axioms or postulates) and statements that can be proved (theorems)."
+              "A geometric system is built in layers: undefined terms (point, line, plane), then definitions and axioms (accepted statements), then theorems proved from them."
             ],
             "src": "notes",
             "label": "1. Three layers of a system?",
             "page": 35,
-            "why_src": "textbook p.35",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1485,12 +1485,12 @@
             "q": "Conjecture means?",
             "answer": "A reasoned guess not yet proved.",
             "why": [
-              "Textbook p.51: When a conjecture is proved it becomes a theorem."
+              "A conjecture is a statement that seems true from examples or patterns but has not yet been proved; it becomes a theorem only after a proof."
             ],
             "src": "notes",
             "label": "2. Conjecture means?",
             "page": 51,
-            "why_src": "textbook p.51",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1505,12 +1505,12 @@
             "q": "One counter-example does what?",
             "answer": "Kills the general claim.",
             "why": [
-              "Textbook p.47: Try to make a general statement about alternate angles formed by parallel lines and a transversal."
+              "A general claim says \"for all\"; one case where it is false (a counter-example) shows the claim is not always true. Example: \"all primes are odd\" is false because of 2."
             ],
             "src": "notes",
             "label": "3. One counter-example does what?",
             "page": 47,
-            "why_src": "textbook p.47",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1525,12 +1525,12 @@
             "q": "Why mark the diagram?",
             "answer": "So you only use given facts, not optical accidents.",
             "why": [
-              "Textbook p.36: Mark a point R that will be one endpoint of the new line segment."
+              "Drawings can be misleading (lines may look parallel or equal). Marking the given equal sides, angles and parallels makes sure every step of the proof uses only given facts."
             ],
             "src": "notes",
             "label": "4. Why mark the diagram?",
             "page": 36,
-            "why_src": "textbook p.36",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1545,12 +1545,12 @@
             "q": "Vertically opposite angles?",
             "answer": "Equal, when two lines cross.",
             "why": [
-              "Textbook p.51: If two lines intersect at a point then vertically opposite angles are equal."
+              "When two lines cross, the opposite angles are equal because each one together with the same neighbouring angle makes 180° (a straight line)."
             ],
             "src": "notes",
             "label": "5. Vertically opposite angles?",
             "page": 51,
-            "why_src": "textbook p.51",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1565,12 +1565,12 @@
             "q": "Alternate angles (parallel + transversal)?",
             "answer": "Equal.",
             "why": [
-              "Textbook p.47: Try to make a general statement about alternate angles formed by parallel lines and a transversal."
+              "When a transversal cuts two parallel lines, alternate angles (on opposite sides of the transversal, between the parallels, a \"Z\" shape) are equal."
             ],
             "src": "notes",
             "label": "6. Alternate angles (parallel + transversal)?",
             "page": 47,
-            "why_src": "textbook p.47",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1585,12 +1585,12 @@
             "q": "Co-interior angles with parallels?",
             "answer": "Sum 180°.",
             "why": [
-              "Textbook p.53: An exterior angle of a triangle equals the sum of the two opposite angles."
+              "Co-interior angles lie on the same side of the transversal between the parallels (a \"C\"/\"U\" shape); they add up to 180°."
             ],
             "src": "notes",
             "label": "7. Co-interior angles with parallels?",
             "page": 53,
-            "why_src": "textbook p.53",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1605,12 +1605,12 @@
             "q": "Corresponding angles?",
             "answer": "Equal (parallels).",
             "why": [
-              "Textbook p.39: Divide the above angles into two equal angles (i.e. bisect the angles)."
+              "Corresponding angles are in matching positions at each intersection (an \"F\" shape); with parallel lines they are equal."
             ],
             "src": "notes",
             "label": "8. Corresponding angles?",
             "page": 51,
-            "why_src": "textbook p.39",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1625,12 +1625,12 @@
             "q": "What is a definition for?",
             "answer": "To pin a word (ray, midpoint, isosceles) so proofs share language.",
             "why": [
-              "Textbook p.39: The point of intersection R of AB and PQ is the midpoint of AB ."
+              "A definition fixes the exact meaning of a word, e.g. \"a midpoint divides a segment into two equal parts\", so everyone uses the same meaning in a proof."
             ],
             "src": "notes",
             "label": "9. What is a definition for?",
             "page": 31,
-            "why_src": "textbook p.39",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1645,12 +1645,12 @@
             "q": "Picture vs proof?",
             "answer": "Picture suggests; proof compels.",
             "why": [
-              "Textbook p.51: The method of the proof used in Example 2.4 is a direct proof."
+              "A picture shows one case and may suggest a result; a proof uses definitions, axioms and earlier theorems to show it is true in every case."
             ],
             "src": "notes",
             "label": "10. Picture vs proof?",
             "page": 51,
-            "why_src": "textbook p.51",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1665,12 +1665,12 @@
             "q": "Regular polygon means?",
             "answer": "All sides equal and all angles equal.",
             "why": [
-              "Textbook p.30: Awet: A square is a quadrilateral, where all its sides and angles are equal."
+              "A regular polygon is both equilateral (all sides equal) and equiangular (all angles equal), e.g. an equilateral triangle or a square. A rhombus is not regular unless its angles are 90°."
             ],
             "src": "notes",
             "label": "11. Regular polygon means?",
             "page": 51,
-            "why_src": "textbook p.30",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1685,12 +1685,12 @@
             "q": "Convex means?",
             "answer": "Any segment between two points of the figure stays inside.",
             "why": [
-              "Textbook p.32: In figure 2.1, m is a plane, the point C is intersection of the two lines and A and B are points on the plane m."
+              "In a convex figure no interior angle exceeds 180°, so the segment joining any two of its points lies completely inside it. A \"dented\" (concave) polygon fails this."
             ],
             "src": "notes",
             "label": "12. Convex means?",
             "page": 38,
-            "why_src": "textbook p.32",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1724,12 +1724,12 @@
             "q": "Parallel means?",
             "answer": "Never meet (in the plane); same direction.",
             "why": [
-              "Textbook p.47: Draw parallel lines and a transversal to the parallel lines, and repeat (a), (b) and (c) of task (1)."
+              "Parallel lines lie in the same plane and never meet however far they are extended; they have the same direction (equal slopes)."
             ],
             "src": "notes",
             "label": "14. Parallel means?",
             "page": 47,
-            "why_src": "textbook p.47",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1744,12 +1744,12 @@
             "q": "Midpoint splits a segment into?",
             "answer": "Two equal lengths.",
             "why": [
-              "Textbook p.39: The point of intersection R of AB and PQ is the midpoint of AB ."
+              "The midpoint M of AB lies on AB with AM = MB, so it divides the segment into two equal lengths."
             ],
             "src": "notes",
             "label": "15. Midpoint splits a segment into?",
             "page": 39,
-            "why_src": "textbook p.39",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1764,12 +1764,12 @@
             "q": "Bisector splits an angle into?",
             "answer": "Two equal angles.",
             "why": [
-              "Textbook p.42: Solution: Construct the bisector of an angle 1."
+              "An angle bisector is a ray from the vertex that divides the angle into two equal angles, each half of the original."
             ],
             "src": "notes",
             "label": "16. Bisector splits an angle into?",
             "page": 42,
-            "why_src": "textbook p.42",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1785,12 +1785,12 @@
             "q": "Why “given” is the first line?",
             "answer": "Everyone starts from the same facts.",
             "why": [
-              "Textbook p.35: What is the name given to points that lie in the same line?"
+              "The \"given\" lists the facts we start from. Writing them first makes clear what may be used, and the proof then moves step by step to what is to be proved."
             ],
             "src": "notes",
             "label": "17. Why “given” is the first line?",
             "page": 30,
-            "why_src": "textbook p.35",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1824,12 +1824,12 @@
             "q": "Axiom vs theorem?",
             "answer": "Axiom accepted; theorem proved from earlier stuff.",
             "why": [
-              "Textbook p.51: When a conjecture is proved it becomes a theorem."
+              "An axiom (postulate) is accepted without proof; a theorem is a statement proved using axioms, definitions and earlier theorems."
             ],
             "src": "notes",
             "label": "19. Axiom vs theorem?",
             "page": 49,
-            "why_src": "textbook p.51",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -1844,12 +1844,12 @@
             "q": "Good first proof to memorise?",
             "answer": "Base angles of an isosceles triangle are equal — as a model of “given / construction / reason.”",
             "why": [
-              "Textbook p.48: Make conjectures about the following: a) Diagonals of a rectangle. b) The base angles of an isosceles triangle. c) Faces of a rectangular prism."
+              "Given AB = AC, draw the bisector of angle A to meet BC at D. Triangles ABD and ACD are congruent (SAS: AB = AC, equal angles at A, common side AD), so ∠B = ∠C. It shows the \"given, construction, reason\" pattern."
             ],
             "src": "notes",
             "label": "20. Good first proof to memorise?",
             "page": 51,
-            "why_src": "textbook p.48",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2451,12 +2451,12 @@
             "q": "Interior sum of a hexagon?",
             "answer": "(6−2)×180=720°.",
             "why": [
-              "Textbook p.103: If the sum of the measures of the interior angles of a polygon is twice the sum of the measures of its interior angles of a hexagon, what is the number of sides of the polygon?"
+              "A polygon with n sides can be cut into (n − 2) triangles from one vertex, each 180°. For n = 6: (6 − 2) × 180° = 720°."
             ],
             "src": "notes",
             "label": "1. Interior sum of a hexagon?",
             "page": 66,
-            "why_src": "textbook p.103",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2473,12 +2473,12 @@
             "q": "Each interior of a regular pentagon?",
             "answer": "540/5=108°.",
             "why": [
-              "Textbook p.66: The measures of the four angles of a pentagon are 1100, 700, 1000 and 1100."
+              "Interior sum of a pentagon = (5 − 2) × 180° = 540°. A regular pentagon has 5 equal angles: 540° ÷ 5 = 108°."
             ],
             "src": "notes",
             "label": "2. Each interior of a regular pentagon?",
             "page": 66,
-            "why_src": "textbook p.66",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2493,12 +2493,12 @@
             "q": "Exterior sum of any convex polygon?",
             "answer": "360°.",
             "why": [
-              "Textbook p.103: If the sum of the measures of the interior angles of a polygon is three to the sum of the measures of its exterior angles, what is the number of sides of the polygon?"
+              "Walking around a convex polygon you turn through each exterior angle once and end facing your starting direction: one full turn, 360°, whatever the number of sides."
             ],
             "src": "notes",
             "label": "3. Exterior sum of any convex polygon?",
             "page": 72,
-            "why_src": "textbook p.103",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2514,12 +2514,12 @@
             "q": "Exterior of a regular octagon?",
             "answer": "360/8=45°.",
             "why": [
-              "Textbook p.73: Each exterior angle of a regular polygon is 600."
+              "The 8 exterior angles are equal and add up to 360°, so each is 360° ÷ 8 = 45° (and each interior angle is 180° − 45° = 135°)."
             ],
             "src": "notes",
             "label": "4. Exterior of a regular octagon?",
             "page": 73,
-            "why_src": "textbook p.73",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2534,12 +2534,12 @@
             "q": "Exterior angle of a triangle equals?",
             "answer": "Sum of the two remote interiors.",
             "why": [
-              "Textbook p.68: Theorem 3.2: (Exterior Angle Theorem) The measure of the exterior angle of a triangle is equal to the sum of the opposite (remote) interior angles."
+              "The exterior angle and the adjacent interior angle make 180°, and so do the three interior angles; therefore the exterior angle equals the sum of the two opposite (remote) interior angles."
             ],
             "src": "notes",
             "label": "5. Exterior angle of a triangle equals?",
             "page": 68,
-            "why_src": "textbook p.68",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2573,12 +2573,12 @@
             "q": "Centre angle vs rim angle, same arc?",
             "answer": "Centre is double.",
             "why": [
-              "Textbook p.84: In a circle with centre O, m(minor arc AB) = 800."
+              "The angle subtended by an arc at the centre is twice the angle it subtends at any point on the remaining circumference, e.g. 80° at the centre gives 40° at the circumference."
             ],
             "src": "notes",
             "label": "7. Centre angle vs rim angle, same arc?",
             "page": 84,
-            "why_src": "textbook p.84",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2593,12 +2593,12 @@
             "q": "Cyclic quadrilateral opposite angles?",
             "answer": "Sum 180°.",
             "why": [
-              "Textbook p.83: Theorem 3.6: The opposite angles of a cyclic quadrilateral are supplementary."
+              "In a cyclic quadrilateral (all four vertices on a circle) opposite angles are supplementary: ∠A + ∠C = ∠B + ∠D = 180°."
             ],
             "src": "notes",
             "label": "8. Cyclic quadrilateral opposite angles?",
             "page": 83,
-            "why_src": "textbook p.83",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2613,12 +2613,12 @@
             "q": "Tangent and radius?",
             "answer": "Perpendicular.",
             "why": [
-              "Textbook p.89: A tangent line is perpendicular to the radius at the point of contact."
+              "A tangent touches the circle at one point and the radius drawn to that point meets the tangent at 90°."
             ],
             "src": "notes",
             "label": "9. Tangent and radius?",
             "page": 90,
-            "why_src": "textbook p.89",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2633,12 +2633,12 @@
             "q": "Two tangents from one point?",
             "answer": "Equal lengths.",
             "why": [
-              "Textbook p.96: The angle formed by two tangents drawn to a circle from the same external point measures 800."
+              "From an external point P the two tangent segments PA and PB are equal, because triangles OAP and OBP are congruent right triangles (RHS: common OP, OA = OB)."
             ],
             "src": "notes",
             "label": "10. Two tangents from one point?",
             "page": 96,
-            "why_src": "textbook p.96",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2654,12 +2654,12 @@
             "q": "Angles in the same segment?",
             "answer": "Equal.",
             "why": [
-              "Textbook p.64: If a polygon is regular, all its interior angles have equal measure."
+              "Angles at the circumference standing on the same arc (in the same segment) are equal, since each is half of the same central angle."
             ],
             "src": "notes",
             "label": "11. Angles in the same segment?",
             "page": 81,
-            "why_src": "textbook p.64",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2674,12 +2674,12 @@
             "q": "Intersecting chords theorem?",
             "answer": "AE×EB = CE×ED (products of parts).",
             "why": [
-              "Textbook p.92: Theorem 3.9: The measure of the angle formed by the lines of two chords intersecting outside a circle is half the difference of the measures of the arcs they intercept."
+              "If chords AB and CD meet at E inside the circle, then AE × EB = CE × ED. Example: AE = 4, EB = 3, CE = 2 gives ED = 12 ÷ 2 = 6."
             ],
             "src": "notes",
             "label": "12. Intersecting chords theorem?",
             "page": 92,
-            "why_src": "textbook p.92",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2713,12 +2713,12 @@
             "q": "n=3 interior sum?",
             "answer": "180° — the triangle you already know.",
             "why": [
-              "Textbook p.66: Find the measure of each of the three interior angles of the triangle."
+              "(3 − 2) × 180° = 180°: the formula agrees with the angle sum of a triangle, a good check of the rule."
             ],
             "src": "notes",
             "label": "14. n=3 interior sum?",
             "page": 66,
-            "why_src": "textbook p.66",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2733,12 +2733,12 @@
             "q": "Regular means for these formulae?",
             "answer": "You may divide the sum by n for one angle.",
             "why": [
-              "Textbook p.66: Is there a regular polygon such that: a) each interior angle is 1000? b) the sum of the interior angles is 8200?"
+              "Only in a regular polygon are all interior (or exterior) angles equal, so only then can you divide the total by n to get one angle."
             ],
             "src": "notes",
             "label": "15. Regular means for these formulae?",
             "page": 66,
-            "why_src": "textbook p.66",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2753,12 +2753,12 @@
             "q": "Why convex in the 360° exterior theorem?",
             "answer": "So each exterior turns the same way and they close a full turn.",
             "why": [
-              "Textbook p.74: Find the measure of each of the exterior angles. 6."
+              "In a convex polygon all exterior angles turn in the same direction, so together they make exactly one full turn (360°). A concave polygon has a reflex interior angle and the simple rule breaks."
             ],
             "src": "notes",
             "label": "16. Why convex in the 360° exterior theorem?",
             "page": 68,
-            "why_src": "textbook p.74",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2773,12 +2773,12 @@
             "q": "Isosceles triangle from two tangents?",
             "answer": "The two radii and two tangents make two congruent right triangles.",
             "why": [
-              "Textbook p.96: The angle formed by two tangents drawn to a circle from the same external point measures 800."
+              "From an external point P, the radii OA and OB are perpendicular to the tangents. Triangles OAP and OBP are congruent (RHS), so PA = PB and triangle APB is isosceles."
             ],
             "src": "notes",
             "label": "17. Isosceles triangle from two tangents?",
             "page": 96,
-            "why_src": "textbook p.96",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2812,12 +2812,12 @@
             "q": "Quadrilateral that is not cyclic?",
             "answer": "Opposite angles will not sum to 180° — use that as a test.",
             "why": [
-              "Textbook p.83: Theorem 3.6: The opposite angles of a cyclic quadrilateral are supplementary."
+              "If a quadrilateral's opposite angles do not add up to 180°, it cannot be cyclic (its vertices do not all lie on one circle). Example: a rhombus with angles 60° and 120° — opposite angles 60° + 60° ≠ 180°."
             ],
             "src": "notes",
             "label": "19. Quadrilateral that is not cyclic?",
             "page": 83,
-            "why_src": "textbook p.83",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2832,12 +2832,12 @@
             "q": "One exterior of a triangle is 110°, one remote interior 50°. Other?",
             "answer": "60°.",
             "why": [
-              "Textbook p.68: Theorem 3.2: (Exterior Angle Theorem) The measure of the exterior angle of a triangle is equal to the sum of the opposite (remote) interior angles."
+              "Exterior angle = sum of the two remote interior angles: 110° = 50° + x, so x = 60°."
             ],
             "src": "notes",
             "label": "20. One exterior of a triangle is 110°, one remote interior 50°. Other?",
             "page": 68,
-            "why_src": "textbook p.68",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -2859,11 +2859,11 @@
             "answer": "A",
             "why": [
               "Answer A: 540°",
-              "Textbook p.66: The measures of the four angles of a pentagon are 1100, 700, 1000 and 1100."
+              "(5 − 2) × 180° = 3 × 180° = 540°. 360° is a quadrilateral and 180° a triangle."
             ],
             "src": "notes",
             "page": 66,
-            "why_src": "textbook p.66",
+            "why_src": "written",
             "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
             "similar": [
               {
@@ -3461,12 +3461,12 @@
             "q": "Distance (1,2) to (4,6)?",
             "answer": "√(3²+4²)=5.",
             "why": [
-              "Textbook p.126: This is called the distance formula and can be used to find the distance between any two points on the coordinate plane."
+              "d = √((x₂ − x₁)² + (y₂ − y₁)²) = √(3² + 4²) = √25 = 5."
             ],
             "src": "notes",
             "label": "1. Distance (1,2) to (4,6)?",
             "page": 126,
-            "why_src": "textbook p.126",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3482,12 +3482,12 @@
             "q": "Midpoint of (1,2) and (5,8)?",
             "answer": "(3,5).",
             "why": [
-              "Textbook p.131: The midpoint of a line segment is (3, 2)."
+              "Midpoint = (average of x, average of y) = ((1 + 5)/2, (2 + 8)/2) = (3, 5)."
             ],
             "src": "notes",
             "label": "2. Midpoint of (1,2) and (5,8)?",
             "page": 131,
-            "why_src": "textbook p.131",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3502,12 +3502,12 @@
             "q": "Prism volume?",
             "answer": "Base area × height.",
             "why": [
-              "Textbook p.110: All cross sections of a prism have the same area."
+              "A prism has the same cross-section all along its length, so V = (area of the base) × (height or length)."
             ],
             "src": "notes",
             "label": "3. Prism volume?",
             "page": 110,
-            "why_src": "textbook p.110",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3522,12 +3522,12 @@
             "q": "Cylinder volume?",
             "answer": "πr²h.",
             "why": [
-              "Textbook p.113: Take a horizontal cross-section of the cylinder. a) What is the shape of the cross section? b) How does the shape relate to the base of the cylinder?"
+              "A cylinder is a prism with a circular base of area πr², so V = πr²h."
             ],
             "src": "notes",
             "label": "4. Cylinder volume?",
             "page": 113,
-            "why_src": "textbook p.113",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3542,12 +3542,12 @@
             "q": "Pyramid volume?",
             "answer": "(1/3)×base area×height.",
             "why": [
-              "Textbook p.111: The line segment from the apex perpendicular to the base is the altitude and its length is the height of the pyramid."
+              "A pyramid holds one third of the prism with the same base and height: V = ⅓ × base area × height."
             ],
             "src": "notes",
             "label": "5. Pyramid volume?",
             "page": 112,
-            "why_src": "textbook p.111",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3562,12 +3562,12 @@
             "q": "Sphere surface?",
             "answer": "4πr².",
             "why": [
-              "Textbook p.115: A sphere is a solid such that every point on its surface is at an equal distance from the same point its centre."
+              "The surface area of a sphere of radius r is 4πr² (four times the area of its great circle πr²)."
             ],
             "src": "notes",
             "label": "6. Sphere surface?",
             "page": 115,
-            "why_src": "textbook p.115",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3582,12 +3582,12 @@
             "q": "Sphere volume?",
             "answer": "(4/3)πr³.",
             "why": [
-              "Textbook p.115: A sphere is a solid such that every point on its surface is at an equal distance from the same point its centre."
+              "V = (4/3)πr³. Example: r = 3 cm gives V = (4/3)π(27) = 36π ≈ 113 cm³."
             ],
             "src": "notes",
             "label": "7. Sphere volume?",
             "page": 116,
-            "why_src": "textbook p.115",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3602,12 +3602,12 @@
             "q": "A net of a cube has how many squares?",
             "answer": "6, attached so they fold without clash.",
             "why": [
-              "Textbook p.109: A cube is a rectangular solid bounded by six squares."
+              "A cube has 6 square faces, so every net of a cube has 6 squares (there are 11 different nets)."
             ],
             "src": "notes",
             "label": "8. A net of a cube has how many squares?",
             "page": 117,
-            "why_src": "textbook p.109",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3622,12 +3622,12 @@
             "q": "Reflection in y-axis: (3,−2) goes to?",
             "answer": "(−3,−2).",
             "why": [
-              "Textbook p.123: Let N be the foot of the perpendicular from P to the y-axis, and b the coordinate of N on the y-axis."
+              "Reflecting in the y-axis changes the sign of x and keeps y: (x, y) → (−x, y), so (3, −2) → (−3, −2)."
             ],
             "src": "notes",
             "label": "9. Reflection in y-axis: (3,−2) goes to?",
             "page": 125,
-            "why_src": "textbook p.123",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3662,12 +3662,12 @@
             "q": "Dilate from origin k=3: (2,−1) goes to?",
             "answer": "(6,−3).",
             "why": [
-              "Textbook p.139: A translation takes the origin to (-2, 1)."
+              "A dilation from the origin with factor k multiplies both coordinates by k: (2, −1) → (3·2, 3·(−1)) = (6, −3)."
             ],
             "src": "notes",
             "label": "11. Dilate from origin k=3: (2,−1) goes to?",
             "page": 124,
-            "why_src": "textbook p.139",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3683,12 +3683,12 @@
             "q": "Which maps keep length?",
             "answer": "Reflection and translation (and rotation, if listed).",
             "why": [
-              "Textbook p.140: Reflection and translation are transformations which preserve the size and the shape of an object."
+              "Reflections, translations and rotations are isometries: they move a figure without changing lengths or angles, so the image is congruent. A dilation (k ≠ ±1) changes lengths."
             ],
             "src": "notes",
             "label": "12. Which maps keep length?",
             "page": 139,
-            "why_src": "textbook p.140",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3703,12 +3703,12 @@
             "q": "Dilation k=2 multiplies area by?",
             "answer": "4.",
             "why": [
-              "Textbook p.110: All cross sections of a prism have the same area."
+              "Lengths are multiplied by k = 2, and area is length × length, so area is multiplied by k² = 4."
             ],
             "src": "notes",
             "label": "13. Dilation k=2 multiplies area by?",
             "page": 140,
-            "why_src": "textbook p.110",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3723,12 +3723,12 @@
             "q": "Why midpoint is not distance?",
             "answer": "One averages coordinates; the other is Pythagoras.",
             "why": [
-              "Textbook p.130: Find the coordinates of the midpoint S of S1S2 ? d) Find the coordinates of P. e) Write a formula for the midpoint of a line segment. f) Does the formula for the midpoint of a line segment hold if the segment is horizontal or vertical?"
+              "The midpoint formula averages the coordinates to find a point; the distance formula uses Pythagoras to find a length. They answer different questions."
             ],
             "src": "notes",
             "label": "14. Why midpoint is not distance?",
             "page": 130,
-            "why_src": "textbook p.130",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3743,12 +3743,12 @@
             "q": "Cone volume?",
             "answer": "(1/3)πr²h.",
             "why": [
-              "Textbook p.114: Note that a circular cone is referred as a cone."
+              "A cone is a pyramid with a circular base: V = ⅓ × πr² × h."
             ],
             "src": "notes",
             "label": "15. Cone volume?",
             "page": 114,
-            "why_src": "textbook p.114",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3763,12 +3763,12 @@
             "q": "Top view of a vertical cylinder?",
             "answer": "A circle.",
             "why": [
-              "Textbook p.120: What do you think the solid figure to be, if its top is a circle, and side a rectangle and base is a circle?"
+              "Seen from directly above, a standing cylinder shows its circular top, so the top view (plan) is a circle; the front view is a rectangle."
             ],
             "src": "notes",
             "label": "16. Top view of a vertical cylinder?",
             "page": 120,
-            "why_src": "textbook p.120",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3783,12 +3783,12 @@
             "q": "Polyhedron faces are?",
             "answer": "Polygons.",
             "why": [
-              "Textbook p.109: A polyhedron is regular if its faces are made up of regular polygons and the same number of faces meet at each vertex."
+              "A polyhedron is a solid bounded by flat faces, and each face is a polygon (triangles, squares, pentagons, …)."
             ],
             "src": "notes",
             "label": "17. Polyhedron faces are?",
             "page": 109,
-            "why_src": "textbook p.109",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3803,12 +3803,12 @@
             "q": "Distance never negative because?",
             "answer": "Squares inside the root.",
             "why": [
-              "Textbook p.111: This is because the upper base is a cross section."
+              "The distance formula adds two squares, which are never negative, and takes the positive square root, so a distance is always ≥ 0."
             ],
             "src": "notes",
             "label": "18. Distance never negative because?",
             "page": 126,
-            "why_src": "textbook p.111",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3823,12 +3823,12 @@
             "q": "k=1/2 dilation?",
             "answer": "Half-size, same centre, same rays.",
             "why": [
-              "Textbook p.115: A sphere is a solid such that every point on its surface is at an equal distance from the same point its centre."
+              "With k = 1/2 every point moves halfway towards the centre along its ray, so the image is a reduced copy with all lengths halved."
             ],
             "src": "notes",
             "label": "19. k=1/2 dilation?",
             "page": 140,
-            "why_src": "textbook p.115",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3843,12 +3843,12 @@
             "q": "(0,0) to (0,7) distance?",
             "answer": "7 — a grid side.",
             "why": [
-              "Textbook p.126: This is called the distance formula and can be used to find the distance between any two points on the coordinate plane."
+              "The points have the same x, so the distance is the difference of the y-values: |7 − 0| = 7."
             ],
             "src": "notes",
             "label": "20. (0,0) to (0,7) distance?",
             "page": 126,
-            "why_src": "textbook p.126",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -3870,11 +3870,11 @@
             "answer": "C",
             "why": [
               "Answer C: 90°",
-              "Textbook p.115: A sphere is formed by revolving a semicircle about its diameter as an axis."
+              "An angle inscribed in a semicircle stands on a diameter; the central angle is 180°, so the inscribed angle is half of it: 90°."
             ],
             "src": "notes",
             "page": 115,
-            "why_src": "textbook p.115",
+            "why_src": "written",
             "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
             "similar": [
               {
@@ -3896,11 +3896,11 @@
             "answer": "D",
             "why": [
               "Answer D: 10",
-              "Textbook p.126: This is called the distance formula and can be used to find the distance between any two points on the coordinate plane."
+              "d = √(6² + 8²) = √(36 + 64) = √100 = 10. Option A (14) just adds the coordinates."
             ],
             "src": "notes",
             "page": 126,
-            "why_src": "textbook p.126",
+            "why_src": "written",
             "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
             "similar": [
               {
@@ -4757,12 +4757,12 @@
             "q": "Congruent means?",
             "answer": "Same shape and same size.",
             "why": [
-              "Textbook p.144: Congruent figures are figures with the same shape and same size."
+              "Congruent figures have exactly the same shape and size; one can be placed exactly on the other (possibly after a reflection)."
             ],
             "src": "notes",
             "label": "1. Congruent means?",
             "page": 144,
-            "why_src": "textbook p.144",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -4778,12 +4778,12 @@
             "q": "SSS?",
             "answer": "Three sides equal to three sides.",
             "why": [
-              "Textbook p.155: If two sides of a triangle are equal, the angles opposite these sides are equal."
+              "SSS: if three sides of one triangle equal three sides of another, the triangles are congruent."
             ],
             "src": "notes",
             "label": "2. SSS?",
             "page": 159,
-            "why_src": "textbook p.155",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -4799,12 +4799,12 @@
             "q": "SAS?",
             "answer": "Two sides and the included angle.",
             "why": [
-              "Textbook p.147: Postulate 1 ( SAS Congruence) If two sides and the included angle of one triangle are equal to two sides and included angle of the other, then the two triangles are congruent."
+              "SAS: two sides and the angle between them (the included angle) are equal in both triangles."
             ],
             "src": "notes",
             "label": "3. SAS?",
             "page": 147,
-            "why_src": "textbook p.147",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -4820,12 +4820,12 @@
             "q": "ASA?",
             "answer": "Two angles and the included side.",
             "why": [
-              "Textbook p.149: Postulate 2(ASA Congruence) If two angles and the included side of one triangle are equal to two angles and the included side of other triangle, then the two triangles are congruent."
+              "ASA: two angles and the side between them are equal. (AAS also works, because the third angles are then equal too.)"
             ],
             "src": "notes",
             "label": "4. ASA?",
             "page": 149,
-            "why_src": "textbook p.149",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -4840,12 +4840,12 @@
             "q": "RHS?",
             "answer": "Right angle, hypotenuse, one other side.",
             "why": [
-              "Textbook p.160: Theorem 5.3(RHS) If in two right angled triangles, the hypotenuse and one side of one triangle are congruent to the hypotenuse and one side of the second triangle, then the two triangles are congruent."
+              "RHS works only for right-angled triangles: equal hypotenuses and one other equal side. Pythagoras then makes the third sides equal as well."
             ],
             "src": "notes",
             "label": "5. RHS?",
             "page": 160,
-            "why_src": "textbook p.160",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -4861,12 +4861,12 @@
             "q": "Why AAA is not enough?",
             "answer": "Same shape, possibly different size (similar).",
             "why": [
-              "Textbook p.144: Congruent figures are figures with the same shape and same size."
+              "Equal angles fix the shape but not the size: a small and a large equilateral triangle have equal angles but are not congruent (they are similar)."
             ],
             "src": "notes",
             "label": "6. Why AAA is not enough?",
             "page": 144,
-            "why_src": "textbook p.144",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -4881,12 +4881,12 @@
             "q": "Why SSA is dangerous?",
             "answer": "Two different triangles can fit — ambiguous case.",
             "why": [
-              "Textbook p.217: As in the case of pyramids, it can be shown that the volume of the cone is one-third of the volume of the surrounding cylinder."
+              "With two sides and a non-included angle, the third side can sometimes swing to two different positions, giving two different triangles, so SSA does not prove congruence."
             ],
             "src": "notes",
             "label": "7. Why SSA is dangerous?",
             "page": 217,
-            "why_src": "textbook p.217",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -4901,12 +4901,12 @@
             "q": "Name order in ≅?",
             "answer": "Matching vertices in the same positions.",
             "why": [
-              "Textbook p.179: In order to find the area of the two triangles we have to find the legs of each right triangle."
+              "In △ABC ≅ △PQR the order shows the matching: A ↔ P, B ↔ Q, C ↔ R, so AB = PQ, ∠B = ∠Q, and so on."
             ],
             "src": "notes",
             "label": "8. Name order in ≅?",
             "page": 179,
-            "why_src": "textbook p.179",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -4921,12 +4921,12 @@
             "q": "After congruence you may say?",
             "answer": "Corresponding parts are equal.",
             "why": [
-              "Textbook p.165: The theorem follows from these two congruent triangles that, if two triangles are congruent, the corresponding parts are congruent."
+              "Once triangles are proved congruent, all their corresponding sides and angles are equal (\"corresponding parts of congruent triangles are equal\", CPCT)."
             ],
             "src": "notes",
             "label": "9. After congruence you may say?",
             "page": 165,
-            "why_src": "textbook p.165",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -4942,12 +4942,12 @@
             "q": "Two triangles share a side. Useful?",
             "answer": "Yes — that side is already a matching pair (common side).",
             "why": [
-              "Textbook p.146: Are the pair of triangles in Fig. 5.4 congruent?"
+              "A side shared by both triangles is equal to itself, so it gives one pair of equal sides for free; write \"common side\" as the reason."
             ],
             "src": "notes",
             "label": "10. Two triangles share a side. Useful?",
             "page": 146,
-            "why_src": "textbook p.146",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -4962,12 +4962,12 @@
             "q": "Isosceles base angles with a shared side often give?",
             "answer": "SAS or ASA after you mark the equal legs.",
             "why": [
-              "Textbook p.223: Prove that in an isosceles triangle, the bisectors of the base angles are equal. 4."
+              "Mark the equal legs (AB = AC) and use the common side or the angle bisector; this usually completes SAS or ASA, from which the base angles are equal."
             ],
             "src": "notes",
             "label": "11. Isosceles base angles with a shared side often give?",
             "page": 149,
-            "why_src": "textbook p.223",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -4982,12 +4982,12 @@
             "q": "Perimeter of congruent shapes?",
             "answer": "Equal.",
             "why": [
-              "Textbook p.155: If two sides of a triangle are equal, the angles opposite these sides are equal."
+              "Congruent shapes have equal corresponding sides, so the sums of their sides, the perimeters, are equal."
             ],
             "src": "notes",
             "label": "12. Perimeter of congruent shapes?",
             "page": 194,
-            "why_src": "textbook p.155",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -5003,12 +5003,12 @@
             "q": "Area of congruent shapes?",
             "answer": "Equal.",
             "why": [
-              "Textbook p.155: If two sides of a triangle are equal, the angles opposite these sides are equal."
+              "Congruent shapes fit exactly on top of each other, so they cover the same area."
             ],
             "src": "notes",
             "label": "13. Area of congruent shapes?",
             "page": 197,
-            "why_src": "textbook p.155",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -5024,12 +5024,12 @@
             "q": "Reflection produces?",
             "answer": "A congruent image (opposite orientation).",
             "why": [
-              "Textbook p.163: In a parallelogram, opposite sides are congruent."
+              "A reflection keeps all lengths and angles, so the image is congruent; only the orientation is reversed (as in a mirror)."
             ],
             "src": "notes",
             "label": "14. Reflection produces?",
             "page": 163,
-            "why_src": "textbook p.163",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -5063,12 +5063,12 @@
             "q": "Included angle means?",
             "answer": "The angle between the two named sides.",
             "why": [
-              "Textbook p.160: Note: The right angle may not be the included angle."
+              "The included angle is the angle formed by the two named sides at their common vertex, e.g. for sides AB and AC it is ∠A."
             ],
             "src": "notes",
             "label": "16. Included angle means?",
             "page": 147,
-            "why_src": "textbook p.160",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -5083,12 +5083,12 @@
             "q": "Included side means?",
             "answer": "The side between the two named angles.",
             "why": [
-              "Textbook p.149: Postulate 2(ASA Congruence) If two angles and the included side of one triangle are equal to two angles and the included side of other triangle, then the two triangles are congruent."
+              "The included side is the side joining the vertices of the two named angles, e.g. for ∠A and ∠B it is AB."
             ],
             "src": "notes",
             "label": "17. Included side means?",
             "page": 149,
-            "why_src": "textbook p.149",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -5103,12 +5103,12 @@
             "q": "Tick marks on a diagram stand for?",
             "answer": "Given equal lengths or equal angles.",
             "why": [
-              "Textbook p.155: That is, if two angles of a triangle are equal, then the sides opposite these angles are equal."
+              "Equal numbers of tick marks show sides that are given equal; equal arcs show equal angles. They tell you which facts you may use."
             ],
             "src": "notes",
             "label": "18. Tick marks on a diagram stand for?",
             "page": 144,
-            "why_src": "textbook p.155",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -5123,12 +5123,12 @@
             "q": "Can you use “looks the same” as a reason?",
             "answer": "No.",
             "why": [
-              "Textbook p.150: Statement                                      Reason 1."
+              "A proof must use given facts, definitions and theorems. Appearance is not a reason, because drawings are not exact."
             ],
             "src": "notes",
             "label": "19. Can you use “looks the same” as a reason?",
             "page": 156,
-            "why_src": "textbook p.150",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {
@@ -5143,12 +5143,12 @@
             "q": "Link to Unit 2?",
             "answer": "Congruence tests are the theorems you quote inside a proof.",
             "why": [
-              "Textbook p.199: If the unit is centimetre, then the unit of volume is cubic centimetre which is written as cm3."
+              "Congruence tests (SSS, SAS, ASA, RHS) are theorems; inside a proof you quote one of them as the reason that two triangles are congruent."
             ],
             "src": "notes",
             "label": "20. Link to Unit 2?",
             "page": 199,
-            "why_src": "textbook p.199",
+            "why_src": "written",
             "tip": "Say or write your answer first, then open the model answer and compare the key words.",
             "similar": [
               {

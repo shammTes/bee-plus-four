@@ -127,12 +127,14 @@ def scan(subjects=None):
             for lsn in u.get('lessons', []):
                 lid = lsn.get('id')
                 bst['lessons'] += 1
-                chars = checks = worked = mnem = 0
+                chars = checks = worked = mnem = teach = 0
                 for c in lsn.get('cards', []):
                     bst['cards'] += 1
                     t, cid = c.get('type'), c.get('id')
                     txt = card_text(c)
                     chars += len(txt)
+                    if t in ('text', 'remember', 'table', 'mnemonic', 'grammar', 'reading', 'diagram', 'steps', 'states', 'graph', 'worked'):
+                        teach += len(txt)
                     checks += t == 'check'
                     worked += t == 'worked'
                     mnem += t == 'mnemonic'
@@ -186,9 +188,9 @@ def scan(subjects=None):
                     for p, s in walk_strings(m):
                         if POINTER_RE.search(s):
                             add(book=name, file=src, unit=uid, lesson=lid, card=m.get('id'), kind='pointer', field='media.' + p, text=s)
-                if chars < 1500:
+                if teach < 1500:
                     bst['thin'] += 1
-                    add(book=name, file=file, unit=uid, lesson=lid, kind='thin', field='chars', text=str(chars))
+                    add(book=name, file=file, unit=uid, lesson=lid, kind='thin', field='teaching chars', text=f'{teach} ({lsn.get("title")})')
                 if checks < 3:
                     bst['few_checks'] += 1
                     add(book=name, file=file, unit=uid, lesson=lid, kind='few_checks', field='check', text=str(checks))
