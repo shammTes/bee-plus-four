@@ -29,7 +29,9 @@ void main() {
           expect((q['prompt'] as String).startsWith('['), isFalse, reason: q['id']);
           expect(o.any((x) => RegExp(r'^[A-E][).]\s').hasMatch(x as String)) && o.every((x) => RegExp(r'^[A-E][).]\s').hasMatch(x as String)), isFalse, reason: q['id']);
           expect(q['unit'] == null || unitIds.contains(q['unit']), isTrue, reason: '${q['id']} -> ${q['unit']}');
-          expect(['explanation', 'trusted'], contains(q['verified']));
+          // explanation/trusted: tools/clean_exercises.py; reviewed: tools/fill_exercises.py (keys checked by hand,
+          // see tool/exercises_fill/fixes.json); drive_*: items synced from the Drive bank
+          expect(['explanation', 'trusted', 'reviewed', 'drive_practice', 'drive_chapter'], contains(q['verified']));
         }
         total += qs.length;
       });
