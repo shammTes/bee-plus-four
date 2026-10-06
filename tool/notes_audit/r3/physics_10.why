@@ -1,0 +1,483 @@
+# Physics 10 - written explanations (round 3)
+@phys10-u1-q01
+Q: A ball rolls off a 20 m high table at 5 m/s. How long does it take to reach the ground? (g = 10 m/s²)
+A: t = 2.0 s – the horizontal speed does not affect the time.
+W: Vertical motion starts with vᵧ = 0, so use y = ½gt². | 20 m = ½ × 10 m/s² × t² = 5t². | t² = 4 s², t = 2.0 s.
+T: Treat horizontal and vertical motion separately; only the vertical part sets the time.
+@phys10-u1-q03
+Q: For the ball that rolls off the 20 m table at 5 m/s (falls for 2.0 s), what is its vertical speed just before landing?
+A: vᵧ = 20 m/s downward
+W: Vertical: vᵧ = uᵧ + gt with uᵧ = 0. | vᵧ = 0 + 10 m/s² × 2.0 s. | vᵧ = 20 m/s downward.
+T: The horizontal 5 m/s stays the same all the way down.
+@phys10-u1-q04
+Q: What is the ball's actual speed just before landing (vₓ = 5 m/s, vᵧ = 20 m/s)?
+A: v = √(5² + 20²) = √425 ≈ 20.6 m/s
+W: The velocity components are perpendicular, so use Pythagoras. | v = √(vₓ² + vᵧ²) = √(25 + 400). | v = √425 ≈ 20.6 m/s.
+T: Direction below horizontal: tan θ = vᵧ/vₓ = 4, θ ≈ 76°.
+@phys10-u1-q05
+Q: A projectile is launched at 20 m/s at 30° above the horizontal (g = 10 m/s²). Find the initial components vₓ and vᵧ.
+A: vₓ ≈ 17.3 m/s, vᵧ = 10 m/s
+W: vₓ = u cos θ = 20 × cos 30° = 20 × 0.866 ≈ 17.3 m/s. | vᵧ = u sin θ = 20 × sin 30° = 20 × 0.5. | vᵧ = 10 m/s.
+T: Horizontal uses cos, vertical uses sin (angle measured from the horizontal).
+@phys10-u1-q06
+Q: For the projectile launched at 20 m/s at 30° (vᵧ = 10 m/s), how long does it take to reach the top?
+A: t = 1.0 s
+W: At the top the vertical velocity is 0: vᵧ = uᵧ − gt. | 0 = 10 m/s − 10 m/s² × t. | t = 1.0 s.
+T: At the peak only the vertical velocity is zero – vₓ is still 17.3 m/s.
+@phys10-u1-q07
+Q: What maximum height does that projectile reach (uᵧ = 10 m/s, time to peak 1.0 s)?
+A: 5 m
+W: y = uᵧt − ½gt². | y = 10 × 1 − ½ × 10 × 1². | y = 10 − 5 = 5 m.
+T: Check: h = uᵧ²/2g = 100/20 = 5 m ✓.
+@phys10-u1-q08
+Q: What is the projectile's total time of flight on flat ground?
+A: 2.0 s
+W: On flat ground the flight is symmetric. | Time up = time down = 1.0 s. | Total time = 2 × 1.0 = 2.0 s.
+T: T = 2u sin θ / g = 2 × 20 × 0.5 / 10 = 2 s.
+@phys10-u1-q09
+Q: What is the projectile's horizontal range (vₓ ≈ 17.3 m/s, flight time 2.0 s)?
+A: ≈ 34.6 m
+W: Horizontally a = 0, so range R = vₓ × T. | R = 17.3 m/s × 2.0 s. | R ≈ 34.6 m.
+T: Formula check: R = u² sin 2θ / g = 400 × sin 60° / 10 ≈ 34.6 m.
+@phys10-u1-q10
+Q: The same projectile is launched at 20 m/s but at 60°. How does the range on flat ground compare?
+A: The same (≈ 34.6 m) – 30° and 60° are complementary angles.
+W: R = u² sin 2θ / g. | sin(2 × 30°) = sin 60° and sin(2 × 60°) = sin 120° = sin 60°. | So both angles give the same range; 60° goes higher and stays up longer.
+T: Maximum range is at 45°; angles that add to 90° share a range.
+@phys10-u1-q11
+Q: Why is the horizontal acceleration of a projectile zero?
+A: No horizontal force acts if air resistance is ignored.
+W: The only force is gravity, which acts vertically downward. | Newton's second law: aₓ = Fₓ/m = 0. | So vₓ stays constant during the flight.
+T: Constant vₓ, changing vᵧ – that is why the path is a parabola.
+@phys10-u1-q12
+Q: Find the moment of a 12 N force acting 0.5 m from a pivot (perpendicular distance).
+A: 6 N·m
+W: Moment = force × perpendicular distance from the pivot. | = 12 N × 0.5 m. | = 6 N·m.
+T: Use the perpendicular distance to the line of the force.
+@phys10-u1-q13
+Q: What is the moment of a force whose line passes through the pivot?
+A: Zero – the perpendicular distance is 0.
+W: Moment = F × d. | If the line of action passes through the pivot, d = 0. | So the moment = F × 0 = 0; it cannot turn the object.
+T: Pushing a door at the hinge does nothing.
+@phys10-u1-q14
+Q: A 40 kg child sits 2 m left of a see-saw pivot. What mass must sit 1 m right of the pivot to balance it? (g cancels)
+A: 80 kg
+W: Principle of moments: clockwise moment = anticlockwise moment. | 40g × 2 = mg × 1 – g cancels. | 80 = m, so m = 80 kg.
+T: The heavier person sits closer to the pivot.
+@phys10-u1-q15
+Q: Why is it easier to undo a tight nut with a long spanner?
+A: A longer handle gives a larger distance d, so a larger moment for the same force.
+W: Moment = F × d. | A long spanner increases d. | The same effort F gives a bigger turning effect (or less force is needed for the same moment).
+T: Push at the end of the handle, at right angles.
+@phys10-u1-q16
+Q: What is the name for "sum of clockwise moments = sum of anticlockwise moments"?
+A: The principle of moments (condition for rotational equilibrium).
+W: An object in equilibrium does not start rotating. | So the turning effects in both directions must balance about any point. | This is the principle of moments.
+T: Full equilibrium also needs the net force to be zero.
+@phys10-u1-q17
+Q: In uniform circular motion, is the speed constant? Is the velocity?
+A: Speed is constant; velocity is not (its direction keeps changing).
+W: "Uniform" means the object covers equal arc lengths in equal times – constant speed. | Velocity is a vector along the tangent, which turns continuously. | A changing velocity means the object is accelerating.
+T: Changing direction alone is acceleration.
+@phys10-u1-q18
+Q: In which direction does the acceleration point in uniform circular motion?
+A: Toward the centre of the circle (centripetal acceleration).
+W: The velocity changes direction, not size. | The change in velocity points toward the centre. | So a = v²/r directed to the centre, caused by a centripetal force.
+T: Centripetal = centre-seeking.
+@phys10-u1-q19
+Q: You walk at 2 m/s forward on a wagon moving at 3 m/s in the same direction. What is your speed relative to the ground?
+A: 5 m/s
+W: Relative velocities along a line add: v_ground = v_you,wagon + v_wagon,ground. | Same direction, both +: 2 + 3. | = 5 m/s.
+T: Choose a + direction and give each velocity a sign.
+@phys10-u1-q20
+Q: You now walk at 2 m/s toward the back of the wagon (wagon at 3 m/s forward). What is your velocity relative to the ground?
+A: 1 m/s forward
+W: Forward = +: v_you,wagon = −2 m/s, v_wagon = +3 m/s. | v_ground = −2 + 3. | = +1 m/s, still forward.
+T: Opposite directions: subtract the magnitudes.
+@phys10-u1-q21
+W: Vertical motion alone decides the fall time: h = ½gt², so t = √(2h/g). | vₓ affects only how far the ball lands, not when. | So the time depends on height and g – answer C.
+T: A dropped ball and a ball pushed off sideways land together.
+@phys10-u2-q01
+Q: How much heat is needed to raise the temperature of 2 kg of water by 10 °C? (c = 4200 J/(kg·°C))
+A: Q = 84 000 J
+W: Q = mcΔθ. | Q = 2 kg × 4200 J/(kg·°C) × 10 °C. | Q = 84 000 J (84 kJ).
+T: Δθ is a change, so 10 °C = 10 K.
+@phys10-u2-q02
+Q: The same 84 000 J is given to 2 kg of copper (c = 400 J/(kg·°C)). What is its temperature rise?
+A: Δθ = 105 °C
+W: Rearrange Q = mcΔθ: Δθ = Q/(mc). | Δθ = 84 000 J ÷ (2 kg × 400 J/(kg·°C)) = 84 000 ÷ 800. | Δθ = 105 °C.
+T: Small c → big temperature change for the same heat.
+@phys10-u2-q03
+Q: Why do seas and lakes change temperature slowly?
+A: Water has a large specific heat capacity.
+W: Q = mcΔθ, so Δθ = Q/(mc). | Water's c (4200 J/(kg·°C)) is much larger than that of soil or rock. | The same heat gives a smaller temperature change, so seas warm and cool slowly.
+T: This is why coasts have milder climates.
+@phys10-u2-q04
+Q: How much energy is needed to melt 0.5 kg of ice at 0 °C? (L_f = 3.34 × 10⁵ J/kg)
+A: 1.67 × 10⁵ J; the temperature stays at 0 °C until all the ice has melted.
+W: Changing state uses latent heat: Q = mL_f. | Q = 0.5 kg × 3.34 × 10⁵ J/kg. | Q = 1.67 × 10⁵ J.
+T: During a change of state, use Q = mL, not Q = mcΔθ.
+@phys10-u2-q05
+Q: What is the difference between boiling and evaporation?
+A: Boiling happens throughout the liquid at a fixed temperature; evaporation happens only at the surface at any temperature.
+W: Boiling: bubbles of vapour form inside the liquid at the boiling point. | Evaporation: faster molecules escape from the surface below the boiling point. | Evaporation cools the liquid; boiling keeps the temperature constant while heat is supplied.
+T: Sweating cools you by evaporation.
+@phys10-u2-q06
+Q: Which everyday materials are the best conductors of heat, and why?
+A: Metals – they have free electrons that carry energy quickly.
+W: Conduction passes energy from particle to particle. | In metals, free electrons move through the lattice and transfer energy fast. | Non-metals rely only on vibrating atoms, so they conduct poorly.
+T: Good electrical conductors are usually good heat conductors.
+@phys10-u2-q07
+Q: In a vacuum flask, which part stops which method of heat transfer?
+A: The vacuum stops conduction and convection; the silvered walls reduce radiation.
+W: Conduction and convection need particles – the vacuum has none. | Shiny silvered surfaces reflect infrared radiation. | The stopper reduces convection and evaporation at the top.
+T: Vacuum = no particles; silver = reflects.
+@phys10-u2-q08
+Q: Explain a land breeze at night.
+A: The land cools faster than the sea, so the air over the sea is warmer and rises; cooler air from the land flows toward the sea.
+W: At night, land (low c) cools faster than the sea (high c). | Air above the warmer sea is heated, becomes less dense and rises. | Cooler, denser air from over the land moves out to replace it – a land breeze.
+T: Breezes blow from the cooler surface to the warmer one (sea breeze by day, land breeze by night).
+@phys10-u2-q09
+Q: State the first law of thermodynamics in words.
+A: Energy is conserved: heat supplied = increase in internal energy + work done by the system (Q = ΔU + W).
+W: Heat Q given to a gas can do two things. | It can raise the internal energy ΔU (temperature) and let the gas do work W by expanding. | So Q = ΔU + W.
+T: It is the law of conservation of energy applied to heat.
+@phys10-u2-q10
+Q: What is an isothermal process, and what does the first law give for an ideal gas?
+A: The temperature stays constant, so ΔU = 0 and Q = W.
+W: Isothermal means T is constant. | The internal energy of an ideal gas depends only on T, so ΔU = 0. | First law: Q = ΔU + W = W – all heat in becomes work done.
+T: Iso-thermal = same temperature.
+@phys10-u2-q11
+Q: What is an adiabatic process?
+A: No heat enters or leaves (Q = 0), so ΔU = −W: a gas that expands cools.
+W: Adiabatic means Q = 0 (fast or insulated change). | First law: 0 = ΔU + W, so ΔU = −W. | When the gas expands (W > 0), ΔU < 0 and the temperature falls.
+T: A bicycle pump warms when you compress quickly – adiabatic heating.
+@phys10-u2-q12
+Q: What is the SI unit of temperature?
+A: The kelvin (K); a change of 1 K equals a change of 1 °C.
+W: Kelvin is the SI base unit of temperature. | T(K) = θ(°C) + 273. | Temperature differences are the same size in both: ΔT in K = Δθ in °C.
+T: No degree sign with kelvin: write 300 K.
+@phys10-u2-q13
+Q: What is the SI unit of heat?
+A: The joule (J); the calorie is an older unit.
+W: Heat is energy being transferred. | All energy in SI is measured in joules. | 1 calorie ≈ 4.2 J.
+T: Q in Q = mcΔθ comes out in joules if c is in J/(kg·°C).
+@phys10-u2-q14
+Q: Why is a burn from steam at 100 °C worse than one from water at 100 °C?
+A: Condensing steam gives out its latent heat of vaporisation as well as the heat from the hot water cooling.
+W: Steam on skin first condenses, releasing mL_v (2.26 × 10⁶ J/kg – very large). | The condensed water at 100 °C then cools, releasing mcΔθ. | So much more energy goes into the skin.
+T: Latent heat is released when a gas condenses.
+@phys10-u2-q15
+Q: Why does a black kettle left in the sun warm up faster than a shiny one?
+A: Dull black surfaces absorb radiation well.
+W: The Sun transfers energy by radiation. | Black, dull surfaces are good absorbers (and emitters); shiny surfaces reflect. | So the black kettle absorbs more energy per second and heats faster.
+T: Good absorbers are good emitters.
+@phys10-u2-q17
+Q: What is the idea behind the method of mixtures?
+A: Heat lost by the hot body = heat gained by the cold body (if none is lost to the surroundings).
+W: Mix a hot and a cold substance and let them reach the same final temperature. | Energy is conserved: m₁c₁(θ₁ − θ) = m₂c₂(θ − θ₂). | Solve for the unknown c or temperature.
+T: Insulate the container – heat lost to the air spoils the result.
+@phys10-u2-q18
+Q: What is thermal equilibrium?
+A: Bodies at the same temperature – no net heat flows between them.
+W: Heat flows from hotter to colder bodies. | The flow continues until the temperatures are equal. | Then the net heat flow is zero: thermal equilibrium.
+T: A thermometer works because it reaches thermal equilibrium with what it measures.
+@phys10-u2-q19
+Q: How much work does a gas do when it expands at constant pressure?
+A: W = PΔV
+W: The gas pushes a piston of area A with force F = PA. | The piston moves a distance d, so W = Fd = PAd. | Ad = ΔV, so W = PΔV.
+T: Units: Pa × m³ = N/m² × m³ = N·m = J.
+@phys10-u2-q21
+W: Melting is a change of state, and the temperature stays constant. | Q = mcΔθ would give Q = 0 since Δθ = 0 – wrong. | Use latent heat Q = mL – answer A.
+T: Temperature flat on a heating graph → use Q = mL.
+@phys10-u3-q01
+Q: Two positive charges are near each other. What kind of force acts between them?
+A: Repulsion.
+W: Like charges repel; unlike charges attract. | Both are positive – like charges. | So they push each other apart.
+T: Like repel, unlike attract.
+@phys10-u3-q03
+Q: The distance between two charges is doubled. What happens to the force between them?
+A: It becomes ¼ of the original.
+W: Coulomb's law: F = kq₁q₂/r². | Replace r by 2r: F' = kq₁q₂/(2r)² = F/4. | So the force becomes one quarter.
+T: Inverse-square: double r → ¼ F; triple r → 1/9 F.
+@phys10-u3-q04
+Q: What is the SI unit of electric charge?
+A: The coulomb (C).
+W: Charge Q = It. | 1 C = 1 A × 1 s. | One electron carries 1.6 × 10⁻¹⁹ C.
+T: µC = 10⁻⁶ C – common in Coulomb's-law problems.
+@phys10-u3-q05
+Q: A force of 2 N acts on a +4 µC charge. What is the electric field strength there?
+A: E = 5.0 × 10⁵ N/C in the direction of the force
+W: E = F/q. | E = 2 N ÷ (4 × 10⁻⁶ C). | E = 5.0 × 10⁵ N/C.
+T: Convert µC to C (×10⁻⁶) before dividing.
+@phys10-u3-q06
+Q: What can electric field lines never do?
+A: Cross each other.
+W: A field line shows the direction of the force on a positive charge. | At any point the field has only one direction. | If two lines crossed, there would be two directions at one point – impossible.
+T: Lines start on + and end on −.
+@phys10-u3-q07
+Q: The direction of an electric field is the direction of the force on which kind of test charge?
+A: A small positive test charge.
+W: By definition E = F/q with q positive. | So E points the same way as the force on a + charge. | A negative charge feels a force opposite to E.
+T: Field lines point away from + and toward −.
+@phys10-u3-q08
+Q: What is the difference between a conductor and an insulator?
+A: A conductor has free charges (electrons) that can move; an insulator's charges are bound.
+W: In metals, outer electrons are free to move through the material. | In insulators (plastic, glass, rubber) electrons are held tightly by atoms. | So charge flows easily in conductors and stays put on insulators.
+T: Insulators can be charged by rubbing because the charge cannot flow away.
+@phys10-u3-q09
+Q: What does "charge is conserved" mean?
+A: The total charge stays the same; charge is only moved or separated, never created or destroyed.
+W: Rubbing transfers electrons from one object to the other. | One object gains −Q and the other is left with +Q. | The total charge (−Q + Q = 0) is unchanged.
+T: Charging by friction = moving electrons, not making them.
+@phys10-u3-q10
+Q: Why does a balloon rubbed on hair stick to a wall?
+A: Rubbing charges the balloon; it polarises the wall, and the nearby opposite charges attract it.
+W: Rubbing transfers electrons, so the balloon becomes charged (e.g. negative). | Near the wall, the charges in the wall's molecules shift: the positive side moves closer. | Attraction to the near charges is stronger than repulsion from the far ones, so the balloon sticks.
+T: A charged object attracts neutral objects by induced charge.
+@phys10-u3-q11
+Q: What is the difference between electric potential energy and electric potential?
+A: Potential energy U belongs to a charge at a point; potential V = U/q is a property of the point itself.
+W: U depends on both the charge and where it is. | Dividing by the charge gives V = U/q, energy per coulomb. | V is measured in volts (J/C) and does not depend on the test charge.
+T: V is "energy per coulomb", like height is to gravitational PE per kg × g.
+@phys10-u3-q12
+Q: What does a Van de Graaff generator build up?
+A: A high potential on its metal dome, by carrying charge up on a moving belt.
+W: A rubber belt is charged by friction at the bottom. | The belt carries the charge up to the dome. | Charge spreads over the outside of the dome, building a very high potential (hundreds of kV).
+T: Hair standing on end = like charges repelling.
+@phys10-u3-q13
+Q: What is the electric field inside a charged hollow metal sphere (excess charge on the surface)?
+A: Zero.
+W: Excess charge on a conductor moves to the outer surface. | Inside the hollow, the fields from all parts of the surface charge cancel. | So E = 0 inside.
+T: This is why a car (metal cage) protects you from lightning.
+@phys10-u3-q14
+Q: What is lightning?
+A: A huge electric discharge after charges separate in thunderclouds.
+W: Collisions of ice and water droplets in clouds separate charges (often negative at the cloud base). | The field between cloud and ground becomes strong enough to ionise air. | Charge then flows suddenly through the air – a lightning flash.
+T: A lightning conductor gives the charge a safe path to earth.
+@phys10-u3-q15
+Q: The constant k in Coulomb's law is very large (9 × 10⁹ N·m²/C²). What does this mean?
+A: Even small charges (µC) at short distances (cm) give forces of newtons.
+W: F = kq₁q₂/r². | Example: two 1 µC charges 3 cm apart: F = 9×10⁹ × 10⁻¹² / (0.03)² = 10 N. | So electric forces are strong even for tiny charges.
+T: Electric forces are far stronger than gravitational forces between small objects.
+@phys10-u3-q16
+Q: What does earthing a charged conductor do?
+A: It lets charge flow to or from the Earth until the conductor's potential is zero.
+W: The Earth is a huge conductor at zero potential. | A wire to earth gives charge a path. | Charge flows until the conductor is neutral (V = 0).
+T: Metal appliance cases are earthed for safety.
+@phys10-u3-q17
+Q: Where are the field lines densest around a point charge?
+A: Closest to the charge.
+W: Field lines spread out radially from a point charge. | Close to the charge they are crowded together. | Line density shows field strength, and E = kq/r² is largest near the charge.
+T: Dense lines = strong field.
+@phys10-u3-q18
+Q: Describe the field between two opposite charges.
+A: Strong between them, with lines running from the + charge to the − charge.
+W: Field lines start on + charges and end on − charges. | Between unlike charges, the lines join them directly and are close together. | So the field between them is strong.
+T: Like charges: lines bend away, with a neutral point between them.
+@phys10-u3-q19
+Q: How much work is done moving 3 C of charge through a potential difference of 12 V?
+A: 36 J
+W: W = qΔV. | W = 3 C × 12 V. | W = 36 J.
+T: 1 V = 1 J/C.
+@phys10-u3-q20
+Q: Why does charge leak away from sharp points?
+A: The field is very strong at a sharp tip, so it ionises the air.
+W: Charge crowds onto sharp points of a conductor. | The field near the tip becomes very large. | The air ionises and carries charge away – this is how a lightning conductor works.
+T: Sharp points discharge; smooth spheres hold charge.
+@phys10-u3-q21
+W: F = kq₁q₂/r². | Doubling r makes r² four times bigger. | So F becomes ¼ of the original – answer B.
+T: Inverse-square law: F ∝ 1/r².
+@phys10-u4-q01
+Q: A potential difference of 12 V is across a 4 Ω resistor. What current flows?
+A: 3 A
+W: Ohm's law: I = V/R. | I = 12 V ÷ 4 Ω. | I = 3 A.
+T: V = IR – cover the one you want.
+@phys10-u4-q02
+Q: What power is dissipated in that 4 Ω resistor (12 V, 3 A)?
+A: 36 W
+W: P = VI. | P = 12 V × 3 A. | P = 36 W (check: I²R = 9 × 4 = 36 W).
+T: P = VI = I²R = V²/R – choose the one with known values.
+@phys10-u4-q03
+Q: Two 4 Ω resistors are in series. What is the total resistance?
+A: 8 Ω
+W: In series: R = R₁ + R₂. | R = 4 Ω + 4 Ω. | R = 8 Ω.
+T: Series resistance is always bigger than the largest resistor.
+@phys10-u4-q04
+Q: Two 4 Ω resistors are in parallel. What is the total resistance?
+A: 2 Ω
+W: In parallel: 1/R = 1/R₁ + 1/R₂. | 1/R = 1/4 + 1/4 = 2/4. | R = 2 Ω.
+T: Two equal resistors in parallel: R = R₁/2.
+@phys10-u4-q05
+Q: A 3 Ω and a 6 Ω resistor are in series across 18 V. What current flows?
+A: 2 A through both
+W: Total resistance R = 3 + 6 = 9 Ω. | I = V/R = 18 V ÷ 9 Ω. | I = 2 A, the same through each resistor in series.
+T: Series: same current everywhere.
+@phys10-u4-q06
+Q: In that series circuit (2 A), what is the voltage across the 6 Ω resistor?
+A: 12 V
+W: V = IR for the 6 Ω resistor. | V = 2 A × 6 Ω. | V = 12 V (the 3 Ω gets 6 V; 12 + 6 = 18 V ✓).
+T: Series: the voltages add up to the supply.
+@phys10-u4-q07
+Q: A 6 Ω and a 3 Ω resistor are in parallel across 12 V. Find the currents.
+A: 2 A and 4 A; total 6 A
+W: In parallel each resistor has the full 12 V. | I₁ = 12/6 = 2 A, I₂ = 12/3 = 4 A. | Total I = 2 + 4 = 6 A.
+T: Parallel: same voltage, currents add; the smaller resistor takes more current.
+@phys10-u4-q08
+Q: A cell has emf 12 V and internal resistance 1 Ω. It is connected to a 5 Ω resistor. Find the current and terminal voltage.
+A: I = 2 A; terminal voltage = 10 V
+W: I = ε/(R + r) = 12 V ÷ (5 + 1) Ω. | I = 2 A. | Terminal voltage V = IR = 2 × 5 = 10 V (lost volts Ir = 2 V).
+T: ε = IR + Ir.
+@phys10-u4-q09
+Q: Why is the terminal voltage of a cell less than its emf when current flows?
+A: Some voltage ("lost volts" Ir) is used up across the cell's internal resistance.
+W: The cell itself has internal resistance r. | When current I flows, a voltage Ir drops inside the cell. | V_terminal = ε − Ir, so it falls as I increases.
+T: With no current (open circuit), V_terminal = ε.
+@phys10-u4-q10
+Q: How is an ammeter connected, and what is its ideal resistance?
+A: In series; ideally zero resistance.
+W: An ammeter measures the current through a component. | It must carry the same current, so it goes in series. | Zero resistance means it does not change the current it measures.
+T: Ammeter in series, voltmeter in parallel.
+@phys10-u4-q11
+Q: How is a voltmeter connected, and what is its ideal resistance?
+A: In parallel; ideally infinite resistance.
+W: A voltmeter measures the p.d. between two points. | It is connected across the component, in parallel. | Very high resistance means it draws almost no current.
+T: Ammeter in series, voltmeter in parallel.
+@phys10-u4-q12
+Q: Cells are connected in series, all facing the same way. What happens to the emf?
+A: The emfs add.
+W: Each cell gives each coulomb a certain energy. | In series, the charge passes through every cell. | Total emf = ε₁ + ε₂ + … (e.g. two 1.5 V cells = 3 V).
+T: A reversed cell subtracts.
+@phys10-u4-q13
+Q: Why are house lamps wired in parallel?
+A: Each lamp gets the full mains voltage and can be switched on its own; if one fails the others stay on.
+W: In parallel, each branch is connected directly across the supply. | So each lamp has the full voltage and works at full brightness. | A broken lamp breaks only its own branch.
+T: Series lamps share the voltage and all go out together.
+@phys10-u4-q14
+Q: What is the job of a fuse?
+A: It melts if the current is too big, breaking the live wire and protecting the circuit.
+W: The fuse wire heats up as current flows (P = I²R). | Above its rating it melts. | The circuit is broken on the live side, stopping overheating and fire.
+T: Choose a fuse rating just above the normal current.
+@phys10-u4-q15
+Q: What is the job of the earth wire?
+A: If the live wire touches the metal case, it carries a large current to ground, which blows the fuse.
+W: The earth wire connects the metal case to the ground. | A fault makes a large current flow through the earth wire (low resistance). | This blows the fuse and the case cannot give a shock.
+T: Earth wire + fuse work together.
+@phys10-u4-q16
+Q: How much energy does a 36 W device use in 2 minutes?
+A: 4320 J
+W: E = Pt, with t in seconds: 2 min = 120 s. | E = 36 W × 120 s. | E = 4320 J.
+T: Convert minutes to seconds first.
+@phys10-u4-q17
+Q: What is the kilowatt-hour?
+A: A commercial unit of energy: 1 kWh = 3.6 MJ.
+W: 1 kWh is the energy used by 1 kW for 1 hour. | E = 1000 W × 3600 s. | = 3.6 × 10⁶ J = 3.6 MJ.
+T: Cost = kWh × price per unit.
+@phys10-u4-q18
+Q: Why is it dangerous to run a heater on a thin extension lead?
+A: The heater draws a large current; the thin wire has a larger resistance, so it heats up (fire risk).
+W: Heaters draw large currents. | A thin wire has more resistance (R ∝ 1/A). | Heat produced P = I²R becomes large, and the lead can melt or catch fire.
+T: High-power appliances need thick cables.
+@phys10-u4-q19
+Q: What does the graph of V against I look like for a resistor obeying Ohm's law?
+A: A straight line through the origin (constant R).
+W: Ohm's law: V = IR with R constant (temperature constant). | V is directly proportional to I. | So V–I is a straight line through the origin; its slope is R.
+T: A curved V–I graph (e.g. a filament lamp) means R changes.
+@phys10-u4-q20
+Q: What is electric current?
+A: The rate of flow of charge: I = Q/t; 1 A = 1 C/s.
+W: Current measures how much charge passes a point each second. | I = Q/t. | 1 ampere = 1 coulomb per second.
+T: Q = It – useful for charge questions.
+@phys10-u4-q21
+W: Parallel: 1/R = 1/6 + 1/6 = 2/6. | R = 6/2 = 3 Ω. | Answer B.
+T: Two equal resistors in parallel = half of one.
+@phys10-u5-q01
+Q: State the law of reflection.
+A: Angle of incidence = angle of reflection; the incident ray, reflected ray and normal lie in one plane.
+W: Draw the normal at 90° to the mirror where the ray hits. | Measure both angles from the normal. | i = r, and all three lines are coplanar.
+T: Angles are always measured from the normal, not from the mirror.
+@phys10-u5-q02
+Q: How far behind a plane mirror is the image?
+A: As far behind the mirror as the object is in front.
+W: Reflected rays from the object appear to come from a point behind the mirror. | By the law of reflection, the geometry is symmetric. | Image distance = object distance.
+T: Stand 2 m from a mirror: your image is 4 m from you.
+@phys10-u5-q03
+Q: Describe the image in a plane mirror.
+A: Virtual, upright (erect), same size and laterally inverted.
+W: Rays only appear to come from behind the mirror – virtual. | It is the same way up and the same size as the object. | Left and right are swapped – lateral inversion.
+T: "AMBULANCE" is written reversed so drivers read it in mirrors.
+@phys10-u5-q04
+Q: Why does a person need a plane mirror only half their height to see their whole body?
+A: Light from the feet reflects at a point halfway between eye and feet, and light from the top of the head halfway between eye and head.
+W: By i = r, the ray from your feet to your eye reflects at the mirror height halfway between them. | The same is true for the top of your head. | The mirror needed spans half your height (whatever your distance).
+T: Distance from the mirror does not matter.
+@phys10-u5-q05
+Q: How is the focal length of a spherical mirror related to its radius of curvature?
+A: f = R/2
+W: Parallel rays near the axis reflect through the focus F. | Geometry with i = r puts F halfway between the pole and the centre of curvature C. | So f = R/2.
+T: Example: R = 30 cm → f = 15 cm.
+@phys10-u5-q06
+Q: When is a concave mirror used as a shaving (make-up) mirror?
+A: When the face is inside the focus – it gives a virtual, upright, magnified image.
+W: Object between F and the mirror. | Reflected rays diverge and appear to come from behind the mirror. | The image is virtual, erect and enlarged – good for close-up viewing.
+T: Inside F → virtual and magnified.
+@phys10-u5-q07
+Q: Why is a satellite dish concave, with the receiver at the focus?
+A: Parallel waves from the distant satellite reflect and meet at the focus F.
+W: The satellite is very far away, so its signals arrive as parallel rays. | A concave reflector focuses parallel rays to F. | Putting the receiver at F collects the most signal.
+T: Car headlights use the reverse: a bulb at F gives a parallel beam.
+@phys10-u5-q08
+Q: What is the advantage of a convex mirror as a car wing mirror?
+A: It gives a wide field of view and always an upright image (but diminished – objects look farther away).
+W: A convex mirror spreads reflected rays out. | It shows a large area behind the car in a small mirror. | Images are always virtual, upright and smaller, so drivers must judge distance carefully.
+T: "Objects in mirror are closer than they appear."
+@phys10-u5-q09
+Q: What can a real image be caught on?
+A: A screen.
+W: A real image forms where reflected (or refracted) rays actually meet. | Light really reaches that place. | So a screen placed there shows the image.
+T: Real images from one mirror or lens are inverted.
+@phys10-u5-q10
+Q: Why can't a virtual image be caught on a screen?
+A: The rays only appear to meet – no light actually reaches the image position.
+W: Reflected rays diverge after the mirror. | Traced backwards, they seem to come from a point behind the mirror. | No light is really there, so a screen shows nothing.
+T: Virtual images are seen by looking into the mirror.
+@phys10-u5-q11
+Q: An object is 30 cm in front of a concave mirror of f = 10 cm (real-is-positive: u = 30, f = 10). Find the image distance.
+A: v = 15 cm (real, in front of the mirror)
+W: Mirror formula: 1/f = 1/u + 1/v, so 1/v = 1/f − 1/u. | 1/v = 1/10 − 1/30 = 3/30 − 1/30 = 2/30 = 1/15. | v = +15 cm – positive, so the image is real.
+T: Object beyond C (2f = 20 cm) → image between F and C, real, inverted, smaller.
+@phys10-u5-q12
+Q: What is the magnification for that image (u = 30 cm, v = 15 cm)?
+A: m = 0.5; the image is inverted
+W: Magnification m = v/u (size). | m = 15 cm ÷ 30 cm. | m = 0.5 – half size, inverted (real).
+T: m < 1 means smaller than the object.
+@phys10-u5-q13
+Q: An object is 10 cm from a concave mirror of f = 15 cm. Describe the image.
+A: Virtual, upright, magnified (v = −30 cm, m = 3).
+W: 1/v = 1/f − 1/u = 1/15 − 1/10 = 2/30 − 3/30 = −1/30. | v = −30 cm: negative means virtual, behind the mirror. | m = |v/u| = 30/10 = 3 – upright and three times bigger.
+T: Object inside F of a concave mirror → magnifying (like a shaving mirror).
+@phys10-u5-q15
+Q: What does rectilinear propagation of light mean?
+A: Light travels in straight lines in a uniform medium.
+W: In one uniform medium, light does not bend. | This explains sharp shadows and the pinhole camera. | Light changes direction only at a boundary (reflection, refraction).
+T: Shadows and eclipses are evidence of straight-line travel.
+@phys10-u5-q16
+Q: Why are two rays enough to locate an image in a ray diagram?
+A: The point where the two reflected rays meet (or appear to meet) is the image point.
+W: Every ray from an object point passes through (or seems to come from) the same image point. | Two lines meet at exactly one point. | So two easy rays (parallel→F, through C) are enough.
+T: Use a third ray as a check.
+@phys10-u5-q17
+Q: What is the principal axis of a spherical mirror?
+A: The line through the centre of curvature C and the pole (vertex) of the mirror.
+W: The pole P is the centre of the mirror's surface. | C is the centre of the sphere the mirror is part of. | The principal axis is the straight line through C and P; F lies on it.
+T: All distances u, v, f are measured along the principal axis from P.
+@phys10-u5-q18
+Q: Why does spherical aberration happen?
+A: Rays far from the axis do not meet at exactly the same focus as rays near the axis.
+W: The simple rule f = R/2 works only for rays close to the axis. | Wide rays reflect a little closer to the mirror. | The image becomes blurred – spherical aberration (parabolic mirrors avoid it).
+T: Large dishes and headlights are parabolic for this reason.
+@phys10-u5-q19
+Q: Why must you write down the sign convention first in mirror problems?
+A: The signs of u, v and f change meaning between conventions ("real-is-positive" vs New Cartesian); mixing them gives wrong answers.
+W: In real-is-positive, real distances are + and virtual are −. | In New Cartesian, distances against the incident light are −. | State one convention and use it for every quantity in the problem.
+T: A negative v must be interpreted using the convention you chose.

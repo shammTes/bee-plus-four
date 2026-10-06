@@ -143,7 +143,7 @@
        "body": [
         "The notion of a set is basic in Mathematics.",
         "George Cantor, (1845-1918) a German mathematician created set theory, a new area of Mathematics.",
-        "A set is a collection of well-defined objects called elements.",
+        "**A set** is a collection of well-defined objects called elements.",
         "A = the set of natural numbers less than or equal to 7, i. e., A = {1, 2, 3, 4, 5, 6, 7}, This means that 1, 2, 3, 4, 5, 6, and 7 are elements of set A.",
         "If the elements of a set A can all be listed, then the set is given by putting the letter A equal to a brace which includes all the elements of A in any order whatsoever."
        ]
@@ -306,7 +306,6 @@
        "src": "textbook p.5",
        "enriched": true,
        "body": [
-        "Observe there is a one to one correspondence between sets A and B.",
         "Two sets A and B are said to be equivalent sets if there is a one-to-one correspondence between them (i.e. if they have the same number of elements)."
        ]
       },
@@ -326,56 +325,6 @@
        },
        "answer": "C",
        "why": "**Step 1: Understand 'well-defined'**\nA collection is a set only if there is an objective, non-subjective rule to determine membership.\n\n**Step 2: Evaluate options**\nBeauty, tallness, and difficulty are subjective criteria that depend on individual opinions. 'Positive even integers less than 20' is objective and mathematically precise.\n\n**Step 3: Final Result**\nThe correct choice is **The collection of positive even integers less than 20**."
-      },
-      {
-       "id": "math9-u1-chk4",
-       "type": "check",
-       "title": "Quick check",
-       "page": 4,
-       "src": "study_notes",
-       "src_qid": "math_g9_c1_q6",
-       "q": "How many proper subsets does a set with 5 elements have?",
-       "options": {
-        "A": "$$32$$",
-        "B": "$$31$$",
-        "C": "$$30$$",
-        "D": "$$16$$"
-       },
-       "answer": "B",
-       "why": "**Step 1: Recall the proper subset formula**\nThe number of proper subsets is given by $$2^n - 1$$, where $$n$$ is the number of elements.\n\n**Step 2: Substitute the value**\nFor $$n = 5$$:\n$$2^5 - 1 = 32 - 1 = 31$$\n\n**Step 3: Final Result**\nThe number of proper subsets is **$$31$$**."
-      },
-      {
-       "id": "math9-u1-wrk4",
-       "type": "worked",
-       "title": "Step-by-step",
-       "page": 4,
-       "src": "study_notes",
-       "src_qid": "math_g9_c1_q6",
-       "problem": "How many proper subsets does a set with 5 elements have?",
-       "steps": [
-        {
-         "text": "**Step 1: Recall the proper subset formula**"
-        },
-        {
-         "text": "The number of proper subsets is given by $$2^n - 1$$, where $$n$$ is the number of elements."
-        },
-        {
-         "text": "**Step 2: Substitute the value**"
-        },
-        {
-         "text": "For $$n = 5$$:"
-        },
-        {
-         "text": "$$2^5 - 1 = 32 - 1 = 31$$"
-        },
-        {
-         "text": "**Step 3: Final Result**"
-        },
-        {
-         "text": "The number of proper subsets is **$$31$$**."
-        }
-       ],
-       "answer": "$$31$$"
       },
       {
        "id": "math9-u1-st2",
@@ -405,6 +354,22 @@
        "why": "Listing the letters of \"BOOK\" without repetition gives A = {B, O, K}. B has exactly the same three elements (order does not matter), so A = B. Equal sets are of course also equivalent.",
        "page": 4,
        "src": "notes"
+      },
+      {
+       "id": "math9-u1-l1-2-r3r1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 5,
+       "src": "study notes (r3)",
+       "q": "Which pair of sets is equivalent but NOT equal?",
+       "options": {
+        "A": "A = {1, 2, 3} and B = {3, 2, 1}",
+        "B": "A = {a, b} and B = {a, b, c}",
+        "C": "A = {} and B = {0}",
+        "D": "A = {1, 2, 3} and B = {a, b, c}"
+       },
+       "answer": "D",
+       "why": "**Step 1:** Equal sets have exactly the same elements; equivalent sets only have the same number of elements.\n\n**Step 2:** {1, 2, 3} and {a, b, c} both have 3 elements but different elements → equivalent, not equal.\n\n**Step 3:** {1, 2, 3} and {3, 2, 1} are equal (order does not matter).\n\n**Tip:** Every pair of equal sets is also equivalent, but not every equivalent pair is equal."
       },
       {
        "id": "math9-u1-xt2",
@@ -511,53 +476,6 @@
        "answer": "$$A = B$$"
       },
       {
-       "id": "math9-u1-chk6",
-       "type": "check",
-       "title": "Quick check",
-       "page": 6,
-       "src": "study_notes",
-       "src_qid": "math_g9_c1_q8",
-       "q": "Let $$A = \\{1, 2, 3, 4\\}$$ and $$B = \\{3, 4, 5, 6\\}$$. Find $$A \\cap B$$.",
-       "options": {
-        "A": "$$\\{1, 2, 3, 4, 5, 6\\}$$",
-        "B": "$$\\{3, 4\\}$$",
-        "C": "$$\\{5, 6\\}$$",
-        "D": "$$\\varnothing$$"
-       },
-       "answer": "B",
-       "why": "**Step 1: Understand intersection**\nThe intersection $$A \\cap B$$ contains only elements that belong to both set $$A$$ and set $$B$$.\n\n**Step 2: Identify overlapping elements**\nThe elements $$3$$ and $$4$$ are present in both $$A$$ and $$B$$.\n\n**Step 3: Final Result**\n$$A \\cap B = \\{3, 4\\}$$."
-      },
-      {
-       "id": "math9-u1-wrk6",
-       "type": "worked",
-       "title": "Step-by-step",
-       "page": 6,
-       "src": "study_notes",
-       "src_qid": "math_g9_c1_q8",
-       "problem": "Let $$A = \\{1, 2, 3, 4\\}$$ and $$B = \\{3, 4, 5, 6\\}$$. Find $$A \\cap B$$.",
-       "steps": [
-        {
-         "text": "**Step 1: Understand intersection**"
-        },
-        {
-         "text": "The intersection $$A \\cap B$$ contains only elements that belong to both set $$A$$ and set $$B$$."
-        },
-        {
-         "text": "**Step 2: Identify overlapping elements**"
-        },
-        {
-         "text": "The elements $$3$$ and $$4$$ are present in both $$A$$ and $$B$$."
-        },
-        {
-         "text": "**Step 3: Final Result**"
-        },
-        {
-         "text": "$$A \\cap B = \\{3, 4\\}$$."
-        }
-       ],
-       "answer": "$$\\{3, 4\\}$$"
-      },
-      {
        "id": "math9-u1-st3",
        "type": "text",
        "title": "Step by step: subsets",
@@ -585,6 +503,56 @@
        "why": "A set with n = 4 elements has 2⁴ = 16 subsets. All except the set itself are proper, so there are 16 − 1 = 15 proper subsets.",
        "page": 6,
        "src": "notes"
+      },
+      {
+       "id": "math9-u1-chk4",
+       "type": "check",
+       "title": "Quick check",
+       "page": 4,
+       "src": "study_notes",
+       "src_qid": "math_g9_c1_q6",
+       "q": "How many proper subsets does a set with 5 elements have?",
+       "options": {
+        "A": "$$32$$",
+        "B": "$$31$$",
+        "C": "$$30$$",
+        "D": "$$16$$"
+       },
+       "answer": "B",
+       "why": "**Step 1: Recall the proper subset formula**\nThe number of proper subsets is given by $$2^n - 1$$, where $$n$$ is the number of elements.\n\n**Step 2: Substitute the value**\nFor $$n = 5$$:\n$$2^5 - 1 = 32 - 1 = 31$$\n\n**Step 3: Final Result**\nThe number of proper subsets is **$$31$$**."
+      },
+      {
+       "id": "math9-u1-wrk4",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 4,
+       "src": "study_notes",
+       "src_qid": "math_g9_c1_q6",
+       "problem": "How many proper subsets does a set with 5 elements have?",
+       "steps": [
+        {
+         "text": "**Step 1: Recall the proper subset formula**"
+        },
+        {
+         "text": "The number of proper subsets is given by $$2^n - 1$$, where $$n$$ is the number of elements."
+        },
+        {
+         "text": "**Step 2: Substitute the value**"
+        },
+        {
+         "text": "For $$n = 5$$:"
+        },
+        {
+         "text": "$$2^5 - 1 = 32 - 1 = 31$$"
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "The number of proper subsets is **$$31$$**."
+        }
+       ],
+       "answer": "$$31$$"
       }
      ]
     },
@@ -649,7 +617,7 @@
        "enriched": true,
        "body": [
         "Sets and set problems are mostly represented by diagrams called Venn diagrams.",
-        "A Venn diagram is a simple closed curve to denote the set of elements within the curve.",
+        "A **Venn diagram** is a simple closed curve to denote the set of elements within the curve.",
         "In a survey, 150 high school learners were asked if they owned a bicycle, a calculator, or both.",
         "The result showed that 63 owned a bicycle, 84 owned a calculator, and 27 owned both."
        ]
@@ -776,6 +744,53 @@
        "why": "Use n(A ∪ B) = n(A) + n(B) − n(A ∩ B): 17 = 12 + 9 − n(A ∩ B), so n(A ∩ B) = 21 − 17 = 4.",
        "page": 9,
        "src": "notes"
+      },
+      {
+       "id": "math9-u1-chk6",
+       "type": "check",
+       "title": "Quick check",
+       "page": 6,
+       "src": "study_notes",
+       "src_qid": "math_g9_c1_q8",
+       "q": "Let $$A = \\{1, 2, 3, 4\\}$$ and $$B = \\{3, 4, 5, 6\\}$$. Find $$A \\cap B$$.",
+       "options": {
+        "A": "$$\\{1, 2, 3, 4, 5, 6\\}$$",
+        "B": "$$\\{3, 4\\}$$",
+        "C": "$$\\{5, 6\\}$$",
+        "D": "$$\\varnothing$$"
+       },
+       "answer": "B",
+       "why": "**Step 1: Understand intersection**\nThe intersection $$A \\cap B$$ contains only elements that belong to both set $$A$$ and set $$B$$.\n\n**Step 2: Identify overlapping elements**\nThe elements $$3$$ and $$4$$ are present in both $$A$$ and $$B$$.\n\n**Step 3: Final Result**\n$$A \\cap B = \\{3, 4\\}$$."
+      },
+      {
+       "id": "math9-u1-wrk6",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 6,
+       "src": "study_notes",
+       "src_qid": "math_g9_c1_q8",
+       "problem": "Let $$A = \\{1, 2, 3, 4\\}$$ and $$B = \\{3, 4, 5, 6\\}$$. Find $$A \\cap B$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Understand intersection**"
+        },
+        {
+         "text": "The intersection $$A \\cap B$$ contains only elements that belong to both set $$A$$ and set $$B$$."
+        },
+        {
+         "text": "**Step 2: Identify overlapping elements**"
+        },
+        {
+         "text": "The elements $$3$$ and $$4$$ are present in both $$A$$ and $$B$$."
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "$$A \\cap B = \\{3, 4\\}$$."
+        }
+       ],
+       "answer": "$$\\{3, 4\\}$$"
       }
      ]
     },
@@ -796,7 +811,7 @@
        "src": "textbook p.13",
        "enriched": true,
        "body": [
-        "A universal set is a set that contains all the elements being considered in a given discussion or problem.",
+        "**A universal set** is a set that contains all the elements being considered in a given discussion or problem.",
         "The complement of set A is the set of all elements in the universal set that are not in A.",
         "The complement of set A is denoted by A′."
        ]

@@ -124,7 +124,7 @@
        "enriched": true,
        "body": [
         "The chemical action within a cell generates the potential difference across the terminals of the cell, even when no current is drawn from it.",
-        "Potential difference is a scalar quantity.",
+        "**Potential difference** is a scalar quantity.",
         "In a water fountain, the water sprays out of an opening at the top falls down and collects in a receiving pool or reservoir at the bottom.",
         "A pump then lifts the water in the reservoir back to the top, against gravity, , to be recirculated for another trip.",
         "Without the pump, the water would remain in the reservoir."
@@ -373,6 +373,53 @@
         "> **💡 Did You Know?**: The drift velocity of individual electrons in a typical household copper wire is incredibly slow—typically less than $$1\\text{ mm/s}$$! However, when you flip a light switch, the light turns on almost instantly because the electromagnetic wave (electric field) travels through the wire at nearly the speed of light, setting all free electrons in motion simultaneously.",
         "> **🧠 Pro-Tip**: To distinguish between emf ($$\\mathcal{E}$$) and terminal voltage ($$V$$), remember that emf is the \"maximum\" possible voltage the source can supply when no current is flowing ($$I = 0$$), whereas terminal voltage is what you actually measure across the battery terminals during active operation."
        ]
+      },
+      {
+       "id": "phys10-u4-chk13",
+       "type": "check",
+       "title": "Quick check",
+       "page": 199,
+       "src": "study_notes",
+       "src_qid": "phys_g10_c4_q14",
+       "q": "A cell has an internal resistance of $$r$$. What happens to the terminal potential difference across the cell as the current drawn from it increases?",
+       "options": {
+        "A": "It increases linearly.",
+        "B": "It decreases linearly.",
+        "C": "It remains constant and equal to the emf.",
+        "D": "It drops to zero instantly."
+       },
+       "answer": "B",
+       "why": "**Step 1: Write down the terminal voltage equation**  \n$$V = \\mathcal{E} - Ir$$\n\n**Step 2: Analyze the effect of increasing current $$I$$**  \nAs $$I$$ increases, the product $$Ir$$ (internal voltage drop) increases. Since this is subtracted from the constant emf $$\\mathcal{E}$$, the terminal voltage $$V$$ must decrease linearly.\n\n**Step 3: Final Result**  \nThe terminal potential difference **decreases linearly**."
+      },
+      {
+       "id": "phys10-u4-wrk13",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 199,
+       "src": "study_notes",
+       "src_qid": "phys_g10_c4_q14",
+       "problem": "A cell has an internal resistance of $$r$$. What happens to the terminal potential difference across the cell as the current drawn from it increases?",
+       "steps": [
+        {
+         "text": "**Step 1: Write down the terminal voltage equation**"
+        },
+        {
+         "text": "$$V = \\mathcal{E} - Ir$$"
+        },
+        {
+         "text": "**Step 2: Analyze the effect of increasing current $$I$$**"
+        },
+        {
+         "text": "As $$I$$ increases, the product $$Ir$$ (internal voltage drop) increases. Since this is subtracted from the constant emf $$\\mathcal{E}$$, the terminal voltage $$V$$ must decrease linearly."
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "The terminal potential difference **decreases linearly**."
+        }
+       ],
+       "answer": "B. It decreases linearly."
       }
      ]
     },
@@ -393,8 +440,7 @@
        "src": "textbook pp.168–169",
        "enriched": true,
        "body": [
-        "Electric current is a measure of the amount of electric charge moving through the conductor.",
-        "Electric current is a measure of the amount of electric charge moving through the conductor.",
+        "**Electric current** is a measure of the amount of electric charge moving through the conductor.",
         "Electric current whose magnitude remains constant and the sense of the current is continuous along one direction at all times and is known as direct current (dc).",
         "Electric current whose magnitude alternates (from positive to negative and negative to positive) periodically with time is known as alternating current (ac).",
         "Alternating current can be produced by an ac generator."
@@ -513,6 +559,22 @@
        "body": [
         "**Resistors in Series** are connected sequentially along a single path so that the same current flows through each, whereas **Resistors in Parallel** are connected across the same two nodes, ensuring they share the same potential difference."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-2-r2c1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 168,
+       "src": "r2",
+       "q": "A charge of 120 C flows through a lamp in 1 minute. What is the current?",
+       "options": {
+        "A": "120 A",
+        "B": "2 A",
+        "C": "0.5 A",
+        "D": "7200 A"
+       },
+       "answer": "B",
+       "why": "**Step 1:** Current $I = Q/t$; time must be in seconds: 1 min = 60 s.\n\n**Step 2:** $I = 120 / 60$.\n\n**Step 3:** $= 2$ A.\n\n**Tip:** Read every option against the rule before choosing."
       }
      ]
     },
@@ -533,7 +595,7 @@
        "src": "textbook p.170",
        "enriched": true,
        "body": [
-        "A closed electrical path comprises a source of emf (or a battery), a switch, an ammeter, an electric bulb, connecting wires, and any other electrical or electronic devices, and is known as the electric circuit (Fig. 4.2)."
+        "A closed electrical path comprises a source of emf (or a battery), a switch, an ammeter, an electric bulb, connecting wires, and any other electrical or electronic devices, and is known as the **electric circuit**."
        ]
       },
       {
@@ -641,6 +703,22 @@
         "To analyze complex circuit networks, we must understand how individual electrical components interact when grouped together. When resistors are connected in **series**, they form a single path for charge flow. Consequently, the conservation of charge dictates that the electric current must be identical through all series-connected resistors: $$I_{\\text{total}} = I_1 = I_2 = I_3 = \\dots$$. By applying Kirchhoff's Voltage Law (conservation of energy), the total potential difference across the entire group must equal the sum of the individual potential drops: $$V_{\\text{total}} = V_1 + V_2 + V_3 + \\dots$$. Substituting Ohm's Law ($$V = IR$$) into this expression yields the equivalent resistance of a series network: $$R_{\\text{eq}} = R_1 + R_2 + R_3 + \\dots$$.",
         "Conversely, when resistors are connected in **parallel**, their terminals are connected to the same two junctions in the circuit. Therefore, they must share the exact same potential difference: $$V_{\\text{total}} = V_1 = V_2 = V_3 = \\dots$$. The total current entering the parallel junction must split among the available paths (conservation of charge): $$I_{\\text{total}} = I_1 + I_2 + I_3 + \\dots$$. Substituting Ohm's Law ($$I = \\frac{V}{R}$$) into this expression yields the equivalent resistance formula for parallel networks: $$\\frac{1}{R_{\\text{eq}}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3} + \\dots$$. This reciprocal relationship shows that adding parallel paths always *decreases* the overall equivalent resistance of the circuit."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-3-r2c1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 170,
+       "src": "r2",
+       "q": "In a circuit diagram, the symbol of two parallel lines of different lengths represents a ____.",
+       "options": {
+        "A": "lamp",
+        "B": "cell",
+        "C": "switch",
+        "D": "resistor"
+       },
+       "answer": "B",
+       "why": "**Step 1:** A cell is drawn as a long thin line (positive) and a short thick line (negative).\n\n**Step 2:** A resistor is a rectangle; a lamp is a circle with a cross.\n\n**Step 3:** So the symbol is a cell.\n\n**Tip:** Read every option against the rule before choosing."
       }
      ]
     },
@@ -663,60 +741,10 @@
        "body": [
         "A 10 Ω resistor, ammeter, a toggle switch, a voltmeter, and four cells of 1.5 V each.",
         "In many practical cases it is necessary to increase or decrease the current in an electric circuit.",
-        "A component used to regulate current without changing the voltage source is called variable resistance.",
+        "A component used to regulate current without changing the voltage source is called **variable resistance**.",
         "In an electric circuit, a device called rheostat is often used to change the resistance in the circuit.",
         "The current through the heater becomes 8 A."
        ]
-      },
-      {
-       "id": "phys10-u4-chk7",
-       "type": "check",
-       "title": "Quick check",
-       "page": 172,
-       "src": "study_notes",
-       "src_qid": "phys_g10_c4_q8",
-       "q": "Which safety device is specifically designed to protect against electric shock by sensing tiny current differences between the live and neutral wires?",
-       "options": {
-        "A": "Fuse",
-        "B": "Circuit Breaker",
-        "C": "Ground Fault Interrupter (GFI)",
-        "D": "Three-prong plug"
-       },
-       "answer": "C",
-       "why": "**Step 1: Analyze safety device mechanisms**  \n- Fuses and Circuit Breakers protect against high currents (overloads and short circuits) by tripping at high limits (e.g., $$15\\text{ A}$$).\n- Ground Fault Interrupters (GFIs) monitor the balance of current between the live and neutral wires.\n\n**Step 2: Identify GFI sensitivity**  \nIf even a tiny amount of current (e.g., $$5\\text{ mA}$$) leaks to ground, the GFI senses the imbalance and cuts power in milliseconds, protecting against electrocution.\n\n**Step 3: Final Result**  \nThe correct device is the **Ground Fault Interrupter (GFI)**."
-      },
-      {
-       "id": "phys10-u4-wrk7",
-       "type": "worked",
-       "title": "Step-by-step",
-       "page": 172,
-       "src": "study_notes",
-       "src_qid": "phys_g10_c4_q8",
-       "problem": "Which safety device is specifically designed to protect against electric shock by sensing tiny current differences between the live and neutral wires?",
-       "steps": [
-        {
-         "text": "**Step 1: Analyze safety device mechanisms**"
-        },
-        {
-         "text": "- Fuses and Circuit Breakers protect against high currents (overloads and short circuits) by tripping at high limits (e.g., $$15\\text{ A}$$)."
-        },
-        {
-         "text": "- Ground Fault Interrupters (GFIs) monitor the balance of current between the live and neutral wires."
-        },
-        {
-         "text": "**Step 2: Identify GFI sensitivity**"
-        },
-        {
-         "text": "If even a tiny amount of current (e.g., $$5\\text{ mA}$$) leaks to ground, the GFI senses the imbalance and cuts power in milliseconds, protecting against electrocution."
-        },
-        {
-         "text": "**Step 3: Final Result**"
-        },
-        {
-         "text": "The correct device is the **Ground Fault Interrupter (GFI)**."
-        }
-       ],
-       "answer": "C. Ground Fault Interrupter (GFI)"
       },
       {
        "id": "phys10-u4-chk8",
@@ -788,6 +816,38 @@
         "Batteries (cells) can also be connected in series or parallel configurations to achieve specific power requirements. When cells are connected in series (with the positive terminal of one connected to the negative terminal of the next), their individual emfs add up to increase the total voltage: $$\\mathcal{E}_{\\text{eq}} = \\mathcal{E}_1 + \\mathcal{E}_2 + \\dots$$, and their internal resistances also add: $$r_{\\text{eq}} = r_1 + r_2 + \\dots$$. If identical cells are connected in parallel, the total equivalent emf remains equal to that of a single cell ($$\\mathcal{E}_{\\text{eq}} = \\mathcal{E}$$), but the equivalent internal resistance is significantly reduced: $$r_{\\text{eq}} = \\frac{r}{n}$$, where $$n$$ is the number of cells. This parallel cell configuration allows the battery to deliver a larger maximum current for a longer duration.",
         "Why it matters: Solving complex electrical networks by dividing them into simpler series and parallel blocks is a fundamental skill in electronics. This method is used to design circuit boards, calculate power distribution in vehicles, and configure solar panel arrays, where panels are strategically connected in series to increase voltage and in parallel to increase current output."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-4-r2c1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 172,
+       "src": "r2",
+       "q": "A current of 0.5 A flows through a resistor with 6 V across it. What is its resistance?",
+       "options": {
+        "A": "0.083 Ω",
+        "B": "3 Ω",
+        "C": "12 Ω",
+        "D": "6.5 Ω"
+       },
+       "answer": "C",
+       "why": "**Step 1:** Ohm's law: $V = IR$, so $R = V/I$.\n\n**Step 2:** $R = 6 / 0.5$.\n\n**Step 3:** $= 12$ Ω.\n\n**Tip:** Read every option against the rule before choosing."
+      },
+      {
+       "id": "phys10-u4-l4-4-r3r1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 172,
+       "src": "study notes (r3)",
+       "q": "A current of 0.5 A flows through a resistor when the potential difference across it is 6 V. The resistance is:",
+       "options": {
+        "A": "3 Ω",
+        "B": "6.5 Ω",
+        "C": "0.083 Ω",
+        "D": "12 Ω"
+       },
+       "answer": "D",
+       "why": "**Step 1:** Ohm's law: V = IR, so R = V ÷ I.\n\n**Step 2:** Substitute: R = 6 V ÷ 0.5 A.\n\n**Step 3:** Answer: R = 12 Ω.\n\n**Tip:** Cover the quantity you want in the V-I-R triangle: V on top, I and R below."
       }
      ]
     },
@@ -822,7 +882,7 @@
         "Cells can be connected either in series or in parallel.",
         "Two or more cells are combined to form a battery.",
         "When identical cells are connected in series the total emf increases and when the same cells are connected in parallel, the resultant emf is that of only one of the cells.",
-        "I1 and I2 are the currents leaving the positive electrodes of the cells."
+        "**I1 and I2** are the currents leaving the positive electrodes of the cells."
        ]
       },
       {
@@ -943,6 +1003,22 @@
         "> **💡 Did You Know?**: Old-fashioned holiday string lights were wired strictly in series. If a single bulb burned out or was removed, it broke the electrical path for the entire string, causing all the other lights to go out simultaneously, making troubleshooting a nightmare!",
         "> **🧠 Pro-Tip**: When calculating the equivalent resistance of just *two* parallel resistors, always use the quick \"product-over-sum\" formula: $$R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$$. This eliminates the need to find a common denominator for reciprocal fractions."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-5-r2c1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 177,
+       "src": "r2",
+       "q": "Two 6 Ω resistors are connected in parallel. What is the total resistance?",
+       "options": {
+        "A": "6 Ω",
+        "B": "36 Ω",
+        "C": "3 Ω",
+        "D": "12 Ω"
+       },
+       "answer": "C",
+       "why": "**Step 1:** For parallel resistors: $1/R = 1/R_1 + 1/R_2$.\n\n**Step 2:** $1/R = 1/6 + 1/6 = 2/6$.\n\n**Step 3:** $R = 3$ Ω (equal resistors in parallel give half).\n\n**Tip:** Read every option against the rule before choosing."
       }
      ]
     },
@@ -967,7 +1043,7 @@
         "If only a resistor is connected to a battery, the source energy continually gets dissipated entirely in the form of heat.",
         "The power P is given by P = VI = I2R = V2 R.",
         "The SI unit of electric power is the watt (W).",
-        "Because electrical energy is the product of power and time, the unit of electric energy is, therefore, watthour (Wh)."
+        "**Because electrical energy** is the product of power and time, the unit of electric energy is, therefore, watthour (Wh)."
        ]
       },
       {
@@ -1164,6 +1240,72 @@
         "> **💡 Did You Know?**: It is not the \"voltage\" that kills you, but the \"current\" that passes through your body! A current of just $$10\\text{ mA}$$ ($$0.01\\text{ A}$$) can cause painful muscle contractions, making it impossible to let go of the wire. A current of $$100\\text{ mA}$$ ($$0.1\\text{ A}$$) through the chest can paralyze the respiratory system and cause fatal heart fibrillation in less than a second!",
         "> **🧠 Pro-Tip**: Never replace a blown fuse with a piece of copper wire or a fuse of a higher amperage rating. Doing so bypasses the safety mechanism, allowing dangerously high currents to flow through the household wiring, which can easily overheat the wires inside the walls and cause a fire."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-6-r2c1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 195,
+       "src": "r2",
+       "q": "A 2 kW heater is used for 3 hours. How much electrical energy does it use?",
+       "options": {
+        "A": "5 kWh",
+        "B": "600 kWh",
+        "C": "1.5 kWh",
+        "D": "6 kWh"
+       },
+       "answer": "D",
+       "why": "**Step 1:** Energy $E = Pt$.\n\n**Step 2:** $E = 2 \\text{ kW} \\times 3 \\text{ h}$.\n\n**Step 3:** $= 6$ kWh (6 units).\n\n**Tip:** Read every option against the rule before choosing."
+      },
+      {
+       "id": "phys10-u4-chk7",
+       "type": "check",
+       "title": "Quick check",
+       "page": 172,
+       "src": "study_notes",
+       "src_qid": "phys_g10_c4_q8",
+       "q": "Which safety device is specifically designed to protect against electric shock by sensing tiny current differences between the live and neutral wires?",
+       "options": {
+        "A": "Fuse",
+        "B": "Circuit Breaker",
+        "C": "Ground Fault Interrupter (GFI)",
+        "D": "Three-prong plug"
+       },
+       "answer": "C",
+       "why": "**Step 1: Analyze safety device mechanisms**  \n- Fuses and Circuit Breakers protect against high currents (overloads and short circuits) by tripping at high limits (e.g., $$15\\text{ A}$$).\n- Ground Fault Interrupters (GFIs) monitor the balance of current between the live and neutral wires.\n\n**Step 2: Identify GFI sensitivity**  \nIf even a tiny amount of current (e.g., $$5\\text{ mA}$$) leaks to ground, the GFI senses the imbalance and cuts power in milliseconds, protecting against electrocution.\n\n**Step 3: Final Result**  \nThe correct device is the **Ground Fault Interrupter (GFI)**."
+      },
+      {
+       "id": "phys10-u4-wrk7",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 172,
+       "src": "study_notes",
+       "src_qid": "phys_g10_c4_q8",
+       "problem": "Which safety device is specifically designed to protect against electric shock by sensing tiny current differences between the live and neutral wires?",
+       "steps": [
+        {
+         "text": "**Step 1: Analyze safety device mechanisms**"
+        },
+        {
+         "text": "- Fuses and Circuit Breakers protect against high currents (overloads and short circuits) by tripping at high limits (e.g., $$15\\text{ A}$$)."
+        },
+        {
+         "text": "- Ground Fault Interrupters (GFIs) monitor the balance of current between the live and neutral wires."
+        },
+        {
+         "text": "**Step 2: Identify GFI sensitivity**"
+        },
+        {
+         "text": "If even a tiny amount of current (e.g., $$5\\text{ mA}$$) leaks to ground, the GFI senses the imbalance and cuts power in milliseconds, protecting against electrocution."
+        },
+        {
+         "text": "**Step 3: Final Result**"
+        },
+        {
+         "text": "The correct device is the **Ground Fault Interrupter (GFI)**."
+        }
+       ],
+       "answer": "C. Ground Fault Interrupter (GFI)"
       }
      ]
     },
@@ -1200,53 +1342,6 @@
        "body": [
         "Series = one path (Christmas-tree old lamps). Parallel = independent paths (house). Power in a resistor grows with I² — thin wires heat first."
        ]
-      },
-      {
-       "id": "phys10-u4-chk13",
-       "type": "check",
-       "title": "Quick check",
-       "page": 199,
-       "src": "study_notes",
-       "src_qid": "phys_g10_c4_q14",
-       "q": "A cell has an internal resistance of $$r$$. What happens to the terminal potential difference across the cell as the current drawn from it increases?",
-       "options": {
-        "A": "It increases linearly.",
-        "B": "It decreases linearly.",
-        "C": "It remains constant and equal to the emf.",
-        "D": "It drops to zero instantly."
-       },
-       "answer": "B",
-       "why": "**Step 1: Write down the terminal voltage equation**  \n$$V = \\mathcal{E} - Ir$$\n\n**Step 2: Analyze the effect of increasing current $$I$$**  \nAs $$I$$ increases, the product $$Ir$$ (internal voltage drop) increases. Since this is subtracted from the constant emf $$\\mathcal{E}$$, the terminal voltage $$V$$ must decrease linearly.\n\n**Step 3: Final Result**  \nThe terminal potential difference **decreases linearly**."
-      },
-      {
-       "id": "phys10-u4-wrk13",
-       "type": "worked",
-       "title": "Step-by-step",
-       "page": 199,
-       "src": "study_notes",
-       "src_qid": "phys_g10_c4_q14",
-       "problem": "A cell has an internal resistance of $$r$$. What happens to the terminal potential difference across the cell as the current drawn from it increases?",
-       "steps": [
-        {
-         "text": "**Step 1: Write down the terminal voltage equation**"
-        },
-        {
-         "text": "$$V = \\mathcal{E} - Ir$$"
-        },
-        {
-         "text": "**Step 2: Analyze the effect of increasing current $$I$$**"
-        },
-        {
-         "text": "As $$I$$ increases, the product $$Ir$$ (internal voltage drop) increases. Since this is subtracted from the constant emf $$\\mathcal{E}$$, the terminal voltage $$V$$ must decrease linearly."
-        },
-        {
-         "text": "**Step 3: Final Result**"
-        },
-        {
-         "text": "The terminal potential difference **decreases linearly**."
-        }
-       ],
-       "answer": "B. It decreases linearly."
       },
       {
        "id": "phys10-u4-chk14",
@@ -1308,6 +1403,38 @@
         "Fuses or circuit breakers protect wiring by interrupting excessive current. Earth/ground wires reduce shock risk if a live wire touches a metal case.",
         "Power rating on an appliance ($$P = VI$$) helps estimate current draw so circuits are not overloaded."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-7-r2c1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 199,
+       "src": "r2",
+       "q": "Why are household appliances connected in parallel?",
+       "options": {
+        "A": "It uses fewer wires so no fuse is needed",
+        "B": "It reduces the voltage for each appliance",
+        "C": "It makes the current the same in all appliances",
+        "D": "Each gets the full mains voltage and can be switched on or off independently"
+       },
+       "answer": "D",
+       "why": "**Step 1:** In parallel every branch is connected across the supply.\n\n**Step 2:** So each appliance receives the full mains voltage.\n\n**Step 3:** One appliance can be switched off without affecting the others.\n\n**Tip:** Read every option against the rule before choosing."
+      },
+      {
+       "id": "phys10-u4-l4-7-r3r1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 199,
+       "src": "study notes (r3)",
+       "q": "In house wiring, the fuse or circuit breaker must be connected in the:",
+       "options": {
+        "A": "any of the three wires",
+        "B": "live wire",
+        "C": "neutral wire",
+        "D": "earth wire"
+       },
+       "answer": "B",
+       "why": "**Step 1:** The live wire carries the high potential into the appliance.\n\n**Step 2:** A fuse in the live wire cuts off this potential when it melts, so the appliance becomes safe.\n\n**Step 3:** Answer: the live wire.\n\n**Tip:** Switches are also placed in the live wire for the same safety reason."
       }
      ]
     },
@@ -1358,6 +1485,77 @@
         "Use insulated tools, proper plugs, and protective devices (fuse, breaker, residual-current device where available).",
         "Do not touch exposed live conductors. If a cable is damaged, disconnect power and replace it rather than taping over bare wire as a permanent fix."
        ]
+      },
+      {
+       "id": "phys10-u4-l4-8-r2wk1",
+       "type": "worked",
+       "title": "Choose the correct fuse",
+       "page": 201,
+       "src": "r2",
+       "problem": "A 2,300 W kettle runs on a 230 V supply. Fuses of 3 A, 5 A, 13 A and 30 A are available. Which should be fitted, and why?",
+       "steps": [
+        {
+         "text": "**Step 1: Find the normal current.** $I = P/V = 2300 / 230 = 10$ A."
+        },
+        {
+         "text": "**Step 2: Choose a fuse slightly above it.** 3 A and 5 A would melt in normal use."
+        },
+        {
+         "text": "**Step 3: Reject too large a fuse.** 30 A would let a dangerous fault current flow without melting."
+        },
+        {
+         "text": "**Step 4: Answer.** 13 A – just above the working current."
+        }
+       ],
+       "answer": "The 13 A fuse (normal current = 10 A)."
+      },
+      {
+       "id": "phys10-u4-l4-8-r2c2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 201,
+       "src": "r2",
+       "q": "The earth wire in a plug is connected to ____.",
+       "options": {
+        "A": "the fuse only",
+        "B": "the switch",
+        "C": "the metal case of the appliance",
+        "D": "the neutral terminal"
+       },
+       "answer": "C",
+       "why": "**Step 1:** If the live wire touches a metal case, the case becomes live.\n\n**Step 2:** The earth wire gives the current a low-resistance path to the ground.\n\n**Step 3:** A large current flows and blows the fuse, protecting the user.\n\n**Tip:** Read every option against the rule before choosing."
+      },
+      {
+       "id": "phys10-u4-l4-8-r2c3",
+       "type": "check",
+       "title": "Quick check",
+       "page": 201,
+       "src": "r2",
+       "q": "A fuse protects a circuit by ____.",
+       "options": {
+        "A": "storing extra charge",
+        "B": "melting and breaking the circuit when the current is too large",
+        "C": "increasing the voltage",
+        "D": "keeping the current constant"
+       },
+       "answer": "B",
+       "why": "**Step 1:** A fuse is a thin wire that heats up as current flows.\n\n**Step 2:** If the current exceeds its rating, it melts.\n\n**Step 3:** The circuit breaks, preventing overheating and fire.\n\n**Tip:** Read every option against the rule before choosing."
+      },
+      {
+       "id": "phys10-u4-l4-8-r2c4",
+       "type": "check",
+       "title": "Quick check",
+       "page": 201,
+       "src": "r2",
+       "q": "Which is a safe practice with electricity?",
+       "options": {
+        "A": "Overload one socket with many adaptors",
+        "B": "Use appliances with damaged cables",
+        "C": "Push metal objects into sockets",
+        "D": "Dry your hands before touching switches"
+       },
+       "answer": "D",
+       "why": "**Step 1:** Water conducts electricity and lowers skin resistance.\n\n**Step 2:** Overloading sockets causes overheating and fire.\n\n**Step 3:** Damaged cables and metal objects in sockets can cause shocks.\n\n**Tip:** Read every option against the rule before choosing."
       }
      ]
     }
@@ -1572,16 +1770,18 @@
     "questions": [
      {
       "type": "short",
-      "q": "12 V across 4 Ω. I?",
-      "answer": "I=V/R=3 A.",
+      "q": "A potential difference of 12 V is across a 4 Ω resistor. What current flows?",
+      "answer": "3 A",
       "why": [
-       "Textbook p.196: Let the potential difference across it be V (Fig. 4.22)."
+       "Ohm's law: I = V/R.",
+       "I = 12 V ÷ 4 Ω.",
+       "I = 3 A."
       ],
       "src": "notes",
-      "label": "1. 12 V across 4 Ω. I?",
+      "label": "1. A potential difference of 12 V is across a 4 Ω resistor. What current flows?",
       "page": 180,
-      "why_src": "textbook p.196",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "V = IR – cover the one you want.",
       "similar": [
        {
         "q": "When a 4 Ω resistor is connected to a 12 V battery of negligible internal resistance, the  A) power dissipated in the resistor is 48 W.  B) voltage across the resistor is 3 V.  C) current passing in the circuit is 1.5 A.  D) heat produced in the resistor in 3 seconds is 72 J.  E) current passing across the resistor is 2 A.",
@@ -1594,16 +1794,18 @@
      },
      {
       "type": "short",
-      "q": "Power in that resistor?",
-      "answer": "P=VI=36 W (or I²R=36 W).",
+      "q": "What power is dissipated in that 4 Ω resistor (12 V, 3 A)?",
+      "answer": "36 W",
       "why": [
-       "Textbook p.199: The power input of the battery (or the power dissipated in the resistor) is P = VI = I2R = V2 R."
+       "P = VI.",
+       "P = 12 V × 3 A.",
+       "P = 36 W (check: I²R = 9 × 4 = 36 W)."
       ],
       "src": "notes",
-      "label": "2. Power in that resistor?",
+      "label": "2. What power is dissipated in that 4 Ω resistor (12 V, 3 A)?",
       "page": 185,
-      "why_src": "textbook p.199",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "P = VI = I²R = V²/R – choose the one with known values.",
       "similar": [
        {
         "q": "A current of 0.4 A flows across a 30 Ω resistor. The power dissipated in the resistor is  A) 12 W.  B) 75 W.  C) 13.3 mW.  D) 30.4 W.  E) 4.8 W.",
@@ -1615,16 +1817,18 @@
      },
      {
       "type": "short",
-      "q": "Two 4 Ω in series. R?",
-      "answer": "8 Ω.",
+      "q": "Two 4 Ω resistors are in series. What is the total resistance?",
+      "answer": "8 Ω",
       "why": [
-       "Textbook p.184: These are series and parallel combinations."
+       "In series: R = R₁ + R₂.",
+       "R = 4 Ω + 4 Ω.",
+       "R = 8 Ω."
       ],
       "src": "notes",
-      "label": "3. Two 4 Ω in series. R?",
+      "label": "3. Two 4 Ω resistors are in series. What is the total resistance?",
       "page": 190,
-      "why_src": "textbook p.184",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "Series resistance is always bigger than the largest resistor.",
       "similar": [
        {
         "q": "A Galvanometer can be converted into a voltmeter by connecting a resistor of  A) small resistance in series with the galvanometer coil.  B) small resistance in parallel with the galvanometer coil.  C) large resistance in series with the galvanometer coil.  D) large resistance in parallel with the galvanometer coil.  E) small resistance in parallel with the voltmeter.",
@@ -1636,16 +1840,18 @@
      },
      {
       "type": "short",
-      "q": "Two 4 Ω in parallel. R?",
-      "answer": "2 Ω.",
+      "q": "Two 4 Ω resistors are in parallel. What is the total resistance?",
+      "answer": "2 Ω",
       "why": [
-       "Textbook p.184: These are series and parallel combinations."
+       "In parallel: 1/R = 1/R₁ + 1/R₂.",
+       "1/R = 1/4 + 1/4 = 2/4.",
+       "R = 2 Ω."
       ],
       "src": "notes",
-      "label": "4. Two 4 Ω in parallel. R?",
+      "label": "4. Two 4 Ω resistors are in parallel. What is the total resistance?",
       "page": 184,
-      "why_src": "textbook p.184",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "Two equal resistors in parallel: R = R₁/2.",
       "similar": [
        {
         "q": "When a resistor R is added in parallel with another resistor of equal resistance, the resistance of the combination becomes  A) 2R.  B) ½R.  C) 4R.  D) R.  E) ¼R.",
@@ -1657,16 +1863,18 @@
      },
      {
       "type": "short",
-      "q": "Series: 3 Ω and 6 Ω on 18 V. I?",
-      "answer": "2 A through both.",
+      "q": "A 3 Ω and a 6 Ω resistor are in series across 18 V. What current flows?",
+      "answer": "2 A through both",
       "why": [
-       "Textbook p.180: Ammeter is always connected in series in a circuit through which the current is to be measured."
+       "Total resistance R = 3 + 6 = 9 Ω.",
+       "I = V/R = 18 V ÷ 9 Ω.",
+       "I = 2 A, the same through each resistor in series."
       ],
       "src": "notes",
-      "label": "5. Series: 3 Ω and 6 Ω on 18 V. I?",
+      "label": "5. A 3 Ω and a 6 Ω resistor are in series across 18 V. What current flows?",
       "page": 185,
-      "why_src": "textbook p.180",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "Series: same current everywhere.",
       "similar": [
        {
         "q": "Three resistors of resistances 2 Ω, 3 Ω and 6 Ω are connected in parallel with a 9 V battery. The current through the 3 Ω resistor in amperes is  A) 1.  B) 2.  C) 3.  D) 6.  E) 9.",
@@ -1678,16 +1886,18 @@
      },
      {
       "type": "short",
-      "q": "Voltage across the 6 Ω?",
-      "answer": "12 V.",
+      "q": "In that series circuit (2 A), what is the voltage across the 6 Ω resistor?",
+      "answer": "12 V",
       "why": [
-       "Textbook p.180: As you know that the voltage across the galvanometer is 0.020 V, therefore the voltage across the series resistor Rs must be (10 V – 0.020 V) = 9.98 V."
+       "V = IR for the 6 Ω resistor.",
+       "V = 2 A × 6 Ω.",
+       "V = 12 V (the 3 Ω gets 6 V; 12 + 6 = 18 V ✓)."
       ],
       "src": "notes",
-      "label": "6. Voltage across the 6 Ω?",
+      "label": "6. In that series circuit (2 A), what is the voltage across the 6 Ω resistor?",
       "page": 180,
-      "why_src": "textbook p.180",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "Series: the voltages add up to the supply.",
       "similar": [
        {
         "q": "Three resistances 14.5 Ω, 25.5 Ω and 60 Ω are connected in series across 200 V. What will be the voltage drop across 14.5 Ω?  A) 29 V  B) 13.5 V  C) 14 V  D) 18 V  E) 51 V",
@@ -1699,16 +1909,18 @@
      },
      {
       "type": "short",
-      "q": "Parallel on 12 V: 6 Ω and 3 Ω. Currents?",
-      "answer": "2 A and 4 A. Total 6 A.",
+      "q": "A 6 Ω and a 3 Ω resistor are in parallel across 12 V. Find the currents.",
+      "answer": "2 A and 4 A; total 6 A",
       "why": [
-       "Textbook p.204: Calculate a) the current through each resistor, b) the total current in the circuit, and c) the total circuit resistance."
+       "In parallel each resistor has the full 12 V.",
+       "I₁ = 12/6 = 2 A, I₂ = 12/3 = 4 A.",
+       "Total I = 2 + 4 = 6 A."
       ],
       "src": "notes",
-      "label": "7. Parallel on 12 V: 6 Ω and 3 Ω. Currents?",
+      "label": "7. A 6 Ω and a 3 Ω resistor are in parallel across 12 V. Find the currents.",
       "page": 189,
-      "why_src": "textbook p.204",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "Parallel: same voltage, currents add; the smaller resistor takes more current.",
       "similar": [
        {
         "q": "In a parallel circuit with unequal resistances,  A) the highest resistance has the highest current.  B) the lowest resistance has the highest current.  C) all resistors have the same current.  D) the highest resistance has the highest voltage drop.  E) the lowest resistance has the highest voltage drop.",
@@ -1720,16 +1932,18 @@
      },
      {
       "type": "short",
-      "q": "emf 12 V, r=1 Ω, R=5 Ω. I?",
-      "answer": "I=12/6=2 A. Terminal V=10 V.",
+      "q": "A cell has emf 12 V and internal resistance 1 Ω. It is connected to a 5 Ω resistor. Find the current and terminal voltage.",
+      "answer": "I = 2 A; terminal voltage = 10 V",
       "why": [
-       "Textbook p.181: Consider two cells in series (Fig. 4.9a), where one terminal of the two cells is joined together leaving the other terminal in either cell free."
+       "I = ε/(R + r) = 12 V ÷ (5 + 1) Ω.",
+       "I = 2 A.",
+       "Terminal voltage V = IR = 2 × 5 = 10 V (lost volts Ir = 2 V)."
       ],
       "src": "notes",
-      "label": "8. emf 12 V, r=1 Ω, R=5 Ω. I?",
+      "label": "8. A cell has emf 12 V and internal resistance 1 Ω. It is connected to a 5 Ω resistor. Find the…",
       "page": 181,
-      "why_src": "textbook p.181",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "ε = IR + Ir.",
       "similar": [
        {
         "q": "Why terminal V drops?",
@@ -1740,16 +1954,18 @@
      },
      {
       "type": "short",
-      "q": "Why terminal V drops?",
-      "answer": "Lost volts Ir inside the cell.",
+      "q": "Why is the terminal voltage of a cell less than its emf when current flows?",
+      "answer": "Some voltage (\"lost volts\" Ir) is used up across the cell's internal resistance.",
       "why": [
-       "Textbook p.181: Consider two cells in series (Fig. 4.9a), where one terminal of the two cells is joined together leaving the other terminal in either cell free."
+       "The cell itself has internal resistance r.",
+       "When current I flows, a voltage Ir drops inside the cell.",
+       "V_terminal = ε − Ir, so it falls as I increases."
       ],
       "src": "notes",
-      "label": "9. Why terminal V drops?",
+      "label": "9. Why is the terminal voltage of a cell less than its emf when current flows?",
       "page": 181,
-      "why_src": "textbook p.181",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "With no current (open circuit), V_terminal = ε.",
       "similar": [
        {
         "q": "Ammeter goes?",
@@ -1760,16 +1976,18 @@
      },
      {
       "type": "short",
-      "q": "Ammeter goes?",
-      "answer": "In series. Ideal R=0.",
+      "q": "How is an ammeter connected, and what is its ideal resistance?",
+      "answer": "In series; ideally zero resistance.",
       "why": [
-       "Textbook p.179: The resistance of an ideal ammeter should be zero."
+       "An ammeter measures the current through a component.",
+       "It must carry the same current, so it goes in series.",
+       "Zero resistance means it does not change the current it measures."
       ],
       "src": "notes",
-      "label": "10. Ammeter goes?",
+      "label": "10. How is an ammeter connected, and what is its ideal resistance?",
       "page": 179,
-      "why_src": "textbook p.179",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "Ammeter in series, voltmeter in parallel.",
       "similar": [
        {
         "q": "The electric meter, an instrument that is used to measure the flow of the electric current, is  A) voltmeter.  B) ammeter.  C) ohmmeter.  D) wattmeter.  E) potentiometer.",
@@ -1781,16 +1999,18 @@
      },
      {
       "type": "short",
-      "q": "Voltmeter goes?",
-      "answer": "In parallel. Ideal R=∞.",
+      "q": "How is a voltmeter connected, and what is its ideal resistance?",
+      "answer": "In parallel; ideally infinite resistance.",
       "why": [
-       "Textbook p.179: The resistance of an ideal ammeter should be zero."
+       "A voltmeter measures the p.d. between two points.",
+       "It is connected across the component, in parallel.",
+       "Very high resistance means it draws almost no current."
       ],
       "src": "notes",
-      "label": "11. Voltmeter goes?",
+      "label": "11. How is a voltmeter connected, and what is its ideal resistance?",
       "page": 179,
-      "why_src": "textbook p.179",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "Ammeter in series, voltmeter in parallel.",
       "similar": [
        {
         "q": "Cells in series, same way?",
@@ -1801,16 +2021,18 @@
      },
      {
       "type": "short",
-      "q": "Cells in series, same way?",
-      "answer": "emfs add.",
+      "q": "Cells are connected in series, all facing the same way. What happens to the emf?",
+      "answer": "The emfs add.",
       "why": [
-       "Textbook p.181: Cells can be connected either in series or in parallel."
+       "Each cell gives each coulomb a certain energy.",
+       "In series, the charge passes through every cell.",
+       "Total emf = ε₁ + ε₂ + … (e.g. two 1.5 V cells = 3 V)."
       ],
       "src": "notes",
-      "label": "12. Cells in series, same way?",
+      "label": "12. Cells are connected in series, all facing the same way. What happens to the emf?",
       "page": 181,
-      "why_src": "textbook p.181",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "A reversed cell subtracts.",
       "similar": [
        {
         "q": "Why house lamps are parallel?",
@@ -1821,16 +2043,18 @@
      },
      {
       "type": "short",
-      "q": "Why house lamps are parallel?",
-      "answer": "Each gets full V; one failing does not kill the others.",
+      "q": "Why are house lamps wired in parallel?",
+      "answer": "Each lamp gets the full mains voltage and can be switched on its own; if one fails the others stay on.",
       "why": [
-       "Textbook p.200: A circuit used to power only lamps and small appliances often requires only 15 A."
+       "In parallel, each branch is connected directly across the supply.",
+       "So each lamp has the full voltage and works at full brightness.",
+       "A broken lamp breaks only its own branch."
       ],
       "src": "notes",
-      "label": "13. Why house lamps are parallel?",
+      "label": "13. Why are house lamps wired in parallel?",
       "page": 200,
-      "why_src": "textbook p.200",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "Series lamps share the voltage and all go out together.",
       "similar": [
        {
         "q": "Fuse job?",
@@ -1841,16 +2065,18 @@
      },
      {
       "type": "short",
-      "q": "Fuse job?",
-      "answer": "Melts if I is too big — breaks the live wire.",
+      "q": "What is the job of a fuse?",
+      "answer": "It melts if the current is too big, breaking the live wire and protecting the circuit.",
       "why": [
-       "Textbook p.201: One of these wires is called a live wire and the other is called neutral wire."
+       "The fuse wire heats up as current flows (P = I²R).",
+       "Above its rating it melts.",
+       "The circuit is broken on the live side, stopping overheating and fire."
       ],
       "src": "notes",
-      "label": "14. Fuse job?",
+      "label": "14. What is the job of a fuse?",
       "page": 199,
-      "why_src": "textbook p.201",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "Choose a fuse rating just above the normal current.",
       "similar": [
        {
         "q": "Earth wire job?",
@@ -1861,16 +2087,18 @@
      },
      {
       "type": "short",
-      "q": "Earth wire job?",
-      "answer": "Takes current to ground if a live wire touches the case — trips the fuse.",
+      "q": "What is the job of the earth wire?",
+      "answer": "If the live wire touches the metal case, it carries a large current to ground, which blows the fuse.",
       "why": [
-       "Textbook p.201: When a person in contact with the ground touches the live wire he or she gets an electric shock."
+       "The earth wire connects the metal case to the ground.",
+       "A fault makes a large current flow through the earth wire (low resistance).",
+       "This blows the fuse and the case cannot give a shock."
       ],
       "src": "notes",
-      "label": "15. Earth wire job?",
+      "label": "15. What is the job of the earth wire?",
       "page": 201,
-      "why_src": "textbook p.201",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "Earth wire + fuse work together.",
       "similar": [
        {
         "q": "Energy in 2 min at 36 W?",
@@ -1881,16 +2109,18 @@
      },
      {
       "type": "short",
-      "q": "Energy in 2 min at 36 W?",
-      "answer": "E=Pt=4320 J.",
+      "q": "How much energy does a 36 W device use in 2 minutes?",
+      "answer": "4320 J",
       "why": [
-       "Textbook p.195: Where does the energy from the source of emf go?"
+       "E = Pt, with t in seconds: 2 min = 120 s.",
+       "E = 36 W × 120 s.",
+       "E = 4320 J."
       ],
       "src": "notes",
-      "label": "16. Energy in 2 min at 36 W?",
+      "label": "16. How much energy does a 36 W device use in 2 minutes?",
       "page": 164,
-      "why_src": "textbook p.195",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "Convert minutes to seconds first.",
       "similar": [
        {
         "q": "If you check an electric bill of the Eritrean Light Power Authority, you will find that the bill is paid for a number of kilowatt-hours (kWh). This shows that the consumed kWh is  A) voltage.  B) energy.  C) impulse.  D) power.  E) current.",
@@ -1902,16 +2132,18 @@
      },
      {
       "type": "short",
-      "q": "kWh is?",
-      "answer": "A commercial energy unit — 3.6 MJ.",
+      "q": "What is the kilowatt-hour?",
+      "answer": "A commercial unit of energy: 1 kWh = 3.6 MJ.",
       "why": [
-       "Textbook p.203: The commercial unit of electrical energy is ______________."
+       "1 kWh is the energy used by 1 kW for 1 hour.",
+       "E = 1000 W × 3600 s.",
+       "= 3.6 × 10⁶ J = 3.6 MJ."
       ],
       "src": "notes",
-      "label": "17. kWh is?",
+      "label": "17. What is the kilowatt-hour?",
       "page": 203,
-      "why_src": "textbook p.203",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "Cost = kWh × price per unit.",
       "similar": [
        {
         "q": "Thin extension lead on a heater?",
@@ -1922,16 +2154,18 @@
      },
      {
       "type": "short",
-      "q": "Thin extension lead on a heater?",
-      "answer": "Large I through large R_wire → heat, fire risk.",
+      "q": "Why is it dangerous to run a heater on a thin extension lead?",
+      "answer": "The heater draws a large current; the thin wire has a larger resistance, so it heats up (fire risk).",
       "why": [
-       "Textbook p.200: If a circuit is to carry currents as large as 30 A, a heavy wire and an appropriate circuit breaker must be selected to handle this current."
+       "Heaters draw large currents.",
+       "A thin wire has more resistance (R ∝ 1/A).",
+       "Heat produced P = I²R becomes large, and the lead can melt or catch fire."
       ],
       "src": "notes",
-      "label": "18. Thin extension lead on a heater?",
+      "label": "18. Why is it dangerous to run a heater on a thin extension lead?",
       "page": 176,
-      "why_src": "textbook p.200",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "High-power appliances need thick cables.",
       "similar": [
        {
         "q": "Ohm’s law graph?",
@@ -1942,16 +2176,18 @@
      },
      {
       "type": "short",
-      "q": "Ohm’s law graph?",
-      "answer": "Straight V vs I through the origin if R is constant.",
+      "q": "What does the graph of V against I look like for a resistor obeying Ohm's law?",
+      "answer": "A straight line through the origin (constant R).",
       "why": [
-       "Textbook p.176: The SI unit of resistance is the ohm (:)."
+       "Ohm's law: V = IR with R constant (temperature constant).",
+       "V is directly proportional to I.",
+       "So V–I is a straight line through the origin; its slope is R."
       ],
       "src": "notes",
-      "label": "19. Ohm’s law graph?",
+      "label": "19. What does the graph of V against I look like for a resistor obeying Ohm's law?",
       "page": 164,
-      "why_src": "textbook p.176",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "A curved V–I graph (e.g. a filament lamp) means R changes.",
       "similar": [
        {
         "q": "Current is?",
@@ -1962,16 +2198,18 @@
      },
      {
       "type": "short",
-      "q": "Current is?",
-      "answer": "Charge per second. I=Q/t. 1 A=1 C/s.",
+      "q": "What is electric current?",
+      "answer": "The rate of flow of charge: I = Q/t; 1 A = 1 C/s.",
       "why": [
-       "Textbook p.202: The second prong, called the neutral, is nominally at 0 V."
+       "Current measures how much charge passes a point each second.",
+       "I = Q/t.",
+       "1 ampere = 1 coulomb per second."
       ],
       "src": "notes",
-      "label": "20. Current is?",
+      "label": "20. What is electric current?",
       "page": 168,
-      "why_src": "textbook p.202",
-      "tip": "Say or write your answer first, then open the model answer and compare the key words.",
+      "why_src": "written",
+      "tip": "Q = It – useful for charge questions.",
       "similar": [
        {
         "q": "A current of 70 mA flows for 10 s past a point in a conductor. The charge moving in the conductor, in coulombs, is  A) 0.9.  B) 0.5.  C) 0.7.  D) 0.3.  E) 0.1.",
@@ -1992,13 +2230,14 @@
       },
       "answer": "B",
       "why": [
-       "Answer B: 3 Ω",
-       "Textbook p.206: Three equal resistors, each equal to 9 Ω, are connected as shown in the Figure 4.28."
+       "Parallel: 1/R = 1/6 + 1/6 = 2/6.",
+       "R = 6/2 = 3 Ω.",
+       "Answer B."
       ],
       "src": "notes",
       "page": 184,
-      "why_src": "textbook p.206",
-      "tip": "Read all the options before you choose; cross out the ones that belong to a different idea.",
+      "why_src": "written",
+      "tip": "Two equal resistors in parallel = half of one.",
       "similar": [
        {
         "q": "12 V across 4 Ω. I?",

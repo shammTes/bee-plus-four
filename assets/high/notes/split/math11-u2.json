@@ -275,45 +275,6 @@
        ],
        "answer": "Domain: [3, ∞).",
        "src": "notes"
-      }
-     ]
-    },
-    {
-     "id": "math11-u2-l2-2",
-     "number": "2.2",
-     "title": "Domain and Range of Square Root Functions",
-     "pages": [
-      65,
-      66
-     ],
-     "cards": [
-      {
-       "id": "math11-u2-c02",
-       "type": "diagram",
-       "title": "Shift: √(x−2)+1 starts at (2,1), not at the origin.",
-       "page": 65,
-       "src": "notes",
-       "diagram": "f1",
-       "mode": "plain"
-      },
-      {
-       "id": "math11-u2-c03",
-       "type": "worked",
-       "title": "Worked — domain",
-       "page": 65,
-       "src": "notes",
-       "problem": "g(x)=√(2x−6). Domain?",
-       "steps": [
-        {
-         "text": "2x−6 ≥ 0 → 2x ≥ 6 → x ≥ 3."
-        },
-        {
-         "text": "Do not write “all real x”. Square roots in this course stay non-negative inside."
-        }
-       ],
-       "answer": "Do not write “all real x”. Square roots in this course stay non-negative inside.",
-       "mode": "show",
-       "reveal": "Steps"
       },
       {
        "id": "math11-u2-chk74",
@@ -370,6 +331,104 @@
         }
        ],
        "answer": "$$(4, 3)$$"
+      },
+      {
+       "id": "math11-u2-chk79",
+       "type": "check",
+       "title": "Quick check",
+       "page": 69,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q11",
+       "q": "Identify the direction of opening and the starting point of the graph of $$y = \\sqrt{3 - x}$$.",
+       "options": {
+        "A": "Curves left; starting point at $$(3, 0)$$",
+        "B": "Curves right; starting point at $$(3, 0)$$",
+        "C": "Curves left; starting point at $$(-3, 0)$$",
+        "D": "Curves right; starting point at $$(0, 3)$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Set the radicand to zero to find the starting x-coordinate**\n$$3 - x = 0 \\implies x = 3$$\nThe starting point is $$(3, 0)$$.\n\n**Step 2: Determine the direction of the horizontal arch**\nBecause the coefficient of $$x$$ inside the radical is negative ($$-1$$), the domain is restricted to:\n$$3 - x \\geq 0 \\implies x \\leq 3$$\nSince $$x \\leq 3$$, the graph curves to the left.\n\n**Step 3: Combine findings**\nThe graph starts at $$(3, 0)$$ and curves to the left.\n**Result:** **Curves left; starting point at $$(3, 0)$$**."
+      },
+      {
+       "id": "math11-u2-wrk6",
+       "type": "worked",
+       "title": "Step-by-step",
+       "page": 69,
+       "src": "study_notes",
+       "src_qid": "math_g11_c2_q11",
+       "problem": "Identify the direction of opening and the starting point of the graph of $$y = \\sqrt{3 - x}$$.",
+       "steps": [
+        {
+         "text": "**Step 1: Set the radicand to zero to find the starting x-coordinate**"
+        },
+        {
+         "text": "$$3 - x = 0 \\implies x = 3$$"
+        },
+        {
+         "text": "The starting point is $$(3, 0)$$."
+        },
+        {
+         "text": "**Step 2: Determine the direction of the horizontal arch**"
+        },
+        {
+         "text": "Because the coefficient of $$x$$ inside the radical is negative ($$-1$$), the domain is restricted to:"
+        },
+        {
+         "text": "$$3 - x \\geq 0 \\implies x \\leq 3$$"
+        },
+        {
+         "text": "Since $$x \\leq 3$$, the graph curves to the left."
+        },
+        {
+         "text": "**Step 3: Combine findings**"
+        },
+        {
+         "text": "The graph starts at $$(3, 0)$$ and curves to the left."
+        },
+        {
+         "text": "**Result:** **Curves left; starting point at $$(3, 0)$$**."
+        }
+       ],
+       "answer": "Curves left; starting point at $$(3, 0)$$"
+      }
+     ]
+    },
+    {
+     "id": "math11-u2-l2-2",
+     "number": "2.2",
+     "title": "Domain and Range of Square Root Functions",
+     "pages": [
+      65,
+      66
+     ],
+     "cards": [
+      {
+       "id": "math11-u2-c02",
+       "type": "diagram",
+       "title": "Shift: √(x−2)+1 starts at (2,1), not at the origin.",
+       "page": 65,
+       "src": "notes",
+       "diagram": "f1",
+       "mode": "plain"
+      },
+      {
+       "id": "math11-u2-c03",
+       "type": "worked",
+       "title": "Worked — domain",
+       "page": 65,
+       "src": "notes",
+       "problem": "g(x)=√(2x−6). Domain?",
+       "steps": [
+        {
+         "text": "2x−6 ≥ 0 → 2x ≥ 6 → x ≥ 3."
+        },
+        {
+         "text": "Do not write “all real x”. Square roots in this course stay non-negative inside."
+        }
+       ],
+       "answer": "Do not write “all real x”. Square roots in this course stay non-negative inside.",
+       "mode": "show",
+       "reveal": "Steps"
       },
       {
        "id": "math11-u2-chk75",
@@ -468,6 +527,41 @@
        "src": "notes"
       },
       {
+       "id": "math11-u2-l2-2-r3x1",
+       "type": "text",
+       "title": "Step by step: Domain and range of square-root functions",
+       "page": 65,
+       "src": "study notes (r3)",
+       "body": [
+        "**Step 1:** Write the function in the form f(x) = a√(bx + c) + d.",
+        "**Step 2:** Domain: the expression under the root must be non-negative, so solve bx + c ≥ 0.",
+        "**Step 3:** Range: √(…) ≥ 0, so if a > 0 then f(x) ≥ d; if a < 0 then f(x) ≤ d.",
+        "**Step 4:** The starting point of the graph is where bx + c = 0, at height d.",
+        "**Step 5:** Check with one extra point inside the domain to see the direction of the curve.",
+        "**Example:** f(x) = −2√(x + 1) + 5. Domain: x + 1 ≥ 0 → x ≥ −1. Start point (−1, 5). Since a = −2 < 0 the curve goes down from 5, so the range is y ≤ 5. Check x = 3: f(3) = −2(2) + 5 = 1 ≤ 5 ✓."
+       ]
+      },
+      {
+       "id": "math11-u2-l2-2-r3x2",
+       "type": "mnemonic",
+       "title": "Mnemonic — \"Inside ≥ 0 for the Domain; Start height d for the Range\"",
+       "page": 65,
+       "src": "study notes (r3)",
+       "body": [
+        "I-D, S-R."
+       ]
+      },
+      {
+       "id": "math11-u2-l2-2-r3x3",
+       "type": "remember",
+       "title": "Exam tip",
+       "page": 65,
+       "src": "study notes (r3)",
+       "body": [
+        "Write domain and range in interval notation: [−1, ∞) and (−∞, 5] – square brackets because the endpoints are included."
+       ]
+      },
+      {
        "type": "worked",
        "title": "Worked: inverse idea",
        "problem": "Why is y=x² (x≥0) the inverse partner of y=√x?",
@@ -499,6 +593,22 @@
        "why": "**Domain:** x + 3 ≥ 0, so x ≥ −3.\n**Range:** √(x + 3) ≥ 0, so −√(x + 3) ≤ 0 and adding 2 gives y ≤ 2. The minus sign in front reflects the curve downward from its starting point (−3, 2).",
        "page": 65,
        "src": "notes"
+      },
+      {
+       "id": "math11-u2-l2-2-r3r1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 65,
+       "src": "study notes (r3)",
+       "q": "The domain of f(x) = √(x − 3) is:",
+       "options": {
+        "A": "x ≥ 3",
+        "B": "x > 3",
+        "C": "x ≤ 3",
+        "D": "all real numbers"
+       },
+       "answer": "A",
+       "why": "**Step 1:** The expression under a square root must not be negative: x − 3 ≥ 0.\n\n**Step 2:** Solve: x ≥ 3.\n\n**Step 3:** Answer: domain = [3, ∞).\n\n**Tip:** The range of √(x − 3) is y ≥ 0, because a principal square root is never negative."
       }
      ]
     },
@@ -760,65 +870,6 @@
        "answer": "No real solution"
       },
       {
-       "id": "math11-u2-chk79",
-       "type": "check",
-       "title": "Quick check",
-       "page": 69,
-       "src": "study_notes",
-       "src_qid": "math_g11_c2_q11",
-       "q": "Identify the direction of opening and the starting point of the graph of $$y = \\sqrt{3 - x}$$.",
-       "options": {
-        "A": "Curves left; starting point at $$(3, 0)$$",
-        "B": "Curves right; starting point at $$(3, 0)$$",
-        "C": "Curves left; starting point at $$(-3, 0)$$",
-        "D": "Curves right; starting point at $$(0, 3)$$"
-       },
-       "answer": "A",
-       "why": "**Step 1: Set the radicand to zero to find the starting x-coordinate**\n$$3 - x = 0 \\implies x = 3$$\nThe starting point is $$(3, 0)$$.\n\n**Step 2: Determine the direction of the horizontal arch**\nBecause the coefficient of $$x$$ inside the radical is negative ($$-1$$), the domain is restricted to:\n$$3 - x \\geq 0 \\implies x \\leq 3$$\nSince $$x \\leq 3$$, the graph curves to the left.\n\n**Step 3: Combine findings**\nThe graph starts at $$(3, 0)$$ and curves to the left.\n**Result:** **Curves left; starting point at $$(3, 0)$$**."
-      },
-      {
-       "id": "math11-u2-wrk6",
-       "type": "worked",
-       "title": "Step-by-step",
-       "page": 69,
-       "src": "study_notes",
-       "src_qid": "math_g11_c2_q11",
-       "problem": "Identify the direction of opening and the starting point of the graph of $$y = \\sqrt{3 - x}$$.",
-       "steps": [
-        {
-         "text": "**Step 1: Set the radicand to zero to find the starting x-coordinate**"
-        },
-        {
-         "text": "$$3 - x = 0 \\implies x = 3$$"
-        },
-        {
-         "text": "The starting point is $$(3, 0)$$."
-        },
-        {
-         "text": "**Step 2: Determine the direction of the horizontal arch**"
-        },
-        {
-         "text": "Because the coefficient of $$x$$ inside the radical is negative ($$-1$$), the domain is restricted to:"
-        },
-        {
-         "text": "$$3 - x \\geq 0 \\implies x \\leq 3$$"
-        },
-        {
-         "text": "Since $$x \\leq 3$$, the graph curves to the left."
-        },
-        {
-         "text": "**Step 3: Combine findings**"
-        },
-        {
-         "text": "The graph starts at $$(3, 0)$$ and curves to the left."
-        },
-        {
-         "text": "**Result:** **Curves left; starting point at $$(3, 0)$$**."
-        }
-       ],
-       "answer": "Curves left; starting point at $$(3, 0)$$"
-      },
-      {
        "id": "math11-u2-pc4",
        "type": "check",
        "title": "Practice",
@@ -833,6 +884,22 @@
        "why": "**Swap and solve:** x = √(y + 2) → x² = y + 2 → y = x² − 2.\n**Domain of the inverse** = range of f = y ≥ 0, so f⁻¹(x) = x² − 2, x ≥ 0.\nCheck: f(f⁻¹(3)) = f(7) = √9 = 3 ✔.",
        "page": 69,
        "src": "notes"
+      },
+      {
+       "id": "math11-u2-l2-4-r3r1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 69,
+       "src": "study notes (r3)",
+       "q": "The inverse of f(x) = √x + 2 (x ≥ 0) is:",
+       "options": {
+        "A": "f⁻¹(x) = x² + 2",
+        "B": "f⁻¹(x) = √(x − 2)",
+        "C": "f⁻¹(x) = (x + 2)², x ≥ 0",
+        "D": "f⁻¹(x) = (x − 2)², x ≥ 2"
+       },
+       "answer": "D",
+       "why": "**Step 1:** Write y = √x + 2 and swap x and y: x = √y + 2.\n\n**Step 2:** Solve for y: √y = x − 2 → y = (x − 2)².\n\n**Step 3:** The domain of the inverse is the range of f: x ≥ 2.\n\n**Tip:** Always state the restricted domain of the inverse of a square-root function."
       }
      ]
     }

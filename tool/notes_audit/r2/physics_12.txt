@@ -1,0 +1,182 @@
+# Physics 12 round 2
+
+@lesson phys12-u1-l1-2
+C: A box of weight 600 N rests on an area of 0.2 m². What pressure does it exert?
+O: *3000 Pa | 120 Pa | 600 Pa | 0.00033 Pa
+W: Pressure $P = F/A$. | $P = 600 / 0.2$. | $= 3000$ Pa.
+
+@lesson phys12-u1-l1-3
+C: In a hydraulic press, a force of 50 N is applied to a small piston of area 0.01 m². The large piston has area 0.5 m². What force does it exert?
+O: *2500 N | 50 N | 1 N | 250 N
+W: Pascal's principle: the pressure is the same on both pistons, so $F_1/A_1 = F_2/A_2$. | $F_2 = 50 \times 0.5 / 0.01$. | $= 2500$ N.
+
+@lesson phys12-u1-l1-4
+C: A stone weighs 5 N in air and 3 N when fully under water. What is the buoyant force?
+O: *2 N | 8 N | 3 N | 5 N
+W: Buoyant force = apparent loss of weight. | $F_B = 5 - 3$. | $= 2$ N, equal to the weight of water displaced (Archimedes' principle).
+
+@lesson phys12-u1-l1-5
+C: A floating object ____.
+O: *displaces a weight of fluid equal to its own weight | displaces a volume of fluid equal to its own volume always | has no buoyant force acting on it | must be denser than the fluid
+W: For a floating object the forces balance: buoyant force = weight. | By Archimedes' principle, buoyant force = weight of fluid displaced. | So it displaces its own weight of fluid (it is less dense than the fluid).
+
+@lesson phys12-u2-l2-2
+C: The de Broglie wavelength of a particle is given by ____.
+O: *$\lambda = h/(mv)$ | $\lambda = mv/h$ | $\lambda = hf$ | $\lambda = c/h$
+W: De Broglie proposed that moving particles have wave properties. | The wavelength equals Planck's constant divided by momentum. | $\lambda = h/p = h/(mv)$.
+
+@lesson phys12-u2-l2-3
+C: An electron in a hydrogen atom drops from a higher energy level to a lower one. What happens?
+O: *A photon is emitted with energy equal to the difference between the levels | A photon is absorbed | The atom gains energy | The electron leaves the atom
+W: Energy levels in atoms are fixed (quantised). | When the electron falls, the atom loses energy $\Delta E$. | This energy is emitted as a photon with $hf = \Delta E$, giving a line in the emission spectrum.
+
+@unit phys12-u1
+@tip Write the formula first (P = F/A, P = ρgh, F₁/A₁ = F₂/A₂, F_B = ρ_fluid V g), substitute with units, then check that the answer is sensible.
+
+Q: What is the pressure 5 m below the surface of water due to the water alone? (ρ = 1000 kg/m³, g = 10 m/s²)
+O: *50,000 Pa | 5,000 Pa | 500 Pa | 2,000 Pa
+W: Liquid pressure $P = \rho g h$. | $P = 1000 \times 10 \times 5$. | $= 50{,}000$ Pa (50 kPa).
+S: At what depth in water is the pressure due to water 100 kPa? => 10 m.
+S: Does liquid pressure depend on the shape of the container? => No, only on depth, density and g.
+
+Q: Why do dams have thicker walls at the bottom than at the top?
+O: *Water pressure increases with depth | Water is lighter at the bottom | Pressure is the same at all depths | To keep fish out
+W: Pressure in a liquid is $\rho g h$, so it grows with depth $h$. | The bottom of the dam must resist the largest pressure. | So the wall is made thickest there.
+S: Why do divers feel pain in their ears at depth? => The water pressure on the eardrum increases.
+S: Is pressure at a given depth the same in all directions? => Yes.
+
+Q: A force of 200 N acts on an area of 0.05 m². What is the pressure?
+O: *4000 Pa | 10 Pa | 250 Pa | 40 Pa
+W: $P = F/A$. | $P = 200 / 0.05$. | $= 4000$ Pa.
+S: What happens to pressure if the area is halved and the force stays the same? => It doubles.
+S: Why do knives cut better when sharp? => A small area gives a large pressure.
+
+Q: A mercury barometer reads 76 cm of mercury at sea level. What does this measure?
+O: *Atmospheric pressure | The density of air | The temperature of the air | The humidity
+W: Air presses on the mercury in the dish and pushes it up the tube. | The height of mercury balances atmospheric pressure. | 76 cm Hg is about $1.01\times10^5$ Pa.
+S: Why is mercury used instead of water? => It is much denser, so the column is short (water would need about 10 m).
+S: What happens to the reading on a mountain? => It falls, because air pressure is lower.
+
+Q: A hydraulic jack has pistons of area 4 cm² and 200 cm². A force of 100 N is applied to the small piston. What load can the large piston lift?
+O: *5000 N | 2 N | 100 N | 20,000 N
+W: Pascal's principle: $F_1/A_1 = F_2/A_2$. | $F_2 = 100 \times 200/4$. | $= 5000$ N (areas can stay in cm² because only the ratio matters).
+S: What is the mechanical advantage of this jack? => 50.
+S: Does the large piston move as far as the small one? => No, it moves 50 times less distance.
+
+Q: True or false: An object sinks in water if its density is greater than the density of water.
+TF: true
+W: If the object's density is greater, its weight is greater than the weight of water it can displace. | So the buoyant force is less than its weight. | It sinks; if it is less dense it floats.
+S: Density of an object that floats half-submerged in water? => 500 kg/m³.
+S: Why does a steel ship float? => Its hollow shape displaces a large volume of water, so its average density is less than water.
+
+Q: A block of volume 0.002 m³ is fully submerged in water (ρ = 1000 kg/m³, g = 10 m/s²). What is the buoyant force?
+O: *20 N | 2 N | 200 N | 0.2 N
+W: Archimedes' principle: $F_B = \rho_{fluid} V g$. | $F_B = 1000 \times 0.002 \times 10$. | $= 20$ N.
+S: What would the buoyant force be in a liquid of density 800 kg/m³? => 16 N.
+S: Does the buoyant force depend on the block's own density? => No, only on the volume displaced and the fluid density.
+
+Q: The relative density of a substance is 2.7. What is its density?
+O: *2700 kg/m³ | 2.7 kg/m³ | 270 kg/m³ | 27,000 kg/m³
+W: Relative density = density of substance ÷ density of water. | Density = 2.7 × 1000 kg/m³. | $= 2700$ kg/m³ (aluminium).
+S: Does relative density have a unit? => No, it is a ratio.
+S: Relative density of a body that floats in water? => Less than 1.
+
+Q: A hydrometer floats lower (sinks deeper) in liquid A than in liquid B. Which liquid is denser?
+O: *Liquid B | Liquid A | They have equal density | It cannot be decided
+W: A floating hydrometer always displaces its own weight of liquid. | In a less dense liquid it must displace a larger volume, so it sinks deeper. | It sinks deeper in A, so A is less dense and B is denser.
+S: What is a hydrometer used for? => Measuring the density (relative density) of liquids.
+S: Why does a ship float higher in sea water than in fresh water? => Sea water is denser.
+
+Q: Why does a hot-air balloon rise?
+O: *The hot air inside is less dense than the surrounding cooler air, so the buoyant force exceeds its weight | Hot air has no weight | Gravity is weaker on hot objects | The basket pushes it up
+W: Heating makes the air inside expand, so its density falls. | The balloon displaces cool, denser air whose weight is greater than the balloon's total weight. | The upward buoyant force is larger, so it rises.
+S: What happens when the air inside cools? => The balloon descends.
+S: Which principle explains it? => Archimedes' principle (applies to gases too).
+
+Q: State Pascal's principle.
+A: A change in pressure applied to an enclosed fluid is transmitted undiminished to every part of the fluid and to the walls of its container.
+W: Pascal's principle applies to fluids in a closed container. | Pressure applied at one point spreads equally throughout. | It is used in hydraulic brakes, jacks and presses.
+S: Name a device that uses Pascal's principle. => Hydraulic brakes (or jack, press).
+S: Why must there be no air in hydraulic brake fluid? => Air compresses, so pressure is not transmitted fully.
+
+Q: A wooden block of density 600 kg/m³ floats in water (1000 kg/m³). What fraction of its volume is under water?
+O: *0.6 | 0.4 | 1.0 | 0.06
+W: For floating: weight = buoyant force, so $\rho_{block} V g = \rho_{water} V_{sub} g$. | $V_{sub}/V = 600/1000$. | $= 0.6$ (60% submerged).
+S: What fraction is above the water? => 0.4.
+S: What fraction of an iceberg (920 kg/m³) is submerged in sea water (1030 kg/m³)? => About 0.89.
+
+@unit phys12-u2
+@tip Use E = hf = hc/λ, the photoelectric equation hf = φ + KEmax, and λ = h/p; convert eV to joules (1 eV = 1.6×10⁻¹⁹ J).
+
+Q: What is the energy of a photon of frequency 5×10¹⁴ Hz? (h = 6.6×10⁻³⁴ J·s)
+O: *3.3×10⁻¹⁹ J | 1.3×10⁻⁴⁸ J | 7.6×10⁴⁷ J | 3.3×10⁻²⁰ J
+W: $E = hf$. | $E = 6.6\times10^{-34} \times 5\times10^{14}$. | $= 3.3\times10^{-19}$ J.
+S: Express this energy in eV. => About 2.06 eV.
+S: Does higher frequency mean higher or lower photon energy? => Higher.
+
+Q: In the photoelectric effect, the maximum kinetic energy of emitted electrons depends on ____.
+O: *the frequency of the light | the intensity of the light only | the area of the metal | the time the light shines
+W: Einstein's equation: $KE_{max} = hf - \phi$. | KE depends on frequency and the work function. | Intensity changes only the number of electrons emitted.
+S: What is the threshold frequency? => The minimum frequency that can eject electrons, $f_0 = \phi/h$.
+S: What does more intense light (above threshold) change? => The number of electrons (current).
+
+Q: Light of photon energy 5 eV falls on a metal with work function 3 eV. What is the maximum kinetic energy of the photoelectrons?
+O: *2 eV | 8 eV | 15 eV | 0 eV
+W: $KE_{max} = hf - \phi$. | $KE_{max} = 5 - 3$. | $= 2$ eV.
+S: What stopping potential is needed? => 2 V.
+S: Would 2 eV photons eject electrons from this metal? => No, 2 eV is less than the work function.
+
+Q: True or false: Electrons show wave properties such as diffraction.
+TF: true
+W: De Broglie proposed that particles have a wavelength $\lambda = h/p$. | Electron beams diffract through crystals, as shown by Davisson and Germer. | This confirms wave–particle duality.
+S: What is used in electron microscopes? => The short wavelength of fast electrons.
+S: Which shows the particle nature of light? => The photoelectric effect.
+
+Q: What is the de Broglie wavelength of an electron with momentum 6.6×10⁻²⁴ kg·m/s? (h = 6.6×10⁻³⁴ J·s)
+O: *1×10⁻¹⁰ m | 1×10¹⁰ m | 4.4×10⁻⁵⁷ m | 1×10⁻⁸ m
+W: $\lambda = h/p$. | $\lambda = 6.6\times10^{-34} / 6.6\times10^{-24}$. | $= 1\times10^{-10}$ m (about the size of an atom).
+S: If the momentum doubles, what happens to λ? => It halves.
+S: Why don't we notice the wavelength of a moving ball? => Its momentum is huge, so λ is extremely small.
+
+Q: A line emission spectrum is produced when ____.
+O: *electrons in atoms of a hot gas fall to lower energy levels, emitting photons of particular energies | white light passes through a prism | a solid is heated to glowing | electrons are removed from a metal by light
+W: Each element has its own set of energy levels. | Falling electrons emit photons with $hf = E_{upper} - E_{lower}$. | Only certain frequencies appear, giving bright lines.
+S: What is an absorption spectrum? => Dark lines in a continuous spectrum where atoms absorb particular wavelengths.
+S: Why can spectra identify elements? => Each element has a unique set of lines.
+
+Q: An electron in hydrogen falls from the n = 3 level (−1.51 eV) to n = 2 (−3.40 eV). What is the energy of the emitted photon?
+O: *1.89 eV | 4.91 eV | 1.51 eV | 3.40 eV
+W: Photon energy = difference between the levels. | $\Delta E = -1.51 - (-3.40)$. | $= 1.89$ eV (red light of the Balmer series).
+S: What energy is needed to ionise hydrogen from n = 1 (−13.6 eV)? => 13.6 eV.
+S: Is a photon emitted or absorbed when the electron moves up? => Absorbed.
+
+Q: In Rutherford's gold-foil experiment, most alpha particles passed straight through. What did this show?
+O: *Most of the atom is empty space | The atom is a solid ball | Electrons are in the nucleus | Alpha particles have no charge
+W: If atoms were solid, the alpha particles would be stopped or scattered. | Most passed straight through, so atoms are mostly empty. | A few bounced back, showing a tiny, dense, positive nucleus.
+S: What did the few large deflections show? => A small, dense, positively charged nucleus.
+S: Which model replaced the "plum pudding" model? => Rutherford's nuclear model.
+
+Q: What is the wavelength of light whose photons have energy 3.0×10⁻¹⁹ J? (h = 6.6×10⁻³⁴ J·s, c = 3×10⁸ m/s)
+O: *6.6×10⁻⁷ m | 2.2×10⁻⁷ m | 1.5×10⁻⁶ m | 6.6×10⁻⁹ m
+W: $E = hc/\lambda$, so $\lambda = hc/E$. | $\lambda = (6.6\times10^{-34} \times 3\times10^8)/3.0\times10^{-19}$. | $= 6.6\times10^{-7}$ m (660 nm, red light).
+S: Which has more energy per photon, red or violet light? => Violet.
+S: What is 1 eV in joules? => 1.6×10⁻¹⁹ J.
+
+Q: According to Bohr's model, electrons in an atom ____.
+O: *move only in certain allowed orbits (energy levels) without radiating | spiral continuously into the nucleus | can have any energy | are fixed inside the nucleus
+W: Bohr proposed stationary orbits with fixed energies. | An electron in such an orbit does not radiate. | It emits or absorbs energy only when it jumps between levels.
+S: What is the lowest energy level called? => The ground state.
+S: What is an excited state? => Any level above the ground state.
+
+Q: Explain why the photoelectric effect supports the particle (photon) model of light.
+A: Electrons are emitted instantly only if each photon's energy hf exceeds the work function; below the threshold frequency no electrons come out however intense the light, which a wave model cannot explain.
+W: In the wave model, any frequency should eventually eject electrons if the light is bright enough. | Experiments show a threshold frequency and instant emission. | This fits light arriving in packets (photons) of energy $hf$, each absorbed by one electron.
+S: Who explained the photoelectric effect using photons? => Albert Einstein (1905).
+S: What does a photocell convert? => Light energy into electrical energy.
+
+@unit phys12-u2
+Q: The work function of a metal is 2.0 eV. What is its threshold frequency? (h = 6.6×10⁻³⁴ J·s, 1 eV = 1.6×10⁻¹⁹ J)
+O: *4.8×10¹⁴ Hz | 3.0×10¹⁴ Hz | 2.0×10¹⁵ Hz | 1.2×10¹⁴ Hz
+W: Convert: $\phi = 2.0 \times 1.6\times10^{-19} = 3.2\times10^{-19}$ J. | $f_0 = \phi/h = 3.2\times10^{-19}/6.6\times10^{-34}$. | $\approx 4.8\times10^{14}$ Hz.
+S: Will light of 6×10¹⁴ Hz eject electrons from this metal? => Yes, it is above the threshold.
+S: What is the threshold wavelength? => About 6.2×10⁻⁷ m (c/f₀).

@@ -30,7 +30,7 @@ POINTER_RE = re.compile('|'.join('(?:%s)' % p for p in POINTER), re.I)
 # fields that are metadata, never shown as prose
 META = {'id', 'src', 'pdf', 'source', 'book', 'file', 'src_qid', 'why_src', 'answer_src', 'type', 'mode', 'tone', 'status',
         'svg', 'diagram', 'lesson', 'label', 'section', 'kind', 'style', 'reveal', 'show', 'color', 'enriched', 'from_global',
-        'exam_question', 'orig', '$schema', 'source_outline', 'pins_meta'}
+        'exam_question', 'orig', 'fills', '$schema', 'source_outline', 'pins_meta'}
 CUT_END = re.compile(r'(?:[,(\[{=+−\-×/÷:;]|\b(?:the|a|an|and|or|of|to|is|are|with|for|in|by|from|that|which))\s*$', re.I)
 
 
@@ -94,7 +94,13 @@ def scan(subjects=None):
     cr, pl, pdirs = credits(), placements(), pubspec_dirs()
     issues = []  # dicts: book, unit, lesson, card, kind, field, text
     stats = {}
+    cur = {'filled': set()}  # ids / unit-level field prefixes that a later card explicitly fills (card key 'fills')
+
     def add(**k):
+        if k.get('kind') in ('pointer', 'cut_off'):
+            f = cur['filled']
+            if k.get('card') in f or any(k.get('field', '').startswith(x) for x in f if '.' in x or '[' in x):
+                k['kind'] += '_filled'  # still reported, in its own column: the content now follows in a new card
         issues.append(k)
     for bp in sorted(glob.glob(os.path.join(BASE, '*_*.json'))):
         name = os.path.basename(bp)
@@ -109,6 +115,7 @@ def scan(subjects=None):
         para_count = Counter()
         for u, file, is_ov in units:
             uid = u.get('id')
+            cur['filled'] = {x for l in u.get('lessons', []) for c in l.get('cards', []) for x in (c.get('fills') or [])}
             bst['units'] += 1
             bst['overrides'] += is_ov
             diagrams = u.get('diagrams') or {}
