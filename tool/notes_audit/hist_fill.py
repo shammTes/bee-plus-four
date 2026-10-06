@@ -11,6 +11,7 @@ Blocks (blank line between blocks):
   @lesson <lesson id>         new explanation card for a short lesson (after its last original teaching card)
   T: title
   B: paragraph | paragraph | ...
+  F: <extra field prefixes or card ids this card also fills>   (optional)
 """
 import json, os, re, sys, glob
 
@@ -79,6 +80,8 @@ def main(book):
                 i = orig[-1] if orig else -1
                 while i + 1 < len(cards) and '-r4' in str(cards[i + 1].get('id', '')):
                     i += 1
+            if b.get('F'):
+                card['fills'] = card.get('fills', []) + b['F'].split()
             cards.insert(i + 1, card)
             n[kind] += 1
     open(path, 'w', encoding='utf-8').write(json.dumps(d, ensure_ascii=False, indent=indent) + '\n')
