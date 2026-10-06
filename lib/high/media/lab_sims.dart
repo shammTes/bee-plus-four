@@ -3,5 +3,6 @@
 import 'sims.dart';
 import 'sims_em.dart';
 import 'sims_optics.dart';
+import 'sims_waves.dart';
 
-final Map<String, SimSpec Function(Map<String, dynamic>)> labSims = {...opticsLabs, ...emLabs};
+final Map<String, SimSpec Function(Map<String, dynamic>)> labSims = {...opticsLabs, ...emLabs, ...wavesLabs};
