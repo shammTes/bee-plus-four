@@ -10,6 +10,7 @@ import '../state/app_state.dart';
 import '../theme/clay.dart';
 import '../theme/tokens.dart';
 import '../widgets/art.dart';
+import '../widgets/equal_row.dart';
 import '../widgets/kit.dart';
 import '../widgets/page.dart';
 import '../notes/jr/data/subjects.dart';
@@ -115,51 +116,48 @@ class _Hero extends StatelessWidget {
                 constraints: const BoxConstraints(minHeight: 150),
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(6, 10, 16, 0),
-                  child: IntrinsicHeight(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        SizedBox(
-                          width: 126,
-                          child: Align(
-                            alignment: Alignment.bottomLeft,
-                            // inline <svg> in a div: the line box adds the font descent (16px Nunito: 5.65) under it
-                            child: SizedBox(
-                              width: 126,
-                              height: 136 + kSvgDescent - 2,
-                              child: OverflowBox(
-                                alignment: Alignment.topLeft,
-                                minWidth: 136,
-                                maxWidth: 136,
-                                minHeight: 136,
-                                maxHeight: 136,
-                                child: Transform.translate(offset: const Offset(-4, 0), child: Art('student', palette: p, width: 136, height: 136)),
-                              ),
+                  child: EqualHeightRow(
+                    children: [
+                      SizedBox(
+                        width: 126,
+                        child: Align(
+                          alignment: Alignment.bottomLeft,
+                          // inline <svg> in a div: the line box adds the font descent (16px Nunito: 5.65) under it
+                          child: SizedBox(
+                            width: 126,
+                            height: 136 + kSvgDescent - 2,
+                            child: OverflowBox(
+                              alignment: Alignment.topLeft,
+                              minWidth: 136,
+                              maxWidth: 136,
+                              minHeight: 136,
+                              maxHeight: 136,
+                              child: Transform.translate(offset: const Offset(-4, 0), child: Art('student', palette: p, width: 136, height: 136)),
                             ),
                           ),
                         ),
-                        const SizedBox(width: 4),
-                        Expanded(
-                          child: Center(
-                            child: Padding(
-                              padding: const EdgeInsets.only(bottom: 16),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(height: 6),
-                                  Tx('${greeting()}, $name!', style: ts(20, w900, p.ink, height: 1.2, spacing: -.2)),
-                                  const SizedBox(height: 4),
-                                  Tx(sub, style: ts(13.5, w700, p.ink2, height: 1.4)),
-                                  const SizedBox(height: 11),
-                                  Btn(cta, icon: 'play', onTap: () => Routes.continueStudying(context)),
-                                ],
-                              ),
+                      ),
+                      const SizedBox(width: 4),
+                      Expanded(
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 16),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(height: 6),
+                                Tx('${greeting()}, $name!', style: ts(20, w900, p.ink, height: 1.2, spacing: -.2)),
+                                const SizedBox(height: 4),
+                                Tx(sub, style: ts(13.5, w700, p.ink2, height: 1.4)),
+                                const SizedBox(height: 11),
+                                Btn(cta, icon: 'play', onTap: () => Routes.continueStudying(context)),
+                              ],
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -394,12 +392,9 @@ class _StatGrid extends StatelessWidget implements Spaced {
         spacing: 12,
         children: [
           for (var r = 0; r < 2; r++)
-            IntrinsicHeight(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                spacing: 12,
-                children: [Expanded(child: tile(tiles[r * 2])), Expanded(child: tile(tiles[r * 2 + 1]))],
-              ),
+            EqualHeightRow(
+              spacing: 12,
+              children: [Expanded(child: tile(tiles[r * 2])), Expanded(child: tile(tiles[r * 2 + 1]))],
             ),
         ],
       ),

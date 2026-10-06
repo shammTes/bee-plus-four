@@ -6,6 +6,7 @@ import '../data/notes_models.dart';
 import '../theme/notes_styles.dart';
 import '../theme/tokens.dart';
 import '../../../theme/perf.dart' show Dim;
+import '../../../widgets/equal_row.dart';
 import '../widgets/clay_widgets.dart';
 import '../widgets/tx.dart';
 import 'diagram.dart';
@@ -937,12 +938,9 @@ class FlexWrap extends StatelessWidget {
         spacing: gap,
         children: [
           for (final l in lines)
-            IntrinsicHeight(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                spacing: gap,
-                children: [for (final c in l) Expanded(child: c)],
-              ),
+            EqualHeightRow(
+              spacing: gap,
+              children: [for (final c in l) Expanded(child: c)],
             ),
         ],
       );

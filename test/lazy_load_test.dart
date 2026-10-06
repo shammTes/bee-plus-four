@@ -1,6 +1,5 @@
 // Startup work is deferred: exercise sets load per grade + subject on demand, notes units load from their own split
 // file. Both must give exactly what the old eager / full-book loading gave.
-import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';

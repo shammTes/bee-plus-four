@@ -12,6 +12,7 @@ import '../theme/notes_styles.dart';
 import '../theme/tokens.dart';
 import '../widgets/art.dart';
 import '../widgets/clay_widgets.dart';
+import '../../../widgets/equal_row.dart';
 import '../widgets/tx.dart';
 import 'cards.dart';
 import 'diagram.dart';
@@ -412,36 +413,33 @@ class _GameCardState extends State<GameCard> {
             _gtop(p, help, prog),
             Padding(
               padding: const EdgeInsets.only(bottom: 18),
-              child: IntrinsicHeight(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  spacing: 12,
-                  children: [
-                    for (final (j, gr) in groups.indexed)
-                      Expanded(
-                        child: DragTarget<String>(
-                          onAcceptWithDetails: (_) => e.answer(gr.$1),
-                          builder: (context, cand, _) => Press(
-                            onTap: () => e.answer(gr.$1),
-                            selected: cand.isNotEmpty,
-                            deco: k.c.bin(tones[j % 3]),
-                            pressedDeco: k.c.bin(tones[j % 3], down: true),
-                            dy: 5,
-                            constraints: const BoxConstraints(minHeight: 96),
-                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              spacing: 4,
-                              children: [
-                                Tx(gr.$2, textAlign: TextAlign.center, style: ts(18, FontWeight.w900, tones[j % 3].deep, height: 1.2)),
-                                Tx('${seenItems.where((y) => y.$2 == gr.$1).length}', style: ts(15, FontWeight.w800, p.ink2, height: 1.2)),
-                              ],
-                            ),
+              child: EqualHeightRow(
+                spacing: 12,
+                children: [
+                  for (final (j, gr) in groups.indexed)
+                    Expanded(
+                      child: DragTarget<String>(
+                        onAcceptWithDetails: (_) => e.answer(gr.$1),
+                        builder: (context, cand, _) => Press(
+                          onTap: () => e.answer(gr.$1),
+                          selected: cand.isNotEmpty,
+                          deco: k.c.bin(tones[j % 3]),
+                          pressedDeco: k.c.bin(tones[j % 3], down: true),
+                          dy: 5,
+                          constraints: const BoxConstraints(minHeight: 96),
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            spacing: 4,
+                            children: [
+                              Tx(gr.$2, textAlign: TextAlign.center, style: ts(18, FontWeight.w900, tones[j % 3].deep, height: 1.2)),
+                              Tx('${seenItems.where((y) => y.$2 == gr.$1).length}', style: ts(15, FontWeight.w800, p.ink2, height: 1.2)),
+                            ],
                           ),
                         ),
                       ),
-                  ],
-                ),
+                    ),
+                ],
               ),
             ),
             if (item != null)

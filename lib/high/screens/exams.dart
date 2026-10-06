@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import '../data/models.dart';
 import '../data/repository.dart';
 import '../theme/tokens.dart';
+import '../widgets/equal_row.dart';
 import '../widgets/kit.dart';
 import '../widgets/page.dart';
 import 'home.dart' show ListRow, Stagger;
@@ -142,15 +143,12 @@ class _ExamsPageState extends State<ExamsPage> {
           spacing: 12,
           children: [
             for (var i = 0; i < subs.length; i += 2)
-              IntrinsicHeight(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  spacing: 12,
-                  children: [
-                    Expanded(child: Stagger(i: i, child: _SubjTile(subs[i], ce.where((e) => e.subject == subs[i] && inYear(e)).toList(), _libYear, cat))),
-                    Expanded(child: i + 1 < subs.length ? Stagger(i: i + 1, child: _SubjTile(subs[i + 1], ce.where((e) => e.subject == subs[i + 1] && inYear(e)).toList(), _libYear, cat)) : const SizedBox()),
-                  ],
-                ),
+              EqualHeightRow(
+                spacing: 12,
+                children: [
+                  Expanded(child: Stagger(i: i, child: _SubjTile(subs[i], ce.where((e) => e.subject == subs[i] && inYear(e)).toList(), _libYear, cat))),
+                  Expanded(child: i + 1 < subs.length ? Stagger(i: i + 1, child: _SubjTile(subs[i + 1], ce.where((e) => e.subject == subs[i + 1] && inYear(e)).toList(), _libYear, cat)) : const SizedBox()),
+                ],
               ),
           ],
         ),
