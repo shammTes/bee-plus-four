@@ -30,6 +30,11 @@ SRC = os.path.join(os.path.dirname(__file__), 'r2')
 LET = 'ABCDE'
 
 
+def short(t, n=100):
+    t = ' '.join(t.split())
+    return t if len(t) <= n else t[:n].rsplit(' ', 1)[0] + '…'
+
+
 def parse(path):
     blocks, ctx = [], {'unit': None, 'lesson': None, 'tip': None}
     for raw in re.split(r'\n\s*\n', open(path, encoding='utf-8').read()):
@@ -122,7 +127,7 @@ def build(book):
             qs = u.setdefault('exercise', {}).setdefault('questions', [])
             counters[u['id']] = counters.get(u['id'], 0) + 1
             qid = f"{u['id']}-r2q{counters[u['id']]:02d}"
-            q = {'id': qid, 'q': b['Q'], 'src': 'r2', 'page': page_of(u), 'label': f"{len(qs) + 1}. {b['Q'][:60]}"}
+            q = {'id': qid, 'q': b['Q'], 'src': 'r2', 'page': page_of(u), 'label': f"{len(qs) + 1}. {short(b['Q'])}"}
             if not b['S']:
                 raise SystemExit(f'{qid}: no similar question')
             q['similar'] = [dict(zip(('q', 'a'), (x.strip() for x in s.split(' => ', 1)))) for s in b['S']]
