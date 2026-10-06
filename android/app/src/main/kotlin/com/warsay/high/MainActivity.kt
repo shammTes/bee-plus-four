@@ -1,12 +1,16 @@
 package com.warsay.high
 
 import android.Manifest
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.net.Uri
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.provider.MediaStore
 import android.provider.Settings
 import android.util.Log
@@ -16,38 +20,47 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
+import com.google.android.gms.tasks.Tasks
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
+import com.google.mlkit.vision.text.TextRecognition
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions
+import com.google.zxing.BarcodeFormat
 import com.google.zxing.BinaryBitmap
 import com.google.zxing.DecodeHintType
 import com.google.zxing.MultiFormatReader
 import com.google.zxing.RGBLuminanceSource
 import com.google.zxing.common.HybridBinarizer
-import com.google.zxing.BarcodeFormat
-import com.journeyapps.barcodescanner.ScanContract
-import com.journeyapps.barcodescanner.ScanOptions
 import io.flutter.embedding.android.FlutterFragmentActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 import java.io.File
 import java.util.EnumMap
 import java.util.EnumSet
-import java.util.concurrent.atomic.AtomicBoolean
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 /**
- * Unlock QR primary path: **live ZXing CaptureActivity** (continuous focus / decode).
- * Fallback: system camera TakePicture → ML Kit + ZXing still-photo decode.
- * Prefer payloads containing "BEE1|". Logcat tag: HighSecure
+ * Unlock scanning for the lock screen. Method channel `com.warsay.high/secure`, logcat tag HighSecure.
+ *
+ *  - scanUnlock            → in-app [ScanActivity] (CameraX + ML Kit QR + text recognition)
+ *  - capturePhotoAndScanQr → system camera photo → ML Kit QR → ZXing → text recognition
+ *  - recoverCode           → clean up a typed / pasted code (look-alike characters), HMAC-checked
+ *
+ * Scan results are maps: {status: ok|cancelled|error|no_code, payload, via, frames, nonBee,
+ * sawCodeText, code, message}. If Android recreated this activity while the camera was open
+ * (low memory), the result is kept and handed to Dart via `takePendingScan`.
  */
 class MainActivity : FlutterFragmentActivity() {
     companion object {
         private const val TAG = "HighSecure"
         private const val CHANNEL = "com.warsay.high/secure"
-        /** Soft cap — keep enough pixels for dense unlock QR modules. */
         private const val MAX_DECODE_EDGE = 2400
         private const val MIN_PHOTO_BYTES = 2_048
+        private const val STATE_PHOTO = "high.unlock.photo"
+        private const val STATE_DEVICE = "high.unlock.device"
     }
 
     private class OnceResult(private val inner: MethodChannel.Result) : MethodChannel.Result {
@@ -69,13 +82,17 @@ class MainActivity : FlutterFragmentActivity() {
         }
     }
 
+    private val main = Handler(Looper.getMainLooper())
+    private val bg = Executors.newSingleThreadExecutor()
+    private var channel: MethodChannel? = null
     private val cameraWaiters = mutableListOf<MethodChannel.Result>()
-    /** After CAMERA grant, launch system camera for unlock scan. */
-    private var captureAfterPermission: MethodChannel.Result? = null
-    private var capturePending: MethodChannel.Result? = null
-    private var photoUri: Uri? = null
+    private var scanAfterPermission: MethodChannel.Result? = null
+    private var scanPending: MethodChannel.Result? = null
+    private var photoPending: MethodChannel.Result? = null
     private var photoFile: File? = null
-    private var secureWanted = false
+    private var scanDeviceId: String? = null
+    /** Result that arrived after the Flutter side lost its pending call (activity recreated). */
+    private var orphanResult: Map<String, Any?>? = null
 
     private val cameraPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
@@ -83,147 +100,175 @@ class MainActivity : FlutterFragmentActivity() {
             val waiters = cameraWaiters.toList()
             cameraWaiters.clear()
             waiters.forEach { it.success(granted) }
+            val pending = scanAfterPermission
+            if (pending != null) {
+                scanAfterPermission = null
+                if (granted) launchScanActivity(pending) else pending.success(err("permission_denied", "Camera permission denied"))
+            }
+        }
 
-            val pendingCapture = captureAfterPermission
-            if (pendingCapture != null) {
-                captureAfterPermission = null
-                if (granted) {
-                    launchLiveScan(pendingCapture)
-                } else {
-                    pendingCapture.error(
-                        "permission_denied",
-                        "Camera permission denied",
-                        null,
-                    )
+    private val scanLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { res ->
+            val data = res.data
+            val payload = data?.getStringExtra(ScanActivity.EXTRA_PAYLOAD)
+            val error = data?.getStringExtra(ScanActivity.EXTRA_ERROR)
+            val out = HashMap<String, Any?>()
+            out["frames"] = data?.getIntExtra(ScanActivity.EXTRA_FRAMES, 0) ?: 0
+            out["sawCodeText"] = data?.getBooleanExtra(ScanActivity.EXTRA_SAW_TEXT, false) ?: false
+            out["nonBee"] = data?.getStringExtra(ScanActivity.EXTRA_NON_BEE)
+            when {
+                res.resultCode == Activity.RESULT_OK && !payload.isNullOrBlank() -> {
+                    out["status"] = "ok"
+                    out["payload"] = payload
+                    out["via"] = data?.getStringExtra(ScanActivity.EXTRA_VIA) ?: "qr"
                 }
+                error != null -> {
+                    out["status"] = "error"
+                    out["code"] = error
+                    out["message"] = data?.getStringExtra(ScanActivity.EXTRA_MESSAGE)
+                }
+                else -> out["status"] = "cancelled"
             }
+            Log.i(TAG, "scan result status=${out["status"]} via=${out["via"]} frames=${out["frames"]} sawText=${out["sawCodeText"]} nonBee=${out["nonBee"]} code=${out["code"]}")
+            val pending = scanPending
+            scanPending = null
+            deliver(pending, out)
         }
 
-    /** Pending Flutter result for live ZXing scan. */
-    private var liveScanPending: MethodChannel.Result? = null
-
-    /** Live QR scanner (JourneyApps) — reads Bee Seller QR without requiring a still photo. */
-    private val liveScanLauncher =
-        registerForActivityResult(ScanContract()) { result ->
-            val pending = liveScanPending
-            liveScanPending = null
-            if (pending == null) return@registerForActivityResult
-            val contents = result.contents?.trim().orEmpty()
-            Log.i(
-                TAG,
-                "liveScan done format=${result.formatName} len=${contents.length} preview=${redact(contents)}",
-            )
-            if (contents.isEmpty()) {
-                // User cancelled — empty string lets Dart show a clear message.
-                pending.success("")
-                return@registerForActivityResult
-            }
-            // Prefer BEE1 payloads if somehow multiple (ScanContract returns one).
-            pending.success(contents)
-        }
-
-    /** Opens the device camera app; on success we decode QR from the JPEG. */
     private val takePictureLauncher =
         registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
-            val pending = capturePending
-            capturePending = null
-            val uri = photoUri
+            val pending = photoPending
+            photoPending = null
             val file = photoFile
-            photoUri = null
+            photoFile = null
             val bytes = file?.takeIf { it.exists() }?.length() ?: -1L
-            Log.i(TAG, "TakePicture success=$success uri=$uri path=${file?.absolutePath} bytes=$bytes")
-            if (pending == null) return@registerForActivityResult
-            if (!success || uri == null) {
-                cleanupPhoto(file)
-                // Empty string = user cancelled — Dart shows a clear message.
-                pending.success("")
+            Log.i(TAG, "TakePicture success=$success path=${file?.absolutePath} bytes=$bytes pendingLost=${pending == null}")
+            if (!success || file == null) {
+                file?.delete()
+                deliver(pending, mapOf("status" to "cancelled"))
                 return@registerForActivityResult
             }
             if (bytes in 0 until MIN_PHOTO_BYTES) {
-                Log.e(TAG, "photo too small/empty bytes=$bytes — camera may not have written FileProvider URI")
-                cleanupPhoto(file)
-                pending.error(
-                    "decode",
-                    "Camera did not save a usable photo. Try again, or enter the unlock code below.",
-                    null,
-                )
+                file.delete()
+                deliver(pending, err("decode", "The camera did not save a usable photo. Try again, or use Scan unlock code."))
                 return@registerForActivityResult
             }
-            decodeQrFromPhoto(uri, file, pending)
+            val device = scanDeviceId
+            bg.execute {
+                val out = try {
+                    decodePhoto(file, device)
+                } catch (e: Throwable) {
+                    Log.e(TAG, "decodePhoto crashed", e)
+                    err("decode", "Could not read the photo: ${e.message ?: e.javaClass.simpleName}")
+                } finally {
+                    file.delete()
+                }
+                main.post { deliver(pending, out) }
+            }
         }
 
-    override fun onCreate(savedInstanceState: android.os.Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+        savedInstanceState?.getString(STATE_PHOTO)?.let { photoFile = File(it) }
+        scanDeviceId = savedInstanceState?.getString(STATE_DEVICE)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        photoFile?.let { outState.putString(STATE_PHOTO, it.absolutePath) }
+        scanDeviceId?.let { outState.putString(STATE_DEVICE, it) }
     }
 
     override fun onResume() {
         super.onResume()
-        if (!secureWanted) window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
     }
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
-        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
-            .setMethodCallHandler { call, result ->
-                when (call.method) {
-                    "set" -> {
-                        val on = call.arguments == true
-                        runOnUiThread {
-                            setSecure(on)
-                            window.decorView.post { result.success(null) }
-                        }
-                    }
-                    "requestCamera" -> requestCamera(result)
-                    "hasCamera" -> result.success(hasCameraPermission())
-                    "shouldShowCameraRationale" -> {
-                        result.success(
-                            ActivityCompat.shouldShowRequestPermissionRationale(
-                                this,
-                                Manifest.permission.CAMERA,
-                            ),
-                        )
-                    }
-                    "openAppSettings" -> {
-                        runOnUiThread {
-                            try {
-                                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                                intent.data = Uri.fromParts("package", packageName, null)
-                                startActivity(intent)
-                                result.success(true)
-                            } catch (e: Exception) {
-                                Log.e(TAG, "openAppSettings failed", e)
-                                result.error("settings", e.message, null)
-                            }
-                        }
-                    }
-                    // Primary: live ZXing QR scanner.
-                    "captureAndScanQr" -> captureAndScanQr(result)
-                    "scanQr" -> captureAndScanQr(result)
-                    // Fallback: system camera still photo → ML Kit / ZXing.
-                    "capturePhotoAndScanQr" -> capturePhotoAndScanQr(result)
-                    "log" -> {
-                        Log.i(TAG, call.arguments?.toString() ?: "")
-                        result.success(null)
-                    }
-                    else -> result.notImplemented()
+        val ch = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
+        channel = ch
+        ch.setMethodCallHandler { call, result ->
+            when (call.method) {
+                "set" -> runOnUiThread {
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+                    result.success(null)
                 }
+                "requestCamera" -> requestCamera(result)
+                "hasCamera" -> result.success(hasCameraPermission())
+                "shouldShowCameraRationale" -> result.success(
+                    ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA),
+                )
+                "openAppSettings" -> runOnUiThread {
+                    try {
+                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                        intent.data = Uri.fromParts("package", packageName, null)
+                        startActivity(intent)
+                        result.success(true)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "openAppSettings failed", e)
+                        result.error("settings", e.message, null)
+                    }
+                }
+                "scanUnlock", "captureAndScanQr", "scanQr" -> scanUnlock(argDevice(call.arguments), result)
+                "capturePhotoAndScanQr" -> capturePhoto(argDevice(call.arguments), result)
+                "recoverCode" -> {
+                    val args = call.arguments as? Map<*, *>
+                    val text = args?.get("text") as? String ?: ""
+                    val device = args?.get("deviceId") as? String
+                    bg.execute {
+                        val hit = try { UnlockCodeRecovery.recover(text, device) } catch (e: Throwable) { null }
+                        Log.i(TAG, "recoverCode len=${text.length} hit=${hit?.layout}")
+                        main.post { result.success(hit?.payload) }
+                    }
+                }
+                "takePendingScan" -> {
+                    val r = orphanResult
+                    orphanResult = null
+                    result.success(r)
+                }
+                "log" -> {
+                    Log.i(TAG, call.arguments?.toString() ?: "")
+                    result.success(null)
+                }
+                else -> result.notImplemented()
             }
-        Log.i(TAG, "MethodChannel $CHANNEL ready (live ZXing unlock + photo fallback)")
+        }
+        Log.i(TAG, "MethodChannel $CHANNEL ready (in-app CameraX scanner + photo + text recovery)")
+    }
+
+    private fun argDevice(args: Any?): String? = when (args) {
+        is Map<*, *> -> args["deviceId"] as? String
+        is String -> args
+        else -> null
+    }
+
+    private fun err(code: String, message: String): Map<String, Any?> =
+        mapOf("status" to "error", "code" to code, "message" to message)
+
+    /** Send to the waiting Dart call, or keep it for `takePendingScan` / push it if the call was lost. */
+    private fun deliver(pending: MethodChannel.Result?, out: Map<String, Any?>) {
+        if (pending != null) {
+            pending.success(out)
+            return
+        }
+        if (out["status"] == "ok") {
+            Log.w(TAG, "scan result arrived after activity recreation — handing to Dart as orphan")
+            orphanResult = out
+            try { channel?.invokeMethod("orphanScanResult", out) } catch (_: Exception) {}
+        }
     }
 
     private fun hasCameraPermission(): Boolean =
-        ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) ==
-            PackageManager.PERMISSION_GRANTED
+        ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
 
     private fun requestCamera(result: MethodChannel.Result) {
         runOnUiThread {
             if (hasCameraPermission()) {
-                Log.i(TAG, "requestCamera: already granted")
                 result.success(true)
                 return@runOnUiThread
             }
-            Log.i(TAG, "requestCamera: launching system dialog")
             val once = OnceResult(result)
             cameraWaiters.add(once)
             try {
@@ -231,515 +276,238 @@ class MainActivity : FlutterFragmentActivity() {
             } catch (e: Exception) {
                 Log.e(TAG, "requestCamera launch failed", e)
                 cameraWaiters.remove(once)
-                try {
-                    cameraWaiters.add(once)
-                    ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 71)
-                } catch (e2: Exception) {
-                    Log.e(TAG, "legacy requestPermissions failed", e2)
-                    cameraWaiters.remove(once)
-                    once.error("request_failed", e2.message, null)
-                }
+                once.success(false)
             }
         }
     }
 
-    /**
-     * Request CAMERA if needed, then open **live ZXing** QR scanner.
-     * Returns QR payload string, "" if cancelled, or MethodChannel error.
-     */
-    private fun captureAndScanQr(result: MethodChannel.Result) {
+    private fun busy(): Boolean = scanPending != null || photoPending != null || scanAfterPermission != null
+
+    private fun scanUnlock(deviceId: String?, result: MethodChannel.Result) {
         runOnUiThread {
-            setSecure(false)
             window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
-            if (liveScanPending != null || capturePending != null || captureAfterPermission != null) {
-                Log.w(TAG, "captureAndScanQr: busy")
-                result.error("busy", "Camera is already opening. Wait a moment and try again.", null)
+            if (busy()) {
+                result.success(err("busy", "The camera is already opening. Wait a moment and try again."))
                 return@runOnUiThread
             }
+            scanDeviceId = deviceId
             val once = OnceResult(result)
             if (!hasCameraPermission()) {
-                Log.i(TAG, "captureAndScanQr: need CAMERA first")
-                captureAfterPermission = once
+                scanAfterPermission = once
                 try {
                     cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
                 } catch (e: Exception) {
-                    Log.e(TAG, "capture permission launch failed", e)
-                    captureAfterPermission = null
-                    once.error("permission_denied", e.message ?: "Camera permission required", null)
+                    scanAfterPermission = null
+                    once.success(err("permission_denied", e.message ?: "Camera permission required"))
                 }
                 return@runOnUiThread
             }
-            launchLiveScan(once)
+            launchScanActivity(once)
         }
     }
 
-    /** Fallback: system camera still photo → ML Kit / ZXing decode. */
-    private fun capturePhotoAndScanQr(result: MethodChannel.Result) {
+    private fun launchScanActivity(result: MethodChannel.Result) {
+        try {
+            scanPending = result
+            val intent = Intent(this, ScanActivity::class.java)
+                .putExtra(ScanActivity.EXTRA_DEVICE_ID, scanDeviceId)
+            Log.i(TAG, "launching in-app ScanActivity")
+            scanLauncher.launch(intent)
+        } catch (e: Exception) {
+            Log.e(TAG, "launch ScanActivity failed", e)
+            scanPending = null
+            result.success(err("camera", "Scanner could not open: ${e.message ?: e.javaClass.simpleName}"))
+        }
+    }
+
+    private fun capturePhoto(deviceId: String?, result: MethodChannel.Result) {
         runOnUiThread {
-            setSecure(false)
             window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
-            if (liveScanPending != null || capturePending != null || captureAfterPermission != null) {
-                Log.w(TAG, "capturePhotoAndScanQr: busy")
-                result.error("busy", "Camera is already opening. Wait a moment and try again.", null)
+            if (busy()) {
+                result.success(err("busy", "The camera is already opening. Wait a moment and try again."))
                 return@runOnUiThread
             }
-            val once = OnceResult(result)
             if (!hasCameraPermission()) {
-                Log.i(TAG, "capturePhotoAndScanQr: need CAMERA first")
-                // Reuse permission waiter but route to photo path via a flag is messy;
-                // require Dart to requestCamera first for photo fallback.
-                once.error("permission_denied", "Camera permission required", null)
+                result.success(err("permission_denied", "Camera permission required"))
                 return@runOnUiThread
             }
-            launchSystemCamera(once)
-        }
-    }
-
-    private fun launchLiveScan(result: MethodChannel.Result) {
-        try {
-            liveScanPending = result
-            val options = ScanOptions().apply {
-                setDesiredBarcodeFormats(ScanOptions.QR_CODE)
-                setPrompt("Point at the Bee Seller unlock QR")
-                setBeepEnabled(false)
-                setBarcodeImageEnabled(false)
-                setOrientationLocked(false)
-            }
-            Log.i(TAG, "launching live ZXing CaptureActivity")
-            liveScanLauncher.launch(options)
-        } catch (e: Exception) {
-            Log.e(TAG, "launchLiveScan failed — falling back to system camera", e)
-            liveScanPending = null
-            launchSystemCamera(result)
-        }
-    }
-
-    private fun launchSystemCamera(result: MethodChannel.Result) {
-        try {
-            // Prefer app cache — no storage permission needed.
-            // Do NOT leave a 0-byte stub that some OEM cameras refuse to overwrite.
-            val file = File(cacheDir, "unlock_qr_${System.currentTimeMillis()}.jpg")
-            if (file.exists()) file.delete()
-            // Touch empty file so FileProvider / some OEM cameras can open the Uri for write.
-            file.parentFile?.mkdirs()
-            file.createNewFile()
-            photoFile = file
-            // Must match AndroidManifest FileProvider authorities="${applicationId}.fileprovider"
-            val uri = FileProvider.getUriForFile(
-                this,
-                "${applicationContext.packageName}.fileprovider",
-                file,
-            )
-            photoUri = uri
-            capturePending = result
-
-            // Probe that a camera app exists (Android 11+ package visibility).
-            val probe = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            if (probe.resolveActivity(packageManager) == null) {
-                Log.e(TAG, "no camera app for ACTION_IMAGE_CAPTURE")
-                capturePending = null
-                photoUri = null
-                cleanupPhoto(file)
-                result.error(
-                    "no_camera_app",
-                    "No camera app found on this phone. Enter the unlock code instead.",
-                    null,
-                )
-                return
-            }
-
-            Log.i(TAG, "launching system camera TakePicture uri=$uri path=${file.absolutePath}")
-            takePictureLauncher.launch(uri)
-        } catch (e: Exception) {
-            Log.e(TAG, "launchSystemCamera failed", e)
-            capturePending = null
-            photoUri = null
-            cleanupPhoto(photoFile)
-            photoFile = null
-            result.error("camera", e.message ?: "Could not open the camera app", null)
-        }
-    }
-
-    private fun decodeQrFromPhoto(uri: Uri, file: File?, result: MethodChannel.Result) {
-        val finished = AtomicBoolean(false)
-        fun finishSuccess(value: String, via: String) {
-            if (!finished.compareAndSet(false, true)) return
-            Log.i(TAG, "unlock decode OK via=$via len=${value.length} preview=${redact(value)}")
-            cleanupPhoto(file)
-            result.success(value)
-        }
-        fun finishNoQr() {
-            if (!finished.compareAndSet(false, true)) return
-            Log.w(TAG, "unlock decode: no QR found after ML Kit + ZXing")
-            cleanupPhoto(file)
-            result.error(
-                "no_qr",
-                "No QR found — retake photo closer / better light",
-                null,
-            )
-        }
-        fun finishError(code: String, message: String) {
-            if (!finished.compareAndSet(false, true)) return
-            Log.e(TAG, "unlock decode error code=$code msg=$message")
-            cleanupPhoto(file)
-            result.error(code, message, null)
-        }
-
-        try {
-            val path = file?.absolutePath
-            val bytes = file?.takeIf { it.exists() }?.length() ?: -1L
-            Log.i(TAG, "decodeQrFromPhoto begin path=$path bytes=$bytes uri=$uri")
-
-            // Pass 1: ML Kit fromFilePath (auto EXIF) — often the most reliable for JPEGs.
-            if (path != null && File(path).exists() && bytes >= MIN_PHOTO_BYTES) {
-                try {
-                    // Prefer the FileProvider content Uri (readable via ContentResolver).
-                    val fromFile = InputImage.fromFilePath(this, uri)
-                    runMlKit(fromFile, "fromFilePath") { value ->
-                        if (value != null) {
-                            finishSuccess(value, "mlkit-file")
-                            true
-                        } else {
-                            // Continue to bitmap / rotation / ZXing passes.
-                            continueDecodeAfterFileMiss(uri, file, ::finishSuccess, ::finishNoQr, ::finishError)
-                            true
-                        }
-                    }
-                    return
-                } catch (e: Exception) {
-                    Log.w(TAG, "fromFilePath InputImage failed: ${e.message}")
-                }
-            }
-            continueDecodeAfterFileMiss(uri, file, ::finishSuccess, ::finishNoQr, ::finishError)
-        } catch (e: Exception) {
-            Log.e(TAG, "decodeQrFromPhoto exception", e)
-            finishError("decode", e.message ?: "Could not read the photo")
-        }
-    }
-
-    private fun continueDecodeAfterFileMiss(
-        uri: Uri,
-        file: File?,
-        finishSuccess: (String, String) -> Unit,
-        finishNoQr: () -> Unit,
-        finishError: (String, String) -> Unit,
-    ) {
-        try {
-            val base = loadBitmapForDecode(uri, file, maxEdge = MAX_DECODE_EDGE)
-            if (base == null) {
-                finishError("decode", "Could not read the photo from the camera.")
-                return
-            }
-            Log.i(TAG, "bitmap ready ${base.width}x${base.height} for multi-pass decode")
-
-            // Pass 2: ML Kit on EXIF-corrected bitmap + 90° rotations.
-            tryMlKitRotations(base, 0) { mlValue ->
-                if (mlValue != null) {
-                    finishSuccess(mlValue, "mlkit-bitmap")
-                    return@tryMlKitRotations
-                }
-                // Pass 3: ZXing on same bitmaps (and a higher-res retry if we downscaled hard).
-                val zxingHit = tryZxingAll(base)
-                if (zxingHit != null) {
-                    finishSuccess(zxingHit, "zxing")
-                    return@tryMlKitRotations
-                }
-                // Pass 4: if original file is large, try a higher-res bitmap once more with ZXing.
-                val hi = if (file != null && file.length() > 400_000L) {
-                    loadBitmapForDecode(uri, file, maxEdge = 3200)
-                } else null
-                if (hi != null && (hi.width != base.width || hi.height != base.height)) {
-                    Log.i(TAG, "hi-res retry ${hi.width}x${hi.height}")
-                    val hiZx = tryZxingAll(hi)
-                    if (hiZx != null) {
-                        if (hi != base) hi.recycle()
-                        finishSuccess(hiZx, "zxing-hires")
-                        return@tryMlKitRotations
-                    }
-                    // One more ML Kit pass on hi-res upright only.
-                    try {
-                        val image = InputImage.fromBitmap(hi, 0)
-                        runMlKit(image, "hires-bitmap") { v ->
-                            if (hi != base) hi.recycle()
-                            if (v != null) finishSuccess(v, "mlkit-hires")
-                            else finishNoQr()
-                            true
-                        }
-                        return@tryMlKitRotations
-                    } catch (e: Exception) {
-                        if (hi != base) hi.recycle()
-                        Log.w(TAG, "hires mlkit failed: ${e.message}")
-                    }
-                }
-                finishNoQr()
-            }
-        } catch (e: Exception) {
-            Log.e(TAG, "continueDecodeAfterFileMiss", e)
-            finishError("decode", e.message ?: "Could not read the photo")
-        }
-    }
-
-    private fun tryMlKitRotations(
-        base: Bitmap,
-        index: Int,
-        done: (String?) -> Unit,
-    ) {
-        val angles = intArrayOf(0, 90, 180, 270)
-        if (index >= angles.size) {
-            done(null)
-            return
-        }
-        val angle = angles[index]
-        val bmp = if (angle == 0) base else rotateBitmap(base, angle)
-        try {
-            val image = InputImage.fromBitmap(bmp, 0)
-            runMlKit(image, "bitmap-rot$angle") { value ->
-                if (bmp != base) bmp.recycle()
-                if (value != null) {
-                    done(value)
-                } else {
-                    tryMlKitRotations(base, index + 1, done)
-                }
-                true
-            }
-        } catch (e: Exception) {
-            if (bmp != base) bmp.recycle()
-            Log.w(TAG, "mlkit rot=$angle failed: ${e.message}")
-            tryMlKitRotations(base, index + 1, done)
-        }
-    }
-
-    /**
-     * @param onResult return true if this listener consumed the result (always true here).
-     *                 Callback receives preferred raw value or null if none.
-     */
-    private fun runMlKit(
-        image: InputImage,
-        label: String,
-        onResult: (String?) -> Boolean,
-    ) {
-        val options = BarcodeScannerOptions.Builder()
-            .setBarcodeFormats(
-                Barcode.FORMAT_QR_CODE,
-                Barcode.FORMAT_AZTEC,
-                Barcode.FORMAT_DATA_MATRIX,
-            )
-            .build()
-        val scanner = BarcodeScanning.getClient(options)
-        scanner.process(image)
-            .addOnSuccessListener { barcodes ->
-                val raws = barcodes.mapNotNull { b ->
-                    val v = b.rawValue?.trim()?.takeIf { it.isNotEmpty() }
-                        ?: b.displayValue?.trim()?.takeIf { it.isNotEmpty() }
-                    v
-                }
-                Log.i(
-                    TAG,
-                    "ML Kit $label count=${barcodes.size} values=${raws.map { redact(it) }}",
-                )
-                val chosen = pickUnlockPayload(raws)
-                try {
-                    scanner.close()
-                } catch (_: Exception) {
-                }
-                onResult(chosen)
-            }
-            .addOnFailureListener { error ->
-                Log.e(TAG, "ML Kit $label failed: ${error.message}", error)
-                try {
-                    scanner.close()
-                } catch (_: Exception) {
-                }
-                onResult(null)
-            }
-    }
-
-    private fun tryZxingAll(base: Bitmap): String? {
-        val angles = intArrayOf(0, 90, 180, 270)
-        for (angle in angles) {
-            val bmp = if (angle == 0) base else rotateBitmap(base, angle)
+            scanDeviceId = deviceId
             try {
-                val hit = decodeWithZxing(bmp, invert = false)
-                    ?: decodeWithZxing(bmp, invert = true)
-                if (hit != null) {
-                    Log.i(TAG, "ZXing hit rot=$angle invert-tried len=${hit.length} preview=${redact(hit)}")
-                    return hit
+                val file = File(cacheDir, "unlock_photo_${System.currentTimeMillis()}.jpg")
+                file.parentFile?.mkdirs()
+                file.createNewFile()
+                val uri = FileProvider.getUriForFile(this, "${applicationContext.packageName}.fileprovider", file)
+                if (Intent(MediaStore.ACTION_IMAGE_CAPTURE).resolveActivity(packageManager) == null) {
+                    file.delete()
+                    result.success(err("no_camera_app", "No camera app found on this phone. Use Scan unlock code instead."))
+                    return@runOnUiThread
                 }
-            } finally {
-                if (bmp != base && !bmp.isRecycled) {
-                    try { bmp.recycle() } catch (_: Exception) {}
-                }
+                photoFile = file
+                photoPending = OnceResult(result)
+                Log.i(TAG, "launching system camera uri=$uri")
+                takePictureLauncher.launch(uri)
+            } catch (e: Exception) {
+                Log.e(TAG, "launch system camera failed", e)
+                photoPending = null
+                photoFile?.delete()
+                photoFile = null
+                result.success(err("camera", e.message ?: "Could not open the camera app"))
             }
         }
-        Log.i(TAG, "ZXing: no QR in any orientation")
+    }
+
+    // ── Still-photo decode (background thread) ───────────────────────────────
+
+    private fun decodePhoto(file: File, deviceId: String?): Map<String, Any?> {
+        val base = loadBitmap(file, MAX_DECODE_EDGE)
+            ?: return err("decode", "Could not read the photo from the camera.")
+        Log.i(TAG, "decodePhoto bitmap ${base.width}x${base.height}")
+        var nonBee: String? = null
+        val barcode = BarcodeScanning.getClient(
+            BarcodeScannerOptions.Builder()
+                .setBarcodeFormats(Barcode.FORMAT_QR_CODE, Barcode.FORMAT_AZTEC, Barcode.FORMAT_DATA_MATRIX, Barcode.FORMAT_PDF417)
+                .build(),
+        )
+        try {
+            for (angle in intArrayOf(0, 90, 180, 270)) {
+                val bmp = rotate(base, angle)
+                val values = try {
+                    Tasks.await(barcode.process(InputImage.fromBitmap(bmp, 0)), 15, TimeUnit.SECONDS)
+                        .mapNotNull { it.rawValue?.trim()?.takeIf { v -> v.isNotEmpty() } }
+                } catch (e: Exception) {
+                    Log.w(TAG, "photo ML Kit rot=$angle failed: ${e.message}")
+                    emptyList()
+                }
+                if (bmp !== base) bmp.recycle()
+                val hit = pick(values, deviceId)
+                if (hit != null) return ok(hit, "photo-qr")
+                if (values.isNotEmpty()) nonBee = values.first()
+            }
+        } finally {
+            try { barcode.close() } catch (_: Exception) {}
+        }
+        for (angle in intArrayOf(0, 90, 180, 270)) {
+            val bmp = rotate(base, angle)
+            val v = zxing(bmp)
+            if (bmp !== base) bmp.recycle()
+            if (v != null) {
+                val hit = pick(listOf(v), deviceId)
+                if (hit != null) return ok(hit, "photo-zxing")
+                nonBee = v
+            }
+        }
+        // The Compose Bee Seller shows the code as text — read it.
+        var sawText = false
+        val recognizer = if (OcrSupport.available) {
+            try {
+                TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
+            } catch (e: Throwable) {
+                Log.e(TAG, "text recognizer unavailable", e)
+                null
+            }
+        } else {
+            null
+        }
+        if (recognizer != null) try {
+            for (angle in intArrayOf(0, 90, 270, 180)) {
+                val bmp = rotate(base, angle)
+                val text = try {
+                    Tasks.await(recognizer.process(InputImage.fromBitmap(bmp, 0)), 20, TimeUnit.SECONDS).text
+                } catch (e: Exception) {
+                    Log.w(TAG, "photo text rot=$angle failed: ${e.message}")
+                    ""
+                }
+                if (bmp !== base) bmp.recycle()
+                if (UnlockCodeRecovery.looksLikeCode(text)) {
+                    sawText = true
+                    val rec = UnlockCodeRecovery.recover(text, deviceId)
+                    if (rec != null) return ok(rec.payload, "photo-text")
+                }
+            }
+        } finally {
+            try { recognizer.close() } catch (_: Exception) {}
+        }
+        Log.w(TAG, "decodePhoto: nothing usable sawText=$sawText nonBee=${nonBee?.take(16)}")
+        return mapOf(
+            "status" to "no_code",
+            "sawCodeText" to sawText,
+            "nonBee" to nonBee?.let { if (it.length > 20) it.take(20) + "…" else it },
+        )
+    }
+
+    private fun ok(payload: String, via: String): Map<String, Any?> {
+        Log.i(TAG, "photo decode OK via=$via len=${payload.length}")
+        return mapOf("status" to "ok", "payload" to payload, "via" to via)
+    }
+
+    /** Prefer a BEE1 value; else a value that cleans up into a valid code. */
+    private fun pick(values: List<String>, deviceId: String?): String? {
+        values.firstOrNull { it.contains("BEE1", ignoreCase = true) }?.let { return it }
+        for (v in values) UnlockCodeRecovery.recover(v, deviceId)?.let { return it.payload }
         return null
     }
 
-    private fun decodeWithZxing(bitmap: Bitmap, invert: Boolean): String? {
-        return try {
-            val w = bitmap.width
-            val h = bitmap.height
-            val pixels = IntArray(w * h)
-            bitmap.getPixels(pixels, 0, w, 0, 0, w, h)
-            if (invert) {
-                for (i in pixels.indices) {
-                    val c = pixels[i]
-                    val r = 255 - ((c shr 16) and 0xff)
-                    val g = 255 - ((c shr 8) and 0xff)
-                    val b = 255 - (c and 0xff)
-                    pixels[i] = (c and 0xff000000.toInt()) or (r shl 16) or (g shl 8) or b
-                }
-            }
-            val source = RGBLuminanceSource(w, h, pixels)
-            val bitmapBin = BinaryBitmap(HybridBinarizer(source))
-            val hints = EnumMap<DecodeHintType, Any>(DecodeHintType::class.java)
-            hints[DecodeHintType.TRY_HARDER] = true
-            hints[DecodeHintType.POSSIBLE_FORMATS] = EnumSet.of(BarcodeFormat.QR_CODE)
-            val reader = MultiFormatReader()
-            reader.setHints(hints)
-            val result = try {
-                reader.decodeWithState(bitmapBin)
+    private fun zxing(bitmap: Bitmap): String? {
+        for (invert in booleanArrayOf(false, true)) {
+            try {
+                val w = bitmap.width
+                val h = bitmap.height
+                val px = IntArray(w * h)
+                bitmap.getPixels(px, 0, w, 0, 0, w, h)
+                if (invert) for (i in px.indices) px[i] = px[i] xor 0x00ffffff
+                val hints = EnumMap<DecodeHintType, Any>(DecodeHintType::class.java)
+                hints[DecodeHintType.TRY_HARDER] = true
+                hints[DecodeHintType.POSSIBLE_FORMATS] = EnumSet.of(BarcodeFormat.QR_CODE)
+                val reader = MultiFormatReader().apply { setHints(hints) }
+                val text = reader.decodeWithState(BinaryBitmap(HybridBinarizer(RGBLuminanceSource(w, h, px)))).text
+                if (!text.isNullOrBlank()) return text.trim()
             } catch (_: Exception) {
-                // Also try inverted binarizer path via a fresh reader on GlobalHistogram — skip.
-                null
-            } finally {
-                reader.reset()
-            }
-            val text = result?.text?.trim().orEmpty()
-            if (text.isEmpty()) null else text
-        } catch (e: Exception) {
-            Log.d(TAG, "zxing invert=$invert miss: ${e.message}")
-            null
-        }
-    }
-
-    /** Prefer Bee Seller / Flutter unlock payloads over incidental QR codes. */
-    private fun pickUnlockPayload(values: List<String>): String? {
-        if (values.isEmpty()) return null
-        val bee = values.firstOrNull { it.contains("BEE1|") }
-        if (bee != null) return bee
-        return values.first()
-    }
-
-    private fun redact(raw: String): String {
-        val t = raw.trim()
-        if (t.length <= 16) return "***"
-        // Keep layout visible, hide signature/nonce tail.
-        val parts = t.split("|")
-        return if (parts.size >= 4 && parts[0] == "BEE1") {
-            "BEE1|${parts.getOrElse(1) {"?"}}|${parts.getOrElse(2) {"?"}}|…(redacted)"
-        } else {
-            "${t.take(12)}…(${t.length})"
-        }
-    }
-
-    private fun rotateBitmap(src: Bitmap, degrees: Int): Bitmap {
-        if (degrees % 360 == 0) return src
-        val matrix = Matrix().apply { postRotate(degrees.toFloat()) }
-        return Bitmap.createBitmap(src, 0, 0, src.width, src.height, matrix, true)
-    }
-
-    /** Downscale + EXIF-rotate so low-end devices do not OOM on 12MP JPEGs. */
-    private fun loadBitmapForDecode(uri: Uri, file: File?, maxEdge: Int): Bitmap? {
-        return try {
-            val path = file?.absolutePath
-            val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-            if (path != null && File(path).exists()) {
-                BitmapFactory.decodeFile(path, bounds)
-            } else {
-                contentResolver.openInputStream(uri)?.use {
-                    BitmapFactory.decodeStream(it, null, bounds)
-                }
-            }
-            var sample = 1
-            val w = bounds.outWidth
-            val h = bounds.outHeight
-            if (w <= 0 || h <= 0) {
-                Log.e(TAG, "bitmap bounds invalid w=$w h=$h")
+            } catch (_: OutOfMemoryError) {
                 return null
             }
-            while (w / sample > maxEdge || h / sample > maxEdge) {
-                sample *= 2
-            }
-            val opts = BitmapFactory.Options().apply {
-                inSampleSize = sample
-                inPreferredConfig = Bitmap.Config.ARGB_8888
-            }
-            var bitmap = if (path != null && File(path).exists()) {
-                BitmapFactory.decodeFile(path, opts)
-            } else {
-                contentResolver.openInputStream(uri)?.use {
-                    BitmapFactory.decodeStream(it, null, opts)
-                }
-            } ?: return null
+        }
+        return null
+    }
 
-            val rotation = readExifRotation(path, uri)
-            if (rotation != 0) {
-                val rotated = rotateBitmap(bitmap, rotation)
-                if (rotated != bitmap) bitmap.recycle()
-                bitmap = rotated
+    private fun rotate(src: Bitmap, degrees: Int): Bitmap {
+        if (degrees % 360 == 0) return src
+        val m = Matrix().apply { postRotate(degrees.toFloat()) }
+        return Bitmap.createBitmap(src, 0, 0, src.width, src.height, m, true)
+    }
+
+    private fun loadBitmap(file: File, maxEdge: Int): Bitmap? {
+        return try {
+            val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+            BitmapFactory.decodeFile(file.absolutePath, bounds)
+            if (bounds.outWidth <= 0 || bounds.outHeight <= 0) return null
+            var sample = 1
+            while (bounds.outWidth / sample > maxEdge || bounds.outHeight / sample > maxEdge) sample *= 2
+            val bmp = BitmapFactory.decodeFile(
+                file.absolutePath,
+                BitmapFactory.Options().apply {
+                    inSampleSize = sample
+                    inPreferredConfig = Bitmap.Config.ARGB_8888
+                },
+            ) ?: return null
+            val rotation = try {
+                when (ExifInterface(file.absolutePath).getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)) {
+                    ExifInterface.ORIENTATION_ROTATE_90 -> 90
+                    ExifInterface.ORIENTATION_ROTATE_180 -> 180
+                    ExifInterface.ORIENTATION_ROTATE_270 -> 270
+                    else -> 0
+                }
+            } catch (_: Exception) {
+                0
             }
-            Log.i(
-                TAG,
-                "bitmap for decode ${bitmap.width}x${bitmap.height} sample=$sample rot=$rotation maxEdge=$maxEdge src=${w}x${h}",
-            )
-            bitmap
-        } catch (e: Exception) {
-            Log.e(TAG, "loadBitmapForDecode failed", e)
+            if (rotation == 0) bmp else rotate(bmp, rotation).also { if (it !== bmp) bmp.recycle() }
+        } catch (e: Throwable) {
+            Log.e(TAG, "loadBitmap failed", e)
             null
         }
     }
 
-    private fun readExifRotation(path: String?, uri: Uri): Int {
-        return try {
-            val exif = when {
-                path != null && File(path).exists() -> ExifInterface(path)
-                else -> contentResolver.openInputStream(uri)?.use { ExifInterface(it) }
-            } ?: return 0
-            when (exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)) {
-                ExifInterface.ORIENTATION_ROTATE_90 -> 90
-                ExifInterface.ORIENTATION_ROTATE_180 -> 180
-                ExifInterface.ORIENTATION_ROTATE_270 -> 270
-                else -> 0
-            }
-        } catch (_: Exception) {
-            0
-        }
-    }
-
-    private fun cleanupPhoto(file: File?) {
-        try {
-            file?.delete()
-        } catch (_: Exception) {
-        }
-        photoFile = null
-    }
-
-    @Deprecated("Legacy fallback if Activity Result launcher is unavailable")
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray,
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode != 71 && requestCode != 72) return
-        val ok = grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
-        Log.i(TAG, "legacy onRequestPermissionsResult code=$requestCode granted=$ok")
-        if (cameraWaiters.isNotEmpty()) {
-            val waiters = cameraWaiters.toList()
-            cameraWaiters.clear()
-            waiters.forEach { it.success(ok) }
-        }
-        val pending = captureAfterPermission
-        if (pending != null) {
-            captureAfterPermission = null
-            if (ok) launchSystemCamera(pending)
-            else pending.error("permission_denied", "Camera permission denied", null)
-        }
-    }
-
-    private fun setSecure(on: Boolean) {
-        secureWanted = false
-        window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+    override fun onDestroy() {
+        bg.shutdown()
+        super.onDestroy()
     }
 }
