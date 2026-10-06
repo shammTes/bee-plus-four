@@ -1,0 +1,1238 @@
+{
+  "schema_version": "1.0",
+  "exam": {
+    "id": "alg-geo-2000-matric",
+    "year": "2000",
+    "subject": "Mathematics",
+    "grade": 12,
+    "school": "Eritrean Secondary Education Certificate Examination (national)",
+    "type": "matriculation",
+    "semester": null,
+    "title": "Algebra and Geometry 2000",
+    "exam_code": null,
+    "duration": "3 hours",
+    "duration_minutes": 180,
+    "total_points": 100,
+    "parts": [
+      {
+        "part": 1,
+        "title": "Part I – Multiple Choice Questions",
+        "question_type": "mcq",
+        "question_count": 35,
+        "points": 70,
+        "instructions": "Part I has 40 questions worth 2 points each. This file keeps only items whose stem, options and answer were verified from the scan."
+      }
+    ],
+    "source": {
+      "document": "Google Drive Algebra and Geometry/2000_Algebra_and_Geometry.pdf",
+      "pages": 12,
+      "scan": "HP Scan image PDF; Part I MCQs read from page images",
+      "official_answer_key": false
+    },
+    "answer_key_note": "No official key in the PDF. Answers solved independently. Skipped: Q2 and Q3 (an option was not reliably read), Q26 (wage table not readable), Q32 (open versus closed tank), Q33 (wording of the median ratio is ambiguous). Part II not included.",
+    "notation": "unicode",
+    "content_version": "1.0.0",
+    "language": "en",
+    "high_conversion": {
+      "source": "assets/high/exams/algebra_geometry_2000_matric.json",
+      "tool": "tool/content_to_high.py",
+      "changed": "subject filed under Mathematics; topics mapped to Mathematics subtopic ids (owner tags kept in keywords)"
+    }
+  },
+  "questions": [
+    {
+      "id": "alg-geo-2000-matric-p1-q01",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 1,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The value of x for which (5/2 · 2^x)^(3/2) = 1/√2 is",
+      "options": {
+        "A": "0.34",
+        "B": "10.34",
+        "C": "9.66",
+        "D": "11.74",
+        "E": "None of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "Raise both sides to the power 2/3: (5/2)·2^x = 2^(−1/3).",
+        "Then 2^x = (2/5)·2^(−1/3), so x = log2(0.4) − 1/3 ≈ −1.66.",
+        "That value is not among A–D. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "alg-exponents"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q04",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 4,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "A ship sails 60 km from port P in the direction N 80° E to port T, then 40 km from T in the direction S 40° E to port Q. The distance PQ, in km, is",
+      "options": {
+        "A": "20√19",
+        "B": "60 sin 80° + 40 sin 40°",
+        "C": "20√7",
+        "D": "20√13",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "North component: 60 cos 80° − 40 cos 40° ≈ −20.22 km.",
+        "East component: 60 sin 80° + 40 sin 40° ≈ 84.80 km.",
+        "PQ = √(20.22² + 84.80²) = 20√19 km. Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "trigonometry"
+      ],
+      "keywords": [
+        "alg-trigonometry"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q05",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 5,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The inverse of the relation R = {(x, y): x = y² + 1} is",
+      "options": {
+        "A": "{(x, y): y = x − 1}",
+        "B": "{(x, y): y = x² + 1}",
+        "C": "{(x, y): x + y = 1}",
+        "D": "{(x, y): x + y = −1}",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "The inverse swaps the roles of x and y.",
+        "From x = y² + 1 the swapped relation is y = x² + 1. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "functions-inverse"
+      ],
+      "keywords": [
+        "alg-relations"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q06",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 6,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The solution set of x − 1/x = 4 is",
+      "options": {
+        "A": "{4}",
+        "B": "{2 + √7, 2 − √7}",
+        "C": "{2 + √5, 2 − √5}",
+        "D": "No solution.",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Multiply by x (x ≠ 0): x² − 4x − 1 = 0.",
+        "x = 2 ± √5, and neither root is 0. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "rational-functions"
+      ],
+      "keywords": [
+        "alg-equations"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q07",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 7,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "Which of the following is not true about f(x) = 2x/(x² + 1)?",
+      "options": {
+        "A": "The domain of f is all real numbers.",
+        "B": "The range of f is (−1, 2).",
+        "C": "The x-intercept of the graph of f is 0.",
+        "D": "The y-intercept of the graph of f is 0.",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "x² + 1 never zero, so the domain is all real numbers, and f(0) = 0.",
+        "The range of 2x/(x² + 1) is [−1, 1], not (−1, 2). Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "functions-inverse"
+      ],
+      "keywords": [
+        "alg-functions"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q08",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 8,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The vertical asymptote of y = (x − 2)/(x² − 7x + 10) is",
+      "options": {
+        "A": "x = 2 and x = 5",
+        "B": "x = 5",
+        "C": "x = −2",
+        "D": "x = 2",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "x² − 7x + 10 = (x − 2)(x − 5), so the factor x − 2 cancels and leaves a hole.",
+        "The remaining denominator zero is x = 5, the only vertical asymptote. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "rational-functions"
+      ],
+      "keywords": [
+        "alg-rational-functions"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q09",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 9,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "If x² + 2kx + 5 is divisible by x + 1, the value of k is",
+      "options": {
+        "A": "0",
+        "B": "3",
+        "C": "−2",
+        "D": "2",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Substitute x = −1: 1 − 2k + 5 = 0.",
+        "6 = 2k, so k = 3. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "polynomials"
+      ],
+      "keywords": [
+        "alg-polynomials"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q10",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 10,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "If a company makes x articles a month, its profit is p(x) = 20 + 400x − 4x². How many articles give maximum profit?",
+      "options": {
+        "A": "200",
+        "B": "100",
+        "C": "50",
+        "D": "40",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "This is a downward parabola. The vertex is at x = 400/(2·4) = 50.",
+        "Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "quadratic-functions"
+      ],
+      "keywords": [
+        "alg-quadratics"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q11",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 11,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The solution set of x² + 2x − 15 > 0 is",
+      "options": {
+        "A": "(−∞, −5) ∪ (3, ∞)",
+        "B": "(3, ∞)",
+        "C": "(−5, 3)",
+        "D": "(−∞, ∞)",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "(x + 5)(x − 3) > 0 outside the roots.",
+        "x < −5 or x > 3. Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "quadratic-equations"
+      ],
+      "keywords": [
+        "alg-inequalities"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q12",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 12,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "If log x = 0.8451 and log y = 3.8451, then",
+      "options": {
+        "A": "x = 10y",
+        "B": "y = 1000x",
+        "C": "y = 100x",
+        "D": "10x = y",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "log y − log x = 3, so log(y/x) = 3.",
+        "y/x = 10³ = 1000. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "alg-logarithms"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q13",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 13,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The solution set of 5 log(6x + 25) = log(x + 3) is",
+      "options": {
+        "A": "{4}",
+        "B": "{−4}",
+        "C": "{−4, 4}",
+        "D": "∅",
+        "E": "None of the above."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "This requires (6x + 25)^5 = x + 3, with 6x + 25 > 0 and x + 3 > 0.",
+        "The only candidates that could keep the left side small fail the domain or the equation.",
+        "There is no solution. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "alg-logarithms"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q14",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 14,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "If y varies inversely as the square of x and y = 20 when x = 4, then y when x = 10 is",
+      "options": {
+        "A": "32",
+        "B": "8",
+        "C": "0.8",
+        "D": "3.2",
+        "E": "None of the above."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "y = k/x² and 20 = k/16, so k = 320.",
+        "When x = 10, y = 320/100 = 3.2. Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "linear-equations"
+      ],
+      "keywords": [
+        "alg-variation"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q15",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 15,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "A chemist has 80% and 60% sulphuric-acid solutions. How many litres of each make 200 litres of 65% solution?",
+      "options": {
+        "A": "100 and 100",
+        "B": "50 and 150",
+        "C": "80 and 120",
+        "D": "75 and 125",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Let a be litres of 80% solution: 0.8a + 0.6(200 − a) = 130.",
+        "0.2a = 10, so a = 50 and the 60% amount is 150. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "linear-systems"
+      ],
+      "keywords": [
+        "alg-mixtures"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q16",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 16,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The nth term of an arithmetic progression whose first n terms add to n² + 5n is",
+      "options": {
+        "A": "n + 1",
+        "B": "2(n + 1)",
+        "C": "2(n + 2)",
+        "D": "2n − 3",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "a_n = S_n − S_(n−1) = (n² + 5n) − ((n−1)² + 5(n−1)).",
+        "This simplifies to 2n + 4 = 2(n + 2). Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "sequences-series"
+      ],
+      "keywords": [
+        "alg-sequences"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q17",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 17,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The sum of the infinite series whose nth term is (1/2)^n is",
+      "options": {
+        "A": "1",
+        "B": "1/2",
+        "C": "Infinite",
+        "D": "0",
+        "E": "None of the above."
+      },
+      "answer": "A",
+      "accepted_answers": [
+        "A"
+      ],
+      "explanation_steps": [
+        "This is a geometric series with first term 1/2 and ratio 1/2.",
+        "Sum = (1/2)/(1 − 1/2) = 1. Answer: A."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "sequences-series"
+      ],
+      "keywords": [
+        "alg-series"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q18",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 18,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "If (4, 625) is a point on y = a^x, the corresponding point on y = log_a x is",
+      "options": {
+        "A": "(1/4, 625)",
+        "B": "(625, 4)",
+        "C": "(625, 1/4)",
+        "D": "(4, 1/625)",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "(4, 625) on y = a^x means 625 = a^4, so a = 5.",
+        "The inverse graph swaps coordinates, giving (625, 4). Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "exponents-logarithms"
+      ],
+      "keywords": [
+        "alg-logarithms"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q19",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 19,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "Which of the following is not true?",
+      "options": {
+        "A": "sin(x + π/2) = cos x",
+        "B": "sin²x = (1 − cos 2x)/2",
+        "C": "sec²x = 1 − tan²x",
+        "D": "tan(π/2 − x) = cot x",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "sec²x = 1 + tan²x, not 1 − tan²x.",
+        "The other three identities are standard. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "trigonometry"
+      ],
+      "keywords": [
+        "alg-trigonometry"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q20",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 20,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The value of cot 15° is",
+      "options": {
+        "A": "2 − √3",
+        "B": "2 + √3",
+        "C": "−(√3 + 2)",
+        "D": "√3 − 2",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "tan 15° = 2 − √3, so cot 15° = 1/(2 − √3) = 2 + √3.",
+        "Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "trigonometry"
+      ],
+      "keywords": [
+        "alg-trigonometry"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q21",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 21,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The cost of sugar rose by 20%. Before the rise, a trader could buy 10 kg more for Nakfa 240. The cost of sugar before the increase, in Nakfa per kg, was",
+      "options": {
+        "A": "6",
+        "B": "4.50",
+        "C": "4",
+        "D": "5",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "240/p − 240/(1.2p) = 10.",
+        "240·(0.2)/(1.2p) = 10 gives 40/p = 10, so p = 4. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "business-mathematics"
+      ],
+      "keywords": [
+        "alg-percent"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q22",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 22,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The coefficient of x^4 in the expansion of (x − 4)^7 is",
+      "options": {
+        "A": "35",
+        "B": "28",
+        "C": "-270",
+        "D": "−560",
+        "E": "None of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "The x^4 term is C(7,3) x^4 (−4)^3 = 35·(−64) = −2240.",
+        "The printed choices are 35, 28, −270 and −560, so −2240 is not listed. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "polynomials"
+      ],
+      "keywords": [
+        "alg-binomial"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q23",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 23,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The point P = (−4, 3) divides AB in the ratio 2:3 from A to B. If A = (−1, −3), the coordinates of B are",
+      "options": {
+        "A": "(4, −3)",
+        "B": "(−8, 11)",
+        "C": "(−7/2, −9/2)",
+        "D": "(−8/7, 9/7)",
+        "E": "None of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "With AP:PB = 2:3, (−4, 3) = (3A + 2B)/5.",
+        "Solving gives B = (−17/2, 12), which is not among A–D. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "coordinate-geometry"
+      ],
+      "keywords": [
+        "alg-coordinate-geometry"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q24",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 24,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The equation of the line perpendicular to 3x − y + 5 = 0 and passing through (2, −3) is",
+      "options": {
+        "A": "x + 9y − 11 = 0",
+        "B": "y − 3x + 9 = 0",
+        "C": "x + 3y + 7 = 0",
+        "D": "x + 3y + 11 = 0",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The given line has slope 3, so a perpendicular line has slope −1/3.",
+        "y + 3 = (−1/3)(x − 2) simplifies to x + 3y + 7 = 0. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "coordinate-geometry"
+      ],
+      "keywords": [
+        "alg-coordinate-geometry"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q25",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 25,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "If the endpoints of a diameter are (3, −2) and (7, 6), the equation of the circle is",
+      "options": {
+        "A": "x² + y² − 10x − 4y − 51 = 0",
+        "B": "x² + y² + 10x + 4y + 9 = 0",
+        "C": "x² + y² − 10x − 4y + 9 = 0",
+        "D": "x² + y² − 6x + 4y − 7 = 0",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Centre (5, 2) and radius squared 20.",
+        "(x − 5)² + (y − 2)² = 20 expands to x² + y² − 10x − 4y + 9 = 0. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "circle-equation"
+      ],
+      "keywords": [
+        "alg-circles"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q27",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 27,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "Almaz secured the fifth-highest position in her class of 50 students. Her percentile rank is",
+      "options": {
+        "A": "P10",
+        "B": "P90",
+        "C": "P75",
+        "D": "P40",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Forty-five of the 50 students scored below her.",
+        "Percentile rank = (45/50)·100 = 90, so P90. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "statistics"
+      ],
+      "keywords": [
+        "alg-statistics"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q28",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 28,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The probability of selecting 2 boys and 2 girls from 6 boys and 4 girls is",
+      "options": {
+        "A": "1/14",
+        "B": "1/7",
+        "C": "1/35",
+        "D": "1/10",
+        "E": "None of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "C(6, 2)·C(4, 2)/C(10, 4) = 15·6/210 = 3/7.",
+        "3/7 is not among A–D. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "probability"
+      ],
+      "keywords": [
+        "alg-probability"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q29",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 29,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The figure formed by joining the midpoints of the sides of a quadrilateral is a",
+      "options": {
+        "A": "rhombus",
+        "B": "parallelogram",
+        "C": "rectangle",
+        "D": "trapezoid",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Varignon’s theorem: the midpoint quadrilateral of any quadrilateral is a parallelogram.",
+        "It need not be a rhombus or a rectangle. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "polygons-congruence"
+      ],
+      "keywords": [
+        "geo-quadrilaterals"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q30",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 30,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The point equidistant from the sides of a triangle is the intersection of the",
+      "options": {
+        "A": "altitudes",
+        "B": "angle bisectors",
+        "C": "perpendicular bisectors of the sides",
+        "D": "medians",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "A point equidistant from the sides is the incentre.",
+        "The incentre is the intersection of the angle bisectors. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "geometric-reasoning"
+      ],
+      "keywords": [
+        "geo-triangles"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q31",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 31,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "If x, 5, 6 and 4, 10, z are corresponding sides of two similar triangles, then",
+      "options": {
+        "A": "x = 2, z = 10",
+        "B": "x = 3, z = 12",
+        "C": "x = 2, z = 12",
+        "D": "x = 4, z = 8",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The scale factor is 5/10 = 1/2.",
+        "x/4 = 1/2 gives x = 2, and 6/z = 1/2 gives z = 12. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "similar-triangles"
+      ],
+      "keywords": [
+        "geo-similarity"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q34",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 34,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "In triangle ABC, AB = 10, AD = 3, EC = 7 and DE ∥ BC. Then AE equals",
+      "options": {
+        "A": "2.1",
+        "B": "3",
+        "C": "4",
+        "D": "2",
+        "E": "None of the above."
+      },
+      "answer": "B",
+      "accepted_answers": [
+        "B"
+      ],
+      "explanation_steps": [
+        "Because DE ∥ BC, AD/AB = AE/AC.",
+        "3/10 = AE/(AE + 7) gives AE = 3. Answer: B."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "similar-triangles"
+      ],
+      "keywords": [
+        "geo-similarity"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q35",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 35,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The area of a regular 12-sided polygon inscribed in a circle of radius 4 cm is",
+      "options": {
+        "A": "96",
+        "B": "24",
+        "C": "72",
+        "D": "48",
+        "E": "None of the above."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "Area = (12/2)·4²·sin(30°) = 96·(1/2) = 48 cm².",
+        "Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "polygons-congruence",
+        "mensuration"
+      ],
+      "keywords": [
+        "geo-polygons"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q36",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 36,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "The line x + y = 3 is rotated about the origin through 90° anticlockwise. The equation of its image is",
+      "options": {
+        "A": "y = x + 3",
+        "B": "y = −x",
+        "C": "y − x − 3 = 0",
+        "D": "x + y = −1",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "A 90° anticlockwise rotation sends (x, y) to (−y, x).",
+        "Points on x + y = 3 map to points satisfying y − x = 3, or y − x − 3 = 0. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "transformations"
+      ],
+      "keywords": [
+        "geo-transformations"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q37",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 37,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "Two circles of radii r1 and r2 touch externally. The length of a common external tangent is",
+      "options": {
+        "A": "√(r1 + r2)",
+        "B": "|r1 − r2|",
+        "C": "√(r1 r2)",
+        "D": "2√(r1 r2)",
+        "E": "None of the above."
+      },
+      "answer": "D",
+      "accepted_answers": [
+        "D"
+      ],
+      "explanation_steps": [
+        "For external contact the centre distance is r1 + r2.",
+        "External tangent length = √((r1 + r2)² − (r1 − r2)²) = 2√(r1 r2). Answer: D."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "circle-geometry"
+      ],
+      "keywords": [
+        "geo-circles"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q38",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 38,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "A translation shifts (1, 3) onto (4, 2). The pre-image of (9, 9) is",
+      "options": {
+        "A": "(6, 8)",
+        "B": "(8, 6)",
+        "C": "(10, 0)",
+        "D": "(0, 10)",
+        "E": "None of the above."
+      },
+      "answer": "E",
+      "accepted_answers": [
+        "E"
+      ],
+      "explanation_steps": [
+        "The translation vector is (3, −1).",
+        "The pre-image is (9 − 3, 9 − (−1)) = (6, 10), which is not among A–D. Answer: E."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "transformations"
+      ],
+      "keywords": [
+        "geo-transformations"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q39",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 39,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "A peacock on a tree sees a snake 20 m from the base. The straight-line distances from the peacock to the snake are 25 m at the start and 17 m where it is caught. The further distance the snake would have needed to reach the hole at the base is",
+      "options": {
+        "A": "7",
+        "B": "√11",
+        "C": "8",
+        "D": "0",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "Tree height √(25² − 20²) = 15 m.",
+        "At capture, distance from the base is √(17² − 15²) = 8 m, so 8 m remained. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "trigonometry"
+      ],
+      "keywords": [
+        "geo-pythagoras"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    },
+    {
+      "id": "alg-geo-2000-matric-p1-q40",
+      "exam_id": "alg-geo-2000-matric",
+      "part": 1,
+      "number": 40,
+      "type": "mcq",
+      "marks": 2,
+      "stem": "A rectangle ABCD with AB = 3 cm is inscribed in a circle of radius √3 cm. The measure of angle ACB is",
+      "options": {
+        "A": "22.5°",
+        "B": "30°",
+        "C": "60°",
+        "D": "45°",
+        "E": "None of the above."
+      },
+      "answer": "C",
+      "accepted_answers": [
+        "C"
+      ],
+      "explanation_steps": [
+        "The diagonal is the diameter 2√3, so BC = √((2√3)² − 3²) = √3.",
+        "tan(angle ACB) = AB/BC = √3, so the angle is 60°. Answer: C."
+      ],
+      "tips": [],
+      "similar_questions": [],
+      "topics": [
+        "circle-geometry"
+      ],
+      "keywords": [
+        "geo-circles"
+      ],
+      "confidence": "high",
+      "review_flag": false
+    }
+  ]
+}
