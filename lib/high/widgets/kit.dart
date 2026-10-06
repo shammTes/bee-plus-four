@@ -586,19 +586,39 @@ class Field extends StatefulWidget {
   State<Field> createState() => _FieldState();
 }
 
-class _FieldState extends State<Field> {
+class _FieldState extends State<Field> with WidgetsBindingObserver {
   late final TextEditingController _c = widget.controller ?? TextEditingController();
   final _f = FocusNode();
+  bool _had = false;
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _c.addListener(_l);
     _f.addListener(_l);
   }
 
-  void _l() => setState(() {});
+  void _l() {
+    setState(() {});
+    if (_f.hasFocus && !_had) {
+      // Wait for the keyboard to open (and KeyboardInset to shrink the page), then reveal the field.
+      for (final d in const [Duration(milliseconds: 120), Duration(milliseconds: 420)]) {
+        Future<void>.delayed(d, () {
+          if (mounted && _f.hasFocus) revealAboveKeyboard(context);
+        });
+      }
+    }
+    _had = _f.hasFocus;
+  }
+
+  @override
+  void didChangeMetrics() {
+    if (_f.hasFocus) WidgetsBinding.instance.addPostFrameCallback((_) => mounted && _f.hasFocus ? revealAboveKeyboard(context) : null);
+  }
+
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _c.removeListener(_l);
     if (widget.controller == null) _c.dispose();
     _f.dispose();
@@ -617,6 +637,7 @@ class _FieldState extends State<Field> {
           key: widget.fieldKey,
           controller: _c,
           focusNode: _f,
+          scrollPadding: const EdgeInsets.fromLTRB(20, 20, 20, 72),
           style: st,
           cursorColor: p.sage.deep,
           backgroundCursorColor: p.ink3,

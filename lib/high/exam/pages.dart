@@ -99,7 +99,7 @@ class _CardsScreenState extends State<_CardsScreen> {
               behavior: const NoGlow(),
               child: ListView.builder(
                 controller: _sc,
-                padding: EdgeInsets.fromLTRB(16, 0, 16, kScreenBottom + MediaQuery.paddingOf(context).bottom),
+                padding: EdgeInsets.fromLTRB(16, 0, 16, screenBottom(context)),
                 cacheExtent: Perf.cacheExtent(context),
                 addAutomaticKeepAlives: false,
                 itemCount: items.length,

@@ -114,7 +114,31 @@ class TutorPage extends StatefulWidget {
   State<TutorPage> createState() => _TutorPageState();
 }
 
-class _TutorPageState extends State<TutorPage> {
+class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
+  bool _kbOpen = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  /// Keyboard opened: the chat list just got shorter, so keep the latest messages in view.
+  @override
+  void didChangeMetrics() {
+    if (!mounted) return;
+    final view = View.maybeOf(context);
+    final open = (view?.viewInsets.bottom ?? 0) > 0;
+    if (open == _kbOpen) return;
+    _kbOpen = open;
+    if (!open) return;
+    for (final d in const [Duration(milliseconds: 60), Duration(milliseconds: 320)]) {
+      Future<void>.delayed(d, () {
+        if (mounted && _sc.hasClients) _sc.jumpTo(_sc.position.maxScrollExtent);
+      });
+    }
+  }
+
   final _c = TextEditingController();
   final _sc = ScrollController();
 
@@ -169,6 +193,7 @@ class _TutorPageState extends State<TutorPage> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _c.dispose();
     _sc.dispose();
     super.dispose();
@@ -247,7 +272,7 @@ class _TutorPageState extends State<TutorPage> {
             child: Row(spacing: 8, children: [for (final t in _sugg(r)) ChipX(t, small: true, icon: 'sparkle', onTap: () => _ask(t))]),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(16, 0, 16, kScreenBottom - 20 + MediaQuery.paddingOf(context).bottom),
+            padding: EdgeInsets.fromLTRB(16, 0, 16, screenBottom(context, kScreenBottom - 20)),
             child: Row(
               spacing: 8,
               children: [

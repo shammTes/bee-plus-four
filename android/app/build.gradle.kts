@@ -15,10 +15,18 @@ android {
 
     defaultConfig {
         applicationId = "com.four.student"
-        minSdk = 23
+        minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+    }
+
+    packaging {
+        jniLibs {
+            // Text-recognition native lib is ~11 MB per ABI. Real phones are ARM; on x86_64
+            // (emulators / some Chromebooks) the scanner skips text reading and still reads QR.
+            excludes += "lib/x86_64/libmlkit_google_ocr_pipeline.so"
+        }
     }
 
     buildTypes {
@@ -39,11 +47,16 @@ flutter {
 }
 
 dependencies {
-    // Decode QR from a still photo taken by the system camera app (low-end friendly).
+    // Bundled (offline) ML Kit models — no Google Play Services download needed.
     implementation("com.google.mlkit:barcode-scanning:17.3.0")
+    implementation("com.google.mlkit:text-recognition:16.0.1")
+    // In-app live camera for the unlock scanner.
+    implementation("androidx.camera:camera-camera2:1.4.2")
+    implementation("androidx.camera:camera-lifecycle:1.4.2")
+    implementation("androidx.camera:camera-view:1.4.2")
     implementation("androidx.exifinterface:exifinterface:1.3.7")
-    // Second decoder when ML Kit misses a still-photo QR (orientation / contrast).
+    // Second QR decoder for still photos.
     implementation("com.google.zxing:core:3.5.3")
-    // Live QR capture UI (offline, no Play Services barcode UI).
-    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
+
+    testImplementation("junit:junit:4.13.2")
 }
