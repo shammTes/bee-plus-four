@@ -178,7 +178,7 @@ class _HomePageState extends State<HomePage> {
         // ≤720p H.264 main + AAC 96k, moov at the front: smooth on low-end phones and small files
         setState(() => it.status = 'transcoding to 720p…');
         tmp = p.join(Directory.systemTemp.path, 'four_${DateTime.now().microsecondsSinceEpoch}.mp4');
-        final r = await Process.run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', it.path, '-vf', "scale='min(1280,iw)':-2", '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '26', '-profile:v', 'main', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', tmp]);
+        final r = await Process.run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', it.path, '-vf', it.type == FourType.reel ? 'scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280,setsar=1' : "scale='min(1280,iw)':-2", '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '26', '-profile:v', 'main', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', tmp]);
         if (r.exitCode != 0) {
           setState(() => it.status = 'transcode failed (is ffmpeg installed?)');
           continue;
@@ -342,7 +342,7 @@ class _HomePageState extends State<HomePage> {
         DropdownButton<int>(value: bGrade, items: [for (final g in [9, 10, 11, 12]) DropdownMenuItem(value: g, child: Text('Grade $g'))], onChanged: (v) => setState(() => bGrade = v!)),
         SizedBox(width: 90, child: TextField(decoration: const InputDecoration(labelText: 'Unit'), onChanged: (v) => bUnit = v)),
         OutlinedButton(onPressed: _applyBatch, child: const Text('Apply to selected')),
-        Row(mainAxisSize: MainAxisSize.min, children: [Checkbox(value: transcode, onChanged: (v) => setState(() => transcode = v!)), const Text('Videos: transcode to 720p (ffmpeg)')]),
+        Row(mainAxisSize: MainAxisSize.min, children: [Checkbox(value: transcode, onChanged: (v) => setState(() => transcode = v!)), const Text('Videos: transcode to 720p (reels: 9:16 720×1280)')]),
       ],
     ),
   );
