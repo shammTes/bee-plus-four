@@ -12,3 +12,9 @@
 # already cover this; kept explicit because R8 full mode stripped reflective constructors before (see above).
 -keep class com.github.dart_lang.jni.** { *; }
 -keep class dev.dint.cryptography_flutter.** { *; }
+
+# Encrypted video (Stage 2): media3 ships its own consumer rules (it loads optional extension renderers by
+# reflection and tolerates their absence). Keep our DataSource/reader names readable in crash logs.
+-keep class com.warsay.high.FourDataSource { *; }
+-keep class com.warsay.high.FourChunkReader { *; }
+-dontwarn androidx.media3.**

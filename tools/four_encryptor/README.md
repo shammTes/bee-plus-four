@@ -13,7 +13,8 @@ Windows: same source, `flutter run -d windows` (the master key goes to Windows C
 
 ## Use
 1. Drag PDFs (or a folder) onto the window. A thumbnail is made from page 1 (click it to choose another image).
-   Videos need `ffmpeg` on PATH for thumbnails (`brew install ffmpeg`).
+   Videos need `ffmpeg`/`ffprobe` on PATH (`brew install ffmpeg`) for thumbnail, duration and the optional
+   **transcode to 720p** (H.264 main + AAC 96k, faststart — recommended for low-end phones; on by default).
 2. Set title / subject / grade / unit per row, or set them in the top bar and **Apply to selected**.
 3. **Encrypt selected** → choose an output folder. Each file is encrypted in a background isolate, chunk by chunk.
 4. Copy the output files to the phone (cable or SHAREit), then in 4: Home → Extra resources → Refresh.

@@ -1,5 +1,6 @@
 // Add-on resources UI: Home card, Resources page, "Extra resources" strip on notes unit pages.
 // The PDF viewer (pdfrx / PDFium) lives in pdf_page.dart and is only built when a PDF is opened.
+import 'package:flutter/foundation.dart' show Uint8List;
 import 'package:flutter/widgets.dart';
 import 'package:four_format/four_format.dart';
 
@@ -11,18 +12,17 @@ import '../high/widgets/page.dart';
 import '../licensing/lock_screen.dart';
 import 'gate.dart';
 import 'library.dart';
+import 'native_video.dart' show fmtMs;
 import 'pdf_page.dart';
+import 'video_page.dart';
 
 String _subjectLabel(String s) => s.isEmpty ? 'General' : s.split('_').map((w) => w.isEmpty ? w : '${w[0].toUpperCase()}${w.substring(1)}').join(' ');
 
 void openResource(BuildContext context, ResEntry e) {
   final lib = ResourceLibrary.instance;
   if (lib.mode == GateMode.locked) return openUnlock(context);
-  if (e.meta.type != FourType.pdf) {
-    toast(context, 'Videos arrive in the next update of 4.');
-    return;
-  }
-  HighNav.of(context).push(PdfResourcePage(entry: e));
+  // reels (Stage 3 feed) open in the same 16:9 player for now
+  HighNav.of(context).push(e.meta.type == FourType.pdf ? PdfResourcePage(entry: e) : VideoResourcePage(entry: e));
 }
 
 void openUnlock(BuildContext context) {
@@ -63,7 +63,7 @@ class ResourcesCard extends StatelessWidget implements Spaced {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Extra resources', style: ts(15, w900, p.ink)),
-                Text('Add-on PDFs from your teacher · tap Refresh after copying files', style: ts(12.5, w700, p.ink2)),
+                Text('Add-on PDFs and videos · tap Refresh after copying files', style: ts(12.5, w700, p.ink2)),
               ],
             ),
           ),
@@ -144,7 +144,7 @@ class _ResourcesPageState extends State<ResourcesPage> {
               spacing: 8,
               children: [
                 Text('How to add files', style: ts(14.5, w900, p.ink)),
-                Text('1. Copy the .4pdf files to this phone (cable or SHAREit).\n2. Choose that folder once.\n3. Tap Refresh. Files are copied inside 4; you can then delete the originals.', style: ts(13, w700, p.ink2, height: 1.4)),
+                Text('1. Copy the .4pdf / .4vid files to this phone (cable or SHAREit).\n2. Choose that folder once.\n3. Tap Refresh. Files are copied inside 4; you can then delete the originals.', style: ts(13, w700, p.ink2, height: 1.4)),
                 Row(
                   spacing: 10,
                   children: [
@@ -216,6 +216,28 @@ class _Thumb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = Kit.of(context).p, t = e.thumb;
+    final video = e.meta.type != FourType.pdf;
+    final img = _img(p, t);
+    if (!video) return img;
+    return Stack(
+      children: [
+        img,
+        Positioned(
+          right: 4,
+          bottom: 4,
+          child: DecoratedBox(
+            decoration: BoxDecoration(color: const Color(0xCC000000), borderRadius: BorderRadius.circular(5)),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+              child: Text(e.meta.durationMs != null ? fmtMs(e.meta.durationMs!) : '▶', style: ts(10, w900, const Color(0xFFFFFFFF))),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _img(Palette p, Uint8List? t) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: SizedBox(
@@ -253,7 +275,7 @@ class ResourceTile extends StatelessWidget {
               children: [
                 Text(m.title, maxLines: 2, overflow: TextOverflow.ellipsis, style: ts(14.5, w900, p.ink)),
                 Text('${_subjectLabel(m.subject)} · Grade ${m.grade}${m.unit.isNotEmpty ? ' · Unit ${m.unit}' : ''}', style: ts(12.5, w700, p.ink2)),
-                Text('${m.type.name.toUpperCase()} · ${(entry.size / 1e6).toStringAsFixed(1)} MB', style: ts(11.5, w700, p.ink3)),
+                Text('${m.type.name.toUpperCase()}${m.durationMs != null ? ' · ${fmtMs(m.durationMs!)}' : ''} · ${(entry.size / 1e6).toStringAsFixed(1)} MB', style: ts(11.5, w700, p.ink3)),
               ],
             ),
           ),
