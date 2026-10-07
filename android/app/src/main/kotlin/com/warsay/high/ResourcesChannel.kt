@@ -73,6 +73,20 @@ class ResourcesChannel(private val activity: FlutterFragmentActivity) {
                         }
                     }
                 }
+                "listApks" -> {
+                    // offline update: APKs shared via SHAREit / cable into the chosen folder
+                    val u = Uri.parse(call.argument<String>("uri"))
+                    io.execute {
+                        try {
+                            val apks = ArrayList<Map<String, Any?>>()
+                            val root = DocumentsContract.buildDocumentUriUsingTree(u, DocumentsContract.getTreeDocumentId(u))
+                            walk(u, DocumentsContract.getDocumentId(root), 0, ArrayList(), apks)
+                            activity.runOnUiThread { result.success(apks) }
+                        } catch (e: Throwable) {
+                            activity.runOnUiThread { result.error("list", "${e.javaClass.simpleName}: ${e.message}", null) }
+                        }
+                    }
+                }
                 "importFile" -> {
                     val u = Uri.parse(call.argument<String>("uri"))
                     val dest = File(call.argument<String>("dest")!!)
@@ -105,7 +119,7 @@ class ResourcesChannel(private val activity: FlutterFragmentActivity) {
         }
     }
 
-    private fun walk(tree: Uri, docId: String, depth: Int, out: ArrayList<Map<String, Any?>>) {
+    private fun walk(tree: Uri, docId: String, depth: Int, out: ArrayList<Map<String, Any?>>, apks: ArrayList<Map<String, Any?>>? = null) {
         val children = DocumentsContract.buildChildDocumentsUriUsingTree(tree, docId)
         val cols = arrayOf(
             DocumentsContract.Document.COLUMN_DOCUMENT_ID,
@@ -120,9 +134,14 @@ class ResourcesChannel(private val activity: FlutterFragmentActivity) {
                 val mime = c.getString(2) ?: ""
                 val size = if (c.isNull(3)) 0L else c.getLong(3)
                 if (mime == DocumentsContract.Document.MIME_TYPE_DIR) {
-                    if (depth < 3) walk(tree, id, depth + 1, out)
+                    if (depth < 3) walk(tree, id, depth + 1, out, apks)
                     continue
                 }
+                if (apks != null && (name.endsWith(".apk", true) || mime == "application/vnd.android.package-archive")) {
+                    apks.add(mapOf("uri" to DocumentsContract.buildDocumentUriUsingTree(tree, id).toString(), "name" to name, "size" to size))
+                    continue
+                }
+                if (apks != null) continue
                 if (size in 1..63) continue
                 val docUri = DocumentsContract.buildDocumentUriUsingTree(tree, id)
                 // detect by magic bytes, not extension (SHAREit/Bluetooth may rename files)

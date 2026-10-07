@@ -19,6 +19,7 @@ import 'notes_home.dart';
 import 'routes.dart';
 import '../teacher/teacher.dart';
 import '../../resources/resources_ui.dart' show ResourcesCard;
+import '../../update/update_ui.dart' show UpdateCard;
 
 /// descent of the 16px Nunito strut under an inline `<svg>` (web line box)
 const kSvgDescent = 16 * .353;
@@ -55,6 +56,7 @@ class HomePage extends StatelessWidget {
       body: ScreenList(
         controller: controller,
         children: Stagger.wrap([
+          const UpdateCard(),
           _Hero(name: name, sub: sub, cta: st.fresh ? 'Start studying' : 'Continue studying'),
           const _Grades(),
           const TeacherCard(),
