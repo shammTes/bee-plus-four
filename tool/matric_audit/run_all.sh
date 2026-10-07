@@ -8,6 +8,7 @@ python3 tool/matric_audit/fix_images.py
 python3 tool/matric_audit/dedupe.py
 python3 tool/matric_audit/dedupe_within.py
 python3 tool/matric_audit/renumber.py
+python3 tool/matric_audit/attach_figures.py
 python3 tool/matric_audit/apply_fixes.py
 python3 tool/exam_summary.py
 python3 tools/map_unit_questions.py

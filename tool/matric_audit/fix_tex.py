@@ -16,6 +16,11 @@ def fix_math(m: str) -> str:
     if OVER.search(m):
         m = re.sub(r'\\+', lambda r: r[0] if len(r[0]) % 2 else '\\' * (len(r[0]) // 2), m)
     m = re.sub(r'(?<!\\)\$', r'\\$', m)
+    # JSON escapes that ate a backslash upstream: "\frac" -> form-feed (then dropped) + "rac", "\bar" -> "ar",
+    # "\text"/"\times"/"\theta" -> TAB + "ext"/"imes"/"heta".
+    m = re.sub(r'\t(?=(?:ext|imes|heta|au|an|riangle)\b|ext\{)', r'\\t', m)
+    m = re.sub(r'(?<![A-Za-z\\])rac\{', r'\\frac{', m)
+    m = re.sub(r'(?<![A-Za-z\\])ar\{', r'\\bar{', m)
     m = re.sub(r'\\text\{\s*(\\[a-zA-Z]+)\s*\}', r'\\,\1', m)  # \text{ \Omega} -> \,\Omega
     m = re.sub(r'\\text\{\s*_{2,}\s*\}', r'\\underline{\\qquad}', m)
     return m
@@ -25,7 +30,9 @@ def fix_str(s: str) -> str:
     def rep(r):
         g = [x for x in r.groups() if x is not None]
         return g[0] + fix_math(g[1]) + g[2]
-    return SEG.sub(rep, s)
+    s = SEG.sub(rep, s)
+    # same eaten "\\f" in math that SEG cannot see (unbalanced $$): only when it is clearly \frac{..}{..}
+    return re.sub(r'(?<=[\s=($-])rac\{', r'\\frac{', s)
 
 
 def walk(x):
