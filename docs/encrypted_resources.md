@@ -53,3 +53,23 @@ footer = "4END" | HMAC-SHA256(HKDF(CK,"4RES-footer-v1"), preamble | tag_0 … ta
 
 Tests: `cd packages/four_format && dart test` (round-trip, chunk seek, tamper, swap, truncation, wrong key) and
 `flutter test test/resources_gate_test.dart` (locked / legacy / strong / forged proof).
+
+## Stage 2: 16:9 encrypted video
+**Playback path:** `.4vid` → `FourChunkReader.kt` (javax.crypto AES-GCM, one 256 KiB chunk per read, last chunk cached) →
+`FourDataSource` (media3 `BaseDataSource`, honours range position/length) → ExoPlayer → Flutter `SurfaceProducer` texture.
+Dart only unwraps the content key (gate-checked) and hands it to native memory: no HTTP server, no temp file, no Dart in the byte path.
+
+Why not loopback HTTP + video_player: bytes would be decrypted in Dart (pure Dart ≈ 9 MB/s on a desktop, far less on a
+low-end phone) or bounced through a channel per chunk, plus an open local port. Why not media_kit: libmpv adds ~8–12 MB
+per ABI. media3-exoplayer core alone added +0.8 MB to the universal APK (147.0 → 147.8 MB).
+
+**Player** (`lib/resources/video_page.dart`): seek bar (drag/tap, buffered track), 0.5–2× speed, fullscreen = landscape +
+immersive (back exits fullscreen), double-tap left/right ∓10 s, tap toggles controls (auto-hide 3 s), FLAG_SECURE,
+resume position (saved every 3 s and on close; cleared near the end). Reels open in this player until Stage 3.
+
+**Encryptor:** CLI `--transcode720` (ffmpeg → ≤720p H.264 main + AAC 96k + faststart), duration via ffprobe, thumbnail via
+ffmpeg. Mac app: same, transcode checkbox (on by default).
+
+**Tests:** `cd android && ./gradlew :app:testDebugUnitTest` (FourChunkReaderTest: full read, seek = 1 chunk + cache,
+DataSource ranges, wrong key, tampered chunk, truncated file, throughput); `dart test` in four_format (pure-Dart benchmark);
+`flutter test test/native_video_test.dart`.

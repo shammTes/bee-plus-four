@@ -29,6 +29,11 @@ android {
         }
     }
 
+    // JVM unit tests (FourChunkReaderTest) call into android.jar stubs only for Uri
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
+
     buildTypes {
         release {
             signingConfig = signingConfigs.getByName("debug")
@@ -57,6 +62,11 @@ dependencies {
     implementation("androidx.exifinterface:exifinterface:1.3.7")
     // Second QR decoder for still photos.
     implementation("com.google.zxing:core:3.5.3")
+    // Encrypted add-on videos: ExoPlayer core only (no UI / DASH / HLS modules) fed by FourDataSource.
+    implementation("androidx.media3:media3-exoplayer:1.11.1")
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.mockito:mockito-core:5.14.2")
 
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.mockito:mockito-core:5.14.2")
 }

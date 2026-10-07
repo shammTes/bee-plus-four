@@ -113,5 +113,8 @@ class FourReader {
 
   Future<Uint8List> readAll() => readRange(0, length);
 
+  /// Content key for a native decryptor (Android video DataSource). Only call after the unlock gate released the MK.
+  Future<Uint8List> contentKey() async => Uint8List.fromList(await _ck.extractBytes());
+
   Future<void> close() => source.close();
 }

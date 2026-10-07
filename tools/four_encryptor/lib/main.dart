@@ -44,6 +44,7 @@ class Item {
   int grade = 11;
   FourType type;
   Uint8List? thumb;
+  int? durationMs;
   String status = 'ready';
   double progress = 0;
   bool selected = true;
@@ -82,7 +83,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final items = <Item>[];
-  bool dragging = false, busy = false, devKey = true;
+  bool dragging = false, busy = false, devKey = true, transcode = true;
   String? outDir;
   final batchCtl = TextEditingController(text: 'batch-${DateTime.now().toIso8601String().substring(0, 10)}');
 
@@ -125,6 +126,10 @@ class _HomePageState extends State<HomePage> {
         }
         await doc.dispose();
       } else {
+        // duration via ffprobe (optional)
+        final pr = await Process.run('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=nw=1:nk=1', it.path]);
+        final sec = double.tryParse('${pr.stdout}'.trim());
+        if (sec != null) it.durationMs = (sec * 1000).round();
         // video: needs ffmpeg on PATH (brew install ffmpeg / winget install ffmpeg)
         final tmp = p.join(Directory.systemTemp.path, 'four_thumb_${DateTime.now().microsecondsSinceEpoch}.jpg');
         final r = await Process.run('ffmpeg', ['-y', '-ss', '2', '-i', it.path, '-frames:v', '1', '-vf', 'scale=320:-2', '-q:v', '6', tmp]);
@@ -167,13 +172,27 @@ class _HomePageState extends State<HomePage> {
     final batch = FourBatch.create(batchCtl.text.trim().isEmpty ? 'batch' : batchCtl.text.trim());
     for (final it in items.where((i) => i.selected)) {
       setState(() => it.status = 'encrypting…');
-      final meta = FourMeta(title: it.title, subject: it.subject, grade: it.grade, unit: it.unit, type: it.type, mime: it.mime);
+      var input = it.path;
+      String? tmp;
+      if (it.type != FourType.pdf && transcode) {
+        // ≤720p H.264 main + AAC 96k, moov at the front: smooth on low-end phones and small files
+        setState(() => it.status = 'transcoding to 720p…');
+        tmp = p.join(Directory.systemTemp.path, 'four_${DateTime.now().microsecondsSinceEpoch}.mp4');
+        final r = await Process.run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', it.path, '-vf', "scale='min(1280,iw)':-2", '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '26', '-profile:v', 'main', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', tmp]);
+        if (r.exitCode != 0) {
+          setState(() => it.status = 'transcode failed (is ffmpeg installed?)');
+          continue;
+        }
+        input = tmp;
+      }
+      setState(() => it.status = 'encrypting…');
+      final meta = FourMeta(title: it.title, subject: it.subject, grade: it.grade, unit: it.unit, type: it.type, mime: it.type == FourType.pdf ? it.mime : (tmp != null ? 'video/mp4' : it.mime), durationMs: it.durationMs);
       final dest = p.join(out, '${p.basenameWithoutExtension(it.path)}${FourMeta.extensionFor(it.type)}');
       final port = ReceivePort();
       port.listen((m) {
         if (m is double && mounted) setState(() => it.progress = m);
       });
-      final send = port.sendPort, src = it.path, thumb = it.thumb, bk = batch.key, bid = batch.id;
+      final send = port.sendPort, src = input, thumb = it.thumb, bk = batch.key, bid = batch.id;
       try {
         // heavy work off the UI thread; streams chunk by chunk so large videos never sit in RAM
         await Isolate.run(() async {
@@ -191,6 +210,11 @@ class _HomePageState extends State<HomePage> {
         setState(() => it.status = 'failed: $e');
       } finally {
         port.close();
+        if (tmp != null) {
+          try {
+            await File(tmp).delete();
+          } catch (_) {}
+        }
       }
     }
     setState(() => busy = false);
@@ -318,6 +342,7 @@ class _HomePageState extends State<HomePage> {
         DropdownButton<int>(value: bGrade, items: [for (final g in [9, 10, 11, 12]) DropdownMenuItem(value: g, child: Text('Grade $g'))], onChanged: (v) => setState(() => bGrade = v!)),
         SizedBox(width: 90, child: TextField(decoration: const InputDecoration(labelText: 'Unit'), onChanged: (v) => bUnit = v)),
         OutlinedButton(onPressed: _applyBatch, child: const Text('Apply to selected')),
+        Row(mainAxisSize: MainAxisSize.min, children: [Checkbox(value: transcode, onChanged: (v) => setState(() => transcode = v!)), const Text('Videos: transcode to 720p (ffmpeg)')]),
       ],
     ),
   );
@@ -348,6 +373,7 @@ class _HomePageState extends State<HomePage> {
                     DropdownButton<int>(value: it.grade, items: [for (final g in [9, 10, 11, 12]) DropdownMenuItem(value: g, child: Text('G$g'))], onChanged: (v) => setState(() => it.grade = v!)),
                     SizedBox(width: 70, child: TextFormField(key: ValueKey('u${it.path}${it.unit}'), initialValue: it.unit, decoration: const InputDecoration(labelText: 'Unit', isDense: true), onChanged: (v) => it.unit = v)),
                     DropdownButton<FourType>(value: it.type, items: [for (final t in FourType.values) DropdownMenuItem(value: t, child: Text(t.name))], onChanged: (v) => setState(() => it.type = v!)),
+                    if (it.durationMs != null) Text('${(it.durationMs! / 60000).floor()}:${((it.durationMs! ~/ 1000) % 60).toString().padLeft(2, '0')}'),
                     Text(it.status, style: const TextStyle(fontSize: 12)),
                   ],
                 ),
