@@ -50,6 +50,7 @@ class UnitPageState extends State<UnitPage> {
   final _cardKeys = <String, GlobalKey>{};
   final _secKeys = <String, GlobalKey>{};
   final _gameKeys = <String, GlobalKey>{};
+  final _quizKeys = <String, GlobalKey>{};
   String? _jumpOn;
   Timer? _progT;
   bool _focused = false;
@@ -503,11 +504,14 @@ class UnitPageState extends State<UnitPage> {
     ];
 
     final quizBuilders = <Widget Function()>[
+      // keyed like cards so the jump bar's [_seek] can find its place inside a long quiz (a long unkeyed run of
+      // questions gave it nothing to measure, and it kept stepping the wrong way past the "Unit quiz" heading)
       for (final (i, q) in u.exercise.questions.indexed)
-        () {
+        tag(_quizKeys.putIfAbsent(q.id, GlobalKey.new), () {
           final qi = i;
           final qq = q;
           return Padding(
+            key: _quizKeys[qq.id],
             padding: const EdgeInsets.only(bottom: 22),
             child: QCard(
               key: ValueKey('${u.id}/${qq.id}/${NotesSession.ex(u.id).hashCode}'),
@@ -518,7 +522,7 @@ class UnitPageState extends State<UnitPage> {
               onChecked: () => setState(() {}),
             ),
           );
-        },
+        }),
       () => Padding(
         padding: const EdgeInsets.only(bottom: 12),
         child: QSummary(u: u, onReset: () => _resetEx(u)),
