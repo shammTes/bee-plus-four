@@ -29,6 +29,10 @@ class UnlockStore {
   static const _flagKey = 'four_highschool_unlocked';
   static const _nonceKey = 'four_used_nonces';
 
+  /// Called after a fresh, valid unlock (add-on resources store their unlock proof here).
+  /// Failures are ignored: the unlock itself must never fail because of it.
+  static Future<void> Function(String deviceId, String nonce)? onFreshUnlock;
+
   SharedPreferences? _prefs;
   String? _deviceId;
 
@@ -90,6 +94,9 @@ class UnlockStore {
     }
     await prefs.setBool(_flagKey, true);
     await prefs.setStringList(_nonceKey, [...used, payload.nonce]);
+    try {
+      await onFreshUnlock?.call(current, payload.nonce);
+    } catch (_) {}
     return const UnlockResult.ok('4 is unlocked on this phone.');
   }
 

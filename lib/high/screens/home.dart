@@ -18,6 +18,7 @@ import '../notes/jr/state/app_state.dart' as jr;
 import 'notes_home.dart';
 import 'routes.dart';
 import '../teacher/teacher.dart';
+import '../../resources/resources_ui.dart' show ResourcesCard;
 
 /// descent of the 16px Nunito strut under an inline `<svg>` (web line box)
 const kSvgDescent = 16 * .353;
@@ -58,6 +59,7 @@ class HomePage extends StatelessWidget {
           const _Grades(),
           const TeacherCard(),
           const GameCard(),
+          const ResourcesCard(),
           const ClassCodeCard(),
           const _Cats(),
           _StatGrid(st: st),

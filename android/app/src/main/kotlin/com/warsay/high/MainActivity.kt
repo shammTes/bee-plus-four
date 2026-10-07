@@ -97,6 +97,9 @@ class MainActivity : FlutterFragmentActivity() {
     /** Result that arrived after the Flutter side lost its pending call (activity recreated). */
     private var orphanResult: Map<String, Any?>? = null
 
+    /** Add-on resources: SAF folder import + FLAG_SECURE (must register before STARTED). */
+    private val resources = ResourcesChannel(this)
+
     private val cameraPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
             HighLog.i("camera permission result granted=$granted")
@@ -203,13 +206,15 @@ class MainActivity : FlutterFragmentActivity() {
 
     override fun onResume() {
         super.onResume()
-        window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+        if (ResourcesChannel.secure) window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
+        else window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
     }
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         val ch = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
         channel = ch
+        resources.attach(flutterEngine.dartExecutor.binaryMessenger)
         ch.setMethodCallHandler { call, result ->
             try {
                 handle(call, result)

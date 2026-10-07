@@ -126,6 +126,10 @@ class QrPayload {
     return RegExp(r'^[JHK]{1,3}$').hasMatch(p) && p.contains('H');
   }
 
+  /// Secret tied to one fresh unlock, used by add-on resources (`lib/resources/gate.dart`).
+  /// Recomputable only with the signing key, so a flipped "unlocked" flag alone does not produce it.
+  static String resourceSecret(String deviceId, String nonce) => _hmac(_signingKey, 'RES|$version|$deviceId|$nonce');
+
   static String _hmac(String key, String body) {
     return Hmac(sha256, utf8.encode(key)).convert(utf8.encode(body)).toString();
   }
