@@ -151,6 +151,10 @@ class _SettingsPageState extends State<SettingsPage> {
               ],
             ),
           ),
+          Btn('How to use again', icon: 'play', kind: BtnKind.soft, block: true, onTap: () {
+            s.replayTour();
+            HighNav.of(context).tab(HighTab.home);
+          }),
           const SectionLabel('App updates'),
           const UpdateSettings(),
           const SectionLabel('Your progress'),

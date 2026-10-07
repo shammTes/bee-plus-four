@@ -98,21 +98,14 @@ class HighState extends ChangeNotifier {
   Map<String, dynamic> daily = {};
   Map<String, dynamic> notes = {};
 
-  /// -1 = How to use / Skip chooser, 0+ = step, null = done.
+  /// First-run coach marks: step index (old saves may hold -1 = not started), null = done.
   int? tourStep;
-  static const tourActs = ['name', 'grade9', 'subject', 'back', 'back', 'notes', 'exercise', 'matric', 'tutor', 'home', 'settings', 'finish'];
-  bool tourWants(String act) => tourStep != null && tourStep! >= 0 && tourStep! < tourActs.length && tourActs[tourStep!] == act;
-  bool get tourActive => tourStep != null && tourStep! >= 0;
+  bool get tourActive => tourStep != null;
 
-  void tourAct(String act) {
-    if (!tourWants(act)) return;
-    final next = tourStep! + 1;
-    tourStep = next >= tourActs.length ? null : next;
-    changed();
-  }
-
-  void startTour() {
-    tourStep = 0;
+  /// next coach mark; past [total] the tour is done
+  void coachNext(int total) {
+    final next = (tourStep ?? -1).clamp(-1, total) + 1;
+    tourStep = next >= total ? null : next;
     changed();
   }
 
@@ -122,7 +115,7 @@ class HighState extends ChangeNotifier {
   }
 
   void replayTour() {
-    tourStep = -1;
+    tourStep = 0;
     changed();
   }
 

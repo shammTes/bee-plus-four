@@ -68,7 +68,9 @@ void revealAboveKeyboard(BuildContext context) {
 bool highDecorAnimations = false;
 
 class TopBar extends StatelessWidget {
-  const TopBar({super.key, required this.title, this.sub, this.onBack, this.actions = const [], this.tab = true});
+  const TopBar({super.key, required this.title, this.sub, this.onBack, this.actions = const [], this.tab = true, this.coachKey});
+  /// set on exactly one mounted TopBar (Home) so the coach marks can spotlight the Settings avatar
+  final GlobalKey? coachKey;
   final String title;
   final String? sub;
   final VoidCallback? onBack;
@@ -98,12 +100,7 @@ class TopBar extends StatelessWidget {
             ),
             ...actions,
             CBtn(p.dark ? 'sun' : 'moon', onTap: k.s.toggleTheme, label: 'Toggle dark mode'),
-            if (tab) Avatar(onTap: () {
-              final s = Kit.of(context).s;
-              if (s.tourStep != null && !s.tourWants('settings')) return;
-              HighNav.of(context).push(const SettingsPage());
-              s.tourAct('settings');
-            }),
+            if (tab) KeyedSubtree(key: coachKey, child: Avatar(onTap: () => HighNav.of(context).push(const SettingsPage()))),
           ],
         ),
       ),

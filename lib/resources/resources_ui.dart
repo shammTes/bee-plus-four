@@ -8,6 +8,7 @@ import '../high/screens/toast.dart';
 import '../high/theme/tokens.dart';
 import '../high/widgets/art.dart' show Ic;
 import '../high/widgets/kit.dart';
+import '../high/widgets/coach.dart' show CoachKeys;
 import '../high/widgets/page.dart';
 import '../licensing/lock_screen.dart';
 import 'gate.dart';
@@ -56,7 +57,7 @@ class ResourcesCard extends StatelessWidget implements Spaced {
   Widget build(BuildContext context) {
     final p = Kit.of(context).p;
     if (!ResourceLibrary.instance.available) return const SizedBox.shrink();
-    return Panel(
+    return KeyedSubtree(key: CoachKeys.resources, child: Panel(
       tone: 'blue',
       margin: bareM(context, this, blockMargin),
       padding: const EdgeInsets.all(14),
@@ -77,7 +78,7 @@ class ResourcesCard extends StatelessWidget implements Spaced {
           Ic('right', size: 20, color: p.ink3),
         ],
       ),
-    );
+    ));
   }
 }
 
