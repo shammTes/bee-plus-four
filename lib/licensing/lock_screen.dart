@@ -20,7 +20,40 @@ const _secureChannel = MethodChannel('com.warsay.high/secure');
 TextStyle _ts(double size, FontWeight w, Color color) =>
     TextStyle(fontFamily: 'HighNunito', fontSize: size, fontWeight: w, color: color, height: 1.25);
 
-/// Human copy for a native scan error code (never show raw codes).
+/// Short code shown next to every scanner error, e.g. `E-NOT-OPENED`, so a screenshot says what failed.
+String scanErrorCode(String? code) {
+  final c = (code == null || code.trim().isEmpty) ? 'unknown' : code.trim();
+  return 'E-${c.toUpperCase().replaceAll(RegExp(r'[^A-Z0-9]+'), '-')}';
+}
+
+/// Native error codes after which the live scanner is not worth retrying — go straight to photo scan.
+bool liveScannerBroken(String? code) => const {
+      'launch',
+      'mlkit',
+      'not_opened',
+      'init',
+      'camera',
+      'native',
+      'crash',
+      'killed',
+      'no_channel',
+    }.contains(code);
+
+/// Last ~30 scanner log lines kept in memory (Dart side; the native side keeps its own ring).
+class ScanLog {
+  ScanLog._();
+  static const max = 30;
+  static final List<String> lines = <String>[];
+
+  static void add(String msg) {
+    final t = DateTime.now();
+    String two(int v) => v.toString().padLeft(2, '0');
+    lines.add('${two(t.hour)}:${two(t.minute)}:${two(t.second)} $msg');
+    if (lines.length > max) lines.removeRange(0, lines.length - max);
+  }
+}
+
+/// Human copy for a native scan error code.
 String _humanScanError(String? code, String? message) {
   switch (code) {
     case 'permission_denied':
@@ -31,6 +64,10 @@ String _humanScanError(String? code, String? message) {
       return 'This phone reports no camera. Type the Bee Seller code below.';
     case 'busy':
       return 'The camera is already opening. Wait a moment and try again.';
+    case 'not_opened':
+      return 'The scanner screen did not open.';
+    case 'no_channel':
+      return 'The scanner is missing from this build of 4.';
     case 'decode':
     case 'camera':
     default:
@@ -62,6 +99,22 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
   bool _scanning = false;
   bool _needSettings = false;
   bool _showCodeEntryHint = false;
+  String? _errorCode;
+  final _statusKey = GlobalKey();
+  final _logKey = GlobalKey();
+
+  /// Set after the live scanner crashed / failed to open: Scan unlock code then uses photo scan.
+  bool _usePhotoScan = false;
+
+  /// Why the live scanner was switched off (stays visible, with its code, while photo scan is used).
+  String? _scannerNote;
+  bool _showLog = false;
+  List<String> _logLines = const [];
+  String? _crashDetail;
+
+  /// Lifecycle watchdog: did the app actually leave the foreground (scanner / dialog on top)?
+  bool _leftForeground = false;
+  Timer? _openWatchdog;
 
   bool get _isAndroid => !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
 
@@ -87,11 +140,48 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
             if (r is Map && mounted) _handleScanResult(r, photo: false);
           })
           .catchError((Object _) {});
+      _checkStartupReport();
     }
+  }
+
+  /// A scanner crash kills the whole app, which then restarts on this screen with no message.
+  /// The native side records it; show it here and switch to photo scan.
+  Future<void> _checkStartupReport() async {
+    Object? r;
+    try {
+      r = await _invoke<Object?>('takeStartupReport').timeout(const Duration(seconds: 5));
+    } on MissingPluginException {
+      _log('startup: scanner channel missing (no native handler)');
+      return;
+    } catch (e) {
+      _log('startup: takeStartupReport failed: $e');
+      return;
+    }
+    if (r is! Map || !mounted) return;
+    final code = r['code'] as String? ?? 'crash';
+    final msg = r['message'] as String?;
+    _crashDetail = r['detail'] as String?;
+    _log('startup: last run ended with $code (scanner open: ${r['wasScanning']}) $msg');
+    _usePhotoScan = true;
+    _scannerNote = 'Live scanner off (${scanErrorCode(code)}) — Scan unlock code uses photo scan.';
+    _fail(
+      code == 'crash'
+          ? 'The live scanner crashed the app last time${msg != null ? ' ($msg)' : ''}. '
+              'Scan unlock code now uses photo scan — or type the code below.'
+          : 'The app was closed while the live scanner was open. '
+              'Scan unlock code now uses photo scan — or type the code below.',
+      code: code,
+    );
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state != AppLifecycleState.resumed) _leftForeground = true;
   }
 
   @override
   void dispose() {
+    _openWatchdog?.cancel();
     WidgetsBinding.instance.removeObserver(this);
     if (_isAndroid) _secureChannel.setMethodCallHandler(null);
     _tilt.dispose();
@@ -130,19 +220,48 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     }
   }
 
-  Future<void> _nativeLog(String msg) async {
+  /// Fire-and-forget: logging must never block or break the scan flow.
+  void _log(String msg) {
     debugPrint('HighSecure: $msg');
+    ScanLog.add(msg);
     if (!_isAndroid) return;
-    try {
-      await _secureChannel.invokeMethod<void>('log', msg);
-    } catch (_) {}
+    unawaited(
+      _secureChannel.invokeMethod<void>('log', msg).timeout(const Duration(seconds: 3)).catchError((Object _) {}),
+    );
+  }
+
+  Future<void> _nativeLog(String msg) async => _log(msg);
+
+  Future<void> _refreshLog() async {
+    var lines = List<String>.of(ScanLog.lines);
+    if (_isAndroid) {
+      try {
+        final native = await _secureChannel.invokeListMethod<String>('getLog').timeout(const Duration(seconds: 3));
+        if (native != null && native.isNotEmpty) lines = native;
+      } catch (e) {
+        lines = [...lines, '(native log unavailable: $e)'];
+      }
+    }
+    if (!mounted) return;
+    setState(() => _logLines = lines);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final ctx = _logKey.currentContext;
+      if (!mounted || ctx == null) return;
+      Scrollable.ensureVisible(ctx, alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtEnd, duration: const Duration(milliseconds: 150));
+    });
+  }
+
+  void _toggleLog() {
+    setState(() => _showLog = !_showLog);
+    if (_showLog) _refreshLog();
   }
 
   Future<bool> _hasCameraPermission() async {
     if (!_isAndroid) return false;
     try {
-      return await _invoke<bool>('hasCamera') == true;
-    } catch (_) {
+      return await _invoke<bool>('hasCamera').timeout(const Duration(seconds: 5)) == true;
+    } catch (e) {
+      _log('hasCamera failed: $e');
       return false;
     }
   }
@@ -150,7 +269,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
   Future<bool> _shouldShowRationale() async {
     if (!_isAndroid) return false;
     try {
-      return await _invoke<bool>('shouldShowCameraRationale') == true;
+      return await _invoke<bool>('shouldShowCameraRationale').timeout(const Duration(seconds: 5)) == true;
     } catch (_) {
       return false;
     }
@@ -162,7 +281,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       final ok = await _invoke<bool>('requestCamera').timeout(const Duration(seconds: 45), onTimeout: () => false);
       return ok == true;
     } catch (e) {
-      debugPrint('HighSecure.requestCamera error: $e');
+      _log('requestCamera error: $e');
       return false;
     }
   }
@@ -176,8 +295,12 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     }
   }
 
-  void _fail(String why, {bool needSettings = false}) {
-    debugPrint('HighSecure fail: $why settings=$needSettings');
+  /// Every failure ends here: a readable message plus a short code, right under the Scan button.
+  void _fail(String why, {bool needSettings = false, String? code}) {
+    _openWatchdog?.cancel();
+    final c = code == null ? null : scanErrorCode(code);
+    _log('fail ${c ?? ''}: $why');
+    if (!mounted) return;
     setState(() {
       _awaitingPermission = false;
       _scanning = false;
@@ -186,6 +309,26 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
       _showCodeEntryHint = true;
       _messageIsError = true;
       _message = why;
+      _errorCode = c;
+    });
+    _revealStatus();
+  }
+
+  void _status(String msg) {
+    if (!mounted) return;
+    setState(() {
+      _messageIsError = false;
+      _message = msg;
+      _errorCode = null;
+    });
+    _revealStatus();
+  }
+
+  void _revealStatus() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final ctx = _statusKey.currentContext;
+      if (!mounted || ctx == null) return;
+      Scrollable.ensureVisible(ctx, alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtEnd, duration: const Duration(milliseconds: 150));
     });
   }
 
@@ -195,9 +338,12 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
     setState(() {
       _awaitingPermission = true;
       _messageIsError = false;
+      _errorCode = null;
       _message = '4 needs the camera to read the Bee Seller unlock code. Allow camera on the next prompt.';
     });
+    _revealStatus();
     granted = await _requestCameraPermission();
+    _log('camera permission granted=$granted');
     if (!mounted) return false;
     setState(() => _awaitingPermission = false);
     if (!granted) {
@@ -207,6 +353,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
             ? 'Camera permission was denied. Tap Scan unlock code again and choose Allow, or type the code below.'
             : 'Camera permission is off. Open Settings, enable Camera for 4, then tap Scan unlock code — or type the code below.',
         needSettings: !rationale,
+        code: 'permission_denied',
       );
       return false;
     }
@@ -215,71 +362,131 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
   }
 
   /// Primary path: in-app live scanner (QR **or** the printed BEE1|… code text).
+  /// Falls back to photo scan by itself when the live scanner cannot open.
   Future<void> _openScan() async {
+    _log('tap Scan unlock code busy=$_busy perm=$_awaitingPermission scanning=$_scanning photoMode=$_usePhotoScan');
     if (_busy || _awaitingPermission || _scanning) return;
     if (!_isAndroid) {
-      _fail('Scanning needs Android. Paste or type the Bee Seller unlock code below.');
+      _fail('Scanning needs Android. Paste or type the Bee Seller unlock code below.', code: 'platform');
+      return;
+    }
+    if (_usePhotoScan) {
+      await _openPhotoScan(auto: true);
       return;
     }
     FocusScope.of(context).unfocus();
+    // Visible feedback at once, before any await.
     setState(() {
-      _message = null;
       _needSettings = false;
       _showCodeEntryHint = false;
     });
-    await _nativeLog('openScan begin (in-app CameraX scanner)');
+    _status('Starting the camera…');
+    _log('openScan begin (in-app CameraX scanner)');
     if (!await _ensureCamera()) return;
-    setState(() {
-      _scanning = true;
-      _messageIsError = false;
-      _message = 'Scanner open… point at the Bee Seller QR or BEE1|… code.';
+    if (!mounted) return;
+    setState(() => _scanning = true);
+    _status('Opening the scanner… point at the Bee Seller QR or BEE1|… code.');
+    _leftForeground = false;
+    _openWatchdog?.cancel();
+    // If the app never leaves the foreground, the scanner screen never appeared: say so and fall back.
+    _openWatchdog = Timer(const Duration(seconds: 10), () {
+      if (!mounted || !_scanning || _leftForeground) return;
+      _log('watchdog: scanner did not open after 10 s (app stayed in foreground)');
+      _invoke<Object?>('cancelScan').timeout(const Duration(seconds: 3)).catchError((Object _) => null);
+      _fallbackToPhoto('not_opened', 'The scanner screen did not open.');
     });
+    Object? r;
     try {
-      final r = await _invoke<Object?>('scanUnlock', {'deviceId': _id});
+      r = await _invoke<Object?>('scanUnlock', {'deviceId': _id});
+    } on MissingPluginException catch (e) {
+      _log('scanUnlock missing plugin: $e');
       if (!mounted) return;
-      await _handleScanResult(r, photo: false);
+      _openWatchdog?.cancel();
+      _fail('The scanner is missing from this build of 4. Type the code below.', code: 'no_channel');
+      return;
     } on PlatformException catch (e) {
-      await _nativeLog('scanUnlock PlatformException ${e.code}: ${e.message}');
+      _log('scanUnlock PlatformException ${e.code}: ${e.message}');
       if (!mounted) return;
-      _fail(_humanScanError(e.code, e.message), needSettings: e.code == 'permission_denied');
+      _openWatchdog?.cancel();
+      if (!_scanning) return; // watchdog already handled it
+      if (e.code == 'permission_denied' || e.code == 'busy') {
+        _fail(_humanScanError(e.code, e.message), needSettings: e.code == 'permission_denied', code: e.code);
+      } else {
+        _fallbackToPhoto(e.code, e.message);
+      }
+      return;
     } catch (e) {
-      await _nativeLog('scanUnlock error: $e');
+      _log('scanUnlock error: $e');
       if (!mounted) return;
-      _fail('Camera scan failed ($e). Try Photo scan, or type the code below.');
+      _openWatchdog?.cancel();
+      if (!_scanning) return;
+      _fallbackToPhoto('dart', '$e');
+      return;
     }
+    _openWatchdog?.cancel();
+    if (!mounted) return;
+    if (!_scanning) {
+      // The watchdog gave up already; a late success still unlocks.
+      if (r is Map && r['status'] == 'ok') await _handleScanResult(r, photo: false);
+      return;
+    }
+    if (r is Map && r['status'] == 'error' && liveScannerBroken(r['code'] as String?)) {
+      _fallbackToPhoto(r['code'] as String?, r['message'] as String?);
+      return;
+    }
+    await _handleScanResult(r, photo: false);
+  }
+
+  /// Live scanner failed to open or crashed: show why (with code) and open photo scan automatically.
+  void _fallbackToPhoto(String? code, String? message) {
+    _usePhotoScan = true;
+    _scannerNote = 'Live scanner off (${scanErrorCode(code)}) — Scan unlock code uses photo scan.';
+    final why = _humanScanError(code, message).replaceAll(' Try again, or type the code below.', '');
+    _fail('Live scanner failed: $why Opening photo scan instead…', code: code);
+    Future<void>.delayed(const Duration(milliseconds: 600), () {
+      if (mounted && !_busy && !_scanning && !_awaitingPermission) _openPhotoScan(auto: true, keepMessage: true);
+    });
   }
 
   /// Fallback: system camera still photo → native QR + text decode.
-  Future<void> _openPhotoScan() async {
+  Future<void> _openPhotoScan({bool auto = false, bool keepMessage = false}) async {
+    _log('openPhotoScan auto=$auto busy=$_busy perm=$_awaitingPermission scanning=$_scanning');
     if (_busy || _awaitingPermission || _scanning) return;
     if (!_isAndroid) {
-      _fail('Scanning needs Android. Paste or type the Bee Seller unlock code below.');
+      _fail('Scanning needs Android. Paste or type the Bee Seller unlock code below.', code: 'platform');
       return;
     }
     FocusScope.of(context).unfocus();
-    setState(() {
-      _message = null;
-      _needSettings = false;
-      _showCodeEntryHint = false;
-    });
-    await _nativeLog('openPhotoScan begin');
+    if (!keepMessage) {
+      setState(() {
+        _needSettings = false;
+        _showCodeEntryHint = false;
+      });
+      _status('Opening the camera app…');
+    }
     if (!await _ensureCamera()) return;
+    if (!mounted) return;
+    final prefix = keepMessage && _message != null ? '$_message\n' : '';
     setState(() {
       _scanning = true;
       _messageIsError = false;
-      _message = 'Camera app open… photograph the Bee Seller QR or code so it fills the picture, then confirm.';
+      _message = '${prefix}Camera app open… photograph the Bee Seller QR or code so it fills the picture, then confirm.';
     });
+    _revealStatus();
     try {
       final r = await _invoke<Object?>('capturePhotoAndScanQr', {'deviceId': _id});
       if (!mounted) return;
-      if (_scanning) setState(() => _message = 'Reading the photo…');
+      if (_scanning) _status('Reading the photo…');
       await _handleScanResult(r, photo: true);
+    } on MissingPluginException {
+      if (!mounted) return;
+      _fail('The scanner is missing from this build of 4. Type the code below.', code: 'no_channel');
     } on PlatformException catch (e) {
       if (!mounted) return;
-      _fail(_humanScanError(e.code, e.message), needSettings: e.code == 'permission_denied');
+      _fail(_humanScanError(e.code, e.message), needSettings: e.code == 'permission_denied', code: e.code);
     } catch (e) {
       if (!mounted) return;
-      _fail('Photo scan failed ($e). Try Scan unlock code, or type the code below.');
+      _fail('Photo scan failed ($e). Try again, or type the code below.', code: 'photo');
     }
   }
 
@@ -313,7 +520,7 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
         return;
       case 'error':
         final code = m['code'] as String?;
-        _fail(_humanScanError(code, m['message'] as String?), needSettings: code == 'permission_denied');
+        _fail(_humanScanError(code, m['message'] as String?), needSettings: code == 'permission_denied', code: code);
         return;
       default:
         final what = photo ? 'in the photo' : 'by the scanner';
@@ -515,6 +722,8 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
                     : 'Scan unlock code',
                 filled: true,
                 onTap: (_busy || _awaitingPermission || _scanning) ? null : _openScan,
+                // Long-press: show the scanner log (works even while the button is busy).
+                onLongPress: _toggleLog,
               ),
               const SizedBox(height: 8),
               Text(
@@ -528,6 +737,18 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
                 filled: false,
                 onTap: (_busy || _awaitingPermission || _scanning) ? null : _openPhotoScan,
               ),
+              if (_message != null) ...[
+                const SizedBox(height: 12),
+                _StatusBox(key: _statusKey, message: _message!, code: _errorCode, isError: _messageIsError),
+              ],
+              if (_scannerNote != null) ...[
+                const SizedBox(height: 8),
+                Text(_scannerNote!, textAlign: TextAlign.center, style: _ts(12, FontWeight.w800, _peach)),
+              ],
+              if (_showLog) ...[
+                const SizedBox(height: 10),
+                _LogBox(key: _logKey, lines: _logLines, crash: _crashDetail, onRefresh: _refreshLog),
+              ],
               const SizedBox(height: 18),
               if (_showCodeEntryHint) ...[
                 DecoratedBox(
@@ -599,14 +820,19 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
                 _Btn(label: 'Retry Scan unlock code', filled: false, onTap: (_busy || _awaitingPermission || _scanning) ? null : _openScan),
               ],
               if (_needSettings) ...[const SizedBox(height: 8), _Btn(label: 'Open Settings', filled: true, onTap: _openAppSettings)],
-              if (_message != null) ...[
-                const SizedBox(height: 12),
-                Text(
-                  _message!,
-                  textAlign: TextAlign.center,
-                  style: _ts(14, FontWeight.w800, _messageIsError ? _peach : const Color(0xFFFFE7D4)),
+              const SizedBox(height: 16),
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: _toggleLog,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: Text(
+                    _showLog ? 'Scanner log \u25B4' : 'Scanner log \u25BE',
+                    textAlign: TextAlign.center,
+                    style: _ts(13, FontWeight.w800, const Color(0x99FFE7D4)),
+                  ),
                 ),
-              ],
+              ),
             ],
           ),
         ),
@@ -615,16 +841,82 @@ class _LockScreenState extends State<LockScreen> with SingleTickerProviderStateM
   }
 }
 
+/// Status / error right under the Scan buttons, so it is on screen without scrolling.
+class _StatusBox extends StatelessWidget {
+  const _StatusBox({super.key, required this.message, required this.code, required this.isError});
+  final String message;
+  final String? code;
+  final bool isError;
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: isError ? const Color(0x44C24E32) : const Color(0x22FFFFFF),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(14, 10, 14, 10),
+        child: Column(
+          children: [
+            Text(message, textAlign: TextAlign.center, style: _ts(14, FontWeight.w800, isError ? _peach : const Color(0xFFFFE7D4))),
+            if (code != null) ...[
+              const SizedBox(height: 4),
+              Text('Error $code', textAlign: TextAlign.center, style: _ts(12, FontWeight.w900, const Color(0xFFFFFFFF))),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Last scanner log lines (native ring buffer, else the Dart one) for a screenshot.
+class _LogBox extends StatelessWidget {
+  const _LogBox({super.key, required this.lines, required this.crash, required this.onRefresh});
+  final List<String> lines;
+  final String? crash;
+  final VoidCallback onRefresh;
+  @override
+  Widget build(BuildContext context) {
+    final text = [
+      if (crash != null) ...['Last crash:', crash!, '---'],
+      if (lines.isEmpty) '(no scanner log yet)' else ...lines,
+    ].join('\n');
+    return DecoratedBox(
+      decoration: BoxDecoration(color: const Color(0x55000000), borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(text, style: const TextStyle(fontFamily: 'monospace', fontSize: 10.5, height: 1.3, color: Color(0xFFFFE7D4))),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                Expanded(child: _Btn(label: 'Refresh', filled: false, onTap: onRefresh)),
+                const SizedBox(width: 10),
+                Expanded(child: _Btn(label: 'Copy', filled: false, onTap: () => Clipboard.setData(ClipboardData(text: text)))),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class _Btn extends StatelessWidget {
-  const _Btn({required this.label, required this.onTap, this.filled = true});
+  const _Btn({required this.label, required this.onTap, this.filled = true, this.onLongPress});
   final String label;
   final VoidCallback? onTap;
+  final VoidCallback? onLongPress;
   final bool filled;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: onTap,
+      onLongPress: onLongPress,
       child: DecoratedBox(
         decoration: BoxDecoration(color: filled ? _coral : _cream, borderRadius: BorderRadius.circular(999)),
         child: SizedBox(

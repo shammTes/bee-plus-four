@@ -13,7 +13,6 @@ import android.os.Handler
 import android.os.Looper
 import android.provider.MediaStore
 import android.provider.Settings
-import android.util.Log
 import android.view.WindowManager
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -35,6 +34,7 @@ import com.google.zxing.RGBLuminanceSource
 import com.google.zxing.common.HybridBinarizer
 import io.flutter.embedding.android.FlutterFragmentActivity
 import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import java.io.File
 import java.util.EnumMap
@@ -55,12 +55,13 @@ import java.util.concurrent.TimeUnit
  */
 class MainActivity : FlutterFragmentActivity() {
     companion object {
-        private const val TAG = "HighSecure"
         private const val CHANNEL = "com.warsay.high/secure"
         private const val MAX_DECODE_EDGE = 2400
         private const val MIN_PHOTO_BYTES = 2_048
         private const val STATE_PHOTO = "high.unlock.photo"
         private const val STATE_DEVICE = "high.unlock.device"
+        /** If ScanActivity has not started this long after launch, report it and let Dart fall back. */
+        private const val OPEN_WATCHDOG_MS = 9_000L
     }
 
     private class OnceResult(private val inner: MethodChannel.Result) : MethodChannel.Result {
@@ -85,6 +86,8 @@ class MainActivity : FlutterFragmentActivity() {
     private val main = Handler(Looper.getMainLooper())
     private val bg = Executors.newSingleThreadExecutor()
     private var channel: MethodChannel? = null
+    /** Crash / kill report from the previous run, read once in onCreate (before anything overwrites it). */
+    private var startupReport: Map<String, Any?>? = null
     private val cameraWaiters = mutableListOf<MethodChannel.Result>()
     private var scanAfterPermission: MethodChannel.Result? = null
     private var scanPending: MethodChannel.Result? = null
@@ -96,7 +99,7 @@ class MainActivity : FlutterFragmentActivity() {
 
     private val cameraPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
-            Log.i(TAG, "camera permission result granted=$granted")
+            HighLog.i("camera permission result granted=$granted")
             val waiters = cameraWaiters.toList()
             cameraWaiters.clear()
             waiters.forEach { it.success(granted) }
@@ -109,6 +112,8 @@ class MainActivity : FlutterFragmentActivity() {
 
     private val scanLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { res ->
+            main.removeCallbacks(openWatchdog)
+            HighLog.scanClosed(this)
             val data = res.data
             val payload = data?.getStringExtra(ScanActivity.EXTRA_PAYLOAD)
             val error = data?.getStringExtra(ScanActivity.EXTRA_ERROR)
@@ -129,7 +134,7 @@ class MainActivity : FlutterFragmentActivity() {
                 }
                 else -> out["status"] = "cancelled"
             }
-            Log.i(TAG, "scan result status=${out["status"]} via=${out["via"]} frames=${out["frames"]} sawText=${out["sawCodeText"]} nonBee=${out["nonBee"]} code=${out["code"]}")
+            HighLog.i("scan result status=${out["status"]} via=${out["via"]} frames=${out["frames"]} sawText=${out["sawCodeText"]} nonBee=${out["nonBee"]} code=${out["code"]}")
             val pending = scanPending
             scanPending = null
             deliver(pending, out)
@@ -142,7 +147,7 @@ class MainActivity : FlutterFragmentActivity() {
             val file = photoFile
             photoFile = null
             val bytes = file?.takeIf { it.exists() }?.length() ?: -1L
-            Log.i(TAG, "TakePicture success=$success path=${file?.absolutePath} bytes=$bytes pendingLost=${pending == null}")
+            HighLog.i("TakePicture success=$success path=${file?.absolutePath} bytes=$bytes pendingLost=${pending == null}")
             if (!success || file == null) {
                 file?.delete()
                 deliver(pending, mapOf("status" to "cancelled"))
@@ -158,7 +163,7 @@ class MainActivity : FlutterFragmentActivity() {
                 val out = try {
                     decodePhoto(file, device)
                 } catch (e: Throwable) {
-                    Log.e(TAG, "decodePhoto crashed", e)
+                    HighLog.e("decodePhoto crashed", e)
                     err("decode", "Could not read the photo: ${e.message ?: e.javaClass.simpleName}")
                 } finally {
                     file.delete()
@@ -167,9 +172,25 @@ class MainActivity : FlutterFragmentActivity() {
             }
         }
 
+    /** Fires when scanLauncher.launch() returned but ScanActivity never started (nothing on screen). */
+    private val openWatchdog = Runnable {
+        val pending = scanPending ?: return@Runnable
+        if (ScanActivity.createdAt >= scanLaunchedAt) return@Runnable
+        HighLog.e("ScanActivity did not open within ${OPEN_WATCHDOG_MS}ms")
+        scanPending = null
+        HighLog.scanClosed(this)
+        pending.success(err("not_opened", "The scanner screen did not open."))
+    }
+    private var scanLaunchedAt = 0L
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        HighLog.installCrashCapture(this)
         super.onCreate(savedInstanceState)
         window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+        if (savedInstanceState == null) {
+            startupReport = HighLog.takeStartupReport(this)
+            startupReport?.let { HighLog.w("previous run ended abnormally: ${it["code"]} ${it["message"]}") }
+        }
         savedInstanceState?.getString(STATE_PHOTO)?.let { photoFile = File(it) }
         scanDeviceId = savedInstanceState?.getString(STATE_DEVICE)
     }
@@ -190,52 +211,73 @@ class MainActivity : FlutterFragmentActivity() {
         val ch = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
         channel = ch
         ch.setMethodCallHandler { call, result ->
-            when (call.method) {
-                "set" -> runOnUiThread {
-                    window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
-                    result.success(null)
-                }
-                "requestCamera" -> requestCamera(result)
-                "hasCamera" -> result.success(hasCameraPermission())
-                "shouldShowCameraRationale" -> result.success(
-                    ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA),
-                )
-                "openAppSettings" -> runOnUiThread {
-                    try {
-                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                        intent.data = Uri.fromParts("package", packageName, null)
-                        startActivity(intent)
-                        result.success(true)
-                    } catch (e: Exception) {
-                        Log.e(TAG, "openAppSettings failed", e)
-                        result.error("settings", e.message, null)
-                    }
-                }
-                "scanUnlock", "captureAndScanQr", "scanQr" -> scanUnlock(argDevice(call.arguments), result)
-                "capturePhotoAndScanQr" -> capturePhoto(argDevice(call.arguments), result)
-                "recoverCode" -> {
-                    val args = call.arguments as? Map<*, *>
-                    val text = args?.get("text") as? String ?: ""
-                    val device = args?.get("deviceId") as? String
-                    bg.execute {
-                        val hit = try { UnlockCodeRecovery.recover(text, device) } catch (e: Throwable) { null }
-                        Log.i(TAG, "recoverCode len=${text.length} hit=${hit?.layout}")
-                        main.post { result.success(hit?.payload) }
-                    }
-                }
-                "takePendingScan" -> {
-                    val r = orphanResult
-                    orphanResult = null
-                    result.success(r)
-                }
-                "log" -> {
-                    Log.i(TAG, call.arguments?.toString() ?: "")
-                    result.success(null)
-                }
-                else -> result.notImplemented()
+            try {
+                handle(call, result)
+            } catch (e: Throwable) {
+                HighLog.e("channel ${call.method} failed", e)
+                try { result.error("native", "${call.method}: ${e.javaClass.simpleName}: ${e.message}", null) } catch (_: Throwable) {}
             }
         }
-        Log.i(TAG, "MethodChannel $CHANNEL ready (in-app CameraX scanner + photo + text recovery)")
+        HighLog.i("MethodChannel $CHANNEL ready (in-app CameraX scanner + photo + text recovery)")
+    }
+
+    private fun handle(call: MethodCall, result: MethodChannel.Result) {
+        when (call.method) {
+            "set" -> runOnUiThread {
+                window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+                result.success(null)
+            }
+            "requestCamera" -> requestCamera(result)
+            "hasCamera" -> result.success(hasCameraPermission())
+            "shouldShowCameraRationale" -> result.success(
+                ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA),
+            )
+            "openAppSettings" -> runOnUiThread {
+                try {
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    intent.data = Uri.fromParts("package", packageName, null)
+                    startActivity(intent)
+                    result.success(true)
+                } catch (e: Exception) {
+                    HighLog.e("openAppSettings failed", e)
+                    result.error("settings", e.message, null)
+                }
+            }
+            "scanUnlock", "captureAndScanQr", "scanQr" -> scanUnlock(argDevice(call.arguments), result)
+            "capturePhotoAndScanQr" -> capturePhoto(argDevice(call.arguments), result)
+            "recoverCode" -> {
+                val args = call.arguments as? Map<*, *>
+                val text = args?.get("text") as? String ?: ""
+                val device = args?.get("deviceId") as? String
+                bg.execute {
+                    val hit = try { UnlockCodeRecovery.recover(text, device) } catch (e: Throwable) { null }
+                    HighLog.i("recoverCode len=${text.length} hit=${hit?.layout}")
+                    main.post { result.success(hit?.payload) }
+                }
+            }
+            "takePendingScan" -> {
+                val r = orphanResult
+                orphanResult = null
+                result.success(r)
+            }
+            "log" -> {
+                HighLog.i("dart: " + (call.arguments?.toString() ?: ""))
+                result.success(null)
+            }
+            "getLog" -> result.success(HighLog.snapshot())
+            "cancelScan" -> {
+                // Dart's watchdog: the scanner never came on screen. Release the pending call.
+                main.removeCallbacks(openWatchdog)
+                val pending = scanPending
+                scanPending = null
+                HighLog.scanClosed(this)
+                HighLog.w("cancelScan pending=${pending != null}")
+                pending?.success(err("not_opened", "The scanner screen did not open."))
+                result.success(pending != null)
+            }
+            "takeStartupReport" -> result.success(startupReport.also { startupReport = null })
+            else -> result.notImplemented()
+        }
     }
 
     private fun argDevice(args: Any?): String? = when (args) {
@@ -254,7 +296,7 @@ class MainActivity : FlutterFragmentActivity() {
             return
         }
         if (out["status"] == "ok") {
-            Log.w(TAG, "scan result arrived after activity recreation — handing to Dart as orphan")
+            HighLog.w("scan result arrived after activity recreation — handing to Dart as orphan")
             orphanResult = out
             try { channel?.invokeMethod("orphanScanResult", out) } catch (_: Exception) {}
         }
@@ -273,8 +315,8 @@ class MainActivity : FlutterFragmentActivity() {
             cameraWaiters.add(once)
             try {
                 cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
-            } catch (e: Exception) {
-                Log.e(TAG, "requestCamera launch failed", e)
+            } catch (e: Throwable) {
+                HighLog.e("requestCamera launch failed", e)
                 cameraWaiters.remove(once)
                 once.success(false)
             }
@@ -296,9 +338,10 @@ class MainActivity : FlutterFragmentActivity() {
                 scanAfterPermission = once
                 try {
                     cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
-                } catch (e: Exception) {
+                } catch (e: Throwable) {
+                    HighLog.e("permission request failed", e)
                     scanAfterPermission = null
-                    once.success(err("permission_denied", e.message ?: "Camera permission required"))
+                    once.success(err("permission_request", e.message ?: "Camera permission request failed"))
                 }
                 return@runOnUiThread
             }
@@ -311,12 +354,17 @@ class MainActivity : FlutterFragmentActivity() {
             scanPending = result
             val intent = Intent(this, ScanActivity::class.java)
                 .putExtra(ScanActivity.EXTRA_DEVICE_ID, scanDeviceId)
-            Log.i(TAG, "launching in-app ScanActivity")
+            HighLog.i("launching in-app ScanActivity")
+            scanLaunchedAt = android.os.SystemClock.elapsedRealtime()
+            HighLog.scanOpening(this)
             scanLauncher.launch(intent)
-        } catch (e: Exception) {
-            Log.e(TAG, "launch ScanActivity failed", e)
+            main.removeCallbacks(openWatchdog)
+            main.postDelayed(openWatchdog, OPEN_WATCHDOG_MS)
+        } catch (e: Throwable) {
+            HighLog.e("launch ScanActivity failed", e)
             scanPending = null
-            result.success(err("camera", "Scanner could not open: ${e.message ?: e.javaClass.simpleName}"))
+            HighLog.scanClosed(this)
+            result.success(err("launch", "Scanner could not open: ${e.message ?: e.javaClass.simpleName}"))
         }
     }
 
@@ -344,10 +392,10 @@ class MainActivity : FlutterFragmentActivity() {
                 }
                 photoFile = file
                 photoPending = OnceResult(result)
-                Log.i(TAG, "launching system camera uri=$uri")
+                HighLog.i("launching system camera uri=$uri")
                 takePictureLauncher.launch(uri)
-            } catch (e: Exception) {
-                Log.e(TAG, "launch system camera failed", e)
+            } catch (e: Throwable) {
+                HighLog.e("launch system camera failed", e)
                 photoPending = null
                 photoFile?.delete()
                 photoFile = null
@@ -361,21 +409,27 @@ class MainActivity : FlutterFragmentActivity() {
     private fun decodePhoto(file: File, deviceId: String?): Map<String, Any?> {
         val base = loadBitmap(file, MAX_DECODE_EDGE)
             ?: return err("decode", "Could not read the photo from the camera.")
-        Log.i(TAG, "decodePhoto bitmap ${base.width}x${base.height}")
+        HighLog.i("decodePhoto bitmap ${base.width}x${base.height}")
         var nonBee: String? = null
-        val barcode = BarcodeScanning.getClient(
-            BarcodeScannerOptions.Builder()
-                .setBarcodeFormats(Barcode.FORMAT_QR_CODE, Barcode.FORMAT_AZTEC, Barcode.FORMAT_DATA_MATRIX, Barcode.FORMAT_PDF417)
-                .build(),
-        )
-        try {
+        // If ML Kit cannot start, still try ZXing and text below instead of failing the whole photo.
+        val barcode = try {
+            BarcodeScanning.getClient(
+                BarcodeScannerOptions.Builder()
+                    .setBarcodeFormats(Barcode.FORMAT_QR_CODE, Barcode.FORMAT_AZTEC, Barcode.FORMAT_DATA_MATRIX, Barcode.FORMAT_PDF417)
+                    .build(),
+            )
+        } catch (e: Throwable) {
+            HighLog.e("photo ML Kit barcode client failed", e)
+            null
+        }
+        if (barcode != null) try {
             for (angle in intArrayOf(0, 90, 180, 270)) {
                 val bmp = rotate(base, angle)
                 val values = try {
                     Tasks.await(barcode.process(InputImage.fromBitmap(bmp, 0)), 15, TimeUnit.SECONDS)
                         .mapNotNull { it.rawValue?.trim()?.takeIf { v -> v.isNotEmpty() } }
                 } catch (e: Exception) {
-                    Log.w(TAG, "photo ML Kit rot=$angle failed: ${e.message}")
+                    HighLog.w("photo ML Kit rot=$angle failed: ${e.message}")
                     emptyList()
                 }
                 if (bmp !== base) bmp.recycle()
@@ -402,7 +456,7 @@ class MainActivity : FlutterFragmentActivity() {
             try {
                 TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
             } catch (e: Throwable) {
-                Log.e(TAG, "text recognizer unavailable", e)
+                HighLog.e("text recognizer unavailable", e)
                 null
             }
         } else {
@@ -414,7 +468,7 @@ class MainActivity : FlutterFragmentActivity() {
                 val text = try {
                     Tasks.await(recognizer.process(InputImage.fromBitmap(bmp, 0)), 20, TimeUnit.SECONDS).text
                 } catch (e: Exception) {
-                    Log.w(TAG, "photo text rot=$angle failed: ${e.message}")
+                    HighLog.w("photo text rot=$angle failed: ${e.message}")
                     ""
                 }
                 if (bmp !== base) bmp.recycle()
@@ -427,7 +481,7 @@ class MainActivity : FlutterFragmentActivity() {
         } finally {
             try { recognizer.close() } catch (_: Exception) {}
         }
-        Log.w(TAG, "decodePhoto: nothing usable sawText=$sawText nonBee=${nonBee?.take(16)}")
+        HighLog.w("decodePhoto: nothing usable sawText=$sawText nonBee=${nonBee?.take(16)}")
         return mapOf(
             "status" to "no_code",
             "sawCodeText" to sawText,
@@ -436,7 +490,7 @@ class MainActivity : FlutterFragmentActivity() {
     }
 
     private fun ok(payload: String, via: String): Map<String, Any?> {
-        Log.i(TAG, "photo decode OK via=$via len=${payload.length}")
+        HighLog.i("photo decode OK via=$via len=${payload.length}")
         return mapOf("status" to "ok", "payload" to payload, "via" to via)
     }
 
@@ -501,12 +555,13 @@ class MainActivity : FlutterFragmentActivity() {
             }
             if (rotation == 0) bmp else rotate(bmp, rotation).also { if (it !== bmp) bmp.recycle() }
         } catch (e: Throwable) {
-            Log.e(TAG, "loadBitmap failed", e)
+            HighLog.e("loadBitmap failed", e)
             null
         }
     }
 
     override fun onDestroy() {
+        main.removeCallbacks(openWatchdog)
         bg.shutdown()
         super.onDestroy()
     }
