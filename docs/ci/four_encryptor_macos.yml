@@ -1,0 +1,26 @@
+# SUGGESTION ONLY — copy to .github/workflows/four_encryptor_macos.yml (needs a token with `workflow` scope).
+name: FourEncryptor macOS build
+on:
+  workflow_dispatch:
+  push:
+    paths: ['tools/four_encryptor/**', 'packages/four_format/**']
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with: { flutter-version: '3.47.6', channel: stable }
+      - name: Test format package
+        working-directory: packages/four_format
+        run: dart pub get && dart test
+      - name: Build macOS app
+        working-directory: tools/four_encryptor
+        run: flutter pub get && flutter build macos --release
+      - name: Zip
+        working-directory: tools/four_encryptor/build/macos/Build/Products/Release
+        run: ditto -c -k --keepParent four_encryptor.app FourEncryptor-macos.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FourEncryptor-macos
+          path: tools/four_encryptor/build/macos/Build/Products/Release/FourEncryptor-macos.zip

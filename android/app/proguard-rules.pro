@@ -7,3 +7,8 @@
 -keep class * implements com.google.firebase.components.ComponentRegistrar {
     void <init>();
 }
+
+# Add-on resources (pdfrx / PDFium via package:jni, cryptography_flutter native AES-GCM). Their consumer rules
+# already cover this; kept explicit because R8 full mode stripped reflective constructors before (see above).
+-keep class com.github.dart_lang.jni.** { *; }
+-keep class dev.dint.cryptography_flutter.** { *; }

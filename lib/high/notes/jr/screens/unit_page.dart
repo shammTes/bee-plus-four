@@ -30,6 +30,7 @@ import '../../concept_map.dart';
 import '../../../teacher/presenter.dart';
 import '../../../widgets/kit.dart' as hc;
 import '../../../theme/perf.dart';
+import '../../../../resources/resources_ui.dart' show ResourceStrip;
 
 class UnitPage extends StatefulWidget with hp.NoNav {
   const UnitPage({super.key, required this.bookId, required this.unitId, this.focus, this.section});
@@ -273,6 +274,8 @@ class UnitPageState extends State<UnitPage> {
     );
     if (!_ready || u == null) return PageShell(top: top, body: const SizedBox.shrink());
     final items = _contentBuilders(context, k, u);
+    // add-on PDFs for this unit (renders nothing when there are none)
+    items.insert(items.isEmpty ? 0 : 1, () => ResourceStrip(bookId: widget.bookId, unitNumber: u.number, unitId: u.id));
     return PageShell(
       top: top,
       body: ScrollConfiguration(
