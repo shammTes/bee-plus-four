@@ -85,8 +85,8 @@ Future<void> _encrypt(List<String> pos, Map<String, String> opt) async {
     if (type != FourType.pdf) {
       if (opt.containsKey('transcode720')) {
         tmpTranscode = '${Directory.systemTemp.path}/four_${DateTime.now().microsecondsSinceEpoch}.mp4';
-        stdout.writeln('transcoding $inPath → 720p H.264 (ffmpeg)…');
-        await _ffmpeg(['-y', '-i', inPath, '-vf', "scale='min(1280,iw)':-2", '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '26', '-profile:v', 'main', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', tmpTranscode]);
+        stdout.writeln('transcoding $inPath → ${type == FourType.reel ? '720×1280 (9:16)' : '≤720p (16:9)'} H.264 (ffmpeg)…');
+        await _ffmpeg(['-y', '-i', inPath, '-vf', type == FourType.reel ? 'scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280,setsar=1' : "scale='min(1280,iw)':-2", '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '26', '-profile:v', 'main', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', tmpTranscode]);
         inPath = tmpTranscode;
       }
       durationMs = await _durationMs(inPath);
@@ -173,7 +173,7 @@ void _usage() => stdout.writeln('''
 four_encrypt — encrypt PDFs / videos for 4
   encrypt <files…> [-o out] [--outdir dir] --title T --subject biology --grade 11 [--unit 3]
           [--type pdf|video|reel] [--thumb thumb.jpg] [--batch id] [--mk base64] [--chunk bytes]
-          [--transcode720]   (videos: ffmpeg → ≤720p H.264 + AAC, faststart; duration + thumbnail via ffprobe/ffmpeg)
+          [--transcode720]   (videos: ffmpeg → ≤720p H.264 + AAC, faststart; --type reel → 720×1280 9:16 crop; duration + thumbnail via ffprobe/ffmpeg)
   info    <file.4pdf> [--mk base64]
   decrypt <file.4pdf> [-o out.pdf] [--mk base64]
   newkey''');

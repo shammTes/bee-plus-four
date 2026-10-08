@@ -1,0 +1,156 @@
+# SUGGESTION ONLY - copy over .github/workflows/build-four-apk.yml (needs `workflow` scope). See docs/app_updates.md.
+name: Build 4 APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish as a GitHub Release so phones update
+        type: boolean
+        default: false
+      notes:
+        description: Release notes shown in the app
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add school-paper exercises
+        run: |
+          set -euo pipefail
+          mkdir -p assets/high/exercises/school
+          if [ ! -f assets/high/exercises/school/biology_10.json ]; then
+            echo "Downloading school-paper pack"
+            curl -fsSL --connect-timeout 15 --max-time 40 -o /tmp/school_papers_slim.tgz https://litter.catbox.moe/qt60om.tgz
+            tar -xzf /tmp/school_papers_slim.tgz -C assets/high/exercises/school
+          fi
+          python3 - <<'PY'
+          import json, os, sys
+          root = 'assets/high/exercises/school'
+          idx = json.load(open(f'{root}/index.json'))
+          missing, n = [], 0
+          for g in idx['grades'].values():
+              for e in g.values():
+                  p = os.path.join(root, e['file'])
+                  if not os.path.exists(p):
+                      missing.append(e['file'])
+                      continue
+                  n += len(json.load(open(p))['questions'])
+          print('school questions', n)
+          if missing:
+              sys.exit('missing ' + ', '.join(missing))
+          if n < 5908:
+              sys.exit(f'expected 5908 school questions, got {n}')
+          PY
+
+      - name: Draw flag-ribbon 4 icon
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet pillow
+          python3 tools/make_four_icon.py .
+          ls -l android/app/src/main/res/mipmap-*/ic_launcher.png
+
+      - name: Add Sawa model exams
+        run: |
+          set -euo pipefail
+          if [ ! -f assets/high/exams/chemistry_2016-17_model.json ]; then
+            echo "Downloading Sawa model pack"
+            curl -fL --connect-timeout 15 --max-time 40 --retry 2 -o /tmp/sawa_models_pack.tgz https://litter.catbox.moe/ti37hq.tgz
+            rm -rf /tmp/sawa_pack
+            mkdir -p /tmp/sawa_pack
+            tar -xzf /tmp/sawa_models_pack.tgz -C /tmp/sawa_pack
+            python3 /tmp/sawa_pack/apply.py .
+          else
+            echo "Sawa models already present"
+          fi
+          python3 - <<'PY'
+          import json, os, sys
+          need = [
+            'chemistry_2010-11_model_sem2.json',
+            'chemistry_2016-17_model.json',
+            'chemistry_2017-18_model.json',
+            'history_2016-17_model.json',
+            'physics_2017-18_model.json',
+          ]
+          root = 'assets/high/exams'
+          idx = json.load(open(f'{root}/index.json'))
+          missing = [f for f in need if not os.path.exists(os.path.join(root, f)) or f not in idx['exams']]
+          n = 0
+          for f in need:
+              p = os.path.join(root, f)
+              if os.path.exists(p):
+                  n += len(json.load(open(p))['questions'])
+          print('sawa model questions', n, 'index', len(idx['exams']))
+          if missing:
+              sys.exit('missing ' + ', '.join(missing))
+          if n < 383:
+              sys.exit(f'expected 383 Sawa questions, got {n}')
+          PY
+
+      - name: Commit Sawa models and icon
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add assets/high/exams assets/high/exercises/school android/app/src/main/res/mipmap-*/ic_launcher.png
+          if git diff --cached --quiet; then
+            echo "Sawa models and icon already on the branch"
+          else
+            git commit -m "Add Sawa Warsay Yikealo model exams and flag-ribbon 4 icon."
+            git push
+          fi
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Accept Android licenses
+        run: yes | flutter doctor --android-licenses || true
+      - name: Pub get
+        run: flutter pub get
+      - name: Release keystore
+        env:
+          FOUR_KEYSTORE_B64: ${{ secrets.FOUR_KEYSTORE_B64 }}
+        run: |
+          set -euo pipefail
+          if [ -z "${FOUR_KEYSTORE_B64}" ]; then echo "::error::FOUR_KEYSTORE_B64 secret missing - builds would not be updatable"; exit 1; fi
+          echo "$FOUR_KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/four-release.jks"
+          echo "FOUR_KEYSTORE=$RUNNER_TEMP/four-release.jks" >> "$GITHUB_ENV"
+      - name: Build APKs (universal + per-ABI)
+        env:
+          FOUR_KEYSTORE_PASSWORD: ${{ secrets.FOUR_KEYSTORE_PASSWORD }}
+          FOUR_KEY_ALIAS: ${{ secrets.FOUR_KEY_ALIAS }}
+          FOUR_KEY_PASSWORD: ${{ secrets.FOUR_KEY_PASSWORD }}
+          FOUR_MK: ${{ secrets.FOUR_MK }}
+        run: |
+          set -euo pipefail
+          MK=""; if [ -n "${FOUR_MK:-}" ]; then MK="--dart-define=FOUR_MK=$FOUR_MK"; fi
+          flutter build apk --release --no-tree-shake-icons --build-number=${{ github.run_number }} $MK
+          flutter build apk --release --no-tree-shake-icons --build-number=${{ github.run_number }} --split-per-abi $MK
+      - name: Publish release + update manifest
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          cd build/app/outputs/flutter-apk
+          python3 "$GITHUB_WORKSPACE/tool/publish_update.py" app-release.apk app-arm64-v8a-release.apk app-armeabi-v7a-release.apk \
+            --repo "${{ github.repository }}" --notes "${{ inputs.notes }}" --publish
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: four-apk
+          path: build/app/outputs/flutter-apk/*.apk
+          if-no-files-found: error
+          retention-days: 30

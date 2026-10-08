@@ -201,9 +201,7 @@ class _GradePageState extends State<GradePage> {
               child: Wrap(spacing: 8, runSpacing: 8, children: [
                 for (final b in books)
                   ChipX(b.look.key, tone: b.look.tone, on: b.id == _pick, onTap: () {
-                    if (s.tourStep != null && !s.tourWants('subject')) return;
                     setState(() => _pick = b.id);
-                    s.tourAct('subject');
                   }),
               ]),
             ),

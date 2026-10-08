@@ -10,6 +10,7 @@ import '../widgets/page.dart';
 import '../teacher/teacher.dart' show TeacherPage;
 import 'home.dart' show Stagger;
 import 'toast.dart';
+import '../../update/update_ui.dart' show UpdateSettings;
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key, this.controller});
@@ -150,6 +151,12 @@ class _SettingsPageState extends State<SettingsPage> {
               ],
             ),
           ),
+          Btn('How to use again', icon: 'play', kind: BtnKind.soft, block: true, onTap: () {
+            s.replayTour();
+            HighNav.of(context).tab(HighTab.home);
+          }),
+          const SectionLabel('App updates'),
+          const UpdateSettings(),
           const SectionLabel('Your progress'),
           kvCard([
             ('Questions answered', '${st.answered}'),

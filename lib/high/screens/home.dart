@@ -17,8 +17,10 @@ import '../notes/jr/data/subjects.dart';
 import '../notes/jr/state/app_state.dart' as jr;
 import 'notes_home.dart';
 import 'routes.dart';
+import '../widgets/coach.dart' show CoachKeys;
 import '../teacher/teacher.dart';
 import '../../resources/resources_ui.dart' show ResourcesCard;
+import '../../update/update_ui.dart' show UpdateCard;
 
 /// descent of the 16px Nunito strut under an inline `<svg>` (web line box)
 const kSvgDescent = 16 * .353;
@@ -51,10 +53,11 @@ class HomePage extends StatelessWidget {
         ? "You're on a ${st.cur}-day streak. Keep it glowing!"
         : "Let's make today count.";
     return PageShell(
-      top: const TopBar(title: '4', sub: 'Grade 9–12 · matric prep & notes'),
+      top: TopBar(title: '4', sub: 'Grade 9–12 · matric prep & notes', coachKey: CoachKeys.settings),
       body: ScreenList(
         controller: controller,
         children: Stagger.wrap([
+          const UpdateCard(),
           _Hero(name: name, sub: sub, cta: st.fresh ? 'Start studying' : 'Continue studying'),
           const _Grades(),
           const TeacherCard(),
@@ -992,10 +995,7 @@ class _Grades extends StatelessWidget implements Spaced {
         margin: EdgeInsets.zero,
         padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
         onTap: () {
-          final s = k.s;
-          if (s.tourStep != null && !(s.tourWants('grade9') && g == 9)) return;
           HighNav.of(context).open('grade:$g', () => GradePage(grade: g));
-          s.tourAct('grade9');
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1023,7 +1023,7 @@ class _Grades extends StatelessWidget implements Spaced {
         spacing: 12,
         children: [
           for (final r in const [[9, 10], [11, 12]])
-            Row(spacing: 12, children: [for (final g in r) Expanded(child: tile(g))]),
+            Row(spacing: 12, children: [for (final g in r) Expanded(child: g == 9 ? KeyedSubtree(key: CoachKeys.grade, child: tile(g)) : tile(g))]),
         ],
       ),
     );

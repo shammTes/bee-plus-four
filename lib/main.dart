@@ -6,6 +6,7 @@ import 'high/state/app_state.dart';
 import 'licensing/lock_screen.dart';
 import 'licensing/unlock_store.dart';
 import 'resources/gate.dart';
+import 'update/updater.dart';
 
 /// 4. Locked until Bee Seller issues a HIGHSCHOOL code for this phone.
 Future<void> main() async {
@@ -17,6 +18,8 @@ Future<void> main() async {
   await unlock.init();
   // add-on resources: unlock proof hook (AES-GCM runs natively via cryptography_flutter); nothing is read until used
   ResourceGate.install(unlock);
+  // updates: unlocked phones only, a few seconds after start, at most once a day, Wi-Fi only by default
+  if (unlock.isUnlocked) Future<void>.delayed(const Duration(seconds: 6), Updater.instance.autoCheck);
   final loading = _warm();
   runApp(FourRoot(unlock: unlock, loading: loading));
 }
@@ -57,6 +60,7 @@ class _FourRootState extends State<FourRoot> {
   Future<void> _unlocked() async {
     await Future<void>.delayed(const Duration(milliseconds: 200));
     if (mounted) setState(() => _open = true);
+    Future<void>.delayed(const Duration(seconds: 6), Updater.instance.autoCheck);
   }
 
   @override
