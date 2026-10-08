@@ -7,7 +7,7 @@ import 'screens/exercise.dart';
 import 'tutor/tutor_page.dart';
 import 'notes/jr/state/app_state.dart' as jr;
 import 'screens/notes_home.dart';
-import 'screens/tour.dart';
+import 'widgets/coach.dart';
 import 'state/app_state.dart';
 import 'state/page_gate.dart';
 import 'theme/tokens.dart';
@@ -126,14 +126,11 @@ class HighShellState extends State<HighShell> implements HighNav {
 
   @override
   void tab(HighTab t) {
-    final s = HighScope.read(context);
-    if (s.tourStep != null && !s.tourWants(t.name)) return;
     setState(() {
       if (t == _tab && _stack.isEmpty) _tabGen[t] = (_tabGen[t] ?? 0) + 1;
       _stack.clear();
       _tab = t;
     });
-    s.tourAct(t.name);
   }
   final Map<HighTab, int> _tabGen = {};
 
@@ -154,8 +151,6 @@ class HighShellState extends State<HighShell> implements HighNav {
 
   @override
   void back() {
-    final s = HighScope.read(context);
-    if (s.tourStep != null && !s.tourWants('back')) return;
     setState(() {
       if (_sheets.isNotEmpty) {
         _sheets.removeLast();
@@ -165,7 +160,6 @@ class HighShellState extends State<HighShell> implements HighNav {
         _tab = HighTab.home;
       }
     });
-    s.tourAct('back');
   }
 
   /// shows a bottom sheet (web `sheet()`); returns a close function
@@ -257,7 +251,8 @@ class HighShellState extends State<HighShell> implements HighNav {
               if (showNav && !KeyboardInset.isOpen(context))
                 Positioned(left: 14, right: 14, bottom: 14 + MediaQuery.paddingOf(context).bottom, child: NavBar(current: _tab, onTap: tab)),
               for (final s in _sheets) Positioned.fill(key: s.key, child: SheetLayer(lock: s.lock, bare: s.bare, onClose: back, child: s.child)),
-              const Positioned(left: 14, right: 14, bottom: 0, child: TourCard()),
+              // first-run coach marks (spotlight + tooltip) over the real widgets
+              const Positioned.fill(child: CoachMarks()),
             ],
           ),
         ),
@@ -298,7 +293,9 @@ class NavBar extends StatelessWidget {
               for (final (t, icon, label) in items)
                 Expanded(
                   flex: t == current ? 125 : 100,
-                  child: Press(
+                  child: KeyedSubtree(
+                    key: CoachKeys.tab(t),
+                    child: Press(
                     key: ValueKey(t),
                     label: label,
                     onTap: () => onTap(t),
@@ -311,7 +308,6 @@ class NavBar extends StatelessWidget {
                       child: DecoratedBox(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
-                          border: Kit.of(context).s.tourWants(t.name) ? Border.all(color: p.coral, width: 2.5) : null,
                         ),
                         child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -326,6 +322,7 @@ class NavBar extends StatelessWidget {
                         ),
                       ),
                     ),
+                  ),
                   ),
                 ),
             ],

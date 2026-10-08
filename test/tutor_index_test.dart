@@ -310,7 +310,7 @@ void main() {
       await TutorIndex.load();
       await notes.book('physics_11');
     });
-    SharedPreferences.setMockInitialValues({'high:v1': '{"name":"Abel"}'});
+    SharedPreferences.setMockInitialValues({'high:v1': '{"name":"Abel","tourDone":true}'});
     final s = HighState(repo, await SharedPreferences.getInstance(), notes);
     await s.load();
     await t.pumpWidget(HighApp(state: s, initialTab: HighTab.tutor));

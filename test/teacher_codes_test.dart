@@ -65,7 +65,7 @@ void main() {
     t.view.physicalSize = const Size(780, 1688);
     t.view.devicePixelRatio = 2;
     addTearDown(t.view.reset);
-    SharedPreferences.setMockInitialValues({HighState.key: jsonEncode({'v': 2, 'name': 'Hana', 'theme': 'light'})});
+    SharedPreferences.setMockInitialValues({HighState.key: jsonEncode({'v': 2, 'name': 'Hana', 'theme': 'light', 'tourDone': true})});
     final s = HighState(repo, await SharedPreferences.getInstance(), notes);
     await s.load();
     await t.pumpWidget(HighApp(state: s));
