@@ -9,6 +9,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 class MirrorResult {
   MirrorResult(this.entry, this.files, this.unresolved, this.external);
@@ -249,7 +250,7 @@ class WebMirror {
     return js;
   }
 
-  Future<(List<int>, String)?> _get(Uri u, [int redirects = 0]) async {
+  Future<(List<int>, String)?> _get(Uri u) async {
     try {
       final rq = await _http.getUrl(u);
       rq.followRedirects = true;

@@ -468,7 +468,10 @@ class _JobCard extends StatelessWidget {
                 SegmentedButton<FourType>(
                   segments: [for (final t in types) ButtonSegment(value: t, label: Text(t == FourType.video ? 'Video 16:9' : 'Reel 9:16'))],
                   selected: {j.type},
-                  onSelectionChanged: editable ? (s) => (j.type = s.first, onChanged()) : null,
+                  onSelectionChanged: editable ? (s) {
+                        j.type = s.first;
+                        onChanged();
+                      } : null,
                 ),
               TextFormField(
                 key: ValueKey('t${j.uri}'),
@@ -486,7 +489,10 @@ class _JobCard extends StatelessWidget {
                       isExpanded: true,
                       decoration: const InputDecoration(labelText: 'Subject', isDense: true),
                       items: [for (final s in kSubjects) DropdownMenuItem(value: s, child: Text(s.isEmpty ? '—' : s.replaceAll('_', ' ')))],
-                      onChanged: editable ? (v) => (j.subject = v ?? '', onChanged()) : null,
+                      onChanged: editable ? (v) {
+                        j.subject = v ?? '';
+                        onChanged();
+                      } : null,
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -496,7 +502,10 @@ class _JobCard extends StatelessWidget {
                       initialValue: j.grade,
                       decoration: const InputDecoration(labelText: 'Grade', isDense: true),
                       items: [for (final g in [0, 9, 10, 11, 12]) DropdownMenuItem(value: g, child: Text(g == 0 ? '—' : '$g'))],
-                      onChanged: editable ? (v) => (j.grade = v ?? 0, onChanged()) : null,
+                      onChanged: editable ? (v) {
+                        j.grade = v ?? 0;
+                        onChanged();
+                      } : null,
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -530,7 +539,10 @@ class _JobCard extends StatelessWidget {
             contentPadding: EdgeInsets.zero,
             dense: true,
             value: j.thirdParty,
-            onChanged: editable ? (v) => (j.thirdParty = v ?? false, onChanged()) : null,
+            onChanged: editable ? (v) {
+                        j.thirdParty = v ?? false;
+                        onChanged();
+                      } : null,
             title: const Text('Made by someone else (needs a licence and credit)'),
           ),
         if (j.thirdParty) ...[
@@ -542,7 +554,10 @@ class _JobCard extends StatelessWidget {
               isExpanded: true,
               decoration: const InputDecoration(labelText: 'Licence (as shown on the source page)', isDense: true),
               items: [for (final l in FourLicence.choices) DropdownMenuItem(value: l.id, child: Text(l.label))],
-              onChanged: editable ? (v) => (j.licence = FourLicence.byId(v ?? ''), onChanged()) : null,
+              onChanged: editable ? (v) {
+                        j.licence = FourLicence.byId(v ?? '');
+                        onChanged();
+                      } : null,
             ),
             TextFormField(key: ValueKey('a${j.uri}'), initialValue: j.author, enabled: editable, decoration: const InputDecoration(labelText: 'Author / organisation', isDense: true), onChanged: (v) => j.author = v),
             TextFormField(key: ValueKey('s${j.uri}'), initialValue: j.sourceUrl, enabled: editable, decoration: const InputDecoration(labelText: 'Source URL', isDense: true), onChanged: (v) => j.sourceUrl = v),
