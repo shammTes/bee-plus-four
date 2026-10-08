@@ -225,5 +225,7 @@ void main() {
     expect(src, isNot(contains('http://')));
     expect(src, isNot(contains('https://')));
     expect(File('android/app/src/main/AndroidManifest.xml').readAsStringSync(), isNot(contains('android.permission.INTERNET')));
+    final rel = File('android/app/src/release/AndroidManifest.xml').readAsStringSync();
+    expect(rel, contains('<uses-permission android:name="android.permission.INTERNET" tools:node="remove"/>'));
   });
 }

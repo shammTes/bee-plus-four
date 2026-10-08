@@ -112,5 +112,6 @@ HTTP code and the release manifest has no `INTERNET` permission.
 - Split installs (Play-style App Bundles) cannot be shared as one APK; *Send 4* then sends all parts and warns.
   CI builds are universal, so this normally does not happen.
 - Some Bluetooth stacks refuse `.apk` files; SHAREit, Nearby Share or a cable work.
-- If a dependency's own manifest declares `INTERNET`, Android merges it in; 4's update code still makes no
-  network requests.
+- Release builds strip `INTERNET` / `ACCESS_NETWORK_STATE` even when a library would merge them in
+  (`android/app/src/release/AndroidManifest.xml`, `tools:node="remove"`; e.g. ML Kit telemetry). No 4 feature needs
+  the network (ML Kit models are bundled, video/PDF read local files). Debug/profile builds keep `INTERNET` for hot reload.
