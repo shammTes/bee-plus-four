@@ -85,6 +85,8 @@ class _NoteCardViewState extends State<NoteCardView> {
     final rc = richColors(p), ps = pStyle(p);
     Widget paras(List<String> l, {bool hx = false}) => l.isEmpty ? const SizedBox.shrink() : RichParas(l, style: ps, colors: rc, hx: hx);
     final pg = PgRef(c.page);
+    // a note under a table / step-by-step figure (same paragraph style as text cards; nothing is built when there is no body)
+    Widget below(List<String> l) => l.isEmpty ? const SizedBox.shrink() : Padding(padding: const EdgeInsets.only(top: 14), child: paras(l));
     NCard base(List<Widget> kids, {Tone? tone, Color? cc, Color? d}) => NCard(
       tone: tone,
       c: cc,
@@ -107,13 +109,13 @@ class _NoteCardViewState extends State<NoteCardView> {
           pg,
         ]);
       case TableCard():
-        return base([CardTitle(c.title), NTable(head: c.head, rows: c.rows), pg]);
+        return base([CardTitle(c.title), NTable(head: c.head, rows: c.rows), below(c.body), pg]);
       case CheckCard():
         return _check(k, p, c);
       case DiagramCard():
         return _diagram(k, p, c, paras, pg);
       case StepsCard():
-        return _steps(k, p, c, pg);
+        return _steps(k, p, c, below(c.body), pg);
       case StatesCard():
         return _states(k, p, c, paras, pg);
       case GrammarCard():
@@ -365,7 +367,7 @@ class _NoteCardViewState extends State<NoteCardView> {
 
   TextStyle _stStyle(Palette p) => ts(20, FontWeight.w700, p.ink, height: 1.45);
 
-  Widget _steps(Kit k, Palette p, StepsCard c, Widget pg) {
+  Widget _steps(Kit k, Palette p, StepsCard c, Widget note, Widget pg) {
     final d = u.diagrams[c.diagram], path = widget.ctx.pathOf(c.diagram);
     final i = w.step.clamp(0, c.steps.length - 1), st = c.steps[i];
     return NCard(
@@ -397,6 +399,7 @@ class _NoteCardViewState extends State<NoteCardView> {
                 ),
               ),
           ]),
+          note,
           pg,
         ],
       ),
