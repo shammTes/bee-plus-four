@@ -17,6 +17,7 @@ import 'native_video.dart' show fmtMs;
 import 'pdf_page.dart';
 import 'reels_page.dart';
 import 'video_page.dart';
+import 'web_page.dart';
 
 String _subjectLabel(String s) => s.isEmpty ? 'General' : s.split('_').map((w) => w.isEmpty ? w : '${w[0].toUpperCase()}${w.substring(1)}').join(' ');
 
@@ -28,6 +29,10 @@ void openResource(BuildContext context, ResEntry e, {List<ResEntry>? scope}) {
     final reels = [for (final x in scope ?? lib.entries) if (x.meta.type == FourType.reel) x];
     if (!reels.any((x) => x.id == e.id)) reels.insert(0, e);
     HighNav.of(context).push(ReelsPage(reels: reels, initial: reels.indexWhere((x) => x.id == e.id)));
+    return;
+  }
+  if (e.meta.type == FourType.web) {
+    openWebResource(context, e);
     return;
   }
   HighNav.of(context).push(e.meta.type == FourType.pdf ? PdfResourcePage(entry: e) : VideoResourcePage(entry: e));
@@ -224,7 +229,7 @@ class _Thumb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = Kit.of(context).p, t = e.thumb;
-    final video = e.meta.type != FourType.pdf;
+    final video = e.meta.type == FourType.video || e.meta.type == FourType.reel;
     final img = _img(p, t);
     if (!video) return img;
     return Stack(
@@ -255,7 +260,7 @@ class _Thumb extends StatelessWidget {
             ? Image.memory(t, fit: BoxFit.cover, cacheWidth: (w * 2).round(), gaplessPlayback: true)
             : ColoredBox(
                 color: p.surface2,
-                child: Center(child: Text(e.meta.type == FourType.pdf ? 'PDF' : 'VIDEO', style: ts(11, w900, p.ink3))),
+                child: Center(child: Text(switch (e.meta.type) { FourType.pdf => 'PDF', FourType.web => 'WEB', _ => 'VIDEO' }, style: ts(11, w900, p.ink3))),
               ),
       ),
     );
@@ -284,7 +289,8 @@ class ResourceTile extends StatelessWidget {
               children: [
                 Text(m.title, maxLines: 2, overflow: TextOverflow.ellipsis, style: ts(14.5, w900, p.ink)),
                 Text('${_subjectLabel(m.subject)} · Grade ${m.grade}${m.unit.isNotEmpty ? ' · Unit ${m.unit}' : ''}', style: ts(12.5, w700, p.ink2)),
-                Text('${m.type.name.toUpperCase()}${m.durationMs != null ? ' · ${fmtMs(m.durationMs!)}' : ''} · ${(entry.size / 1e6).toStringAsFixed(1)} MB', style: ts(11.5, w700, p.ink3)),
+                Text('${m.type == FourType.web ? 'INTERACTIVE' : m.type.name.toUpperCase()}${m.durationMs != null ? ' · ${fmtMs(m.durationMs!)}' : ''} · ${(entry.size / 1e6).toStringAsFixed(1)} MB', style: ts(11.5, w700, p.ink3)),
+                if (m.creditLine.isNotEmpty) Text(m.creditLine, maxLines: 1, overflow: TextOverflow.ellipsis, style: ts(10.5, w700, p.ink3)),
               ],
             ),
           ),

@@ -38,6 +38,12 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|screenLayout|density|uiMode"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <!-- Offline .4web pages only (the one WebView in 4): no network, served from memory, FLAG_SECURE. -->
+        <activity
+            android:name=".FourWebActivity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|screenLayout|density|uiMode"
+            android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar" />
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"

@@ -19,6 +19,7 @@ import java.util.concurrent.Executors
  *  - listFolder(uri)     → [{uri, name, size, head(bytes ≤ 64)}] for files (3 levels deep) whose first bytes are "4RES"
  *  - importFile(uri, dest) → streaming copy into app-private storage (still encrypted)
  *  - setSecure(bool)     → FLAG_SECURE while a resource is on screen (no screenshots / recents preview)
+ *  - openWeb(path, key, entry, title, credit) → decrypts a .4web zip into memory, opens [FourWebActivity]
  * No storage permission is needed: SAF grants access to the chosen folder only.
  */
 class ResourcesChannel(private val activity: FlutterFragmentActivity) {
@@ -102,6 +103,28 @@ class ResourcesChannel(private val activity: FlutterFragmentActivity) {
                             dest.delete()
                             HighLog.e("importFile failed", e)
                             activity.runOnUiThread { result.error("import", "${e.javaClass.simpleName}: ${e.message}", null) }
+                        }
+                    }
+                }
+                "openWeb" -> {
+                    val path = call.argument<String>("path")!!
+                    val key = call.argument<ByteArray>("key")!!
+                    val entry = call.argument<String>("entry") ?: ""
+                    io.execute {
+                        try {
+                            val b = FourWebBundle.open(File(path), key, entry)
+                            key.fill(0)
+                            FourWebHolder.bundle = b
+                            FourWebHolder.title = call.argument<String>("title") ?: ""
+                            FourWebHolder.credit = call.argument<String>("credit") ?: ""
+                            activity.runOnUiThread {
+                                activity.startActivity(Intent(activity, FourWebActivity::class.java))
+                                result.success(null)
+                            }
+                        } catch (e: Throwable) {
+                            key.fill(0)
+                            HighLog.e("openWeb failed", e)
+                            activity.runOnUiThread { result.error("web", "${e.javaClass.simpleName}: ${e.message}", null) }
                         }
                     }
                 }

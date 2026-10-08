@@ -173,7 +173,7 @@ class _VideoResourcePageState extends State<VideoResourcePage> {
       );
     }
     return PageShell(
-      top: TopBar(title: m.title, sub: 'Video', onBack: () => HighNav.of(context).back(), tab: false),
+      top: TopBar(title: m.title, sub: m.creditLine.isEmpty ? 'Video' : 'Video · ${m.creditLine}', onBack: () => HighNav.of(context).back(), tab: false),
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
