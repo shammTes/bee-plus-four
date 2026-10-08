@@ -15,7 +15,7 @@ class RichTx extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (maxLines != null) {
-      return Text(text.replaceAll(RegExp(r'\\[()\[\]]|\$\$'), ''), style: style, maxLines: maxLines, overflow: TextOverflow.ellipsis);
+      return Text(text.replaceAll(RegExp(r'\\[()\[\]]|\$\$'), '').replaceAll(r'\$', r'$'), style: style, maxLines: maxLines, overflow: TextOverflow.ellipsis);
     }
     final p = style.color ?? const Color(0xFF3E3129);
     return RichPara(text, style: style, notes: tex, textAlign: align, colors: RichColors(withA(p, .25), p, p));
