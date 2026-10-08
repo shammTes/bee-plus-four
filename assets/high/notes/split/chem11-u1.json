@@ -87,6 +87,18 @@
      "title": "Collision theory: more successful collisions per second → faster rate.",
      "page": 6,
      "pins": []
+    },
+    "cm_press": {
+     "svg": "svg/chemistry_11/chem11_u1_cm_press.svg",
+     "title": "Effect of pressure on N₂O₄ ⇌ 2NO₂",
+     "page": 23,
+     "pins": []
+    },
+    "cm_conc": {
+     "svg": "svg/chemistry_11/chem11_u1_cm_conc.svg",
+     "title": "Effect of concentration on N₂ + 3H₂ ⇌ 2NH₃",
+     "page": 22,
+     "pins": []
     }
    },
    "lessons": [
@@ -376,6 +388,165 @@
        ]
       },
       {
+       "id": "chem11-u1-cm-c01",
+       "type": "text",
+       "title": "The law of mass action, step by step",
+       "page": 19,
+       "src": "notes",
+       "body": [
+        "**Law of mass action** (Guldberg and Waage, 1864): at constant temperature, the rate of a reaction is proportional to the product of the molar concentrations of the reactants, each raised to the power of its coefficient in the balanced equation.",
+        "**Step 1 — Write both rates** for \\(a\\text{A} + b\\text{B} \\rightleftharpoons c\\text{C} + d\\text{D}\\):",
+        "$$\\text{rate}_f = k_f[\\text{A}]^a[\\text{B}]^b \\qquad \\text{rate}_b = k_b[\\text{C}]^c[\\text{D}]^d$$",
+        "**Step 2 — At equilibrium the two rates are equal:** \\(k_f[\\text{A}]^a[\\text{B}]^b = k_b[\\text{C}]^c[\\text{D}]^d\\).",
+        "**Step 3 — Collect the constants on one side:**",
+        "$$K_c = \\frac{k_f}{k_b} = \\frac{[\\text{C}]^c[\\text{D}]^d}{[\\text{A}]^a[\\text{B}]^b}$$",
+        "**Rules for writing Kc:** products on top, reactants below; each concentration (in mol/L) raised to its coefficient; concentrations are the **equilibrium** values. For gases you may use partial pressures instead → **Kp**. Pure solids and pure liquids are left out (their “concentration” is constant).",
+        "**Kc changes only with temperature** — not with concentration, pressure or a catalyst.",
+        "**Size of K:** K ≫ 1 → mostly products at equilibrium; K ≪ 1 → mostly reactants; K ≈ 1 → appreciable amounts of both."
+       ]
+      },
+      {
+       "id": "chem11-u1-cm-c02",
+       "type": "text",
+       "title": "Reaction quotient Q: which way will it go?",
+       "page": 20,
+       "src": "notes",
+       "body": [
+        "Q is calculated exactly like K but with the concentrations **at any moment** (not necessarily at equilibrium). Compare Q with K:",
+        "**Q < K** → too little product → net reaction goes **forward (to the right)**.",
+        "**Q = K** → at equilibrium → no net change.",
+        "**Q > K** → too much product → net reaction goes **backward (to the left)**."
+       ]
+      },
+      {
+       "id": "chem11-u1-cm-w01",
+       "type": "worked",
+       "title": "Worked example: writing Kc expressions",
+       "page": 19,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Write Kc for (a) H₂(g) + I₂(g) ⇌ 2HI(g); (b) 2SO₂(g) + O₂(g) ⇌ 2SO₃(g); (c) N₂O₄(g) ⇌ 2NO₂(g); (d) CaCO₃(s) ⇌ CaO(s) + CO₂(g).",
+       "steps": [
+        {
+         "text": "(a) \\(K_c = \\dfrac{[\\text{HI}]^2}{[\\text{H}_2][\\text{I}_2]}\\)"
+        },
+        {
+         "text": "(b) \\(K_c = \\dfrac{[\\text{SO}_3]^2}{[\\text{SO}_2]^2[\\text{O}_2]}\\)"
+        },
+        {
+         "text": "(c) \\(K_c = \\dfrac{[\\text{NO}_2]^2}{[\\text{N}_2\\text{O}_4]}\\)"
+        },
+        {
+         "text": "(d) Solids are left out: \\(K_c = [\\text{CO}_2]\\)"
+        }
+       ],
+       "answer": "Products over reactants, powers = coefficients, no solids or pure liquids."
+      },
+      {
+       "id": "chem11-u1-cm-w02",
+       "type": "worked",
+       "title": "Worked example: calculating Kc (textbook p.19)",
+       "page": 19,
+       "src": "notes",
+       "mode": "try",
+       "problem": "For N₂(g) + 3H₂(g) ⇌ 2NH₃(g) at equilibrium: [N₂] = 3.0 × 10⁻² M, [H₂] = 3.7 × 10⁻² M, [NH₃] = 1.6 × 10⁻² M. Calculate Kc.",
+       "steps": [
+        {
+         "text": "\\(K_c = \\dfrac{[\\text{NH}_3]^2}{[\\text{N}_2][\\text{H}_2]^3}\\)"
+        },
+        {
+         "text": "Top: \\((1.6\\times10^{-2})^2 = 2.56\\times10^{-4}\\)"
+        },
+        {
+         "text": "Bottom: \\((3.0\\times10^{-2})(3.7\\times10^{-2})^3 = (3.0\\times10^{-2})(5.07\\times10^{-5}) = 1.52\\times10^{-6}\\)"
+        },
+        {
+         "text": "\\(K_c = \\dfrac{2.56\\times10^{-4}}{1.52\\times10^{-6}} = 1.68\\times10^{2}\\)"
+        }
+       ],
+       "answer": "Kc = 1.68 × 10²"
+      },
+      {
+       "id": "chem11-u1-cm-w03",
+       "type": "worked",
+       "title": "Worked example: finding an equilibrium concentration",
+       "page": 20,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Same reaction, same temperature (Kc = 1.68 × 10²). At equilibrium [N₂] = 6.0 × 10⁻² M and [H₂] = 5.6 × 10⁻² M. Find [NH₃].",
+       "steps": [
+        {
+         "text": "Let \\([\\text{NH}_3] = x\\): \\(1.68\\times10^{2} = \\dfrac{x^2}{(6.0\\times10^{-2})(5.6\\times10^{-2})^3}\\)"
+        },
+        {
+         "text": "Bottom: \\((6.0\\times10^{-2})(1.76\\times10^{-4}) = 1.05\\times10^{-5}\\)"
+        },
+        {
+         "text": "\\(x^2 = 1.68\\times10^{2} \\times 1.05\\times10^{-5} = 1.77\\times10^{-3}\\)"
+        },
+        {
+         "text": "\\(x = \\sqrt{1.77\\times10^{-3}} = 4.21\\times10^{-2}\\text{ M}\\)"
+        }
+       ],
+       "answer": "[NH₃] = 4.21 × 10⁻² M"
+      },
+      {
+       "id": "chem11-u1-cm-w04",
+       "type": "worked",
+       "title": "Worked example: Q vs K (textbook p.21)",
+       "page": 21,
+       "src": "notes",
+       "mode": "try",
+       "problem": "For N₂ + 3H₂ ⇌ 2NH₃, Kc = 1.7 × 10². A mixture has [N₂] = 2.0 × 10⁻² M, [H₂] = 3.5 × 10⁻² M, [NH₃] = 2.0 × 10⁻² M. Is it at equilibrium? If not, which way does it shift?",
+       "steps": [
+        {
+         "text": "\\(Q_c = \\dfrac{(2.0\\times10^{-2})^2}{(2.0\\times10^{-2})(3.5\\times10^{-2})^3} = \\dfrac{4.00\\times10^{-4}}{8.58\\times10^{-7}}\\)"
+        },
+        {
+         "text": "\\(Q_c = 4.66\\times10^{2}\\)"
+        },
+        {
+         "text": "Qc (466) > Kc (170): too much product."
+        },
+        {
+         "text": "Net reaction goes to the **left**: some NH₃ decomposes until Q = K."
+        }
+       ],
+       "answer": "Not at equilibrium; shifts left."
+      },
+      {
+       "id": "chem11-u1-cm-k01",
+       "type": "check",
+       "title": "Quick check",
+       "page": 19,
+       "src": "notes",
+       "q": "For 2NO(g) + O₂(g) ⇌ 2NO₂(g), Kc = …",
+       "options": {
+        "A": "[NO₂]/([NO][O₂])",
+        "B": "[NO₂]²/([NO]²[O₂])",
+        "C": "[NO]²[O₂]/[NO₂]²",
+        "D": "2[NO₂]/(2[NO][O₂])"
+       },
+       "answer": "B",
+       "why": "Products over reactants, each raised to its coefficient: [NO₂]² over [NO]²[O₂]."
+      },
+      {
+       "id": "chem11-u1-cm-k02",
+       "type": "check",
+       "title": "Quick check",
+       "page": 20,
+       "src": "notes",
+       "q": "If Q > K for a reaction mixture, the reaction will …",
+       "options": {
+        "A": "shift right",
+        "B": "shift left",
+        "C": "stay the same",
+        "D": "stop"
+       },
+       "answer": "B",
+       "why": "Q > K means there is more product than at equilibrium, so the backward reaction wins until Q falls to K."
+      },
+      {
        "id": "chem11-u1-c12",
        "type": "text",
        "title": "1.2.2 Le Chatelier’s Principle",
@@ -386,6 +557,292 @@
         "In doing so, the system will react to restore equilibrium.",
         "For example, if the concentration of ammonia is increased, the rate of the backward reaction will increase and more hydrogen and nitrogen will be produced, resulting in more of the ammonia being used up.",
         "In other words the equilibrium shifts to the left until equilibrium is restored."
+       ]
+      },
+      {
+       "id": "chem11-u1-cm-c03",
+       "type": "text",
+       "title": "Le Chatelier’s principle, step by step",
+       "page": 22,
+       "src": "notes",
+       "body": [
+        "**Le Chatelier’s principle:** if a stress is applied to a system at equilibrium, the system shifts so as to **reduce (oppose) the stress** and reaches a new equilibrium position.",
+        "**Step 1 — Name the stress:** more or less of a substance (concentration), higher or lower pressure (volume), higher or lower temperature.",
+        "**Step 2 — Ask how the system can undo it:** use up what was added; replace what was removed; reduce a pressure increase by making fewer gas molecules.",
+        "**Step 3 — State the direction:** “shifts to the right (forward)” or “to the left (backward)”.",
+        "**Step 4 — State the result:** what happens to the amount of each substance, the colour, the yield.",
+        "**Concentration:** add a reactant or remove a product → shifts **right**; add a product or remove a reactant → shifts **left**. Kc does **not** change.",
+        "**Pressure (gases only):** count the **moles of gas** on each side. Increase pressure (decrease volume) → shift to the side with **fewer** gas moles; decrease pressure → side with **more** gas moles. Equal gas moles on both sides → **no shift**. Kc does not change.",
+        "**Also remember:** raising the temperature shifts an equilibrium in the **endothermic** direction (this *does* change K); a catalyst does **not** shift the equilibrium — it only helps reach it faster."
+       ]
+      },
+      {
+       "id": "chem11-u1-cm-s01",
+       "type": "states",
+       "title": "Model: squeezing N₂O₄ ⇌ 2NO₂",
+       "page": 23,
+       "src": "notes",
+       "diagram": "cm_press",
+       "states": [
+        {
+         "key": "a",
+         "label": "Equilibrium",
+         "text": "Colourless N₂O₄ and brown NO₂ in a gas syringe at equilibrium: 1 mol gas on the left, 2 mol gas on the right."
+        },
+        {
+         "key": "b",
+         "label": "Squeeze",
+         "text": "Push the plunger in: half the volume, double the pressure. The gas looks darker at first (more crowded)."
+        },
+        {
+         "key": "c",
+         "label": "New equilibrium",
+         "text": "The system reduces the pressure by forming the side with **fewer gas molecules**: 2NO₂ → N₂O₄. Fewer particles, the colour fades a little — shifted **left**."
+        }
+       ],
+       "body": [
+        "Slide to apply the stress and watch the response."
+       ]
+      },
+      {
+       "id": "chem11-u1-cm-s02",
+       "type": "steps",
+       "title": "Model: adding N₂ to the ammonia equilibrium",
+       "page": 22,
+       "src": "notes",
+       "diagram": "cm_conc",
+       "steps": [
+        {
+         "text": "**N₂ is added**: its concentration jumps, then falls as some of it reacts — but it stays higher than before.",
+         "show": "n2"
+        },
+        {
+         "text": "**H₂ is used up** with the extra N₂, so its concentration falls.",
+         "show": "h2"
+        },
+        {
+         "text": "**More NH₃ forms**: the equilibrium has shifted to the **right**. Kc is the same at the new equilibrium.",
+         "show": "nh3"
+        }
+       ]
+      },
+      {
+       "id": "chem11-u1-cm-t01",
+       "type": "table",
+       "title": "Effect of concentration (textbook p.23)",
+       "page": 23,
+       "src": "notes",
+       "head": [
+        "Change",
+        "Shift",
+        "Example: N₂ + 3H₂ ⇌ 2NH₃"
+       ],
+       "rows": [
+        [
+         "Add reactant",
+         "right",
+         "add N₂ or H₂ → more NH₃"
+        ],
+        [
+         "Remove reactant",
+         "left",
+         "remove H₂ → NH₃ decomposes"
+        ],
+        [
+         "Add product",
+         "left",
+         "add NH₃ → more N₂ and H₂"
+        ],
+        [
+         "Remove product",
+         "right",
+         "liquefy and remove NH₃ → more NH₃ forms"
+        ]
+       ]
+      },
+      {
+       "id": "chem11-u1-cm-t02",
+       "type": "table",
+       "title": "Effect of pressure: count the gas moles",
+       "page": 23,
+       "src": "notes",
+       "head": [
+        "Reaction",
+        "Gas moles left → right",
+        "Increase pressure shifts",
+        "Decrease pressure shifts"
+       ],
+       "rows": [
+        [
+         "N₂ + 3H₂ ⇌ 2NH₃",
+         "4 → 2",
+         "right",
+         "left"
+        ],
+        [
+         "2SO₂ + O₂ ⇌ 2SO₃",
+         "3 → 2",
+         "right",
+         "left"
+        ],
+        [
+         "N₂O₄ ⇌ 2NO₂",
+         "1 → 2",
+         "left",
+         "right"
+        ],
+        [
+         "H₂ + I₂ ⇌ 2HI",
+         "2 → 2",
+         "no shift",
+         "no shift"
+        ],
+        [
+         "CaCO₃(s) ⇌ CaO(s) + CO₂(g)",
+         "0 → 1",
+         "left",
+         "right"
+        ]
+       ],
+       "body": [
+        "Only gases count — ignore solids and liquids when counting moles."
+       ]
+      },
+      {
+       "id": "chem11-u1-cm-w05",
+       "type": "worked",
+       "title": "Worked example: why pressure shifts the ammonia equilibrium (using Q)",
+       "page": 23,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Show with Q why halving the volume of an equilibrium mixture of N₂ + 3H₂ ⇌ 2NH₃ shifts it to the right.",
+       "steps": [
+        {
+         "text": "At equilibrium \\(Q = K = \\dfrac{[\\text{NH}_3]^2}{[\\text{N}_2][\\text{H}_2]^3}\\)."
+        },
+        {
+         "text": "Halving the volume **doubles** every concentration at that instant."
+        },
+        {
+         "text": "New \\(Q = \\dfrac{(2[\\text{NH}_3])^2}{(2[\\text{N}_2])(2[\\text{H}_2])^3} = \\dfrac{4}{16}K = \\dfrac{K}{4}\\)"
+        },
+        {
+         "text": "Q < K → the reaction goes forward (right) until Q rises back to K — more NH₃, fewer gas molecules, lower pressure."
+        }
+       ],
+       "answer": "Q drops to K/4, so the equilibrium shifts right."
+      },
+      {
+       "id": "chem11-u1-cm-w06",
+       "type": "worked",
+       "title": "Worked example: predicting shifts",
+       "page": 23,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Predict the shift: (a) adding H₂ to H₂(g) + I₂(g) ⇌ 2HI(g); (b) increasing pressure on the same system; (c) removing O₂ from 2SO₂ + O₂ ⇌ 2SO₃; (d) decreasing pressure on PCl₅(g) ⇌ PCl₃(g) + Cl₂(g).",
+       "steps": [
+        {
+         "text": "(a) A reactant is added → the system uses it up → shifts **right**; more HI, less I₂ (the purple colour fades)."
+        },
+        {
+         "text": "(b) 2 gas moles on each side → **no shift** (pressure has no effect)."
+        },
+        {
+         "text": "(c) A reactant is removed → the system replaces it → shifts **left**; SO₃ decomposes."
+        },
+        {
+         "text": "(d) Lower pressure → side with **more** gas moles (1 → 2) → shifts **right**; more PCl₃ and Cl₂."
+        }
+       ],
+       "answer": "(a) right; (b) no shift; (c) left; (d) right."
+      },
+      {
+       "id": "chem11-u1-cm-w07",
+       "type": "worked",
+       "title": "Worked example: colour changes",
+       "page": 22,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Yellow chromate turns orange dichromate in acid: 2CrO₄²⁻(aq) + 2H⁺(aq) ⇌ Cr₂O₇²⁻(aq) + H₂O(l). What colour do you see when (a) acid is added, (b) NaOH is added?",
+       "steps": [
+        {
+         "text": "(a) More H⁺ (a reactant) → shift **right** → more orange Cr₂O₇²⁻ → the solution turns **orange**."
+        },
+        {
+         "text": "(b) OH⁻ removes H⁺ (H⁺ + OH⁻ → H₂O) → a reactant is removed → shift **left** → more yellow CrO₄²⁻ → **yellow**."
+        }
+       ],
+       "answer": "(a) orange; (b) yellow."
+      },
+      {
+       "id": "chem11-u1-cm-m01",
+       "type": "mnemonic",
+       "title": "Memory trick",
+       "page": 22,
+       "src": "notes",
+       "body": [
+        "**“The system is stubborn — it always does the opposite.”** Add something → it uses it up. Take something away → it makes more. Squeeze it → it makes fewer gas molecules."
+       ]
+      },
+      {
+       "id": "chem11-u1-cm-k03",
+       "type": "check",
+       "title": "Quick check",
+       "page": 23,
+       "src": "notes",
+       "q": "Increasing the pressure on 2SO₂(g) + O₂(g) ⇌ 2SO₃(g) will …",
+       "options": {
+        "A": "shift it left",
+        "B": "shift it right",
+        "C": "not affect it",
+        "D": "change Kc"
+       },
+       "answer": "B",
+       "why": "3 gas moles on the left, 2 on the right: higher pressure favours fewer moles → right."
+      },
+      {
+       "id": "chem11-u1-cm-k04",
+       "type": "check",
+       "title": "Quick check",
+       "page": 23,
+       "src": "notes",
+       "q": "Pressure has no effect on the position of which equilibrium?",
+       "options": {
+        "A": "N₂ + 3H₂ ⇌ 2NH₃",
+        "B": "N₂O₄ ⇌ 2NO₂",
+        "C": "H₂ + Cl₂ ⇌ 2HCl",
+        "D": "2SO₂ + O₂ ⇌ 2SO₃"
+       },
+       "answer": "C",
+       "why": "H₂ + Cl₂ ⇌ 2HCl has 2 gas moles on each side, so changing pressure cannot reduce the number of molecules."
+      },
+      {
+       "id": "chem11-u1-cm-k05",
+       "type": "check",
+       "title": "Quick check",
+       "page": 22,
+       "src": "notes",
+       "q": "Ammonia is removed from N₂ + 3H₂ ⇌ 2NH₃ as it forms. The effect is …",
+       "options": {
+        "A": "less NH₃ forms",
+        "B": "the equilibrium shifts right and the yield increases",
+        "C": "Kc increases",
+        "D": "nothing happens"
+       },
+       "answer": "B",
+       "why": "Removing a product makes the system replace it → shift right → higher yield. Kc stays the same at constant temperature."
+      },
+      {
+       "id": "chem11-u1-cm-r01",
+       "type": "remember",
+       "title": "Tips and common mistakes",
+       "page": 23,
+       "src": "notes",
+       "body": [
+        "Concentration and pressure changes move the **position**, not the **value** of K. Only temperature changes K.",
+        "Count only **gas** moles for pressure questions.",
+        "A catalyst never shifts an equilibrium.",
+        "Use the full phrase in answers: “the equilibrium shifts to the right to oppose the increase in …”."
        ]
       },
       {
@@ -494,6 +951,12 @@
      "meaning": "The state of a reversible reaction in which the forward and reverse rates are equal, so concentrations stay constant (dynamic equilibrium).",
      "page": 17,
      "src": "hand"
+    },
+    {
+     "term": "Law of mass action",
+     "meaning": "The rate of a reaction is proportional to the product of the reactant concentrations, each raised to its coefficient; it leads to the equilibrium constant Kc.",
+     "page": 19,
+     "src": "notes"
     }
    ],
    "tips": [
@@ -1190,6 +1653,173 @@
       "src_qid": "chemistry_2020_q50",
       "exam_question": "chemistry_2020_q50",
       "page": 1
+     },
+     {
+      "id": "chem11-u1-cm-q1",
+      "type": "mcq",
+      "q": "For H₂(g) + I₂(g) ⇌ 2HI(g) at equilibrium, [H₂] = [I₂] = 0.10 M and [HI] = 0.70 M. Kc = …",
+      "options": {
+       "A": "7.0",
+       "B": "49",
+       "C": "70",
+       "D": "0.020"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Kc = [HI]² / ([H₂][I₂]).",
+       "Step 2: = 0.49 / 0.010 = 49."
+      ],
+      "tip": "Square [HI] because its coefficient is 2.",
+      "similar": [
+       {
+        "q": "What is Kc for the reverse reaction 2HI ⇌ H₂ + I₂?",
+        "a": "1/49 ≈ 0.020."
+       },
+       {
+        "q": "If Kc is large, are reactants or products favoured?",
+        "a": "Products."
+       }
+      ],
+      "page": 19,
+      "src": "notes",
+      "label": "1.2 Equilibrium: mass action and Le Chatelier"
+     },
+     {
+      "id": "chem11-u1-cm-q2",
+      "type": "short",
+      "q": "For a reaction Kc = 4.0. A mixture has Qc = 10. In which direction will the reaction proceed? Explain.",
+      "answer": "To the left (backward), because Qc > Kc: there is too much product.",
+      "why": [
+       "Step 1: compare Q with K: 10 > 4.0.",
+       "Step 2: Q > K means the ratio products/reactants is too large.",
+       "Step 3: the backward reaction is faster until Q falls to 4.0."
+      ],
+      "tip": "Q < K → right; Q > K → left.",
+      "similar": [
+       {
+        "q": "Qc = 1.0 and Kc = 4.0: which way?",
+        "a": "To the right."
+       },
+       {
+        "q": "What is true when Qc = Kc?",
+        "a": "The system is at equilibrium."
+       }
+      ],
+      "page": 20,
+      "src": "notes",
+      "label": "1.2 Equilibrium: mass action and Le Chatelier"
+     },
+     {
+      "id": "chem11-u1-cm-q3",
+      "type": "mcq",
+      "q": "Decreasing the volume of N₂O₄(g) ⇌ 2NO₂(g) at constant temperature will …",
+      "options": {
+       "A": "increase the amount of NO₂",
+       "B": "increase the amount of N₂O₄",
+       "C": "have no effect",
+       "D": "increase Kc"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: smaller volume = higher pressure.",
+       "Step 2: the system shifts to fewer gas moles (1 mol N₂O₄ vs 2 mol NO₂).",
+       "Step 3: so more N₂O₄ forms; Kc unchanged."
+      ],
+      "tip": "Higher pressure → fewer gas moles.",
+      "similar": [
+       {
+        "q": "What about H₂ + I₂ ⇌ 2HI?",
+        "a": "No effect — equal gas moles."
+       },
+       {
+        "q": "Which conditions favour NH₃ in the Haber process?",
+        "a": "High pressure (and removing NH₃)."
+       }
+      ],
+      "page": 23,
+      "src": "notes",
+      "label": "1.2 Equilibrium: mass action and Le Chatelier"
+     },
+     {
+      "id": "chem11-u1-cm-q4",
+      "type": "mcq",
+      "q": "In Fe³⁺(aq) + SCN⁻(aq) ⇌ FeSCN²⁺(aq) (blood red), adding more SCN⁻ makes the solution …",
+      "options": {
+       "A": "paler",
+       "B": "a deeper red",
+       "C": "colourless",
+       "D": "unchanged"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: SCN⁻ is a reactant.",
+       "Step 2: adding a reactant shifts the equilibrium right.",
+       "Step 3: more FeSCN²⁺ → deeper red."
+      ],
+      "tip": "Add reactant → right.",
+      "similar": [
+       {
+        "q": "What happens if Fe³⁺ is removed?",
+        "a": "Shifts left; the red fades."
+       },
+       {
+        "q": "Does Kc change?",
+        "a": "No."
+       }
+      ],
+      "page": 22,
+      "src": "notes",
+      "label": "1.2 Equilibrium: mass action and Le Chatelier"
+     },
+     {
+      "id": "chem11-u1-cm-q5",
+      "type": "tf",
+      "q": "Adding a catalyst to an equilibrium mixture increases the yield of products.",
+      "answer": false,
+      "why": [
+       "Step 1: a catalyst speeds up the forward and backward reactions equally.",
+       "Step 2: equilibrium is reached sooner but at the same position.",
+       "Step 3: so the yield does not change."
+      ],
+      "tip": "Catalyst: faster, not further.",
+      "similar": [
+       {
+        "q": "What changes K?",
+        "a": "Only temperature."
+       },
+       {
+        "q": "Does increasing [reactant] change Kc?",
+        "a": "No — it changes the position only."
+       }
+      ],
+      "page": 22,
+      "src": "notes",
+      "label": "1.2 Equilibrium: mass action and Le Chatelier"
+     },
+     {
+      "id": "chem11-u1-cm-q6",
+      "type": "short",
+      "q": "State the effect of increasing pressure on each: (a) CO(g) + 2H₂(g) ⇌ CH₃OH(g); (b) C(s) + H₂O(g) ⇌ CO(g) + H₂(g).",
+      "answer": "(a) shifts right (3 → 1 gas moles); (b) shifts left (1 → 2 gas moles).",
+      "why": [
+       "Step 1: count gas moles: (a) 3 left, 1 right; (b) 1 left (carbon is solid), 2 right.",
+       "Step 2: higher pressure favours the side with fewer gas moles.",
+       "Step 3: (a) right; (b) left."
+      ],
+      "tip": "Ignore solids when counting.",
+      "similar": [
+       {
+        "q": "Effect of lower pressure on (a)?",
+        "a": "Shifts left."
+       },
+       {
+        "q": "Effect of adding H₂ to (b)?",
+        "a": "Shifts left."
+       }
+      ],
+      "page": 23,
+      "src": "notes",
+      "label": "1.2 Equilibrium: mass action and Le Chatelier"
      }
     ]
    },
