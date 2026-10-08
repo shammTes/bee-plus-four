@@ -1,28 +1,23 @@
-# Build 4 APK: the workflow fix
+# Build 4 APK: hardened workflow
 
-`build-four-apk.fixed.yml` is a drop-in replacement for `.github/workflows/build-four-apk.yml`.
-Bots and tokens without the `workflow` scope cannot change files under `.github/workflows`, so a person has to paste it.
+`build-four-apk.fixed.yml` replaces `.github/workflows/build-four-apk.yml`. The current workflow downloads packs from
+`litter.catbox.moe`, and those links expire. Its Sawa step also needs five exact files holding at least 383 questions,
+so de-duplicating papers or an expired link turns the build red.
 
-## Why
-The "Add Sawa model exams" step only passed when five exact file names were present with at least 383 questions between them.
-If any were missing, it downloaded `https://litter.catbox.moe/ti37hq.tgz`.
-catbox "litter" links expire within days, so once dedupe replaced one of those files the download returned 404 and the build failed. The school-paper step has the same weakness with its `qt60om.tgz` link.
+Changes in the fixed version:
+- **School pack:** only downloaded if it is missing from the repo. A failed download is a warning, not an error. The
+  check is now that every file in the index exists and the pack is not empty. The fixed count of 5908 is gone.
+- **Sawa models:** the download step is removed, because the files are committed. It is replaced by a check that
+  every paper listed in `assets/high/exams/index.json` exists and has questions. If a Sawa file is missing, that is
+  only a warning.
+- Everything else (icon, commit, Java/Flutter setup, build, upload) is unchanged.
 
-## What changed
-- **School papers:** the download now runs only when the pack is not already in the repo. If the link is dead, the step warns and continues instead of failing.
-  - It still fails when `index.json` points at a missing file.
-  - The fixed count of 5908 is gone.
-- **Sawa exams:** the step is replaced by "Check exam packs". That step:
-  - checks that every paper listed in `assets/high/exams/index.json` exists, parses and has at least one question;
-  - checks that every listed media file exists.
-  - There are no hard-coded file names and no hard-coded question total, so dedupe or merge work can't break the build. There is also no catbox download, because the papers are committed.
-- **Unchanged:** the icon, commit, Flutter and build steps.
-
-## How to apply (GitHub web editor, about 1 minute)
-1. Open this file on GitHub at `docs/ci/build-four-apk.fixed.yml`, click **Raw**, then select all and copy.
-2. Go to `.github/workflows/build-four-apk.yml` on `main` and click the pencil icon (**Edit this file**).
-3. Select all the text in the editor, delete it, and paste.
-4. Click **Commit changes…**. Either commit directly to `main` or pick "Create a new branch … and start a pull request" and merge that PR.
-5. In **Actions → Build 4 APK**, the new run should go green. You can also start one with **Run workflow**.
-
-After that, `tool/matric_audit/dedupe.py` no longer needs its `PINNED` list. It can stay; it does no harm.
+## How to install it (GitHub web editor; the bot token cannot edit workflows)
+1. Open https://github.com/shammTes/bee-plus-four/blob/main/docs/ci/build-four-apk.fixed.yml, click **Raw** and copy
+   everything (Ctrl+A, Ctrl+C).
+2. Open https://github.com/shammTes/bee-plus-four/edit/main/.github/workflows/build-four-apk.yml. This is the same as
+   opening the file on GitHub and clicking the pencil (Edit) icon.
+3. Select all the text in the editor (Ctrl+A), paste (Ctrl+V), and keep the indentation exactly as it is.
+4. Click **Commit changes…**, choose *Commit directly to the main branch*, then click **Commit changes**.
+5. Open **Actions → Build 4 APK**. The push starts a run; it can also be started with **Run workflow**. Check that
+   the run is green.
