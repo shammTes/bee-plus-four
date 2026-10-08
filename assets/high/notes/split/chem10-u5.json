@@ -129,6 +129,12 @@
      "title": "You still climb Ea even when the landing is lower — that is why cold petrol does not burst into flame by itself.",
      "page": 171,
      "pins": []
+    },
+    "cm_energy": {
+     "svg": "svg/chemistry_10/chem10_u5_cm_energy.svg",
+     "title": "Exothermic and endothermic energy diagrams",
+     "page": 161,
+     "pins": []
     }
    },
    "lessons": [
@@ -197,6 +203,213 @@
        "body": [
         "Energy is supplied to the reactants to raise the particles up to the higher energy level."
        ]
+      },
+      {
+       "id": "chem10-u5-cm-c01",
+       "type": "text",
+       "title": "Exothermic or endothermic? Step by step",
+       "page": 158,
+       "src": "notes",
+       "body": [
+        "The **system** is the reacting chemicals; the **surroundings** are everything else (the beaker, the water, the air, your hand).",
+        "**Step 1 — Bonds.** Breaking bonds **absorbs** energy; making bonds **releases** energy.",
+        "**Step 2 — Compare.** If more energy is released making the new bonds than was absorbed breaking the old ones, the reaction is **exothermic**; otherwise it is **endothermic**.",
+        "**Step 3 — Sign of ΔH.** Exothermic: heat leaves the system, **ΔH < 0** (negative), the surroundings get **warmer**. Endothermic: heat enters the system, **ΔH > 0** (positive), the surroundings get **colder**.",
+        "$$\\Delta H = H_{\\text{products}} - H_{\\text{reactants}}$$",
+        "**Step 4 — Check with a thermometer:** temperature of the mixture rises → exothermic; falls → endothermic."
+       ]
+      },
+      {
+       "id": "chem10-u5-cm-t01",
+       "type": "table",
+       "title": "Everyday examples",
+       "page": 164,
+       "src": "notes",
+       "head": [
+        "Exothermic (ΔH negative, gets hot)",
+        "Endothermic (ΔH positive, gets cold or needs heating)"
+       ],
+       "rows": [
+        [
+         "Burning butane, wood, charcoal: CH₄ + 2O₂ → CO₂ + 2H₂O, ΔH = −890 kJ",
+         "Photosynthesis: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ (needs sunlight)"
+        ],
+        [
+         "Respiration in our cells (the reverse of photosynthesis)",
+         "Thermal decomposition: CaCO₃ → CaO + CO₂, ΔH = +178 kJ (lime kilns)"
+        ],
+        [
+         "Neutralisation: H⁺ + OH⁻ → H₂O, ΔH = −57.1 kJ",
+         "Dissolving NH₄NO₃ or NH₄Cl in water (instant cold packs)"
+        ],
+        [
+         "Slaking quicklime: CaO + H₂O → Ca(OH)₂ (very hot)",
+         "Electrolysis of water: 2H₂O → 2H₂ + O₂"
+        ],
+        [
+         "Dissolving NaOH or concentrated H₂SO₄ in water",
+         "Melting ice, boiling water, sweat evaporating (cools the skin)"
+        ],
+        [
+         "Rusting of iron, condensation of steam, freezing of water",
+         "Baking soda + vinegar (the mixture feels cold); cooking an egg"
+        ]
+       ]
+      },
+      {
+       "id": "chem10-u5-cm-s01",
+       "type": "steps",
+       "title": "Model: reading an energy-level diagram",
+       "page": 161,
+       "src": "notes",
+       "diagram": "cm_energy",
+       "steps": [
+        {
+         "text": "**Exothermic:** the products are **lower** than the reactants. The drop is ΔH (negative): energy given out.",
+         "show": "exo"
+        },
+        {
+         "text": "**Endothermic:** the products are **higher** than the reactants. The rise is ΔH (positive): energy taken in.",
+         "show": "endo"
+        },
+        {
+         "text": "**Activation energy, Ea:** from the reactants up to the top of the hump. Even exothermic reactions must climb it first (a match is needed to light gas).",
+         "show": "ea"
+        },
+        {
+         "text": "A **catalyst** gives a lower hump (smaller Ea) but does **not** change ΔH.",
+         "show": "cat"
+        }
+       ]
+      },
+      {
+       "id": "chem10-u5-cm-c02",
+       "type": "text",
+       "title": "How to draw an energy-level diagram, step by step",
+       "page": 161,
+       "src": "notes",
+       "body": [
+        "1. Draw a vertical axis labelled **energy (enthalpy, H)** and a horizontal axis **reaction progress**.",
+        "2. Draw a short line for the **reactants** on the left.",
+        "3. Draw the **products** on the right: **lower** for exothermic, **higher** for endothermic. Write the formulas on the lines.",
+        "4. Join them with a curve that rises to a **hump** (the activated complex).",
+        "5. Add arrows: **Ea** from reactants up to the top of the hump; **ΔH** from reactants to products (pointing down for exothermic, up for endothermic). Write its value with the sign.",
+        "**Reverse reaction:** ΔH changes sign, and \\(E_a(\\text{reverse}) = E_a(\\text{forward}) - \\Delta H\\)."
+       ]
+      },
+      {
+       "id": "chem10-u5-cm-w01",
+       "type": "worked",
+       "title": "Worked example: burning methane",
+       "page": 170,
+       "src": "notes",
+       "mode": "try",
+       "problem": "CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(l), ΔH = −890 kJ/mol. (a) Is it exo- or endothermic? (b) Describe its energy diagram. (c) How much heat is released by burning 8.0 g of methane (M = 16 g/mol)?",
+       "steps": [
+        {
+         "text": "(a) ΔH is negative → **exothermic**."
+        },
+        {
+         "text": "(b) Products (CO₂ + 2H₂O) are drawn 890 kJ **below** the reactants (CH₄ + 2O₂), with a hump between them; ΔH arrow points down."
+        },
+        {
+         "text": "(c) Moles of CH₄ = \\(\\dfrac{8.0}{16} = 0.50\\text{ mol}\\)"
+        },
+        {
+         "text": "Heat released = \\(0.50 \\times 890 = 445\\text{ kJ}\\)"
+        }
+       ],
+       "answer": "Exothermic; 445 kJ released"
+      },
+      {
+       "id": "chem10-u5-cm-w02",
+       "type": "worked",
+       "title": "Worked example: nitrogen monoxide",
+       "page": 170,
+       "src": "notes",
+       "mode": "try",
+       "problem": "N₂(g) + O₂(g) → 2NO(g), ΔH = +180 kJ. (a) Exo or endo? (b) What is ΔH for 2NO → N₂ + O₂? (c) Why does NO form in a car engine or during lightning but not in ordinary air?",
+       "steps": [
+        {
+         "text": "(a) ΔH positive → **endothermic**; the products are 180 kJ above the reactants."
+        },
+        {
+         "text": "(b) The reverse reaction has the opposite sign: ΔH = −180 kJ."
+        },
+        {
+         "text": "(c) The reaction needs a large energy input (and a high Ea); the very high temperatures in engines and lightning supply it."
+        }
+       ],
+       "answer": "Endothermic; reverse ΔH = −180 kJ; needs very high temperature."
+      },
+      {
+       "id": "chem10-u5-cm-w03",
+       "type": "worked",
+       "title": "Worked example: numbers from a diagram",
+       "page": 162,
+       "src": "notes",
+       "mode": "try",
+       "problem": "On an energy diagram the reactants are at 50 kJ, the top of the hump at 150 kJ and the products at 20 kJ. Find Ea, ΔH and Ea of the reverse reaction.",
+       "steps": [
+        {
+         "text": "Ea (forward) = 150 − 50 = 100 kJ"
+        },
+        {
+         "text": "ΔH = H(products) − H(reactants) = 20 − 50 = −30 kJ (exothermic)"
+        },
+        {
+         "text": "Ea (reverse) = 150 − 20 = 130 kJ"
+        }
+       ],
+       "answer": "Ea = 100 kJ, ΔH = −30 kJ, Ea(reverse) = 130 kJ"
+      },
+      {
+       "id": "chem10-u5-cm-k01",
+       "type": "check",
+       "title": "Quick check",
+       "page": 164,
+       "src": "notes",
+       "q": "Ammonium nitrate dissolves in water and the beaker feels cold. The process is …",
+       "options": {
+        "A": "exothermic, ΔH negative",
+        "B": "endothermic, ΔH positive",
+        "C": "exothermic, ΔH positive",
+        "D": "neither"
+       },
+       "answer": "B",
+       "why": "Heat is taken from the surroundings (beaker feels cold) → endothermic, ΔH > 0."
+      },
+      {
+       "id": "chem10-u5-cm-k02",
+       "type": "check",
+       "title": "Quick check",
+       "page": 161,
+       "src": "notes",
+       "q": "On an energy diagram of an exothermic reaction, the products are …",
+       "options": {
+        "A": "higher than the reactants",
+        "B": "lower than the reactants",
+        "C": "at the top of the hump",
+        "D": "at the same level"
+       },
+       "answer": "B",
+       "why": "Energy is given out, so the products have less enthalpy than the reactants."
+      },
+      {
+       "id": "chem10-u5-cm-k03",
+       "type": "check",
+       "title": "Quick check",
+       "page": 162,
+       "src": "notes",
+       "q": "A catalyst changes …",
+       "options": {
+        "A": "ΔH only",
+        "B": "Ea only",
+        "C": "both Ea and ΔH",
+        "D": "neither"
+       },
+       "answer": "B",
+       "why": "A catalyst provides a lower-energy pathway (lower Ea); the start and end levels — and so ΔH — stay the same."
       },
       {
        "id": "chem10-u5-c06",
@@ -391,6 +604,169 @@
        ]
       },
       {
+       "id": "chem10-u5-cm-c03",
+       "type": "text",
+       "title": "Types of heat of reaction, step by step",
+       "page": 175,
+       "src": "notes",
+       "body": [
+        "Each “heat of …” is ΔH for a stated process and a stated amount — usually **1 mol** of the substance named. Read the definition carefully: it tells you what goes on the left and right of the equation.",
+        "**Heat of combustion:** heat released when **1 mol** of a substance burns **completely** in oxygen. Always **negative**. CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(l), ΔH = −890 kJ/mol.",
+        "**Heat of solution:** enthalpy change when **1 mol** of a substance dissolves in a large amount of water. Can be **negative** (NaOH, about −44 kJ/mol) or **positive** (NH₄NO₃, about +26 kJ/mol).",
+        "**Heat of neutralisation:** heat released when an acid and a base react to form **1 mol of water**. For any strong acid + strong base: H⁺(aq) + OH⁻(aq) → H₂O(l), ΔH = **−57.1 kJ/mol**. A weak acid gives a smaller value because some energy is used to ionise it.",
+        "**Heat of formation:** enthalpy change when **1 mol of a compound** forms from its **elements** in their standard states. C(s) + O₂(g) → CO₂(g), ΔH = −393 kJ/mol; C(s) + 2S(s) → CS₂(l), ΔH = +117 kJ/mol. The heat of formation of an element is zero.",
+        "**Heat of fusion:** heat **absorbed** when 1 mol of solid melts at its melting point. H₂O(s) → H₂O(l), ΔH = +6.01 kJ/mol.",
+        "**Heat of vaporisation:** heat **absorbed** when 1 mol of liquid turns into vapour at its boiling point. H₂O(l) → H₂O(g), ΔH = +40.7 kJ/mol."
+       ]
+      },
+      {
+       "id": "chem10-u5-cm-t02",
+       "type": "table",
+       "title": "Types of heat of reaction (textbook 5.2)",
+       "page": 175,
+       "src": "notes",
+       "head": [
+        "Type",
+        "Per …",
+        "Sign",
+        "Example"
+       ],
+       "rows": [
+        [
+         "Combustion",
+         "1 mol of fuel burned completely",
+         "always −",
+         "CH₄: −890 kJ/mol"
+        ],
+        [
+         "Solution",
+         "1 mol of solute dissolved",
+         "− or +",
+         "NaOH: −44; NH₄NO₃: +26 kJ/mol"
+        ],
+        [
+         "Neutralisation",
+         "1 mol of water formed",
+         "−",
+         "strong acid + strong base: −57.1 kJ/mol"
+        ],
+        [
+         "Formation",
+         "1 mol of compound from elements",
+         "− or +",
+         "CO₂: −393; CS₂: +117 kJ/mol"
+        ],
+        [
+         "Fusion",
+         "1 mol of solid melted",
+         "+",
+         "ice: +6.01 kJ/mol"
+        ],
+        [
+         "Vaporisation",
+         "1 mol of liquid vaporised",
+         "+",
+         "water: +40.7 kJ/mol"
+        ]
+       ]
+      },
+      {
+       "id": "chem10-u5-cm-w04",
+       "type": "worked",
+       "title": "Worked example: heat of neutralisation",
+       "page": 175,
+       "src": "notes",
+       "mode": "try",
+       "problem": "50 mL of 1.0 M HCl is mixed with 50 mL of 1.0 M NaOH. How much heat is released? (ΔH neutralisation = −57.1 kJ/mol)",
+       "steps": [
+        {
+         "text": "Moles of H⁺ = \\(1.0 \\times 0.050 = 0.050\\text{ mol}\\); moles of OH⁻ = 0.050 mol"
+        },
+        {
+         "text": "Water formed = 0.050 mol"
+        },
+        {
+         "text": "Heat released = \\(0.050 \\times 57.1 = 2.86\\text{ kJ}\\)"
+        }
+       ],
+       "answer": "≈ 2.9 kJ released"
+      },
+      {
+       "id": "chem10-u5-cm-w05",
+       "type": "worked",
+       "title": "Worked example: which type is it?",
+       "page": 176,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Name the type of heat change: (a) H₂(g) + ½O₂(g) → H₂O(l), ΔH = −286 kJ; (b) KOH(aq) + HNO₃(aq) → KNO₃(aq) + H₂O(l), ΔH = −57.1 kJ; (c) H₂O(l) → H₂O(g), ΔH = +40.7 kJ.",
+       "steps": [
+        {
+         "text": "(a) 1 mol of a compound (water) from its elements → **heat of formation** of water. (It is also the heat of combustion of hydrogen — 1 mol of H₂ burns.)"
+        },
+        {
+         "text": "(b) Acid + base → 1 mol water → **heat of neutralisation**."
+        },
+        {
+         "text": "(c) Liquid → vapour, 1 mol → **heat of vaporisation**."
+        }
+       ],
+       "answer": "(a) formation (= combustion of H₂); (b) neutralisation; (c) vaporisation"
+      },
+      {
+       "id": "chem10-u5-cm-m01",
+       "type": "mnemonic",
+       "title": "Memory trick: changes of state",
+       "page": 176,
+       "src": "notes",
+       "body": [
+        "**Melting, boiling, evaporating, subliming take heat IN (+). Freezing, condensing take heat OUT (−).** Think of an ice cube melting in your hand: your hand feels cold because the ice takes heat in."
+       ]
+      },
+      {
+       "id": "chem10-u5-cm-k04",
+       "type": "check",
+       "title": "Quick check",
+       "page": 175,
+       "src": "notes",
+       "q": "The heat of combustion of a substance is always …",
+       "options": {
+        "A": "positive",
+        "B": "negative",
+        "C": "zero",
+        "D": "either sign"
+       },
+       "answer": "B",
+       "why": "Burning releases heat, so ΔH of combustion is always negative."
+      },
+      {
+       "id": "chem10-u5-cm-k05",
+       "type": "check",
+       "title": "Quick check",
+       "page": 175,
+       "src": "notes",
+       "q": "The heat of neutralisation of any strong acid by any strong base is about −57.1 kJ/mol because …",
+       "options": {
+        "A": "all salts are the same",
+        "B": "the reaction is always H⁺ + OH⁻ → H₂O",
+        "C": "water boils",
+        "D": "the acids are concentrated"
+       },
+       "answer": "B",
+       "why": "Strong acids and bases are fully ionised; the other ions are spectators, so the only reaction is H⁺ + OH⁻ → H₂O."
+      },
+      {
+       "id": "chem10-u5-cm-r01",
+       "type": "remember",
+       "title": "Tips",
+       "page": 175,
+       "src": "notes",
+       "body": [
+        "Check the “1 mol of …” in each definition: combustion = 1 mol of fuel; formation = 1 mol of compound; neutralisation = 1 mol of water.",
+        "Heats of fusion and vaporisation are **positive**; the reverse changes (freezing, condensing) have the same numbers with a **negative** sign.",
+        "Always give the sign and the unit (kJ/mol) with a ΔH value."
+       ]
+      },
+      {
        "id": "chem10-u5-c09",
        "type": "mnemonic",
        "title": "Exo I exit heat. Endo I enter heat.",
@@ -510,6 +886,18 @@
      "page": 163,
      "src": "textbook p.163",
      "enriched": true
+    },
+    {
+     "term": "Heat of formation",
+     "meaning": "ΔH when 1 mol of a compound forms from its elements in their standard states.",
+     "page": 176,
+     "src": "notes"
+    },
+    {
+     "term": "Heat of neutralisation",
+     "meaning": "Heat released when an acid and a base form 1 mol of water.",
+     "page": 175,
+     "src": "notes"
     }
    ],
    "tips": [
@@ -1185,6 +1573,145 @@
        }
       ],
       "id": "chem10-u5-q22"
+     },
+     {
+      "id": "chem10-u5-cm-q1",
+      "type": "mcq",
+      "q": "Which process is endothermic?",
+      "options": {
+       "A": "Burning charcoal",
+       "B": "Neutralisation of HCl by NaOH",
+       "C": "Thermal decomposition of CaCO₃",
+       "D": "Slaking quicklime"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: burning, neutralising and slaking all give out heat.",
+       "Step 2: CaCO₃ must be heated strongly to decompose → absorbs heat → endothermic (ΔH = +178 kJ)."
+      ],
+      "tip": "Needs continuous heating → endothermic.",
+      "similar": [
+       {
+        "q": "Is photosynthesis exo- or endothermic?",
+        "a": "Endothermic (absorbs light energy)."
+       },
+       {
+        "q": "Is respiration exo- or endothermic?",
+        "a": "Exothermic."
+       }
+      ],
+      "page": 158,
+      "src": "notes",
+      "label": "5.1–5.2 Energy changes"
+     },
+     {
+      "id": "chem10-u5-cm-q2",
+      "type": "short",
+      "q": "On an energy diagram the reactants are at 120 kJ, the peak at 200 kJ and the products at 160 kJ. Find Ea, ΔH and say whether the reaction is exo- or endothermic.",
+      "answer": "Ea = 80 kJ; ΔH = +40 kJ; endothermic",
+      "why": [
+       "Step 1: Ea = 200 − 120 = 80 kJ.",
+       "Step 2: ΔH = 160 − 120 = +40 kJ.",
+       "Step 3: positive ΔH → endothermic."
+      ],
+      "tip": "ΔH = products − reactants.",
+      "similar": [
+       {
+        "q": "What is Ea of the reverse reaction?",
+        "a": "200 − 160 = 40 kJ."
+       },
+       {
+        "q": "A catalyst lowers the peak to 170 kJ. What is ΔH now?",
+        "a": "Still +40 kJ."
+       }
+      ],
+      "page": 162,
+      "src": "notes",
+      "label": "5.1–5.2 Energy changes"
+     },
+     {
+      "id": "chem10-u5-cm-q3",
+      "type": "mcq",
+      "q": "C(s) + O₂(g) → CO₂(g), ΔH = −393 kJ/mol is the heat of …",
+      "options": {
+       "A": "fusion",
+       "B": "neutralisation",
+       "C": "formation of CO₂",
+       "D": "solution"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: one mole of a compound (CO₂) is formed from its elements (C and O₂).",
+       "Step 2: that is the definition of heat of formation (it is also the heat of combustion of carbon)."
+      ],
+      "tip": "Elements on the left, 1 mol compound on the right → formation.",
+      "similar": [
+       {
+        "q": "What is the heat of formation of O₂(g)?",
+        "a": "Zero — it is an element."
+       },
+       {
+        "q": "Is the heat of formation of CS₂ positive or negative?",
+        "a": "Positive, +117 kJ/mol."
+       }
+      ],
+      "page": 176,
+      "src": "notes",
+      "label": "5.1–5.2 Energy changes"
+     },
+     {
+      "id": "chem10-u5-cm-q4",
+      "type": "short",
+      "q": "How much heat is released when 4.0 g of methane burns? (CH₄ = 16 g/mol, ΔH combustion = −890 kJ/mol)",
+      "answer": "222.5 kJ",
+      "accept": [
+       "222.5",
+       "222 kJ",
+       "223 kJ",
+       "2.2 × 10² kJ"
+      ],
+      "why": [
+       "Step 1: n = 4.0 ÷ 16 = 0.25 mol.",
+       "Step 2: heat = 0.25 × 890 = 222.5 kJ released."
+      ],
+      "tip": "Moles × |ΔH|.",
+      "similar": [
+       {
+        "q": "How much heat is needed to melt 36 g of ice? (ΔH fus = 6.01 kJ/mol)",
+        "a": "2 mol × 6.01 = 12.0 kJ."
+       },
+       {
+        "q": "How much heat is needed to vaporise 9 g of water? (40.7 kJ/mol)",
+        "a": "0.5 × 40.7 = 20.4 kJ."
+       }
+      ],
+      "page": 170,
+      "src": "notes",
+      "label": "5.1–5.2 Energy changes"
+     },
+     {
+      "id": "chem10-u5-cm-q5",
+      "type": "tf",
+      "q": "A catalyst makes an exothermic reaction release more heat.",
+      "answer": false,
+      "why": [
+       "Step 1: a catalyst lowers Ea only.",
+       "Step 2: the reactant and product levels do not change, so ΔH is unchanged."
+      ],
+      "tip": "Catalyst: faster, not more energy.",
+      "similar": [
+       {
+        "q": "What does a catalyst change on an energy diagram?",
+        "a": "The height of the hump (Ea)."
+       },
+       {
+        "q": "Does a catalyst change the products?",
+        "a": "No."
+       }
+      ],
+      "page": 162,
+      "src": "notes",
+      "label": "5.1–5.2 Energy changes"
      }
     ]
    },
