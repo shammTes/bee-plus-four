@@ -14,14 +14,21 @@ import 'gate.dart';
 import 'library.dart';
 import 'native_video.dart' show fmtMs;
 import 'pdf_page.dart';
+import 'reels_page.dart';
 import 'video_page.dart';
 
 String _subjectLabel(String s) => s.isEmpty ? 'General' : s.split('_').map((w) => w.isEmpty ? w : '${w[0].toUpperCase()}${w.substring(1)}').join(' ');
 
-void openResource(BuildContext context, ResEntry e) {
+/// [scope]: the list the tile was shown in; reels swipe through the reels of that list (same subject/unit filter).
+void openResource(BuildContext context, ResEntry e, {List<ResEntry>? scope}) {
   final lib = ResourceLibrary.instance;
   if (lib.mode == GateMode.locked) return openUnlock(context);
-  // reels (Stage 3 feed) open in the same 16:9 player for now
+  if (e.meta.type == FourType.reel) {
+    final reels = [for (final x in scope ?? lib.entries) if (x.meta.type == FourType.reel) x];
+    if (!reels.any((x) => x.id == e.id)) reels.insert(0, e);
+    HighNav.of(context).push(ReelsPage(reels: reels, initial: reels.indexWhere((x) => x.id == e.id)));
+    return;
+  }
   HighNav.of(context).push(e.meta.type == FourType.pdf ? PdfResourcePage(entry: e) : VideoResourcePage(entry: e));
 }
 
@@ -184,7 +191,7 @@ class _ResourcesPageState extends State<ResourcesPage> {
               padding: const EdgeInsets.all(24),
               child: Text('No resources yet.', textAlign: TextAlign.center, style: ts(14, w800, p.ink3)),
             ),
-          for (final e in shown) ResourceTile(entry: e),
+          for (final e in shown) ResourceTile(entry: e, scope: shown),
         ],
       ),
     );
@@ -255,15 +262,16 @@ class _Thumb extends StatelessWidget {
 }
 
 class ResourceTile extends StatelessWidget {
-  const ResourceTile({super.key, required this.entry});
+  const ResourceTile({super.key, required this.entry, this.scope});
   final ResEntry entry;
+  final List<ResEntry>? scope;
   @override
   Widget build(BuildContext context) {
     final p = Kit.of(context).p, m = entry.meta;
     return Panel(
       margin: const EdgeInsets.symmetric(vertical: 6),
       padding: const EdgeInsets.all(10),
-      onTap: () => openResource(context, entry),
+      onTap: () => openResource(context, entry, scope: scope),
       child: Row(
         spacing: 12,
         children: [
@@ -335,7 +343,7 @@ class _ResourceStripState extends State<ResourceStrip> {
               itemCount: items.length,
               separatorBuilder: (_, _) => const SizedBox(width: 10),
               itemBuilder: (c, i) => GestureDetector(
-                onTap: () => openResource(c, items[i]),
+                onTap: () => openResource(c, items[i], scope: items),
                 child: SizedBox(
                   width: 92,
                   child: Column(
