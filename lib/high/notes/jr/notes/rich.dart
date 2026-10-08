@@ -1,6 +1,6 @@
 // Ported from Junior (junior_flutter/lib/junior/notes/rich.dart) by tool/port_junior_notes.py; High glue edits marked "High:".
 // Rich text of the notes and exams, same rules as the web app's ntext()/rich()/nparas():
-//   $x$ inline maths (fractions shown full size), $$x$$ display maths, \( \) \[ \] delimiters, **key word**, *italic*,
+//   $x$ inline maths (fractions shown full size), $$x$$ display maths, \( \) \[ \] delimiters, \$ literal dollar, **key word**, *italic*,
 //   [[highlight]] (grammar/vocab), x^2 / x^(1/2) superscripts, <u>underline</u>, "- " bullet lines.
 import 'package:flutter/widgets.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
@@ -17,9 +17,19 @@ class _Seg {
 }
 
 final _dollar = RegExp(r'(^|[^$\\])\$([^$\n]+)\$(?!\$)');
+const _money = '\uE000';
+// \$ not part of \\ (TeX row break) and not opening a $$ delimiter
+final _moneyRe = RegExp(r'(?<!\\)\\\$(?!\$)');
 
 /// ntext(): $x$ -> \(x\) with \frac -> \dfrac (young readers), then split maths from text
 List<_Seg> _split(String s, {bool notes = true}) {
+  // \$ is a literal dollar sign (money, e.g. \$300): hidden from the maths delimiters, shown as $ in text, \$ in maths
+  if (s.contains(r'\$') && _moneyRe.hasMatch(s)) {
+    return [
+      for (final g in _split(s.replaceAll(_moneyRe, _money), notes: notes))
+        g.math != null ? _Seg.m(g.math!.replaceAll(_money, r'\$'), g.display) : _Seg.t(g.text!.replaceAll(_money, r'$')),
+    ];
+  }
   if (notes) {
     s = s.replaceAllMapped(_dollar, (m) => '${m[1]}\\(${m[2]!.replaceAll(RegExp(r'\\frac(?![a-z])'), r'\dfrac')}\\)');
   }
