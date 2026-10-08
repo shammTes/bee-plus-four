@@ -9,6 +9,7 @@ import 'package:four_format/four_format.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../update/updater.dart';
 import 'gate.dart';
 
 class ResEntry {
@@ -207,6 +208,8 @@ class ResourceLibrary extends ChangeNotifier {
         }
       }
       if (mode != GateMode.locked) await _writeIndex(dir);
+      // offline update: a newer 4 APK shared into the same folder
+      await Updater.instance.scanFolder(f);
     } on PlatformException catch (e) {
       return RefreshReport(added, skipped, failed, e.message);
     } finally {
