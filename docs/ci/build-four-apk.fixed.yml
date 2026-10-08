@@ -1,0 +1,125 @@
+# Hardened copy of .github/workflows/build-four-apk.yml (see docs/ci/README.md for how to install it).
+# Changes: no hard dependency on expiring litter.catbox.moe links (content is in the repo; the school pack download is
+# only a non-fatal fallback, the Sawa download is removed), and the guards check integrity (every file in an index
+# exists and has questions) instead of fixed counts tied to files that de-duplication may merge.
+name: Build 4 APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add school-paper exercises
+        run: |
+          set -euo pipefail
+          mkdir -p assets/high/exercises/school
+          # The pack is committed in the repo; the catbox link is only a legacy fallback (catbox links expire).
+          if [ ! -f assets/high/exercises/school/biology_10.json ]; then
+            echo "::warning::school-paper pack not in repo, trying legacy download"
+            if curl -fsSL --connect-timeout 15 --max-time 40 -o /tmp/school_papers_slim.tgz https://litter.catbox.moe/qt60om.tgz; then
+              tar -xzf /tmp/school_papers_slim.tgz -C assets/high/exercises/school
+            else
+              echo "::warning::legacy school-paper download failed (expired link); continuing with repo content"
+            fi
+          fi
+          python3 - <<'PY'
+          import json, os, sys
+          root = 'assets/high/exercises/school'
+          if not os.path.exists(f'{root}/index.json'):
+              sys.exit('assets/high/exercises/school/index.json missing')
+          idx = json.load(open(f'{root}/index.json'))
+          missing, n = [], 0
+          for g in idx['grades'].values():
+              for e in g.values():
+                  p = os.path.join(root, e['file'])
+                  if not os.path.exists(p):
+                      missing.append(e['file'])
+                      continue
+                  n += len(json.load(open(p))['questions'])
+          print('school questions', n)
+          if missing:  # index points at files that are not there -> the app would crash
+              sys.exit('missing ' + ', '.join(missing))
+          if n == 0:
+              sys.exit('no school questions')
+          PY
+
+      - name: Draw flag-ribbon 4 icon
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet pillow
+          python3 tools/make_four_icon.py .
+          ls -l android/app/src/main/res/mipmap-*/ic_launcher.png
+
+      - name: Check exam packs (Sawa models etc.)
+        run: |
+          set -euo pipefail
+          # The Sawa model exams are committed in the repo (some were merged with bank duplicates by
+          # tool/matric_audit). No download: the old catbox pack link (ti37hq.tgz) has expired.
+          python3 - <<'PY'
+          import json, os, sys
+          root = 'assets/high/exams'
+          idx = json.load(open(f'{root}/index.json'))
+          missing, empty, n = [], [], 0
+          for f in idx['exams']:
+              p = os.path.join(root, f)
+              if not os.path.exists(p):
+                  missing.append(f)
+                  continue
+              q = len(json.load(open(p)).get('questions', []))
+              n += q
+              if q == 0:
+                  empty.append(f)
+          print('exam papers', len(idx['exams']), 'questions', n)
+          sawa = [f for f in ('chemistry_2010-11_model_sem2.json', 'chemistry_2016-17_model.json',
+                              'chemistry_2017-18_model.json', 'history_2016-17_model.json',
+                              'physics_2017-18_model.json') if f not in idx['exams']]
+          if sawa:  # informational only: a paper may have been merged into its duplicate
+              print('::warning::Sawa files not in index (deduplicated?): ' + ', '.join(sawa))
+          if missing:
+              sys.exit('index.json lists missing files: ' + ', '.join(missing))
+          if empty:
+              sys.exit('papers without questions: ' + ', '.join(empty))
+          PY
+
+      - name: Commit Sawa models and icon
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add assets/high/exams assets/high/exercises/school android/app/src/main/res/mipmap-*/ic_launcher.png
+          if git diff --cached --quiet; then
+            echo "Sawa models and icon already on the branch"
+          else
+            git commit -m "Add Sawa Warsay Yikealo model exams and flag-ribbon 4 icon."
+            git push
+          fi
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Accept Android licenses
+        run: yes | flutter doctor --android-licenses || true
+      - name: Pub get
+        run: flutter pub get
+      - name: Build APK
+        run: flutter build apk --release --no-tree-shake-icons
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: four-apk
+          path: build/app/outputs/flutter-apk/*.apk
+          if-no-files-found: error
+          retention-days: 30

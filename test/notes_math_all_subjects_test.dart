@@ -1,7 +1,7 @@
 // Every maths segment in the notes the app loads (assets/high/notes/split/<unit>.json, all subjects) parses in
 // flutter_math_fork; a parse error falls back to raw TeX on screen. Same rules as lib/high/notes/jr/notes/rich.dart:
 // \$ is a literal dollar sign (money), $x$ becomes \(x\), then $$x$$, \[x\] and \(x\) are maths.
-// Set NOTES_MATH_REPORT=<file> to write every problem found.
+// Set NOTES_MATH_REPORT=<file> to write every problem found. (Replaces the chemistry-only test/notes_math_render_test.dart.)
 import 'dart:convert';
 import 'dart:io';
 
@@ -78,9 +78,12 @@ void main() {
   test('the scanner sees maths and treats \\\$ as money', () {
     expect(mathOf(r'costs \$300 and \$60'), isEmpty);
     expect(mathOf(r'area $x^2$ and $$\frac{a}{b}$$ and \(y\)'), [r'x^2', r'\frac{a}{b}', 'y']);
-    var n = 0;
-    walk(jsonDecode(File('assets/high/notes/split/math9-u1.json').readAsStringSync()), 'math9-u1', (p, s) => n += mathOf(s).length);
-    expect(n, greaterThan(20));
+    // guards the scanner itself: these units are full of \( \) and $$ $$ maths
+    for (final u in ['math9-u1', 'chem10-u3']) {
+      var n = 0;
+      walk(jsonDecode(File('assets/high/notes/split/$u.json').readAsStringSync()), u, (p, s) => n += mathOf(s).length);
+      expect(n, greaterThan(20), reason: u);
+    }
   });
 
   testWidgets('\\\$ shows as a plain dollar sign, maths around it still renders', (t) async {
