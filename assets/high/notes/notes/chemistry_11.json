@@ -88,6 +88,18 @@
           "title": "Collision theory: more successful collisions per second → faster rate.",
           "page": 6,
           "pins": []
+        },
+        "cm_press": {
+          "svg": "svg/chemistry_11/chem11_u1_cm_press.svg",
+          "title": "Effect of pressure on N₂O₄ ⇌ 2NO₂",
+          "page": 23,
+          "pins": []
+        },
+        "cm_conc": {
+          "svg": "svg/chemistry_11/chem11_u1_cm_conc.svg",
+          "title": "Effect of concentration on N₂ + 3H₂ ⇌ 2NH₃",
+          "page": 22,
+          "pins": []
         }
       },
       "lessons": [
@@ -377,6 +389,165 @@
               ]
             },
             {
+              "id": "chem11-u1-cm-c01",
+              "type": "text",
+              "title": "The law of mass action, step by step",
+              "page": 19,
+              "src": "notes",
+              "body": [
+                "**Law of mass action** (Guldberg and Waage, 1864): at constant temperature, the rate of a reaction is proportional to the product of the molar concentrations of the reactants, each raised to the power of its coefficient in the balanced equation.",
+                "**Step 1 — Write both rates** for \\(a\\text{A} + b\\text{B} \\rightleftharpoons c\\text{C} + d\\text{D}\\):",
+                "$$\\text{rate}_f = k_f[\\text{A}]^a[\\text{B}]^b \\qquad \\text{rate}_b = k_b[\\text{C}]^c[\\text{D}]^d$$",
+                "**Step 2 — At equilibrium the two rates are equal:** \\(k_f[\\text{A}]^a[\\text{B}]^b = k_b[\\text{C}]^c[\\text{D}]^d\\).",
+                "**Step 3 — Collect the constants on one side:**",
+                "$$K_c = \\frac{k_f}{k_b} = \\frac{[\\text{C}]^c[\\text{D}]^d}{[\\text{A}]^a[\\text{B}]^b}$$",
+                "**Rules for writing Kc:** products on top, reactants below; each concentration (in mol/L) raised to its coefficient; concentrations are the **equilibrium** values. For gases you may use partial pressures instead → **Kp**. Pure solids and pure liquids are left out (their “concentration” is constant).",
+                "**Kc changes only with temperature** — not with concentration, pressure or a catalyst.",
+                "**Size of K:** K ≫ 1 → mostly products at equilibrium; K ≪ 1 → mostly reactants; K ≈ 1 → appreciable amounts of both."
+              ]
+            },
+            {
+              "id": "chem11-u1-cm-c02",
+              "type": "text",
+              "title": "Reaction quotient Q: which way will it go?",
+              "page": 20,
+              "src": "notes",
+              "body": [
+                "Q is calculated exactly like K but with the concentrations **at any moment** (not necessarily at equilibrium). Compare Q with K:",
+                "**Q < K** → too little product → net reaction goes **forward (to the right)**.",
+                "**Q = K** → at equilibrium → no net change.",
+                "**Q > K** → too much product → net reaction goes **backward (to the left)**."
+              ]
+            },
+            {
+              "id": "chem11-u1-cm-w01",
+              "type": "worked",
+              "title": "Worked example: writing Kc expressions",
+              "page": 19,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Write Kc for (a) H₂(g) + I₂(g) ⇌ 2HI(g); (b) 2SO₂(g) + O₂(g) ⇌ 2SO₃(g); (c) N₂O₄(g) ⇌ 2NO₂(g); (d) CaCO₃(s) ⇌ CaO(s) + CO₂(g).",
+              "steps": [
+                {
+                  "text": "(a) \\(K_c = \\dfrac{[\\text{HI}]^2}{[\\text{H}_2][\\text{I}_2]}\\)"
+                },
+                {
+                  "text": "(b) \\(K_c = \\dfrac{[\\text{SO}_3]^2}{[\\text{SO}_2]^2[\\text{O}_2]}\\)"
+                },
+                {
+                  "text": "(c) \\(K_c = \\dfrac{[\\text{NO}_2]^2}{[\\text{N}_2\\text{O}_4]}\\)"
+                },
+                {
+                  "text": "(d) Solids are left out: \\(K_c = [\\text{CO}_2]\\)"
+                }
+              ],
+              "answer": "Products over reactants, powers = coefficients, no solids or pure liquids."
+            },
+            {
+              "id": "chem11-u1-cm-w02",
+              "type": "worked",
+              "title": "Worked example: calculating Kc (textbook p.19)",
+              "page": 19,
+              "src": "notes",
+              "mode": "try",
+              "problem": "For N₂(g) + 3H₂(g) ⇌ 2NH₃(g) at equilibrium: [N₂] = 3.0 × 10⁻² M, [H₂] = 3.7 × 10⁻² M, [NH₃] = 1.6 × 10⁻² M. Calculate Kc.",
+              "steps": [
+                {
+                  "text": "\\(K_c = \\dfrac{[\\text{NH}_3]^2}{[\\text{N}_2][\\text{H}_2]^3}\\)"
+                },
+                {
+                  "text": "Top: \\((1.6\\times10^{-2})^2 = 2.56\\times10^{-4}\\)"
+                },
+                {
+                  "text": "Bottom: \\((3.0\\times10^{-2})(3.7\\times10^{-2})^3 = (3.0\\times10^{-2})(5.07\\times10^{-5}) = 1.52\\times10^{-6}\\)"
+                },
+                {
+                  "text": "\\(K_c = \\dfrac{2.56\\times10^{-4}}{1.52\\times10^{-6}} = 1.68\\times10^{2}\\)"
+                }
+              ],
+              "answer": "Kc = 1.68 × 10²"
+            },
+            {
+              "id": "chem11-u1-cm-w03",
+              "type": "worked",
+              "title": "Worked example: finding an equilibrium concentration",
+              "page": 20,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Same reaction, same temperature (Kc = 1.68 × 10²). At equilibrium [N₂] = 6.0 × 10⁻² M and [H₂] = 5.6 × 10⁻² M. Find [NH₃].",
+              "steps": [
+                {
+                  "text": "Let \\([\\text{NH}_3] = x\\): \\(1.68\\times10^{2} = \\dfrac{x^2}{(6.0\\times10^{-2})(5.6\\times10^{-2})^3}\\)"
+                },
+                {
+                  "text": "Bottom: \\((6.0\\times10^{-2})(1.76\\times10^{-4}) = 1.05\\times10^{-5}\\)"
+                },
+                {
+                  "text": "\\(x^2 = 1.68\\times10^{2} \\times 1.05\\times10^{-5} = 1.77\\times10^{-3}\\)"
+                },
+                {
+                  "text": "\\(x = \\sqrt{1.77\\times10^{-3}} = 4.21\\times10^{-2}\\text{ M}\\)"
+                }
+              ],
+              "answer": "[NH₃] = 4.21 × 10⁻² M"
+            },
+            {
+              "id": "chem11-u1-cm-w04",
+              "type": "worked",
+              "title": "Worked example: Q vs K (textbook p.21)",
+              "page": 21,
+              "src": "notes",
+              "mode": "try",
+              "problem": "For N₂ + 3H₂ ⇌ 2NH₃, Kc = 1.7 × 10². A mixture has [N₂] = 2.0 × 10⁻² M, [H₂] = 3.5 × 10⁻² M, [NH₃] = 2.0 × 10⁻² M. Is it at equilibrium? If not, which way does it shift?",
+              "steps": [
+                {
+                  "text": "\\(Q_c = \\dfrac{(2.0\\times10^{-2})^2}{(2.0\\times10^{-2})(3.5\\times10^{-2})^3} = \\dfrac{4.00\\times10^{-4}}{8.58\\times10^{-7}}\\)"
+                },
+                {
+                  "text": "\\(Q_c = 4.66\\times10^{2}\\)"
+                },
+                {
+                  "text": "Qc (466) > Kc (170): too much product."
+                },
+                {
+                  "text": "Net reaction goes to the **left**: some NH₃ decomposes until Q = K."
+                }
+              ],
+              "answer": "Not at equilibrium; shifts left."
+            },
+            {
+              "id": "chem11-u1-cm-k01",
+              "type": "check",
+              "title": "Quick check",
+              "page": 19,
+              "src": "notes",
+              "q": "For 2NO(g) + O₂(g) ⇌ 2NO₂(g), Kc = …",
+              "options": {
+                "A": "[NO₂]/([NO][O₂])",
+                "B": "[NO₂]²/([NO]²[O₂])",
+                "C": "[NO]²[O₂]/[NO₂]²",
+                "D": "2[NO₂]/(2[NO][O₂])"
+              },
+              "answer": "B",
+              "why": "Products over reactants, each raised to its coefficient: [NO₂]² over [NO]²[O₂]."
+            },
+            {
+              "id": "chem11-u1-cm-k02",
+              "type": "check",
+              "title": "Quick check",
+              "page": 20,
+              "src": "notes",
+              "q": "If Q > K for a reaction mixture, the reaction will …",
+              "options": {
+                "A": "shift right",
+                "B": "shift left",
+                "C": "stay the same",
+                "D": "stop"
+              },
+              "answer": "B",
+              "why": "Q > K means there is more product than at equilibrium, so the backward reaction wins until Q falls to K."
+            },
+            {
               "id": "chem11-u1-c12",
               "type": "text",
               "title": "1.2.2 Le Chatelier’s Principle",
@@ -387,6 +558,292 @@
                 "In doing so, the system will react to restore equilibrium.",
                 "For example, if the concentration of ammonia is increased, the rate of the backward reaction will increase and more hydrogen and nitrogen will be produced, resulting in more of the ammonia being used up.",
                 "In other words the equilibrium shifts to the left until equilibrium is restored."
+              ]
+            },
+            {
+              "id": "chem11-u1-cm-c03",
+              "type": "text",
+              "title": "Le Chatelier’s principle, step by step",
+              "page": 22,
+              "src": "notes",
+              "body": [
+                "**Le Chatelier’s principle:** if a stress is applied to a system at equilibrium, the system shifts so as to **reduce (oppose) the stress** and reaches a new equilibrium position.",
+                "**Step 1 — Name the stress:** more or less of a substance (concentration), higher or lower pressure (volume), higher or lower temperature.",
+                "**Step 2 — Ask how the system can undo it:** use up what was added; replace what was removed; reduce a pressure increase by making fewer gas molecules.",
+                "**Step 3 — State the direction:** “shifts to the right (forward)” or “to the left (backward)”.",
+                "**Step 4 — State the result:** what happens to the amount of each substance, the colour, the yield.",
+                "**Concentration:** add a reactant or remove a product → shifts **right**; add a product or remove a reactant → shifts **left**. Kc does **not** change.",
+                "**Pressure (gases only):** count the **moles of gas** on each side. Increase pressure (decrease volume) → shift to the side with **fewer** gas moles; decrease pressure → side with **more** gas moles. Equal gas moles on both sides → **no shift**. Kc does not change.",
+                "**Also remember:** raising the temperature shifts an equilibrium in the **endothermic** direction (this *does* change K); a catalyst does **not** shift the equilibrium — it only helps reach it faster."
+              ]
+            },
+            {
+              "id": "chem11-u1-cm-s01",
+              "type": "states",
+              "title": "Model: squeezing N₂O₄ ⇌ 2NO₂",
+              "page": 23,
+              "src": "notes",
+              "diagram": "cm_press",
+              "states": [
+                {
+                  "key": "a",
+                  "label": "Equilibrium",
+                  "text": "Colourless N₂O₄ and brown NO₂ in a gas syringe at equilibrium: 1 mol gas on the left, 2 mol gas on the right."
+                },
+                {
+                  "key": "b",
+                  "label": "Squeeze",
+                  "text": "Push the plunger in: half the volume, double the pressure. The gas looks darker at first (more crowded)."
+                },
+                {
+                  "key": "c",
+                  "label": "New equilibrium",
+                  "text": "The system reduces the pressure by forming the side with **fewer gas molecules**: 2NO₂ → N₂O₄. Fewer particles, the colour fades a little — shifted **left**."
+                }
+              ],
+              "body": [
+                "Slide to apply the stress and watch the response."
+              ]
+            },
+            {
+              "id": "chem11-u1-cm-s02",
+              "type": "steps",
+              "title": "Model: adding N₂ to the ammonia equilibrium",
+              "page": 22,
+              "src": "notes",
+              "diagram": "cm_conc",
+              "steps": [
+                {
+                  "text": "**N₂ is added**: its concentration jumps, then falls as some of it reacts — but it stays higher than before.",
+                  "show": "n2"
+                },
+                {
+                  "text": "**H₂ is used up** with the extra N₂, so its concentration falls.",
+                  "show": "h2"
+                },
+                {
+                  "text": "**More NH₃ forms**: the equilibrium has shifted to the **right**. Kc is the same at the new equilibrium.",
+                  "show": "nh3"
+                }
+              ]
+            },
+            {
+              "id": "chem11-u1-cm-t01",
+              "type": "table",
+              "title": "Effect of concentration (textbook p.23)",
+              "page": 23,
+              "src": "notes",
+              "head": [
+                "Change",
+                "Shift",
+                "Example: N₂ + 3H₂ ⇌ 2NH₃"
+              ],
+              "rows": [
+                [
+                  "Add reactant",
+                  "right",
+                  "add N₂ or H₂ → more NH₃"
+                ],
+                [
+                  "Remove reactant",
+                  "left",
+                  "remove H₂ → NH₃ decomposes"
+                ],
+                [
+                  "Add product",
+                  "left",
+                  "add NH₃ → more N₂ and H₂"
+                ],
+                [
+                  "Remove product",
+                  "right",
+                  "liquefy and remove NH₃ → more NH₃ forms"
+                ]
+              ]
+            },
+            {
+              "id": "chem11-u1-cm-t02",
+              "type": "table",
+              "title": "Effect of pressure: count the gas moles",
+              "page": 23,
+              "src": "notes",
+              "head": [
+                "Reaction",
+                "Gas moles left → right",
+                "Increase pressure shifts",
+                "Decrease pressure shifts"
+              ],
+              "rows": [
+                [
+                  "N₂ + 3H₂ ⇌ 2NH₃",
+                  "4 → 2",
+                  "right",
+                  "left"
+                ],
+                [
+                  "2SO₂ + O₂ ⇌ 2SO₃",
+                  "3 → 2",
+                  "right",
+                  "left"
+                ],
+                [
+                  "N₂O₄ ⇌ 2NO₂",
+                  "1 → 2",
+                  "left",
+                  "right"
+                ],
+                [
+                  "H₂ + I₂ ⇌ 2HI",
+                  "2 → 2",
+                  "no shift",
+                  "no shift"
+                ],
+                [
+                  "CaCO₃(s) ⇌ CaO(s) + CO₂(g)",
+                  "0 → 1",
+                  "left",
+                  "right"
+                ]
+              ],
+              "body": [
+                "Only gases count — ignore solids and liquids when counting moles."
+              ]
+            },
+            {
+              "id": "chem11-u1-cm-w05",
+              "type": "worked",
+              "title": "Worked example: why pressure shifts the ammonia equilibrium (using Q)",
+              "page": 23,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Show with Q why halving the volume of an equilibrium mixture of N₂ + 3H₂ ⇌ 2NH₃ shifts it to the right.",
+              "steps": [
+                {
+                  "text": "At equilibrium \\(Q = K = \\dfrac{[\\text{NH}_3]^2}{[\\text{N}_2][\\text{H}_2]^3}\\)."
+                },
+                {
+                  "text": "Halving the volume **doubles** every concentration at that instant."
+                },
+                {
+                  "text": "New \\(Q = \\dfrac{(2[\\text{NH}_3])^2}{(2[\\text{N}_2])(2[\\text{H}_2])^3} = \\dfrac{4}{16}K = \\dfrac{K}{4}\\)"
+                },
+                {
+                  "text": "Q < K → the reaction goes forward (right) until Q rises back to K — more NH₃, fewer gas molecules, lower pressure."
+                }
+              ],
+              "answer": "Q drops to K/4, so the equilibrium shifts right."
+            },
+            {
+              "id": "chem11-u1-cm-w06",
+              "type": "worked",
+              "title": "Worked example: predicting shifts",
+              "page": 23,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Predict the shift: (a) adding H₂ to H₂(g) + I₂(g) ⇌ 2HI(g); (b) increasing pressure on the same system; (c) removing O₂ from 2SO₂ + O₂ ⇌ 2SO₃; (d) decreasing pressure on PCl₅(g) ⇌ PCl₃(g) + Cl₂(g).",
+              "steps": [
+                {
+                  "text": "(a) A reactant is added → the system uses it up → shifts **right**; more HI, less I₂ (the purple colour fades)."
+                },
+                {
+                  "text": "(b) 2 gas moles on each side → **no shift** (pressure has no effect)."
+                },
+                {
+                  "text": "(c) A reactant is removed → the system replaces it → shifts **left**; SO₃ decomposes."
+                },
+                {
+                  "text": "(d) Lower pressure → side with **more** gas moles (1 → 2) → shifts **right**; more PCl₃ and Cl₂."
+                }
+              ],
+              "answer": "(a) right; (b) no shift; (c) left; (d) right."
+            },
+            {
+              "id": "chem11-u1-cm-w07",
+              "type": "worked",
+              "title": "Worked example: colour changes",
+              "page": 22,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Yellow chromate turns orange dichromate in acid: 2CrO₄²⁻(aq) + 2H⁺(aq) ⇌ Cr₂O₇²⁻(aq) + H₂O(l). What colour do you see when (a) acid is added, (b) NaOH is added?",
+              "steps": [
+                {
+                  "text": "(a) More H⁺ (a reactant) → shift **right** → more orange Cr₂O₇²⁻ → the solution turns **orange**."
+                },
+                {
+                  "text": "(b) OH⁻ removes H⁺ (H⁺ + OH⁻ → H₂O) → a reactant is removed → shift **left** → more yellow CrO₄²⁻ → **yellow**."
+                }
+              ],
+              "answer": "(a) orange; (b) yellow."
+            },
+            {
+              "id": "chem11-u1-cm-m01",
+              "type": "mnemonic",
+              "title": "Memory trick",
+              "page": 22,
+              "src": "notes",
+              "body": [
+                "**“The system is stubborn — it always does the opposite.”** Add something → it uses it up. Take something away → it makes more. Squeeze it → it makes fewer gas molecules."
+              ]
+            },
+            {
+              "id": "chem11-u1-cm-k03",
+              "type": "check",
+              "title": "Quick check",
+              "page": 23,
+              "src": "notes",
+              "q": "Increasing the pressure on 2SO₂(g) + O₂(g) ⇌ 2SO₃(g) will …",
+              "options": {
+                "A": "shift it left",
+                "B": "shift it right",
+                "C": "not affect it",
+                "D": "change Kc"
+              },
+              "answer": "B",
+              "why": "3 gas moles on the left, 2 on the right: higher pressure favours fewer moles → right."
+            },
+            {
+              "id": "chem11-u1-cm-k04",
+              "type": "check",
+              "title": "Quick check",
+              "page": 23,
+              "src": "notes",
+              "q": "Pressure has no effect on the position of which equilibrium?",
+              "options": {
+                "A": "N₂ + 3H₂ ⇌ 2NH₃",
+                "B": "N₂O₄ ⇌ 2NO₂",
+                "C": "H₂ + Cl₂ ⇌ 2HCl",
+                "D": "2SO₂ + O₂ ⇌ 2SO₃"
+              },
+              "answer": "C",
+              "why": "H₂ + Cl₂ ⇌ 2HCl has 2 gas moles on each side, so changing pressure cannot reduce the number of molecules."
+            },
+            {
+              "id": "chem11-u1-cm-k05",
+              "type": "check",
+              "title": "Quick check",
+              "page": 22,
+              "src": "notes",
+              "q": "Ammonia is removed from N₂ + 3H₂ ⇌ 2NH₃ as it forms. The effect is …",
+              "options": {
+                "A": "less NH₃ forms",
+                "B": "the equilibrium shifts right and the yield increases",
+                "C": "Kc increases",
+                "D": "nothing happens"
+              },
+              "answer": "B",
+              "why": "Removing a product makes the system replace it → shift right → higher yield. Kc stays the same at constant temperature."
+            },
+            {
+              "id": "chem11-u1-cm-r01",
+              "type": "remember",
+              "title": "Tips and common mistakes",
+              "page": 23,
+              "src": "notes",
+              "body": [
+                "Concentration and pressure changes move the **position**, not the **value** of K. Only temperature changes K.",
+                "Count only **gas** moles for pressure questions.",
+                "A catalyst never shifts an equilibrium.",
+                "Use the full phrase in answers: “the equilibrium shifts to the right to oppose the increase in …”."
               ]
             },
             {
@@ -495,6 +952,12 @@
           "meaning": "The state of a reversible reaction in which the forward and reverse rates are equal, so concentrations stay constant (dynamic equilibrium).",
           "page": 17,
           "src": "hand"
+        },
+        {
+          "term": "Law of mass action",
+          "meaning": "The rate of a reaction is proportional to the product of the reactant concentrations, each raised to its coefficient; it leads to the equilibrium constant Kc.",
+          "page": 19,
+          "src": "notes"
         }
       ],
       "tips": [
@@ -1191,6 +1654,173 @@
             "src_qid": "chemistry_2020_q50",
             "exam_question": "chemistry_2020_q50",
             "page": 1
+          },
+          {
+            "id": "chem11-u1-cm-q1",
+            "type": "mcq",
+            "q": "For H₂(g) + I₂(g) ⇌ 2HI(g) at equilibrium, [H₂] = [I₂] = 0.10 M and [HI] = 0.70 M. Kc = …",
+            "options": {
+              "A": "7.0",
+              "B": "49",
+              "C": "70",
+              "D": "0.020"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: Kc = [HI]² / ([H₂][I₂]).",
+              "Step 2: = 0.49 / 0.010 = 49."
+            ],
+            "tip": "Square [HI] because its coefficient is 2.",
+            "similar": [
+              {
+                "q": "What is Kc for the reverse reaction 2HI ⇌ H₂ + I₂?",
+                "a": "1/49 ≈ 0.020."
+              },
+              {
+                "q": "If Kc is large, are reactants or products favoured?",
+                "a": "Products."
+              }
+            ],
+            "page": 19,
+            "src": "notes",
+            "label": "1.2 Equilibrium: mass action and Le Chatelier"
+          },
+          {
+            "id": "chem11-u1-cm-q2",
+            "type": "short",
+            "q": "For a reaction Kc = 4.0. A mixture has Qc = 10. In which direction will the reaction proceed? Explain.",
+            "answer": "To the left (backward), because Qc > Kc: there is too much product.",
+            "why": [
+              "Step 1: compare Q with K: 10 > 4.0.",
+              "Step 2: Q > K means the ratio products/reactants is too large.",
+              "Step 3: the backward reaction is faster until Q falls to 4.0."
+            ],
+            "tip": "Q < K → right; Q > K → left.",
+            "similar": [
+              {
+                "q": "Qc = 1.0 and Kc = 4.0: which way?",
+                "a": "To the right."
+              },
+              {
+                "q": "What is true when Qc = Kc?",
+                "a": "The system is at equilibrium."
+              }
+            ],
+            "page": 20,
+            "src": "notes",
+            "label": "1.2 Equilibrium: mass action and Le Chatelier"
+          },
+          {
+            "id": "chem11-u1-cm-q3",
+            "type": "mcq",
+            "q": "Decreasing the volume of N₂O₄(g) ⇌ 2NO₂(g) at constant temperature will …",
+            "options": {
+              "A": "increase the amount of NO₂",
+              "B": "increase the amount of N₂O₄",
+              "C": "have no effect",
+              "D": "increase Kc"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: smaller volume = higher pressure.",
+              "Step 2: the system shifts to fewer gas moles (1 mol N₂O₄ vs 2 mol NO₂).",
+              "Step 3: so more N₂O₄ forms; Kc unchanged."
+            ],
+            "tip": "Higher pressure → fewer gas moles.",
+            "similar": [
+              {
+                "q": "What about H₂ + I₂ ⇌ 2HI?",
+                "a": "No effect — equal gas moles."
+              },
+              {
+                "q": "Which conditions favour NH₃ in the Haber process?",
+                "a": "High pressure (and removing NH₃)."
+              }
+            ],
+            "page": 23,
+            "src": "notes",
+            "label": "1.2 Equilibrium: mass action and Le Chatelier"
+          },
+          {
+            "id": "chem11-u1-cm-q4",
+            "type": "mcq",
+            "q": "In Fe³⁺(aq) + SCN⁻(aq) ⇌ FeSCN²⁺(aq) (blood red), adding more SCN⁻ makes the solution …",
+            "options": {
+              "A": "paler",
+              "B": "a deeper red",
+              "C": "colourless",
+              "D": "unchanged"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: SCN⁻ is a reactant.",
+              "Step 2: adding a reactant shifts the equilibrium right.",
+              "Step 3: more FeSCN²⁺ → deeper red."
+            ],
+            "tip": "Add reactant → right.",
+            "similar": [
+              {
+                "q": "What happens if Fe³⁺ is removed?",
+                "a": "Shifts left; the red fades."
+              },
+              {
+                "q": "Does Kc change?",
+                "a": "No."
+              }
+            ],
+            "page": 22,
+            "src": "notes",
+            "label": "1.2 Equilibrium: mass action and Le Chatelier"
+          },
+          {
+            "id": "chem11-u1-cm-q5",
+            "type": "tf",
+            "q": "Adding a catalyst to an equilibrium mixture increases the yield of products.",
+            "answer": false,
+            "why": [
+              "Step 1: a catalyst speeds up the forward and backward reactions equally.",
+              "Step 2: equilibrium is reached sooner but at the same position.",
+              "Step 3: so the yield does not change."
+            ],
+            "tip": "Catalyst: faster, not further.",
+            "similar": [
+              {
+                "q": "What changes K?",
+                "a": "Only temperature."
+              },
+              {
+                "q": "Does increasing [reactant] change Kc?",
+                "a": "No — it changes the position only."
+              }
+            ],
+            "page": 22,
+            "src": "notes",
+            "label": "1.2 Equilibrium: mass action and Le Chatelier"
+          },
+          {
+            "id": "chem11-u1-cm-q6",
+            "type": "short",
+            "q": "State the effect of increasing pressure on each: (a) CO(g) + 2H₂(g) ⇌ CH₃OH(g); (b) C(s) + H₂O(g) ⇌ CO(g) + H₂(g).",
+            "answer": "(a) shifts right (3 → 1 gas moles); (b) shifts left (1 → 2 gas moles).",
+            "why": [
+              "Step 1: count gas moles: (a) 3 left, 1 right; (b) 1 left (carbon is solid), 2 right.",
+              "Step 2: higher pressure favours the side with fewer gas moles.",
+              "Step 3: (a) right; (b) left."
+            ],
+            "tip": "Ignore solids when counting.",
+            "similar": [
+              {
+                "q": "Effect of lower pressure on (a)?",
+                "a": "Shifts left."
+              },
+              {
+                "q": "Effect of adding H₂ to (b)?",
+                "a": "Shifts left."
+              }
+            ],
+            "page": 23,
+            "src": "notes",
+            "label": "1.2 Equilibrium: mass action and Le Chatelier"
           }
         ]
       },
@@ -2916,6 +3546,234 @@
               ]
             },
             {
+              "id": "chem11-u3-cm-c01",
+              "type": "text",
+              "title": "The allotropes of carbon, step by step",
+              "page": 72,
+              "src": "notes",
+              "body": [
+                "**Allotropes** are different forms of the same element in the same physical state, with different structures and so different physical properties, but the same chemical properties (all three burn to CO₂). Carbon has three main crystalline allotropes: **diamond, graphite and fullerene**; charcoal, soot and coke are amorphous forms.",
+                "**Diamond:** every carbon atom forms **4 strong covalent bonds** to 4 other carbons arranged **tetrahedrally** (109.5°). The bonding continues in all directions → a **giant 3-D covalent network**. All 4 outer electrons are used in bonds.",
+                "**Graphite:** every carbon forms **3 covalent bonds** in a flat sheet of **hexagons** (120°). The 4th electron of each atom is **delocalised** (free to move along the sheet). The sheets (layers) are held together only by **weak forces**, so they slide over each other.",
+                "**Buckminsterfullerene, C₆₀:** discovered in 1985. 60 carbon atoms form a hollow ball of **12 pentagons and 20 hexagons**, like a football (“buckyball”). Each C bonds to 3 others. It is a **molecule**, not a giant structure — so it is much softer and dissolves in some organic solvents (e.g. benzene, giving a purple solution)."
+              ]
+            },
+            {
+              "id": "chem11-u3-cm-d01",
+              "type": "diagram",
+              "title": "Diamond: giant 3-D network",
+              "page": 72,
+              "src": "notes",
+              "diagram": "cm_diamond",
+              "mode": "plain",
+              "body": [
+                "Every atom is joined to four others. There are no weak links and no free electrons."
+              ]
+            },
+            {
+              "id": "chem11-u3-cm-d02",
+              "type": "diagram",
+              "title": "Graphite: layers of hexagons",
+              "page": 72,
+              "src": "notes",
+              "diagram": "cm_graphite",
+              "mode": "plain",
+              "body": [
+                "Strong bonds inside each layer, weak forces between the layers."
+              ]
+            },
+            {
+              "id": "chem11-u3-cm-d03",
+              "type": "diagram",
+              "title": "Buckminsterfullerene, C₆₀",
+              "page": 73,
+              "src": "notes",
+              "diagram": "cm_c60",
+              "mode": "plain",
+              "body": [
+                "A closed cage of 60 atoms: 12 pentagons (one is shaded) surrounded by hexagons."
+              ]
+            },
+            {
+              "id": "chem11-u3-cm-t01",
+              "type": "table",
+              "title": "Diamond, graphite and C₆₀ compared",
+              "page": 72,
+              "src": "notes",
+              "head": [
+                "Property",
+                "Diamond",
+                "Graphite",
+                "C₆₀ (fullerene)"
+              ],
+              "rows": [
+                [
+                  "Structure",
+                  "giant 3-D covalent network",
+                  "giant layers (2-D sheets)",
+                  "separate C₆₀ molecules"
+                ],
+                [
+                  "Bonds per C atom",
+                  "4 (tetrahedral)",
+                  "3 (flat, 120°) + 1 delocalised electron",
+                  "3"
+                ],
+                [
+                  "Appearance",
+                  "colourless, transparent, sparkles",
+                  "grey-black, shiny, opaque",
+                  "black solid (purple in solution)"
+                ],
+                [
+                  "Hardness",
+                  "hardest natural substance",
+                  "soft, slippery, marks paper",
+                  "soft"
+                ],
+                [
+                  "Electrical conductivity",
+                  "non-conductor",
+                  "good conductor (along the layers)",
+                  "poor (semiconductor)"
+                ],
+                [
+                  "Melting point",
+                  "very high (≈3550 °C)",
+                  "very high (≈3650 °C, sublimes)",
+                  "much lower (sublimes at about 530 °C)"
+                ],
+                [
+                  "Density (g/cm³)",
+                  "3.51",
+                  "2.26",
+                  "1.65"
+                ],
+                [
+                  "Uses",
+                  "jewellery, cutting and drilling tools, glass cutters",
+                  "pencil “lead”, electrodes, lubricant, brushes in motors",
+                  "research: nanotubes, drug delivery, lubricants"
+                ]
+              ]
+            },
+            {
+              "id": "chem11-u3-cm-c02",
+              "type": "text",
+              "title": "Structure → property: the reasoning chain",
+              "page": 72,
+              "src": "notes",
+              "body": [
+                "**Hardness:** diamond has strong bonds in every direction → nothing can slide → very hard. Graphite’s layers are joined only by weak forces → layers slide → soft and slippery.",
+                "**Conductivity:** graphite has a delocalised electron on every atom that can move along the layers → conducts. Diamond’s electrons are all locked in bonds → insulator.",
+                "**Melting point:** to melt diamond or graphite you must break strong **covalent** bonds → both very high. C₆₀ molecules are held by weak forces between molecules → much lower.",
+                "Use this chain in every “explain” question: **structure → bonding → property**."
+              ]
+            },
+            {
+              "id": "chem11-u3-cm-w01",
+              "type": "worked",
+              "title": "Worked example: why does graphite conduct but diamond does not?",
+              "page": 72,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Explain why graphite conducts electricity but diamond does not, although both are pure carbon.",
+              "steps": [
+                {
+                  "text": "Electricity needs charged particles that can move."
+                },
+                {
+                  "text": "Diamond: each C uses all 4 outer electrons in 4 covalent bonds → no free electrons → non-conductor."
+                },
+                {
+                  "text": "Graphite: each C uses only 3 electrons in bonds; the 4th is delocalised along the layer."
+                },
+                {
+                  "text": "These delocalised electrons move when a voltage is applied → graphite conducts (along the layers)."
+                }
+              ],
+              "answer": "Graphite has delocalised electrons; diamond has none."
+            },
+            {
+              "id": "chem11-u3-cm-w02",
+              "type": "worked",
+              "title": "Worked example: high melting point but soft?",
+              "page": 72,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Graphite has a higher melting point than diamond but is very soft. How can both be true?",
+              "steps": [
+                {
+                  "text": "Melting graphite means breaking the strong covalent bonds **within** the layers → very high melting point."
+                },
+                {
+                  "text": "Softness depends on the **weak forces between** the layers, which let the layers slide (pencil marks, lubricant)."
+                },
+                {
+                  "text": "So different forces control the two properties."
+                }
+              ],
+              "answer": "Strong bonds inside layers (high m.p.); weak forces between layers (soft)."
+            },
+            {
+              "id": "chem11-u3-cm-m01",
+              "type": "mnemonic",
+              "title": "Memory trick",
+              "page": 72,
+              "src": "notes",
+              "body": [
+                "**Diamond = 4 = Fixed** (all electrons in bonds: hard, no current). **Graphite = 3 + 1 free** (layers slide, electrons flow). **C₆₀ = football** (12 pentagons + 20 hexagons)."
+              ]
+            },
+            {
+              "id": "chem11-u3-cm-k01",
+              "type": "check",
+              "title": "Quick check",
+              "page": 72,
+              "src": "notes",
+              "q": "Each carbon atom in diamond is covalently bonded to …",
+              "options": {
+                "A": "2 atoms",
+                "B": "3 atoms",
+                "C": "4 atoms",
+                "D": "6 atoms"
+              },
+              "answer": "C",
+              "why": "Diamond: 4 bonds per carbon in a tetrahedral 3-D network."
+            },
+            {
+              "id": "chem11-u3-cm-k02",
+              "type": "check",
+              "title": "Quick check",
+              "page": 72,
+              "src": "notes",
+              "q": "Graphite is used as a lubricant because …",
+              "options": {
+                "A": "it is very hard",
+                "B": "its layers slide over each other easily",
+                "C": "it conducts electricity",
+                "D": "it is a molecule"
+              },
+              "answer": "B",
+              "why": "Only weak forces hold the layers together, so they slide."
+            },
+            {
+              "id": "chem11-u3-cm-k03",
+              "type": "check",
+              "title": "Quick check",
+              "page": 73,
+              "src": "notes",
+              "q": "Which statement about buckminsterfullerene is correct?",
+              "options": {
+                "A": "It is a giant covalent network",
+                "B": "It contains 60 carbon atoms in 12 pentagons and 20 hexagons",
+                "C": "It is harder than diamond",
+                "D": "It has 4 bonds per carbon"
+              },
+              "answer": "B",
+              "why": "C₆₀ is a discrete molecule shaped like a football: 12 pentagons + 20 hexagons, 3 bonds per C."
+            },
+            {
               "id": "chem11-u3-c05",
               "type": "text",
               "title": "3.2.2 Carbon Monoxide",
@@ -2941,6 +3799,159 @@
                 "Human beings inhale oxygen from the air and exhale carbon dioxide.",
                 "During photosynthesis, plants use carbon dioxide from the atmosphere and give off oxygen.",
                 "**Carbon dioxide** is an important chemical link between the plant and the animal world."
+              ]
+            },
+            {
+              "id": "chem11-u3-cm-c03",
+              "type": "text",
+              "title": "Carbonic acid, step by step",
+              "page": 81,
+              "src": "notes",
+              "body": [
+                "**Formation:** carbon dioxide dissolves slightly in water and some of it reacts: CO₂(g) + H₂O(l) ⇌ H₂CO₃(aq). Carbonic acid exists **only in solution**; it is **weak** and **unstable** — warming or opening a soft-drink bottle drives the CO₂ out.",
+                "**Weak acid:** only a small fraction ionises, so it turns blue litmus red **slowly** and only faintly.",
+                "**Dibasic (diprotic):** it has two replaceable H and ionises in two steps:",
+                "$$\\text{H}_2\\text{CO}_3 \\rightleftharpoons \\text{H}^+ + \\text{HCO}_3^- \\qquad \\text{HCO}_3^- \\rightleftharpoons \\text{H}^+ + \\text{CO}_3^{2-}$$",
+                "**Two series of salts:** **hydrogen carbonates** (acid salts, HCO₃⁻), e.g. NaHCO₃, and **carbonates** (normal salts, CO₃²⁻), e.g. Na₂CO₃, CaCO₃.",
+                "**Solubility and heat:** Na and K carbonates dissolve in water and are **not** decomposed by heat. Carbonates of Ca, Mg, Zn, Cu … are insoluble and decompose on heating: CaCO₃(s) → CaO(s) + CO₂(g). Hydrogen carbonates decompose easily: 2NaHCO₃(s) → Na₂CO₃(s) + H₂O(g) + CO₂(g) (why baking soda makes dough rise).",
+                "**Everyday links:** soda water and soft drinks; normal rain is slightly acidic (pH ≈ 5.6) because of dissolved CO₂; rain with CO₂ slowly dissolves limestone: CaCO₃ + H₂O + CO₂ → Ca(HCO₃)₂ (caves, temporary hardness of water)."
+              ]
+            },
+            {
+              "id": "chem11-u3-cm-t02",
+              "type": "table",
+              "title": "Salts of carbonic acid",
+              "page": 81,
+              "src": "notes",
+              "head": [
+                "Salt",
+                "Formula",
+                "Type",
+                "Soluble in water?",
+                "On heating"
+              ],
+              "rows": [
+                [
+                  "Sodium carbonate (washing soda)",
+                  "Na₂CO₃",
+                  "normal",
+                  "yes",
+                  "no change"
+                ],
+                [
+                  "Sodium hydrogen carbonate (baking soda)",
+                  "NaHCO₃",
+                  "acid salt",
+                  "yes (moderately)",
+                  "→ Na₂CO₃ + H₂O + CO₂"
+                ],
+                [
+                  "Calcium carbonate (limestone, marble)",
+                  "CaCO₃",
+                  "normal",
+                  "no",
+                  "→ CaO + CO₂"
+                ],
+                [
+                  "Calcium hydrogen carbonate",
+                  "Ca(HCO₃)₂",
+                  "acid salt",
+                  "yes (only in solution)",
+                  "→ CaCO₃ + H₂O + CO₂"
+                ],
+                [
+                  "Copper(II) carbonate",
+                  "CuCO₃",
+                  "normal",
+                  "no",
+                  "→ CuO (black) + CO₂"
+                ]
+              ]
+            },
+            {
+              "id": "chem11-u3-cm-w03",
+              "type": "worked",
+              "title": "Worked example: CO₂ into sodium hydroxide",
+              "page": 81,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Carbon dioxide is bubbled into sodium hydroxide solution, first a little, then in excess. Write the equations.",
+              "steps": [
+                {
+                  "text": "Little CO₂ (NaOH in excess) → the normal salt: 2NaOH + CO₂ → Na₂CO₃ + H₂O"
+                },
+                {
+                  "text": "Excess CO₂ → the acid salt: Na₂CO₃ + H₂O + CO₂ → 2NaHCO₃"
+                },
+                {
+                  "text": "Overall with excess CO₂: NaOH + CO₂ → NaHCO₃"
+                }
+              ],
+              "answer": "Na₂CO₃ first, then NaHCO₃ with excess CO₂ — two salts because H₂CO₃ is dibasic."
+            },
+            {
+              "id": "chem11-u3-cm-w04",
+              "type": "worked",
+              "title": "Worked example: the limewater test",
+              "page": 80,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Explain why limewater turns milky with CO₂ and then clears again if CO₂ is bubbled for a long time.",
+              "steps": [
+                {
+                  "text": "Limewater is calcium hydroxide solution."
+                },
+                {
+                  "text": "CO₂ + Ca(OH)₂ → CaCO₃(s) + H₂O: insoluble white CaCO₃ makes it **milky**."
+                },
+                {
+                  "text": "Excess CO₂: CaCO₃ + H₂O + CO₂ → Ca(HCO₃)₂, which is **soluble** → the solution clears."
+                }
+              ],
+              "answer": "Milky = CaCO₃; clears = soluble Ca(HCO₃)₂."
+            },
+            {
+              "id": "chem11-u3-cm-k04",
+              "type": "check",
+              "title": "Quick check",
+              "page": 81,
+              "src": "notes",
+              "q": "Carbonic acid is described as dibasic because it …",
+              "options": {
+                "A": "is a strong acid",
+                "B": "has two replaceable hydrogen atoms and forms two series of salts",
+                "C": "contains two oxygen atoms",
+                "D": "reacts with two bases only"
+              },
+              "answer": "B",
+              "why": "H₂CO₃ can lose one H (→ HCO₃⁻, acid salts) or both (→ CO₃²⁻, normal salts)."
+            },
+            {
+              "id": "chem11-u3-cm-k05",
+              "type": "check",
+              "title": "Quick check",
+              "page": 81,
+              "src": "notes",
+              "q": "Which carbonate is NOT decomposed by heating in a Bunsen flame?",
+              "options": {
+                "A": "CaCO₃",
+                "B": "CuCO₃",
+                "C": "Na₂CO₃",
+                "D": "ZnCO₃"
+              },
+              "answer": "C",
+              "why": "Carbonates of sodium and potassium are stable to heat; carbonates of less reactive metals decompose to the oxide and CO₂."
+            },
+            {
+              "id": "chem11-u3-cm-r01",
+              "type": "remember",
+              "title": "Tips",
+              "page": 81,
+              "src": "notes",
+              "body": [
+                "Write carbonic acid formation with ⇌: CO₂ + H₂O ⇌ H₂CO₃ (it is reversible and unstable).",
+                "Acid salt = still has replaceable H (NaHCO₃); normal salt = all H replaced (Na₂CO₃).",
+                "Higher in the activity series → more stable carbonate."
               ]
             },
             {
@@ -3462,6 +4473,12 @@
           "page": 112,
           "src": "textbook p.112",
           "enriched": true
+        },
+        {
+          "term": "Buckminsterfullerene",
+          "meaning": "C₆₀, a football-shaped allotrope of carbon made of 12 pentagons and 20 hexagons (discovered 1985).",
+          "page": 73,
+          "src": "notes"
         }
       ],
       "tips": [
@@ -4200,6 +5217,143 @@
             "src_qid": "chemistry_2025_q26",
             "exam_question": "chemistry_2025_q26",
             "page": 68
+          },
+          {
+            "id": "chem11-u3-cm-q1",
+            "type": "mcq",
+            "q": "Diamond does not conduct electricity because …",
+            "options": {
+              "A": "it has no free (delocalised) electrons",
+              "B": "its atoms are ions",
+              "C": "it has weak bonds",
+              "D": "it is a liquid"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: conduction needs mobile charged particles.",
+              "Step 2: all 4 outer electrons of each C are used in covalent bonds.",
+              "Step 3: none are free to move."
+            ],
+            "tip": "Graphite has 1 free electron per atom; diamond has none.",
+            "similar": [
+              {
+                "q": "Why does graphite conduct?",
+                "a": "Delocalised electrons move along its layers."
+              },
+              {
+                "q": "Which allotrope is used in electrodes?",
+                "a": "Graphite."
+              }
+            ],
+            "page": 72,
+            "src": "notes",
+            "label": "3.2 Carbon: allotropes and carbonic acid"
+          },
+          {
+            "id": "chem11-u3-cm-q2",
+            "type": "mcq",
+            "q": "Buckminsterfullerene differs from diamond and graphite in that it is …",
+            "options": {
+              "A": "made of different atoms",
+              "B": "a simple molecular substance",
+              "C": "an ionic solid",
+              "D": "a metal"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: diamond and graphite are giant structures.",
+              "Step 2: C₆₀ is a discrete molecule of 60 atoms.",
+              "Step 3: so it has a lower melting point and dissolves in some organic solvents."
+            ],
+            "tip": "Giant structure → very high m.p.; molecule → lower m.p.",
+            "similar": [
+              {
+                "q": "How many pentagons are in C₆₀?",
+                "a": "12 (and 20 hexagons)."
+              },
+              {
+                "q": "When was C₆₀ discovered?",
+                "a": "1985."
+              }
+            ],
+            "page": 73,
+            "src": "notes",
+            "label": "3.2 Carbon: allotropes and carbonic acid"
+          },
+          {
+            "id": "chem11-u3-cm-q3",
+            "type": "short",
+            "q": "Explain why graphite is soft but diamond is very hard.",
+            "answer": "Graphite’s layers are held by weak forces and slide; diamond has strong covalent bonds in all three directions so nothing can slide.",
+            "why": [
+              "Step 1: graphite — strong bonds within layers, weak forces between layers.",
+              "Step 2: layers slide → soft.",
+              "Step 3: diamond — every atom bonded to 4 others in a 3-D network → very hard."
+            ],
+            "tip": "Structure → bonding → property.",
+            "similar": [
+              {
+                "q": "Why is diamond used in drill tips?",
+                "a": "It is the hardest natural substance."
+              },
+              {
+                "q": "Why do both have high melting points?",
+                "a": "Melting breaks strong covalent bonds."
+              }
+            ],
+            "page": 72,
+            "src": "notes",
+            "label": "3.2 Carbon: allotropes and carbonic acid"
+          },
+          {
+            "id": "chem11-u3-cm-q4",
+            "type": "short",
+            "q": "Write equations to show that carbonic acid forms two kinds of sodium salts.",
+            "answer": "2NaOH + H₂CO₃ → Na₂CO₃ + 2H₂O (normal salt); NaOH + H₂CO₃ → NaHCO₃ + H₂O (acid salt).",
+            "why": [
+              "Step 1: H₂CO₃ has two replaceable H.",
+              "Step 2: replacing both gives the carbonate Na₂CO₃.",
+              "Step 3: replacing one gives the hydrogen carbonate NaHCO₃."
+            ],
+            "tip": "Dibasic acid → normal salt + acid salt.",
+            "similar": [
+              {
+                "q": "Name an acid salt of sulfuric acid.",
+                "a": "NaHSO₄."
+              },
+              {
+                "q": "What forms when NaHCO₃ is heated?",
+                "a": "Na₂CO₃, H₂O and CO₂."
+              }
+            ],
+            "page": 81,
+            "src": "notes",
+            "label": "3.2 Carbon: allotropes and carbonic acid"
+          },
+          {
+            "id": "chem11-u3-cm-q5",
+            "type": "tf",
+            "q": "Carbonic acid is a strong, stable acid.",
+            "answer": false,
+            "why": [
+              "Step 1: only a little H₂CO₃ ionises → weak.",
+              "Step 2: it decomposes back to CO₂ and water easily → unstable.",
+              "Step 3: it exists only in solution."
+            ],
+            "tip": "Think of a soft drink going flat.",
+            "similar": [
+              {
+                "q": "What colour does carbonic acid turn blue litmus?",
+                "a": "Red, slowly and faintly."
+              },
+              {
+                "q": "Why is rain naturally slightly acidic?",
+                "a": "It contains dissolved CO₂ (carbonic acid)."
+              }
+            ],
+            "page": 81,
+            "src": "notes",
+            "label": "3.2 Carbon: allotropes and carbonic acid"
           }
         ]
       },
@@ -4445,6 +5599,26 @@
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "cm_diamond": {
+          "svg": "svg/chemistry_11/chem11_u3_cm_diamond.svg",
+          "title": "Structure of diamond",
+          "page": 72,
+          "pins": []
+        },
+        "cm_graphite": {
+          "svg": "svg/chemistry_11/chem11_u3_cm_graphite.svg",
+          "title": "Structure of graphite",
+          "page": 72,
+          "pins": []
+        },
+        "cm_c60": {
+          "svg": "svg/chemistry_11/chem11_u3_cm_c60.svg",
+          "title": "Buckminsterfullerene, C₆₀",
+          "page": 73,
+          "pins": []
+        }
       }
     },
     {
@@ -4493,6 +5667,327 @@
                 "Always take very small pieces of sodium metal and handle them with the tongs.",
                 "Take four test tubes and label them as A, B, C and D.",
                 "Take three test tubes and label them A, B and C."
+              ]
+            },
+            {
+              "id": "chem11-u4-cm-c01",
+              "type": "text",
+              "title": "The activity series, step by step",
+              "page": 120,
+              "src": "notes",
+              "body": [
+                "The **activity (reactivity) series** lists metals from the **most reactive** (top) to the **least reactive** (bottom). Hydrogen (and often carbon) is included as a reference.",
+                "**Why the order?** Metals react by **losing electrons** to form positive ions. The easier a metal loses electrons, the higher it is in the series.",
+                "**How it is found:** compare how vigorously metals react with **oxygen, water and dilute acids** (textbook Activity on p.120), and which metal **displaces** which from solutions of their salts.",
+                "**The textbook series (Table 4.1):** K > Na > Ca > Mg > Al > Zn > Fe > Pb > (H) > Cu > Hg > Ag > Au. (Sn sits between Fe and Pb; Pt below Au.)"
+              ]
+            },
+            {
+              "id": "chem11-u4-cm-s01",
+              "type": "steps",
+              "title": "Model: what the position tells you",
+              "page": 121,
+              "src": "notes",
+              "diagram": "cm_activity",
+              "steps": [
+                {
+                  "text": "**Water:** K, Na, Ca react with cold water (→ hydroxide + H₂); Mg (hot water/steam), Al, Zn, Fe react with steam (→ oxide + H₂); metals below Fe do not react.",
+                  "show": "water"
+                },
+                {
+                  "text": "**Dilute acids:** metals **above hydrogen** displace H₂ from dilute HCl or H₂SO₄; metals **below hydrogen** (Cu, Hg, Ag, Au, Pt) do not.",
+                  "show": "acid"
+                },
+                {
+                  "text": "**Extraction:** the higher the metal, the harder it is to extract: electrolysis for K → Al, reduction with carbon for Zn → Cu, and Ag, Au, Pt are found native.",
+                  "show": "extract"
+                }
+              ]
+            },
+            {
+              "id": "chem11-u4-cm-t01",
+              "type": "table",
+              "title": "Reactions of metals at a glance (textbook pp. 121–123)",
+              "page": 121,
+              "src": "notes",
+              "head": [
+                "Metal",
+                "With oxygen",
+                "With water",
+                "With dilute acid",
+                "Extraction"
+              ],
+              "rows": [
+                [
+                  "K, Na",
+                  "burn very vigorously; tarnish in air",
+                  "violent with cold water (H₂ may ignite)",
+                  "explosive — never try",
+                  "electrolysis of molten chloride"
+                ],
+                [
+                  "Ca",
+                  "burns brightly",
+                  "steady with cold water",
+                  "vigorous",
+                  "electrolysis"
+                ],
+                [
+                  "Mg",
+                  "burns with a white flame",
+                  "hot water; quickly with steam",
+                  "fast, H₂",
+                  "electrolysis"
+                ],
+                [
+                  "Al, Zn, Fe",
+                  "burn when strongly heated (powder)",
+                  "with steam → oxide + H₂",
+                  "moderate, H₂",
+                  "Al: electrolysis of Al₂O₃; Zn, Fe: reduction with C or CO"
+                ],
+                [
+                  "Sn, Pb",
+                  "form oxide when heated, do not burn",
+                  "no reaction",
+                  "slow, H₂",
+                  "reduction with carbon"
+                ],
+                [
+                  "Cu, Hg",
+                  "form oxide when heated (CuO black)",
+                  "no reaction",
+                  "no reaction",
+                  "heating ores / reduction"
+                ],
+                [
+                  "Ag, Au, Pt",
+                  "no reaction even when hot",
+                  "no reaction",
+                  "no reaction",
+                  "found native (uncombined)"
+                ]
+              ]
+            },
+            {
+              "id": "chem11-u4-cm-c02",
+              "type": "text",
+              "title": "Uses of the activity series",
+              "page": 123,
+              "src": "notes",
+              "body": [
+                "**1. Predict reactions with water and acids** (table above) — e.g. why we never put sodium in acid, why copper vessels do not react with vinegar.",
+                "**2. Predict displacement reactions:** a metal displaces any metal **below** it from a solution of its salt. Zn(s) + CuSO₄(aq) → ZnSO₄(aq) + Cu(s) (blue colour fades, red-brown copper forms). Cu + ZnSO₄ → **no reaction**. Cu(s) + 2AgNO₃(aq) → Cu(NO₃)₂(aq) + 2Ag(s).",
+                "**3. Choose the extraction method:** metals above carbon (K → Al) need **electrolysis**; metals below carbon (Zn → Cu) can be **reduced with carbon or CO**; the least reactive (Ag, Au, Pt) occur **native** — that is why gold was the first metal people used.",
+                "**4. Protect iron from rusting:** a more reactive metal corrodes **instead of** iron — zinc coating (**galvanising**) on roofing sheets, magnesium or zinc blocks bolted to ship hulls and buried pipes (**sacrificial protection**).",
+                "**5. Predict stability of compounds:** compounds of metals high in the series are hard to decompose (Na₂CO₃ is stable to heat; CuCO₃ decomposes easily).",
+                "**6. Choose containers:** do not store copper(II) sulfate solution in an iron or zinc container — the container would be eaten away (Fe + CuSO₄ → FeSO₄ + Cu)."
+              ]
+            },
+            {
+              "id": "chem11-u4-cm-m01",
+              "type": "mnemonic",
+              "title": "Memory trick: the textbook order",
+              "page": 120,
+              "src": "notes",
+              "body": [
+                "**“Please Send Charlie’s Monkeys And Zebras In Lead Hutches, Cages, Mostly Securely Guarded.”**"
+              ],
+              "letters": [
+                {
+                  "l": "P",
+                  "w": "Potassium",
+                  "m": "K"
+                },
+                {
+                  "l": "S",
+                  "w": "Sodium",
+                  "m": "Na"
+                },
+                {
+                  "l": "C",
+                  "w": "Calcium",
+                  "m": "Ca"
+                },
+                {
+                  "l": "M",
+                  "w": "Magnesium",
+                  "m": "Mg"
+                },
+                {
+                  "l": "A",
+                  "w": "Aluminium",
+                  "m": "Al"
+                },
+                {
+                  "l": "Z",
+                  "w": "Zinc",
+                  "m": "Zn"
+                },
+                {
+                  "l": "I",
+                  "w": "Iron",
+                  "m": "Fe"
+                },
+                {
+                  "l": "L",
+                  "w": "Lead",
+                  "m": "Pb"
+                },
+                {
+                  "l": "H",
+                  "w": "Hydrogen",
+                  "m": "H (reference)"
+                },
+                {
+                  "l": "C",
+                  "w": "Copper",
+                  "m": "Cu"
+                },
+                {
+                  "l": "M",
+                  "w": "Mercury",
+                  "m": "Hg"
+                },
+                {
+                  "l": "S",
+                  "w": "Silver",
+                  "m": "Ag"
+                },
+                {
+                  "l": "G",
+                  "w": "Gold",
+                  "m": "Au"
+                }
+              ]
+            },
+            {
+              "id": "chem11-u4-cm-w01",
+              "type": "worked",
+              "title": "Worked example: will it displace?",
+              "page": 123,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Predict whether a reaction occurs and write the equation: (a) Fe + CuSO₄(aq); (b) Cu + FeSO₄(aq); (c) Mg + ZnCl₂(aq); (d) Ag + HCl(aq).",
+              "steps": [
+                {
+                  "text": "(a) Fe is above Cu → **yes**: Fe(s) + CuSO₄(aq) → FeSO₄(aq) + Cu(s) (iron nail turns copper-coloured, blue fades)."
+                },
+                {
+                  "text": "(b) Cu is below Fe → **no reaction**."
+                },
+                {
+                  "text": "(c) Mg is above Zn → **yes**: Mg(s) + ZnCl₂(aq) → MgCl₂(aq) + Zn(s)."
+                },
+                {
+                  "text": "(d) Ag is below H → **no reaction** (no H₂)."
+                }
+              ],
+              "answer": "(a) yes; (b) no; (c) yes; (d) no."
+            },
+            {
+              "id": "chem11-u4-cm-w02",
+              "type": "worked",
+              "title": "Worked example: placing an unknown metal",
+              "page": 123,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Metal X reacts with dilute HCl to give H₂ but does not react with cold water. X displaces copper from CuSO₄ solution but does not displace zinc from ZnSO₄. Where is X in the series? Suggest what X could be.",
+              "steps": [
+                {
+                  "text": "Reacts with dilute acid → X is **above H**."
+                },
+                {
+                  "text": "No reaction with cold water → X is **below Ca** (and Mg reacts with hot water)."
+                },
+                {
+                  "text": "Displaces Cu → X is **above Cu**; does not displace Zn → X is **below Zn**."
+                },
+                {
+                  "text": "So X lies between Zn and H: **Fe, Sn or Pb** (iron is the usual answer)."
+                }
+              ],
+              "answer": "Between Zn and H — for example iron."
+            },
+            {
+              "id": "chem11-u4-cm-w03",
+              "type": "worked",
+              "title": "Worked example: choosing an extraction method",
+              "page": 124,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Suggest how each metal is obtained from its ore and why: aluminium, iron, gold.",
+              "steps": [
+                {
+                  "text": "Aluminium is above carbon → carbon cannot remove oxygen from Al₂O₃ → **electrolysis** of molten Al₂O₃ (dissolved in cryolite)."
+                },
+                {
+                  "text": "Iron is below carbon → **reduction with carbon monoxide** in a blast furnace: Fe₂O₃ + 3CO → 2Fe + 3CO₂."
+                },
+                {
+                  "text": "Gold is very unreactive → found **native**; it only needs to be separated from rock (e.g. at Bisha in Eritrea)."
+                }
+              ],
+              "answer": "Al: electrolysis; Fe: reduction by CO/C; Au: native."
+            },
+            {
+              "id": "chem11-u4-cm-k01",
+              "type": "check",
+              "title": "Quick check",
+              "page": 123,
+              "src": "notes",
+              "q": "Which reaction will NOT take place?",
+              "options": {
+                "A": "Zn + CuSO₄",
+                "B": "Mg + FeSO₄",
+                "C": "Cu + ZnSO₄",
+                "D": "Fe + CuSO₄"
+              },
+              "answer": "C",
+              "why": "Copper is below zinc, so it cannot displace zinc from its salt."
+            },
+            {
+              "id": "chem11-u4-cm-k02",
+              "type": "check",
+              "title": "Quick check",
+              "page": 122,
+              "src": "notes",
+              "q": "Which metal does NOT give hydrogen with dilute hydrochloric acid?",
+              "options": {
+                "A": "Zn",
+                "B": "Mg",
+                "C": "Fe",
+                "D": "Cu"
+              },
+              "answer": "D",
+              "why": "Copper is below hydrogen in the activity series."
+            },
+            {
+              "id": "chem11-u4-cm-k03",
+              "type": "check",
+              "title": "Quick check",
+              "page": 124,
+              "src": "notes",
+              "q": "Galvanised iron is coated with zinc. Even when scratched, the iron does not rust because …",
+              "options": {
+                "A": "zinc is less reactive than iron",
+                "B": "zinc is more reactive and corrodes instead of iron",
+                "C": "zinc is a non-metal",
+                "D": "zinc stops water from boiling"
+              },
+              "answer": "B",
+              "why": "Zinc is higher in the series, so it loses electrons (corrodes) first — sacrificial protection."
+            },
+            {
+              "id": "chem11-u4-cm-r01",
+              "type": "remember",
+              "title": "Tips and common mistakes",
+              "page": 123,
+              "src": "notes",
+              "body": [
+                "Displacement: the **free** metal must be **above** the metal in the salt.",
+                "Above H → gives H₂ with dilute acids; below H → no H₂. (Never use nitric acid for this test — it gives nitrogen oxides instead.)",
+                "Above carbon → electrolysis; below carbon → carbon reduction."
               ]
             },
             {
@@ -5511,6 +7006,18 @@
           "page": 124,
           "src": "textbook p.124",
           "enriched": true
+        },
+        {
+          "term": "Displacement reaction",
+          "meaning": "A reaction in which a more reactive metal pushes a less reactive metal out of a solution of its salt.",
+          "page": 123,
+          "src": "notes"
+        },
+        {
+          "term": "Sacrificial protection",
+          "meaning": "Protecting iron by joining it to a more reactive metal (Zn, Mg) that corrodes instead.",
+          "page": 124,
+          "src": "notes"
         }
       ],
       "tips": [
@@ -6114,6 +7621,147 @@
             "src_qid": "chemistry_2016_q55",
             "exam_question": "chemistry_2016_q55",
             "page": 117
+          },
+          {
+            "id": "chem11-u4-cm-q1",
+            "type": "mcq",
+            "q": "Which pair reacts?",
+            "options": {
+              "A": "Cu + MgSO₄",
+              "B": "Ag + CuSO₄",
+              "C": "Zn + Pb(NO₃)₂",
+              "D": "Pb + ZnSO₄"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: the free metal must be above the metal in the salt.",
+              "Step 2: Zn is above Pb → Zn displaces Pb.",
+              "Step 3: in the others the free metal is lower."
+            ],
+            "tip": "Higher displaces lower.",
+            "similar": [
+              {
+                "q": "Write the equation for Zn + Pb(NO₃)₂.",
+                "a": "Zn + Pb(NO₃)₂ → Zn(NO₃)₂ + Pb."
+              },
+              {
+                "q": "Does Fe displace Ag from AgNO₃?",
+                "a": "Yes."
+              }
+            ],
+            "page": 123,
+            "src": "notes",
+            "label": "4.1 Activity series of metals"
+          },
+          {
+            "id": "chem11-u4-cm-q2",
+            "type": "mcq",
+            "q": "Aluminium is extracted by electrolysis rather than by reduction with carbon because …",
+            "options": {
+              "A": "aluminium is above carbon in the activity series",
+              "B": "aluminium is below carbon",
+              "C": "carbon is too expensive",
+              "D": "Al₂O₃ is a gas"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: carbon removes oxygen only from oxides of metals less reactive than carbon.",
+              "Step 2: Al is more reactive than C.",
+              "Step 3: so electrolysis is needed."
+            ],
+            "tip": "Above carbon → electrolysis.",
+            "similar": [
+              {
+                "q": "How is iron extracted?",
+                "a": "Reduction of iron oxide with CO in a blast furnace."
+              },
+              {
+                "q": "Why is gold found native?",
+                "a": "It is very unreactive."
+              }
+            ],
+            "page": 124,
+            "src": "notes",
+            "label": "4.1 Activity series of metals"
+          },
+          {
+            "id": "chem11-u4-cm-q3",
+            "type": "short",
+            "q": "Metals P, Q and R: P displaces Q from its salt solution; R displaces P from its salt solution. Arrange them from most to least reactive.",
+            "answer": "R > P > Q",
+            "accept": [
+              "R, P, Q",
+              "R>P>Q"
+            ],
+            "why": [
+              "Step 1: P displaces Q → P above Q.",
+              "Step 2: R displaces P → R above P.",
+              "Step 3: R > P > Q."
+            ],
+            "tip": "Draw a little ladder as you read each clue.",
+            "similar": [
+              {
+                "q": "Q does not react with dilute acid; P does. Which is above H?",
+                "a": "P."
+              },
+              {
+                "q": "Could Q be copper?",
+                "a": "Yes — it is below P and below H."
+              }
+            ],
+            "page": 123,
+            "src": "notes",
+            "label": "4.1 Activity series of metals"
+          },
+          {
+            "id": "chem11-u4-cm-q4",
+            "type": "short",
+            "q": "Explain why blocks of magnesium are attached to the steel hulls of ships.",
+            "answer": "Mg is more reactive than iron, so it corrodes (loses electrons) instead of the iron — sacrificial protection.",
+            "why": [
+              "Step 1: Mg is higher in the activity series than Fe.",
+              "Step 2: the more reactive metal is oxidised first.",
+              "Step 3: the hull stays protected until the Mg block is used up and replaced."
+            ],
+            "tip": "More reactive metal sacrifices itself.",
+            "similar": [
+              {
+                "q": "Why is iron roofing sheet coated with zinc?",
+                "a": "Galvanising — zinc protects iron, even when scratched."
+              },
+              {
+                "q": "Would copper protect iron in this way?",
+                "a": "No — copper is less reactive and makes iron rust faster."
+              }
+            ],
+            "page": 124,
+            "src": "notes",
+            "label": "4.1 Activity series of metals"
+          },
+          {
+            "id": "chem11-u4-cm-q5",
+            "type": "tf",
+            "q": "All metals above hydrogen in the activity series react with cold water.",
+            "answer": false,
+            "why": [
+              "Step 1: only K, Na and Ca react readily with cold water.",
+              "Step 2: Mg needs hot water or steam; Al, Zn, Fe need steam; Sn and Pb do not react with water.",
+              "Step 3: but all of them do give H₂ with dilute acids."
+            ],
+            "tip": "Water test and acid test have different cut-offs.",
+            "similar": [
+              {
+                "q": "Which metals react with steam but not cold water?",
+                "a": "Mg, Al, Zn, Fe."
+              },
+              {
+                "q": "Write the reaction of iron with steam.",
+                "a": "3Fe + 4H₂O(g) → Fe₃O₄ + 4H₂."
+              }
+            ],
+            "page": 122,
+            "src": "notes",
+            "label": "4.1 Activity series of metals"
           }
         ]
       },
@@ -6294,6 +7942,14 @@
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "cm_activity": {
+          "svg": "svg/chemistry_11/chem11_u4_cm_activity.svg",
+          "title": "Activity series of metals",
+          "page": 120,
+          "pins": []
+        }
       }
     },
     {
@@ -6511,6 +8167,189 @@
                   "PV = nRT, R = 8.314"
                 ]
               ]
+            },
+            {
+              "id": "chem11-u5-cm-c01",
+              "type": "text",
+              "title": "Deriving the ideal gas equation, step by step",
+              "page": 177,
+              "src": "notes",
+              "body": [
+                "Four variables describe a gas: pressure **P**, volume **V**, temperature **T** (kelvin) and amount **n** (mol). Each gas law links V to one of the others while the rest are kept fixed:",
+                "**Step 1 — Boyle (n, T fixed):** \\(V \\propto \\dfrac{1}{P}\\)",
+                "**Step 2 — Charles (n, P fixed):** \\(V \\propto T\\)",
+                "**Step 3 — Avogadro (P, T fixed):** \\(V \\propto n\\)",
+                "**Step 4 — Combine:** if V is proportional to each separately, it is proportional to all together: \\(V \\propto \\dfrac{nT}{P}\\).",
+                "**Step 5 — Put in a constant R** (the molar gas constant): \\(V = R\\,\\dfrac{nT}{P}\\), so",
+                "$$PV = nRT$$",
+                "**Step 6 — Find R** from one known gas: 1 mol at STP (273 K, 1 atm) occupies 22.4 L, so \\(R = \\dfrac{PV}{nT} = \\dfrac{1 \\times 22.4}{1 \\times 273} = 0.0821\\ \\text{L}\\cdot\\text{atm/(mol}\\cdot\\text{K)}\\). In SI units (P in Pa, V in m³): R = 8.314 J/(mol·K).",
+                "**Check:** fix n and T → PV = constant (Boyle); fix n and P → V/T = constant (Charles); fix n → PV/T = constant (combined gas law)."
+              ]
+            },
+            {
+              "id": "chem11-u5-cm-s01",
+              "type": "steps",
+              "title": "Model: building PV = nRT",
+              "page": 177,
+              "src": "notes",
+              "diagram": "cm_ideal",
+              "steps": [
+                {
+                  "text": "**Boyle:** V ∝ 1/P when n and T are fixed.",
+                  "show": "b"
+                },
+                {
+                  "text": "**Charles:** V ∝ T when n and P are fixed.",
+                  "show": "c"
+                },
+                {
+                  "text": "**Avogadro:** V ∝ n when P and T are fixed.",
+                  "show": "a"
+                },
+                {
+                  "text": "Put the three together: **V ∝ nT/P**.",
+                  "show": "comb"
+                },
+                {
+                  "text": "Replace “∝” by “= R ×”: **PV = nRT**.",
+                  "show": "pv"
+                },
+                {
+                  "text": "Substitute n = m/M and d = m/V: **PM = dRT**.",
+                  "show": "d"
+                }
+              ]
+            },
+            {
+              "id": "chem11-u5-cm-c02",
+              "type": "text",
+              "title": "PM = dRT: density and molar mass of a gas",
+              "page": 179,
+              "src": "notes",
+              "body": [
+                "**Step 1:** moles = mass ÷ molar mass: \\(n = \\dfrac{m}{M}\\).",
+                "**Step 2:** substitute into PV = nRT: \\(PV = \\dfrac{m}{M}RT\\).",
+                "**Step 3:** multiply both sides by M and divide by V: \\(PM = \\dfrac{m}{V}RT\\).",
+                "**Step 4:** m/V is the density d:",
+                "$$PM = dRT \\qquad d = \\frac{PM}{RT} \\qquad M = \\frac{dRT}{P}$$",
+                "**What it tells you:** at the same P and T, a gas with a bigger molar mass is denser (CO₂, M = 44, sinks below air, M ≈ 29; H₂ and He rise). Heating a gas lowers its density (hot-air balloons). Measuring the density of an unknown gas gives its molar mass."
+              ]
+            },
+            {
+              "id": "chem11-u5-cm-w01",
+              "type": "worked",
+              "title": "Worked example: volume from PV = nRT",
+              "page": 178,
+              "src": "notes",
+              "mode": "try",
+              "problem": "What volume do 2.0 mol of oxygen occupy at 27 °C and 2.0 atm?",
+              "steps": [
+                {
+                  "text": "T = 27 + 273 = 300 K"
+                },
+                {
+                  "text": "\\(V = \\dfrac{nRT}{P} = \\dfrac{2.0 \\times 0.0821 \\times 300}{2.0}\\)"
+                },
+                {
+                  "text": "V = 24.6 L"
+                }
+              ],
+              "answer": "24.6 L"
+            },
+            {
+              "id": "chem11-u5-cm-w02",
+              "type": "worked",
+              "title": "Worked example: pressure in SI units",
+              "page": 178,
+              "src": "notes",
+              "mode": "try",
+              "problem": "0.50 mol of nitrogen is held in a 10.0 L container at 300 K. Find the pressure in pascals.",
+              "steps": [
+                {
+                  "text": "Use R = 8.314 J/(mol·K), so V must be in m³: 10.0 L = 0.0100 m³."
+                },
+                {
+                  "text": "\\(P = \\dfrac{nRT}{V} = \\dfrac{0.50 \\times 8.314 \\times 300}{0.0100}\\)"
+                },
+                {
+                  "text": "\\(P = 1.25\\times10^{5}\\text{ Pa}\\) (about 1.23 atm)"
+                }
+              ],
+              "answer": "1.25 × 10⁵ Pa"
+            },
+            {
+              "id": "chem11-u5-cm-w03",
+              "type": "worked",
+              "title": "Worked example: density of CO₂ at STP",
+              "page": 179,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Calculate the density of carbon dioxide (M = 44 g/mol) at STP.",
+              "steps": [
+                {
+                  "text": "\\(d = \\dfrac{PM}{RT} = \\dfrac{1 \\times 44}{0.0821 \\times 273}\\)"
+                },
+                {
+                  "text": "d = 1.96 g/L"
+                },
+                {
+                  "text": "Check: 44 g ÷ 22.4 L = 1.96 g/L ✓"
+                }
+              ],
+              "answer": "1.96 g/L"
+            },
+            {
+              "id": "chem11-u5-cm-w04",
+              "type": "worked",
+              "title": "Worked example: molar mass from density",
+              "page": 179,
+              "src": "notes",
+              "mode": "try",
+              "problem": "An unknown gas has a density of 1.25 g/L at STP. Find its molar mass and suggest what it could be.",
+              "steps": [
+                {
+                  "text": "\\(M = \\dfrac{dRT}{P} = \\dfrac{1.25 \\times 0.0821 \\times 273}{1}\\)"
+                },
+                {
+                  "text": "M = 28.0 g/mol"
+                },
+                {
+                  "text": "Gases with M = 28: N₂ or CO (or C₂H₄)."
+                }
+              ],
+              "answer": "28 g/mol — e.g. N₂ or CO"
+            },
+            {
+              "id": "chem11-u5-cm-k01",
+              "type": "check",
+              "title": "Quick check",
+              "page": 177,
+              "src": "notes",
+              "q": "Which law is combined with Boyle’s and Charles’s laws to give PV = nRT?",
+              "options": {
+                "A": "Dalton’s law",
+                "B": "Avogadro’s law",
+                "C": "Graham’s law",
+                "D": "Gay-Lussac’s law of volumes"
+              },
+              "answer": "B",
+              "why": "Avogadro’s law (V ∝ n) brings in the amount of gas."
+            },
+            {
+              "id": "chem11-u5-cm-k02",
+              "type": "check",
+              "title": "Quick check",
+              "page": 179,
+              "src": "notes",
+              "q": "At the same temperature and pressure, which gas has the greatest density?",
+              "options": {
+                "A": "H₂",
+                "B": "He",
+                "C": "N₂",
+                "D": "CO₂"
+              },
+              "answer": "D",
+              "why": "d = PM/RT: density is proportional to molar mass; CO₂ (44) is largest."
             },
             {
               "id": "chem11-u5-c10",
@@ -6753,6 +8592,193 @@
               ]
             },
             {
+              "id": "chem11-u5-cm-c03",
+              "type": "text",
+              "title": "Real gases and the van der Waals equation, step by step",
+              "page": 186,
+              "src": "notes",
+              "body": [
+                "**Ideal gas assumptions (kinetic theory):** (1) the molecules themselves take up **no volume**; (2) there are **no attractions** between molecules. Real gases obey PV = nRT well only at **low pressure and high temperature**.",
+                "**Step 1 — Why real gases deviate.** At **high pressure** the molecules are crowded, so their own volume is no longer negligible. At **low temperature** they move slowly, so attractions matter.",
+                "**Step 2 — Volume correction.** Each mole of molecules occupies a volume b, so the empty space molecules can move in is the **free volume** V − nb.",
+                "**Step 3 — Pressure correction.** A molecule about to hit the wall is pulled back by its neighbours, so it hits more gently: the measured P is **less** than the ideal pressure. The loss depends on how crowded the gas is, \\((n/V)^2\\), so we add \\(\\dfrac{an^2}{V^2}\\).",
+                "**Step 4 — Put both into PV = nRT** (textbook 5.3.3, Van der Waals’ equation):",
+                "$$\\left(P + \\frac{an^2}{V^2}\\right)(V - nb) = nRT$$",
+                "**Meaning of the constants:** **a** measures the strength of attractions (large for polar or big molecules that are easy to liquefy, e.g. NH₃, H₂O); **b** measures the size of the molecules. The smaller a and b, the more ideal the gas (He and H₂ are closest to ideal)."
+              ]
+            },
+            {
+              "id": "chem11-u5-cm-s02",
+              "type": "states",
+              "title": "Model: from ideal to real",
+              "page": 188,
+              "src": "notes",
+              "diagram": "cm_real",
+              "states": [
+                {
+                  "key": "i",
+                  "label": "Ideal",
+                  "text": "Ideal model: molecules are points with no attractions — PV = nRT."
+                },
+                {
+                  "key": "v",
+                  "label": "Volume",
+                  "text": "Real molecules take up space: the free volume is V − nb. This matters most at high pressure."
+                },
+                {
+                  "key": "p",
+                  "label": "Pressure",
+                  "text": "Neighbours pull a molecule back as it reaches the wall, so the wall feels less pressure: add an²/V². This matters most at low temperature."
+                }
+              ]
+            },
+            {
+              "id": "chem11-u5-cm-t01",
+              "type": "table",
+              "title": "Van der Waals constants of some gases",
+              "page": 188,
+              "src": "notes",
+              "head": [
+                "Gas",
+                "a (L²·atm/mol²)",
+                "b (L/mol)",
+                "Comment"
+              ],
+              "rows": [
+                [
+                  "He",
+                  "0.034",
+                  "0.0237",
+                  "nearly ideal: tiny attractions"
+                ],
+                [
+                  "H₂",
+                  "0.244",
+                  "0.0266",
+                  "nearly ideal"
+                ],
+                [
+                  "N₂",
+                  "1.39",
+                  "0.0391",
+                  "fairly ideal at room conditions"
+                ],
+                [
+                  "CO₂",
+                  "3.59",
+                  "0.0427",
+                  "easily liquefied"
+                ],
+                [
+                  "NH₃",
+                  "4.17",
+                  "0.0371",
+                  "polar: strong attractions"
+                ],
+                [
+                  "H₂O",
+                  "5.46",
+                  "0.0305",
+                  "hydrogen bonding: largest a"
+                ]
+              ]
+            },
+            {
+              "id": "chem11-u5-cm-w05",
+              "type": "worked",
+              "title": "Worked example: ideal vs van der Waals pressure",
+              "page": 188,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Find the pressure of 1.00 mol of CO₂ in a 1.00 L container at 300 K (a) as an ideal gas, (b) with the van der Waals equation (a = 3.59 L²·atm/mol², b = 0.0427 L/mol).",
+              "steps": [
+                {
+                  "text": "(a) \\(P = \\dfrac{nRT}{V} = \\dfrac{1.00 \\times 0.0821 \\times 300}{1.00} = 24.6\\text{ atm}\\)"
+                },
+                {
+                  "text": "(b) Rearrange: \\(P = \\dfrac{nRT}{V - nb} - \\dfrac{an^2}{V^2}\\)"
+                },
+                {
+                  "text": "\\(\\dfrac{24.63}{1.00 - 0.0427} = \\dfrac{24.63}{0.9573} = 25.7\\text{ atm}\\)"
+                },
+                {
+                  "text": "\\(\\dfrac{an^2}{V^2} = \\dfrac{3.59 \\times 1^2}{1.00^2} = 3.59\\text{ atm}\\)"
+                },
+                {
+                  "text": "P = 25.7 − 3.59 = 22.1 atm"
+                },
+                {
+                  "text": "The real pressure is about 10 % lower: the attraction effect is bigger than the volume effect here."
+                }
+              ],
+              "answer": "Ideal 24.6 atm; van der Waals 22.1 atm"
+            },
+            {
+              "id": "chem11-u5-cm-w06",
+              "type": "worked",
+              "title": "Worked example: when is a gas most ideal?",
+              "page": 186,
+              "src": "notes",
+              "mode": "try",
+              "problem": "Under which conditions does a real gas behave most like an ideal gas? Explain using the two van der Waals corrections.",
+              "steps": [
+                {
+                  "text": "**Low pressure:** molecules are far apart, so nb is tiny compared with V and an²/V² is tiny compared with P."
+                },
+                {
+                  "text": "**High temperature:** molecules move fast, so brief attractions hardly slow them — the pressure correction is unimportant."
+                },
+                {
+                  "text": "So: **low pressure and high temperature**, and gases with small a and b (He, H₂)."
+                }
+              ],
+              "answer": "Low pressure, high temperature."
+            },
+            {
+              "id": "chem11-u5-cm-k03",
+              "type": "check",
+              "title": "Quick check",
+              "page": 188,
+              "src": "notes",
+              "q": "In the van der Waals equation, the term nb corrects for …",
+              "options": {
+                "A": "attractions between molecules",
+                "B": "the volume occupied by the molecules",
+                "C": "the temperature",
+                "D": "the speed of molecules"
+              },
+              "answer": "B",
+              "why": "V − nb is the free volume: the space not taken by the molecules themselves."
+            },
+            {
+              "id": "chem11-u5-cm-k04",
+              "type": "check",
+              "title": "Quick check",
+              "page": 188,
+              "src": "notes",
+              "q": "Which gas has the largest van der Waals constant a?",
+              "options": {
+                "A": "He",
+                "B": "H₂",
+                "C": "N₂",
+                "D": "H₂O"
+              },
+              "answer": "D",
+              "why": "a measures attraction; water molecules hydrogen-bond strongly."
+            },
+            {
+              "id": "chem11-u5-cm-r01",
+              "type": "remember",
+              "title": "Tips and common mistakes",
+              "page": 177,
+              "src": "notes",
+              "body": [
+                "Always convert °C to **kelvin**.",
+                "Match R to the units: 0.0821 with L and atm; 8.314 with m³ and Pa (1 L = 10⁻³ m³).",
+                "In van der Waals: **add** to P (attractions lower the measured pressure), **subtract** from V (molecules take up space)."
+              ]
+            },
+            {
               "id": "chem11-u5-c12",
               "type": "table",
               "title": "Kinetic theory",
@@ -6917,7 +8943,20 @@
           ]
         }
       ],
-      "glossary": [],
+      "glossary": [
+        {
+          "term": "Ideal gas equation",
+          "meaning": "PV = nRT, obtained by combining Boyle’s, Charles’s and Avogadro’s laws.",
+          "page": 177,
+          "src": "notes"
+        },
+        {
+          "term": "Van der Waals equation",
+          "meaning": "(P + an²/V²)(V − nb) = nRT; corrects the ideal gas equation for molecular volume (b) and attractions (a).",
+          "page": 188,
+          "src": "notes"
+        }
+      ],
       "tips": [
         {
           "text": "Read 5.1 The Gaseous State again and say its main idea in one sentence.",
@@ -7448,6 +9487,154 @@
             "src_qid": "chemistry_2016_q58",
             "exam_question": "chemistry_2016_q58",
             "page": 162
+          },
+          {
+            "id": "chem11-u5-cm-q1",
+            "type": "mcq",
+            "q": "Which combination of laws gives V ∝ nT/P?",
+            "options": {
+              "A": "Boyle, Charles and Avogadro",
+              "B": "Boyle and Dalton only",
+              "C": "Charles and Graham",
+              "D": "Avogadro and Dalton"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: Boyle V ∝ 1/P.",
+              "Step 2: Charles V ∝ T.",
+              "Step 3: Avogadro V ∝ n.",
+              "Step 4: together V ∝ nT/P → PV = nRT."
+            ],
+            "tip": "One law for each variable.",
+            "similar": [
+              {
+                "q": "Which law gives V ∝ n?",
+                "a": "Avogadro’s law."
+              },
+              {
+                "q": "What is R in L·atm/(mol·K)?",
+                "a": "0.0821."
+              }
+            ],
+            "page": 177,
+            "src": "notes",
+            "label": "5.2–5.3 Ideal and real gases"
+          },
+          {
+            "id": "chem11-u5-cm-q2",
+            "type": "short",
+            "q": "How many moles of gas are in a 5.0 L flask at 2.0 atm and 27 °C?",
+            "answer": "0.41 mol",
+            "accept": [
+              "0.41",
+              "0.406 mol",
+              "0.406"
+            ],
+            "why": [
+              "Step 1: T = 300 K.",
+              "Step 2: n = PV/RT = (2.0 × 5.0)/(0.0821 × 300).",
+              "Step 3: n = 10/24.63 = 0.41 mol."
+            ],
+            "tip": "Rearrange PV = nRT for the unknown first.",
+            "similar": [
+              {
+                "q": "What mass of O₂ is that?",
+                "a": "0.41 × 32 = 13 g."
+              },
+              {
+                "q": "What volume does 0.41 mol occupy at STP?",
+                "a": "9.2 L."
+              }
+            ],
+            "page": 178,
+            "src": "notes",
+            "label": "5.2–5.3 Ideal and real gases"
+          },
+          {
+            "id": "chem11-u5-cm-q3",
+            "type": "short",
+            "q": "A gas has density 2.86 g/L at STP. Find its molar mass.",
+            "answer": "64 g/mol (e.g. SO₂)",
+            "accept": [
+              "64",
+              "64.1 g/mol",
+              "64 g mol⁻¹"
+            ],
+            "why": [
+              "Step 1: M = dRT/P.",
+              "Step 2: = 2.86 × 0.0821 × 273 / 1.",
+              "Step 3: = 64.1 g/mol — SO₂."
+            ],
+            "tip": "PM = dRT.",
+            "similar": [
+              {
+                "q": "What is the density of O₂ at STP?",
+                "a": "32/22.4 = 1.43 g/L."
+              },
+              {
+                "q": "Is SO₂ denser than air?",
+                "a": "Yes (64 > 29)."
+              }
+            ],
+            "page": 179,
+            "src": "notes",
+            "label": "5.2–5.3 Ideal and real gases"
+          },
+          {
+            "id": "chem11-u5-cm-q4",
+            "type": "mcq",
+            "q": "Real gases deviate most from ideal behaviour at …",
+            "options": {
+              "A": "high temperature and low pressure",
+              "B": "low temperature and high pressure",
+              "C": "room conditions",
+              "D": "high temperature only"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: high pressure → molecules crowded → their volume matters.",
+              "Step 2: low temperature → slow molecules → attractions matter.",
+              "Step 3: both effects are largest at low T and high P."
+            ],
+            "tip": "Ideal at “high T, low P”; real at “low T, high P”.",
+            "similar": [
+              {
+                "q": "Which is more ideal, He or NH₃?",
+                "a": "He (smaller a and b)."
+              },
+              {
+                "q": "Why do gases liquefy at low T and high P?",
+                "a": "Attractions win when molecules are slow and close."
+              }
+            ],
+            "page": 186,
+            "src": "notes",
+            "label": "5.2–5.3 Ideal and real gases"
+          },
+          {
+            "id": "chem11-u5-cm-q5",
+            "type": "tf",
+            "q": "In the van der Waals equation, the term an²/V² is added to P because attractions make the measured pressure lower than the ideal pressure.",
+            "answer": true,
+            "why": [
+              "Step 1: neighbours pull a molecule back as it reaches the wall.",
+              "Step 2: it hits the wall more gently → lower measured P.",
+              "Step 3: adding an²/V² restores the ideal pressure."
+            ],
+            "tip": "Add to P, subtract from V.",
+            "similar": [
+              {
+                "q": "What does b represent?",
+                "a": "The volume occupied per mole of molecules."
+              },
+              {
+                "q": "What is the free volume?",
+                "a": "V − nb."
+              }
+            ],
+            "page": 188,
+            "src": "notes",
+            "label": "5.2–5.3 Ideal and real gases"
           }
         ]
       },
@@ -7522,6 +9709,20 @@
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "cm_ideal": {
+          "svg": "svg/chemistry_11/chem11_u5_cm_ideal.svg",
+          "title": "Deriving PV = nRT",
+          "page": 177,
+          "pins": []
+        },
+        "cm_real": {
+          "svg": "svg/chemistry_11/chem11_u5_cm_real.svg",
+          "title": "Real gases: van der Waals corrections",
+          "page": 188,
+          "pins": []
+        }
       }
     }
   ]

@@ -372,6 +372,532 @@
        ]
       },
       {
+       "id": "chem10-u3-cm-c01",
+       "type": "text",
+       "title": "Five ways to express concentration",
+       "page": 75,
+       "src": "notes",
+       "body": [
+        "Concentration tells you **how much solute** is in a given amount of **solution** (or solvent). Learn each formula with its units:",
+        "$$\\text{mass \\%} = \\frac{\\text{mass of solute}}{\\text{mass of solution}} \\times 100$$",
+        "$$\\text{volume \\%} = \\frac{\\text{volume of solute}}{\\text{volume of solution}} \\times 100$$",
+        "$$M = \\frac{n_{\\text{solute}}}{V_{\\text{solution}}\\,(\\text{L})} \\quad (\\text{mol/L})$$",
+        "$$m = \\frac{n_{\\text{solute}}}{\\text{mass of solvent (kg)}} \\quad (\\text{mol/kg})$$",
+        "$$N = \\frac{\\text{number of equivalents}}{V_{\\text{solution}}\\,(\\text{L})} = M \\times (\\text{replaceable H}^+ \\text{ or OH}^-)$$",
+        "Always find the **moles** first: \\(n = \\dfrac{\\text{mass}}{\\text{molar mass}}\\)."
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-t01",
+       "type": "table",
+       "title": "Concentration units at a glance",
+       "page": 75,
+       "src": "notes",
+       "head": [
+        "Unit",
+        "Symbol",
+        "Per …",
+        "SI-type units",
+        "Changes with temperature?"
+       ],
+       "rows": [
+        [
+         "Mass percent",
+         "% (w/w)",
+         "100 g of solution",
+         "g per 100 g",
+         "no (masses do not change)"
+        ],
+        [
+         "Volume percent",
+         "% (v/v)",
+         "100 mL of solution",
+         "mL per 100 mL",
+         "yes (volumes expand)"
+        ],
+        [
+         "Molarity",
+         "M",
+         "1 L of solution",
+         "mol/L",
+         "yes"
+        ],
+        [
+         "Molality",
+         "m",
+         "1 kg of solvent",
+         "mol/kg",
+         "no"
+        ],
+        [
+         "Normality",
+         "N",
+         "1 L of solution",
+         "equivalents/L",
+         "yes"
+        ]
+       ],
+       "body": [
+        "Molality and mass percent use only masses, so they do not change when the solution warms up — that is why molality is used for boiling-point elevation."
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-s01",
+       "type": "steps",
+       "title": "Model: how the units connect",
+       "page": 79,
+       "src": "notes",
+       "diagram": "cm_concmap",
+       "steps": [
+        {
+         "text": "Everything goes through **moles of solute**: n = mass ÷ molar mass.",
+         "show": "n"
+        },
+        {
+         "text": "**Molarity**: divide moles by litres of **solution**.",
+         "show": "M"
+        },
+        {
+         "text": "**Molality**: divide moles by kilograms of **solvent** (not solution).",
+         "show": "m"
+        },
+        {
+         "text": "**Normality**: multiply molarity by the number of replaceable H⁺ (acid) or OH⁻ (base).",
+         "show": "N"
+        },
+        {
+         "text": "**Mass percent**: needs masses only. To switch between percent and molarity you also need the **density** of the solution.",
+         "show": "p"
+        }
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-c02",
+       "type": "text",
+       "title": "Mass percent, step by step",
+       "page": 75,
+       "src": "notes",
+       "body": [
+        "1. Find the mass of solute and the mass of **solution** (solution = solute + solvent).",
+        "2. Divide and multiply by 100.",
+        "“A 10% salt solution” means 10 g of salt in every 100 g of solution, i.e. 10 g salt + 90 g water."
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-w01",
+       "type": "worked",
+       "title": "Worked example: mass percent",
+       "page": 75,
+       "src": "notes",
+       "mode": "try",
+       "problem": "25 g of sodium chloride is dissolved in 100 g of water. Find the mass percent of NaCl.",
+       "steps": [
+        {
+         "text": "Mass of solution = 25 g + 100 g = 125 g (do not forget to add the solute)."
+        },
+        {
+         "text": "\\(\\text{mass \\%} = \\dfrac{25}{125} \\times 100\\)"
+        },
+        {
+         "text": "= 20 %"
+        }
+       ],
+       "answer": "20 % NaCl by mass"
+      },
+      {
+       "id": "chem10-u3-cm-w02",
+       "type": "worked",
+       "title": "Worked example: making a solution of given mass percent",
+       "page": 76,
+       "src": "notes",
+       "mode": "try",
+       "problem": "How many grams of KNO₃ and of water are needed to make 250 g of an 8.0 % (by mass) KNO₃ solution?",
+       "steps": [
+        {
+         "text": "Mass of solute = \\(\\dfrac{8.0}{100} \\times 250 \\text{ g}\\) = 20 g KNO₃"
+        },
+        {
+         "text": "Mass of water = 250 g − 20 g = 230 g"
+        }
+       ],
+       "answer": "20 g KNO₃ dissolved in 230 g water"
+      },
+      {
+       "id": "chem10-u3-cm-c03",
+       "type": "text",
+       "title": "Volume percent, step by step",
+       "page": 77,
+       "src": "notes",
+       "body": [
+        "Used when both solute and solvent are **liquids** (alcohol in water, antiseptics).",
+        "1. Find the volume of the liquid solute and the total volume of **solution**.",
+        "2. Divide and multiply by 100.",
+        "**Careful:** volumes are not always additive — 50 mL ethanol + 50 mL water gives a little **less** than 100 mL. Use the measured volume of solution."
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-w03",
+       "type": "worked",
+       "title": "Worked example: volume percent",
+       "page": 77,
+       "src": "notes",
+       "mode": "try",
+       "problem": "How much pure ethanol is in 500 mL of a 70 % (v/v) ethanol hand-sanitiser solution?",
+       "steps": [
+        {
+         "text": "Volume of ethanol = \\(\\dfrac{70}{100} \\times 500 \\text{ mL}\\)"
+        },
+        {
+         "text": "= 350 mL ethanol (the rest, about 150 mL, is water)"
+        }
+       ],
+       "answer": "350 mL ethanol"
+      },
+      {
+       "id": "chem10-u3-cm-c04",
+       "type": "text",
+       "title": "Molarity, step by step",
+       "page": 79,
+       "src": "notes",
+       "body": [
+        "1. Convert the mass of solute into **moles**: n = m ÷ M.",
+        "2. Convert the volume of **solution** into **litres** (mL ÷ 1000).",
+        "3. \\(M = \\dfrac{n}{V}\\). Rearranged: \\(n = M \\times V\\) and mass = \\(M \\times V \\times\\) molar mass.",
+        "**Dilution:** adding water does not change the moles of solute, so \\(M_1V_1 = M_2V_2\\) (textbook 3.2.2, p.92)."
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-w04",
+       "type": "worked",
+       "title": "Worked example: molarity from mass",
+       "page": 79,
+       "src": "notes",
+       "mode": "try",
+       "problem": "11.7 g of NaCl (M = 58.5 g/mol) is dissolved in water to make 500 mL of solution. Find the molarity.",
+       "steps": [
+        {
+         "text": "Moles: \\(n = \\dfrac{11.7}{58.5} = 0.200\\text{ mol}\\)"
+        },
+        {
+         "text": "Volume: 500 mL = 0.500 L"
+        },
+        {
+         "text": "\\(M = \\dfrac{0.200}{0.500} = 0.400\\text{ mol/L}\\)"
+        }
+       ],
+       "answer": "0.400 M NaCl"
+      },
+      {
+       "id": "chem10-u3-cm-w05",
+       "type": "worked",
+       "title": "Worked example: mass needed for a molar solution",
+       "page": 80,
+       "src": "notes",
+       "mode": "try",
+       "problem": "What mass of NaOH (M = 40 g/mol) is needed to make 250 mL of 0.20 M solution?",
+       "steps": [
+        {
+         "text": "Moles needed: \\(n = M \\times V = 0.20 \\times 0.250 = 0.050\\text{ mol}\\)"
+        },
+        {
+         "text": "Mass: \\(0.050 \\times 40 = 2.0\\text{ g}\\)"
+        },
+        {
+         "text": "Dissolve 2.0 g NaOH in a little water, then add water up to the 250 mL mark of a volumetric flask."
+        }
+       ],
+       "answer": "2.0 g NaOH"
+      },
+      {
+       "id": "chem10-u3-cm-w06",
+       "type": "worked",
+       "title": "Worked example: dilution",
+       "page": 92,
+       "src": "notes",
+       "mode": "try",
+       "problem": "What volume of 2.0 M HCl is needed to make 500 mL of 0.10 M HCl?",
+       "steps": [
+        {
+         "text": "\\(M_1V_1 = M_2V_2\\)"
+        },
+        {
+         "text": "\\(2.0 \\times V_1 = 0.10 \\times 500\\text{ mL}\\)"
+        },
+        {
+         "text": "\\(V_1 = \\dfrac{50}{2.0} = 25\\text{ mL}\\)"
+        },
+        {
+         "text": "Measure 25 mL of 2.0 M HCl and add water to make 500 mL (add acid to water, never water to acid)."
+        }
+       ],
+       "answer": "25 mL of 2.0 M HCl"
+      },
+      {
+       "id": "chem10-u3-cm-c05",
+       "type": "text",
+       "title": "Molality, step by step",
+       "page": 84,
+       "src": "notes",
+       "body": [
+        "1. Find the moles of solute.",
+        "2. Find the mass of **solvent** only, in **kilograms** (g ÷ 1000).",
+        "3. \\(m = \\dfrac{n_{\\text{solute}}}{\\text{kg of solvent}}\\)",
+        "**Molarity vs molality:** molarity divides by litres of **solution**; molality divides by kilograms of **solvent**. For dilute water solutions the two numbers are almost equal (1 L of water ≈ 1 kg)."
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-w07",
+       "type": "worked",
+       "title": "Worked example: molality",
+       "page": 84,
+       "src": "notes",
+       "mode": "try",
+       "problem": "10.0 g of NaOH (M = 40 g/mol) is dissolved in 500 g of water. Find the molality.",
+       "steps": [
+        {
+         "text": "Moles: \\(n = \\dfrac{10.0}{40} = 0.250\\text{ mol}\\)"
+        },
+        {
+         "text": "Solvent: 500 g = 0.500 kg"
+        },
+        {
+         "text": "\\(m = \\dfrac{0.250}{0.500} = 0.500\\text{ mol/kg}\\)"
+        }
+       ],
+       "answer": "0.500 m NaOH"
+      },
+      {
+       "id": "chem10-u3-cm-w08",
+       "type": "worked",
+       "title": "Worked example: molality of urea",
+       "page": 85,
+       "src": "notes",
+       "mode": "try",
+       "problem": "6.0 g of urea, CO(NH₂)₂ (M = 60 g/mol), is dissolved in 200 g of water. Find the molality.",
+       "steps": [
+        {
+         "text": "\\(n = \\dfrac{6.0}{60} = 0.10\\text{ mol}\\)"
+        },
+        {
+         "text": "200 g = 0.200 kg"
+        },
+        {
+         "text": "\\(m = \\dfrac{0.10}{0.200} = 0.50\\text{ mol/kg}\\)"
+        }
+       ],
+       "answer": "0.50 m urea"
+      },
+      {
+       "id": "chem10-u3-cm-c06",
+       "type": "text",
+       "title": "Normality, step by step",
+       "page": 86,
+       "src": "notes",
+       "body": [
+        "Normality counts **equivalents** — for acids and bases, the moles of H⁺ or OH⁻ that can react.",
+        "1. **Equivalent mass** of an acid = \\(\\dfrac{\\text{molar mass}}{\\text{number of replaceable H}}\\); of a base = \\(\\dfrac{\\text{molar mass}}{\\text{number of OH}}\\). HCl: 36.5 g; H₂SO₄: 98 ÷ 2 = 49 g; NaOH: 40 g; Ca(OH)₂: 74 ÷ 2 = 37 g.",
+        "2. Equivalents = \\(\\dfrac{\\text{mass}}{\\text{equivalent mass}}\\).",
+        "3. \\(N = \\dfrac{\\text{equivalents}}{V(\\text{L})}\\) — or simply \\(N = M \\times\\) (number of replaceable H⁺ or OH⁻) (textbook p.91).",
+        "So 1 M HCl = 1 N, but 1 M H₂SO₄ = 2 N and 1 M H₃PO₄ = 3 N (if all three H react)."
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-w09",
+       "type": "worked",
+       "title": "Worked example: normality of sulfuric acid",
+       "page": 87,
+       "src": "notes",
+       "mode": "try",
+       "problem": "4.9 g of H₂SO₄ (M = 98 g/mol) is dissolved to make 500 mL of solution. Find (a) the molarity and (b) the normality.",
+       "steps": [
+        {
+         "text": "Moles: \\(n = \\dfrac{4.9}{98} = 0.050\\text{ mol}\\)"
+        },
+        {
+         "text": "(a) \\(M = \\dfrac{0.050}{0.500} = 0.10\\text{ M}\\)"
+        },
+        {
+         "text": "H₂SO₄ has 2 replaceable H → equivalent mass = 49 g; equivalents = 4.9 ÷ 49 = 0.10"
+        },
+        {
+         "text": "(b) \\(N = \\dfrac{0.10}{0.500} = 0.20\\text{ N}\\) — check: \\(N = M \\times 2 = 0.20\\text{ N}\\)"
+        }
+       ],
+       "answer": "0.10 M, 0.20 N"
+      },
+      {
+       "id": "chem10-u3-cm-w10",
+       "type": "worked",
+       "title": "Worked example: normality of bases",
+       "page": 91,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Find the normality of (a) 0.50 M NaOH and (b) 0.10 M Ca(OH)₂.",
+       "steps": [
+        {
+         "text": "(a) NaOH gives 1 OH⁻ → N = 0.50 × 1 = 0.50 N"
+        },
+        {
+         "text": "(b) Ca(OH)₂ gives 2 OH⁻ → N = 0.10 × 2 = 0.20 N"
+        }
+       ],
+       "answer": "(a) 0.50 N; (b) 0.20 N"
+      },
+      {
+       "id": "chem10-u3-cm-c07",
+       "type": "text",
+       "title": "Converting between units, step by step",
+       "page": 89,
+       "src": "notes",
+       "body": [
+        "**Mass % ⇄ molarity** needs the **density** of the solution. Work with a convenient amount: **1 L of solution** (its mass = density × 1000 mL).",
+        "**Molarity → molality:** take 1 L of solution, find its mass (density), subtract the mass of solute → mass of solvent, then divide moles by kg of solvent.",
+        "**Mass % → molality:** take 100 g of solution: solute grams = the percent, solvent = 100 − percent.",
+        "**Molarity ⇄ normality:** N = M × (H⁺ or OH⁻ per formula)."
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-w11",
+       "type": "worked",
+       "title": "Worked example: concentrated HCl",
+       "page": 89,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Concentrated hydrochloric acid is 36.5 % HCl by mass and has density 1.18 g/mL. Find its molarity and molality (HCl = 36.5 g/mol).",
+       "steps": [
+        {
+         "text": "Take 1 L = 1000 mL of solution: mass = 1000 × 1.18 = 1180 g."
+        },
+        {
+         "text": "Mass of HCl = 36.5 % of 1180 g = 430.7 g."
+        },
+        {
+         "text": "Moles of HCl = \\(\\dfrac{430.7}{36.5} = 11.8\\text{ mol}\\) → molarity = **11.8 M**."
+        },
+        {
+         "text": "Mass of water = 1180 − 430.7 = 749.3 g = 0.7493 kg."
+        },
+        {
+         "text": "Molality = \\(\\dfrac{11.8}{0.7493} = 15.7\\text{ mol/kg}\\)."
+        }
+       ],
+       "answer": "11.8 M and 15.7 m"
+      },
+      {
+       "id": "chem10-u3-cm-w12",
+       "type": "worked",
+       "title": "Worked example: from molarity to molality and mass %",
+       "page": 89,
+       "src": "notes",
+       "mode": "try",
+       "problem": "A 2.00 M NaCl solution has density 1.08 g/mL. Find its molality and mass percent (NaCl = 58.5 g/mol).",
+       "steps": [
+        {
+         "text": "1 L of solution has mass 1080 g and contains 2.00 mol NaCl."
+        },
+        {
+         "text": "Mass of NaCl = 2.00 × 58.5 = 117 g."
+        },
+        {
+         "text": "Mass of water = 1080 − 117 = 963 g = 0.963 kg."
+        },
+        {
+         "text": "Molality = \\(\\dfrac{2.00}{0.963} = 2.08\\text{ m}\\)."
+        },
+        {
+         "text": "Mass % = \\(\\dfrac{117}{1080} \\times 100 = 10.8\\,\\%\\)."
+        }
+       ],
+       "answer": "2.08 m; 10.8 % NaCl by mass"
+      },
+      {
+       "id": "chem10-u3-cm-m01",
+       "type": "mnemonic",
+       "title": "Memory trick: big M, small m",
+       "page": 84,
+       "src": "notes",
+       "body": [
+        "**Big M** = the big flask (whole **solution**, litres). **Small m** = the small bit that is only **solvent** (kilograms). **N** = **N**umber of H⁺/OH⁻ times M."
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-k01",
+       "type": "check",
+       "title": "Quick check",
+       "page": 79,
+       "src": "notes",
+       "q": "What is the molarity of a solution containing 0.5 mol of glucose in 250 mL of solution?",
+       "options": {
+        "A": "0.125 M",
+        "B": "0.5 M",
+        "C": "2.0 M",
+        "D": "125 M"
+       },
+       "answer": "C",
+       "why": "M = n ÷ V = 0.5 mol ÷ 0.250 L = 2.0 M. Change mL to L first."
+      },
+      {
+       "id": "chem10-u3-cm-k02",
+       "type": "check",
+       "title": "Quick check",
+       "page": 84,
+       "src": "notes",
+       "q": "Molality is defined as moles of solute per …",
+       "options": {
+        "A": "litre of solution",
+        "B": "kilogram of solution",
+        "C": "kilogram of solvent",
+        "D": "litre of solvent"
+       },
+       "answer": "C",
+       "why": "Molality uses the mass of the **solvent** in kg. Molarity uses litres of **solution**."
+      },
+      {
+       "id": "chem10-u3-cm-k03",
+       "type": "check",
+       "title": "Quick check",
+       "page": 91,
+       "src": "notes",
+       "q": "The normality of 0.2 M H₂SO₄ is …",
+       "options": {
+        "A": "0.1 N",
+        "B": "0.2 N",
+        "C": "0.4 N",
+        "D": "0.6 N"
+       },
+       "answer": "C",
+       "why": "H₂SO₄ has 2 replaceable H, so N = 0.2 × 2 = 0.4 N."
+      },
+      {
+       "id": "chem10-u3-cm-k04",
+       "type": "check",
+       "title": "Quick check",
+       "page": 75,
+       "src": "notes",
+       "q": "Which concentration unit does NOT change when the solution is heated?",
+       "options": {
+        "A": "Molarity",
+        "B": "Normality",
+        "C": "Volume percent",
+        "D": "Molality"
+       },
+       "answer": "D",
+       "why": "Molality uses masses only; volumes (and so M, N and v/v %) change as the liquid expands."
+      },
+      {
+       "id": "chem10-u3-cm-r01",
+       "type": "remember",
+       "title": "Tips and common mistakes",
+       "page": 75,
+       "src": "notes",
+       "body": [
+        "Change **mL → L** for M and N, and **g → kg** for molality.",
+        "Mass % uses mass of **solution** (solute + solvent) on the bottom; molality uses mass of **solvent** only.",
+        "Write the units at every step — the units tell you which formula you are using.",
+        "For any conversion between % and M you need the **density**."
+       ]
+      },
+      {
        "id": "chem10-u3-l3-2-r3x1",
        "type": "text",
        "title": "Step by step: Calculations involving solutions",
@@ -546,6 +1072,326 @@
        ]
       },
       {
+       "id": "chem10-u3-cm-c08",
+       "type": "text",
+       "title": "Boiling point elevation, step by step",
+       "page": 103,
+       "src": "notes",
+       "body": [
+        "**Boiling** happens when the vapour pressure of a liquid equals the atmospheric pressure. Pure water at sea level boils at 100 °C.",
+        "**Step 1 — Solute lowers the vapour pressure.** Non-volatile solute particles take up part of the surface, so fewer solvent molecules escape per second.",
+        "**Step 2 — More heating is needed.** At 100 °C the solution’s vapour pressure is still below atmospheric pressure, so it does not boil yet.",
+        "**Step 3 — The solution boils higher.** It must be heated above 100 °C until its vapour pressure reaches atmospheric pressure. The rise is the **boiling point elevation**, ΔTb.",
+        "$$\\Delta T_b = T_b(\\text{solution}) - T_b(\\text{solvent}) = K_b \\times m$$",
+        "Kb is the **molal boiling point constant** of the solvent (water: 0.52 °C kg/mol) and m is the **molality**. ΔTb depends only on the **number** of solute particles, not on what they are — it is a **colligative property**.",
+        "**Ionic solutes (extension):** NaCl splits into Na⁺ and Cl⁻, so 1 mol gives about 2 mol of particles and roughly doubles ΔTb. CaCl₂ gives 3 particles."
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-s02",
+       "type": "steps",
+       "title": "Model: why a solution boils higher",
+       "page": 104,
+       "src": "notes",
+       "diagram": "cm_bpe",
+       "steps": [
+        {
+         "text": "**Pure water** boils at 100 °C: its vapour pressure reaches 1 atm (760 mmHg).",
+         "show": "p"
+        },
+        {
+         "text": "The **solution** (blue) has a lower vapour pressure at every temperature, so it reaches 1 atm only at a higher temperature.",
+         "show": "s"
+        },
+        {
+         "text": "The gap between the two boiling points is **ΔTb = Kb·m**.",
+         "show": "d"
+        }
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-t02",
+       "type": "table",
+       "title": "Boiling point constants (textbook Table 3.6)",
+       "page": 104,
+       "src": "notes",
+       "head": [
+        "Solvent",
+        "Normal b.p.",
+        "Kb (°C kg/mol)"
+       ],
+       "rows": [
+        [
+         "Water",
+         "100.0 °C",
+         "0.52"
+        ],
+        [
+         "Ethanol",
+         "78.4 °C",
+         "1.22"
+        ],
+        [
+         "Benzene",
+         "80.1 °C",
+         "2.53"
+        ],
+        [
+         "Acetic acid",
+         "118 °C",
+         "2.93"
+        ]
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-w13",
+       "type": "worked",
+       "title": "Worked example: boiling point of a sugar solution",
+       "page": 104,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Find the boiling point of a 0.40 m aqueous sugar solution (Kb of water = 0.52 °C kg/mol).",
+       "steps": [
+        {
+         "text": "\\(\\Delta T_b = K_b \\times m = 0.52 \\times 0.40\\)"
+        },
+        {
+         "text": "\\(\\Delta T_b = 0.208 \\approx 0.21\\,^\\circ\\text{C}\\)"
+        },
+        {
+         "text": "Boiling point = 100 + 0.21 = 100.21 °C"
+        }
+       ],
+       "answer": "100.21 °C"
+      },
+      {
+       "id": "chem10-u3-cm-w14",
+       "type": "worked",
+       "title": "Worked example: from grams to boiling point",
+       "page": 104,
+       "src": "notes",
+       "mode": "try",
+       "problem": "9.0 g of glucose, C₆H₁₂O₆ (M = 180 g/mol), is dissolved in 100 g of water. Find the boiling point of the solution.",
+       "steps": [
+        {
+         "text": "Moles of glucose: \\(n = \\dfrac{9.0}{180} = 0.050\\text{ mol}\\)"
+        },
+        {
+         "text": "Molality: \\(m = \\dfrac{0.050}{0.100\\text{ kg}} = 0.50\\text{ mol/kg}\\)"
+        },
+        {
+         "text": "\\(\\Delta T_b = 0.52 \\times 0.50 = 0.26\\,^\\circ\\text{C}\\)"
+        },
+        {
+         "text": "Boiling point = 100.26 °C"
+        }
+       ],
+       "answer": "100.26 °C"
+      },
+      {
+       "id": "chem10-u3-cm-w15",
+       "type": "worked",
+       "title": "Worked example: molar mass from boiling point elevation",
+       "page": 104,
+       "src": "notes",
+       "mode": "try",
+       "problem": "3.0 g of a non-volatile, non-electrolyte solute is dissolved in 50 g of benzene (Kb = 2.53 °C kg/mol). The boiling point rises by 0.60 °C. Find the molar mass of the solute.",
+       "steps": [
+        {
+         "text": "Molality: \\(m = \\dfrac{\\Delta T_b}{K_b} = \\dfrac{0.60}{2.53} = 0.237\\text{ mol/kg}\\)"
+        },
+        {
+         "text": "Moles of solute = \\(0.237 \\times 0.050\\text{ kg} = 0.0119\\text{ mol}\\)"
+        },
+        {
+         "text": "Molar mass = \\(\\dfrac{3.0\\text{ g}}{0.0119\\text{ mol}} \\approx 253\\text{ g/mol}\\)"
+        }
+       ],
+       "answer": "about 253 g/mol"
+      },
+      {
+       "id": "chem10-u3-cm-c09",
+       "type": "text",
+       "title": "Osmosis and osmotic pressure, step by step",
+       "page": 106,
+       "src": "notes",
+       "body": [
+        "**Osmosis** is the movement of **solvent** (water) molecules through a **semi-permeable membrane** from a **dilute** solution (or pure water) into a **more concentrated** solution. The membrane lets water through but not the solute particles.",
+        "**Step 1 — Unequal water concentration.** Pure water has more free water molecules per volume than the solution, so more water crosses into the solution each second than comes back.",
+        "**Step 2 — The level rises.** The solution side gains water and its level rises in the tube (textbook Fig 3.9).",
+        "**Step 3 — Balance.** The extra weight of the raised column pushes water back. When the two flows are equal, osmosis stops.",
+        "**Osmotic pressure (π)** is the pressure that must be applied to the concentrated solution to **stop** osmosis. It is proportional to the height of the column and, like other colligative properties, depends on the **number** of solute particles.",
+        "**Formula (extension, beyond the textbook):** \\(\\pi = MRT\\), with M in mol/L, R = 0.0821 L·atm/(mol·K) and T in kelvin.",
+        "**Uses and examples:** a drip (infusion) must have the **same** osmotic pressure as blood (0.9 % NaCl, “isotonic”); red blood cells swell and burst in pure water and shrink in very salty water; salting meat or fish draws water out of germs and preserves the food; plant roots take in water by osmosis; **reverse osmosis** (pushing harder than π) makes drinking water from sea water."
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-s03",
+       "type": "states",
+       "title": "Model: osmosis in a U-tube",
+       "page": 106,
+       "src": "notes",
+       "diagram": "cm_osmosis",
+       "states": [
+        {
+         "key": "a",
+         "label": "Start",
+         "text": "Pure water on the left, sugar solution on the right, same level. The membrane lets only water through."
+        },
+        {
+         "key": "b",
+         "label": "Osmosis",
+         "text": "More water moves right (into the solution) than left — the solution level rises."
+        },
+        {
+         "key": "c",
+         "label": "Osmotic pressure",
+         "text": "Pushing on the solution side with a pressure π stops the net flow: that pressure is the osmotic pressure."
+        }
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-w16",
+       "type": "worked",
+       "title": "Worked example: osmotic pressure of glucose (extension)",
+       "page": 106,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Calculate the osmotic pressure of a 0.10 M glucose solution at 27 °C.",
+       "steps": [
+        {
+         "text": "T = 27 + 273 = 300 K"
+        },
+        {
+         "text": "\\(\\pi = MRT = 0.10 \\times 0.0821 \\times 300\\)"
+        },
+        {
+         "text": "\\(\\pi = 2.46\\text{ atm}\\)"
+        }
+       ],
+       "answer": "≈ 2.5 atm"
+      },
+      {
+       "id": "chem10-u3-cm-w17",
+       "type": "worked",
+       "title": "Worked example: which has the higher osmotic pressure?",
+       "page": 106,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Which has the higher osmotic pressure at the same temperature: 0.10 M glucose or 0.10 M NaCl? Which has the higher boiling point?",
+       "steps": [
+        {
+         "text": "Glucose does not ionise: 0.10 mol of particles per litre."
+        },
+        {
+         "text": "NaCl → Na⁺ + Cl⁻: about 0.20 mol of particles per litre."
+        },
+        {
+         "text": "Colligative properties depend on the number of particles → NaCl solution has the higher osmotic pressure **and** the higher boiling point."
+        }
+       ],
+       "answer": "0.10 M NaCl (about twice as many particles) for both."
+      },
+      {
+       "id": "chem10-u3-cm-t03",
+       "type": "table",
+       "title": "Colligative properties summary",
+       "page": 101,
+       "src": "notes",
+       "head": [
+        "Property",
+        "What happens",
+        "Formula",
+        "Everyday example"
+       ],
+       "rows": [
+        [
+         "Vapour-pressure lowering",
+         "solution evaporates more slowly",
+         "—",
+         "salt water dries more slowly than pure water"
+        ],
+        [
+         "Boiling-point elevation",
+         "solution boils higher",
+         "ΔTb = Kb·m",
+         "salted cooking water boils slightly above 100 °C"
+        ],
+        [
+         "Freezing-point depression",
+         "solution freezes lower",
+         "ΔTf = Kf·m",
+         "salt on icy roads; antifreeze"
+        ],
+        [
+         "Osmotic pressure",
+         "water moves into the more concentrated solution",
+         "π = MRT (extension)",
+         "drips, salting meat, plant roots"
+        ]
+       ]
+      },
+      {
+       "id": "chem10-u3-cm-k05",
+       "type": "check",
+       "title": "Quick check",
+       "page": 104,
+       "src": "notes",
+       "q": "Which aqueous solution has the highest boiling point?",
+       "options": {
+        "A": "0.1 m sugar",
+        "B": "0.2 m sugar",
+        "C": "0.3 m sugar",
+        "D": "pure water"
+       },
+       "answer": "C",
+       "why": "ΔTb = Kb·m: the largest molality (0.3 m) gives the largest rise."
+      },
+      {
+       "id": "chem10-u3-cm-k06",
+       "type": "check",
+       "title": "Quick check",
+       "page": 106,
+       "src": "notes",
+       "q": "During osmosis, water moves …",
+       "options": {
+        "A": "from concentrated to dilute solution",
+        "B": "from dilute to concentrated solution",
+        "C": "only when heated",
+        "D": "together with the solute particles"
+       },
+       "answer": "B",
+       "why": "Water moves from where it is more plentiful (dilute) into the more concentrated solution; the membrane stops the solute."
+      },
+      {
+       "id": "chem10-u3-cm-k07",
+       "type": "check",
+       "title": "Quick check",
+       "page": 106,
+       "src": "notes",
+       "q": "Why must a hospital drip have the same osmotic pressure as blood?",
+       "options": {
+        "A": "To keep it sterile",
+        "B": "So red blood cells neither swell and burst nor shrink",
+        "C": "So it boils at 100 °C",
+        "D": "To make it flow faster"
+       },
+       "answer": "B",
+       "why": "If the drip were more dilute, water would enter the cells (swell, burst); if more concentrated, water would leave them (shrink)."
+      },
+      {
+       "id": "chem10-u3-cm-r02",
+       "type": "remember",
+       "title": "Tips",
+       "page": 104,
+       "src": "notes",
+       "body": [
+        "ΔTb uses **molality** (kg of solvent), not molarity.",
+        "Count **particles**: 1 mol NaCl ≈ 2 mol particles, 1 mol CaCl₂ ≈ 3 mol, 1 mol sugar = 1 mol.",
+        "Osmosis: **water** moves, not the solute. “Water follows salt.”"
+       ]
+      },
+      {
        "id": "chem10-u3-chk5",
        "type": "check",
        "title": "Quick check",
@@ -666,6 +1512,30 @@
      "meaning": "The maximum mass of a solute that dissolves in a given amount of solvent (usually 100 g) at a stated temperature.",
      "page": 71,
      "src": "hand"
+    },
+    {
+     "term": "Molality",
+     "meaning": "Moles of solute per kilogram of solvent (mol/kg).",
+     "page": 84,
+     "src": "notes"
+    },
+    {
+     "term": "Normality",
+     "meaning": "Equivalents of solute per litre of solution; N = M × replaceable H⁺ or OH⁻.",
+     "page": 86,
+     "src": "notes"
+    },
+    {
+     "term": "Boiling point elevation",
+     "meaning": "The rise in boiling point of a solvent when a non-volatile solute is dissolved; ΔTb = Kb·m.",
+     "page": 103,
+     "src": "notes"
+    },
+    {
+     "term": "Osmotic pressure",
+     "meaning": "The pressure needed on a solution to stop osmosis of pure solvent into it.",
+     "page": 106,
+     "src": "notes"
     }
    ],
    "tips": [
@@ -1231,6 +2101,235 @@
        }
       ],
       "id": "chem10-u3-q21"
+     },
+     {
+      "id": "chem10-u3-cm-q1",
+      "type": "mcq",
+      "q": "What is the molarity of 500 mL of solution containing 20 g of NaOH (M = 40 g/mol)?",
+      "options": {
+       "A": "0.5 M",
+       "B": "1.0 M",
+       "C": "2.0 M",
+       "D": "0.04 M"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: n = 20 ÷ 40 = 0.50 mol.",
+       "Step 2: V = 0.500 L.",
+       "Step 3: M = 0.50 ÷ 0.500 = 1.0 M."
+      ],
+      "tip": "n = mass ÷ molar mass, then ÷ litres.",
+      "similar": [
+       {
+        "q": "How many grams of NaOH are in 100 mL of 0.5 M NaOH?",
+        "a": "0.05 mol × 40 = 2.0 g."
+       },
+       {
+        "q": "Find the molarity of 5.85 g NaCl in 250 mL.",
+        "a": "0.10 mol ÷ 0.250 L = 0.40 M."
+       }
+      ],
+      "page": 79,
+      "src": "notes",
+      "label": "3.2 Concentration units"
+     },
+     {
+      "id": "chem10-u3-cm-q2",
+      "type": "short",
+      "q": "18 g of glucose (M = 180 g/mol) is dissolved in 500 g of water. Find the molality.",
+      "answer": "0.20 m",
+      "accept": [
+       "0.2 m",
+       "0.20 mol/kg",
+       "0.2"
+      ],
+      "why": [
+       "Step 1: n = 18 ÷ 180 = 0.10 mol.",
+       "Step 2: solvent = 500 g = 0.500 kg.",
+       "Step 3: m = 0.10 ÷ 0.500 = 0.20 mol/kg."
+      ],
+      "tip": "Molality divides by kg of solvent.",
+      "similar": [
+       {
+        "q": "Find the molality of 4 g NaOH in 250 g water.",
+        "a": "0.10 mol ÷ 0.250 kg = 0.40 m."
+       },
+       {
+        "q": "What mass of urea (60 g/mol) in 1 kg water gives 0.5 m?",
+        "a": "30 g."
+       }
+      ],
+      "page": 84,
+      "src": "notes",
+      "label": "3.2 Concentration units"
+     },
+     {
+      "id": "chem10-u3-cm-q3",
+      "type": "mcq",
+      "q": "The normality of 0.3 M H₃PO₄ (all three H replaceable) is …",
+      "options": {
+       "A": "0.1 N",
+       "B": "0.3 N",
+       "C": "0.6 N",
+       "D": "0.9 N"
+      },
+      "answer": "D",
+      "why": [
+       "Step 1: H₃PO₄ has 3 replaceable H.",
+       "Step 2: N = M × 3 = 0.9 N."
+      ],
+      "tip": "N = M × (H⁺ or OH⁻ per formula).",
+      "similar": [
+       {
+        "q": "Normality of 0.5 M Ca(OH)₂?",
+        "a": "1.0 N."
+       },
+       {
+        "q": "Equivalent mass of H₂SO₄?",
+        "a": "98 ÷ 2 = 49 g."
+       }
+      ],
+      "page": 91,
+      "src": "notes",
+      "label": "3.2 Concentration units"
+     },
+     {
+      "id": "chem10-u3-cm-q4",
+      "type": "short",
+      "q": "How many grams of sugar are needed to make 200 g of a 15 % (by mass) sugar solution, and how much water?",
+      "answer": "30 g sugar and 170 g water",
+      "why": [
+       "Step 1: solute = 15/100 × 200 g = 30 g.",
+       "Step 2: water = 200 − 30 = 170 g."
+      ],
+      "tip": "Percent × total mass of solution.",
+      "similar": [
+       {
+        "q": "What is the mass % of 5 g salt in 45 g water?",
+        "a": "5/50 × 100 = 10 %."
+       },
+       {
+        "q": "How much ethanol is in 250 mL of 40 % (v/v) solution?",
+        "a": "100 mL."
+       }
+      ],
+      "page": 75,
+      "src": "notes",
+      "label": "3.2 Concentration units"
+     },
+     {
+      "id": "chem10-u3-cm-q5",
+      "type": "short",
+      "q": "A 98 % (by mass) H₂SO₄ solution has density 1.84 g/mL. Find its molarity.",
+      "answer": "18.4 M",
+      "accept": [
+       "18.4",
+       "18.4 mol/L"
+      ],
+      "why": [
+       "Step 1: 1 L of solution has mass 1840 g.",
+       "Step 2: mass of H₂SO₄ = 0.98 × 1840 = 1803 g.",
+       "Step 3: moles = 1803 ÷ 98 = 18.4 mol in 1 L → 18.4 M."
+      ],
+      "tip": "Use 1 L of solution and the density.",
+      "similar": [
+       {
+        "q": "What is the normality of that acid?",
+        "a": "36.8 N."
+       },
+       {
+        "q": "What volume of it is needed for 1 L of 0.92 M H₂SO₄?",
+        "a": "M₁V₁ = M₂V₂ → V₁ = 0.92 × 1000 ÷ 18.4 = 50 mL."
+       }
+      ],
+      "page": 89,
+      "src": "notes",
+      "label": "3.2 Concentration units"
+     },
+     {
+      "id": "chem10-u3-cm-q6",
+      "type": "mcq",
+      "q": "A 0.5 m aqueous solution of a non-electrolyte boils at (Kb water = 0.52 °C kg/mol) …",
+      "options": {
+       "A": "100.26 °C",
+       "B": "100.52 °C",
+       "C": "99.74 °C",
+       "D": "101.04 °C"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: ΔTb = 0.52 × 0.5 = 0.26 °C.",
+       "Step 2: b.p. = 100 + 0.26 = 100.26 °C."
+      ],
+      "tip": "Solutions boil higher, never lower.",
+      "similar": [
+       {
+        "q": "What is ΔTb for a 1 m sugar solution in water?",
+        "a": "0.52 °C."
+       },
+       {
+        "q": "Which boils higher: 0.1 m NaCl or 0.1 m sugar?",
+        "a": "0.1 m NaCl (twice as many particles)."
+       }
+      ],
+      "page": 104,
+      "src": "notes",
+      "label": "3.3 Boiling point and osmosis"
+     },
+     {
+      "id": "chem10-u3-cm-q7",
+      "type": "tf",
+      "q": "In osmosis, solute particles move through the membrane into the dilute solution.",
+      "answer": false,
+      "why": [
+       "Step 1: the semi-permeable membrane stops the solute.",
+       "Step 2: only the solvent (water) moves.",
+       "Step 3: water moves from the dilute side into the concentrated side."
+      ],
+      "tip": "Osmosis = movement of solvent.",
+      "similar": [
+       {
+        "q": "What is osmotic pressure?",
+        "a": "The pressure needed on the concentrated solution to stop osmosis."
+       },
+       {
+        "q": "Why does salting fish preserve it?",
+        "a": "Water leaves germs by osmosis, so they cannot grow."
+       }
+      ],
+      "page": 106,
+      "src": "notes",
+      "label": "3.3 Boiling point and osmosis"
+     },
+     {
+      "id": "chem10-u3-cm-q8",
+      "type": "short",
+      "q": "Calculate the osmotic pressure of a 0.20 M sucrose solution at 25 °C (R = 0.0821 L·atm/(mol·K)).",
+      "answer": "4.9 atm",
+      "accept": [
+       "4.9",
+       "4.89 atm",
+       "4.89"
+      ],
+      "why": [
+       "Step 1: T = 298 K.",
+       "Step 2: π = MRT = 0.20 × 0.0821 × 298.",
+       "Step 3: π = 4.89 ≈ 4.9 atm."
+      ],
+      "tip": "Always use kelvin.",
+      "similar": [
+       {
+        "q": "What is π for 0.10 M glucose at 27 °C?",
+        "a": "2.46 atm."
+       },
+       {
+        "q": "Which has the higher π: 0.1 M glucose or 0.1 M CaCl₂?",
+        "a": "CaCl₂ (3 particles per formula)."
+       }
+      ],
+      "page": 106,
+      "src": "notes",
+      "label": "3.3 Boiling point and osmosis"
      }
     ]
    },
@@ -1329,6 +2428,26 @@
      }
     ],
     "src": "auto"
+   },
+   "diagrams": {
+    "cm_concmap": {
+     "svg": "svg/chemistry_10/chem10_u3_cm_concmap.svg",
+     "title": "Concentration units map",
+     "page": 75,
+     "pins": []
+    },
+    "cm_bpe": {
+     "svg": "svg/chemistry_10/chem10_u3_cm_bpe.svg",
+     "title": "Boiling point elevation",
+     "page": 103,
+     "pins": []
+    },
+    "cm_osmosis": {
+     "svg": "svg/chemistry_10/chem10_u3_cm_osmosis.svg",
+     "title": "Osmosis and osmotic pressure",
+     "page": 106,
+     "pins": []
+    }
    }
   }
  ]
