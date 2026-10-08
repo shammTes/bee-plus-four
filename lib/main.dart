@@ -18,8 +18,8 @@ Future<void> main() async {
   await unlock.init();
   // add-on resources: unlock proof hook (AES-GCM runs natively via cryptography_flutter); nothing is read until used
   ResourceGate.install(unlock);
-  // updates: unlocked phones only, a few seconds after start, at most once a day, Wi-Fi only by default
-  if (unlock.isUnlocked) Future<void>.delayed(const Duration(seconds: 6), Updater.instance.autoCheck);
+  // updates come only as a file: unlocked phones look for a newer 4 APK a few seconds after start (and on resume)
+  if (unlock.isUnlocked) Future<void>.delayed(const Duration(seconds: 4), Updater.instance.autoScan);
   final loading = _warm();
   runApp(FourRoot(unlock: unlock, loading: loading));
 }
@@ -46,10 +46,15 @@ class _FourRootState extends State<FourRoot> {
   late bool _open = widget.unlock.isUnlocked;
   HighState? _state;
   Object? _err;
+  // back from SHAREit / Bluetooth / the "install unknown apps" setting: look again (debounced inside)
+  late final _life = AppLifecycleListener(onResume: () {
+    if (_open) Updater.instance.autoScan();
+  });
 
   @override
   void initState() {
     super.initState();
+    _life;
     widget.loading.then((s) {
       if (mounted) setState(() => _state = s);
     }, onError: (Object e) {
@@ -60,7 +65,13 @@ class _FourRootState extends State<FourRoot> {
   Future<void> _unlocked() async {
     await Future<void>.delayed(const Duration(milliseconds: 200));
     if (mounted) setState(() => _open = true);
-    Future<void>.delayed(const Duration(seconds: 6), Updater.instance.autoCheck);
+    Future<void>.delayed(const Duration(seconds: 4), Updater.instance.autoScan);
+  }
+
+  @override
+  void dispose() {
+    _life.dispose();
+    super.dispose();
   }
 
   @override
