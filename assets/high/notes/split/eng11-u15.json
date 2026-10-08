@@ -24,7 +24,7 @@
     15
    ],
    "tone": "sage",
-   "intro": "Grammar from Study Notes: Question Tags & Short Additions.",
+   "intro": "A question tag is a short question at the end of a sentence (…, isn't it?). One table holds all the rules.",
    "intro_page": 1,
    "lessons": [
     {
@@ -39,37 +39,93 @@
       {
        "id": "eng11-u15-c01",
        "type": "grammar",
-       "title": "Question Tags",
-       "page": 1,
-       "src": "study_notes",
+       "title": "Question tags: how to make them",
+       "page": 15,
+       "src": "notes",
        "rule": [
-        "Definition: Question Tags & Short Additions (ሕቶኣዊ ጭራታትን ሓጸርቲ መወሰኽታታትን) are syntactic structures used to seek confirmation at the end of a statement (question tags) or to express agreement or disagreement with a previous statement (short additions) using auxiliary matching and subject-verb inversion.",
-        "Question tags (ሕቶኣዊ ጭራታት) are short clauses appended to declarative or imperative sentences to transform them into questions. The foundational rule of tag formation is polarity opposition: a positive statement requires a negative tag ($$\\text{Positive Statement} \\rightarrow \\text{Negative Tag}$$), and a negative statement requires a positive tag ($$\\text{Negative Statement} \\rightarrow \\text{Positive Tag}$$). Tigrinya possesses no direct equivalent to this matching system; instead, it utilizes invariant terminal expressions such as \"ኣይኮነን?\" (isn't it?) or the question particle \"-ዶ\" regardless of the subject, verb, or polarity of the preceding clause (e.g., \"ንሱ መምህር እዩ፡ ኣይኮነን?\" and \"ንሳቶም ከይዶም እዮም፡ ኣይኮነን?\"). This lack of structural variation in L1 causes Tigrinya-speaking students to overgeneralize and write \"isn't it?\" or \"no?\" at the end of all English statements, making tag formation a heavily tested diagnostic area on national exams.",
-        "To construct a grammatically correct question tag, the auxiliary verb of the tag must match the auxiliary verb of the main clause in tense, aspect, and number. If the main clause does not contain an auxiliary verb (as in active simple present or simple past clauses), the tag must introduce dummy do-support ($$\\text{Simple Present} \\rightarrow \\text{don't/doesn't}$$ and $$\\text{Simple Past} \\rightarrow \\text{didn't}$$ — e.g. \"She works here, *doesn't she*?\", \"They left early, *didn't they*?\")."
+        "A **question tag** is a mini-question at the end of a sentence. We use it to check something or to ask the listener to agree: *It's hot today, **isn't it**?*",
+        "**Step 1:** Is the sentence positive or negative? Positive → **negative** tag. Negative → **positive** tag.",
+        "**Step 2:** Find the helping verb (*is, are, was, can, will, have, should…*) and repeat it. No helping verb? Use **do / does / did**.",
+        "**Step 3:** Use a **pronoun** for the subject: *Aster* → *she*; *the boys* → *they*; *this/that* → *it*.",
+        "Learn the special cases in the table: *I am → aren't I*, *Let's → shall we*, orders → *will you*, *never/nobody* → positive tag."
        ],
        "examples": [
         {
-         "text": "She goes to school every day.",
+         "text": "You are coming, aren't you?",
          "ok": true
         },
         {
-         "text": "She go to school every day.",
+         "text": "She didn't call, did she?",
+         "ok": true
+        },
+        {
+         "text": "He plays football, isn't it?",
          "ok": false,
-         "fix": "She goes to school every day."
+         "fix": "He plays football, doesn't he?"
+        },
+        {
+         "text": "I am late, am not I?",
+         "ok": false,
+         "fix": "I am late, aren't I?"
         }
-       ]
+       ],
+       "pattern": "positive sentence, negative tag?  ·  negative sentence, positive tag?"
       },
       {
        "id": "eng11-u15-c02",
-       "type": "text",
-       "title": "Notes",
-       "page": 1,
-       "src": "study_notes",
-       "body": [
-        "Definition: Question Tags & Short Additions (ሕቶኣዊ ጭራታትን ሓጸርቲ መወሰኽታታትን) are syntactic structures used to seek confirmation at the end of a statement (question tags) or to express agreement or disagreement with a previous statement (short additions) using auxiliary matching and subject-verb inversion.",
-        "Question tags (ሕቶኣዊ ጭራታት) are short clauses appended to declarative or imperative sentences to transform them into questions. The foundational rule of tag formation is polarity opposition: a positive statement requires a negative tag ($$\\text{Positive Statement} \\rightarrow \\text{Negative Tag}$$), and a negative statement requires a positive tag ($$\\text{Negative Statement} \\rightarrow \\text{Positive Tag}$$). Tigrinya possesses no direct equivalent to this matching system; instead, it utilizes invariant terminal expressions such as \"ኣይኮነን?\" (isn't it?) or the question particle \"-ዶ\" regardless of the subject, verb, or polarity of the preceding clause (e.g., \"ንሱ መምህር እዩ፡ ኣይኮነን?\" and \"ንሳቶም ከይዶም እዮም፡ ኣይኮነን?\"). This lack of structural variation in L1 causes Tigrinya-speaking students to overgeneralize and write \"isn't it?\" or \"no?\" at the end of all English statements, making tag formation a heavily tested diagnostic area on national exams.",
-        "To construct a grammatically correct question tag, the auxiliary verb of the tag must match the auxiliary verb of the main clause in tense, aspect, and number. If the main clause does not contain an auxiliary verb (as in active simple present or simple past clauses), the tag must introduce dummy do-support ($$\\text{Simple Present} \\rightarrow \\text{don't/doesn't}$$ and $$\\text{Simple Past} \\rightarrow \\text{didn't}$$ — e.g. \"She works here, *doesn't she*?\", \"They left early, *didn't they*?\").",
-        "Several irregular patterns and syntactic exceptions are common filters on the matriculation exam. The first-person singular copula \"I am\" requires the irregular negative tag aren't I? (e.g., \"I am late, *aren't I*?\"). However, the negative statement \"I am not\" follows the regular pattern, taking \"am I?\" (e.g., \"I am not late, *am I*?\"). Suggestions starting with \"Let's\" require the tag shall we? (e.g., \"Let's take a break, *shall we*?\"). Imperatives usually take *will you?* or *won't you?* (e.g., \"Close the door, *will you*?\"), and statements with negative words such as *never, hardly, nobody* take a positive tag (e.g., \"He never comes late, *does he*?\")."
+       "type": "table",
+       "title": "Question tags: key rules",
+       "page": 15,
+       "src": "notes",
+       "head": [
+        "Rule",
+        "Example"
+       ],
+       "rows": [
+        [
+         "Positive sentence → negative tag",
+         "She is tired, **isn't she**?"
+        ],
+        [
+         "Negative sentence → positive tag",
+         "They aren't ready, **are they**?"
+        ],
+        [
+         "Repeat the same helping verb",
+         "You can swim, **can't you**? He has left, **hasn't he**?"
+        ],
+        [
+         "No helping verb → do / does / did",
+         "You live here, **don't you**? He played well, **didn't he**?"
+        ],
+        [
+         "I am → aren't I",
+         "I'm late, **aren't I**?  (but: I'm not late, **am I**?)"
+        ],
+        [
+         "Let's → shall we",
+         "Let's go, **shall we**?"
+        ],
+        [
+         "Orders and requests → will you / won't you",
+         "Close the door, **will you**?"
+        ],
+        [
+         "never, hardly, seldom, nobody, nothing → positive tag",
+         "He never comes late, **does he**?"
+        ],
+        [
+         "There is / there are → there",
+         "There is a problem, **isn't there**?"
+        ],
+        [
+         "everyone, someone, nobody → they",
+         "Nobody called, **did they**?"
+        ],
+        [
+         "this / that / nothing / everything → it",
+         "That was easy, **wasn't it**? Nothing happened, **did it**?"
+        ]
        ]
       },
       {
@@ -96,10 +152,58 @@
        "answer": "(a) aren't you? (b) did she? (c) shall we? (d) did they?"
       },
       {
+       "id": "eng11-u15-tg1",
+       "type": "check",
+       "title": "Quick check",
+       "page": 15,
+       "src": "notes",
+       "q": "Everyone enjoyed the wedding, ____?",
+       "options": {
+        "A": "didn't he",
+        "B": "didn't they",
+        "C": "did they",
+        "D": "wasn't it"
+       },
+       "answer": "B",
+       "why": "**Step 1:** Positive sentence → negative tag.\n\n**Step 2:** No helping verb, past → *didn't*.\n\n**Step 3:** *everyone* → *they*.\n\n**Tip:** Positive sentence → negative tag; negative sentence → positive tag. Repeat the helping verb (no helping verb → do/does/did) and use a pronoun."
+      },
+      {
+       "id": "eng11-u15-tg2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 15,
+       "src": "notes",
+       "q": "She hardly ever eats meat, ____?",
+       "options": {
+        "A": "doesn't she",
+        "B": "does she",
+        "C": "isn't she",
+        "D": "is she"
+       },
+       "answer": "B",
+       "why": "**Step 1:** *hardly ever* makes the sentence negative in meaning.\n\n**Step 2:** Negative sentence → positive tag.\n\n**Step 3:** No helping verb, present, *she* → *does she*.\n\n**Tip:** Positive sentence → negative tag; negative sentence → positive tag. Repeat the helping verb (no helping verb → do/does/did) and use a pronoun."
+      },
+      {
+       "id": "eng11-u15-tg3",
+       "type": "check",
+       "title": "Quick check",
+       "page": 15,
+       "src": "notes",
+       "q": "Pass me the salt, ____?",
+       "options": {
+        "A": "don't you",
+        "B": "will you",
+        "C": "shall we",
+        "D": "do you"
+       },
+       "answer": "B",
+       "why": "**Step 1:** This is an order/request (imperative).\n\n**Step 2:** Orders and requests take *will you?* (or *won't you?* / *could you?*).\n\n**Step 3:** *shall we* is only for *Let's*.\n\n**Tip:** Positive sentence → negative tag; negative sentence → positive tag. Repeat the helping verb (no helping verb → do/does/did) and use a pronoun."
+      },
+      {
        "id": "eng11-u15-c03",
        "type": "check",
        "title": "Quick check",
-       "page": 1,
+       "page": 15,
        "src": "study_notes",
        "q": "I am late for the registration of the national matriculation examination, ________?",
        "options": {
@@ -109,13 +213,13 @@
         "D": "isn't it"
        },
        "answer": "B",
-       "why": "**Step 1: Analyze the grammatical structure**\nThe main clause starts with the positive first-person singular copula 'I am'. This requires an irregular negative question tag in standard English: $$\\text{I am} \\rightarrow \\text{aren't I?}$$.\n\n**Step 2: Identify the matriculation trap**\nStudents often choose 'am not I' (Option A) because they try to follow regular polarity rules, or 'isn't it' (Option D) due to L1 transfer. Option B 'aren't I' is the correct irregular grammatical exception.\n\n**Step 3: Tigrinya Explanation (ትርጉም)**\nኣብ እንግሊዘኛ ወግዓዊ ሰዋስው፡ እቲ ምሉእ ሓሳብ ብ 'I am' (ኣነ...) ምስ ዝጅምር፡ እቲ ናቱ ፍሉይ ሕቶኣዊ ጭራ (question tag) ወትሩ 'aren't I?' (Option B - ኣይኮንኩን?) እዩ ዝኸውን። 'am not I' ምጥቃም ዓቢ ጌጋ እዩ ምኽንያቱ ከምዚ ዝበለ መዋቕር ኣብ እንግሊዘኛ ሰዋስው ስለ ዘየለ።"
+       "why": "**Step 1: Look at the sentence**\nThe main clause starts with the positive first-person singular linking verb 'I am'. This requires an irregular negative question tag in standard English: I am → aren't I?.\n\n**Step 2: Watch out for the trap**\nStudents often choose 'am not I' (Option A) because they try to follow the normal positive/negative rule, or 'isn't it' (Option D) due to translation from Tigrinya. Option B 'aren't I' is the correct irregular grammatical exception.\n\n**Step 3: In Tigrinya**\nኣብ እንግሊዘኛ ወግዓዊ ሰዋስው፡ እቲ ምሉእ ሓሳብ ብ 'I am' (ኣነ...) ምስ ዝጅምር፡ እቲ ናቱ ፍሉይ ሕቶኣዊ ጭራ (question tag) ወትሩ 'aren't I?' (Option B - ኣይኮንኩን?) እዩ ዝኸውን። 'am not I' ምጥቃም ዓቢ ጌጋ እዩ ምኽንያቱ ከምዚ ዝበለ መዋቕር ኣብ እንግሊዘኛ ሰዋስው ስለ ዘየለ።"
       },
       {
        "id": "eng11-u15-c04",
        "type": "check",
        "title": "Quick check",
-       "page": 1,
+       "page": 15,
        "src": "study_notes",
        "q": "She rarely visits her relatives in Gondar during the long academic vacations, ________?",
        "options": {
@@ -125,7 +229,7 @@
         "D": "is she"
        },
        "answer": "B",
-       "why": "**Step 1: Analyze the grammatical structure**\nThe adverb 'rarely' is semi-negative, which makes the main statement grammatically negative. This requires a positive question tag with present simple dummy do-support ($$\\text{Semi-Negative Statement} \\rightarrow \\text{Positive Tag}$$).\n\n**Step 2: Identify the matriculation trap**\nStudents often see the positive verb spelling 'visits' and automatically select a negative tag like 'doesn't she' (Option A). However, because 'rarely' is negative, the positive tag 'does she' (Option B) is correct.\n\n**Step 3: Tigrinya Explanation (ትርጉም)**\n'Rarely' (ሳሕቲ/ኣዝዩ ውሑድ ግዜ) ዝብል ቃል ኣሉታዊ ቃና (semi-negative) ስለ ዘለዎ፡ እቲ ምሉእ ሓሳብ ከም ኣሉታዊ ይውሰድ። ስለዚ እቲ ዝስዕብ ሕቶኣዊ ጭራ ብኣዎንታዊ ሓገዝቲ ግሲ 'does she' (Option B) ክኸውን ኣለዎ። 'doesn't she' ምምራጽ ናይዚ ሕጊ መጻወድያ እዩ።"
+       "why": "**Step 1: Look at the sentence**\nThe adverb 'rarely' is semi-negative, which makes the main statement grammatically negative. This requires a positive question tag with present simple do/does/did (Semi-Negative Statement → Positive Tag).\n\n**Step 2: Watch out for the trap**\nStudents often see the positive verb spelling 'visits' and automatically select a negative tag like 'doesn't she' (Option A). However, because 'rarely' is negative, the positive tag 'does she' (Option B) is correct.\n\n**Step 3: In Tigrinya**\n'Rarely' (ሳሕቲ/ኣዝዩ ውሑድ ግዜ) ዝብል ቃል ኣሉታዊ ቃና (semi-negative) ስለ ዘለዎ፡ እቲ ምሉእ ሓሳብ ከም ኣሉታዊ ይውሰድ። ስለዚ እቲ ዝስዕብ ሕቶኣዊ ጭራ ብኣዎንታዊ ሓገዝቲ ግሲ 'does she' (Option B) ክኸውን ኣለዎ። 'doesn't she' ምምራጽ ናይዚ ሕጊ መጻወድያ እዩ።"
       },
       {
        "id": "eng11-u15-l1-mx1",
@@ -194,7 +298,7 @@
       "type": "mcq",
       "q": "I am late for the registration of the national matriculation examination, ________?",
       "src": "study_notes",
-      "page": 1,
+      "page": 15,
       "label": "1. I am late for the registration of the national matriculation",
       "options": {
        "A": "am not I",
@@ -204,20 +308,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The main clause starts with the positive first-person singular copula 'I am'. This requires an irregular negative question tag in standard English: $$\\text{I am} \\rightarrow \\text{aren't I?}$$.",
-       ""
+       "Answer B: aren't I",
+       "The main clause starts with the positive first-person singular linking verb 'I am'. This requires an irregular negative question tag in standard English: I am → aren't I?."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       },
+       {
+        "q": "Tag: Nothing happened, ____?",
+        "a": "did it?"
+       }
+      ]
      },
      {
       "id": "eng11-u15-q02",
       "type": "mcq",
       "q": "She rarely visits her relatives in Gondar during the long academic vacations, ________?",
       "src": "study_notes",
-      "page": 1,
+      "page": 15,
       "label": "2. She rarely visits her relatives in Gondar during the long ac",
       "options": {
        "A": "doesn't she",
@@ -227,20 +338,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The adverb 'rarely' is semi-negative, which makes the main statement grammatically negative. This requires a positive question tag with present simple dummy do-support ($$\\text{Semi-Negative Statement} \\rightarrow \\text{Positive Tag}$$).",
-       ""
+       "Answer B: does she",
+       "The adverb 'rarely' is semi-negative, which makes the main statement grammatically negative. This requires a positive question tag with present simple do/does/did (Semi-Negative Statement → Positive Tag)."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [
+       {
+        "q": "Tag: Nothing happened, ____?",
+        "a": "did it?"
+       },
+       {
+        "q": "Tag: She'd finished, ____?",
+        "a": "hadn't she? ('d = had)"
+       }
+      ]
      },
      {
       "id": "eng11-u15-q03",
       "type": "mcq",
       "q": "Everyone was extremely excited about the university scholarship announcement, ________?",
       "src": "study_notes",
-      "page": 1,
+      "page": 15,
       "label": "3. Everyone was extremely excited about the university scholars",
       "options": {
        "A": "wasn't he",
@@ -250,20 +368,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "Indefinite pronouns referring to people ('everyone') require the plural pronoun 'they' in the tag. Because the pronoun is plural, the past copula 'was' must shift to plural 'weren't' to maintain agreement.",
-       ""
+       "Answer B: weren't they",
+       "Indefinite pronouns referring to people ('everyone') require the plural pronoun 'they' in the tag. Because the pronoun is plural, the past linking verb 'was' must shift to plural 'weren't' to maintain agreement."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       },
+       {
+        "q": "Add a tag: \"They have finished, ___?\"",
+        "a": "haven't they?"
+       }
+      ]
      },
      {
       "id": "eng11-u15-q04",
       "type": "mcq",
       "q": "Let's take a brief walk in the school garden before the final lecture begins, ________?",
       "src": "study_notes",
-      "page": 1,
+      "page": 15,
       "label": "4. Let's take a brief walk in the school garden before the fina",
       "options": {
        "A": "will we",
@@ -273,20 +398,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "Suggestions starting with 'Let's' (contraction of 'Let us') require the irregular question tag 'shall we?' in standard English.",
-       ""
+       "Answer B: shall we",
+       "Suggestions starting with 'Let's' (contraction of 'Let us') require the irregular question tag 'shall we?' in standard English."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [
+       {
+        "q": "Add a tag: \"Let's start, ___?\"",
+        "a": "shall we?"
+       },
+       {
+        "q": "Add a tag: \"Let's start, ___?\"",
+        "a": "shall we?"
+       }
+      ]
      },
      {
       "id": "eng11-u15-q05",
       "type": "mcq",
       "q": "She doesn't speak French fluently, ________?",
       "src": "study_notes",
-      "page": 1,
+      "page": 15,
       "label": "5. She doesn't speak French fluently, ________?",
       "options": {
        "A": "doesn't she",
@@ -296,20 +428,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The main clause is negative ('doesn't speak'). This requires a positive question tag using the matching auxiliary 'does': $$\\text{Negative Statement} \\rightarrow \\text{Positive Tag}$$.",
-       ""
+       "Answer B: does she",
+       "The main clause is negative ('doesn't speak'). This requires a positive question tag using the matching auxiliary 'does': Negative Statement → Positive Tag."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [
+       {
+        "q": "Tag: She'd finished, ____?",
+        "a": "hadn't she? ('d = had)"
+       },
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       }
+      ]
      },
      {
       "id": "eng11-u15-q06",
       "type": "mcq",
       "q": "Speaker A: 'I really love studying English literature.' \nSpeaker B: '________'",
       "src": "study_notes",
-      "page": 1,
+      "page": 15,
       "label": "6. Speaker A: 'I really love studying English literature.' \nSpe",
       "options": {
        "A": "So do I.",
@@ -319,20 +458,27 @@
       },
       "answer": "A",
       "why": [
-       "Answer A",
-       "**Step 1: Analyze the grammatical structure**",
-       "Speaker A's statement is positive and in the Simple Present tense (no auxiliary present). Speaker B wants to show agreement, requiring the inverted positive agreement structure: $$\\text{So} + \\text{do/does} + \\text{Subject}$$.",
-       ""
+       "Answer A: So do I.",
+       "Speaker A's statement is positive and in the Simple Present tense (no auxiliary present). Speaker B wants to show agreement, requiring the inverted positive agreement structure: So + do/does + Subject."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       },
+       {
+        "q": "Tag: Nothing happened, ____?",
+        "a": "did it?"
+       }
+      ]
      },
      {
       "id": "eng11-u15-q07",
       "type": "mcq",
       "q": "Speaker A: 'I don't like drinking hot tea in the afternoon.' \nSpeaker B: '________'",
       "src": "study_notes",
-      "page": 1,
+      "page": 15,
       "label": "7. Speaker A: 'I don't like drinking hot tea in the afternoon.'",
       "options": {
        "A": "So do I.",
@@ -342,20 +488,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "Speaker A's statement is negative ('don't like'). To show agreement with a negative statement, Speaker B must use the inverted negative agreement structure: $$\\text{Neither/Nor} + \\text{Auxiliary} + \\text{Subject}$$.",
-       ""
+       "Answer B: Neither do I.",
+       "Speaker A's statement is negative ('don't like'). To show agreement with a negative statement, Speaker B must use the inverted negative agreement structure: Neither/Nor + Auxiliary + Subject."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       },
+       {
+        "q": "Tag: Nothing happened, ____?",
+        "a": "did it?"
+       }
+      ]
      },
      {
       "id": "eng11-u15-q08",
       "type": "mcq",
       "q": "Nothing went wrong during the school laboratory experiment, ________?",
       "src": "study_notes",
-      "page": 1,
+      "page": 15,
       "label": "8. Nothing went wrong during the school laboratory experiment, ",
       "options": {
        "A": "did it",
@@ -365,19 +518,27 @@
       },
       "answer": "A",
       "why": [
-       "Answer A",
-       "**Step 1: Analyze the grammatical structure**",
-       "The subject 'Nothing' is negative, which makes the main statement grammatically negative. This requires a positive question tag with past simple dummy do-support and the singular pronoun 'it'."
+       "Answer A: did it",
+       "The subject 'Nothing' is negative, which makes the main statement grammatically negative. This requires a positive question tag with past simple do/does/did and the singular pronoun 'it'."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [
+       {
+        "q": "Tag: Nothing happened, ____?",
+        "a": "did it?"
+       },
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       }
+      ]
      },
      {
       "id": "eng11-u15-q09",
       "type": "mcq",
       "q": "Don't make any noise while the national exam is in progress, ________?",
       "src": "study_notes",
-      "page": 1,
+      "page": 15,
       "label": "9. Don't make any noise while the national exam is in progress,",
       "options": {
        "A": "won't you",
@@ -387,20 +548,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "Negative imperatives (commands starting with 'Don't') strictly require the positive tag 'will you?' in standard English.",
-       ""
+       "Answer B: will you",
+       "Negative imperatives (commands starting with 'Don't') strictly require the positive tag 'will you?' in standard English."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [
+       {
+        "q": "Tag: You'd rather stay, ____?",
+        "a": "wouldn't you? ('d = would)"
+       },
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       }
+      ]
      },
      {
       "id": "eng11-u15-q10",
       "type": "mcq",
       "q": "The university dean has already signed the official graduation list, ________?",
       "src": "study_notes",
-      "page": 1,
+      "page": 15,
       "label": "10. The university dean has already signed the official graduati",
       "options": {
        "A": "didn't he",
@@ -410,13 +578,20 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The main clause contains the positive perfect auxiliary 'has' ('has already signed'). This requires a negative question tag with the matching auxiliary 'hasn't' and pronoun 'he': $$\\text{Positive Statement} \\rightarrow \\text{Negative Tag}$$.",
-       ""
+       "Answer B: hasn't he",
+       "The main clause contains the positive perfect auxiliary 'has' ('has already signed'). This requires a negative question tag with the matching auxiliary 'hasn't' and pronoun 'he': Positive Statement → Negative Tag."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
+      "similar": [
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       },
+       {
+        "q": "Tag: Nothing happened, ____?",
+        "a": "did it?"
+       }
+      ]
      },
      {
       "id": "eng11-u15-mx1",
@@ -431,10 +606,20 @@
       },
       "answer": "E",
       "why": [
+       "Answer E: aren't they",
        "To form a question tag:\n1. Use the auxiliary verb from the statement ('are').\n2. If the statement is positive, the tag must be negative ('aren't').\n3. Use the pronoun that corresponds to the subject ('Punctuation marks' = 'they').\nResult: **'aren't they'**."
       ],
       "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
-      "similar": [],
+      "similar": [
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       },
+       {
+        "q": "Add a tag: \"They have finished, ___?\"",
+        "a": "haven't they?"
+       }
+      ],
       "src": "matric",
       "src_qid": "english_2017_q46",
       "exam_question": "english_2017_q46",
@@ -453,10 +638,20 @@
       },
       "answer": "C",
       "why": [
+       "Answer C: Are they",
        "The word 'None' makes the sentence negative, so the question tag must be positive. Since 'students' is plural, the pronoun 'they' is used. Therefore, 'Are they' is the correct tag."
       ],
       "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
-      "similar": [],
+      "similar": [
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       },
+       {
+        "q": "Add a tag: \"They have finished, ___?\"",
+        "a": "haven't they?"
+       }
+      ],
       "src": "matric",
       "src_qid": "english_model_2024_q31",
       "exam_question": "english_model_2024_q31",
@@ -475,10 +670,20 @@
       },
       "answer": "B",
       "why": [
+       "Answer B: isn't it",
        "**Rule:** A question tag uses the auxiliary verb from the main sentence. Since the main sentence is positive ('it **is** going to be'), the tag must be negative: **'isn't it?'**."
       ],
       "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
-      "similar": [],
+      "similar": [
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       },
+       {
+        "q": "Tag: Nothing happened, ____?",
+        "a": "did it?"
+       }
+      ],
       "src": "matric",
       "src_qid": "english_2020_q61",
       "exam_question": "english_2020_q61",
@@ -497,10 +702,20 @@
       },
       "answer": "A",
       "why": [
+       "Answer A: didn't they",
        "The main sentence is positive and in the Simple Past ('understood'). Therefore, the question tag must be negative and use the auxiliary 'did' ('didn't they')."
       ],
       "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
-      "similar": [],
+      "similar": [
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       },
+       {
+        "q": "Add a tag: \"They have finished, ___?\"",
+        "a": "haven't they?"
+       }
+      ],
       "src": "matric",
       "src_qid": "english_2018_q38",
       "exam_question": "english_2018_q38",
@@ -519,10 +734,20 @@
       },
       "answer": "D",
       "why": [
+       "Answer D: doesn't it",
        "**Rule:** For a positive statement in Present Simple (\"This coat looks\"), the tag must be negative using the auxiliary 'do/does'. Since \"coat\" is singular, we use \"doesn't it\"."
       ],
       "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
-      "similar": [],
+      "similar": [
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       },
+       {
+        "q": "Tag: Nothing happened, ____?",
+        "a": "did it?"
+       }
+      ],
       "src": "matric",
       "src_qid": "english_2023_q58",
       "exam_question": "english_2023_q58",
@@ -541,10 +766,20 @@
       },
       "answer": "D",
       "why": [
+       "Answer D: will you",
        "For imperative sentences (commands or requests), 'will you' is the most common and standard question tag used to invite cooperation."
       ],
       "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
-      "similar": [],
+      "similar": [
+       {
+        "q": "Tag: You'd rather stay, ____?",
+        "a": "wouldn't you? ('d = would)"
+       },
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       }
+      ],
       "src": "matric",
       "src_qid": "english_2018_q58",
       "exam_question": "english_2018_q58",
@@ -563,10 +798,20 @@
       },
       "answer": "D",
       "why": [
+       "Answer D: Will you",
        "For negative imperatives (commands starting with 'Don't'), the standard question tag is 'will you'."
       ],
       "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
-      "similar": [],
+      "similar": [
+       {
+        "q": "Tag: You'd rather stay, ____?",
+        "a": "wouldn't you? ('d = would)"
+       },
+       {
+        "q": "Tag: Everyone enjoyed the party, ____?",
+        "a": "didn't they?"
+       }
+      ],
       "src": "matric",
       "src_qid": "english_model_2024_q32",
       "exam_question": "english_model_2024_q32",
@@ -585,10 +830,20 @@
       },
       "answer": "B",
       "why": [
+       "Answer B: so are the students",
        "To add a positive statement that agree with a previous positive statement, we use 'so + auxiliary verb + subject'. Since the first clause uses 'are', the addition is 'so are the students'."
       ],
       "tip": "Read every option before choosing; rule out the ones that contradict the notes.",
-      "similar": [],
+      "similar": [
+       {
+        "q": "Add a tag: \"They have finished, ___?\"",
+        "a": "haven't they?"
+       },
+       {
+        "q": "Add a tag: \"Let's start, ___?\"",
+        "a": "shall we?"
+       }
+      ],
       "src": "matric",
       "src_qid": "english_2017_q38",
       "exam_question": "english_2017_q38",
@@ -657,6 +912,178 @@
        "So: You'd better leave now, hadn't you?"
       ],
       "tip": "Positive statement → negative tag; negative statement → positive tag. Use the same auxiliary (or do/does/did). Special: I am → aren't I; Let's → shall we."
+     },
+     {
+      "id": "eng11-u15-tgq01",
+      "q": "There isn't any water left, ____?",
+      "src": "notes",
+      "page": 15,
+      "similar": [
+       {
+        "q": "Add a tag: \"They have finished, ___?\"",
+        "a": "haven't they?"
+       },
+       {
+        "q": "Add a tag: \"Let's start, ___?\"",
+        "a": "shall we?"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "is it",
+       "B": "is there",
+       "C": "isn't there",
+       "D": "are there"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: is there",
+       "Negative sentence → positive tag.",
+       "*There is* → tag with *there*: *is there?*"
+      ],
+      "tip": "Positive sentence → negative tag; negative sentence → positive tag. Repeat the helping verb (no helping verb → do/does/did) and use a pronoun."
+     },
+     {
+      "id": "eng11-u15-tgq02",
+      "q": "Your brother works in Massawa, ____?",
+      "src": "notes",
+      "page": 15,
+      "similar": [
+       {
+        "q": "Add a tag: \"They have finished, ___?\"",
+        "a": "haven't they?"
+       },
+       {
+        "q": "Add a tag: \"Let's start, ___?\"",
+        "a": "shall we?"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "isn't he",
+       "B": "doesn't he",
+       "C": "don't he",
+       "D": "does he"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: doesn't he",
+       "Positive, no helping verb, present, *he* → *doesn't he?*"
+      ],
+      "tip": "Positive sentence → negative tag; negative sentence → positive tag. Repeat the helping verb (no helping verb → do/does/did) and use a pronoun."
+     },
+     {
+      "id": "eng11-u15-tgq03",
+      "q": "Nothing can stop us now, ____?",
+      "src": "notes",
+      "page": 15,
+      "similar": [
+       {
+        "q": "Add a tag: \"They have finished, ___?\"",
+        "a": "haven't they?"
+       },
+       {
+        "q": "Add a tag: \"Let's start, ___?\"",
+        "a": "shall we?"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "can't it",
+       "B": "can it",
+       "C": "can't they",
+       "D": "can we"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: can it",
+       "*Nothing* is negative → positive tag.",
+       "*Nothing* → *it*; repeat *can*: *can it?*"
+      ],
+      "tip": "Positive sentence → negative tag; negative sentence → positive tag. Repeat the helping verb (no helping verb → do/does/did) and use a pronoun."
+     },
+     {
+      "id": "eng11-u15-tgq04",
+      "q": "You won't forget to call me, ____?",
+      "src": "notes",
+      "page": 15,
+      "similar": [
+       {
+        "q": "Add a tag: \"They have finished, ___?\"",
+        "a": "haven't they?"
+       },
+       {
+        "q": "Add a tag: \"Let's start, ___?\"",
+        "a": "shall we?"
+       }
+      ],
+      "type": "fill",
+      "choices": [
+       "shall you",
+       "will you",
+       "won't you",
+       "do you"
+      ],
+      "answer": "will you",
+      "why": [
+       "Negative sentence (*won't*) → positive tag *will you?*"
+      ],
+      "tip": "Positive sentence → negative tag; negative sentence → positive tag. Repeat the helping verb (no helping verb → do/does/did) and use a pronoun."
+     },
+     {
+      "id": "eng11-u15-tgq05",
+      "q": "I'm in the right room, ____?",
+      "src": "notes",
+      "page": 15,
+      "similar": [
+       {
+        "q": "Add a tag: \"They have finished, ___?\"",
+        "a": "haven't they?"
+       },
+       {
+        "q": "Add a tag: \"Let's start, ___?\"",
+        "a": "shall we?"
+       }
+      ],
+      "type": "fill",
+      "choices": [
+       "am not I",
+       "amn't I",
+       "isn't it",
+       "aren't I"
+      ],
+      "answer": "aren't I",
+      "why": [
+       "Special case: *I am* → *aren't I?*"
+      ],
+      "tip": "Positive sentence → negative tag; negative sentence → positive tag. Repeat the helping verb (no helping verb → do/does/did) and use a pronoun."
+     },
+     {
+      "id": "eng11-u15-tgq06",
+      "q": "Correct the tag: \"They had a good time, hadn't they?\"",
+      "src": "notes",
+      "page": 15,
+      "similar": [
+       {
+        "q": "Add a tag: \"They have finished, ___?\"",
+        "a": "haven't they?"
+       },
+       {
+        "q": "Add a tag: \"Let's start, ___?\"",
+        "a": "shall we?"
+       }
+      ],
+      "type": "short",
+      "accept": [
+       "didn't they?",
+       "They had a good time, didn't they"
+      ],
+      "answer": "They had a good time, didn't they?",
+      "why": [
+       "Here *had* is the main verb (= enjoyed), not a helping verb.",
+       "Main verb in the past → *didn't they?*"
+      ],
+      "tip": "Positive sentence → negative tag; negative sentence → positive tag. Repeat the helping verb (no helping verb → do/does/did) and use a pronoun."
      }
     ]
    },
@@ -666,14 +1093,46 @@
     "nodes": [
      {
       "id": "unit",
-      "label": "Question Tags",
+      "label": "Question tags",
       "kind": "unit",
       "cards": [
-       "eng11-u15-c01"
+       "eng11-u15-c01",
+       "eng11-u15-c02"
+      ]
+     },
+     {
+      "id": "rules",
+      "label": "How to make a tag",
+      "kind": "topic",
+      "lesson": "eng11-u15-l1",
+      "cards": [
+       "eng11-u15-c01",
+       "eng11-u15-l1-r2wk1"
+      ]
+     },
+     {
+      "id": "special",
+      "label": "Key rules and special cases",
+      "kind": "topic",
+      "lesson": "eng11-u15-l1",
+      "cards": [
+       "eng11-u15-c02",
+       "eng11-u15-tg2"
       ]
      }
     ],
-    "edges": []
+    "edges": [
+     {
+      "from": "unit",
+      "to": "rules",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "special",
+      "label": "includes"
+     }
+    ]
    }
   }
  ]

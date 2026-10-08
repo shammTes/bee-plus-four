@@ -24,7 +24,7 @@
     24
    ],
    "tone": "peach",
-   "intro": "Grammar from Study Notes ch.24: Common Grammatical Mistakes & L1 Interference Traps.",
+   "intro": "Common mistakes (and how to fix them).",
    "intro_page": 1,
    "lessons": [
     {
@@ -39,74 +39,85 @@
       {
        "id": "eng11-u24-c01",
        "type": "grammar",
-       "title": "Common Grammatical Mistakes",
-       "page": 1,
-       "src": "study_notes",
+       "title": "Common mistakes (and how to fix them)",
+       "page": 24,
+       "src": "notes",
        "rule": [
-        "Common Grammatical Mistakes & L1 Interference Traps",
-        "Definition: L1 Interference and Grammatical Errors (ናይ ቀዳማይ ቋንቋ ጽልዋን ስሩዓት ሰዋስዋዊ ጌጋታትን) refers to the systematic syntactic, morphological, and orthographic errors made by Tigrinya-native speakers due to the negative transfer of Semitic linguistic structures and phonology into English.",
-        "Negative language transfer (ኣሉታዊ ምስግጋር ቋንቋ) occurs when the grammar, phonology, or word order of a student's native language conflicts with the rules of the target language. Since Tigrinya is a highly inflected Subject-Object-Verb ($$\\text{S-O-V}$$) Semitic language, and English is an analytical Subject-Verb-Object ($$\\text{S-V-O}$$) Germanic language, Tigrinya speakers face systematic, predictable interference traps. Rather than treating these errors as random, uncoordinated mistakes, this chapter provides a systematic diagnostic framework to identify, analyze, and neutralize these traps, helping students secure maximum marks on national matriculation examinations."
+        "**Double subject:** ✗ *My father he is a teacher.* → *My father is a teacher.*",
+        "**Two linking words for one idea:** ✗ *Although it rained, but we went out.* → use only one: *Although it rained, we went out.* / *It rained, but we went out.*",
+        "**Missing *is/are*:** ✗ *She very clever.* → *She **is** very clever.*",
+        "**Comparatives and superlatives:** ✗ *more better, most cleverest* → *better, cleverest*; ✗ *She is the most intelligent than…* → *more intelligent than* / *the most intelligent in…*.",
+        "**Word order:** subject + verb + object: ✗ *Our team the final won.* → *Our team won the final.*"
        ],
        "examples": [
         {
-         "text": "This is a correct model sentence.",
+         "text": "My father is a teacher.",
          "ok": true
         },
         {
-         "text": "This be wrong model sentence.",
+         "text": "My father he is a teacher.",
          "ok": false,
-         "fix": "This is a wrong model sentence."
+         "fix": "My father is a teacher."
+        },
+        {
+         "text": "Although it was raining, but we went out.",
+         "ok": false,
+         "fix": "Although it was raining, we went out."
+        },
+        {
+         "text": "This book is better than that one.",
+         "ok": true
         }
-       ]
+       ],
+       "pattern": "S + V + O · one linking word · better / the best"
       },
       {
        "id": "eng11-u24-c02",
        "type": "text",
        "title": "Notes",
-       "page": 1,
-       "src": "study_notes",
+       "page": 24,
+       "src": "notes",
        "body": [
-        "Common Grammatical Mistakes & L1 Interference Traps",
-        "Definition: L1 Interference and Grammatical Errors (ናይ ቀዳማይ ቋንቋ ጽልዋን ስሩዓት ሰዋስዋዊ ጌጋታትን) refers to the systematic syntactic, morphological, and orthographic errors made by Tigrinya-native speakers due to the negative transfer of Semitic linguistic structures and phonology into English.",
-        "Negative language transfer (ኣሉታዊ ምስግጋር ቋንቋ) occurs when the grammar, phonology, or word order of a student's native language conflicts with the rules of the target language. Since Tigrinya is a highly inflected Subject-Object-Verb ($$\\text{S-O-V}$$) Semitic language, and English is an analytical Subject-Verb-Object ($$\\text{S-V-O}$$) Germanic language, Tigrinya speakers face systematic, predictable interference traps. Rather than treating these errors as random, uncoordinated mistakes, this chapter provides a systematic diagnostic framework to identify, analyze, and neutralize these traps, helping students secure maximum marks on national matriculation examinations.",
-        "A prominent syntax error is the Redundant Double Subject ($$\\times \\text{Subject Noun} + \\text{Subject Pronoun} + \\text{Verb}$$). In Tigrinya, verbs are conjugated with obligatorily embedded pronominal subject markers (e.g., \"ኣቦይ ሓረስታይ [ንሱ] እዩ\"). This structure makes native speakers feel that stating the noun subject (\"My father\") requires immediate pronoun reinforcement (\"he\") before the verb, resulting in ungrammatical sentences like \"My father *he* is a hardworking farmer.\" In standard English, a clause must strictly contain only a single subject referent per verb; therefore, writing \"My father is a hardworking farmer\" is the only correct form."
+        "**Checklist before you hand in:** Is there a verb? Only one subject? One linking word per idea? -s with he/she/it?",
+        "Many mistakes come from translating Tigrinya word by word. Read your sentence aloud in English.",
+        "Compare with *-er / more … than*; use *the -est / the most* with *in / of*."
        ]
       },
       {
        "id": "eng11-u24-c03",
        "type": "table",
        "title": "Key forms",
-       "page": 1,
+       "page": 24,
        "src": "study_notes",
        "head": [
-        "Tigrinya-influenced Error",
-        "Correct English Structure",
-        "Grammatical Rule / Trap"
+        "Mistake",
+        "Correct",
+        "Rule"
        ],
        "rows": [
         [
-         "$$\\times \\text{My father he is a teacher.}$$",
-         "$$\\text{My father is a teacher.}$$",
+         "✗ My father he is a teacher.",
+         "My father is a teacher.",
          "Redundant Double Subject"
         ],
         [
-         "$$\\times \\text{He is good in chemistry.}$$",
-         "$$\\text{He is good at chemistry.}$$",
-         "Preposition Confusion (L1 'ኣብ')"
+         "✗ He is good in chemistry.",
+         "He is good at chemistry.",
+         "Preposition Confusion (first-language (Tigrinya) 'ኣብ')"
         ],
         [
-         "$$\\times \\text{She very intelligent.}$$",
-         "$$\\text{She is very intelligent.}$$",
-         "Copula 'to be' Omission"
+         "✗ She very intelligent.",
+         "She is very intelligent.",
+         "Missing linking verb 'to be'"
         ],
         [
-         "$$\\times \\text{Because he was sick, so he left.}$$",
-         "$$\\text{Because he was sick, he left.}$$",
+         "✗ Because he was sick, so he left.",
+         "Because he was sick, he left.",
          "Double Conjunction Error"
         ],
         [
-         "$$\\times \\text{He gave us many advices.}$$",
-         "$$\\text{He gave us some advice.}$$",
+         "✗ He gave us many advices.",
+         "He gave us some advice.",
          "Uncountable Noun Pluralization"
         ]
        ]
@@ -115,21 +126,18 @@
        "id": "eng11-u24-c11",
        "type": "worked",
        "title": "Worked practice",
-       "page": 1,
+       "page": 24,
        "src": "study_notes",
-       "problem": "Which of the following sentences is grammatically correct and free from L1 double-subject errors?",
+       "problem": "Which of the following sentences is grammatically correct and free from double-subject mistakes?",
        "steps": [
         {
-         "text": "**Step 1: Analyze the grammatical structure**"
-        },
-        {
-         "text": "In English, a clause must contain only a single subject referent per verb."
+         "text": "**Step 1: Look at the sentence.** In English, a clause must contain only a single subject referent per verb."
         },
         {
          "text": "The noun phrase 'My elder brother' is the subject of 'is studying'."
         },
         {
-         "text": "**Step 2: Identify the matriculation trap**"
+         "text": "**Step 2: Watch out for the trap**"
         }
        ],
        "answer": "My elder brother is studying civil engineering at university."
@@ -138,9 +146,9 @@
        "id": "eng11-u24-chk1",
        "type": "check",
        "title": "Quick check",
-       "page": 1,
+       "page": 24,
        "src": "study_notes",
-       "q": "Which of the following sentences is grammatically correct and free from L1 double-subject errors?",
+       "q": "Which of the following sentences is grammatically correct and free from double-subject mistakes?",
        "options": {
         "A": "My elder brother he is studying civil engineering at university.",
         "B": "My elder brother is studying civil engineering at university.",
@@ -148,27 +156,24 @@
         "D": "My elder brother him is studying civil engineering at university."
        },
        "answer": "B",
-       "why": "**Step 1: Analyze the grammatical structure**\nIn English, a clause must contain only a single subject referent per verb. The noun phrase 'My elder brother' is the subject of 'is studying'.\n\n**Step 2: Identify the matriculation trap**\nOptions A and C contain a redundant pronoun 'he' immediately following the noun subject. This is a classic double-subject error caused by Tigrinya verb conjugation habits. Option B correctly eliminates the redundant pronoun.\n\n**Step 3: Tigrinya Explanation (ትርጉም)**\nኣብ እንግሊዘኛ ወግዒ ሓደ ምሉእ ሓሳብ ሓደ ዋና ባእታ (Subject) ጥራይ እዩ ዝወስድ። 'My elder brother' (ሓወይ) ባዕሉ እኹል ዋና ባእታ ስለ ዝኾነ፡ ድሕሪኡ 'he' (ንሱ) ምጥቃም ድርብ ዋና ባእታ (Double Subject) ዝበሃል ዓቢ ጌጋ ይፈጥር። ስለዚ ቅኑዕ መልሲ Option B እዩ።"
+       "why": "**Step 1: Look at the sentence**\nIn English, a clause must contain only a single subject referent per verb. The noun phrase 'My elder brother' is the subject of 'is studying'.\n\n**Step 2: Watch out for the trap**\nOptions A and C contain a redundant pronoun 'he' immediately following the noun subject. This is a classic double-subject error caused by Tigrinya verb conjugation habits. Option B correctly eliminates the redundant pronoun.\n\n**Step 3: In Tigrinya**\nኣብ እንግሊዘኛ ወግዒ ሓደ ምሉእ ሓሳብ ሓደ ዋና ባእታ (Subject) ጥራይ እዩ ዝወስድ። 'My elder brother' (ሓወይ) ባዕሉ እኹል ዋና ባእታ ስለ ዝኾነ፡ ድሕሪኡ 'he' (ንሱ) ምጥቃም ድርብ ዋና ባእታ (Double Subject) ዝበሃል ዓቢ ጌጋ ይፈጥር። ስለዚ ቅኑዕ መልሲ Option B እዩ።"
       },
       {
        "id": "eng11-u24-c12",
        "type": "worked",
        "title": "Worked practice",
-       "page": 1,
+       "page": 24,
        "src": "study_notes",
        "problem": "Because the physics laboratory was locked yesterday afternoon, ________ we were unable to perform the experiment.",
        "steps": [
         {
-         "text": "**Step 1: Analyze the grammatical structure**"
-        },
-        {
-         "text": "'Because' is a subordinating conjunction at the beginning of the sentence to connect the clauses."
+         "text": "**Step 1: Look at the sentence.** 'Because' is a subordinating conjunction at the beginning of the sentence to connect the clauses."
         },
         {
          "text": "In English, only one conjunction can connect two clauses; adding a second is a double-conjunction error."
         },
         {
-         "text": "**Step 2: Identify the matriculation trap**"
+         "text": "**Step 2: Watch out for the trap**"
         }
        ],
        "answer": "[No connector]"
@@ -177,7 +182,7 @@
        "id": "eng11-u24-chk2",
        "type": "check",
        "title": "Quick check",
-       "page": 1,
+       "page": 24,
        "src": "study_notes",
        "q": "Because the physics laboratory was locked yesterday afternoon, ________ we were unable to perform the experiment.",
        "options": {
@@ -187,27 +192,21 @@
         "D": "[No connector]"
        },
        "answer": "D",
-       "why": "**Step 1: Analyze the grammatical structure**\n'Because' is a subordinating conjunction at the beginning of the sentence to connect the clauses. In English, only one conjunction can connect two clauses; adding a second is a double-conjunction error.\n\n**Step 2: Identify the matriculation trap**\nStudents often choose 'so' (Option A) because in Tigrinya, it is natural to pair cause with result (e.g., 'ስለ ዝሓመመ፡ ስለዚ...'). Option D is correct because no extra connector is allowed.\n\n**Step 3: Tigrinya Explanation (ትርጉም)**\nኣብ መጀመርታ እቲ ምሉእ ሓሳብ 'Because' (ምኽንያቱ/ስለ ዝ-) ዝብል መተሓሓዚ ስለ ዘሎ፡ ኣብቲ ካልኣይ ሓረግ 'so' (ስለዚ) ምጥቃም ዓቢ ናይ ድርብ መስተጻምር ጌጋ (double-conjunction error) ይፈጥር። ስለዚ ቅኑዕ መልሲ Option D ([No connector] - ዋላ ሓደ ቃል ኣየድልይን) እዩ።"
+       "why": "**Step 1: Look at the sentence**\n'Because' is a subordinating conjunction at the beginning of the sentence to connect the clauses. In English, only one conjunction can connect two clauses; adding a second is a double-conjunction error.\n\n**Step 2: Watch out for the trap**\nStudents often choose 'so' (Option A) because in Tigrinya, it is natural to pair cause with result (e.g., 'ስለ ዝሓመመ፡ ስለዚ...'). Option D is correct because no extra connector is allowed.\n\n**Step 3: In Tigrinya**\nኣብ መጀመርታ እቲ ምሉእ ሓሳብ 'Because' (ምኽንያቱ/ስለ ዝ-) ዝብል መተሓሓዚ ስለ ዘሎ፡ ኣብቲ ካልኣይ ሓረግ 'so' (ስለዚ) ምጥቃም ዓቢ ናይ ድርብ መስተጻምር ጌጋ (double-conjunction error) ይፈጥር። ስለዚ ቅኑዕ መልሲ Option D ([No connector] - ዋላ ሓደ ቃል ኣየድልይን) እዩ።"
       },
       {
        "id": "eng11-u24-c13",
        "type": "worked",
        "title": "Worked practice",
-       "page": 1,
+       "page": 24,
        "src": "study_notes",
-       "problem": "Identify the sentence that contains a copula verb omission error caused by L1 interference:",
+       "problem": "Which sentence is missing a linking verb (is/am/are/was/were)?",
        "steps": [
         {
-         "text": "**Step 1: Analyze the grammatical structure**"
+         "text": "**Step 1: Look at the sentence.** Every English sentence expressing a state of being requires a linking verb ('is', 'are', 'was', 'were') between the subject and the adjective complement."
         },
         {
-         "text": "Every English sentence expressing a state of being requires an explicit copula verb ('is', 'are', 'was', 'were') between the subject and the adjective complement."
-        },
-        {
-         "text": "**Step 2: Identify the matriculation trap**"
-        },
-        {
-         "text": "In Option C, the copula verb 'is' is completely missing."
+         "text": "**Step 2: Watch out for the trap.** In Option C, the linking verb 'is' is completely missing."
         }
        ],
        "answer": "My brother very hardworking and always studies late."
@@ -216,9 +215,9 @@
        "id": "eng11-u24-chk3",
        "type": "check",
        "title": "Quick check",
-       "page": 1,
+       "page": 24,
        "src": "study_notes",
-       "q": "Identify the sentence that contains a copula verb omission error caused by L1 interference:",
+       "q": "Which sentence is missing a linking verb (is/am/are/was/were)?",
        "options": {
         "A": "She is an exceptionally clever student in our class.",
         "B": "They are from the southern region of Eritrea.",
@@ -226,7 +225,7 @@
         "D": "We were delighted to receive your invitation."
        },
        "answer": "C",
-       "why": "**Step 1: Analyze the grammatical structure**\nEvery English sentence expressing a state of being requires an explicit copula verb ('is', 'are', 'was', 'were') between the subject and the adjective complement.\n\n**Step 2: Identify the matriculation trap**\nIn Option C, the copula verb 'is' is completely missing. In Tigrinya, the copula can sometimes be omitted in speech, leading students to translate directly as 'My brother very hardworking...', which is incorrect. Option C is the target error.\n\n**Step 3: Tigrinya Explanation (ትርጉም)**\nኣብ እንግሊዘኛ 'ምዃን' ዘመልክቱ ሓገዝቲ ግሶች (copula verbs - is, are) ወግዒ ክጸሓፉ ኣለዎም። ኣብ Option C 'My brother [is] very hardworking' ክኸውን ስለ ዝነበሮ፡ እቲ ግሲ ብምጥፋኡ ጌጋ ኣለዎ። ተማሃሮ ብስሕተት 'My brother very...' ኢሎም ክጽሕፉ ይረኣዩ እዮም።"
+       "why": "**Step 1: Look at the sentence**\nEvery English sentence expressing a state of being requires a linking verb ('is', 'are', 'was', 'were') between the subject and the adjective complement.\n\n**Step 2: Watch out for the trap**\nIn Option C, the linking verb 'is' is completely missing. In Tigrinya, the linking verb can sometimes be omitted in speech, leading students to translate directly as 'My brother very hardworking...', which is incorrect. Option C is the target error.\n\n**Step 3: In Tigrinya**\nኣብ እንግሊዘኛ 'ምዃን' ዘመልክቱ ሓገዝቲ ግሶች (linking verbs - is, are) ወግዒ ክጸሓፉ ኣለዎም። ኣብ Option C 'My brother [is] very hardworking' ክኸውን ስለ ዝነበሮ፡ እቲ ግሲ ብምጥፋኡ ጌጋ ኣለዎ። ተማሃሮ ብስሕተት 'My brother very...' ኢሎም ክጽሕፉ ይረኣዩ እዮም።"
       }
      ]
     }
@@ -275,9 +274,9 @@
      {
       "id": "eng11-u24-q01",
       "type": "mcq",
-      "q": "Which of the following sentences is grammatically correct and free from L1 double-subject errors?",
+      "q": "Which of the following sentences is grammatically correct and free from double-subject mistakes?",
       "src": "study_notes",
-      "page": 1,
+      "page": 24,
       "label": "1. Which of the following sentences is grammatically correct an",
       "options": {
        "A": "My elder brother he is studying civil engineering at university.",
@@ -288,19 +287,26 @@
       "answer": "B",
       "why": [
        "Answer B: My elder brother is studying civil engineering at university.",
-       "**Step 1: Analyze the grammatical structure**",
-       "In English, a clause must contain only a single subject referent per verb. The noun phrase 'My elder brother' is the subject of 'is studying'.",
-       "**Step 2: Identify the matriculation trap**"
+       "In English, a clause must contain only a single subject referent per verb. The noun phrase 'My elder brother' is the subject of 'is studying'."
       ],
       "tip": "Eliminate options that break the grammar rule first.",
-      "similar": []
+      "similar": [
+       {
+        "q": "Correct: Nobody know the answer.",
+        "a": "Nobody knows the answer."
+       },
+       {
+        "q": "Correct: She never says nothing.",
+        "a": "She never says anything."
+       }
+      ]
      },
      {
       "id": "eng11-u24-q02",
       "type": "mcq",
       "q": "Because the physics laboratory was locked yesterday afternoon, ________ we were unable to perform the experiment.",
       "src": "study_notes",
-      "page": 1,
+      "page": 24,
       "label": "2. Because the physics laboratory was locked yesterday afternoo",
       "options": {
        "A": "so",
@@ -311,20 +317,27 @@
       "answer": "D",
       "why": [
        "Answer D: [No connector]",
-       "**Step 1: Analyze the grammatical structure**",
-       "'Because' is a subordinating conjunction at the beginning of the sentence to connect the clauses. In English, only one conjunction can connect two clauses; adding a second is a double-conjunction error.",
-       "**Step 2: Identify the matriculation trap**"
+       "'Because' is a subordinating conjunction at the beginning of the sentence to connect the clauses. In English, only one conjunction can connect two clauses; adding a second is a double-conjunction error."
       ],
       "tip": "Eliminate options that break the grammar rule first.",
-      "similar": []
+      "similar": [
+       {
+        "q": "Correct: Because he was late, so he ran.",
+        "a": "Because he was late, he ran."
+       },
+       {
+        "q": "Correct: Nobody know the answer.",
+        "a": "Nobody knows the answer."
+       }
+      ]
      },
      {
       "id": "eng11-u24-q03",
       "type": "mcq",
-      "q": "Identify the sentence that contains a copula verb omission error caused by L1 interference:",
+      "q": "Which sentence is missing a linking verb (is/am/are/was/were)?",
       "src": "study_notes",
-      "page": 1,
-      "label": "3. Identify the sentence that contains a copula verb omission e",
+      "page": 24,
+      "label": "3. Identify the sentence that contains a linking verb omission e",
       "options": {
        "A": "She is an exceptionally clever student in our class.",
        "B": "They are from the southern region of Eritrea.",
@@ -334,19 +347,26 @@
       "answer": "C",
       "why": [
        "Answer C: My brother very hardworking and always studies late.",
-       "**Step 1: Analyze the grammatical structure**",
-       "Every English sentence expressing a state of being requires an explicit copula verb ('is', 'are', 'was', 'were') between the subject and the adjective complement.",
-       "**Step 2: Identify the matriculation trap**"
+       "Every English sentence expressing a state of being requires a linking verb ('is', 'are', 'was', 'were') between the subject and the adjective complement."
       ],
       "tip": "Eliminate options that break the grammar rule first.",
-      "similar": []
+      "similar": [
+       {
+        "q": "Correct: Because he was late, so he ran.",
+        "a": "Because he was late, he ran."
+       },
+       {
+        "q": "Correct: Nobody know the answer.",
+        "a": "Nobody knows the answer."
+       }
+      ]
      },
      {
       "id": "eng11-u24-q04",
       "type": "mcq",
-      "q": "The program coordinator congratulated the candidates ________ achieving top scores on the ESSLCE.",
+      "q": "The program coordinator congratulated the candidates ________ achieving top scores in the national exam.",
       "src": "study_notes",
-      "page": 1,
+      "page": 24,
       "label": "4. The program coordinator congratulated the candidates _______",
       "options": {
        "A": "for",
@@ -357,19 +377,26 @@
       "answer": "B",
       "why": [
        "Answer B: on",
-       "**Step 1: Analyze the grammatical structure**",
-       "The verb 'congratulate' strictly requires the preposition 'on' followed by a noun or gerund: $$\\text{congratulate} + \\text{someone} + \\text{on} + \\text{something}$$.",
-       "**Step 2: Identify the matriculation trap**"
+       "The verb 'congratulate' strictly requires the preposition 'on' followed by a noun or gerund: congratulate + someone + on + something."
       ],
       "tip": "Eliminate options that break the grammar rule first.",
-      "similar": []
+      "similar": [
+       {
+        "q": "Correct: Nobody know the answer.",
+        "a": "Nobody knows the answer."
+       },
+       {
+        "q": "Correct: She never says nothing.",
+        "a": "She never says anything."
+       }
+      ]
      },
      {
       "id": "eng11-u24-q05",
       "type": "mcq",
       "q": "The administrative assistant provided us with many useful ________ regarding the registration process.",
       "src": "study_notes",
-      "page": 1,
+      "page": 24,
       "label": "5. The administrative assistant provided us with many useful __",
       "options": {
        "A": "advices",
@@ -380,19 +407,26 @@
       "answer": "B",
       "why": [
        "Answer B: pieces of advice",
-       "**Step 1: Analyze the grammatical structure**",
-       "'Advice' is strictly uncountable and cannot be pluralized with an '-s' suffix. To express plurality, we must use partitive phrases like 'pieces of advice'.",
-       "**Step 2: Identify the matriculation trap**"
+       "'Advice' is strictly uncountable and cannot be pluralized with an '-s' suffix. To express plurality, we must use partitive phrases like 'pieces of advice'."
       ],
       "tip": "Eliminate options that break the grammar rule first.",
-      "similar": []
+      "similar": [
+       {
+        "q": "Correct: The informations are useful.",
+        "a": "The information is useful."
+       },
+       {
+        "q": "Correct: He gave me an advice.",
+        "a": "He gave me some advice / a piece of advice."
+       }
+      ]
      },
      {
       "id": "eng11-u24-q06",
       "type": "mcq",
       "q": "Identify the sentence that displays correct pronoun placement for a separable phrasal verb:",
       "src": "study_notes",
-      "page": 1,
+      "page": 24,
       "label": "6. Identify the sentence that displays correct pronoun placemen",
       "options": {
        "A": "Please turn off the light before you leave.",
@@ -403,19 +437,26 @@
       "answer": "D",
       "why": [
        "Answer D: Please turn off it before you leave.",
-       "**Step 1: Analyze the grammatical structure**",
-       "'Turn off' is a transitive separable phrasal verb. Noun objects can go in the middle or at the end. Pronoun objects ('it') **must** go in the middle: $$\\text{Verb} + \\text{Pronoun} + \\text{Particle}$$.",
-       "**Step 2: Identify the matriculation trap**"
+       "'Turn off' is a transitive separable phrasal verb. Noun objects can go in the middle or at the end. Pronoun objects ('it') **must** go in the middle: Verb + Pronoun + Particle."
       ],
       "tip": "Eliminate options that break the grammar rule first.",
-      "similar": []
+      "similar": [
+       {
+        "q": "Correct: Please suggest me a book.",
+        "a": "Please suggest a book to me."
+       },
+       {
+        "q": "Correct: Nobody know the answer.",
+        "a": "Nobody knows the answer."
+       }
+      ]
      },
      {
       "id": "eng11-u24-q07",
       "type": "mcq",
       "q": "The chemistry instructor told the students ________ any of the chemical solutions.",
       "src": "study_notes",
-      "page": 1,
+      "page": 24,
       "label": "7. The chemistry instructor told the students ________ any of t",
       "options": {
        "A": "to not touch",
@@ -426,19 +467,26 @@
       "answer": "B",
       "why": [
        "Answer B: not to touch",
-       "**Step 1: Analyze the grammatical structure**",
-       "This is a reported negative command. Negative commands are reported using the structure: $$\\text{reporting verb} + \\text{object} + \\text{not to} + \\text{V}_{\\text{base}}$$.",
-       "**Step 2: Identify the matriculation trap**"
+       "This is a reported negative command. Negative commands are reported using the structure: reporting verb + object + not to + V (base)."
       ],
       "tip": "Eliminate options that break the grammar rule first.",
-      "similar": []
+      "similar": [
+       {
+        "q": "Correct: Nobody know the answer.",
+        "a": "Nobody knows the answer."
+       },
+       {
+        "q": "Correct: She never says nothing.",
+        "a": "She never says anything."
+       }
+      ]
      },
      {
       "id": "eng11-u24-q08",
       "type": "mcq",
-      "q": "Choose the sentence that displays correct English word order ($$\\text{S-V-O}$$):",
+      "q": "Choose the sentence that displays correct English word order (S-V-O):",
       "src": "study_notes",
-      "page": 1,
+      "page": 24,
       "label": "8. Choose the sentence that displays correct English word order",
       "options": {
        "A": "The doctor the patient examined yesterday afternoon.",
@@ -449,19 +497,26 @@
       "answer": "B",
       "why": [
        "Answer B: The doctor examined the patient yesterday afternoon.",
-       "**Step 1: Analyze the grammatical structure**",
-       "English requires a strict Subject-Verb-Object ($$\\text{S-V-O}$$) pattern. The subject is 'The doctor', the verb is 'examined', and the direct object is 'the patient'.",
-       "**Step 2: Identify the matriculation trap**"
+       "English requires a strict Subject-Verb-Object (S-V-O) pattern. The subject is 'The doctor', the verb is 'examined', and the direct object is 'the patient'."
       ],
       "tip": "Eliminate options that break the grammar rule first.",
-      "similar": []
+      "similar": [
+       {
+        "q": "Correct: Nobody know the answer.",
+        "a": "Nobody knows the answer."
+       },
+       {
+        "q": "Correct: She never says nothing.",
+        "a": "She never says anything."
+       }
+      ]
      },
      {
       "id": "eng11-u24-q09",
       "type": "mcq",
       "q": "When I was a young boy living in the village, I was extremely afraid ________ wild dogs.",
       "src": "study_notes",
-      "page": 1,
+      "page": 24,
       "label": "9. When I was a young boy living in the village, I was extremel",
       "options": {
        "A": "from",
@@ -472,19 +527,26 @@
       "answer": "C",
       "why": [
        "Answer C: of",
-       "**Step 1: Analyze the grammatical structure**",
-       "The adjective 'afraid' must strictly be paired with the preposition 'of' ($$\\text{afraid} + \\text{of} + \\text{noun}$$).",
-       "**Step 2: Identify the matriculation trap**"
+       "The adjective 'afraid' must strictly be paired with the preposition 'of' (afraid + of + noun)."
       ],
       "tip": "Eliminate options that break the grammar rule first.",
-      "similar": []
+      "similar": [
+       {
+        "q": "Correct: Nobody know the answer.",
+        "a": "Nobody knows the answer."
+       },
+       {
+        "q": "Correct: She never says nothing.",
+        "a": "She never says anything."
+       }
+      ]
      },
      {
       "id": "eng11-u24-q10",
       "type": "mcq",
       "q": "Identify the option that displays correct spelling for the modified word class:",
       "src": "study_notes",
-      "page": 1,
+      "page": 24,
       "label": "10. Identify the option that displays correct spelling for the m",
       "options": {
        "A": "We had a delicious lunch in the school dinning room.",
@@ -495,12 +557,19 @@
       "answer": "B",
       "why": [
        "Answer B: We had a delicious lunch in the school dining room.",
-       "**Step 1: Analyze the grammatical structure**",
-       "The verb 'dine' ends in a single silent 'e'. When adding the suffix '-ing', the 'e' is dropped to form 'dining' (/ˈdaɪnɪŋ/).",
-       "**Step 2: Identify the matriculation trap**"
+       "The verb 'dine' ends in a single silent 'e'. When adding the suffix '-ing', the 'e' is dropped to form 'dining' (/ˈdaɪnɪŋ/)."
       ],
       "tip": "Eliminate options that break the grammar rule first.",
-      "similar": []
+      "similar": [
+       {
+        "q": "Correct: Nobody know the answer.",
+        "a": "Nobody knows the answer."
+       },
+       {
+        "q": "Correct: She never says nothing.",
+        "a": "She never says anything."
+       }
+      ]
      },
      {
       "id": "eng11-u24-r2q01",
@@ -532,7 +601,7 @@
        "Use \"don't ... anything\" or \"know nothing\".",
        "The other options lack \"do\" or add -s wrongly."
       ],
-      "tip": "Check the common traps: missing copula, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
+      "tip": "Check the common traps: missing linking verb, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
      },
      {
       "id": "eng11-u24-r2q02",
@@ -557,7 +626,7 @@
        "English uses one subject per clause.",
        "Delete \"he\"."
       ],
-      "tip": "Check the common traps: missing copula, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
+      "tip": "Check the common traps: missing linking verb, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
      },
      {
       "id": "eng11-u24-r2q03",
@@ -589,7 +658,7 @@
        "Use the present perfect (continuous): has been living.",
        "\"for\" is used with periods (for ten years), not points in time."
       ],
-      "tip": "Check the common traps: missing copula, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
+      "tip": "Check the common traps: missing linking verb, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
      },
      {
       "id": "eng11-u24-r2q04",
@@ -619,9 +688,9 @@
        "Answer D: Although it was raining, we went out.",
        "Use only one connector per link: \"Although ... but\" is a double conjunction.",
        "\"Despite\" cannot be followed by a full clause.",
-       "The first option is correct."
+       "Option D is correct."
       ],
-      "tip": "Check the common traps: missing copula, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
+      "tip": "Check the common traps: missing linking verb, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
      },
      {
       "id": "eng11-u24-r2q05",
@@ -646,7 +715,7 @@
        "The pattern is \"explain something to someone\".",
        "So: He explained the problem to me."
       ],
-      "tip": "Check the common traps: missing copula, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
+      "tip": "Check the common traps: missing linking verb, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
      },
      {
       "id": "eng11-u24-r2q06",
@@ -678,7 +747,7 @@
        "It takes a singular verb and no plural or \"a\".",
        "So: The furniture ... is new."
       ],
-      "tip": "Check the common traps: missing copula, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
+      "tip": "Check the common traps: missing linking verb, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
      },
      {
       "id": "eng11-u24-r2q07",
@@ -710,7 +779,7 @@
        "\"Last year\" is finished past time, so use the past simple: swam (and ate).",
        "Only the first option fixes both errors."
       ],
-      "tip": "Check the common traps: missing copula, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
+      "tip": "Check the common traps: missing linking verb, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
      },
      {
       "id": "eng11-u24-r2q08",
@@ -740,9 +809,9 @@
        "Answer D: She is the most intelligent student in our class.",
        "Comparing one person with the whole class requires the superlative.",
        "Long adjectives: the most + adjective (no -est as well).",
-       "The first option is correct."
+       "Option D is correct."
       ],
-      "tip": "Check the common traps: missing copula, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
+      "tip": "Check the common traps: missing linking verb, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
      },
      {
       "id": "eng11-u24-r2q09",
@@ -767,7 +836,7 @@
        "It does not need \"am\" before it.",
        "So: I agree with you."
       ],
-      "tip": "Check the common traps: missing copula, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
+      "tip": "Check the common traps: missing linking verb, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
      },
      {
       "id": "eng11-u24-r2q10",
@@ -792,7 +861,7 @@
        "\"their\" is acceptable in modern English to refer back to \"everyone\".",
        "Correct: Everyone has finished their work."
       ],
-      "tip": "Check the common traps: missing copula, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
+      "tip": "Check the common traps: missing linking verb, double subject, wrong tense with time words, subject–verb agreement, wrong preposition, uncountable plurals and double negatives."
      }
     ]
    },
