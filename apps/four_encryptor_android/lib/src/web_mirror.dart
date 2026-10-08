@@ -125,6 +125,14 @@ class WebMirror {
       final tag = u.query.hashCode.toUnsigned(32).toRadixString(16);
       p = dot > p.lastIndexOf('/') ? '${p.substring(0, dot)}_$tag${p.substring(dot)}' : '${p}_$tag';
     }
+    // keep names short and safe for zip/Android file systems (Google-style hashed paths can be 1000+ chars)
+    p = p.split('/').map((seg) {
+      final clean = seg.replaceAll(RegExp(r'[\\:*?"<>|=,&]'), '_');
+      if (clean.length <= 80) return clean;
+      final dot = clean.lastIndexOf('.');
+      final ext = dot > clean.length - 8 ? clean.substring(dot) : '';
+      return '${clean.substring(0, 40)}_${clean.hashCode.toUnsigned(32).toRadixString(16)}$ext';
+    }).join('/');
     return p.replaceAll('..', '_');
   }
 

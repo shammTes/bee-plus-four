@@ -84,3 +84,25 @@ first frame, FLAG_SECURE, per-reel resume position. Opening a reel swipes throug
 
 Encrypt: `four_encrypt encrypt clip.mp4 --type reel --transcode720 …` → 720×1280 (9:16 crop) H.264. Mac app: type = reel.
 Test: `flutter test test/reels_test.dart` (3-player window, disposal on leave).
+
+## Stage 4: Android encryptor, `.4web` interactive pages, licences + credits
+**Android encryptor:** `apps/four_encryptor_android/` (native Flutter, no WebView; see its README). Uses four_format's
+`FourWriter` unchanged, reads inputs in place via SAF one chunk at a time, writes into a chosen folder, native AES-GCM via
+`cryptography_flutter`. Master key: same `FOUR_MK` dart-define with the same DEV fallback as 4.
+
+**Metadata (backward compatible, only written when set):** `licence` (`CC-BY-4.0`, `CC-BY-SA-4.0`, `CC-BY-ND-4.0`,
+`CC0-1.0`, `PD`), `source` ("LabXchange"), `sourceUrl`, `author`, `entry` (`.4web` start page). `FourMeta.creditLine`
+("author · source · licence") is shown on resource tiles, the PDF/video top bar and under `.4web` pages. Older 4 builds
+ignore the new keys.
+
+**Licence gate** (`packages/four_format/lib/src/licence.dart`): 4 is paid, so the encryptor refuses NC, "all rights
+reserved", LabXchange Standard License (LX1) and unknown licences; CC BY / BY-SA / CC0 / PD allowed; BY-ND only for
+unmodified files (web mirrors count as modified).
+
+**`.4web`:** `FourType.web`, a zip (HTML/JS/CSS/assets) inside the normal container. In 4 it opens in
+`FourWebActivity` (`android/.../FourWeb.kt`), the only WebView in the app and created only when such a page is opened:
+Dart unwraps the content key through the unlock gate → native decrypts the zip with `FourChunkReader` into RAM and
+unpacks it into a map → `shouldInterceptRequest` serves `https://4web.invalid/…` from memory; any other URL gets 403,
+external navigation is cancelled, CSP `connect-src 'self'`, no JS bridge, no file/content access, cache off,
+FLAG_SECURE. Nothing decrypted is written to disk. Bundles are capped at 200 MB unpacked.
+Tests: `FourWebBundleTest` (JVM: routing, 403 for other hosts, zip-slip, missing start page).
