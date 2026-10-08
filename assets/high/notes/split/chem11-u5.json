@@ -286,6 +286,189 @@
        ]
       },
       {
+       "id": "chem11-u5-cm-c01",
+       "type": "text",
+       "title": "Deriving the ideal gas equation, step by step",
+       "page": 177,
+       "src": "notes",
+       "body": [
+        "Four variables describe a gas: pressure **P**, volume **V**, temperature **T** (kelvin) and amount **n** (mol). Each gas law links V to one of the others while the rest are kept fixed:",
+        "**Step 1 — Boyle (n, T fixed):** \\(V \\propto \\dfrac{1}{P}\\)",
+        "**Step 2 — Charles (n, P fixed):** \\(V \\propto T\\)",
+        "**Step 3 — Avogadro (P, T fixed):** \\(V \\propto n\\)",
+        "**Step 4 — Combine:** if V is proportional to each separately, it is proportional to all together: \\(V \\propto \\dfrac{nT}{P}\\).",
+        "**Step 5 — Put in a constant R** (the molar gas constant): \\(V = R\\,\\dfrac{nT}{P}\\), so",
+        "$$PV = nRT$$",
+        "**Step 6 — Find R** from one known gas: 1 mol at STP (273 K, 1 atm) occupies 22.4 L, so \\(R = \\dfrac{PV}{nT} = \\dfrac{1 \\times 22.4}{1 \\times 273} = 0.0821\\ \\text{L}\\cdot\\text{atm/(mol}\\cdot\\text{K)}\\). In SI units (P in Pa, V in m³): R = 8.314 J/(mol·K).",
+        "**Check:** fix n and T → PV = constant (Boyle); fix n and P → V/T = constant (Charles); fix n → PV/T = constant (combined gas law)."
+       ]
+      },
+      {
+       "id": "chem11-u5-cm-s01",
+       "type": "steps",
+       "title": "Model: building PV = nRT",
+       "page": 177,
+       "src": "notes",
+       "diagram": "cm_ideal",
+       "steps": [
+        {
+         "text": "**Boyle:** V ∝ 1/P when n and T are fixed.",
+         "show": "b"
+        },
+        {
+         "text": "**Charles:** V ∝ T when n and P are fixed.",
+         "show": "c"
+        },
+        {
+         "text": "**Avogadro:** V ∝ n when P and T are fixed.",
+         "show": "a"
+        },
+        {
+         "text": "Put the three together: **V ∝ nT/P**.",
+         "show": "comb"
+        },
+        {
+         "text": "Replace “∝” by “= R ×”: **PV = nRT**.",
+         "show": "pv"
+        },
+        {
+         "text": "Substitute n = m/M and d = m/V: **PM = dRT**.",
+         "show": "d"
+        }
+       ]
+      },
+      {
+       "id": "chem11-u5-cm-c02",
+       "type": "text",
+       "title": "PM = dRT: density and molar mass of a gas",
+       "page": 179,
+       "src": "notes",
+       "body": [
+        "**Step 1:** moles = mass ÷ molar mass: \\(n = \\dfrac{m}{M}\\).",
+        "**Step 2:** substitute into PV = nRT: \\(PV = \\dfrac{m}{M}RT\\).",
+        "**Step 3:** multiply both sides by M and divide by V: \\(PM = \\dfrac{m}{V}RT\\).",
+        "**Step 4:** m/V is the density d:",
+        "$$PM = dRT \\qquad d = \\frac{PM}{RT} \\qquad M = \\frac{dRT}{P}$$",
+        "**What it tells you:** at the same P and T, a gas with a bigger molar mass is denser (CO₂, M = 44, sinks below air, M ≈ 29; H₂ and He rise). Heating a gas lowers its density (hot-air balloons). Measuring the density of an unknown gas gives its molar mass."
+       ]
+      },
+      {
+       "id": "chem11-u5-cm-w01",
+       "type": "worked",
+       "title": "Worked example: volume from PV = nRT",
+       "page": 178,
+       "src": "notes",
+       "mode": "try",
+       "problem": "What volume do 2.0 mol of oxygen occupy at 27 °C and 2.0 atm?",
+       "steps": [
+        {
+         "text": "T = 27 + 273 = 300 K"
+        },
+        {
+         "text": "\\(V = \\dfrac{nRT}{P} = \\dfrac{2.0 \\times 0.0821 \\times 300}{2.0}\\)"
+        },
+        {
+         "text": "V = 24.6 L"
+        }
+       ],
+       "answer": "24.6 L"
+      },
+      {
+       "id": "chem11-u5-cm-w02",
+       "type": "worked",
+       "title": "Worked example: pressure in SI units",
+       "page": 178,
+       "src": "notes",
+       "mode": "try",
+       "problem": "0.50 mol of nitrogen is held in a 10.0 L container at 300 K. Find the pressure in pascals.",
+       "steps": [
+        {
+         "text": "Use R = 8.314 J/(mol·K), so V must be in m³: 10.0 L = 0.0100 m³."
+        },
+        {
+         "text": "\\(P = \\dfrac{nRT}{V} = \\dfrac{0.50 \\times 8.314 \\times 300}{0.0100}\\)"
+        },
+        {
+         "text": "\\(P = 1.25\\times10^{5}\\text{ Pa}\\) (about 1.23 atm)"
+        }
+       ],
+       "answer": "1.25 × 10⁵ Pa"
+      },
+      {
+       "id": "chem11-u5-cm-w03",
+       "type": "worked",
+       "title": "Worked example: density of CO₂ at STP",
+       "page": 179,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Calculate the density of carbon dioxide (M = 44 g/mol) at STP.",
+       "steps": [
+        {
+         "text": "\\(d = \\dfrac{PM}{RT} = \\dfrac{1 \\times 44}{0.0821 \\times 273}\\)"
+        },
+        {
+         "text": "d = 1.96 g/L"
+        },
+        {
+         "text": "Check: 44 g ÷ 22.4 L = 1.96 g/L ✓"
+        }
+       ],
+       "answer": "1.96 g/L"
+      },
+      {
+       "id": "chem11-u5-cm-w04",
+       "type": "worked",
+       "title": "Worked example: molar mass from density",
+       "page": 179,
+       "src": "notes",
+       "mode": "try",
+       "problem": "An unknown gas has a density of 1.25 g/L at STP. Find its molar mass and suggest what it could be.",
+       "steps": [
+        {
+         "text": "\\(M = \\dfrac{dRT}{P} = \\dfrac{1.25 \\times 0.0821 \\times 273}{1}\\)"
+        },
+        {
+         "text": "M = 28.0 g/mol"
+        },
+        {
+         "text": "Gases with M = 28: N₂ or CO (or C₂H₄)."
+        }
+       ],
+       "answer": "28 g/mol — e.g. N₂ or CO"
+      },
+      {
+       "id": "chem11-u5-cm-k01",
+       "type": "check",
+       "title": "Quick check",
+       "page": 177,
+       "src": "notes",
+       "q": "Which law is combined with Boyle’s and Charles’s laws to give PV = nRT?",
+       "options": {
+        "A": "Dalton’s law",
+        "B": "Avogadro’s law",
+        "C": "Graham’s law",
+        "D": "Gay-Lussac’s law of volumes"
+       },
+       "answer": "B",
+       "why": "Avogadro’s law (V ∝ n) brings in the amount of gas."
+      },
+      {
+       "id": "chem11-u5-cm-k02",
+       "type": "check",
+       "title": "Quick check",
+       "page": 179,
+       "src": "notes",
+       "q": "At the same temperature and pressure, which gas has the greatest density?",
+       "options": {
+        "A": "H₂",
+        "B": "He",
+        "C": "N₂",
+        "D": "CO₂"
+       },
+       "answer": "D",
+       "why": "d = PM/RT: density is proportional to molar mass; CO₂ (44) is largest."
+      },
+      {
        "id": "chem11-u5-c10",
        "type": "worked",
        "title": "Boyle and Charles",
@@ -526,6 +709,193 @@
        ]
       },
       {
+       "id": "chem11-u5-cm-c03",
+       "type": "text",
+       "title": "Real gases and the van der Waals equation, step by step",
+       "page": 186,
+       "src": "notes",
+       "body": [
+        "**Ideal gas assumptions (kinetic theory):** (1) the molecules themselves take up **no volume**; (2) there are **no attractions** between molecules. Real gases obey PV = nRT well only at **low pressure and high temperature**.",
+        "**Step 1 — Why real gases deviate.** At **high pressure** the molecules are crowded, so their own volume is no longer negligible. At **low temperature** they move slowly, so attractions matter.",
+        "**Step 2 — Volume correction.** Each mole of molecules occupies a volume b, so the empty space molecules can move in is the **free volume** V − nb.",
+        "**Step 3 — Pressure correction.** A molecule about to hit the wall is pulled back by its neighbours, so it hits more gently: the measured P is **less** than the ideal pressure. The loss depends on how crowded the gas is, \\((n/V)^2\\), so we add \\(\\dfrac{an^2}{V^2}\\).",
+        "**Step 4 — Put both into PV = nRT** (textbook 5.3.3, Van der Waals’ equation):",
+        "$$\\left(P + \\frac{an^2}{V^2}\\right)(V - nb) = nRT$$",
+        "**Meaning of the constants:** **a** measures the strength of attractions (large for polar or big molecules that are easy to liquefy, e.g. NH₃, H₂O); **b** measures the size of the molecules. The smaller a and b, the more ideal the gas (He and H₂ are closest to ideal)."
+       ]
+      },
+      {
+       "id": "chem11-u5-cm-s02",
+       "type": "states",
+       "title": "Model: from ideal to real",
+       "page": 188,
+       "src": "notes",
+       "diagram": "cm_real",
+       "states": [
+        {
+         "key": "i",
+         "label": "Ideal",
+         "text": "Ideal model: molecules are points with no attractions — PV = nRT."
+        },
+        {
+         "key": "v",
+         "label": "Volume",
+         "text": "Real molecules take up space: the free volume is V − nb. This matters most at high pressure."
+        },
+        {
+         "key": "p",
+         "label": "Pressure",
+         "text": "Neighbours pull a molecule back as it reaches the wall, so the wall feels less pressure: add an²/V². This matters most at low temperature."
+        }
+       ]
+      },
+      {
+       "id": "chem11-u5-cm-t01",
+       "type": "table",
+       "title": "Van der Waals constants of some gases",
+       "page": 188,
+       "src": "notes",
+       "head": [
+        "Gas",
+        "a (L²·atm/mol²)",
+        "b (L/mol)",
+        "Comment"
+       ],
+       "rows": [
+        [
+         "He",
+         "0.034",
+         "0.0237",
+         "nearly ideal: tiny attractions"
+        ],
+        [
+         "H₂",
+         "0.244",
+         "0.0266",
+         "nearly ideal"
+        ],
+        [
+         "N₂",
+         "1.39",
+         "0.0391",
+         "fairly ideal at room conditions"
+        ],
+        [
+         "CO₂",
+         "3.59",
+         "0.0427",
+         "easily liquefied"
+        ],
+        [
+         "NH₃",
+         "4.17",
+         "0.0371",
+         "polar: strong attractions"
+        ],
+        [
+         "H₂O",
+         "5.46",
+         "0.0305",
+         "hydrogen bonding: largest a"
+        ]
+       ]
+      },
+      {
+       "id": "chem11-u5-cm-w05",
+       "type": "worked",
+       "title": "Worked example: ideal vs van der Waals pressure",
+       "page": 188,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Find the pressure of 1.00 mol of CO₂ in a 1.00 L container at 300 K (a) as an ideal gas, (b) with the van der Waals equation (a = 3.59 L²·atm/mol², b = 0.0427 L/mol).",
+       "steps": [
+        {
+         "text": "(a) \\(P = \\dfrac{nRT}{V} = \\dfrac{1.00 \\times 0.0821 \\times 300}{1.00} = 24.6\\text{ atm}\\)"
+        },
+        {
+         "text": "(b) Rearrange: \\(P = \\dfrac{nRT}{V - nb} - \\dfrac{an^2}{V^2}\\)"
+        },
+        {
+         "text": "\\(\\dfrac{24.63}{1.00 - 0.0427} = \\dfrac{24.63}{0.9573} = 25.7\\text{ atm}\\)"
+        },
+        {
+         "text": "\\(\\dfrac{an^2}{V^2} = \\dfrac{3.59 \\times 1^2}{1.00^2} = 3.59\\text{ atm}\\)"
+        },
+        {
+         "text": "P = 25.7 − 3.59 = 22.1 atm"
+        },
+        {
+         "text": "The real pressure is about 10 % lower: the attraction effect is bigger than the volume effect here."
+        }
+       ],
+       "answer": "Ideal 24.6 atm; van der Waals 22.1 atm"
+      },
+      {
+       "id": "chem11-u5-cm-w06",
+       "type": "worked",
+       "title": "Worked example: when is a gas most ideal?",
+       "page": 186,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Under which conditions does a real gas behave most like an ideal gas? Explain using the two van der Waals corrections.",
+       "steps": [
+        {
+         "text": "**Low pressure:** molecules are far apart, so nb is tiny compared with V and an²/V² is tiny compared with P."
+        },
+        {
+         "text": "**High temperature:** molecules move fast, so brief attractions hardly slow them — the pressure correction is unimportant."
+        },
+        {
+         "text": "So: **low pressure and high temperature**, and gases with small a and b (He, H₂)."
+        }
+       ],
+       "answer": "Low pressure, high temperature."
+      },
+      {
+       "id": "chem11-u5-cm-k03",
+       "type": "check",
+       "title": "Quick check",
+       "page": 188,
+       "src": "notes",
+       "q": "In the van der Waals equation, the term nb corrects for …",
+       "options": {
+        "A": "attractions between molecules",
+        "B": "the volume occupied by the molecules",
+        "C": "the temperature",
+        "D": "the speed of molecules"
+       },
+       "answer": "B",
+       "why": "V − nb is the free volume: the space not taken by the molecules themselves."
+      },
+      {
+       "id": "chem11-u5-cm-k04",
+       "type": "check",
+       "title": "Quick check",
+       "page": 188,
+       "src": "notes",
+       "q": "Which gas has the largest van der Waals constant a?",
+       "options": {
+        "A": "He",
+        "B": "H₂",
+        "C": "N₂",
+        "D": "H₂O"
+       },
+       "answer": "D",
+       "why": "a measures attraction; water molecules hydrogen-bond strongly."
+      },
+      {
+       "id": "chem11-u5-cm-r01",
+       "type": "remember",
+       "title": "Tips and common mistakes",
+       "page": 177,
+       "src": "notes",
+       "body": [
+        "Always convert °C to **kelvin**.",
+        "Match R to the units: 0.0821 with L and atm; 8.314 with m³ and Pa (1 L = 10⁻³ m³).",
+        "In van der Waals: **add** to P (attractions lower the measured pressure), **subtract** from V (molecules take up space)."
+       ]
+      },
+      {
        "id": "chem11-u5-c12",
        "type": "table",
        "title": "Kinetic theory",
@@ -690,7 +1060,20 @@
      ]
     }
    ],
-   "glossary": [],
+   "glossary": [
+    {
+     "term": "Ideal gas equation",
+     "meaning": "PV = nRT, obtained by combining Boyle’s, Charles’s and Avogadro’s laws.",
+     "page": 177,
+     "src": "notes"
+    },
+    {
+     "term": "Van der Waals equation",
+     "meaning": "(P + an²/V²)(V − nb) = nRT; corrects the ideal gas equation for molecular volume (b) and attractions (a).",
+     "page": 188,
+     "src": "notes"
+    }
+   ],
    "tips": [
     {
      "text": "Read 5.1 The Gaseous State again and say its main idea in one sentence.",
@@ -1221,6 +1604,154 @@
       "src_qid": "chemistry_2016_q58",
       "exam_question": "chemistry_2016_q58",
       "page": 162
+     },
+     {
+      "id": "chem11-u5-cm-q1",
+      "type": "mcq",
+      "q": "Which combination of laws gives V ∝ nT/P?",
+      "options": {
+       "A": "Boyle, Charles and Avogadro",
+       "B": "Boyle and Dalton only",
+       "C": "Charles and Graham",
+       "D": "Avogadro and Dalton"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: Boyle V ∝ 1/P.",
+       "Step 2: Charles V ∝ T.",
+       "Step 3: Avogadro V ∝ n.",
+       "Step 4: together V ∝ nT/P → PV = nRT."
+      ],
+      "tip": "One law for each variable.",
+      "similar": [
+       {
+        "q": "Which law gives V ∝ n?",
+        "a": "Avogadro’s law."
+       },
+       {
+        "q": "What is R in L·atm/(mol·K)?",
+        "a": "0.0821."
+       }
+      ],
+      "page": 177,
+      "src": "notes",
+      "label": "5.2–5.3 Ideal and real gases"
+     },
+     {
+      "id": "chem11-u5-cm-q2",
+      "type": "short",
+      "q": "How many moles of gas are in a 5.0 L flask at 2.0 atm and 27 °C?",
+      "answer": "0.41 mol",
+      "accept": [
+       "0.41",
+       "0.406 mol",
+       "0.406"
+      ],
+      "why": [
+       "Step 1: T = 300 K.",
+       "Step 2: n = PV/RT = (2.0 × 5.0)/(0.0821 × 300).",
+       "Step 3: n = 10/24.63 = 0.41 mol."
+      ],
+      "tip": "Rearrange PV = nRT for the unknown first.",
+      "similar": [
+       {
+        "q": "What mass of O₂ is that?",
+        "a": "0.41 × 32 = 13 g."
+       },
+       {
+        "q": "What volume does 0.41 mol occupy at STP?",
+        "a": "9.2 L."
+       }
+      ],
+      "page": 178,
+      "src": "notes",
+      "label": "5.2–5.3 Ideal and real gases"
+     },
+     {
+      "id": "chem11-u5-cm-q3",
+      "type": "short",
+      "q": "A gas has density 2.86 g/L at STP. Find its molar mass.",
+      "answer": "64 g/mol (e.g. SO₂)",
+      "accept": [
+       "64",
+       "64.1 g/mol",
+       "64 g mol⁻¹"
+      ],
+      "why": [
+       "Step 1: M = dRT/P.",
+       "Step 2: = 2.86 × 0.0821 × 273 / 1.",
+       "Step 3: = 64.1 g/mol — SO₂."
+      ],
+      "tip": "PM = dRT.",
+      "similar": [
+       {
+        "q": "What is the density of O₂ at STP?",
+        "a": "32/22.4 = 1.43 g/L."
+       },
+       {
+        "q": "Is SO₂ denser than air?",
+        "a": "Yes (64 > 29)."
+       }
+      ],
+      "page": 179,
+      "src": "notes",
+      "label": "5.2–5.3 Ideal and real gases"
+     },
+     {
+      "id": "chem11-u5-cm-q4",
+      "type": "mcq",
+      "q": "Real gases deviate most from ideal behaviour at …",
+      "options": {
+       "A": "high temperature and low pressure",
+       "B": "low temperature and high pressure",
+       "C": "room conditions",
+       "D": "high temperature only"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: high pressure → molecules crowded → their volume matters.",
+       "Step 2: low temperature → slow molecules → attractions matter.",
+       "Step 3: both effects are largest at low T and high P."
+      ],
+      "tip": "Ideal at “high T, low P”; real at “low T, high P”.",
+      "similar": [
+       {
+        "q": "Which is more ideal, He or NH₃?",
+        "a": "He (smaller a and b)."
+       },
+       {
+        "q": "Why do gases liquefy at low T and high P?",
+        "a": "Attractions win when molecules are slow and close."
+       }
+      ],
+      "page": 186,
+      "src": "notes",
+      "label": "5.2–5.3 Ideal and real gases"
+     },
+     {
+      "id": "chem11-u5-cm-q5",
+      "type": "tf",
+      "q": "In the van der Waals equation, the term an²/V² is added to P because attractions make the measured pressure lower than the ideal pressure.",
+      "answer": true,
+      "why": [
+       "Step 1: neighbours pull a molecule back as it reaches the wall.",
+       "Step 2: it hits the wall more gently → lower measured P.",
+       "Step 3: adding an²/V² restores the ideal pressure."
+      ],
+      "tip": "Add to P, subtract from V.",
+      "similar": [
+       {
+        "q": "What does b represent?",
+        "a": "The volume occupied per mole of molecules."
+       },
+       {
+        "q": "What is the free volume?",
+        "a": "V − nb."
+       }
+      ],
+      "page": 188,
+      "src": "notes",
+      "label": "5.2–5.3 Ideal and real gases"
      }
     ]
    },
@@ -1295,6 +1826,20 @@
      }
     ],
     "src": "auto"
+   },
+   "diagrams": {
+    "cm_ideal": {
+     "svg": "svg/chemistry_11/chem11_u5_cm_ideal.svg",
+     "title": "Deriving PV = nRT",
+     "page": 177,
+     "pins": []
+    },
+    "cm_real": {
+     "svg": "svg/chemistry_11/chem11_u5_cm_real.svg",
+     "title": "Real gases: van der Waals corrections",
+     "page": 188,
+     "pins": []
+    }
    }
   }
  ]

@@ -142,10 +142,46 @@
      "page": 8,
      "pins": []
     },
-    "f2": {
-     "svg": "svg/chemistry_9/chem9_f2.svg",
-     "title": "Diagram",
-     "page": 20,
+    "cm_sed": {
+     "svg": "svg/chemistry_9/chem9_u1_cm_sed.svg",
+     "title": "Sedimentation and decantation",
+     "page": 28,
+     "pins": []
+    },
+    "cm_filt": {
+     "svg": "svg/chemistry_9/chem9_u1_cm_filt.svg",
+     "title": "Filtration",
+     "page": 29,
+     "pins": []
+    },
+    "cm_mag": {
+     "svg": "svg/chemistry_9/chem9_u1_cm_mag.svg",
+     "title": "Magnetic separation",
+     "page": 31,
+     "pins": []
+    },
+    "cm_evap": {
+     "svg": "svg/chemistry_9/chem9_u1_cm_evap.svg",
+     "title": "Evaporation",
+     "page": 30,
+     "pins": []
+    },
+    "cm_funnel": {
+     "svg": "svg/chemistry_9/chem9_u1_cm_funnel.svg",
+     "title": "Separating funnel",
+     "page": 33,
+     "pins": []
+    },
+    "cm_dist": {
+     "svg": "svg/chemistry_9/chem9_u1_cm_dist.svg",
+     "title": "Simple distillation",
+     "page": 32,
+     "pins": []
+    },
+    "cm_frac": {
+     "svg": "svg/chemistry_9/chem9_u1_cm_frac.svg",
+     "title": "Fractional distillation",
+     "page": 33,
      "pins": []
     }
    },
@@ -969,26 +1005,6 @@
        ]
       },
       {
-       "id": "chem9-u1-c14",
-       "type": "text",
-       "title": "Offline particle movie",
-       "page": 40,
-       "src": "notes",
-       "body": [
-        "Tap Heat. Particles in the box speed up (solid → liquid → gas idea).",
-        "State: packed / slow (solid-ish)"
-       ]
-      },
-      {
-       "id": "chem9-u1-c15",
-       "type": "diagram",
-       "title": "Diagram",
-       "page": 20,
-       "src": "notes",
-       "diagram": "f2",
-       "mode": "plain"
-      },
-      {
        "id": "chem9-u1-c16",
        "type": "text",
        "title": "Matter and states",
@@ -1213,6 +1229,634 @@
         "Chromatography: separates dissolved substances that travel at different speeds on paper or another medium with a moving solvent. Example: separating ink dyes. Useful for small amounts and coloured mixtures.",
         "Other common methods: sieving (different particle sizes), separating funnel (immiscible liquids like oil and water), and centrifugation (speeds settling of fine suspensions)."
        ]
+      },
+      {
+       "id": "chem9-u1-cm-c01",
+       "type": "text",
+       "title": "1.4.3 Separating mixtures: the big idea",
+       "page": 27,
+       "src": "notes",
+       "body": [
+        "A **mixture** is two or more substances mixed **physically**. Each part keeps its own properties, so we can separate the parts by **physical** methods (no chemical reaction is needed).",
+        "**Step 1 — Name the parts.** Write down what is in the mixture, e.g. *sand + salt + water*.",
+        "**Step 2 — Find a property that is different.** Compare the parts: particle size, whether they dissolve, density, magnetism, boiling point.",
+        "**Step 3 — Pick the method that uses that difference** (table below). For three or more parts you usually need two or three methods, one after the other.",
+        "**Step 4 — Check the product is pure.** A pure substance has a sharp, fixed melting point and boiling point (pure water boils at 100 °C at sea level)."
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-t01",
+       "type": "table",
+       "title": "Which difference → which method",
+       "page": 27,
+       "src": "notes",
+       "head": [
+        "Method",
+        "What it separates",
+        "Property used",
+        "Example"
+       ],
+       "rows": [
+        [
+         "Sedimentation + decantation",
+         "heavy insoluble solid from a liquid",
+         "density (solid sinks)",
+         "muddy river water, washing rice"
+        ],
+        [
+         "Filtration",
+         "insoluble solid from a liquid",
+         "particle size (solid stays on the paper)",
+         "sand from water, tea leaves from tea"
+        ],
+        [
+         "Evaporation",
+         "dissolved solid from its solution (solid wanted)",
+         "the liquid is volatile, the solid is not",
+         "salt from sea water at Massawa"
+        ],
+        [
+         "Magnetic separation",
+         "magnetic solid from non-magnetic solid",
+         "magnetism (Fe, Ni, Co)",
+         "iron filings from sulfur or sand"
+        ],
+        [
+         "Separating funnel",
+         "two immiscible liquids",
+         "density (liquids form layers)",
+         "oil from water, kerosene from water"
+        ],
+        [
+         "Simple distillation",
+         "liquid from a dissolved solid (liquid wanted)",
+         "big difference in boiling point",
+         "pure water from salt water or ink"
+        ],
+        [
+         "Fractional distillation",
+         "miscible liquids with close boiling points",
+         "small difference in boiling point",
+         "ethanol from water, crude oil fractions"
+        ]
+       ],
+       "body": [
+        "Read the table row by row: the **property used** column is the one that exams ask about."
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-m01",
+       "type": "mnemonic",
+       "title": "Memory trick: the five differences",
+       "page": 27,
+       "src": "notes",
+       "body": [
+        "Ask **“Some Students Do Most Brilliantly?”** — the five properties to compare."
+       ],
+       "letters": [
+        {
+         "l": "S",
+         "w": "Size",
+         "m": "insoluble lumps → filtration / sedimentation"
+        },
+        {
+         "l": "S",
+         "w": "Solubility",
+         "m": "dissolved solid → evaporation (or distil to keep the liquid)"
+        },
+        {
+         "l": "D",
+         "w": "Density",
+         "m": "layers → separating funnel, decanting"
+        },
+        {
+         "l": "M",
+         "w": "Magnetism",
+         "m": "iron, nickel, cobalt → magnet"
+        },
+        {
+         "l": "B",
+         "w": "Boiling point",
+         "m": "liquids → simple or fractional distillation"
+        }
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-s01",
+       "type": "states",
+       "title": "Model: sedimentation and decantation",
+       "page": 28,
+       "src": "notes",
+       "diagram": "cm_sed",
+       "states": [
+        {
+         "key": "s0",
+         "label": "Stir",
+         "text": "Muddy water: soil particles are spread all through the water."
+        },
+        {
+         "key": "s1",
+         "label": "Settle",
+         "text": "Leave it still. Gravity pulls the heavier particles down — they **settle**."
+        },
+        {
+         "key": "s2",
+         "label": "Sediment",
+         "text": "The solid layer at the bottom is the **sediment**; the clearer water above is the **supernatant**."
+        },
+        {
+         "key": "s3",
+         "label": "Decant",
+         "text": "Tilt the beaker gently and pour off the clear liquid without disturbing the sediment — **decantation**."
+        }
+       ],
+       "body": [
+        "Move the slider to watch the mixture settle, then decant."
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-c02",
+       "type": "text",
+       "title": "Sedimentation and decantation, step by step",
+       "page": 28,
+       "src": "notes",
+       "body": [
+        "**Sedimentation:** an insoluble solid that is denser than the liquid sinks to the bottom when the mixture is left to stand.",
+        "**Decantation:** pouring off the clear liquid on top, leaving the sediment behind.",
+        "1. Pour the mixture into a beaker and leave it **undisturbed** (minutes for sand, hours for fine clay).",
+        "2. When a clear layer forms, hold a glass rod against the lip of the beaker and pour the liquid **slowly** down the rod.",
+        "3. Stop before the sediment starts to move.",
+        "**Limitations:** very fine particles stay suspended, and a little liquid always stays with the sediment. Decanted river water is clearer but **not safe to drink** — it still contains dissolved substances and germs, so it must be filtered and boiled or chlorinated.",
+        "**Everyday uses:** washing rice or lentils (dirt settles, water is poured off), letting tella or coffee grounds settle before pouring, the first settling tanks at a water-treatment plant."
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-k01",
+       "type": "check",
+       "title": "Quick check",
+       "page": 28,
+       "src": "notes",
+       "q": "After muddy water has been left to stand, the solid layer at the bottom is called the …",
+       "options": {
+        "A": "filtrate",
+        "B": "sediment",
+        "C": "distillate",
+        "D": "residue of evaporation"
+       },
+       "answer": "B",
+       "why": "Solid that settles at the bottom = **sediment**; the clear liquid poured off is decanted. Filtrate and distillate are liquids from filtration and distillation."
+      },
+      {
+       "id": "chem9-u1-cm-s02",
+       "type": "steps",
+       "title": "Model: filtration",
+       "page": 29,
+       "src": "notes",
+       "diagram": "cm_filt",
+       "steps": [
+        {
+         "text": "Pour the mixture slowly down a glass rod into the funnel.",
+         "show": "m"
+        },
+        {
+         "text": "The folded **filter paper** has tiny holes: water and dissolved substances pass through, larger solid particles do not.",
+         "show": "p"
+        },
+        {
+         "text": "The solid left on the paper is the **residue**.",
+         "show": "r"
+        },
+        {
+         "text": "The clear liquid collected below is the **filtrate**.",
+         "show": "f"
+        }
+       ],
+       "body": [
+        "Tap through the steps; each one highlights a part of the apparatus."
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-c03",
+       "type": "text",
+       "title": "Filtration, step by step",
+       "page": 29,
+       "src": "notes",
+       "body": [
+        "**Filtration** separates an **insoluble** solid from a liquid using a barrier with tiny holes (filter paper, cloth, sand bed).",
+        "1. Fold a circle of filter paper in half, then in half again; open it into a cone (three layers on one side, one on the other).",
+        "2. Put it in a funnel and **wet it** with a little water so it sticks to the glass.",
+        "3. Pour the mixture down a glass rod. Keep the level **below the top edge of the paper**, otherwise the mixture runs down the side unfiltered.",
+        "4. Collect the **filtrate** in a beaker or flask; the **residue** stays on the paper. Wash the residue with a little clean water if you want it pure.",
+        "**Remember:** a dissolved solid (salt, sugar) **passes through** the paper. Filtration cannot separate salt from water — that needs evaporation or distillation.",
+        "**Everyday uses:** making tea or coffee (strainer), cloth filters for drinking water, sand-and-gravel filters at water-treatment works, air filters in cars."
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-k02",
+       "type": "check",
+       "title": "Quick check",
+       "page": 29,
+       "src": "notes",
+       "q": "Salt water is poured through filter paper. What comes through?",
+       "options": {
+        "A": "Pure water only",
+        "B": "Salt only",
+        "C": "Salt water — the salt is dissolved",
+        "D": "Nothing"
+       },
+       "answer": "C",
+       "why": "Dissolved particles are far smaller than the holes in filter paper, so the **filtrate is still salt water**. Use evaporation to get the salt or distillation to get the water."
+      },
+      {
+       "id": "chem9-u1-cm-s03",
+       "type": "states",
+       "title": "Model: evaporation",
+       "page": 30,
+       "src": "notes",
+       "diagram": "cm_evap",
+       "states": [
+        {
+         "key": "s0",
+         "label": "Start",
+         "text": "A salt solution in an evaporating dish, heated gently (or left in the sun)."
+        },
+        {
+         "key": "s1",
+         "label": "Heating",
+         "text": "Water molecules escape as vapour; the solution becomes more concentrated."
+        },
+        {
+         "key": "s2",
+         "label": "Dry",
+         "text": "All the water has gone; salt crystals are left in the dish."
+        }
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-c04",
+       "type": "text",
+       "title": "Evaporation, step by step",
+       "page": 30,
+       "src": "notes",
+       "body": [
+        "**Evaporation** recovers a **dissolved solid** from its solution by turning the liquid into vapour. The solid is kept; the liquid is lost to the air.",
+        "1. Filter the solution first if it contains any insoluble dirt.",
+        "2. Pour the clear solution into an evaporating dish and heat it gently over a water bath or a small flame (or use the sun).",
+        "3. Stir and lower the heat near the end so the crystals do not spit out.",
+        "4. Stop when crystals form; let the last liquid evaporate by itself.",
+        "**Crystallisation (better for some salts):** heat only until the solution is **saturated**, then let it cool — larger, purer crystals form. Use this for salts such as copper(II) sulfate that would decompose if heated to dryness.",
+        "**In Eritrea:** salt is produced at the salt pans of **Massawa and Assab** — sea water is let into shallow ponds and the sun evaporates the water."
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-s04",
+       "type": "states",
+       "title": "Model: magnetic separation",
+       "page": 31,
+       "src": "notes",
+       "diagram": "cm_mag",
+       "states": [
+        {
+         "key": "s0",
+         "label": "Mixture",
+         "text": "Iron filings (grey) mixed with sulfur powder (yellow)."
+        },
+        {
+         "key": "s1",
+         "label": "Magnet",
+         "text": "Bring a magnet close; only the iron particles are attracted."
+        },
+        {
+         "key": "s2",
+         "label": "Separated",
+         "text": "The iron sticks to the magnet; the sulfur is left behind."
+        }
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-c05",
+       "type": "text",
+       "title": "Magnetic separation, step by step",
+       "page": 31,
+       "src": "notes",
+       "body": [
+        "A magnet attracts only **magnetic** materials: **iron, nickel, cobalt** and most steels.",
+        "1. Spread the dry mixture thinly on paper.",
+        "2. Wrap the magnet in paper or a plastic bag (the filings are easy to remove later) and pass it over the mixture several times.",
+        "3. Lift the magnet, take off the wrapping over another sheet — the iron drops off.",
+        "**Mixture or compound test:** iron + sulfur **mixed** → the magnet pulls out the iron. Iron + sulfur **heated** → **iron(II) sulfide, FeS**, a new compound — the magnet no longer pulls out iron. This is a classic exam contrast.",
+        "**Uses:** removing iron scraps from grain at flour mills, sorting scrap metal, separating iron ore from sand."
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-k03",
+       "type": "check",
+       "title": "Quick check",
+       "page": 31,
+       "src": "notes",
+       "q": "A magnet will separate iron from which of these?",
+       "options": {
+        "A": "A mixture of iron filings and sand",
+        "B": "Iron(II) sulfide, FeS",
+        "C": "Rust (iron oxide) powder",
+        "D": "A solution of iron(II) sulfate"
+       },
+       "answer": "A",
+       "why": "Only **free iron** in a **mixture** is pulled out. In FeS, rust and iron sulfate the iron is chemically combined — a compound has its own (non-magnetic) properties."
+      },
+      {
+       "id": "chem9-u1-cm-s05",
+       "type": "states",
+       "title": "Model: separating funnel",
+       "page": 33,
+       "src": "notes",
+       "diagram": "cm_funnel",
+       "states": [
+        {
+         "key": "s0",
+         "label": "Shake",
+         "text": "Oil and water are shaken together in the funnel."
+        },
+        {
+         "key": "s1",
+         "label": "Layers",
+         "text": "Left to stand, the liquids form **two layers**: the less dense oil floats on the denser water."
+        },
+        {
+         "key": "s2",
+         "label": "Drain",
+         "text": "Remove the stopper, open the tap: the lower (water) layer runs out into the beaker."
+        },
+        {
+         "key": "s3",
+         "label": "Done",
+         "text": "Close the tap just as the boundary reaches it. The oil stays in the funnel; pour it out from the top."
+        }
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-c06",
+       "type": "text",
+       "title": "Separating funnel, step by step",
+       "page": 33,
+       "src": "notes",
+       "body": [
+        "Liquids that do **not mix** (form layers) are **immiscible**; a separating funnel separates them using their **different densities**.",
+        "1. Pour the mixture in with the tap **closed**. Let it stand until two clear layers form.",
+        "2. **Remove the stopper** (otherwise air cannot get in and the liquid will not flow).",
+        "3. Open the tap and run off the **lower, denser** liquid.",
+        "4. Close the tap exactly when the boundary reaches it. Run off a few drops of the mixed boundary into a separate beaker if you want each liquid very pure.",
+        "5. Pour the upper liquid out through the **top** so it does not pick up drops of the lower liquid left in the tap.",
+        "**Examples:** oil and water, kerosene and water, petrol and water. **Not possible:** ethanol and water — they are **miscible** (one layer), so use fractional distillation."
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-s06",
+       "type": "steps",
+       "title": "Model: simple distillation",
+       "page": 32,
+       "src": "notes",
+       "diagram": "cm_dist",
+       "steps": [
+        {
+         "text": "**Heat** the solution in the flask (add a few anti-bumping chips). The liquid boils; the solid stays.",
+         "show": "h"
+        },
+        {
+         "text": "The **thermometer** bulb sits at the side arm: it reads the boiling point of the vapour leaving (100 °C for water).",
+         "show": "t"
+        },
+        {
+         "text": "In the **condenser** cold water flows in at the bottom and out at the top; the vapour cools and condenses.",
+         "show": "c"
+        },
+        {
+         "text": "The pure liquid collected is the **distillate**.",
+         "show": "d"
+        },
+        {
+         "text": "The dissolved solid is left in the flask as the **residue**.",
+         "show": "r"
+        }
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-c07",
+       "type": "text",
+       "title": "Simple distillation, step by step",
+       "page": 32,
+       "src": "notes",
+       "body": [
+        "**Distillation = evaporation + condensation.** It separates a liquid from a dissolved solid (or from a liquid with a **very different** boiling point) and — unlike evaporation — **keeps the liquid**.",
+        "1. Half-fill the flask with the solution; add anti-bumping chips for smooth boiling.",
+        "2. Put the thermometer bulb **level with the side arm** — it must measure the vapour that goes into the condenser, not the liquid.",
+        "3. Connect the condenser so cold water enters at the **bottom** and leaves at the **top** (the jacket stays full and the cooling is best).",
+        "4. Heat until the liquid boils steadily. The temperature stays at the boiling point of the pure liquid while it distils.",
+        "5. Collect the **distillate**; never boil the flask dry.",
+        "**Uses:** distilled water for batteries and laboratories, drinking water from sea water (desalination), removing the solvent from a solution."
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-k04",
+       "type": "check",
+       "title": "Quick check",
+       "page": 32,
+       "src": "notes",
+       "q": "Why does cold water enter the condenser at the bottom?",
+       "options": {
+        "A": "So the water flows faster",
+        "B": "So the jacket stays completely full of cold water and cools best",
+        "C": "So the distillate is heated",
+        "D": "It makes no difference"
+       },
+       "answer": "B",
+       "why": "Entering at the bottom pushes out all the air, so the whole jacket is full of cold water and the vapour meets the coldest water last — the most efficient cooling."
+      },
+      {
+       "id": "chem9-u1-cm-s07",
+       "type": "states",
+       "title": "Model: fractional distillation",
+       "page": 33,
+       "src": "notes",
+       "diagram": "cm_frac",
+       "states": [
+        {
+         "key": "k1",
+         "label": "Ethanol first",
+         "text": "At about 78 °C the vapour reaching the top of the column is mostly **ethanol**: it condenses and is collected first."
+        },
+        {
+         "key": "k2",
+         "label": "Then water",
+         "text": "When the ethanol has gone, the thermometer rises to 100 °C and **water** distils over. Change the receiver."
+        }
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-c08",
+       "type": "text",
+       "title": "Fractional distillation, step by step (extension)",
+       "page": 33,
+       "src": "notes",
+       "body": [
+        "**Fractional distillation** separates **miscible liquids** whose boiling points are **close** (less than about 25 °C apart). The textbook mentions it only briefly; it is explained here because exams use it for ethanol–water and crude oil.",
+        "1. Fit a **fractionating column** (packed with glass beads) between the flask and the condenser.",
+        "2. As the mixture boils, the vapour condenses and re-boils many times on the beads. Each time, the vapour becomes **richer in the liquid with the lower boiling point**.",
+        "3. The top of the column is the coolest part, so only the most volatile liquid gets through. Ethanol (b.p. 78 °C) distils first while the thermometer reads about 78 °C.",
+        "4. When the temperature starts to rise, change the receiver; water (b.p. 100 °C) distils next.",
+        "**Uses:** refining **crude oil** into fractions (petrol, kerosene, diesel …), separating **liquid air** into nitrogen and oxygen, concentrating alcohol (the same idea as distilling local *areki*)."
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-t02",
+       "type": "table",
+       "title": "Simple vs fractional distillation",
+       "page": 33,
+       "src": "notes",
+       "head": [
+        "",
+        "Simple distillation",
+        "Fractional distillation"
+       ],
+       "rows": [
+        [
+         "Separates",
+         "liquid from dissolved solid, or liquids with very different b.p.",
+         "miscible liquids with close b.p."
+        ],
+        [
+         "Extra apparatus",
+         "none",
+         "fractionating column"
+        ],
+        [
+         "Thermometer",
+         "constant at the liquid’s b.p.",
+         "stays at the lower b.p., then rises to the next"
+        ],
+        [
+         "Example",
+         "water from salt water",
+         "ethanol from water; crude oil"
+        ]
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-w01",
+       "type": "worked",
+       "title": "Worked example: sand, salt and iron filings",
+       "page": 31,
+       "src": "notes",
+       "mode": "try",
+       "problem": "A mixture contains sand, common salt and iron filings. Describe how to obtain each one pure and dry.",
+       "steps": [
+        {
+         "text": "Look for differences: iron is **magnetic**; salt **dissolves** in water; sand is **insoluble**."
+        },
+        {
+         "text": "**Magnet first** (while the mixture is dry): pass a wrapped magnet over it — iron filings removed."
+        },
+        {
+         "text": "Add water to the sand + salt and stir: the salt dissolves."
+        },
+        {
+         "text": "**Filter**: sand is the residue; wash it with a little water and dry it."
+        },
+        {
+         "text": "**Evaporate** the filtrate (salt solution): salt crystals are left."
+        }
+       ],
+       "answer": "Magnet → dissolve in water → filter (sand) → evaporate the filtrate (salt). Iron, sand and salt are all recovered."
+      },
+      {
+       "id": "chem9-u1-cm-w02",
+       "type": "worked",
+       "title": "Worked example: drinking water and salt from muddy sea water",
+       "page": 32,
+       "src": "notes",
+       "mode": "try",
+       "problem": "You have muddy sea water. How do you get (a) pure water and (b) salt from it?",
+       "steps": [
+        {
+         "text": "The mud is insoluble; the salt is dissolved; water is the liquid we want to keep."
+        },
+        {
+         "text": "Let the mud **settle** and **decant**, then **filter** to remove the last fine particles."
+        },
+        {
+         "text": "(a) **Distil** the clear salt water: the distillate is pure water (thermometer steady at 100 °C)."
+        },
+        {
+         "text": "(b) The salt is the residue in the flask — or evaporate a second sample to dryness."
+        }
+       ],
+       "answer": "Sedimentation/decantation → filtration → simple distillation (water = distillate, salt = residue)."
+      },
+      {
+       "id": "chem9-u1-cm-w03",
+       "type": "worked",
+       "title": "Worked example: choosing between funnel and distillation",
+       "page": 33,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Which method separates (a) kerosene from water, (b) ethanol (b.p. 78 °C) from water, (c) water from ink?",
+       "steps": [
+        {
+         "text": "(a) Kerosene and water do not mix — two layers → **separating funnel** (water, the denser liquid, runs out first)."
+        },
+        {
+         "text": "(b) Ethanol and water mix completely and their boiling points are only 22 °C apart → **fractional distillation**; ethanol distils first."
+        },
+        {
+         "text": "(c) Ink is a dissolved dye in water; we want the water → **simple distillation**. (Chromatography would be used to separate the dyes.)"
+        }
+       ],
+       "answer": "(a) separating funnel; (b) fractional distillation; (c) simple distillation."
+      },
+      {
+       "id": "chem9-u1-cm-r01",
+       "type": "remember",
+       "title": "Tips and common mistakes",
+       "page": 33,
+       "src": "notes",
+       "body": [
+        "**Residue** = solid left on the filter paper (or in the distillation flask); **filtrate** = liquid through the filter; **distillate** = liquid collected after condensing.",
+        "Evaporation keeps the **solid**; distillation keeps the **liquid** (and the solid too).",
+        "Thermometer at the **side arm**; condenser water **in at the bottom**; funnel stopper **out** before opening the tap.",
+        "A magnet separates iron from a **mixture**, never from a **compound** such as FeS."
+       ]
+      },
+      {
+       "id": "chem9-u1-cm-k05",
+       "type": "check",
+       "title": "Quick check",
+       "page": 33,
+       "src": "notes",
+       "q": "Petrol and water are poured into a separating funnel. Petrol is less dense than water. Which statement is correct?",
+       "options": {
+        "A": "Petrol forms the bottom layer",
+        "B": "Water runs out of the tap first",
+        "C": "They form one layer",
+        "D": "Distillation is needed"
+       },
+       "answer": "B",
+       "why": "The **denser** liquid (water) is at the bottom, next to the tap, so it runs out first; petrol floats on top."
+      },
+      {
+       "id": "chem9-u1-cm-k06",
+       "type": "check",
+       "title": "Quick check",
+       "page": 33,
+       "src": "notes",
+       "q": "Which method is used to separate the components of crude oil?",
+       "options": {
+        "A": "Filtration",
+        "B": "Separating funnel",
+        "C": "Fractional distillation",
+        "D": "Magnetic separation"
+       },
+       "answer": "C",
+       "why": "Crude oil is a mixture of many **miscible** liquids with different but close boiling points → **fractional distillation**."
       }
      ]
     }
@@ -1293,6 +1937,54 @@
      "page": 36,
      "src": "textbook p.36",
      "enriched": true
+    },
+    {
+     "term": "Sediment",
+     "meaning": "The insoluble solid that settles at the bottom of a liquid.",
+     "page": 28,
+     "src": "notes"
+    },
+    {
+     "term": "Decantation",
+     "meaning": "Pouring off the clear liquid above a sediment.",
+     "page": 28,
+     "src": "notes"
+    },
+    {
+     "term": "Filtrate",
+     "meaning": "The liquid that passes through a filter.",
+     "page": 29,
+     "src": "notes"
+    },
+    {
+     "term": "Residue",
+     "meaning": "The solid left on the filter paper (or left behind after evaporation or distillation).",
+     "page": 29,
+     "src": "notes"
+    },
+    {
+     "term": "Distillate",
+     "meaning": "The pure liquid collected after its vapour has condensed.",
+     "page": 32,
+     "src": "notes"
+    },
+    {
+     "term": "Immiscible liquids",
+     "meaning": "Liquids that do not mix and form separate layers, e.g. oil and water.",
+     "page": 33,
+     "src": "notes"
+    },
+    {
+     "term": "Miscible liquids",
+     "meaning": "Liquids that mix completely to form one layer, e.g. ethanol and water.",
+     "page": 33,
+     "src": "notes"
+    },
+    {
+     "term": "Fractional distillation",
+     "meaning": "Distillation through a fractionating column to separate miscible liquids with close boiling points.",
+     "page": 33,
+     "src": "notes"
     }
    ],
    "tips": [
@@ -1618,6 +2310,43 @@
      "src": "glossary",
      "id": "chem9-u1-g6",
      "lesson": null
+    },
+    {
+     "id": "chem9-u1-cm-g1",
+     "type": "match",
+     "title": "Match the mixture to its separation method",
+     "lesson": "chem9-u1-l1-4",
+     "pairs": [
+      {
+       "a": "Muddy water (quick first step)",
+       "b": "Sedimentation and decantation"
+      },
+      {
+       "a": "Sand and water",
+       "b": "Filtration"
+      },
+      {
+       "a": "Salt from salt water",
+       "b": "Evaporation"
+      },
+      {
+       "a": "Iron filings and sulfur",
+       "b": "Magnetic separation"
+      },
+      {
+       "a": "Oil and water",
+       "b": "Separating funnel"
+      },
+      {
+       "a": "Pure water from ink",
+       "b": "Simple distillation"
+      },
+      {
+       "a": "Ethanol and water",
+       "b": "Fractional distillation"
+      }
+     ],
+     "src": "notes"
     }
    ],
    "exercise": {
@@ -2802,6 +3531,265 @@
        }
       ],
       "id": "chem9-u1-q51"
+     },
+     {
+      "id": "chem9-u1-cm-q1",
+      "type": "mcq",
+      "q": "Which method separates chalk powder from water?",
+      "options": {
+       "A": "Evaporation",
+       "B": "Filtration",
+       "C": "Magnetic separation",
+       "D": "Separating funnel"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: chalk is **insoluble** in water — a suspension.",
+       "Step 2: an insoluble solid is held back by filter paper.",
+       "Step 3: chalk = residue, water = filtrate."
+      ],
+      "tip": "Insoluble solid + liquid → filtration (or sedimentation and decantation).",
+      "similar": [
+       {
+        "q": "Which method separates sand from water?",
+        "a": "Filtration (or decantation)."
+       },
+       {
+        "q": "What is the solid left on the filter paper called?",
+        "a": "The residue."
+       }
+      ],
+      "page": 29,
+      "src": "notes",
+      "label": "1.4.3 Separating mixtures"
+     },
+     {
+      "id": "chem9-u1-cm-q2",
+      "type": "mcq",
+      "q": "Salt is obtained from sea water at Massawa by …",
+      "options": {
+       "A": "filtration",
+       "B": "evaporation",
+       "C": "decantation",
+       "D": "fractional distillation"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: salt is **dissolved** in sea water, so filtering or decanting cannot remove it.",
+       "Step 2: the sun heats shallow ponds; water evaporates.",
+       "Step 3: the non-volatile salt is left behind."
+      ],
+      "tip": "Dissolved solid wanted → evaporation; liquid wanted → distillation.",
+      "similar": [
+       {
+        "q": "How would you get pure water from sea water?",
+        "a": "Simple distillation."
+       },
+       {
+        "q": "How can you get large crystals of copper(II) sulfate from its solution?",
+        "a": "Crystallisation: heat to saturation, then cool slowly."
+       }
+      ],
+      "page": 30,
+      "src": "notes",
+      "label": "1.4.3 Separating mixtures"
+     },
+     {
+      "id": "chem9-u1-cm-q3",
+      "type": "mcq",
+      "q": "Two liquids form two separate layers when mixed. They are best separated with a …",
+      "options": {
+       "A": "fractionating column",
+       "B": "separating funnel",
+       "C": "filter paper",
+       "D": "magnet"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: two layers means the liquids are **immiscible**.",
+       "Step 2: they differ in density, so the denser one can be run off through the tap."
+      ],
+      "tip": "Layers → separating funnel. One layer → distillation.",
+      "similar": [
+       {
+        "q": "Can ethanol and water be separated with a separating funnel?",
+        "a": "No — they are miscible; use fractional distillation."
+       },
+       {
+        "q": "In an oil/water mixture, which liquid leaves the tap first?",
+        "a": "Water (the denser, lower layer)."
+       }
+      ],
+      "page": 33,
+      "src": "notes",
+      "label": "1.4.3 Separating mixtures"
+     },
+     {
+      "id": "chem9-u1-cm-q4",
+      "type": "mcq",
+      "q": "In simple distillation the thermometer bulb should be placed …",
+      "options": {
+       "A": "in the boiling liquid",
+       "B": "at the side arm leading to the condenser",
+       "C": "in the receiving flask",
+       "D": "in the condenser water"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: we want the temperature of the vapour that is actually distilling.",
+       "Step 2: that vapour passes the side arm into the condenser.",
+       "Step 3: a steady reading there shows a pure liquid is coming over."
+      ],
+      "tip": "Thermometer at the side arm; water in at the bottom of the condenser.",
+      "similar": [
+       {
+        "q": "Why are anti-bumping chips added?",
+        "a": "For smooth, even boiling."
+       },
+       {
+        "q": "What is the liquid collected in distillation called?",
+        "a": "The distillate."
+       }
+      ],
+      "page": 32,
+      "src": "notes",
+      "label": "1.4.3 Separating mixtures"
+     },
+     {
+      "id": "chem9-u1-cm-q5",
+      "type": "tf",
+      "q": "A magnet can separate iron from iron(II) sulfide formed by heating iron with sulfur.",
+      "answer": false,
+      "why": [
+       "Step 1: heating iron with sulfur makes a **compound**, FeS.",
+       "Step 2: a compound has new properties; FeS is not attracted by a magnet.",
+       "Step 3: only a **mixture** of iron and sulfur can be separated with a magnet."
+      ],
+      "tip": "Mixture → separable by physical methods; compound → needs a chemical reaction.",
+      "similar": [
+       {
+        "q": "Is a mixture of iron filings and sulfur separable by a magnet?",
+        "a": "Yes."
+       },
+       {
+        "q": "Name the three magnetic metals.",
+        "a": "Iron, nickel and cobalt."
+       }
+      ],
+      "page": 31,
+      "src": "notes",
+      "label": "1.4.3 Separating mixtures"
+     },
+     {
+      "id": "chem9-u1-cm-q6",
+      "type": "fill",
+      "q": "Ethanol and water are separated by ____ distillation because their boiling points are close and they are miscible.",
+      "choices": [
+       "fractional",
+       "simple",
+       "destructive"
+      ],
+      "answer": "fractional",
+      "why": [
+       "Step 1: miscible → one layer → no separating funnel.",
+       "Step 2: boiling points 78 °C and 100 °C are close → a column is needed.",
+       "Step 3: so **fractional** distillation."
+      ],
+      "tip": "Close boiling points → fractional; very different → simple.",
+      "similar": [
+       {
+        "q": "Which apparatus is added for fractional distillation?",
+        "a": "A fractionating column."
+       },
+       {
+        "q": "Which liquid distils first from ethanol–water?",
+        "a": "Ethanol (lower b.p.)."
+       }
+      ],
+      "page": 33,
+      "src": "notes",
+      "label": "1.4.3 Separating mixtures"
+     },
+     {
+      "id": "chem9-u1-cm-q7",
+      "type": "short",
+      "q": "A mixture contains sand, salt and iron filings. Give the methods, in order, to separate all three.",
+      "answer": "Magnet (iron) → add water and stir → filter (sand is the residue) → evaporate the filtrate (salt).",
+      "why": [
+       "Step 1: remove iron with a magnet while dry.",
+       "Step 2: dissolve the salt in water.",
+       "Step 3: filter — sand stays on the paper; wash and dry it.",
+       "Step 4: evaporate the filtrate to get the salt."
+      ],
+      "tip": "Do the magnet step first, while the mixture is dry.",
+      "similar": [
+       {
+        "q": "How would you separate sand, sugar and sawdust?",
+        "a": "Float off the sawdust in water (or sieve), dissolve the sugar, filter the sand, evaporate the sugar solution."
+       },
+       {
+        "q": "How would you separate chalk, salt and water?",
+        "a": "Filter (chalk), then evaporate the filtrate (salt) or distil it (water)."
+       }
+      ],
+      "page": 31,
+      "src": "notes",
+      "label": "1.4.3 Separating mixtures"
+     },
+     {
+      "id": "chem9-u1-cm-q8",
+      "type": "short",
+      "q": "State one limitation of decantation and how it is overcome.",
+      "answer": "Fine particles stay suspended and some liquid stays with the sediment; follow decantation with filtration.",
+      "why": [
+       "Step 1: light, fine particles settle very slowly or not at all.",
+       "Step 2: the decanted liquid can still be cloudy, and a little liquid is left on the sediment.",
+       "Step 3: filtering the decanted liquid removes the remaining fine particles."
+      ],
+      "tip": "Decant first to save time, then filter.",
+      "similar": [
+       {
+        "q": "Why is decanted river water not yet safe to drink?",
+        "a": "It still contains dissolved substances and germs — filter and boil or chlorinate it."
+       },
+       {
+        "q": "Give one everyday example of decantation.",
+        "a": "Pouring water off washed rice or lentils."
+       }
+      ],
+      "page": 28,
+      "src": "notes",
+      "label": "1.4.3 Separating mixtures"
+     },
+     {
+      "id": "chem9-u1-cm-q9",
+      "type": "mcq",
+      "q": "Which pair is correct for distilling salt water?",
+      "options": {
+       "A": "distillate = salt, residue = water",
+       "B": "distillate = pure water, residue = salt",
+       "C": "filtrate = salt, residue = water",
+       "D": "distillate = salt water"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: water boils and its vapour condenses in the condenser → distillate.",
+       "Step 2: salt does not boil at 100 °C, so it is left in the flask → residue."
+      ],
+      "tip": "Distillate = what came over; residue = what stayed behind.",
+      "similar": [
+       {
+        "q": "In filtration, what is the liquid that passes through called?",
+        "a": "The filtrate."
+       },
+       {
+        "q": "Why is distillation better than evaporation for getting water from salt water?",
+        "a": "Evaporation loses the water to the air; distillation condenses and keeps it."
+       }
+      ],
+      "page": 32,
+      "src": "notes",
+      "label": "1.4.3 Separating mixtures"
      }
     ]
    },
@@ -2913,8 +3901,6 @@
       "cards": [
        "chem9-u1-c12",
        "chem9-u1-c13",
-       "chem9-u1-c14",
-       "chem9-u1-c15",
        "chem9-u1-c16",
        "chem9-u1-c17",
        "chem9-u1-c18",
