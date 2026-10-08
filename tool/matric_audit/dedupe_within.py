@@ -83,8 +83,12 @@ def main():
     for k, v in log.items():
         print(k, len(v))
     print('total', sum(map(len, log.values())))
-    if not dry:
-        json.dump(log, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dedupe_within_log.json'), 'w'), indent=1)
+    if not dry and log:  # a re-run that finds nothing keeps the log of the earlier runs
+        lp = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dedupe_within_log.json')
+        old = json.load(open(lp)) if os.path.exists(lp) else {}
+        for k, v in log.items():
+            old[k] = old.get(k, []) + v
+        json.dump(old, open(lp, 'w'), indent=1)
 
 
 if __name__ == '__main__':

@@ -10,6 +10,14 @@ import difflib, glob, json, os, re, sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'assets', 'high', 'exams')
 THR = 0.8
+# Files the 'Build 4 APK' workflow (.github/workflows/build-four-apk.yml, step "Add Sawa model exams") requires to
+# exist, be listed in index.json and hold >= 383 questions; otherwise it re-downloads an expired pack and the build
+# fails. When one of these duplicates a bank paper, the pinned file is kept and the bank copy dropped (its unique
+# questions merged in), whatever the completeness score says.
+PINNED = {
+    'chemistry_2010-11_model_sem2.json', 'chemistry_2016-17_model.json', 'chemistry_2017-18_model.json',
+    'history_2016-17_model.json', 'physics_2017-18_model.json',
+}
 
 
 def norm(s):
@@ -66,7 +74,13 @@ def truly_new(extra, keep, room):
             sc.append((best, q))
     sc.sort(key=lambda x: x[0])
     keep_ids = {id(q) for _, q in sc[:max(0, room)]}
-    return [q for q in extra if id(q) in keep_ids]
+    out, seen = [], []
+    for q in sorted((q for q in extra if id(q) in keep_ids), key=lambda q: -len(json.dumps(q))):
+        n = norm(q.get('stem', ''))  # the dropped copy may repeat a question itself: merge it once (fullest copy)
+        if not any(difflib.SequenceMatcher(None, n, b).ratio() >= .7 for b in seen):
+            seen.append(n)
+            out.append(q)
+    return [q for q in extra if any(q is o for o in out)]
 
 
 def merge_into(keep, extra, src_id):
@@ -114,9 +128,14 @@ def main():
             ov, ua, ub = overlap(eager[a]['questions'], eager[b]['questions'])
             if ov < THR:
                 continue
-            ka, kb = (a, b) if quality(eager[a]) >= quality(eager[b]) else (b, a)
+            if (a in PINNED) != (b in PINNED):
+                ka, kb = (a, b) if a in PINNED else (b, a)
+            else:
+                ka, kb = (a, b) if quality(eager[a]) >= quality(eager[b]) else (b, a)
             extra = ub if ka == a else ua
             room = renderable(eager[kb]) - renderable(eager[ka])
+            if ka in PINNED:
+                room = len(extra)  # the bank copy goes; keep every question it alone has
             added = merge_into(eager[ka], truly_new(extra, eager[ka], room), eager[kb]['exam']['id'])
             drop_eager.add(kb)
             touched.add(ka)
@@ -150,6 +169,7 @@ def main():
         return
     for f in touched - drop_eager:
         _write(os.path.join(ROOT, f), eager[f])
+    assert not drop_eager & PINNED, drop_eager & PINNED
     for f in drop_eager:
         os.remove(os.path.join(ROOT, f))
     idx['exams'] = [f for f in idx['exams'] if f not in drop_eager]
@@ -169,8 +189,12 @@ def main():
         ec = json.load(open(ec_p))
         ec['exams'] = [x for x in ec['exams'] if not (isinstance(x, dict) and str(x.get('file', '')).startswith('assets/high/exams/') and os.path.basename(x['file']) in drop_eager)]
         with open(ec_p, 'w', encoding='utf-8') as fh:
-            fh.write(json.dumps(ec, ensure_ascii=False, indent=2))
-    json.dump(log, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dedupe_log.json'), 'w'), indent=1)
+            fh.write(json.dumps(ec, ensure_ascii=False, indent=2) + '\n')
+    lp = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dedupe_log.json')
+    old = json.load(open(lp)) if os.path.exists(lp) else []  # a re-run updates the log of the earlier runs
+    new = {frozenset((x['kept'], x['dropped'])): x for x in log}
+    old = [new.pop(frozenset((x['kept'], x['dropped'])), x) for x in old]
+    json.dump(old + list(new.values()), open(lp, 'w'), indent=1)
 
 
 def _write(p, d):
