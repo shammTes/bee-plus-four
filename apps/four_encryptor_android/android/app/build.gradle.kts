@@ -23,6 +23,13 @@ android {
         versionName = flutter.versionName
     }
 
+    // Compress native libs inside the APK: ~half the download/SHAREit size (they are extracted at install).
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+
     buildTypes {
         release {
             // Debug key is fine for this owner-only tool (it is never updated in place on student phones).
