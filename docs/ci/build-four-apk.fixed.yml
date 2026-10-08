@@ -1,0 +1,116 @@
+name: Build 4 APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add school-paper exercises
+        # The pack is committed to the repo; the catbox link is only a fallback for an old checkout and expires.
+        run: |
+          set -euo pipefail
+          mkdir -p assets/high/exercises/school
+          if [ -f assets/high/exercises/school/index.json ] && [ -f assets/high/exercises/school/biology_10.json ]; then
+            echo "School-paper pack already in the repo"
+          elif curl -fsSL --connect-timeout 15 --max-time 40 -o /tmp/school_papers_slim.tgz https://litter.catbox.moe/qt60om.tgz; then
+            tar -xzf /tmp/school_papers_slim.tgz -C assets/high/exercises/school
+          else
+            echo "::warning::School-paper pack not in the repo and the catbox link is gone; building without it"
+          fi
+          python3 - <<'PY'
+          import json, os, sys
+          root = 'assets/high/exercises/school'
+          if not os.path.exists(f'{root}/index.json'):
+              print('no school index; skipped'); sys.exit(0)
+          idx = json.load(open(f'{root}/index.json'))
+          missing, n = [], 0
+          for g in idx['grades'].values():
+              for e in g.values():
+                  p = os.path.join(root, e['file'])
+                  if not os.path.exists(p):
+                      missing.append(e['file'])
+                      continue
+                  n += len(json.load(open(p))['questions'])
+          print('school questions', n)
+          if missing:  # the index points at files that are not there: the app would crash on them
+              sys.exit('missing ' + ', '.join(missing))
+          PY
+
+      - name: Draw flag-ribbon 4 icon
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet pillow
+          python3 tools/make_four_icon.py .
+          ls -l android/app/src/main/res/mipmap-*/ic_launcher.png
+
+      - name: Check exam packs
+        # The Sawa model exams are committed to the repo (no download needed). Instead of fixed file names and a
+        # fixed question count (which broke when duplicate papers were merged), check that every paper the app
+        # lists in index.json exists, parses and has questions.
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, sys
+          root = 'assets/high/exams'
+          idx = json.load(open(f'{root}/index.json'))
+          bad, n = [], 0
+          for f in idx['exams']:
+              p = os.path.join(root, f)
+              try:
+                  q = len(json.load(open(p))['questions'])
+              except Exception as e:
+                  bad.append(f'{f} ({e.__class__.__name__})')
+                  continue
+              if q == 0:
+                  bad.append(f'{f} (no questions)')
+              n += q
+          for m in idx.get('media', []):
+              if not os.path.exists(os.path.join(root, 'media', m)):
+                  bad.append(f'media/{m} (missing)')
+          print('exam papers', len(idx['exams']), 'questions', n)
+          if bad:
+              sys.exit('broken exam packs: ' + ', '.join(bad))
+          PY
+
+      - name: Commit icon
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add assets/high/exams assets/high/exercises/school android/app/src/main/res/mipmap-*/ic_launcher.png
+          if git diff --cached --quiet; then
+            echo "Sawa models and icon already on the branch"
+          else
+            git commit -m "Add Sawa Warsay Yikealo model exams and flag-ribbon 4 icon."
+            git push
+          fi
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Accept Android licenses
+        run: yes | flutter doctor --android-licenses || true
+      - name: Pub get
+        run: flutter pub get
+      - name: Build APK
+        run: flutter build apk --release --no-tree-shake-icons
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: four-apk
+          path: build/app/outputs/flutter-apk/*.apk
+          if-no-files-found: error
+          retention-days: 30
