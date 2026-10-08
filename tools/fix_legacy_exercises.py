@@ -33,7 +33,7 @@ ENG11_RULES = [
  (r"possessive|apostrophe", 'eng11-u9'),
  (r'end mark|punctuat|comma|semicolon|colon|dash|hyphen|ellipsis|bracket|parenthes|slash', 'eng11-u1'),
  (r'redundan|fragment|run-on|comma splice|error', 'eng11-u24'),
- (r'not only|either|neither|therefore|however|moreover|conjunction|fanboys|correlative|in order that|as if|whenever|no sooner|so\.\.\.that|combine', 'eng11-u8'),
+ (r'not only|either|neither|therefore|however|moreover|conjunction|fanboys|correlative|in order that|as if|whenever|no sooner|so\.\.\.that|combine', 'eng11-u25'),
  (r'tense|past perfect|present perfect|future', 'eng11-u12'),
  (r'question', 'eng11-u14'),
  (r'pronoun', 'eng11-u10'),

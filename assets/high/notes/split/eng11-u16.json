@@ -17,20 +17,20 @@
   {
    "id": "eng11-u16",
    "number": 16,
-   "title": "Word Formation, Affixes",
+   "title": "Word formation: prefixes, suffixes, compounds",
    "status": "done",
    "pages": [
     16,
     16
    ],
    "tone": "peach",
-   "intro": "Grammar from Study Notes: Word Formation, Affixes & Derivational Morphology.",
+   "intro": "We make new words in four simple ways: add a prefix, add a suffix, join two words (compound), or use the same word as a new word class (conversion).",
    "intro_page": 1,
    "lessons": [
     {
      "id": "eng11-u16-l1",
      "number": "16.1",
-     "title": "Word Formation, Affixes",
+     "title": "Prefixes, suffixes, compounds and conversion",
      "pages": [
       16,
       16
@@ -39,38 +39,281 @@
       {
        "id": "eng11-u16-c01",
        "type": "grammar",
-       "title": "Word Formation, Affixes",
-       "page": 1,
-       "src": "study_notes",
+       "title": "Four ways to make new words",
+       "page": 16,
+       "src": "notes",
        "rule": [
-        "Word Formation, Affixes & Derivational Morphology",
-        "Definition: Word Formation and Derivational Morphology (ስነ-ቅርጺ ቃላትን ምምስራት ሓደሽቲ ቃላትን) refers to the processes of creating new words from existing root words by adding prefixes and suffixes, thereby modifying their semantic meaning or converting them into different grammatical word classes.",
-        "English word formation is heavily dependent on concatenative morphology, where prefixes (added to the beginning of a root) and suffixes (added to the end of a root) are sequentially attached to a base form ($$\\text{Prefix} + \\text{Root} + \\text{Suffix}$$). In contrast, Tigrinya uses a Semitic root-and-pattern (consonantal root) system. In Tigrinya, word class conversion and nominalization are primarily achieved through internal vowel melody shifts and consonant doubling within a triconsonantal root (e.g., the root {s-b-r} meaning 'to break' produces \"ስባር\" [broken piece] or \"ስባረ\" [fracture]) rather than the linear affixation typical of English. This fundamental morphological difference is a major conceptual hurdle for Tigrinya-speaking students, who must transition from an internal consonantal modification system to a linear, suffix-based word-building system."
+        "**1. Prefix** = letters added at the **start** of a word. It changes the **meaning**: *happy → **un**happy, write → **re**write, agree → **dis**agree*.",
+        "**2. Suffix** = letters added at the **end** of a word. It usually changes the **word class**: *depart (verb) → depart**ure** (noun), care (noun) → care**ful** (adjective), quick → quick**ly** (adverb)*.",
+        "**3. Compound** = two words joined to make one: *class + room → **classroom**, black + board → **blackboard**, mother-in-law, bus stop*.",
+        "**4. Conversion** = the **same word** used as a different word class, with no change: *a **text** (noun) → to **text** someone (verb); a **book** → to **book** a room*.",
+        "**How to answer word-formation questions:** look at the gap. After *a/an/the* or an adjective → **noun**. Before a noun or after *be/seem* → **adjective**. Telling *how* → **adverb**. Then choose the right ending."
        ],
        "examples": [
         {
-         "text": "She goes to school every day.",
+         "text": "The sudden departure of the principal surprised everyone.",
          "ok": true
         },
         {
-         "text": "She go to school every day.",
+         "text": "The instructions were unclear.",
+         "ok": true
+        },
+        {
+         "text": "The instructions were disclear.",
          "ok": false,
-         "fix": "She goes to school every day."
+         "fix": "The instructions were unclear."
+        },
+        {
+         "text": "She sings beautiful.",
+         "ok": false,
+         "fix": "She sings beautifully."
         }
-       ]
+       ],
+       "pattern": "prefix + word  ·  word + suffix  ·  word + word  ·  same word, new class"
       },
       {
        "id": "eng11-u16-c02",
-       "type": "text",
-       "title": "Notes",
-       "page": 1,
-       "src": "study_notes",
-       "body": [
-        "Word Formation, Affixes & Derivational Morphology",
-        "Definition: Word Formation and Derivational Morphology (ስነ-ቅርጺ ቃላትን ምምስራት ሓደሽቲ ቃላትን) refers to the processes of creating new words from existing root words by adding prefixes and suffixes, thereby modifying their semantic meaning or converting them into different grammatical word classes.",
-        "English word formation is heavily dependent on concatenative morphology, where prefixes (added to the beginning of a root) and suffixes (added to the end of a root) are sequentially attached to a base form ($$\\text{Prefix} + \\text{Root} + \\text{Suffix}$$). In contrast, Tigrinya uses a Semitic root-and-pattern (consonantal root) system. In Tigrinya, word class conversion and nominalization are primarily achieved through internal vowel melody shifts and consonant doubling within a triconsonantal root (e.g., the root {s-b-r} meaning 'to break' produces \"ስባር\" [broken piece] or \"ስባረ\" [fracture]) rather than the linear affixation typical of English. This fundamental morphological difference is a major conceptual hurdle for Tigrinya-speaking students, who must transition from an internal consonantal modification system to a linear, suffix-based word-building system.",
-        "Nominalization (ምስራሕ ስማት) is the process of converting verbs or adjectives into nouns. Verbs are converted to nouns using suffixes like *-ment, -tion, -sion, -ance, -ence, -al* ($$\\text{Verb} + \\text{Suffix} \\rightarrow \\text{Noun}$$, e.g., *agree* $$\\rightarrow$$ *agreement*, *decide* $$\\rightarrow$$ *decision*, *assist* $$\\rightarrow$$ *assistance*). Adjectives are converted to nouns using suffixes like *-ness, -ity, -dom, -hood, -ship* ($$\\text{Adjective} + \\text{Suffix} \\rightarrow \\text{Noun}$$, e.g., *happy* $$\\rightarrow$$ *happiness*, *pure* $$\\rightarrow$$ *purity*, *free* $$\\rightarrow$$ *freedom*). National examinations frequently test these nominalized forms in subject and object slots, requiring students to identify spelling adjustments (e.g., dropping 'y' to 'i' in *happiness* or consonant shifts in *decide* $$\\rightarrow$$ *decision*)."
+       "type": "table",
+       "title": "Common prefixes (change the meaning)",
+       "page": 16,
+       "src": "notes",
+       "head": [
+        "Prefix",
+        "Meaning",
+        "Examples"
+       ],
+       "rows": [
+        [
+         "un-",
+         "not",
+         "unhappy, unclear, unable, unknown"
+        ],
+        [
+         "in- / im- / il- / ir-",
+         "not",
+         "incorrect, impossible, illegal, irregular"
+        ],
+        [
+         "dis-",
+         "not / opposite",
+         "disagree, dishonest, disappear"
+        ],
+        [
+         "mis-",
+         "wrongly",
+         "misunderstand, misspell, mislead"
+        ],
+        [
+         "re-",
+         "again",
+         "rewrite, rebuild, retell"
+        ],
+        [
+         "pre-",
+         "before",
+         "prepare, preview, pre-school"
+        ],
+        [
+         "over-",
+         "too much",
+         "overeat, overwork, overcrowded"
+        ],
+        [
+         "under-",
+         "too little / below",
+         "underpaid, underground"
+        ],
+        [
+         "inter-",
+         "between",
+         "international, interview"
+        ],
+        [
+         "co-",
+         "together",
+         "cooperate, co-worker"
+        ]
        ]
+      },
+      {
+       "id": "eng11-u16-wf1",
+       "type": "table",
+       "title": "Common suffixes (change the word class)",
+       "page": 16,
+       "src": "notes",
+       "head": [
+        "Suffix",
+        "Makes a…",
+        "Examples"
+       ],
+       "rows": [
+        [
+         "-tion / -sion",
+         "noun",
+         "decide → decision, inform → information, educate → education"
+        ],
+        [
+         "-ment",
+         "noun",
+         "agree → agreement, develop → development"
+        ],
+        [
+         "-ness / -ity",
+         "noun",
+         "kind → kindness, able → ability, honest → honesty"
+        ],
+        [
+         "-er / -or / -ist",
+         "noun (person)",
+         "teach → teacher, act → actor, science → scientist"
+        ],
+        [
+         "-ance / -ence / -ure",
+         "noun",
+         "perform → performance, differ → difference, depart → departure"
+        ],
+        [
+         "-ful / -less",
+         "adjective",
+         "care → careful, careless; hope → hopeful, hopeless"
+        ],
+        [
+         "-ous / -ive / -al / -able",
+         "adjective",
+         "danger → dangerous, act → active, nation → national, read → readable"
+        ],
+        [
+         "-y",
+         "adjective",
+         "rain → rainy, health → healthy"
+        ],
+        [
+         "-ise / -ify / -en",
+         "verb",
+         "modern → modernise, simple → simplify, short → shorten"
+        ],
+        [
+         "-ly",
+         "adverb",
+         "quick → quickly, careful → carefully"
+        ]
+       ]
+      },
+      {
+       "id": "eng11-u16-wf2",
+       "type": "table",
+       "title": "Compound words",
+       "page": 16,
+       "src": "notes",
+       "head": [
+        "Type",
+        "Examples"
+       ],
+       "rows": [
+        [
+         "one word",
+         "classroom, blackboard, football, sunrise, homework"
+        ],
+        [
+         "with a hyphen",
+         "mother-in-law, well-known, part-time, twenty-one"
+        ],
+        [
+         "two separate words",
+         "bus stop, post office, high school, police station"
+        ]
+       ]
+      },
+      {
+       "id": "eng11-u16-wf3",
+       "type": "table",
+       "title": "Conversion (same word, new class)",
+       "page": 16,
+       "src": "notes",
+       "head": [
+        "Word",
+        "As a noun",
+        "As a verb"
+       ],
+       "rows": [
+        [
+         "text",
+         "I got your **text**.",
+         "Please **text** me."
+        ],
+        [
+         "book",
+         "a good **book**",
+         "to **book** a room"
+        ],
+        [
+         "water",
+         "a glass of **water**",
+         "to **water** the plants"
+        ],
+        [
+         "email",
+         "send an **email**",
+         "to **email** the teacher"
+        ],
+        [
+         "visit",
+         "a short **visit**",
+         "to **visit** Axum"
+        ]
+       ]
+      },
+      {
+       "id": "eng11-u16-wf4",
+       "type": "worked",
+       "title": "Step by step: choose the right form",
+       "problem": "Complete: \"The ____ (develop) of the town was ____ (success) because the people worked ____ (careful).\"",
+       "steps": [
+        {
+         "text": "**Step 1: What does each gap need?** After *The* → noun. After *was* → adjective. After the verb *worked*, telling how → adverb."
+        },
+        {
+         "text": "**Step 2: Add the ending.** develop + -ment → **development**; success + -ful → **successful**; careful + -ly → **carefully**."
+        },
+        {
+         "text": "**Step 3: Read the sentence again** to check the meaning and spelling."
+        }
+       ],
+       "answer": "development, successful, carefully",
+       "src": "notes",
+       "page": 16
+      },
+      {
+       "id": "eng11-u16-wf5",
+       "type": "check",
+       "title": "Quick check",
+       "page": 16,
+       "src": "notes",
+       "q": "The opposite of \"legal\" is ____.",
+       "options": {
+        "A": "unlegal",
+        "B": "dislegal",
+        "C": "illegal",
+        "D": "inlegal"
+       },
+       "answer": "C",
+       "why": "**Step 1:** All four prefixes can mean *not*.\n\n**Step 2:** Before a word starting with **l** we use **il-**: *illegal, illogical*.\n\n**Step 3:** Before **r** → *ir-* (irregular); before **m/p** → *im-* (impossible).\n\n**Tip:** First decide which word class the gap needs (noun after a/the, adjective before a noun or after be, adverb for how). Then add the suffix. Prefixes change the meaning, not the word class."
+      },
+      {
+       "id": "eng11-u16-wf6",
+       "type": "check",
+       "title": "Quick check",
+       "page": 16,
+       "src": "notes",
+       "q": "Which word is a compound?",
+       "options": {
+        "A": "kindness",
+        "B": "unhappy",
+        "C": "classroom",
+        "D": "quickly"
+       },
+       "answer": "C",
+       "why": "**Step 1:** A compound joins two complete words.\n\n**Step 2:** *class + room = classroom*.\n\n**Step 3:** A has a suffix, B a prefix, D a suffix.\n\n**Tip:** First decide which word class the gap needs (noun after a/the, adjective before a noun or after be, adverb for how). Then add the suffix. Prefixes change the meaning, not the word class."
       },
       {
        "id": "eng11-u16-l1-r2wk2",
@@ -99,7 +342,7 @@
        "id": "eng11-u16-c03",
        "type": "check",
        "title": "Quick check",
-       "page": 1,
+       "page": 16,
        "src": "study_notes",
        "q": "The sudden ________ of the school principal surprised both the teachers and the students.",
        "options": {
@@ -109,13 +352,13 @@
         "D": "departed"
        },
        "answer": "B",
-       "why": "**Step 1: Analyze the grammatical structure**\nThe blank follows the article 'The' and the adjective 'sudden', requiring a noun ($$\\text{Article} + \\text{Adjective} + \\text{Noun}$$).\n\n**Step 2: Identify the matriculation trap**\nStudents often choose the verb 'depart' (Option A) due to direct translation. Only the nominalized form 'departure' (Option B), formed by adding the suffix '-ure' to the verb 'depart', is grammatically correct.\n\n**Step 3: Tigrinya Explanation (ትርጉም)**\nእቲ ባዶ ቦታ ድሕሪ 'The' (ኣንቀጽ) ከምኡ ውን ድሕሪ 'sudden' (ቅጽል) ስለ ዝመጸ፡ ብግድን ስም (noun) ክኸውን ኣለዎ። እቲ 'depart' (ምኻድ) ዝብል ግሲ ናብ ስም ክቕየር ከሎ ድማ 'departure' (Option B - ምኻድ/ምስጓም) ይኸውን። 'depart' ምጥቃም ሰዋስዋዊ ጌጋ እዩ።"
+       "why": "**Step 1: Look at the sentence**\nThe blank follows the article 'The' and the adjective 'sudden', requiring a noun (Article + Adjective + Noun).\n\n**Step 2: Watch out for the trap**\nStudents often choose the verb 'depart' (Option A) due to direct translation. Only the noun form 'departure' (Option B), formed by adding the suffix '-ure' to the verb 'depart', is grammatically correct.\n\n**Step 3: In Tigrinya**\nእቲ ባዶ ቦታ ድሕሪ 'The' (ኣንቀጽ) ከምኡ ውን ድሕሪ 'sudden' (ቅጽል) ስለ ዝመጸ፡ ብግድን ስም (noun) ክኸውን ኣለዎ። እቲ 'depart' (ምኻድ) ዝብል ግሲ ናብ ስም ክቕየር ከሎ ድማ 'departure' (Option B - ምኻድ/ምስጓም) ይኸውን። 'depart' ምጥቃም ሰዋስዋዊ ጌጋ እዩ።"
       },
       {
        "id": "eng11-u16-c04",
        "type": "check",
        "title": "Quick check",
-       "page": 1,
+       "page": 16,
        "src": "study_notes",
        "q": "The instructions provided by the examiner were highly ________, which caused many candidates to make mistakes.",
        "options": {
@@ -125,7 +368,7 @@
         "D": "inclear"
        },
        "answer": "B",
-       "why": "**Step 1: Analyze the grammatical structure**\nThe context 'which caused many candidates to make mistakes' indicates a negative adjective is required to describe the instructions.\n\n**Step 2: Identify the matriculation trap**\nStudents often struggle with negative prefixes and choose 'disclear' (Option C) or 'inclear' (Option D). The correct negative prefix for the adjective 'clear' is 'un-', forming 'unclear' (Option B).\n\n**Step 3: Tigrinya Explanation (ትርጉም)**\nተመሃሮ ጌጋ ከም ዝገበሩ ስለ ዝገለጸ፡ እቲ መግለጺ 'ዘይነጸረ' (negative adjective) ክኸውን ኣለዎ። ኣብ እንግሊዘኛ ን 'clear' (ንጹር) ኣሉታዊ ክንገብሮ ከለና እንጥቅመሉ ቅድመ-መጣበቕታ 'un-' ስለ ዝኾነ፡ ቅኑዕ መልሲ 'unclear' (Option B - ዘይንጹር) እዩ።"
+       "why": "**Step 1: Look at the sentence**\nThe context 'which caused many candidates to make mistakes' indicates a negative adjective is required to describe the instructions.\n\n**Step 2: Watch out for the trap**\nStudents often struggle with negative prefixes and choose 'disclear' (Option C) or 'inclear' (Option D). The correct negative prefix for the adjective 'clear' is 'un-', forming 'unclear' (Option B).\n\n**Step 3: In Tigrinya**\nተመሃሮ ጌጋ ከም ዝገበሩ ስለ ዝገለጸ፡ እቲ መግለጺ 'ዘይነጸረ' (negative adjective) ክኸውን ኣለዎ። ኣብ እንግሊዘኛ ን 'clear' (ንጹር) ኣሉታዊ ክንገብሮ ከለና እንጥቅመሉ ቅድመ-መጣበቕታ 'un-' ስለ ዝኾነ፡ ቅኑዕ መልሲ 'unclear' (Option B - ዘይንጹር) እዩ።"
       },
       {
        "id": "eng11-u16-l1-r2c1",
@@ -192,7 +435,7 @@
       "type": "mcq",
       "q": "The sudden ________ of the school principal surprised both the teachers and the students.",
       "src": "study_notes",
-      "page": 1,
+      "page": 16,
       "label": "1. The sudden ________ of the school principal surprised both t",
       "options": {
        "A": "depart",
@@ -202,20 +445,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The blank follows the article 'The' and the adjective 'sudden', requiring a noun ($$\\text{Article} + \\text{Adjective} + \\text{Noun}$$).",
-       ""
+       "Answer B: departure",
+       "The blank follows the article 'The' and the adjective 'sudden', requiring a noun (Article + Adjective + Noun)."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Look at the position: after an article → noun; before a noun → adjective; describing a verb → adverb; after \"to\" or a subject → verb. Then add the suffix that makes that part of speech.",
+      "similar": [
+       {
+        "q": "Noun from \"explain\".",
+        "a": "explanation."
+       },
+       {
+        "q": "Noun from \"decide\".",
+        "a": "decision."
+       }
+      ]
      },
      {
       "id": "eng11-u16-q02",
       "type": "mcq",
       "q": "The instructions provided by the examiner were highly ________, which caused many candidates to make mistakes.",
       "src": "study_notes",
-      "page": 1,
+      "page": 16,
       "label": "2. The instructions provided by the examiner were highly ______",
       "options": {
        "A": "clear",
@@ -225,20 +475,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The context 'which caused many candidates to make mistakes' indicates a negative adjective is required to describe the instructions.",
-       ""
+       "Answer B: unclear",
+       "The context 'which caused many candidates to make mistakes' indicates a negative adjective is required to describe the instructions."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Look at the position: after an article → noun; before a noun → adjective; describing a verb → adverb; after \"to\" or a subject → verb. Then add the suffix that makes that part of speech.",
+      "similar": [
+       {
+        "q": "Make an adjective from \"danger\".",
+        "a": "dangerous"
+       },
+       {
+        "q": "Make an adjective from \"danger\".",
+        "a": "dangerous"
+       }
+      ]
      },
      {
       "id": "eng11-u16-q03",
       "type": "mcq",
       "q": "The biology teacher spoke very ________ about the ecological importance of preserving local forests.",
       "src": "study_notes",
-      "page": 1,
+      "page": 16,
       "label": "3. The biology teacher spoke very ________ about the ecological",
       "options": {
        "A": "passion",
@@ -248,20 +505,27 @@
       },
       "answer": "C",
       "why": [
-       "Answer C",
-       "**Step 1: Analyze the grammatical structure**",
-       "The blank modifies the verb 'spoke', requiring an adverb ($$\\text{Verb} + \\text{Adverb}$$).",
-       ""
+       "Answer C: passionately",
+       "The blank modifies the verb 'spoke', requiring an adverb (Verb + Adverb)."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Look at the position: after an article → noun; before a noun → adjective; describing a verb → adverb; after \"to\" or a subject → verb. Then add the suffix that makes that part of speech.",
+      "similar": [
+       {
+        "q": "Adverb from \"careful\".",
+        "a": "carefully."
+       },
+       {
+        "q": "Adverb from \"happy\".",
+        "a": "happily."
+       }
+      ]
      },
      {
       "id": "eng11-u16-q04",
       "type": "mcq",
       "q": "To solve this complex algebraic equation, you must first ________ the brackets.",
       "src": "study_notes",
-      "page": 1,
+      "page": 16,
       "label": "4. To solve this complex algebraic equation, you must first ___",
       "options": {
        "A": "simple",
@@ -271,20 +535,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The blank follows the modal verb 'must' and the adverb 'first', requiring a base verb ($$\\text{Modal} + \\text{V}_{\\text{base}}$$).",
-       ""
+       "Answer B: simplify",
+       "The blank follows the modal verb 'must' and the adverb 'first', requiring a base verb (Modal + V (base))."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Look at the position: after an article → noun; before a noun → adjective; describing a verb → adverb; after \"to\" or a subject → verb. Then add the suffix that makes that part of speech.",
+      "similar": [
+       {
+        "q": "Verb from \"simple\".",
+        "a": "simplify."
+       },
+       {
+        "q": "Adverb from \"careful\".",
+        "a": "carefully."
+       }
+      ]
      },
      {
       "id": "eng11-u16-q05",
       "type": "mcq",
       "q": "His behavior was highly ________; he did not attend any of the mandatory revision sessions before the exam.",
       "src": "study_notes",
-      "page": 1,
+      "page": 16,
       "label": "5. His behavior was highly ________; he did not attend any of t",
       "options": {
        "A": "responsible",
@@ -294,20 +565,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The context 'he did not attend any of the mandatory sessions' indicates a negative adjective is required to describe his behavior.",
-       ""
+       "Answer B: irresponsible",
+       "The context 'he did not attend any of the mandatory sessions' indicates a negative adjective is required to describe his behavior."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Look at the position: after an article → noun; before a noun → adjective; describing a verb → adverb; after \"to\" or a subject → verb. Then add the suffix that makes that part of speech.",
+      "similar": [
+       {
+        "q": "Adjective from \"nature\".",
+        "a": "natural."
+       },
+       {
+        "q": "Adjective from \"danger\".",
+        "a": "dangerous."
+       }
+      ]
      },
      {
       "id": "eng11-u16-q06",
       "type": "mcq",
       "q": "The scientific ________ of the laboratory equipment is essential for obtaining accurate research results.",
       "src": "study_notes",
-      "page": 1,
+      "page": 16,
       "label": "6. The scientific ________ of the laboratory equipment is essen",
       "options": {
        "A": "pure",
@@ -317,20 +595,27 @@
       },
       "answer": "C",
       "why": [
-       "Answer C",
-       "**Step 1: Analyze the grammatical structure**",
-       "The blank follows the article 'The' and the adjective 'scientific', requiring a noun ($$\\text{Article} + \\text{Adjective} + \\text{Noun}$$).",
-       ""
+       "Answer C: purity",
+       "The blank follows the article 'The' and the adjective 'scientific', requiring a noun (Article + Adjective + Noun)."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Look at the position: after an article → noun; before a noun → adjective; describing a verb → adverb; after \"to\" or a subject → verb. Then add the suffix that makes that part of speech.",
+      "similar": [
+       {
+        "q": "Noun from \"explain\".",
+        "a": "explanation."
+       },
+       {
+        "q": "Noun from \"decide\".",
+        "a": "decision."
+       }
+      ]
      },
      {
       "id": "eng11-u16-q07",
       "type": "mcq",
       "q": "It is completely ________ to drive a vehicle on public roads without having a valid driving license.",
       "src": "study_notes",
-      "page": 1,
+      "page": 16,
       "label": "7. It is completely ________ to drive a vehicle on public roads",
       "options": {
        "A": "legal",
@@ -340,20 +625,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The context 'without having a valid driving license' indicates a negative adjective is required to describe driving.",
-       ""
+       "Answer B: illegal",
+       "The context 'without having a valid driving license' indicates a negative adjective is required to describe driving."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Look at the position: after an article → noun; before a noun → adjective; describing a verb → adverb; after \"to\" or a subject → verb. Then add the suffix that makes that part of speech.",
+      "similar": [
+       {
+        "q": "Adjective from \"nature\".",
+        "a": "natural."
+       },
+       {
+        "q": "Adjective from \"danger\".",
+        "a": "dangerous."
+       }
+      ]
      },
      {
       "id": "eng11-u16-q08",
       "type": "mcq",
       "q": "She completed her chemistry experiment ________, and she was highly praised by the professor.",
       "src": "study_notes",
-      "page": 1,
+      "page": 16,
       "label": "8. She completed her chemistry experiment ________, and she was",
       "options": {
        "A": "successful",
@@ -363,20 +655,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The blank modifies the verb phrase 'completed her chemistry experiment', requiring an adverb ($$\\text{Verb} + \\text{Adverb}$$).",
-       ""
+       "Answer B: successfully",
+       "The blank modifies the verb phrase 'completed her chemistry experiment', requiring an adverb (Verb + Adverb)."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Look at the position: after an article → noun; before a noun → adjective; describing a verb → adverb; after \"to\" or a subject → verb. Then add the suffix that makes that part of speech.",
+      "similar": [
+       {
+        "q": "Adverb from \"careful\".",
+        "a": "carefully."
+       },
+       {
+        "q": "Adverb from \"happy\".",
+        "a": "happily."
+       }
+      ]
      },
      {
       "id": "eng11-u16-q09",
       "type": "mcq",
       "q": "The university plans to ________ its library catalogue by introducing a new digital search system.",
       "src": "study_notes",
-      "page": 1,
+      "page": 16,
       "label": "9. The university plans to ________ its library catalogue by in",
       "options": {
        "A": "modern",
@@ -386,20 +685,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The blank follows the infinitive marker 'to', requiring a base verb ($$\\text{to} + \\text{V}_{\\text{base}}$$).",
-       ""
+       "Answer B: modernize",
+       "The blank follows the infinitive marker 'to', requiring a base verb (to + V (base))."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Look at the position: after an article → noun; before a noun → adjective; describing a verb → adverb; after \"to\" or a subject → verb. Then add the suffix that makes that part of speech.",
+      "similar": [
+       {
+        "q": "Verb from \"strength\".",
+        "a": "strengthen."
+       },
+       {
+        "q": "Verb from \"simple\".",
+        "a": "simplify."
+       }
+      ]
      },
      {
       "id": "eng11-u16-q10",
       "type": "mcq",
       "q": "The sudden ________ of clean drinking water in the region has caused severe health concerns.",
       "src": "study_notes",
-      "page": 1,
+      "page": 16,
       "label": "10. The sudden ________ of clean drinking water in the region ha",
       "options": {
        "A": "short",
@@ -409,13 +715,20 @@
       },
       "answer": "C",
       "why": [
-       "Answer C",
-       "**Step 1: Analyze the grammatical structure**",
-       "The blank follows the article 'The' and the adjective 'sudden', requiring a noun ($$\\text{Article} + \\text{Adjective} + \\text{Noun}$$).",
-       ""
+       "Answer C: shortage",
+       "The blank follows the article 'The' and the adjective 'sudden', requiring a noun (Article + Adjective + Noun)."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Look at the position: after an article → noun; before a noun → adjective; describing a verb → adverb; after \"to\" or a subject → verb. Then add the suffix that makes that part of speech.",
+      "similar": [
+       {
+        "q": "Noun from \"explain\".",
+        "a": "explanation."
+       },
+       {
+        "q": "Noun from \"decide\".",
+        "a": "decision."
+       }
+      ]
      },
      {
       "id": "eng11-u16-r2q01",
@@ -722,6 +1035,229 @@
        "So the statement is true."
       ],
       "tip": "Look at the position: after an article → noun; before a noun → adjective; describing a verb → adverb; after \"to\" or a subject → verb. Then add the suffix that makes that part of speech."
+     },
+     {
+      "id": "eng11-u16-wfq01",
+      "q": "Many students ____ the question and gave the wrong answer.",
+      "src": "notes",
+      "page": 16,
+      "similar": [
+       {
+        "q": "Make a noun from \"decide\".",
+        "a": "decision"
+       },
+       {
+        "q": "Make an adjective from \"danger\".",
+        "a": "dangerous"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "disunderstood",
+       "B": "misunderstood",
+       "C": "ununderstood",
+       "D": "reunderstood"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: misunderstood",
+       "*mis-* = wrongly.",
+       "*misunderstood* = understood wrongly."
+      ],
+      "tip": "First decide which word class the gap needs (noun after a/the, adjective before a noun or after be, adverb for how). Then add the suffix. Prefixes change the meaning, not the word class."
+     },
+     {
+      "id": "eng11-u16-wfq02",
+      "q": "Thank you for your ____. It helped me a lot.",
+      "src": "notes",
+      "page": 16,
+      "similar": [
+       {
+        "q": "Make a noun from \"decide\".",
+        "a": "decision"
+       },
+       {
+        "q": "Make an adjective from \"danger\".",
+        "a": "dangerous"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "kind",
+       "B": "kindly",
+       "C": "kindness",
+       "D": "unkind"
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: kindness",
+       "After *your* we need a noun.",
+       "kind + -ness → *kindness*."
+      ],
+      "tip": "First decide which word class the gap needs (noun after a/the, adjective before a noun or after be, adverb for how). Then add the suffix. Prefixes change the meaning, not the word class."
+     },
+     {
+      "id": "eng11-u16-wfq03",
+      "q": "The road was very ____ after the heavy rain.",
+      "src": "notes",
+      "page": 16,
+      "similar": [
+       {
+        "q": "Make a noun from \"decide\".",
+        "a": "decision"
+       },
+       {
+        "q": "Make an adjective from \"danger\".",
+        "a": "dangerous"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "danger",
+       "B": "dangerous",
+       "C": "dangerously",
+       "D": "endanger"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: dangerous",
+       "After *was very* we need an adjective.",
+       "danger + -ous → *dangerous*."
+      ],
+      "tip": "First decide which word class the gap needs (noun after a/the, adjective before a noun or after be, adverb for how). Then add the suffix. Prefixes change the meaning, not the word class."
+     },
+     {
+      "id": "eng11-u16-wfq04",
+      "q": "Please drive ____ (care). The road is narrow.",
+      "src": "notes",
+      "page": 16,
+      "similar": [
+       {
+        "q": "Make a noun from \"decide\".",
+        "a": "decision"
+       },
+       {
+        "q": "Make an adjective from \"danger\".",
+        "a": "dangerous"
+       }
+      ],
+      "type": "fill",
+      "choices": [
+       "care",
+       "carefully",
+       "careful",
+       "careless"
+      ],
+      "answer": "carefully",
+      "why": [
+       "It tells *how* to drive → adverb.",
+       "care + -ful + -ly → carefully."
+      ],
+      "tip": "First decide which word class the gap needs (noun after a/the, adjective before a noun or after be, adverb for how). Then add the suffix. Prefixes change the meaning, not the word class."
+     },
+     {
+      "id": "eng11-u16-wfq05",
+      "q": "Eritrea is famous for the ____ (beautiful) of its Red Sea coast.",
+      "src": "notes",
+      "page": 16,
+      "similar": [
+       {
+        "q": "Make a noun from \"decide\".",
+        "a": "decision"
+       },
+       {
+        "q": "Make an adjective from \"danger\".",
+        "a": "dangerous"
+       }
+      ],
+      "type": "fill",
+      "choices": [
+       "beautiful",
+       "beautify",
+       "beautifully",
+       "beauty"
+      ],
+      "answer": "beauty",
+      "why": [
+       "After *the* we need a noun.",
+       "The noun is *beauty*."
+      ],
+      "tip": "First decide which word class the gap needs (noun after a/the, adjective before a noun or after be, adverb for how). Then add the suffix. Prefixes change the meaning, not the word class."
+     },
+     {
+      "id": "eng11-u16-wfq06",
+      "q": "It is ____ (possible) to finish all this work in one day.",
+      "src": "notes",
+      "page": 16,
+      "similar": [
+       {
+        "q": "Make a noun from \"decide\".",
+        "a": "decision"
+       },
+       {
+        "q": "Make an adjective from \"danger\".",
+        "a": "dangerous"
+       }
+      ],
+      "type": "fill",
+      "choices": [
+       "dispossible",
+       "impossible",
+       "unpossible",
+       "inpossible"
+      ],
+      "answer": "impossible",
+      "why": [
+       "The meaning is *not possible*.",
+       "Before **p** we use *im-*."
+      ],
+      "tip": "First decide which word class the gap needs (noun after a/the, adjective before a noun or after be, adverb for how). Then add the suffix. Prefixes change the meaning, not the word class."
+     },
+     {
+      "id": "eng11-u16-wfq07",
+      "q": "True or false: In \"Please text me tonight\", \"text\" is a verb made by conversion.",
+      "src": "notes",
+      "page": 16,
+      "similar": [
+       {
+        "q": "Which word class is \"book\" in \"I want to book a ticket\"?",
+        "a": "verb (conversion)"
+       }
+      ],
+      "type": "tf",
+      "answer": true,
+      "why": [
+       "True. *text* is usually a noun (a text message).",
+       "Here it is used as a verb with no change in form – that is conversion."
+      ],
+      "tip": "First decide which word class the gap needs (noun after a/the, adjective before a noun or after be, adverb for how). Then add the suffix. Prefixes change the meaning, not the word class."
+     },
+     {
+      "id": "eng11-u16-wfq08",
+      "q": "Make two words from \"employ\": a person who works for someone, and the opposite of having a job.",
+      "src": "notes",
+      "page": 16,
+      "similar": [
+       {
+        "q": "Make a noun from \"decide\".",
+        "a": "decision"
+       },
+       {
+        "q": "Make an adjective from \"danger\".",
+        "a": "dangerous"
+       }
+      ],
+      "type": "short",
+      "accept": [
+       "employee and unemployment",
+       "employee, unemployed"
+      ],
+      "answer": "employee, unemployment",
+      "why": [
+       "employ + -ee → *employee* (the worker); employ + -er → employer (the boss).",
+       "un- + employ + -ment → *unemployment*."
+      ],
+      "tip": "First decide which word class the gap needs (noun after a/the, adjective before a noun or after be, adverb for how). Then add the suffix. Prefixes change the meaning, not the word class."
      }
     ]
    },
@@ -731,14 +1267,61 @@
     "nodes": [
      {
       "id": "unit",
-      "label": "Word Formation, Affixes",
+      "label": "Word formation",
       "kind": "unit",
       "cards": [
-       "eng11-u16-c01"
+       "eng11-u16-c02",
+       "eng11-u16-wf1",
+       "eng11-u16-wf2"
+      ]
+     },
+     {
+      "id": "prefix",
+      "label": "Prefixes",
+      "kind": "topic",
+      "lesson": "eng11-u16-l1",
+      "cards": [
+       "eng11-u16-c02"
+      ]
+     },
+     {
+      "id": "suffix",
+      "label": "Suffixes",
+      "kind": "topic",
+      "lesson": "eng11-u16-l1",
+      "cards": [
+       "eng11-u16-wf1",
+       "eng11-u16-l1-r2wk2"
+      ]
+     },
+     {
+      "id": "compound",
+      "label": "Compounds and conversion",
+      "kind": "topic",
+      "lesson": "eng11-u16-l1",
+      "cards": [
+       "eng11-u16-wf2",
+       "eng11-u16-wf3"
       ]
      }
     ],
-    "edges": []
+    "edges": [
+     {
+      "from": "unit",
+      "to": "prefix",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "suffix",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "compound",
+      "label": "includes"
+     }
+    ]
    }
   }
  ]

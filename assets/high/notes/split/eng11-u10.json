@@ -17,20 +17,20 @@
   {
    "id": "eng11-u10",
    "number": 10,
-   "title": "Pronouns, Case Concord",
+   "title": "Pronouns",
    "status": "done",
    "pages": [
     10,
     10
    ],
    "tone": "peach",
-   "intro": "Grammar from Study Notes: Pronouns, Case Concord & Gender Agreement.",
+   "intro": "Grammar: subject, object, possessive and reflexive pronouns, and using it / its for things.",
    "intro_page": 1,
    "lessons": [
     {
      "id": "eng11-u10-l1",
      "number": "10.1",
-     "title": "Pronouns, Case Concord",
+     "title": "Pronouns",
      "pages": [
       10,
       10
@@ -39,38 +39,184 @@
       {
        "id": "eng11-u10-c01",
        "type": "grammar",
-       "title": "Pronouns, Case Concord",
-       "page": 1,
-       "src": "study_notes",
+       "title": "Pronouns",
+       "page": 10,
+       "src": "notes",
        "rule": [
-        "Pronouns, Case Concord & Gender Agreement",
-        "Definition: Pronouns, Case Concord & Gender Agreement (ተውላጠ ስማት፡ ስምምዕ ኬዝን ጾታን) refers to the grammatical rules governing the substitution of nouns with pronouns, ensuring precise coordination in case (subjective, objective, possessive), grammatical number (singular, plural), and gender (masculine, feminine, neuter).",
-        "English personal pronouns are categorized into three distinct syntactic cases: subjective ($$\\text{Subject Case}$$ - *I, you, he, she, it, we, they*), objective ($$\\text{Object Case}$$ - *me, you, him, her, it, us, them*), and possessive ($$\\text{Possessive Case}$$ - *my/mine, your/yours, his, her/hers, its, our/ours, their/theirs*). Unlike Tigrinya, where the case of a pronoun is often marked by attaching prefixes or suffixes directly to the pronoun base, English uses entirely different word forms to signal a pronoun's grammatical role in a sentence. This leads to a common case concord error (ጌጋ ስምምዕ ኬዝ) in compound constructions. For example, Tigrinya speakers often write \"The director invited Aster and I\" instead of the correct \"The director invited Aster and me\" because they translate both subjects and objects similarly without isolating the post-verbal objective slot."
+        "A **pronoun** takes the place of a noun so that we do not repeat it: *Aster is late. **She** missed the bus.*",
+        "**Subject pronouns** (*I, you, he, she, it, we, they*) come **before the verb**: ***She** writes.* **Object pronouns** (*me, you, him, her, it, us, them*) come **after a verb or a preposition**: *The teacher helped **her**. This letter is for **me**.*",
+        "**Possessive adjectives** (*my, your, his, her, its, our, their*) go **before a noun**: *the dog wagged **its** tail.* **Possessive pronouns** (*mine, yours, his, hers, ours, theirs*) stand **alone**: *The book is **mine**.* They never take an apostrophe: *its, hers, theirs* (*it's* = it is).",
+        "**Reflexive pronouns** (*myself, yourself, himself, herself, itself, ourselves, yourselves, themselves*) point back to the subject: *They did the work **themselves**.* (✗ *theirselves*, ✗ *hisself*)",
+        "Use **it / its** for things and animals, **he / she** for people: *The school opened **its** new library.*",
+        "**Two names joined by \"and\":** cover the other name and test the pronoun alone: *The teacher asked Ruth and (I / me)…* → *asked **me*** → *asked Ruth and **me***. *(I / Me) and Aster went…* → ***I** went* → *Aster and **I** went*."
        ],
        "examples": [
         {
-         "text": "She goes to school every day.",
+         "text": "Aster and I went to the market.",
          "ok": true
         },
         {
-         "text": "She go to school every day.",
+         "text": "The teacher gave the books to Ruth and me.",
+         "ok": true
+        },
+        {
+         "text": "Me and Aster went to the market.",
          "ok": false,
-         "fix": "She goes to school every day."
+         "fix": "Aster and I went to the market."
+        },
+        {
+         "text": "The dog wagged it's tail.",
+         "ok": false,
+         "fix": "The dog wagged its tail."
+        },
+        {
+         "text": "They did the work theirselves.",
+         "ok": false,
+         "fix": "They did the work themselves."
         }
-       ]
+       ],
+       "pattern": "subject pronoun + verb  ·  verb / preposition + object pronoun  ·  possessive adjective + noun"
       },
       {
        "id": "eng11-u10-c02",
-       "type": "text",
-       "title": "Notes",
-       "page": 1,
-       "src": "study_notes",
-       "body": [
-        "Pronouns, Case Concord & Gender Agreement",
-        "Definition: Pronouns, Case Concord & Gender Agreement (ተውላጠ ስማት፡ ስምምዕ ኬዝን ጾታን) refers to the grammatical rules governing the substitution of nouns with pronouns, ensuring precise coordination in case (subjective, objective, possessive), grammatical number (singular, plural), and gender (masculine, feminine, neuter).",
-        "English personal pronouns are categorized into three distinct syntactic cases: subjective ($$\\text{Subject Case}$$ - *I, you, he, she, it, we, they*), objective ($$\\text{Object Case}$$ - *me, you, him, her, it, us, them*), and possessive ($$\\text{Possessive Case}$$ - *my/mine, your/yours, his, her/hers, its, our/ours, their/theirs*). Unlike Tigrinya, where the case of a pronoun is often marked by attaching prefixes or suffixes directly to the pronoun base, English uses entirely different word forms to signal a pronoun's grammatical role in a sentence. This leads to a common case concord error (ጌጋ ስምምዕ ኬዝ) in compound constructions. For example, Tigrinya speakers often write \"The director invited Aster and I\" instead of the correct \"The director invited Aster and me\" because they translate both subjects and objects similarly without isolating the post-verbal objective slot.",
-        "Gender agreement (ጾታዊ ስምምዕ) presents a major challenge for Tigrinya speakers due to structural differences in how inanimate objects are treated. In Tigrinya, there is no neuter (ጾታ ኣልቦ) pronoun equivalent to the English \"it\". Every noun in Tigrinya is grammatically classified as either masculine or feminine. For instance, a car (\"መኪና\") or the sun (\"ጸሓይ\") is treated as feminine, while a book (\"መጽሓፍ\") is masculine. When translating thoughts, Tigrinya speakers often use \"he\" or \"she\" to refer to inanimate objects in English (e.g., calling a tractor \"he\" or a watch \"she\"). In standard English, all inanimate objects must strictly take the neuter pronoun \"it\" ($$\\text{Inanimate Object} \\rightarrow \\text{it}$$), except in cases of deliberate literary personification."
+       "type": "table",
+       "title": "Pronoun forms",
+       "page": 10,
+       "src": "notes",
+       "head": [
+        "Subject",
+        "Object",
+        "Possessive adjective",
+        "Possessive pronoun",
+        "Reflexive"
+       ],
+       "rows": [
+        [
+         "I",
+         "me",
+         "my",
+         "mine",
+         "myself"
+        ],
+        [
+         "you",
+         "you",
+         "your",
+         "yours",
+         "yourself / yourselves"
+        ],
+        [
+         "he",
+         "him",
+         "his",
+         "his",
+         "himself"
+        ],
+        [
+         "she",
+         "her",
+         "her",
+         "hers",
+         "herself"
+        ],
+        [
+         "it",
+         "it",
+         "its",
+         "—",
+         "itself"
+        ],
+        [
+         "we",
+         "us",
+         "our",
+         "ours",
+         "ourselves"
+        ],
+        [
+         "they",
+         "them",
+         "their",
+         "theirs",
+         "themselves"
+        ]
        ]
+      },
+      {
+       "id": "eng11-u10-l1-pr1",
+       "type": "table",
+       "title": "Common pronoun mistakes",
+       "page": 10,
+       "src": "notes",
+       "head": [
+        "Wrong",
+        "Right",
+        "Why"
+       ],
+       "rows": [
+        [
+         "Me and my friend went home.",
+         "My friend and I went home.",
+         "before the verb → subject pronoun (I)"
+        ],
+        [
+         "Between you and I, …",
+         "Between you and me, …",
+         "after a preposition → object pronoun (me)"
+        ],
+        [
+         "The tree lost it's leaves.",
+         "The tree lost its leaves.",
+         "its = belonging to it; it's = it is"
+        ],
+        [
+         "They hurt theirselves.",
+         "They hurt themselves.",
+         "theirselves is not a word"
+        ],
+        [
+         "This pen is your's.",
+         "This pen is yours.",
+         "possessive pronouns have no apostrophe"
+        ],
+        [
+         "My father he is a farmer.",
+         "My father is a farmer.",
+         "do not repeat the subject with a pronoun"
+        ]
+       ]
+      },
+      {
+       "id": "eng11-u10-l1-pr2",
+       "type": "check",
+       "title": "Quick check",
+       "page": 10,
+       "src": "notes",
+       "q": "My sister and ____ are going to Asmara next week.",
+       "options": {
+        "A": "me",
+        "B": "I",
+        "C": "myself",
+        "D": "mine"
+       },
+       "answer": "B",
+       "why": "**Step 1:** The pronoun is part of the subject (before *are going*).\n\n**Step 2:** Cover *My sister and*: *__ am going* → **I**.\n\n**Step 3:** *me* is an object pronoun; *myself* needs *I* as the subject.\n\n**Tip:** Before the verb → subject pronoun (I, he, she, we, they). After a verb or a preposition → object pronoun (me, him, her, us, them). Cover the other name and test."
+      },
+      {
+       "id": "eng11-u10-l1-pr3",
+       "type": "check",
+       "title": "Quick check",
+       "page": 10,
+       "src": "notes",
+       "q": "The company has changed ____ name.",
+       "options": {
+        "A": "it's",
+        "B": "its",
+        "C": "their",
+        "D": "it"
+       },
+       "answer": "B",
+       "why": "**Step 1:** *company* is a thing (singular) → *it*.\n\n**Step 2:** Before a noun (*name*) we need the possessive adjective **its**.\n\n**Step 3:** *it's* means *it is* – \"has changed it is name\" makes no sense.\n\n**Tip:** If you can say *it is*, write *it's*; otherwise write *its*."
       },
       {
        "id": "eng11-u10-l1-r2wk2",
@@ -99,7 +245,7 @@
        "id": "eng11-u10-c03",
        "type": "check",
        "title": "Quick check",
-       "page": 1,
+       "page": 10,
        "src": "study_notes",
        "q": "The scholarship committee awarded the funding to Aster and ________ after reviewing our academic portfolios.",
        "options": {
@@ -109,13 +255,13 @@
         "D": "mine"
        },
        "answer": "B",
-       "why": "**Step 1: Analyze the grammatical structure**\nThe pronoun follows the preposition 'to' and forms part of a compound prepositional object ('to Aster and [pronoun]'). This slot requires the objective case ($$\\text{Preposition} + \\text{Object Pronoun}$$).\n\n**Step 2: Identify the matriculation trap**\nStudents often write 'Aster and I' because 'Aster and I' is common in the subject position. This is a typical case concord trap in matriculation exams. Applying the Cover-Up Test ('awarded the funding to me') makes the correct choice clear.\n\n**Step 3: Tigrinya Explanation (ትርጉም)**\nእቲ ተውላጠ ስም ድሕሪ 'to' ዝብል መስተዋድድ (preposition) ስለ ዝመጸ፡ ኣብቲ ተቐባሊ ሓሳብ (objective case) ክስራዕ ኣለዎ። 'I' (ዋና ባእታ) ኣብዚ ቦታ ክኣቱ ኣይኽእልን እዩ። ነቲ 'Aster and' ዝብል ሓረግ ብምኽዋል 'awarded the funding to me' ኢልና ክነንብቦ ከለና ቅኑዕ መልሲ 'me' (Option B) ምዃኑ ንርዳእ።"
+       "why": "**Step 1: Look at the sentence**\nThe pronoun follows the preposition 'to' and forms part of a compound prepositional object ('to Aster and [pronoun]'). This slot requires the objective case (Preposition + Object Pronoun).\n\n**Step 2: Watch out for the trap**\nStudents often write 'Aster and I' because 'Aster and I' is common in the subject position. This is a common pronoun trap in exams. Applying the Cover-Up Test ('awarded the funding to me') makes the correct choice clear.\n\n**Step 3: In Tigrinya**\nእቲ ተውላጠ ስም ድሕሪ 'to' ዝብል መስተዋድድ (preposition) ስለ ዝመጸ፡ ኣብቲ ተቐባሊ ሓሳብ (objective case) ክስራዕ ኣለዎ። 'I' (ዋና ባእታ) ኣብዚ ቦታ ክኣቱ ኣይኽእልን እዩ። ነቲ 'Aster and' ዝብል ሓረግ ብምኽዋል 'awarded the funding to me' ኢልና ክነንብቦ ከለና ቅኑዕ መልሲ 'me' (Option B) ምዃኑ ንርዳእ።"
       },
       {
        "id": "eng11-u10-c04",
        "type": "check",
        "title": "Quick check",
-       "page": 1,
+       "page": 10,
        "src": "study_notes",
        "q": "The old typewriter in the headmaster's office is still functional, but ________ keys are difficult to press.",
        "options": {
@@ -125,7 +271,7 @@
         "D": "it"
        },
        "answer": "B",
-       "why": "**Step 1: Analyze the grammatical structure**\nThe blank modifies the noun 'keys' to show ownership. This requires the possessive adjective 'its'.\n\n**Step 2: Identify the matriculation trap**\nStudents often confuse 'its' (possessive adjective) with 'it's' (contraction of 'it is' or 'it has'). Option C ('its'') is a non-existent spelling. This spelling distinction is highly tested in national exams.\n\n**Step 3: Tigrinya Explanation (ትርጉም)**\nኣብዚ ቦታ ናይ ወንነት መግለጺ ቅጽል (possessive adjective) እዩ ዘድልየና። 'Its' (ናቱ/ናታ ንዘይህይወታውያን) ዝብል ቃል ብዘይ ኮማ (apostrophe) ይጸሓፍ። 'It's' ግን ሕጽር ዝበለ ናይ 'it is' ስለ ዝኾነ ኣብዚ ቦታ ኣይሰርሕን እዩ። ቅኑዕ መልሲ 'its' (Option B) እዩ።"
+       "why": "**Step 1: Look at the sentence**\nThe blank modifies the noun 'keys' to show ownership. This requires the possessive adjective 'its'.\n\n**Step 2: Watch out for the trap**\nStudents often confuse 'its' (possessive adjective) with 'it's' (contraction of 'it is' or 'it has'). Option C ('its'') is a non-existent spelling. This spelling distinction is highly tested in national exams.\n\n**Step 3: In Tigrinya**\nኣብዚ ቦታ ናይ ወንነት መግለጺ ቅጽል (possessive adjective) እዩ ዘድልየና። 'Its' (ናቱ/ናታ ንዘይህይወታውያን) ዝብል ቃል ብዘይ ኮማ (apostrophe) ይጸሓፍ። 'It's' ግን ሕጽር ዝበለ ናይ 'it is' ስለ ዝኾነ ኣብዚ ቦታ ኣይሰርሕን እዩ። ቅኑዕ መልሲ 'its' (Option B) እዩ።"
       },
       {
        "id": "eng11-u10-l1-r2c1",
@@ -146,12 +292,31 @@
      ]
     }
    ],
-   "glossary": [],
+   "glossary": [
+    {
+     "term": "pronoun",
+     "meaning": "a word used instead of a noun: he, them, its, mine, themselves.",
+     "page": 10,
+     "src": "notes"
+    },
+    {
+     "term": "possessive pronoun",
+     "meaning": "a pronoun that shows who owns something and stands alone: mine, yours, hers, theirs.",
+     "page": 10,
+     "src": "notes"
+    },
+    {
+     "term": "reflexive pronoun",
+     "meaning": "a pronoun that points back to the subject: myself, themselves.",
+     "page": 10,
+     "src": "notes"
+    }
+   ],
    "tips": [
     {
-     "text": "Revise Pronouns, Case Concord with the quick checks and match game.",
-     "page": 1,
-     "src": "study_notes"
+     "text": "Before the verb → I / he / she / we / they. After a verb or preposition → me / him / her / us / them. Cover the other name and test.",
+     "page": 10,
+     "src": "notes"
     }
    ],
    "games": [
@@ -192,7 +357,7 @@
       "type": "mcq",
       "q": "The scholarship committee awarded the funding to Aster and ________ after reviewing our academic portfolios.",
       "src": "study_notes",
-      "page": 1,
+      "page": 10,
       "label": "1. The scholarship committee awarded the funding to Aster and _",
       "options": {
        "A": "I",
@@ -202,20 +367,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The pronoun follows the preposition 'to' and forms part of a compound prepositional object ('to Aster and [pronoun]'). This slot requires the objective case ($$\\text{Preposition} + \\text{Object Pronoun}$$).",
-       ""
+       "Answer B: me",
+       "The pronoun follows the preposition 'to' and forms part of a compound prepositional object ('to Aster and [pronoun]'). This slot requires the objective case (Preposition + Object Pronoun)."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Use subject pronouns (I, he, she, we, they, who) before a verb and object pronouns (me, him, her, us, them, whom) after verbs and prepositions. Test a compound by removing the other person.",
+      "similar": [
+       {
+        "q": "Find the object pronoun.",
+        "a": "them."
+       },
+       {
+        "q": "Complete: The gift is for Aster and ____ (I / me).",
+        "a": "me."
+       }
+      ]
      },
      {
       "id": "eng11-u10-q02",
       "type": "mcq",
       "q": "The old typewriter in the headmaster's office is still functional, but ________ keys are difficult to press.",
       "src": "study_notes",
-      "page": 1,
+      "page": 10,
       "label": "2. The old typewriter in the headmaster's office is still funct",
       "options": {
        "A": "it's",
@@ -225,20 +397,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The blank modifies the noun 'keys' to show ownership. This requires the possessive adjective 'its'.",
-       ""
+       "Answer B: its",
+       "The blank modifies the noun 'keys' to show ownership. This requires the possessive adjective 'its'."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Use subject pronouns (I, he, she, we, they, who) before a verb and object pronouns (me, him, her, us, them, whom) after verbs and prepositions. Test a compound by removing the other person.",
+      "similar": [
+       {
+        "q": "Complete: The company has changed ____ name.",
+        "a": "its."
+       },
+       {
+        "q": "Complete: The dog wagged ____ (it's / its) tail.",
+        "a": "its."
+       }
+      ]
      },
      {
       "id": "eng11-u10-q03",
       "type": "mcq",
       "q": "The candidate ________ the board selected for the position has outstanding credentials.",
       "src": "study_notes",
-      "page": 1,
+      "page": 10,
       "label": "3. The candidate ________ the board selected for the position h",
       "options": {
        "A": "who",
@@ -248,20 +427,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The relative pronoun refers to 'The candidate' (a person). The clause that follows has a subject-verb pattern: 'the board' (Subject) + 'selected' (Verb). This indicates the relative pronoun is acting as the object of 'selected'.",
-       ""
+       "Answer B: whom",
+       "The relative pronoun refers to 'The candidate' (a person). The clause that follows has a subject-verb pattern: 'the board' (Subject) + 'selected' (Verb). This indicates the relative pronoun is acting as the object of 'selected'."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Use subject pronouns (I, he, she, we, they, who) before a verb and object pronouns (me, him, her, us, them, whom) after verbs and prepositions. Test a compound by removing the other person.",
+      "similar": [
+       {
+        "q": "Find the object pronoun.",
+        "a": "them."
+       },
+       {
+        "q": "Subject or object: \"____ wrote this?\"",
+        "a": "Who (subject)."
+       }
+      ]
      },
      {
       "id": "eng11-u10-q04",
       "type": "mcq",
       "q": "Since both Almaz and her sister wanted to complete the project quickly, they did all the research ________.",
       "src": "study_notes",
-      "page": 1,
+      "page": 10,
       "label": "4. Since both Almaz and her sister wanted to complete the proje",
       "options": {
        "A": "theirselves",
@@ -271,20 +457,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The subject is 'they' (plural). The corresponding plural reflexive pronoun is 'themselves' ($$\\text{They} \\rightarrow \\text{themselves}$$).",
-       ""
+       "Answer B: themselves",
+       "The subject is 'they' (plural). The corresponding plural reflexive pronoun is 'themselves' (They → themselves)."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Use subject pronouns (I, he, she, we, they, who) before a verb and object pronouns (me, him, her, us, them, whom) after verbs and prepositions. Test a compound by removing the other person.",
+      "similar": [
+       {
+        "q": "Complete: Everyone should do ____ best.",
+        "a": "his or her (or their) best."
+       },
+       {
+        "q": "Complete: He runs faster than ____ (she does / her does).",
+        "a": "she does."
+       }
+      ]
      },
      {
       "id": "eng11-u10-q05",
       "type": "mcq",
       "q": "Although my exam preparation was thorough, ________ was far more comprehensive.",
       "src": "study_notes",
-      "page": 1,
+      "page": 10,
       "label": "5. Although my exam preparation was thorough, ________ was far ",
       "options": {
        "A": "her",
@@ -294,20 +487,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The sentence compares 'my exam preparation' with another person's preparation. The second slot must act as a subject noun phrase meaning 'her exam preparation'. This requires a possessive pronoun ('hers') which can stand alone.",
-       ""
+       "Answer B: hers",
+       "The sentence compares 'my exam preparation' with another person's preparation. The second slot must act as a subject noun phrase meaning 'her exam preparation'. This requires a possessive pronoun ('hers') which can stand alone."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Use subject pronouns (I, he, she, we, they, who) before a verb and object pronouns (me, him, her, us, them, whom) after verbs and prepositions. Test a compound by removing the other person.",
+      "similar": [
+       {
+        "q": "Correct: Us students need more time.",
+        "a": "We students need more time."
+       },
+       {
+        "q": "Find the object pronoun.",
+        "a": "them."
+       }
+      ]
      },
      {
       "id": "eng11-u10-q06",
       "type": "mcq",
       "q": "Every citizen in the country is expected to do ________ duty to protect the environment.",
       "src": "study_notes",
-      "page": 1,
+      "page": 10,
       "label": "6. Every citizen in the country is expected to do ________ duty",
       "options": {
        "A": "their",
@@ -317,20 +517,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The subject is 'Every citizen'. In formal, traditional English grammar, indefinite pronouns like 'everyone', 'everybody', and 'every citizen' are singular and require a singular possessive adjective ('his or her').",
-       ""
+       "Answer B: his or her",
+       "The subject is 'Every citizen'. In formal, traditional English grammar, indefinite pronouns like 'everyone', 'everybody', and 'every citizen' are singular and require a singular possessive adjective ('his or her')."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Use subject pronouns (I, he, she, we, they, who) before a verb and object pronouns (me, him, her, us, them, whom) after verbs and prepositions. Test a compound by removing the other person.",
+      "similar": [
+       {
+        "q": "Complete: Everyone should do ____ best.",
+        "a": "his or her (or their) best."
+       },
+       {
+        "q": "Complete: ____ (He / Him) and his brother play football.",
+        "a": "He."
+       }
+      ]
      },
      {
       "id": "eng11-u10-q07",
       "type": "mcq",
       "q": "The professional painter ________ portrait won the national art award was congratulated by the community.",
       "src": "study_notes",
-      "page": 1,
+      "page": 10,
       "label": "7. The professional painter ________ portrait won the national ",
       "options": {
        "A": "who",
@@ -340,20 +547,27 @@
       },
       "answer": "C",
       "why": [
-       "Answer C",
-       "**Step 1: Analyze the grammatical structure**",
-       "The relative clause shows a possession relationship: 'portrait' belongs to 'The professional painter'. This requires the possessive relative pronoun 'whose' ($$\\text{Whose} + \\text{Noun}$$).",
-       ""
+       "Answer C: whose",
+       "The relative clause shows a possession relationship: 'portrait' belongs to 'The professional painter'. This requires the possessive relative pronoun 'whose' (Whose + Noun)."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Use subject pronouns (I, he, she, we, they, who) before a verb and object pronouns (me, him, her, us, them, whom) after verbs and prepositions. Test a compound by removing the other person.",
+      "similar": [
+       {
+        "q": "Find the object pronoun.",
+        "a": "them."
+       },
+       {
+        "q": "Complete: The gift is for Aster and ____ (I / me).",
+        "a": "me."
+       }
+      ]
      },
      {
       "id": "eng11-u10-q08",
       "type": "mcq",
       "q": "Our English teacher is much more experienced in curriculum design than ________.",
       "src": "study_notes",
-      "page": 1,
+      "page": 10,
       "label": "8. Our English teacher is much more experienced in curriculum d",
       "options": {
        "A": "me",
@@ -363,20 +577,27 @@
       },
       "answer": "C",
       "why": [
-       "Answer C",
-       "**Step 1: Analyze the grammatical structure**",
-       "In formal comparative constructions using 'than' or 'as', the pronoun after 'than' is the subject of an implied clause: 'than I [am]'. This requires the subjective case.",
-       ""
+       "Answer C: I",
+       "In formal comparative constructions using 'than' or 'as', the pronoun after 'than' is the subject of an implied clause: 'than I [am]'. This requires the subjective case."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Use subject pronouns (I, he, she, we, they, who) before a verb and object pronouns (me, him, her, us, them, whom) after verbs and prepositions. Test a compound by removing the other person.",
+      "similar": [
+       {
+        "q": "Correct: Us students need more time.",
+        "a": "We students need more time."
+       },
+       {
+        "q": "Complete: The woman ____ I met was kind.",
+        "a": "whom (or who in informal English)."
+       }
+      ]
      },
      {
       "id": "eng11-u10-q09",
       "type": "mcq",
       "q": "Let Aster and ________ take responsibility for organizing the graduation ceremony.",
       "src": "study_notes",
-      "page": 1,
+      "page": 10,
       "label": "9. Let Aster and ________ take responsibility for organizing th",
       "options": {
        "A": "I",
@@ -386,20 +607,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The verb 'let' is transitive and requires its object in the objective case: $$\\text{Let} + \\text{Object Pronoun} + \\text{Base Verb}$$.",
-       ""
+       "Answer B: me",
+       "The verb 'let' is transitive and requires its object in the objective case: Let + Object Pronoun + Base Verb."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Use subject pronouns (I, he, she, we, they, who) before a verb and object pronouns (me, him, her, us, them, whom) after verbs and prepositions. Test a compound by removing the other person.",
+      "similar": [
+       {
+        "q": "Find the object pronoun.",
+        "a": "them."
+       },
+       {
+        "q": "Complete: The gift is for Aster and ____ (I / me).",
+        "a": "me."
+       }
+      ]
      },
      {
       "id": "eng11-u10-q10",
       "type": "mcq",
       "q": "The new laptop is lightweight and sleek, but ________ battery life is quite short.",
       "src": "study_notes",
-      "page": 1,
+      "page": 10,
       "label": "10. The new laptop is lightweight and sleek, but ________ batter",
       "options": {
        "A": "it's",
@@ -409,13 +637,20 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "We need a singular possessive adjective to modify the noun 'battery life' for the singular inanimate laptop. This requires 'its'.",
-       ""
+       "Answer B: its",
+       "We need a singular possessive adjective to modify the noun 'battery life' for the singular inanimate laptop. This requires 'its'."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Use subject pronouns (I, he, she, we, they, who) before a verb and object pronouns (me, him, her, us, them, whom) after verbs and prepositions. Test a compound by removing the other person.",
+      "similar": [
+       {
+        "q": "Complete: The company has changed ____ name.",
+        "a": "its."
+       },
+       {
+        "q": "Correct: Us students need more time.",
+        "a": "We students need more time."
+       }
+      ]
      },
      {
       "id": "eng11-u10-r2q01",
@@ -722,6 +957,138 @@
        "Everyday English often uses \"who\", so both forms exist in different registers."
       ],
       "tip": "Use subject pronouns (I, he, she, we, they, who) before a verb and object pronouns (me, him, her, us, them, whom) after verbs and prepositions. Test a compound by removing the other person."
+     },
+     {
+      "id": "eng11-u10-prq01",
+      "q": "This is not your book. It is ____.",
+      "src": "notes",
+      "page": 10,
+      "similar": [
+       {
+        "q": "Complete: \"Is this bag (your / yours)?\"",
+        "a": "yours"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "my",
+       "B": "mine",
+       "C": "mine's",
+       "D": "me"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: mine",
+       "No noun after the gap → possessive **pronoun**: *mine*.",
+       "*my* needs a noun after it (*my book*)."
+      ],
+      "tip": "Before the verb → subject pronoun (I, he, she, we, they). After a verb or a preposition → object pronoun (me, him, her, us, them). Cover the other name and test."
+     },
+     {
+      "id": "eng11-u10-prq02",
+      "q": "The children made the cake all by ____.",
+      "src": "notes",
+      "page": 10,
+      "similar": [
+       {
+        "q": "Complete: \"I hurt ____ while cooking.\"",
+        "a": "myself"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "themself",
+       "B": "theirselves",
+       "C": "themselves",
+       "D": "them"
+      },
+      "answer": "C",
+      "why": [
+       "Answer C: themselves",
+       "The subject is *the children* (they) → **themselves**.",
+       "*themself* and *theirselves* are not standard English."
+      ],
+      "tip": "Before the verb → subject pronoun (I, he, she, we, they). After a verb or a preposition → object pronoun (me, him, her, us, them). Cover the other name and test."
+     },
+     {
+      "id": "eng11-u10-prq03",
+      "q": "Please give these notes to Hana and ____.",
+      "src": "notes",
+      "page": 10,
+      "similar": [
+       {
+        "q": "Complete: \"The prize was given to Abel and ____.\" (I / me)",
+        "a": "me"
+       },
+       {
+        "q": "Complete: \"____ and Saba are cousins.\" (I / Me)",
+        "a": "I"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "I",
+       "B": "me",
+       "C": "myself",
+       "D": "mine"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: me",
+       "After the preposition *to* → object pronoun.",
+       "Cover *Hana and*: *give these notes to __* → **me**."
+      ],
+      "tip": "Before the verb → subject pronoun (I, he, she, we, they). After a verb or a preposition → object pronoun (me, him, her, us, them). Cover the other name and test."
+     },
+     {
+      "id": "eng11-u10-prq04",
+      "q": "The cat is drinking ____ milk.",
+      "src": "notes",
+      "page": 10,
+      "similar": [
+       {
+        "q": "Complete: \"____ raining again.\" (Its / It's)",
+        "a": "It's"
+       }
+      ],
+      "type": "fill",
+      "choices": [
+       "it's",
+       "it",
+       "their",
+       "its"
+      ],
+      "answer": "its",
+      "why": [
+       "Before a noun, for an animal → **its** (no apostrophe)."
+      ],
+      "tip": "Before the verb → subject pronoun (I, he, she, we, they). After a verb or a preposition → object pronoun (me, him, her, us, them). Cover the other name and test."
+     },
+     {
+      "id": "eng11-u10-prq05",
+      "q": "Correct the error: \"Me and my brother play football every evening.\"",
+      "src": "notes",
+      "page": 10,
+      "similar": [
+       {
+        "q": "Complete: \"The prize was given to Abel and ____.\" (I / me)",
+        "a": "me"
+       },
+       {
+        "q": "Complete: \"____ and Saba are cousins.\" (I / Me)",
+        "a": "I"
+       }
+      ],
+      "type": "short",
+      "accept": [
+       "My brother and I play football every evening"
+      ],
+      "answer": "My brother and I play football every evening.",
+      "why": [
+       "The pronoun is part of the subject → **I**, not *me*.",
+       "It is polite to put yourself last: *My brother and I*."
+      ],
+      "tip": "Before the verb → subject pronoun (I, he, she, we, they). After a verb or a preposition → object pronoun (me, him, her, us, them). Cover the other name and test."
      }
     ]
    },
@@ -731,14 +1098,45 @@
     "nodes": [
      {
       "id": "unit",
-      "label": "Pronouns, Case Concord",
+      "label": "Pronouns",
       "kind": "unit",
       "cards": [
-       "eng11-u10-c01"
+       "eng11-u10-c01",
+       "eng11-u10-l1-pr1"
+      ]
+     },
+     {
+      "id": "forms",
+      "label": "Pronoun forms",
+      "kind": "topic",
+      "lesson": "eng11-u10-l1",
+      "cards": [
+       "eng11-u10-c01",
+       "eng11-u10-c02"
+      ]
+     },
+     {
+      "id": "mistakes",
+      "label": "Common mistakes",
+      "kind": "topic",
+      "lesson": "eng11-u10-l1",
+      "cards": [
+       "eng11-u10-l1-pr1"
       ]
      }
     ],
-    "edges": []
+    "edges": [
+     {
+      "from": "unit",
+      "to": "forms",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "mistakes",
+      "label": "includes"
+     }
+    ]
    }
   }
  ]

@@ -111,11 +111,13 @@ ENG_RULES = [
     (r'past (?:simple|continuous|perfect|tense)|simple past|used to', ['eng9-u1', 'eng11-u12']),
     (r'future (?:continuous|tense|progressive|forms?|arrangements?|perfect)', ['eng10-u2', 'eng11-u12']),
     (r'present (?:continuous|progressive)', ['eng10-u8', 'eng11-u12']),
+    (r'present perfect (?:continuous|progressive)', ['eng10-u8', 'eng11-u13']),
+    (r'transitiv|intransitiv|(?:direct|indirect) objects?|ditransitive', ['eng11-u8']),
     (r'\btenses?\b|verb tense|tense and usage|tense review|present perfect|present simple|simple present|perfect tenses|adverbs of time|still, yet', ['eng10-u9', 'eng11-u12', 'eng11-u13']),
     (r'compar(?:ison|ative)|superlative', ['eng10-u10']),
-    (r'purpose|concessi|contrast|result clause', ['eng11-u8']),
+    (r'purpose|concessi|contrast|result clause', ['eng11-u25']),
     (r'clause connection|sentence joining|clause boundar|joining sentences', ['eng11-u1', 'eng12-u2', 'eng9-u4']),
-    (r'linking words?|linkers?|connectors?|conjunctions?|cohesi|transition|discourse marker|conjunctive adverb|subordinat|coordinat', ['eng9-u4', 'eng11-u8', 'eng12-u2']),
+    (r'linking words?|linkers?|connectors?|conjunctions?|cohesi|transition|discourse marker|conjunctive adverb|subordinat|coordinat', ['eng9-u4', 'eng11-u25', 'eng12-u2']),
     (r'punctuation|capitali[sz]ation', ['eng9-u3', 'eng9-u5']),
     (r'phrasal verb', ['eng11-u17']),
     (r'preposition', ['eng11-u18']),
@@ -138,6 +140,7 @@ ENG_RULES = [
     (r'headline', ['eng10-u9']),
     (r'(?:^|\\| )verbs?(?: \\||$)|verbs in context|verb forms?|irregular verb|auxiliar|en verbs', ['eng11-u11']),
 ]
+TRANS_NO_PREP = re.compile(r'\b(?:discuss|enter|reach|resembl|marr(?:y|ied)|attend|approach|lack)\w*\s+_{2,}', re.I)
 # the stem is only used when the topic says nothing, and only for unambiguous wording
 STEM_RULES = [
     (r'passive (?:voice|form)|into (?:the )?passive', ['eng9-u2', 'eng9-u8', 'eng10-u7', 'eng11-u4']),
@@ -175,6 +178,8 @@ def english_units(q, has_passage):
                 hits += [u for u in us if u not in hits]
         if hits and any(u in hits for u in ('eng10-u9', 'eng11-u12')) and PRES_CONT.search(st) and 'eng10-u8' not in hits:
             hits.insert(0, 'eng10-u8')  # present continuous for a period of time
+        if 'eng11-u18' in hits and TRANS_NO_PREP.search(st) and 'eng11-u8' not in hits:
+            hits.append('eng11-u8')  # transitive verb, no preposition (discuss/enter/reach ___ the …): Grade 11 Unit 8
         if hits:
             return hits[:5], 'topic' if src is topic else 'stem'
     return [], 'English item: no grammar point matched a unit lesson'

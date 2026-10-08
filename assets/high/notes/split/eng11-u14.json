@@ -17,20 +17,20 @@
   {
    "id": "eng11-u14",
    "number": 14,
-   "title": "Question Formation",
+   "title": "Making questions (direct and indirect)",
    "status": "done",
    "pages": [
     14,
     14
    ],
    "tone": "mint",
-   "intro": "Grammar from Study Notes: Question Formation & Interrogative Structures.",
+   "intro": "How to make yes/no questions, wh-questions, subject questions and polite indirect questions – four short rules.",
    "intro_page": 1,
    "lessons": [
     {
      "id": "eng11-u14-l1",
      "number": "14.1",
-     "title": "Question Formation",
+     "title": "Making questions",
      "pages": [
       14,
       14
@@ -39,37 +39,81 @@
       {
        "id": "eng11-u14-c01",
        "type": "grammar",
-       "title": "Question Formation",
-       "page": 1,
-       "src": "study_notes",
+       "title": "Four rules for questions",
+       "page": 14,
+       "src": "notes",
        "rule": [
-        "Question Formation & Interrogative Structures",
-        "Definition: Question Formation & Interrogative Structures (ሕቶኣዊ መዋቕራትን ኣሰራርዓኦምን) refers to the syntactic rules governing the creation of direct and indirect questions, including yes/no questions, Wh-questions, subject vs. object questions, and embedded clauses, utilizing auxiliary inversion and precise word order.",
-        "English interrogative structures are fundamentally divided into direct questions ($$\\text{Direct Questions}$$) and indirect or embedded questions ($$\\text{Indirect Questions}$$). To signal a direct question, English strictly requires grammatical inversion, where the auxiliary verb is placed before the subject ($$\\text{Auxiliary} + \\text{Subject} + \\text{Verb}$$), or the introduction of a dummy auxiliary. Tigrinya, conversely, forms yes/no questions synthetically by attaching the suffix particle \"-ዶ\" (do) directly to the inflected main verb (e.g., \"መጺኡ\" [he came] $$\\rightarrow$$ \"መጺኡዶ?\" [did he come?]). It does not employ auxiliary inversion. Wh-questions in Tigrinya insert the question word directly into the standard declarative Subject-Object-Verb slot without modifying the word order (e.g., \"ንስኻ ኣበይ ትነብር?\" [Where do you live?]). Because Tigrinya lacks auxiliary inversion and dummy 'do'-support, students frequently make word order errors in direct English questions (e.g., writing \"Where you are going?\" instead of \"Where *are you* going?\")."
+        "**Yes/no question:** put the helping verb **before** the subject: *She is ready.* → ***Is she** ready?* No helping verb? Use **do / does / did** + base verb: *He plays.* → ***Does he play**?* *They left.* → ***Did they leave**?*",
+        "**Wh-question:** wh-word + the yes/no question: *Where **does she live**? Why **did you leave**? What **are** they **doing**?*",
+        "**Subject question:** when *who/what* **is** the subject, keep normal order and add no do/does/did: ***Who broke** the window?* (✗ Who did break…?) ***What happened**?*",
+        "**Indirect question** (after *Do you know…? Can you tell me…? I wonder… He asked…*): normal order, **no** do/does/did, and **if/whether** for yes/no: *Can you tell me **where the station is**? I asked **if she was** ready.*"
        ],
        "examples": [
         {
-         "text": "She goes to school every day.",
+         "text": "Why didn't you submit your project?",
          "ok": true
         },
         {
-         "text": "She go to school every day.",
+         "text": "Where you live?",
          "ok": false,
-         "fix": "She goes to school every day."
+         "fix": "Where do you live?"
+        },
+        {
+         "text": "Who did see the accident?",
+         "ok": false,
+         "fix": "Who saw the accident?"
+        },
+        {
+         "text": "Can you tell me where is the bank?",
+         "ok": false,
+         "fix": "Can you tell me where the bank is?"
         }
-       ]
+       ],
+       "pattern": "(Wh) + aux + S + V?  ·  Who/What + V?  ·  …tell me + wh/if + S + V"
       },
       {
        "id": "eng11-u14-c02",
-       "type": "text",
-       "title": "Notes",
-       "page": 1,
-       "src": "study_notes",
-       "body": [
-        "Question Formation & Interrogative Structures",
-        "Definition: Question Formation & Interrogative Structures (ሕቶኣዊ መዋቕራትን ኣሰራርዓኦምን) refers to the syntactic rules governing the creation of direct and indirect questions, including yes/no questions, Wh-questions, subject vs. object questions, and embedded clauses, utilizing auxiliary inversion and precise word order.",
-        "English interrogative structures are fundamentally divided into direct questions ($$\\text{Direct Questions}$$) and indirect or embedded questions ($$\\text{Indirect Questions}$$). To signal a direct question, English strictly requires grammatical inversion, where the auxiliary verb is placed before the subject ($$\\text{Auxiliary} + \\text{Subject} + \\text{Verb}$$), or the introduction of a dummy auxiliary. Tigrinya, conversely, forms yes/no questions synthetically by attaching the suffix particle \"-ዶ\" (do) directly to the inflected main verb (e.g., \"መጺኡ\" [he came] $$\\rightarrow$$ \"መጺኡዶ?\" [did he come?]). It does not employ auxiliary inversion. Wh-questions in Tigrinya insert the question word directly into the standard declarative Subject-Object-Verb slot without modifying the word order (e.g., \"ንስኻ ኣበይ ትነብር?\" [Where do you live?]). Because Tigrinya lacks auxiliary inversion and dummy 'do'-support, students frequently make word order errors in direct English questions (e.g., writing \"Where you are going?\" instead of \"Where *are you* going?\").",
-        "Direct Yes/No questions require the syntactic pattern $$\\text{Auxiliary} + \\text{Subject} + \\text{Verb} \\dots ?$$. In the simple present and simple past tenses, where no auxiliary is naturally present in active declarative clauses, English inserts the dummy auxiliary \"do\" ($$\\text{Do/Does/Did} + \\text{Subject} + \\text{V}_{\\text{base}}$$). A common error on national exams is failing to return the main verb to its base form after using \"do/does/did\" (e.g., writing \"Did she *went*?\" instead of the correct \"Did she *go*?\"). Tigrinya speakers must remember that the tense marker is carried entirely by the auxiliary, leaving the main verb in its bare infinitive state."
+       "type": "table",
+       "title": "From statement to question",
+       "page": 14,
+       "src": "notes",
+       "head": [
+        "Statement",
+        "Yes/no question",
+        "Wh-question",
+        "Indirect question"
+       ],
+       "rows": [
+        [
+         "She **is** at home.",
+         "**Is she** at home?",
+         "Where **is she**?",
+         "Do you know where **she is**?"
+        ],
+        [
+         "He **works** in Asmara.",
+         "**Does he work** in Asmara?",
+         "Where **does he work**?",
+         "Can you tell me where **he works**?"
+        ],
+        [
+         "They **left** at six.",
+         "**Did they leave** at six?",
+         "When **did they leave**?",
+         "I wonder when **they left**."
+        ],
+        [
+         "She **can** swim.",
+         "**Can she** swim?",
+         "How well **can she** swim?",
+         "He asked **if she could** swim."
+        ],
+        [
+         "**Samuel** helped Ruth.",
+         "**Did Samuel help** Ruth?",
+         "**Who helped** Ruth? (subject)",
+         "I don't know **who helped** Ruth."
+        ]
        ]
       },
       {
@@ -99,7 +143,7 @@
        "id": "eng11-u14-c03",
        "type": "check",
        "title": "Quick check",
-       "page": 1,
+       "page": 14,
        "src": "study_notes",
        "q": "Could you please tell me what time ________ from the regional airport tomorrow morning?",
        "options": {
@@ -109,13 +153,13 @@
         "D": "departs the flight"
        },
        "answer": "B",
-       "why": "**Step 1: Analyze the grammatical structure**\nThis is an indirect (embedded) question introduced by the polite phrase 'Could you please tell me'. It requires declarative word order: $$\\text{Wh-word (what time)} + \\text{Subject (the flight)} + \\text{Verb (departs)}$$.\n\n**Step 2: Identify the matriculation trap**\nStudents often choose Option A ('does the flight depart') or Option C ('will the flight depart') because they assume they need direct question inversion. However, indirect questions must not use auxiliary inversion or dummy do-support.\n\n**Step 3: Tigrinya Explanation (ትርጉም)**\nእዚ ምሉእ ሓሳብ ብ 'Could you please...' ዝጅምር ውሽጣዊ ሕቶ (Indirect/Embedded question) እዩ። ኣብ እንግሊዘኛ ውሽጣዊ ሕቶታት ስርዓተ-ሕቶ (inversion) ኣይህልዎምን፤ ልክዕ ከም ስሩዕ ኣዎንታዊ ምሉእ ሓሳብ ($$Subject + Verb$$) እዮም ዝጸሓፉ። ስለዚ እቲ ዋና ባእታ 'the flight' ቅድሚ እቲ ግሲ 'departs' ክስራዕ ኣለዎ (Option B)። 'does the flight depart' ምጥቃም ጌጋ እዩ።"
+       "why": "**Step 1: Look at the sentence**\nThis is an indirect (embedded) question introduced by the polite phrase 'Could you please tell me'. It requires declarative word order: Wh-word (what time) + Subject (the flight) + Verb (departs).\n\n**Step 2: Watch out for the trap**\nStudents often choose Option A ('does the flight depart') or Option C ('will the flight depart') because they assume they need direct question inversion. However, indirect questions must not use auxiliary inversion or do/does/did.\n\n**Step 3: In Tigrinya**\nእዚ ምሉእ ሓሳብ ብ 'Could you please...' ዝጅምር ውሽጣዊ ሕቶ (Indirect/Embedded question) እዩ። ኣብ እንግሊዘኛ ውሽጣዊ ሕቶታት ስርዓተ-ሕቶ (inversion) ኣይህልዎምን፤ ልክዕ ከም ስሩዕ ኣዎንታዊ ምሉእ ሓሳብ (Subject + Verb) እዮም ዝጸሓፉ። ስለዚ እቲ ዋና ባእታ 'the flight' ቅድሚ እቲ ግሲ 'departs' ክስራዕ ኣለዎ (Option B)። 'does the flight depart' ምጥቃም ጌጋ እዩ።"
       },
       {
        "id": "eng11-u14-c04",
        "type": "check",
        "title": "Quick check",
-       "page": 1,
+       "page": 14,
        "src": "study_notes",
        "q": "Why ________ your science project on time last Friday, as the teacher requested?",
        "options": {
@@ -125,7 +169,7 @@
         "D": "you didn't submitted"
        },
        "answer": "C",
-       "why": "**Step 1: Analyze the grammatical structure**\nThis is a direct past Wh-question. It requires the past dummy auxiliary 'didn't' to precede the subject 'you', and the main verb must return to its base form: $$\\text{Why} + \\text{didn't} + \\text{Subject} + \\text{V}_{\\text{base}}$$.\n\n**Step 2: Identify the matriculation trap**\nOption A incorrectly combines 'didn't' with the past tense verb 'submitted'. Option B fails to invert the subject and auxiliary. Option C correctly uses 'didn't' with the base verb 'submit'.\n\n**Step 3: Tigrinya Explanation (ትርጉም)**\nቀጥታዊ ሕሉፍ ሕቶ ክንሓትት ከለና እቲ ሓገዝቲ ግሲ ('didn't') ቅድሚ እቲ ዋና ባእታ ('you') ክስራዕ ኣለዎ። ከምኡ ውን 'did' ወይ 'didn't' ምስ ዝህልው፡ እቲ ቀንዲ ግሲ ወትሩ ናብቲ መበቆላዊ ቅጥዑ (base form - 'submit') ክምለስ ኣለዎ። ስለዚ ቅኑዕ መልሲ Option C እዩ።"
+       "why": "**Step 1: Look at the sentence**\nThis is a direct past Wh-question. It requires the past do/does/did 'didn't' to precede the subject 'you', and the main verb must return to its base form: Why + didn't + Subject + V (base).\n\n**Step 2: Watch out for the trap**\nOption A incorrectly combines 'didn't' with the past tense verb 'submitted'. Option B fails to invert the subject and auxiliary. Option C correctly uses 'didn't' with the base verb 'submit'.\n\n**Step 3: In Tigrinya**\nቀጥታዊ ሕሉፍ ሕቶ ክንሓትት ከለና እቲ ሓገዝቲ ግሲ ('didn't') ቅድሚ እቲ ዋና ባእታ ('you') ክስራዕ ኣለዎ። ከምኡ ውን 'did' ወይ 'didn't' ምስ ዝህልው፡ እቲ ቀንዲ ግሲ ወትሩ ናብቲ መበቆላዊ ቅጥዑ (base form - 'submit') ክምለስ ኣለዎ። ስለዚ ቅኑዕ መልሲ Option C እዩ።"
       },
       {
        "id": "eng11-u14-l1-r2c1",
@@ -192,7 +236,7 @@
       "type": "mcq",
       "q": "Could you please tell me what time ________ from the regional airport tomorrow morning?",
       "src": "study_notes",
-      "page": 1,
+      "page": 14,
       "label": "1. Could you please tell me what time ________ from the regiona",
       "options": {
        "A": "does the flight depart",
@@ -202,20 +246,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "This is an indirect (embedded) question introduced by the polite phrase 'Could you please tell me'. It requires declarative word order: $$\\text{Wh-word (what time)} + \\text{Subject (the flight)} + \\text{Verb (departs)}$$.",
-       ""
+       "Answer B: the flight departs",
+       "This is an indirect (embedded) question introduced by the polite phrase 'Could you please tell me'. It requires declarative word order: Wh-word (what time) + Subject (the flight) + Verb (departs)."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Questions: (Wh-word) + auxiliary + subject + main verb. Subject questions (Who called?) have no auxiliary. Indirect questions use statement word order.",
+      "similar": [
+       {
+        "q": "Make indirect: \"What time is it?\"",
+        "a": "Do you know what time it is?"
+       },
+       {
+        "q": "Make indirect: \"Where does he work?\"",
+        "a": "Can you tell me where he works?"
+       }
+      ]
      },
      {
       "id": "eng11-u14-q02",
       "type": "mcq",
       "q": "Why ________ your science project on time last Friday, as the teacher requested?",
       "src": "study_notes",
-      "page": 1,
+      "page": 14,
       "label": "2. Why ________ your science project on time last Friday, as th",
       "options": {
        "A": "didn't you submitted",
@@ -223,22 +274,29 @@
        "C": "didn't you submit",
        "D": "you didn't submitted"
       },
-      "answer": "A",
+      "answer": "C",
       "why": [
-       "Answer A",
-       "**Step 1: Analyze the grammatical structure**",
-       "This is a direct past Wh-question. It requires the past dummy auxiliary 'didn't' to precede the subject 'you', and the main verb must return to its base form: $$\\text{Why} + \\text{didn't} + \\text{Subject} + \\text{V}_{\\text{base}}$$.",
-       ""
+       "Answer C: didn't you submit",
+       "This is a direct past Wh-question. It requires the past do/does/did 'didn't' to precede the subject 'you', and the main verb must return to its base form: Why + didn't + Subject + V (base)."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Questions: (Wh-word) + auxiliary + subject + main verb. Subject questions (Who called?) have no auxiliary. Indirect questions use statement word order.",
+      "similar": [
+       {
+        "q": "Form a negative question: (you / come / why)",
+        "a": "Why didn't you come?"
+       },
+       {
+        "q": "Question for \"Because I loved the feeling of freedom.\"",
+        "a": "Why did you start running?"
+       }
+      ]
      },
      {
       "id": "eng11-u14-q03",
       "type": "mcq",
       "q": "________ the rare historical manuscript from the library archive last week?",
       "src": "study_notes",
-      "page": 1,
+      "page": 14,
       "label": "3. ________ the rare historical manuscript from the library arc",
       "options": {
        "A": "Who did steal",
@@ -248,19 +306,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "This is a subject question asking about the person who performed the action of stealing. In English subject questions, no auxiliary do-support ('did') is used, and the verb remains in its past simple form ($$\\text{Who/What} + \\text{V}_2 + \\text{Object}$$"
+       "Answer B: Who stole",
+       "This is a subject question asking about the person who performed the action of stealing. In English subject questions, no auxiliary do/does/did ('did') is used, and the verb remains in its past simple form (Who/What + V2 + Object"
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Questions: (Wh-word) + auxiliary + subject + main verb. Subject questions (Who called?) have no auxiliary. Indirect questions use statement word order.",
+      "similar": [
+       {
+        "q": "Ask about the object: She called someone.",
+        "a": "Who did she call?"
+       },
+       {
+        "q": "Form a question: (she / go / where / yesterday)",
+        "a": "Where did she go yesterday?"
+       }
+      ]
      },
      {
       "id": "eng11-u14-q04",
       "type": "mcq",
       "q": "I wonder whether ________ ready to present their research findings to the board.",
       "src": "study_notes",
-      "page": 1,
+      "page": 14,
       "label": "4. I wonder whether ________ ready to present their research fi",
       "options": {
        "A": "are the students",
@@ -270,20 +336,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "This is an embedded Yes/No question introduced by 'I wonder'. It requires the complementizer 'whether' followed by declarative word order: $$\\text{whether} + \\text{Subject} + \\text{Verb}$$.",
-       ""
+       "Answer B: the students are",
+       "This is an embedded Yes/No question introduced by 'I wonder'. It requires the complementizer 'whether' followed by declarative word order: whether + Subject + Verb."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Questions: (Wh-word) + auxiliary + subject + main verb. Subject questions (Who called?) have no auxiliary. Indirect questions use statement word order.",
+      "similar": [
+       {
+        "q": "Question word for \"Ten kilometres.\"",
+        "a": "How far."
+       },
+       {
+        "q": "Question word for \"Two hours.\"",
+        "a": "How long."
+       }
+      ]
      },
      {
       "id": "eng11-u14-q05",
       "type": "mcq",
       "q": "________ were you talking to when the school director walked into the biology lab?",
       "src": "study_notes",
-      "page": 1,
+      "page": 14,
       "label": "5. ________ were you talking to when the school director walked",
       "options": {
        "A": "Whom",
@@ -293,20 +366,27 @@
       },
       "answer": "A",
       "why": [
-       "Answer A",
-       "**Step 1: Analyze the grammatical structure**",
-       "The preposition 'to' is stranded at the end of the clause ('talking to'). In informal/standard English, when the preposition is stranded, the subjective pronoun 'Who' is used at the beginning of the question.",
-       ""
+       "Answer A: Whom",
+       "The preposition 'to' is stranded at the end of the clause ('talking to'). In informal/standard English, when the preposition is stranded, the subjective pronoun 'Who' is used at the beginning of the question."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Questions: (Wh-word) + auxiliary + subject + main verb. Subject questions (Who called?) have no auxiliary. Indirect questions use statement word order.",
+      "similar": [
+       {
+        "q": "Form a negative question: (you / come / why)",
+        "a": "Why didn't you come?"
+       },
+       {
+        "q": "Question for: \"She left at noon.\"",
+        "a": "When did she leave?"
+       }
+      ]
      },
      {
       "id": "eng11-u14-q06",
       "type": "mcq",
       "q": "Can you tell me how long ________ as a teacher in this regional high school?",
       "src": "study_notes",
-      "page": 1,
+      "page": 14,
       "label": "6. Can you tell me how long ________ as a teacher in this regio",
       "options": {
        "A": "has Aster been working",
@@ -316,20 +396,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "This is an indirect question introduced by 'Can you tell me'. It requires declarative word order: $$\\text{Wh-word (how long)} + \\text{Subject (Aster)} + \\text{Verb (has been working)}$$.",
-       ""
+       "Answer B: Aster has been working",
+       "This is an indirect question introduced by 'Can you tell me'. It requires declarative word order: Wh-word (how long) + Subject (Aster) + Verb (has been working)."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Questions: (Wh-word) + auxiliary + subject + main verb. Subject questions (Who called?) have no auxiliary. Indirect questions use statement word order.",
+      "similar": [
+       {
+        "q": "Make indirect: \"Where does he work?\"",
+        "a": "Can you tell me where he works?"
+       },
+       {
+        "q": "Question word for \"Two hours.\"",
+        "a": "How long."
+       }
+      ]
      },
      {
       "id": "eng11-u14-q07",
       "type": "mcq",
       "q": "________ did you invite to speak at the national graduation ceremony next month?",
       "src": "study_notes",
-      "page": 1,
+      "page": 14,
       "label": "7. ________ did you invite to speak at the national graduation ",
       "options": {
        "A": "Who",
@@ -339,20 +426,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "This is an object question asking about the person receiving the invitation. In formal English, the objective pronoun 'Whom' is used when asking about the object of a verb.",
-       ""
+       "Answer B: Whom",
+       "This is an object question asking about the person receiving the invitation. In formal English, the objective pronoun 'Whom' is used when asking about the object of a verb."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Questions: (Wh-word) + auxiliary + subject + main verb. Subject questions (Who called?) have no auxiliary. Indirect questions use statement word order.",
+      "similar": [
+       {
+        "q": "Ask about the object: She called someone.",
+        "a": "Who did she call?"
+       },
+       {
+        "q": "Question for: \"She left at noon.\"",
+        "a": "When did she leave?"
+       }
+      ]
      },
      {
       "id": "eng11-u14-q08",
       "type": "mcq",
       "q": "Do you know ________ the main administrative office is temporarily closed today?",
       "src": "study_notes",
-      "page": 1,
+      "page": 14,
       "label": "8. Do you know ________ the main administrative office is tempo",
       "options": {
        "A": "why",
@@ -362,20 +456,27 @@
       },
       "answer": "A",
       "why": [
-       "Answer A",
-       "**Step 1: Analyze the grammatical structure**",
-       "This is an indirect question introduced by 'Do you know'. It requires declarative word order, so the Wh-word 'why' must be followed directly by the subject 'the main administrative office'.",
-       ""
+       "Answer A: why",
+       "This is an indirect question introduced by 'Do you know'. It requires declarative word order, so the Wh-word 'why' must be followed directly by the subject 'the main administrative office'."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Questions: (Wh-word) + auxiliary + subject + main verb. Subject questions (Who called?) have no auxiliary. Indirect questions use statement word order.",
+      "similar": [
+       {
+        "q": "Make it indirect: \"Where is the post office?\" (Do you know…)",
+        "a": "Do you know where the post office is?"
+       },
+       {
+        "q": "Form a negative question: (you / come / why)",
+        "a": "Why didn't you come?"
+       }
+      ]
      },
      {
       "id": "eng11-u14-q09",
       "type": "mcq",
       "q": "________ of these two biology reference books do you recommend for the exam preparation?",
       "src": "study_notes",
-      "page": 1,
+      "page": 14,
       "label": "9. ________ of these two biology reference books do you recomme",
       "options": {
        "A": "What",
@@ -385,20 +486,27 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The question asks for a choice between a limited, specific group ('these two biology reference books'). This requires the selective question word 'Which'.",
-       ""
+       "Answer B: Which",
+       "The question asks for a choice between a limited, specific group ('these two biology reference books'). This requires the selective question word 'Which'."
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Questions: (Wh-word) + auxiliary + subject + main verb. Subject questions (Who called?) have no auxiliary. Indirect questions use statement word order.",
+      "similar": [
+       {
+        "q": "Question word for \"Two hours.\"",
+        "a": "How long."
+       },
+       {
+        "q": "Form a negative question: (you / come / why)",
+        "a": "Why didn't you come?"
+       }
+      ]
      },
      {
       "id": "eng11-u14-q10",
       "type": "mcq",
       "q": "To ________ should I address this formal letter of application for the scholarship?",
       "src": "study_notes",
-      "page": 1,
+      "page": 14,
       "label": "10. To ________ should I address this formal letter of applicati",
       "options": {
        "A": "who",
@@ -408,13 +516,20 @@
       },
       "answer": "B",
       "why": [
-       "Answer B",
-       "**Step 1: Analyze the grammatical structure**",
-       "The preposition 'To' is fronted to the beginning of the question. In formal English, a fronted preposition must strictly be followed by the objective pronoun 'whom': $$\\text{Preposition} + \\text{whom} \\dots$$",
-       ""
+       "Answer B: whom",
+       "The preposition 'To' is fronted to the beginning of the question. In formal English, a fronted preposition must strictly be followed by the objective pronoun 'whom': Preposition + whom …"
       ],
-      "tip": "Read the whole sentence before choosing.",
-      "similar": []
+      "tip": "Questions: (Wh-word) + auxiliary + subject + main verb. Subject questions (Who called?) have no auxiliary. Indirect questions use statement word order.",
+      "similar": [
+       {
+        "q": "Form a question: (she / go / where / yesterday)",
+        "a": "Where did she go yesterday?"
+       },
+       {
+        "q": "Form a negative question: (you / come / why)",
+        "a": "Why didn't you come?"
+       }
+      ]
      },
      {
       "id": "eng11-u14-r2q01",
@@ -721,6 +836,131 @@
        "So the sentence is correct."
       ],
       "tip": "Questions: (Wh-word) + auxiliary + subject + main verb. Subject questions (Who called?) have no auxiliary. Indirect questions use statement word order."
+     },
+     {
+      "id": "eng11-u14-iq01",
+      "q": "____ the bus to Keren leave?",
+      "src": "notes",
+      "page": 14,
+      "similar": [
+       {
+        "q": "Make a question: \"She teaches maths.\" (What…?)",
+        "a": "What does she teach?"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "When",
+       "B": "When does",
+       "C": "When do",
+       "D": "When is"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: When does",
+       "No helping verb in *the bus leaves* → add **does** (3rd person singular).",
+       "The verb goes back to the base form: *leave*."
+      ],
+      "tip": "Direct question: (wh-word) + auxiliary + subject + verb? Indirect question (after \"Do you know…\", \"He asked…\"): wh-word/if + subject + verb, no do/does/did."
+     },
+     {
+      "id": "eng11-u14-iq02",
+      "q": "Could you tell me ____?",
+      "src": "notes",
+      "page": 14,
+      "similar": [
+       {
+        "q": "Make it indirect: \"Where is the post office?\" (Do you know…)",
+        "a": "Do you know where the post office is?"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "how much does this cost",
+       "B": "how much this costs",
+       "C": "how much costs this",
+       "D": "how much is this cost"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: how much this costs",
+       "After *Could you tell me* the question is indirect.",
+       "Indirect = normal order, no *does*: *how much this costs*."
+      ],
+      "tip": "Direct question: (wh-word) + auxiliary + subject + verb? Indirect question (after \"Do you know…\", \"He asked…\"): wh-word/if + subject + verb, no do/does/did."
+     },
+     {
+      "id": "eng11-u14-iq03",
+      "q": "____ the national football match last night?",
+      "src": "notes",
+      "page": 14,
+      "similar": [
+       {
+        "q": "Ask about the subject: \"Ruth called the doctor.\"",
+        "a": "Who called the doctor?"
+       }
+      ],
+      "type": "mcq",
+      "options": {
+       "A": "Who did win",
+       "B": "Who won",
+       "C": "Who wins did",
+       "D": "Who was win"
+      },
+      "answer": "B",
+      "why": [
+       "Answer B: Who won",
+       "*Who* is the subject (someone won).",
+       "Subject question: normal order, no *did*."
+      ],
+      "tip": "Direct question: (wh-word) + auxiliary + subject + verb? Indirect question (after \"Do you know…\", \"He asked…\"): wh-word/if + subject + verb, no do/does/did."
+     },
+     {
+      "id": "eng11-u14-iq04",
+      "q": "She asked me ____ I had finished my homework.",
+      "src": "notes",
+      "page": 14,
+      "similar": [
+       {
+        "q": "Report: \"Are you hungry?\" he asked.",
+        "a": "He asked if I was hungry."
+       }
+      ],
+      "type": "fill",
+      "choices": [
+       "if",
+       "that",
+       "did",
+       "what"
+      ],
+      "answer": "if",
+      "why": [
+       "Reported yes/no question → *if* (or *whether*)."
+      ],
+      "tip": "Direct question: (wh-word) + auxiliary + subject + verb? Indirect question (after \"Do you know…\", \"He asked…\"): wh-word/if + subject + verb, no do/does/did."
+     },
+     {
+      "id": "eng11-u14-iq05",
+      "q": "Correct the error: \"I don't know where does he live.\"",
+      "src": "notes",
+      "page": 14,
+      "similar": [
+       {
+        "q": "Correct: \"Tell me what did you buy.\"",
+        "a": "Tell me what you bought."
+       }
+      ],
+      "type": "short",
+      "accept": [
+       "I don't know where he lives",
+       "I do not know where he lives."
+      ],
+      "answer": "I don't know where he lives.",
+      "why": [
+       "Indirect question → no *does*, normal order.",
+       "Put the -s back on the verb: *he lives*."
+      ],
+      "tip": "Direct question: (wh-word) + auxiliary + subject + verb? Indirect question (after \"Do you know…\", \"He asked…\"): wh-word/if + subject + verb, no do/does/did."
      }
     ]
    },
@@ -730,14 +970,46 @@
     "nodes": [
      {
       "id": "unit",
-      "label": "Question Formation",
+      "label": "Making questions",
       "kind": "unit",
       "cards": [
-       "eng11-u14-c01"
+       "eng11-u14-c01",
+       "eng11-u14-c02"
+      ]
+     },
+     {
+      "id": "direct",
+      "label": "Direct questions",
+      "kind": "topic",
+      "lesson": "eng11-u14-l1",
+      "cards": [
+       "eng11-u14-c01",
+       "eng11-u14-l1-r2wk2"
+      ]
+     },
+     {
+      "id": "indirect",
+      "label": "Indirect questions",
+      "kind": "topic",
+      "lesson": "eng11-u14-l1",
+      "cards": [
+       "eng11-u14-c02",
+       "eng11-u14-c03"
       ]
      }
     ],
-    "edges": []
+    "edges": [
+     {
+      "from": "unit",
+      "to": "direct",
+      "label": "includes"
+     },
+     {
+      "from": "unit",
+      "to": "indirect",
+      "label": "includes"
+     }
+    ]
    }
   }
  ]

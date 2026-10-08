@@ -26,6 +26,7 @@ from unitmap_lib import ROOT, EXER, UQ, FAMILY, load_units, load_exams
 FEW_WHY = {
     'eng10-u3': 'noun clauses: the bank has almost no noun-clause items',
     'eng10-u8': 'present continuous / confusing verbs: only a few cloze items test these',
+    'eng11-u8': 'transitive / intransitive verbs and objects (Textbook Unit 8): only 2 items in all papers ("discuss ___ the matter", no preposition)',
     'eng11-u14': 'question formation: only ~4 "correct question for this answer" items in all papers',
     'eng11-u22': 'pronunciation / vowel sounds: no pronunciation items in any paper',
     'math10-u2': 'axiomatic geometry & proofs: few such items, and the figure-based ones are dropped (figure not shipped)',
