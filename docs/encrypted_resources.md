@@ -73,3 +73,14 @@ ffmpeg. Mac app: same, transcode checkbox (on by default).
 **Tests:** `cd android && ./gradlew :app:testDebugUnitTest` (FourChunkReaderTest: full read, seek = 1 chunk + cache,
 DataSource ranges, wrong key, tampered chunk, truncated file, throughput); `dart test` in four_format (pure-Dart benchmark);
 `flutter test test/native_video_test.dart`.
+
+## Stage 3: reels feed
+`lib/resources/reels_page.dart`: vertical `PageView` (`allowImplicitScrolling` builds prev/next off-screen). Each `ReelView`
+holds a native ExoPlayer only while it is within ±1 of the current page; the next reel is prepared paused, so its first
+chunk is decrypted and buffered before the swipe. Others are disposed (at most 3 decoders). Tap = pause/play,
+double-tap right/left = ±10 s, thin draggable seek bar, title/subject overlay, looped playback, thumbnail cover until the
+first frame, FLAG_SECURE, per-reel resume position. Opening a reel swipes through the reels of the list it came from
+(Resources page with its subject filter, or a unit page strip).
+
+Encrypt: `four_encrypt encrypt clip.mp4 --type reel --transcode720 …` → 720×1280 (9:16 crop) H.264. Mac app: type = reel.
+Test: `flutter test test/reels_test.dart` (3-player window, disposal on leave).

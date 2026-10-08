@@ -100,6 +100,7 @@ class MainActivity : FlutterFragmentActivity() {
     /** Add-on resources: SAF folder import + FLAG_SECURE (must register before STARTED). */
     private val resources = ResourcesChannel(this)
     private val video = FourVideoChannel(this)
+    private val updates = UpdateChannel(this)
 
     private val cameraPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
@@ -217,6 +218,7 @@ class MainActivity : FlutterFragmentActivity() {
         channel = ch
         resources.attach(flutterEngine.dartExecutor.binaryMessenger)
         video.attach(flutterEngine)
+        updates.attach(flutterEngine.dartExecutor.binaryMessenger)
         ch.setMethodCallHandler { call, result ->
             try {
                 handle(call, result)

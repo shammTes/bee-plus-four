@@ -84,6 +84,7 @@ class FourVideoChannel(private val activity: android.app.Activity) {
                 when (call.method) {
                     "create" -> result.success(mapOf("id" to create(textures, call.argument<String>("path")!!, call.argument<ByteArray>("key")!!)))
                     "play" -> { s(call.argument<Number>("id"))?.player?.play(); result.success(null) }
+                    "loop" -> { s(call.argument<Number>("id"))?.player?.repeatMode = if (call.argument<Boolean>("on") == true) Player.REPEAT_MODE_ONE else Player.REPEAT_MODE_OFF; result.success(null) }
                     "pause" -> { s(call.argument<Number>("id"))?.player?.pause(); result.success(null) }
                     "seek" -> { s(call.argument<Number>("id"))?.player?.seekTo(call.argument<Number>("ms")!!.toLong()); result.success(null) }
                     "speed" -> { s(call.argument<Number>("id"))?.player?.playbackParameters = PlaybackParameters(call.argument<Number>("rate")!!.toFloat()); result.success(null) }

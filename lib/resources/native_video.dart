@@ -31,6 +31,7 @@ class NativeVideo {
   }
 
   Future<void> play() => _ch.invokeMethod('play', {'id': id});
+  Future<void> loop(bool on) => _ch.invokeMethod('loop', {'id': id, 'on': on});
   Future<void> pause() => _ch.invokeMethod('pause', {'id': id});
   Future<void> seek(int ms) => _ch.invokeMethod('seek', {'id': id, 'ms': ms});
   Future<void> speed(double rate) => _ch.invokeMethod('speed', {'id': id, 'rate': rate});

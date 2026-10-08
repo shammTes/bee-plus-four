@@ -1,7 +1,17 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("dev.flutter.flutter-gradle-plugin")
 }
+
+// Release signing inputs (see the signingConfigs comment below and docs/app_updates.md).
+val keyProps = Properties().apply {
+    val f = rootProject.file("key.properties")
+    if (f.exists()) f.inputStream().use { load(it) }
+}
+fun sign(env: String, prop: String): String? = System.getenv(env)?.takeIf { it.isNotEmpty() } ?: keyProps.getProperty(prop)
+val storePath = sign("FOUR_KEYSTORE", "storeFile")
 
 android {
     namespace = "com.warsay.high"
@@ -34,9 +44,24 @@ android {
         unitTests.isReturnDefaultValues = true
     }
 
+    // Stable release signing (needed for in-app updates: Android only updates an app signed with the SAME key,
+    // and that is what keeps unlock + resources). Provide either env vars (CI) or android/key.properties (local):
+    //   FOUR_KEYSTORE=/path/four-release.jks FOUR_KEYSTORE_PASSWORD=… FOUR_KEY_ALIAS=four FOUR_KEY_PASSWORD=…
+    // Without them the build falls back to the debug key (fine for testing, NOT for releases: see docs/app_updates.md).
+    signingConfigs {
+        if (storePath != null && file(storePath).exists()) {
+            create("release") {
+                storeFile = file(storePath)
+                storePassword = sign("FOUR_KEYSTORE_PASSWORD", "storePassword")
+                keyAlias = sign("FOUR_KEY_ALIAS", "keyAlias")
+                keyPassword = sign("FOUR_KEY_PASSWORD", "keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.findByName("release") ?: signingConfigs.getByName("debug")
         }
     }
 }
