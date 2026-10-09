@@ -500,6 +500,11 @@ class _ScrollGrid extends StatelessWidget {
 
 // ------------------------------------------------------------------ widths
 
+final _slashWord = RegExp(r'\b(\w{1,3})/(\w{1,3})\b');
+
+/// keeps short slash words whole ("Balance c/d" wraps before "c/d", never as "c/ | d")
+String noBreakSlash(String s) => s.contains('/') ? s.replaceAllMapped(_slashWord, (m) => '${m[1]}\u2060/\u2060${m[2]}') : s;
+
 /// fits columns into [avail]: each column has a hard minimum (widest word / whole figure), a comfortable minimum (text
 /// columns are not squeezed below ~7 em, so rows don't turn into towers) and a preferred width (its longest line, capped).
 List<double> fitWidths(List<double> minW, List<double> comfy, List<double> pref, double avail) {
@@ -555,13 +560,19 @@ class NTable extends StatelessWidget {
     final th = ts(acc ? 14.5 : 15, FontWeight.w900, p.ink2, height: 1.25);
     final thB = ts(acc ? 14.5 : 15, FontWeight.w900, p.ink2, height: 1.25);
     final muted = ts(14, FontWeight.w700, p.ink2, height: 1.3);
-    const padX = 7.0, padY = 8.0;
+    // narrow phones: accounting tables get slimmer cell padding so Dr / Cr columns fit without scrolling
+    final padX = acc && avail < 420 ? 5.0 : 7.0;
+    const padY = 8.0;
     final types = m.types;
 
     // ---- which logical columns are shown (a date column folds into the next text column when room is short)
     final cols = [for (var j = 0; j < m.n; j++) j];
     final dateInto = <int, int>{}; // shown column -> source date column
     final tc = m.textCol;
+    // an accounting table's posting-reference column left blank (the book's P/R before posting): not shown
+    if (acc) {
+      cols.removeWhere((j) => types[j] == ColT.ref && j < m.head.length && [for (var i = 0; i < m.rows.length; i++) m.cell(i, j).trim()].every((c) => c.isEmpty));
+    }
 
     // ---- measure (cached on the model: the JSON never changes)
     final mm = _meas[m] ??= () {
@@ -587,11 +598,24 @@ class NTable extends StatelessWidget {
       return (minW, pref);
     }();
     final rawMin = mm.$1, rawPref = mm.$2;
-    double minOf(int j) => rawMin[j] + 2 * padX;
+    // shown column -> the statement money columns folded into it (inner subtotal levels, left to right)
+    final foldInto = <int, List<int>>{};
+    const step = 12.0;
+    double raw(List<double> a, int j) {
+      final f = foldInto[j];
+      if (f == null) return a[j];
+      var best = 0.0;
+      for (final (k, src) in f.indexed) {
+        best = math.max(best, a[src] + (f.length - 1 - k) * step);
+      }
+      return best;
+    }
+
+    double minOf(int j) => raw(rawMin, j) + 2 * padX;
     double prefOf(int j) {
       final t = types[j];
       final cap = t.figure || t == ColT.ref || t == ColT.date ? 1e9 : (j == 0 ? 190.0 : 230.0);
-      return math.max(minOf(j), math.min(rawPref[j], cap) + 2 * padX);
+      return math.max(minOf(j), math.min(raw(rawPref, j), cap) + 2 * padX);
     }
 
     double comfyOf(int j) {
@@ -607,6 +631,21 @@ class NTable extends StatelessWidget {
       if (need > avail) {
         cols.remove(tc - 1);
         dateInto[tc] = tc - 1;
+      }
+    }
+
+    // a statement's money columns are subtotal levels (one figure per line): when they don't fit, the inner levels share
+    // one column, each level stepped in from the right, and the last column keeps the results
+    if (m.kind == 'statement') {
+      final money = [for (final j in cols) if (types[j] == ColT.money) j];
+      final inner = money.length >= 3 ? money.sublist(0, money.length - 1) : const <int>[];
+      bool single(int i) => inner.where((j) => m.cell(i, j).trim().isNotEmpty).length <= 1;
+      if (inner.isNotEmpty &&
+          inner.last - inner.first == inner.length - 1 &&
+          sumOf(comfyOf, cols).fold(0.0, (a, b) => a + b) > avail &&
+          [for (var i = 0; i < m.rows.length; i++) i].every(single)) {
+        cols.removeWhere((j) => inner.contains(j) && j != inner.last);
+        foldInto[inner.last] = inner;
       }
     }
 
@@ -627,6 +666,8 @@ class NTable extends StatelessWidget {
       final w = widths.take(upto).fold(0.0, (a, b) => a + b);
       frozen = w <= avail * .62 ? upto : 1;
     }
+    // a figure column first (a cash journal's Cash Dr, a month-by-month schedule): nothing worth pinning
+    if (m.frozen == null && const {ColT.num, ColT.money, ColT.dr, ColT.cr}.contains(m.types[0])) frozen = 0;
     if (scroll && frozen > 0) {
       // keep the frozen part under ~45 % of the card so there is room to scroll
       final f0 = widths.take(frozen).fold(0.0, (a, b) => a + b);
@@ -648,15 +689,16 @@ class NTable extends StatelessWidget {
     final rowBg = <Color?>[];
     final kids = <Widget>[];
 
-    Widget pad(Widget c, {double left = 0, bool tight = false}) =>
-        Padding(padding: EdgeInsets.fromLTRB(padX + left, tight ? 4 : padY, padX, tight ? 4 : padY), child: c);
+    Widget pad(Widget c, {double left = 0, double right = 0, bool tight = false}) =>
+        Padding(padding: EdgeInsets.fromLTRB(padX + left, tight ? 4 : padY, padX + right, tight ? 4 : padY), child: c);
 
     if (hasHead) {
       rowBg.add(headBg);
       for (final (jj, j) in cols.indexed) {
         flags[jj] |= 4;
         final t = types[j];
-        final h = j < m.head.length ? m.head[j] : '';
+        final h = foldInto[j]?.map((k) => k < m.head.length ? m.head[k] : '').firstWhere((x) => x.trim().isNotEmpty, orElse: () => '') ??
+            (j < m.head.length ? m.head[j] : '');
         final tag = t == ColT.dr && !RegExp(r'\bdr\b', caseSensitive: false).hasMatch(h)
             ? 'Dr'
             : t == ColT.cr && !RegExp(r'\bcr\b', caseSensitive: false).hasMatch(h)
@@ -700,6 +742,15 @@ class NTable extends StatelessWidget {
       for (final (jj, j) in cols.indexed) {
         final t = types[j];
         var txt = m.cell(i, j);
+        var right = 0.0;
+        final f = foldInto[j];
+        if (f != null) {
+          final k = f.indexWhere((src) => m.cell(i, src).trim().isNotEmpty);
+          if (k >= 0) {
+            txt = m.cell(i, f[k]);
+            right = (f.length - 1 - k) * step;
+          }
+        }
         if (t != ColT.text) txt = txt.trim();
         if (t.amount) txt = fmtMoney(txt);
         if (t == ColT.text) txt = txt.trimLeft();
@@ -711,12 +762,12 @@ class NTable extends StatelessWidget {
         Widget w;
         if (t.figure) {
           final s2 = _fig(txt.contains('**') ? bold : st);
-          w = pad(Tx(_plain(txt), style: s2, textAlign: TextAlign.right));
+          w = pad(Tx(_plain(txt), style: s2, textAlign: TextAlign.right), right: right);
         } else {
           final indent = j == tc && (credit || mk.contains('indent')) ? 18.0 : (j == tc && isNote ? 18.0 : 0.0);
           if (credit && m.to != null && txt.isNotEmpty && !txt.startsWith(m.to!)) txt = '${m.to}$txt';
           final style = isNote ? muted.copyWith(fontStyle: FontStyle.italic) : st;
-          final para = txt.isEmpty ? const SizedBox.shrink() : RichPara(txt, style: style, colors: rc);
+          final para = txt.isEmpty ? const SizedBox.shrink() : RichPara(noBreakSlash(txt), style: style, colors: rc);
           final d = dateInto[j];
           final date = d == null ? '' : m.cell(i, d).trim();
           w = pad(
@@ -751,12 +802,20 @@ class NTable extends StatelessWidget {
   }
 
   static bool _isCreditLine(TableModel m, int i) {
+    // only a two-money-column journal (Dr | Cr): a cash journal's several columns have no "credit line"
     int? dj, cj;
+    var nd = 0, nc = 0;
     for (var j = 0; j < m.n; j++) {
-      if (m.types[j] == ColT.dr) dj ??= j;
-      if (m.types[j] == ColT.cr) cj ??= j;
+      if (m.types[j] == ColT.dr) {
+        dj ??= j;
+        nd++;
+      }
+      if (m.types[j] == ColT.cr) {
+        cj ??= j;
+        nc++;
+      }
     }
-    if (dj == null || cj == null) return false;
+    if (dj == null || cj == null || nd != 1 || nc != 1) return false;
     return m.cell(i, dj).trim().isEmpty && m.cell(i, cj).trim().isNotEmpty;
   }
 
@@ -826,22 +885,22 @@ class _TAccounts extends StatelessWidget {
         groups.last.$3.add(i);
       }
     }
-    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, spacing: 18, children: [for (final g in groups) _one(context, g.$1, g.$2, g.$3)]);
+    // one type size for the whole card: the largest at which every account fits the width without scrolling
+    final fs = [16.0, 15.0, 14.0].firstWhere((f) => groups.every((g) => _widths(g.$3, f).$2 <= avail + .5), orElse: () => 14.0);
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, spacing: 18, children: [for (final g in groups) _one(context, g.$1, g.$2, g.$3, fs)]);
   }
 
-  Widget _one(BuildContext context, String name, String no, List<int> idx) {
-    final rc = richColors(p);
-    final dated = m.n >= 6;
-    final o = dated ? 3 : 2; // offset of the Cr side
-    final body = ts(16, FontWeight.w700, p.ink, height: 1.3);
-    final bold = ts(16, FontWeight.w900, p.ink, height: 1.3);
-    final fig = body.copyWith(fontFeatures: const [FontFeature.tabularFigures()]);
-    final figB = bold.copyWith(fontFeatures: const [FontFeature.tabularFigures()]);
-    final muted = ts(13.5, FontWeight.w800, p.ink2, height: 1.25);
-    final ruleC = mix(p.ink, .6, p.surface);
-    const padX = 6.0;
+  static const padX = 6.0;
+  bool get dated => m.n >= 6;
+  int get o => dated ? 3 : 2; // offset of the Cr side
+  TextStyle _body(double fs) => ts(fs, FontWeight.w700, p.ink, height: 1.3);
+  TextStyle _bold(double fs) => ts(fs, FontWeight.w900, p.ink, height: 1.3);
+  TextStyle _muted(double fs) => ts(fs - 2.5, FontWeight.w800, p.ink2, height: 1.25);
 
-    // widths: particulars | amount | particulars | amount
+  /// particulars | amount | particulars | amount, and their total
+  (List<double>, double) _widths(List<int> idx, double fs) {
+    final body = _body(fs), bold = _bold(fs), muted = _muted(fs);
+    final figB = bold.copyWith(fontFeatures: const [FontFeature.tabularFigures()]);
     double amtW = 0, partMin = 0, partPref = 0;
     for (final i in idx) {
       for (final side in [0, o]) {
@@ -857,11 +916,20 @@ class _TAccounts extends StatelessWidget {
     amtW += 2 * padX;
     final minP = partMin + 2 * padX;
     final half = avail / 2;
-    final partW = math.max(minP, math.min(partPref + 2 * padX, math.max(half - amtW, 70)));
-    final widths = [partW, amtW, partW, amtW];
-    final total = widths.fold(0.0, (a, b) => a + b);
+    final partW = math.max(minP, math.min(partPref + 2 * padX, math.max(half - amtW, 70.0)));
+    final widths = <double>[partW, amtW, partW, amtW];
+    return (widths, widths.fold(0.0, (a, b) => a + b));
+  }
+
+  Widget _one(BuildContext context, String name, String no, List<int> idx, double fs) {
+    final rc = richColors(p);
+    final body = _body(fs), bold = _bold(fs), muted = _muted(fs);
+    final fig = body.copyWith(fontFeatures: const [FontFeature.tabularFigures()]);
+    final figB = bold.copyWith(fontFeatures: const [FontFeature.tabularFigures()]);
+    final ruleC = mix(p.ink, .6, p.surface);
+    final (widths, total) = _widths(idx, fs);
     final scroll = total > avail + .5;
-    final grid = <double>[for (final w in widths) scroll ? w.toDouble() : w * avail / total];
+    final grid = <double>[for (final w in widths) scroll ? w : w * avail / total];
 
     final flags = Uint8List(idx.length * 4);
     final kids = <Widget>[];
@@ -888,7 +956,7 @@ class _TAccounts extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       if (date.isNotEmpty) Tx(date, style: muted),
-                      if (part.isNotEmpty) RichPara(part, style: st, colors: rc),
+                      if (part.isNotEmpty) RichPara(noBreakSlash(part), style: st, colors: rc),
                     ],
                   ),
           ),

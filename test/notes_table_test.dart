@@ -122,7 +122,6 @@ void main() {
       expect(t.getRect(grid).right, lessThanOrEqualTo(card.right + .5), reason: 'the grid stays inside the card');
       expect(gridBox.maxScroll, greaterThan(0));
 
-      await save(t, '_wide_$w');
       Offset at(String s) => t.getTopLeft(find.textContaining(s, findRichText: true).first);
       final frozen0 = at('Warm-Season'), climate0 = at('Climate');
       await t.drag(scroller, const Offset(-2000, 0));
@@ -207,6 +206,53 @@ void main() {
     expect(t.getCenter(find.textContaining('Office Equipment', findRichText: true)).dx, greaterThan(t.getCenter(find.text('145,000')).dx));
     expect(find.text('1,045,000'), findsNWidgets(2));
     expect(t.getTopLeft(find.text('1,045,000').first).dy, t.getTopLeft(find.text('1,045,000').last).dy);
+  });
+
+  // the converted Business bookkeeping tables, straight from the notes JSON (BIZ_SHOTS writes the PNG renders)
+  final raw = <String, Map<String, dynamic>>{};
+  for (final g in ['10', '11']) {
+    final d = jsonDecode(File('assets/high/notes/notes/business_economics_$g.json').readAsStringSync()) as Map<String, dynamic>;
+    for (final u in d['units'] as List) {
+      for (final l in u['lessons'] as List) {
+        for (final c in l['cards'] as List) {
+          if (c['id'] != null) raw[c['id'] as String] = c as Map<String, dynamic>;
+        }
+      }
+    }
+  }
+  NoteCard byId(String id) => NoteCard.fromJ(J(raw[id]!, id));
+  final biz = <(String, String, bool)>[
+    ('be10-u3-bk022', 't_account', false),
+    ('be10-u3-bk081', 't_account_closing', false),
+    ('be10-u3-bk024', 'journal', false),
+    ('be10-u3-bk024', 'journal_dark', true),
+    ('be10-u3-bk064', 'trial_balance', false),
+    ('be10-u3-bk078', 'balance_sheet', false),
+    ('be11-u2-bk061', 'income_statement', false),
+    ('be11-u2-bk058', 'worksheet', false),
+  ];
+  for (final (id, name, dark) in biz) {
+    testWidgets('Business $name ($id) at 360 px', (t) async {
+      final card = byId(id) as TableCard;
+      expect(card.kind, isNot('table'));
+      final nav = await open(t, 360, dark: dark);
+      nav.push(_Cards(ctxOf(anyUnit), [card]));
+      await t.pumpAndSettle();
+      expect(t.takeException(), isNull);
+      for (final g in t.renderObjectList<RenderNoteGrid>(find.byType(GridView2))) {
+        expect(g.size.width, lessThanOrEqualTo(360));
+      }
+      await save(t, name);
+    });
+  }
+  testWidgets('T-account card: balance c/d on the short side, b/d brought down, equal totals', (t) async {
+    final nav = await open(t, 320);
+    nav.push(_Cards(ctxOf(anyUnit), [byId('be10-u3-bk022')]));
+    await t.pumpAndSettle();
+    expect(t.takeException(), isNull);
+    expect(find.textContaining(noBreakSlash('Balance c/d'), findRichText: true), findsNWidgets(2));
+    expect(find.textContaining(noBreakSlash('Balance b/d'), findRichText: true), findsNWidgets(2));
+    expect(find.text('1,815,000'), findsNWidgets(4)); // c/d, both totals, b/d
   });
 
   // every table card of every subject, at the narrowest phone width
