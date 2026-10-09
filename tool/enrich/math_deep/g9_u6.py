@@ -437,3 +437,6 @@ TIPS = [
 ]
 IDEAS = [('triples', 'Pythagorean triples', 'l6_1', 'math9-u6-md-triples-t'), ('which', 'Which ratio?', 'l6_3', 'math9-u6-md-which-t'),
          ('laws', 'Choosing the right tool', 'l6_3', 'math9-u6-md-laws-t')]
+
+# narrow phones: the textbook key table reads better as one card per row
+PATCH = {'math9-u6-tbl1': {'layout': 'cards', '_inline': True}}

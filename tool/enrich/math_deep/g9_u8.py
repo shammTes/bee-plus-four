@@ -301,3 +301,6 @@ GLOSSARY = [
 TIPS = [('To subtract, change the sign of EVERY term in the second bracket.', 175), ('(a + b)² = a² + 2ab + b² — never forget 2ab.', 179),
         ('Insert 0xᵏ for missing powers before long division.', 184)]
 IDEAS = [('spec', 'Special products', 'l8_2', 'math9-u8-md-spec-t'), ('count', 'Intercepts and turning points', 'l8_3', 'math9-u8-md-count-t')]
+
+# narrow phones: the textbook key table reads better as one card per row
+PATCH = {'math9-u8-tbl1': {'layout': 'cards', '_inline': True}}
