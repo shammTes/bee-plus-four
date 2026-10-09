@@ -138,8 +138,8 @@ L1 = [
       '**Example 1.4(b) (Fibonacci):** $a_1 = a_2 = 1$, $a_n = a_{n-2} + a_{n-1}$: $1, 1, 2, 3, 5, 8, \\dots$',
       '**Factorial:** $n! = 1 \\times 2 \\times 3 \\times \\dots \\times n$, and $0! = 1$. So $5! = 120$, $7! = 5040$.',
       '**Key trick for simplifying:** $n! = n \\times (n - 1)!$, so $\\frac{(n + 1)!}{n!} = n + 1$ and $\\frac{8!}{4!} = 8 \\times 7 \\times 6 \\times 5 = 1680$.'),
-    TB('fact-tb', 'Factorials to know', 6, ['$n$', '0', '1', '2', '3', '4', '5', '6', '7'],
-       [['$n!$', '1', '1', '2', '6', '24', '120', '720', '5040']]),
+    TB('fact-tb', 'Factorials to know', 6, ['$n$', '$n!$', 'built as'],
+       [['0', '1', 'by definition'], ['1', '1', '1'], ['2', '2', '2 × 1!'], ['3', '6', '3 × 2!'], ['4', '24', '4 × 3!'], ['5', '120', '5 × 4!'], ['6', '720', '6 × 5!'], ['7', '5040', '7 × 6!']]),
     'math12-u1-tblE1', 'math12-u1-chkE1', 'math12-u1-chkE2', 'math12-u1-chk74', 'math12-u1-wrk1', 'math12-u1-chk75', 'math12-u1-wrk2', 'math12-u1-chk76', 'math12-u1-wrk3',
 ]
 

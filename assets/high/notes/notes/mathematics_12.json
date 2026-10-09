@@ -211,26 +211,49 @@
               "src": "notes",
               "head": [
                 "$n$",
-                "0",
-                "1",
-                "2",
-                "3",
-                "4",
-                "5",
-                "6",
-                "7"
+                "$n!$",
+                "built as"
               ],
               "rows": [
                 [
-                  "$n!$",
+                  "0",
+                  "1",
+                  "by definition"
+                ],
+                [
                   "1",
                   "1",
+                  "1"
+                ],
+                [
                   "2",
+                  "2",
+                  "2 × 1!"
+                ],
+                [
+                  "3",
                   "6",
+                  "3 × 2!"
+                ],
+                [
+                  "4",
                   "24",
+                  "4 × 3!"
+                ],
+                [
+                  "5",
                   "120",
+                  "5 × 4!"
+                ],
+                [
+                  "6",
                   "720",
-                  "5040"
+                  "6 × 5!"
+                ],
+                [
+                  "7",
+                  "5040",
+                  "7 × 6!"
                 ]
               ]
             },
@@ -3418,15 +3441,59 @@
             {
               "id": "math12-u2-c01",
               "type": "text",
-              "title": "2.1 Population and Sampling",
+              "title": "2.1 Statistics, population and sample",
               "page": 41,
-              "src": "textbook pp.41–43",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "**Statistics** is the collection, presentation , analysis and interpretation of the numerical data.",
-                "**Population** is the collection of all elements (individuals, objects, areas, etc.) under consideration in a study.",
-                "Population describes the entire group under consideration in a study.",
-                "Sample describes a group chosen to represent the population under consideration in a study."
+                "**Statistics** is collecting, presenting, analysing and interpreting numerical data. In the opening story, one son *collects* the weekly profits, the second *organises* them in a table, the third *interprets* them (\"profit above 250 Nakfa in 5 of 20 weeks, a 25% chance\").",
+                "**Population:** every member of the group being studied. **Sample:** the part we actually collect data from, chosen to represent the population.",
+                "**Census:** data from every member (accurate but slow and costly). **Sampling:** data from some members (fast and cheap, but it must be representative).",
+                "**Simple random sampling (lottery method):** number every member, draw numbers from a hat (or random numbers) so that every group of the chosen size has the same chance."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math12-u2-md-popsam-tb",
+              "type": "table",
+              "title": "Population or sample? (Examples 2.1, Exercise 2.1)",
+              "page": 43,
+              "src": "notes",
+              "head": [
+                "Study",
+                "Population",
+                "Sample"
+              ],
+              "rows": [
+                [
+                  "newspaper readers (2009 study)",
+                  "all Eritreans",
+                  "the 963 people interviewed"
+                ],
+                [
+                  "Coca-Cola quality check",
+                  "all bottles produced that day",
+                  "the 150 bottles tested"
+                ],
+                [
+                  "Baito election poll",
+                  "the 1800 registered voters",
+                  "the 300 polled"
+                ],
+                [
+                  "pass rate of a course",
+                  "all students who took it (3 years)",
+                  "the 37 students checked"
+                ]
+              ]
+            },
+            {
+              "id": "math12-u2-md-bias-rm",
+              "type": "remember",
+              "title": "A biased sample (Activity 2.3)",
+              "page": 44,
+              "src": "notes",
+              "body": [
+                "Selam's idea — ask only students in the first row who are excellent — is quick but **biased**: those students are not typical. Ahmed's lottery gives every student the same chance, so the sample is representative."
               ]
             },
             {
@@ -3469,39 +3536,6 @@
               ]
             },
             {
-              "id": "math12-u2-chkE2",
-              "type": "check",
-              "title": "Quick check",
-              "page": 1,
-              "src": "study_notes",
-              "q": "Which of the following represents a quantitative continuous variable?",
-              "options": {
-                "A": "The yearly amount of rainfall in Asmara",
-                "B": "The number of children in a family",
-                "C": "The number of bicycles parked in a school compound",
-                "D": "The blood type of a student"
-              },
-              "answer": "A",
-              "why": "**Step 1: Understand quantitative continuous variables**\nA continuous variable is a quantitative variable that can take any value within an interval, representing a measured quantity (not countable).\n\n**Step 2: Evaluate the options**\n'Number of children' and 'Number of bicycles' are countable integers, making them discrete.\n'Blood type' is categorical, making it qualitative.\n'Yearly amount of rainfall' is measured (e.g., $$540.5\\text{ mm}$$) and can take any real value in an interval.\n\n**Step 3: Final Result**\nTherefore, the quantitative continuous variable is **The yearly amount of rainfall in Asmara**."
-            },
-            {
-              "id": "math12-u2-chk74",
-              "type": "check",
-              "title": "Quick check",
-              "page": 40,
-              "src": "study_notes",
-              "src_qid": "math_g12_c2_q3",
-              "q": "A family's monthly income is $$1500\\text{ Nakfa}$$. They spend $$35\\%$$ of their income on food. How much money do they spend on food monthly?",
-              "options": {
-                "A": "$$525\\text{ Nakfa}$$",
-                "B": "$$500\\text{ Nakfa}$$",
-                "C": "$$475\\text{ Nakfa}$$",
-                "D": "$$550\\text{ Nakfa}$$"
-              },
-              "answer": "A",
-              "why": "**Step 1: State the parameters**\nTotal Income = $$1500\\text{ Nakfa}$$\nPercentage spent on food = $$35\\% = 0.35$$\n\n**Step 2: Calculate the food expenditure**\n$$\\text{Food Expenditure} = \\text{Total Income} \\times \\text{Percentage}$$\n$$\\text{Food Expenditure} = 1500 \\times 0.35$$\n$$\\text{Food Expenditure} = 525$$\n\n**Step 3: Final Result**\nThe family spends **$$525\\text{ Nakfa}$$** on food."
-            },
-            {
               "id": "math12-u2-l2-1-r3r1",
               "type": "check",
               "title": "Quick check",
@@ -3516,45 +3550,6 @@
               },
               "answer": "B",
               "why": "**Step 1:** Sampling interval k = population ÷ sample size = 1000 ÷ 50 = 20.\n\n**Step 2:** Choosing every k-th member after a random start is systematic sampling.\n\n**Step 3:** Answer: systematic sampling.\n\n**Tip:** Stratified = divide into groups and sample each group; cluster = choose whole groups at random."
-            },
-            {
-              "id": "math12-u2-wrk1",
-              "type": "worked",
-              "title": "Step-by-step",
-              "page": 40,
-              "src": "study_notes",
-              "src_qid": "math_g12_c2_q3",
-              "problem": "A family's monthly income is $$1500\\text{ Nakfa}$$. They spend $$35\\%$$ of their income on food. How much money do they spend on food monthly?",
-              "steps": [
-                {
-                  "text": "**Step 1: State the parameters**"
-                },
-                {
-                  "text": "Total Income = $$1500\\text{ Nakfa}$$"
-                },
-                {
-                  "text": "Percentage spent on food = $$35\\% = 0.35$$"
-                },
-                {
-                  "text": "**Step 2: Calculate the food expenditure**"
-                },
-                {
-                  "text": "$$\\text{Food Expenditure} = \\text{Total Income} \\times \\text{Percentage}$$"
-                },
-                {
-                  "text": "$$\\text{Food Expenditure} = 1500 \\times 0.35$$"
-                },
-                {
-                  "text": "$$\\text{Food Expenditure} = 525$$"
-                },
-                {
-                  "text": "**Step 3: Final Result**"
-                },
-                {
-                  "text": "The family spends **$$525\\text{ Nakfa}$$** on food."
-                }
-              ],
-              "answer": "$$525\\text{ Nakfa}$$"
             },
             {
               "id": "math12-u2-xt1",
@@ -3582,17 +3577,170 @@
             {
               "id": "math12-u2-c02",
               "type": "text",
-              "title": "2.2 Organizing Data",
+              "title": "2.2.1 Types of data",
               "page": 47,
-              "src": "textbook pp.47–48",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "**Variable** is the characteristic of interest of an element that can assume different values for the different elements in the population or sample.",
-                "Datum: The values that a variable can assume are called data (single measured value (singular of data)) Data or Data Set: collection of numerical / non-numerical values (plural of datum).",
-                "Data are facts or figures from which conclusions can be drawn.",
-                "Qualitative (or categorical) variables allow for classification of individuals based on some attribute or characteristic.",
-                "Quantitative variable represents a counted or measured quantity."
+                "A **variable** is a characteristic that changes from member to member (height, blood type, number of children). One value is a **datum**; the collection is the **data**.",
+                "**Qualitative (categorical):** a label or category — sex, blood type, Zoba, disease status.",
+                "**Quantitative (numerical):** a count or measurement. It is **discrete** if the values can be counted (number of children, pages, calls: 0, 1, 2, …) and **continuous** if it can take any value in a range (height, time, rainfall, income measured exactly).",
+                "**Quick test:** \"how many?\" → discrete; \"how much / how long / how heavy?\" → continuous."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math12-u2-md-types-tb",
+              "type": "table",
+              "title": "Classifying variables (Exercise 2.2)",
+              "page": 50,
+              "src": "notes",
+              "head": [
+                "Variable",
+                "Type"
+              ],
+              "rows": [
+                [
+                  "smoking status, HIV status, sex, ethnic group",
+                  "qualitative"
+                ],
+                [
+                  "rank in class",
+                  "qualitative (ordered)"
+                ],
+                [
+                  "number of children, cups of tea, visits to a doctor",
+                  "quantitative, discrete"
+                ],
+                [
+                  "annual income, body temperature, time",
+                  "quantitative, continuous"
+                ]
               ]
+            },
+            {
+              "id": "math12-u2-md-freq-t",
+              "type": "text",
+              "title": "2.2.2–2.2.3 Frequency tables",
+              "page": 52,
+              "src": "notes",
+              "body": [
+                "**Frequency** = how many times a value occurs. **Relative frequency** = frequency ÷ total; **percentage** = relative frequency × 100%. **Cumulative frequency** = running total up to that value.",
+                "**Activity 2.8 (blood types of 40 students):** O 16, B 10, A 9, AB 5 — percentages 40%, 25%, 22.5%, 12.5%. Most common O, least common AB.",
+                "**Example 2.6 (corrected):** dog 11, cow 10, goat 4, sheep 3, cat 2 (30 children). The **least** liked animal is the **cat** (the book says \"cow\"), the number who like dogs **or** cats is $11 + 2 = 13$ (the book adds cows and dogs: 21), and the proportion who like sheep is $\\frac{3}{30} = 0.1$.",
+                "**Example 2.7:** women with fewer than 3 children: $7 + 8 + 11 = 26$ women (52%); more than 1 child: $11 + 14 + 8 + 2 = 35$ (70%)."
+              ]
+            },
+            {
+              "id": "math12-u2-md-classes",
+              "type": "steps",
+              "title": "Grouped data: limits, boundaries, class mark",
+              "page": 58,
+              "src": "notes",
+              "diagram": "md_classes",
+              "steps": [
+                {
+                  "text": "Class **limits** are the end numbers written in the table: 20 – 29.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Class **boundaries** close the gaps between classes: halfway between 29 and 30 is 29.5, so the class runs from 19.5 to 29.5. **Class width** = upper boundary − lower boundary = 10.",
+                  "show": "k2"
+                },
+                {
+                  "text": "**Class mark** (midpoint) $= \\frac{20 + 29}{2} = 24.5$ — the value that stands for the whole class in calculations and graphs.",
+                  "show": "k3"
+                }
+              ]
+            },
+            {
+              "id": "math12-u2-md-ex29-tb",
+              "type": "table",
+              "title": "Example 2.9: wages of 30 workers",
+              "page": 60,
+              "src": "notes",
+              "head": [
+                "Wages (Nakfa)",
+                "Frequency",
+                "Cumulative"
+              ],
+              "rows": [
+                [
+                  "800 – 810",
+                  "3",
+                  "3"
+                ],
+                [
+                  "810 – 820",
+                  "2",
+                  "5"
+                ],
+                [
+                  "820 – 830",
+                  "1",
+                  "6"
+                ],
+                [
+                  "830 – 840",
+                  "9",
+                  "15"
+                ],
+                [
+                  "840 – 850",
+                  "5",
+                  "20"
+                ],
+                [
+                  "850 – 860",
+                  "1",
+                  "21"
+                ],
+                [
+                  "860 – 870",
+                  "3",
+                  "24"
+                ],
+                [
+                  "870 – 880",
+                  "1",
+                  "25"
+                ],
+                [
+                  "880 – 890",
+                  "1",
+                  "26"
+                ],
+                [
+                  "890 – 900",
+                  "4",
+                  "30"
+                ]
+              ]
+            },
+            {
+              "id": "math12-u2-md-ex28-rm",
+              "type": "remember",
+              "title": "Reading a grouped table (Example 2.8)",
+              "page": 59,
+              "src": "notes",
+              "body": [
+                "With classes 0–10, 10–20, … the width is 10. Marks of at most 40: add the frequencies up to the class 30–40: $2 + 10 + 21 + 19 = 52$ (the book's line says \"less than or 60\" but means 40). Wages of 850 or more in Example 2.9: $1 + 3 + 1 + 1 + 4 = 10$ workers."
+              ]
+            },
+            {
+              "id": "math12-u2-chkE2",
+              "type": "check",
+              "title": "Quick check",
+              "page": 1,
+              "src": "study_notes",
+              "q": "Which of the following represents a quantitative continuous variable?",
+              "options": {
+                "A": "The yearly amount of rainfall in Asmara",
+                "B": "The number of children in a family",
+                "C": "The number of bicycles parked in a school compound",
+                "D": "The blood type of a student"
+              },
+              "answer": "A",
+              "why": "**Step 1: Understand quantitative continuous variables**\nA continuous variable is a quantitative variable that can take any value within an interval, representing a measured quantity (not countable).\n\n**Step 2: Evaluate the options**\n'Number of children' and 'Number of bicycles' are countable integers, making them discrete.\n'Blood type' is categorical, making it qualitative.\n'Yearly amount of rainfall' is measured (e.g., $$540.5\\text{ mm}$$) and can take any real value in an interval.\n\n**Step 3: Final Result**\nTherefore, the quantitative continuous variable is **The yearly amount of rainfall in Asmara**."
             },
             {
               "id": "math12-u2-pc21",
@@ -3716,6 +3864,130 @@
               ]
             },
             {
+              "id": "math12-u2-md-pie",
+              "type": "diagram",
+              "title": "Pie chart: angle = percent × 3.6°",
+              "page": 64,
+              "src": "notes",
+              "diagram": "md_pie",
+              "mode": "plain",
+              "body": [
+                "Each sector angle $= \\frac{\\text{frequency}}{\\text{total}} \\times 360°$: Food $35\\% \\to 126°$, Rent $90°$, Savings $72°$, Misc. $54°$, Education $18°$. With an income of 1500 Nakfa: food $0.35 \\times 1500 = 525$, education 75, rent and savings $375 + 300 = 675$ Nakfa (the book's line prints \"75\" for the rent part)."
+              ]
+            },
+            {
+              "id": "math12-u2-md-hist",
+              "type": "steps",
+              "title": "Histogram and frequency polygon (Example 2.13)",
+              "page": 69,
+              "src": "notes",
+              "diagram": "md_hist",
+              "steps": [
+                {
+                  "text": "**Histogram:** bars stand on the class boundaries and **touch** (no gaps), heights = frequencies.",
+                  "show": "k1"
+                },
+                {
+                  "text": "**Frequency polygon:** join the midpoints of the bar tops (class marks 5, 15, 25, …) with straight lines, and close it down to the axis at both ends.",
+                  "show": "k2"
+                },
+                {
+                  "text": "The tallest bar is the **modal class** (20 – 30, frequency 21).",
+                  "show": "k3"
+                }
+              ]
+            },
+            {
+              "id": "math12-u2-md-graphs-tb",
+              "type": "table",
+              "title": "Which graph?",
+              "page": 63,
+              "src": "notes",
+              "head": [
+                "Data",
+                "Graph",
+                "Key rule"
+              ],
+              "rows": [
+                [
+                  "parts of a whole",
+                  "pie chart",
+                  "angle = share × 360°"
+                ],
+                [
+                  "categories, or comparing groups",
+                  "bar / double bar graph",
+                  "equal widths, gaps between bars"
+                ],
+                [
+                  "grouped numbers",
+                  "histogram, frequency polygon",
+                  "bars touch; polygon through class marks"
+                ],
+                [
+                  "change over time",
+                  "line graph",
+                  "time on the horizontal axis"
+                ]
+              ]
+            },
+            {
+              "id": "math12-u2-chk74",
+              "type": "check",
+              "title": "Quick check",
+              "page": 40,
+              "src": "study_notes",
+              "src_qid": "math_g12_c2_q3",
+              "q": "A family's monthly income is $$1500\\text{ Nakfa}$$. They spend $$35\\%$$ of their income on food. How much money do they spend on food monthly?",
+              "options": {
+                "A": "$$525\\text{ Nakfa}$$",
+                "B": "$$500\\text{ Nakfa}$$",
+                "C": "$$475\\text{ Nakfa}$$",
+                "D": "$$550\\text{ Nakfa}$$"
+              },
+              "answer": "A",
+              "why": "**Step 1: State the parameters**\nTotal Income = $$1500\\text{ Nakfa}$$\nPercentage spent on food = $$35\\% = 0.35$$\n\n**Step 2: Calculate the food expenditure**\n$$\\text{Food Expenditure} = \\text{Total Income} \\times \\text{Percentage}$$\n$$\\text{Food Expenditure} = 1500 \\times 0.35$$\n$$\\text{Food Expenditure} = 525$$\n\n**Step 3: Final Result**\nThe family spends **$$525\\text{ Nakfa}$$** on food."
+            },
+            {
+              "id": "math12-u2-wrk1",
+              "type": "worked",
+              "title": "Step-by-step",
+              "page": 40,
+              "src": "study_notes",
+              "src_qid": "math_g12_c2_q3",
+              "problem": "A family's monthly income is $$1500\\text{ Nakfa}$$. They spend $$35\\%$$ of their income on food. How much money do they spend on food monthly?",
+              "steps": [
+                {
+                  "text": "**Step 1: State the parameters**"
+                },
+                {
+                  "text": "Total Income = $$1500\\text{ Nakfa}$$"
+                },
+                {
+                  "text": "Percentage spent on food = $$35\\% = 0.35$$"
+                },
+                {
+                  "text": "**Step 2: Calculate the food expenditure**"
+                },
+                {
+                  "text": "$$\\text{Food Expenditure} = \\text{Total Income} \\times \\text{Percentage}$$"
+                },
+                {
+                  "text": "$$\\text{Food Expenditure} = 1500 \\times 0.35$$"
+                },
+                {
+                  "text": "$$\\text{Food Expenditure} = 525$$"
+                },
+                {
+                  "text": "**Step 3: Final Result**"
+                },
+                {
+                  "text": "The family spends **$$525\\text{ Nakfa}$$** on food."
+                }
+              ],
+              "answer": "$$525\\text{ Nakfa}$$"
+            },
+            {
               "id": "math12-u2-pc31",
               "type": "check",
               "title": "Practice",
@@ -3810,16 +4082,181 @@
             {
               "id": "math12-u2-c04",
               "type": "text",
-              "title": "2.4 Statistical Analysis of Ungrouped Data",
-              "page": 78,
-              "src": "textbook pp.78–80",
-              "enriched": true,
+              "title": "2.4.1 Mean, median and mode",
+              "page": 79,
+              "src": "notes",
               "body": [
-                "The test had five questions, each carrying ten marks.",
-                "A measure of central tendency is a single value that can be used to represent all the other values in the collection.",
-                "The median divides the array into two equal parts.",
-                "If the number of observations is even, the median is simply the middle observation in the array while if the number of observations is odd, the median is the average of the two middle observations in the array.",
-                "The median of a variable is the value that lies in the middle of the data when arranged in ascending order."
+                "A **measure of central tendency** is one value that represents the whole data set.",
+                "**Mean:** $\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_N}{N} = \\frac{\\sum x_i}{N}$. Example 2.15: $\\frac{30}{10} = 3$ children.",
+                "**Median:** sort the data. If $N$ is **odd**, it is the middle value, in position $\\frac{N + 1}{2}$. If $N$ is **even**, it is the mean of the values in positions $\\frac{N}{2}$ and $\\frac{N}{2} + 1$. (The book's first definition swaps \"odd\" and \"even\"; its step-by-step rule is right.)",
+                "**Mode:** the most frequent value. There may be two modes (Example 2.21: 1 and 3) or none (Example 2.22)."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math12-u2-md-ex219",
+              "type": "worked",
+              "title": "Worked example: the median of 40 values (Example 2.19)",
+              "page": 81,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Battery lives of 40 phones, sorted: 1.6, 1.8, 2.2, …, 4.7. Find the median.",
+              "steps": [
+                {
+                  "text": "$N = 40$ is even: the middle positions are 20 and 21."
+                },
+                {
+                  "text": "Counting in the sorted list: $x_{(20)} = 3.4$ and $x_{(21)} = 3.4$."
+                },
+                {
+                  "text": "Median $= \\frac{3.4 + 3.4}{2}$."
+                }
+              ],
+              "answer": "3.4 years (the mean is $\\frac{136.4}{40} = 3.41$)"
+            },
+            {
+              "id": "math12-u2-md-cmp-tb",
+              "type": "table",
+              "title": "Mean, median or mode?",
+              "page": 84,
+              "src": "notes",
+              "head": [
+                "",
+                "Mean",
+                "Median",
+                "Mode"
+              ],
+              "rows": [
+                [
+                  "uses every value",
+                  "yes",
+                  "no",
+                  "no"
+                ],
+                [
+                  "affected by an extreme value",
+                  "a lot",
+                  "hardly",
+                  "no"
+                ],
+                [
+                  "works for categories",
+                  "no",
+                  "no",
+                  "yes"
+                ],
+                [
+                  "best for",
+                  "balanced data",
+                  "skewed data (incomes)",
+                  "most popular item"
+                ]
+              ]
+            },
+            {
+              "id": "math12-u2-md-outlier-rm",
+              "type": "remember",
+              "title": "One extreme value (Activity 2.22, Exercise 2.5 Q3)",
+              "page": 84,
+              "src": "notes",
+              "body": [
+                "Class A ages 16, 18, 17, 18, 19, **38**: mean 21, median 18. Class B with 20 instead of 38: mean 18, median 18. One extreme value pulls the mean but not the median. Likewise 1–10 has mean 5.5, but changing 10 to 100 makes the mean 14.5 while the median stays 5.5."
+              ]
+            },
+            {
+              "id": "math12-u2-md-disp-t",
+              "type": "text",
+              "title": "2.4.2 Range, variance and standard deviation",
+              "page": 86,
+              "src": "notes",
+              "body": [
+                "Two data sets can have the same centre and very different **spread** (dispersion).",
+                "**Range** $R$ = largest − smallest.",
+                "**Variance** = average squared distance from the mean: $$\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{N}$$",
+                "**Standard deviation** $\\sigma = \\sqrt{\\sigma^2}$, in the same units as the data (variance is in squared units, e.g. hour²).",
+                "**Shift and scale:** adding a constant to every value changes the mean but **not** the variance; multiplying every value by $k$ multiplies the standard deviation by $|k|$ (Exercise 2.6 Q3, Q4).",
+                "(The book divides by $N$ and calls this the population variance; Example 2.27 calls it \"sample\" standard deviation and refers to Example 2.25 — it means Example 2.26. A sample variance divides by $n - 1$ instead.)"
+              ]
+            },
+            {
+              "id": "math12-u2-md-spread",
+              "type": "diagram",
+              "title": "Two banks, same average wait",
+              "page": 87,
+              "src": "notes",
+              "diagram": "md_spread",
+              "mode": "plain",
+              "body": [
+                "Both banks have mean 7.15 min, median 7.2 and mode 7.7, but the range at Bank A is $7.7 - 6.5 = 1.2$ min and at Bank B $10.0 - 4.2 = 5.8$ min (the book labels both lines \"Bank A\"). Bank B's waiting times vary much more."
+              ]
+            },
+            {
+              "id": "math12-u2-md-var-tb",
+              "type": "table",
+              "title": "Example 2.26: study hours (mean 31)",
+              "page": 90,
+              "src": "notes",
+              "head": [
+                "$x$",
+                "$x - \\bar{x}$",
+                "$(x - \\bar{x})^2$"
+              ],
+              "rows": [
+                [
+                  "28",
+                  "−3",
+                  "9"
+                ],
+                [
+                  "44",
+                  "13",
+                  "169"
+                ],
+                [
+                  "36",
+                  "5",
+                  "25"
+                ],
+                [
+                  "25",
+                  "−6",
+                  "36"
+                ],
+                [
+                  "34",
+                  "3",
+                  "9"
+                ],
+                [
+                  "30",
+                  "−1",
+                  "1"
+                ],
+                [
+                  "32",
+                  "1",
+                  "1"
+                ],
+                [
+                  "19",
+                  "−12",
+                  "144"
+                ],
+                [
+                  "total 248",
+                  "0",
+                  "394"
+                ]
+              ]
+            },
+            {
+              "id": "math12-u2-md-var-rm",
+              "type": "remember",
+              "title": "Reading the table",
+              "page": 91,
+              "src": "notes",
+              "body": [
+                "Deviations always add to 0 (a check on the mean). $\\sigma^2 = \\frac{394}{8} = 49.25$ hour², $\\sigma = \\sqrt{49.25} \\approx 7.02$ hours."
               ]
             },
             {
@@ -4287,17 +4724,226 @@
             {
               "id": "math12-u2-c09",
               "type": "text",
-              "title": "2.5 Probability",
+              "title": "2.5.1 Experiments, sample spaces and events",
               "page": 94,
-              "src": "textbook p.94",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "In statistics, the word experiment is used to describe any process that generates a set of data.",
-                "**A phenomenon** is called random if individual outcomes are uncertain but there is nonetheless a regular distribution of outcomes in a large number of repetitions.",
-                "Any process which generates well defined outcomes is called an **experiment**.",
-                "**The number of trials** is the total number of times the experiment is repeated.",
-                "**The outcomes** are the different results possible for one trial of the experiment."
+                "An **experiment** is a process with well-defined outcomes (toss a coin, roll a die). The **sample space** $S$ is the set of all outcomes; an **event** is a subset of $S$.",
+                "Coin: $S = \\{H, T\\}$. Die: $\\{1, 2, 3, 4, 5, 6\\}$. Two coins: $\\{HH, HT, TH, TT\\}$. A **simple event** has one outcome; the **null event** $\\varnothing$ has none (Example 2.30: an even factor of 9).",
+                "**Operations:** $A \\cap B$ (both), $A \\cup B$ (either or both), $A'$ (not $A$). $A$ and $B$ are **mutually exclusive** if $A \\cap B = \\varnothing$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math12-u2-md-tree",
+              "type": "diagram",
+              "title": "Listing outcomes with a tree",
+              "page": 110,
+              "src": "notes",
+              "diagram": "md_tree",
+              "mode": "plain",
+              "body": [
+                "Each student passes (P) or fails (F): 2 branches, then 2, then 2, so $2 \\times 2 \\times 2 = 8$ outcomes: PPP, PPF, PFP, PFF, FPP, FPF, FFP, FFF. The same tree lists D/N items (Example 2.29) or the sexes of three children."
               ]
+            },
+            {
+              "id": "math12-u2-md-prob-t",
+              "type": "text",
+              "title": "2.5.3–2.5.4 Experimental and theoretical probability",
+              "page": 99,
+              "src": "notes",
+              "body": [
+                "**Experimental probability** = relative frequency $= \\frac{\\text{times the outcome happened}}{\\text{number of trials}}$. Example 2.31: 35 of 100 students chose blue: $0.35$.",
+                "**Theoretical probability** (equally likely outcomes): $$P(E) = \\frac{n(E)}{n(S)} = \\frac{\\text{favourable outcomes}}{\\text{all outcomes}}$$",
+                "Always $0 \\le P(E) \\le 1$: 0 = impossible (a black card from green, yellow and blue cards), 1 = certain.",
+                "**Comparing (Activity 2.34):** 13 sevens in 50 rolls of two dice gives $0.26$; theory gives $\\frac{6}{36} \\approx 0.17$. With more trials the experimental value gets closer to the theoretical one."
+              ]
+            },
+            {
+              "id": "math12-u2-md-dice",
+              "type": "diagram",
+              "title": "Two dice: count the cells",
+              "page": 103,
+              "src": "notes",
+              "diagram": "md_dice",
+              "mode": "plain",
+              "body": [
+                "36 equally likely outcomes. Sum 7 appears 6 times ($P = \\frac{1}{6}$), sum 11 twice, so $P(7 \\text{ or } 11) = \\frac{8}{36} = \\frac{2}{9}$. A total of 8 appears 5 times ($\\frac{5}{36}$)."
+              ]
+            },
+            {
+              "id": "math12-u2-md-venn",
+              "type": "steps",
+              "title": "2.5.5 The addition law",
+              "page": 105,
+              "src": "notes",
+              "diagram": "md_venn",
+              "steps": [
+                {
+                  "text": "$P(A)$ counts every outcome in $A$.",
+                  "show": "k1"
+                },
+                {
+                  "text": "$P(B)$ counts every outcome in $B$ — the overlap is now counted twice.",
+                  "show": "k2"
+                },
+                {
+                  "text": "Subtract it once: $$P(A \\cup B) = P(A) + P(B) - P(A \\cap B).$$ If $A$, $B$ are mutually exclusive the overlap is empty and $P(A \\cup B) = P(A) + P(B)$.",
+                  "show": "k3"
+                }
+              ]
+            },
+            {
+              "id": "math12-u2-md-laws-tb",
+              "type": "table",
+              "title": "Laws of probability",
+              "page": 105,
+              "src": "notes",
+              "head": [
+                "Law",
+                "Formula",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "complement",
+                  "$P(A') = 1 - P(A)$",
+                  "Rahma wins: $1 - 0.7 = 0.3$"
+                ],
+                [
+                  "addition",
+                  "$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$",
+                  "$0.7 = P(A) + 0.4 - 0.3$: $P(A) = 0.6$"
+                ],
+                [
+                  "multiplication (independent)",
+                  "$P(A \\cap B) = P(A)P(B)$",
+                  "green then yellow: $\\frac{5}{16} \\cdot \\frac{6}{16} = \\frac{15}{128}$"
+                ]
+              ],
+              "layout": "cards"
+            },
+            {
+              "id": "math12-u2-md-indep-rm",
+              "type": "remember",
+              "title": "Only for independent events",
+              "page": 107,
+              "src": "notes",
+              "body": [
+                "The rule $P(A \\cap B) = P(A) \\cdot P(B)$ holds when one event does not change the chances of the other: two different dice, a coin and a die, or drawing **with replacement**. The book states it for \"events A and B\" in general; it is not true for, e.g., \"even\" and \"greater than 3\" on one die ($\\frac{2}{6} \\ne \\frac{1}{2} \\cdot \\frac{1}{2}$)."
+              ]
+            },
+            {
+              "id": "math12-u2-md-count-t",
+              "type": "text",
+              "title": "2.5.6 Counting: the multiplication principle",
+              "page": 110,
+              "src": "notes",
+              "body": [
+                "If one choice can be made in $m$ ways and then another in $n$ ways, together there are $m \\times n$ ways; for more steps keep multiplying. Breakfast: $4 \\times 3 \\times 5 = 60$ choices; outfits: $2 \\times 3 \\times 2 = 12$.",
+                "Arranging $n$ different objects in a line: $n!$ ways (FAST: $4! = 24$ words)."
+              ]
+            },
+            {
+              "id": "math12-u2-md-count-tb",
+              "type": "table",
+              "title": "Permutations or combinations?",
+              "page": 114,
+              "src": "notes",
+              "head": [
+                "Situation",
+                "Formula",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "order matters, $r$ from $n$",
+                  "$_nP_r = \\frac{n!}{(n - r)!}$",
+                  "6 teachers to 4 classes: $_6P_4 = 360$"
+                ],
+                [
+                  "order does not matter",
+                  "$_nC_r = \\frac{n!}{r!(n - r)!}$",
+                  "committee of 3 from 4: $_4C_3 = 4$"
+                ],
+                [
+                  "in a circle",
+                  "$(n - 1)!$",
+                  "6 people: $5! = 120$"
+                ],
+                [
+                  "repeated letters",
+                  "$\\frac{n!}{n_1!\\,n_2! \\cdots}$",
+                  "STATISTICS: $\\frac{10!}{3!3!2!} = 50400$"
+                ]
+              ],
+              "layout": "cards"
+            },
+            {
+              "id": "math12-u2-md-ex244",
+              "type": "worked",
+              "title": "Worked example: Example 2.44(b) (corrected)",
+              "page": 117,
+              "src": "notes",
+              "mode": "show",
+              "problem": "The letters of STATISTICS are arranged at random. Probability that the arrangement begins with SSS?",
+              "steps": [
+                {
+                  "text": "All arrangements: $\\frac{10!}{3!\\,3!\\,2!} = 50400$."
+                },
+                {
+                  "text": "After SSS the other 7 letters are T, T, T, I, I, A, C: $\\frac{7!}{3!\\,2!} = \\frac{5040}{12} = 420$ arrangements (the book gets 84)."
+                },
+                {
+                  "text": "$P = \\frac{420}{50400} = \\frac{1}{120}$."
+                },
+                {
+                  "text": "Check another way: the first three letters are S with probability $\\frac{3}{10} \\cdot \\frac{2}{9} \\cdot \\frac{1}{8} = \\frac{1}{120}$."
+                }
+              ],
+              "answer": "$\\frac{1}{120} \\approx 0.0083$ (not 0.0017)"
+            },
+            {
+              "id": "math12-u2-md-ex243",
+              "type": "worked",
+              "title": "Worked example: friends at a round table (Example 2.43)",
+              "page": 115,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Six students sit at a round table. Probability that two best friends sit together?",
+              "steps": [
+                {
+                  "text": "All arrangements: $(6 - 1)! = 120$."
+                },
+                {
+                  "text": "Glue the friends into one unit: 5 units round a table: $4! = 24$, times $2!$ for the friends' order: 48."
+                },
+                {
+                  "text": "$P = \\frac{48}{120}$."
+                }
+              ],
+              "answer": "$\\frac{2}{5}$"
+            },
+            {
+              "id": "math12-u2-md-ex246",
+              "type": "worked",
+              "title": "Worked example: choosing letters (Example 2.46)",
+              "page": 119,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Two letters are chosen at random from MONDAY. Probability that both are consonants?",
+              "steps": [
+                {
+                  "text": "All choices: $_6C_2 = 15$."
+                },
+                {
+                  "text": "Consonants M, N, D, Y: $_4C_2 = 6$."
+                },
+                {
+                  "text": "$P = \\frac{6}{15}$."
+                }
+              ],
+              "answer": "$\\frac{2}{5}$"
             },
             {
               "id": "math12-u2-c10",
@@ -4475,6 +5121,19 @@
               "why": "P = favourable outcomes / total outcomes = 3/(3 + 5) = 3/8.",
               "page": 93,
               "src": "notes"
+            },
+            {
+              "id": "math12-u2-md-summary-t",
+              "type": "remember",
+              "title": "Unit summary",
+              "page": 125,
+              "src": "notes",
+              "body": [
+                "Population vs sample; qualitative vs quantitative (discrete / continuous).",
+                "Frequency tables, class boundaries and marks; pie, bar, histogram, polygon, line graphs.",
+                "Mean, median, mode; range, variance $\\frac{\\sum (x - \\bar{x})^2}{N}$, standard deviation.",
+                "$P(E) = \\frac{n(E)}{n(S)}$; complement, addition and (independent) multiplication laws; $_nP_r$, $_nC_r$."
+              ]
             }
           ]
         }
@@ -4514,6 +5173,42 @@
           "page": 96,
           "src": "textbook p.96",
           "enriched": true
+        },
+        {
+          "term": "Sample",
+          "meaning": "The part of the population that data are collected from.",
+          "page": 42,
+          "src": "notes"
+        },
+        {
+          "term": "Class boundary",
+          "meaning": "The value halfway between neighbouring class limits.",
+          "page": 58,
+          "src": "notes"
+        },
+        {
+          "term": "Standard deviation",
+          "meaning": "The square root of the variance; spread in the data's units.",
+          "page": 91,
+          "src": "notes"
+        },
+        {
+          "term": "Sample space",
+          "meaning": "The set of all possible outcomes of an experiment.",
+          "page": 94,
+          "src": "notes"
+        },
+        {
+          "term": "Mutually exclusive",
+          "meaning": "Events that cannot happen together.",
+          "page": 97,
+          "src": "notes"
+        },
+        {
+          "term": "Combination",
+          "meaning": "A selection where order does not matter.",
+          "page": 118,
+          "src": "notes"
         }
       ],
       "tips": [
@@ -4541,6 +5236,26 @@
           "text": "If an event: If an event is a set containing only one element of the sample space, then it is called a simple event.",
           "page": 96,
           "src": "textbook p.96"
+        },
+        {
+          "text": "Sort the data before finding the median.",
+          "page": 81,
+          "src": "notes"
+        },
+        {
+          "text": "Pie angle = share × 360°.",
+          "page": 64,
+          "src": "notes"
+        },
+        {
+          "text": "\"At least one\" → 1 − P(none).",
+          "page": 108,
+          "src": "notes"
+        },
+        {
+          "text": "Order matters → P; not → C.",
+          "page": 118,
+          "src": "notes"
         }
       ],
       "games": [
@@ -5210,6 +5925,689 @@
             ],
             "page": 47,
             "src": "notes"
+          },
+          {
+            "id": "math12-u2-md-s21-q01",
+            "type": "short",
+            "q": "Exercise 2.1 Q3: identify population and sample: (a) 100 Barka cows weighed after a special diet (b) 400 welfare households checked for disabled children.",
+            "answer": "(a) all Barka cows on that diet / 100 cows (b) all supported households in the city / 400 households",
+            "why": [
+              "Step 1: the population is the whole group the question is about.",
+              "Step 2: the sample is what was measured."
+            ],
+            "tip": "Ask: \"about whom is the conclusion?\"",
+            "similar": [
+              {
+                "q": "Exercise 2.1 Q4: average maths mark of Grade 10?",
+                "a": "population: all Grade 10 students; sample: e.g. 30 chosen by lottery."
+              }
+            ],
+            "page": 45,
+            "src": "notes",
+            "label": "2.1–2.2 Practice — data and tables"
+          },
+          {
+            "id": "math12-u2-md-s21-q02",
+            "type": "short",
+            "q": "Exercise 2.2 Q4: discrete or continuous? (a) candidate supported (b) time for a wound to heal (c) calls in 10 minutes (d) distance a ball is kicked (e) pages in a book (f) family income (g) suitcases lost per day (h) kilometres driven.",
+            "answer": "(a) qualitative (not numerical) (b), (d), (f), (h) continuous; (c), (e), (g) discrete",
+            "why": [
+              "Step 1: counts → discrete.",
+              "Step 2: measurements → continuous."
+            ],
+            "tip": "Is it \"how many\" or \"how much\"?",
+            "similar": [
+              {
+                "q": "Number of eggs laid?",
+                "a": "discrete."
+              }
+            ],
+            "page": 50,
+            "src": "notes",
+            "label": "2.1–2.2 Practice — data and tables"
+          },
+          {
+            "id": "math12-u2-md-s21-q03",
+            "type": "short",
+            "q": "Exercise 2.3 Q1: ratings A A A A B A B B A A E C A C D A B C D B. Frequencies? How many gave B?",
+            "answer": "A 9, B 5, C 3, D 2, E 1; 5 gave B",
+            "why": [
+              "Step 1: tally each letter.",
+              "Step 2: relative frequency, e.g. A: $\\frac{9}{20} = 45\\%$."
+            ],
+            "tip": "Frequencies must add to 20.",
+            "similar": [
+              {
+                "q": "Percentage for C?",
+                "a": "15%."
+              }
+            ],
+            "page": 61,
+            "src": "notes",
+            "label": "2.1–2.2 Practice — data and tables"
+          },
+          {
+            "id": "math12-u2-md-s21-q04",
+            "type": "short",
+            "q": "Exercise 2.3 Q2: 66 injuries (Sp, Co, Fr, St). Most and least common? Proportion of fractures?",
+            "answer": "sprain 20 (most), contusion 18, fracture 17, strain 11 (least); $\\frac{17}{66} \\approx 0.26$",
+            "why": [
+              "Step 1: tally the four codes.",
+              "Step 2: $17 \\div 66$."
+            ],
+            "tip": "Check the total is 66.",
+            "similar": [
+              {
+                "q": "Proportion of strains?",
+                "a": "$\\frac{11}{66} = \\frac{1}{6}$."
+              }
+            ],
+            "page": 61,
+            "src": "notes",
+            "label": "2.1–2.2 Practice — data and tables"
+          },
+          {
+            "id": "math12-u2-md-s21-q05",
+            "type": "short",
+            "q": "Exercise 2.3 Q4: a die rolled 200 times gives 1: 30, 2: 32, 3: 35, 4: 34, 5: 37, 6: 32. Least and most frequent? $P(3)$? Proportion of even numbers?",
+            "answer": "1 least, 5 most; 0.175; 0.49",
+            "why": [
+              "Step 1: $\\frac{35}{200}$.",
+              "Step 2: $\\frac{32 + 34 + 32}{200} = \\frac{98}{200}$."
+            ],
+            "tip": "Close to $\\frac{1}{6}$ and $\\frac{1}{2}$: the die looks fair.",
+            "similar": [
+              {
+                "q": "Proportion of numbers above 4?",
+                "a": "$\\frac{69}{200} = 0.345$."
+              }
+            ],
+            "page": 62,
+            "src": "notes",
+            "label": "2.1–2.2 Practice — data and tables"
+          },
+          {
+            "id": "math12-u2-md-s21-q06",
+            "type": "short",
+            "q": "Exercise 2.3 Q5: ages 20–29, 30–39, 40–49, 50–59, 60–69. Upper limit of 30–39? Lower boundary of 50–59? Class mark of 40–49?",
+            "answer": "39; 49.5; 44.5",
+            "why": [
+              "Step 1: limits are the printed numbers.",
+              "Step 2: boundary halfway between 49 and 50.",
+              "Step 3: $\\frac{40 + 49}{2}$."
+            ],
+            "tip": "Boundaries end in .5 for whole-number data.",
+            "similar": [
+              {
+                "q": "Width of each class?",
+                "a": "10."
+              }
+            ],
+            "page": 62,
+            "src": "notes",
+            "label": "2.1–2.2 Practice — data and tables"
+          },
+          {
+            "id": "math12-u2-md-s21-q07",
+            "type": "mcq",
+            "q": "Which is a continuous variable?",
+            "options": {
+              "A": "yearly rainfall in Asmara",
+              "B": "number of bicycles parked",
+              "C": "blood type",
+              "D": "number of children"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: rainfall is measured and can take any value."
+            ],
+            "tip": "Measured ⇒ continuous.",
+            "similar": [
+              {
+                "q": "Number of absent students?",
+                "a": "discrete."
+              }
+            ],
+            "page": 51,
+            "src": "notes",
+            "label": "2.1–2.2 Practice — data and tables"
+          },
+          {
+            "id": "math12-u2-md-s21-q08",
+            "type": "tf",
+            "q": "For classes 20–29, 30–39, … the class width is 9.",
+            "answer": false,
+            "why": [
+              "Step 1: width = 29.5 − 19.5 = 10 (use boundaries, or lower limits: 30 − 20)."
+            ],
+            "tip": "Never subtract the two limits of one class.",
+            "similar": [
+              {
+                "q": "Classes 0–4, 5–9?",
+                "a": "width 5."
+              }
+            ],
+            "page": 58,
+            "src": "notes",
+            "label": "2.1–2.2 Practice — data and tables"
+          },
+          {
+            "id": "math12-u2-md-s22-q01",
+            "type": "short",
+            "q": "Exercise 2.4 Q2: shirts Blue 18, Green 9, Red 6, Yellow 3 (36 people). Pie chart angles?",
+            "answer": "Blue 180°, Green 90°, Red 60°, Yellow 30°",
+            "why": [
+              "Step 1: angle $= \\frac{f}{36} \\times 360° = 10f$."
+            ],
+            "tip": "Angles must add to 360°.",
+            "similar": [
+              {
+                "q": "If 40 people, Blue 20?",
+                "a": "180°."
+              }
+            ],
+            "page": 74,
+            "src": "notes",
+            "label": "2.3–2.4 Practice — graphs and measures"
+          },
+          {
+            "id": "math12-u2-md-s22-q02",
+            "type": "short",
+            "q": "Exercise 2.4 Q14: heart beats 65–68: 2, 68–71: 4, 71–74: 3, 74–77: 8, 77–80: 7, 80–83: 4, 83–86: 2. (a) Women at risk (more than 80)? (b) Proportion between 74 and 83?",
+            "answer": "6 women; $\\frac{19}{30}$",
+            "why": [
+              "Step 1: $4 + 2$.",
+              "Step 2: $\\frac{8 + 7 + 4}{30}$."
+            ],
+            "tip": "Read whole classes.",
+            "similar": [
+              {
+                "q": "Proportion below 74?",
+                "a": "$\\frac{9}{30} = 0.3$."
+              }
+            ],
+            "page": 78,
+            "src": "notes",
+            "label": "2.3–2.4 Practice — graphs and measures"
+          },
+          {
+            "id": "math12-u2-md-s22-q03",
+            "type": "short",
+            "q": "Exercise 2.5 Q1: times 15, 28, 25, 48, 22, 43, 49, 32, 22, 39, 31, 43, 49, 32, 22, 33, 27, 25, 22, 20, 24. Mean, median, mode?",
+            "answer": "mean 31, median 28, mode 22",
+            "why": [
+              "Step 1: sum 651, $\\frac{651}{21} = 31$.",
+              "Step 2: sorted, the 11th value is 28.",
+              "Step 3: 22 occurs 4 times."
+            ],
+            "tip": "Sort before the median.",
+            "similar": [
+              {
+                "q": "Range?",
+                "a": "34 min."
+              }
+            ],
+            "page": 84,
+            "src": "notes",
+            "label": "2.3–2.4 Practice — graphs and measures"
+          },
+          {
+            "id": "math12-u2-md-s22-q04",
+            "type": "short",
+            "q": "Exercise 2.5 Q2: mean, median, mode of (a) 18, 23, 7, 33, 25, 26, 23, 42, 18, 23, 11 (b) 25, 26, 27, 28, 25, 28, 29, 30, 31, 30, 26, 27, 28.",
+            "answer": "(a) ≈ 22.6, 23, 23 (b) ≈ 27.7, 28, 28",
+            "why": [
+              "Step 1: (a) sum 249 ÷ 11.",
+              "Step 2: (b) sum 360 ÷ 13; middle (7th) value 28."
+            ],
+            "tip": "Count the values first.",
+            "similar": [
+              {
+                "q": "(c) 103, 99, 114, 22, 99, 119, 117, 105, 100, 119, 108, 96?",
+                "a": "mean ≈ 100.1, median 104, modes 99 and 119."
+              }
+            ],
+            "page": 84,
+            "src": "notes",
+            "label": "2.3–2.4 Practice — graphs and measures"
+          },
+          {
+            "id": "math12-u2-md-s22-q05",
+            "type": "short",
+            "q": "Exercise 2.5 Q4 and Q6: (4) mean expenditure of 800, 700, 1000, 750, 1500, 1800, 1200, 250, 2100, 370. (6) Male mean 1520, female 1420, all 500 employees 1500: percent male?",
+            "answer": "1047 Nakfa; 80% male (400), 20% female (100)",
+            "why": [
+              "Step 1: $\\frac{10470}{10}$.",
+              "Step 2: $1520p + 1420(1 - p) = 1500 \\Rightarrow 100p = 80$."
+            ],
+            "tip": "Weighted mean.",
+            "similar": [
+              {
+                "q": "All-employee mean 1470?",
+                "a": "50% male."
+              }
+            ],
+            "page": 85,
+            "src": "notes",
+            "label": "2.3–2.4 Practice — graphs and measures"
+          },
+          {
+            "id": "math12-u2-md-s22-q06",
+            "type": "short",
+            "q": "Exercise 2.6 Q1: 8, 18, 10, 20, 24, 12, 14, 16, 6, 22. Range, variance, standard deviation?",
+            "answer": "18; 33; ≈ 5.74",
+            "why": [
+              "Step 1: range $24 - 6$.",
+              "Step 2: mean 15; squared deviations add to 330.",
+              "Step 3: $\\frac{330}{10} = 33$, $\\sqrt{33}$."
+            ],
+            "tip": "Table: $x$, $x - \\bar{x}$, $(x - \\bar{x})^2$.",
+            "similar": [
+              {
+                "q": "Variance of 2, 4, 6?",
+                "a": "$\\frac{8}{3}$."
+              }
+            ],
+            "page": 92,
+            "src": "notes",
+            "label": "2.3–2.4 Practice — graphs and measures"
+          },
+          {
+            "id": "math12-u2-md-s22-q07",
+            "type": "short",
+            "q": "Exercise 2.6 Q2: mean and variance of (a) 1, 3, 6, 7, 8, 9 (b) 11, 14, 18, 23, 29 (d) 200, 203, 206, 207, 209.",
+            "answer": "(a) 5.67, 7.89 (b) 19, 41.2 (d) 205, 10",
+            "why": [
+              "Step 1: (b) deviations −8, −5, −1, 4, 10; squares add to 206; $\\frac{206}{5}$.",
+              "Step 2: (d) subtract 200 first: 0, 3, 6, 7, 9 has mean 5, variance 10."
+            ],
+            "tip": "Subtracting a constant does not change the variance.",
+            "similar": [
+              {
+                "q": "(c) 4.6, 2.7, 3.1, 0.5, 6.2?",
+                "a": "mean 3.42, variance ≈ 3.65."
+              }
+            ],
+            "page": 92,
+            "src": "notes",
+            "label": "2.3–2.4 Practice — graphs and measures"
+          },
+          {
+            "id": "math12-u2-md-s22-q08",
+            "type": "short",
+            "q": "Exercise 2.6 Q3–Q4: (3) 4, 6, 9, 3, 5, 6, 9 has mean 6 and variance $\\frac{32}{7}$. Deduce for 514, 516, … (add 510) and 52, 78, … (×13). (4) SD of 1–7 is 2; find the SD of 101–107, of 100, 200, …, 700, and of 2.01, 3.02, …, 8.07.",
+            "answer": "mean 516, var 32/7; mean 78, var 5408/7 ≈ 772.6; SDs 2, 200, 2.02",
+            "why": [
+              "Step 1: adding 510 moves the mean only.",
+              "Step 2: ×13 multiplies the variance by 169.",
+              "Step 3: 2.01, 3.02, … $= 1.01k + 1$, so SD $= 1.01 \\times 2$."
+            ],
+            "tip": "Shift: SD same; scale by $k$: SD × $|k|$.",
+            "similar": [
+              {
+                "q": "SD of 3, 6, …, 21?",
+                "a": "6."
+              }
+            ],
+            "page": 92,
+            "src": "notes",
+            "label": "2.3–2.4 Practice — graphs and measures"
+          },
+          {
+            "id": "math12-u2-md-s22-q09",
+            "type": "short",
+            "q": "Exercise 2.6 Q5: Bakery 1: 96, 98, 98, 99, 100, 100, 101, 101, 102, 105. Bakery 2: 92, 94, 95, 98, 100, 101, 103, 104, 106, 107. Means, SDs, which bakery follows the 100 g rule?",
+            "answer": "both mean 100 g; SD ≈ 2.37 g and ≈ 4.90 g; Bakery 1",
+            "why": [
+              "Step 1: both sums are 1000.",
+              "Step 2: variances 5.6 and 24.",
+              "Step 3: smaller SD ⇒ weights stay close to 100 g."
+            ],
+            "tip": "Same mean? Compare the spread.",
+            "similar": [
+              {
+                "q": "Ranges?",
+                "a": "9 g and 15 g."
+              }
+            ],
+            "page": 93,
+            "src": "notes",
+            "label": "2.3–2.4 Practice — graphs and measures"
+          },
+          {
+            "id": "math12-u2-md-s22-q10",
+            "type": "short",
+            "q": "Review Q8: orders 34, 39, 40, 46, 33, 31, 34, 14, 15, 45. Mean, median, mode, range, variance, SD.",
+            "answer": "33.1; 34; 34; 32; 108.89; ≈ 10.4",
+            "why": [
+              "Step 1: sum 331.",
+              "Step 2: sorted middle values 34 and 34.",
+              "Step 3: $\\sum (x - 33.1)^2 = 1088.9$, divide by 10."
+            ],
+            "tip": "Dividing by $n - 1 = 9$ instead gives the sample variance ≈ 121.0.",
+            "similar": [
+              {
+                "q": "Without the 14 and 15?",
+                "a": "mean 37.75."
+              }
+            ],
+            "page": 123,
+            "src": "notes",
+            "label": "2.3–2.4 Practice — graphs and measures"
+          },
+          {
+            "id": "math12-u2-md-s22-q11",
+            "type": "short",
+            "q": "Review Q9–Q10: (9) mean 40; adding 50 and 64 makes the mean 42. How many items at first? (10) bill-paying days (30 values, sum 1220): mean, median, modes, range.",
+            "answer": "15 items; 40.67, 39.5, modes 13, 34, 41, 47, range 79",
+            "why": [
+              "Step 1: $40n + 114 = 42(n + 2)$, so $2n = 30$.",
+              "Step 2: median $\\frac{38 + 41}{2}$; four values occur 3 times each."
+            ],
+            "tip": "Total = mean × count.",
+            "similar": [
+              {
+                "q": "Mean 50 rising to 52 after adding 60 and 70?",
+                "a": "13 items."
+              }
+            ],
+            "page": 123,
+            "src": "notes",
+            "label": "2.3–2.4 Practice — graphs and measures"
+          },
+          {
+            "id": "math12-u2-md-s22-q12",
+            "type": "mcq",
+            "q": "Which measure is least affected by one very large value?",
+            "options": {
+              "A": "median",
+              "B": "mean",
+              "C": "range",
+              "D": "variance"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: the median depends only on the middle position."
+            ],
+            "tip": "Outliers drag the mean.",
+            "similar": [
+              {
+                "q": "Which uses every value?",
+                "a": "the mean."
+              }
+            ],
+            "page": 84,
+            "src": "notes",
+            "label": "2.3–2.4 Practice — graphs and measures"
+          },
+          {
+            "id": "math12-u2-md-s22-q13",
+            "type": "tf",
+            "q": "Adding 5 to every value increases the standard deviation by 5.",
+            "answer": false,
+            "why": [
+              "Step 1: every deviation $x - \\bar{x}$ stays the same."
+            ],
+            "tip": "Shifts don't change spread.",
+            "similar": [
+              {
+                "q": "Doubling every value?",
+                "a": "doubles the SD."
+              }
+            ],
+            "page": 90,
+            "src": "notes",
+            "label": "2.3–2.4 Practice — graphs and measures"
+          },
+          {
+            "id": "math12-u2-md-s23-q01",
+            "type": "short",
+            "q": "Exercise 2.8 Q1–Q2: (1) a coin tossed twice: $P$(at least one head)? (2) a die where each even number is twice as likely as each odd number: $P$(more than 3)?",
+            "answer": "$\\frac{3}{4}$; $\\frac{5}{9}$",
+            "why": [
+              "Step 1: $1 - P(TT) = 1 - \\frac{1}{4}$.",
+              "Step 2: odd $p$, even $2p$: $9p = 1$; $P(4, 5, 6) = 2p + p + 2p = \\frac{5}{9}$."
+            ],
+            "tip": "Probabilities must add to 1.",
+            "similar": [
+              {
+                "q": "In Q2, $P$(even)?",
+                "a": "$\\frac{2}{3}$."
+              }
+            ],
+            "page": 103,
+            "src": "notes",
+            "label": "2.5 Practice — probability and counting"
+          },
+          {
+            "id": "math12-u2-md-s23-q02",
+            "type": "short",
+            "q": "Exercise 2.8 Q3–Q5: (3) a random letter of the alphabet is a consonant / comes after j / comes before g. (5) 40 students: names start A 23, B 12, D 5: $P(B)$, $P(\\text{not } D)$, $P(T)$.",
+            "answer": "21/26, 8/13, 3/13; 3/10, 7/8, 0",
+            "why": [
+              "Step 1: 21 consonants; k–z is 16 letters; a–f is 6.",
+              "Step 2: $\\frac{12}{40}$, $1 - \\frac{5}{40}$."
+            ],
+            "tip": "Count favourable outcomes carefully.",
+            "similar": [
+              {
+                "q": "Exercise 2.8 Q4: 8 brown of 12 eggs, $P$(white)?",
+                "a": "$\\frac{1}{3}$."
+              }
+            ],
+            "page": 103,
+            "src": "notes",
+            "label": "2.5 Practice — probability and counting"
+          },
+          {
+            "id": "math12-u2-md-s23-q03",
+            "type": "short",
+            "q": "Exercise 2.9 Q1–Q3: (1) $P(C) = \\frac{2}{3}$, $P(Ph) = \\frac{4}{9}$, both $\\frac{2}{9}$: at least one? (2) total 7 or 11 with two dice? (3) at least one tail in 6 tosses?",
+            "answer": "8/9; 2/9; 63/64",
+            "why": [
+              "Step 1: $\\frac{6}{9} + \\frac{4}{9} - \\frac{2}{9}$.",
+              "Step 2: $\\frac{6 + 2}{36}$.",
+              "Step 3: $1 - (\\frac{1}{2})^6$."
+            ],
+            "tip": "\"At least one\" ⇒ complement.",
+            "similar": [
+              {
+                "q": "At least one head in 3 tosses?",
+                "a": "$\\frac{7}{8}$."
+              }
+            ],
+            "page": 108,
+            "src": "notes",
+            "label": "2.5 Practice — probability and counting"
+          },
+          {
+            "id": "math12-u2-md-s23-q04",
+            "type": "short",
+            "q": "Exercise 2.9 Q4–Q6: (4) 10% defective: $P$(not defective)? (5) $A$, $B$ mutually exclusive, $P(A) = 0.3$, $P(B) = 0.5$: $P(A \\cup B)$, $P(A')$, $P(A \\cap B)$. (6) 3 green, 5 white, 7 yellow; two draws with replacement: both green?",
+            "answer": "0.9; 0.8, 0.7, 0; 1/25",
+            "why": [
+              "Step 1: complement.",
+              "Step 2: no overlap.",
+              "Step 3: $(\\frac{3}{15})^2$."
+            ],
+            "tip": "With replacement ⇒ independent.",
+            "similar": [
+              {
+                "q": "(6) both yellow?",
+                "a": "$\\frac{49}{225}$."
+              }
+            ],
+            "page": 108,
+            "src": "notes",
+            "label": "2.5 Practice — probability and counting"
+          },
+          {
+            "id": "math12-u2-md-s23-q05",
+            "type": "short",
+            "q": "Exercise 2.11 Q1–Q4: (1) 3 roads Asmara–Barentu, 2 Barentu–Tessenei (2) 6 shirts, 4 trousers (3) plates with 2 letters then 4 digits (4) 3 boys and 2 girls in a line.",
+            "answer": "6; 24; 6,760,000; 120",
+            "why": [
+              "Step 1: $3 \\times 2$, $6 \\times 4$.",
+              "Step 2: $26^2 \\times 10^4$.",
+              "Step 3: $5!$."
+            ],
+            "tip": "Multiplication principle.",
+            "similar": [
+              {
+                "q": "Plates with 3 letters then 3 digits?",
+                "a": "17,576,000."
+              }
+            ],
+            "page": 120,
+            "src": "notes",
+            "label": "2.5 Practice — probability and counting"
+          },
+          {
+            "id": "math12-u2-md-s23-q06",
+            "type": "short",
+            "q": "Exercise 2.11 Q5–Q7: (5) the two girls together (6) boys together and girls together (7) 4 English, 3 maths, 2 biology, 1 chemistry book with each subject together.",
+            "answer": "48; 24; 6912",
+            "why": [
+              "Step 1: glue the girls: $4! \\times 2!$.",
+              "Step 2: 2 blocks: $2! \\times 3! \\times 2!$.",
+              "Step 3: 4 blocks: $4! \\times 4! \\times 3! \\times 2!$."
+            ],
+            "tip": "Arrange the blocks, then inside each block.",
+            "similar": [
+              {
+                "q": "Girls never together?",
+                "a": "$120 - 48 = 72$."
+              }
+            ],
+            "page": 120,
+            "src": "notes",
+            "label": "2.5 Practice — probability and counting"
+          },
+          {
+            "id": "math12-u2-md-s23-q07",
+            "type": "short",
+            "q": "Exercise 2.11 Q8–Q9: (8) 4 courses from 10, order important (9) 3 books from 7, order not important.",
+            "answer": "5040; 35",
+            "why": [
+              "Step 1: $_{10}P_4 = 10 \\cdot 9 \\cdot 8 \\cdot 7$.",
+              "Step 2: $_7C_3 = \\frac{7 \\cdot 6 \\cdot 5}{3!}$."
+            ],
+            "tip": "Order matters ⇒ P; does not ⇒ C.",
+            "similar": [
+              {
+                "q": "$_{10}C_4$?",
+                "a": "210."
+              }
+            ],
+            "page": 121,
+            "src": "notes",
+            "label": "2.5 Practice — probability and counting"
+          },
+          {
+            "id": "math12-u2-md-s23-q08",
+            "type": "short",
+            "q": "Review Q12–Q14: (12) 3 of 5 coloured balls: $P$(black chosen), $P$(black and red)? (13) two dice: total 8; total at most 5? (14) 3 of 9 books (5 maths, 3 history, 1 dictionary): $P$(dictionary), $P$(2 maths, 1 history)?",
+            "answer": "3/5, 3/10; 5/36, 5/18; 1/3, 5/14",
+            "why": [
+              "Step 1: $\\frac{_4C_2}{_5C_3} = \\frac{6}{10}$; $\\frac{_3C_1}{10}$.",
+              "Step 2: 5 cells; $1 + 2 + 3 + 4 = 10$ cells.",
+              "Step 3: $\\frac{_8C_2}{_9C_3} = \\frac{28}{84}$; $\\frac{10 \\times 3}{84}$."
+            ],
+            "tip": "Choose the \"must\" items first.",
+            "similar": [
+              {
+                "q": "(14) no maths book?",
+                "a": "$\\frac{4}{84} = \\frac{1}{21}$."
+              }
+            ],
+            "page": 124,
+            "src": "notes",
+            "label": "2.5 Practice — probability and counting"
+          },
+          {
+            "id": "math12-u2-md-s23-q09",
+            "type": "short",
+            "q": "Review Q16 and Q19: (16) $P$(A fails) = 0.2, $P$(B fails) = 0.3, independent: both, only one, at least one, none. (19) succeed 0.8 and 0.6: both, at least one.",
+            "answer": "0.06, 0.38, 0.44, 0.56; 0.48, 0.92",
+            "why": [
+              "Step 1: $0.2 \\times 0.3$; $0.2(0.7) + 0.8(0.3)$.",
+              "Step 2: none $0.8 \\times 0.7$; at least one $1 - 0.56$.",
+              "Step 3: $0.8 \\times 0.6$; $1 - 0.2 \\times 0.4$."
+            ],
+            "tip": "List the four cases.",
+            "similar": [
+              {
+                "q": "(19) exactly one?",
+                "a": "0.44."
+              }
+            ],
+            "page": 124,
+            "src": "notes",
+            "label": "2.5 Practice — probability and counting"
+          },
+          {
+            "id": "math12-u2-md-s23-q10",
+            "type": "short",
+            "q": "Review Q17–Q18: (17) one number from 1–10: even; divisible by 3; odd or divisible by 3; larger than 6 or less than 3. (18) rain 0.6, lightning 0.3, both 0.2: no rain, rain or lightning, rain but no lightning, neither.",
+            "answer": "1/2, 3/10, 3/5, 3/5; 0.4, 0.7, 0.4, 0.3",
+            "why": [
+              "Step 1: odd {1, 3, 5, 7, 9} plus 6: 6 numbers.",
+              "Step 2: $0.6 + 0.3 - 0.2 = 0.7$; $0.6 - 0.2$; $1 - 0.7$."
+            ],
+            "tip": "Venn diagram regions.",
+            "similar": [
+              {
+                "q": "(18) lightning but no rain?",
+                "a": "0.1."
+              }
+            ],
+            "page": 125,
+            "src": "notes",
+            "label": "2.5 Practice — probability and counting"
+          },
+          {
+            "id": "math12-u2-md-s23-q11",
+            "type": "mcq",
+            "q": "Plates with letters M, S, T then digits 1, 2, 3, each used once (Example 2.41):",
+            "options": {
+              "A": "36",
+              "B": "720",
+              "C": "6",
+              "D": "12"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: $3! \\times 3!$."
+            ],
+            "tip": "Two separate arrangements multiply.",
+            "similar": [
+              {
+                "q": "With 4 letters and 3 digits?",
+                "a": "144."
+              }
+            ],
+            "page": 113,
+            "src": "notes",
+            "label": "2.5 Practice — probability and counting"
+          },
+          {
+            "id": "math12-u2-md-s23-q12",
+            "type": "tf",
+            "q": "$P(A \\cap B) = P(A) \\cdot P(B)$ for any two events.",
+            "answer": false,
+            "why": [
+              "Step 1: only for independent events. One die: $P(\\text{even and} > 3) = \\frac{2}{6}$, but $\\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}$."
+            ],
+            "tip": "Check independence first.",
+            "similar": [
+              {
+                "q": "Coin and die?",
+                "a": "True: independent."
+              }
+            ],
+            "page": 107,
+            "src": "notes",
+            "label": "2.5 Practice — probability and counting"
           }
         ]
       },
@@ -5300,6 +6698,38 @@
               "math12-u2-c12",
               "math12-u2-c13"
             ]
+          },
+          {
+            "id": "md_mmm",
+            "label": "Mean, median, mode",
+            "kind": "idea",
+            "cards": [
+              "math12-u2-c04"
+            ]
+          },
+          {
+            "id": "md_disp",
+            "label": "Variance and SD",
+            "kind": "idea",
+            "cards": [
+              "math12-u2-md-disp-t"
+            ]
+          },
+          {
+            "id": "md_prob",
+            "label": "Probability laws",
+            "kind": "idea",
+            "cards": [
+              "math12-u2-md-laws-tb"
+            ]
+          },
+          {
+            "id": "md_count",
+            "label": "Permutations and combinations",
+            "kind": "idea",
+            "cards": [
+              "math12-u2-md-count-tb"
+            ]
           }
         ],
         "edges": [
@@ -5377,9 +6807,73 @@
             "from": "l2_4",
             "to": "l2_5",
             "label": "next"
+          },
+          {
+            "from": "l2_4",
+            "to": "md_mmm",
+            "label": "key idea"
+          },
+          {
+            "from": "l2_4",
+            "to": "md_disp",
+            "label": "key idea"
+          },
+          {
+            "from": "l2_5",
+            "to": "md_prob",
+            "label": "key idea"
+          },
+          {
+            "from": "l2_5",
+            "to": "md_count",
+            "label": "key idea"
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "md_classes": {
+          "svg": "svg/mathematics_12/m12_u2_classes.svg",
+          "title": "Class limits, boundaries and class mark",
+          "page": 58,
+          "pins": []
+        },
+        "md_pie": {
+          "svg": "svg/mathematics_12/m12_u2_pie.svg",
+          "title": "Example 2.10: a family budget as a pie chart",
+          "page": 64,
+          "pins": []
+        },
+        "md_hist": {
+          "svg": "svg/mathematics_12/m12_u2_hist.svg",
+          "title": "Example 2.13: histogram and frequency polygon",
+          "page": 69,
+          "pins": []
+        },
+        "md_spread": {
+          "svg": "svg/mathematics_12/m12_u2_spread.svg",
+          "title": "Example 2.24: same mean, different spread",
+          "page": 87,
+          "pins": []
+        },
+        "md_venn": {
+          "svg": "svg/mathematics_12/m12_u2_venn.svg",
+          "title": "The addition law",
+          "page": 105,
+          "pins": []
+        },
+        "md_tree": {
+          "svg": "svg/mathematics_12/m12_u2_tree.svg",
+          "title": "Example 2.36: a tree diagram for three students",
+          "page": 110,
+          "pins": []
+        },
+        "md_dice": {
+          "svg": "svg/mathematics_12/m12_u2_dice.svg",
+          "title": "The 36 outcomes of rolling two dice",
+          "page": 103,
+          "pins": []
+        }
       }
     },
     {
