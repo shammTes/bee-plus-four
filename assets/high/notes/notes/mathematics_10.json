@@ -137,52 +137,500 @@
             {
               "id": "math10-u1-c01",
               "type": "text",
-              "title": "1.1.1 Relations",
+              "title": "1.1.1 Relations — pairing things up",
               "page": 2,
-              "src": "textbook p.2",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "In mathematics, there are different symbols that represent relationships between ordered pairs of objects.",
-                "In mathematics, these ordered pairs are described in a set form and given a special name.",
-                "**A relation** is a set of ordered pairs and is named using capital letters such as R, S, T, etc.",
-                "The set of all first elements of the ordered pairs is called the **domain of the relation**."
+                "In daily life we pair things all the time: a person with their age, a town with its zoba, a number with a bigger number. Mathematics records each pairing as an **ordered pair** $(x, y)$: the order matters, because \"Hagos is the father of Selam\" is not the same as \"Selam is the father of Hagos\".",
+                "**A relation** is any set of ordered pairs. We name relations with capital letters $R, S, T, \\dots$",
+                "- The **domain** of a relation is the set of all **first** elements (the $x$-values, the inputs).",
+                "- The **range** of a relation is the set of all **second** elements (the $y$-values, the outputs).",
+                "Example: $R = \\{(1, 2), (2, 3), (5, 6)\\}$ has domain $\\{1, 2, 5\\}$ and range $\\{2, 3, 6\\}$. Read the first numbers for the domain, the second numbers for the range — never mix them.",
+                "A relation can also be described by a rule, for example $R = \\{(x, y) : y = x + 1\\}$, read \"the set of all pairs $(x, y)$ such that $y = x + 1$\". A pair belongs to $R$ exactly when it makes the rule true: $(5, 6)$ belongs because $6 = 5 + 1$; $(3, 5)$ does not because $5 \\ne 3 + 1$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u1-md-ways-t",
+              "type": "table",
+              "title": "Five ways to describe the same relation",
+              "page": 3,
+              "src": "notes",
+              "head": [
+                "Way",
+                "R: \"a number is paired with the number one larger\""
+              ],
+              "rows": [
+                [
+                  "Words",
+                  "each number is assigned to the number larger than it by one"
+                ],
+                [
+                  "Set of ordered pairs",
+                  "$R = \\{(1, 2), (2, 3), (5, 6)\\}$"
+                ],
+                [
+                  "Table of values",
+                  "$x$: 1, 2, 5  →  $y$: 2, 3, 6"
+                ],
+                [
+                  "Arrow diagram",
+                  "an arrow from each $x$ in the domain oval to its $y$ in the range oval"
+                ],
+                [
+                  "Graph",
+                  "the points $(1, 2), (2, 3), (5, 6)$ plotted on the plane"
+                ],
+                [
+                  "Algebraic rule",
+                  "$R = \\{(x, y) : y = x + 1\\}$"
+                ]
+              ],
+              "body": [
+                "All six rows describe one and the same relation. In exams you are often given one form and asked for another — change form carefully, pair by pair."
+              ]
+            },
+            {
+              "id": "math10-u1-md-ways",
+              "type": "diagram",
+              "title": "The same relation as an arrow diagram and as a graph",
+              "page": 3,
+              "src": "notes",
+              "diagram": "md_ways",
+              "mode": "plain",
+              "body": [
+                "Each arrow in the left picture is one ordered pair. Each dot in the right picture is the same ordered pair plotted: go right $x$ units, then up $y$ units."
+              ]
+            },
+            {
+              "id": "math10-u1-md-ex-rule",
+              "type": "worked",
+              "title": "Worked example: from a rule to every form",
+              "page": 4,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Let $R = \\{(x, y) : y = 2x - 1\\}$ with domain $\\{-2, -1, 0, 1, 2\\}$. List $R$ as ordered pairs, give its range and say whether the graph is discrete or continuous.",
+              "steps": [
+                {
+                  "text": "Put each domain value into the rule $y = 2x - 1$: $x = -2 \\Rightarrow y = 2(-2) - 1 = -5$."
+                },
+                {
+                  "text": "$x = -1 \\Rightarrow y = -3$; $x = 0 \\Rightarrow y = -1$; $x = 1 \\Rightarrow y = 1$; $x = 2 \\Rightarrow y = 3$."
+                },
+                {
+                  "text": "Write the pairs: $R = \\{(-2, -5), (-1, -3), (0, -1), (1, 1), (2, 3)\\}$."
+                },
+                {
+                  "text": "Range = the set of all second elements $= \\{-5, -3, -1, 1, 3\\}$."
+                },
+                {
+                  "text": "The domain has only 5 separate numbers, so the graph is 5 separate dots: a **discrete** graph. (If the domain were all real numbers, the dots would join into an unbroken line: a **continuous** graph.)"
+                }
+              ],
+              "answer": "$R = \\{(-2,-5),(-1,-3),(0,-1),(1,1),(2,3)\\}$, range $\\{-5,-3,-1,1,3\\}$, discrete"
+            },
+            {
+              "id": "math10-u1-md-discrete",
+              "type": "diagram",
+              "title": "Discrete or continuous?",
+              "page": 4,
+              "src": "notes",
+              "diagram": "md_discrete",
+              "mode": "plain",
+              "body": [
+                "**Discrete**: the domain is a list of separate values, so the graph is separate dots — do not join them. **Continuous**: the domain is an interval or all real numbers, so the graph is an unbroken line or curve."
               ]
             },
             {
               "id": "math10-u1-c02",
               "type": "text",
-              "title": "1.1.2 Functions",
+              "title": "1.1.2 Functions — exactly one output for each input",
               "page": 6,
-              "src": "textbook pp.6–7",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "**A function** is a relation in which every element of the domain is related to exactly one element of the range.",
-                "In an arrow diagram, if there are two arrows coming from the same element of the domain, then the relation is not a function."
+                "**A function** is a special relation: every element of the domain is paired with **exactly one** element of the range.",
+                "How to test a relation given as ordered pairs:",
+                "- Look only at the **first** elements.",
+                "- If some first element appears twice with **different** second elements, the relation is **not** a function.",
+                "- If every first element appears once (or repeats with the same partner), it **is** a function.",
+                "In an arrow diagram: a relation is a function when **exactly one arrow leaves each element of the domain**. Two arrows leaving the same $x$ ⇒ not a function. Two arrows **arriving** at the same $y$ is allowed.",
+                "Example: $S = \\{(-1, 0), (1, 2), (0, 3), (4, 2), (5, 0)\\}$ is a function — the outputs 0 and 2 repeat, but no input repeats. $\\{(13, 14), (16, 7), (13, 5), (18, 13)\\}$ is not a function: the input 13 goes to both 14 and 5."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u1-md-fnornot",
+              "type": "diagram",
+              "title": "Counting arrows that LEAVE each input",
+              "page": 6,
+              "src": "notes",
+              "diagram": "md_fnornot",
+              "mode": "plain",
+              "body": [
+                "Left: every input sends out one arrow (outputs 0 and 2 receive two arrows — that is fine). Right: 13 sends out two arrows, so this relation is not a function."
               ]
+            },
+            {
+              "id": "math10-u1-md-relfun",
+              "type": "table",
+              "title": "Relation or function? How the two ideas differ",
+              "page": 6,
+              "src": "notes",
+              "head": [
+                "",
+                "Relation",
+                "Function"
+              ],
+              "rows": [
+                [
+                  "What it is",
+                  "any set of ordered pairs",
+                  "a relation with one output per input"
+                ],
+                [
+                  "Same input, two outputs?",
+                  "allowed",
+                  "**not** allowed"
+                ],
+                [
+                  "Same output for two inputs?",
+                  "allowed",
+                  "allowed"
+                ],
+                [
+                  "Arrow diagram",
+                  "any arrows",
+                  "exactly one arrow leaves each $x$"
+                ],
+                [
+                  "Graph test",
+                  "—",
+                  "passes the vertical line test"
+                ],
+                [
+                  "Example",
+                  "$\\{(1, 2), (1, 3)\\}$",
+                  "$\\{(1, 2), (3, 2)\\}$"
+                ]
+              ],
+              "body": [
+                "Every function is a relation, but not every relation is a function."
+              ]
+            },
+            {
+              "id": "math10-u1-md-ex-fn",
+              "type": "worked",
+              "title": "Worked example: which relations are functions?",
+              "page": 7,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Decide which are functions: $R = \\{(3, 90), (4, 54), (6, 71), (8, 90)\\}$, $T = \\{(3, 4), (4, 5), (6, 7), (3, 9)\\}$, $W = \\{(0, 0), (2, 2), (2, -2), (6, 8), (6, -8)\\}$.",
+              "steps": [
+                {
+                  "text": "$R$: first elements 3, 4, 6, 8 — all different. The repeated output 90 does not matter. $R$ **is a function**."
+                },
+                {
+                  "text": "$T$: first elements 3, 4, 6, 3 — the input 3 appears with 4 and with 9. $T$ is **not** a function."
+                },
+                {
+                  "text": "$W$: input 2 goes to 2 and $-2$; input 6 goes to 8 and $-8$. $W$ is **not** a function."
+                }
+              ],
+              "answer": "Only $R$ is a function."
+            },
+            {
+              "id": "math10-u1-md-ex-x",
+              "type": "worked",
+              "title": "Worked example: which value can x NOT take?",
+              "page": 8,
+              "src": "notes",
+              "mode": "show",
+              "problem": "For $R = \\{(8, 1), (3, 4), (6, 7), (x, 22)\\}$ to be a function, which numbers can $x$ not be?",
+              "steps": [
+                {
+                  "text": "A function cannot pair one input with two different outputs."
+                },
+                {
+                  "text": "If $x = 8$, the input 8 would go to 1 and to 22 — not allowed. Same for $x = 3$ (4 and 22) and $x = 6$ (7 and 22)."
+                },
+                {
+                  "text": "Any other value of $x$ is a new input, which is fine."
+                }
+              ],
+              "answer": "$x \\ne 8, 3, 6$"
             },
             {
               "id": "math10-u1-c03",
               "type": "text",
-              "title": "1.1.3 Graphs of Functions",
+              "title": "1.1.3 Graphs of functions — the vertical line test",
               "page": 10,
-              "src": "textbook p.10",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "If there exists a vertical line that crosses the graph of a relation at more than one point, then the relation is not a function.",
-                "Graphically, the domain of a relation consists of the x-values which lie on the graph of the relation.",
-                "The range of the relation consists of the y-values which lie on the graph of the relation."
+                "On a graph, two points with the same $x$-value lie on the same **vertical** line. So a graph shows a function exactly when no vertical line meets it twice.",
+                "**Vertical line test:** if some vertical line crosses the graph at more than one point, the relation is **not** a function. If every vertical line crosses it at most once, it **is** a function.",
+                "Reading domain and range from a graph:",
+                "- **Domain**: squash the graph flat onto the $x$-axis — the $x$-values it covers.",
+                "- **Range**: squash the graph flat onto the $y$-axis — the $y$-values it covers.",
+                "- An arrow at the end of a graph means it continues for ever in that direction; a filled dot is an end point that belongs to the graph; an open dot is an end point that does not."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u1-md-vlt",
+              "type": "diagram",
+              "title": "Sweep a vertical line across the graph",
+              "page": 10,
+              "src": "notes",
+              "diagram": "md_vlt",
+              "mode": "plain",
+              "body": [
+                "Left: wherever you place the dashed line it meets the parabola once, so $y = 3 - x^2$ is a function. Right: the line $x = 2$ meets the curve $x = y^2 - 1$ at $(2, \\sqrt3)$ and $(2, -\\sqrt3)$ — one input, two outputs — not a function."
+              ]
+            },
+            {
+              "id": "math10-u1-md-domrange",
+              "type": "diagram",
+              "title": "Domain and range by \"squashing\" the graph",
+              "page": 10,
+              "src": "notes",
+              "diagram": "md_domrange",
+              "mode": "plain",
+              "body": [
+                "The graph of $y = \\sqrt{9 - x^2}$ is the top half of a circle of radius 3. Its shadow on the $x$-axis (green) is $-3 \\le x \\le 3$ — the domain. Its shadow on the $y$-axis (orange) is $0 \\le y \\le 3$ — the range."
+              ]
+            },
+            {
+              "id": "math10-u1-md-graphs-t",
+              "type": "table",
+              "title": "Domain and range of graphs you meet often",
+              "page": 10,
+              "src": "notes",
+              "head": [
+                "Graph",
+                "Domain",
+                "Range",
+                "Function?"
+              ],
+              "rows": [
+                [
+                  "Non-vertical line $y = mx + b$, $m \\ne 0$",
+                  "all real numbers",
+                  "all real numbers",
+                  "yes"
+                ],
+                [
+                  "Horizontal line $y = 2$",
+                  "all real numbers",
+                  "$\\{2\\}$",
+                  "yes"
+                ],
+                [
+                  "Vertical line $x = 2$",
+                  "$\\{2\\}$",
+                  "all real numbers",
+                  "no"
+                ],
+                [
+                  "Parabola $y = x^2$",
+                  "all real numbers",
+                  "$y \\ge 0$",
+                  "yes"
+                ],
+                [
+                  "Parabola $y = 3 - x^2$",
+                  "all real numbers",
+                  "$y \\le 3$",
+                  "yes"
+                ],
+                [
+                  "Sideways parabola $x = y^2$",
+                  "$x \\ge 0$",
+                  "all real numbers",
+                  "no"
+                ],
+                [
+                  "Circle $x^2 + y^2 = 9$",
+                  "$-3 \\le x \\le 3$",
+                  "$-3 \\le y \\le 3$",
+                  "no"
+                ],
+                [
+                  "Upper semicircle $y = \\sqrt{9 - x^2}$",
+                  "$-3 \\le x \\le 3$",
+                  "$0 \\le y \\le 3$",
+                  "yes"
+                ]
               ]
             },
             {
               "id": "math10-u1-c04",
               "type": "text",
-              "title": "1.1.4 Function Notation",
+              "title": "1.1.4 Function notation f(x)",
               "page": 12,
-              "src": "textbook pp.12–13",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "Since for every value of the independent variable x, there is only one value of the dependent variable y, he concluded that the relation is a function.",
-                "Functions are usually named using small letters such as f, g, h, etc."
+                "When an equation gives exactly one $y$ for each $x$, we say **$y$ is a function of $x$**. $x$ is the **independent variable** (you choose it); $y$ is the **dependent variable** (it depends on $x$).",
+                "To decide whether an equation gives $y$ as a function of $x$, **solve for $y$**: if you get one value of $y$ for each $x$ it is a function; if you get \"$\\pm$\" (two values) it is not. Example: $y + x^2 = 1$ gives $y = 1 - x^2$ (one value) — a function. $y^2 - x^2 = 1$ gives $y = \\pm\\sqrt{1 + x^2}$ — when $x = 0$, $y = 1$ or $-1$ — not a function.",
+                "Functions are named with small letters $f, g, h$. Instead of $y = 4x + 3$ we write $f(x) = 4x + 3$, read \"**f of x**\". $f(1)$ means \"the output when the input is 1\": $f(1) = 4(1) + 3 = 7$, so the point $(1, 7)$ is on the graph. Note: $f(x)$ does **not** mean $f$ times $x$.",
+                "To evaluate $f(a)$: replace **every** $x$ in the formula by $a$ in brackets, then simplify. Brackets matter with negatives: if $g(x) = x^2 - 4$ then $g(-2) = (-2)^2 - 4 = 0$, not $-2^2 - 4 = -8$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u1-md-machine",
+              "type": "diagram",
+              "title": "A function is like a machine",
+              "page": 15,
+              "src": "notes",
+              "diagram": "md_machine",
+              "mode": "plain",
+              "body": [
+                "Put an input $x$ in, the machine follows its rule, one output comes out. For $f(x) = \\sqrt{4 - x}$: input 0 gives 2, input 3 gives 1, input $-5$ gives 3. Input 5 jams the machine ($\\sqrt{-1}$ is not real), so 5 is not in the domain. The outputs are never negative, so the range is $y \\ge 0$."
+              ]
+            },
+            {
+              "id": "math10-u1-md-domrules",
+              "type": "table",
+              "title": "Finding the domain of a formula",
+              "page": 14,
+              "src": "notes",
+              "head": [
+                "If the formula has…",
+                "Condition",
+                "Example → domain"
+              ],
+              "rows": [
+                [
+                  "only $+, -, \\times$ and powers (polynomial)",
+                  "none",
+                  "$2x^3 - 5x + 1$ → all real numbers"
+                ],
+                [
+                  "a fraction",
+                  "denominator $\\ne 0$",
+                  "$\\frac{x}{x + 1}$ → $x \\ne -1$"
+                ],
+                [
+                  "an even root $\\sqrt{\\;\\;}$",
+                  "inside $\\ge 0$",
+                  "$\\sqrt{x - 4}$ → $x \\ge 4$"
+                ],
+                [
+                  "an even root in a denominator",
+                  "inside $> 0$",
+                  "$\\frac{1}{\\sqrt{4 - 2x}}$ → $x < 2$"
+                ],
+                [
+                  "an odd root $\\sqrt[3]{\\;\\;}$",
+                  "none",
+                  "$\\sqrt[3]{x - 1}$ → all real numbers"
+                ]
+              ],
+              "body": [
+                "Rule of thumb: start from \"all real numbers\" and throw away only the $x$-values that break the formula (divide by zero, square root of a negative)."
+              ]
+            },
+            {
+              "id": "math10-u1-md-ex-eval",
+              "type": "worked",
+              "title": "Worked example: evaluating a function",
+              "page": 14,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Let $g(x) = x^2 - 4$. Find $g(-2)$, $g(3)$ and $g(\\sqrt5)$, and write the matching ordered pairs.",
+              "steps": [
+                {
+                  "text": "$g(-2) = (-2)^2 - 4 = 4 - 4 = 0$."
+                },
+                {
+                  "text": "$g(3) = 3^2 - 4 = 9 - 4 = 5$."
+                },
+                {
+                  "text": "$g(\\sqrt5) = (\\sqrt5)^2 - 4 = 5 - 4 = 1$."
+                },
+                {
+                  "text": "Each input with its output is a point on the graph of $g$."
+                }
+              ],
+              "answer": "$(-2, 0)$, $(3, 5)$, $(\\sqrt5, 1)$"
+            },
+            {
+              "id": "math10-u1-md-ex-notation",
+              "type": "worked",
+              "title": "Worked example: writing an equation in function notation",
+              "page": 13,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Write $f = \\{(x, y) : 2x^2 + 2y - 4 = 0\\}$ in function notation.",
+              "steps": [
+                {
+                  "text": "Isolate $y$: $2y = -2x^2 + 4$ (subtract $2x^2$, add 4)."
+                },
+                {
+                  "text": "Divide by 2: $y = -x^2 + 2$."
+                },
+                {
+                  "text": "There is one $y$ for each $x$, so replace $y$ by $f(x)$."
+                }
+              ],
+              "answer": "$f(x) = -x^2 + 2$"
+            },
+            {
+              "id": "math10-u1-md-ex-domain",
+              "type": "worked",
+              "title": "Worked example: domains of formulas",
+              "page": 15,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find the domain of (a) $f(x) = \\sqrt{4 - 2x}$, (b) $h(x) = \\frac{1 - 5x}{x^2 - 1}$, (c) $k(x) = \\frac{3}{\\sqrt{x + 2}}$.",
+              "steps": [
+                {
+                  "text": "(a) Square root: need $4 - 2x \\ge 0 \\Rightarrow -2x \\ge -4 \\Rightarrow x \\le 2$ (dividing by a negative flips the sign). Domain $\\{x : x \\le 2\\}$."
+                },
+                {
+                  "text": "(b) Fraction: need $x^2 - 1 \\ne 0 \\Rightarrow x^2 \\ne 1 \\Rightarrow x \\ne 1$ and $x \\ne -1$. Domain $\\{x : x \\ne \\pm 1\\}$."
+                },
+                {
+                  "text": "(c) Root in a denominator: need $x + 2 > 0$ (not $= 0$, we cannot divide by 0). Domain $\\{x : x > -2\\}$."
+                }
+              ],
+              "answer": "(a) $x \\le 2$  (b) $x \\ne \\pm1$  (c) $x > -2$"
+            },
+            {
+              "id": "math10-u1-md-ex-tea",
+              "type": "worked",
+              "title": "Worked example: a function in real life",
+              "page": 16,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A tea shop makes a profit of 0.40 Nakfa on each cup and pays 70 Nakfa rent a month, so the monthly profit is $p = 0.4c - 70$ for $c$ cups. Write it as a function $f$, find the profit for 100 and 300 cups, and give the domain.",
+              "steps": [
+                {
+                  "text": "Each number of cups gives one profit, so $p$ is a function of $c$: $f(c) = 0.4c - 70$."
+                },
+                {
+                  "text": "$f(100) = 0.4(100) - 70 = 40 - 70 = -30$: a **loss** of 30 Nakfa."
+                },
+                {
+                  "text": "$f(300) = 0.4(300) - 70 = 120 - 70 = 50$: a profit of 50 Nakfa."
+                },
+                {
+                  "text": "Break-even: $0.4c - 70 = 0 \\Rightarrow c = 175$ cups."
+                },
+                {
+                  "text": "Cups are counted, so $c$ cannot be negative or a fraction: domain $\\{0, 1, 2, 3, \\dots\\}$."
+                }
+              ],
+              "answer": "$f(c) = 0.4c - 70$; $f(100) = -30$, $f(300) = 50$; domain = whole numbers"
+            },
+            {
+              "id": "math10-u1-md-tip11",
+              "type": "mnemonic",
+              "title": "Tip: four quick questions",
+              "page": 16,
+              "src": "notes",
+              "body": [
+                "1. **Function?** — no input with two outputs (vertical line test). 2. **Domain?** — all inputs allowed (watch denominators and square roots). 3. **Range?** — all outputs produced. 4. **f(a)?** — replace every $x$ by $(a)$."
               ]
             },
             {
@@ -218,6 +666,38 @@
                   "The set of all resulting dependent outputs."
                 ]
               ]
+            },
+            {
+              "id": "math10-u1-md-ck1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 14,
+              "src": "notes",
+              "q": "If $f(x) = 3 - 2x$, what is $f(-4)$?",
+              "options": {
+                "A": "$-5$",
+                "B": "$11$",
+                "C": "$-11$",
+                "D": "$5$"
+              },
+              "answer": "B",
+              "why": "Replace $x$ by $(-4)$: $f(-4) = 3 - 2(-4) = 3 + 8 = 11$."
+            },
+            {
+              "id": "math10-u1-md-ck2",
+              "type": "check",
+              "title": "Quick check",
+              "page": 12,
+              "src": "notes",
+              "q": "Which equation does NOT give $y$ as a function of $x$?",
+              "options": {
+                "A": "$y = x^2 + 1$",
+                "B": "$y - 2x + 3 = 0$",
+                "C": "$y^2 = x + 1$",
+                "D": "$y = \\sqrt[3]{x}$"
+              },
+              "answer": "C",
+              "why": "Solving $y^2 = x + 1$ gives $y = \\pm\\sqrt{x + 1}$: for $x = 3$, $y = 2$ or $y = -2$. One input, two outputs — not a function."
             },
             {
               "id": "math10-u1-chk7c1",
@@ -325,58 +805,279 @@
           ],
           "cards": [
             {
-              "id": "math10-u1-c05",
-              "type": "remember",
-              "title": "Formula",
-              "page": 19,
-              "src": "notes",
-              "body": [
-                "f: x ↦ y · y = f(x)",
-                "Inverse exists as a function only if f is one-to-one (horizontal-line test). Swap x and y, then solve for y. Graph of f⁻¹ is the reflection of f in y = x."
-              ]
-            },
-            {
               "id": "math10-u1-c06",
               "type": "text",
-              "title": "Inverses Relationships of Functions",
-              "page": 18,
+              "title": "1.2.1 One-to-one functions",
+              "page": 17,
               "src": "notes",
               "body": [
-                "One-to-one: different x give different y. Linear f(x)=ax+b with a≠0 is one-to-one. f(x)=x² on all reals is not (unless you cut the domain to x≥0)."
+                "A function never sends one input to two outputs. A **one-to-one function** goes further: **no two different inputs share the same output**. Every output comes from exactly one input.",
+                "Test with ordered pairs: look at the **second** elements. If an output repeats (with different inputs), the function is **not** one-to-one. $f = \\{(2, 1), (4, 5), (-2, -1), (6, 7), (8, 9), (3, 5)\\}$ is not one-to-one, because 4 and 3 both go to 5.",
+                "**Horizontal line test:** if some horizontal line meets the graph of a function at more than one point, the function is **not** one-to-one. Points on one horizontal line have the same $y$ (output) but different $x$ (inputs).",
+                "Test with a formula: find two different inputs with equal outputs to show it is NOT one-to-one (e.g. $f(x) = x^2$: $f(2) = f(-2) = 4$). To show it IS one-to-one, start from $f(a) = f(b)$ and show this forces $a = b$."
               ]
             },
             {
-              "id": "math10-u1-c07",
-              "type": "mnemonic",
-              "title": "Tip",
-              "page": 23,
+              "id": "math10-u1-md-hlt",
+              "type": "diagram",
+              "title": "Sweep a horizontal line across the graph",
+              "page": 19,
               "src": "notes",
+              "diagram": "md_hlt",
+              "mode": "plain",
               "body": [
-                "To find an inverse: replace f(x) with y, swap, solve, rename. Then check f(f⁻¹(x))=x on the new domain."
+                "Left: the line $y = 2.5$ meets $y = x^2$ twice (at $x = \\pm\\sqrt{2.5}$) — two inputs, one output — not one-to-one. Right: every horizontal line meets $y = \\frac12 x^3$ once — one-to-one."
               ]
             },
             {
-              "id": "math10-u1-c08",
-              "type": "text",
-              "title": "More notes",
-              "page": 23,
+              "id": "math10-u1-md-tests",
+              "type": "diagram",
+              "title": "Two line tests, two different questions",
+              "page": 19,
               "src": "notes",
+              "diagram": "md_tests",
+              "mode": "plain",
               "body": [
-                "Function notation is a machine: drop x in, get f(x) out. f(2) is a number, not a multiplication. Domain exclusions: zeros of a denominator, negatives inside a school-square-root. Piecewise functions change rule by interval — read the conditions."
+                "Vertical line test → \"is this graph a function?\" (one output for each input). Horizontal line test → \"is this function one-to-one?\" (one input for each output). Do the vertical test first; the horizontal test only makes sense for a function."
+              ]
+            },
+            {
+              "id": "math10-u1-md-ex-11a",
+              "type": "worked",
+              "title": "Worked example: showing a function is NOT one-to-one",
+              "page": 20,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Is $f(x) = \\frac{3}{x^2 + 1}$ one-to-one?",
+              "steps": [
+                {
+                  "text": "Look for two different inputs with the same output. Because of $x^2$, try $x = 1$ and $x = -1$."
+                },
+                {
+                  "text": "$f(1) = \\frac{3}{1 + 1} = \\frac32$ and $f(-1) = \\frac{3}{(-1)^2 + 1} = \\frac32$."
+                },
+                {
+                  "text": "Two different inputs, same output ⇒ not one-to-one."
+                }
+              ],
+              "answer": "No, $f(1) = f(-1) = \\frac32$."
+            },
+            {
+              "id": "math10-u1-md-ex-11b",
+              "type": "worked",
+              "title": "Worked example: proving a function IS one-to-one",
+              "page": 20,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Show that $f(x) = 5x - \\frac12$ is one-to-one.",
+              "steps": [
+                {
+                  "text": "Suppose two inputs $a$ and $b$ give the same output: $f(a) = f(b)$."
+                },
+                {
+                  "text": "Then $5a - \\frac12 = 5b - \\frac12$."
+                },
+                {
+                  "text": "Add $\\frac12$: $5a = 5b$. Divide by 5: $a = b$."
+                },
+                {
+                  "text": "Equal outputs force equal inputs, so no two different inputs share an output."
+                }
+              ],
+              "answer": "Yes — every linear function $f(x) = mx + b$ with $m \\ne 0$ is one-to-one."
+            },
+            {
+              "id": "math10-u1-md-oneone-t",
+              "type": "table",
+              "title": "One-to-one or not? Common functions",
+              "page": 20,
+              "src": "notes",
+              "head": [
+                "Function",
+                "One-to-one?",
+                "Reason"
+              ],
+              "rows": [
+                [
+                  "$f(x) = mx + b$, $m \\ne 0$",
+                  "yes",
+                  "a slanted line passes the horizontal line test"
+                ],
+                [
+                  "$f(x) = c$ (constant)",
+                  "no",
+                  "every input gives the same output"
+                ],
+                [
+                  "$f(x) = x^2$",
+                  "no",
+                  "$f(-2) = f(2) = 4$"
+                ],
+                [
+                  "$f(x) = x^2$, $x \\ge 0$ only",
+                  "yes",
+                  "the left half is removed"
+                ],
+                [
+                  "$f(x) = x^3$",
+                  "yes",
+                  "always increasing"
+                ],
+                [
+                  "$f(x) = |x - 4|$",
+                  "no",
+                  "$f(3) = f(5) = 1$"
+                ],
+                [
+                  "$f(x) = \\sqrt{x}$",
+                  "yes",
+                  "always increasing"
+                ],
+                [
+                  "$f(x) = \\frac{1}{2x - 4}$",
+                  "yes",
+                  "$f(a) = f(b) \\Rightarrow 2a - 4 = 2b - 4 \\Rightarrow a = b$"
+                ]
               ]
             },
             {
               "id": "math10-u1-c09",
               "type": "text",
-              "title": "1.2.2 Inverse of a Function",
+              "title": "1.2.2 Inverse of a relation and of a function",
               "page": 22,
-              "src": "textbook pp.22–24",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "The inverse of a relation R, denoted by R-1, is a relation obtained from R by interchanging the first and second entries of each ordered pair in R.",
-                "In measuring temperature, the Celsius scale (y) is a linear function of Fahrenheit scale (x).",
-                "On the Celsius scale, the freezing point of water is 0 °C (degrees Celsius) and the boiling point is 100 °C."
+                "The **inverse** of a relation $R$, written $R^{-1}$, is obtained by **swapping the two entries of every ordered pair**. If $R = \\{(1, 3), (2, 5), (3, 7)\\}$ then $R^{-1} = \\{(3, 1), (5, 2), (7, 3)\\}$.",
+                "Because the entries swap, the **domain of $R^{-1}$ is the range of $R$**, and the **range of $R^{-1}$ is the domain of $R$**.",
+                "The inverse of a function is **not always** a function. $g = \\{(3, 6), (8, 6)\\}$ gives $g^{-1} = \\{(6, 3), (6, 8)\\}$ — input 6 has two outputs. This happens exactly when $g$ is not one-to-one.",
+                "**Key fact:** the inverse of a function $f$ is a function **if and only if $f$ is one-to-one**. Then we write it $f^{-1}$ (read \"f inverse\"). Careful: $f^{-1}(x)$ does **not** mean $\\frac{1}{f(x)}$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u1-md-invarrows",
+              "type": "diagram",
+              "title": "The inverse reverses every arrow",
+              "page": 22,
+              "src": "notes",
+              "diagram": "md_invarrows",
+              "mode": "plain",
+              "body": [
+                "$f = \\{(-1, 2), (-3, 1), (0, -2), (5, 6)\\}$ is one-to-one, so reversing the arrows still leaves one arrow from each input: $f^{-1} = \\{(2, -1), (1, -3), (-2, 0), (6, 5)\\}$ is a function."
               ]
+            },
+            {
+              "id": "math10-u1-c05",
+              "type": "remember",
+              "title": "Four steps to the formula of an inverse",
+              "page": 23,
+              "src": "notes",
+              "body": [
+                "**Step 1.** Replace $f(x)$ by $y$.",
+                "**Step 2.** Interchange $x$ and $y$.",
+                "**Step 3.** Solve the new equation for $y$.",
+                "**Step 4.** Replace $y$ by $f^{-1}(x)$ — and state its domain (= the range of $f$).",
+                "Check: $f(f^{-1}(x)) = x$ and $f^{-1}(f(x)) = x$. Quick number check: if $f(2) = 7$ then $f^{-1}(7)$ must be 2."
+              ]
+            },
+            {
+              "id": "math10-u1-md-ex-inv1",
+              "type": "worked",
+              "title": "Worked example: inverse of a linear function",
+              "page": 23,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find $f^{-1}(x)$ for $f(x) = 3x - 6$.",
+              "steps": [
+                {
+                  "text": "Replace $f(x)$ by $y$: $y = 3x - 6$."
+                },
+                {
+                  "text": "Swap $x$ and $y$: $x = 3y - 6$."
+                },
+                {
+                  "text": "Solve for $y$: $x + 6 = 3y \\Rightarrow y = \\frac{x + 6}{3} = \\frac13 x + 2$."
+                },
+                {
+                  "text": "So $f^{-1}(x) = \\frac13 x + 2$. Check: $f(4) = 6$ and $f^{-1}(6) = 2 + 2 = 4$ ✓."
+                }
+              ],
+              "answer": "$f^{-1}(x) = \\frac13 x + 2$"
+            },
+            {
+              "id": "math10-u1-md-ex-inv2",
+              "type": "worked",
+              "title": "Worked example: inverse of a rational function",
+              "page": 23,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find $g^{-1}(x)$ for $g(x) = \\frac{x - 2}{x + 3}$.",
+              "steps": [
+                {
+                  "text": "$y = \\frac{x - 2}{x + 3}$; swap: $x = \\frac{y - 2}{y + 3}$."
+                },
+                {
+                  "text": "Multiply both sides by $(y + 3)$: $xy + 3x = y - 2$."
+                },
+                {
+                  "text": "Collect the $y$ terms on one side: $xy - y = -3x - 2$."
+                },
+                {
+                  "text": "Factor out $y$: $y(x - 1) = -3x - 2$, so $y = \\frac{-3x - 2}{x - 1} = \\frac{3x + 2}{1 - x}$."
+                },
+                {
+                  "text": "Domain of $g^{-1}$: $x \\ne 1$ (that is exactly the value $g$ never reaches)."
+                }
+              ],
+              "answer": "$g^{-1}(x) = \\frac{3x + 2}{1 - x}$, $x \\ne 1$"
+            },
+            {
+              "id": "math10-u1-md-ex-inv3",
+              "type": "worked",
+              "title": "Worked example: inverse with a cube and with a square root",
+              "page": 24,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find the inverses of (a) $h(x) = x^3 + 3$ and (b) $k(x) = \\sqrt{x - 1}$.",
+              "steps": [
+                {
+                  "text": "(a) $x = y^3 + 3 \\Rightarrow y^3 = x - 3 \\Rightarrow y = \\sqrt[3]{x - 3}$. So $h^{-1}(x) = \\sqrt[3]{x - 3}$ for all real $x$."
+                },
+                {
+                  "text": "(b) $k$ has domain $x \\ge 1$ and range $y \\ge 0$. Swap: $x = \\sqrt{y - 1}$."
+                },
+                {
+                  "text": "Square both sides: $x^2 = y - 1 \\Rightarrow y = x^2 + 1$."
+                },
+                {
+                  "text": "The domain of $k^{-1}$ is the range of $k$, so $k^{-1}(x) = x^2 + 1$ **for $x \\ge 0$ only**."
+                }
+              ],
+              "answer": "(a) $\\sqrt[3]{x - 3}$  (b) $x^2 + 1$, $x \\ge 0$"
+            },
+            {
+              "id": "math10-u1-md-ex-temp",
+              "type": "worked",
+              "title": "Worked example: Celsius and Fahrenheit",
+              "page": 24,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Water freezes at 0 °C = 32 °F and boils at 100 °C = 212 °F, and Celsius $y$ is a linear function of Fahrenheit $x$. Find the formula, its inverse, and convert 50 °F and 20 °C.",
+              "steps": [
+                {
+                  "text": "Slope $= \\frac{100 - 0}{212 - 32} = \\frac{100}{180} = \\frac59$."
+                },
+                {
+                  "text": "Through $(32, 0)$: $y = \\frac59(x - 32)$, i.e. $C(x) = \\frac59(x - 32)$."
+                },
+                {
+                  "text": "Inverse: swap, $x = \\frac59(y - 32) \\Rightarrow y - 32 = \\frac95 x \\Rightarrow C^{-1}(x) = \\frac95 x + 32$."
+                },
+                {
+                  "text": "$C(50) = \\frac59(18) = 10$ °C; $C^{-1}(20) = 36 + 32 = 68$ °F."
+                }
+              ],
+              "answer": "$C(x) = \\frac59(x - 32)$, $C^{-1}(x) = \\frac95x + 32$; 50 °F = 10 °C, 20 °C = 68 °F"
             },
             {
               "id": "math10-u1-wk2",
@@ -403,6 +1104,197 @@
               "answer": "f⁻¹(x) = (5x + 2)/3",
               "page": 17,
               "src": "notes"
+            },
+            {
+              "id": "math10-u1-c07",
+              "type": "mnemonic",
+              "title": "Tip",
+              "page": 23,
+              "src": "notes",
+              "body": [
+                "To find an inverse: replace f(x) with y, swap, solve, rename. Then check f(f⁻¹(x))=x on the new domain."
+              ]
+            },
+            {
+              "id": "math10-u1-xt2",
+              "type": "text",
+              "title": "1.2.3 Graph of the inverse — a mirror in y = x",
+              "page": 25,
+              "src": "notes",
+              "body": [
+                "Swapping the coordinates of a point $(a, b)$ gives $(b, a)$. On squared paper with equal scales, $(b, a)$ is the **mirror image of $(a, b)$ in the line $y = x$** — fold the paper along $y = x$ and the two points land on each other.",
+                "So the **graph of $f^{-1}$ is the reflection of the graph of $f$ in the line $y = x$.** To draw it: plot a few points of $f$, swap their coordinates, plot those, and join them.",
+                "Points that lie on $y = x$ itself stay where they are, so $f$ and $f^{-1}$ meet on the line $y = x$ (if they meet at all).",
+                "Always use the **same scale on both axes**, otherwise the mirror picture is distorted."
+              ]
+            },
+            {
+              "id": "math10-u1-md-reflectpts",
+              "type": "diagram",
+              "title": "Swap the coordinates = reflect in y = x",
+              "page": 25,
+              "src": "notes",
+              "diagram": "md_reflectpts",
+              "mode": "plain",
+              "body": [
+                "$(3, 1) \\leftrightarrow (1, 3)$, $(-2, 0) \\leftrightarrow (0, -2)$, $(-1, 2) \\leftrightarrow (2, -1)$. The dashed segment joining each pair is cut at right angles and in half by the line $y = x$."
+              ]
+            },
+            {
+              "id": "math10-u1-md-gr-lin",
+              "type": "graph",
+              "title": "f(x) = 2x + 1 and its inverse",
+              "page": 26,
+              "src": "notes",
+              "graph": {
+                "kind": "plane",
+                "xmin": -4,
+                "xmax": 4,
+                "ymin": -4,
+                "ymax": 4,
+                "grid": true,
+                "points": [
+                  {
+                    "x": 1,
+                    "y": 3,
+                    "label": "(1, 3)"
+                  },
+                  {
+                    "x": 3,
+                    "y": 1,
+                    "label": "(3, 1)",
+                    "color": "#2A7A6B"
+                  },
+                  {
+                    "x": -1,
+                    "y": -1,
+                    "label": "(−1, −1)",
+                    "color": "#6A4C9C"
+                  }
+                ],
+                "lines": [
+                  {
+                    "m": 2,
+                    "c": 1,
+                    "label": "f",
+                    "color": "#2F5F8F"
+                  },
+                  {
+                    "m": 0.5,
+                    "c": -0.5,
+                    "label": "f⁻¹",
+                    "color": "#2A7A6B"
+                  },
+                  {
+                    "m": 1,
+                    "c": 0,
+                    "dash": true,
+                    "label": "y = x",
+                    "color": "#8A7F76"
+                  }
+                ]
+              },
+              "body": [
+                "From $y = 2x + 1$: swap and solve, $x = 2y + 1 \\Rightarrow f^{-1}(x) = \\frac{x - 1}{2}$. The point $(1, 3)$ on $f$ becomes $(3, 1)$ on $f^{-1}$. Both lines cross $y = x$ at $(-1, -1)$. Slopes 2 and $\\frac12$ are reciprocals — true for every linear function and its inverse."
+              ]
+            },
+            {
+              "id": "math10-u1-md-sqrtinv",
+              "type": "diagram",
+              "title": "A curve and its inverse",
+              "page": 26,
+              "src": "notes",
+              "diagram": "md_sqrtinv",
+              "mode": "plain",
+              "body": [
+                "$f(x) = x^2$ is not one-to-one on all real numbers, but if we keep only $x \\ge 0$ it is. Its inverse is $f^{-1}(x) = \\sqrt{x}$; $(2, 4)$ on $f$ matches $(4, 2)$ on $f^{-1}$."
+              ]
+            },
+            {
+              "id": "math10-u1-md-fvsinv",
+              "type": "table",
+              "title": "A function and its inverse side by side",
+              "page": 22,
+              "src": "notes",
+              "head": [
+                "",
+                "f",
+                "f⁻¹"
+              ],
+              "rows": [
+                [
+                  "Ordered pair",
+                  "$(a, b)$",
+                  "$(b, a)$"
+                ],
+                [
+                  "Domain",
+                  "domain of $f$",
+                  "= range of $f$"
+                ],
+                [
+                  "Range",
+                  "range of $f$",
+                  "= domain of $f$"
+                ],
+                [
+                  "Graph",
+                  "graph of $f$",
+                  "mirror image in $y = x$"
+                ],
+                [
+                  "Undo",
+                  "$f^{-1}(f(x)) = x$",
+                  "$f(f^{-1}(x)) = x$"
+                ],
+                [
+                  "Exists as a function when",
+                  "—",
+                  "$f$ is one-to-one"
+                ]
+              ]
+            },
+            {
+              "id": "math10-u1-c08",
+              "type": "text",
+              "title": "More notes",
+              "page": 23,
+              "src": "notes",
+              "body": [
+                "Function notation is a machine: drop x in, get f(x) out. f(2) is a number, not a multiplication. Domain exclusions: zeros of a denominator, negatives inside a school-square-root. Piecewise functions change rule by interval — read the conditions."
+              ]
+            },
+            {
+              "id": "math10-u1-md-ck3",
+              "type": "check",
+              "title": "Quick check",
+              "page": 23,
+              "src": "notes",
+              "q": "If $f(x) = \\frac{x + 5}{2}$, then $f^{-1}(x) =$",
+              "options": {
+                "A": "$2x + 5$",
+                "B": "$2x - 5$",
+                "C": "$\\frac{2}{x + 5}$",
+                "D": "$\\frac{x - 5}{2}$"
+              },
+              "answer": "B",
+              "why": "Swap: $x = \\frac{y + 5}{2} \\Rightarrow 2x = y + 5 \\Rightarrow y = 2x - 5$."
+            },
+            {
+              "id": "math10-u1-md-ck4",
+              "type": "check",
+              "title": "Quick check",
+              "page": 22,
+              "src": "notes",
+              "q": "The range of a one-to-one function $f$ is $\\{1, 4, 9\\}$. The domain of $f^{-1}$ is",
+              "options": {
+                "A": "$\\{1, 2, 3\\}$",
+                "B": "$\\{1, 4, 9\\}$",
+                "C": "$\\{-1, -4, -9\\}$",
+                "D": "cannot be found"
+              },
+              "answer": "B",
+              "why": "Swapping the pairs turns the range of $f$ into the domain of $f^{-1}$."
             },
             {
               "id": "math10-u1-pc21",
@@ -451,29 +1343,105 @@
               "why": "The inverse swaps the coordinates of every point: (a, b) on f becomes (b, a) on f⁻¹. So (3, −1) → (−1, 3). Geometrically this is the reflection in y = x.",
               "page": 17,
               "src": "notes"
-            },
-            {
-              "id": "math10-u1-xt2",
-              "type": "text",
-              "title": "Graphs of a function and its inverse",
-              "body": [
-                "The graph of f⁻¹ is the **reflection of the graph of f in the line y = x**: every point (a, b) on f becomes (b, a) on f⁻¹. The domain of f becomes the range of f⁻¹ and vice versa.",
-                "**Restricting the domain:** f(x) = x² is not one-to-one on all real numbers, but on x ≥ 0 it is, and its inverse is f⁻¹(x) = √x (domain x ≥ 0).",
-                "**Composition check:** f(f⁻¹(x)) = x and f⁻¹(f(x)) = x. Example: f(x) = 2x + 3, f⁻¹(x) = (x − 3)/2: f(f⁻¹(x)) = 2·(x − 3)/2 + 3 = x ✔."
-              ],
-              "page": 17,
-              "src": "notes"
             }
           ]
         }
       ],
-      "glossary": [],
+      "glossary": [
+        {
+          "term": "Relation",
+          "meaning": "A set of ordered pairs.",
+          "page": 2,
+          "src": "notes"
+        },
+        {
+          "term": "Domain",
+          "meaning": "The set of all first elements (inputs, x-values) of a relation.",
+          "page": 2,
+          "src": "notes"
+        },
+        {
+          "term": "Range",
+          "meaning": "The set of all second elements (outputs, y-values) of a relation.",
+          "page": 2,
+          "src": "notes"
+        },
+        {
+          "term": "Function",
+          "meaning": "A relation in which every element of the domain is paired with exactly one element of the range.",
+          "page": 6,
+          "src": "notes"
+        },
+        {
+          "term": "Vertical line test",
+          "meaning": "A graph is a function if no vertical line crosses it more than once.",
+          "page": 10,
+          "src": "notes"
+        },
+        {
+          "term": "Independent variable",
+          "meaning": "The input variable (usually x) that we choose freely from the domain.",
+          "page": 12,
+          "src": "notes"
+        },
+        {
+          "term": "Dependent variable",
+          "meaning": "The output variable (usually y = f(x)) whose value depends on the input.",
+          "page": 12,
+          "src": "notes"
+        },
+        {
+          "term": "One-to-one function",
+          "meaning": "A function in which no two different inputs have the same output.",
+          "page": 18,
+          "src": "notes"
+        },
+        {
+          "term": "Horizontal line test",
+          "meaning": "A function is one-to-one if no horizontal line crosses its graph more than once.",
+          "page": 19,
+          "src": "notes"
+        },
+        {
+          "term": "Inverse of a relation",
+          "meaning": "The relation obtained by interchanging the entries of every ordered pair; written R⁻¹.",
+          "page": 22,
+          "src": "notes"
+        },
+        {
+          "term": "Discrete graph",
+          "meaning": "A graph made of separate points (the domain is a list of separate values).",
+          "page": 4,
+          "src": "notes"
+        },
+        {
+          "term": "Continuous graph",
+          "meaning": "An unbroken graph (the domain is an interval or all real numbers).",
+          "page": 4,
+          "src": "notes"
+        }
+      ],
       "tips": [
         {
           "text": "Formula: f: x ↦ y · y = f(x) Inverse exists as a function only if f is one-to-one (horizontal-line test). Swap x and y, then solve for y. Graph of f⁻¹ is the reflection of f in y = x.",
           "page": 19,
           "src": "notes",
           "card": "math10-u1-c05"
+        },
+        {
+          "text": "Domain: start with all real numbers, then remove what breaks the formula — zero denominators and negative numbers under an even root.",
+          "page": 14,
+          "src": "notes"
+        },
+        {
+          "text": "Vertical line test → function? Horizontal line test → one-to-one? Only a one-to-one function has an inverse function.",
+          "page": 19,
+          "src": "notes"
+        },
+        {
+          "text": "Inverse in 4 steps: y = …, swap x and y, solve for y, write f⁻¹(x). The graph is the mirror image in y = x.",
+          "page": 23,
+          "src": "notes"
         }
       ],
       "games": [
@@ -987,6 +1955,561 @@
               }
             ],
             "id": "math10-u1-q22"
+          },
+          {
+            "id": "math10-u1-md-s11-q01",
+            "type": "short",
+            "q": "Find the domain and range of $R = \\{(-1, 2), (2, 51), (1, 3), (8, 22), (9, 51)\\}$.",
+            "answer": "Domain $\\{-1, 1, 2, 8, 9\\}$; range $\\{2, 3, 22, 51\\}$",
+            "why": [
+              "Step 1: domain = all first elements: $-1, 2, 1, 8, 9$.",
+              "Step 2: range = all second elements: $2, 51, 3, 22, 51$; list 51 only once.",
+              "Step 3: write each set in increasing order."
+            ],
+            "tip": "Domain = the first numbers, range = the second numbers. Never list a repeated number twice in a set.",
+            "similar": [
+              {
+                "q": "Find the domain and range of $\\{(0, 5), (3, 5), (-2, 1)\\}$.",
+                "a": "Domain $\\{-2, 0, 3\\}$, range $\\{1, 5\\}$."
+              }
+            ],
+            "page": 3,
+            "src": "notes",
+            "label": "1.1 Practice — relations and functions"
+          },
+          {
+            "id": "math10-u1-md-s11-q02",
+            "type": "mcq",
+            "q": "Which relation is a function?",
+            "options": {
+              "A": "$\\{(3, 4), (4, 5), (6, 7), (3, 9)\\}$",
+              "B": "$\\{(8, 11), (34, 5), (6, 17), (8, 19)\\}$",
+              "C": "$\\{(-3, 4), (4, -5), (0, 0), (8, 9)\\}$",
+              "D": "$\\{(2, 2), (2, -2)\\}$"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: in each option look for a repeated FIRST element.",
+              "Step 2: A repeats 3, B repeats 8, D repeats 2 — each with different outputs.",
+              "Step 3: C has inputs $-3, 4, 0, 8$, all different → function."
+            ],
+            "tip": "Cover the second numbers with your finger and read only the first ones.",
+            "similar": [
+              {
+                "q": "Is $\\{(1, 1), (2, 1), (3, 1)\\}$ a function?",
+                "a": "Yes — no input repeats; the same output for every input is allowed."
+              }
+            ],
+            "page": 7,
+            "src": "notes",
+            "label": "1.1 Practice — relations and functions"
+          },
+          {
+            "id": "math10-u1-md-s11-q03",
+            "type": "short",
+            "q": "Which of these rules are functions? (a) people → their birthday; (b) fathers → their children; (c) children → their blood mother.",
+            "answer": "(a) and (c) are functions; (b) is not.",
+            "why": [
+              "Step 1: ask \"can one input have two outputs?\"",
+              "Step 2: (a) a person has one birthday → function. (b) a father can have several children → not a function.",
+              "Step 3: (c) a child has exactly one blood mother → function."
+            ],
+            "tip": "Think of one input with many outputs. If that can happen, it is not a function.",
+            "similar": [
+              {
+                "q": "Is \"pencils assigned to their lengths\" a function?",
+                "a": "Yes — each pencil has one length (two pencils may share a length)."
+              }
+            ],
+            "page": 7,
+            "src": "notes",
+            "label": "1.1 Practice — relations and functions"
+          },
+          {
+            "id": "math10-u1-md-s11-q04",
+            "type": "short",
+            "q": "For $T = \\{(12, 14), (13, 5), (-2, 7), (x, 13)\\}$ to be a function, which values can $x$ not take?",
+            "answer": "$x \\ne 12, 13, -2$",
+            "why": [
+              "Step 1: the new pair $(x, 13)$ must not reuse an existing input with a different output.",
+              "Step 2: the existing inputs 12, 13 and $-2$ have outputs 14, 5, 7, none of them 13.",
+              "Step 3: so $x$ cannot be 12, 13 or $-2$."
+            ],
+            "tip": "If $x$ equals an old input whose output is ALREADY the same, it is allowed — check each one.",
+            "similar": [
+              {
+                "q": "For $\\{(1, 4), (2, 9), (x, 9)\\}$ to be a function, which value(s) can $x$ not take?",
+                "a": "$x \\ne 1$ ($x = 2$ is allowed: $(2, 9)$ just repeats)."
+              }
+            ],
+            "page": 8,
+            "src": "notes",
+            "label": "1.1 Practice — relations and functions"
+          },
+          {
+            "id": "math10-u1-md-s11-q05",
+            "type": "tf",
+            "q": "A circle drawn on the coordinate plane is the graph of a function.",
+            "answer": false,
+            "why": [
+              "Step 1: apply the vertical line test.",
+              "Step 2: a vertical line through the inside of the circle meets it twice (top and bottom).",
+              "Step 3: so a circle is not a function."
+            ],
+            "tip": "Draw the dashed vertical line through the middle of the shape — two hits means \"no\".",
+            "similar": [
+              {
+                "q": "Is the upper half of a circle (with its end points) a function?",
+                "a": "Yes — every vertical line meets it at most once."
+              }
+            ],
+            "page": 10,
+            "src": "notes",
+            "label": "1.1 Practice — relations and functions"
+          },
+          {
+            "id": "math10-u1-md-s11-q06",
+            "type": "short",
+            "q": "Let $g(x) = 4 - x^2$. Find $g(-3)$, $g(-\\frac12)$ and $g(0)$.",
+            "answer": "$g(-3) = -5$, $g(-\\frac12) = \\frac{15}{4}$, $g(0) = 4$",
+            "why": [
+              "Step 1: $g(-3) = 4 - (-3)^2 = 4 - 9 = -5$.",
+              "Step 2: $g(-\\frac12) = 4 - \\frac14 = \\frac{15}{4}$.",
+              "Step 3: $g(0) = 4 - 0 = 4$."
+            ],
+            "tip": "Always put the input in brackets before squaring: $(-3)^2 = 9$, but $-3^2 = -9$.",
+            "similar": [
+              {
+                "q": "If $h(x) = x^3 + 1$, find $h(-1)$ and $h(2)$.",
+                "a": "$h(-1) = 0$, $h(2) = 9$."
+              }
+            ],
+            "page": 14,
+            "src": "notes",
+            "label": "1.1 Practice — relations and functions"
+          },
+          {
+            "id": "math10-u1-md-s11-q07",
+            "type": "mcq",
+            "q": "The domain of $f(x) = \\sqrt{4 - 2x}$ is",
+            "options": {
+              "A": "$x \\ge 2$",
+              "B": "$x \\le 2$",
+              "C": "$x > 2$",
+              "D": "all real numbers"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: inside the root must be $\\ge 0$: $4 - 2x \\ge 0$.",
+              "Step 2: $-2x \\ge -4$.",
+              "Step 3: divide by $-2$ and FLIP the sign: $x \\le 2$."
+            ],
+            "tip": "Dividing or multiplying an inequality by a negative number reverses it.",
+            "similar": [
+              {
+                "q": "Find the domain of $f(x) = \\sqrt{x + 1}$.",
+                "a": "$x \\ge -1$."
+              }
+            ],
+            "page": 15,
+            "src": "notes",
+            "label": "1.1 Practice — relations and functions"
+          },
+          {
+            "id": "math10-u1-md-s11-q08",
+            "type": "mcq",
+            "q": "The domain of $f(x) = \\frac{1}{x^2 - 9}$ is",
+            "options": {
+              "A": "$x \\ne 9$",
+              "B": "$x \\ne 3$",
+              "C": "$x \\ne \\pm 3$",
+              "D": "all real numbers"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: the denominator cannot be 0: $x^2 - 9 \\ne 0$.",
+              "Step 2: $x^2 \\ne 9$ means $x \\ne 3$ and $x \\ne -3$."
+            ],
+            "tip": "A squared term equal to a positive number has TWO solutions — do not forget the negative one.",
+            "similar": [
+              {
+                "q": "Find the domain of $\\frac{x}{x^2 + 1}$.",
+                "a": "All real numbers ($x^2 + 1$ is never 0)."
+              }
+            ],
+            "page": 15,
+            "src": "notes",
+            "label": "1.1 Practice — relations and functions"
+          },
+          {
+            "id": "math10-u1-md-s11-q09",
+            "type": "short",
+            "q": "Does $y^2 = x + 1$ give $y$ as a function of $x$? Explain.",
+            "answer": "No.",
+            "why": [
+              "Step 1: solve for $y$: $y = \\pm\\sqrt{x + 1}$.",
+              "Step 2: take $x = 3$: $y = 2$ or $y = -2$.",
+              "Step 3: one input with two outputs → not a function."
+            ],
+            "tip": "An even power of $y$ in the equation usually means \"not a function\" — find a concrete $x$ with two $y$-values to prove it.",
+            "similar": [
+              {
+                "q": "Does $x^2 + y = 4$ give $y$ as a function of $x$?",
+                "a": "Yes: $y = 4 - x^2$, one value for each $x$; $f(x) = 4 - x^2$."
+              }
+            ],
+            "page": 12,
+            "src": "notes",
+            "label": "1.1 Practice — relations and functions"
+          },
+          {
+            "id": "math10-u1-md-s11-q10",
+            "type": "short",
+            "q": "The area of a circle is $A = \\pi r^2$. Write it as a function $g$ of $r$, find $g(2)$ and $g(5)$, and give the domain.",
+            "answer": "$g(r) = \\pi r^2$; $g(2) = 4\\pi$ cm², $g(5) = 25\\pi$ cm²; domain $r > 0$.",
+            "why": [
+              "Step 1: each radius gives one area → function $g(r) = \\pi r^2$.",
+              "Step 2: $g(2) = \\pi(2)^2 = 4\\pi \\approx 12.57$; $g(5) = 25\\pi \\approx 78.54$.",
+              "Step 3: a radius is a length, so it must be positive: domain $\\{r : r > 0\\}$."
+            ],
+            "tip": "In word problems the domain is limited by the situation (lengths positive, counts whole numbers), not only by the formula.",
+            "similar": [
+              {
+                "q": "The perimeter of a square of side $s$ is $P(s) = 4s$. Find $P(2.5)$ and the domain.",
+                "a": "$P(2.5) = 10$; domain $s > 0$."
+              }
+            ],
+            "page": 17,
+            "src": "notes",
+            "label": "1.1 Practice — relations and functions"
+          },
+          {
+            "id": "math10-u1-md-s11-q11",
+            "type": "short",
+            "q": "A graph is a straight line through $(-2, 0)$ and $(0, 4)$ that stops at the filled points $(-2, 0)$ and $(3, 10)$. Give its domain and range.",
+            "answer": "Domain $-2 \\le x \\le 3$; range $0 \\le y \\le 10$.",
+            "why": [
+              "Step 1: the $x$-values run from the left end $x = -2$ to the right end $x = 3$.",
+              "Step 2: the $y$-values run from 0 (lowest point) to 10 (highest point).",
+              "Step 3: filled dots are included, so use $\\le$."
+            ],
+            "tip": "Open dot → strict inequality ($<$); filled dot → $\\le$.",
+            "similar": [
+              {
+                "q": "A segment joins the filled point $(1, 1)$ to the open point $(4, -5)$. Domain and range?",
+                "a": "Domain $1 \\le x < 4$; range $-5 < y \\le 1$."
+              }
+            ],
+            "page": 11,
+            "src": "notes",
+            "label": "1.1 Practice — relations and functions"
+          },
+          {
+            "id": "math10-u1-md-s11-q12",
+            "type": "fill",
+            "q": "In $f(x) = 2x + 7$, the variable $x$ is called the ____ variable.",
+            "choices": [
+              "independent",
+              "dependent",
+              "constant",
+              "range"
+            ],
+            "answer": "independent",
+            "why": [
+              "Step 1: we choose $x$ freely (from the domain).",
+              "Step 2: $f(x)$ depends on that choice.",
+              "Step 3: so $x$ is independent and $y = f(x)$ is dependent."
+            ],
+            "tip": "Independent = input = $x$ = domain. Dependent = output = $y$ = range.",
+            "similar": [
+              {
+                "q": "In $p = 0.4c - 70$, which is the dependent variable?",
+                "a": "$p$ (the profit depends on the number of cups $c$)."
+              }
+            ],
+            "page": 12,
+            "src": "notes",
+            "label": "1.1 Practice — relations and functions"
+          },
+          {
+            "id": "math10-u1-md-s12-q01",
+            "type": "mcq",
+            "q": "Which function is one-to-one?",
+            "options": {
+              "A": "$\\{(3, -4), (8, 5), (6, 7), (22, 4)\\}$",
+              "B": "$\\{(9, 19), (34, 5), (6, 17), (8, 19)\\}$",
+              "C": "$\\{(11, 14), (12, 14), (16, 7)\\}$",
+              "D": "$\\{(1, 0), (2, 0)\\}$"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: for one-to-one look for a repeated SECOND element.",
+              "Step 2: B repeats 19, C repeats 14, D repeats 0.",
+              "Step 3: in A the outputs $-4, 5, 7, 4$ are all different → one-to-one."
+            ],
+            "tip": "Function test → look at first elements. One-to-one test → look at second elements.",
+            "similar": [
+              {
+                "q": "Is $\\{(2, 27), (3, 28), (4, 29), (5, 30)\\}$ one-to-one?",
+                "a": "Yes — all outputs are different."
+              }
+            ],
+            "page": 20,
+            "src": "notes",
+            "label": "1.2 Practice — one-to-one and inverse functions"
+          },
+          {
+            "id": "math10-u1-md-s12-q02",
+            "type": "tf",
+            "q": "$g(x) = x^2 + 2$ is a one-to-one function.",
+            "answer": false,
+            "why": [
+              "Step 1: try opposite inputs: $g(1) = 3$ and $g(-1) = 3$.",
+              "Step 2: two inputs share an output → not one-to-one."
+            ],
+            "tip": "Any function with only $x^2$ (no odd power of $x$) gives the same output for $x$ and $-x$.",
+            "similar": [
+              {
+                "q": "Is $f(x) = x^3 - 1$ one-to-one?",
+                "a": "Yes — $a^3 - 1 = b^3 - 1 \\Rightarrow a^3 = b^3 \\Rightarrow a = b$."
+              }
+            ],
+            "page": 20,
+            "src": "notes",
+            "label": "1.2 Practice — one-to-one and inverse functions"
+          },
+          {
+            "id": "math10-u1-md-s12-q03",
+            "type": "short",
+            "q": "Show that $h(x) = \\frac{1}{2x - 4}$ is one-to-one.",
+            "answer": "If $h(a) = h(b)$ then $2a - 4 = 2b - 4$, so $a = b$.",
+            "why": [
+              "Step 1: assume $\\frac{1}{2a - 4} = \\frac{1}{2b - 4}$.",
+              "Step 2: take reciprocals: $2a - 4 = 2b - 4$.",
+              "Step 3: add 4 and divide by 2: $a = b$. Equal outputs force equal inputs."
+            ],
+            "tip": "To PROVE one-to-one use $f(a) = f(b) \\Rightarrow a = b$. To DISPROVE, one counter-example is enough.",
+            "similar": [
+              {
+                "q": "Show that $f(x) = 7 - 3x$ is one-to-one.",
+                "a": "$7 - 3a = 7 - 3b \\Rightarrow -3a = -3b \\Rightarrow a = b$."
+              }
+            ],
+            "page": 20,
+            "src": "notes",
+            "label": "1.2 Practice — one-to-one and inverse functions"
+          },
+          {
+            "id": "math10-u1-md-s12-q04",
+            "type": "short",
+            "q": "Find the inverse of $R = \\{(2, -3), (4, 6), (3, -1), (6, 6), (2, 3)\\}$. Is $R^{-1}$ a function?",
+            "answer": "$R^{-1} = \\{(-3, 2), (6, 4), (-1, 3), (6, 6), (3, 2)\\}$; not a function.",
+            "why": [
+              "Step 1: swap every pair.",
+              "Step 2: in $R^{-1}$ the input 6 goes to 4 and to 6.",
+              "Step 3: so $R^{-1}$ is not a function (in $R$, the output 6 came from two inputs)."
+            ],
+            "tip": "The inverse is a function exactly when the original has no repeated outputs.",
+            "similar": [
+              {
+                "q": "Find the inverse of $\\{(-3, 0), (-1, 1), (0, 5), (2, 6)\\}$. Is it a function?",
+                "a": "$\\{(0, -3), (1, -1), (5, 0), (6, 2)\\}$ — yes, a function."
+              }
+            ],
+            "page": 24,
+            "src": "notes",
+            "label": "1.2 Practice — one-to-one and inverse functions"
+          },
+          {
+            "id": "math10-u1-md-s12-q05",
+            "type": "mcq",
+            "q": "If $g(x) = 3x + 2$, then $g^{-1}(x)$ is",
+            "options": {
+              "A": "$3x - 2$",
+              "B": "$\\frac{x - 2}{3}$",
+              "C": "$\\frac{x + 2}{3}$",
+              "D": "$\\frac{1}{3x + 2}$"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: $y = 3x + 2$; swap: $x = 3y + 2$.",
+              "Step 2: $x - 2 = 3y$.",
+              "Step 3: $y = \\frac{x - 2}{3}$."
+            ],
+            "tip": "An inverse undoes the operations in reverse order: $g$ multiplies by 3 then adds 2, so $g^{-1}$ subtracts 2 then divides by 3.",
+            "similar": [
+              {
+                "q": "Find $f^{-1}(x)$ for $f(x) = x - 1$.",
+                "a": "$f^{-1}(x) = x + 1$."
+              }
+            ],
+            "page": 23,
+            "src": "notes",
+            "label": "1.2 Practice — one-to-one and inverse functions"
+          },
+          {
+            "id": "math10-u1-md-s12-q06",
+            "type": "short",
+            "q": "Find $h^{-1}(x)$ for $h(x) = \\frac{x + 1}{x - 1}$.",
+            "answer": "$h^{-1}(x) = \\frac{x + 1}{x - 1}$ (the function is its own inverse), $x \\ne 1$.",
+            "why": [
+              "Step 1: swap: $x = \\frac{y + 1}{y - 1}$.",
+              "Step 2: $xy - x = y + 1$.",
+              "Step 3: $xy - y = x + 1 \\Rightarrow y(x - 1) = x + 1$.",
+              "Step 4: $y = \\frac{x + 1}{x - 1}$ — the same formula as $h$."
+            ],
+            "tip": "With a fraction: multiply out, gather all $y$ terms on one side, then factor $y$ out.",
+            "similar": [
+              {
+                "q": "Find $k^{-1}(x)$ for $k(x) = \\frac1x$.",
+                "a": "$k^{-1}(x) = \\frac1x$, $x \\ne 0$ — also its own inverse."
+              }
+            ],
+            "page": 24,
+            "src": "notes",
+            "label": "1.2 Practice — one-to-one and inverse functions"
+          },
+          {
+            "id": "math10-u1-md-s12-q07",
+            "type": "short",
+            "q": "Does $f(x) = x^2 - 4$ (all real $x$) have an inverse function? What if we restrict to $x \\ge 0$?",
+            "answer": "Not on all real numbers; for $x \\ge 0$, $f^{-1}(x) = \\sqrt{x + 4}$, $x \\ge -4$.",
+            "why": [
+              "Step 1: $f(2) = f(-2) = 0$, so $f$ is not one-to-one → no inverse function.",
+              "Step 2: for $x \\ge 0$ it is one-to-one with range $y \\ge -4$.",
+              "Step 3: swap: $x = y^2 - 4 \\Rightarrow y^2 = x + 4 \\Rightarrow y = \\sqrt{x + 4}$ (positive root, because the original $x \\ge 0$)."
+            ],
+            "tip": "Restricting the domain to one side of the vertex makes a parabola one-to-one.",
+            "similar": [
+              {
+                "q": "Find the inverse of $f(x) = x^2$, $x \\le 0$.",
+                "a": "$f^{-1}(x) = -\\sqrt{x}$, $x \\ge 0$."
+              }
+            ],
+            "page": 24,
+            "src": "notes",
+            "label": "1.2 Practice — one-to-one and inverse functions"
+          },
+          {
+            "id": "math10-u1-md-s12-q08",
+            "type": "mcq",
+            "q": "The point $(5, -2)$ is on the graph of a one-to-one function $f$. Which point is on the graph of $f^{-1}$?",
+            "options": {
+              "A": "$(-5, 2)$",
+              "B": "$(5, 2)$",
+              "C": "$(-2, 5)$",
+              "D": "$(2, -5)$"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: the graph of $f^{-1}$ is the reflection in $y = x$.",
+              "Step 2: reflecting in $y = x$ swaps the coordinates.",
+              "Step 3: $(5, -2) \\to (-2, 5)$."
+            ],
+            "tip": "Swap — do not change any signs.",
+            "similar": [
+              {
+                "q": "$(0, 3)$ is on $f$. Which point is on $f^{-1}$?",
+                "a": "$(3, 0)$."
+              }
+            ],
+            "page": 25,
+            "src": "notes",
+            "label": "1.2 Practice — one-to-one and inverse functions"
+          },
+          {
+            "id": "math10-u1-md-s12-q09",
+            "type": "short",
+            "q": "Using $C(x) = \\frac59(x - 32)$, convert $-40$ °F to Celsius, and use the inverse to convert $-5$ °C to Fahrenheit.",
+            "answer": "$-40$ °F $= -40$ °C; $-5$ °C $= 23$ °F.",
+            "why": [
+              "Step 1: $C(-40) = \\frac59(-72) = -40$.",
+              "Step 2: $C^{-1}(x) = \\frac95x + 32$.",
+              "Step 3: $C^{-1}(-5) = -9 + 32 = 23$."
+            ],
+            "tip": "$-40$ is the one temperature that is the same on both scales — a nice check.",
+            "similar": [
+              {
+                "q": "Convert 14 °F to Celsius.",
+                "a": "$C(14) = \\frac59(-18) = -10$ °C."
+              }
+            ],
+            "page": 24,
+            "src": "notes",
+            "label": "1.2 Practice — one-to-one and inverse functions"
+          },
+          {
+            "id": "math10-u1-md-s12-q10",
+            "type": "mcq",
+            "q": "Where do the graphs of $f(x) = 2x + 1$ and $f^{-1}$ meet?",
+            "options": {
+              "A": "$(0, 1)$",
+              "B": "$(1, 0)$",
+              "C": "$(-1, -1)$",
+              "D": "they never meet"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: $f$ and $f^{-1}$ meet on the mirror line $y = x$.",
+              "Step 2: solve $2x + 1 = x \\Rightarrow x = -1$.",
+              "Step 3: the point is $(-1, -1)$."
+            ],
+            "tip": "For an increasing function, intersections with its inverse lie on $y = x$ — solve $f(x) = x$.",
+            "similar": [
+              {
+                "q": "Where does $f(x) = 3x - 4$ meet its inverse?",
+                "a": "At $(2, 2)$."
+              }
+            ],
+            "page": 26,
+            "src": "notes",
+            "label": "1.2 Practice — one-to-one and inverse functions"
+          },
+          {
+            "id": "math10-u1-md-s12-q11",
+            "type": "fill",
+            "q": "The domain of $f^{-1}$ is equal to the ____ of $f$.",
+            "choices": [
+              "range",
+              "domain",
+              "inverse",
+              "graph"
+            ],
+            "answer": "range",
+            "why": [
+              "Step 1: $f^{-1}$ swaps every pair $(a, b)$ to $(b, a)$.",
+              "Step 2: the second elements of $f$ become the first elements of $f^{-1}$."
+            ],
+            "tip": "Swap pairs ⇒ swap domain and range.",
+            "similar": [
+              {
+                "q": "The range of $f^{-1}$ equals the ____ of $f$.",
+                "a": "Domain."
+              }
+            ],
+            "page": 22,
+            "src": "notes",
+            "label": "1.2 Practice — one-to-one and inverse functions"
+          },
+          {
+            "id": "math10-u1-md-s12-q12",
+            "type": "short",
+            "q": "Find the point that pairs with $(-2, 1)$ and with $(3, 0)$ when reflected in the line $y = x$.",
+            "answer": "$(1, -2)$ and $(0, 3)$",
+            "why": [
+              "Step 1: reflection in $y = x$ swaps the coordinates.",
+              "Step 2: $(-2, 1) \\to (1, -2)$; $(3, 0) \\to (0, 3)$."
+            ],
+            "tip": "Fold-the-paper check: both points must be the same distance from $y = x$.",
+            "similar": [
+              {
+                "q": "Reflect $(4, 4)$ in $y = x$.",
+                "a": "$(4, 4)$ — points on the mirror stay put."
+              }
+            ],
+            "page": 25,
+            "src": "notes",
+            "label": "1.2 Practice — one-to-one and inverse functions"
           }
         ]
       },
@@ -1025,6 +2548,38 @@
               "math10-u1-c08",
               "math10-u1-c09"
             ]
+          },
+          {
+            "id": "md_vlt",
+            "label": "Vertical line test",
+            "kind": "idea",
+            "cards": [
+              "math10-u1-md-vlt"
+            ]
+          },
+          {
+            "id": "md_domrules",
+            "label": "Domain rules",
+            "kind": "idea",
+            "cards": [
+              "math10-u1-md-domrules"
+            ]
+          },
+          {
+            "id": "md_hlt",
+            "label": "Horizontal line test",
+            "kind": "idea",
+            "cards": [
+              "math10-u1-md-hlt"
+            ]
+          },
+          {
+            "id": "md_inv",
+            "label": "Inverse in 4 steps",
+            "kind": "idea",
+            "cards": [
+              "math10-u1-c05"
+            ]
           }
         ],
         "edges": [
@@ -1042,9 +2597,97 @@
             "from": "l1_1",
             "to": "l1_2",
             "label": "next"
+          },
+          {
+            "from": "l1_1",
+            "to": "md_vlt",
+            "label": "key idea"
+          },
+          {
+            "from": "l1_1",
+            "to": "md_domrules",
+            "label": "key idea"
+          },
+          {
+            "from": "l1_2",
+            "to": "md_hlt",
+            "label": "key idea"
+          },
+          {
+            "from": "l1_2",
+            "to": "md_inv",
+            "label": "key idea"
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "md_ways": {
+          "svg": "svg/mathematics_10/m10_u1_ways.svg",
+          "title": "R = {(1, 2), (2, 3), (5, 6)} drawn two ways",
+          "page": 3,
+          "pins": []
+        },
+        "md_discrete": {
+          "svg": "svg/mathematics_10/m10_u1_discrete.svg",
+          "title": "Discrete graph (separate points) vs continuous graph (unbroken curve)",
+          "page": 4,
+          "pins": []
+        },
+        "md_fnornot": {
+          "svg": "svg/mathematics_10/m10_u1_fnornot.svg",
+          "title": "Arrow diagrams: a function and a relation that is not a function",
+          "page": 6,
+          "pins": []
+        },
+        "md_vlt": {
+          "svg": "svg/mathematics_10/m10_u1_vlt.svg",
+          "title": "Vertical line test",
+          "page": 10,
+          "pins": []
+        },
+        "md_domrange": {
+          "svg": "svg/mathematics_10/m10_u1_domrange.svg",
+          "title": "Reading the domain and range from a graph (upper half of a circle)",
+          "page": 10,
+          "pins": []
+        },
+        "md_machine": {
+          "svg": "svg/mathematics_10/m10_u1_machine.svg",
+          "title": "A function machine",
+          "page": 15,
+          "pins": []
+        },
+        "md_hlt": {
+          "svg": "svg/mathematics_10/m10_u1_hlt.svg",
+          "title": "Horizontal line test",
+          "page": 19,
+          "pins": []
+        },
+        "md_invarrows": {
+          "svg": "svg/mathematics_10/m10_u1_invarrows.svg",
+          "title": "A one-to-one function and its inverse",
+          "page": 22,
+          "pins": []
+        },
+        "md_reflectpts": {
+          "svg": "svg/mathematics_10/m10_u1_reflectpts.svg",
+          "title": "Swapping the coordinates reflects a point in the line y = x",
+          "page": 25,
+          "pins": []
+        },
+        "md_sqrtinv": {
+          "svg": "svg/mathematics_10/m10_u1_sqrtinv.svg",
+          "title": "f(x) = x² (x ≥ 0) and its inverse √x are mirror images in y = x",
+          "page": 26,
+          "pins": []
+        },
+        "md_tests": {
+          "svg": "svg/mathematics_10/m10_u1_tests.svg",
+          "title": "Which line test answers which question",
+          "page": 19,
+          "pins": []
+        }
       }
     },
     {
