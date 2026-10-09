@@ -117,17 +117,82 @@
             {
               "id": "math11-u1-c01",
               "type": "text",
-              "title": "1.1 Representing a quadratic function",
+              "title": "1.1 Representing quadratic functions",
               "page": 1,
               "src": "notes",
               "body": [
-                "A **quadratic function** is a function of the form $$f(x) = ax^2 + bx + c$$ where a, b, c are real numbers and **a ≠ 0**. The highest power of x is 2, so its degree is 2.",
-                "A quadratic function can be represented in four ways: **(1) in words** (\"the area of a square of side x plus 3x\"), **(2) by an equation** f(x) = x² + 3x, **(3) by a table of values** and **(4) by a graph**, which is always a U-shaped curve called a **parabola**.",
-                "**Step by step — making a table and a graph for f(x) = x² − 2x − 3:** Step 1: choose x-values on both sides of the middle, e.g. −2, −1, 0, 1, 2, 3, 4. Step 2: work out f(x): f(−2) = 4 + 4 − 3 = 5, f(−1) = 0, f(0) = −3, f(1) = −4, f(2) = −3, f(3) = 0, f(4) = 5. Step 3: plot the points and join them with a smooth curve (not straight segments).",
-                "Reading the table: the y-values are **symmetric** about x = 1 (f(0) = f(2) = −3, f(−1) = f(3) = 0). The middle point (1, −4) is the **vertex** — the lowest point because a = 1 > 0. The line x = 1 is the **axis of symmetry**. The x-intercepts (−1, 0) and (3, 0) are where f(x) = 0, and the y-intercept is (0, c) = (0, −3).",
-                "The sign of a decides the shape: **a > 0** → opens upward, has a minimum value; **a < 0** → opens downward, has a maximum value. The bigger |a| is, the narrower the parabola. The **range** depends on the vertex: for f(x) = x² − 2x − 3 the minimum is −4, so the range is y ≥ −4.",
-                "**Tip:** In a table of a quadratic, the first differences are not constant but the **second differences are constant** (equal to 2a). For x² − 2x − 3: values 5, 0, −3, −4, −3 → first differences −5, −3, −1, 1 → second differences 2, 2, 2. This is a quick test that a table comes from a quadratic."
+                "A **quadratic function** is $f(x) = ax^2 + bx + c$ with real $a, b, c$ and $a \\ne 0$. Its graph is a **parabola**.",
+                "You can represent it by a **formula**, a **table of values**, a **graph**, or in **words** (a real situation). Moving between them is the skill of this section.",
+                "**Example 1.1 (braking distance):** $B(s) = 0.01s^2 + 0.7s$ metres at $s$ km/h. At 30 km/h: $B = 9 + 21 = 30$ m; at 100 km/h: $100 + 70 = 170$ m. A car that needed 60 m: $0.01s^2 + 0.7s = 60 \\Rightarrow s^2 + 70s - 6000 = 0 \\Rightarrow (s - 50)(s + 120) = 0$, so $s = 50$ km/h (speed cannot be negative).",
+                "**Finding a model from data:** if the table is symmetric (same $y$ on both sides of a lowest point), that point is the vertex $(h, k)$ and $f(x) = a(x - h)^2 + k$; use one more point to find $a$."
               ]
+            },
+            {
+              "id": "math11-u1-md-ex12",
+              "type": "steps",
+              "title": "Reading the graph of y = x² − 2x − 3",
+              "page": 4,
+              "src": "notes",
+              "diagram": "md_ex12",
+              "steps": [
+                {
+                  "text": "Table: $x = -2, \\dots, 4$ gives $y = 5, 0, -3, -4, -3, 0, 5$. The x-intercepts are $-1$ and 3.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Equal $y$-values pair up around $x = 1$: that is the **axis of symmetry**.",
+                  "show": "k2"
+                },
+                {
+                  "text": "The lowest point is the **vertex** $(1, -4)$, so the range is $\\{y : y \\ge -4\\}$.",
+                  "show": "k3"
+                }
+              ]
+            },
+            {
+              "id": "math11-u1-md-ex-11a",
+              "type": "worked",
+              "title": "Worked example: a model from a table (Activity 1.1)",
+              "page": 2,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Women working: (0, 5), (1, 4), (2, 5), (3, 8), (4, 13), (5, 20), with $x = 0$ for 1990. Find $f(x) = ax^2 + bx + c$, estimate 2000, and find when there will be 53 women.",
+              "steps": [
+                {
+                  "text": "Symmetry: $f(0) = f(2) = 5$, so the vertex is at $x = 1$: $f(x) = a(x - 1)^2 + 4$."
+                },
+                {
+                  "text": "$f(0) = a + 4 = 5 \\Rightarrow a = 1$: $f(x) = x^2 - 2x + 5$. Check $f(5) = 25 - 10 + 5 = 20$ (correct)."
+                },
+                {
+                  "text": "2000 is $x = 10$: $100 - 20 + 5 = 85$ women."
+                },
+                {
+                  "text": "$x^2 - 2x + 5 = 53 \\Rightarrow x^2 - 2x - 48 = 0 \\Rightarrow (x - 8)(x + 6) = 0$, $x = 8$: in 1998."
+                }
+              ],
+              "answer": "$f(x) = x^2 - 2x + 5$; 85 women; 1998"
+            },
+            {
+              "id": "math11-u1-md-ex-11b",
+              "type": "worked",
+              "title": "Worked example: a ball thrown upward (Activity 1.2)",
+              "page": 3,
+              "src": "notes",
+              "mode": "show",
+              "problem": "$h(t) = 50t - 5t^2$. Find the maximum height, when it is reached, when the ball lands, and the domain and range.",
+              "steps": [
+                {
+                  "text": "Factor: $h = 5t(10 - t)$: zeros $t = 0$ and $t = 10$."
+                },
+                {
+                  "text": "The vertex is halfway: $t = 5$, $h(5) = 250 - 125 = 125$ m."
+                },
+                {
+                  "text": "Lands at $t = 10$ s. Domain $0 \\le t \\le 10$, range $0 \\le h \\le 125$."
+                }
+              ],
+              "answer": "max 125 m at 5 s; lands at 10 s"
             },
             {
               "id": "math11-u1-wrkE2",
@@ -202,17 +267,6 @@
               },
               "answer": "A",
               "why": "**Step 1: Identify coefficients**\nFor the quadratic function $$f(x) = x^2 - 2x - 3$$, we have $$a = 1$$, $$b = -2$$, and $$c = -3$$.\n\n**Step 2: Find the vertex coordinates**\nSince $$a = 1 > 0$$, the parabola opens upward, and the vertex represents the minimum value of the function.\nThe x-coordinate of the vertex is:\n$$h = -\\frac{b}{2a} = -\\frac{-2}{2(1)} = 1$$\n\nThe y-coordinate of the vertex (minimum value) is:\n$$k = f(1) = (1)^2 - 2(1) - 3 = 1 - 2 - 3 = -4$$\n\n**Step 3: State the range**\nSince the minimum value is $$-4$$ and the parabola opens upward, the range is all values greater than or equal to $$-4$$.\n**Result:** $$\\mathbf{\\{y \\in \\mathbb{R} : y \\geq -4\\}}$$."
-            },
-            {
-              "id": "math11-u1-c09",
-              "type": "text",
-              "title": "Three forms of a quadratic function",
-              "page": 1,
-              "body": [
-                "A **quadratic function** has the form f(x) = ax² + bx + c with a ≠ 0. Its graph is a **parabola**: it opens upward if a > 0 and downward if a < 0.",
-                "**Standard form:** f(x) = ax² + bx + c (the y-intercept is c). **Vertex form:** f(x) = a(x − h)² + k (vertex (h, k), axis of symmetry x = h). **Factored form:** f(x) = a(x − r₁)(x − r₂) (the x-intercepts are r₁ and r₂). For example, f(x) = x² − 4x + 3 = (x − 2)² − 1 = (x − 1)(x − 3): the y-intercept is 3, the vertex is (2, −1) and the roots are 1 and 3."
-              ],
-              "src": "notes"
             },
             {
               "id": "math11-u1-mn1",
@@ -295,18 +349,216 @@
             {
               "id": "math11-u1-c02",
               "type": "text",
-              "title": "1.2 Solving quadratic equations and inequalities",
+              "title": "1.2.1 Solving quadratic equations",
               "page": 6,
               "src": "notes",
               "body": [
-                "A **quadratic equation** is ax² + bx + c = 0 (a ≠ 0). Its solutions are called **roots** or **zeros**; they are the x-intercepts of y = ax² + bx + c. There are three standard methods.",
-                "**Method 1 — Factorising.** Write the left side as a product and use \"if pq = 0 then p = 0 or q = 0\". Example: x² − 5x + 6 = 0. Find two numbers with product 6 and sum −5: −2 and −3. So (x − 2)(x − 3) = 0 and x = 2 or x = 3. For a ≠ 1 use the \"ac method\": 3x² − 10x + 8: ac = 24, numbers −4 and −6: 3x² − 4x − 6x + 8 = x(3x − 4) − 2(3x − 4) = (x − 2)(3x − 4), so x = 2 or x = 4/3.",
-                "**Method 2 — Completing the square.** Example: x² + 6x − 7 = 0. Step 1: move the constant: x² + 6x = 7. Step 2: add (half of 6)² = 9 to both sides: x² + 6x + 9 = 16. Step 3: write as a square: (x + 3)² = 16. Step 4: take square roots: x + 3 = ±4, so x = 1 or x = −7.",
-                "**Method 3 — The quadratic formula** (works for every quadratic): $$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$. The number **D = b² − 4ac** is the **discriminant**: D > 0 → two different real roots; D = 0 → one repeated real root; D < 0 → no real roots (the parabola does not meet the x-axis).",
-                "**Simplifying first:** always write the equation in the form ax² + bx + c = 0 and divide by any common factor. Example: 2x² = 8x − 6 → 2x² − 8x + 6 = 0 → x² − 4x + 3 = 0 → (x − 1)(x − 3) = 0.",
-                "**Quadratic inequalities** (e.g. x² − x − 12 > 0). Step 1: solve the equation x² − x − 12 = 0: (x − 4)(x + 3) = 0, so x = −3 or x = 4. Step 2: these critical values cut the number line into three intervals: x < −3, −3 < x < 4, x > 4. Step 3: test one number in each: x = −4 gives 8 > 0 ✔; x = 0 gives −12 ✘; x = 5 gives 8 ✔. Step 4: answer x < −3 or x > 4. Picture: the parabola opens upward, so it is above the x-axis outside the roots and below it between them.",
-                "**Sum and product of roots:** if r₁ and r₂ are the roots of ax² + bx + c = 0, then r₁ + r₂ = −b/a and r₁r₂ = c/a. Use this to check answers quickly: for x² − 5x + 6 = 0, 2 + 3 = 5 ✔ and 2 × 3 = 6 ✔."
+                "Standard form: $ax^2 + bx + c = 0$, $a \\ne 0$. Four methods:",
+                "**1. Factorising (split the middle term):** find $m, n$ with $m + n = b$ and $mn = ac$. For $3x^2 - 10x + 8$: $m + n = -10$, $mn = 24$ → $-4, -6$: $3x^2 - 4x - 6x + 8 = x(3x - 4) - 2(3x - 4) = (3x - 4)(x - 2)$. Then use \"product = 0 ⇒ a factor = 0\".",
+                "**2. Completing the square:** make the coefficient of $x^2$ equal to 1, move $c$, add $\\left(\\frac{b}{2}\\right)^2$: $x^2 - 6x = -2 \\Rightarrow (x - 3)^2 = 7 \\Rightarrow x = 3 \\pm \\sqrt{7}$.",
+                "**3. Quadratic formula** (completing the square done once for all): $$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$",
+                "**4. Graph:** the solutions are the x-intercepts of $y = ax^2 + bx + c$.",
+                "Textbook slip: in Example 1.5 the factorisation of $3x^2 - 4x - 4$ is $(3x + 2)(x - 2)$, not \"$(x + 2)(x - 2)$\"; the answers $x = -\\frac{2}{3}$ and $x = 2$ are right."
               ]
+            },
+            {
+              "id": "math11-u1-c10",
+              "type": "table",
+              "title": "Methods for solving ax² + bx + c = 0",
+              "page": 6,
+              "head": [
+                "Method",
+                "Best when",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "Factorising",
+                  "The quadratic factorises easily",
+                  "x² − 5x + 6 = (x − 2)(x − 3) = 0 → x = 2 or 3"
+                ],
+                [
+                  "Completing the square",
+                  "a = 1 and b is even",
+                  "x² + 6x = 7 → (x + 3)² = 16 → x = 1 or −7"
+                ],
+                [
+                  "Quadratic formula",
+                  "Always works",
+                  "x = (−b ± √(b² − 4ac)) ÷ 2a"
+                ]
+              ],
+              "src": "notes"
+            },
+            {
+              "id": "math11-u1-md-disc-t",
+              "type": "text",
+              "title": "The discriminant",
+              "page": 17,
+              "src": "notes",
+              "body": [
+                "$D = b^2 - 4ac$ is the part under the root. It tells you **how many** real solutions there are **before** solving:",
+                "- $D > 0$: two different real solutions (the parabola crosses the x-axis twice). A **perfect square** $D$ means they are rational (it factorises).",
+                "- $D = 0$: one (repeated) solution $x = -\\frac{b}{2a}$ (it touches the axis at the vertex).",
+                "- $D < 0$: no real solution (the parabola misses the axis).",
+                "Example 1.9: $-4x^2 + 12x - 9 = 0$: $D = 144 - 144 = 0$, one solution $x = \\frac{3}{2}$."
+              ]
+            },
+            {
+              "id": "math11-u1-md-disc",
+              "type": "diagram",
+              "title": "Three cases",
+              "page": 18,
+              "src": "notes",
+              "diagram": "md_disc",
+              "mode": "plain"
+            },
+            {
+              "id": "math11-u1-md-ex-12a",
+              "type": "worked",
+              "title": "Worked example: Example 1.8 (quadratic formula)",
+              "page": 15,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve (a) $2x^2 + 6x + 3 = 0$ (b) $-5x^2 + 13x - 7 = 0$.",
+              "steps": [
+                {
+                  "text": "(a) $a = 2, b = 6, c = 3$: $D = 36 - 24 = 12$; $x = \\frac{-6 \\pm 2\\sqrt{3}}{4} = \\frac{-3 \\pm \\sqrt{3}}{2}$."
+                },
+                {
+                  "text": "(b) $a = -5, b = 13, c = -7$: $D = 169 - 140 = 29$; $x = \\frac{-13 \\pm \\sqrt{29}}{-10} = \\frac{13 \\mp \\sqrt{29}}{10}$."
+                }
+              ],
+              "answer": "(a) $\\frac{-3 \\pm \\sqrt{3}}{2}$ (b) $\\frac{13 \\pm \\sqrt{29}}{10}$"
+            },
+            {
+              "id": "math11-u1-md-ex-12b",
+              "type": "worked",
+              "title": "Worked example: Example 1.6 (two trains)",
+              "page": 11,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Two trains leave a station at right angles; one is 20 km/h faster. After 1 hour they are 100 km apart. Find their speeds.",
+              "steps": [
+                {
+                  "text": "Distances after 1 h: $x$ and $x + 20$ (legs); 100 is the hypotenuse."
+                },
+                {
+                  "text": "$x^2 + (x + 20)^2 = 100^2 \\Rightarrow 2x^2 + 40x - 9600 = 0 \\Rightarrow x^2 + 20x - 4800 = 0$."
+                },
+                {
+                  "text": "$(x + 80)(x - 60) = 0$; speed is positive: $x = 60$."
+                }
+              ],
+              "answer": "60 km/h and 80 km/h"
+            },
+            {
+              "id": "math11-u1-md-ineq-t",
+              "type": "text",
+              "title": "1.2.2 Quadratic inequalities",
+              "page": 21,
+              "src": "notes",
+              "body": [
+                "To solve $ax^2 + bx + c > 0$ (or $<$, $\\ge$, $\\le$):",
+                "1. Move everything to one side and **factorise** (or find the roots).",
+                "2. **Case method:** a product is positive when both factors have the same sign, negative when they have opposite signs. $x^2 - x - 12 = (x - 4)(x + 3) > 0$: both positive ($x > 4$) **or** both negative ($x < -3$).",
+                "3. **Sign chart:** mark the roots on a number line; test one value in each interval.",
+                "4. **Graph:** for $a > 0$ the parabola is **below** the axis **between** the roots and **above** it **outside** them.",
+                "Shortcut ($a > 0$, roots $r_1 < r_2$): \"$< 0$\" → $r_1 < x < r_2$ (between); \"$> 0$\" → $x < r_1$ or $x > r_2$ (outside). If $a < 0$, multiply by $-1$ and **reverse** the sign first."
+              ]
+            },
+            {
+              "id": "math11-u1-md-signchart",
+              "type": "diagram",
+              "title": "Sign chart",
+              "page": 26,
+              "src": "notes",
+              "diagram": "md_signchart",
+              "mode": "plain",
+              "body": [
+                "For $(x + 2)(x - 5)$: positive for $x < -2$, negative between $-2$ and 5, positive for $x > 5$. So $(x + 2)(x - 5) < 0$ ⇔ $-2 < x < 5$."
+              ]
+            },
+            {
+              "id": "math11-u1-md-nl-ineq",
+              "type": "graph",
+              "title": "Solution of x² − x − 12 > 0 on the number line",
+              "page": 23,
+              "src": "notes",
+              "graph": {
+                "kind": "numberline",
+                "min": -6,
+                "max": 7,
+                "step": 1,
+                "label_every": 1,
+                "points": [
+                  {
+                    "x": -3,
+                    "open": true,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 4,
+                    "open": true,
+                    "color": "#C0503A"
+                  }
+                ],
+                "ranges": [
+                  {
+                    "from": -6,
+                    "to": -3,
+                    "to_open": true,
+                    "color": "#2F5F8F"
+                  },
+                  {
+                    "from": 4,
+                    "to": 7,
+                    "from_open": true,
+                    "color": "#2F5F8F"
+                  }
+                ]
+              },
+              "body": [
+                "Open circles: $-3$ and 4 are not included because the inequality is strict."
+              ]
+            },
+            {
+              "id": "math11-u1-md-ex-12c",
+              "type": "worked",
+              "title": "Worked example: Example 1.12 (sign chart)",
+              "page": 27,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve $-2x^2 + 15x - 7 > 0$.",
+              "steps": [
+                {
+                  "text": "Multiply by $-1$ and reverse: $2x^2 - 15x + 7 < 0$."
+                },
+                {
+                  "text": "Factor: $(2x - 1)(x - 7) < 0$; roots $\\frac{1}{2}$ and 7."
+                },
+                {
+                  "text": "Opening up and \"< 0\" → between the roots."
+                }
+              ],
+              "answer": "$\\frac{1}{2} < x < 7$"
+            },
+            {
+              "id": "math11-u1-c11",
+              "type": "worked",
+              "title": "Worked example: the quadratic formula",
+              "page": 6,
+              "problem": "Solve 2x² + 3x − 2 = 0.",
+              "steps": [
+                {
+                  "text": "a = 2, b = 3, c = −2. Discriminant D = b² − 4ac = 9 + 16 = 25."
+                },
+                {
+                  "text": "x = (−3 ± 5) ÷ 4."
+                }
+              ],
+              "answer": "Check: 2(1/4) + 3/2 − 2 = 0 ✔.",
+              "src": "notes"
             },
             {
               "id": "math11-u1-chk74",
@@ -366,52 +618,6 @@
                 }
               ],
               "answer": "Degree: 8, Constant Term: -6"
-            },
-            {
-              "id": "math11-u1-c10",
-              "type": "table",
-              "title": "Methods for solving ax² + bx + c = 0",
-              "page": 6,
-              "head": [
-                "Method",
-                "Best when",
-                "Example"
-              ],
-              "rows": [
-                [
-                  "Factorising",
-                  "The quadratic factorises easily",
-                  "x² − 5x + 6 = (x − 2)(x − 3) = 0 → x = 2 or 3"
-                ],
-                [
-                  "Completing the square",
-                  "a = 1 and b is even",
-                  "x² + 6x = 7 → (x + 3)² = 16 → x = 1 or −7"
-                ],
-                [
-                  "Quadratic formula",
-                  "Always works",
-                  "x = (−b ± √(b² − 4ac)) ÷ 2a"
-                ]
-              ],
-              "src": "notes"
-            },
-            {
-              "id": "math11-u1-c11",
-              "type": "worked",
-              "title": "Worked example: the quadratic formula",
-              "page": 6,
-              "problem": "Solve 2x² + 3x − 2 = 0.",
-              "steps": [
-                {
-                  "text": "a = 2, b = 3, c = −2. Discriminant D = b² − 4ac = 9 + 16 = 25."
-                },
-                {
-                  "text": "x = (−3 ± 5) ÷ 4."
-                }
-              ],
-              "answer": "Check: 2(1/4) + 3/2 − 2 = 0 ✔.",
-              "src": "notes"
             },
             {
               "type": "worked",
@@ -520,6 +726,123 @@
           ],
           "cards": [
             {
+              "id": "math11-u1-c04",
+              "type": "text",
+              "title": "1.3 Graphs of quadratic functions: transformations",
+              "page": 30,
+              "src": "notes",
+              "body": [
+                "Every parabola is $y = x^2$ moved and stretched:",
+                "- $y = x^2 + k$: up $k$ (down if $k < 0$).",
+                "- $y = (x - h)^2$: **right** $h$ (note the minus: $(x + 2)^2$ moves **left** 2).",
+                "- $y = a x^2$: $|a| > 1$ narrower, $|a| < 1$ wider, $a < 0$ flipped upside down.",
+                "**Vertex form:** $y = a(x - h)^2 + k$ has vertex $(h, k)$, axis $x = h$; minimum $k$ if $a > 0$, maximum $k$ if $a < 0$."
+              ]
+            },
+            {
+              "id": "math11-u1-md-shifts",
+              "type": "diagram",
+              "title": "Same shape, different vertex",
+              "page": 32,
+              "src": "notes",
+              "diagram": "md_shifts",
+              "mode": "plain",
+              "body": [
+                "Vertices: $(0, 0)$, $(1, 2)$, $(-2, -3)$. All three have $a = 1$, so they are congruent."
+              ]
+            },
+            {
+              "id": "math11-u1-c09",
+              "type": "text",
+              "title": "Three forms of a quadratic function",
+              "page": 1,
+              "body": [
+                "A **quadratic function** has the form f(x) = ax² + bx + c with a ≠ 0. Its graph is a **parabola**: it opens upward if a > 0 and downward if a < 0.",
+                "**Standard form:** f(x) = ax² + bx + c (the y-intercept is c). **Vertex form:** f(x) = a(x − h)² + k (vertex (h, k), axis of symmetry x = h). **Factored form:** f(x) = a(x − r₁)(x − r₂) (the x-intercepts are r₁ and r₂). For example, f(x) = x² − 4x + 3 = (x − 2)² − 1 = (x − 1)(x − 3): the y-intercept is 3, the vertex is (2, −1) and the roots are 1 and 3."
+              ],
+              "src": "notes"
+            },
+            {
+              "id": "math11-u1-md-vform-t",
+              "type": "text",
+              "title": "From ax² + bx + c to vertex form",
+              "page": 35,
+              "src": "notes",
+              "body": [
+                "Completing the square gives $$f(x) = a\\left(x + \\frac{b}{2a}\\right)^2 + \\frac{4ac - b^2}{4a}$$ so the vertex is $\\left(-\\frac{b}{2a}, \\frac{4ac - b^2}{4a}\\right)$.",
+                "In practice: $x_v = -\\frac{b}{2a}$, then $y_v = f(x_v)$. Example: $f(x) = 2x^2 - 8x + 20$: $x_v = 2$, $f(2) = 12$, so $f(x) = 2(x - 2)^2 + 12$ (minimum 12).",
+                "Range: $a > 0$ → $y \\ge y_v$; $a < 0$ → $y \\le y_v$."
+              ]
+            },
+            {
+              "id": "math11-u1-c13",
+              "type": "worked",
+              "title": "Worked example: vertex and axis",
+              "page": 30,
+              "problem": "Find the vertex of f(x) = x² − 4x + 1 and write it in vertex form.",
+              "steps": [
+                {
+                  "text": "x-coordinate of vertex = −b ÷ 2a = 4 ÷ 2 = 2."
+                },
+                {
+                  "text": "f(2) = 4 − 8 + 1 = −3, so the vertex is **(2, −3)**; axis x = 2."
+                }
+              ],
+              "answer": "Vertex form: f(x) = (x − 2)² − 3. Since a = 1 > 0 the minimum value is −3.",
+              "src": "notes"
+            },
+            {
+              "id": "math11-u1-md-maxarea",
+              "type": "diagram",
+              "title": "Maximum area",
+              "page": 38,
+              "src": "notes",
+              "diagram": "md_maxarea",
+              "mode": "plain"
+            },
+            {
+              "id": "math11-u1-md-ex-13a",
+              "type": "worked",
+              "title": "Worked example: Example 1.17 (largest field)",
+              "page": 38,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find the largest rectangular field that can be fenced with 3000 m of wire.",
+              "steps": [
+                {
+                  "text": "Sides $x$ and $y$: $2x + 2y = 3000 \\Rightarrow y = 1500 - x$."
+                },
+                {
+                  "text": "Area $A = x(1500 - x) = -x^2 + 1500x$ (a downward parabola)."
+                },
+                {
+                  "text": "Vertex: $x = -\\frac{1500}{2(-1)} = 750$, $y = 750$; $A = 562\\,500$ m²."
+                }
+              ],
+              "answer": "a 750 m × 750 m square, 562 500 m²"
+            },
+            {
+              "id": "math11-u1-md-ex-13b",
+              "type": "worked",
+              "title": "Worked example: Exercise 1.1 Q3 (budget)",
+              "page": 6,
+              "src": "notes",
+              "mode": "show",
+              "problem": "The budget is $f(x) = 2x^2 - 8x + 20$ million Nakfa ($x = 0$ in 2000). Find the lowest budget and when it reaches 44 million.",
+              "steps": [
+                {
+                  "text": "Vertex $x = 2$: $f(2) = 8 - 16 + 20 = 12$ million (in 2002)."
+                },
+                {
+                  "text": "$2x^2 - 8x + 20 = 44 \\Rightarrow x^2 - 4x - 12 = 0 \\Rightarrow (x - 6)(x + 2) = 0$."
+                },
+                {
+                  "text": "$x = 6$: in 2006."
+                }
+              ],
+              "answer": "lowest 12 million (2002); 44 million in 2006"
+            },
+            {
               "id": "math11-u1-c03",
               "type": "table",
               "title": "Polynomials by degree",
@@ -546,26 +869,6 @@
                   "Cubic",
                   "S-ish, one inflection"
                 ]
-              ]
-            },
-            {
-              "id": "math11-u1-c04",
-              "type": "text",
-              "title": "Graphs of Quadratic Functions",
-              "page": 30,
-              "src": "notes",
-              "body": [
-                "**Even function:** f(−x)=f(x) — mirror in y-axis. **Odd:** f(−x)=−f(x) — rotate 180° about origin. x² is even; x³ is odd; x²+x is neither."
-              ]
-            },
-            {
-              "id": "math11-u1-c05",
-              "type": "mnemonic",
-              "title": "End behaviour",
-              "page": 30,
-              "src": "notes",
-              "body": [
-                "Even degree + positive leading → both ends up (smile). Odd degree + positive leading → left down, right up. Flip all of that if leading is negative."
               ]
             },
             {
@@ -653,23 +956,6 @@
               "answer": "$$(2, 7)$$"
             },
             {
-              "id": "math11-u1-c13",
-              "type": "worked",
-              "title": "Worked example: vertex and axis",
-              "page": 30,
-              "problem": "Find the vertex of f(x) = x² − 4x + 1 and write it in vertex form.",
-              "steps": [
-                {
-                  "text": "x-coordinate of vertex = −b ÷ 2a = 4 ÷ 2 = 2."
-                },
-                {
-                  "text": "f(2) = 4 − 8 + 1 = −3, so the vertex is **(2, −3)**; axis x = 2."
-                }
-              ],
-              "answer": "Vertex form: f(x) = (x − 2)² − 3. Since a = 1 > 0 the minimum value is −3.",
-              "src": "notes"
-            },
-            {
               "id": "math11-u1-pc3",
               "type": "check",
               "title": "Practice",
@@ -719,13 +1005,115 @@
               "page": 41,
               "src": "notes",
               "body": [
-                "A **polynomial function** of degree n is $$f(x) = a_nx^n + a_{n-1}x^{n-1} + \\dots + a_1x + a_0$$ with a_n ≠ 0 and n a whole number. a_n is the **leading coefficient**, a₀ the **constant term** (the y-intercept). Examples: f(x) = 4x³ − x + 2 (degree 3, cubic). Not polynomials: 1/x, √x, 2ˣ.",
-                "**Operations.** Add/subtract by collecting like terms; multiply by multiplying every term of one by every term of the other. The degree of a product is the sum of the degrees: (x² + 1)(x³ − 2) has degree 5 and constant term (1)(−2) = −2.",
-                "**Division algorithm:** dividing f(x) by d(x) gives a quotient q(x) and remainder r(x): f(x) = d(x)·q(x) + r(x), where r has smaller degree than d. Dividing by (x − c) is fastest with **synthetic division**: write c and the coefficients, bring down the first one, multiply by c, add to the next coefficient, and repeat.",
-                "**Remainder Theorem:** when f(x) is divided by (x − c), the remainder is f(c). Example: f(x) = 2x³ − 5x + 1 divided by (x − 2): remainder f(2) = 16 − 10 + 1 = 7.",
-                "**Factor Theorem:** (x − c) is a factor of f(x) exactly when f(c) = 0. Example: f(x) = x³ − 4x² + x + 6. f(2) = 8 − 16 + 2 + 6 = 0, so (x − 2) is a factor. Dividing gives x² − 2x − 3 = (x − 3)(x + 1), so f(x) = (x − 2)(x − 3)(x + 1) and the zeros are 2, 3 and −1.",
-                "**Rational Root Theorem:** if a polynomial with integer coefficients has a rational zero p/q (in lowest terms), then p divides the constant term and q divides the leading coefficient. So for x³ − 4x² + x + 6 the only possible rational zeros are ±1, ±2, ±3, ±6 — test them with the Factor Theorem.",
-                "**Graphs.** A polynomial of degree n has at most n real zeros and at most n − 1 turning points. At a zero of odd multiplicity the graph **crosses** the x-axis; at a zero of even multiplicity (e.g. (x − 1)²) it **touches and turns back**. **End behaviour** depends only on the leading term: even degree → both ends go the same way (up if a_n > 0); odd degree → the ends go opposite ways (left down, right up if a_n > 0)."
+                "$f(x) = a_n x^n + \\dots + a_1 x + a_0$ ($a_n \\ne 0$, whole-number powers): degree $n$, leading coefficient $a_n$, constant term $a_0$.",
+                "**Degree of a product** = sum of degrees: $(3x^2 + 7x^5 - 1)(2x - x^2 + 6)$ has degree $5 + 2 = 7$, leading coefficient $7 \\times (-1) = -7$, constant term $-1 \\times 6 = -6$.",
+                "**Graphs:** a degree-$n$ polynomial has at most $n$ x-intercepts and at most $n - 1$ turning points. The ends follow $a_n x^n$: even degree → both ends the same way; odd → opposite ways; $a_n > 0$ → right end up.",
+                "**Location theorem:** if $f(a)$ and $f(b)$ have opposite signs, $f$ has a zero between $a$ and $b$ (the smooth graph must cross the axis)."
+              ]
+            },
+            {
+              "id": "math11-u1-c05",
+              "type": "mnemonic",
+              "title": "End behaviour",
+              "page": 30,
+              "src": "notes",
+              "body": [
+                "Even degree + positive leading → both ends up (smile). Odd degree + positive leading → left down, right up. Flip all of that if leading is negative."
+              ]
+            },
+            {
+              "id": "math11-u1-md-location",
+              "type": "diagram",
+              "title": "Locating zeros of f(x) = x³ − 3x + 1",
+              "page": 50,
+              "src": "notes",
+              "diagram": "md_location",
+              "mode": "plain",
+              "body": [
+                "Values at $x = -2, -1, 0, 1, 2$: $-1, 3, 1, -1, 3$ (green dots above the axis, red below). Sign changes between $-2$ and $-1$, between 0 and 1, and between 1 and 2 — three zeros, the most a cubic can have."
+              ]
+            },
+            {
+              "id": "math11-u1-md-divalg-t",
+              "type": "text",
+              "title": "Division, remainder and factor theorems",
+              "page": 52,
+              "src": "notes",
+              "body": [
+                "**Division algorithm:** $f(x) = g(x)\\,q(x) + r(x)$ with $\\deg r < \\deg g$. Example 1.23: $x^3 + 3x^2 - 6x + 8 = (x^2 + 2x)(x + 1) + (-8x + 8)$.",
+                "**Remainder theorem:** the remainder when $f(x)$ is divided by $x - a$ is $f(a)$. $f(x) = 2x^3 - 5x + 1$ ÷ $(x - 2)$: remainder $f(2) = 7$; ÷ $(x + 4)$: $f(-4) = -107$.",
+                "**Factor theorem:** $x - a$ is a factor ⇔ $f(a) = 0$.",
+                "**Possible integer roots:** for integer coefficients, an integer zero $a$ must divide the constant term $a_0$ (try $\\pm 1, \\pm 2, \\dots$).",
+                "**Cubes:** $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$, $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$. (In Example 1.26(b) the textbook writes $x^3 - y^3 = (x - y)(x^2 + 2xy + y^2)$; the middle term must be $xy$.)"
+              ]
+            },
+            {
+              "id": "math11-u1-mn4",
+              "type": "mnemonic",
+              "title": "Remainder and factor: \"plug in c\"",
+              "body": [
+                "To divide by (x − c), **plug in c**: the answer P(c) is the remainder. **Remainder 0 ⇒ factor.**",
+                "Careful with the sign: dividing by (x + 3) means c = −3."
+              ],
+              "page": 41,
+              "src": "notes"
+            },
+            {
+              "id": "math11-u1-md-ex-14a",
+              "type": "worked",
+              "title": "Worked example: Example 1.25 (factorise completely)",
+              "page": 57,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Factorise $f(x) = 2x^4 + 3x^3 - 12x^2 - 7x + 6$ and find its zeros.",
+              "steps": [
+                {
+                  "text": "Try divisors of 6: $f(1) = -8$, $f(-1) = 2 - 3 - 12 + 7 + 6 = 0$ → $(x + 1)$ is a factor."
+                },
+                {
+                  "text": "Divide: $f(x) = (x + 1)(2x^3 + x^2 - 13x + 6)$."
+                },
+                {
+                  "text": "In the cubic, $x = 2$ gives $16 + 4 - 26 + 6 = 0$ → $(x - 2)(2x^2 + 5x - 3)$."
+                },
+                {
+                  "text": "$2x^2 + 5x - 3 = (2x - 1)(x + 3)$. Zeros: $-1, 2, \\frac{1}{2}, -3$."
+                }
+              ],
+              "answer": "$(x + 1)(x - 2)(2x - 1)(x + 3)$"
+            },
+            {
+              "id": "math11-u1-md-ex-14b",
+              "type": "worked",
+              "title": "Worked example: find k",
+              "page": 58,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find $k$ if $(x + 5)$ is a factor of $f(x) = x^3 + 2x^2 - kx + 10$.",
+              "steps": [
+                {
+                  "text": "Factor theorem: $f(-5) = 0$."
+                },
+                {
+                  "text": "$-125 + 50 + 5k + 10 = 0 \\Rightarrow 5k = 65$."
+                },
+                {
+                  "text": "$k = 13$."
+                }
+              ],
+              "answer": "$k = 13$"
+            },
+            {
+              "id": "math11-u1-md-summary-t",
+              "type": "remember",
+              "title": "Unit summary",
+              "page": 61,
+              "src": "notes",
+              "body": [
+                "Quadratic: factorise ($m + n = b$, $mn = ac$), complete the square or use $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$; $D = b^2 - 4ac$ counts the roots.",
+                "Inequalities: $a > 0$ → \"< 0\" between the roots, \"> 0\" outside.",
+                "Vertex $\\left(-\\frac{b}{2a}, f\\left(-\\frac{b}{2a}\\right)\\right)$; $y = a(x - h)^2 + k$.",
+                "$f(a)$ = remainder on division by $x - a$; $f(a) = 0$ ⇔ $(x - a)$ is a factor."
               ]
             },
             {
@@ -741,17 +1129,6 @@
               },
               "answer": "C",
               "why": "**Factor Theorem:** (x − c) is a factor when P(c) = 0.\nP(1) = 1 − 2 − 5 + 6 = 0 ✔, so (x − 1) is a factor.\nCheck the others: P(−1) = −1 − 2 + 5 + 6 = 8, P(2) = 8 − 8 − 10 + 6 = −4, P(−3) = −27 − 18 + 15 + 6 = −24. (In fact P(x) = (x − 1)(x + 2)(x − 3).)",
-              "page": 41,
-              "src": "notes"
-            },
-            {
-              "id": "math11-u1-mn4",
-              "type": "mnemonic",
-              "title": "Remainder and factor: \"plug in c\"",
-              "body": [
-                "To divide by (x − c), **plug in c**: the answer P(c) is the remainder. **Remainder 0 ⇒ factor.**",
-                "Careful with the sign: dividing by (x + 3) means c = −3."
-              ],
               "page": 41,
               "src": "notes"
             },
@@ -873,11 +1250,75 @@
           ]
         }
       ],
-      "glossary": [],
+      "glossary": [
+        {
+          "term": "Quadratic function",
+          "meaning": "$f(x) = ax^2 + bx + c$, $a \\ne 0$.",
+          "page": 1,
+          "src": "notes"
+        },
+        {
+          "term": "Discriminant",
+          "meaning": "$D = b^2 - 4ac$.",
+          "page": 17,
+          "src": "notes"
+        },
+        {
+          "term": "Vertex",
+          "meaning": "The turning point of a parabola, $\\left(-\\frac{b}{2a}, f\\left(-\\frac{b}{2a}\\right)\\right)$.",
+          "page": 35,
+          "src": "notes"
+        },
+        {
+          "term": "Axis of symmetry",
+          "meaning": "The vertical line $x = -\\frac{b}{2a}$ through the vertex.",
+          "page": 4,
+          "src": "notes"
+        },
+        {
+          "term": "Sign chart",
+          "meaning": "A number line showing the sign of each factor in each interval.",
+          "page": 26,
+          "src": "notes"
+        },
+        {
+          "term": "Remainder theorem",
+          "meaning": "Dividing $f(x)$ by $x - a$ leaves remainder $f(a)$.",
+          "page": 55,
+          "src": "notes"
+        },
+        {
+          "term": "Factor theorem",
+          "meaning": "$x - a$ is a factor of $f(x)$ ⇔ $f(a) = 0$.",
+          "page": 56,
+          "src": "notes"
+        },
+        {
+          "term": "Location theorem",
+          "meaning": "Opposite signs of $f(a)$ and $f(b)$ ⇒ a zero between $a$ and $b$.",
+          "page": 50,
+          "src": "notes"
+        }
+      ],
       "tips": [
         {
           "text": "Read 1.1 Representation of Quadratic Functions again and say its main idea in one sentence.",
           "page": 1
+        },
+        {
+          "text": "Split the middle term: m + n = b, mn = ac.",
+          "page": 8,
+          "src": "notes"
+        },
+        {
+          "text": "a > 0: \"< 0\" between the roots, \"> 0\" outside.",
+          "page": 25,
+          "src": "notes"
+        },
+        {
+          "text": "Vertex x = −b/(2a); then substitute for y.",
+          "page": 35,
+          "src": "notes"
         }
       ],
       "games": [
@@ -1680,6 +2121,660 @@
             ],
             "tip": "Units reveal mistakes.",
             "similar": []
+          },
+          {
+            "id": "math11-u1-md-s11-q01",
+            "type": "short",
+            "q": "Tourist spending: (0, 10), (1, 7), (2, 6), (3, 7), (4, 10), (5, 15) with $x = 0$ in 1998. Find $f(x)$ and estimate 2004.",
+            "answer": "$f(x) = x^2 - 4x + 10$; 22 million",
+            "why": [
+              "Step 1: symmetric about $x = 2$; vertex $(2, 6)$.",
+              "Step 2: $f(0) = 4a + 6 = 10 \\Rightarrow a = 1$.",
+              "Step 3: 2004 is $x = 6$: $16 + 6 = 22$."
+            ],
+            "tip": "Look for the symmetry in the table first.",
+            "similar": [
+              {
+                "q": "Minimum spending year?",
+                "a": "2000 (6 million)."
+              }
+            ],
+            "page": 6,
+            "src": "notes",
+            "label": "1.1 Practice — representing quadratics"
+          },
+          {
+            "id": "math11-u1-md-s11-q02",
+            "type": "short",
+            "q": "Braking distance $B(s) = 0.01s^2 + 0.7s$. Find $B(50)$.",
+            "answer": "60 m",
+            "why": [
+              "Step 1: $0.01 \\times 2500 = 25$.",
+              "Step 2: $0.7 \\times 50 = 35$; total 60 m."
+            ],
+            "tip": "Square first, then multiply.",
+            "similar": [
+              {
+                "q": "$B(20)$?",
+                "a": "$4 + 14 = 18$ m."
+              }
+            ],
+            "page": 3,
+            "src": "notes",
+            "label": "1.1 Practice — representing quadratics"
+          },
+          {
+            "id": "math11-u1-md-s11-q03",
+            "type": "short",
+            "q": "For $f(x) = 8x - x^2$, find the vertex, axis and range.",
+            "answer": "vertex $(4, 16)$, $x = 4$, $y \\le 16$",
+            "why": [
+              "Step 1: zeros 0 and 8 → axis $x = 4$.",
+              "Step 2: $f(4) = 32 - 16 = 16$.",
+              "Step 3: $a = -1 < 0$: maximum, range $y \\le 16$."
+            ],
+            "tip": "Axis = midpoint of the zeros.",
+            "similar": [
+              {
+                "q": "$f(x) = x^2 - 1$?",
+                "a": "vertex $(0, -1)$, range $y \\ge -1$."
+              }
+            ],
+            "page": 5,
+            "src": "notes",
+            "label": "1.1 Practice — representing quadratics"
+          },
+          {
+            "id": "math11-u1-md-s11-q04",
+            "type": "mcq",
+            "q": "The range of $f(x) = x^2 - 2x - 3$ is",
+            "options": {
+              "A": "all reals",
+              "B": "$y \\ge -4$",
+              "C": "$y \\le -4$",
+              "D": "$y \\ge -3$"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: vertex $(1, -4)$, opens up."
+            ],
+            "tip": "Range starts at the vertex.",
+            "similar": [
+              {
+                "q": "Range of $-x^2 + 4$?",
+                "a": "$y \\le 4$."
+              }
+            ],
+            "page": 4,
+            "src": "notes",
+            "label": "1.1 Practice — representing quadratics"
+          },
+          {
+            "id": "math11-u1-md-s12-q01",
+            "type": "short",
+            "q": "Factorise (a) $3x^2 - 13x - 10$ (b) $-3x^2 + 20x + 7$.",
+            "answer": "$(3x + 2)(x - 5)$; $-(3x + 1)(x - 7)$",
+            "why": [
+              "Step 1 (a): $m + n = -13$, $mn = -30$: $2, -15$ → $3x^2 + 2x - 15x - 10 = x(3x + 2) - 5(3x + 2)$.",
+              "Step 2 (b): take out $-1$: $3x^2 - 20x - 7 = (3x + 1)(x - 7)$."
+            ],
+            "tip": "Check by expanding.",
+            "similar": [
+              {
+                "q": "$x^2 + 9x + 20$?",
+                "a": "$(x + 4)(x + 5)$."
+              }
+            ],
+            "page": 9,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s12-q02",
+            "type": "short",
+            "q": "Is $2x^2 - 5x - 3 = (x - 1)(2x + 3)$? If not, correct it.",
+            "answer": "No: $(2x + 1)(x - 3)$",
+            "why": [
+              "Step 1: expand: $2x^2 + x - 3$ — middle term wrong.",
+              "Step 2: $m + n = -5$, $mn = -6$: $1, -6$ → $(2x + 1)(x - 3)$."
+            ],
+            "tip": "Always check the middle term.",
+            "similar": [
+              {
+                "q": "Is $x^2 - 2x - 8 = (x - 2)(x + 4)$?",
+                "a": "No, $(x - 4)(x + 2)$."
+              }
+            ],
+            "page": 9,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s12-q03",
+            "type": "short",
+            "q": "Solve by factorising: (a) $5x^2 + 18x = 8$ (b) $2n^2 = 12n + 54$.",
+            "answer": "$\\frac{2}{5}, -4$; $9, -3$",
+            "why": [
+              "Step 1 (a): $5x^2 + 18x - 8 = (5x - 2)(x + 4) = 0$.",
+              "Step 2 (b): $n^2 - 6n - 27 = (n - 9)(n + 3) = 0$."
+            ],
+            "tip": "Standard form first (right side 0).",
+            "similar": [
+              {
+                "q": "$x^2 - 5x = 14$?",
+                "a": "7, $-2$."
+              }
+            ],
+            "page": 12,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s12-q04",
+            "type": "short",
+            "q": "The length of a rectangle is 5 cm more than its width and its area is 84 cm². Find its sides.",
+            "answer": "7 cm and 12 cm",
+            "why": [
+              "Step 1: $w(w + 5) = 84 \\Rightarrow w^2 + 5w - 84 = 0$.",
+              "Step 2: $(w + 12)(w - 7) = 0$, $w = 7$."
+            ],
+            "tip": "Reject negative lengths.",
+            "similar": [
+              {
+                "q": "Two consecutive even integers with product 224?",
+                "a": "14 and 16 (or −16 and −14)."
+              }
+            ],
+            "page": 12,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s12-q05",
+            "type": "short",
+            "q": "A circle of radius 8 cm: by how much must the radius decrease to reduce the area by $48\\pi$ cm²?",
+            "answer": "4 cm",
+            "why": [
+              "Step 1: new area $64\\pi - 48\\pi = 16\\pi$.",
+              "Step 2: $r^2 = 16$, $r = 4$: decrease by 4 cm."
+            ],
+            "tip": "Work with $r^2$.",
+            "similar": [
+              {
+                "q": "Radius 5, increase area by $11\\pi$?",
+                "a": "new $r = 6$, +1 cm."
+              }
+            ],
+            "page": 13,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s12-q06",
+            "type": "short",
+            "q": "Solve by completing the square: $x^2 + 8x - 6 = 0$.",
+            "answer": "$x = -4 \\pm \\sqrt{22}$",
+            "why": [
+              "Step 1: $x^2 + 8x = 6$.",
+              "Step 2: add 16: $(x + 4)^2 = 22$.",
+              "Step 3: $x = -4 \\pm \\sqrt{22}$."
+            ],
+            "tip": "Add (half of b)².",
+            "similar": [
+              {
+                "q": "$x^2 - 6x = -2$?",
+                "a": "$3 \\pm \\sqrt{7}$."
+              }
+            ],
+            "page": 14,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s12-q07",
+            "type": "short",
+            "q": "One leg of a right triangle is 4 cm longer than the other; the hypotenuse is 12 cm. Find the legs.",
+            "answer": "$-2 + 2\\sqrt{17} \\approx 6.25$ and $\\approx 10.25$ cm",
+            "why": [
+              "Step 1: $x^2 + (x + 4)^2 = 144 \\Rightarrow x^2 + 4x - 64 = 0$.",
+              "Step 2: $(x + 2)^2 = 68$, $x = -2 + 2\\sqrt{17} \\approx 6.25$."
+            ],
+            "tip": "Pythagoras gives the quadratic.",
+            "similar": [
+              {
+                "q": "Legs differ by 7, hypotenuse 13?",
+                "a": "5 and 12."
+              }
+            ],
+            "page": 14,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s12-q08",
+            "type": "short",
+            "q": "A square card of side $x$ cm has 5 cm squares cut from each corner and is folded into an open box of volume 400 cm³. Find $x$.",
+            "answer": "$10 + 4\\sqrt{5} \\approx 18.9$ cm",
+            "why": [
+              "Step 1: base $(x - 10)^2$, height 5: $5(x - 10)^2 = 400$.",
+              "Step 2: $(x - 10)^2 = 80$, $x = 10 + \\sqrt{80} \\approx 18.9$."
+            ],
+            "tip": "The base loses 5 cm at each end.",
+            "similar": [
+              {
+                "q": "Volume 500 instead?",
+                "a": "$x = 20$."
+              }
+            ],
+            "page": 14,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s12-q09",
+            "type": "short",
+            "q": "Use the formula: (a) $4x^2 - 14x = 9$ (b) $10x - x^2 = -3$.",
+            "answer": "$\\frac{7 \\pm \\sqrt{85}}{4}$; $5 \\pm 2\\sqrt{7}$",
+            "why": [
+              "Step 1 (a): $4x^2 - 14x - 9 = 0$: $D = 196 + 144 = 340$; $x = \\frac{14 \\pm 2\\sqrt{85}}{8}$.",
+              "Step 2 (b): $x^2 - 10x - 3 = 0$: $D = 112$; $x = \\frac{10 \\pm 4\\sqrt{7}}{2}$."
+            ],
+            "tip": "Simplify the root at the end.",
+            "similar": [
+              {
+                "q": "$x^2 + 8x + 12 = 0$?",
+                "a": "$-2, -6$."
+              }
+            ],
+            "page": 16,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s12-q10",
+            "type": "short",
+            "q": "How many real solutions? (a) $x^2 + 4x + 13 = 0$ (b) $9x^2 + 12x = -4$ (c) $3x^2 - x - 2 = 0$",
+            "answer": "none; one; two",
+            "why": [
+              "Step 1: $D = 16 - 52 < 0$.",
+              "Step 2: $9x^2 + 12x + 4$: $D = 144 - 144 = 0$.",
+              "Step 3: $D = 1 + 24 = 25 > 0$."
+            ],
+            "tip": "Only the sign of $D$ matters.",
+            "similar": [
+              {
+                "q": "$x^2 + x + 1 = 0$?",
+                "a": "none ($D = -3$)."
+              }
+            ],
+            "page": 18,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s12-q11",
+            "type": "short",
+            "q": "Solve $x^2 - 5x - 14 < 0$.",
+            "answer": "$-2 < x < 7$",
+            "why": [
+              "Step 1: $(x - 7)(x + 2) < 0$.",
+              "Step 2: opens up, \"< 0\" → between."
+            ],
+            "tip": "Between the roots.",
+            "similar": [
+              {
+                "q": "$x^2 - 2x - 3 < 0$?",
+                "a": "$-1 < x < 3$."
+              }
+            ],
+            "page": 24,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s12-q12",
+            "type": "short",
+            "q": "Solve (a) $x^2 - 25 > 0$ (b) $2x^2 + 7x > 0$.",
+            "answer": "$x < -5$ or $x > 5$; $x < -\\frac{7}{2}$ or $x > 0$",
+            "why": [
+              "Step 1: roots $\\pm 5$, outside.",
+              "Step 2: $x(2x + 7) > 0$: roots $-\\frac{7}{2}$, 0, outside."
+            ],
+            "tip": "Outside the roots for \"> 0\".",
+            "similar": [
+              {
+                "q": "$x^2 - 6x > 16$?",
+                "a": "$x < -2$ or $x > 8$."
+              }
+            ],
+            "page": 28,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s12-q13",
+            "type": "short",
+            "q": "Solve $9x - 2x^2 \\le -5$.",
+            "answer": "$x \\le -\\frac{1}{2}$ or $x \\ge 5$",
+            "why": [
+              "Step 1: $2x^2 - 9x - 5 \\ge 0$.",
+              "Step 2: $(2x + 1)(x - 5) \\ge 0$: outside, endpoints included."
+            ],
+            "tip": "Make $a$ positive, flip the sign.",
+            "similar": [
+              {
+                "q": "$-x^2 + 4 \\ge 0$?",
+                "a": "$-2 \\le x \\le 2$."
+              }
+            ],
+            "page": 28,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s12-q14",
+            "type": "tf",
+            "q": "If $D = 0$, the parabola touches the x-axis at its vertex.",
+            "answer": true,
+            "why": [
+              "Step 1: one repeated root $x = -\\frac{b}{2a}$, which is the vertex x-coordinate."
+            ],
+            "tip": "Touch, not cross.",
+            "similar": [
+              {
+                "q": "If $D < 0$ and $a > 0$, where is the parabola?",
+                "a": "entirely above the x-axis."
+              }
+            ],
+            "page": 18,
+            "src": "notes",
+            "label": "1.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math11-u1-md-s13-q01",
+            "type": "short",
+            "q": "Describe how to get $y = (x + 2)^2 - 3$ from $y = x^2$, and give the vertex.",
+            "answer": "left 2, down 3; $(-2, -3)$",
+            "why": [
+              "Step 1: $(x + 2)$ → left 2.",
+              "Step 2: $-3$ → down 3."
+            ],
+            "tip": "Inside the bracket: opposite direction.",
+            "similar": [
+              {
+                "q": "$y = (x - 1)^2 + 2$?",
+                "a": "right 1, up 2; $(1, 2)$."
+              }
+            ],
+            "page": 33,
+            "src": "notes",
+            "label": "1.3 Practice — graphs"
+          },
+          {
+            "id": "math11-u1-md-s13-q02",
+            "type": "short",
+            "q": "Write $f(x) = x^2 - 4x + 1$ in vertex form.",
+            "answer": "$(x - 2)^2 - 3$",
+            "why": [
+              "Step 1: $x_v = 2$, $f(2) = -3$.",
+              "Step 2: $a = 1$."
+            ],
+            "tip": "$x_v = -\\frac{b}{2a}$.",
+            "similar": [
+              {
+                "q": "$f(x) = -3x^2 + 12x - 5$: vertex?",
+                "a": "$(2, 7)$."
+              }
+            ],
+            "page": 36,
+            "src": "notes",
+            "label": "1.3 Practice — graphs"
+          },
+          {
+            "id": "math11-u1-md-s13-q03",
+            "type": "short",
+            "q": "Find the maximum or minimum of $f(x) = -2(x - 1)^2 + 5$.",
+            "answer": "maximum 5 at $x = 1$",
+            "why": [
+              "Step 1: $a = -2 < 0$ → maximum.",
+              "Step 2: vertex $(1, 5)$."
+            ],
+            "tip": "Read $(h, k)$ directly.",
+            "similar": [
+              {
+                "q": "$f(x) = 3(x + 4)^2 - 1$?",
+                "a": "minimum $-1$ at $x = -4$."
+              }
+            ],
+            "page": 36,
+            "src": "notes",
+            "label": "1.3 Practice — graphs"
+          },
+          {
+            "id": "math11-u1-md-s13-q04",
+            "type": "short",
+            "q": "Two numbers add to 20. Find the largest possible product.",
+            "answer": "100",
+            "why": [
+              "Step 1: $P = x(20 - x)$.",
+              "Step 2: vertex $x = 10$, $P = 100$."
+            ],
+            "tip": "Max of a downward parabola at the vertex.",
+            "similar": [
+              {
+                "q": "Perimeter 40 m: largest rectangle area?",
+                "a": "100 m² (a square)."
+              }
+            ],
+            "page": 39,
+            "src": "notes",
+            "label": "1.3 Practice — graphs"
+          },
+          {
+            "id": "math11-u1-md-s13-q05",
+            "type": "mcq",
+            "q": "The axis of symmetry of $y = 2x^2 + 5x + 6$ is",
+            "options": {
+              "A": "$x = -\\frac{5}{4}$",
+              "B": "$x = \\frac{5}{4}$",
+              "C": "$x = -\\frac{5}{2}$",
+              "D": "$x = 6$"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: $-\\frac{b}{2a} = -\\frac{5}{4}$."
+            ],
+            "tip": "Divide by $2a$, not $a$.",
+            "similar": [
+              {
+                "q": "Axis of $y = x^2 - 6x$?",
+                "a": "$x = 3$."
+              }
+            ],
+            "page": 37,
+            "src": "notes",
+            "label": "1.3 Practice — graphs"
+          },
+          {
+            "id": "math11-u1-md-s14-q01",
+            "type": "short",
+            "q": "For $f(x) = (3x^2 + 7x - 1)(2x - x^2 + 6)$ find the degree, leading coefficient and constant term.",
+            "answer": "4; $-3$; $-6$",
+            "why": [
+              "Step 1: degrees $2 + 2 = 4$.",
+              "Step 2: leading $3 \\times (-1) = -3$.",
+              "Step 3: constant $-1 \\times 6 = -6$."
+            ],
+            "tip": "Multiply only leading terms / constant terms.",
+            "similar": [
+              {
+                "q": "Degree of $(x^3 + 1)(x^2 - 2)$?",
+                "a": "5."
+              }
+            ],
+            "page": 45,
+            "src": "notes",
+            "label": "1.4 Practice — polynomial functions"
+          },
+          {
+            "id": "math11-u1-md-s14-q02",
+            "type": "short",
+            "q": "Find the remainder when $f(x) = 3x - 5$ is divided by $x - 8$, and when $x^3 - 2x + 4$ is divided by $x + 2$.",
+            "answer": "19; 0",
+            "why": [
+              "Step 1: $f(8) = 19$.",
+              "Step 2: $(-2)^3 + 4 + 4 = 0$."
+            ],
+            "tip": "Remainder = $f(a)$ for divisor $x - a$.",
+            "similar": [
+              {
+                "q": "$x^2 + 1$ ÷ $(x - 3)$?",
+                "a": "10."
+              }
+            ],
+            "page": 55,
+            "src": "notes",
+            "label": "1.4 Practice — polynomial functions"
+          },
+          {
+            "id": "math11-u1-md-s14-q03",
+            "type": "short",
+            "q": "Is (a) $(x - 2)$ a factor of $2x^3 - 11x + 6$? (b) $(x + 3)$ a factor of $3x^3 + 7x^2 - 10x - 2$? (c) $(x + 4)$ a factor of $x^5 + 1024$?",
+            "answer": "yes; no; yes",
+            "why": [
+              "Step 1: $f(2) = 16 - 22 + 6 = 0$.",
+              "Step 2: $f(-3) = -81 + 63 + 30 - 2 = 10$.",
+              "Step 3: $(-4)^5 = -1024$, sum 0."
+            ],
+            "tip": "Zero remainder ⇔ factor.",
+            "similar": [
+              {
+                "q": "$(x - 1)$ of $x^4 + 2x^3 - 3x^2 + 8x - 8$?",
+                "a": "yes ($f(1) = 0$)."
+              }
+            ],
+            "page": 58,
+            "src": "notes",
+            "label": "1.4 Practice — polynomial functions"
+          },
+          {
+            "id": "math11-u1-md-s14-q04",
+            "type": "short",
+            "q": "Find $k$ if $(x - 1)$ is a factor of $x^3 + kx^2 + 9x - 5$.",
+            "answer": "$k = -5$",
+            "why": [
+              "Step 1: $f(1) = 1 + k + 9 - 5 = 0$.",
+              "Step 2: $k = -5$."
+            ],
+            "tip": "Set $f(a) = 0$.",
+            "similar": [
+              {
+                "q": "$(x - 2)$ a factor of $x^2 + kx + 6$?",
+                "a": "$k = -5$."
+              }
+            ],
+            "page": 58,
+            "src": "notes",
+            "label": "1.4 Practice — polynomial functions"
+          },
+          {
+            "id": "math11-u1-md-s14-q05",
+            "type": "short",
+            "q": "Divide $x^2 + 8x - 6$ by $x - 7$: find $q(x)$ and $r$.",
+            "answer": "$q = x + 15$, $r = 99$",
+            "why": [
+              "Step 1: $x$: subtract $x^2 - 7x$ → $15x - 6$.",
+              "Step 2: $15$: subtract $15x - 105$ → 99.",
+              "Check: $f(7) = 49 + 56 - 6 = 99$ (correct)."
+            ],
+            "tip": "Check with the remainder theorem.",
+            "similar": [
+              {
+                "q": "$x^2 - 1$ ÷ $(x - 1)$?",
+                "a": "$x + 1$, 0."
+              }
+            ],
+            "page": 54,
+            "src": "notes",
+            "label": "1.4 Practice — polynomial functions"
+          },
+          {
+            "id": "math11-u1-md-s14-q06",
+            "type": "short",
+            "q": "Factorise $x^3 - 27$ and $8x^3 + 1$.",
+            "answer": "$(x - 3)(x^2 + 3x + 9)$; $(2x + 1)(4x^2 - 2x + 1)$",
+            "why": [
+              "Step 1: $a = x$, $b = 3$.",
+              "Step 2: $a = 2x$, $b = 1$."
+            ],
+            "tip": "SOAP: Same, Opposite, Always Positive signs.",
+            "similar": [
+              {
+                "q": "$a^3 + 64$?",
+                "a": "$(a + 4)(a^2 - 4a + 16)$."
+              }
+            ],
+            "page": 59,
+            "src": "notes",
+            "label": "1.4 Practice — polynomial functions"
+          },
+          {
+            "id": "math11-u1-md-s14-q07",
+            "type": "short",
+            "q": "Between which consecutive integers does $f(x) = x^3 - 3x + 1$ have zeros?",
+            "answer": "$-2$ and $-1$; 0 and 1; 1 and 2",
+            "why": [
+              "Step 1: $f(-2) = -1$, $f(-1) = 3$, $f(0) = 1$, $f(1) = -1$, $f(2) = 3$.",
+              "Step 2: look for sign changes."
+            ],
+            "tip": "Location theorem.",
+            "similar": [
+              {
+                "q": "$f(x) = x^2 - 2$?",
+                "a": "$-2$ and $-1$; 1 and 2."
+              }
+            ],
+            "page": 50,
+            "src": "notes",
+            "label": "1.4 Practice — polynomial functions"
+          },
+          {
+            "id": "math11-u1-md-s14-q08",
+            "type": "short",
+            "q": "Describe the end behaviour of $f(x) = -2x^5 + 10x^2 - 8x + 2$.",
+            "answer": "left up, right down",
+            "why": [
+              "Step 1: leading term $-2x^5$: odd, negative."
+            ],
+            "tip": "Only the leading term matters.",
+            "similar": [
+              {
+                "q": "$g(x) = -x^4 + 5x^2$?",
+                "a": "both ends down."
+              }
+            ],
+            "page": 47,
+            "src": "notes",
+            "label": "1.4 Practice — polynomial functions"
+          },
+          {
+            "id": "math11-u1-md-s14-q09",
+            "type": "tf",
+            "q": "A polynomial of degree 4 can have 5 x-intercepts.",
+            "answer": false,
+            "why": [
+              "Step 1: at most $n = 4$ zeros."
+            ],
+            "tip": "Degree caps the number of zeros.",
+            "similar": [
+              {
+                "q": "Max turning points of a cubic?",
+                "a": "2."
+              }
+            ],
+            "page": 52,
+            "src": "notes",
+            "label": "1.4 Practice — polynomial functions"
           }
         ]
       },
@@ -1733,6 +2828,30 @@
             "cards": [
               "math11-u1-c08"
             ]
+          },
+          {
+            "id": "md_disc",
+            "label": "Discriminant",
+            "kind": "idea",
+            "cards": [
+              "math11-u1-md-disc-t"
+            ]
+          },
+          {
+            "id": "md_vform",
+            "label": "Vertex form",
+            "kind": "idea",
+            "cards": [
+              "math11-u1-md-vform-t"
+            ]
+          },
+          {
+            "id": "md_divalg",
+            "label": "Remainder and factor theorems",
+            "kind": "idea",
+            "cards": [
+              "math11-u1-md-divalg-t"
+            ]
           }
         ],
         "edges": [
@@ -1770,9 +2889,62 @@
             "from": "l1_3",
             "to": "l1_4",
             "label": "next"
+          },
+          {
+            "from": "l1_2",
+            "to": "md_disc",
+            "label": "key idea"
+          },
+          {
+            "from": "l1_3",
+            "to": "md_vform",
+            "label": "key idea"
+          },
+          {
+            "from": "l1_4",
+            "to": "md_divalg",
+            "label": "key idea"
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "md_ex12": {
+          "svg": "svg/mathematics_11/m11_u1_ex12.svg",
+          "title": "Example 1.2: y = x² − 2x − 3",
+          "page": 4,
+          "pins": []
+        },
+        "md_shifts": {
+          "svg": "svg/mathematics_11/m11_u1_shifts.svg",
+          "title": "Shifting y = x² (Examples 1.13–1.15)",
+          "page": 32,
+          "pins": []
+        },
+        "md_disc": {
+          "svg": "svg/mathematics_11/m11_u1_disc.svg",
+          "title": "The discriminant and the x-intercepts",
+          "page": 18,
+          "pins": []
+        },
+        "md_signchart": {
+          "svg": "svg/mathematics_11/m11_u1_signchart.svg",
+          "title": "Sign chart for (x + 2)(x − 5)",
+          "page": 26,
+          "pins": []
+        },
+        "md_maxarea": {
+          "svg": "svg/mathematics_11/m11_u1_maxarea.svg",
+          "title": "Example 1.17: the largest field",
+          "page": 38,
+          "pins": []
+        },
+        "md_location": {
+          "svg": "svg/mathematics_11/m11_u1_location.svg",
+          "title": "A sign change means a zero in between",
+          "page": 50,
+          "pins": []
+        }
       }
     },
     {
