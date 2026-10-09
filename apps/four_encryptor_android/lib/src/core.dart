@@ -29,7 +29,7 @@ class Job {
   // progress / result
   String status = 'Ready';
   double progress = 0;
-  String? outUri, outName, error;
+  String? outUri, outName, error, errorDetails;
   bool get done => outUri != null;
 
   /// Why this job may not be encrypted (licence gate), or null.
