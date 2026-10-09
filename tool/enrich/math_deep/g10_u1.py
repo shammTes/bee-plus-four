@@ -306,7 +306,7 @@ L12 = [
        ['Replace $f(x)$ by $y$: $y = 3x - 6$.',
         'Swap $x$ and $y$: $x = 3y - 6$.',
         'Solve for $y$: $x + 6 = 3y \\Rightarrow y = \\frac{x + 6}{3} = \\frac13 x + 2$.',
-        'So $f^{-1}(x) = \\frac13 x + 2$. Check: $f(4) = 6$ and $f^{-1}(6) = 2 + 2 = 4$ ✓.'],
+        'So $f^{-1}(x) = \\frac13 x + 2$. Check: $f(4) = 6$ and $f^{-1}(6) = 2 + 2 = 4$ (correct).'],
        '$f^{-1}(x) = \\frac13 x + 2$'),
     WK('ex-inv2', 'Worked example: inverse of a rational function', 23,
        'Find $g^{-1}(x)$ for $g(x) = \\frac{x - 2}{x + 3}$.',
