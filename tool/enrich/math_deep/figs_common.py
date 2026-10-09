@@ -117,3 +117,20 @@ def venn2(f, x, y, w, h, shade=None, la='A', lb='B', lu='U', d=None, r=None, num
     if cap:
         f.text(cx, y + h + 16, cap, 12.5, INK)
     return f
+
+
+def halfplane(p, a, b, c, fill=SHADE, op=0.6):
+    """shade the part of Plot p's window where a*x + b*y + c >= 0 (Sutherland-Hodgman clip of the window rectangle)"""
+    win = [(p.xmin, p.ymin), (p.xmax, p.ymin), (p.xmax, p.ymax), (p.xmin, p.ymax)]
+    v = lambda q: a * q[0] + b * q[1] + c
+    out = []
+    for i, q in enumerate(win):
+        r = win[(i + 1) % 4]
+        if v(q) >= 0:
+            out.append(q)
+        if (v(q) >= 0) != (v(r) >= 0):
+            t = v(q) / (v(q) - v(r))
+            out.append((q[0] + t * (r[0] - q[0]), q[1] + t * (r[1] - q[1])))
+    if len(out) >= 3:
+        p.poly([p.P(*q) for q in out], None, 0, fill, op=op)
+    return p

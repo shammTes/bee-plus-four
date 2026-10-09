@@ -6984,15 +6984,144 @@
             {
               "id": "math9-u3-c01",
               "type": "text",
-              "title": "3.1 Representing Linear Functions",
-              "page": 51,
-              "src": "textbook pp.51–52",
-              "enriched": true,
+              "title": "3.1 What makes a function linear?",
+              "page": 52,
+              "src": "notes",
               "body": [
-                "Tell at least two differences between the function S = 5N of task 1 and the function A = 5w of this task.",
-                "Points that lie on a straight line are collinear.",
-                "**A linear function** is a function that can be written in the form y = mx + b where m and b are constant real numbers."
+                "A **linear function** can be written as $$y = mx + b$$ where $m$ and $b$ are fixed real numbers. Its graph is a straight line. Points that lie on one straight line are called **collinear**.",
+                "Equivalent form: $Ax + By = C$ with $B \\ne 0$ — solve for $y$ to get $y = mx + b$.",
+                "Signs that a rule is **not** linear: $x$ is squared ($x^2$), under a root ($\\sqrt{x}$), in a denominator ($\\frac{1}{x}$), or multiplied by $y$ ($xy$).",
+                "Tirhas saves 5 Nakfa a week: $S = 5N$ is linear, but since $N$ is a whole number of weeks its graph is **dots on a line**, not a full line. A rectangle of length 5 and width $w$: $A = 5w$ — here $w$ can be any positive number, so the graph is a ray."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u3-md-gr-save",
+              "type": "graph",
+              "title": "Fig. 3.1: Tirhas's savings, S = 5N",
+              "page": 51,
+              "src": "notes",
+              "graph": {
+                "kind": "plane",
+                "xmin": -1,
+                "xmax": 9,
+                "ymin": -5,
+                "ymax": 45,
+                "grid": true,
+                "points": [
+                  {
+                    "x": 1,
+                    "y": 5,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 2,
+                    "y": 10,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 3,
+                    "y": 15,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 4,
+                    "y": 20,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 5,
+                    "y": 25,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 6,
+                    "y": 30,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 7,
+                    "y": 35,
+                    "color": "#C0503A"
+                  }
+                ]
+              },
+              "body": [
+                "The dots are collinear (they lie on the line $S = 5N$), but we do not join them: there is no \"week 2.5\"."
               ]
+            },
+            {
+              "id": "math9-u3-md-lin-t",
+              "type": "table",
+              "title": "Linear or not?",
+              "page": 53,
+              "src": "notes",
+              "head": [
+                "Equation",
+                "Rewrite",
+                "Linear?"
+              ],
+              "rows": [
+                [
+                  "$y = -3x + 2$",
+                  "already $y = mx + b$, $m = -3$, $b = 2$",
+                  "yes"
+                ],
+                [
+                  "$2y - 3x = 6$",
+                  "$y = \\frac{3}{2}x + 3$",
+                  "yes"
+                ],
+                [
+                  "$5x = 2y + 10$",
+                  "$y = \\frac{5}{2}x - 5$",
+                  "yes"
+                ],
+                [
+                  "$y = 3x^2 - 12$",
+                  "$x$ is squared",
+                  "no"
+                ],
+                [
+                  "$t = (u + 1)(u - 1)$",
+                  "$t = u^2 - 1$",
+                  "no"
+                ],
+                [
+                  "$s$ = side of a square of area $A$",
+                  "$s = \\sqrt{A}$",
+                  "no"
+                ],
+                [
+                  "$C = \\pi d$",
+                  "$m = \\pi$, $b = 0$",
+                  "yes ($\\pi$ is just a number)"
+                ]
+              ],
+              "body": [
+                "Expand and simplify **before** you decide — $(u + 1)(u - 1)$ hides a square."
+              ]
+            },
+            {
+              "id": "math9-u3-md-ex-31a",
+              "type": "worked",
+              "title": "Worked example: from a table to an equation",
+              "page": 53,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Dahlak's ages 1, 2, 3, 4, 5 and her brother Aron's ages 7, 8, 9, 10, 11. Write an equation and find Aron's age when Dahlak is 10.",
+              "steps": [
+                {
+                  "text": "Each pair differs by 6: Aron is 6 years older."
+                },
+                {
+                  "text": "$y = x + 6$ (linear, $m = 1$, $b = 6$)."
+                },
+                {
+                  "text": "$x = 10$: $y = 16$."
+                }
+              ],
+              "answer": "$y = x + 6$; Aron is 16"
             },
             {
               "id": "math9-u3-tbl1",
@@ -7142,25 +7271,225 @@
             {
               "id": "math9-u3-c02",
               "type": "text",
-              "title": "3.2.1 Graphing Linear Functions",
-              "page": 55,
-              "src": "textbook p.55",
-              "enriched": true,
+              "title": "3.2.1 Graphing a line",
+              "page": 54,
+              "src": "notes",
               "body": [
-                "Draw the graph of y = x – 2 by using the shifting system on the graph of y = x."
+                "Two points fix a line, but plot **three** so that a mistake shows up (the three must be collinear).",
+                "Method: choose easy $x$-values (like $-1, 0, 1$ or $0, 1, 2$), compute $y$, plot, rule a line through them and extend it with arrows.",
+                "**Shifting:** the graph of $y = mx + b$ is the graph of $y = mx$ moved **up** $b$ units (down if $b$ is negative). All lines $y = mx + b$ with the same $m$ are **parallel**. To shift a point down 2, subtract 2 from its **$y$-coordinate**: $(1, 1) \\to (1, -1)$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u3-md-gr-shift",
+              "type": "graph",
+              "title": "Fig. 3.2: y = x shifted up and down",
+              "page": 55,
+              "src": "notes",
+              "graph": {
+                "kind": "plane",
+                "xmin": -5,
+                "xmax": 5,
+                "ymin": -5,
+                "ymax": 5,
+                "grid": true,
+                "points": [
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "color": "#2F5F8F"
+                  },
+                  {
+                    "x": 0,
+                    "y": -2,
+                    "label": "(0, −2)",
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 0,
+                    "y": 2,
+                    "label": "(0, 2)",
+                    "color": "#2A7A6B"
+                  }
+                ],
+                "lines": [
+                  {
+                    "m": 1,
+                    "c": 0,
+                    "label": "y = x",
+                    "color": "#2F5F8F"
+                  },
+                  {
+                    "m": 1,
+                    "c": 2,
+                    "label": "y = x + 2",
+                    "color": "#2A7A6B"
+                  },
+                  {
+                    "m": 1,
+                    "c": -2,
+                    "label": "y = x − 2",
+                    "color": "#C0503A"
+                  }
+                ]
+              },
+              "body": [
+                "Every point of $y = x$ moves straight up 2 or down 2. Same slope → parallel lines."
+              ]
+            },
+            {
+              "id": "math9-u3-md-gr-family",
+              "type": "graph",
+              "title": "y = mx always passes through the origin",
+              "page": 54,
+              "src": "notes",
+              "graph": {
+                "kind": "plane",
+                "xmin": -4,
+                "xmax": 4,
+                "ymin": -4,
+                "ymax": 4,
+                "grid": true,
+                "lines": [
+                  {
+                    "m": -1,
+                    "c": 0,
+                    "label": "y = −x",
+                    "color": "#C0503A"
+                  },
+                  {
+                    "m": 1,
+                    "c": 0,
+                    "label": "y = x",
+                    "color": "#2F5F8F"
+                  },
+                  {
+                    "m": 3,
+                    "c": 0,
+                    "label": "y = 3x",
+                    "color": "#2A7A6B"
+                  }
+                ]
+              },
+              "body": [
+                "With $b = 0$ every line passes through $(0, 0)$. A bigger $|m|$ gives a steeper line; a negative $m$ makes it fall."
               ]
             },
             {
               "id": "math9-u3-c03",
               "type": "text",
-              "title": "3.2.2 Graphing Linear Inequalities",
-              "page": 57,
-              "src": "textbook pp.57–59",
-              "enriched": true,
+              "title": "3.2.2 Graphing a linear inequality in two variables",
+              "page": 58,
+              "src": "notes",
               "body": [
-                "The graph of an inequality in two variables is the set of all points whose coordinates make the inequality true.",
-                "Step 3: Because 0 is not greater than 5, the test point (0, 0), is not part of the solution set."
+                "The graph of $y > mx + b$ (or $Ax + By > C$) is a **half-plane**: all points on one side of the boundary line.",
+                "**Step 1 — boundary:** draw the line you get by replacing the inequality sign with \"=\". Use a **dashed** line for $<$ or $>$ (points on it are not solutions) and a **solid** line for $\\le$ or $\\ge$.",
+                "**Step 2 — test point:** pick a point not on the line — $(0, 0)$ is easiest — and substitute it.",
+                "**Step 3 — shade:** if the test point makes the inequality true, shade its side; if false, shade the other side.",
+                "Shortcut for $y > \\dots$ / $y < \\dots$ (with $y$ alone): \"greater\" → shade **above**, \"less\" → shade **below**."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u3-md-ineq2",
+              "type": "diagram",
+              "title": "Two inequalities, shaded",
+              "page": 59,
+              "src": "notes",
+              "diagram": "md_ineq2",
+              "mode": "plain",
+              "body": [
+                "Left: $y > -x$ — the line $y = -x$ is dashed, the region above is shaded (e.g. $(0, 1)$: $1 > 0$ true). Right: Example 3.3, $2x - 3y > 5$ — testing $(0, 0)$ gives $0 > 5$, false, so the side **without** the origin (below the line) is shaded."
               ]
+            },
+            {
+              "id": "math9-u3-md-bound-t",
+              "type": "table",
+              "title": "Boundary line and shading",
+              "page": 59,
+              "src": "notes",
+              "head": [
+                "Sign",
+                "Boundary line",
+                "Points on the line"
+              ],
+              "rows": [
+                [
+                  "$<$",
+                  "dashed",
+                  "not included"
+                ],
+                [
+                  "$>$",
+                  "dashed",
+                  "not included"
+                ],
+                [
+                  "$\\le$",
+                  "solid",
+                  "included"
+                ],
+                [
+                  "$\\ge$",
+                  "solid",
+                  "included"
+                ]
+              ],
+              "body": [
+                "Vertical and horizontal boundaries: $x > 0$ → right of the $y$-axis; $y \\le -3$ → on and below the line $y = -3$."
+              ]
+            },
+            {
+              "id": "math9-u3-md-ex-32a",
+              "type": "worked",
+              "title": "Worked example: graph y ≤ −2x + 1",
+              "page": 81,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Describe the graph of $y \\le -2x + 1$ and decide whether $(1, -3)$ and $(2, 0)$ are in it.",
+              "graph": {
+                "kind": "plane",
+                "xmin": -3,
+                "xmax": 3,
+                "ymin": -4,
+                "ymax": 4,
+                "grid": true,
+                "points": [
+                  {
+                    "x": 1,
+                    "y": -3,
+                    "label": "(1, −3)",
+                    "color": "#2A7A6B"
+                  },
+                  {
+                    "x": 2,
+                    "y": 0,
+                    "label": "(2, 0)",
+                    "color": "#C0503A"
+                  }
+                ],
+                "lines": [
+                  {
+                    "m": -2,
+                    "c": 1,
+                    "label": "y = −2x + 1",
+                    "color": "#2F5F8F"
+                  }
+                ]
+              },
+              "steps": [
+                {
+                  "text": "Boundary $y = -2x + 1$ through $(0, 1)$ and $(1, -1)$; **solid** because of $\\le$."
+                },
+                {
+                  "text": "Test $(0, 0)$: $0 \\le 1$ true → shade the side containing the origin (below the line)."
+                },
+                {
+                  "text": "$(1, -3)$: $-3 \\le -1$ true → in the region. $(2, 0)$: $0 \\le -3$ false → not in it."
+                }
+              ],
+              "answer": "solid line, shade below; $(1, -3)$ yes, $(2, 0)$ no"
             },
             {
               "id": "math9-u3-chk3",
@@ -7291,13 +7620,157 @@
             {
               "id": "math9-u3-c04",
               "type": "text",
-              "title": "3.3 Slopes of Linear Functions",
-              "page": 66,
-              "src": "textbook pp.66–67",
-              "enriched": true,
+              "title": "3.3 Slope: how steep is a line?",
+              "page": 61,
+              "src": "notes",
               "body": [
-                "A ladder is leaning against a vertical wall with its foot 1.5m away from the wall on a level ground."
+                "A ladder leans on a wall: its foot is 3 m from the wall (horizontal distance, the **run**) and it reaches 2 m up (vertical distance, the **rise**). Its **slope** is $\\frac{\\text{rise}}{\\text{run}} = \\frac{2}{3}$.",
+                "For a line through $P_1(x_1, y_1)$ and $P_2(x_2, y_2)$:",
+                "$$m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{\\text{change in } y}{\\text{change in } x}, \\quad x_2 \\ne x_1$$",
+                "It does not matter which point you call $P_1$ — but keep the **same order** on top and bottom. Any two points of a line give the same slope."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u3-md-ladder",
+              "type": "diagram",
+              "title": "Rise over run",
+              "page": 61,
+              "src": "notes",
+              "diagram": "md_ladder",
+              "mode": "plain"
+            },
+            {
+              "id": "math9-u3-md-slopetri",
+              "type": "steps",
+              "title": "Slope of y = 2x − 3 from different points",
+              "page": 64,
+              "src": "notes",
+              "diagram": "md_slopetri",
+              "steps": [
+                {
+                  "text": "$P$ to $Q$: run $= 1 - 0 = 1$, rise $= -1 - (-3) = 2$, slope $= \\frac{2}{1} = 2$.",
+                  "show": "k1"
+                },
+                {
+                  "text": "$P$ to $R$: run $= 2$, rise $= 1 - (-3) = 4$, slope $= \\frac{4}{2} = 2$.",
+                  "show": "k2"
+                },
+                {
+                  "text": "Same slope from any two points — and it equals the coefficient of $x$ in $y = 2x - 3$.",
+                  "show": "k3"
+                }
               ]
+            },
+            {
+              "id": "math9-u3-md-mform-t",
+              "type": "text",
+              "title": "Reading the slope from the equation",
+              "page": 65,
+              "src": "notes",
+              "body": [
+                "When the equation is in the form $y = mx + b$, the slope is $m$ — the coefficient of $x$.",
+                "Example 3.4: $-12x + 3y = 5 \\Rightarrow 3y = 12x + 5 \\Rightarrow y = 4x + \\frac{5}{3}$, so $m = 4$.",
+                "For $Ax + By = C$ in general: $m = -\\frac{A}{B}$."
+              ]
+            },
+            {
+              "id": "math9-u3-md-slopesigns",
+              "type": "diagram",
+              "title": "Positive, negative, zero, undefined",
+              "page": 66,
+              "src": "notes",
+              "diagram": "md_slopesigns",
+              "mode": "plain",
+              "body": [
+                "Read from **left to right**: rising → positive; falling → negative; horizontal ($y = 2$) → zero; vertical ($x = 3$) → undefined, because the run is 0 and we cannot divide by 0."
+              ]
+            },
+            {
+              "id": "math9-u3-md-slope-t",
+              "type": "table",
+              "title": "Slope summary",
+              "page": 66,
+              "src": "notes",
+              "head": [
+                "Line",
+                "Example",
+                "Slope"
+              ],
+              "rows": [
+                [
+                  "Rises left to right",
+                  "$y = 3x - 2$",
+                  "positive (3)"
+                ],
+                [
+                  "Falls left to right",
+                  "$y = -3x - 2$",
+                  "negative ($-3$)"
+                ],
+                [
+                  "Horizontal",
+                  "$y = 2$, $2y = -3$",
+                  "0"
+                ],
+                [
+                  "Vertical",
+                  "$x = 3$, $x + 5 = 0$",
+                  "undefined"
+                ],
+                [
+                  "Parallel lines",
+                  "$y = 2x + 1$, $y = 2x - 1$",
+                  "equal slopes"
+                ],
+                [
+                  "Real life",
+                  "temperature rising 5 °C every 15 s",
+                  "rate of change: $\\frac{5}{15} = \\frac{1}{3}$ °C per second"
+                ]
+              ],
+              "body": [
+                "Slope is a **rate**: \"how much $y$ changes for each 1 unit of $x$\". For $S = 50T$ it is the speed, 50 km/h."
+              ]
+            },
+            {
+              "id": "math9-u3-md-ex-33a",
+              "type": "worked",
+              "title": "Worked example: slopes from points",
+              "page": 63,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find the slope through (a) $(1, 6)$ and $(3, 5)$ (b) $(5, 1)$ and $(-2, 1)$ (c) $(3, -4)$ and $(3, 7)$.",
+              "steps": [
+                {
+                  "text": "(a) $m = \\frac{5 - 6}{3 - 1} = \\frac{-1}{2}$ — the line falls."
+                },
+                {
+                  "text": "(b) $m = \\frac{1 - 1}{-2 - 5} = \\frac{0}{-7} = 0$ — horizontal."
+                },
+                {
+                  "text": "(c) $x_2 - x_1 = 3 - 3 = 0$ — division by zero, slope undefined — vertical line $x = 3$."
+                }
+              ],
+              "answer": "(a) $-\\frac{1}{2}$ (b) 0 (c) undefined"
+            },
+            {
+              "id": "math9-u3-md-ex-33b",
+              "type": "worked",
+              "title": "Worked example: the ladder (Exercise 3.4)",
+              "page": 67,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A ladder's foot is 1.5 m from a wall and its slope is $\\frac{5}{3}$. How high up the wall does it reach?",
+              "steps": [
+                {
+                  "text": "Slope $= \\frac{\\text{rise}}{\\text{run}}$, so rise $= $ slope $\\times$ run."
+                },
+                {
+                  "text": "Rise $= \\frac{5}{3} \\times 1.5 = 2.5$ m."
+                }
+              ],
+              "answer": "2.5 m"
             },
             {
               "id": "math9-u3-chk5",
@@ -7452,17 +7925,131 @@
             {
               "id": "math9-u3-c05",
               "type": "text",
-              "title": "3.4 Intercepts of Linear Functions",
+              "title": "3.4 Intercepts",
               "page": 68,
-              "src": "textbook pp.68–69",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "The x-coordinate of the point where the graph crosses the x–axis is called the **x-intercept**.",
-                "The y-coordinate of the point where the graph crosses the y-axis is called the y–intercept.",
-                "Graph the line whose equation is 3x + 2y = 6 by finding its x-and y-intercepts.",
-                "The x-intercept is 2, so the line must pass through the point (2, 0).",
-                "The y-intercept is 3, so the line must pass through the point (0, 3)."
+                "The **$x$-intercept** is the $x$-coordinate where the line crosses the $x$-axis: put $y = 0$ and solve.",
+                "The **$y$-intercept** is the $y$-coordinate where it crosses the $y$-axis: put $x = 0$. In $y = mx + b$ it is simply $b$.",
+                "Example 3.5 (the textbook's problem says $y = -2x + 4$ but its working uses $y = -2x + 3$). For $y = -2x + 3$: $0 = -2x + 3$ gives $x$-intercept $1.5$; $y$-intercept 3. For $y = -2x + 4$ the intercepts would be 2 and 4."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u3-md-gr-int",
+              "type": "graph",
+              "title": "Fig. 3.10: 3x + 2y = 6 from its intercepts",
+              "page": 70,
+              "src": "notes",
+              "graph": {
+                "kind": "plane",
+                "xmin": -2,
+                "xmax": 5,
+                "ymin": -3,
+                "ymax": 5,
+                "grid": true,
+                "points": [
+                  {
+                    "x": 2,
+                    "y": 0,
+                    "label": "(2, 0)",
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 0,
+                    "y": 3,
+                    "label": "(0, 3)",
+                    "color": "#2A7A6B"
+                  }
+                ],
+                "lines": [
+                  {
+                    "m": -1.5,
+                    "c": 3,
+                    "label": "3x + 2y = 6",
+                    "color": "#2F5F8F"
+                  }
+                ]
+              },
+              "body": [
+                "$y = 0$: $3x = 6$, $x = 2$. $x = 0$: $2y = 6$, $y = 3$. Join $(2, 0)$ and $(0, 3)$ — the quickest way to draw a line in the form $Ax + By = C$."
               ]
+            },
+            {
+              "id": "math9-u3-md-eqn-t",
+              "type": "table",
+              "title": "Finding the equation of a line",
+              "page": 71,
+              "src": "notes",
+              "head": [
+                "You know",
+                "Method",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "slope $m$ and $y$-intercept $b$",
+                  "write $y = mx + b$",
+                  "$m = 1$, $b = 2$: $y = x + 2$"
+                ],
+                [
+                  "slope $m$ and one point",
+                  "substitute the point in $y = mx + b$ to find $b$",
+                  "$m = -2$ through $(5, 2)$: $2 = -10 + b$, $b = 12$"
+                ],
+                [
+                  "two points",
+                  "find $m$ first, then $b$ from either point",
+                  "Example 3.7 below"
+                ],
+                [
+                  "both intercepts $a$ and $b$",
+                  "points $(a, 0)$, $(0, b)$; $m = -\\frac{b}{a}$",
+                  "$x$-int $-1$, $y$-int $-3$: $y = -3x - 3$"
+                ]
+              ],
+              "body": [
+                "Check by substituting the **other** given point into your final equation."
+              ]
+            },
+            {
+              "id": "math9-u3-md-ex-34a",
+              "type": "worked",
+              "title": "Worked example: Example 3.7",
+              "page": 70,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Write the equation of the line through $(-1, 3)$ and $(2, 9)$.",
+              "steps": [
+                {
+                  "text": "Slope: $m = \\frac{9 - 3}{2 - (-1)} = \\frac{6}{3} = 2$."
+                },
+                {
+                  "text": "Substitute $(-1, 3)$ in $y = 2x + b$: $3 = -2 + b$, so $b = 5$."
+                },
+                {
+                  "text": "Check with $(2, 9)$: $2(2) + 5 = 9$ (correct)."
+                }
+              ],
+              "answer": "$y = 2x + 5$"
+            },
+            {
+              "id": "math9-u3-md-ex-34b",
+              "type": "worked",
+              "title": "Worked example: x-intercept and slope",
+              "page": 71,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find the line with $x$-intercept 4 and slope $-3$.",
+              "steps": [
+                {
+                  "text": "The $x$-intercept 4 means the point $(4, 0)$."
+                },
+                {
+                  "text": "$0 = -3(4) + b$, so $b = 12$."
+                }
+              ],
+              "answer": "$y = -3x + 12$"
             },
             {
               "id": "math9-u3-chk7",
@@ -7604,6 +8191,218 @@
           ],
           "cards": [
             {
+              "id": "math9-u3-c07",
+              "type": "text",
+              "title": "3.5.1 Systems of two linear equations",
+              "page": 72,
+              "src": "notes",
+              "body": [
+                "A **system** (simultaneous equations) is two equations that must be true **at the same time**. A solution is an ordered pair $(x, y)$ that satisfies **both**.",
+                "Example: the sum of two numbers is 7 and their difference is 3: $x + y = 7$, $x - y = 3$. Try $(5, 2)$: $5 + 2 = 7$ and $5 - 2 = 3$ — both true, so $(5, 2)$ is the solution.",
+                "Three methods: **elimination**, **substitution**, and **graphing**."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u3-md-elim-t",
+              "type": "text",
+              "title": "3.5.2 Elimination method",
+              "page": 73,
+              "src": "notes",
+              "body": [
+                "1. Write both equations as $ax + by = c$ (variables on the left, numbers on the right).",
+                "2. Multiply one or both equations so that one variable has **opposite** (or equal) coefficients.",
+                "3. **Add** the equations (opposite coefficients) or **subtract** them (equal coefficients) — that variable disappears.",
+                "4. Solve for the remaining variable, substitute back to find the other, and check in **both** original equations."
+              ]
+            },
+            {
+              "id": "math9-u3-md-ex-35a",
+              "type": "worked",
+              "title": "Worked example: Example 3.8 (elimination)",
+              "page": 74,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve $5x - 3y = 1$ and $3x + 4y = 18$.",
+              "steps": [
+                {
+                  "text": "To eliminate $y$: multiply the first by 4 and the second by 3: $20x - 12y = 4$ and $9x + 12y = 54$."
+                },
+                {
+                  "text": "Add: $29x = 58$, so $x = 2$."
+                },
+                {
+                  "text": "Substitute in $3x + 4y = 18$: $6 + 4y = 18$, $y = 3$."
+                },
+                {
+                  "text": "Check in $5x - 3y = 1$: $10 - 9 = 1$ (correct)."
+                }
+              ],
+              "answer": "$(2, 3)$"
+            },
+            {
+              "id": "math9-u3-c08",
+              "type": "text",
+              "title": "3.5.3 Substitution method",
+              "page": 75,
+              "src": "notes",
+              "body": [
+                "1. Make one variable the subject of one equation (choose one with coefficient 1 if possible).",
+                "2. **Substitute** that expression into the other equation — you get one equation in one variable.",
+                "3. Solve it, then put the value back into the expression from step 1.",
+                "Word problem (Exercise 3.6): perimeter 16, length three times the breadth: $l = 3b$ and $2l + 2b = 16$ → $6b + 2b = 16$, $b = 2$, $l = 6$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u3-md-ex-35b",
+              "type": "worked",
+              "title": "Worked example: Example 3.10 (substitution)",
+              "page": 75,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve $3a - 2b = 5$ and $a + 5b = -4$.",
+              "steps": [
+                {
+                  "text": "From the second: $a = -5b - 4$."
+                },
+                {
+                  "text": "Substitute: $3(-5b - 4) - 2b = 5$ → $-15b - 12 - 2b = 5$ → $-17b = 17$ → $b = -1$."
+                },
+                {
+                  "text": "$a = -5(-1) - 4 = 1$."
+                },
+                {
+                  "text": "Check: $3(1) - 2(-1) = 5$ (correct)."
+                }
+              ],
+              "answer": "$a = 1$, $b = -1$"
+            },
+            {
+              "id": "math9-u3-c09",
+              "type": "text",
+              "title": "3.5.4 Graphical method",
+              "page": 77,
+              "src": "notes",
+              "body": [
+                "Draw both lines on the same axes. The **intersection point** is the solution, because it lies on both lines. Always check the point in both equations — reading a graph is not exact."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u3-md-gr-sys",
+              "type": "graph",
+              "title": "Fig. 3.11: x + y = 5 and x − y = 1",
+              "page": 78,
+              "src": "notes",
+              "graph": {
+                "kind": "plane",
+                "xmin": -2,
+                "xmax": 7,
+                "ymin": -3,
+                "ymax": 7,
+                "grid": true,
+                "points": [
+                  {
+                    "x": 3,
+                    "y": 2,
+                    "label": "(3, 2)",
+                    "color": "#2A7A6B"
+                  }
+                ],
+                "lines": [
+                  {
+                    "m": -1,
+                    "c": 5,
+                    "label": "y = −x + 5",
+                    "color": "#2F5F8F"
+                  },
+                  {
+                    "m": 1,
+                    "c": -1,
+                    "label": "y = x − 1",
+                    "color": "#C0503A"
+                  }
+                ]
+              },
+              "body": [
+                "The lines cross at $(3, 2)$: $3 + 2 = 5$ and $3 - 2 = 1$ (both correct)."
+              ]
+            },
+            {
+              "id": "math9-u3-md-cases",
+              "type": "diagram",
+              "title": "How many solutions?",
+              "page": 80,
+              "src": "notes",
+              "diagram": "md_cases",
+              "mode": "plain",
+              "body": [
+                "Different slopes → the lines cross once: **one solution**. Same slope, different intercepts → parallel: **no solution** (algebra ends in something false like $0 = 5$). Same line → **infinitely many** (algebra ends in something always true like $0 = 0$)."
+              ]
+            },
+            {
+              "id": "math9-u3-md-sys-t",
+              "type": "table",
+              "title": "Choosing a method",
+              "page": 80,
+              "src": "notes",
+              "head": [
+                "Method",
+                "Best when",
+                "Watch out for"
+              ],
+              "rows": [
+                [
+                  "Elimination",
+                  "both equations in the form $ax + by = c$",
+                  "multiply **every** term, including the right side"
+                ],
+                [
+                  "Substitution",
+                  "a variable already alone, e.g. $x = 2y - 3$",
+                  "brackets when you substitute: $5(2y - 3)$"
+                ],
+                [
+                  "Graphing",
+                  "you want a picture or the number of solutions",
+                  "answers that are not whole numbers are hard to read"
+                ],
+                [
+                  "Quick test",
+                  "compare slopes $m$ and intercepts $b$",
+                  "equal $m$, different $b$ → none; equal $m$ and $b$ → infinitely many"
+                ]
+              ],
+              "body": [
+                "Whatever the method, check the answer in **both** original equations."
+              ]
+            },
+            {
+              "id": "math9-u3-md-ex-35c",
+              "type": "worked",
+              "title": "Worked example: stamps (Review question 7)",
+              "page": 81,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Semira bought 32 stamps, some 20-cent and some 50-cent, worth 10.90 Nakfa altogether. How many of each?",
+              "steps": [
+                {
+                  "text": "Let $t$ = number of 20-cent and $f$ = number of 50-cent stamps. Work in cents: 10.90 Nakfa = 1090 cents."
+                },
+                {
+                  "text": "$t + f = 32$ and $20t + 50f = 1090$ (divide by 10: $2t + 5f = 109$)."
+                },
+                {
+                  "text": "From the first $t = 32 - f$: $2(32 - f) + 5f = 109$ → $64 + 3f = 109$ → $f = 15$."
+                },
+                {
+                  "text": "$t = 17$. Check: $17 \\times 20 + 15 \\times 50 = 340 + 750 = 1090$ (correct)."
+                }
+              ],
+              "answer": "17 twenty-cent and 15 fifty-cent stamps"
+            },
+            {
               "id": "math9-u3-c06",
               "type": "remember",
               "title": "Linear functions",
@@ -7612,44 +8411,6 @@
               "body": [
                 "y=mx+c m=(y₂−y₁)/(x₂−x₁)",
                 "m>0 uphill. Parallel: equal m. Perpendicular: m₁m₂=−1. System: substitution or elimination."
-              ]
-            },
-            {
-              "id": "math9-u3-c07",
-              "type": "text",
-              "title": "3.5.1 Systems of Linear Equations",
-              "page": 72,
-              "src": "textbook p.72",
-              "enriched": true,
-              "body": [
-                "Yosuf said that x = 5 and y = 2 is the answer."
-              ]
-            },
-            {
-              "id": "math9-u3-c08",
-              "type": "text",
-              "title": "3.5.3 Substitution Method",
-              "page": 77,
-              "src": "textbook p.77",
-              "enriched": true,
-              "body": [
-                "The perimeter of a rectangle is 16, and its length is three times its breadth.",
-                "The present age of a father is 5 years more than twice his daughter’s.",
-                "After 5 years he will be twice as old as his daughter."
-              ]
-            },
-            {
-              "id": "math9-u3-c09",
-              "type": "text",
-              "title": "3.5.4 Graphical Method",
-              "page": 81,
-              "src": "textbook p.81",
-              "enriched": true,
-              "body": [
-                "Semira bought 32 stamps, each of which is either a 20-cent or a 50-cent stamp.",
-                "Tickets for a musical show cost 10 Nakfa for adults and 5 Nakfa for children.",
-                "The length of a rectangular swimming pool is twice its width.",
-                "If its perimeter is 42 meters, find its length and width."
               ]
             },
             {
@@ -7815,13 +8576,77 @@
           ]
         }
       ],
-      "glossary": [],
+      "glossary": [
+        {
+          "term": "Linear function",
+          "meaning": "A function $y = mx + b$; its graph is a straight line.",
+          "page": 52,
+          "src": "notes"
+        },
+        {
+          "term": "Collinear points",
+          "meaning": "Points that lie on one straight line.",
+          "page": 52,
+          "src": "notes"
+        },
+        {
+          "term": "Half-plane",
+          "meaning": "All points on one side of a line: the graph of a linear inequality.",
+          "page": 59,
+          "src": "notes"
+        },
+        {
+          "term": "Boundary line",
+          "meaning": "The line $Ax + By = C$ that separates the two half-planes; dashed for < or >.",
+          "page": 59,
+          "src": "notes"
+        },
+        {
+          "term": "Slope",
+          "meaning": "Rise ÷ run = $\\frac{y_2 - y_1}{x_2 - x_1}$; the steepness of a line.",
+          "page": 63,
+          "src": "notes"
+        },
+        {
+          "term": "x-intercept",
+          "meaning": "The $x$-coordinate where a line crosses the $x$-axis ($y = 0$).",
+          "page": 68,
+          "src": "notes"
+        },
+        {
+          "term": "y-intercept",
+          "meaning": "The $y$-coordinate where a line crosses the $y$-axis ($x = 0$); $b$ in $y = mx + b$.",
+          "page": 68,
+          "src": "notes"
+        },
+        {
+          "term": "System of linear equations",
+          "meaning": "Two (or more) linear equations to be solved together.",
+          "page": 72,
+          "src": "notes"
+        }
+      ],
       "tips": [
         {
           "text": "Linear functions: y=mx+c m=(y₂−y₁)/(x₂−x₁) m>0 uphill. Parallel: equal m. Perpendicular: m₁m₂=−1. System: substitution or elimination.",
           "page": 76,
           "src": "notes",
           "card": "math9-u3-c06"
+        },
+        {
+          "text": "Slope = (y₂ − y₁) ÷ (x₂ − x₁); keep the same order on top and bottom.",
+          "page": 63,
+          "src": "notes"
+        },
+        {
+          "text": "Inequality graphs: < or > dashed, ≤ or ≥ solid; test (0, 0) to choose the side.",
+          "page": 59,
+          "src": "notes"
+        },
+        {
+          "text": "Systems: different slopes → one solution; parallel → none; same line → infinitely many.",
+          "page": 80,
+          "src": "notes"
         }
       ],
       "games": [
@@ -8501,6 +9326,653 @@
               }
             ],
             "id": "math9-u3-q31"
+          },
+          {
+            "id": "math9-u3-md-s31-q01",
+            "type": "mcq",
+            "q": "Which equation is NOT linear?",
+            "options": {
+              "A": "$-3x + 7y = 9$",
+              "B": "$y = 2x$",
+              "C": "$y = 3x^2 - 12$",
+              "D": "$5x = 2y + 10$"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: A, B, D can all be written as $y = mx + b$.",
+              "Step 2: C contains $x^2$ → not linear."
+            ],
+            "tip": "Look for powers of $x$ other than 1.",
+            "similar": [
+              {
+                "q": "Is $d = -10t^2 + 40$ linear?",
+                "a": "No — $t$ is squared."
+              }
+            ],
+            "page": 53,
+            "src": "notes",
+            "label": "3.1 Practice — linear functions"
+          },
+          {
+            "id": "math9-u3-md-s31-q02",
+            "type": "short",
+            "q": "Write an equation: the second number $y$ is the product of $-3$ and the first number $x$. Is it linear?",
+            "answer": "$y = -3x$; yes",
+            "why": [
+              "Step 1: \"product of $-3$ and $x$\" is $-3x$.",
+              "Step 2: $y = -3x$ has the form $y = mx + b$ with $m = -3$, $b = 0$."
+            ],
+            "tip": "Translate word by word.",
+            "similar": [
+              {
+                "q": "The sum of two numbers is 10. Equation?",
+                "a": "$x + y = 10$, i.e. $y = -x + 10$ — linear."
+              }
+            ],
+            "page": 53,
+            "src": "notes",
+            "label": "3.1 Practice — linear functions"
+          },
+          {
+            "id": "math9-u3-md-s31-q03",
+            "type": "short",
+            "q": "Fill the gaps for $y = 2x - 5$: $x = 1 \\to y = ?$; $y = 3 \\to x = ?$; $y = 11 \\to x = ?$",
+            "answer": "$-3$; 4; 8",
+            "why": [
+              "Step 1: $2(1) - 5 = -3$.",
+              "Step 2: $2x - 5 = 3 \\Rightarrow x = 4$.",
+              "Step 3: $2x - 5 = 11 \\Rightarrow x = 8$."
+            ],
+            "tip": "Given $y$, solve an equation for $x$.",
+            "similar": [
+              {
+                "q": "$y = 27$?",
+                "a": "$x = 16$."
+              }
+            ],
+            "page": 54,
+            "src": "notes",
+            "label": "3.1 Practice — linear functions"
+          },
+          {
+            "id": "math9-u3-md-s31-q04",
+            "type": "short",
+            "q": "The mass of pure gold is $m = 19v$ (grams, cm³). Find $m$ when $v = 0.1$ and $v$ when $m = 38$.",
+            "answer": "1.9 g; 2 cm³",
+            "why": [
+              "Step 1: $m = 19 \\times 0.1 = 1.9$ g.",
+              "Step 2: $38 = 19v \\Rightarrow v = 2$ cm³."
+            ],
+            "tip": "Direct variation is a linear function with $b = 0$.",
+            "similar": [
+              {
+                "q": "$v = 5$ cm³?",
+                "a": "95 g."
+              }
+            ],
+            "page": 54,
+            "src": "notes",
+            "label": "3.1 Practice — linear functions"
+          },
+          {
+            "id": "math9-u3-md-s31-q05",
+            "type": "tf",
+            "q": "A father's age $y$ being 20 more than twice his son's age $x$ is a linear function.",
+            "answer": true,
+            "why": [
+              "Step 1: $y = 2x + 20$.",
+              "Step 2: this is $y = mx + b$ with $m = 2$, $b = 20$ → linear."
+            ],
+            "tip": "\"Twice … plus …\" is always linear.",
+            "similar": [
+              {
+                "q": "Is \"the side of a square is the square root of its area\" linear?",
+                "a": "No."
+              }
+            ],
+            "page": 54,
+            "src": "notes",
+            "label": "3.1 Practice — linear functions"
+          },
+          {
+            "id": "math9-u3-md-s32-q01",
+            "type": "mcq",
+            "q": "If $(a, b)$ is on $y = mx$, which point is on $y = mx - 7$?",
+            "options": {
+              "A": "$(a + 7, b)$",
+              "B": "$(a - 7, b)$",
+              "C": "$(a, b - 7)$",
+              "D": "$(a, b + 7)$"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: $y = mx - 7$ is $y = mx$ moved down 7.",
+              "Step 2: keep $x$, subtract 7 from $y$: $(a, b - 7)$."
+            ],
+            "tip": "Vertical shift changes only the $y$-coordinate.",
+            "similar": [
+              {
+                "q": "Which point is on $y = mx + 3$?",
+                "a": "$(a, b + 3)$."
+              }
+            ],
+            "page": 56,
+            "src": "notes",
+            "label": "3.2 Practice — graphing lines and inequalities"
+          },
+          {
+            "id": "math9-u3-md-s32-q02",
+            "type": "short",
+            "q": "Make a table for $y = 0.5x + 1$ with $x = -2, 0, 2$ and give the points.",
+            "answer": "$(-2, 0), (0, 1), (2, 2)$",
+            "why": [
+              "Step 1: $x = -2$: $-1 + 1 = 0$.",
+              "Step 2: $x = 0$: $y = 1$.",
+              "Step 3: $x = 2$: $1 + 1 = 2$."
+            ],
+            "tip": "With $m = 0.5$ choose even $x$-values to avoid fractions.",
+            "similar": [
+              {
+                "q": "Points of $y = 2x - 3$ for $x = 0, 1, 2$?",
+                "a": "$(0, -3), (1, -1), (2, 1)$."
+              }
+            ],
+            "page": 56,
+            "src": "notes",
+            "label": "3.2 Practice — graphing lines and inequalities"
+          },
+          {
+            "id": "math9-u3-md-s32-q03",
+            "type": "mcq",
+            "q": "For the graph of $y > 2x + 3$ the boundary line is",
+            "options": {
+              "A": "solid, shade above",
+              "B": "dashed, shade above",
+              "C": "solid, shade below",
+              "D": "dashed, shade below"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: \">\" → dashed (points on the line are not included).",
+              "Step 2: $y$ greater → above."
+            ],
+            "tip": "Strict sign → dashed.",
+            "similar": [
+              {
+                "q": "$y \\le -3x + 1$?",
+                "a": "Solid, shade below."
+              }
+            ],
+            "page": 60,
+            "src": "notes",
+            "label": "3.2 Practice — graphing lines and inequalities"
+          },
+          {
+            "id": "math9-u3-md-s32-q04",
+            "type": "short",
+            "q": "Do $(0, -1)$ and $(0, -2)$ satisfy $y < -3x + 1$? Can this inequality be a function?",
+            "answer": "both yes; no",
+            "why": [
+              "Step 1: $-1 < 1$ true; $-2 < 1$ true.",
+              "Step 2: the input $x = 0$ has many outputs, so the inequality is not a function."
+            ],
+            "tip": "A region contains many points above one $x$.",
+            "similar": [
+              {
+                "q": "Does $(1, -1)$ satisfy it?",
+                "a": "No: $-1 < -2$ is false."
+              }
+            ],
+            "page": 60,
+            "src": "notes",
+            "label": "3.2 Practice — graphing lines and inequalities"
+          },
+          {
+            "id": "math9-u3-md-s32-q05",
+            "type": "tf",
+            "q": "In the graph of $3x + 2y > 0$, the point $(0, 0)$ can be used as the test point.",
+            "answer": false,
+            "why": [
+              "Step 1: $(0, 0)$ is ON the boundary $3x + 2y = 0$.",
+              "Step 2: a test point must be off the line; use e.g. $(1, 0)$: $3 > 0$ true → shade that side."
+            ],
+            "tip": "Lines through the origin need another test point.",
+            "similar": [
+              {
+                "q": "Which side for $y - 2x \\ge 1$?",
+                "a": "Test $(0, 0)$: $0 \\ge 1$ false → shade the side without the origin (above)."
+              }
+            ],
+            "page": 59,
+            "src": "notes",
+            "label": "3.2 Practice — graphing lines and inequalities"
+          },
+          {
+            "id": "math9-u3-md-s32-q06",
+            "type": "short",
+            "q": "Describe the graph of $x \\le -2$.",
+            "answer": "solid vertical line $x = -2$, shade to the left",
+            "why": [
+              "Step 1: boundary $x = -2$ is vertical; $\\le$ → solid.",
+              "Step 2: smaller $x$-values are to the left."
+            ],
+            "tip": "Only $x$ → vertical boundary; only $y$ → horizontal.",
+            "similar": [
+              {
+                "q": "$y > -3$?",
+                "a": "Dashed horizontal line $y = -3$, shade above."
+              }
+            ],
+            "page": 57,
+            "src": "notes",
+            "label": "3.2 Practice — graphing lines and inequalities"
+          },
+          {
+            "id": "math9-u3-md-s33-q01",
+            "type": "short",
+            "q": "Find the slope through $(6, -4)$ and $(4, -2)$ and say if the line rises or falls.",
+            "answer": "$-1$, falls",
+            "why": [
+              "Step 1: $m = \\frac{-2 - (-4)}{4 - 6} = \\frac{2}{-2} = -1$.",
+              "Step 2: negative → falls left to right."
+            ],
+            "tip": "Subtracting a negative: $-2 - (-4) = +2$.",
+            "similar": [
+              {
+                "q": "$(0, 1)$ and $(1, -2)$?",
+                "a": "$-3$, falls."
+              }
+            ],
+            "page": 67,
+            "src": "notes",
+            "label": "3.3 Practice — slope"
+          },
+          {
+            "id": "math9-u3-md-s33-q02",
+            "type": "mcq",
+            "q": "The slope of $5x + 3y = 15$ is",
+            "options": {
+              "A": "5",
+              "B": "$\\frac{5}{3}$",
+              "C": "$-\\frac{5}{3}$",
+              "D": "$-5$"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: $3y = -5x + 15$.",
+              "Step 2: $y = -\\frac{5}{3}x + 5$ → $m = -\\frac{5}{3}$."
+            ],
+            "tip": "Get $y$ alone first, or use $m = -\\frac{A}{B}$.",
+            "similar": [
+              {
+                "q": "Slope of $5x = 7y - 6$?",
+                "a": "$\\frac{5}{7}$."
+              }
+            ],
+            "page": 67,
+            "src": "notes",
+            "label": "3.3 Practice — slope"
+          },
+          {
+            "id": "math9-u3-md-s33-q03",
+            "type": "short",
+            "q": "Find the slopes of (a) $2y = -3$ (b) $x + 5 = 0$.",
+            "answer": "(a) 0 (b) undefined",
+            "why": [
+              "Step 1 (a): $y = -1.5$ — horizontal → 0.",
+              "Step 2 (b): $x = -5$ — vertical → undefined."
+            ],
+            "tip": "No $x$ → horizontal; no $y$ → vertical.",
+            "similar": [
+              {
+                "q": "Slope of $y + 2 = 0$?",
+                "a": "0."
+              }
+            ],
+            "page": 67,
+            "src": "notes",
+            "label": "3.3 Practice — slope"
+          },
+          {
+            "id": "math9-u3-md-s33-q04",
+            "type": "short",
+            "q": "Water temperature rises from 30 °C to 60 °C in 90 seconds at a steady rate. What is the slope of the graph and what does it mean?",
+            "answer": "$\\frac{1}{3}$ °C per second",
+            "why": [
+              "Step 1: rise $= 60 - 30 = 30$ °C, run $= 90$ s.",
+              "Step 2: slope $= \\frac{30}{90} = \\frac{1}{3}$.",
+              "Step 3: meaning: the temperature goes up $\\frac{1}{3}$ °C every second (5 °C per 15 s)."
+            ],
+            "tip": "Slope = rate of change; give its units.",
+            "similar": [
+              {
+                "q": "A car: $S = 50T$. What does 50 mean?",
+                "a": "Speed 50 km/h."
+              }
+            ],
+            "page": 66,
+            "src": "notes",
+            "label": "3.3 Practice — slope"
+          },
+          {
+            "id": "math9-u3-md-s33-q05",
+            "type": "tf",
+            "q": "The slope through $A(0, -3)$ and $B(1, -1)$ changes if you start from $B$ instead of $A$.",
+            "answer": false,
+            "why": [
+              "Step 1: from A: $\\frac{-1 + 3}{1 - 0} = 2$.",
+              "Step 2: from B: $\\frac{-3 + 1}{0 - 1} = \\frac{-2}{-1} = 2$. Same."
+            ],
+            "tip": "Swap both top and bottom together — the signs cancel.",
+            "similar": [
+              {
+                "q": "Slope through $(-2, 1)$ and $(2, 2)$?",
+                "a": "$\\frac{1}{4}$."
+              }
+            ],
+            "page": 63,
+            "src": "notes",
+            "label": "3.3 Practice — slope"
+          },
+          {
+            "id": "math9-u3-md-s33-q06",
+            "type": "short",
+            "q": "Are the points $(0, 1)$, $(2, 5)$ and $(4, 9)$ collinear?",
+            "answer": "yes",
+            "why": [
+              "Step 1: slope of the first two: $\\frac{5 - 1}{2} = 2$.",
+              "Step 2: slope of the last two: $\\frac{9 - 5}{2} = 2$.",
+              "Step 3: equal slopes through a shared point → one line."
+            ],
+            "tip": "Collinear ⇔ equal slopes between pairs.",
+            "similar": [
+              {
+                "q": "Is $(3, 8)$ on the same line?",
+                "a": "No — $y = 2x + 1$ gives 7."
+              }
+            ],
+            "page": 64,
+            "src": "notes",
+            "label": "3.3 Practice — slope"
+          },
+          {
+            "id": "math9-u3-md-s34-q01",
+            "type": "short",
+            "q": "Find the slope and $y$-intercept of $7y - 3x - 10 = 0$.",
+            "answer": "$m = \\frac{3}{7}$, $b = \\frac{10}{7}$",
+            "why": [
+              "Step 1: $7y = 3x + 10$.",
+              "Step 2: $y = \\frac{3}{7}x + \\frac{10}{7}$."
+            ],
+            "tip": "Divide **every** term by 7.",
+            "similar": [
+              {
+                "q": "$5y + x = 15$?",
+                "a": "$m = -\\frac{1}{5}$, $b = 3$."
+              }
+            ],
+            "page": 71,
+            "src": "notes",
+            "label": "3.4 Practice — intercepts and equations of lines"
+          },
+          {
+            "id": "math9-u3-md-s34-q02",
+            "type": "short",
+            "q": "Find the equation of the line through $(-4, 7)$ and $(6, -3)$.",
+            "answer": "$y = -x + 3$",
+            "why": [
+              "Step 1: $m = \\frac{-3 - 7}{6 + 4} = \\frac{-10}{10} = -1$.",
+              "Step 2: $7 = -1(-4) + b = 4 + b \\Rightarrow b = 3$.",
+              "Step 3: check $(6, -3)$: $-6 + 3 = -3$ (correct)."
+            ],
+            "tip": "Slope first, then $b$, then check.",
+            "similar": [
+              {
+                "q": "Line through $(5, 2)$ with slope $-2$?",
+                "a": "$y = -2x + 12$."
+              }
+            ],
+            "page": 71,
+            "src": "notes",
+            "label": "3.4 Practice — intercepts and equations of lines"
+          },
+          {
+            "id": "math9-u3-md-s34-q03",
+            "type": "short",
+            "q": "Find the line with $y$-intercept $-5$ through $(1, 3)$.",
+            "answer": "$y = 8x - 5$",
+            "why": [
+              "Step 1: $b = -5$, so $y = mx - 5$.",
+              "Step 2: $3 = m - 5 \\Rightarrow m = 8$."
+            ],
+            "tip": "A known $y$-intercept leaves only $m$ to find.",
+            "similar": [
+              {
+                "q": "$x$-intercept 1 through $(2, -1)$?",
+                "a": "$y = -x + 1$."
+              }
+            ],
+            "page": 71,
+            "src": "notes",
+            "label": "3.4 Practice — intercepts and equations of lines"
+          },
+          {
+            "id": "math9-u3-md-s34-q04",
+            "type": "short",
+            "q": "Fill the blanks so that $\\_x + \\_y = 10$ has $x$-intercept 5 and $y$-intercept 2.",
+            "answer": "$2x + 5y = 10$",
+            "why": [
+              "Step 1: $(5, 0)$ on the line: $5A = 10$, $A = 2$.",
+              "Step 2: $(0, 2)$: $2B = 10$, $B = 5$."
+            ],
+            "tip": "Each intercept gives one coefficient directly.",
+            "similar": [
+              {
+                "q": "$\\_x + \\_y = 12$ with intercepts $-2$ and 3?",
+                "a": "$-6x + 4y = 12$."
+              }
+            ],
+            "page": 72,
+            "src": "notes",
+            "label": "3.4 Practice — intercepts and equations of lines"
+          },
+          {
+            "id": "math9-u3-md-s34-q05",
+            "type": "mcq",
+            "q": "The line through $(3, 5)$ and $(2, 5)$ has",
+            "options": {
+              "A": "$x$-intercept 5",
+              "B": "no $x$-intercept and $y$-intercept 5",
+              "C": "$y$-intercept 3",
+              "D": "slope 1"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: same $y$-values → horizontal line $y = 5$.",
+              "Step 2: it never meets the $x$-axis; it meets the $y$-axis at 5."
+            ],
+            "tip": "Horizontal lines (except $y = 0$) have no $x$-intercept.",
+            "similar": [
+              {
+                "q": "Line through $(-4, 3)$ and $(-4, 7)$?",
+                "a": "$x = -4$: $x$-intercept $-4$, no $y$-intercept."
+              }
+            ],
+            "page": 71,
+            "src": "notes",
+            "label": "3.4 Practice — intercepts and equations of lines"
+          },
+          {
+            "id": "math9-u3-md-s34-q06",
+            "type": "short",
+            "q": "Find both intercepts of the line through $(1, -2)$ and $(-2, 1)$.",
+            "answer": "both $-1$",
+            "why": [
+              "Step 1: $m = \\frac{1 + 2}{-2 - 1} = -1$.",
+              "Step 2: $-2 = -1 + b \\Rightarrow b = -1$, so $y = -x - 1$.",
+              "Step 3: $y = 0 \\Rightarrow x = -1$."
+            ],
+            "tip": "Get the equation first, then put $x = 0$ and $y = 0$.",
+            "similar": [
+              {
+                "q": "Intercepts of the line through $(-2, -6)$ and $(5, 8)$?",
+                "a": "$y = 2x - 2$: $x$-int 1, $y$-int $-2$."
+              }
+            ],
+            "page": 71,
+            "src": "notes",
+            "label": "3.4 Practice — intercepts and equations of lines"
+          },
+          {
+            "id": "math9-u3-md-s35-q01",
+            "type": "short",
+            "q": "Solve by substitution: $4x + y = 8$ and $5x - 2y = 23$.",
+            "answer": "$(3, -4)$",
+            "why": [
+              "Step 1: $y = 8 - 4x$.",
+              "Step 2: $5x - 2(8 - 4x) = 23 \\Rightarrow 13x - 16 = 23 \\Rightarrow x = 3$.",
+              "Step 3: $y = 8 - 12 = -4$."
+            ],
+            "tip": "Pick the variable with coefficient 1.",
+            "similar": [
+              {
+                "q": "Solve $3x + 4y = 2$, $x - y = 17$.",
+                "a": "$(10, -7)$."
+              }
+            ],
+            "page": 76,
+            "src": "notes",
+            "label": "3.5 Practice — systems of equations"
+          },
+          {
+            "id": "math9-u3-md-s35-q02",
+            "type": "short",
+            "q": "Solve by elimination: $2x + 3y = 6$ and $8x = 3y + 9$.",
+            "answer": "$(1.5, 1)$",
+            "why": [
+              "Step 1: rewrite the second: $8x - 3y = 9$.",
+              "Step 2: add: $10x = 15$, $x = 1.5$.",
+              "Step 3: $3 + 3y = 6$, $y = 1$."
+            ],
+            "tip": "Line up $x$, $y$ and numbers before adding.",
+            "similar": [
+              {
+                "q": "Solve $x + y = 5$ and $x - y = 1$.",
+                "a": "$(3, 2)$."
+              }
+            ],
+            "page": 76,
+            "src": "notes",
+            "label": "3.5 Practice — systems of equations"
+          },
+          {
+            "id": "math9-u3-md-s35-q03",
+            "type": "short",
+            "q": "The sum of two numbers is 17 and their difference is 5. Find them.",
+            "answer": "11 and 6",
+            "why": [
+              "Step 1: $x + y = 17$, $x - y = 5$.",
+              "Step 2: add: $2x = 22$, $x = 11$; $y = 6$."
+            ],
+            "tip": "Sum and difference → add the equations.",
+            "similar": [
+              {
+                "q": "Sum 7, difference 3?",
+                "a": "5 and 2."
+              }
+            ],
+            "page": 77,
+            "src": "notes",
+            "label": "3.5 Practice — systems of equations"
+          },
+          {
+            "id": "math9-u3-md-s35-q04",
+            "type": "short",
+            "q": "Ahmed has 27 coins, all 25-cent and 50-cent, worth 9.25 Nakfa. How many of each?",
+            "answer": "17 of 25-cent, 10 of 50-cent",
+            "why": [
+              "Step 1: $q + h = 27$ and $25q + 50h = 925$ (cents) → $q + 2h = 37$.",
+              "Step 2: subtract: $h = 10$.",
+              "Step 3: $q = 17$. Check $17 \\times 25 + 10 \\times 50 = 425 + 500 = 925$ (correct)."
+            ],
+            "tip": "Change money to cents to avoid decimals.",
+            "similar": [
+              {
+                "q": "Tickets: adults 10 Nakfa, children 5; 400 people paid 3000 Nakfa. How many adults?",
+                "a": "200 adults, 200 children."
+              }
+            ],
+            "page": 77,
+            "src": "notes",
+            "label": "3.5 Practice — systems of equations"
+          },
+          {
+            "id": "math9-u3-md-s35-q05",
+            "type": "short",
+            "q": "A father's age is 5 more than twice his daughter's. In 5 years he will be twice her age. How old is the daughter now?",
+            "answer": "cannot be found — the two facts give the same equation",
+            "why": [
+              "Step 1: $f = 2d + 5$.",
+              "Step 2: in 5 years: $f + 5 = 2(d + 5)$.",
+              "Step 3: substitute: $2d + 10 = 2d + 10$ — always true!",
+              "Step 4: the two conditions say the same thing, so the system has infinitely many solutions; the textbook question cannot fix one age."
+            ],
+            "tip": "When the variables cancel and leave a true statement, the equations are the same line.",
+            "similar": [
+              {
+                "q": "What happens if the algebra ends with $0 = 5$?",
+                "a": "No solution — parallel lines."
+              }
+            ],
+            "page": 77,
+            "src": "notes",
+            "label": "3.5 Practice — systems of equations"
+          },
+          {
+            "id": "math9-u3-md-s35-q06",
+            "type": "mcq",
+            "q": "How many solutions has $y = 3x - 1$, $y = 3x + 3$?",
+            "options": {
+              "A": "one",
+              "B": "none",
+              "C": "two",
+              "D": "infinitely many"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: both slopes are 3 → parallel or the same line.",
+              "Step 2: intercepts $-1$ and 3 differ → parallel → no solution."
+            ],
+            "tip": "Compare $m$ first, then $b$.",
+            "similar": [
+              {
+                "q": "$m + 2n = 1$ and $4n + 2m = 2$?",
+                "a": "Infinitely many (same line)."
+              }
+            ],
+            "page": 80,
+            "src": "notes",
+            "label": "3.5 Practice — systems of equations"
+          },
+          {
+            "id": "math9-u3-md-s35-q07",
+            "type": "short",
+            "q": "Awet is 3 years older than Danait and the sum of their ages is 27. How old are they?",
+            "answer": "Awet 15, Danait 12",
+            "why": [
+              "Step 1: $a = d + 3$ and $a + d = 27$.",
+              "Step 2: $2d + 3 = 27 \\Rightarrow d = 12$, $a = 15$."
+            ],
+            "tip": "One variable is already in terms of the other → substitution.",
+            "similar": [
+              {
+                "q": "A pool's length is twice its width; perimeter 42 m. Dimensions?",
+                "a": "7 m by 14 m."
+              }
+            ],
+            "page": 81,
+            "src": "notes",
+            "label": "3.5 Practice — systems of equations"
           }
         ]
       },
@@ -8563,6 +10035,46 @@
               "math9-u3-c08",
               "math9-u3-c09"
             ]
+          },
+          {
+            "id": "md_lin",
+            "label": "Linear or not?",
+            "kind": "idea",
+            "cards": [
+              "math9-u3-md-lin-t"
+            ]
+          },
+          {
+            "id": "md_bound",
+            "label": "Boundary and shading",
+            "kind": "idea",
+            "cards": [
+              "math9-u3-md-bound-t"
+            ]
+          },
+          {
+            "id": "md_slope",
+            "label": "Slope summary",
+            "kind": "idea",
+            "cards": [
+              "math9-u3-md-slope-t"
+            ]
+          },
+          {
+            "id": "md_eqn",
+            "label": "Equation of a line",
+            "kind": "idea",
+            "cards": [
+              "math9-u3-md-eqn-t"
+            ]
+          },
+          {
+            "id": "md_sys",
+            "label": "Choosing a method",
+            "kind": "idea",
+            "cards": [
+              "math9-u3-md-sys-t"
+            ]
           }
         ],
         "edges": [
@@ -8610,9 +10122,66 @@
             "from": "l3_4",
             "to": "l3_5",
             "label": "next"
+          },
+          {
+            "from": "l3_1",
+            "to": "md_lin",
+            "label": "key idea"
+          },
+          {
+            "from": "l3_2",
+            "to": "md_bound",
+            "label": "key idea"
+          },
+          {
+            "from": "l3_3",
+            "to": "md_slope",
+            "label": "key idea"
+          },
+          {
+            "from": "l3_4",
+            "to": "md_eqn",
+            "label": "key idea"
+          },
+          {
+            "from": "l3_5",
+            "to": "md_sys",
+            "label": "key idea"
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "md_ineq2": {
+          "svg": "svg/mathematics_9/m9_u3_ineq2.svg",
+          "title": "Graphs of linear inequalities (Fig. 3.4 and 3.5)",
+          "page": 58,
+          "pins": []
+        },
+        "md_ladder": {
+          "svg": "svg/mathematics_9/m9_u3_ladder.svg",
+          "title": "Slope of a ladder: rise over run (Fig. 3.7)",
+          "page": 61,
+          "pins": []
+        },
+        "md_slopetri": {
+          "svg": "svg/mathematics_9/m9_u3_slopetri.svg",
+          "title": "Any two points give the same slope (Fig. 3.9)",
+          "page": 64,
+          "pins": []
+        },
+        "md_slopesigns": {
+          "svg": "svg/mathematics_9/m9_u3_slopesigns.svg",
+          "title": "Four kinds of slope",
+          "page": 66,
+          "pins": []
+        },
+        "md_cases": {
+          "svg": "svg/mathematics_9/m9_u3_cases.svg",
+          "title": "Three possibilities for two lines",
+          "page": 80,
+          "pins": []
+        }
       }
     },
     {
