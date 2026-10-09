@@ -275,8 +275,8 @@ def f_distance():
     p.seg(P, R, BLUE, 3).seg(R, Q, GREEN, 3).seg(P, Q, RED, 3)
     p.right(p.P(*R), p.P(*P), p.P(*Q), 9)
     p.pt(*P, 'P', 'nw', INK).pt(*R, 'R', 'ne', INK).pt(*Q, 'Q', 'se', INK)
-    p.text(p.X(3.5), p.Y(5) - 8, '|x2 − x1|', 12, BLUE)
-    p.text(p.X(6) + 6, p.Y(3) + 4, '|y2 − y1|', 12, GREEN, 'start')
+    p.text(p.X(3.5), p.Y(5) - 8, '|x₂ − x₁|', 12, BLUE)
+    p.text(p.X(6) + 6, p.Y(3) + 4, '|y₂ − y₁|', 12, GREEN, 'start')
     p.text(p.X(2.6), p.Y(2.6), 'd', 15, RED, italic=True)
     return p
 
@@ -287,9 +287,9 @@ def f_midpoint():
     for (x, y) in (P1, P2, M):
         p.seg((x, y), (x, 0), GREY, 1.3, dash=True).seg((x, y), (0, y), GREY, 1.3, dash=True)
     p.seg(P1, P2, BLUE, 3)
-    p.pt(*P1, 'P1', 'se', BLUE).pt(*P2, 'P2', 'nw', BLUE).pt(*M, 'P', 'nw', RED)
-    p.pt(1, 0, 'R1', 's', INK, r=3).pt(4, 0, 'R', 's', RED, r=3).pt(7, 0, 'R2', 's', INK, r=3)
-    p.pt(0, 1, 'S1', 'w', INK, r=3).pt(0, 3, 'S', 'w', RED, r=3).pt(0, 5, 'S2', 'w', INK, r=3)
+    p.pt(*P1, 'P₁', 'se', BLUE).pt(*P2, 'P₂', 'nw', BLUE).pt(*M, 'P', 'nw', RED)
+    p.pt(1, 0, 'R₁', 's', INK, r=3).pt(4, 0, 'R', 's', RED, r=3).pt(7, 0, 'R₂', 's', INK, r=3)
+    p.pt(0, 1, 'S₁', 'w', INK, r=3).pt(0, 3, 'S', 'w', RED, r=3).pt(0, 5, 'S₂', 'w', INK, r=3)
     return p
 
 

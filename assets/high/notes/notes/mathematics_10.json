@@ -10929,13 +10929,32 @@
           ],
           "cards": [
             {
-              "id": "math10-u5-c01",
-              "type": "mnemonic",
-              "title": "Not a test: SSA",
-              "page": 161,
+              "id": "math10-u5-c03",
+              "type": "text",
+              "title": "5.1.1 Congruent figures",
+              "page": 143,
               "src": "notes",
               "body": [
-                "The ambiguous case — don’t claim congruence from two sides and a non-included angle unless the book treats a special right-triangle case (RHS)."
+                "**Congruent figures** have exactly the same shape **and** the same size: if you cut one out, it fits exactly on top of the other (you may turn it over). Congruent segments have equal length; congruent angles have equal measure; two circles are congruent when their radii are equal.",
+                "Two triangles are congruent when the three sides **and** the three angles of one are equal to the **corresponding** sides and angles of the other. We write $\\triangle ABC \\cong \\triangle DEF$.",
+                "The order of the letters is a promise: $A \\leftrightarrow D$, $B \\leftrightarrow E$, $C \\leftrightarrow F$. From $\\triangle ABC \\cong \\triangle DEF$ you can read off six facts:",
+                "- sides: $AB = DE$, $BC = EF$, $AC = DF$",
+                "- angles: $\\angle A = \\angle D$, $\\angle B = \\angle E$, $\\angle C = \\angle F$",
+                "Writing $\\triangle BAC \\cong \\triangle DEF$ for the same triangles would be **wrong**, because it would match $B$ with $D$.",
+                "On a figure, equal sides carry the same number of **tick marks** and equal angles the same number of **arcs**."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u5-md-congmarks",
+              "type": "diagram",
+              "title": "Matching marks show the correspondence",
+              "page": 144,
+              "src": "notes",
+              "diagram": "md_congmarks",
+              "mode": "plain",
+              "body": [
+                "One tick: $AB = DE$; two ticks: $BC = EF$; three ticks: $CA = FD$. Same-coloured arcs mark equal angles."
               ]
             },
             {
@@ -10949,40 +10968,383 @@
               ]
             },
             {
-              "id": "math10-u5-c03",
+              "id": "math10-u5-c04",
               "type": "text",
-              "title": "5.1.1 Congruent Figures",
-              "page": 144,
-              "src": "textbook pp.144–145",
-              "enriched": true,
+              "title": "5.1.2 Tests for congruent triangles",
+              "page": 147,
+              "src": "notes",
               "body": [
-                "Congruent figures are figures with the same shape and same size."
+                "You do not need to check all six parts. Any one of these sets of **three** matching parts is enough:",
+                "- **SAS (Postulate 1):** two sides and the **included** angle (the angle between those two sides).",
+                "- **ASA (Postulate 2):** two angles and the **included** side (the side between the two angles).",
+                "- **AAS (Theorem 5.1):** two angles and a side that is **not** between them. Reason: the third angles are then also equal ($180°$ minus the other two), so it becomes ASA.",
+                "- **SSS (Postulate 3):** all three sides.",
+                "- **RHS (Theorem 5.3):** in **right** triangles: the **h**ypotenuse and one other **s**ide.",
+                "**Not tests:** **AAA** — equal angles give the same shape but possibly a different size (similar, not congruent). **SSA** — two sides and a non-included angle can give two different triangles (except the right-angle case, which is RHS).",
+                "**How to write a proof:** make a two-column table (Statement | Reason). List three matching parts with a reason each (given, common side, vertical angles, alternate angles, …), name the test, and then use \"corresponding parts of congruent triangles are equal\" to get any further fact."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u5-md-tests",
+              "type": "diagram",
+              "title": "Blue sides and red angles must match",
+              "page": 148,
+              "src": "notes",
+              "diagram": "md_tests",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u5-md-tests-t",
+              "type": "table",
+              "title": "Congruence tests at a glance",
+              "page": 148,
+              "src": "notes",
+              "head": [
+                "Test",
+                "What must match",
+                "Watch out"
+              ],
+              "rows": [
+                [
+                  "SSS",
+                  "all 3 sides",
+                  "no angles needed"
+                ],
+                [
+                  "SAS",
+                  "2 sides + angle **between** them",
+                  "angle must be included"
+                ],
+                [
+                  "ASA",
+                  "2 angles + side **between** them",
+                  "side must be included"
+                ],
+                [
+                  "AAS",
+                  "2 angles + a non-included side",
+                  "side must correspond"
+                ],
+                [
+                  "RHS",
+                  "right angle + hypotenuse + one side",
+                  "only for right triangles"
+                ],
+                [
+                  "AAA, SSA",
+                  "—",
+                  "**not** valid tests"
+                ]
               ]
             },
             {
-              "id": "math10-u5-c04",
-              "type": "text",
-              "title": "5.1.2 Methods for Congruence of Triangles",
+              "id": "math10-u5-md-ex-51a",
+              "type": "worked",
+              "title": "Example 5.1: a two-column proof with SAS",
               "page": 148,
-              "src": "textbook pp.148–150",
-              "enriched": true,
+              "src": "notes",
+              "mode": "show",
+              "problem": "In the figure, $AO = BO$ and $CO = DO$. Prove that $\\triangle AOD \\cong \\triangle BOC$.",
+              "diagram": "md_ex51",
+              "steps": [
+                {
+                  "text": "$AO = BO$ — given."
+                },
+                {
+                  "text": "$DO = CO$ — given."
+                },
+                {
+                  "text": "$\\angle AOD = \\angle BOC$ — vertically opposite angles."
+                },
+                {
+                  "text": "The angle is between the two sides in each triangle, so $\\triangle AOD \\cong \\triangle BOC$ by **SAS**."
+                },
+                {
+                  "text": "Bonus (corresponding parts): $AD = BC$ and $\\angle A = \\angle B$, so $AD \\parallel BC$ (alternate angles)."
+                }
+              ],
+              "answer": "$\\triangle AOD \\cong \\triangle BOC$ (SAS)"
+            },
+            {
+              "id": "math10-u5-md-perpbis",
+              "type": "diagram",
+              "title": "Example 5.2",
+              "page": 148,
+              "src": "notes",
+              "diagram": "md_perpbis",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u5-md-ex-51b",
+              "type": "worked",
+              "title": "Example 5.2: points on the perpendicular bisector",
+              "page": 148,
+              "src": "notes",
+              "mode": "show",
+              "problem": "$l$ is the perpendicular bisector of $AB$ and meets $AB$ at $C$. $P$ is any point of $l$. Show that $PA = PB$.",
+              "steps": [
+                {
+                  "text": "$AC = BC$ — $C$ is the midpoint."
+                },
+                {
+                  "text": "$\\angle ACP = \\angle BCP = 90°$ — $l \\perp AB$."
+                },
+                {
+                  "text": "$PC = PC$ — common side."
+                },
+                {
+                  "text": "$\\triangle ACP \\cong \\triangle BCP$ by SAS."
+                },
+                {
+                  "text": "Hence $PA = PB$ (corresponding sides)."
+                }
+              ],
+              "answer": "every point of the perpendicular bisector is equidistant from $A$ and $B$"
+            },
+            {
+              "id": "math10-u5-md-ex-51c",
+              "type": "worked",
+              "title": "Example 5.3: ASA with a shared angle",
+              "page": 150,
+              "src": "notes",
+              "mode": "show",
+              "problem": "$P$ is the midpoint of $AB$; $D$ and $E$ are on the same side of $AB$ with $\\angle BAD = \\angle ABE$ and $\\angle APE = \\angle BPD$. Show $\\triangle ADP \\cong \\triangle BEP$.",
+              "steps": [
+                {
+                  "text": "$AP = BP$ — given ($P$ is the midpoint)."
+                },
+                {
+                  "text": "$\\angle PAD = \\angle PBE$ — given."
+                },
+                {
+                  "text": "$\\angle APD = \\angle APE + \\angle EPD$ and $\\angle BPE = \\angle BPD + \\angle EPD$. Since $\\angle APE = \\angle BPD$, adding the same $\\angle EPD$ gives $\\angle APD = \\angle BPE$."
+                },
+                {
+                  "text": "Two angles and the included side match: $\\triangle ADP \\cong \\triangle BEP$ by **ASA**."
+                }
+              ],
+              "answer": "$\\triangle ADP \\cong \\triangle BEP$ (ASA)"
+            },
+            {
+              "id": "math10-u5-md-isos-t",
+              "type": "text",
+              "title": "Isosceles triangles (Theorem 5.2)",
+              "page": 155,
+              "src": "notes",
               "body": [
-                "If a point P lies on l, show that P is equidistant from A and B.",
-                "Postulate 2(ASA Congruence) If two angles and the included side of one triangle are equal to two angles and the included side of other triangle, then the two triangles are congruent.",
-                "AB is a line segment and P is its midpoint."
+                "**Theorem 5.2:** if two sides of a triangle are equal, the angles opposite them are equal (the **base angles**). **Converse:** if two angles are equal, the sides opposite them are equal.",
+                "**Proof:** draw the bisector $AD$ of $\\angle A$. Then $AB = AC$ (given), $\\angle BAD = \\angle CAD$ (bisector) and $AD = AD$ (common), so $\\triangle ABD \\cong \\triangle ACD$ (SAS) and $\\angle B = \\angle C$.",
+                "From the same congruent triangles: $BD = DC$ and $\\angle ADB = \\angle ADC = 90°$. So in an isosceles triangle the bisector of the top angle is also the **median** and the **altitude** to the base.",
+                "An equilateral triangle is isosceles in every direction, so all its angles are equal: $180° \\div 3 = 60°$ each."
+              ]
+            },
+            {
+              "id": "math10-u5-md-isos",
+              "type": "diagram",
+              "title": "Base angles are equal",
+              "page": 155,
+              "src": "notes",
+              "diagram": "md_isos",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u5-md-ex-51d",
+              "type": "worked",
+              "title": "Example 5.5: using base angles",
+              "page": 156,
+              "src": "notes",
+              "mode": "show",
+              "problem": "In isosceles $\\triangle ABC$ with $AB = AC$, points $D$ and $E$ lie on $BC$ with $BE = CD$. Show $AD = AE$.",
+              "steps": [
+                {
+                  "text": "$AB = AC$ — given."
+                },
+                {
+                  "text": "$\\angle B = \\angle C$ — base angles of an isosceles triangle."
+                },
+                {
+                  "text": "$BD = BE - DE$ and $CE = CD - DE$; since $BE = CD$, $BD = CE$."
+                },
+                {
+                  "text": "$\\triangle ABD \\cong \\triangle ACE$ by SAS."
+                },
+                {
+                  "text": "So $AD = AE$."
+                }
+              ],
+              "answer": "$AD = AE$"
+            },
+            {
+              "id": "math10-u5-md-rhs-t",
+              "type": "text",
+              "title": "SSS and RHS",
+              "page": 159,
+              "src": "notes",
+              "body": [
+                "**SSS:** if three sides match, the triangles are congruent — a triangle is rigid: once its sides are fixed, its angles are fixed too (that is why roofs and bridges use triangles).",
+                "**RHS:** two right triangles with equal hypotenuses and one other pair of equal sides are congruent. (By Pythagoras the third sides are equal too, so it is really SSS.)",
+                "**Example:** $P$ and $Q$ are each equidistant from $A$ and $B$ ($AP = PB$, $AQ = QB$). Then $\\triangle APQ \\cong \\triangle BPQ$ (SSS), so $PQ$ bisects $\\angle APB$ and $PQ$ is the perpendicular bisector of $AB$."
               ]
             },
             {
               "id": "math10-u5-c05",
               "type": "text",
-              "title": "5.1.3 Quadrilaterals and Congruency",
+              "title": "5.1.3 Quadrilaterals and congruency",
               "page": 162,
-              "src": "textbook pp.162–164",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "A diagonal of a parallelogram divides the parallelogram into two congruent triangles.",
-                "In a parallelogram, opposite sides are congruent.",
-                "If opposite sides of a quadrilateral are congruent, then the quadrilateral is a parallelogram."
+                "A **parallelogram** has both pairs of opposite sides parallel. Drawing a diagonal splits it into two congruent triangles (ASA with alternate angles and the common side) — **Theorem 5.4**. From this we get:",
+                "- **Theorem 5.5:** opposite sides are equal. **Theorem 5.7:** opposite angles are equal.",
+                "- **Theorem 5.9:** the diagonals **bisect each other**.",
+                "- Consecutive angles add up to $180°$ (co-interior angles).",
+                "Ways to **prove** that a quadrilateral is a parallelogram:",
+                "- both pairs of opposite sides equal (**Theorem 5.6**);",
+                "- one pair of opposite sides equal **and** parallel (**Theorem 5.8**);",
+                "- diagonals bisect each other; or both pairs of opposite sides parallel (definition).",
+                "Special parallelograms: a **rectangle** (all angles $90°$; a parallelogram with one right angle is already a rectangle; its diagonals are equal), a **rhombus** (all sides equal; **Theorem 5.10:** its diagonals are perpendicular bisectors of each other), and a **square** (both)."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u5-md-para",
+              "type": "diagram",
+              "title": "Parallelogram ABCD",
+              "page": 162,
+              "src": "notes",
+              "diagram": "md_para",
+              "mode": "plain",
+              "body": [
+                "Arrows: parallel sides. Ticks on the diagonals: $AM = MC$ and $BM = MD$. Opposite angles $A$ and $C$ are equal."
+              ]
+            },
+            {
+              "id": "math10-u5-md-quadfamily",
+              "type": "diagram",
+              "title": "How the quadrilaterals are related",
+              "page": 162,
+              "src": "notes",
+              "diagram": "md_quadfamily",
+              "mode": "plain",
+              "body": [
+                "A square is a rectangle and a rhombus at the same time; every rectangle and every rhombus is a parallelogram. A trapezium has only one pair of parallel sides, so it is not a parallelogram."
+              ]
+            },
+            {
+              "id": "math10-u5-md-rhombus",
+              "type": "diagram",
+              "title": "Rhombus: diagonals cross at right angles",
+              "page": 166,
+              "src": "notes",
+              "diagram": "md_rhombus",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u5-md-quad-t",
+              "type": "table",
+              "title": "Properties of the special quadrilaterals",
+              "page": 165,
+              "src": "notes",
+              "head": [
+                "Property",
+                "Parallelogram",
+                "Rectangle",
+                "Rhombus",
+                "Square"
+              ],
+              "rows": [
+                [
+                  "Opposite sides parallel and equal",
+                  "yes",
+                  "yes",
+                  "yes",
+                  "yes"
+                ],
+                [
+                  "All sides equal",
+                  "no",
+                  "no",
+                  "yes",
+                  "yes"
+                ],
+                [
+                  "All angles $90°$",
+                  "no",
+                  "yes",
+                  "no",
+                  "yes"
+                ],
+                [
+                  "Diagonals bisect each other",
+                  "yes",
+                  "yes",
+                  "yes",
+                  "yes"
+                ],
+                [
+                  "Diagonals equal",
+                  "no",
+                  "yes",
+                  "no",
+                  "yes"
+                ],
+                [
+                  "Diagonals perpendicular",
+                  "no",
+                  "no",
+                  "yes",
+                  "yes"
+                ],
+                [
+                  "Diagonals bisect the angles",
+                  "no",
+                  "no",
+                  "yes",
+                  "yes"
+                ]
+              ]
+            },
+            {
+              "id": "math10-u5-md-midseg-t",
+              "type": "text",
+              "title": "The mid-segment theorem (Theorem 5.11)",
+              "page": 166,
+              "src": "notes",
+              "body": [
+                "The segment joining the midpoints of two sides of a triangle is **parallel** to the third side and **half** as long: if $E$, $F$ are the midpoints of $AB$, $AC$ then $EF \\parallel BC$ and $EF = \\frac12 BC$.",
+                "**Proof idea:** extend $EF$ to $D$ with $FD = EF$. Then $\\triangle AEF \\cong \\triangle CDF$ (SAS), so $CD = AE = EB$ and $CD \\parallel AB$. So $BCDE$ is a parallelogram, giving $ED \\parallel BC$ and $ED = BC$, hence $EF = \\frac12 BC$.",
+                "**Example 5.7:** joining the three midpoints $D$, $E$, $F$ of the sides of a triangle cuts it into **four congruent triangles**, each similar to the big one with half its sides."
+              ]
+            },
+            {
+              "id": "math10-u5-md-midseg",
+              "type": "diagram",
+              "title": "Mid-segment EF",
+              "page": 166,
+              "src": "notes",
+              "diagram": "md_midseg",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u5-md-ineq-t",
+              "type": "text",
+              "title": "Triangle inequality (Theorem 5.12)",
+              "page": 170,
+              "src": "notes",
+              "body": [
+                "In every triangle, the sum of any two sides is **greater** than the third side. So three lengths make a triangle only if the two shorter ones add up to more than the longest one.",
+                "- $\\{4, 7, 9\\}$: $4 + 7 = 11 > 9$ — a triangle. $\\{3, 8, 12\\}$: $3 + 8 = 11 < 12$ — no triangle.",
+                "- If two sides are $3$ and $7$, the third side $x$ satisfies $7 - 3 < x < 7 + 3$, i.e. $4 < x < 10$."
+              ]
+            },
+            {
+              "id": "math10-u5-c01",
+              "type": "mnemonic",
+              "title": "Tip: SSA is a trap",
+              "page": 161,
+              "src": "notes",
+              "body": [
+                "Two sides and an angle that is **not** between them (SSA, \"the donkey rule\") does **not** prove congruence. The only exception is the right-angle case, which has its own name: RHS. Spell the order out loud: S-A-S has the A in the middle — the angle sits between the sides."
               ]
             },
             {
@@ -11123,62 +11485,6 @@
               },
               "answer": "A",
               "why": "**Step 1:** Two sides are equal (AB = PQ, BC = QR).\n\n**Step 2:** The equal angle ∠B = ∠Q lies between those two sides (included angle).\n\n**Step 3:** Answer: SAS.\n\n**Tip:** In SAS the angle must be the one between the two given sides."
-            }
-          ]
-        },
-        {
-          "id": "math10-u5-l5-2",
-          "number": "5.2",
-          "title": "Perimeter and Area",
-          "pages": [
-            171,
-            196
-          ],
-          "cards": [
-            {
-              "id": "math10-u5-c06",
-              "type": "text",
-              "title": "5.2.1 Perimeter of Polygons",
-              "page": 171,
-              "src": "textbook pp.171–172",
-              "enriched": true,
-              "body": [
-                "The perimeter of a polygon is the sum of the lengths of its sides."
-              ]
-            },
-            {
-              "id": "math10-u5-c07",
-              "type": "text",
-              "title": "5.2.2 Area of Polygons",
-              "page": 179,
-              "src": "textbook pp.179–183",
-              "enriched": true,
-              "body": [
-                "Solution: Note: ∆ABD and ∆CBD are right triangles.",
-                "BD2 = 62 + 82 = 100, since ∆ABD is a right triangle."
-              ]
-            },
-            {
-              "id": "math10-u5-c08",
-              "type": "text",
-              "title": "5.2.3 Area and Perimeter of Sectors",
-              "page": 193,
-              "src": "textbook p.193",
-              "enriched": true,
-              "body": [
-                "Find the radius and the area of the sector."
-              ]
-            },
-            {
-              "id": "math10-u5-c09",
-              "type": "text",
-              "title": "5.2.4 Area of Segments",
-              "page": 196,
-              "src": "textbook p.196",
-              "enriched": true,
-              "body": [
-                "A rectangle with length 16 cm and width 12 cm is inscribed in a circle."
-              ]
             },
             {
               "id": "math10-u5-chk3",
@@ -11196,6 +11502,298 @@
               },
               "answer": "B",
               "why": "**Step 1: Identify corresponding parts**\nSince $$\\Delta ABC \\cong \\Delta DEF$$ under the given correspondence, corresponding sides must be equal in length. Therefore:\n$$AB = DE$$\n\n**Step 2: Set up the equation**\nSubstitute the algebraic expressions for $$AB$$ and $$DE$$ into the equation:\n$$2x + 3 = 3x - 1$$\n\n**Step 3: Solve for $$x$$**\nSubtract $$2x$$ from both sides:\n$$3 = x - 1$$\nAdd $$1$$ to both sides:\n$$x = 4$$\n\n**Step 4: Final Result**\nThe value of $$x$$ is **$$4$$**."
+            }
+          ]
+        },
+        {
+          "id": "math10-u5-l5-2",
+          "number": "5.2",
+          "title": "Perimeter and Area",
+          "pages": [
+            171,
+            196
+          ],
+          "cards": [
+            {
+              "id": "math10-u5-c06",
+              "type": "text",
+              "title": "5.2.1 Perimeter of polygons",
+              "page": 171,
+              "src": "notes",
+              "body": [
+                "The **perimeter** of a polygon is the sum of the lengths of its sides (the distance round the edge). For a regular polygon with $n$ sides of length $s$: $P = ns$.",
+                "**Example 5.8 idea:** for a shaded region, walk round its boundary and add every piece, including the \"inside\" edges that are part of the boundary; do not add edges that are not on the boundary.",
+                "**Regular polygon inscribed in a circle of radius $r$:** join the centre $O$ to two neighbouring vertices $A$, $B$. Then $\\angle AOB = \\frac{360°}{n}$, and the perpendicular $OE$ bisects $AB$ and the angle, so $AE = r \\sin\\frac{180°}{n}$ and $AB = 2r \\sin\\frac{180°}{n}$:",
+                "$$P_{\\text{in}} = 2nr \\sin\\frac{180°}{n}$$",
+                "**Regular polygon circumscribed about a circle of radius $r$:** now $OE = r$ is the distance to the side (the **apothem**), so $AE = r\\tan\\frac{180°}{n}$:",
+                "$$P_{\\text{out}} = 2nr \\tan\\frac{180°}{n}$$",
+                "Check with the hexagon: inscribed $P = 12r \\sin 30° = 6r$ (each side equals $r$); circumscribed $P = 12r\\tan 30° = 4\\sqrt3\\, r$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u5-md-regpoly",
+              "type": "diagram",
+              "title": "Inscribed and circumscribed hexagons",
+              "page": 173,
+              "src": "notes",
+              "diagram": "md_regpoly",
+              "mode": "plain",
+              "body": [
+                "Left: $OA = OB = r$ (radius to a vertex). Right: $OE = r$ (radius to the midpoint of a side). That one difference changes $\\sin$ into $\\tan$."
+              ]
+            },
+            {
+              "id": "math10-u5-md-ex-52a",
+              "type": "worked",
+              "title": "Examples 5.9 and 5.10: perimeters of regular polygons",
+              "page": 174,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find the perimeter of (a) a regular decagon inscribed in a circle of radius 5 cm; (b) a regular nonagon circumscribed about a circle of radius 6 cm.",
+              "steps": [
+                {
+                  "text": "(a) $n = 10$, $r = 5$: $P = 2(10)(5)\\sin 18° = 100 \\times 0.309 = 30.9$ cm."
+                },
+                {
+                  "text": "(b) $n = 9$, $r = 6$: $P = 2(9)(6)\\tan 20° = 108 \\times 0.364 = 39.3$ cm."
+                },
+                {
+                  "text": "Check: the circumscribed polygon lies outside the circle, so its perimeter is more than the circumference $2\\pi r$: $39.3 > 37.7$. The inscribed one is less: $30.9 < 31.4$."
+                }
+              ],
+              "answer": "(a) $\\approx 30.9$ cm (b) $\\approx 39.3$ cm"
+            },
+            {
+              "id": "math10-u5-c07",
+              "type": "text",
+              "title": "5.2.2 Area of polygons",
+              "page": 177,
+              "src": "notes",
+              "body": [
+                "**Area** is the number of unit squares that cover a region. The basic formulas all come from the rectangle $A = ab$:",
+                "- A diagonal cuts a rectangle into two congruent right triangles, so a **right triangle** with legs $a$, $b$ has $A = \\frac12 ab$.",
+                "- **Any triangle:** $A = \\frac12 bh$, where $h$ is the altitude to the base $b$ (split it into two right triangles).",
+                "- **Two sides and the included angle:** $A = \\frac12 ab \\sin C$ (because the altitude is $h = b \\sin C$).",
+                "- **Three sides — Heron’s formula:** with $s = \\frac12(a + b + c)$, $A = \\sqrt{s(s - a)(s - b)(s - c)}$.",
+                "- **Parallelogram** $A = bh$; **trapezium** $A = \\frac12(a + b)h$; **rhombus / kite** $A = \\frac12 d_1 d_2$.",
+                "- **Equilateral triangle** of side $a$: $h = \\frac{\\sqrt3}{2}a$, $A = \\frac{\\sqrt3}{4}a^2$. **Regular hexagon** of side $s$: six equilateral triangles, $A = \\frac{3\\sqrt3}{2}s^2$.",
+                "**Composite figures:** split into triangles and rectangles (often along a diagonal), find any missing lengths with Pythagoras, then add (or subtract cut-out parts)."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u5-md-areas",
+              "type": "diagram",
+              "title": "Always use the perpendicular height",
+              "page": 178,
+              "src": "notes",
+              "diagram": "md_areas",
+              "mode": "plain",
+              "body": [
+                "The height $h$ is always measured at right angles to the base — never along a slanting side."
+              ]
+            },
+            {
+              "id": "math10-u5-md-quadex",
+              "type": "diagram",
+              "title": "Example 5.11",
+              "page": 179,
+              "src": "notes",
+              "diagram": "md_quadex",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u5-md-ex-52b",
+              "type": "worked",
+              "title": "Example 5.11: area of a quadrilateral with two right triangles",
+              "page": 179,
+              "src": "notes",
+              "mode": "show",
+              "problem": "In quadrilateral $ABCD$, $\\angle ADB = 90°$, $\\angle DBC = 90°$, $AB = 15$, $DC = 13$ and $BC = 5$. Find its area.",
+              "steps": [
+                {
+                  "text": "In right $\\triangle DBC$: $DB^2 = 13^2 - 5^2 = 169 - 25 = 144$, so $DB = 12$."
+                },
+                {
+                  "text": "In right $\\triangle ADB$: $AD^2 = 15^2 - 12^2 = 225 - 144 = 81$, so $AD = 9$. (The textbook prints 121 and 11 here by mistake.)"
+                },
+                {
+                  "text": "Area $= \\frac12(9)(12) + \\frac12(5)(12) = 54 + 30 = 84$."
+                }
+              ],
+              "answer": "$84$ square units"
+            },
+            {
+              "id": "math10-u5-md-ex512",
+              "type": "diagram",
+              "title": "Example 5.12",
+              "page": 181,
+              "src": "notes",
+              "diagram": "md_ex512",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u5-md-ex-52c",
+              "type": "worked",
+              "title": "Example 5.12: right triangle plus Heron",
+              "page": 181,
+              "src": "notes",
+              "mode": "show",
+              "problem": "In $ABCD$, $\\angle BAD = 90°$, $AB = 6$, $AD = 8$, $BC = 7$, $CD = 5$. Find the area.",
+              "steps": [
+                {
+                  "text": "Right $\\triangle ABD$: area $= \\frac12(6)(8) = 24$ and $BD = \\sqrt{36 + 64} = 10$."
+                },
+                {
+                  "text": "$\\triangle BCD$ has sides $10, 7, 5$: $s = \\frac{10 + 7 + 5}{2} = 11$."
+                },
+                {
+                  "text": "Heron: $\\sqrt{11(11 - 10)(11 - 7)(11 - 5)} = \\sqrt{11 \\cdot 1 \\cdot 4 \\cdot 6} = \\sqrt{264} = 2\\sqrt{66} \\approx 16.2$."
+                },
+                {
+                  "text": "Total $= 24 + 2\\sqrt{66} \\approx 40.2$."
+                }
+              ],
+              "answer": "$24 + 2\\sqrt{66} \\approx 40.2$ square units"
+            },
+            {
+              "id": "math10-u5-md-regarea-t",
+              "type": "text",
+              "title": "Area of regular polygons",
+              "page": 186,
+              "src": "notes",
+              "body": [
+                "Cut a regular $n$-gon into $n$ congruent isosceles triangles with apex at the centre $O$.",
+                "- **Inscribed** in a circle of radius $r$: each triangle has two sides $r$ and angle $\\frac{360°}{n}$, so $A = \\frac12 n r^2 \\sin\\frac{360°}{n}$.",
+                "- **Circumscribed** about a circle of radius $r$: each triangle has height $r$ and base $2r\\tan\\frac{180°}{n}$, so $A = n r^2 \\tan\\frac{180°}{n}$.",
+                "- With the **apothem** $a$ (distance from the centre to a side) and perimeter $P$: $A = \\frac12 aP$.",
+                "Examples: hexagon inscribed in $r = 4$: $A = \\frac12(6)(16)\\sin 60° = 24\\sqrt3$ cm². Square circumscribed about $r = 3$: $A = 4(9)\\tan 45° = 36$ cm² (a $6 \\times 6$ square — correct)."
+              ]
+            },
+            {
+              "id": "math10-u5-md-reg-t",
+              "type": "table",
+              "title": "Regular polygon formulas",
+              "page": 188,
+              "src": "notes",
+              "head": [
+                "",
+                "Inscribed in circle radius $r$",
+                "Circumscribed about circle radius $r$"
+              ],
+              "rows": [
+                [
+                  "Side",
+                  "$2r\\sin\\frac{180°}{n}$",
+                  "$2r\\tan\\frac{180°}{n}$"
+                ],
+                [
+                  "Perimeter",
+                  "$2nr\\sin\\frac{180°}{n}$",
+                  "$2nr\\tan\\frac{180°}{n}$"
+                ],
+                [
+                  "Area",
+                  "$\\frac12 nr^2\\sin\\frac{360°}{n}$",
+                  "$nr^2\\tan\\frac{180°}{n}$"
+                ]
+              ]
+            },
+            {
+              "id": "math10-u5-c08",
+              "type": "text",
+              "title": "5.2.3 Arc length, perimeter and area of a sector",
+              "page": 190,
+              "src": "notes",
+              "body": [
+                "A **sector** is the \"pizza slice\" between two radii and an arc. Its share of the whole circle is $\\frac{\\theta}{360°}$, where $\\theta$ is the central angle. So take that fraction of the circumference or of the area:",
+                "$$L = \\frac{\\theta}{360°} \\cdot 2\\pi r = \\frac{\\pi r\\theta}{180°} \\qquad A = \\frac{\\theta}{360°} \\cdot \\pi r^2$$",
+                "- **Perimeter of a sector** $= 2r + L$ (two radii plus the arc).",
+                "- Shortcut linking them: $A = \\frac12 L r$.",
+                "- Semicircle: $\\theta = 180°$; quadrant: $\\theta = 90°$.",
+                "**Example 5.16:** $r = 5$, $\\theta = 120°$: $L = \\frac{\\pi \\cdot 5 \\cdot 120}{180} = \\frac{10\\pi}{3} \\approx 10.5$ cm; $P = 10 + \\frac{10\\pi}{3} \\approx 20.5$ cm.",
+                "**Example 5.17:** $r = 6$, $\\theta = 45°$: $A = \\frac{45}{360}\\pi(36) = 4.5\\pi \\approx 14.1$ square units."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u5-md-sector",
+              "type": "diagram",
+              "title": "Sector and segment",
+              "page": 190,
+              "src": "notes",
+              "diagram": "md_sector",
+              "mode": "plain",
+              "body": [
+                "The orange angle is the central angle $\\theta$; $L$ is the arc length. The green region on the right is a segment."
+              ]
+            },
+            {
+              "id": "math10-u5-c09",
+              "type": "text",
+              "title": "5.2.4 Area of a segment",
+              "page": 194,
+              "src": "notes",
+              "body": [
+                "A **segment** is the region between a chord and its arc. It is the sector **minus** the triangle formed by the two radii and the chord:",
+                "$$A_{\\text{segment}} = \\frac{\\theta}{360°}\\pi r^2 - \\frac12 r^2 \\sin\\theta$$",
+                "**Example 5.18:** $r = 5$, $\\theta = 45°$: sector $= \\frac{25\\pi}{8}$, triangle $= \\frac12(25)\\sin 45° = \\frac{25\\sqrt2}{4}$, so segment $= \\frac{25\\pi}{8} - \\frac{25\\sqrt2}{4} \\approx 9.82 - 8.84 = 0.98$ square units.",
+                "**Shaded-region problems:** area of the big shape minus the area of what is cut out (e.g. circle minus inscribed rectangle)."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u5-md-ex-52d",
+              "type": "worked",
+              "title": "Worked example: circle minus inscribed rectangle",
+              "page": 196,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A $16 \\text{ cm} \\times 12$ cm rectangle is inscribed in a circle. Find the area inside the circle but outside the rectangle.",
+              "steps": [
+                {
+                  "text": "The diagonal of an inscribed rectangle is a diameter (angle in a semicircle is $90°$): $d = \\sqrt{16^2 + 12^2} = 20$, so $r = 10$."
+                },
+                {
+                  "text": "Circle area $= 100\\pi \\approx 314.2$ cm²."
+                },
+                {
+                  "text": "Rectangle area $= 16 \\times 12 = 192$ cm²."
+                },
+                {
+                  "text": "Difference $= 100\\pi - 192 \\approx 122.2$ cm²."
+                }
+              ],
+              "answer": "$100\\pi - 192 \\approx 122.2$ cm²"
+            },
+            {
+              "id": "math10-u5-xt2",
+              "type": "text",
+              "title": "Area formulas to know",
+              "body": [
+                "Rectangle A = lw; parallelogram A = bh; triangle A = ½bh; trapezium A = ½(a + b)h; rhombus/kite A = ½d₁d₂; circle A = πr², circumference C = 2πr.",
+                "**Sector** with central angle θ: arc length = (θ/360°) × 2πr, area = (θ/360°) × πr². **Segment** area = sector area − triangle area.",
+                "**Example:** a rectangle 16 cm × 12 cm is inscribed in a circle. Its diagonal √(16² + 12²) = 20 cm is a diameter, so r = 10 cm. Area of the circle outside the rectangle = π(10)² − 16 × 12 ≈ 314.2 − 192 = 122.2 cm²."
+              ],
+              "page": 171,
+              "src": "notes"
+            },
+            {
+              "id": "math10-u5-pc21",
+              "type": "check",
+              "title": "Practice",
+              "q": "Find the area of a sector of radius 10 cm with central angle 72° (use π ≈ 3.14).",
+              "options": {
+                "A": "62.8 cm²",
+                "B": "314 cm²",
+                "C": "12.56 cm²",
+                "D": "125.6 cm²"
+              },
+              "answer": "A",
+              "why": "Sector area = (θ/360°) × πr² = (72/360) × 3.14 × 100 = 0.2 × 314 = 62.8 cm².",
+              "page": 171,
+              "src": "notes"
             },
             {
               "id": "math10-u5-chk4",
@@ -11257,34 +11855,6 @@
               "answer": "$$12\\pi\\text{ cm}^2$$"
             },
             {
-              "id": "math10-u5-pc21",
-              "type": "check",
-              "title": "Practice",
-              "q": "Find the area of a sector of radius 10 cm with central angle 72° (use π ≈ 3.14).",
-              "options": {
-                "A": "62.8 cm²",
-                "B": "314 cm²",
-                "C": "12.56 cm²",
-                "D": "125.6 cm²"
-              },
-              "answer": "A",
-              "why": "Sector area = (θ/360°) × πr² = (72/360) × 3.14 × 100 = 0.2 × 314 = 62.8 cm².",
-              "page": 171,
-              "src": "notes"
-            },
-            {
-              "id": "math10-u5-xt2",
-              "type": "text",
-              "title": "Area formulas to know",
-              "body": [
-                "Rectangle A = lw; parallelogram A = bh; triangle A = ½bh; trapezium A = ½(a + b)h; rhombus/kite A = ½d₁d₂; circle A = πr², circumference C = 2πr.",
-                "**Sector** with central angle θ: arc length = (θ/360°) × 2πr, area = (θ/360°) × πr². **Segment** area = sector area − triangle area.",
-                "**Example:** a rectangle 16 cm × 12 cm is inscribed in a circle. Its diagonal √(16² + 12²) = 20 cm is a diameter, so r = 10 cm. Area of the circle outside the rectangle = π(10)² − 16 × 12 ≈ 314.2 − 192 = 122.2 cm²."
-              ],
-              "page": 171,
-              "src": "notes"
-            },
-            {
               "id": "math10-u5-chk1",
               "type": "check",
               "title": "Quick check",
@@ -11330,63 +11900,328 @@
             {
               "id": "math10-u5-c10",
               "type": "text",
-              "title": "5.3.1 Surface Areas and Volumes of Prisms",
-              "page": 198,
+              "title": "5.3.1 Surface area and volume of prisms",
+              "page": 197,
               "src": "notes",
               "body": [
-                "**Prism:** two congruent parallel bases joined by rectangular faces. Volume V = (area of base) × (height of the prism). Total surface area = 2 × (area of base) + (perimeter of base) × (height).",
-                "**Example — right triangular prism:** the bases are right-angled triangles with legs 3 cm and 4 cm (hypotenuse 5 cm), and the prism is 10 cm long. Base area = ½ × 3 × 4 = 6 cm². Volume = 6 × 10 = 60 cm³. Lateral area = (3 + 4 + 5) × 10 = 120 cm². Total surface area = 2 × 6 + 120 = 132 cm²."
+                "**Surface area** = the total area of all the faces (how much paper covers the solid; think of its net). **Volume** = the space inside, measured in cubic units ($\\text{cm}^3$, $\\text{m}^3$). $1$ litre $= 1000\\ \\text{cm}^3$ and $1\\ \\text{m}^3 = 1000$ litres.",
+                "**Cuboid** $l \\times w \\times h$: lateral area $LA = 2lh + 2wh$; base $B = lw$; total $SA = 2lh + 2wh + 2lw$; volume $V = lwh$.",
+                "**Any right prism** with base area $B$, base perimeter $p$ and height $h$:",
+                "$$LA = p \\cdot h \\qquad SA = 2B + ph \\qquad V = Bh$$",
+                "Why $V = Bh$: one layer of unit cubes on the base holds $B$ cubes, and there are $h$ layers."
               ]
+            },
+            {
+              "id": "math10-u5-md-cuboid",
+              "type": "diagram",
+              "title": "Cuboid and its net",
+              "page": 198,
+              "src": "notes",
+              "diagram": "md_cuboid",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u5-md-triprism",
+              "type": "diagram",
+              "title": "Example 5.19",
+              "page": 199,
+              "src": "notes",
+              "diagram": "md_triprism",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u5-md-ex-53a",
+              "type": "worked",
+              "title": "Example 5.19: surface area of a triangular prism",
+              "page": 199,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A right prism has right-triangle bases with legs 3 cm and 4 cm, and the prism is 3 cm long. Find its total surface area and volume.",
+              "steps": [
+                {
+                  "text": "Hypotenuse $= \\sqrt{3^2 + 4^2} = 5$ cm."
+                },
+                {
+                  "text": "Base area $B = \\frac12(3)(4) = 6$ cm²; two bases $= 12$ cm²."
+                },
+                {
+                  "text": "Lateral faces: $3 \\times 3 + 4 \\times 3 + 5 \\times 3 = 36$ cm² (or perimeter $12 \\times 3$)."
+                },
+                {
+                  "text": "$SA = 12 + 36 = 48$ cm²."
+                },
+                {
+                  "text": "Volume $= Bh = 6 \\times 3 = 18$ cm³."
+                }
+              ],
+              "answer": "$SA = 48$ cm², $V = 18$ cm³"
+            },
+            {
+              "id": "math10-u5-md-ex-53b",
+              "type": "worked",
+              "title": "Examples 5.21 and 5.22: volumes of prisms",
+              "page": 203,
+              "src": "notes",
+              "mode": "show",
+              "problem": "(a) A right prism of height 10 cm has an equilateral-triangle base of side 12 cm. Find its volume. (b) A tank is $120 \\times 80 \\times 50$ cm. How many litres does it hold?",
+              "steps": [
+                {
+                  "text": "(a) $B = \\frac12 s^2 \\sin 60° = \\frac12(144)\\frac{\\sqrt3}{2} = 36\\sqrt3$ cm²."
+                },
+                {
+                  "text": "$V = Bh = 360\\sqrt3 \\approx 623.5$ cm³."
+                },
+                {
+                  "text": "(b) $V = 120 \\times 80 \\times 50 = 480\\,000$ cm³."
+                },
+                {
+                  "text": "Divide by 1000: $480$ litres."
+                }
+              ],
+              "answer": "(a) $360\\sqrt3 \\approx 623.5$ cm³ (b) $480$ litres"
             },
             {
               "id": "math10-u5-c11",
               "type": "text",
-              "title": "5.3.2 Surface Areas and Volumes of Cylinders",
-              "page": 208,
-              "src": "textbook pp.208–209",
-              "enriched": true,
+              "title": "5.3.2 Cylinders",
+              "page": 207,
+              "src": "notes",
               "body": [
-                "A straw is 24cm long and 4mm in diameter.",
-                "Cylinder A is eight times as tall as cylinder B, but the diameter of cylinder B is four times the diameter of cylinder A."
-              ]
+                "Cut the curved surface of a cylinder straight down and unroll it: you get a **rectangle** whose length is the circumference $2\\pi r$ and whose width is the height $h$.",
+                "$$LA = 2\\pi r h \\qquad SA = 2\\pi r h + 2\\pi r^2 = 2\\pi r(h + r) \\qquad V = \\pi r^2 h$$",
+                "The volume rule is the prism rule \"base area × height\" with base area $\\pi r^2$.",
+                "**Open containers** (a cup, a tank without lid) have only one base: $SA = 2\\pi rh + \\pi r^2$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u5-md-cylnet",
+              "type": "diagram",
+              "title": "Unrolling the curved surface",
+              "page": 208,
+              "src": "notes",
+              "diagram": "md_cylnet",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u5-md-ex-53c",
+              "type": "worked",
+              "title": "Examples 5.23 and 5.24: cylinders",
+              "page": 208,
+              "src": "notes",
+              "mode": "show",
+              "problem": "(a) Find the total surface area of a cylinder with $r = 14$ cm, $h = 8$ cm. (b) Find the volume of a cylinder with $r = 7$ cm, $h = 20$ cm. Take $\\pi = \\frac{22}{7}$.",
+              "steps": [
+                {
+                  "text": "(a) $LA = 2 \\cdot \\frac{22}{7} \\cdot 14 \\cdot 8 = 704$ cm²; $B = \\frac{22}{7} \\cdot 196 = 616$ cm²."
+                },
+                {
+                  "text": "$SA = 704 + 2(616) = 1936$ cm²."
+                },
+                {
+                  "text": "(b) $V = \\frac{22}{7} \\cdot 49 \\cdot 20 = 3080$ cm³."
+                }
+              ],
+              "answer": "(a) $1936$ cm² (b) $3080$ cm³"
             },
             {
               "id": "math10-u5-c12",
               "type": "text",
-              "title": "5.3.3 Surface Areas and Volumes of Pyramids",
-              "page": 215,
-              "src": "textbook p.215",
-              "enriched": true,
+              "title": "5.3.3 Pyramids",
+              "page": 210,
+              "src": "notes",
               "body": [
-                "A pyramid has a rectangular base of 18 centimetres by 30cm and a height of 36cm.",
-                "The Pyramid of Khafre in Egypt is a regular square pyramid that stands 149 metres tall.",
-                "The sides of its square base are 216 metres in length."
-              ]
+                "A **regular pyramid** with an $n$-gon base of side $b$ and slant height $s$ has $n$ congruent triangular faces, each of area $\\frac12 bs$:",
+                "$$LA = \\frac12 n b s \\qquad SA = LA + B \\qquad V = \\frac13 Bh$$",
+                "- Find a missing slant height with Pythagoras: $s^2 = h^2 + \\left(\\frac{b}{2}\\right)^2$ (square base).",
+                "- Why $\\frac13$: a cube can be cut into **three** congruent square pyramids with the same base and height as the cube, so each is one third of the cube.",
+                "- Do not mix $h$ (height, used for volume) with $s$ (slant height, used for surface area)."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u5-md-pyrnet",
+              "type": "diagram",
+              "title": "Net and slant-height triangle",
+              "page": 211,
+              "src": "notes",
+              "diagram": "md_pyrnet",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u5-md-ex-53d",
+              "type": "worked",
+              "title": "Examples 5.25 and 5.26: pyramids",
+              "page": 212,
+              "src": "notes",
+              "mode": "show",
+              "problem": "(a) A regular square pyramid has base 10 cm and height 9 cm. Find its total surface area. (b) A regular triangular pyramid has height 12 cm and base edges 8 cm. Find its volume.",
+              "steps": [
+                {
+                  "text": "(a) $s = \\sqrt{9^2 + 5^2} = \\sqrt{106} \\approx 10.3$ cm."
+                },
+                {
+                  "text": "$LA = \\frac12 \\cdot 4 \\cdot 10 \\cdot \\sqrt{106} = 20\\sqrt{106} \\approx 205.9$ cm²; $B = 100$."
+                },
+                {
+                  "text": "$SA = 20\\sqrt{106} + 100 \\approx 305.9$ cm²."
+                },
+                {
+                  "text": "(b) $B = \\frac12(8^2)\\sin 60° = 16\\sqrt3$ cm²."
+                },
+                {
+                  "text": "$V = \\frac13(16\\sqrt3)(12) = 64\\sqrt3 \\approx 110.9$ cm³."
+                }
+              ],
+              "answer": "(a) $\\approx 305.9$ cm² (b) $64\\sqrt3 \\approx 110.9$ cm³"
             },
             {
               "id": "math10-u5-c13",
               "type": "text",
-              "title": "5.3.4 Surface Areas and Volumes of Cones",
-              "page": 217,
-              "src": "textbook pp.217–219",
-              "enriched": true,
+              "title": "5.3.4 Cones",
+              "page": 216,
+              "src": "notes",
               "body": [
-                "As in the case of pyramids, it can be shown that the volume of the cone is one-third of the volume of the surrounding cylinder.",
-                "The metal is melted down and recast as a solid right cone of radius 9cm."
-              ]
+                "Unroll the curved surface of a cone: you get a **sector** of a circle with radius $s$ (the slant height) and arc length $2\\pi r$. Its area is $\\frac12 \\times \\text{arc} \\times \\text{radius} = \\frac12(2\\pi r)s = \\pi rs$.",
+                "$$s = \\sqrt{r^2 + h^2} \\qquad LA = \\pi r s \\qquad SA = \\pi r s + \\pi r^2 \\qquad V = \\frac13 \\pi r^2 h$$",
+                "A cone holds one third of the cylinder with the same base and height — just as a pyramid holds one third of its prism."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u5-md-conenet",
+              "type": "diagram",
+              "title": "Unrolling a cone gives a sector",
+              "page": 216,
+              "src": "notes",
+              "diagram": "md_conenet",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u5-md-ex-53e",
+              "type": "worked",
+              "title": "Examples 5.27 and 5.28: cones",
+              "page": 217,
+              "src": "notes",
+              "mode": "show",
+              "problem": "(a) A cone has $r = 6$ cm and $h = 8$ cm. Find its total surface area. (b) A cone has height 12 cm and base diameter 10 cm. Find its volume. Use $\\pi = 3.14$.",
+              "steps": [
+                {
+                  "text": "(a) $s = \\sqrt{36 + 64} = 10$ cm."
+                },
+                {
+                  "text": "$LA = 3.14 \\cdot 6 \\cdot 10 = 188.4$ cm²; $B = 3.14 \\cdot 36 = 113.04$ cm²; $SA = 301.44$ cm²."
+                },
+                {
+                  "text": "(b) $r = 5$ cm, $B = 3.14 \\cdot 25 = 78.5$ cm²."
+                },
+                {
+                  "text": "$V = \\frac13(78.5)(12) = 314$ cm³."
+                }
+              ],
+              "answer": "(a) $301.44$ cm² (b) $314$ cm³"
             },
             {
               "id": "math10-u5-c14",
               "type": "text",
-              "title": "5.3.5 Surface Areas and Volumes of Spheres",
+              "title": "5.3.5 Spheres",
               "page": 219,
-              "src": "textbook pp.219–221",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "The ancient Greeks knew the formulas for surface area and volume of a sphere.",
-                "Archimedes of Syracuse, a Greek mathematician who lived between 287 and 212 BCE, discovered that: The surface area of a sphere is the same as the lateral surface area of the smallest right cylinder containing the sphere.",
-                "A ball in the form of a sphere has a diameter of 14 cm long.",
-                "A basin has the shape of a hemisphere of diameter 42 centimetres."
+                "Archimedes showed that a sphere of radius $r$ fits exactly in a cylinder of radius $r$ and height $2r$, and:",
+                "- the surface of the sphere equals the curved surface of that cylinder: $2\\pi r \\cdot 2r$;",
+                "- the sphere fills $\\frac23$ of the cylinder: $\\frac23 \\cdot \\pi r^2 \\cdot 2r$.",
+                "$$SA = 4\\pi r^2 \\qquad V = \\frac43 \\pi r^3$$",
+                "**Hemisphere** (half a sphere): $V = \\frac23 \\pi r^3$; curved surface $2\\pi r^2$; a solid hemisphere also has a flat circle, so total $3\\pi r^2$.",
+                "Watch the diameter: always halve it first."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u5-md-archimedes",
+              "type": "diagram",
+              "title": "Same radius r and height 2r",
+              "page": 218,
+              "src": "notes",
+              "diagram": "md_archimedes",
+              "mode": "plain",
+              "body": [
+                "Cone : sphere : cylinder $= 1 : 2 : 3$ in volume ($\\frac23\\pi r^3 : \\frac43\\pi r^3 : 2\\pi r^3$)."
+              ]
+            },
+            {
+              "id": "math10-u5-md-ex-53f",
+              "type": "worked",
+              "title": "Examples 5.29 and 5.30: spheres",
+              "page": 220,
+              "src": "notes",
+              "mode": "show",
+              "problem": "(a) A ball has diameter 14 cm. Find its surface area. (b) A basin is a hemisphere of diameter 42 cm. How many litres does it hold? Take $\\pi = \\frac{22}{7}$.",
+              "steps": [
+                {
+                  "text": "(a) $r = 7$: $SA = 4 \\cdot \\frac{22}{7} \\cdot 49 = 616$ cm²."
+                },
+                {
+                  "text": "(b) $r = 21$: $V = \\frac23 \\pi r^3 = \\frac23 \\cdot \\frac{22}{7} \\cdot 9261 = 19\\,404$ cm³."
+                },
+                {
+                  "text": "Divide by 1000: $19.404$ litres. (The textbook’s $6468$ cm³ is one third of this — a slip.)"
+                }
+              ],
+              "answer": "(a) $616$ cm² (b) $\\approx 19.4$ litres"
+            },
+            {
+              "id": "math10-u5-md-solids-t",
+              "type": "table",
+              "title": "All the solid formulas in one table",
+              "page": 221,
+              "src": "notes",
+              "head": [
+                "Solid",
+                "Lateral / curved area",
+                "Total surface area",
+                "Volume"
+              ],
+              "rows": [
+                [
+                  "Cuboid",
+                  "$2h(l + w)$",
+                  "$2(lw + lh + wh)$",
+                  "$lwh$"
+                ],
+                [
+                  "Prism",
+                  "$ph$",
+                  "$ph + 2B$",
+                  "$Bh$"
+                ],
+                [
+                  "Cylinder",
+                  "$2\\pi rh$",
+                  "$2\\pi rh + 2\\pi r^2$",
+                  "$\\pi r^2 h$"
+                ],
+                [
+                  "Pyramid (regular)",
+                  "$\\frac12 nbs$",
+                  "$\\frac12 nbs + B$",
+                  "$\\frac13 Bh$"
+                ],
+                [
+                  "Cone",
+                  "$\\pi rs$",
+                  "$\\pi rs + \\pi r^2$",
+                  "$\\frac13\\pi r^2 h$"
+                ],
+                [
+                  "Sphere",
+                  "—",
+                  "$4\\pi r^2$",
+                  "$\\frac43\\pi r^3$"
+                ]
+              ],
+              "body": [
+                "Pattern: pointed solids (pyramid, cone) have $\\frac13$ of the volume of the matching \"straight\" solid (prism, cylinder)."
               ]
             },
             {
@@ -11529,11 +12364,123 @@
           ]
         }
       ],
-      "glossary": [],
+      "glossary": [
+        {
+          "term": "Congruent",
+          "meaning": "Same shape and same size.",
+          "page": 144,
+          "src": "notes"
+        },
+        {
+          "term": "Included angle",
+          "meaning": "The angle between two given sides of a triangle.",
+          "page": 147,
+          "src": "notes"
+        },
+        {
+          "term": "Included side",
+          "meaning": "The side between two given angles of a triangle.",
+          "page": 149,
+          "src": "notes"
+        },
+        {
+          "term": "Hypotenuse",
+          "meaning": "The side opposite the right angle.",
+          "page": 160,
+          "src": "notes"
+        },
+        {
+          "term": "Parallelogram",
+          "meaning": "A quadrilateral with both pairs of opposite sides parallel.",
+          "page": 162,
+          "src": "notes"
+        },
+        {
+          "term": "Rhombus",
+          "meaning": "A parallelogram with all four sides equal.",
+          "page": 166,
+          "src": "notes"
+        },
+        {
+          "term": "Mid-segment",
+          "meaning": "The segment joining the midpoints of two sides of a triangle.",
+          "page": 166,
+          "src": "notes"
+        },
+        {
+          "term": "Perimeter",
+          "meaning": "The total length of the boundary of a figure.",
+          "page": 171,
+          "src": "notes"
+        },
+        {
+          "term": "Apothem",
+          "meaning": "The distance from the centre of a regular polygon to a side.",
+          "page": 189,
+          "src": "notes"
+        },
+        {
+          "term": "Heron’s formula",
+          "meaning": "Area = √(s(s − a)(s − b)(s − c)) with s half the perimeter.",
+          "page": 181,
+          "src": "notes"
+        },
+        {
+          "term": "Sector",
+          "meaning": "The part of a disc between two radii and an arc.",
+          "page": 190,
+          "src": "notes"
+        },
+        {
+          "term": "Segment (of a circle)",
+          "meaning": "The part of a disc between a chord and its arc.",
+          "page": 194,
+          "src": "notes"
+        },
+        {
+          "term": "Lateral surface area",
+          "meaning": "The area of the side faces (or curved surface), without the bases.",
+          "page": 198,
+          "src": "notes"
+        },
+        {
+          "term": "Total surface area",
+          "meaning": "Lateral area plus the area of the base(s).",
+          "page": 198,
+          "src": "notes"
+        },
+        {
+          "term": "Volume",
+          "meaning": "The amount of space a solid takes up, in cubic units.",
+          "page": 200,
+          "src": "notes"
+        },
+        {
+          "term": "Hemisphere",
+          "meaning": "Half of a sphere.",
+          "page": 221,
+          "src": "notes"
+        }
+      ],
       "tips": [
         {
           "text": "Read 5.1 Congruency again and say its main idea in one sentence.",
           "page": 143
+        },
+        {
+          "text": "Congruence tests: SSS, SAS, ASA, AAS, RHS. Never AAA or SSA.",
+          "page": 151,
+          "src": "notes"
+        },
+        {
+          "text": "Sector = (θ/360°) of the circle; segment = sector − triangle.",
+          "page": 194,
+          "src": "notes"
+        },
+        {
+          "text": "Pointed solids are one third: pyramid = ⅓Bh, cone = ⅓πr²h. Sphere: 4πr², (4/3)πr³.",
+          "page": 218,
+          "src": "notes"
         }
       ],
       "games": [
@@ -11999,6 +12946,640 @@
               }
             ],
             "id": "math10-u5-q20"
+          },
+          {
+            "id": "math10-u5-md-s51-q01",
+            "type": "short",
+            "q": "Given $\\triangle MQP \\cong \\triangle NOR$, list the six pairs of corresponding equal parts.",
+            "answer": "$MQ = NO$, $QP = OR$, $MP = NR$; $\\angle M = \\angle N$, $\\angle Q = \\angle O$, $\\angle P = \\angle R$",
+            "why": [
+              "Step 1: match letters in order: $M \\leftrightarrow N$, $Q \\leftrightarrow O$, $P \\leftrightarrow R$.",
+              "Step 2: sides use pairs of letters in the same positions: $MQ = NO$, $QP = OR$, $MP = NR$.",
+              "Step 3: angles: $\\angle M = \\angle N$, $\\angle Q = \\angle O$, $\\angle P = \\angle R$."
+            ],
+            "tip": "Write the two names one above the other and read down the columns.",
+            "similar": [
+              {
+                "q": "If $\\triangle ABC \\cong \\triangle XYZ$, which side equals $BC$?",
+                "a": "$YZ$."
+              }
+            ],
+            "page": 145,
+            "src": "notes",
+            "label": "5.1 Practice — congruent triangles and quadrilaterals"
+          },
+          {
+            "id": "math10-u5-md-s51-q02",
+            "type": "mcq",
+            "q": "In $\\triangle ABC$ and $\\triangle PQR$: $AB = PQ$, $\\angle B = \\angle Q$, $BC = QR$. They are congruent by",
+            "options": {
+              "A": "SSS",
+              "B": "SAS",
+              "C": "ASA",
+              "D": "RHS"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: two pairs of sides match.",
+              "Step 2: $\\angle B$ lies between $AB$ and $BC$ — the included angle."
+            ],
+            "tip": "Check where the angle is: between the sides → SAS.",
+            "similar": [
+              {
+                "q": "$\\angle A = \\angle P$, $AB = PQ$, $\\angle B = \\angle Q$. Test?",
+                "a": "ASA."
+              }
+            ],
+            "page": 148,
+            "src": "notes",
+            "label": "5.1 Practice — congruent triangles and quadrilaterals"
+          },
+          {
+            "id": "math10-u5-md-s51-q03",
+            "type": "tf",
+            "q": "If the three angles of one triangle equal the three angles of another, the triangles are congruent.",
+            "answer": false,
+            "why": [
+              "Step 1: AAA fixes the shape but not the size.",
+              "Step 2: a $30°$-$60°$-$90°$ triangle with hypotenuse 2 and one with hypotenuse 10 have equal angles but are not congruent."
+            ],
+            "tip": "At least one side must match for congruence.",
+            "similar": [
+              {
+                "q": "Is SSA a congruence test?",
+                "a": "No (except the right-triangle case RHS)."
+              }
+            ],
+            "page": 151,
+            "src": "notes",
+            "label": "5.1 Practice — congruent triangles and quadrilaterals"
+          },
+          {
+            "id": "math10-u5-md-s51-q04",
+            "type": "short",
+            "q": "In right $\\triangle ABC$, $\\angle A = 90°$ and $AB = AC$. Find $\\angle B$ and $\\angle C$.",
+            "answer": "$45°$ each",
+            "why": [
+              "Step 1: $AB = AC$ → base angles $\\angle B = \\angle C$.",
+              "Step 2: $\\angle B + \\angle C = 180° - 90° = 90°$, so each is $45°$."
+            ],
+            "tip": "Isosceles → equal base angles; then use the angle sum.",
+            "similar": [
+              {
+                "q": "An isosceles triangle has top angle $40°$. Base angles?",
+                "a": "$70°$ each."
+              }
+            ],
+            "page": 157,
+            "src": "notes",
+            "label": "5.1 Practice — congruent triangles and quadrilaterals"
+          },
+          {
+            "id": "math10-u5-md-s51-q05",
+            "type": "short",
+            "q": "In quadrilateral $ACBD$, $AC = AD$ and $AB$ bisects $\\angle A$. Show $\\triangle ABC \\cong \\triangle ABD$. What about $BC$ and $BD$?",
+            "answer": "Congruent by SAS; $BC = BD$",
+            "why": [
+              "Step 1: $AC = AD$ — given.",
+              "Step 2: $\\angle CAB = \\angle DAB$ — $AB$ bisects $\\angle A$.",
+              "Step 3: $AB = AB$ — common side.",
+              "Step 4: SAS, so $BC = BD$ (corresponding sides)."
+            ],
+            "tip": "A shared side is a free \"S\" in many proofs.",
+            "similar": [
+              {
+                "q": "$P$ is on the bisector of $\\angle A$; $AX = AY$ on the two arms. Show $PX = PY$.",
+                "a": "$\\triangle AXP \\cong \\triangle AYP$ by SAS."
+              }
+            ],
+            "page": 152,
+            "src": "notes",
+            "label": "5.1 Practice — congruent triangles and quadrilaterals"
+          },
+          {
+            "id": "math10-u5-md-s51-q06",
+            "type": "short",
+            "q": "Prove that each angle of an equilateral triangle is $60°$.",
+            "answer": "$60°$",
+            "why": [
+              "Step 1: $AB = AC$ → $\\angle B = \\angle C$; $AB = BC$ → $\\angle A = \\angle C$.",
+              "Step 2: so all three angles are equal.",
+              "Step 3: $3x = 180°$, $x = 60°$."
+            ],
+            "tip": "Use the isosceles theorem twice.",
+            "similar": [
+              {
+                "q": "Each exterior angle of an equilateral triangle?",
+                "a": "$120°$."
+              }
+            ],
+            "page": 158,
+            "src": "notes",
+            "label": "5.1 Practice — congruent triangles and quadrilaterals"
+          },
+          {
+            "id": "math10-u5-md-s51-q07",
+            "type": "short",
+            "q": "In parallelogram $ABCD$, $\\angle A = 3x + 10$ and $\\angle B = 2x + 20$ (degrees). Find all four angles.",
+            "answer": "$100°, 80°, 100°, 80°$",
+            "why": [
+              "Step 1: consecutive angles add up to $180°$: $3x + 10 + 2x + 20 = 180$.",
+              "Step 2: $5x = 150$, $x = 30$.",
+              "Step 3: $\\angle A = 100°$, $\\angle B = 80°$; opposite angles equal: $\\angle C = 100°$, $\\angle D = 80°$."
+            ],
+            "tip": "Neighbours add to $180°$, opposites are equal.",
+            "similar": [
+              {
+                "q": "In parallelogram $PQRS$, $\\angle P = 65°$. Find $\\angle R$ and $\\angle Q$.",
+                "a": "$65°$ and $115°$."
+              }
+            ],
+            "page": 164,
+            "src": "notes",
+            "label": "5.1 Practice — congruent triangles and quadrilaterals"
+          },
+          {
+            "id": "math10-u5-md-s51-q08",
+            "type": "mcq",
+            "q": "Which quadrilateral always has diagonals that are equal AND perpendicular?",
+            "options": {
+              "A": "rectangle",
+              "B": "rhombus",
+              "C": "square",
+              "D": "parallelogram"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: rectangle — equal diagonals, not always perpendicular.",
+              "Step 2: rhombus — perpendicular, not always equal.",
+              "Step 3: square — both."
+            ],
+            "tip": "Use the properties table: the square has every property.",
+            "similar": [
+              {
+                "q": "Diagonals bisect each other at right angles. Which quadrilateral (at least)?",
+                "a": "A rhombus."
+              }
+            ],
+            "page": 166,
+            "src": "notes",
+            "label": "5.1 Practice — congruent triangles and quadrilaterals"
+          },
+          {
+            "id": "math10-u5-md-s51-q09",
+            "type": "short",
+            "q": "In $\\triangle ABC$, $E$ and $F$ are the midpoints of $AB$ and $AC$, and $BC = 14$ cm. Find $EF$.",
+            "answer": "$7$ cm",
+            "why": [
+              "Step 1: mid-segment theorem: $EF \\parallel BC$ and $EF = \\frac12 BC$.",
+              "Step 2: $EF = 7$ cm."
+            ],
+            "tip": "Midpoints of two sides → half the third side.",
+            "similar": [
+              {
+                "q": "The midpoints of the sides of a triangle with sides 6, 8, 10 are joined. Perimeter of the small triangle?",
+                "a": "12."
+              }
+            ],
+            "page": 167,
+            "src": "notes",
+            "label": "5.1 Practice — congruent triangles and quadrilaterals"
+          },
+          {
+            "id": "math10-u5-md-s51-q10",
+            "type": "short",
+            "q": "Which of these can be the sides of a triangle: (a) $\\{3, 8, 12\\}$ (b) $\\{4, 7, 9\\}$ (c) $\\{6, 15, 7\\}$?",
+            "answer": "only (b)",
+            "why": [
+              "Step 1: compare the two shorter sides with the longest.",
+              "Step 2: (a) $3 + 8 = 11 < 12$ no; (b) $4 + 7 = 11 > 9$ yes; (c) $6 + 7 = 13 < 15$ no."
+            ],
+            "tip": "Only one check is needed: the two short sides together must beat the long one.",
+            "similar": [
+              {
+                "q": "Two sides are 3 cm and 7 cm. Range of the third side?",
+                "a": "Between 4 cm and 10 cm."
+              }
+            ],
+            "page": 171,
+            "src": "notes",
+            "label": "5.1 Practice — congruent triangles and quadrilaterals"
+          },
+          {
+            "id": "math10-u5-md-s52-q01",
+            "type": "short",
+            "q": "A 36 cm wire is bent into a rectangle with sides $x$ and $2x$. Find $x$ and the area.",
+            "answer": "$x = 6$ cm, area $72$ cm²",
+            "why": [
+              "Step 1: perimeter $2(x + 2x) = 6x = 36$, so $x = 6$.",
+              "Step 2: sides 6 and 12, area $= 72$ cm²."
+            ],
+            "tip": "Perimeter first, then area.",
+            "similar": [
+              {
+                "q": "A 36 cm wire makes an equilateral triangle. Side?",
+                "a": "12 cm."
+              }
+            ],
+            "page": 177,
+            "src": "notes",
+            "label": "5.2 Practice — perimeter and area"
+          },
+          {
+            "id": "math10-u5-md-s52-q02",
+            "type": "short",
+            "q": "Find the perimeter of a regular octagon inscribed in a circle of radius 2 cm.",
+            "answer": "$\\approx 12.25$ cm",
+            "why": [
+              "Step 1: $P = 2nr\\sin\\frac{180°}{n}$ with $n = 8$, $r = 2$.",
+              "Step 2: $P = 32 \\sin 22.5° = 32 \\times 0.3827 \\approx 12.25$ cm."
+            ],
+            "tip": "Inscribed → $\\sin$; circumscribed → $\\tan$.",
+            "similar": [
+              {
+                "q": "Perimeter of a square circumscribed about a circle of radius 3 cm?",
+                "a": "24 cm ($2 \\cdot 4 \\cdot 3 \\tan 45°$)."
+              }
+            ],
+            "page": 176,
+            "src": "notes",
+            "label": "5.2 Practice — perimeter and area"
+          },
+          {
+            "id": "math10-u5-md-s52-q03",
+            "type": "short",
+            "q": "Find the area of an equilateral triangle with side 6 cm.",
+            "answer": "$9\\sqrt3 \\approx 15.6$ cm²",
+            "why": [
+              "Step 1: $A = \\frac{\\sqrt3}{4}a^2$.",
+              "Step 2: $\\frac{\\sqrt3}{4} \\cdot 36 = 9\\sqrt3 \\approx 15.6$ cm²."
+            ],
+            "tip": "Or: $\\frac12 ab\\sin C = \\frac12 \\cdot 6 \\cdot 6 \\cdot \\sin 60°$.",
+            "similar": [
+              {
+                "q": "Area of a regular hexagon with side 4 cm?",
+                "a": "$24\\sqrt3$ cm²."
+              }
+            ],
+            "page": 183,
+            "src": "notes",
+            "label": "5.2 Practice — perimeter and area"
+          },
+          {
+            "id": "math10-u5-md-s52-q04",
+            "type": "short",
+            "q": "Use Heron’s formula for the triangle with sides 13, 14, 15.",
+            "answer": "$84$",
+            "why": [
+              "Step 1: $s = \\frac{13 + 14 + 15}{2} = 21$.",
+              "Step 2: $A = \\sqrt{21 \\cdot 8 \\cdot 7 \\cdot 6} = \\sqrt{7056} = 84$."
+            ],
+            "tip": "Compute $s$ first, then the three differences $s - a$, $s - b$, $s - c$.",
+            "similar": [
+              {
+                "q": "Area of the triangle with sides 3, 4, 5 by Heron?",
+                "a": "$s = 6$, $\\sqrt{6 \\cdot 3 \\cdot 2 \\cdot 1} = 6$."
+              }
+            ],
+            "page": 181,
+            "src": "notes",
+            "label": "5.2 Practice — perimeter and area"
+          },
+          {
+            "id": "math10-u5-md-s52-q05",
+            "type": "short",
+            "q": "A rhombus has diagonals 10 cm and 24 cm. Find its area and its side.",
+            "answer": "area $120$ cm², side $13$ cm",
+            "why": [
+              "Step 1: $A = \\frac12 d_1d_2 = \\frac12 \\cdot 10 \\cdot 24 = 120$ cm².",
+              "Step 2: diagonals bisect at right angles: half-diagonals 5 and 12, side $= \\sqrt{25 + 144} = 13$ cm."
+            ],
+            "tip": "Rhombus: half the product of the diagonals.",
+            "similar": [
+              {
+                "q": "A trapezium has parallel sides 8 and 12 and height 5. Area?",
+                "a": "$50$."
+              }
+            ],
+            "page": 184,
+            "src": "notes",
+            "label": "5.2 Practice — perimeter and area"
+          },
+          {
+            "id": "math10-u5-md-s52-q06",
+            "type": "short",
+            "q": "Find the area of a regular hexagon inscribed in a circle of radius 6 cm.",
+            "answer": "$54\\sqrt3 \\approx 93.5$ cm²",
+            "why": [
+              "Step 1: $A = \\frac12 nr^2\\sin\\frac{360°}{n} = \\frac12 \\cdot 6 \\cdot 36 \\cdot \\sin 60°$.",
+              "Step 2: $= 108 \\cdot \\frac{\\sqrt3}{2} = 54\\sqrt3 \\approx 93.5$ cm²."
+            ],
+            "tip": "Six equilateral triangles of side $r$.",
+            "similar": [
+              {
+                "q": "Area of a square inscribed in a circle of radius 5 cm?",
+                "a": "$50$ cm²."
+              }
+            ],
+            "page": 188,
+            "src": "notes",
+            "label": "5.2 Practice — perimeter and area"
+          },
+          {
+            "id": "math10-u5-md-s52-q07",
+            "type": "short",
+            "q": "Find the area and perimeter of a sector with radius 6 cm and central angle $120°$.",
+            "answer": "area $12\\pi \\approx 37.7$ cm², perimeter $12 + 4\\pi \\approx 24.6$ cm",
+            "why": [
+              "Step 1: area $= \\frac{120}{360}\\pi(36) = 12\\pi$ cm².",
+              "Step 2: arc $= \\frac{120}{360} \\cdot 2\\pi \\cdot 6 = 4\\pi$ cm.",
+              "Step 3: perimeter $= 6 + 6 + 4\\pi = 12 + 4\\pi$ cm."
+            ],
+            "tip": "Fraction of the circle $= \\theta / 360°$.",
+            "similar": [
+              {
+                "q": "Arc length of a $90°$ sector of radius 10 cm?",
+                "a": "$5\\pi \\approx 15.7$ cm."
+              }
+            ],
+            "page": 193,
+            "src": "notes",
+            "label": "5.2 Practice — perimeter and area"
+          },
+          {
+            "id": "math10-u5-md-s52-q08",
+            "type": "short",
+            "q": "A sector has area $84\\pi$ cm² and central angle $70°$. Find the radius.",
+            "answer": "$r = 12\\sqrt3 \\approx 20.8$ cm",
+            "why": [
+              "Step 1: $\\frac{70}{360}\\pi r^2 = 84\\pi$; cancel $\\pi$.",
+              "Step 2: $r^2 = 84 \\cdot \\frac{360}{70} = 12 \\cdot 36 = 432$.",
+              "Step 3: $r = \\sqrt{432} = 12\\sqrt3 \\approx 20.8$ cm."
+            ],
+            "tip": "Cancel $\\pi$ first, then solve for $r^2$.",
+            "similar": [
+              {
+                "q": "A $90°$ sector has area $25\\pi$. Radius?",
+                "a": "$10$."
+              }
+            ],
+            "page": 193,
+            "src": "notes",
+            "label": "5.2 Practice — perimeter and area"
+          },
+          {
+            "id": "math10-u5-md-s52-q09",
+            "type": "short",
+            "q": "In a circle of radius 10 cm, find the area of the segment with central angle $30°$.",
+            "answer": "$\\frac{25\\pi}{3} - 25 \\approx 1.18$ cm²",
+            "why": [
+              "Step 1: sector $= \\frac{30}{360}\\pi(100) = \\frac{25\\pi}{3} \\approx 26.18$.",
+              "Step 2: triangle $= \\frac12(100)\\sin 30° = 25$.",
+              "Step 3: segment $= 26.18 - 25 = 1.18$ cm²."
+            ],
+            "tip": "Segment = sector − triangle.",
+            "similar": [
+              {
+                "q": "Segment with $r = 6$ and $\\theta = 90°$?",
+                "a": "$9\\pi - 18 \\approx 10.3$."
+              }
+            ],
+            "page": 196,
+            "src": "notes",
+            "label": "5.2 Practice — perimeter and area"
+          },
+          {
+            "id": "math10-u5-md-s52-q10",
+            "type": "short",
+            "q": "An equilateral triangle is inscribed in a circle of radius 4 cm. Find the area inside the circle but outside the triangle.",
+            "answer": "$16\\pi - 12\\sqrt3 \\approx 29.5$ cm²",
+            "why": [
+              "Step 1: circle $= 16\\pi \\approx 50.27$ cm².",
+              "Step 2: inscribed triangle $= \\frac12 \\cdot 3 \\cdot 16 \\sin 120° = 12\\sqrt3 \\approx 20.78$ cm².",
+              "Step 3: difference $\\approx 29.5$ cm²."
+            ],
+            "tip": "Inscribed regular polygon area: $\\frac12 nr^2\\sin\\frac{360°}{n}$.",
+            "similar": [
+              {
+                "q": "Circle radius 5, inscribed square. Area outside the square?",
+                "a": "$25\\pi - 50 \\approx 28.5$."
+              }
+            ],
+            "page": 196,
+            "src": "notes",
+            "label": "5.2 Practice — perimeter and area"
+          },
+          {
+            "id": "math10-u5-md-s53-q01",
+            "type": "short",
+            "q": "A cuboid is 9 cm by 7 cm by 5 cm. Find its volume and total surface area.",
+            "answer": "$V = 315$ cm³, $SA = 286$ cm²",
+            "why": [
+              "Step 1: $V = 9 \\cdot 7 \\cdot 5 = 315$ cm³.",
+              "Step 2: $SA = 2(63 + 45 + 35) = 2(143) = 286$ cm²."
+            ],
+            "tip": "Three different face sizes, each counted twice.",
+            "similar": [
+              {
+                "q": "A cube has edge 4 cm. Volume and surface area?",
+                "a": "$64$ cm³, $96$ cm²."
+              }
+            ],
+            "page": 203,
+            "src": "notes",
+            "label": "5.3 Practice — surface area and volume"
+          },
+          {
+            "id": "math10-u5-md-s53-q02",
+            "type": "short",
+            "q": "Biscuits $5 \\times 3 \\times 0.5$ cm are packed into a box $20 \\times 9 \\times 8$ cm. How many fit?",
+            "answer": "$192$",
+            "why": [
+              "Step 1: along the length $20 \\div 5 = 4$; along the width $9 \\div 3 = 3$; up the height $8 \\div 0.5 = 16$.",
+              "Step 2: one layer holds $4 \\times 3 = 12$ biscuits; 16 layers hold $12 \\times 16 = 192$."
+            ],
+            "tip": "Divide each dimension, then multiply — check that the pieces fit exactly.",
+            "similar": [
+              {
+                "q": "Cubes of 2 cm in a $10 \\times 6 \\times 4$ box?",
+                "a": "$5 \\times 3 \\times 2 = 30$."
+              }
+            ],
+            "page": 206,
+            "src": "notes",
+            "label": "5.3 Practice — surface area and volume"
+          },
+          {
+            "id": "math10-u5-md-s53-q03",
+            "type": "short",
+            "q": "A straw is 24 cm long and 4 mm in diameter. How much liquid can it hold? ($\\pi = 3.14$)",
+            "answer": "$\\approx 3.01$ cm³",
+            "why": [
+              "Step 1: convert: $r = 2$ mm $= 0.2$ cm.",
+              "Step 2: $V = \\pi r^2 h = 3.14 \\cdot 0.04 \\cdot 24 \\approx 3.01$ cm³."
+            ],
+            "tip": "Same units everywhere before you multiply.",
+            "similar": [
+              {
+                "q": "Volume of a can with diameter 10 cm and height 15 cm?",
+                "a": "$375\\pi \\approx 1177.5$ cm³."
+              }
+            ],
+            "page": 209,
+            "src": "notes",
+            "label": "5.3 Practice — surface area and volume"
+          },
+          {
+            "id": "math10-u5-md-s53-q04",
+            "type": "short",
+            "q": "Cylinder A is 8 times as tall as cylinder B, but B’s diameter is 4 times A’s. Which holds more, and how many times?",
+            "answer": "B, twice as much",
+            "why": [
+              "Step 1: let A have $r$, $8h$; B has $4r$, $h$.",
+              "Step 2: $V_A = \\pi r^2(8h) = 8\\pi r^2h$; $V_B = \\pi(16r^2)h = 16\\pi r^2 h$.",
+              "Step 3: $V_B = 2V_A$."
+            ],
+            "tip": "The radius is squared, so it matters more than the height.",
+            "similar": [
+              {
+                "q": "Doubling the radius of a cylinder multiplies its volume by?",
+                "a": "4."
+              }
+            ],
+            "page": 209,
+            "src": "notes",
+            "label": "5.3 Practice — surface area and volume"
+          },
+          {
+            "id": "math10-u5-md-s53-q05",
+            "type": "short",
+            "q": "A regular square pyramid has base edge 6 cm and slant height 4 cm. Find its total surface area.",
+            "answer": "$84$ cm²",
+            "why": [
+              "Step 1: four triangles: $4 \\cdot \\frac12 \\cdot 6 \\cdot 4 = 48$ cm².",
+              "Step 2: base $= 36$ cm².",
+              "Step 3: $SA = 84$ cm²."
+            ],
+            "tip": "Slant height for faces; height for volume.",
+            "similar": [
+              {
+                "q": "A pyramid has a $18 \\times 30$ cm base and height 36 cm. Volume?",
+                "a": "$6480$ cm³."
+              }
+            ],
+            "page": 212,
+            "src": "notes",
+            "label": "5.3 Practice — surface area and volume"
+          },
+          {
+            "id": "math10-u5-md-s53-q06",
+            "type": "short",
+            "q": "A cylinder of radius 6 cm and height 18 cm is melted and recast as a cone of radius 9 cm. Find the height of the cone.",
+            "answer": "$24$ cm",
+            "why": [
+              "Step 1: volume is unchanged: $\\pi(36)(18) = \\frac13\\pi(81)h$.",
+              "Step 2: $648 = 27h$, $h = 24$ cm."
+            ],
+            "tip": "Melting and recasting keeps the volume.",
+            "similar": [
+              {
+                "q": "A cone (radius 3) and cylinder (radius 4) have equal volumes. Ratio of heights cone : cylinder?",
+                "a": "$16 : 3$."
+              }
+            ],
+            "page": 218,
+            "src": "notes",
+            "label": "5.3 Practice — surface area and volume"
+          },
+          {
+            "id": "math10-u5-md-s53-q07",
+            "type": "short",
+            "q": "A cone has radius 5 cm and slant height 13 cm. Find its height, volume and total surface area (leave $\\pi$).",
+            "answer": "$h = 12$, $V = 100\\pi$ cm³, $SA = 90\\pi$ cm²",
+            "why": [
+              "Step 1: $h = \\sqrt{169 - 25} = 12$ cm.",
+              "Step 2: $V = \\frac13\\pi(25)(12) = 100\\pi$ cm³.",
+              "Step 3: $SA = \\pi(5)(13) + \\pi(25) = 65\\pi + 25\\pi = 90\\pi$ cm²."
+            ],
+            "tip": "Find the missing length of the $r$–$h$–$s$ triangle first.",
+            "similar": [
+              {
+                "q": "Cone $r = 7$, $h = 24$: slant height?",
+                "a": "$25$."
+              }
+            ],
+            "page": 218,
+            "src": "notes",
+            "label": "5.3 Practice — surface area and volume"
+          },
+          {
+            "id": "math10-u5-md-s53-q08",
+            "type": "short",
+            "q": "A balloon is a sphere of diameter 12 cm. Find its volume and surface area (leave $\\pi$).",
+            "answer": "$V = 288\\pi$ cm³, $SA = 144\\pi$ cm²",
+            "why": [
+              "Step 1: $r = 6$.",
+              "Step 2: $V = \\frac43\\pi(216) = 288\\pi$ cm³.",
+              "Step 3: $SA = 4\\pi(36) = 144\\pi$ cm²."
+            ],
+            "tip": "Halve the diameter first.",
+            "similar": [
+              {
+                "q": "Volume of a ball with diameter 18 cm?",
+                "a": "$972\\pi \\approx 3052$ cm³."
+              }
+            ],
+            "page": 221,
+            "src": "notes",
+            "label": "5.3 Practice — surface area and volume"
+          },
+          {
+            "id": "math10-u5-md-s53-q09",
+            "type": "short",
+            "q": "A ball fits exactly in the smallest cube-shaped box. What percentage of the box does it fill?",
+            "answer": "$\\approx 52.4\\%$",
+            "why": [
+              "Step 1: box edge $= 2r$, box volume $= 8r^3$.",
+              "Step 2: ball $= \\frac43\\pi r^3$.",
+              "Step 3: ratio $= \\frac{\\pi}{6} \\approx 0.524$."
+            ],
+            "tip": "Use a letter $r$; it cancels.",
+            "similar": [
+              {
+                "q": "What fraction of the smallest cylinder does a sphere fill?",
+                "a": "$\\frac23$."
+              }
+            ],
+            "page": 221,
+            "src": "notes",
+            "label": "5.3 Practice — surface area and volume"
+          },
+          {
+            "id": "math10-u5-md-s53-q10",
+            "type": "mcq",
+            "q": "A cylinder, a cone and a sphere each have radius 20 m; the cylinder and cone are 40 m tall. Which holds the most?",
+            "options": {
+              "A": "cone",
+              "B": "sphere",
+              "C": "cylinder",
+              "D": "all equal"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: cylinder $= \\pi(400)(40) = 16000\\pi$.",
+              "Step 2: cone $= \\frac13$ of that $\\approx 5333\\pi$; sphere $= \\frac43\\pi(8000) \\approx 10667\\pi$.",
+              "Step 3: ratio $1 : 2 : 3$ — the cylinder is largest."
+            ],
+            "tip": "Cone : sphere : cylinder = 1 : 2 : 3 when height = diameter.",
+            "similar": [
+              {
+                "q": "Hemisphere of radius 3 cm: volume?",
+                "a": "$18\\pi$ cm³."
+              }
+            ],
+            "page": 221,
+            "src": "notes",
+            "label": "5.3 Practice — surface area and volume"
           }
         ]
       },
@@ -12050,6 +13631,38 @@
               "math10-u5-c13",
               "math10-u5-c14"
             ]
+          },
+          {
+            "id": "md_tests",
+            "label": "Congruence tests",
+            "kind": "idea",
+            "cards": [
+              "math10-u5-md-tests-t"
+            ]
+          },
+          {
+            "id": "md_quad",
+            "label": "Quadrilateral properties",
+            "kind": "idea",
+            "cards": [
+              "math10-u5-md-quad-t"
+            ]
+          },
+          {
+            "id": "md_reg",
+            "label": "Regular polygon formulas",
+            "kind": "idea",
+            "cards": [
+              "math10-u5-md-reg-t"
+            ]
+          },
+          {
+            "id": "md_solids",
+            "label": "Solid formulas",
+            "kind": "idea",
+            "cards": [
+              "math10-u5-md-solids-t"
+            ]
           }
         ],
         "edges": [
@@ -12077,9 +13690,151 @@
             "from": "l5_2",
             "to": "l5_3",
             "label": "next"
+          },
+          {
+            "from": "l5_1",
+            "to": "md_tests",
+            "label": "key idea"
+          },
+          {
+            "from": "l5_1",
+            "to": "md_quad",
+            "label": "key idea"
+          },
+          {
+            "from": "l5_2",
+            "to": "md_reg",
+            "label": "key idea"
+          },
+          {
+            "from": "l5_3",
+            "to": "md_solids",
+            "label": "key idea"
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "md_congmarks": {
+          "svg": "svg/mathematics_10/m10_u5_congmarks.svg",
+          "title": "Congruent triangles: matching marks",
+          "page": 144,
+          "pins": []
+        },
+        "md_tests": {
+          "svg": "svg/mathematics_10/m10_u5_tests.svg",
+          "title": "The congruence tests (marked parts are equal)",
+          "page": 148,
+          "pins": []
+        },
+        "md_ex51": {
+          "svg": "svg/mathematics_10/m10_u5_ex51.svg",
+          "title": "Example 5.1",
+          "page": 148,
+          "pins": []
+        },
+        "md_perpbis": {
+          "svg": "svg/mathematics_10/m10_u5_perpbis.svg",
+          "title": "Example 5.2: a point on the perpendicular bisector",
+          "page": 148,
+          "pins": []
+        },
+        "md_isos": {
+          "svg": "svg/mathematics_10/m10_u5_isos.svg",
+          "title": "Theorem 5.2: base angles of an isosceles triangle",
+          "page": 155,
+          "pins": []
+        },
+        "md_para": {
+          "svg": "svg/mathematics_10/m10_u5_para.svg",
+          "title": "Properties of a parallelogram",
+          "page": 162,
+          "pins": []
+        },
+        "md_rhombus": {
+          "svg": "svg/mathematics_10/m10_u5_rhombus.svg",
+          "title": "Diagonals of a rhombus",
+          "page": 166,
+          "pins": []
+        },
+        "md_quadfamily": {
+          "svg": "svg/mathematics_10/m10_u5_quadfamily.svg",
+          "title": "The quadrilateral family",
+          "page": 162,
+          "pins": []
+        },
+        "md_midseg": {
+          "svg": "svg/mathematics_10/m10_u5_midseg.svg",
+          "title": "Theorem 5.11: the mid-segment of a triangle",
+          "page": 166,
+          "pins": []
+        },
+        "md_areas": {
+          "svg": "svg/mathematics_10/m10_u5_areas.svg",
+          "title": "Area formulas",
+          "page": 178,
+          "pins": []
+        },
+        "md_regpoly": {
+          "svg": "svg/mathematics_10/m10_u5_regpoly.svg",
+          "title": "Regular hexagon inscribed in and circumscribed about a circle",
+          "page": 173,
+          "pins": []
+        },
+        "md_quadex": {
+          "svg": "svg/mathematics_10/m10_u5_quadex.svg",
+          "title": "Example 5.11",
+          "page": 179,
+          "pins": []
+        },
+        "md_ex512": {
+          "svg": "svg/mathematics_10/m10_u5_ex512.svg",
+          "title": "Example 5.12",
+          "page": 181,
+          "pins": []
+        },
+        "md_sector": {
+          "svg": "svg/mathematics_10/m10_u5_sector.svg",
+          "title": "Sector and segment",
+          "page": 190,
+          "pins": []
+        },
+        "md_cuboid": {
+          "svg": "svg/mathematics_10/m10_u5_cuboid.svg",
+          "title": "Cuboid and its net",
+          "page": 198,
+          "pins": []
+        },
+        "md_triprism": {
+          "svg": "svg/mathematics_10/m10_u5_triprism.svg",
+          "title": "Example 5.19: right triangular prism",
+          "page": 199,
+          "pins": []
+        },
+        "md_cylnet": {
+          "svg": "svg/mathematics_10/m10_u5_cylnet.svg",
+          "title": "Net of a cylinder",
+          "page": 208,
+          "pins": []
+        },
+        "md_pyrnet": {
+          "svg": "svg/mathematics_10/m10_u5_pyrnet.svg",
+          "title": "Net of a square pyramid and the slant-height triangle",
+          "page": 211,
+          "pins": []
+        },
+        "md_conenet": {
+          "svg": "svg/mathematics_10/m10_u5_conenet.svg",
+          "title": "Net of a cone",
+          "page": 216,
+          "pins": []
+        },
+        "md_archimedes": {
+          "svg": "svg/mathematics_10/m10_u5_archimedes.svg",
+          "title": "Cone, sphere and cylinder of the same radius and height",
+          "page": 218,
+          "pins": []
+        }
       }
     }
   ]
