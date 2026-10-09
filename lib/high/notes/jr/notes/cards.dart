@@ -11,7 +11,7 @@ import '../widgets/clay_widgets.dart';
 import '../widgets/tx.dart';
 import 'diagram.dart';
 import 'ntable.dart';
-export 'ntable.dart' show NTable, TableModel, tableModelOf, fmtMoney;
+export 'ntable.dart' show NTable, TableModel, tableModelOf, fmtMoney, tableTone;
 import '../../../media/media.dart' show MediaCardView;
 import 'rich.dart';
 import 'session.dart';
@@ -113,11 +113,31 @@ class _NoteCardViewState extends State<NoteCardView> {
       case TableCard():
         // the table gets the card's full inner width (10 px side padding); title / note / page keep the usual 20 px inset
         Widget inset(Widget w) => Padding(padding: const EdgeInsets.symmetric(horizontal: 10), child: w);
+        final tone = tableTone(p, tableModelOf(c));
         return NCard(
-          padding: const EdgeInsets.fromLTRB(10, 22, 10, 22),
+          padding: const EdgeInsets.fromLTRB(10, 18, 10, 22),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [inset(CardTitle(c.title)), NTable.card(c), inset(below(c.body)), inset(pg)],
+            children: [
+              // a small coloured strip in the table's tone (journal blue, statement mint, comparison lilac, ...)
+              inset(
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(color: p.dark ? tone.mid : mix(tone.mid, .85, tone.deep), borderRadius: BorderRadius.circular(3)),
+                      child: const SizedBox(width: 44, height: 6),
+                    ),
+                  ),
+                ),
+              ),
+              inset(CardTitle(c.title)),
+              NTable.card(c),
+              if (c.keyPoint != null && c.keyPoint!.trim().isNotEmpty) inset(_keyPoint(k, p, c.keyPoint!)),
+              inset(below(c.body)),
+              inset(pg),
+            ],
           ),
         );
       case CheckCard():
@@ -181,6 +201,24 @@ class _NoteCardViewState extends State<NoteCardView> {
           Tx(x.w, textAlign: TextAlign.center, style: ts(18, FontWeight.w900, p.ink)),
           Tx(x.m, textAlign: TextAlign.center, style: ts(16, FontWeight.w700, p.ink2, height: 1.25)),
         ],
+      ),
+    ),
+  );
+
+  // ---- a table's key point: a small butter box under the table
+  Widget _keyPoint(Kit k, Palette p, String text) => Padding(
+    padding: const EdgeInsets.only(top: 12),
+    child: DecoratedBox(
+      decoration: BoxDecoration(color: p.dark ? mix(p.butter.tile, .7, p.surface) : mix(p.butter.tile, .6, p.surface), borderRadius: BorderRadius.circular(14)),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(12, 10, 12, 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            KindLabel('star', k.t('rememberThis'), color: p.dark ? p.butter.deep : mix(p.butter.deep, .7, p.ink)),
+            RichPara(text, style: ts(16, FontWeight.w700, p.ink, height: 1.35), colors: richColors(p)),
+          ],
+        ),
       ),
     ),
   );
