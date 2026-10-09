@@ -33,14 +33,17 @@ class Io {
 
 /// Random-access input over a content URI (or a temp file path). Reads one chunk per call.
 class SafSource extends FourSource {
-  SafSource._(this._h, this.length);
+  SafSource._(this._h, this.length, this.mode);
   final int _h;
+  final String mode; // pread | stream
   @override
   final int length;
 
   static Future<SafSource> open(String uri) async {
     final m = (await _ch.invokeMapMethod<String, Object?>('openIn', {'uri': uri}))!;
-    return SafSource._(m['h'] as int, (m['size'] as num).toInt());
+    final size = (m['size'] as num).toInt();
+    if (size < 0) throw const FourFormatException('the phone did not report the file size');
+    return SafSource._(m['h'] as int, size, m['mode'] as String? ?? '?');
   }
 
   @override

@@ -31,6 +31,8 @@ abstract final class FourWriter {
     void Function(int done, int total)? onProgress,
   }) async {
     if (chunkSize <= 0 || chunkSize > FourFormat.maxChunk) throw ArgumentError('chunkSize');
+    FourKeys.need32(masterKey, 'master key');
+    FourKeys.need32(batch.key, 'batch key');
     final aes = FourKeys.aes;
     final fileId = FourKeys.random(FourFormat.idLen);
     final ck = FourKeys.random(32);
@@ -63,7 +65,7 @@ abstract final class FourWriter {
       final t = await aes.encrypt(thumbnail, secretKey: ckKey, nonce: FourKeys.random(12), aad: [...preBytes, 0x54]);
       await add(t.concatenation());
     }
-    final mac = await Hmac.sha256().newMacSink(secretKey: SecretKey(await FourKeys.footerKey(ck)));
+    final mac = await FourKeys.hmac.newMacSink(secretKey: SecretKey(await FourKeys.footerKey(ck)));
     mac.add(preBytes);
     for (var i = 0; i < count; i++) {
       final off = i * chunkSize;
