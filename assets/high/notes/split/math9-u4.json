@@ -132,6 +132,54 @@
      ],
      "cards": [
       {
+       "id": "math9-u4-md-qexpr-t",
+       "type": "text",
+       "title": "Quadratic expressions in real situations",
+       "page": 83,
+       "src": "notes",
+       "body": [
+        "A **quadratic expression** is one that can be written $ax^2 + bx + c$ with $a \\ne 0$. If $a = 0$ the $x^2$ term disappears and we are left with $bx + c$, which is linear — that is why $a \\ne 0$.",
+        "They appear whenever two lengths that both depend on $x$ are **multiplied**:",
+        "- Isosceles right triangle with legs $x$: area $= \\frac{1}{2}x \\cdot x = \\frac{1}{2}x^2$.",
+        "- Rectangle of width $x$ and length $x + 5$: area $= x(x + 5) = x^2 + 5x$.",
+        "- Two consecutive integers $n$ and $n + 1$: product $n^2 + n$.",
+        "- Falling objects: distance $S = 5t^2$ metres after $t$ seconds."
+       ]
+      },
+      {
+       "id": "math9-u4-md-ex-41a",
+       "type": "worked",
+       "title": "Worked example: Example 4.1 and the falling orange",
+       "page": 84,
+       "src": "notes",
+       "mode": "show",
+       "problem": "(a) Write \"the square of a number plus 4 times the number minus 7\". (b) An orange falls for half a second ($S = 5t^2$). How high was it? (c) How long does an object take to fall 80 m?",
+       "steps": [
+        {
+         "text": "(a) Number $n$: $n^2 + 4n - 7$."
+        },
+        {
+         "text": "(b) $S = 5(0.5)^2 = 5 \\times 0.25 = 1.25$ m."
+        },
+        {
+         "text": "(c) $80 = 5t^2 \\Rightarrow t^2 = 16 \\Rightarrow t = 4$ s (time cannot be negative)."
+        }
+       ],
+       "answer": "(a) $n^2 + 4n - 7$ (b) 1.25 m (c) 4 s"
+      },
+      {
+       "id": "math9-u4-md-rocket",
+       "type": "diagram",
+       "title": "A rocket's height is a quadratic function of time",
+       "page": 84,
+       "src": "notes",
+       "diagram": "md_rocket",
+       "mode": "plain",
+       "body": [
+        "$h = -10t^2 + 100t$: $h(2) = -40 + 200 = 160$ m, $h(5) = 250$ m (the highest point), $h(6) = 240$ m. The rocket rises, turns at the top, and falls back — the typical shape when $a < 0$. (The textbook's \"initial velocity 96 m/s\" does not match this formula, which corresponds to 100 m/s; use the formula.)"
+       ]
+      },
+      {
        "id": "math9-u4-c01",
        "type": "text",
        "title": "4.1 Representing a quadratic function",
@@ -298,13 +346,105 @@
       {
        "id": "math9-u4-c02",
        "type": "text",
-       "title": "4.2 Graphing Quadratic Functions",
+       "title": "4.2 Graphing y = ax² + bx + c from a table",
        "page": 85,
-       "src": "textbook pp.85–86",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "The function defined as y = ax2 + bx + c, a ≠ 0 is a quadratic function.",
-        "Kedija: It is not possible to draw the graph of y = x2 using only 2 points only, because it is not linear."
+        "A quadratic is not linear, so two points are **not** enough. Make a table of values (usually 7 or more $x$-values), plot the points, and join them with a **smooth curve** — never with straight segments. The curve is called a **parabola**.",
+        "Every parabola has a **vertex** (turning point) and is symmetric about a vertical line through the vertex, the **axis of symmetry**. Use the symmetry: equal $y$-values appear at equal distances on both sides of the axis.",
+        "The **range** is read from the lowest (or highest) point of the graph."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math9-u4-md-parab",
+       "type": "steps",
+       "title": "Example 4.2: y = x²",
+       "page": 86,
+       "src": "notes",
+       "diagram": "md_parab",
+       "steps": [
+        {
+         "text": "Table: $x = -3, -2, -1, 0, 1, 2, 3$ gives $y = 9, 4, 1, 0, 1, 4, 9$. Plot the seven points.",
+         "show": "k1"
+        },
+        {
+         "text": "Join them with a smooth U-shaped curve and continue it beyond the last points.",
+         "show": "k2"
+        },
+        {
+         "text": "Vertex $(0, 0)$ is the lowest point; the axis of symmetry is $x = 0$ (the $y$-axis). Range: $y \\ge 0$.",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math9-u4-md-x2p4x",
+       "type": "diagram",
+       "title": "Example 4.3",
+       "page": 87,
+       "src": "notes",
+       "diagram": "md_x2p4x",
+       "mode": "plain",
+       "body": [
+        "Table: $x = -6, -5, \\dots, 2$ gives $y = 12, 5, 0, -3, -4, -3, 0, 5, 12$. The lowest point is $(-2, -4)$ and the largest value on this domain is 12, so the range is $-4 \\le y \\le 12$."
+       ]
+      },
+      {
+       "id": "math9-u4-st2",
+       "type": "text",
+       "title": "Step by step: graphing y = ax² + bx + c",
+       "body": [
+        "Step 1 — **direction:** a > 0 opens up, a < 0 opens down.",
+        "Step 2 — **axis and vertex:** x = −b/(2a); put this x into the function to get the y-coordinate of the vertex.",
+        "Step 3 — **y-intercept:** (0, c).",
+        "Step 4 — **x-intercepts:** solve ax² + bx + c = 0 (if there are real roots).",
+        "Step 5 — plot the points, use symmetry about the axis to get mirror points, and draw a smooth U-shape.",
+        "**Example y = x² − 4x + 3:** opens up; x = 4/2 = 2, y = 4 − 8 + 3 = −1, vertex (2, −1); y-intercept (0, 3), mirror point (4, 3); roots x = 1 and x = 3."
+       ],
+       "page": 85,
+       "src": "notes"
+      },
+      {
+       "id": "math9-u4-md-lq-t",
+       "type": "table",
+       "title": "Linear vs quadratic graphs",
+       "page": 85,
+       "src": "notes",
+       "head": [
+        "",
+        "Linear $y = mx + b$",
+        "Quadratic $y = ax^2 + bx + c$"
+       ],
+       "rows": [
+        [
+         "Shape",
+         "straight line",
+         "parabola (U or upside-down U)"
+        ],
+        [
+         "Points needed",
+         "2 (plus 1 to check)",
+         "a table of 5–7 or more"
+        ],
+        [
+         "Turning point",
+         "none",
+         "one vertex"
+        ],
+        [
+         "Symmetry",
+         "none needed",
+         "symmetric about $x = -\\frac{b}{2a}$"
+        ],
+        [
+         "Range (all real $x$)",
+         "all real numbers (if $m \\ne 0$)",
+         "$y \\ge$ vertex value ($a > 0$) or $y \\le$ vertex value ($a < 0$)"
+        ]
+       ],
+       "body": [
+        "Spot a quadratic in a table: equal steps in $x$ give **constant second differences** in $y$."
        ]
       },
       {
@@ -372,21 +512,6 @@
        "answer": "$$(0, -2)$$"
       },
       {
-       "id": "math9-u4-st2",
-       "type": "text",
-       "title": "Step by step: graphing y = ax² + bx + c",
-       "body": [
-        "Step 1 — **direction:** a > 0 opens up, a < 0 opens down.",
-        "Step 2 — **axis and vertex:** x = −b/(2a); put this x into the function to get the y-coordinate of the vertex.",
-        "Step 3 — **y-intercept:** (0, c).",
-        "Step 4 — **x-intercepts:** solve ax² + bx + c = 0 (if there are real roots).",
-        "Step 5 — plot the points, use symmetry about the axis to get mirror points, and draw a smooth U-shape.",
-        "**Example y = x² − 4x + 3:** opens up; x = 4/2 = 2, y = 4 − 8 + 3 = −1, vertex (2, −1); y-intercept (0, 3), mirror point (4, 3); roots x = 1 and x = 3."
-       ],
-       "page": 85,
-       "src": "notes"
-      },
-      {
        "id": "math9-u4-pc2",
        "type": "check",
        "title": "Practice",
@@ -450,6 +575,105 @@
         "**All together — vertex form y = a(x − h)² + k:** vertex (h, k), axis of symmetry x = h, shape and direction from a. Example: y = −2(x − 1)² + 4 has vertex (1, 4), opens downward, is narrower than y = x², and its maximum value is 4.",
         "**Tip:** \"inside the bracket moves sideways the opposite way; outside moves up and down the same way\"."
        ]
+      },
+      {
+       "id": "math9-u4-md-afamily",
+       "type": "diagram",
+       "title": "Changing a",
+       "page": 89,
+       "src": "notes",
+       "diagram": "md_afamily",
+       "mode": "plain",
+       "body": [
+        "Example 4.4 and 4.5: the bigger $|a|$, the narrower the parabola. A negative $a$ flips it upside down: $y = -x^2$ is $y = x^2$ reflected in the $x$-axis. All six graphs have vertex $(0, 0)$."
+       ]
+      },
+      {
+       "id": "math9-u4-md-shiftc",
+       "type": "diagram",
+       "title": "Changing c",
+       "page": 91,
+       "src": "notes",
+       "diagram": "md_shiftc",
+       "mode": "plain",
+       "body": [
+        "Example 4.6: adding $c$ moves every point up $c$ units (down if $c < 0$). The vertex becomes $(0, c)$ and the range becomes $y \\ge c$."
+       ]
+      },
+      {
+       "id": "math9-u4-md-param-t",
+       "type": "table",
+       "title": "Effects of a and c in y = ax² + c",
+       "page": 91,
+       "src": "notes",
+       "head": [
+        "Change",
+        "Effect on the graph",
+        "Vertex",
+        "Range"
+       ],
+       "rows": [
+        [
+         "$a > 0$",
+         "opens upward (minimum)",
+         "$(0, c)$",
+         "$y \\ge c$"
+        ],
+        [
+         "$a < 0$",
+         "opens downward (maximum)",
+         "$(0, c)$",
+         "$y \\le c$"
+        ],
+        [
+         "$|a| > 1$",
+         "narrower than $y = x^2$",
+         "unchanged",
+         "unchanged"
+        ],
+        [
+         "$0 < |a| < 1$",
+         "wider than $y = x^2$",
+         "unchanged",
+         "unchanged"
+        ],
+        [
+         "$c > 0$",
+         "moves up $c$ units",
+         "$(0, c)$",
+         "starts at $c$"
+        ],
+        [
+         "$c < 0$",
+         "moves down $|c|$ units",
+         "$(0, c)$",
+         "starts at $c$"
+        ]
+       ],
+       "body": [
+        "$a$ changes the **shape**; $c$ changes the **position**."
+       ]
+      },
+      {
+       "id": "math9-u4-md-ex-43a",
+       "type": "worked",
+       "title": "Worked example: describe without drawing",
+       "page": 92,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Compare $y = 2x^2 + 2$ and $y = -2(x^2 + 2)$.",
+       "steps": [
+        {
+         "text": "$y = 2x^2 + 2$: opens up, narrower than $x^2$, vertex $(0, 2)$, range $y \\ge 2$."
+        },
+        {
+         "text": "$y = -2(x^2 + 2) = -2x^2 - 4$: opens down, same width, vertex $(0, -4)$, range $y \\le -4$."
+        },
+        {
+         "text": "The second is NOT just the first flipped: flipping $y = 2x^2 + 2$ in the $x$-axis gives $-2x^2 - 2$, vertex $(0, -2)$."
+        }
+       ],
+       "answer": "vertices $(0, 2)$ and $(0, -4)$; ranges $y \\ge 2$ and $y \\le -4$"
       },
       {
        "id": "math9-u4-chk5",
@@ -596,41 +820,225 @@
      ],
      "cards": [
       {
-       "id": "math9-u4-c04",
-       "type": "remember",
-       "title": "Quadratic functions",
-       "page": 95,
+       "id": "math9-u4-c05",
+       "type": "text",
+       "title": "4.4.1 Solving by factorisation",
+       "page": 92,
        "src": "notes",
        "body": [
-        "y=ax²+bx+c vertex x=−b/(2a)",
-        "a>0 opens up. Factor / complete square / formula x=[−b±√(b²−4ac)]/(2a). Δ>0 two roots."
+        "A **quadratic equation** can be written $ax^2 + bx + c = 0$, $a \\ne 0$. Its solutions (roots) are the $x$-intercepts of $y = ax^2 + bx + c$.",
+        "**Product property of zero:** if $pq = 0$ then $p = 0$ or $q = 0$. So once the left side is factorised, set each factor equal to 0.",
+        "**Never divide by $x$!** Beshir solved $x^2 + 4x = 0$ by dividing by $x$ and found only $x = -4$; he lost $x = 0$, because dividing by $x$ is not allowed when $x$ could be 0. Yohana factorised: $x(x + 4) = 0$, so $x = 0$ or $x = -4$.",
+        "Take out the **greatest** common factor: $4x^2 - 6x = 2x(2x - 3)$ (not $2(2x^2 - 3x)$ or $x(4x - 6)$)."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math9-u4-md-roots",
+       "type": "diagram",
+       "title": "Solutions on the graph",
+       "page": 96,
+       "src": "notes",
+       "diagram": "md_roots",
+       "mode": "plain",
+       "body": [
+        "$x^2 + 5x + 6 = (x + 2)(x + 3) = 0$ gives $x = -2$ or $x = -3$ — exactly where the parabola crosses the $x$-axis."
        ]
       },
       {
-       "id": "math9-u4-c05",
-       "type": "text",
-       "title": "4.4.1 Solving Quadratic Equations by Factorization",
-       "page": 92,
-       "src": "textbook pp.92–94",
-       "enriched": true,
+       "id": "math9-u4-md-fact-t",
+       "type": "table",
+       "title": "Which factorisation?",
+       "page": 95,
+       "src": "notes",
+       "head": [
+        "Form",
+        "Method",
+        "Example"
+       ],
+       "rows": [
+        [
+         "$ax^2 + bx = 0$",
+         "common factor $x$",
+         "$3x^2 - 12x = 3x(x - 4) = 0 \\Rightarrow x = 0, 4$"
+        ],
+        [
+         "$x^2 - k^2 = 0$",
+         "difference of two squares",
+         "$x^2 - 16 = (x + 4)(x - 4) = 0 \\Rightarrow x = \\pm 4$"
+        ],
+        [
+         "$x^2 \\pm 2kx + k^2 = 0$",
+         "perfect square",
+         "$x^2 - 6x + 9 = (x - 3)^2 = 0 \\Rightarrow x = 3$ (one root)"
+        ],
+        [
+         "$ax^2 + bx + c = 0$",
+         "split $b$ into $p + q$ with $pq = ac$",
+         "$x^2 + 5x + 6$: $2 + 3 = 5$, $2 \\times 3 = 6$"
+        ]
+       ],
        "body": [
-        "If the area of a square is 49 sq units and the side is x units, then find x.",
-        "= 16 – 16 = 0 Therefore, -4 is also a solution.",
-        "Expand each expression by removing parenthesis."
+        "Always move every term to one side first so that the right side is **0**."
        ]
+      },
+      {
+       "id": "math9-u4-md-split-t",
+       "type": "text",
+       "title": "Splitting the middle term",
+       "page": 96,
+       "src": "notes",
+       "body": [
+        "For $ax^2 + bx + c = 0$: find $p, q$ with $p + q = b$ and $pq = ac$, write $bx = px + qx$, group in pairs and take out the common bracket.",
+        "Example: $3x^2 + 8x + 5 = 0$. $ac = 15$; $3 + 5 = 8$ and $3 \\times 5 = 15$. $3x^2 + 3x + 5x + 5 = 3x(x + 1) + 5(x + 1) = (x + 1)(3x + 5) = 0$, so $x = -1$ or $x = -\\frac{5}{3}$."
+       ]
+      },
+      {
+       "id": "math9-u4-md-ex-44a",
+       "type": "worked",
+       "title": "Worked example: Example 4.10",
+       "page": 97,
+       "src": "notes",
+       "mode": "show",
+       "problem": "The sum of the squares of two positive consecutive integers is 25. Find them.",
+       "steps": [
+        {
+         "text": "Let them be $x$ and $x + 1$: $x^2 + (x + 1)^2 = 25$."
+        },
+        {
+         "text": "Expand: $2x^2 + 2x + 1 = 25 \\Rightarrow x^2 + x - 12 = 0$."
+        },
+        {
+         "text": "Split: $4 \\times (-3) = -12$, $4 + (-3) = 1$: $(x + 4)(x - 3) = 0$."
+        },
+        {
+         "text": "$x = 3$ ($x = -4$ is rejected: not positive). Numbers 3 and 4; check $9 + 16 = 25$ (correct)."
+        }
+       ],
+       "answer": "3 and 4"
       },
       {
        "id": "math9-u4-c06",
        "type": "text",
-       "title": "4.4.2 Solving Quadratic Equations Using Completing the Square Method",
-       "page": 98,
-       "src": "textbook pp.98–101",
-       "enriched": true,
+       "title": "4.4.2 Completing the square",
+       "page": 99,
+       "src": "notes",
        "body": [
-        "Berhe, Meriem and Fatima are discussing how to find the solution.",
-        "If the area of an isosceles right triangle is 8 sq units and the legs are x units, then find x.",
-        "The length of a basketball court is 2m less than 2 times the width."
+        "If an equation has the form $(x + p)^2 = k$ with $k \\ge 0$, take square roots: $x + p = \\pm\\sqrt{k}$. ($x^2 = 16$ has **two** answers, $4$ and $-4$, because $\\sqrt{x^2} = |x|$.)",
+        "Completing the square turns any $x^2 + bx + c = 0$ into that form:",
+        "1. Move $c$ to the right: $x^2 + bx = -c$.",
+        "2. Add $\\left(\\frac{b}{2}\\right)^2$ to **both** sides.",
+        "3. Write the left side as $\\left(x + \\frac{b}{2}\\right)^2$ and take square roots.",
+        "If the right side turns out negative, there is **no real solution** (a square cannot be negative)."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math9-u4-md-complsq",
+       "type": "steps",
+       "title": "Why \"completing the square\"?",
+       "page": 100,
+       "src": "notes",
+       "diagram": "md_complsq",
+       "steps": [
+        {
+         "text": "$x^2 + 6x$ is an $x$-by-$x$ square plus two $3$-by-$x$ strips: one corner is missing.",
+         "show": "k1"
+        },
+        {
+         "text": "The missing corner is $3 \\times 3 = 9 = \\left(\\frac{6}{2}\\right)^2$.",
+         "show": "k2"
+        },
+        {
+         "text": "Adding 9 completes the square: $x^2 + 6x + 9 = (x + 3)^2$.",
+         "show": "k3"
+        }
        ]
+      },
+      {
+       "id": "math9-u4-md-ex-44b",
+       "type": "worked",
+       "title": "Worked example: Example 4.11",
+       "page": 100,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Solve $x^2 + 6x + 8 = 0$ by completing the square.",
+       "steps": [
+        {
+         "text": "Move 8: $x^2 + 6x = -8$."
+        },
+        {
+         "text": "Add $\\left(\\frac{6}{2}\\right)^2 = 9$ to both sides: $x^2 + 6x + 9 = 1$."
+        },
+        {
+         "text": "$(x + 3)^2 = 1 \\Rightarrow x + 3 = \\pm 1$."
+        },
+        {
+         "text": "$x = -2$ or $x = -4$."
+        }
+       ],
+       "answer": "$\\{-4, -2\\}$"
+      },
+      {
+       "id": "math9-u4-md-ex-44c",
+       "type": "worked",
+       "title": "Worked example: an answer with roots",
+       "page": 100,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Solve $x^2 + 4x - 10 = 0$.",
+       "steps": [
+        {
+         "text": "$x^2 + 4x = 10$."
+        },
+        {
+         "text": "Add 4: $(x + 2)^2 = 14$."
+        },
+        {
+         "text": "$x + 2 = \\pm\\sqrt{14}$, so $x = -2 \\pm \\sqrt{14}$."
+        },
+        {
+         "text": "Approximately $x \\approx 1.74$ or $x \\approx -5.74$."
+        }
+       ],
+       "answer": "$x = -2 \\pm \\sqrt{14}$"
+      },
+      {
+       "id": "math9-u4-c04",
+       "type": "remember",
+       "title": "Choosing a method",
+       "page": 100,
+       "src": "notes",
+       "body": [
+        "- Right side 0 and an easy factorisation → **factorise**.",
+        "- No nice factors (answers with roots) → **complete the square**.",
+        "- Only $x^2$ and a number ($x^2 = k$ or $(x - p)^2 = k$) → **square root both sides**, remembering $\\pm$.",
+        "Check every answer in the original equation, and reject answers that make no sense in a word problem (negative lengths, ages)."
+       ]
+      },
+      {
+       "id": "math9-u4-md-ex-44d",
+       "type": "worked",
+       "title": "Worked example: the basketball court (Review 2)",
+       "page": 101,
+       "src": "notes",
+       "mode": "show",
+       "problem": "A court's length is 2 m less than twice its width and its area is 420 m². Find its dimensions.",
+       "steps": [
+        {
+         "text": "Width $w$, length $2w - 2$: $w(2w - 2) = 420$."
+        },
+        {
+         "text": "$2w^2 - 2w - 420 = 0 \\Rightarrow w^2 - w - 210 = 0$."
+        },
+        {
+         "text": "Numbers with product $-210$ and sum $-1$: $-15$ and $14$: $(w - 15)(w + 14) = 0$."
+        },
+        {
+         "text": "$w = 15$ (reject $-14$), length $2(15) - 2 = 28$. Check $15 \\times 28 = 420$ (correct)."
+        }
+       ],
+       "answer": "15 m by 28 m"
       },
       {
        "id": "math9-u4-chk7",
@@ -783,13 +1191,77 @@
      ]
     }
    ],
-   "glossary": [],
+   "glossary": [
+    {
+     "term": "Quadratic expression",
+     "meaning": "$ax^2 + bx + c$ with $a \\ne 0$.",
+     "page": 83,
+     "src": "notes"
+    },
+    {
+     "term": "Quadratic function",
+     "meaning": "$y = ax^2 + bx + c$, $a \\ne 0$; its graph is a parabola.",
+     "page": 85,
+     "src": "notes"
+    },
+    {
+     "term": "Parabola",
+     "meaning": "The U-shaped graph of a quadratic function.",
+     "page": 86,
+     "src": "notes"
+    },
+    {
+     "term": "Vertex",
+     "meaning": "The turning point (lowest or highest point) of a parabola.",
+     "page": 90,
+     "src": "notes"
+    },
+    {
+     "term": "Axis of symmetry",
+     "meaning": "The vertical line through the vertex that divides the parabola into mirror halves.",
+     "page": 86,
+     "src": "notes"
+    },
+    {
+     "term": "Quadratic equation",
+     "meaning": "$ax^2 + bx + c = 0$, $a \\ne 0$.",
+     "page": 94,
+     "src": "notes"
+    },
+    {
+     "term": "Product property of zero",
+     "meaning": "If $pq = 0$ then $p = 0$ or $q = 0$.",
+     "page": 93,
+     "src": "notes"
+    },
+    {
+     "term": "Completing the square",
+     "meaning": "Adding $(\\frac{b}{2})^2$ to make $x^2 + bx$ a perfect square $(x + \\frac{b}{2})^2$.",
+     "page": 100,
+     "src": "notes"
+    }
+   ],
    "tips": [
     {
      "text": "Quadratic functions: y=ax²+bx+c vertex x=−b/(2a) a>0 opens up. Factor / complete square / formula x=[−b±√(b²−4ac)]/(2a). Δ>0 two roots.",
      "page": 95,
      "src": "notes",
      "card": "math9-u4-c04"
+    },
+    {
+     "text": "a > 0: opens up (minimum); a < 0: opens down (maximum); bigger |a| = narrower.",
+     "page": 91,
+     "src": "notes"
+    },
+    {
+     "text": "Never divide an equation by x — factorise and use the product property of zero.",
+     "page": 93,
+     "src": "notes"
+    },
+    {
+     "text": "Completing the square: halve the x-coefficient, square it, add to both sides.",
+     "page": 100,
+     "src": "notes"
     }
    ],
    "games": [
@@ -1456,6 +1928,624 @@
        }
       ],
       "id": "math9-u4-q30"
+     },
+     {
+      "id": "math9-u4-md-s41-q01",
+      "type": "short",
+      "q": "Write a quadratic expression for the area of a rectangle of width $x$ m and length $2x + 2$ m.",
+      "answer": "$2x^2 + 2x$",
+      "why": [
+       "Step 1: area = length × width = $x(2x + 2)$.",
+       "Step 2: expand: $2x^2 + 2x$."
+      ],
+      "tip": "Multiply, then expand.",
+      "similar": [
+       {
+        "q": "Width $x$, length 5 m more than the width?",
+        "a": "$x^2 + 5x$."
+       }
+      ],
+      "page": 84,
+      "src": "notes",
+      "label": "4.1 Practice — quadratic expressions"
+     },
+     {
+      "id": "math9-u4-md-s41-q02",
+      "type": "short",
+      "q": "Write the product of two consecutive odd integers as a quadratic expression.",
+      "answer": "$4n^2 - 1$ (or $x^2 + 2x$)",
+      "why": [
+       "Step 1: consecutive odd integers differ by 2: call them $x$ and $x + 2$.",
+       "Step 2: product $x(x + 2) = x^2 + 2x$.",
+       "Step 3: or with $2n - 1$ and $2n + 1$: $4n^2 - 1$."
+      ],
+      "tip": "Consecutive odd (or even) numbers are 2 apart.",
+      "similar": [
+       {
+        "q": "Product of two consecutive even integers?",
+        "a": "$x(x + 2) = x^2 + 2x$ with $x$ even."
+       }
+      ],
+      "page": 84,
+      "src": "notes",
+      "label": "4.1 Practice — quadratic expressions"
+     },
+     {
+      "id": "math9-u4-md-s41-q03",
+      "type": "short",
+      "q": "A piece of wood falls from a roof for 3 s ($S = 5t^2$). How high is the roof?",
+      "answer": "45 m",
+      "why": [
+       "Step 1: $S = 5 \\times 3^2$.",
+       "Step 2: $5 \\times 9 = 45$ m."
+      ],
+      "tip": "Square first, then multiply.",
+      "similar": [
+       {
+        "q": "Falls for 2 s?",
+        "a": "20 m."
+       }
+      ],
+      "page": 84,
+      "src": "notes",
+      "label": "4.1 Practice — quadratic expressions"
+     },
+     {
+      "id": "math9-u4-md-s41-q04",
+      "type": "short",
+      "q": "Write the total surface area of a cube with edge $x$.",
+      "answer": "$6x^2$",
+      "why": [
+       "Step 1: one face is $x \\times x = x^2$.",
+       "Step 2: a cube has 6 faces: $6x^2$."
+      ],
+      "tip": "Count faces.",
+      "similar": [
+       {
+        "q": "Surface area of a box $x$ by $x + 1$ by $x + 3$?",
+        "a": "$2[x(x+1) + x(x+3) + (x+1)(x+3)] = 6x^2 + 16x + 6$."
+       }
+      ],
+      "page": 85,
+      "src": "notes",
+      "label": "4.1 Practice — quadratic expressions"
+     },
+     {
+      "id": "math9-u4-md-s41-q05",
+      "type": "mcq",
+      "q": "Which is a quadratic expression?",
+      "options": {
+       "A": "$3x + 2$",
+       "B": "$x^3 - x$",
+       "C": "$5 - 2x^2$",
+       "D": "$\\frac{1}{x^2}$"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: highest power must be exactly 2 with only whole-number powers.",
+       "Step 2: $5 - 2x^2 = -2x^2 + 0x + 5$, $a = -2 \\ne 0$."
+      ],
+      "tip": "Rewrite in the order $x^2$, $x$, number.",
+      "similar": [
+       {
+        "q": "Is $(x + 1)^2 - x^2$ quadratic?",
+        "a": "No — it simplifies to $2x + 1$."
+       }
+      ],
+      "page": 83,
+      "src": "notes",
+      "label": "4.1 Practice — quadratic expressions"
+     },
+     {
+      "id": "math9-u4-md-s41-q06",
+      "type": "short",
+      "q": "How many games are played if each of $n$ teams plays every other team twice?",
+      "answer": "$n^2 - n$",
+      "why": [
+       "Step 1: each team plays $n - 1$ others twice, but count each game once from its home side: every ordered pair (home, away) is one game.",
+       "Step 2: ordered pairs of different teams: $n(n - 1) = n^2 - n$."
+      ],
+      "tip": "Twice = home and away, so order matters.",
+      "similar": [
+       {
+        "q": "How many for 16 teams?",
+        "a": "240."
+       }
+      ],
+      "page": 101,
+      "src": "notes",
+      "label": "4.1 Practice — quadratic expressions"
+     },
+     {
+      "id": "math9-u4-md-s42-q01",
+      "type": "short",
+      "q": "Complete the table for $y = 2x^2 - 1$ at $x = -3, -1, 1, 2$.",
+      "answer": "17, 1, 1, 7",
+      "why": [
+       "Step 1: $2(9) - 1 = 17$.",
+       "Step 2: $2(1) - 1 = 1$ for both $\\pm 1$.",
+       "Step 3: $2(4) - 1 = 7$."
+      ],
+      "tip": "Square before multiplying, and $(-3)^2 = +9$.",
+      "similar": [
+       {
+        "q": "$y = x^2 + x - 6$ at $x = -3$?",
+        "a": "0."
+       }
+      ],
+      "page": 85,
+      "src": "notes",
+      "label": "4.2 Practice — graphing quadratics"
+     },
+     {
+      "id": "math9-u4-md-s42-q02",
+      "type": "short",
+      "q": "Find the range of $y = x^2 + 2x$ for $-4 \\le x \\le 2$.",
+      "answer": "$-1 \\le y \\le 8$",
+      "why": [
+       "Step 1: table: $x = -4 \\to 8$, $-3 \\to 3$, $-2 \\to 0$, $-1 \\to -1$, $0 \\to 0$, $1 \\to 3$, $2 \\to 8$.",
+       "Step 2: lowest value $-1$ (vertex), highest 8."
+      ],
+      "tip": "Check both ends of the domain AND the vertex.",
+      "similar": [
+       {
+        "q": "Range of $y = -x^2 - 2x + 3$ for $-5 \\le x \\le 3$?",
+        "a": "$-12 \\le y \\le 4$."
+       }
+      ],
+      "page": 88,
+      "src": "notes",
+      "label": "4.2 Practice — graphing quadratics"
+     },
+     {
+      "id": "math9-u4-md-s42-q03",
+      "type": "mcq",
+      "q": "The axis of symmetry of $y = x^2 + 4x$ is",
+      "options": {
+       "A": "$x = 4$",
+       "B": "$x = -2$",
+       "C": "$x = 2$",
+       "D": "$y = -4$"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: $x = -\\frac{b}{2a} = -\\frac{4}{2} = -2$.",
+       "Step 2: the axis is a vertical line: $x = -2$."
+      ],
+      "tip": "An axis of symmetry is always \"$x = $ number\".",
+      "similar": [
+       {
+        "q": "Axis of $y = x^2 - 6x + 1$?",
+        "a": "$x = 3$."
+       }
+      ],
+      "page": 87,
+      "src": "notes",
+      "label": "4.2 Practice — graphing quadratics"
+     },
+     {
+      "id": "math9-u4-md-s42-q04",
+      "type": "short",
+      "q": "For $S = 5t^2$ (falling body), what is a sensible domain and what is $S$ at $t = 2.5$ s?",
+      "answer": "$t \\ge 0$; 31.25 m",
+      "why": [
+       "Step 1: time cannot be negative: $t \\ge 0$ (until the body lands).",
+       "Step 2: $5 \\times 6.25 = 31.25$ m."
+      ],
+      "tip": "Real situations restrict the domain.",
+      "similar": [
+       {
+        "q": "$t = 3.5$ s?",
+        "a": "61.25 m."
+       }
+      ],
+      "page": 88,
+      "src": "notes",
+      "label": "4.2 Practice — graphing quadratics"
+     },
+     {
+      "id": "math9-u4-md-s42-q05",
+      "type": "tf",
+      "q": "Two points are enough to draw the graph of $y = x^2$.",
+      "answer": false,
+      "why": [
+       "Step 1: two points only fix a straight line.",
+       "Step 2: a parabola bends, so we need a table of several points."
+      ],
+      "tip": "Lines: 2 points; parabolas: a table.",
+      "similar": [
+       {
+        "q": "What is the lowest point of $y = x^2 - 9$?",
+        "a": "$(0, -9)$."
+       }
+      ],
+      "page": 86,
+      "src": "notes",
+      "label": "4.2 Practice — graphing quadratics"
+     },
+     {
+      "id": "math9-u4-md-s42-q06",
+      "type": "short",
+      "q": "Give the vertex and the $y$-intercept of $y = -x^2 + 4x + 12$.",
+      "answer": "vertex $(2, 16)$; $y$-intercept 12",
+      "why": [
+       "Step 1: $x = -\\frac{4}{2(-1)} = 2$; $y = -4 + 8 + 12 = 16$.",
+       "Step 2: $x = 0$ gives $12$."
+      ],
+      "tip": "Vertex $x$ from $-\\frac{b}{2a}$, then substitute.",
+      "similar": [
+       {
+        "q": "Roots of $-x^2 + 4x + 12 = 0$?",
+        "a": "$x = -2$ or $6$."
+       }
+      ],
+      "page": 88,
+      "src": "notes",
+      "label": "4.2 Practice — graphing quadratics"
+     },
+     {
+      "id": "math9-u4-md-s43-q01",
+      "type": "mcq",
+      "q": "Which graph is the narrowest?",
+      "options": {
+       "A": "$y = \\frac{1}{3}x^2$",
+       "B": "$y = x^2$",
+       "C": "$y = -3x^2$",
+       "D": "$y = 2x^2$"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: compare $|a|$: $\\frac{1}{3}, 1, 3, 2$.",
+       "Step 2: biggest $|a| = 3$ → narrowest (the sign only flips it)."
+      ],
+      "tip": "Width depends on $|a|$, direction on the sign.",
+      "similar": [
+       {
+        "q": "Which is the widest?",
+        "a": "$y = \\frac{1}{3}x^2$."
+       }
+      ],
+      "page": 90,
+      "src": "notes",
+      "label": "4.3 Practice — effects of a and c"
+     },
+     {
+      "id": "math9-u4-md-s43-q02",
+      "type": "short",
+      "q": "Give the vertex and range of $y = x^2 - 9$.",
+      "answer": "vertex $(0, -9)$; $y \\ge -9$",
+      "why": [
+       "Step 1: $y = x^2$ moved down 9.",
+       "Step 2: opens up → minimum $-9$."
+      ],
+      "tip": "$c$ is the vertex height when $b = 0$.",
+      "similar": [
+       {
+        "q": "$y = -2x^2 + 8$?",
+        "a": "Vertex $(0, 8)$, range $y \\le 8$."
+       }
+      ],
+      "page": 91,
+      "src": "notes",
+      "label": "4.3 Practice — effects of a and c"
+     },
+     {
+      "id": "math9-u4-md-s43-q03",
+      "type": "tf",
+      "q": "$y = -x^2$ is the reflection of $y = x^2$ in the $x$-axis.",
+      "answer": true,
+      "why": [
+       "Step 1: every $y$-value changes sign.",
+       "Step 2: $(2, 4) \\to (2, -4)$: a reflection in the $x$-axis."
+      ],
+      "tip": "Negative $a$ = mirror in the $x$-axis.",
+      "similar": [
+       {
+        "q": "Reflection of $y = x^2 + 1$ in the $x$-axis?",
+        "a": "$y = -x^2 - 1$."
+       }
+      ],
+      "page": 91,
+      "src": "notes",
+      "label": "4.3 Practice — effects of a and c"
+     },
+     {
+      "id": "math9-u4-md-s43-q04",
+      "type": "short",
+      "q": "How is $y = 2x^2 + 2$ obtained from $y = 2x^2$?",
+      "answer": "shift up 2 units",
+      "why": [
+       "Step 1: every $y$-value is 2 more.",
+       "Step 2: so the whole graph moves up 2; vertex $(0, 0) \\to (0, 2)$."
+      ],
+      "tip": "Adding outside → up.",
+      "similar": [
+       {
+        "q": "From $y = -2x^2$ to $y = -2x^2 + 2$?",
+        "a": "Up 2; vertex $(0, 2)$."
+       }
+      ],
+      "page": 91,
+      "src": "notes",
+      "label": "4.3 Practice — effects of a and c"
+     },
+     {
+      "id": "math9-u4-md-s43-q05",
+      "type": "mcq",
+      "q": "Which parabola has a maximum value of 5?",
+      "options": {
+       "A": "$y = x^2 + 5$",
+       "B": "$y = -x^2 + 5$",
+       "C": "$y = 5x^2$",
+       "D": "$y = -5x^2$"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: a maximum needs $a < 0$ (B or D).",
+       "Step 2: the vertex value is $c$: B has 5, D has 0."
+      ],
+      "tip": "Opens down → maximum at the vertex.",
+      "similar": [
+       {
+        "q": "Minimum value of $y = 3x^2 - 4$?",
+        "a": "$-4$."
+       }
+      ],
+      "page": 91,
+      "src": "notes",
+      "label": "4.3 Practice — effects of a and c"
+     },
+     {
+      "id": "math9-u4-md-s44-q01",
+      "type": "short",
+      "q": "Solve $3x^2 + 12x = 0$.",
+      "answer": "$x = 0$ or $x = -4$",
+      "why": [
+       "Step 1: common factor $3x$: $3x(x + 4) = 0$.",
+       "Step 2: $3x = 0 \\Rightarrow x = 0$; $x + 4 = 0 \\Rightarrow x = -4$."
+      ],
+      "tip": "Never divide by $x$ — you would lose $x = 0$.",
+      "similar": [
+       {
+        "q": "Solve $10x - 5x^2 = 0$.",
+        "a": "$x = 0$ or $2$."
+       }
+      ],
+      "page": 95,
+      "src": "notes",
+      "label": "4.4 Practice — solving quadratic equations"
+     },
+     {
+      "id": "math9-u4-md-s44-q02",
+      "type": "short",
+      "q": "Factorise $7x^2 - 28$ completely.",
+      "answer": "$7(x + 2)(x - 2)$",
+      "why": [
+       "Step 1: common factor 7: $7(x^2 - 4)$.",
+       "Step 2: difference of squares: $7(x + 2)(x - 2)$."
+      ],
+      "tip": "Common factor first, then look again.",
+      "similar": [
+       {
+        "q": "Factorise $12 - 8x^2$.",
+        "a": "$4(3 - 2x^2)$."
+       }
+      ],
+      "page": 95,
+      "src": "notes",
+      "label": "4.4 Practice — solving quadratic equations"
+     },
+     {
+      "id": "math9-u4-md-s44-q03",
+      "type": "short",
+      "q": "Solve $x^2 - 4x - 12 = 0$.",
+      "answer": "$x = 6$ or $x = -2$",
+      "why": [
+       "Step 1: product $-12$, sum $-4$: $-6$ and $2$.",
+       "Step 2: $(x - 6)(x + 2) = 0$.",
+       "Step 3: $x = 6$ or $x = -2$."
+      ],
+      "tip": "Negative product → numbers of opposite sign.",
+      "similar": [
+       {
+        "q": "Solve $x^2 - 6x + 9 = 0$.",
+        "a": "$x = 3$ (one repeated root)."
+       }
+      ],
+      "page": 98,
+      "src": "notes",
+      "label": "4.4 Practice — solving quadratic equations"
+     },
+     {
+      "id": "math9-u4-md-s44-q04",
+      "type": "short",
+      "q": "Solve $4x^2 + 8x - 5 = 0$.",
+      "answer": "$x = \\frac{1}{2}$ or $x = -\\frac{5}{2}$",
+      "why": [
+       "Step 1: $ac = -20$; numbers with product $-20$, sum 8: $10$ and $-2$.",
+       "Step 2: $4x^2 + 10x - 2x - 5 = 2x(2x + 5) - (2x + 5) = (2x + 5)(2x - 1)$.",
+       "Step 3: $x = -\\frac{5}{2}$ or $\\frac{1}{2}$."
+      ],
+      "tip": "When $a \\ne 1$, use $ac$, not $c$.",
+      "similar": [
+       {
+        "q": "Solve $2x^2 + 5x + 3 = 0$.",
+        "a": "$x = -1$ or $-\\frac{3}{2}$."
+       }
+      ],
+      "page": 98,
+      "src": "notes",
+      "label": "4.4 Practice — solving quadratic equations"
+     },
+     {
+      "id": "math9-u4-md-s44-q05",
+      "type": "short",
+      "q": "A rectangle has perimeter 28 cm and area 33 cm². Find its dimensions.",
+      "answer": "11 cm by 3 cm",
+      "why": [
+       "Step 1: $l + w = 14$, so $l = 14 - w$.",
+       "Step 2: $w(14 - w) = 33 \\Rightarrow w^2 - 14w + 33 = 0$.",
+       "Step 3: $(w - 3)(w - 11) = 0$: sides 3 and 11."
+      ],
+      "tip": "Half the perimeter is length + width.",
+      "similar": [
+       {
+        "q": "Two positive numbers differ by 4 and have product 21?",
+        "a": "3 and 7."
+       }
+      ],
+      "page": 98,
+      "src": "notes",
+      "label": "4.4 Practice — solving quadratic equations"
+     },
+     {
+      "id": "math9-u4-md-s44-q06",
+      "type": "short",
+      "q": "Solve $(x - 2)^2 = 9$.",
+      "answer": "$x = 5$ or $x = -1$",
+      "why": [
+       "Step 1: square root both sides: $x - 2 = \\pm 3$.",
+       "Step 2: $x = 2 + 3 = 5$ or $x = 2 - 3 = -1$."
+      ],
+      "tip": "Square root → write $\\pm$.",
+      "similar": [
+       {
+        "q": "Solve $-2(x - 4)^2 = -8$.",
+        "a": "$(x - 4)^2 = 4$: $x = 6$ or $2$."
+       }
+      ],
+      "page": 99,
+      "src": "notes",
+      "label": "4.4 Practice — solving quadratic equations"
+     },
+     {
+      "id": "math9-u4-md-s44-q07",
+      "type": "fill",
+      "q": "To make $x^2 + 5x + \\_\\_$ a perfect square, add ____.",
+      "choices": [
+       "$\\frac{25}{4}$",
+       "25",
+       "$\\frac{5}{2}$",
+       "10"
+      ],
+      "answer": "$\\frac{25}{4}$",
+      "why": [
+       "Step 1: half of 5 is $\\frac{5}{2}$.",
+       "Step 2: square it: $\\frac{25}{4}$; then $x^2 + 5x + \\frac{25}{4} = \\left(x + \\frac{5}{2}\\right)^2$."
+      ],
+      "tip": "Halve the coefficient of $x$, then square.",
+      "similar": [
+       {
+        "q": "$x^2 - 2x + \\_$?",
+        "a": "1."
+       }
+      ],
+      "page": 99,
+      "src": "notes",
+      "label": "4.4 Practice — solving quadratic equations"
+     },
+     {
+      "id": "math9-u4-md-s44-q08",
+      "type": "short",
+      "q": "Solve $x^2 - 6x - 5 = 0$ by completing the square.",
+      "answer": "$x = 3 \\pm \\sqrt{14}$",
+      "why": [
+       "Step 1: $x^2 - 6x = 5$.",
+       "Step 2: add 9: $(x - 3)^2 = 14$.",
+       "Step 3: $x = 3 \\pm \\sqrt{14} \\approx 6.74$ or $-0.74$."
+      ],
+      "tip": "Add the same number to both sides.",
+      "similar": [
+       {
+        "q": "Solve $x^2 + 8x - 9 = 0$.",
+        "a": "$x = 1$ or $-9$."
+       }
+      ],
+      "page": 100,
+      "src": "notes",
+      "label": "4.4 Practice — solving quadratic equations"
+     },
+     {
+      "id": "math9-u4-md-s44-q09",
+      "type": "short",
+      "q": "Solve $x^2 - 2x + 2 = 0$.",
+      "answer": "no real solution",
+      "why": [
+       "Step 1: $x^2 - 2x = -2$.",
+       "Step 2: add 1: $(x - 1)^2 = -1$.",
+       "Step 3: no real number squared is negative → no real solution."
+      ],
+      "tip": "A negative right side after completing the square means no real roots.",
+      "similar": [
+       {
+        "q": "Solve $-y^2 - 4y - 18 = 0$.",
+        "a": "$(y + 2)^2 = -14$: no real solution."
+       }
+      ],
+      "page": 102,
+      "src": "notes",
+      "label": "4.4 Practice — solving quadratic equations"
+     },
+     {
+      "id": "math9-u4-md-s44-q10",
+      "type": "short",
+      "q": "Can a rectangle have perimeter 36 cm and area 36 cm²? Find its sides.",
+      "answer": "yes: about 15.71 cm by 2.29 cm",
+      "why": [
+       "Step 1: $l + w = 18$, $lw = 36$: $w^2 - 18w + 36 = 0$.",
+       "Step 2: $(w - 9)^2 = 45$, $w = 9 \\pm 3\\sqrt{5}$.",
+       "Step 3: $w \\approx 15.71$ or $2.29$ — the two sides."
+      ],
+      "tip": "Not every answer is a whole number — completing the square handles this.",
+      "similar": [
+       {
+        "q": "Perimeter 20, area 24?",
+        "a": "6 by 4."
+       }
+      ],
+      "page": 100,
+      "src": "notes",
+      "label": "4.4 Practice — solving quadratic equations"
+     },
+     {
+      "id": "math9-u4-md-s44-q11",
+      "type": "short",
+      "q": "Profit from selling $n$ hens: $P = -n^2 + 8n$. How many hens give a profit of 12 Nakfa, and what is the maximum profit?",
+      "answer": "2 or 6 hens; 16 Nakfa at 4 hens",
+      "why": [
+       "Step 1: $-n^2 + 8n = 12 \\Rightarrow n^2 - 8n + 12 = 0 \\Rightarrow (n - 2)(n - 6) = 0$.",
+       "Step 2: vertex $n = -\\frac{8}{2(-1)} = 4$, $P = -16 + 32 = 16$."
+      ],
+      "tip": "Maximum of a downward parabola is at its vertex.",
+      "similar": [
+       {
+        "q": "Profit or loss for 10 hens?",
+        "a": "Loss of 20 Nakfa ($P = -20$)."
+       }
+      ],
+      "page": 101,
+      "src": "notes",
+      "label": "4.4 Practice — solving quadratic equations"
+     },
+     {
+      "id": "math9-u4-md-s44-q12",
+      "type": "short",
+      "q": "Find a quadratic equation with roots 4 and $-1$.",
+      "answer": "$x^2 - 3x - 4 = 0$",
+      "why": [
+       "Step 1: roots 4 and $-1$ come from $(x - 4)(x + 1) = 0$.",
+       "Step 2: expand: $x^2 - 3x - 4 = 0$."
+      ],
+      "tip": "Root $r$ → factor $(x - r)$.",
+      "similar": [
+       {
+        "q": "Roots $-5$ and $-3$?",
+        "a": "$x^2 + 8x + 15 = 0$."
+       }
+      ],
+      "page": 102,
+      "src": "notes",
+      "label": "4.4 Practice — solving quadratic equations"
      }
     ]
    },
@@ -1507,6 +2597,30 @@
        "math9-u4-c05",
        "math9-u4-c06"
       ]
+     },
+     {
+      "id": "md_lq",
+      "label": "Linear vs quadratic",
+      "kind": "idea",
+      "cards": [
+       "math9-u4-md-lq-t"
+      ]
+     },
+     {
+      "id": "md_param",
+      "label": "Effects of a and c",
+      "kind": "idea",
+      "cards": [
+       "math9-u4-md-param-t"
+      ]
+     },
+     {
+      "id": "md_fact",
+      "label": "Which factorisation?",
+      "kind": "idea",
+      "cards": [
+       "math9-u4-md-fact-t"
+      ]
      }
     ],
     "edges": [
@@ -1544,9 +2658,68 @@
       "from": "l4_3",
       "to": "l4_4",
       "label": "next"
+     },
+     {
+      "from": "l4_2",
+      "to": "md_lq",
+      "label": "key idea"
+     },
+     {
+      "from": "l4_3",
+      "to": "md_param",
+      "label": "key idea"
+     },
+     {
+      "from": "l4_4",
+      "to": "md_fact",
+      "label": "key idea"
      }
     ],
     "src": "auto"
+   },
+   "diagrams": {
+    "md_parab": {
+     "svg": "svg/mathematics_9/m9_u4_parab.svg",
+     "title": "Drawing y = x² from a table (Fig. 4.3 and 4.4)",
+     "page": 86,
+     "pins": []
+    },
+    "md_x2p4x": {
+     "svg": "svg/mathematics_9/m9_u4_x2p4x.svg",
+     "title": "y = x² + 4x for −6 ≤ x ≤ 2 (Fig. 4.5)",
+     "page": 87,
+     "pins": []
+    },
+    "md_afamily": {
+     "svg": "svg/mathematics_9/m9_u4_afamily.svg",
+     "title": "The effect of a in y = ax² (Fig. 4.6 and 4.7)",
+     "page": 89,
+     "pins": []
+    },
+    "md_shiftc": {
+     "svg": "svg/mathematics_9/m9_u4_shiftc.svg",
+     "title": "The effect of c in y = x² + c (Fig. 4.8)",
+     "page": 91,
+     "pins": []
+    },
+    "md_roots": {
+     "svg": "svg/mathematics_9/m9_u4_roots.svg",
+     "title": "Roots are the x-intercepts",
+     "page": 96,
+     "pins": []
+    },
+    "md_complsq": {
+     "svg": "svg/mathematics_9/m9_u4_complsq.svg",
+     "title": "Completing the square with areas",
+     "page": 100,
+     "pins": []
+    },
+    "md_rocket": {
+     "svg": "svg/mathematics_9/m9_u4_rocket.svg",
+     "title": "Height of a rocket, h = −10t² + 100t",
+     "page": 84,
+     "pins": []
+    }
    }
   }
  ]
