@@ -93,7 +93,7 @@ class TableModel {
             ? ColT.values.byName(cols[j])
             : _guess(j < head.length ? head[j] : '', rows, j, acc),
     ];
-    if (types.isNotEmpty && types[0].figure && kind != 't_account' && n > 1 && types.skip(1).any((t) => !t.figure)) {
+    if (cols.isEmpty && types.isNotEmpty && types[0].figure && kind != 't_account' && n > 1 && types.skip(1).any((t) => !t.figure)) {
       // a first column of years / numbers still reads as a label
       types[0] = ColT.text;
     }
@@ -163,6 +163,8 @@ double _measure(String s, TextStyle st, TextScaler sc) {
   return _wordW[k] = w;
 }
 
+final _wordBreak = RegExp(r'\s+|(?<=[A-Za-z][-–—])(?=[A-Za-z])');
+
 /// (one-line width, widest word) of [s]; maths gets 15 % slack because KaTeX boxes are wider than their source letters
 (double, double) _extent(String s, TextStyle st, TextStyle bold, TextScaler sc) {
   final p = _plain(s).trim();
@@ -173,7 +175,9 @@ double _measure(String s, TextStyle st, TextScaler sc) {
   double line = 0, word = 0;
   for (final l in p.split('\n')) {
     line = math.max(line, _measure(l, isBold ? bold : st, sc) + (marked ? 4.0 * ' '.allMatches(l).length + 6 : 1));
-    for (final w in l.split(RegExp(r'\s+'))) {
+    // the line breaker may also break after a hyphen / dash ("Depreciation-Furniture"), so those parts are words too
+    // (not in cells with **key words**: each of those is one unbreakable box)
+    for (final w in l.split(marked ? RegExp(r'\s+') : _wordBreak)) {
       if (w.isEmpty) continue;
       // words are measured in the heaviest weight a cell may use, so **bold** words never break mid-word; a **key word**
       // is drawn as its own box with 2 px side padding (+ rounding), hence the +6
@@ -543,8 +547,24 @@ class NTable extends StatelessWidget {
       builder: (context, box) {
         final m = model;
         if (m.n == 0) return const SizedBox.shrink();
-        if (m.kind == 't_account') return _TAccounts(m, p, sc, box.maxWidth);
-        return _grid(context, m, p, sc, box.maxWidth);
+        final w = box.maxWidth;
+        if (m.kind == 't_account') return _TAccounts(m, p, sc, w);
+        final pc = m.acc ? null : prosConsCols(m);
+        if (pc != null && m.layout != 'grid') return _ProsCons(m, p, pc);
+        final narrow = w < 520;
+        switch (m.layout) {
+          case 'stack':
+            return _RowCards(m, p);
+          case 'cards' when narrow:
+            return _RowCards(m, p);
+          case 'compare' when narrow:
+            return _Compare(m, p);
+          case 'terms' when narrow:
+            return _Terms(m, p);
+          case 'entries':
+            return _Entries(m, p);
+        }
+        return _grid(context, m, p, sc, w);
       },
     );
   }
@@ -554,16 +574,29 @@ class NTable extends StatelessWidget {
   Widget _grid(BuildContext context, TableModel m, Palette p, TextScaler sc, double avail) {
     final rc = richColors(p);
     final acc = m.acc;
-    final body = ts(acc ? 16 : 17, FontWeight.w700, p.ink, height: 1.3);
-    final first = ts(acc ? 16 : 17, FontWeight.w800, p.ink, height: 1.3);
-    final bold = ts(acc ? 16 : 17, FontWeight.w900, p.ink, height: 1.3);
-    final th = ts(acc ? 14.5 : 15, FontWeight.w900, p.ink2, height: 1.25);
-    final thB = ts(acc ? 14.5 : 15, FontWeight.w900, p.ink2, height: 1.25);
-    final muted = ts(14, FontWeight.w700, p.ink2, height: 1.3);
-    // narrow phones: accounting tables get slimmer cell padding so Dr / Cr columns fit without scrolling
-    final padX = acc && avail < 420 ? 5.0 : 7.0;
+    // narrow phones: accounting tables get smaller (tabular) figures, short headers and slimmer padding so they fit
+    final tight = acc && avail < 420;
+    final fs = tight ? 15.0 : (acc ? 16.0 : 17.0);
+    final body = ts(fs, FontWeight.w700, p.ink, height: 1.3);
+    final first = ts(fs, FontWeight.w800, p.ink, height: 1.3);
+    final bold = ts(fs, FontWeight.w900, p.ink, height: 1.3);
+    final th = ts(tight ? 13.5 : (acc ? 14.5 : 15), FontWeight.w900, p.ink2, height: 1.25);
+    final thB = th;
+    final muted = ts(tight ? 13 : 14, FontWeight.w700, p.ink2, height: 1.3);
+    final padX = tight ? 4.5 : 7.0;
+    final drInk = p.dark ? p.blue.deep : mix(p.blue.deep, .8, p.ink), crInk = p.dark ? p.peach.deep : mix(p.peach.deep, .8, p.ink);
     const padY = 8.0;
     final types = m.types;
+    final used = <int, List<String>>{};
+    final heads = [
+      for (var j = 0; j < m.head.length; j++)
+        () {
+          if (!tight) return m.head[j];
+          final (h, u) = shortHead(m.head[j], j < m.n ? types[j] : ColT.text);
+          used[j] = u;
+          return h;
+        }(),
+    ];
 
     // ---- which logical columns are shown (a date column folds into the next text column when room is short)
     final cols = [for (var j = 0; j < m.n; j++) j];
@@ -575,11 +608,12 @@ class NTable extends StatelessWidget {
     }
 
     // ---- measure (cached on the model: the JSON never changes)
-    final mm = _meas[m] ??= () {
+    final cache = _meas[m] ??= {};
+    final mm = cache[tight] ??= () {
       final minW = List.filled(m.n, 0.0), pref = List.filled(m.n, 0.0);
       for (var j = 0; j < m.n; j++) {
-        if (j < m.head.length) {
-          final (l, w) = _extent(m.head[j], thB, thB, sc);
+        if (j < heads.length) {
+          final (l, w) = _extent(heads[j], thB, thB, sc);
           pref[j] = math.max(pref[j], math.min(l, 140));
           minW[j] = math.max(minW[j], w);
         }
@@ -588,11 +622,12 @@ class NTable extends StatelessWidget {
           if (raw.trim().isEmpty) continue;
           final txt = types[j].amount ? fmtMoney(raw) : raw;
           final mk = m.marks[i];
-          final st = (mk.contains('total') || mk.contains('final') || mk.contains('head') || mk.contains('bold')) ? bold : (j == 0 ? first : body);
+          final st = (mk.contains('total') || mk.contains('final') || mk.contains('head') || mk.contains('bold')) ? bold : (j == 0 && types[j] == ColT.text ? first : body);
           final (l, w) = _extent(txt, types[j].figure ? _fig(st) : st, bold, sc);
           final indent = (mk.contains('indent') || mk.contains('note') || (m.kind == 'journal' && j == tc && _isCreditLine(m, i))) ? 18.0 : 0.0;
           pref[j] = math.max(pref[j], l + indent);
-          minW[j] = math.max(minW[j], (types[j].figure ? l : w) + indent);
+          // a figure never wraps, except after a label such as the worksheet's "(b) 16,500.00"
+          minW[j] = math.max(minW[j], (types[j].figure && !_plain(txt).trim().contains(' ') ? l : w) + indent);
         }
       }
       return (minW, pref);
@@ -621,7 +656,7 @@ class NTable extends StatelessWidget {
     double comfyOf(int j) {
       final t = types[j];
       if (t != ColT.text) return math.min(prefOf(j), math.max(minOf(j), t == ColT.date ? 64 : 0));
-      return math.min(prefOf(j), math.max(minOf(j), (j == 0 ? 96 : 112)));
+      return math.min(prefOf(j), math.max(minOf(j), tight ? 84 : (j == 0 ? 96 : 112)));
     }
 
     // fold the date column into the particulars column when the table would not fit
@@ -652,13 +687,21 @@ class NTable extends StatelessWidget {
     // ---- stacked blocks for wide all-text tables on narrow screens
     final allText = m.n >= 3 && types.every((t) => t == ColT.text) && !acc && m.hasHead;
     final comfySum = sumOf(comfyOf, cols).fold(0.0, (a, b) => a + b);
-    if (m.layout == 'stack' || (m.layout != 'grid' && allText && avail < 520 && comfySum > avail * 1.3)) {
-      return _stack(m, p, rc, first, body, th);
+    if (m.layout == null && allText && avail < 520 && comfySum > avail * 1.3) {
+      final h0 = _plain(m.head.isEmpty ? '' : m.head[0]).toLowerCase();
+      return RegExp(r'^(features?|basis|bases|aspects?|criteri(a|on)|points?|characteristics?|factors?)\b').hasMatch(h0) ? _Compare(m, p) : _RowCards(m, p);
     }
 
     var widths = fitWidths(sumOf(minOf, cols), sumOf(comfyOf, cols), sumOf(prefOf, cols), avail);
     final total = widths.fold(0.0, (a, b) => a + b);
     final scroll = total > avail + .5;
+    if (scroll && acc && m.layout != 'grid' && avail < 520) {
+      final groups = sectionGroups(m);
+      final labelCols = [for (final j in cols) if (!types[j].figure) j];
+      double need(List<int> cs) => sumOf(minOf, [...labelCols, ...cs]).fold(0.0, (a, b) => a + b);
+      if (groups.isNotEmpty && groups.every((g) => need(g.$2) <= avail + .5)) return _Sections(m, groups);
+      return _Entries(m, p);
+    }
     // frozen: the label column(s) — in a journal / ledger everything up to the particulars column
     var frozen = scroll ? (m.frozen ?? 1) : 0;
     if (scroll && m.frozen == null && tc != null) {
@@ -681,6 +724,7 @@ class NTable extends StatelessWidget {
     final stripe = mix(p.ink, p.dark ? .045 : .032, base);
     final headRow = mix(p.ink, p.dark ? .07 : .05, base);
     final ruleC = mix(p.ink, .55, base);
+    final totBg = p.dark ? mix(p.butter.tile, .6, base) : mix(p.butter.tile, .5, base);
 
     final hasHead = m.hasHead;
     final nRows = m.rows.length + (hasHead ? 1 : 0);
@@ -697,16 +741,16 @@ class NTable extends StatelessWidget {
       for (final (jj, j) in cols.indexed) {
         flags[jj] |= 4;
         final t = types[j];
-        final h = foldInto[j]?.map((k) => k < m.head.length ? m.head[k] : '').firstWhere((x) => x.trim().isNotEmpty, orElse: () => '') ??
-            (j < m.head.length ? m.head[j] : '');
+        final h = foldInto[j]?.map((k) => k < heads.length ? heads[k] : '').firstWhere((x) => x.trim().isNotEmpty, orElse: () => '') ??
+            (j < heads.length ? heads[j] : '');
         final tag = t == ColT.dr && !RegExp(r'\bdr\b', caseSensitive: false).hasMatch(h)
             ? 'Dr'
             : t == ColT.cr && !RegExp(r'\bcr\b', caseSensitive: false).hasMatch(h)
             ? 'Cr'
             : null;
         Widget w = RichPara(
-          dateInto.containsKey(j) && (m.head[dateInto[j]!]).trim().isNotEmpty ? '${m.head[dateInto[j]!]} / $h' : h,
-          style: th,
+          dateInto.containsKey(j) && (heads[dateInto[j]!]).trim().isNotEmpty ? '${heads[dateInto[j]!]} / $h' : h,
+          style: t == ColT.dr ? th.copyWith(color: drInk) : (t == ColT.cr ? th.copyWith(color: crInk) : th),
           colors: rc,
           textAlign: t.figure ? TextAlign.right : null,
         );
@@ -716,7 +760,7 @@ class NTable extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               w,
-              Tx(tag, style: ts(13, FontWeight.w900, p.primaryEdge, height: 1.2)),
+              Tx(tag, style: ts(13, FontWeight.w900, t == ColT.dr ? drInk : crInk, height: 1.2)),
             ],
           );
         }
@@ -733,7 +777,7 @@ class NTable extends StatelessWidget {
         rowBg.add(headRow);
         stripeOn = false;
       } else if (isTot) {
-        rowBg.add(null);
+        rowBg.add(acc ? totBg : null);
       } else {
         rowBg.add(stripeOn ? stripe : null);
         stripeOn = !stripeOn;
@@ -754,7 +798,7 @@ class NTable extends StatelessWidget {
         if (t != ColT.text) txt = txt.trim();
         if (t.amount) txt = fmtMoney(txt);
         if (t == ColT.text) txt = txt.trimLeft();
-        final st = isHead || isTot || mk.contains('bold') ? bold : (jj == 0 ? first : body);
+        final st = isHead || isTot || mk.contains('bold') ? bold : (jj == 0 && t == ColT.text ? first : body);
         if (isTot && t.figure && txt.trim().isNotEmpty) {
           flags[r * nc + jj] |= 1;
           if (mk.contains('final')) flags[r * nc + jj] |= 2;
@@ -798,7 +842,20 @@ class NTable extends StatelessWidget {
       edge: p.ink,
       headRows: hasHead ? 1 : 0,
     );
-    return _ScrollGrid(spec: spec, scroll: scroll, children: kids);
+    final grid = _ScrollGrid(spec: spec, scroll: scroll, children: kids);
+    final legend = <String>{
+      for (final j in cols) ...?used[j],
+      for (final f in foldInto.values) for (final j in f) ...?used[j],
+    };
+    if (legend.isEmpty) return grid;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: 6,
+      children: [
+        grid,
+        Padding(padding: const EdgeInsets.symmetric(horizontal: 4), child: Tx(legend.join('  ·  '), style: muted.copyWith(fontSize: 12.5))),
+      ],
+    );
   }
 
   static bool _isCreditLine(TableModel m, int i) {
@@ -819,48 +876,9 @@ class NTable extends StatelessWidget {
     return m.cell(i, dj).trim().isEmpty && m.cell(i, cj).trim().isNotEmpty;
   }
 
-  /// one block per row: the first cell as a heading, then "Header: value" lines
-  Widget _stack(TableModel m, Palette p, RichColors rc, TextStyle first, TextStyle body, TextStyle th) {
-    final stripe = mix(p.ink, p.dark ? .05 : .035, p.surface);
-    final label = ts(14, FontWeight.w900, p.ink2, height: 1.3);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      spacing: 8,
-      children: [
-        for (var i = 0; i < m.rows.length; i++)
-          DecoratedBox(
-            decoration: BoxDecoration(color: stripe, borderRadius: BorderRadius.circular(14)),
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                spacing: 6,
-                children: [
-                  if (m.cell(i, 0).trim().isNotEmpty)
-                    RichPara(
-                      m.cell(i, 0),
-                      style: first.copyWith(fontWeight: FontWeight.w900),
-                      colors: rc,
-                    ),
-                  for (var j = 1; j < m.n; j++)
-                    if (m.cell(i, j).trim().isNotEmpty)
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          if (j < m.head.length && m.head[j].trim().isNotEmpty) RichPara(m.head[j], style: label, colors: rc),
-                          RichPara(m.cell(i, j), style: body, colors: rc),
-                        ],
-                      ),
-                ],
-              ),
-            ),
-          ),
-      ],
-    );
-  }
 }
 
-final _meas = Expando<(List<double>, List<double>)>('tableWidths');
+final _meas = Expando<Map<bool, (List<double>, List<double>)>>('tableWidths');
 
 // ------------------------------------------------------------------ T-accounts
 
@@ -976,7 +994,9 @@ class _TAccounts extends StatelessWidget {
       widths: grid,
       cols: 4,
       frozen: 0,
-      rowBg: const [],
+      rowBg: [
+        for (final i in idx) m.marks[i].contains('total') || m.marks[i].contains('final') ? (p.dark ? mix(p.butter.tile, .6, p.surface) : mix(p.butter.tile, .5, p.surface)) : null,
+      ],
       flags: flags,
       base: p.surface,
       rule: ruleC,
@@ -985,7 +1005,8 @@ class _TAccounts extends StatelessWidget {
       radius: 0,
       frame: false,
     );
-    final tag = ts(14, FontWeight.w900, p.primaryEdge, height: 1.2);
+    final tag = ts(14, FontWeight.w900, p.dark ? p.blue.deep : mix(p.blue.deep, .8, p.ink), height: 1.2);
+    final tagCr = tag.copyWith(color: p.dark ? p.peach.deep : mix(p.peach.deep, .8, p.ink));
     final title = ts(17, FontWeight.w900, p.ink, height: 1.25);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1003,7 +1024,7 @@ class _TAccounts extends StatelessWidget {
                   child: RichPara(no.trim().isEmpty ? name : '$name  ·  No. ${no.trim()}', style: title, colors: rc, textAlign: TextAlign.center),
                 ),
               ),
-              Tx('Cr', style: tag),
+              Tx('Cr', style: tagCr),
             ],
           ),
         ),
@@ -1014,5 +1035,539 @@ class _TAccounts extends StatelessWidget {
         _ScrollGrid(spec: spec, scroll: scroll, children: kids),
       ],
     );
+  }
+}
+
+// ------------------------------------------------------------------ study layouts (narrow screens)
+
+/// the card tone of a table (header strip, card accents)
+Tone tableTone(Palette p, TableModel m) => switch (m.kind == 'table' ? (m.layout ?? 'table') : m.kind) {
+  'journal' || 'ledger' => p.blue,
+  'statement' => p.mint,
+  't_account' => p.lilac,
+  'compare' => p.lilac,
+  'proscons' => p.sage,
+  'terms' || 'cards' || 'stack' => p.butter,
+  _ => p.peach,
+};
+
+const _cycle = ['blue', 'sage', 'lilac', 'butter', 'peach', 'mint'];
+
+Color _soft(Palette p, Tone t) => p.dark ? mix(t.tile, .55, p.surface) : mix(t.tile, .45, p.surface);
+Color _band(Palette p, Tone t) => p.dark ? t.tile : mix(t.tile, .95, p.surface);
+
+/// a coloured study card: a title band, then (mini-heading, text) pairs
+Widget _tile(Palette p, RichColors rc, Tone t, String title, List<(String, String)> items) {
+  final head = ts(17, FontWeight.w900, p.ink, height: 1.25);
+  final label = ts(13.5, FontWeight.w900, p.dark ? t.deep : mix(t.deep, .8, p.ink), height: 1.25, spacing: .2);
+  final body = ts(16, FontWeight.w700, p.ink, height: 1.35);
+  return DecoratedBox(
+    decoration: BoxDecoration(
+      color: _soft(p, t),
+      borderRadius: BorderRadius.circular(16),
+      border: Border.all(color: p.dark ? t.mid.withValues(alpha: .35) : t.mid.withValues(alpha: .6), width: 1.2),
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (title.trim().isNotEmpty)
+          DecoratedBox(
+            decoration: BoxDecoration(color: _band(p, t), borderRadius: const BorderRadius.vertical(top: Radius.circular(15))),
+            child: Padding(padding: const EdgeInsets.fromLTRB(14, 10, 14, 10), child: RichPara(title, style: head, colors: rc)),
+          ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(14, 10, 14, 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            spacing: 9,
+            children: [
+              for (final (l, v) in items)
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  spacing: 1,
+                  children: [
+                    if (l.trim().isNotEmpty) RichPara(l, style: label, colors: rc),
+                    RichPara(v, style: body, colors: rc),
+                  ],
+                ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+/// layout cards: one card per row, the first cell as its title
+class _RowCards extends StatelessWidget {
+  const _RowCards(this.m, this.p);
+  final TableModel m;
+  final Palette p;
+  @override
+  Widget build(BuildContext context) {
+    final rc = richColors(p);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: 10,
+      children: [
+        for (var i = 0; i < m.rows.length; i++)
+          _tile(p, rc, p.tone(_cycle[i % _cycle.length]), m.cell(i, 0), [
+            for (var j = 1; j < m.n; j++)
+              if (m.cell(i, j).trim().isNotEmpty) (j < m.head.length ? m.head[j] : '', m.cell(i, j)),
+          ]),
+      ],
+    );
+  }
+}
+
+/// layout compare: one card per compared item (column), the first column's labels as mini-headings
+class _Compare extends StatelessWidget {
+  const _Compare(this.m, this.p);
+  final TableModel m;
+  final Palette p;
+  @override
+  Widget build(BuildContext context) {
+    final rc = richColors(p);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: 10,
+      children: [
+        for (var j = 1; j < m.n; j++)
+          _tile(p, rc, p.tone(_cycle[(j - 1) % _cycle.length]), j < m.head.length ? m.head[j] : '', [
+            for (var i = 0; i < m.rows.length; i++)
+              if (m.cell(i, j).trim().isNotEmpty) (m.cell(i, 0), m.cell(i, j)),
+          ]),
+      ],
+    );
+  }
+}
+
+/// layout terms: a clean two-line list (term, then its explanation; further columns as labelled lines)
+class _Terms extends StatelessWidget {
+  const _Terms(this.m, this.p);
+  final TableModel m;
+  final Palette p;
+  @override
+  Widget build(BuildContext context) {
+    final rc = richColors(p);
+    final t = p.butter;
+    final term = ts(17, FontWeight.w900, p.dark ? t.deep : mix(t.deep, .55, p.ink), height: 1.3);
+    final body = ts(16, FontWeight.w700, p.ink, height: 1.35);
+    final more = ts(15, FontWeight.w700, p.ink2, height: 1.35);
+    final label = ts(13, FontWeight.w900, p.dark ? t.deep : mix(t.deep, .7, p.ink), height: 1.25, spacing: .2);
+    final line = mix(p.ink, p.dark ? .14 : .10, p.surface);
+    return DecoratedBox(
+      decoration: BoxDecoration(color: _soft(p, t), borderRadius: BorderRadius.circular(16)),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            for (var i = 0; i < m.rows.length; i++) ...[
+              if (i > 0) DecoratedBox(decoration: BoxDecoration(color: line), child: const SizedBox(height: 1)),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  spacing: 3,
+                  children: [
+                    RichPara(m.cell(i, 0), style: term, colors: rc),
+                    if (m.n > 1 && m.cell(i, 1).trim().isNotEmpty) RichPara(m.cell(i, 1), style: body, colors: rc),
+                    for (var j = 2; j < m.n; j++)
+                      if (m.cell(i, j).trim().isNotEmpty)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 3),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              if (j < m.head.length && m.head[j].trim().isNotEmpty) Tx(_plain(m.head[j]).trim(), style: label),
+                              RichPara(m.cell(i, j), style: more, colors: rc),
+                            ],
+                          ),
+                        ),
+                  ],
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+final _proRe = RegExp(r'\b(advantages?|merits?|pros|benefits?|strengths?)\b', caseSensitive: false);
+final _conRe = RegExp(r'\b(disadvantages?|demerits?|cons|limitations?|drawbacks?|weaknesses?)\b', caseSensitive: false);
+
+/// (item column, pro column, con column) of an advantages / disadvantages table, or null
+(int?, int, int)? prosConsCols(TableModel m) {
+  int? pro, con;
+  for (var j = 0; j < m.head.length; j++) {
+    final h = _plain(m.head[j]);
+    if (_conRe.hasMatch(h)) {
+      con ??= j;
+    } else if (_proRe.hasMatch(h)) {
+      pro ??= j;
+    }
+  }
+  if (pro == null || con == null) return null;
+  final item = [for (var j = 0; j < m.n; j++) j].where((j) => j != pro && j != con).firstOrNull;
+  return (item, pro, con);
+}
+
+List<String> _points(String s) => [
+  for (final x in s.split(RegExp(r'\n|;\s+')))
+    if (x.trim().isNotEmpty) x.trim(),
+];
+
+/// ✔ / ✖ drawn with two strokes (no glyph or SVG needed)
+class _MarkPainter extends CustomPainter {
+  const _MarkPainter(this.good, this.color);
+  final bool good;
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width, h = size.height;
+    final pt = Paint()
+      ..color = color
+      ..strokeWidth = 2.6
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+    if (good) {
+      canvas.drawPath(Path()..moveTo(w * .14, h * .54)..lineTo(w * .4, h * .8)..lineTo(w * .88, h * .22), pt);
+    } else {
+      canvas.drawLine(Offset(w * .2, h * .2), Offset(w * .8, h * .8), pt);
+      canvas.drawLine(Offset(w * .8, h * .2), Offset(w * .2, h * .8), pt);
+    }
+  }
+
+  @override
+  bool shouldRepaint(_MarkPainter old) => old.good != good || old.color != color;
+}
+
+/// layout proscons: per item a card with a green advantages section and a red disadvantages section
+class _ProsCons extends StatelessWidget {
+  const _ProsCons(this.m, this.p, this.cols);
+  final TableModel m;
+  final Palette p;
+  final (int?, int, int) cols;
+  @override
+  Widget build(BuildContext context) {
+    final rc = richColors(p);
+    final (item, pro, con) = cols;
+    final title = ts(17, FontWeight.w900, p.ink, height: 1.25);
+    final body = ts(16, FontWeight.w700, p.ink, height: 1.35);
+    Widget section(bool good, String head, List<String> pts) {
+      final t = good ? p.sage : p.peach;
+      final deep = p.dark ? t.deep : mix(t.deep, .85, p.ink);
+      return DecoratedBox(
+        decoration: BoxDecoration(color: _soft(p, t), borderRadius: BorderRadius.circular(12)),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(12, 9, 12, 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            spacing: 6,
+            children: [
+              RichPara(head, style: ts(14, FontWeight.w900, deep, height: 1.2, spacing: .3), colors: rc),
+              for (final x in pts)
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 3, right: 8),
+                      child: CustomPaint(size: const Size(16, 16), painter: _MarkPainter(good, deep)),
+                    ),
+                    Expanded(child: RichPara(x, style: body, colors: rc)),
+                  ],
+                ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    final proH = _plain(m.head[pro]).trim().isEmpty ? 'Advantages' : m.head[pro];
+    final conH = _plain(m.head[con]).trim().isEmpty ? 'Disadvantages' : m.head[con];
+    // no item column: one card with every point
+    final groups = item == null
+        ? [('', [for (var i = 0; i < m.rows.length; i++) ..._points(m.cell(i, pro))], [for (var i = 0; i < m.rows.length; i++) ..._points(m.cell(i, con))])]
+        : [for (var i = 0; i < m.rows.length; i++) (m.cell(i, item), _points(m.cell(i, pro)), _points(m.cell(i, con)))];
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: 12,
+      children: [
+        for (final (name, pros, cons) in groups)
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            spacing: 6,
+            children: [
+              if (name.trim().isNotEmpty) Padding(padding: const EdgeInsets.only(left: 2, top: 2), child: RichPara(name, style: title, colors: rc)),
+              if (pros.isNotEmpty) section(true, proH, pros),
+              if (cons.isNotEmpty) section(false, conH, cons),
+            ],
+          ),
+      ],
+    );
+  }
+}
+
+// ------------------------------------------------------------------ accounting: abbreviations, sections, entries
+
+const _abbr = <(String, String, String)>[
+  // (pattern word, short form, legend meaning)
+  ('Accounts', 'Acc.', 'accounts'),
+  ('Account', 'Acc.', 'account'),
+  ('Receivable', 'Rec.', 'receivable'),
+  ('Payable', 'Pay.', 'payable'),
+  ('General', 'Gen.', 'general'),
+  ('Discounts', 'Disc.', 'discounts'),
+  ('Discount', 'Disc.', 'discount'),
+  ('Purchases', 'Purch.', 'purchases'),
+  ('Balance', 'Bal.', 'balance'),
+  ('Quantity', 'Qty', 'quantity'),
+  ('Amount', 'Amt', 'amount'),
+];
+
+/// short header for a narrow accounting grid, and the abbreviations it used ("Acc. = accounts")
+(String, List<String>) shortHead(String h, ColT t) {
+  var s = _plain(h).replaceAll(RegExp(r'\s*\((Sundry)\)'), '').trim();
+  final used = <String>[];
+  if (t == ColT.ref) {
+    if (RegExp(r'^p\s*/\s*r\.?$|^post\.?\s*ref\.?$|^posting ref', caseSensitive: false).hasMatch(s)) return ('PR', const ['PR = posting reference']);
+    return (s, used);
+  }
+  if (!t.figure) return (h, used);
+  // "Unadjusted Trial Balance — Debit" -> "UTB Dr" (UTB = Unadjusted Trial Balance)
+  final k = s.lastIndexOf(' — ');
+  if (k > 0) {
+    final g = s.substring(0, k).trim(), words = g.split(RegExp(r'\s+')).where((w) => RegExp(r'^[A-Za-z]').hasMatch(w)).toList();
+    if (words.length >= 2) {
+      final ini = words.map((w) => w[0].toUpperCase()).join();
+      used.add('$ini = $g');
+      s = '$ini ${s.substring(k + 3)}';
+    }
+  }
+  s = s
+      .replaceAllMapped(RegExp(r'\(?\b(debit|dr)\b\.?\)?', caseSensitive: false), (_) => 'Dr')
+      .replaceAllMapped(RegExp(r'\(?\b(credit|cr)\b\.?\)?', caseSensitive: false), (_) => 'Cr');
+  for (final (w, a, mean) in _abbr) {
+    final re = RegExp('\\b$w\\b');
+    if (re.hasMatch(s)) {
+      s = s.replaceAll(re, a);
+      used.add('$a = $mean');
+    }
+  }
+  return (s.replaceAll(RegExp(r'\s+'), ' ').trim(), used);
+}
+
+/// column groups of a worksheet-style header ("Trial Balance — Debit"): group name -> its figure columns
+List<(String, List<int>)> sectionGroups(TableModel m) {
+  final out = <(String, List<int>)>[];
+  for (var j = 0; j < m.n; j++) {
+    if (!m.types[j].figure || j >= m.head.length) continue;
+    final h = _plain(m.head[j]).trim();
+    final k = h.lastIndexOf(' — ');
+    // "Trial Balance — Debit", or "Income Statement Debit"
+    final side = RegExp(r'^(.*\S)\s+(debit|credit|dr\.?|cr\.?)$', caseSensitive: false).firstMatch(h);
+    if (k <= 0 && side == null) return const [];
+    final g = k > 0 ? h.substring(0, k).trim() : side![1]!.trim();
+    if (out.isNotEmpty && out.last.$1 == g) {
+      out.last.$2.add(j);
+    } else {
+      if (out.any((x) => x.$1 == g)) return const [];
+      out.add((g, [j]));
+    }
+  }
+  // a section is a Debit / Credit pair (or more): single-column "groups" are just account columns (special journals)
+  return out.length >= 2 && out.every((g) => g.$2.length >= 2) ? out : const [];
+}
+
+final _sectionModels = Expando<List<TableModel>>('tableSections');
+
+/// the table restricted to its label columns plus one column group (layout grid, so it never nests)
+List<TableModel> sectionModels(TableModel m, List<(String, List<int>)> groups) => _sectionModels[m] ??= [
+  for (final (_, cs) in groups)
+    () {
+      final keep = [
+        for (var j = 0; j < m.n; j++)
+          if (!m.types[j].figure || cs.contains(j)) j,
+      ];
+      String hd(int j) {
+        final h = j < m.head.length ? m.head[j] : '';
+        if (!cs.contains(j)) return h;
+        final k = h.lastIndexOf(' — ');
+        return k > 0 ? h.substring(k + 3) : h.trim().split(RegExp(r'\s+')).last;
+      }
+
+      // a total line with nothing in this group: no rule / band; an unlabeled one is left out
+      bool has(int i) => cs.any((j) => m.cell(i, j).trim().isNotEmpty);
+      bool tot(int i) => m.marks[i].contains('total') || m.marks[i].contains('final');
+      bool labeled(int i) => keep.any((j) => !cs.contains(j) && m.cell(i, j).trim().isNotEmpty);
+      final rows = [
+        for (var i = 0; i < m.rows.length; i++)
+          if (!tot(i) || has(i) || labeled(i)) i,
+      ];
+      return TableModel(
+        [for (final j in keep) hd(j)],
+        [
+          for (final i in rows) [for (final j in keep) m.cell(i, j)],
+        ],
+        kind: m.kind,
+        cols: [for (final j in keep) m.types[j].name],
+        marks: [for (final i in rows) tot(i) && !has(i) ? '' : m.marks[i].join(' ')],
+        layout: 'grid',
+      );
+    }(),
+  TableModel(m.head, m.rows, kind: m.kind, cols: [for (final t in m.types) t.name], marks: [for (final mk in m.marks) mk.join(' ')], layout: 'grid'),
+];
+
+/// layout sections: a toggle between the column groups (+ "All")
+class _Sections extends StatefulWidget {
+  const _Sections(this.m, this.groups);
+  final TableModel m;
+  final List<(String, List<int>)> groups;
+  @override
+  State<_Sections> createState() => _SectionsState();
+}
+
+class _SectionsState extends State<_Sections> {
+  var at = 0;
+  @override
+  Widget build(BuildContext context) {
+    final p = Kit.of(context).p;
+    final names = [for (final g in widget.groups) g.$1, 'All'];
+    final models = sectionModels(widget.m, widget.groups);
+    final t = p.mint;
+    final on = _band(p, t), off = mix(p.ink, p.dark ? .08 : .05, p.surface);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: 10,
+      children: [
+        Wrap(
+          spacing: 6,
+          runSpacing: 6,
+          children: [
+            for (final (i, n) in names.indexed)
+              Semantics(
+                button: true,
+                selected: i == at,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => setState(() => at = i),
+                  child: DecoratedBox(
+                    key: ValueKey('section$i'),
+                    decoration: BoxDecoration(
+                      color: i == at ? on : off,
+                      borderRadius: BorderRadius.circular(999),
+                      border: Border.all(color: i == at ? (p.dark ? t.deep : mix(t.deep, .7, t.mid)) : transparent, width: 1.5),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+                      child: Tx(n, style: ts(14, FontWeight.w900, i == at ? p.ink : p.ink2, height: 1.2)),
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        ),
+        NTable(head: const [], rows: const [], model: models[at]),
+      ],
+    );
+  }
+}
+
+/// layout entries: one block per row; text cells on top, figures as labelled chips (Dr blue, Cr red)
+class _Entries extends StatelessWidget {
+  const _Entries(this.m, this.p);
+  final TableModel m;
+  final Palette p;
+  @override
+  Widget build(BuildContext context) {
+    final rc = richColors(p);
+    final body = ts(16, FontWeight.w800, p.ink, height: 1.3);
+    final muted = ts(13.5, FontWeight.w800, p.ink2, height: 1.25);
+    final chipL = ts(12.5, FontWeight.w900, p.ink2, height: 1.15);
+    final fig = ts(15.5, FontWeight.w800, p.ink, height: 1.2).copyWith(fontFeatures: const [FontFeature.tabularFigures()]);
+    final figB = fig.copyWith(fontWeight: FontWeight.w900);
+    final stripe = mix(p.ink, p.dark ? .045 : .032, p.surface);
+    final totBg = _soft(p, p.butter);
+    Color chipBg(ColT t) => t == ColT.dr ? _soft(p, p.blue) : t == ColT.cr ? _soft(p, p.peach) : mix(p.ink, p.dark ? .08 : .05, p.surface);
+    Color chipInk(ColT t) => t == ColT.dr
+        ? (p.dark ? p.blue.deep : mix(p.blue.deep, .8, p.ink))
+        : t == ColT.cr
+        ? (p.dark ? p.peach.deep : mix(p.peach.deep, .8, p.ink))
+        : p.ink2;
+    final short = [for (var j = 0; j < m.n; j++) shortHead(j < m.head.length ? m.head[j] : '', m.types[j])];
+    final labels = [for (final x in short) x.$1];
+    final legend = <String>{
+      for (var j = 0; j < m.n; j++)
+        if (m.types[j].figure || m.types[j] == ColT.ref) ...short[j].$2,
+    }..remove('PR = posting reference');
+    final kids = <Widget>[];
+    var stripeOn = false;
+    for (var i = 0; i < m.rows.length; i++) {
+      final mk = m.marks[i];
+      final tot = mk.contains('total') || mk.contains('final');
+      final texts = <Widget>[];
+      final meta = <String>[];
+      for (var j = 0; j < m.n; j++) {
+        final c = m.cell(i, j).trim();
+        if (c.isEmpty || m.types[j].figure) continue;
+        if (m.types[j] == ColT.text) {
+          texts.add(
+            RichPara(
+              noBreakSlash(c),
+              style: mk.contains('note') ? muted.copyWith(fontStyle: FontStyle.italic) : (tot || mk.contains('head') ? body.copyWith(fontWeight: FontWeight.w900) : body),
+              colors: rc,
+            ),
+          );
+        } else {
+          meta.add(m.types[j] == ColT.ref && labels[j].isNotEmpty && labels[j] != 'PR' ? '${labels[j]} $c' : c);
+        }
+      }
+      final chips = <Widget>[
+        for (var j = 0; j < m.n; j++)
+          if (m.types[j].figure && m.cell(i, j).trim().isNotEmpty)
+            DecoratedBox(
+              decoration: BoxDecoration(color: chipBg(m.types[j]), borderRadius: BorderRadius.circular(10)),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(9, 5, 9, 6),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (labels[j].isNotEmpty) Tx(labels[j], style: chipL.copyWith(color: chipInk(m.types[j]))),
+                    Tx(_plain(m.types[j].amount ? fmtMoney(m.cell(i, j).trim()) : m.cell(i, j).trim()), style: tot ? figB : fig),
+                  ],
+                ),
+              ),
+            ),
+      ];
+      if (texts.isEmpty && chips.isEmpty && meta.isEmpty) continue;
+      final bg = tot ? totBg : (mk.contains('head') ? mix(p.ink, p.dark ? .07 : .05, p.surface) : (stripeOn ? stripe : null));
+      if (!tot && !mk.contains('head')) stripeOn = !stripeOn;
+      kids.add(
+        DecoratedBox(
+          decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(12)),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(10, 8, 10, 9),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              spacing: 6,
+              children: [
+                if (meta.isNotEmpty) Tx(meta.join('  ·  '), style: muted),
+                ...texts,
+                if (chips.isNotEmpty) Wrap(spacing: 6, runSpacing: 6, children: chips),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+    if (legend.isNotEmpty) {
+      kids.add(Padding(padding: const EdgeInsets.fromLTRB(4, 4, 4, 0), child: Tx(legend.join('  ·  '), style: muted.copyWith(fontSize: 12.5))));
+    }
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, spacing: 4, children: kids);
   }
 }

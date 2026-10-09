@@ -10,7 +10,7 @@ row, then lines [Dr date, Dr particulars, Dr Nfa, Cr date, Cr particulars, Cr Nf
 Balance b/d. Two-sided (account form) balance sheets are re-laid out in report form so they fit a phone.
 Old app versions ignore the extra fields and still show head/rows as a plain table.
 """
-import re
+import json, re
 from fractions import Fraction
 
 NUM = re.compile(r'^\s*(Nakfa\.?\s*)?[+\-−]?\s*\(?\s*(\d{1,3}(?:,\d{3})+|\d+)(\.\d+)?\s*\)?\s*$')
@@ -238,7 +238,7 @@ KIND = {'journal': 'journal', 'special': 'journal', 'ledger': 'ledger', 'trial':
         'crossfoot': 'statement', 'equation': 'statement', 'schedule': 'statement', 'missing': 'statement', 'chart': 'table', 'dc': 'statement'}
 
 
-def decorate(card, kind, practice=False):
+def _decorate(card, kind, practice=False):
     """add kind / cols / marks to a bookkeeping table card (in place) and return it"""
     head, rows = card['head'], card['rows']
     if kind == 'taccount':
@@ -261,4 +261,60 @@ def decorate(card, kind, practice=False):
     marks = row_marks(head, rows, cols, k, worksheet=kind == 'worksheet')
     if any(marks):
         card['marks'] = marks
+    return card
+
+
+def clean_head(h):
+    """'PAGE 3 — GENERAL JOURNAL — Debit' -> 'Debit' (page / journal names printed above the columns are in the title)"""
+    h = re.sub(r'^PAGE \d+ — ', '', h)
+    h = re.sub(r'^GENERAL JOURNAL — ', '', h)
+    return h
+
+
+def _amount(s):
+    s = s.replace('*', '').replace(',', '').strip()
+    try:
+        return float(s)
+    except ValueError:
+        return None
+
+
+def key_point(card, kind):
+    """one sentence read straight off the card's own figures (textbook tables only, never on practice cards)"""
+    rows, marks = card['rows'], card.get('marks') or []
+    cols = card.get('cols') or []
+    label = lambda r: ' '.join(r[j] for j, t in enumerate(cols) if t == 'text').strip()
+    finals = [r for r, m in zip(rows, marks) if m == 'final']
+    if kind == 'trial' and finals and cols.count('dr') == 1 and cols.count('cr') == 1:
+        r = finals[-1]
+        d, c = r[cols.index('dr')].strip(), r[cols.index('cr')].strip()
+        if d and _amount(d) is not None and _amount(d) == _amount(c):
+            return f'Total debits = total credits = **{d}**, so the trial balance is in balance.'
+    if card.get('body') and any('report form' in b for b in card['body']):
+        ta = [r for r in rows if label(r).lower().startswith('total assets')]
+        tl = [r for r in rows if label(r).lower().startswith('total liabilities and')]
+        if ta and tl:
+            a, l = ta[0][-1].strip(), tl[-1][-1].strip()
+            if _amount(a) is not None and _amount(a) == _amount(l):
+                return f'Assets = liabilities + capital: **{a}** on both sides.'
+    if kind == 'statement' and finals:
+        r = finals[-1]
+        lab = label(r)
+        if re.match(r'(?i)net (income|loss)$', lab):
+            fig = [x for x, t in zip(r, cols) if t in ('money', 'dr', 'cr') and x.strip()]
+            if fig:
+                return f'{lab[:1].upper()}{lab[1:].lower()} for the period: **{fig[-1].strip()}**.'
+    return None
+
+
+def decorate(card, kind, practice=False):
+    """presentation fields for a bookkeeping table card (in place): kind / cols / marks, layout, key point"""
+    card['head'] = [clean_head(h) for h in card['head']]
+    _decorate(card, kind, practice)
+    if 'kind' not in card:
+        card['layout'] = 'grid'  # charts of accounts: short two-column lists
+    if not practice and '?' not in json.dumps(card['rows']):
+        kp = key_point(card, kind)
+        if kp:
+            card['key_point'] = kp
     return card
