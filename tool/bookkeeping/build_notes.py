@@ -9,8 +9,11 @@ For each table in tool/bookkeeping/tables.json it writes, into the lesson that c
 Idempotent: cards it made before (ids `<unit>-bk...`) are removed first.
 
   python3 tool/bookkeeping/build_notes.py && python3 tool/split_notes.py && python3 tool/build_tutor_index.py
+
+Before building, corrections.py fixes the figures the book (or the PDF extraction) gets wrong, and present.py adds the
+presentation fields (kind / cols / marks; real T-accounts; balance sheets in report form) the app's table renderer reads.
 """
-import json, os, re
+import json, os, re, sys
 from fractions import Fraction
 
 ROOT = os.path.join(os.path.dirname(__file__), '..', '..')
@@ -942,7 +945,10 @@ def short_title(t, kind):
 
 
 def main():
+    sys.path.insert(0, os.path.dirname(__file__))
+    import corrections, present  # noqa: E402
     data = json.load(open(TABLES))
+    print('tables corrected / cleaned:', corrections.apply(data))
     counts = {}
     for g, (path, uid) in BOOKS.items():
         p = os.path.join(ROOT, path)
@@ -979,14 +985,16 @@ def main():
                 size = (len(xs) + k - 1) // k
                 return [xs[i:i + size] if len(xs[i:i + size]) >= 2 else xs[i - 1:i + size] for i in range(0, len(xs), size)]
             how, tries = chunks(steps), chunks(ans)
-            cards = [{'id': bid, 'type': 'table', 'title': f'Table {n}: {title}', 'page': pg, 'src': src, 'head': t['head'], 'rows': t['rows']}]
+            cards = [present.decorate({'id': bid, 'type': 'table', 'title': f'Table {n}: {title}', 'page': pg, 'src': src,
+                                       'head': [*t['head']], 'rows': [[*r] for r in t['rows']]}, kind)]
             for k, part in enumerate(how):
                 cards.append({'id': bid + '-how' + (f'{k + 1}' if len(how) > 1 else ''), 'type': 'worked',
                               'title': f'How Table {n} is built, step by step' + (f' (part {k + 1} of {len(how)})' if len(how) > 1 else ''), 'page': pg, 'src': src,
                               'problem': f'Where does every figure in Table {n} ({title}) come from, and how is each entry posted?' if k == 0 else f'Table {n}, continued.',
                               'steps': [{'text': x} for x in part],
                               'answer': f'Every figure in Table {n} follows from the double-entry rules: each debit has an equal credit, and each balance is the previous balance plus or minus the amount posted.'})
-            cards.append({'id': bid + '-pt', 'type': 'table', 'title': f'Practice {n}: {title}', 'page': pg, 'src': src, 'head': ph, 'rows': prows})
+            cards.append(present.decorate({'id': bid + '-pt', 'type': 'table', 'title': f'Practice {n}: {title}', 'page': pg, 'src': src,
+                                           'head': [*ph], 'rows': [[*r] for r in prows]}, kind, practice=True))
             for k, part in enumerate(tries):
                 cards.append({'id': bid + '-pa' + (f'{k + 1}' if len(tries) > 1 else ''), 'type': 'worked', 'mode': 'try',
                               'title': f'Practice {n} — try it, then check each step' + (f' (part {k + 1} of {len(tries)})' if len(tries) > 1 else ''),

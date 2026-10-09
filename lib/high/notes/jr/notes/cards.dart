@@ -10,6 +10,8 @@ import '../../../widgets/equal_row.dart';
 import '../widgets/clay_widgets.dart';
 import '../widgets/tx.dart';
 import 'diagram.dart';
+import 'ntable.dart';
+export 'ntable.dart' show NTable, TableModel, tableModelOf, fmtMoney;
 import '../../../media/media.dart' show MediaCardView;
 import 'rich.dart';
 import 'session.dart';
@@ -109,7 +111,15 @@ class _NoteCardViewState extends State<NoteCardView> {
           pg,
         ]);
       case TableCard():
-        return base([CardTitle(c.title), NTable(head: c.head, rows: c.rows), below(c.body), pg]);
+        // the table gets the card's full inner width (10 px side padding); title / note / page keep the usual 20 px inset
+        Widget inset(Widget w) => Padding(padding: const EdgeInsets.symmetric(horizontal: 10), child: w);
+        return NCard(
+          padding: const EdgeInsets.fromLTRB(10, 22, 10, 22),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [inset(CardTitle(c.title)), NTable.card(c), inset(below(c.body)), inset(pg)],
+          ),
+        );
       case CheckCard():
         return _check(k, p, c);
       case DiagramCard():
@@ -949,102 +959,6 @@ class FlexWrap extends StatelessWidget {
       );
     },
   );
-}
-
-/// `.ntable`: header row + rows of rounded cells, CSS auto table layout, scrolls sideways when too wide
-class NTable extends StatelessWidget {
-  const NTable({super.key, required this.head, required this.rows});
-  final List<String> head;
-  final List<List<String>> rows;
-
-  static String _plain(String s) => s.replaceAll('**', '').replaceAll(RegExp(r'\$([^$]*)\$'), r'$1');
-
-  @override
-  Widget build(BuildContext context) {
-    final k = Kit.of(context), p = k.p, rc = richColors(p);
-    final n = [head.length, for (final r in rows) r.length].reduce((a, b) => a > b ? a : b);
-    TextStyle cell(int j) => ts(18, j == 0 ? FontWeight.w900 : FontWeight.w700, p.ink, height: 1.3);
-    final th = ts(16, FontWeight.w900, p.ink2, height: 1.45);
-    return LayoutBuilder(
-      builder: (context, box) {
-        final minC = List.filled(n, 16.0), maxC = List.filled(n, 16.0);
-        void measure(String s, int j, TextStyle st) {
-          final plain = _plain(s);
-          final tp = TextPainter(text: TextSpan(text: plain, style: st), textDirection: TextDirection.ltr)..layout();
-          maxC[j] = maxC[j] > tp.width + 16 ? maxC[j] : tp.width + 16;
-          for (final wd in plain.split(RegExp(r'\s+'))) {
-            final tw = TextPainter(text: TextSpan(text: wd, style: st), textDirection: TextDirection.ltr)..layout();
-            if (tw.width + 16 > minC[j]) minC[j] = tw.width + 16;
-          }
-        }
-
-        for (final (j, h) in head.indexed) {
-          measure(h, j, th);
-        }
-        for (final r in rows) {
-          for (final (j, c) in r.indexed) {
-            measure(c, j, cell(j));
-          }
-        }
-        final wAvail = box.maxWidth;
-        final sMin = minC.fold<double>(0, (a, b) => a + b), sMax = maxC.fold<double>(0, (a, b) => a + b);
-        List<double> widths;
-        if (sMax <= wAvail) {
-          widths = [for (final m in maxC) m + (wAvail - sMax) * m / sMax];
-        } else if (sMin >= wAvail) {
-          widths = minC;
-        } else {
-          final span = sMax - sMin;
-          widths = [for (var j = 0; j < n; j++) minC[j] + (wAvail - sMin) * (maxC[j] - minC[j]) / (span == 0 ? 1 : span)];
-        }
-        Widget rowW(List<String> r, {bool header = false}) => Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            for (var j = 0; j < n; j++)
-              SizedBox(
-                width: widths[j],
-                child: header
-                    ? Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Tx(j < r.length ? r[j] : '', style: th),
-                      )
-                    : null,
-              ),
-          ],
-        );
-        final table = Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 8),
-            rowW(head, header: true),
-            for (final r in rows) ...[
-              const SizedBox(height: 8),
-              // one Table per row (no IntrinsicHeight: KaTeX boxes have no dry baseline)
-              Table(
-                columnWidths: {for (var j = 0; j < n; j++) j: FixedColumnWidth(widths[j])},
-                children: [
-                  TableRow(
-                    decoration: BoxDecoration(color: p.surface2, borderRadius: BorderRadius.circular(14)),
-                    children: [
-                      for (var j = 0; j < n; j++)
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-                          child: RichPara(j < r.length ? r[j] : '', style: cell(j), colors: rc),
-                        ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-            const SizedBox(height: 8),
-          ],
-        );
-        final total = widths.fold<double>(0, (a, b) => a + b);
-        if (total <= wAvail + .5) return table;
-        return SingleChildScrollView(scrollDirection: Axis.horizontal, child: table);
-      },
-    );
-  }
 }
 
 /// `.slider`: 18px sunk track, 44px primary thumb, snaps to whole steps
