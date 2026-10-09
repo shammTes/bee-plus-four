@@ -1,0 +1,30 @@
+# Suggested workflow (not active: the bot token cannot write .github/workflows).
+# To enable: copy to .github/workflows/four_encryptor_android.yml and add a repo secret FOUR_MK
+# (the same base64 key the 4 release build uses). Without the secret the APK uses the DEV key.
+name: Build 4 Encryptor (Android)
+on:
+  workflow_dispatch:
+  push:
+    paths: ['apps/four_encryptor_android/**', 'packages/four_format/**']
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: apps/four_encryptor_android } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: '17' }
+      - uses: subosito/flutter-action@v2
+        with: { channel: stable, cache: true }
+      - run: flutter pub get
+      - run: (cd ../../packages/four_format && dart pub get && dart test)
+      - run: flutter test
+      - name: Build APK
+        env: { FOUR_MK: '${{ secrets.FOUR_MK }}' }
+        run: |
+          DEF=""; if [ -n "$FOUR_MK" ]; then DEF="--dart-define=FOUR_MK=$FOUR_MK"; fi
+          flutter build apk --release --target-platform android-arm,android-arm64 $DEF
+      - uses: actions/upload-artifact@v4
+        with:
+          name: four_encryptor
+          path: apps/four_encryptor_android/build/app/outputs/flutter-apk/app-release.apk

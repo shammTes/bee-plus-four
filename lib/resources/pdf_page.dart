@@ -57,7 +57,7 @@ class _PdfResourcePageState extends State<PdfResourcePage> {
   Widget build(BuildContext context) {
     final p = Kit.of(context).p, b = _bytes;
     return PageShell(
-      top: TopBar(title: widget.entry.meta.title, sub: 'PDF', onBack: () => HighNav.of(context).back(), tab: false),
+      top: TopBar(title: widget.entry.meta.title, sub: widget.entry.meta.creditLine.isEmpty ? 'PDF' : 'PDF · ${widget.entry.meta.creditLine}', onBack: () => HighNav.of(context).back(), tab: false),
       body: _err != null
           ? Center(
               child: Padding(

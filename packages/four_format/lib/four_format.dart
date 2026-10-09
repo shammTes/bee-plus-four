@@ -7,3 +7,4 @@ export 'src/source.dart';
 export 'src/writer.dart';
 export 'src/reader.dart';
 export 'src/keys.dart';
+export 'src/licence.dart';
