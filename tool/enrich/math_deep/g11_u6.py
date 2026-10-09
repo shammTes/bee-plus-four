@@ -114,7 +114,7 @@ L1 = [
       '- end of year 2: $P(1 + r)(1 + r) = P(1 + r)^2$;',
       '- end of year $t$: $$A = P(1 + r)^t, \\qquad \\text{compound interest} = A - P.$$',
       'Banks pay interest on savings and charge a higher rate on loans; the difference is how a bank earns its income.'),
-    TB('ex62-tb', 'Example 6.2 (corrected): 1000 Nakfa at 6% for 3 years', 203, ['Year', 'Simple: interest', 'Simple: amount', 'Compound: interest', 'Compound: amount'],
+    TB('ex62-tb', 'Example 6.2 (corrected): 1000 Nakfa at 6% for 3 years', 203, ['Year', 'Simple interest', 'Simple total', 'Compound interest', 'Compound total'],
        [['1', '60', '1060', '60', '1060'],
         ['2', '60', '1120', '63.60', '1123.60'],
         ['3', '60', '1180', '67.42', '1191.02']]),

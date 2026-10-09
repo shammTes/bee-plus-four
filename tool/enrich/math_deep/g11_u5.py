@@ -322,3 +322,6 @@ TIPS = [('Write the similarity statement in matching order before writing ratios
         ('Parallel side: DE / BC = AD / AB (whole sides).', 177), ('Lengths k, areas k², volumes k³.', 198)]
 IDEAS = [('bpt', 'Basic Proportionality Theorem', 'l5_2', 'math11-u5-md-bpt-t'), ('tests', 'AA, SAS, SSS', 'l5_2', 'math11-u5-md-tests-t'),
          ('alt', 'Altitude on the hypotenuse', 'l5_3', 'math11-u5-md-alt-t'), ('kkk', 'k, k², k³', 'l5_4', 'math11-u5-c08')]
+
+# narrow phones: compare congruent and similar side by side as two cards
+PATCH = {'math11-u5-tblE1': {'layout': 'compare', '_inline': True}}
