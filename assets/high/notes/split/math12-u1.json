@@ -134,16 +134,103 @@
       {
        "id": "math12-u1-c01",
        "type": "text",
-       "title": "1.1 Basic Ideas of Sequence",
+       "title": "1.1 Sequences: terms and formulas",
        "page": 3,
-       "src": "textbook pp.3–7",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "For each of the sequences in task (3) try to find a general formula that describes the given sequence.",
-        "**A sequence in mathematics** is a function whose domain is the set of positive integers.",
-        "If the domain consists of the first “n” positive integers only, then the sequence is a finite sequence.",
-        "Remark: The general formula of a sequence is also known as the nth term formula of the sequence.",
-        "For n a natural number n, nfactorial, denoted by n! is the product of the first n natural numbers."
+        "A **sequence** is a function whose domain is the positive integers $1, 2, 3, \\dots$. Its values $a_1, a_2, a_3, \\dots$ are the **terms**; $a_n$ is the **$n$th term** (general term). If the domain is only $1, 2, \\dots, n$ the sequence is **finite**.",
+        "**Two ways to give a sequence:**",
+        "- **explicit formula:** $a_n$ is computed straight from $n$, e.g. $a_n = 4n + 2$ gives $6, 10, 14, \\dots$;",
+        "- **recursive formula:** the first term(s) plus a rule using earlier terms, e.g. $a_1 = 2$, $a_n = a_{n-1} + 3$.",
+        "**Finding a formula from terms (Example 1.2):** $6, 10, 14, 18, \\dots$ goes up by 4 each time, so $a_n = 6 + (n - 1)4 = 4n + 2$. Check: $a_3 = 14$. (The book's line for $a_5$ repeats \"18 − 14\"; $a_5 = 22$.)"
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math12-u1-md-dots",
+       "type": "steps",
+       "title": "Graphing a sequence (Example 1.3)",
+       "page": 5,
+       "src": "notes",
+       "diagram": "md_dots",
+       "steps": [
+        {
+         "text": "Because $n$ takes only whole values, the graph is a set of **separate dots**, not a curve. Red: $a_n = \\frac{8}{2n - 1}$: $8, \\frac{8}{3}, \\frac{8}{5}, \\frac{8}{7}, \\dots$ falling toward 0.",
+         "show": "k1"
+        },
+        {
+         "text": "Blue: the AP $3, 4, 5, \\dots$ ($a_n = n + 2$) — its dots lie on a straight line.",
+         "show": "k2"
+        },
+        {
+         "text": "Green: the GP $\\frac{1}{2}, 1, 2, 4, 8$ — its dots bend upward faster and faster.",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math12-u1-md-ex11",
+       "type": "worked",
+       "title": "Worked example: Example 1.1 (T cells)",
+       "page": 1,
+       "src": "notes",
+       "mode": "show",
+       "problem": "A person has 1025 T cells and loses 75 per year. When does the count first fall to 200 or below?",
+       "steps": [
+        {
+         "text": "After $n$ years: $a_n = 1025 - 75n$."
+        },
+        {
+         "text": "Solve $1025 - 75n \\le 200$: $-75n \\le -825$."
+        },
+        {
+         "text": "Divide by $-75$ and **reverse the sign**: $n \\ge 11$."
+        }
+       ],
+       "answer": "after 11 years (check: $1025 - 825 = 200$)"
+      },
+      {
+       "id": "math12-u1-md-rec-t",
+       "type": "text",
+       "title": "Recursive sequences and factorials",
+       "page": 6,
+       "src": "notes",
+       "body": [
+        "**Example 1.4(a):** $a_1 = 3$, $a_n = n + a_{n-1}$: $a_2 = 2 + 3 = 5$, $a_3 = 3 + 5 = 8$, $a_4 = 12$, $a_5 = 17$.",
+        "**Example 1.4(b) (Fibonacci):** $a_1 = a_2 = 1$, $a_n = a_{n-2} + a_{n-1}$: $1, 1, 2, 3, 5, 8, \\dots$",
+        "**Factorial:** $n! = 1 \\times 2 \\times 3 \\times \\dots \\times n$, and $0! = 1$. So $5! = 120$, $7! = 5040$.",
+        "**Key trick for simplifying:** $n! = n \\times (n - 1)!$, so $\\frac{(n + 1)!}{n!} = n + 1$ and $\\frac{8!}{4!} = 8 \\times 7 \\times 6 \\times 5 = 1680$."
+       ]
+      },
+      {
+       "id": "math12-u1-md-fact-tb",
+       "type": "table",
+       "title": "Factorials to know",
+       "page": 6,
+       "src": "notes",
+       "head": [
+        "$n$",
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+       ],
+       "rows": [
+        [
+         "$n!$",
+         "1",
+         "1",
+         "2",
+         "6",
+         "24",
+         "120",
+         "720",
+         "5040"
+        ]
        ]
       },
       {
@@ -414,6 +501,192 @@
        ]
       },
       {
+       "id": "math12-u1-md-ap-why",
+       "type": "text",
+       "title": "Where the AP formulas come from",
+       "page": 9,
+       "src": "notes",
+       "body": [
+        "$A_1$, $A_1 + d$, $A_1 + 2d$, …: to reach term $n$ you add $d$ exactly $n - 1$ times, so $$A_n = A_1 + (n - 1)d.$$",
+        "**Two unknowns, two facts:** if you know two terms, write each as $A_1 + (k - 1)d$ and solve the pair of equations (Example 1.10: $A_1 + 4d = 44$ and $A_1 + 16d = 152$ give $d = 9$, $A_1 = 8$).",
+        "**Arithmetic mean** of $a$ and $b$: $x - a = b - x$, so $x = \\frac{a + b}{2}$."
+       ]
+      },
+      {
+       "id": "math12-u1-md-ex16",
+       "type": "worked",
+       "title": "Worked example: Example 1.6 (corrected)",
+       "page": 10,
+       "src": "notes",
+       "mode": "show",
+       "problem": "An AP has $A_1 = 4$ and $A_4 = 19$. Find $d$, $A_n$ and $A_8$, $A_{10}$, $A_{14}$.",
+       "steps": [
+        {
+         "text": "$A_4 = A_1 + 3d$: $4 + 3d = 19$, so $d = 5$."
+        },
+        {
+         "text": "$A_n = 4 + (n - 1)5 = 5n - 1$."
+        },
+        {
+         "text": "$A_8 = 39$, $A_{10} = 50 - 1 = 49$, $A_{14} = 69$."
+        }
+       ],
+       "answer": "$d = 5$, $A_n = 5n - 1$; 39, 49, 69 (the book writes \"$5(10) - 1 = 10 - 1$\"; it is $50 - 1$)"
+      },
+      {
+       "id": "math12-u1-md-pairs",
+       "type": "steps",
+       "title": "Gauss's pairing trick for $S_n$",
+       "page": 15,
+       "src": "notes",
+       "diagram": "md_pairs",
+       "steps": [
+        {
+         "text": "$1 + 2 + 3 + 4 + 5$ drawn as columns of blocks: a staircase.",
+         "show": "k1"
+        },
+        {
+         "text": "Put a second copy upside down on top ($5 + 4 + 3 + 2 + 1$): every column now has $1 + 5 = 6$ blocks.",
+         "show": "k2"
+        },
+        {
+         "text": "Two copies make a $5 \\times 6$ rectangle, so $2S = 30$ and $S = 15$. In general $2S_n = n(A_1 + A_n)$: $$S_n = \\frac{n}{2}(A_1 + A_n) = \\frac{n}{2}\\left(2A_1 + (n - 1)d\\right).$$",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math12-u1-md-ap-tb",
+       "type": "table",
+       "title": "Which sum formula?",
+       "page": 16,
+       "src": "notes",
+       "head": [
+        "You know",
+        "Use"
+       ],
+       "rows": [
+        [
+         "first and last term",
+         "$S_n = \\frac{n}{2}(A_1 + A_n)$"
+        ],
+        [
+         "first term and $d$",
+         "$S_n = \\frac{n}{2}(2A_1 + (n - 1)d)$"
+        ],
+        [
+         "first, last and $d$ (find $n$)",
+         "$n = \\frac{A_n - A_1}{d} + 1$, then the first formula"
+        ]
+       ]
+      },
+      {
+       "id": "math12-u1-md-ex110",
+       "type": "worked",
+       "title": "Worked example: Example 1.10",
+       "page": 16,
+       "src": "notes",
+       "mode": "show",
+       "problem": "In an AP, $A_5 = 44$ and $A_{17} = 152$. Find $S_{20}$.",
+       "steps": [
+        {
+         "text": "Subtract: $(A_1 + 16d) - (A_1 + 4d) = 108$, so $12d = 108$ and $d = 9$."
+        },
+        {
+         "text": "$A_1 = 44 - 36 = 8$."
+        },
+        {
+         "text": "$S_{20} = 10(2 \\times 8 + 19 \\times 9) = 10(16 + 171)$."
+        }
+       ],
+       "answer": "$S_{20} = 1870$"
+      },
+      {
+       "id": "math12-u1-md-ex111",
+       "type": "worked",
+       "title": "Worked example: sum of odd numbers (Example 1.11)",
+       "page": 17,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Show that $1 + 3 + 5 + \\dots + (2n - 1) = n^2$.",
+       "steps": [
+        {
+         "text": "AP with $A_1 = 1$, $d = 2$, so $A_n = 2n - 1$."
+        },
+        {
+         "text": "$S_n = \\frac{n}{2}(1 + 2n - 1) = \\frac{n}{2} \\times 2n = n^2$."
+        }
+       ],
+       "answer": "$n^2$ (the book's line says \"even integers\"; it means odd)"
+      },
+      {
+       "id": "math12-u1-md-ex112",
+       "type": "worked",
+       "title": "Worked example: a falling object (Example 1.12)",
+       "page": 17,
+       "src": "notes",
+       "mode": "show",
+       "problem": "An object falls 4.9 m in the 1st second, 14.7 m in the 2nd, 24.5 m in the 3rd, … How far in 10 seconds?",
+       "steps": [
+        {
+         "text": "Differences are all 9.8: AP with $A_1 = 4.9$, $d = 9.8$."
+        },
+        {
+         "text": "$S_{10} = 5(9.8 + 9 \\times 9.8) = 5 \\times 98$."
+        }
+       ],
+       "answer": "490 m (the same as $\\frac{1}{2}gt^2 = 4.9 \\times 100$)"
+      },
+      {
+       "id": "math12-u1-c06",
+       "type": "text",
+       "title": "Arithmetic (AP)",
+       "page": 38,
+       "src": "notes",
+       "body": [
+        "Common difference $d=a_{k+1}-a_k$ (constant).",
+        "$$a_n=a_1+(n-1)d\\qquad S_n=\\frac{n}{2}\\bigl(2a_1+(n-1)d\\bigr)=\\frac{n}{2}(a_1+a_n)$$"
+       ]
+      },
+      {
+       "id": "math12-u1-c07",
+       "type": "mnemonic",
+       "title": "Trick",
+       "page": 37,
+       "src": "notes",
+       "body": [
+        "If you know first and last, use $S_n=\\frac{n}{2}(a_1+a_n)$ — fewer slips than the $2a_1$ form. To find $n$, solve $a_n=a_1+(n-1)d$ for $n$ and check it is a whole number."
+       ]
+      },
+      {
+       "id": "math12-u1-c08",
+       "type": "worked",
+       "title": "Example 1 — AP",
+       "page": 38,
+       "src": "notes",
+       "problem": "First term $5$, common difference $3$. Find the 12th term and $S_{12}$.",
+       "steps": [
+        {
+         "text": "Write $a_n=a_1+(n-1)d$."
+        },
+        {
+         "text": "$a_{12}=5+(12-1)\\times 3=5+33=38$."
+        },
+        {
+         "text": "$S_{12}=\\frac{12}{2}(5+38)=6\\times 43=258$."
+        },
+        {
+         "text": "Check with the other sum formula: $\\frac{12}{2}(2\\times5+11\\times3)=6(10+33)=258$."
+        },
+        {
+         "text": "Same."
+        }
+       ],
+       "answer": "Same.",
+       "mode": "show",
+       "reveal": "Step-by-step"
+      },
+      {
        "id": "math12-u1-chk77",
        "type": "check",
        "title": "Quick check",
@@ -672,6 +945,217 @@
        ]
       },
       {
+       "id": "math12-u1-md-gp-why",
+       "type": "text",
+       "title": "Where the GP formulas come from",
+       "page": 20,
+       "src": "notes",
+       "body": [
+        "$G_1$, $G_1 r$, $G_1 r^2$, …: term $n$ has been multiplied by $r$ exactly $n - 1$ times, so $G_n = G_1 r^{n-1}$.",
+        "**Sum — the \"multiply and subtract\" trick:** $S_n = G_1 + G_1 r + \\dots + G_1 r^{n-1}$ and $rS_n = G_1 r + \\dots + G_1 r^n$. Subtracting, almost everything cancels: $S_n - rS_n = G_1 - G_1 r^n$, so $$S_n = \\frac{G_1(1 - r^n)}{1 - r} \\quad (r \\ne 1), \\qquad S_n = nG_1 \\;(r = 1).$$",
+        "**Geometric mean** of positive $a$ and $b$: $\\frac{x}{a} = \\frac{b}{x}$, so $x^2 = ab$ and $x = \\sqrt{ab}$."
+       ]
+      },
+      {
+       "id": "math12-u1-md-apgp-tb",
+       "type": "table",
+       "title": "AP and GP side by side",
+       "page": 20,
+       "src": "notes",
+       "head": [
+        "",
+        "Arithmetic (AP)",
+        "Geometric (GP)"
+       ],
+       "rows": [
+        [
+         "next term",
+         "add $d$",
+         "multiply by $r$"
+        ],
+        [
+         "test",
+         "equal differences",
+         "equal ratios"
+        ],
+        [
+         "$n$th term",
+         "$A_1 + (n - 1)d$",
+         "$G_1 r^{n-1}$"
+        ],
+        [
+         "sum of $n$ terms",
+         "$\\frac{n}{2}(A_1 + A_n)$",
+         "$\\frac{G_1(1 - r^n)}{1 - r}$"
+        ],
+        [
+         "mean of $a$, $b$",
+         "$\\frac{a + b}{2}$",
+         "$\\sqrt{ab}$"
+        ],
+        [
+         "graph of terms",
+         "dots on a line",
+         "dots on an exponential curve"
+        ]
+       ]
+      },
+      {
+       "id": "math12-u1-md-ex114",
+       "type": "worked",
+       "title": "Worked example: students per computer (Example 1.14)",
+       "page": 21,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Students per computer: 128 in 2008, 64 in 2009, … (a GP). Formula? Value in 2011? When is it 1?",
+       "steps": [
+        {
+         "text": "$r = \\frac{64}{128} = \\frac{1}{2}$, so $G_n = 128\\left(\\frac{1}{2}\\right)^{n-1} = 2^7 \\cdot 2^{1-n} = 2^{8-n}$."
+        },
+        {
+         "text": "2011 is $n = 4$: $2^4 = 16$."
+        },
+        {
+         "text": "$2^{8-n} = 1 = 2^0$ gives $n = 8$, the year 2015."
+        }
+       ],
+       "answer": "$G_n = 2^{8-n}$; 16; in 2015"
+      },
+      {
+       "id": "math12-u1-md-ex115",
+       "type": "worked",
+       "title": "Worked example: Example 1.15 (corrected)",
+       "page": 22,
+       "src": "notes",
+       "mode": "show",
+       "problem": "(a) Geometric mean of 8 and 12. (b) The GM of two numbers is 10 and one is $10\\sqrt{2}$. Find the other.",
+       "steps": [
+        {
+         "text": "(a) $\\sqrt{8 \\times 12} = \\sqrt{96} = 4\\sqrt{6}$. (The book starts \"GM of 6 and 72\" by mistake.)"
+        },
+        {
+         "text": "(b) $x \\times 10\\sqrt{2} = 10^2 = 100$ (the book prints \"= 10\")."
+        },
+        {
+         "text": "$x = \\frac{100}{10\\sqrt{2}} = \\frac{10}{\\sqrt{2}} = 5\\sqrt{2}$."
+        }
+       ],
+       "answer": "$4\\sqrt{6}$; $5\\sqrt{2}$"
+      },
+      {
+       "id": "math12-u1-md-ex116",
+       "type": "worked",
+       "title": "Worked example: two terms given (Example 1.16)",
+       "page": 27,
+       "src": "notes",
+       "mode": "show",
+       "problem": "In a GP, $G_3 = 6$ and $G_5 = \\frac{3}{2}$. Find $G_1$, $r$ and $S_{10}$.",
+       "steps": [
+        {
+         "text": "Divide: $\\frac{G_5}{G_3} = r^2 = \\frac{1}{4}$, so $r = \\frac{1}{2}$ or $r = -\\frac{1}{2}$."
+        },
+        {
+         "text": "$G_1 = \\frac{6}{r^2} = 24$ in both cases."
+        },
+        {
+         "text": "$r = \\frac{1}{2}$: $S_{10} = \\frac{24(1 - 2^{-10})}{0.5} = \\frac{3069}{64}$."
+        },
+        {
+         "text": "$r = -\\frac{1}{2}$ (signs alternate): $S_{10} = \\frac{24(1 - 2^{-10})}{1.5} = \\frac{1023}{64}$."
+        }
+       ],
+       "answer": "$G_1 = 24$; $S_{10} = \\frac{3069}{64} \\approx 47.95$ or $\\frac{1023}{64} \\approx 15.98$"
+      },
+      {
+       "id": "math12-u1-md-ex117",
+       "type": "worked",
+       "title": "Worked example: bouncing ball, 7 hits (Example 1.17, corrected)",
+       "page": 28,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Dropped from 90 cm, each bounce rises $\\frac{2}{3}$ of the previous height. Distance travelled when it hits the ground the 7th time?",
+       "steps": [
+        {
+         "text": "Falls: $90 + 60 + 40 + \\dots$, **7** falls: $S_7 = \\frac{90(1 - (2/3)^7)}{1/3} = 270 \\times \\frac{2059}{2187} \\approx 254.2$."
+        },
+        {
+         "text": "Rises: $60 + 40 + \\dots$, only **6** rises (it has not risen after the 7th hit): $\\frac{60(1 - (2/3)^6)}{1/3} = 180 \\times \\frac{665}{729} \\approx 164.2$."
+        },
+        {
+         "text": "Total $254.2 + 164.2$."
+        }
+       ],
+       "answer": "418.4 cm (the book writes $(2/3)^7$ in the rises formula; the value 164.2 comes from $(2/3)^6$)"
+      },
+      {
+       "id": "math12-u1-c09",
+       "type": "text",
+       "title": "Geometric (GP)",
+       "page": 38,
+       "src": "notes",
+       "body": [
+        "Common ratio $r=a_{k+1}/a_k$ (constant, $r\\neq0$).",
+        "$$a_n=a_1 r^{n-1}\\qquad S_n=a_1\\frac{r^n-1}{r-1}\\ (r\\neq1)\\qquad |r|<1:\\ S_\\infty=\\frac{a_1}{1-r}$$"
+       ]
+      },
+      {
+       "id": "math12-u1-c10",
+       "type": "mnemonic",
+       "title": "Trick",
+       "page": 33,
+       "src": "notes",
+       "body": [
+        "Write the ratio as a fraction, not a rounded decimal, until the last line. For $S_\\infty$ first ask: is $|r|<1$? If $|r|\\ge 1$ there is no finite infinite sum."
+       ]
+      },
+      {
+       "id": "math12-u1-c11",
+       "type": "worked",
+       "title": "Example 2 — GP",
+       "page": 32,
+       "src": "notes",
+       "problem": "$3,6,12,24,\\ldots$ Find $a_8$ and $S_8$.",
+       "steps": [
+        {
+         "text": "$r=6/3=2$."
+        },
+        {
+         "text": "$a_8=3\\times 2^{7}=3\\times 128=384$."
+        },
+        {
+         "text": "$S_8=3\\frac{2^8-1}{2-1}=3(256-1)=765$."
+        },
+        {
+         "text": "Spot check: $3+6+12+24+48+96+192+384=765$."
+        }
+       ],
+       "answer": "Spot check: $3+6+12+24+48+96+192+384=765$.",
+       "mode": "show",
+       "reveal": "Step-by-step"
+      },
+      {
+       "id": "math12-u1-c12",
+       "type": "worked",
+       "title": "Example 3 — which is it?",
+       "page": 32,
+       "src": "notes",
+       "problem": "$2,6,18,54$. AP or GP? Next term?",
+       "steps": [
+        {
+         "text": "Differences: $4,12,36$ — not constant → not AP."
+        },
+        {
+         "text": "Ratios: $6/2=3$, $18/6=3$, $54/18=3$ → GP, $r=3$."
+        },
+        {
+         "text": "Next $=54\\times 3=162$."
+        }
+       ],
+       "answer": "Next $=54\\times 3=162$.",
+       "mode": "show",
+       "reveal": "Step-by-step"
+      },
+      {
        "id": "math12-u1-pc31",
        "type": "check",
        "title": "Practice",
@@ -830,6 +1314,58 @@
        ]
       },
       {
+       "id": "math12-u1-md-hp-t",
+       "type": "text",
+       "title": "Working with harmonic progressions",
+       "page": 31,
+       "src": "notes",
+       "body": [
+        "**Rule of thumb: flip, work in the AP, flip back.**",
+        "**Example 1.18 (corrected):** $\\frac{1}{2}, \\frac{1}{4}, \\frac{1}{6}, \\dots$ is an HP because $2, 4, 6, \\dots$ is an AP. (The book writes $\\frac{1}{8}$ and \"2, 4, 8 is an AP\" — but 2, 4, 8 is a GP, so $\\frac{1}{2}, \\frac{1}{4}, \\frac{1}{8}$ is **not** an HP.)",
+        "**Example 1.20:** HP with first term $\\frac{1}{2}$ and fifth term $\\frac{1}{22}$: AP $2, \\dots, 22$ with $4d = 20$, $d = 5$: $2, 7, 12, 17, 22$, so the HP is $\\frac{1}{2}, \\frac{1}{7}, \\frac{1}{12}, \\frac{1}{17}, \\frac{1}{22}$.",
+        "**Harmonic mean (Example 1.21):** $\\frac{1}{m} = \\frac{1}{2}\\left(\\frac{1}{a} + \\frac{1}{b}\\right)$ gives $m = \\frac{2ab}{a + b}$."
+       ]
+      },
+      {
+       "id": "math12-u1-md-means-tb",
+       "type": "table",
+       "title": "Three means of 4 and 16",
+       "page": 30,
+       "src": "notes",
+       "head": [
+        "Mean",
+        "Formula",
+        "Value"
+       ],
+       "rows": [
+        [
+         "arithmetic",
+         "$\\frac{a + b}{2}$",
+         "10"
+        ],
+        [
+         "geometric",
+         "$\\sqrt{ab}$",
+         "8"
+        ],
+        [
+         "harmonic",
+         "$\\frac{2ab}{a + b}$",
+         "6.4"
+        ]
+       ]
+      },
+      {
+       "id": "math12-u1-md-means-rm",
+       "type": "remember",
+       "title": "AM ≥ GM ≥ HM",
+       "page": 30,
+       "src": "notes",
+       "body": [
+        "For positive numbers the arithmetic mean is the biggest and the harmonic mean the smallest; they are equal only when $a = b$. Also $AM \\times HM = GM^2$: $10 \\times 6.4 = 64 = 8^2$."
+       ]
+      },
+      {
        "id": "math12-u1-pc41",
        "type": "check",
        "title": "Practice",
@@ -957,133 +1493,113 @@
       {
        "id": "math12-u1-c05",
        "type": "text",
-       "title": "1.5 Infinite Series",
+       "title": "1.5 Series and sigma notation",
+       "page": 32,
+       "src": "notes",
+       "body": [
+        "A **series** is the sum of the terms of a sequence: $a_1 + a_2 + a_3 + \\dots$. It is finite or infinite like the sequence.",
+        "**Sigma notation:** $\\sum_{k=1}^{n} a_k = a_1 + a_2 + \\dots + a_n$. The letter $k$ is the counter; it starts at the bottom number and goes up by 1 to the top number. For example $\\sum_{n=1}^{10} 2n = 2 + 4 + \\dots + 20 = 110$.",
+        "An infinite series **converges** if its partial sums $S_1, S_2, S_3, \\dots$ settle down to a finite number (its sum); otherwise it **diverges**. $2 + 4 + 8 + \\dots$ diverges; $\\frac{2}{3} + \\frac{4}{9} + \\frac{8}{27} + \\dots$ converges to 2."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math12-u1-md-inf-t",
+       "type": "text",
+       "title": "Infinite geometric series",
        "page": 34,
-       "src": "textbook pp.34–38",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "An infinite series whose sum approaches a finite number is called a **convergent series**.",
-        "A monument is constructed by first laying a row of 60 bricks at ground level.",
-        "A second row with two fewer bricks is centred on that; a third row, with two fewer bricks, is centred on the second; and so on.",
-        "On each bounce, it rises to 45% of its previous height."
+        "In $S_n = \\frac{G_1(1 - r^n)}{1 - r}$, if $|r| < 1$ the power $r^n$ shrinks to 0 as $n$ grows, so $$S_\\infty = \\frac{G_1}{1 - r} \\qquad (|r| < 1).$$",
+        "If $|r| \\ge 1$ the terms do not shrink and the series diverges (e.g. $1 + 1 + 1 + \\dots$, and $1 - 1 + 1 - \\dots$ which keeps jumping between 1 and 0).",
+        "**Example 1.25:** $\\sum_{n=1}^{\\infty} 2\\left(\\frac{3}{4}\\right)^{n-1} = \\frac{2}{1 - 3/4} = 8$.",
+        "**Repeating decimals:** $0.\\overline{7} = \\frac{7}{10} + \\frac{7}{100} + \\dots = \\frac{0.7}{0.9} = \\frac{7}{9}$; $1.\\overline{81} = 1 + \\frac{0.81}{0.99} = 1 + \\frac{9}{11} = \\frac{20}{11}$."
        ]
       },
       {
-       "id": "math12-u1-c06",
-       "type": "text",
-       "title": "Arithmetic (AP)",
-       "page": 38,
+       "id": "math12-u1-md-halves",
+       "type": "steps",
+       "title": "Seeing $\\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\dots = 1$ (Example 1.24)",
+       "page": 35,
        "src": "notes",
-       "body": [
-        "Common difference $d=a_{k+1}-a_k$ (constant).",
-        "$$a_n=a_1+(n-1)d\\qquad S_n=\\frac{n}{2}\\bigl(2a_1+(n-1)d\\bigr)=\\frac{n}{2}(a_1+a_n)$$"
-       ]
-      },
-      {
-       "id": "math12-u1-c07",
-       "type": "mnemonic",
-       "title": "Trick",
-       "page": 37,
-       "src": "notes",
-       "body": [
-        "If you know first and last, use $S_n=\\frac{n}{2}(a_1+a_n)$ — fewer slips than the $2a_1$ form. To find $n$, solve $a_n=a_1+(n-1)d$ for $n$ and check it is a whole number."
-       ]
-      },
-      {
-       "id": "math12-u1-c08",
-       "type": "worked",
-       "title": "Example 1 — AP",
-       "page": 38,
-       "src": "notes",
-       "problem": "First term $5$, common difference $3$. Find the 12th term and $S_{12}$.",
+       "diagram": "md_halves",
        "steps": [
         {
-         "text": "Write $a_n=a_1+(n-1)d$."
+         "text": "Shade half of a unit square.",
+         "show": "k1"
         },
         {
-         "text": "$a_{12}=5+(12-1)\\times 3=5+33=38$."
+         "text": "Then half of what is left ($\\frac{1}{4}$), then half of that ($\\frac{1}{8}$)…",
+         "show": "k2"
         },
         {
-         "text": "$S_{12}=\\frac{12}{2}(5+38)=6\\times 43=258$."
-        },
-        {
-         "text": "Check with the other sum formula: $\\frac{12}{2}(2\\times5+11\\times3)=6(10+33)=258$."
-        },
-        {
-         "text": "Same."
+         "text": "The pieces fill the whole square: $S_\\infty = \\frac{1/2}{1 - 1/2} = 1$.",
+         "show": "k3"
         }
-       ],
-       "answer": "Same.",
-       "mode": "show",
-       "reveal": "Step-by-step"
-      },
-      {
-       "id": "math12-u1-c09",
-       "type": "text",
-       "title": "Geometric (GP)",
-       "page": 38,
-       "src": "notes",
-       "body": [
-        "Common ratio $r=a_{k+1}/a_k$ (constant, $r\\neq0$).",
-        "$$a_n=a_1 r^{n-1}\\qquad S_n=a_1\\frac{r^n-1}{r-1}\\ (r\\neq1)\\qquad |r|<1:\\ S_\\infty=\\frac{a_1}{1-r}$$"
        ]
       },
       {
-       "id": "math12-u1-c10",
-       "type": "mnemonic",
-       "title": "Trick",
-       "page": 33,
+       "id": "math12-u1-md-ball",
+       "type": "diagram",
+       "title": "Example 1.26: total distance of a bouncing ball",
+       "page": 35,
        "src": "notes",
+       "diagram": "md_ball",
+       "mode": "plain",
        "body": [
-        "Write the ratio as a fraction, not a rounded decimal, until the last line. For $S_\\infty$ first ask: is $|r|<1$? If $|r|\\ge 1$ there is no finite infinite sum."
+        "Dropped from 6 m, rebounds $\\frac{2}{3}$ each time. Falls $F = 6 + 4 + \\frac{8}{3} + \\dots = \\frac{6}{1 - 2/3} = 18$; rises $R = 4 + \\frac{8}{3} + \\dots = \\frac{4}{1/3} = 12$. Total **30 m**. Shortcut: total $= $ first drop $+ 2 \\times$ (all rises)."
        ]
       },
       {
-       "id": "math12-u1-c11",
-       "type": "worked",
-       "title": "Example 2 — GP",
-       "page": 32,
+       "id": "math12-u1-md-conv-tb",
+       "type": "table",
+       "title": "Converge or diverge?",
+       "page": 36,
        "src": "notes",
-       "problem": "$3,6,12,24,\\ldots$ Find $a_8$ and $S_8$.",
-       "steps": [
-        {
-         "text": "$r=6/3=2$."
-        },
-        {
-         "text": "$a_8=3\\times 2^{7}=3\\times 128=384$."
-        },
-        {
-         "text": "$S_8=3\\frac{2^8-1}{2-1}=3(256-1)=765$."
-        },
-        {
-         "text": "Spot check: $3+6+12+24+48+96+192+384=765$."
-        }
+       "head": [
+        "Series",
+        "$r$",
+        "Result"
        ],
-       "answer": "Spot check: $3+6+12+24+48+96+192+384=765$.",
-       "mode": "show",
-       "reveal": "Step-by-step"
+       "rows": [
+        [
+         "$16 + 8 + 4 + \\dots$",
+         "$\\frac{1}{2}$",
+         "converges to 32"
+        ],
+        [
+         "$0.7 + 0.07 + \\dots$",
+         "$0.1$",
+         "converges to $\\frac{7}{9}$"
+        ],
+        [
+         "$2 + 6 + 18 + \\dots$",
+         "3",
+         "diverges"
+        ],
+        [
+         "$1 + 1 + 1 + \\dots$",
+         "1",
+         "diverges"
+        ],
+        [
+         "$1 - 1 + 1 - \\dots$",
+         "$-1$",
+         "diverges"
+        ]
+       ]
       },
       {
-       "id": "math12-u1-c12",
-       "type": "worked",
-       "title": "Example 3 — which is it?",
-       "page": 32,
+       "id": "math12-u1-md-nested",
+       "type": "diagram",
+       "title": "Review Q15: squares inside squares",
+       "page": 39,
        "src": "notes",
-       "problem": "$2,6,18,54$. AP or GP? Next term?",
-       "steps": [
-        {
-         "text": "Differences: $4,12,36$ — not constant → not AP."
-        },
-        {
-         "text": "Ratios: $6/2=3$, $18/6=3$, $54/18=3$ → GP, $r=3$."
-        },
-        {
-         "text": "Next $=54\\times 3=162$."
-        }
-       ],
-       "answer": "Next $=54\\times 3=162$.",
-       "mode": "show",
-       "reveal": "Step-by-step"
+       "diagram": "md_nested",
+       "mode": "plain",
+       "body": [
+        "Joining midpoints of a 2 m square gives a square of half the area. Areas: $4 + 2 + 1 + \\dots = \\frac{4}{1 - 1/2} = 8$ m²."
+       ]
       },
       {
        "id": "math12-u1-pc51",
@@ -1132,15 +1648,80 @@
        "why": "0.777… = 0.7 + 0.07 + 0.007 + …, a geometric series with a₁ = 0.7, r = 0.1: S = 0.7/0.9 = 7/9.",
        "page": 32,
        "src": "notes"
+      },
+      {
+       "id": "math12-u1-md-summary-t",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 39,
+       "src": "notes",
+       "body": [
+        "AP: $A_n = A_1 + (n - 1)d$, $S_n = \\frac{n}{2}(A_1 + A_n)$; AM $= \\frac{a + b}{2}$.",
+        "GP: $G_n = G_1 r^{n-1}$, $S_n = \\frac{G_1(1 - r^n)}{1 - r}$; GM $= \\sqrt{ab}$.",
+        "HP: reciprocals form an AP; HM $= \\frac{2ab}{a + b}$.",
+        "Infinite GP: $S_\\infty = \\frac{G_1}{1 - r}$ only when $|r| < 1$."
+       ]
       }
      ]
     }
    ],
-   "glossary": [],
+   "glossary": [
+    {
+     "term": "Sequence",
+     "meaning": "A function whose domain is the positive integers; its values are the terms.",
+     "page": 3,
+     "src": "notes"
+    },
+    {
+     "term": "Recursive formula",
+     "meaning": "Gives the first term(s) and a rule using earlier terms.",
+     "page": 6,
+     "src": "notes"
+    },
+    {
+     "term": "Common difference",
+     "meaning": "The constant $d$ added each time in an AP.",
+     "page": 9,
+     "src": "notes"
+    },
+    {
+     "term": "Common ratio",
+     "meaning": "The constant $r$ multiplied each time in a GP.",
+     "page": 20,
+     "src": "notes"
+    },
+    {
+     "term": "Harmonic progression",
+     "meaning": "A sequence whose reciprocals form an AP.",
+     "page": 31,
+     "src": "notes"
+    },
+    {
+     "term": "Convergent series",
+     "meaning": "An infinite series whose partial sums approach a finite number.",
+     "page": 34,
+     "src": "notes"
+    }
+   ],
    "tips": [
     {
      "text": "Read 1.1 Basic Ideas of Sequence again and say its main idea in one sentence.",
      "page": 1
+    },
+    {
+     "text": "n! = n × (n − 1)! simplifies factorial fractions.",
+     "page": 6,
+     "src": "notes"
+    },
+    {
+     "text": "AP: add d; GP: multiply by r.",
+     "page": 20,
+     "src": "notes"
+    },
+    {
+     "text": "Infinite GP sum G1/(1 − r) needs |r| < 1.",
+     "page": 35,
+     "src": "notes"
     }
    ],
    "games": [
@@ -1760,6 +2341,858 @@
       "similar": [],
       "page": 10,
       "src": "notes"
+     },
+     {
+      "id": "math12-u1-md-s11-q01",
+      "type": "short",
+      "q": "Exercise 1.1 Q1: first five terms of (a) $a_n = 4n - 1$ (b) $a_n = n^2 - 3n + 1$ (c) $a_n = 3^n + 1$ (d) $a_n = \\sqrt{n}$ (e) $a_n = \\frac{2n + 1}{n}$.",
+      "answer": "(a) 3, 7, 11, 15, 19 (b) −1, −1, 1, 5, 11 (c) 4, 10, 28, 82, 244 (d) 1, √2, √3, 2, √5 (e) 3, 5/2, 7/3, 9/4, 11/5",
+      "why": [
+       "Step 1: put $n = 1, 2, 3, 4, 5$ into each formula.",
+       "Step 2: e.g. (b) $n = 4$: $16 - 12 + 1 = 5$."
+      ],
+      "tip": "Make a small table of $n$ and $a_n$.",
+      "similar": [
+       {
+        "q": "$a_n = 2^n - n$?",
+        "a": "1, 2, 5, 12, 27."
+       }
+      ],
+      "page": 7,
+      "src": "notes",
+      "label": "1.1 Practice — sequences"
+     },
+     {
+      "id": "math12-u1-md-s11-q02",
+      "type": "short",
+      "q": "Exercise 1.1 Q2: find (a) $a_7$ for $a_n = (-1)^n(2n + 3)$ (b) $a_{11}$ for $a_n = \\frac{4n}{2n^2 - 3}$ (c) $a_6$ for $a_n = \\frac{n}{n!}$ (d) $a_{25}$ for $a_n = 1 + \\log 10^n$.",
+      "answer": "−17; 44/239; 1/120; 26",
+      "why": [
+       "Step 1: $(-1)^7 = -1$, $2(7) + 3 = 17$.",
+       "Step 2: $\\frac{44}{242 - 3}$.",
+       "Step 3: $\\frac{6}{720}$.",
+       "Step 4: $\\log 10^{25} = 25$."
+      ],
+      "tip": "Odd power of $-1$ is $-1$.",
+      "similar": [
+       {
+        "q": "$a_8$ in (a)?",
+        "a": "19."
+       }
+      ],
+      "page": 7,
+      "src": "notes",
+      "label": "1.1 Practice — sequences"
+     },
+     {
+      "id": "math12-u1-md-s11-q03",
+      "type": "short",
+      "q": "Exercise 1.1 Q3: next three terms: (a) 8, 5, 2, −1, −4 (b) 3, −6, 12, −24, 48 (c) −1, 2, 7, 14, 23 (d) $\\frac{1}{3}, -\\frac{2}{9}, \\frac{1}{9}, -\\frac{4}{81}$.",
+      "answer": "(a) −7, −10, −13 (b) −96, 192, −384 (c) 34, 47, 62 (d) 5/243, −2/243, 7/2187",
+      "why": [
+       "Step 1: (a) subtract 3; (b) multiply by −2.",
+       "Step 2: (c) differences 3, 5, 7, 9, so next 11, 13, 15.",
+       "Step 3: (d) $a_n = (-1)^{n+1}\\frac{n}{3^n}$ ($\\frac{1}{9} = \\frac{3}{27}$)."
+      ],
+      "tip": "Look at differences, then ratios.",
+      "similar": [
+       {
+        "q": "1, 4, 9, 16?",
+        "a": "25, 36, 49."
+       }
+      ],
+      "page": 7,
+      "src": "notes",
+      "label": "1.1 Practice — sequences"
+     },
+     {
+      "id": "math12-u1-md-s11-q04",
+      "type": "short",
+      "q": "Exercise 1.1 Q4: general formulas for the sequences in Q3.",
+      "answer": "(a) $11 - 3n$ (b) $3(-2)^{n-1}$ (c) $n^2 - 2$ (d) $(-1)^{n+1}\\frac{n}{3^n}$",
+      "why": [
+       "Step 1: (a) AP: $8 + (n - 1)(-3)$.",
+       "Step 2: (b) GP with $r = -2$.",
+       "Step 3: (c) each term is 2 less than $n^2$."
+      ],
+      "tip": "Check your formula with $n = 1$ and $n = 2$.",
+      "similar": [
+       {
+        "q": "2, 5, 10, 17?",
+        "a": "$n^2 + 1$."
+       }
+      ],
+      "page": 8,
+      "src": "notes",
+      "label": "1.1 Practice — sequences"
+     },
+     {
+      "id": "math12-u1-md-s11-q05",
+      "type": "short",
+      "q": "Exercise 1.1 Q5: first five terms: (a) $a_1 = 2$, $a_n = 5 + a_{n-1}$ (b) $a_1 = 60$, $a_n = 0.5a_{n-1} - 2$ (c) $a_1 = 1$, $a_2 = 2$, $a_n = a_{n-2} + 2a_{n-1} - 3$.",
+      "answer": "(a) 2, 7, 12, 17, 22 (b) 60, 28, 12, 4, 0 (c) 1, 2, 2, 3, 5",
+      "why": [
+       "Step 1: (a) keep adding 5 (the book prints $a_{n-n}$; it means $a_{n-1}$).",
+       "Step 2: (b) $0.5(60) - 2 = 28$, $0.5(28) - 2 = 12$, …",
+       "Step 3: (c) $a_3 = 1 + 4 - 3 = 2$, $a_4 = 2 + 4 - 3 = 3$, $a_5 = 2 + 6 - 3 = 5$."
+      ],
+      "tip": "Each new term uses the ones just found.",
+      "similar": [
+       {
+        "q": "$a_1 = 1$, $a_n = 2a_{n-1} + 1$?",
+        "a": "1, 3, 7, 15, 31."
+       }
+      ],
+      "page": 8,
+      "src": "notes",
+      "label": "1.1 Practice — sequences"
+     },
+     {
+      "id": "math12-u1-md-s11-q06",
+      "type": "short",
+      "q": "Exercise 1.1 Q6: simplify (a) $\\frac{8!}{4!}$ (b) $\\frac{9!}{7!\\,2!}$ (c) $\\frac{(n + 1)!}{n!}$ (d) $\\frac{(n + 1)!}{(n + 3)!}$.",
+      "answer": "1680; 36; $n + 1$; $\\frac{1}{(n + 2)(n + 3)}$",
+      "why": [
+       "Step 1: $8 \\times 7 \\times 6 \\times 5$.",
+       "Step 2: $\\frac{9 \\times 8}{2}$.",
+       "Step 3: $(n + 1)! = (n + 1) \\cdot n!$.",
+       "Step 4: $(n + 3)! = (n + 3)(n + 2)(n + 1)!$."
+      ],
+      "tip": "Write the bigger factorial until the smaller one appears.",
+      "similar": [
+       {
+        "q": "$\\frac{10!}{8!}$?",
+        "a": "90."
+       }
+      ],
+      "page": 8,
+      "src": "notes",
+      "label": "1.1 Practice — sequences"
+     },
+     {
+      "id": "math12-u1-md-s11-q07",
+      "type": "short",
+      "q": "Exercise 1.1 Q7: population (thousands) $a_n = n^2 + 2n + 204$, $n = 1$ for 1981. (a) 1981, 1982, 1983 (b) last three terms ($n = 28, 29, 30$).",
+      "answer": "207, 212, 219; 1044, 1103, 1164",
+      "why": [
+       "Step 1: $1 + 2 + 204$, $4 + 4 + 204$, $9 + 6 + 204$.",
+       "Step 2: $784 + 56 + 204$, $841 + 58 + 204$, $900 + 60 + 204$."
+      ],
+      "tip": "2010 is $n = 30$.",
+      "similar": [
+       {
+        "q": "Year 2000 ($n = 20$)?",
+        "a": "644 thousand."
+       }
+      ],
+      "page": 8,
+      "src": "notes",
+      "label": "1.1 Practice — sequences"
+     },
+     {
+      "id": "math12-u1-md-s11-q08",
+      "type": "short",
+      "q": "Exercise 1.1 Q8: first five terms of $a_n = \\frac{4^n}{n!}$.",
+      "answer": "4, 8, 32/3, 32/3, 128/15",
+      "why": [
+       "Step 1: $\\frac{4}{1}$, $\\frac{16}{2}$, $\\frac{64}{6}$, $\\frac{256}{24}$, $\\frac{1024}{120}$."
+      ],
+      "tip": "Simplify each fraction.",
+      "similar": [
+       {
+        "q": "$a_6$?",
+        "a": "$\\frac{4096}{720} = \\frac{256}{45}$."
+       }
+      ],
+      "page": 8,
+      "src": "notes",
+      "label": "1.1 Practice — sequences"
+     },
+     {
+      "id": "math12-u1-md-s12-q01",
+      "type": "short",
+      "q": "Exercise 1.2 Q1: AP or not? (a) 3, 7, 11, 15 (b) 1, 4, 8, 13 (c) 0.5, 3, 5.5, 8 (d) $\\frac{5}{6}, \\frac{2}{3}, \\frac{1}{2}, \\frac{1}{3}$ (e) 1, 5, 9, 14.",
+      "answer": "AP: (a) d = 4, (c) d = 2.5, (d) d = −1/6; not: (b), (e)",
+      "why": [
+       "Step 1: find all differences.",
+       "Step 2: (b) 3, 4, 5 and (e) 4, 4, 5 are not constant."
+      ],
+      "tip": "Check **every** difference.",
+      "similar": [
+       {
+        "q": "2, 2.5, 3, 3.5?",
+        "a": "AP, $d = 0.5$."
+       }
+      ],
+      "page": 13,
+      "src": "notes",
+      "label": "1.2 Practice — arithmetic progressions"
+     },
+     {
+      "id": "math12-u1-md-s12-q02",
+      "type": "short",
+      "q": "Exercise 1.2 Q2: AP or not? (a) $a_n = -2n + 5$ (b) $a_n = n^2$ (c) $a_n = 5n - 3$ (d) $a_n = 3(2^n)$.",
+      "answer": "(a) AP, d = −2 (c) AP, d = 5; (b), (d) not",
+      "why": [
+       "Step 1: $a_{n+1} - a_n$ must be a constant.",
+       "Step 2: for $n^2$ it is $2n + 1$, which changes."
+      ],
+      "tip": "A linear formula $pn + q$ is always an AP with $d = p$.",
+      "similar": [
+       {
+        "q": "$a_n = 7 - 3n$?",
+        "a": "AP, $d = -3$."
+       }
+      ],
+      "page": 13,
+      "src": "notes",
+      "label": "1.2 Practice — arithmetic progressions"
+     },
+     {
+      "id": "math12-u1-md-s12-q03",
+      "type": "short",
+      "q": "Exercise 1.2 Q3: general term: (a) $A_1 = 7$, $d = 8$ (b) $A_1 = 4$, $A_2 = -1$ (c) $A_3 = 11$, $A_7 = 3$ (d) $A_5 = 2$, $d = 3$.",
+      "answer": "(a) $8n - 1$ (b) $9 - 5n$ (c) $17 - 2n$ (d) $3n - 13$",
+      "why": [
+       "Step 1: (b) $d = -5$.",
+       "Step 2: (c) $4d = -8$, $d = -2$, $A_1 = 15$.",
+       "Step 3: (d) $A_1 = 2 - 12 = -10$."
+      ],
+      "tip": "Find $d$ first, then $A_1$.",
+      "similar": [
+       {
+        "q": "$A_2 = 5$, $A_6 = 17$?",
+        "a": "$3n - 1$."
+       }
+      ],
+      "page": 13,
+      "src": "notes",
+      "label": "1.2 Practice — arithmetic progressions"
+     },
+     {
+      "id": "math12-u1-md-s12-q04",
+      "type": "short",
+      "q": "Exercise 1.2 Q4–Q5: (4) 36 °F at 5 PM, falling 3 °F every half-hour: when 0 °F? (5) 250 students, +32 a year: after 4 years?",
+      "answer": "11 PM; 378",
+      "why": [
+       "Step 1: $36 - 3k = 0$, $k = 12$ half-hours = 6 h.",
+       "Step 2: $250 + 4 \\times 32$."
+      ],
+      "tip": "Count the steps, not the terms.",
+      "similar": [
+       {
+        "q": "Falling 4 °F per half-hour?",
+        "a": "9:30 PM."
+       }
+      ],
+      "page": 13,
+      "src": "notes",
+      "label": "1.2 Practice — arithmetic progressions"
+     },
+     {
+      "id": "math12-u1-md-s12-q05",
+      "type": "short",
+      "q": "Exercise 1.2 Q6–Q7: AM of (a) 3.5 and 7 (b) $2 + \\sqrt{2}$ and $2 - \\sqrt{2}$ (c) $9x$ and $5x$ (d) $(a - b)^2$ and $(a + b)^2$. (7) For which $x$ is 2 the AM of $x^2 - 1$ and $2x + 2$?",
+      "answer": "5.25; 2; 7x; $a^2 + b^2$; $x = 1$ or $x = -3$",
+      "why": [
+       "Step 1: add and halve.",
+       "Step 2: (d) $\\frac{2a^2 + 2b^2}{2}$.",
+       "Step 3: $x^2 + 2x + 1 = 4$, $(x + 1)^2 = 4$."
+      ],
+      "tip": "AM = half the sum.",
+      "similar": [
+       {
+        "q": "AM of 4 and 11?",
+        "a": "7.5."
+       }
+      ],
+      "page": 13,
+      "src": "notes",
+      "label": "1.2 Practice — arithmetic progressions"
+     },
+     {
+      "id": "math12-u1-md-s12-q06",
+      "type": "short",
+      "q": "Exercise 1.3 Q1: (a) $A_1 = 7$, $d = 2$: $S_{10}$ (b) $A_3 = 10$, $A_7 = -2$: $S_8$ (c) $A_n = 3n + 8$: $S_{11}$ (e) $A_n = -5n + 2$: $S_{12}$.",
+      "answer": "160; 44; 286; −366",
+      "why": [
+       "Step 1: (a) $5(14 + 18)$.",
+       "Step 2: (b) $d = -3$, $A_1 = 16$, $S_8 = 4(32 - 21) = 44$.",
+       "Step 3: (c) $A_1 = 11$, $A_{11} = 41$: $\\frac{11}{2}(52)$.",
+       "Step 4: (e) $A_1 = -3$, $A_{12} = -58$: $6(-61)$."
+      ],
+      "tip": "With a formula for $A_n$, use first + last.",
+      "similar": [
+       {
+        "q": "(d) $A_{11} = -3$, $A_{31} = -2$: $S_5$?",
+        "a": "$d = \\frac{1}{20}$, $A_1 = -3.5$, $S_5 = -17$."
+       }
+      ],
+      "page": 18,
+      "src": "notes",
+      "label": "1.2 Practice — arithmetic progressions"
+     },
+     {
+      "id": "math12-u1-md-s12-q07",
+      "type": "short",
+      "q": "Exercise 1.3 Q2–Q4: (2) sum of integers from −20 to 80 (3) sum of positive multiples of 7 up to 700 (4) $S_{20} = 650$, $d = 3$: first term?",
+      "answer": "3030; 35,350; 4",
+      "why": [
+       "Step 1: 101 terms: $\\frac{101}{2}(-20 + 80)$.",
+       "Step 2: 100 terms: $50(7 + 700)$.",
+       "Step 3: $10(2A_1 + 57) = 650$."
+      ],
+      "tip": "Count terms: last − first, divided by $d$, plus 1.",
+      "similar": [
+       {
+        "q": "Sum of 1 to 100?",
+        "a": "5050."
+       }
+      ],
+      "page": 18,
+      "src": "notes",
+      "label": "1.2 Practice — arithmetic progressions"
+     },
+     {
+      "id": "math12-u1-md-s12-q08",
+      "type": "short",
+      "q": "Exercise 1.3 Q5–Q6: (5) 16 teams share 8000 Nakfa in an AP; the last gets 275. First prize? (6) 20 rows: 10, 12, 14, … seats. Total?",
+      "answer": "725 Nakfa; 580 seats",
+      "why": [
+       "Step 1: $8(A_1 + 275) = 8000$.",
+       "Step 2: $10(20 + 19 \\times 2)$."
+      ],
+      "tip": "Use whichever sum formula fits the data.",
+      "similar": [
+       {
+        "q": "30 rows?",
+        "a": "1170 seats."
+       }
+      ],
+      "page": 18,
+      "src": "notes",
+      "label": "1.2 Practice — arithmetic progressions"
+     },
+     {
+      "id": "math12-u1-md-s12-q09",
+      "type": "short",
+      "q": "Review Q2–Q3: (2) first 8 terms of an AP with $A_1 + A_7 = 40$ and $A_1 A_4 = 160$. (3) Brick rows 60, 58, …, 10: total bricks?",
+      "answer": "8, 12, 16, 20, 24, 28, 32, 36; 910",
+      "why": [
+       "Step 1: $2A_1 + 6d = 40$ so $A_4 = 20$; $A_1 = 8$, $d = 4$.",
+       "Step 2: 26 rows: $13(60 + 10)$."
+      ],
+      "tip": "$A_1 + A_7 = 2A_4$.",
+      "similar": [
+       {
+        "q": "Rows 40 down to 10 by 3?",
+        "a": "275."
+       }
+      ],
+      "page": 37,
+      "src": "notes",
+      "label": "1.2 Practice — arithmetic progressions"
+     },
+     {
+      "id": "math12-u1-md-s12-q10",
+      "type": "mcq",
+      "q": "In a trapezium the segment joining the midpoints of the legs (Exercise 1.2 Q8) is",
+      "options": {
+       "A": "the AM of the parallel sides",
+       "B": "the GM of the parallel sides",
+       "C": "the HM of the parallel sides",
+       "D": "the longer parallel side"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: the midline $CD = \\frac{AB + EF}{2}$."
+      ],
+      "tip": "Midline = average of the bases.",
+      "similar": [
+       {
+        "q": "Bases 6 and 10?",
+        "a": "midline 8."
+       }
+      ],
+      "page": 14,
+      "src": "notes",
+      "label": "1.2 Practice — arithmetic progressions"
+     },
+     {
+      "id": "math12-u1-md-s12-q11",
+      "type": "tf",
+      "q": "$S_n = \\frac{n}{2}(A_1 + A_n)$ works for any AP.",
+      "answer": true,
+      "why": [
+       "Step 1: pairing first+last, second+second-last, … always gives equal pair sums."
+      ],
+      "tip": "Gauss's trick.",
+      "similar": [
+       {
+        "q": "For a GP?",
+        "a": "False."
+       }
+      ],
+      "page": 16,
+      "src": "notes",
+      "label": "1.2 Practice — arithmetic progressions"
+     },
+     {
+      "id": "math12-u1-md-s13-q01",
+      "type": "short",
+      "q": "Exercise 1.4 Q1: GP or not? (a) −11, −16, −21 (b) $\\frac{1}{2}, \\frac{1}{3}, \\frac{2}{9}, \\frac{4}{27}$ (c) $\\frac{1}{25}, \\frac{1}{10}, \\frac{1}{4}, \\frac{5}{8}$ (d) 3, 12, 21, 30 (e) 800, 1360, 2312, 3930.4.",
+      "answer": "GP: (b) r = 2/3 (c) r = 5/2 (e) r = 1.7; not: (a), (d) (they are APs)",
+      "why": [
+       "Step 1: divide each term by the one before.",
+       "Step 2: (a) $\\frac{-16}{-11} \\ne \\frac{-21}{-16}$."
+      ],
+      "tip": "Equal ratios ⇒ GP.",
+      "similar": [
+       {
+        "q": "5, −10, 20?",
+        "a": "GP, $r = -2$."
+       }
+      ],
+      "page": 23,
+      "src": "notes",
+      "label": "1.3 Practice — geometric progressions"
+     },
+     {
+      "id": "math12-u1-md-s13-q02",
+      "type": "short",
+      "q": "Exercise 1.4 Q3: general term: (a) $G_1 = 1$, $r = 4$ (b) $G_1 = -81$, $r = \\frac{1}{3}$ (c) $G_1 = 5$, $G_2 = -1$ (d) $G_5 = 6$, $G_7 = \\frac{27}{8}$.",
+      "answer": "$4^{n-1}$; $-81(\\frac{1}{3})^{n-1}$; $5(-\\frac{1}{5})^{n-1}$; $r = \\pm\\frac{3}{4}$, $G_n = 6(\\pm\\frac{3}{4})^{n-5}$",
+      "why": [
+       "Step 1: (c) $r = -\\frac{1}{5}$.",
+       "Step 2: (d) $r^2 = \\frac{27}{48} = \\frac{9}{16}$."
+      ],
+      "tip": "Divide two given terms to get a power of $r$.",
+      "similar": [
+       {
+        "q": "$G_2 = 6$, $G_4 = 54$?",
+        "a": "$r = \\pm 3$, $G_1 = \\pm 2$."
+       }
+      ],
+      "page": 23,
+      "src": "notes",
+      "label": "1.3 Practice — geometric progressions"
+     },
+     {
+      "id": "math12-u1-md-s13-q03",
+      "type": "short",
+      "q": "Exercise 1.4 Q4: 1500 Nakfa at 4% compounded half-yearly. Amount after (a) 1 year (b) 3 years (c) $n$ years (d) 10 years.",
+      "answer": "1560.60; 1689.24; $1500(1.02)^{2n}$; 2228.92",
+      "why": [
+       "Step 1: 2% per half-year, ratio 1.02.",
+       "Step 2: $1500(1.02)^2$, $1500(1.02)^6$, $1500(1.02)^{20}$."
+      ],
+      "tip": "Compound interest is a GP.",
+      "similar": [
+       {
+        "q": "After 5 years?",
+        "a": "1828.49."
+       }
+      ],
+      "page": 24,
+      "src": "notes",
+      "label": "1.3 Practice — geometric progressions"
+     },
+     {
+      "id": "math12-u1-md-s13-q04",
+      "type": "short",
+      "q": "Exercise 1.4 Q5–Q6: (5) population 3.6 M, 4.32 M, 5.184 M, … from 2007: in 2012? (6) E. coli doubles every 20 min: cells after 12 h and 24 h from one cell?",
+      "answer": "about 8,957,952; $2^{36} \\approx 6.87 \\times 10^{10}$ and $2^{72} \\approx 4.7 \\times 10^{21}$",
+      "why": [
+       "Step 1: $r = 1.2$; 2012 is the 6th term: $3.6\\text{M} \\times 1.2^5$.",
+       "Step 2: 3 doublings per hour: 36 and 72 doublings."
+      ],
+      "tip": "Count the number of multiplications.",
+      "similar": [
+       {
+        "q": "After 3 hours?",
+        "a": "$2^9 = 512$."
+       }
+      ],
+      "page": 24,
+      "src": "notes",
+      "label": "1.3 Practice — geometric progressions"
+     },
+     {
+      "id": "math12-u1-md-s13-q05",
+      "type": "short",
+      "q": "Exercise 1.4 Q7: GM of (a) 3 and 12 (b) 0.6 and 0.8 (c) $3 - \\sqrt{5}$ and $3 + \\sqrt{5}$ (d) $ab^2$ and $ab^4$ (positive).",
+      "answer": "6; $\\sqrt{0.48} \\approx 0.69$; 2; $ab^3$",
+      "why": [
+       "Step 1: $\\sqrt{36}$.",
+       "Step 2: (c) $(3 - \\sqrt{5})(3 + \\sqrt{5}) = 4$.",
+       "Step 3: (d) $\\sqrt{a^2 b^6}$."
+      ],
+      "tip": "Multiply, then square root.",
+      "similar": [
+       {
+        "q": "GM of 2 and 18?",
+        "a": "6."
+       }
+      ],
+      "page": 24,
+      "src": "notes",
+      "label": "1.3 Practice — geometric progressions"
+     },
+     {
+      "id": "math12-u1-md-s13-q06",
+      "type": "short",
+      "q": "Exercise 1.5 Q1: (a) $G_1 = 3$, $r = 2$: $S_{10}$ (b) $G_2 = 6$, $r = \\frac{1}{4}$: $S_9$ (d) $G_n = 5(2^{n-1})$: $S_{11}$ (e) $G_n = -6(0.9^{n-1})$: $S_{14}$.",
+      "answer": "3069; ≈ 32.0; 10,235; ≈ −46.27",
+      "why": [
+       "Step 1: $3(2^{10} - 1)$.",
+       "Step 2: $G_1 = 24$: $\\frac{24(1 - 4^{-9})}{3/4} \\approx 32$.",
+       "Step 3: $5(2^{11} - 1)$.",
+       "Step 4: $\\frac{-6(1 - 0.9^{14})}{0.1} = -60(1 - 0.2288)$."
+      ],
+      "tip": "For $r > 1$ use $\\frac{G_1(r^n - 1)}{r - 1}$.",
+      "similar": [
+       {
+        "q": "$G_1 = 1$, $r = 3$, $S_5$?",
+        "a": "121."
+       }
+      ],
+      "page": 29,
+      "src": "notes",
+      "label": "1.3 Practice — geometric progressions"
+     },
+     {
+      "id": "math12-u1-md-s13-q07",
+      "type": "short",
+      "q": "Exercise 1.5 Q4: 1 cent on day 1, doubling daily, for a 30-day month. Total?",
+      "answer": "$2^{30} - 1$ cents ≈ 10.7 million (in whole currency units)",
+      "why": [
+       "Step 1: $S_{30} = \\frac{2^{30} - 1}{2 - 1}$.",
+       "Step 2: $1{,}073{,}741{,}823$ cents."
+      ],
+      "tip": "The book mixes \"November\" and \"October\"; with 31 days the total is $2^{31} - 1$ cents.",
+      "similar": [
+       {
+        "q": "For 10 days?",
+        "a": "1023 cents."
+       }
+      ],
+      "page": 30,
+      "src": "notes",
+      "label": "1.3 Practice — geometric progressions"
+     },
+     {
+      "id": "math12-u1-md-s13-q08",
+      "type": "short",
+      "q": "Exercise 1.5 Q5: profit 30,000 in year 1, rising 5% a year for 40 years. Total?",
+      "answer": "about 3,623,993 Nakfa",
+      "why": [
+       "Step 1: $S_{40} = \\frac{30000(1.05^{40} - 1)}{0.05}$.",
+       "Step 2: $1.05^{40} \\approx 7.04$."
+      ],
+      "tip": "Growth by a percent = GP.",
+      "similar": [
+       {
+        "q": "For 10 years?",
+        "a": "about 377,337."
+       }
+      ],
+      "page": 30,
+      "src": "notes",
+      "label": "1.3 Practice — geometric progressions"
+     },
+     {
+      "id": "math12-u1-md-s13-q09",
+      "type": "short",
+      "q": "Review Q7–Q8: (7) a ball dropped from 5 m rises to 45% each bounce: distance when it hits the ground the 6th time? (8) a 80,000 car loses 25% a year: value after 8 years?",
+      "answer": "about 13.03 m; about 8009 Nakfa",
+      "why": [
+       "Step 1: falls $\\frac{5(1 - 0.45^6)}{0.55} \\approx 9.02$; rises $\\frac{2.25(1 - 0.45^5)}{0.55} \\approx 4.02$.",
+       "Step 2: $80000(0.75)^8$."
+      ],
+      "tip": "n hits = n falls but n − 1 rises.",
+      "similar": [
+       {
+        "q": "Car after 3 years?",
+        "a": "33,750."
+       }
+      ],
+      "page": 38,
+      "src": "notes",
+      "label": "1.3 Practice — geometric progressions"
+     },
+     {
+      "id": "math12-u1-md-s13-q10",
+      "type": "short",
+      "q": "Review Q9: two numbers have AM 25 and GM 15. Find them.",
+      "answer": "45 and 5",
+      "why": [
+       "Step 1: $x + y = 50$, $xy = 225$.",
+       "Step 2: $t^2 - 50t + 225 = 0$: $(t - 45)(t - 5) = 0$."
+      ],
+      "tip": "Sum and product ⇒ quadratic.",
+      "similar": [
+       {
+        "q": "AM 5, GM 4?",
+        "a": "8 and 2."
+       }
+      ],
+      "page": 38,
+      "src": "notes",
+      "label": "1.3 Practice — geometric progressions"
+     },
+     {
+      "id": "math12-u1-md-s13-q11",
+      "type": "mcq",
+      "q": "Each term of 1, 2, 4, 8, 16, … equals",
+      "options": {
+       "A": "one plus the sum of all earlier terms",
+       "B": "the sum of all earlier terms",
+       "C": "twice the previous AP term",
+       "D": "the previous term squared"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $1 + 2 + \\dots + 2^{k-1} = 2^k - 1$, so $2^k = 1 + (2^k - 1)$."
+      ],
+      "tip": "Use $S_n$ of a GP.",
+      "similar": [
+       {
+        "q": "For 2, 6, 18, …?",
+        "a": "each term = 2 × (1 + sum of earlier terms)."
+       }
+      ],
+      "page": 29,
+      "src": "notes",
+      "label": "1.3 Practice — geometric progressions"
+     },
+     {
+      "id": "math12-u1-md-s14-q01",
+      "type": "short",
+      "q": "Exercise 1.6 Q1: which are HPs? (a) $\\frac{1}{3}, \\frac{1}{6}, \\frac{1}{9}, \\frac{1}{12}$ (b) 0.1, 0.01, 0.001 (c) 20, 18, 16 (d) 2, 4, 6, 8 (e) 0.1, 0.2, 0.3.",
+      "answer": "only (a)",
+      "why": [
+       "Step 1: reciprocals: (a) 3, 6, 9, 12 — an AP.",
+       "Step 2: (b) 10, 100, 1000 — a GP; (c), (d), (e) are APs themselves, so their reciprocals are not."
+      ],
+      "tip": "Flip, then test for AP.",
+      "similar": [
+       {
+        "q": "$1, \\frac{1}{3}, \\frac{1}{5}$?",
+        "a": "HP."
+       }
+      ],
+      "page": 32,
+      "src": "notes",
+      "label": "1.4–1.5 Practice — harmonic and infinite series"
+     },
+     {
+      "id": "math12-u1-md-s14-q02",
+      "type": "short",
+      "q": "Exercise 1.6 Q2: harmonic mean of (a) $\\frac{1}{3}$ and $\\frac{1}{7}$ (b) $\\frac{1}{4}$ and $\\frac{1}{16}$.",
+      "answer": "$\\frac{1}{5}$; $\\frac{1}{10}$",
+      "why": [
+       "Step 1: AM of the reciprocals: $\\frac{3 + 7}{2} = 5$.",
+       "Step 2: flip back."
+      ],
+      "tip": "HM of $\\frac{1}{a}$, $\\frac{1}{b}$ is $\\frac{2}{a + b}$.",
+      "similar": [
+       {
+        "q": "HM of 4 and 12?",
+        "a": "6."
+       }
+      ],
+      "page": 32,
+      "src": "notes",
+      "label": "1.4–1.5 Practice — harmonic and infinite series"
+     },
+     {
+      "id": "math12-u1-md-s14-q03",
+      "type": "short",
+      "q": "Exercise 1.6 Q3: insert three harmonic means between (a) $\\frac{1}{4}$ and $\\frac{1}{24}$ (b) $\\frac{1}{14}$ and $\\frac{1}{2}$.",
+      "answer": "(a) $\\frac{1}{9}, \\frac{1}{14}, \\frac{1}{19}$ (b) $\\frac{1}{11}, \\frac{1}{8}, \\frac{1}{5}$",
+      "why": [
+       "Step 1: AP from 4 to 24 in 4 steps: $d = 5$.",
+       "Step 2: AP from 14 to 2: $d = -3$."
+      ],
+      "tip": "The book says \"arithmetic means\" in the HP exercise; the harmonic means are intended. (Arithmetic means for (a) would be $\\frac{19}{96}, \\frac{7}{48}, \\frac{3}{32}$.)",
+      "similar": [
+       {
+        "q": "One HM between $\\frac{1}{2}$ and $\\frac{1}{6}$?",
+        "a": "$\\frac{1}{4}$."
+       }
+      ],
+      "page": 32,
+      "src": "notes",
+      "label": "1.4–1.5 Practice — harmonic and infinite series"
+     },
+     {
+      "id": "math12-u1-md-s14-q04",
+      "type": "short",
+      "q": "Exercise 1.7: write in sigma notation and sum if possible: (a) 1 + 3 + 9 + … + 243 (b) 1 + 3 + 9 + … (c) $3 + 2 + \\frac{4}{3} + \\dots$ (d) 5 + 10 + 15 + …",
+      "answer": "(a) $\\sum_{k=1}^{6} 3^{k-1} = 364$ (b) $\\sum 3^{k-1}$ diverges (c) $\\sum 3(\\frac{2}{3})^{k-1} = 9$ (d) $\\sum 5k$ diverges",
+      "why": [
+       "Step 1: (a) $243 = 3^5$, so 6 terms: $\\frac{3^6 - 1}{2}$.",
+       "Step 2: (c) $r = \\frac{2}{3}$: $\\frac{3}{1/3}$."
+      ],
+      "tip": "Infinite sum exists only for $|r| < 1$.",
+      "similar": [
+       {
+        "q": "$\\sum_{k=1}^{4} 2k$?",
+        "a": "20."
+       }
+      ],
+      "page": 33,
+      "src": "notes",
+      "label": "1.4–1.5 Practice — harmonic and infinite series"
+     },
+     {
+      "id": "math12-u1-md-s14-q05",
+      "type": "short",
+      "q": "Exercise 1.8 Q2: converge or diverge? (a) $\\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\dots$ (b) 16 + 8 + 4 + … (c) 0.7 + 0.07 + … (d) 1 + 1 + 1 + … (e) 1 − 1 + 1 − …",
+      "answer": "(a) ½ (b) 32 (c) 7/9; (d), (e) diverge",
+      "why": [
+       "Step 1: (a) $\\frac{1/3}{2/3}$.",
+       "Step 2: (b) $\\frac{16}{1/2}$.",
+       "Step 3: (c) $\\frac{0.7}{0.9}$."
+      ],
+      "tip": "$|r| = 1$ also diverges.",
+      "similar": [
+       {
+        "q": "$9 - 3 + 1 - \\dots$?",
+        "a": "$\\frac{9}{4/3} = 6.75$."
+       }
+      ],
+      "page": 36,
+      "src": "notes",
+      "label": "1.4–1.5 Practice — harmonic and infinite series"
+     },
+     {
+      "id": "math12-u1-md-s14-q06",
+      "type": "short",
+      "q": "Exercise 1.8 Q3: sum (a) $1 + \\frac{1}{9} + \\frac{1}{81} + \\dots$ (b) $\\frac{1}{4} + \\frac{1}{4^2} + \\frac{1}{4^3} + \\dots$ (c) $\\frac{4}{9} + \\frac{8}{27} + \\frac{16}{81} + \\dots$",
+      "answer": "9/8; 1/3; 4/3",
+      "why": [
+       "Step 1: $\\frac{1}{8/9}$.",
+       "Step 2: $\\frac{1/4}{3/4}$.",
+       "Step 3: $r = \\frac{2}{3}$: $\\frac{4/9}{1/3}$."
+      ],
+      "tip": "First term over (1 − ratio).",
+      "similar": [
+       {
+        "q": "$\\frac{1}{2} - \\frac{1}{4} + \\frac{1}{8} - \\dots$?",
+        "a": "$\\frac{1}{3}$."
+       }
+      ],
+      "page": 37,
+      "src": "notes",
+      "label": "1.4–1.5 Practice — harmonic and infinite series"
+     },
+     {
+      "id": "math12-u1-md-s14-q07",
+      "type": "short",
+      "q": "Exercise 1.8 Q4 and Review Q11–12: write as fractions: 1.8181…, 0.444…, 0.2424…",
+      "answer": "20/11; 4/9; 8/33",
+      "why": [
+       "Step 1: $0.\\overline{81} = \\frac{81}{99} = \\frac{9}{11}$.",
+       "Step 2: $\\frac{0.4}{0.9}$.",
+       "Step 3: $\\frac{0.24}{0.99} = \\frac{24}{99}$."
+      ],
+      "tip": "Repeating block over as many 9s.",
+      "similar": [
+       {
+        "q": "0.3636…?",
+        "a": "4/11."
+       }
+      ],
+      "page": 37,
+      "src": "notes",
+      "label": "1.4–1.5 Practice — harmonic and infinite series"
+     },
+     {
+      "id": "math12-u1-md-s14-q08",
+      "type": "short",
+      "q": "Review Q14: sum (a) $\\frac{1}{8} + \\frac{1}{16} + \\frac{1}{32} + \\dots$ (b) $\\frac{1}{9} + \\frac{1}{27} + \\dots$ (c) $4 + 2 + 1 + \\dots$ (d) $\\sum_{i=1}^{\\infty} 0.3^i$ (e) $\\sum_{i=1}^{\\infty} 12(0.01)^i$.",
+      "answer": "1/4; 1/6; 8; 3/7; 4/33",
+      "why": [
+       "Step 1: (a) $\\frac{1/8}{1/2}$.",
+       "Step 2: (d) $\\frac{0.3}{0.7}$.",
+       "Step 3: (e) $\\frac{0.12}{0.99}$."
+      ],
+      "tip": "Write the first term carefully when $i$ starts at 1.",
+      "similar": [
+       {
+        "q": "$\\sum_{i=1}^{\\infty} 0.5^i$?",
+        "a": "1."
+       }
+      ],
+      "page": 39,
+      "src": "notes",
+      "label": "1.4–1.5 Practice — harmonic and infinite series"
+     },
+     {
+      "id": "math12-u1-md-s14-q09",
+      "type": "tf",
+      "q": "Review Q13: $2 + 4 + 8 + 16 + \\dots = \\frac{2}{1 - 2} = -2$.",
+      "answer": false,
+      "why": [
+       "Step 1: $r = 2$, so $|r| > 1$ and the series diverges.",
+       "Step 2: the formula $\\frac{G_1}{1 - r}$ may only be used when $|r| < 1$."
+      ],
+      "tip": "A sum of positive numbers cannot be negative.",
+      "similar": [
+       {
+        "q": "Is $1 + \\frac{1}{2} + \\frac{1}{4} + \\dots = 2$?",
+        "a": "True."
+       }
+      ],
+      "page": 39,
+      "src": "notes",
+      "label": "1.4–1.5 Practice — harmonic and infinite series"
+     },
+     {
+      "id": "math12-u1-md-s14-q10",
+      "type": "short",
+      "q": "Review Q5–Q6: show that $\\log G_1, \\log G_2, \\dots$ is an AP, and that $C^{a_1}, C^{a_2}, \\dots$ is a GP (AP $a_n$, $C > 0$).",
+      "answer": "AP with $d = \\log r$; GP with ratio $C^d$",
+      "why": [
+       "Step 1: $\\log G_{n+1} - \\log G_n = \\log \\frac{G_{n+1}}{G_n} = \\log r$.",
+       "Step 2: $\\frac{C^{a_{n+1}}}{C^{a_n}} = C^{a_{n+1} - a_n} = C^d$."
+      ],
+      "tip": "Logs turn ratios into differences; powers turn differences into ratios.",
+      "similar": [
+       {
+        "q": "$2^1, 2^3, 2^5, \\dots$ ratio?",
+        "a": "4."
+       }
+      ],
+      "page": 38,
+      "src": "notes",
+      "label": "1.4–1.5 Practice — harmonic and infinite series"
+     },
+     {
+      "id": "math12-u1-md-s14-q11",
+      "type": "mcq",
+      "q": "For two positive numbers $x \\ne y$ (Review Q10):",
+      "options": {
+       "A": "AM > GM",
+       "B": "AM < GM",
+       "C": "AM = GM",
+       "D": "it depends"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $\\frac{x + y}{2} - \\sqrt{xy} = \\frac{(\\sqrt{x} - \\sqrt{y})^2}{2} > 0$."
+      ],
+      "tip": "A square is never negative.",
+      "similar": [
+       {
+        "q": "When are they equal?",
+        "a": "when $x = y$."
+       }
+      ],
+      "page": 38,
+      "src": "notes",
+      "label": "1.4–1.5 Practice — harmonic and infinite series"
      }
     ]
    },
@@ -1825,6 +3258,38 @@
        "math12-u1-c11",
        "math12-u1-c12"
       ]
+     },
+     {
+      "id": "md_ap",
+      "label": "Arithmetic progression",
+      "kind": "idea",
+      "cards": [
+       "math12-u1-md-ap-why"
+      ]
+     },
+     {
+      "id": "md_gp",
+      "label": "Geometric progression",
+      "kind": "idea",
+      "cards": [
+       "math12-u1-md-gp-why"
+      ]
+     },
+     {
+      "id": "md_hp",
+      "label": "Harmonic progression",
+      "kind": "idea",
+      "cards": [
+       "math12-u1-md-hp-t"
+      ]
+     },
+     {
+      "id": "md_inf",
+      "label": "Infinite geometric series",
+      "kind": "idea",
+      "cards": [
+       "math12-u1-md-inf-t"
+      ]
      }
     ],
     "edges": [
@@ -1872,9 +3337,61 @@
       "from": "l1_4",
       "to": "l1_5",
       "label": "next"
+     },
+     {
+      "from": "l1_2",
+      "to": "md_ap",
+      "label": "key idea"
+     },
+     {
+      "from": "l1_3",
+      "to": "md_gp",
+      "label": "key idea"
+     },
+     {
+      "from": "l1_4",
+      "to": "md_hp",
+      "label": "key idea"
+     },
+     {
+      "from": "l1_5",
+      "to": "md_inf",
+      "label": "key idea"
      }
     ],
     "src": "auto"
+   },
+   "diagrams": {
+    "md_dots": {
+     "svg": "svg/mathematics_12/m12_u1_dots.svg",
+     "title": "Sequences are graphed as separate dots",
+     "page": 5,
+     "pins": []
+    },
+    "md_pairs": {
+     "svg": "svg/mathematics_12/m12_u1_pairs.svg",
+     "title": "Why S = n(a1 + an)/2: two copies make a rectangle",
+     "page": 15,
+     "pins": []
+    },
+    "md_ball": {
+     "svg": "svg/mathematics_12/m12_u1_ball.svg",
+     "title": "Example 1.26: a ball rebounding 2/3 of its height",
+     "page": 35,
+     "pins": []
+    },
+    "md_halves": {
+     "svg": "svg/mathematics_12/m12_u1_halves.svg",
+     "title": "1/2 + 1/4 + 1/8 + ... fills one whole square",
+     "page": 35,
+     "pins": []
+    },
+    "md_nested": {
+     "svg": "svg/mathematics_12/m12_u1_nested.svg",
+     "title": "Review Q15: each square has half the area of the one before",
+     "page": 39,
+     "pins": []
+    }
    }
   }
  ]
