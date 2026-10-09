@@ -11,7 +11,7 @@ A unit module defines
               a card dict with an existing id replaces that card. Existing cards not listed stay at the end of the lesson.
     DIAGRAMS  {key: (svg text, caption, textbook page)}  -> svg/mathematics_<g>/m<g>_u<n>_<key>.svg, unit diagram 'md_<key>'
     QS        practice questions (common.QSet items) appended to the unit exercise
-    GLOSSARY  [(term, meaning, page)]   TIPS [(text, page)]   IDEAS [(node id, label, topic node, card id)] (unit map)
+    PATCH {card id: {field: value}}   GLOSSARY  [(term, meaning, page)]   TIPS [(text, page)]   IDEAS [(node id, label, topic node, card id)] (unit map)
 
 Idempotent: everything it adds carries "-md-" (diagram keys "md_") and is removed and re-inserted on every run; stale
 md SVG files are deleted. Also updates the lessons' topic card lists in index.json. Afterwards run tool/split_notes.py,
@@ -100,6 +100,19 @@ def merge_unit(g, un, unit, mod):
     for l in unit['lessons']:
         if l['id'] not in new:
             l['cards'] = [c for c in l['cards'] if c['id'] not in used or c['id'] in {x['id'] for x in l['cards']}]
+    # 2b) presentation patches for cards kept as they are: PATCH = {card id: {field: value}} (e.g. a table layout)
+    #     '_inline': True turns display maths in table cells into inline maths (and drops ** around maths) so a
+    #     cards / compare layout reads as running text
+    for l in unit['lessons']:
+        for c in l['cards']:
+            p = dict(getattr(mod, 'PATCH', {}).get(c['id'], {}))
+            if p.pop('_inline', False):
+                fix = lambda s: s.replace('**', '').replace('$$', '$') if '$' in s else s
+                c['head'] = [fix(h) for h in c['head']]
+                c['rows'] = [[fix(x) for x in r] for r in c['rows']]
+            c.update(p)
+    unknown = set(getattr(mod, 'PATCH', {})) - {c['id'] for l in unit['lessons'] for c in l['cards']}
+    assert not unknown, f'{uid}: PATCH for unknown cards {unknown}'
     # 3) checks
     ids = [c['id'] for l in unit['lessons'] for c in l['cards']]
     dup = {i for i in ids if ids.count(i) > 1}
