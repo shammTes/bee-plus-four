@@ -4,15 +4,47 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:four_format/four_format.dart';
 
 import 'src/core.dart';
 import 'src/io.dart';
 import 'src/labx.dart';
+import 'src/log.dart';
 import 'src/master_key.dart';
 import 'src/web_mirror.dart';
 
-void main() => runApp(const EncryptorApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await AppLog.init();
+  FlutterError.onError = (d) {
+    AppLog.log('flutter error: ${d.exceptionAsString()}');
+    FlutterError.presentError(d);
+  };
+  WidgetsBinding.instance.platformDispatcher.onError = (e, st) {
+    AppLog.log('uncaught: $e\n$st');
+    return true;
+  };
+  AppLog.log('start · ${AppLog.device} · key ${MasterKey.isDev ? 'DEV' : 'FOUR_MK'}');
+  AppLog.log(await cryptoSelfTest());
+  try {
+    AppLog.log(await fourSelfTest(await MasterKey.load()));
+  } catch (e) {
+    selfTestError = 'Master key: $e';
+    AppLog.log('master key failed: $e');
+  }
+  runApp(const EncryptorApp());
+}
+
+/// Human-readable error text: PlatformException message (native step + exception) and the first stack lines.
+String describeError(Object e, [StackTrace? st]) {
+  if (e is PlatformException) {
+    final d = e.details is String ? (e.details as String).split('\n').take(8).join('\n') : '';
+    return '${e.message ?? e.code}${d.isEmpty ? '' : '\n$d'}';
+  }
+  final top = st == null ? '' : st.toString().split('\n').take(6).join('\n');
+  return '${e.runtimeType}: $e${top.isEmpty ? '' : '\n$top'}';
+}
 
 const kSubjects = ['', 'agriculture', 'biology', 'business_economics', 'chemistry', 'civics', 'english', 'geography', 'history', 'ict', 'mathematics', 'physics', 'tigrinya', 'general'];
 
@@ -81,8 +113,9 @@ class _HomePageState extends State<HomePage> {
       j.pages = (m['pages'] as num?)?.toInt();
       j.portrait = m['portrait'] == true;
       if (j.mime.startsWith('video/') && j.portrait && j.type == FourType.video) j.type = FourType.reel; // auto-detect
+      AppLog.log('probe ${j.name}: mime=${j.mime} size=${j.size} dur=${j.durationMs} portrait=${j.portrait} thumb=${j.thumb?.length}');
     } catch (e) {
-      debugPrint('probe ${j.name}: $e');
+      AppLog.log('probe ${j.name} failed (not fatal): ${describeError(e)}');
     }
     if (mounted) setState(() {});
   }
@@ -249,17 +282,27 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         j.status = 'Encrypting…';
         j.error = null;
+        j.errorDetails = null;
       });
       SafSource? src;
       SafSink? out;
       var ok = false;
+      var step = 'open the input file';
+      final sw = Stopwatch()..start();
       try {
         src = await SafSource.open(j.uri);
+        AppLog.log('encrypt ${j.name}: type=${j.type.name} size=${src.length} (picker said ${j.size}) read=${src.mode}');
+        step = 'create ${j.outFileName} in the output folder';
         out = await SafSink.create(outTree!, j.outFileName);
+        step = 'encrypt';
         var last = DateTime.now();
+        var chunk = 0;
         await encryptStream(
-          input: src,
-          add: out.add,
+          input: _StepSource(src, (off) => step = 'read + encrypt chunk ${chunk = off ~/ FourFormat.defaultChunk} (byte $off)'),
+          add: (b) {
+            step = 'write chunk $chunk to the output file';
+            return out!.add(b);
+          },
           meta: j.meta(),
           masterKey: mk,
           batch: batch,
@@ -274,8 +317,10 @@ class _HomePageState extends State<HomePage> {
             });
           },
         );
+        step = 'finish writing the output file';
         ok = true;
         await out.close(ok: true);
+        AppLog.log('done ${j.name} → ${out.name} in ${sw.elapsedMilliseconds} ms');
         setState(() {
           j.outUri = out!.uri;
           j.outName = out.name;
@@ -283,19 +328,25 @@ class _HomePageState extends State<HomePage> {
           j.status = 'Done → ${out.name}';
         });
         if (j.tempPath != null) await Io.deleteTemp(j.tempPath!);
-      } catch (e) {
+      } catch (e, st) {
         if (out != null && !ok) {
           try {
             await out.close(ok: false);
           } catch (_) {}
         }
+        final msg = describeError(e, st);
+        final details = 'File: ${j.name} (${fmtSize(j.size)}, ${j.mime}, ${j.type.name})\nFailed step: $step\nError: $msg\nDevice: ${AppLog.device}\nApp: 4 Encryptor 1.0.1, key ${MasterKey.isDev ? 'DEV' : 'FOUR_MK'}';
+        AppLog.log('FAILED ${j.name} at "$step": $msg');
         setState(() {
-          j.error = '$e';
-          j.status = 'Failed: $e';
+          j.error = 'Could not $step: ${msg.split('\n').first}';
+          j.errorDetails = details;
+          j.status = 'Failed';
           j.progress = 0;
         });
       } finally {
-        await src?.close();
+        try {
+          await src?.close();
+        } catch (_) {}
       }
       before += j.size > 0 ? j.size : 1;
     }
@@ -305,6 +356,23 @@ class _HomePageState extends State<HomePage> {
     });
     final n = todo.where((j) => j.done).length;
     _snack('$n of ${todo.length} encrypted into $outName');
+  }
+
+  Future<void> _showLog() async {
+    final text = await AppLog.read();
+    if (!mounted) return;
+    await showDialog<void>(
+      context: context,
+      builder: (c) => AlertDialog(
+        title: const Text('Log'),
+        content: SizedBox(width: double.maxFinite, child: SingleChildScrollView(reverse: true, child: SelectableText(text.isEmpty ? '(empty)' : text, style: const TextStyle(fontSize: 11, fontFamily: 'monospace')))),
+        actions: [
+          TextButton(onPressed: () => Clipboard.setData(ClipboardData(text: '${AppLog.device}\n$text')), child: const Text('Copy')),
+          TextButton(onPressed: AppLog.share, child: const Text('Share')),
+          TextButton(onPressed: () => Navigator.pop(c), child: const Text('Close')),
+        ],
+      ),
+    );
   }
 
   Future<void> _remove(Job j) async {
@@ -321,6 +389,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('4 Encryptor'),
         actions: [
+          IconButton(tooltip: 'Log', icon: const Icon(Icons.receipt_long_outlined), onPressed: _showLog),
           Padding(
             padding: const EdgeInsets.only(right: 8),
             child: ActionChip(
@@ -338,6 +407,12 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
+          if (selfTestError != null)
+            MaterialBanner(
+              backgroundColor: Colors.red.withValues(alpha: .08),
+              content: SelectableText('$selfTestError\nEncrypting will not work on this phone. Please share the log.', style: const TextStyle(color: Colors.red)),
+              actions: [TextButton(onPressed: AppLog.share, child: const Text('Share log'))],
+            ),
           if (busy) LinearProgressIndicator(value: overall > 0 ? overall : null),
           if (statusLine != null) Padding(padding: const EdgeInsets.all(8), child: Text(statusLine!)),
           Expanded(
@@ -418,6 +493,51 @@ class _HomePageState extends State<HomePage> {
   );
 }
 
+class _ErrorBox extends StatelessWidget {
+  const _ErrorBox({required this.job});
+  final Job job;
+  @override
+  Widget build(BuildContext context) => Container(
+    margin: const EdgeInsets.only(top: 6),
+    padding: const EdgeInsets.all(8),
+    decoration: BoxDecoration(color: Colors.red.withValues(alpha: .07), borderRadius: BorderRadius.circular(8)),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SelectableText(job.error!, style: const TextStyle(color: Colors.red, fontSize: 12.5)),
+        if (job.errorDetails != null) SelectableText(job.errorDetails!, maxLines: 6, style: const TextStyle(fontSize: 11)),
+        Row(
+          children: [
+            TextButton.icon(
+              onPressed: () {
+                Clipboard.setData(ClipboardData(text: job.errorDetails ?? job.error!));
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Error details copied')));
+              },
+              icon: const Icon(Icons.copy, size: 16),
+              label: const Text('Copy error details'),
+            ),
+            TextButton.icon(onPressed: AppLog.share, icon: const Icon(Icons.share, size: 16), label: const Text('Share log')),
+          ],
+        ),
+      ],
+    ),
+  );
+}
+
+/// Wraps the input so the UI knows which chunk failed.
+class _StepSource extends FourSource {
+  _StepSource(this.inner, this.onRead);
+  final FourSource inner;
+  final void Function(int off) onRead;
+  @override
+  int get length => inner.length;
+  @override
+  Future<Uint8List> read(int offset, int len) {
+    onRead(offset);
+    return inner.read(offset, len);
+  }
+}
+
 class _JobCard extends StatelessWidget {
   const _JobCard({required this.job, required this.busy, required this.onChanged, required this.onRemove});
   final Job job;
@@ -462,6 +582,7 @@ class _JobCard extends StatelessWidget {
               ],
             ),
             if (j.progress > 0 && j.progress < 1) Padding(padding: const EdgeInsets.only(top: 6), child: LinearProgressIndicator(value: j.progress)),
+            if (j.error != null) _ErrorBox(job: j),
             if (!j.done) ...[
               const SizedBox(height: 6),
               if (types.length > 1)

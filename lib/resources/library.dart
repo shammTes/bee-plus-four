@@ -33,9 +33,38 @@ class ResEntry {
 }
 
 class RefreshReport {
-  const RefreshReport(this.added, this.skipped, this.failed, [this.error]);
+  const RefreshReport(this.added, this.skipped, this.failed, [this.error, this.problems = const []]);
   final int added, skipped, failed;
   final String? error;
+
+  /// One line per file that could not be added: "name: plain reason".
+  final List<String> problems;
+}
+
+/// Plain-language reason a resource file could not be added/opened, followed by the technical error.
+String explainImportError(Object e) {
+  final tech = e is PlatformException ? '${e.code}: ${e.message}' : '$e';
+  final String why;
+  if (e is FourKeyException && e.message.contains('not unlocked')) {
+    why = '4 is not unlocked on this phone';
+  } else if (e is FourKeyException && e.message == 'wrong key') {
+    why = 'made with a different key: the encryptor and this 4 must both use the DEV key, or the same FOUR_MK';
+  } else if (e is FourKeyException) {
+    why = 'key problem';
+  } else if (e is FourIntegrityException) {
+    why = 'the file is damaged or was not copied completely (copy it again)';
+  } else if (e is FourFormatException && e.message.startsWith('unsupported version')) {
+    why = 'made by a newer encryptor; update 4';
+  } else if (e is FourFormatException) {
+    why = 'not a valid 4 resource file';
+  } else if (e is PlatformException || e is FileSystemException) {
+    why = 'could not copy it into 4 (storage full or the file is not readable)';
+  } else if (e is SecretBoxAuthenticationError) {
+    why = 'the file is damaged or made with a different key';
+  } else {
+    why = 'unexpected error';
+  }
+  return '$why [$tech]';
 }
 
 /// App-wide store. Lazy: nothing is read until the Resources page or a unit strip asks.
@@ -106,13 +135,14 @@ class ResourceLibrary extends ChangeNotifier {
     return out;
   }
 
-  Future<ResEntry?> _entryFor(String path, {bool verify = false}) async {
+  Future<ResEntry?> _entryFor(String path, {bool verify = false, bool rethrowErrors = false}) async {
     final src = await FileSource.open(path);
     try {
       final r = await FourReader.open(src, gate.masterKey, verify: verify);
       return ResEntry(id: r.id, path: path, meta: r.meta, thumb: r.thumbnail, size: r.length);
     } catch (e) {
       debugPrint('resource $path: $e');
+      if (rethrowErrors) rethrow;
       return null;
     } finally {
       await src.close();
@@ -166,6 +196,7 @@ class ResourceLibrary extends ChangeNotifier {
     busy = true;
     notifyListeners();
     var added = 0, skipped = 0, failed = 0;
+    final problems = <String>[];
     try {
       final dir = await _dir();
       final list = await _ch.invokeListMethod<Map<Object?, Object?>>('listFolder', {'uri': f}) ?? const [];
@@ -190,8 +221,7 @@ class ResourceLibrary extends ChangeNotifier {
           }
           final dest = '${dir.path}/$id.4res';
           if (mode != GateMode.locked) {
-            final e = await _entryFor(tmp, verify: true);
-            if (e == null) throw const FourFormatException('cannot open (wrong key or damaged)');
+            final e = (await _entryFor(tmp, verify: true, rethrowErrors: true))!;
             await File(tmp).rename(dest);
             entries = [...entries, ResEntry(id: e.id, path: dest, meta: e.meta, thumb: e.thumb, size: e.size)];
           } else {
@@ -202,6 +232,7 @@ class ResourceLibrary extends ChangeNotifier {
           added++;
         } catch (e) {
           debugPrint('import ${item['name']}: $e');
+          problems.add('${item['name']}: ${explainImportError(e)}');
           final t = File(tmp);
           if (await t.exists()) await t.delete();
           failed++;
@@ -211,12 +242,12 @@ class ResourceLibrary extends ChangeNotifier {
       // offline update: a newer 4 APK shared into the same folder
       await Updater.instance.scanFolder(f);
     } on PlatformException catch (e) {
-      return RefreshReport(added, skipped, failed, e.message);
+      return RefreshReport(added, skipped, failed, e.message, problems);
     } finally {
       busy = false;
       notifyListeners();
     }
-    return RefreshReport(added, skipped, failed);
+    return RefreshReport(added, skipped, failed, null, problems);
   }
 
   Future<void> remove(ResEntry e) async {

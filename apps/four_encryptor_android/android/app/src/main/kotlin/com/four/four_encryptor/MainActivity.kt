@@ -9,7 +9,6 @@ import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.Handler
 import android.os.Looper
-import android.os.ParcelFileDescriptor
 import android.provider.DocumentsContract
 import android.provider.OpenableColumns
 import io.flutter.embedding.android.FlutterActivity
@@ -18,9 +17,8 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import java.io.ByteArrayOutputStream
 import java.io.File
-import java.io.FileInputStream
 import java.io.OutputStream
-import java.nio.ByteBuffer
+import java.io.IOException
 import java.util.concurrent.Executors
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
@@ -36,7 +34,7 @@ class MainActivity : FlutterActivity() {
     private val main = Handler(Looper.getMainLooper())
     private var pending: MethodChannel.Result? = null
     private var pendingKind = ""
-    private val inputs = HashMap<Int, ParcelFileDescriptor>()
+    private val inputs = HashMap<Int, ChunkInput>()
     private val outputs = HashMap<Int, Pair<OutputStream, Uri>>()
     private var nextHandle = 1
 
@@ -59,6 +57,10 @@ class MainActivity : FlutterActivity() {
                 "hasFolder" -> result.success(contentResolver.persistedUriPermissions.any { it.uri.toString() == call.argument<String>("uri") && it.isWritePermission })
                 "folderName" -> result.success(treeName(Uri.parse(call.argument<String>("uri")!!)))
                 "share" -> { share(call.argument<List<String>>("uris")!!); result.success(null) }
+                "shareText" -> {
+                    val t = Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_SUBJECT, "4 Encryptor log").putExtra(Intent.EXTRA_TEXT, call.argument<String>("text") ?: "")
+                    startActivity(Intent.createChooser(t, "Share log")); result.success(null)
+                }
                 else -> bg(call, result)
             }
         }
@@ -69,10 +71,12 @@ class MainActivity : FlutterActivity() {
             val r: Any? = when (call.method) {
                 "probe" -> probe(Uri.parse(call.argument<String>("uri")!!), call.argument<String>("mime") ?: "")
                 "openIn" -> openIn(call.argument<String>("uri")!!)
-                "read" -> read(call.argument<Int>("h")!!, (call.argument<Any>("off") as Number).toLong(), call.argument<Int>("len")!!)
+                "read" -> (inputs[call.argument<Int>("h")!!] ?: throw IllegalStateException("input closed")).read((call.argument<Any>("off") as Number).toLong(), (call.argument<Any>("len") as Number).toInt())
                 "closeIn" -> { inputs.remove(call.argument<Int>("h"))?.close(); null }
                 "createOut" -> createOut(call.argument<String>("tree")!!, call.argument<String>("name")!!)
-                "write" -> { outputs[call.argument<Int>("h")!!]!!.first.write(call.argument<ByteArray>("b")!!); null }
+                "write" -> { (outputs[call.argument<Int>("h")!!] ?: throw IllegalStateException("output closed")).first.write(call.argument<ByteArray>("b")!!); null }
+                "logPath" -> File(filesDir, "encryptor_log.txt").path
+                "deviceInfo" -> "Android ${android.os.Build.VERSION.RELEASE} (SDK ${android.os.Build.VERSION.SDK_INT}), ${android.os.Build.MANUFACTURER} ${android.os.Build.MODEL}, ABIs ${android.os.Build.SUPPORTED_ABIS.joinToString()}"
                 "closeOut" -> closeOut(call.argument<Int>("h")!!, call.argument<Boolean>("ok") ?: true)
                 "zipEntries" -> zipEntries(Uri.parse(call.argument<String>("uri")!!))
                 "zipFolder" -> zipFolder(Uri.parse(call.argument<String>("uri")!!))
@@ -83,7 +87,9 @@ class MainActivity : FlutterActivity() {
             }
             main.post { result.success(r) }
         } catch (e: Throwable) {
-            main.post { result.error("io", e.message ?: e.toString(), null) }
+            val msg = "${call.method}: ${e.javaClass.simpleName}: ${e.message ?: ""}"
+            android.util.Log.e("FourEncryptor", msg, e)
+            main.post { result.error("io", msg, android.util.Log.getStackTraceString(e).take(4000)) }
         }
     }
 
@@ -145,10 +151,33 @@ class MainActivity : FlutterActivity() {
         return mapOf("uri" to u.toString(), "name" to name, "size" to size, "mime" to (contentResolver.getType(u) ?: ""))
     }
 
-    private fun treeName(tree: Uri): String = try {
-        val doc = DocumentsContract.buildDocumentUriUsingTree(tree, DocumentsContract.getTreeDocumentId(tree))
-        contentResolver.query(doc, arrayOf(DocumentsContract.Document.COLUMN_DISPLAY_NAME), null, null, null)?.use { c -> if (c.moveToFirst()) c.getString(0) else null } ?: tree.lastPathSegment ?: "folder"
-    } catch (_: Exception) { tree.lastPathSegment ?: "folder" }
+    /** Readable folder label: "Internal storage/Download/4" for storage trees, else the provider's display name. */
+    private fun treeName(tree: Uri): String {
+        val id = try { DocumentsContract.getTreeDocumentId(tree) } catch (_: Exception) { null }
+        if (id != null && tree.authority == "com.android.externalstorage.documents" && id.contains(':')) {
+            val vol = id.substringBefore(':')
+            val path = id.substringAfter(':').trim('/')
+            val root = if (vol == "primary") "Internal storage" else "SD card"
+            return clean(if (path.isEmpty()) root else "$root/$path")
+        }
+        val name = try {
+            val doc = DocumentsContract.buildDocumentUriUsingTree(tree, id)
+            contentResolver.query(doc, arrayOf(DocumentsContract.Document.COLUMN_DISPLAY_NAME), null, null, null)?.use { c -> if (c.moveToFirst()) c.getString(0) else null }
+        } catch (_: Exception) { null }
+        val c = clean(name ?: "")
+        return if (c.isNotBlank()) c else clean(id?.substringAfterLast('/')?.substringAfterLast(':') ?: "").ifBlank { "chosen folder" }
+    }
+
+    /** Drops control / unassigned / private-use characters that render as junk boxes. */
+    private fun clean(s: String): String = buildString {
+        var i = 0
+        while (i < s.length) {
+            val cp = s.codePointAt(i)
+            val t = Character.getType(cp)
+            if (!Character.isISOControl(cp) && t != Character.UNASSIGNED.toInt() && t != Character.PRIVATE_USE.toInt() && t != Character.SURROGATE.toInt() && t != Character.FORMAT.toInt()) appendCodePoint(cp)
+            i += Character.charCount(cp)
+        }
+    }.trim()
 
     // ---- probe: duration / size / thumbnail / pdf pages (all platform APIs, nothing bundled)
     private fun probe(u: Uri, mime: String): Map<String, Any?> {
@@ -199,26 +228,44 @@ class MainActivity : FlutterActivity() {
     }
 
     // ---- streaming input
+    /**
+     * Opens a picked file for chunked reading without copying it. Seekable descriptors use pread; pipes / virtual or
+     * cloud files fall back to a sequential stream. If the provider does not report a size, the file is copied to the
+     * app cache first (the container header needs the exact size).
+     */
     private fun openIn(uri: String): Map<String, Any> {
-        val u = Uri.parse(uri)
-        val fd = if (uri.startsWith("/")) ParcelFileDescriptor.open(File(uri), ParcelFileDescriptor.MODE_READ_ONLY)
-        else contentResolver.openFileDescriptor(u, "r") ?: throw IllegalStateException("cannot open $uri")
         val h = nextHandle++
-        inputs[h] = fd
-        return mapOf("h" to h, "size" to fd.statSize)
+        val input: ChunkInput = if (uri.startsWith("/")) fileInput(File(uri)) else contentInput(Uri.parse(uri))
+        inputs[h] = input
+        return mapOf("h" to h, "size" to input.size, "mode" to input.mode)
     }
 
-    private fun read(h: Int, off: Long, len: Int): ByteArray {
-        val fd = inputs[h] ?: throw IllegalStateException("closed")
-        val ch = FileInputStream(fd.fileDescriptor).channel // positional read, no shared position
-        val buf = ByteBuffer.allocate(len)
-        var pos = off
-        while (buf.hasRemaining()) {
-            val n = ch.read(buf, pos)
-            if (n < 0) throw IllegalStateException("short read")
-            pos += n
+    private fun fileInput(f: File): ChunkInput {
+        val raf = java.io.RandomAccessFile(f, "r")
+        return PreadInput(raf.length(), { b, o, l, pos -> synchronized(raf) { raf.seek(pos); raf.read(b, o, l) } }, { raf.close() })
+    }
+
+    private fun contentInput(u: Uri): ChunkInput {
+        val reported = describe(u)["size"] as Long
+        val pfd = try { contentResolver.openFileDescriptor(u, "r") } catch (e: Exception) { null }
+        if (pfd != null) {
+            val st = pfd.statSize
+            val seekable = try { android.system.Os.lseek(pfd.fileDescriptor, 0, android.system.OsConstants.SEEK_CUR); true } catch (e: Exception) { false }
+            val size = if (st >= 0) st else reported
+            if (seekable && size >= 0) {
+                val fd = pfd.fileDescriptor
+                return PreadInput(size, { b, o, l, pos -> android.system.Os.pread(fd, b, o, l, pos) }, { pfd.close() })
+            }
+            pfd.close()
+            if (size >= 0) return StreamInput(size) { contentResolver.openInputStream(u) ?: throw IOException("provider returned no stream") }
+        } else if (reported >= 0) {
+            return StreamInput(reported) { contentResolver.openInputStream(u) ?: throw IOException("provider returned no stream") }
         }
-        return buf.array()
+        // size unknown: copy to cache once
+        val tmp = File(File(cacheDir, "in").apply { mkdirs() }, "in_${System.currentTimeMillis()}")
+        (contentResolver.openInputStream(u) ?: throw IOException("cannot open the file (provider returned nothing)")).use { i -> tmp.outputStream().use { o -> i.copyTo(o, 1 shl 18) } }
+        val inner = fileInput(tmp)
+        return object : ChunkInput by inner { override fun close() { inner.close(); tmp.delete() } }
     }
 
     // ---- output into the picked folder
@@ -226,11 +273,19 @@ class MainActivity : FlutterActivity() {
         val t = Uri.parse(tree)
         val parent = DocumentsContract.buildDocumentUriUsingTree(t, DocumentsContract.getTreeDocumentId(t))
         // "application/octet-stream" keeps providers from appending their own extension
-        val doc = DocumentsContract.createDocument(contentResolver, parent, "application/octet-stream", name) ?: throw IllegalStateException("cannot create $name")
-        val os = contentResolver.openOutputStream(doc, "w") ?: throw IllegalStateException("cannot write $name")
+        val doc = DocumentsContract.createDocument(contentResolver, parent, "application/octet-stream", name)
+            ?: throw IOException("the folder did not allow creating $name (pick another output folder)")
+        var outDoc = doc
+        val got = describe(doc)["name"] as String
+        if (got != name && got.endsWith(".bin")) {
+            // some providers append .bin to octet-stream files: rename back so 4 sees .4vid/.4pdf
+            runCatching { DocumentsContract.renameDocument(contentResolver, doc, name) }.getOrNull()?.let { outDoc = it }
+        }
+        val os = contentResolver.openOutputStream(outDoc, "w") ?: throw IOException("cannot write $name")
+        val doc2 = outDoc
         val h = nextHandle++
-        outputs[h] = Pair(os.buffered(1 shl 18), doc)
-        return mapOf("h" to h, "uri" to doc.toString(), "name" to (describe(doc)["name"] ?: name))
+        outputs[h] = Pair(os.buffered(1 shl 18), doc2)
+        return mapOf("h" to h, "uri" to doc2.toString(), "name" to (describe(doc2)["name"] ?: name))
     }
 
     private fun closeOut(h: Int, ok: Boolean): Any? {
