@@ -14984,28 +14984,28 @@
               "head": [
                 "Unknown",
                 "Formula",
-                "Example"
+                "Example (Exercise 6.1 Q1)"
               ],
               "rows": [
                 [
                   "interest $I$",
                   "$I = Prt$",
-                  "$2500 \\times 0.06 \\times 3 = 450$"
+                  "(c) 1750 × 0.03 × 5 = 262.50"
                 ],
                 [
                   "rate $r$",
                   "$r = \\frac{I}{Pt}$",
-                  "$\\frac{720}{6000 \\times 4} = 0.03 = 3\\%$"
+                  "(a) 720 ÷ (6000 × 4) = 0.03 = 3%"
                 ],
                 [
                   "time $t$",
                   "$t = \\frac{I}{Pr}$",
-                  "$\\frac{450}{2500 \\times 0.06} = 3$ years"
+                  "(b) 450 ÷ (2500 × 0.06) = 3 years"
                 ],
                 [
                   "principal $P$",
                   "$P = \\frac{I}{rt}$",
-                  "$\\frac{210}{0.04 \\times 14} = 375$"
+                  "(d) 210 ÷ (0.04 × 14) = 375"
                 ]
               ]
             },
@@ -15040,23 +15040,23 @@
               "rows": [
                 [
                   "1",
-                  "$1000 \\times 0.06 = 60$",
+                  "60",
                   "1060",
-                  "$1000 \\times 0.06 = 60$",
+                  "60",
                   "1060"
                 ],
                 [
                   "2",
-                  "$1000 \\times 0.06 = 60$",
+                  "60",
                   "1120",
-                  "$1060 \\times 0.06 = 63.60$",
+                  "63.60",
                   "1123.60"
                 ],
                 [
                   "3",
-                  "$1000 \\times 0.06 = 60$",
+                  "60",
                   "1180",
-                  "$1123.60 \\times 0.06 = 67.42$",
+                  "67.42",
                   "1191.02"
                 ]
               ]
@@ -15068,7 +15068,7 @@
               "page": 203,
               "src": "notes",
               "body": [
-                "Berhe (simple) gets **1180** Nakfa; Saliha (compound) gets **1191.02** Nakfa. The book's first table multiplies 1060 and 1123.60 by 0.06 although simple interest always uses the original 1000, and it says \"the amount to be paid to Saliha is 1180\" where it means Berhe. In the second table \"= 06\" should be \"= 60\" and \"1123.06\" should be \"1123.60\"."
+                "Simple interest is always $1000 \\times 0.06 = 60$. Compound interest is 6% of the **previous amount**: $1060 \\times 0.06 = 63.60$, then $1123.60 \\times 0.06 = 67.42$. Berhe (simple) gets **1180** Nakfa; Saliha (compound) gets **1191.02** Nakfa. The book's first table multiplies 1060 and 1123.60 by 0.06 although simple interest always uses the original 1000, and it says \"the amount to be paid to Saliha is 1180\" where it means Berhe. In the second table \"= 06\" should be \"= 60\" and \"1123.06\" should be \"1123.60\"."
               ]
             },
             {
@@ -15371,8 +15371,10 @@
               "body": [
                 "Move every payment to the **end**: the first payment earns interest for 2 years, the second for 1, the last for 0. Together they must equal the loan grown for 3 years:",
                 "$$x(1.1)^2 + x(1.1) + x = 66200(1.1)^3$$",
-                "$$x(1.21 + 1.1 + 1) = 88112.2 \\;\\Rightarrow\\; x = \\frac{88112.2}{3.31} = 26{,}620 \\text{ Nakfa}$$",
-                "General rule (loan $P$, rate $r$ per period, $n$ payments): $x\\left[(1 + r)^{n-1} + \\dots + (1 + r) + 1\\right] = P(1 + r)^n$.",
+                "$$x(1.21 + 1.1 + 1) = 88112.2$$",
+                "$$x = \\frac{88112.2}{3.31} = 26{,}620 \\text{ Nakfa}$$",
+                "General rule (loan $P$, rate $r$ per period, $n$ payments): grow every payment to the end of the loan and set the total equal to $P(1 + r)^n$:",
+                "$$x\\left[(1 + r)^{n-1} + \\dots + 1\\right] = P(1 + r)^n$$",
                 "(The book's check lists \"10% of 33100\", \"10% of 3310\", \"10% of 1210\" — it means 10% of 66,200, 46,200 and 24,200; the interest values printed are right.)"
               ]
             },
@@ -15385,7 +15387,8 @@
               "body": [
                 "Machines, cars and buildings (**fixed assets**) lose value with age and use. The loss is the **depreciation**; the value left is the **book value** (BV).",
                 "$$\\text{depreciation} = \\text{original cost (OC)} - \\text{book value (BV)}$$",
-                "**Straight-line method:** the same amount every year: $$\\text{annual depreciation} = \\frac{OC - BV}{t}, \\quad \\text{rate} = \\frac{\\text{annual depreciation}}{OC} \\times 100\\%, \\quad BV = OC(1 - rt).$$",
+                "**Straight-line method:** the same amount every year: $$\\text{annual dep.} = \\frac{OC - BV}{t}$$",
+                "$$\\text{rate} = \\frac{\\text{annual dep.}}{OC} \\times 100\\%, \\qquad BV = OC(1 - rt)$$",
                 "**Diminishing (reducing) value method:** the same **percent** of last year's value each year: $$BV = OC\\left(1 - r\\right)^t.$$ It is compound interest run backwards."
               ]
             },
