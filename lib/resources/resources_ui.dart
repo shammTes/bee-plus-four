@@ -1,6 +1,7 @@
 // Add-on resources UI: Home card, Resources page, "Extra resources" strip on notes unit pages.
 // The PDF viewer (pdfrx / PDFium) lives in pdf_page.dart and is only built when a PDF is opened.
 import 'package:flutter/foundation.dart' show Uint8List;
+import 'package:flutter/services.dart' show Clipboard, ClipboardData;
 import 'package:flutter/widgets.dart';
 import 'package:four_format/four_format.dart';
 
@@ -118,7 +119,11 @@ class _ResourcesPageState extends State<ResourcesPage> {
     try {
       final r = await lib.refresh();
       if (!mounted) return;
-      toast(context, r.error ?? (r.added == 0 && r.failed == 0 ? 'No new files found' : 'Added ${r.added}${r.failed > 0 ? ' · ${r.failed} could not be opened' : ''}'));
+      if (r.problems.isNotEmpty) {
+        await showImportProblems(context, r);
+      } else {
+        toast(context, r.error ?? (r.added == 0 && r.failed == 0 ? 'No new files found' : 'Added ${r.added}${r.failed > 0 ? ' · ${r.failed} could not be opened' : ''}'));
+      }
     } catch (e) {
       if (mounted) toast(context, 'Refresh needs Android: $e');
     }
@@ -397,4 +402,63 @@ class _LockPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_LockPainter o) => o.c != c;
+}
+
+
+/// Lists every file that could not be added with a plain reason; "Copy details" puts the full text on the clipboard.
+Future<void> showImportProblems(BuildContext context, RefreshReport r) {
+  final head = 'Added ${r.added} · ${r.failed} could not be added${r.skipped > 0 ? ' · ${r.skipped} already there' : ''}';
+  final details = '4 resources import\n$head\n${r.error != null ? 'Error: ${r.error}\n' : ''}${r.problems.map((x) => '• $x').join('\n')}';
+  return showGeneralDialog<void>(
+    context: context,
+    barrierDismissible: true,
+    barrierLabel: 'close',
+    barrierColor: const Color(0x99000000),
+    pageBuilder: (c, _, _) {
+      final p = Kit.of(context).p;
+      Widget btn(String label, VoidCallback onTap) => GestureDetector(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          decoration: BoxDecoration(color: p.surface2, borderRadius: BorderRadius.circular(12)),
+          child: Text(label, style: ts(14, w900, p.ink)),
+        ),
+      );
+      return SafeArea(
+        child: Center(
+          child: Container(
+            margin: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(18),
+            constraints: const BoxConstraints(maxHeight: 520),
+            decoration: BoxDecoration(color: p.surface, borderRadius: BorderRadius.circular(18)),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(head, style: ts(16, w900, p.ink)),
+                const SizedBox(height: 10),
+                Flexible(
+                  child: SingleChildScrollView(
+                    child: Text(r.problems.map((x) => '• $x').join('\n\n'), style: ts(13, w700, p.ink2)),
+                  ),
+                ),
+                const SizedBox(height: 14),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    btn('Copy details', () {
+                      Clipboard.setData(ClipboardData(text: details));
+                      toast(context, 'Details copied');
+                    }),
+                    const SizedBox(width: 10),
+                    btn('Close', () => Navigator.of(c).pop()),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+  );
 }
