@@ -134,3 +134,15 @@ def halfplane(p, a, b, c, fill=SHADE, op=0.6):
     if len(out) >= 3:
         p.poly([p.P(*q) for q in out], None, 0, fill, op=op)
     return p
+
+
+def with_legend(p, items, size=12.5, gap=14):
+    """wrap a Fig/Plot and add a row of coloured legend texts underneath: items = [(text, colour), ...]"""
+    f = Fig(p.w, p.h + 20)
+    f.raw('<g>' + ''.join(p.p) + '</g>')
+    widths = [len(t) * size * 0.55 + gap for t, _ in items]
+    x = (p.w - sum(widths) + gap) / 2
+    for (t, c), wd in zip(items, widths):
+        f.text(x, p.h + 14, t, size, c, 'start')
+        x += wd
+    return f
