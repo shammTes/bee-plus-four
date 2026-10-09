@@ -33,9 +33,9 @@ def f_x2p4x():
 
 def f_afamily():
     a = Plot(-3, 3, -1, 9, unit=22, uy=16, every=1, yevery=2, labels=True)
-    a.fn(lambda x: 2 * x * x, -2.12, 2.12, RED, 2.6).fn(lambda x: x * x, -3, 3, BLUE, 2.6).fn(lambda x: x * x / 2, -3, 3, GREEN, 2.6)
+    a.fn(lambda x: 2 * x * x, -2.12, 2.12, RED, 2.6, steps=36).fn(lambda x: x * x, -3, 3, BLUE, 2.6, steps=36).fn(lambda x: x * x / 2, -3, 3, GREEN, 2.6, steps=36)
     b = Plot(-3, 3, -9, 1, unit=22, uy=16, every=1, yevery=2, labels=True)
-    b.fn(lambda x: -2 * x * x, -2.12, 2.12, RED, 2.6).fn(lambda x: -x * x, -3, 3, BLUE, 2.6).fn(lambda x: -x * x / 2, -3, 3, GREEN, 2.6)
+    b.fn(lambda x: -2 * x * x, -2.12, 2.12, RED, 2.6, steps=36).fn(lambda x: -x * x, -3, 3, BLUE, 2.6, steps=36).fn(lambda x: -x * x / 2, -3, 3, GREEN, 2.6, steps=36)
     a = with_legend(a, [('2x²', RED), ('x²', BLUE), ('½x²', GREEN)])
     b = with_legend(b, [('−2x²', RED), ('−x²', BLUE), ('−½x²', GREEN)])
     return side_by_side([a, b], 8, ['a > 0: opens up', 'a < 0: opens down'])
