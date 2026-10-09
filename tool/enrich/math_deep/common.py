@@ -37,8 +37,9 @@ def MN(i, title, page, *body):
     return _c(i, 'mnemonic', title, page, body=list(body))
 
 
-def TB(i, title, page, head, rows, *body):
-    return _c(i, 'table', title, page, head=head, rows=rows, body=list(body) or None)
+def TB(i, title, page, head, rows, *body, layout=None):
+    """table card; layout (optional): 'cards' | 'compare' | 'stack' | 'terms' | 'grid' (see ntable.dart) for narrow phones"""
+    return _c(i, 'table', title, page, head=head, rows=rows, body=list(body) or None, layout=layout)
 
 
 def DG(i, title, page, diagram, *body):
