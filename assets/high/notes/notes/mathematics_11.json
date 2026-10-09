@@ -2965,6 +2965,42 @@
           "title": "Shift: √(x−2)+1 starts at (2,1), not at the origin.",
           "page": 65,
           "pins": []
+        },
+        "md_stretch": {
+          "svg": "svg/mathematics_11/m11_u2_stretch.svg",
+          "title": "Example 2.2(a): y = √x, √(2x) and √(4x)",
+          "page": 64,
+          "pins": []
+        },
+        "md_reflect": {
+          "svg": "svg/mathematics_11/m11_u2_reflect.svg",
+          "title": "Example 2.2(b): reflections of y = √x",
+          "page": 64,
+          "pins": []
+        },
+        "md_shift": {
+          "svg": "svg/mathematics_11/m11_u2_shift.svg",
+          "title": "Example 2.2(c): moving y = √x up, down and right",
+          "page": 64,
+          "pins": []
+        },
+        "md_twobranch": {
+          "svg": "svg/mathematics_11/m11_u2_twobranch.svg",
+          "title": "Example 2.4: y = √(x² − 9) has two pieces",
+          "page": 66,
+          "pins": []
+        },
+        "md_extra": {
+          "svg": "svg/mathematics_11/m11_u2_extra.svg",
+          "title": "Example 2.7: why x = 1 is a false root",
+          "page": 68,
+          "pins": []
+        },
+        "md_inverse": {
+          "svg": "svg/mathematics_11/m11_u2_inverse.svg",
+          "title": "Example 2.8: a function and its inverse mirror in y = x",
+          "page": 70,
+          "pins": []
         }
       },
       "lessons": [
@@ -2980,16 +3016,203 @@
             {
               "id": "math11-u2-c01",
               "type": "text",
-              "title": "2.1 Graphs of square root functions",
+              "title": "2.1 The square root function",
               "page": 62,
               "src": "notes",
               "body": [
-                "The **square root function** is $$f(x) = \\sqrt{x}$$. Because we cannot take the real square root of a negative number, its domain is x ≥ 0, and because √x is never negative, its range is y ≥ 0.",
-                "**Table of values (choose perfect squares):** x = 0, 1, 4, 9, 16 gives y = 0, 1, 2, 3, 4. Plot the points and join them with a smooth curve. The graph starts at the origin and rises to the right, getting flatter and flatter — it is the upper half of a parabola lying on its side (x = y², y ≥ 0).",
-                "**Transformations of y = a√(x − h) + k:** h moves the graph right (h > 0) or left; k moves it up or down; the starting point (endpoint) moves from (0, 0) to **(h, k)**. If a < 0 the graph is reflected in the horizontal line through the start (it goes down instead of up); |a| > 1 stretches it vertically. y = √(−x) is the reflection in the y-axis: it starts at (0, 0) and goes to the left.",
-                "**Step by step — sketch g(x) = √(x − 2) + 1:** Step 1: starting point (h, k) = (2, 1). Step 2: a = 1 > 0, so the curve goes up and to the right. Step 3: a second point: x = 3 gives √1 + 1 = 2, so (3, 2); x = 6 gives √4 + 1 = 3, so (6, 3). Step 4: domain x ≥ 2, range y ≥ 1.",
-                "**Tip:** to find the starting point of y = √(bx + c) + k, set the inside equal to zero: bx + c = 0. For y = √(2x − 8) + 3: 2x − 8 = 0 gives x = 4, so the curve starts at (4, 3)."
+                "Every positive number has **two** square roots: $x^2 = 16$ gives $x = 4$ or $x = -4$. The symbol $\\sqrt{a}$ always means the **positive** (principal) one: $\\sqrt{16} = 4$, and the negative root is written $-\\sqrt{16}$.",
+                "The **square root function** is $f(x) = \\sqrt{x}$. In real numbers we cannot take the square root of a negative number, so the graph exists only for $x \\ge 0$, and every output is $\\ge 0$.",
+                "**Table of values** (choose perfect squares so the outputs are whole numbers):",
+                "$x = 0, 1, 4, 9, 16$ gives $\\sqrt{x} = 0, 1, 2, 3, 4$.",
+                "Shape: it starts at $(0, 0)$, rises quickly at first, then more and more slowly. It is the **upper half of a parabola lying on its side** ($x = y^2$, $y \\ge 0$)."
               ]
+            },
+            {
+              "id": "math11-u2-md-family-t",
+              "type": "text",
+              "title": "How the numbers in y = a√(b(x − h)) + k move the graph",
+              "page": 63,
+              "src": "notes",
+              "body": [
+                "Start from $y = \\sqrt{x}$ and its **starting point** $(0, 0)$. Each number in the formula does one job:",
+                "- $+k$ outside: move **up** $k$ (down if $k < 0$). Start $(0, k)$.",
+                "- $(x - h)$ inside: move **right** $h$ (left if $h < 0$). Start $(h, 0)$. Inside the root the shift goes the \"opposite\" way to the sign.",
+                "- $\\sqrt{bx}$ with $b > 1$: the graph is **steeper** (above $\\sqrt{x}$); with $0 < b < 1$ it is flatter (below).",
+                "- $\\sqrt{-x}$: **reflect in the y-axis** (the graph goes to the left).",
+                "- $-\\sqrt{x}$: **reflect in the x-axis** (the graph goes down).",
+                "Combined: $y = \\sqrt{x - h} + k$ starts at $(h, k)$. For $y = \\sqrt{b x + c} + k$, first find where the inside is 0: $x = -\\frac{c}{b}$; the start is $\\left(-\\frac{c}{b}, k\\right)$."
+              ]
+            },
+            {
+              "id": "math11-u2-md-family-tb",
+              "type": "table",
+              "title": "Summary of transformations",
+              "page": 63,
+              "src": "notes",
+              "head": [
+                "Equation",
+                "Start point",
+                "Direction",
+                "Change from √x"
+              ],
+              "rows": [
+                [
+                  "$y = \\sqrt{x}$",
+                  "$(0, 0)$",
+                  "right, up",
+                  "parent"
+                ],
+                [
+                  "$y = \\sqrt{x} + 2$",
+                  "$(0, 2)$",
+                  "right, up",
+                  "up 2"
+                ],
+                [
+                  "$y = \\sqrt{x - 3}$",
+                  "$(3, 0)$",
+                  "right, up",
+                  "right 3"
+                ],
+                [
+                  "$y = \\sqrt{4x}$",
+                  "$(0, 0)$",
+                  "right, up",
+                  "steeper (= $2\\sqrt{x}$)"
+                ],
+                [
+                  "$y = \\sqrt{-x}$",
+                  "$(0, 0)$",
+                  "left, up",
+                  "mirror in y-axis"
+                ],
+                [
+                  "$y = -\\sqrt{x}$",
+                  "$(0, 0)$",
+                  "right, down",
+                  "mirror in x-axis"
+                ],
+                [
+                  "$y = -\\sqrt{x + 1} + 4$",
+                  "$(-1, 4)$",
+                  "right, down",
+                  "left 1, flip, up 4"
+                ]
+              ]
+            },
+            {
+              "id": "math11-u2-md-stretch",
+              "type": "diagram",
+              "title": "Stretching: √(ax) with a > 1",
+              "page": 64,
+              "src": "notes",
+              "diagram": "md_stretch",
+              "mode": "plain",
+              "body": [
+                "All three start at $(0, 0)$. Each passes through height 2: $\\sqrt{x}$ at $x = 4$, $\\sqrt{2x}$ at $x = 2$, $\\sqrt{4x}$ at $x = 1$. Note $\\sqrt{4x} = 2\\sqrt{x}$: every height is doubled."
+              ]
+            },
+            {
+              "id": "math11-u2-md-reflect",
+              "type": "diagram",
+              "title": "Reflections",
+              "page": 64,
+              "src": "notes",
+              "diagram": "md_reflect",
+              "mode": "plain",
+              "body": [
+                "$\\sqrt{-x}$ needs $-x \\ge 0$, so $x \\le 0$: the graph goes to the **left**. $-\\sqrt{x}$ keeps $x \\ge 0$ but every output becomes negative: the graph goes **down**."
+              ]
+            },
+            {
+              "id": "math11-u2-md-shift",
+              "type": "steps",
+              "title": "Moving the graph (Example 2.2c)",
+              "page": 64,
+              "src": "notes",
+              "diagram": "md_shift",
+              "steps": [
+                {
+                  "text": "Parent $y = \\sqrt{x}$: start $(0, 0)$.",
+                  "show": "k1"
+                },
+                {
+                  "text": "$\\sqrt{x} + 2$ and $\\sqrt{x} - 2$: the same shape moved up 2 and down 2. Starts $(0, 2)$ and $(0, -2)$.",
+                  "show": "k2"
+                },
+                {
+                  "text": "$\\sqrt{x - 3}$: the same shape moved **right** 3, start $(3, 0)$. Domain becomes $x \\ge 3$.",
+                  "show": "k3"
+                }
+              ]
+            },
+            {
+              "id": "math11-u2-md-ex-21a",
+              "type": "worked",
+              "title": "Worked example: sketch y = √(x − 2) + 1",
+              "page": 64,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Sketch $y = \\sqrt{x - 2} + 1$ and state its starting point.",
+              "steps": [
+                {
+                  "text": "Inside $= 0$ when $x = 2$, and then $y = 1$: start $(2, 1)$."
+                },
+                {
+                  "text": "Pick $x$ values that make the inside a perfect square: $x = 3$ gives $y = 2$; $x = 6$ gives $y = 3$; $x = 11$ gives $y = 4$."
+                },
+                {
+                  "text": "Plot $(2, 1), (3, 2), (6, 3), (11, 4)$ and join with a smooth curve to the right."
+                }
+              ],
+              "answer": "start $(2, 1)$; through $(3, 2)$, $(6, 3)$"
+            },
+            {
+              "id": "math11-u2-md-ex-21b",
+              "type": "worked",
+              "title": "Worked example: Exercise 2.1 (d) y = √(−2x) + 4",
+              "page": 65,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Describe and sketch $y = \\sqrt{-2x} + 4$.",
+              "steps": [
+                {
+                  "text": "Inside $-2x \\ge 0 \\Rightarrow x \\le 0$: the graph goes **left**."
+                },
+                {
+                  "text": "Start: $x = 0$, $y = 4$: $(0, 4)$."
+                },
+                {
+                  "text": "Points: $x = -2$: $\\sqrt{4} + 4 = 6$; $x = -8$: $\\sqrt{16} + 4 = 8$."
+                },
+                {
+                  "text": "Shape: $\\sqrt{x}$ mirrored in the y-axis, made steeper, moved up 4."
+                }
+              ],
+              "answer": "start $(0, 4)$, goes left and up through $(-2, 6)$ and $(-8, 8)$"
+            },
+            {
+              "id": "math11-u2-md-rm-21",
+              "type": "remember",
+              "title": "Common mistakes",
+              "page": 63,
+              "src": "notes",
+              "body": [
+                "$\\sqrt{x + 3}$ moves **left** 3, not right. $\\sqrt{x} + 3$ moves **up** 3. Bracket inside vs number outside.",
+                "$\\sqrt{x^2} = |x|$, not $x$: $\\sqrt{(-5)^2} = 5$.",
+                "Textbook note (p. 63 box): \"if $a < 0$, the graph of $\\sqrt{ax}$ is the image of $\\sqrt{x}$ under reflection across the y-axis\" is exactly true only for $a = -1$. In general $\\sqrt{ax}$ with $a < 0$ is the mirror image of $\\sqrt{|a|x}$."
+              ]
+            },
+            {
+              "id": "math11-u2-c07",
+              "type": "text",
+              "title": "Square root functions",
+              "page": 62,
+              "body": [
+                "The basic square root function is f(x) = √x. Its graph starts at (0, 0) and rises more and more slowly to the right. The general form f(x) = a√(x − h) + k moves the starting point from (0, 0) to (h, k); a > 0 keeps the graph above the starting point, a < 0 reflects it below. Domain: x ≥ h. Example: f(x) = √(x − 2) + 1 starts at (2, 1); its domain is x ≥ 2 and its range is y ≥ 1.",
+                "**Domain:** the expression under the root must be ≥ 0, so for √(x − h) the domain is x ≥ h. **Range** (with a > 0): y ≥ k."
+              ],
+              "src": "notes"
             },
             {
               "id": "math11-u2-tblE1",
@@ -3103,17 +3326,6 @@
               },
               "answer": "A",
               "why": "**Step 1: Set up the domain inequality**\nFor the function $$f(x) = \\sqrt{x - 5}$$, the radicand must be non-negative to yield real-valued outputs:\n$$x - 5 \\geq 0$$\n\n**Step 2: Solve the inequality**\nAdd $$5$$ to both sides:\n$$x \\geq 5$$\n\n**Step 3: Represent in interval notation**\nThis corresponds to the interval $$[5, \\infty)$$.\n**Result:** **$$[5, \\infty)$$**."
-            },
-            {
-              "id": "math11-u2-c07",
-              "type": "text",
-              "title": "Square root functions",
-              "page": 62,
-              "body": [
-                "The basic square root function is f(x) = √x. Its graph starts at (0, 0) and rises more and more slowly to the right. The general form f(x) = a√(x − h) + k moves the starting point from (0, 0) to (h, k); a > 0 keeps the graph above the starting point, a < 0 reflects it below. Domain: x ≥ h. Example: f(x) = √(x − 2) + 1 starts at (2, 1); its domain is x ≥ 2 and its range is y ≥ 1.",
-                "**Domain:** the expression under the root must be ≥ 0, so for √(x − h) the domain is x ≥ h. **Range** (with a > 0): y ≥ k."
-              ],
-              "src": "notes"
             },
             {
               "id": "math11-u2-wrk-extra1",
@@ -3259,6 +3471,135 @@
           ],
           "cards": [
             {
+              "id": "math11-u2-md-dom-t",
+              "type": "text",
+              "title": "2.2 Domain and range: the rule",
+              "page": 65,
+              "src": "notes",
+              "body": [
+                "**Domain rule:** the expression under the root (the **radicand**) must be $\\ge 0$. Write the inequality and solve it.",
+                "**Range rule:** $\\sqrt{\\;\\;}$ is never negative, so $\\sqrt{\\dots} \\ge 0$. Then apply what is outside: $y = \\sqrt{\\dots} + k$ gives $y \\ge k$; $y = -\\sqrt{\\dots} + k$ gives $y \\le k$.",
+                "**Example 2.3:** $y = \\sqrt{x + 5}$: $x + 5 \\ge 0 \\Rightarrow x \\ge -5$; range $y \\ge 0$. (The book writes \"we get $y \\ge 0$\" in the domain line: it means $x \\ge -5$.)",
+                "**Example 2.5:** $y = \\sqrt{x^2 + 4}$: $x^2 + 4 \\ge 4 > 0$ always, so the domain is all real numbers; the smallest value is $\\sqrt{4} = 2$, so the range is $y \\ge 2$."
+              ]
+            },
+            {
+              "id": "math11-u2-md-dom-tb",
+              "type": "table",
+              "title": "Types of radicand and how to find the domain",
+              "page": 66,
+              "src": "notes",
+              "head": [
+                "Radicand",
+                "Method",
+                "Example",
+                "Domain"
+              ],
+              "rows": [
+                [
+                  "linear $ax + b$",
+                  "solve $ax + b \\ge 0$ (flip if $a < 0$)",
+                  "$\\sqrt{6 - 2x}$",
+                  "$x \\le 3$"
+                ],
+                [
+                  "quadratic, two roots",
+                  "sign chart / outside or between roots",
+                  "$\\sqrt{x^2 - 9}$",
+                  "$x \\le -3$ or $x \\ge 3$"
+                ],
+                [
+                  "quadratic, $a < 0$",
+                  "between the roots",
+                  "$\\sqrt{9 - x^2}$",
+                  "$-3 \\le x \\le 3$"
+                ],
+                [
+                  "always positive",
+                  "no restriction",
+                  "$\\sqrt{x^2 + 4}$",
+                  "all reals"
+                ],
+                [
+                  "perfect square",
+                  "$\\sqrt{(x - 3)^2} = |x - 3|$",
+                  "$\\sqrt{x^2 - 6x + 9}$",
+                  "all reals"
+                ]
+              ]
+            },
+            {
+              "id": "math11-u2-md-twobranch",
+              "type": "steps",
+              "title": "Example 2.4: domain of y = √(x² − 9)",
+              "page": 66,
+              "src": "notes",
+              "diagram": "md_twobranch",
+              "steps": [
+                {
+                  "text": "Solve $x^2 - 9 \\ge 0$: factorise $(x - 3)(x + 3) \\ge 0$; roots $-3$ and 3.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Sign chart: positive for $x < -3$, negative between, positive for $x > 3$; zero at $\\pm 3$.",
+                  "show": "k2"
+                },
+                {
+                  "text": "Domain: $x \\le -3$ or $x \\ge 3$ (the book prints \"$x < -3$\": $-3$ must be included because $\\sqrt{0} = 0$). Range $y \\ge 0$.",
+                  "show": "k3"
+                }
+              ]
+            },
+            {
+              "id": "math11-u2-md-ex-22a",
+              "type": "worked",
+              "title": "Worked example: √(9 − x²) (Review 1b)",
+              "page": 70,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find the domain and range of $y = \\sqrt{9 - x^2}$.",
+              "steps": [
+                {
+                  "text": "$9 - x^2 \\ge 0 \\Rightarrow x^2 \\le 9 \\Rightarrow -3 \\le x \\le 3$."
+                },
+                {
+                  "text": "Biggest radicand: $x = 0$ gives $\\sqrt{9} = 3$; smallest: $x = \\pm 3$ gives 0."
+                },
+                {
+                  "text": "So $0 \\le y \\le 3$. (The graph is the top half of the circle $x^2 + y^2 = 9$.)"
+                }
+              ],
+              "answer": "domain $[-3, 3]$, range $[0, 3]$"
+            },
+            {
+              "id": "math11-u2-md-ex-22b",
+              "type": "worked",
+              "title": "Worked example: a negative outside",
+              "page": 66,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find the domain and range of $y = 5 - \\sqrt{2x - 4}$.",
+              "steps": [
+                {
+                  "text": "$2x - 4 \\ge 0 \\Rightarrow x \\ge 2$."
+                },
+                {
+                  "text": "$\\sqrt{2x - 4} \\ge 0$, so $-\\sqrt{2x - 4} \\le 0$, so $y \\le 5$."
+                }
+              ],
+              "answer": "domain $x \\ge 2$, range $y \\le 5$"
+            },
+            {
+              "id": "math11-u2-md-mn-22",
+              "type": "mnemonic",
+              "title": "Memory hook",
+              "page": 66,
+              "src": "notes",
+              "body": [
+                "**\"Inside ≥ 0 for the domain; outside number for the range.\"** Then check the sign in front of the root: plus → $y \\ge k$, minus → $y \\le k$."
+              ]
+            },
+            {
               "id": "math11-u2-c02",
               "type": "diagram",
               "title": "Shift: √(x−2)+1 starts at (2,1), not at the origin.",
@@ -3285,6 +3626,55 @@
               "answer": "Do not write “all real x”. Square roots in this course stay non-negative inside.",
               "mode": "show",
               "reveal": "Steps"
+            },
+            {
+              "id": "math11-u2-c08",
+              "type": "table",
+              "title": "Domain and range examples",
+              "page": 65,
+              "head": [
+                "Function",
+                "Domain",
+                "Range"
+              ],
+              "rows": [
+                [
+                  "√x",
+                  "x ≥ 0",
+                  "y ≥ 0"
+                ],
+                [
+                  "√(x − 3)",
+                  "x ≥ 3",
+                  "y ≥ 0"
+                ],
+                [
+                  "√(x + 2) + 1",
+                  "x ≥ −2",
+                  "y ≥ 1"
+                ],
+                [
+                  "−√x",
+                  "x ≥ 0",
+                  "y ≤ 0"
+                ]
+              ],
+              "src": "notes"
+            },
+            {
+              "id": "math11-u2-l2-2-r3x1",
+              "type": "text",
+              "title": "Step by step: Domain and range of square-root functions",
+              "page": 65,
+              "src": "study notes (r3)",
+              "body": [
+                "**Step 1:** Write the function in the form f(x) = a√(bx + c) + d.",
+                "**Step 2:** Domain: the expression under the root must be non-negative, so solve bx + c ≥ 0.",
+                "**Step 3:** Range: √(…) ≥ 0, so if a > 0 then f(x) ≥ d; if a < 0 then f(x) ≤ d.",
+                "**Step 4:** The starting point of the graph is where bx + c = 0, at height d.",
+                "**Step 5:** Check with one extra point inside the domain to see the direction of the curve.",
+                "**Example:** f(x) = −2√(x + 1) + 5. Domain: x + 1 ≥ 0 → x ≥ −1. Start point (−1, 5). Since a = −2 < 0 the curve goes down from 5, so the range is y ≤ 5. Check x = 3: f(3) = −2(2) + 5 = 1 ≤ 5 ✓."
+              ]
             },
             {
               "id": "math11-u2-chk75",
@@ -3347,55 +3737,6 @@
                 }
               ],
               "answer": "$$f^{-1}(x) = x^2 + 1, x \\geq 0$$"
-            },
-            {
-              "id": "math11-u2-c08",
-              "type": "table",
-              "title": "Domain and range examples",
-              "page": 65,
-              "head": [
-                "Function",
-                "Domain",
-                "Range"
-              ],
-              "rows": [
-                [
-                  "√x",
-                  "x ≥ 0",
-                  "y ≥ 0"
-                ],
-                [
-                  "√(x − 3)",
-                  "x ≥ 3",
-                  "y ≥ 0"
-                ],
-                [
-                  "√(x + 2) + 1",
-                  "x ≥ −2",
-                  "y ≥ 1"
-                ],
-                [
-                  "−√x",
-                  "x ≥ 0",
-                  "y ≤ 0"
-                ]
-              ],
-              "src": "notes"
-            },
-            {
-              "id": "math11-u2-l2-2-r3x1",
-              "type": "text",
-              "title": "Step by step: Domain and range of square-root functions",
-              "page": 65,
-              "src": "study notes (r3)",
-              "body": [
-                "**Step 1:** Write the function in the form f(x) = a√(bx + c) + d.",
-                "**Step 2:** Domain: the expression under the root must be non-negative, so solve bx + c ≥ 0.",
-                "**Step 3:** Range: √(…) ≥ 0, so if a > 0 then f(x) ≥ d; if a < 0 then f(x) ≤ d.",
-                "**Step 4:** The starting point of the graph is where bx + c = 0, at height d.",
-                "**Step 5:** Check with one extra point inside the domain to see the direction of the curve.",
-                "**Example:** f(x) = −2√(x + 1) + 5. Domain: x + 1 ≥ 0 → x ≥ −1. Start point (−1, 5). Since a = −2 < 0 the curve goes down from 5, so the range is y ≤ 5. Check x = 3: f(3) = −2(2) + 5 = 1 ≤ 5 ✓."
-              ]
             },
             {
               "id": "math11-u2-l2-2-r3x2",
@@ -3484,13 +3825,179 @@
               "page": 67,
               "src": "notes",
               "body": [
-                "A **radical equation** has the unknown inside a square root, e.g. √(3x + 1) = 4. The method is to isolate the root and square both sides — but squaring can create false answers, so every answer must be checked in the original equation.",
-                "**Steps:** (1) Isolate the square root on one side. (2) Square both sides. (3) Solve the resulting linear or quadratic equation. (4) **Check** each answer in the original equation and reject any that do not work (these are called **extraneous** roots).",
-                "**Example 1:** √(3x + 1) = 4. Square: 3x + 1 = 16, 3x = 15, x = 5. Check: √16 = 4 ✔.",
-                "**Example 2:** √(x + 3) = x − 3. Square: x + 3 = x² − 6x + 9, so x² − 7x + 6 = 0, (x − 1)(x − 6) = 0, x = 1 or x = 6. Check x = 1: √4 = 2 but 1 − 3 = −2 ✘ (extraneous). Check x = 6: √9 = 3 and 6 − 3 = 3 ✔. Solution: x = 6 only.",
-                "**Quick rejection:** a square root is never negative, so √(x − 3) = −2 has **no solution** — you can see this before doing any algebra.",
-                "**Why false roots appear:** squaring turns both a = b and a = −b into a² = b². In Example 2, x = 1 solves √(x + 3) = −(x − 3), not the equation we were given."
+                "A **radical equation** has the unknown under a root, e.g. $\\sqrt{3x + 8} = 4$. Method:",
+                "1. **Isolate** one root on one side.",
+                "2. **Square** both sides (this removes the root).",
+                "3. Solve the new (linear or quadratic) equation.",
+                "4. **Check every answer** in the **original** equation and reject false (extraneous) roots.",
+                "**Why check?** \"$a = b \\Rightarrow a^2 = b^2$\" is always true, but \"$a^2 = b^2 \\Rightarrow a = b$\" is not ($(-3)^2 = 3^2$). Squaring can create answers that solve $\\sqrt{\\dots} = -(\\text{right side})$ instead.",
+                "**Two roots:** isolate one root, square, simplify, isolate the remaining root, square again."
               ]
+            },
+            {
+              "id": "math11-u2-md-ex-26",
+              "type": "worked",
+              "title": "Example 2.6: √(x + 1) = 4",
+              "page": 68,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve $\\sqrt{x + 1} = 4$.",
+              "steps": [
+                {
+                  "text": "Square: $x + 1 = 16$."
+                },
+                {
+                  "text": "$x = 15$."
+                },
+                {
+                  "text": "Check: $\\sqrt{16} = 4$ (correct)."
+                }
+              ],
+              "answer": "$x = 15$"
+            },
+            {
+              "id": "math11-u2-md-extra",
+              "type": "steps",
+              "title": "Example 2.7: √(3x + 1) = x − 3, and the false root",
+              "page": 68,
+              "src": "notes",
+              "diagram": "md_extra",
+              "steps": [
+                {
+                  "text": "Square: $3x + 1 = x^2 - 6x + 9 \\Rightarrow x^2 - 9x + 8 = 0 \\Rightarrow (x - 8)(x - 1) = 0$.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Check $x = 8$: $\\sqrt{25} = 5$ and $8 - 3 = 5$ (correct). Check $x = 1$: $\\sqrt{4} = 2$ but $1 - 3 = -2$ (false).",
+                  "show": "k2"
+                },
+                {
+                  "text": "The graph shows why: $x = 1$ is where the line meets $-\\sqrt{3x + 1}$, the curve that squaring brought in. Solution set $\\{8\\}$.",
+                  "show": "k3"
+                }
+              ]
+            },
+            {
+              "id": "math11-u2-md-ex-23a",
+              "type": "worked",
+              "title": "Worked example: two roots (Exercise 2.3, Q3)",
+              "page": 68,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve $\\sqrt{2x - 5} - \\sqrt{x - 3} = 1$.",
+              "steps": [
+                {
+                  "text": "Isolate: $\\sqrt{2x - 5} = 1 + \\sqrt{x - 3}$."
+                },
+                {
+                  "text": "Square: $2x - 5 = 1 + 2\\sqrt{x - 3} + x - 3$, so $x - 3 = 2\\sqrt{x - 3}$."
+                },
+                {
+                  "text": "Square again: $(x - 3)^2 = 4(x - 3) \\Rightarrow (x - 3)(x - 7) = 0$, so $x = 3$ or $x = 7$."
+                },
+                {
+                  "text": "Check $x = 3$: $\\sqrt{1} - 0 = 1$ (correct). Check $x = 7$: $\\sqrt{9} - \\sqrt{4} = 1$ (correct)."
+                }
+              ],
+              "answer": "$\\{3, 7\\}$"
+            },
+            {
+              "id": "math11-u2-md-ex-23b",
+              "type": "worked",
+              "title": "Worked example: no solution (Exercise 2.3, Q2)",
+              "page": 68,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve $2\\sqrt{x + 1} = \\sqrt{x - 7}$.",
+              "steps": [
+                {
+                  "text": "Square: $4(x + 1) = x - 7 \\Rightarrow 3x = -11 \\Rightarrow x = -\\frac{11}{3}$."
+                },
+                {
+                  "text": "Check: $x + 1 = -\\frac{8}{3} < 0$, so $\\sqrt{x + 1}$ is not defined."
+                },
+                {
+                  "text": "The only candidate fails."
+                }
+              ],
+              "answer": "no solution ($\\varnothing$)"
+            },
+            {
+              "id": "math11-u2-md-eq-tb",
+              "type": "table",
+              "title": "Which first step?",
+              "page": 67,
+              "src": "notes",
+              "head": [
+                "Equation type",
+                "First step",
+                "Watch out"
+              ],
+              "rows": [
+                [
+                  "$\\sqrt{A} = c$, $c \\ge 0$",
+                  "square: $A = c^2$",
+                  "none"
+                ],
+                [
+                  "$\\sqrt{A} = c$, $c < 0$",
+                  "stop",
+                  "no solution"
+                ],
+                [
+                  "$\\sqrt{A} = $ expression in $x$",
+                  "square, solve quadratic",
+                  "check: right side must be $\\ge 0$"
+                ],
+                [
+                  "$\\sqrt{A} + \\sqrt{B} = c$",
+                  "move one root across, square twice",
+                  "$(p + q)^2 = p^2 + 2pq + q^2$"
+                ],
+                [
+                  "$c + \\sqrt{A} = x$",
+                  "isolate $\\sqrt{A}$ first",
+                  "never square before isolating"
+                ]
+              ]
+            },
+            {
+              "id": "math11-u2-md-rm-23",
+              "type": "remember",
+              "title": "Avoid these slips",
+              "page": 67,
+              "src": "notes",
+              "body": [
+                "$(1 + \\sqrt{x})^2 = 1 + 2\\sqrt{x} + x$, **not** $1 + x$.",
+                "A quick filter: in $\\sqrt{A} = B$ any answer must make $B \\ge 0$ and $A \\ge 0$."
+              ]
+            },
+            {
+              "id": "math11-u2-c09",
+              "type": "worked",
+              "title": "Worked example: solving and checking",
+              "page": 67,
+              "problem": "Solve √(x + 3) = x − 3.",
+              "steps": [
+                {
+                  "text": "Square both sides: x + 3 = x² − 6x + 9."
+                },
+                {
+                  "text": "x² − 7x + 6 = 0 → (x − 1)(x − 6) = 0 → x = 1 or 6."
+                }
+              ],
+              "answer": "Check x = 6: √9 = 3 and 6 − 3 = 3 ✔. Answer: **x = 6**.",
+              "src": "notes"
+            },
+            {
+              "id": "math11-u2-rm3",
+              "type": "remember",
+              "title": "Always check",
+              "body": [
+                "Squaring both sides can add false (extraneous) roots. **Substitute every answer into the original equation** and reject those that fail. A square root can never equal a negative number."
+              ],
+              "page": 67,
+              "src": "notes"
             },
             {
               "id": "math11-u2-chk76",
@@ -3608,23 +4115,6 @@
               "answer": "$$5$$"
             },
             {
-              "id": "math11-u2-c09",
-              "type": "worked",
-              "title": "Worked example: solving and checking",
-              "page": 67,
-              "problem": "Solve √(x + 3) = x − 3.",
-              "steps": [
-                {
-                  "text": "Square both sides: x + 3 = x² − 6x + 9."
-                },
-                {
-                  "text": "x² − 7x + 6 = 0 → (x − 1)(x − 6) = 0 → x = 1 or 6."
-                }
-              ],
-              "answer": "Check x = 6: √9 = 3 and 6 − 3 = 3 ✔. Answer: **x = 6**.",
-              "src": "notes"
-            },
-            {
               "id": "math11-u2-pc3",
               "type": "check",
               "title": "Practice",
@@ -3637,16 +4127,6 @@
               },
               "answer": "B",
               "why": "**Square:** 2x + 3 = x², so x² − 2x − 3 = 0, (x − 3)(x + 1) = 0, x = 3 or x = −1.\n**Check x = 3:** √9 = 3 ✔. **Check x = −1:** √1 = 1 but the right side is −1 ✘ (extraneous).\nSo x = 3 only.",
-              "page": 67,
-              "src": "notes"
-            },
-            {
-              "id": "math11-u2-rm3",
-              "type": "remember",
-              "title": "Always check",
-              "body": [
-                "Squaring both sides can add false (extraneous) roots. **Substitute every answer into the original equation** and reject those that fail. A square root can never equal a negative number."
-              ],
               "page": 67,
               "src": "notes"
             }
@@ -3668,11 +4148,145 @@
               "page": 69,
               "src": "notes",
               "body": [
-                "Two functions are **inverses** when each undoes the other: f(f⁻¹(x)) = x and f⁻¹(f(x)) = x. The graph of f⁻¹ is the reflection of the graph of f in the line y = x, so the domain of f becomes the range of f⁻¹ and the range of f becomes the domain of f⁻¹.",
-                "**y = √x and y = x² are inverse partners only when x² is restricted to x ≥ 0.** On all real numbers x² is not one-to-one (2² = (−2)² = 4), so it has no inverse function; on x ≥ 0 it is one-to-one and its inverse is √x.",
-                "**Steps to find the inverse of f(x) = √(x − 1), x ≥ 1:** Step 1: write y = √(x − 1) and note the range y ≥ 0. Step 2: swap x and y: x = √(y − 1). Step 3: solve for y: square both sides, x² = y − 1, so y = x² + 1. Step 4: state the domain of the inverse = range of f: f⁻¹(x) = x² + 1, **x ≥ 0**.",
-                "**Check:** f(f⁻¹(3)) = f(10) = √9 = 3 ✔.",
-                "**Going the other way:** the inverse of g(x) = x² − 4 with x ≥ 0 is g⁻¹(x) = √(x + 4), x ≥ −4. Always restrict the quadratic to one side of its vertex first."
+                "A function has an inverse only if it is **one-to-one** (each output comes from one input). The inverse swaps every pair $(a, b)$ to $(b, a)$; e.g. the inverse of $\\{(1, 2), (-3, -4), (0, -1)\\}$ is $\\{(2, 1), (-4, -3), (-1, 0)\\}$.",
+                "$y = x^2$ on all reals is **not** one-to-one ($2^2 = (-2)^2$), so it has no inverse. Restrict it to $x \\ge 0$ and it becomes one-to-one; then its inverse is $\\sqrt{x}$.",
+                "**Steps to find $f^{-1}$:** (1) write $y = f(x)$; (2) swap $x$ and $y$; (3) solve for $y$ (here: isolate the root and square); (4) **restrict the domain** of $f^{-1}$ to the range of $f$.",
+                "The domain of $f^{-1}$ = range of $f$, and the range of $f^{-1}$ = domain of $f$. The graphs are mirror images in the line $y = x$."
+              ]
+            },
+            {
+              "id": "math11-u2-md-inverse",
+              "type": "steps",
+              "title": "Example 2.8: inverse of f(x) = √(x − 1)",
+              "page": 70,
+              "src": "notes",
+              "diagram": "md_inverse",
+              "steps": [
+                {
+                  "text": "$f$: domain $x \\ge 1$, range $y \\ge 0$; points $(1, 0)$ and $(5, 2)$.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Swap: $x = \\sqrt{y - 1}$. Square: $x^2 = y - 1$, so $y = x^2 + 1$.",
+                  "show": "k2"
+                },
+                {
+                  "text": "Restrict to $x \\ge 0$ (range of $f$): $f^{-1}(x) = x^2 + 1$, $x \\ge 0$. Points $(0, 1)$, $(2, 5)$: mirror images in $y = x$.",
+                  "show": "k3"
+                }
+              ]
+            },
+            {
+              "id": "math11-u2-md-ex-24a",
+              "type": "worked",
+              "title": "Worked example: Exercise 2.4, Q4",
+              "page": 70,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find the inverse of $h(x) = \\frac{1}{4}\\sqrt{\\frac{3x - 7}{2}} + 4$.",
+              "steps": [
+                {
+                  "text": "Range of $h$: root $\\ge 0$, so $y \\ge 4$."
+                },
+                {
+                  "text": "Swap: $x = \\frac{1}{4}\\sqrt{\\frac{3y - 7}{2}} + 4 \\Rightarrow 4(x - 4) = \\sqrt{\\frac{3y - 7}{2}}$."
+                },
+                {
+                  "text": "Square: $16(x - 4)^2 = \\frac{3y - 7}{2} \\Rightarrow 3y - 7 = 32(x - 4)^2$."
+                },
+                {
+                  "text": "$y = \\frac{32(x - 4)^2 + 7}{3}$, with $x \\ge 4$."
+                }
+              ],
+              "answer": "$h^{-1}(x) = \\frac{32(x - 4)^2 + 7}{3}$, $x \\ge 4$"
+            },
+            {
+              "id": "math11-u2-md-ex-24b",
+              "type": "worked",
+              "title": "Worked example: g(x) = 2 + √x",
+              "page": 70,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find $g^{-1}$ for $g(x) = 2 + \\sqrt{x}$.",
+              "steps": [
+                {
+                  "text": "Range of $g$: $y \\ge 2$."
+                },
+                {
+                  "text": "Swap: $x = 2 + \\sqrt{y} \\Rightarrow \\sqrt{y} = x - 2 \\Rightarrow y = (x - 2)^2$."
+                },
+                {
+                  "text": "Restrict: $x \\ge 2$."
+                }
+              ],
+              "answer": "$g^{-1}(x) = (x - 2)^2$, $x \\ge 2$"
+            },
+            {
+              "id": "math11-u2-md-inv-tb",
+              "type": "table",
+              "title": "Function and inverse pairs",
+              "page": 70,
+              "src": "notes",
+              "head": [
+                "$f(x)$",
+                "domain / range of $f$",
+                "$f^{-1}(x)$"
+              ],
+              "rows": [
+                [
+                  "$\\sqrt{x}$",
+                  "$x \\ge 0$ / $y \\ge 0$",
+                  "$x^2$, $x \\ge 0$"
+                ],
+                [
+                  "$\\sqrt{x - 1}$",
+                  "$x \\ge 1$ / $y \\ge 0$",
+                  "$x^2 + 1$, $x \\ge 0$"
+                ],
+                [
+                  "$\\sqrt{x + 2}$",
+                  "$x \\ge -2$ / $y \\ge 0$",
+                  "$x^2 - 2$, $x \\ge 0$"
+                ],
+                [
+                  "$\\sqrt{5x - 2}$",
+                  "$x \\ge \\frac{2}{5}$ / $y \\ge 0$",
+                  "$\\frac{x^2 + 2}{5}$, $x \\ge 0$"
+                ],
+                [
+                  "$\\sqrt{x/2}$",
+                  "$x \\ge 0$ / $y \\ge 0$",
+                  "$2x^2$, $x \\ge 0$"
+                ],
+                [
+                  "$2 + \\sqrt{x}$",
+                  "$x \\ge 0$ / $y \\ge 2$",
+                  "$(x - 2)^2$, $x \\ge 2$"
+                ]
+              ]
+            },
+            {
+              "id": "math11-u2-md-rm-24",
+              "type": "remember",
+              "title": "Do not forget the restriction",
+              "page": 70,
+              "src": "notes",
+              "body": [
+                "$x^2 + 1$ on its own is not one-to-one. Without \"$x \\ge 0$\" the answer is wrong.",
+                "Check an inverse with one point: $f(5) = 2$, so $f^{-1}(2)$ must be 5: $2^2 + 1 = 5$ (correct)."
+              ]
+            },
+            {
+              "id": "math11-u2-md-summary-t",
+              "type": "remember",
+              "title": "Unit summary",
+              "page": 70,
+              "src": "notes",
+              "body": [
+                "$y = a\\sqrt{x - h} + k$ starts at $(h, k)$; $a < 0$ flips it down, $\\sqrt{-x}$ flips it left.",
+                "Domain: radicand $\\ge 0$. Range: from $k$ upward (or downward if there is a minus in front).",
+                "Radical equations: isolate, square, solve, **check**.",
+                "Inverse: swap, solve, restrict $f^{-1}$ to the range of $f$."
               ]
             },
             {
@@ -3760,11 +4374,63 @@
           ]
         }
       ],
-      "glossary": [],
+      "glossary": [
+        {
+          "term": "Principal square root",
+          "meaning": "$\\sqrt{a}$, the non-negative square root of $a \\ge 0$.",
+          "page": 62,
+          "src": "notes"
+        },
+        {
+          "term": "Radicand",
+          "meaning": "The expression under the root sign.",
+          "page": 66,
+          "src": "notes"
+        },
+        {
+          "term": "Radical equation",
+          "meaning": "An equation with the unknown under a root.",
+          "page": 67,
+          "src": "notes"
+        },
+        {
+          "term": "Extraneous root",
+          "meaning": "A false answer created by squaring; it fails the original equation.",
+          "page": 68,
+          "src": "notes"
+        },
+        {
+          "term": "One-to-one function",
+          "meaning": "Different inputs always give different outputs.",
+          "page": 69,
+          "src": "notes"
+        },
+        {
+          "term": "Inverse function",
+          "meaning": "$f^{-1}$ undoes $f$: swap $x$ and $y$; graphs mirror in $y = x$.",
+          "page": 69,
+          "src": "notes"
+        }
+      ],
       "tips": [
         {
           "text": "Read 2.1 Graphs of Square Root Functions again and say its main idea in one sentence.",
           "page": 62
+        },
+        {
+          "text": "y = √(x − h) + k starts at (h, k).",
+          "page": 63,
+          "src": "notes"
+        },
+        {
+          "text": "Radical equation: isolate, square, solve, CHECK.",
+          "page": 67,
+          "src": "notes"
+        },
+        {
+          "text": "Inverse: domain of f⁻¹ = range of f.",
+          "page": 70,
+          "src": "notes"
         }
       ],
       "games": [
@@ -4503,6 +5169,843 @@
             ],
             "tip": "Units reveal mistakes.",
             "similar": []
+          },
+          {
+            "id": "math11-u2-md-s21-q01",
+            "type": "short",
+            "q": "Give the starting point and direction of (a) $y = \\sqrt{5x}$ (b) $y = \\sqrt{-3x}$ (c) $y = \\sqrt{3x} + 5$ (d) $y = \\sqrt{-2x} + 4$.",
+            "answer": "(0,0) right; (0,0) left; (0,5) right; (0,4) left",
+            "why": [
+              "Step 1: inside $= 0$ at $x = 0$ in every case.",
+              "Step 2: $+5$ and $+4$ move the start up.",
+              "Step 3: a negative number times $x$ inside makes the graph go left."
+            ],
+            "tip": "Find where the inside is zero; that is the start.",
+            "similar": [
+              {
+                "q": "$y = \\sqrt{-x} - 1$?",
+                "a": "start $(0, -1)$, goes left."
+              }
+            ],
+            "page": 65,
+            "src": "notes",
+            "label": "2.1 Practice — graphs"
+          },
+          {
+            "id": "math11-u2-md-s21-q02",
+            "type": "short",
+            "q": "Sketch $y = \\sqrt{x - 3}$ and $y = \\sqrt{x + 3}$. How are they related?",
+            "answer": "start (3, 0) and (−3, 0); one is the other moved 6 units",
+            "why": [
+              "Step 1: $\\sqrt{x - 3}$: start $(3, 0)$, through $(4, 1)$, $(7, 2)$.",
+              "Step 2: $\\sqrt{x + 3}$: start $(-3, 0)$, through $(-2, 1)$, $(1, 2)$.",
+              "Step 3: same shape, 6 units apart horizontally."
+            ],
+            "tip": "Minus inside → right; plus inside → left.",
+            "similar": [
+              {
+                "q": "$y = \\sqrt{x} - 3$?",
+                "a": "start $(0, -3)$, moved down."
+              }
+            ],
+            "page": 65,
+            "src": "notes",
+            "label": "2.1 Practice — graphs"
+          },
+          {
+            "id": "math11-u2-md-s21-q03",
+            "type": "short",
+            "q": "Which points with whole-number coordinates lie on $y = \\sqrt{4x}$ for $0 \\le x \\le 9$?",
+            "answer": "(0,0), (1,2), (4,4), (9,6)",
+            "why": [
+              "Step 1: need $4x$ a perfect square: $x = 0, 1, 4, 9$.",
+              "Step 2: $y = 2\\sqrt{x}$: 0, 2, 4, 6."
+            ],
+            "tip": "$\\sqrt{4x} = 2\\sqrt{x}$.",
+            "similar": [
+              {
+                "q": "On $y = \\sqrt{9x}$?",
+                "a": "(0,0), (1,3), (4,6), (9,9)."
+              }
+            ],
+            "page": 64,
+            "src": "notes",
+            "label": "2.1 Practice — graphs"
+          },
+          {
+            "id": "math11-u2-md-s21-q04",
+            "type": "short",
+            "q": "Review 5: sketch $y = \\sqrt{2x - 1} + 2$.",
+            "answer": "start $(\\frac{1}{2}, 2)$, through (1, 3), (5, 5)",
+            "why": [
+              "Step 1: $2x - 1 = 0 \\Rightarrow x = \\frac{1}{2}$; $y = 2$.",
+              "Step 2: $x = 1$: $\\sqrt{1} + 2 = 3$; $x = 5$: $\\sqrt{9} + 2 = 5$.",
+              "Step 3: smooth curve to the right."
+            ],
+            "tip": "Choose $x$ that make the inside a perfect square.",
+            "similar": [
+              {
+                "q": "$y = \\sqrt{2x + 4} - 1$?",
+                "a": "start $(-2, -1)$."
+              }
+            ],
+            "page": 70,
+            "src": "notes",
+            "label": "2.1 Practice — graphs"
+          },
+          {
+            "id": "math11-u2-md-s21-q05",
+            "type": "mcq",
+            "q": "Compared with $y = \\sqrt{x}$, the graph of $y = -\\sqrt{x} + 3$ is",
+            "options": {
+              "A": "reflected in the x-axis and moved up 3",
+              "B": "reflected in the y-axis and moved up 3",
+              "C": "moved right 3",
+              "D": "reflected in the x-axis and moved down 3"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: minus in front → upside down.",
+              "Step 2: $+3$ → up 3."
+            ],
+            "tip": "Minus outside flips vertically.",
+            "similar": [
+              {
+                "q": "$y = \\sqrt{-x} + 3$?",
+                "a": "reflected in the y-axis, up 3."
+              }
+            ],
+            "page": 63,
+            "src": "notes",
+            "label": "2.1 Practice — graphs"
+          },
+          {
+            "id": "math11-u2-md-s21-q06",
+            "type": "mcq",
+            "q": "Which graph lies **below** $y = \\sqrt{x}$ for $x > 0$?",
+            "options": {
+              "A": "$y = \\sqrt{\\frac{x}{4}}$",
+              "B": "$y = \\sqrt{4x}$",
+              "C": "$y = \\sqrt{x} + 1$",
+              "D": "$y = \\sqrt{2x}$"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: $\\sqrt{x/4} = \\frac{1}{2}\\sqrt{x}$: half the height."
+            ],
+            "tip": "$0 < a < 1$ → below.",
+            "similar": [
+              {
+                "q": "Is $\\sqrt{3x}$ above or below?",
+                "a": "above."
+              }
+            ],
+            "page": 64,
+            "src": "notes",
+            "label": "2.1 Practice — graphs"
+          },
+          {
+            "id": "math11-u2-md-s21-q07",
+            "type": "short",
+            "q": "Write the equation of $y = \\sqrt{x}$ moved 2 left and 5 down.",
+            "answer": "$y = \\sqrt{x + 2} - 5$",
+            "why": [
+              "Step 1: left 2 → $x + 2$ inside.",
+              "Step 2: down 5 → $-5$ outside."
+            ],
+            "tip": "Left = plus inside.",
+            "similar": [
+              {
+                "q": "Right 4, up 1?",
+                "a": "$y = \\sqrt{x - 4} + 1$."
+              }
+            ],
+            "page": 63,
+            "src": "notes",
+            "label": "2.1 Practice — graphs"
+          },
+          {
+            "id": "math11-u2-md-s21-q08",
+            "type": "tf",
+            "q": "$\\sqrt{25} = \\pm 5$.",
+            "answer": false,
+            "why": [
+              "Step 1: the symbol means the positive root only: $\\sqrt{25} = 5$. The two square roots of 25 are $\\pm\\sqrt{25}$."
+            ],
+            "tip": "√ is always ≥ 0.",
+            "similar": [
+              {
+                "q": "Is $\\sqrt{(-4)^2} = -4$?",
+                "a": "No, it is 4."
+              }
+            ],
+            "page": 62,
+            "src": "notes",
+            "label": "2.1 Practice — graphs"
+          },
+          {
+            "id": "math11-u2-md-s22-q01",
+            "type": "short",
+            "q": "Find the domain and range: (a) $y = \\sqrt{x - 1}$ (b) $y = \\sqrt{2x - 11}$.",
+            "answer": "(a) $x \\ge 1$, $y \\ge 0$ (b) $x \\ge \\frac{11}{2}$, $y \\ge 0$",
+            "why": [
+              "Step 1 (a): $x - 1 \\ge 0$.",
+              "Step 2 (b): $2x \\ge 11$.",
+              "Step 3: nothing outside, so $y \\ge 0$."
+            ],
+            "tip": "Radicand ≥ 0.",
+            "similar": [
+              {
+                "q": "$y = \\sqrt{3x + 6}$?",
+                "a": "$x \\ge -2$, $y \\ge 0$."
+              }
+            ],
+            "page": 67,
+            "src": "notes",
+            "label": "2.2 Practice — domain and range"
+          },
+          {
+            "id": "math11-u2-md-s22-q02",
+            "type": "short",
+            "q": "Exercise 2.2 Q3: domain and range of $y = \\sqrt{x^2 - 1}$.",
+            "answer": "$x \\le -1$ or $x \\ge 1$; $y \\ge 0$",
+            "why": [
+              "Step 1: $(x - 1)(x + 1) \\ge 0$.",
+              "Step 2: outside the roots, ends included."
+            ],
+            "tip": "Upward parabola: \"≥ 0\" outside.",
+            "similar": [
+              {
+                "q": "$y = \\sqrt{x^2 - 16}$?",
+                "a": "$x \\le -4$ or $x \\ge 4$, $y \\ge 0$."
+              }
+            ],
+            "page": 67,
+            "src": "notes",
+            "label": "2.2 Practice — domain and range"
+          },
+          {
+            "id": "math11-u2-md-s22-q03",
+            "type": "short",
+            "q": "Exercise 2.2 Q4: domain and range of $y = \\sqrt{3 - x^2}$.",
+            "answer": "$-\\sqrt{3} \\le x \\le \\sqrt{3}$; $0 \\le y \\le \\sqrt{3}$",
+            "why": [
+              "Step 1: $x^2 \\le 3$.",
+              "Step 2: largest radicand 3 at $x = 0$."
+            ],
+            "tip": "Look for the largest value under the root.",
+            "similar": [
+              {
+                "q": "$y = \\sqrt{4 - x^2}$?",
+                "a": "$[-2, 2]$, $[0, 2]$."
+              }
+            ],
+            "page": 67,
+            "src": "notes",
+            "label": "2.2 Practice — domain and range"
+          },
+          {
+            "id": "math11-u2-md-s22-q04",
+            "type": "short",
+            "q": "Exercise 2.2 Q5 and Q6: domain and range of $y = \\sqrt{x^2 + 1}$ and $y = \\sqrt{x^2 - 6x + 9}$.",
+            "answer": "all reals, $y \\ge 1$; all reals, $y \\ge 0$",
+            "why": [
+              "Step 1: $x^2 + 1 \\ge 1$ always; minimum $\\sqrt{1} = 1$.",
+              "Step 2: $x^2 - 6x + 9 = (x - 3)^2 \\ge 0$ always; $\\sqrt{(x - 3)^2} = |x - 3| \\ge 0$."
+            ],
+            "tip": "Spot perfect squares.",
+            "similar": [
+              {
+                "q": "$y = \\sqrt{x^2 + 2x + 1}$?",
+                "a": "all reals; $y \\ge 0$ (it is $|x + 1|$)."
+              }
+            ],
+            "page": 67,
+            "src": "notes",
+            "label": "2.2 Practice — domain and range"
+          },
+          {
+            "id": "math11-u2-md-s22-q05",
+            "type": "short",
+            "q": "Domain and range of $y = \\sqrt{6 - 2x} + 1$.",
+            "answer": "$x \\le 3$; $y \\ge 1$",
+            "why": [
+              "Step 1: $6 - 2x \\ge 0 \\Rightarrow -2x \\ge -6 \\Rightarrow x \\le 3$ (flip!).",
+              "Step 2: root ≥ 0, plus 1."
+            ],
+            "tip": "Dividing by a negative flips the sign.",
+            "similar": [
+              {
+                "q": "$y = \\sqrt{4 - x}$?",
+                "a": "$x \\le 4$, $y \\ge 0$."
+              }
+            ],
+            "page": 66,
+            "src": "notes",
+            "label": "2.2 Practice — domain and range"
+          },
+          {
+            "id": "math11-u2-md-s22-q06",
+            "type": "short",
+            "q": "Review 1c: domain and range of $y = \\sqrt{x^2 - 16}$.",
+            "answer": "$x \\le -4$ or $x \\ge 4$; $y \\ge 0$",
+            "why": [
+              "Step 1: $(x - 4)(x + 4) \\ge 0$.",
+              "Step 2: outside the roots."
+            ],
+            "tip": "Factorise the difference of squares.",
+            "similar": [
+              {
+                "q": "$y = \\sqrt{x^2 - 25}$?",
+                "a": "$|x| \\ge 5$."
+              }
+            ],
+            "page": 70,
+            "src": "notes",
+            "label": "2.2 Practice — domain and range"
+          },
+          {
+            "id": "math11-u2-md-s22-q07",
+            "type": "short",
+            "q": "Domain and range of $y = -2\\sqrt{x + 3} + 4$.",
+            "answer": "$x \\ge -3$; $y \\le 4$",
+            "why": [
+              "Step 1: $x + 3 \\ge 0$.",
+              "Step 2: $-2\\sqrt{\\dots} \\le 0$, add 4."
+            ],
+            "tip": "Minus in front → range goes down.",
+            "similar": [
+              {
+                "q": "$y = 1 - \\sqrt{x}$?",
+                "a": "$x \\ge 0$, $y \\le 1$."
+              }
+            ],
+            "page": 66,
+            "src": "notes",
+            "label": "2.2 Practice — domain and range"
+          },
+          {
+            "id": "math11-u2-md-s22-q08",
+            "type": "short",
+            "q": "Domain of $y = \\sqrt{x^2 - 5x + 6}$.",
+            "answer": "$x \\le 2$ or $x \\ge 3$",
+            "why": [
+              "Step 1: $(x - 2)(x - 3) \\ge 0$.",
+              "Step 2: outside."
+            ],
+            "tip": "Factorise first.",
+            "similar": [
+              {
+                "q": "$y = \\sqrt{x^2 - x - 2}$?",
+                "a": "$x \\le -1$ or $x \\ge 2$."
+              }
+            ],
+            "page": 66,
+            "src": "notes",
+            "label": "2.2 Practice — domain and range"
+          },
+          {
+            "id": "math11-u2-md-s22-q09",
+            "type": "short",
+            "q": "Domain of $y = \\sqrt{x} + \\sqrt{4 - x}$.",
+            "answer": "$0 \\le x \\le 4$",
+            "why": [
+              "Step 1: $x \\ge 0$ and $4 - x \\ge 0$.",
+              "Step 2: both together."
+            ],
+            "tip": "Two roots → both radicands ≥ 0.",
+            "similar": [
+              {
+                "q": "$y = \\sqrt{x - 1} + \\sqrt{5 - x}$?",
+                "a": "$1 \\le x \\le 5$."
+              }
+            ],
+            "page": 66,
+            "src": "notes",
+            "label": "2.2 Practice — domain and range"
+          },
+          {
+            "id": "math11-u2-md-s22-q10",
+            "type": "mcq",
+            "q": "The range of $y = \\sqrt{x^2 + 9}$ is",
+            "options": {
+              "A": "$y \\ge 3$",
+              "B": "$y \\ge 0$",
+              "C": "$y \\ge 9$",
+              "D": "all reals"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: smallest radicand 9 at $x = 0$; $\\sqrt{9} = 3$."
+            ],
+            "tip": "Minimum of the radicand → minimum of $y$.",
+            "similar": [
+              {
+                "q": "Range of $\\sqrt{x^2 + 4}$?",
+                "a": "$y \\ge 2$."
+              }
+            ],
+            "page": 66,
+            "src": "notes",
+            "label": "2.2 Practice — domain and range"
+          },
+          {
+            "id": "math11-u2-md-s22-q11",
+            "type": "tf",
+            "q": "The domain of $y = \\sqrt{x^2 - 9}$ is $x \\ge 3$.",
+            "answer": false,
+            "why": [
+              "Step 1: $x = -5$ gives $\\sqrt{16} = 4$, so negative values also work: $x \\le -3$ or $x \\ge 3$."
+            ],
+            "tip": "Test a value on the other side.",
+            "similar": [
+              {
+                "q": "Is $x = -3$ in the domain?",
+                "a": "Yes, $\\sqrt{0} = 0$."
+              }
+            ],
+            "page": 66,
+            "src": "notes",
+            "label": "2.2 Practice — domain and range"
+          },
+          {
+            "id": "math11-u2-md-s23-q01",
+            "type": "short",
+            "q": "Exercise 2.3 Q1: solve $\\sqrt{3x + 8} = 10$.",
+            "answer": "$x = \\frac{92}{3}$",
+            "why": [
+              "Step 1: square: $3x + 8 = 100$.",
+              "Step 2: $3x = 92$.",
+              "Step 3: check: $\\sqrt{100} = 10$ (correct)."
+            ],
+            "tip": "Right side positive → one square is enough.",
+            "similar": [
+              {
+                "q": "$\\sqrt{3x + 8} = 4$?",
+                "a": "$x = \\frac{8}{3}$."
+              }
+            ],
+            "page": 68,
+            "src": "notes",
+            "label": "2.3 Practice — radical equations"
+          },
+          {
+            "id": "math11-u2-md-s23-q02",
+            "type": "short",
+            "q": "Exercise 2.3 Q4: solve $\\sqrt{x + 2} + \\sqrt{3x + 4} = 2$.",
+            "answer": "$x = -1$",
+            "why": [
+              "Step 1: $\\sqrt{3x + 4} = 2 - \\sqrt{x + 2}$; square: $3x + 4 = 4 - 4\\sqrt{x + 2} + x + 2$.",
+              "Step 2: $2x - 2 = -4\\sqrt{x + 2} \\Rightarrow 1 - x = 2\\sqrt{x + 2}$.",
+              "Step 3: square: $x^2 - 2x + 1 = 4x + 8 \\Rightarrow x^2 - 6x - 7 = 0 \\Rightarrow x = 7$ or $-1$.",
+              "Step 4: check: $x = -1$: $1 + 1 = 2$ (correct); $x = 7$: $3 + 5 = 8$ (false)."
+            ],
+            "tip": "Two roots → square twice, check at the end.",
+            "similar": [
+              {
+                "q": "$\\sqrt{x} + \\sqrt{x + 5} = 5$?",
+                "a": "$x = 4$."
+              }
+            ],
+            "page": 68,
+            "src": "notes",
+            "label": "2.3 Practice — radical equations"
+          },
+          {
+            "id": "math11-u2-md-s23-q03",
+            "type": "short",
+            "q": "Review 2a: solve $3 + \\sqrt{x - 1} = x$.",
+            "answer": "$x = 5$",
+            "why": [
+              "Step 1: isolate: $\\sqrt{x - 1} = x - 3$.",
+              "Step 2: $x - 1 = x^2 - 6x + 9 \\Rightarrow x^2 - 7x + 10 = 0$: $x = 2$ or 5.",
+              "Step 3: check: $x = 5$: $3 + 2 = 5$ (correct); $x = 2$: $3 + 1 = 4 \\ne 2$ (false)."
+            ],
+            "tip": "Isolate the root before squaring.",
+            "similar": [
+              {
+                "q": "$x - \\sqrt{x} = 6$?",
+                "a": "$x = 9$."
+              }
+            ],
+            "page": 70,
+            "src": "notes",
+            "label": "2.3 Practice — radical equations"
+          },
+          {
+            "id": "math11-u2-md-s23-q04",
+            "type": "short",
+            "q": "Review 2b: solve $\\sqrt{2x + 9} - \\sqrt{x + 1} = 2$.",
+            "answer": "$x = 0$ or $x = 8$",
+            "why": [
+              "Step 1: $\\sqrt{2x + 9} = 2 + \\sqrt{x + 1}$; square: $2x + 9 = 4 + 4\\sqrt{x + 1} + x + 1$.",
+              "Step 2: $x + 4 = 4\\sqrt{x + 1}$; square: $x^2 + 8x + 16 = 16x + 16 \\Rightarrow x(x - 8) = 0$.",
+              "Step 3: check 0: $3 - 1 = 2$ (correct); 8: $5 - 3 = 2$ (correct)."
+            ],
+            "tip": "Both can be real: always check.",
+            "similar": [
+              {
+                "q": "$\\sqrt{x + 7} - \\sqrt{x} = 1$?",
+                "a": "$x = 9$."
+              }
+            ],
+            "page": 70,
+            "src": "notes",
+            "label": "2.3 Practice — radical equations"
+          },
+          {
+            "id": "math11-u2-md-s23-q05",
+            "type": "short",
+            "q": "Review 2c: solve $5 + \\sqrt{x + 6} = 8$.",
+            "answer": "$x = 3$",
+            "why": [
+              "Step 1: $\\sqrt{x + 6} = 3$.",
+              "Step 2: $x + 6 = 9$."
+            ],
+            "tip": "Isolate first.",
+            "similar": [
+              {
+                "q": "$2 + \\sqrt{x} = 7$?",
+                "a": "$x = 25$."
+              }
+            ],
+            "page": 70,
+            "src": "notes",
+            "label": "2.3 Practice — radical equations"
+          },
+          {
+            "id": "math11-u2-md-s23-q06",
+            "type": "short",
+            "q": "Activity 2.4: solve $\\sqrt{x + 7} = x - 5$.",
+            "answer": "$x = 9$",
+            "why": [
+              "Step 1: need $x \\ge 5$ (right side ≥ 0).",
+              "Step 2: $x + 7 = x^2 - 10x + 25 \\Rightarrow x^2 - 11x + 18 = 0$: $x = 9$ or 2.",
+              "Step 3: $x = 2 < 5$ is false; $\\sqrt{16} = 4 = 9 - 5$ (correct)."
+            ],
+            "tip": "Use $B \\ge 0$ as a quick filter.",
+            "similar": [
+              {
+                "q": "$\\sqrt{x + 1} = x - 1$?",
+                "a": "$x = 3$."
+              }
+            ],
+            "page": 67,
+            "src": "notes",
+            "label": "2.3 Practice — radical equations"
+          },
+          {
+            "id": "math11-u2-md-s23-q07",
+            "type": "short",
+            "q": "Solve $\\sqrt{x - 3} = -2$.",
+            "answer": "no solution",
+            "why": [
+              "Step 1: a square root is never negative.",
+              "Step 2: (squaring gives $x = 7$, but $\\sqrt{4} = 2 \\ne -2$.)"
+            ],
+            "tip": "Look before you square.",
+            "similar": [
+              {
+                "q": "$\\sqrt{2x} + 5 = 1$?",
+                "a": "no solution."
+              }
+            ],
+            "page": 68,
+            "src": "notes",
+            "label": "2.3 Practice — radical equations"
+          },
+          {
+            "id": "math11-u2-md-s23-q08",
+            "type": "short",
+            "q": "Solve $\\sqrt{5x - 1} = \\sqrt{x + 7}$.",
+            "answer": "$x = 2$",
+            "why": [
+              "Step 1: square: $5x - 1 = x + 7$.",
+              "Step 2: $x = 2$; check: $\\sqrt{9} = \\sqrt{9}$ (correct)."
+            ],
+            "tip": "Root = root: just square once.",
+            "similar": [
+              {
+                "q": "$\\sqrt{2x + 3} = \\sqrt{x + 5}$?",
+                "a": "$x = 2$."
+              }
+            ],
+            "page": 68,
+            "src": "notes",
+            "label": "2.3 Practice — radical equations"
+          },
+          {
+            "id": "math11-u2-md-s23-q09",
+            "type": "short",
+            "q": "Solve $\\sqrt{2x + 3} = x$.",
+            "answer": "$x = 3$",
+            "why": [
+              "Step 1: $2x + 3 = x^2 \\Rightarrow (x - 3)(x + 1) = 0$.",
+              "Step 2: $x = -1$ is false (right side negative)."
+            ],
+            "tip": "Right side must be ≥ 0.",
+            "similar": [
+              {
+                "q": "$\\sqrt{x + 6} = x$?",
+                "a": "$x = 3$."
+              }
+            ],
+            "page": 68,
+            "src": "notes",
+            "label": "2.3 Practice — radical equations"
+          },
+          {
+            "id": "math11-u2-md-s23-q10",
+            "type": "short",
+            "q": "Review 3 (completed): solve $b = \\sqrt{c^2 - a^2}$ for $a$ ($a > 0$).",
+            "answer": "$a = \\sqrt{c^2 - b^2}$",
+            "why": [
+              "Step 1: square: $b^2 = c^2 - a^2$.",
+              "Step 2: $a^2 = c^2 - b^2$, take the positive root."
+            ],
+            "tip": "The book prints only \"$\\sqrt{c^2 - a^2}$\": an equation is needed, as here (Pythagoras).",
+            "similar": [
+              {
+                "q": "Solve $r = \\sqrt{A/\\pi}$ for $A$.",
+                "a": "$A = \\pi r^2$."
+              }
+            ],
+            "page": 70,
+            "src": "notes",
+            "label": "2.3 Practice — radical equations"
+          },
+          {
+            "id": "math11-u2-md-s23-q11",
+            "type": "short",
+            "q": "Review 4 (completed): the pendulum period is $T = 2\\pi\\sqrt{\\frac{l}{g}}$. Solve for $l$.",
+            "answer": "$l = \\frac{gT^2}{4\\pi^2}$",
+            "why": [
+              "Step 1: $\\frac{T}{2\\pi} = \\sqrt{\\frac{l}{g}}$.",
+              "Step 2: square: $\\frac{T^2}{4\\pi^2} = \\frac{l}{g}$.",
+              "Step 3: multiply by $g$."
+            ],
+            "tip": "Isolate the root, square, then solve.",
+            "similar": [
+              {
+                "q": "Solve $v = \\sqrt{2gh}$ for $h$.",
+                "a": "$h = \\frac{v^2}{2g}$."
+              }
+            ],
+            "page": 70,
+            "src": "notes",
+            "label": "2.3 Practice — radical equations"
+          },
+          {
+            "id": "math11-u2-md-s23-q12",
+            "type": "mcq",
+            "q": "Squaring both sides of $\\sqrt{x + 3} = x - 3$ gives",
+            "options": {
+              "A": "$x^2 - 7x + 6 = 0$",
+              "B": "$x^2 - 5x + 6 = 0$",
+              "C": "$x + 3 = x^2 + 9$",
+              "D": "$x^2 - 6x = 0$"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: $x + 3 = x^2 - 6x + 9$.",
+              "Step 2: $x^2 - 7x + 6 = 0$, roots 6 and 1; only 6 checks."
+            ],
+            "tip": "$(x - 3)^2$ has a middle term.",
+            "similar": [
+              {
+                "q": "Which root is real?",
+                "a": "$x = 6$."
+              }
+            ],
+            "page": 68,
+            "src": "notes",
+            "label": "2.3 Practice — radical equations"
+          },
+          {
+            "id": "math11-u2-md-s23-q13",
+            "type": "tf",
+            "q": "If $a^2 = b^2$ then $a = b$.",
+            "answer": false,
+            "why": [
+              "Step 1: $(-3)^2 = 3^2$ but $-3 \\ne 3$. This is why squaring can add false roots."
+            ],
+            "tip": "Only \"$a = b \\Rightarrow a^2 = b^2$\" is always true.",
+            "similar": [
+              {
+                "q": "If $a = b$, is $a^3 = b^3$?",
+                "a": "Yes."
+              }
+            ],
+            "page": 67,
+            "src": "notes",
+            "label": "2.3 Practice — radical equations"
+          },
+          {
+            "id": "math11-u2-md-s24-q01",
+            "type": "short",
+            "q": "Exercise 2.4 Q1: find the inverse of $f(x) = \\sqrt{5x - 2}$.",
+            "answer": "$f^{-1}(x) = \\frac{x^2 + 2}{5}$, $x \\ge 0$",
+            "why": [
+              "Step 1: swap: $x = \\sqrt{5y - 2}$.",
+              "Step 2: $x^2 = 5y - 2 \\Rightarrow y = \\frac{x^2 + 2}{5}$.",
+              "Step 3: range of $f$ is $y \\ge 0$, so $x \\ge 0$."
+            ],
+            "tip": "Swap, square, solve, restrict.",
+            "similar": [
+              {
+                "q": "$f(x) = \\sqrt{3x + 1}$?",
+                "a": "$\\frac{x^2 - 1}{3}$, $x \\ge 0$."
+              }
+            ],
+            "page": 70,
+            "src": "notes",
+            "label": "2.4 Practice — inverses"
+          },
+          {
+            "id": "math11-u2-md-s24-q02",
+            "type": "short",
+            "q": "Exercise 2.4 Q2 and Q3: inverses of $f(x) = \\sqrt{x + 2}$ and $g(x) = \\sqrt{\\frac{x}{2}}$.",
+            "answer": "$x^2 - 2$; $2x^2$ (both $x \\ge 0$)",
+            "why": [
+              "Step 1: $x = \\sqrt{y + 2} \\Rightarrow y = x^2 - 2$.",
+              "Step 2: $x = \\sqrt{y/2} \\Rightarrow y = 2x^2$.",
+              "Step 3: both ranges are $y \\ge 0$."
+            ],
+            "tip": "Restriction = range of $f$.",
+            "similar": [
+              {
+                "q": "$\\sqrt{x/3}$?",
+                "a": "$3x^2$, $x \\ge 0$."
+              }
+            ],
+            "page": 70,
+            "src": "notes",
+            "label": "2.4 Practice — inverses"
+          },
+          {
+            "id": "math11-u2-md-s24-q03",
+            "type": "short",
+            "q": "Review 6: find the inverse of $f(x) = \\sqrt{x - 4}$ and check with one point.",
+            "answer": "$x^2 + 4$, $x \\ge 0$",
+            "why": [
+              "Step 1: swap and square: $x^2 = y - 4$.",
+              "Step 2: $f(8) = 2$ and $f^{-1}(2) = 8$ (correct)."
+            ],
+            "tip": "Check with a pair of points.",
+            "similar": [
+              {
+                "q": "$f(x) = \\sqrt{x + 9}$?",
+                "a": "$x^2 - 9$, $x \\ge 0$."
+              }
+            ],
+            "page": 70,
+            "src": "notes",
+            "label": "2.4 Practice — inverses"
+          },
+          {
+            "id": "math11-u2-md-s24-q04",
+            "type": "short",
+            "q": "Find the inverse of $f(x) = 3 - \\sqrt{x}$ and its domain.",
+            "answer": "$f^{-1}(x) = (3 - x)^2$, $x \\le 3$",
+            "why": [
+              "Step 1: range of $f$: $y \\le 3$.",
+              "Step 2: $x = 3 - \\sqrt{y} \\Rightarrow \\sqrt{y} = 3 - x \\Rightarrow y = (3 - x)^2$.",
+              "Step 3: domain of $f^{-1}$: $x \\le 3$."
+            ],
+            "tip": "Minus in front → range goes down.",
+            "similar": [
+              {
+                "q": "$f(x) = 1 - \\sqrt{x}$?",
+                "a": "$(1 - x)^2$, $x \\le 1$."
+              }
+            ],
+            "page": 69,
+            "src": "notes",
+            "label": "2.4 Practice — inverses"
+          },
+          {
+            "id": "math11-u2-md-s24-q05",
+            "type": "short",
+            "q": "Find the inverse of $f(x) = x^2 - 4$, $x \\ge 0$.",
+            "answer": "$f^{-1}(x) = \\sqrt{x + 4}$, $x \\ge -4$",
+            "why": [
+              "Step 1: swap: $x = y^2 - 4$.",
+              "Step 2: $y^2 = x + 4$, $y \\ge 0$: $y = \\sqrt{x + 4}$."
+            ],
+            "tip": "Square ↔ square root.",
+            "similar": [
+              {
+                "q": "$f(x) = x^2 + 1$, $x \\ge 0$?",
+                "a": "$\\sqrt{x - 1}$, $x \\ge 1$."
+              }
+            ],
+            "page": 69,
+            "src": "notes",
+            "label": "2.4 Practice — inverses"
+          },
+          {
+            "id": "math11-u2-md-s24-q06",
+            "type": "short",
+            "q": "Activity 2.5: write the inverse of $\\{(1, 2), (-3, -4), (0, -1)\\}$. Is $f(x) = x + 1$ invertible?",
+            "answer": "$\\{(2, 1), (-4, -3), (-1, 0)\\}$; yes, $f^{-1}(x) = x - 1$",
+            "why": [
+              "Step 1: swap each pair.",
+              "Step 2: $x + 1$ is one-to-one; $y = x + 1 \\Rightarrow$ swap: $x = y + 1$."
+            ],
+            "tip": "One-to-one ⇔ invertible.",
+            "similar": [
+              {
+                "q": "Inverse of $\\{(2, 5), (3, 7)\\}$?",
+                "a": "$\\{(5, 2), (7, 3)\\}$."
+              }
+            ],
+            "page": 69,
+            "src": "notes",
+            "label": "2.4 Practice — inverses"
+          },
+          {
+            "id": "math11-u2-md-s24-q07",
+            "type": "mcq",
+            "q": "Why is $f(x) = x^2$ (all real $x$) not invertible?",
+            "options": {
+              "A": "two inputs give the same output",
+              "B": "it is not continuous",
+              "C": "its range is all reals",
+              "D": "it has no zeros"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: $f(2) = f(-2) = 4$: not one-to-one."
+            ],
+            "tip": "Horizontal line test.",
+            "similar": [
+              {
+                "q": "Fix?",
+                "a": "restrict to $x \\ge 0$."
+              }
+            ],
+            "page": 69,
+            "src": "notes",
+            "label": "2.4 Practice — inverses"
+          },
+          {
+            "id": "math11-u2-md-s24-q08",
+            "type": "tf",
+            "q": "The domain of $f^{-1}$ is the range of $f$.",
+            "answer": true,
+            "why": [
+              "Step 1: swapping $x$ and $y$ swaps the domain and range."
+            ],
+            "tip": "Inverse swaps everything.",
+            "similar": [
+              {
+                "q": "Range of $f^{-1}$ if $f$ has domain $x \\ge 1$?",
+                "a": "$y \\ge 1$."
+              }
+            ],
+            "page": 70,
+            "src": "notes",
+            "label": "2.4 Practice — inverses"
           }
         ]
       },
@@ -4554,6 +6057,38 @@
             "cards": [
               "math11-u2-c06"
             ]
+          },
+          {
+            "id": "md_family",
+            "label": "Moving √x",
+            "kind": "idea",
+            "cards": [
+              "math11-u2-md-family-t"
+            ]
+          },
+          {
+            "id": "md_dom",
+            "label": "Radicand ≥ 0",
+            "kind": "idea",
+            "cards": [
+              "math11-u2-md-dom-t"
+            ]
+          },
+          {
+            "id": "md_check",
+            "label": "Check for false roots",
+            "kind": "idea",
+            "cards": [
+              "math11-u2-c05"
+            ]
+          },
+          {
+            "id": "md_inv",
+            "label": "Swap, solve, restrict",
+            "kind": "idea",
+            "cards": [
+              "math11-u2-c06"
+            ]
           }
         ],
         "edges": [
@@ -4591,6 +6126,26 @@
             "from": "l2_3",
             "to": "l2_4",
             "label": "next"
+          },
+          {
+            "from": "l2_1",
+            "to": "md_family",
+            "label": "key idea"
+          },
+          {
+            "from": "l2_2",
+            "to": "md_dom",
+            "label": "key idea"
+          },
+          {
+            "from": "l2_3",
+            "to": "md_check",
+            "label": "key idea"
+          },
+          {
+            "from": "l2_4",
+            "to": "md_inv",
+            "label": "key idea"
           }
         ],
         "src": "auto"
