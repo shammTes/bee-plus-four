@@ -12818,75 +12818,68 @@
             {
               "id": "math9-u5-c01",
               "type": "text",
-              "title": "5.1.1 Exponential Notations",
+              "title": "5.1.1 Power notation",
               "page": 103,
-              "src": "textbook pp.103–105",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "The number of insects in a laboratory doubles every month.",
-                "Kiflom was saving money in a saving box.",
-                "The number of insects in a colony reduces by half every month.",
-                "Nichomachus who lived around 100 CE discovered an interesting number pattern involving cubes and sums of odd numbers as follows. 1 = 13 3 + 5 = 8 = 23 7 + 9 + 11 =27 = 33, etc."
+                "Repeated multiplication is written as a **power**: $$a^n = \\underbrace{a \\times a \\times \\dots \\times a}_{n \\text{ factors}}$$ $a$ is the **base**, $n$ the **exponent** (index) and $a^n$ the **power**.",
+                "Brackets matter: $(-2)^4 = 16$ (the base is $-2$) but $-2^4 = -(2^4) = -16$ (the base is 2). $(-2)^5 = -32$: a negative base gives a negative answer for an odd exponent.",
+                "Growth and decay: insects that double every month starting from 500 number $500 \\times 2^n$ after $n$ months — after 12 months $500 \\times 4096 = 2\\,048\\,000$. A colony that halves each month from 20 000 has $20\\,000 \\times \\left(\\frac{1}{2}\\right)^n$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u5-md-growth",
+              "type": "diagram",
+              "title": "Doubling vs halving",
+              "page": 104,
+              "src": "notes",
+              "diagram": "md_growth",
+              "mode": "plain",
+              "body": [
+                "Doubling multiplies by 2 each step: 1, 2, 4, 8, 16, 32. Halving multiplies by $\\frac{1}{2}$: 32, 16, 8, 4, 2, 1. The change gets bigger and bigger (or smaller and smaller) — not a constant amount as in a linear pattern."
               ]
             },
             {
               "id": "math9-u5-c02",
               "type": "text",
-              "title": "5.1.3 Quotient of Exponents",
-              "page": 107,
-              "src": "textbook p.107",
-              "enriched": true,
+              "title": "5.1.2 – 5.1.3 Product and quotient laws",
+              "page": 106,
+              "src": "notes",
               "body": [
-                "Motivated by the results of Hawa and Aster, Tesfay and Adem also tried to investigate some relations in the process of division."
-              ]
+                "**Same base, multiply → add the exponents:** $a^m \\times a^n = a^{m + n}$. Because $2^3 \\times 2^2 = (2 \\cdot 2 \\cdot 2)(2 \\cdot 2) = 2^5$.",
+                "**Same base, divide → subtract the exponents:** $\\frac{a^m}{a^n} = a^{m - n}$ ($a \\ne 0$). Because $\\frac{2^6}{2^2}$ cancels two 2s, leaving $2^4$.",
+                "Numbers in front are multiplied or divided normally: $5y^3 \\times 2y^6 = 10y^9$; $36a^{12}b^6 \\div 9a^3b^2 = 4a^9b^4$.",
+                "**Different bases cannot be combined** this way: $2^3 \\times 3^2$ is just $8 \\times 9 = 72$."
+              ],
+              "enriched": true
             },
             {
               "id": "math9-u5-c03",
               "type": "text",
-              "title": "5.1.4 Power of a Product of Exponents",
-              "page": 107,
-              "src": "textbook p.107",
-              "enriched": true,
+              "title": "5.1.4 – 5.1.6 Power of a product, quotient and power",
+              "page": 108,
+              "src": "notes",
               "body": [
-                "Mehari and Seid are classmates and they always study together."
-              ]
+                "$(ab)^n = a^n b^n$: $(2 \\times 3)^3 = 2^3 \\times 3^3$ — every factor inside gets the exponent.",
+                "$\\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}$ ($b \\ne 0$): $\\left(\\frac{2}{3}\\right)^2 = \\frac{4}{9}$.",
+                "$(a^m)^n = a^{mn}$: $(2^3)^4 = 2^{12}$ — a power of a power **multiplies** the exponents.",
+                "**Warning:** there is no law for sums: $(a + b)^2 \\ne a^2 + b^2$. Check: $(5 + 7)^2 = 144$ but $5^2 + 7^2 = 74$."
+              ],
+              "enriched": true
             },
             {
               "id": "math9-u5-c04",
               "type": "text",
-              "title": "5.1.7 Integral Exponents",
+              "title": "5.1.7 Zero and negative exponents",
               "page": 110,
-              "src": "textbook pp.110–112",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "Haile simplified the expression 7 3 as follows.",
-                "The amount of a certain chemical reduces by half every month."
-              ]
-            },
-            {
-              "id": "math9-u5-c05",
-              "type": "text",
-              "title": "5.1.8 Expressing Exponentials as Radicals",
-              "page": 114,
-              "src": "textbook p.114",
-              "enriched": true,
-              "body": [
-                "Write the length of the edge (side) as a power of v ."
-              ]
-            },
-            {
-              "id": "math9-u5-c06",
-              "type": "text",
-              "title": "5.1.9 Solving Exponential Equations",
-              "page": 114,
-              "src": "textbook pp.114–115",
-              "enriched": true,
-              "body": [
-                "Halai Secondary School arranged a table tennis competition among 32 learners selected from various classes.",
-                "The competition was based on a knockout competition.",
-                "Solution: Let n be the required number of months.",
-                "Expressions such as 2n = 25 are called **exponential equations**."
-              ]
+                "$\\frac{7^3}{7^3} = 1$, and the quotient law gives $7^{3 - 3} = 7^0$. So **$a^0 = 1$** for every $a \\ne 0$: $6^0 = (-4)^0 = (1.5446)^0 = 1$.",
+                "$\\frac{5^4}{5^7} = \\frac{1}{5^3}$, and the quotient law gives $5^{-3}$. So **$a^{-n} = \\frac{1}{a^n}$**: a negative exponent means \"one over\", **not** a negative number. $2^{-4} = \\frac{1}{16}$, $(0.1)^{-2} = 100$, $\\left(\\frac{2}{3}\\right)^{-2} = \\frac{9}{4}$.",
+                "In growth problems a negative $n$ means \"in the past\": insects doubling monthly with 80 now had $80 \\times 2^{-3} = 10$ three months ago."
+              ],
+              "enriched": true
             },
             {
               "id": "math9-u5-tbl1",
@@ -12931,6 +12924,143 @@
                   "$$2^{-4} = \\frac{1}{2^4} = \\frac{1}{16}$$"
                 ]
               ]
+            },
+            {
+              "id": "math9-u5-c05",
+              "type": "text",
+              "title": "5.1.8 Fractional exponents and radicals",
+              "page": 113,
+              "src": "notes",
+              "body": [
+                "$2^{\\frac{1}{2}} \\times 2^{\\frac{1}{2}} = 2^1 = 2$, so $2^{\\frac{1}{2}}$ is the number whose square is 2: $2^{\\frac{1}{2}} = \\sqrt{2}$. In general $$a^{\\frac{1}{n}} = \\sqrt[n]{a}, \\qquad a^{\\frac{m}{n}} = \\sqrt[n]{a^m} = \\left(\\sqrt[n]{a}\\right)^m$$ ($a \\ge 0$ when $n$ is even).",
+                "Work out the root first — the numbers stay small: $16^{\\frac{3}{2}} = (\\sqrt{16})^3 = 4^3 = 64$; $27^{-\\frac{2}{3}} = \\frac{1}{(\\sqrt[3]{27})^2} = \\frac{1}{9}$.",
+                "The edge of a cube of volume $v$ is $\\sqrt[3]{v} = v^{\\frac{1}{3}}$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u5-md-frac-t",
+              "type": "table",
+              "title": "Reading an exponent",
+              "page": 113,
+              "src": "notes",
+              "head": [
+                "Exponent",
+                "Meaning",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "positive whole $n$",
+                  "multiply $n$ copies",
+                  "$3^4 = 81$"
+                ],
+                [
+                  "0",
+                  "equals 1",
+                  "$9^0 = 1$"
+                ],
+                [
+                  "negative $-n$",
+                  "reciprocal of $a^n$",
+                  "$3^{-2} = \\frac{1}{9}$"
+                ],
+                [
+                  "$\\frac{1}{n}$",
+                  "$n$th root",
+                  "$8^{\\frac{1}{3}} = 2$"
+                ],
+                [
+                  "$\\frac{m}{n}$",
+                  "$n$th root, then power $m$",
+                  "$8^{\\frac{2}{3}} = 4$"
+                ],
+                [
+                  "$-\\frac{m}{n}$",
+                  "all three: root, power, reciprocal",
+                  "$8^{-\\frac{2}{3}} = \\frac{1}{4}$"
+                ]
+              ],
+              "body": [
+                "Order for $a^{-\\frac{m}{n}}$: denominator → root, numerator → power, minus sign → flip."
+              ]
+            },
+            {
+              "id": "math9-u5-md-ex-51a",
+              "type": "worked",
+              "title": "Worked example: simplify with the laws",
+              "page": 110,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Simplify (a) $\\frac{a^3 \\times a^6}{a^2}$ (b) $\\left(2^3\\right)^2 \\times 2^{-5}$ (c) $\\left(\\frac{8}{27}\\right)^{-\\frac{2}{3}}$.",
+              "steps": [
+                {
+                  "text": "(a) Top: $a^{3 + 6} = a^9$; divide: $a^{9 - 2} = a^7$."
+                },
+                {
+                  "text": "(b) $(2^3)^2 = 2^6$; $2^6 \\times 2^{-5} = 2^1 = 2$."
+                },
+                {
+                  "text": "(c) Flip for the minus: $\\left(\\frac{27}{8}\\right)^{\\frac{2}{3}}$. Cube root: $\\frac{3}{2}$. Square: $\\frac{9}{4}$."
+                }
+              ],
+              "answer": "(a) $a^7$ (b) 2 (c) $\\frac{9}{4}$"
+            },
+            {
+              "id": "math9-u5-c06",
+              "type": "text",
+              "title": "5.1.9 Exponential equations",
+              "page": 114,
+              "src": "notes",
+              "body": [
+                "An **exponential equation** has the unknown in the exponent, e.g. $2^n = 32$.",
+                "**Method:** write both sides as powers of the **same base**, then use: if $a^x = a^y$ (with $a > 0$, $a \\ne 1$) then $x = y$.",
+                "Table tennis knockout with 32 players: each round halves the players, so $2^n = 32 = 2^5$ and there are $n = 5$ rounds.",
+                "Useful powers to know: $2^5 = 32$, $2^6 = 64$, $3^4 = 81$, $3^5 = 243$, $4^3 = 64$, $5^3 = 125$, $5^4 = 625$, $10^{-2} = 0.01$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u5-md-ex-51b",
+              "type": "worked",
+              "title": "Worked example: Example 5.3",
+              "page": 115,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Insects triple every month. Starting with 100, how long until there are 8100?",
+              "steps": [
+                {
+                  "text": "$100 \\times 3^n = 8100$."
+                },
+                {
+                  "text": "Divide by 100: $3^n = 81 = 3^4$."
+                },
+                {
+                  "text": "Same base, so $n = 4$ months."
+                }
+              ],
+              "answer": "4 months"
+            },
+            {
+              "id": "math9-u5-md-ex-51c",
+              "type": "worked",
+              "title": "Worked example: different bases that match",
+              "page": 115,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve (a) $4^{x - 1} = 8$ (b) $9^{1 - 2x} = 81$.",
+              "steps": [
+                {
+                  "text": "(a) Use base 2: $(2^2)^{x - 1} = 2^3 \\Rightarrow 2x - 2 = 3 \\Rightarrow x = \\frac{5}{2}$."
+                },
+                {
+                  "text": "(b) $81 = 9^2$, so $1 - 2x = 2 \\Rightarrow x = -\\frac{1}{2}$."
+                },
+                {
+                  "text": "Check (a): $4^{1.5} = (\\sqrt{4})^3 = 8$ (correct)."
+                }
+              ],
+              "answer": "(a) $x = \\frac{5}{2}$ (b) $x = -\\frac{1}{2}$"
             },
             {
               "id": "math9-u5-wrk1",
@@ -13044,48 +13174,266 @@
           ],
           "cards": [
             {
-              "id": "math9-u5-c07",
-              "type": "remember",
-              "title": "Exponential and log expressions",
-              "page": 122,
+              "id": "math9-u5-md-logdef-t",
+              "type": "text",
+              "title": "5.2.1 What is a logarithm?",
+              "page": 116,
               "src": "notes",
               "body": [
-                "a^m·a^n=a^{m+n} (a^m)^n=a^{mn} a^0=1",
-                "log_b a = c ⇔ b^c=a. log(xy)=log x+log y. Change: log_b a = log a / log b."
+                "$\\log_a x$ answers the question: **\"$a$ to what power gives $x$?\"**",
+                "$$y = \\log_a x \\iff a^y = x \\qquad (a > 0,\\ a \\ne 1,\\ x > 0)$$",
+                "Examples: $\\log_3 27 = 3$ because $3^3 = 27$; $\\log_{64} 8 = \\frac{1}{2}$ because $64^{\\frac{1}{2}} = 8$; $\\log_{10} 0.001 = -3$ because $10^{-3} = 0.001$.",
+                "Two values to remember: $\\log_a 1 = 0$ (since $a^0 = 1$) and $\\log_a a = 1$. You cannot take the log of 0 or of a negative number."
               ]
+            },
+            {
+              "id": "math9-u5-md-logcycle",
+              "type": "diagram",
+              "title": "The same fact written two ways",
+              "page": 116,
+              "src": "notes",
+              "diagram": "md_logcycle",
+              "mode": "plain",
+              "body": [
+                "The base stays the base; the exponent becomes the value of the log; the answer of the power goes inside the log."
+              ]
+            },
+            {
+              "id": "math9-u5-md-ex-52a",
+              "type": "worked",
+              "title": "Worked example: evaluate logs",
+              "page": 117,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find (a) $\\log_5 625$ (b) $\\log_2 0.25$ (c) $\\log_7 7\\sqrt{7}$.",
+              "steps": [
+                {
+                  "text": "(a) $5^4 = 625$, so 4."
+                },
+                {
+                  "text": "(b) $0.25 = \\frac{1}{4} = 2^{-2}$, so $-2$."
+                },
+                {
+                  "text": "(c) $7\\sqrt{7} = 7^1 \\times 7^{\\frac{1}{2}} = 7^{\\frac{3}{2}}$, so $\\frac{3}{2}$."
+                }
+              ],
+              "answer": "(a) 4 (b) $-2$ (c) $\\frac{3}{2}$"
+            },
+            {
+              "id": "math9-u5-md-loglaws-t",
+              "type": "text",
+              "title": "5.2.2 Laws of logarithms",
+              "page": 117,
+              "src": "notes",
+              "body": [
+                "Because logs are exponents, the exponent laws become log laws (for positive $m, n$):",
+                "- **Product:** $\\log_a (mn) = \\log_a m + \\log_a n$ (multiply inside → add logs).",
+                "- **Quotient:** $\\log_a \\frac{m}{n} = \\log_a m - \\log_a n$ (divide inside → subtract logs).",
+                "- **Power:** $\\log_a m^n = n \\log_a m$ (exponent comes to the front).",
+                "Check: $\\log_{10} 100 + \\log_{10} 1000 = 2 + 3 = 5 = \\log_{10} 100\\,000$.",
+                "**No law for sums:** $\\log (m + n) \\ne \\log m + \\log n$."
+              ]
+            },
+            {
+              "id": "math9-u5-md-law-t",
+              "type": "table",
+              "title": "Exponent law ↔ log law",
+              "page": 119,
+              "src": "notes",
+              "head": [
+                "Exponent law",
+                "Log law",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "$a^m a^n = a^{m+n}$",
+                  "$\\log (mn) = \\log m + \\log n$",
+                  "$\\log_3 54 + \\log_3 \\frac{3}{2} = \\log_3 81 = 4$"
+                ],
+                [
+                  "$\\frac{a^m}{a^n} = a^{m-n}$",
+                  "$\\log \\frac{m}{n} = \\log m - \\log n$",
+                  "$\\log_2 144 - \\log_2 9 = \\log_2 16 = 4$"
+                ],
+                [
+                  "$(a^m)^n = a^{mn}$",
+                  "$\\log m^n = n \\log m$",
+                  "$\\log_2 8^3 = 3 \\times 3 = 9$"
+                ],
+                [
+                  "$a^0 = 1$",
+                  "$\\log_a 1 = 0$",
+                  "$\\log_7 1 = 0$"
+                ],
+                [
+                  "$a^1 = a$",
+                  "$\\log_a a = 1$",
+                  "$\\log_{10} 10 = 1$"
+                ]
+              ],
+              "body": [
+                "Strategy: combine the logs into **one** log first, then evaluate."
+              ]
+            },
+            {
+              "id": "math9-u5-mn2",
+              "type": "mnemonic",
+              "title": "Log laws: \"times → plus, divide → minus, power → front\"",
+              "body": [
+                "log(MN) = log M + log N; log(M/N) = log M − log N; log Mᵏ = k log M.",
+                "There is **no** law for log(M + N)."
+              ],
+              "page": 116,
+              "src": "notes"
             },
             {
               "id": "math9-u5-c08",
               "type": "mnemonic",
-              "title": "Logs undo exponents.",
-              "page": 122,
+              "title": "Logs undo exponents",
+              "page": 118,
               "src": "notes",
               "body": [
-                "Same base to add the logs. Cannot log(x+y) as log x + log y."
+                "\"A log is an exponent.\" Every log law is an exponent law in disguise: **times → plus, divide → minus, power → front**. And there is NO rule for $\\log (x + y)$."
               ]
+            },
+            {
+              "id": "math9-u5-md-logeq-t",
+              "type": "text",
+              "title": "5.2.3 Simple logarithmic equations",
+              "page": 120,
+              "src": "notes",
+              "body": [
+                "- If the unknown is **inside** the log ($\\log_2 k = 5$), change to exponential form: $k = 2^5 = 32$.",
+                "- If the unknown is the **value** ($\\log_9 3 = m$), write $9^m = 3$, i.e. $3^{2m} = 3^1$, so $m = \\frac{1}{2}$.",
+                "- If several logs with the same base appear, combine them into one log on each side, then compare: $\\log_3 x = \\log_3 12 + \\log_3 4 = \\log_3 48$ gives $x = 48$.",
+                "Always check that every number inside a log is positive."
+              ]
+            },
+            {
+              "id": "math9-u5-md-ex-52b",
+              "type": "worked",
+              "title": "Worked example: Exercise 5.14",
+              "page": 120,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve (a) $\\log_6 (x - 3) = 2$ (b) $\\log_2 72 - \\log_2 x = \\log_2 12$.",
+              "steps": [
+                {
+                  "text": "(a) $x - 3 = 6^2 = 36$, so $x = 39$."
+                },
+                {
+                  "text": "(b) Left side: $\\log_2 \\frac{72}{x}$. So $\\frac{72}{x} = 12$ and $x = 6$."
+                },
+                {
+                  "text": "Check (b): $\\log_2 72 - \\log_2 6 = \\log_2 12$ (correct)."
+                }
+              ],
+              "answer": "(a) 39 (b) 6"
             },
             {
               "id": "math9-u5-c09",
               "type": "text",
-              "title": "5.2.4 Common Logarithms",
+              "title": "5.2.4 Common logarithms",
               "page": 121,
-              "src": "textbook pp.121–122",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "The method of writing a given number as the product of 2 factors, 1 of which is greater than or equal to 1 but less than 10, and the other is a power of 10, is called the **scientific notation**.",
-                "Logarithms to the base 10 have a nice property that makes it possible to obtain all the desired logarithms from a fairly small list. log10 x is denoted by log x .",
-                "The integral part is called the characteristic and the decimal part is called the **mantissa**."
+                "**Scientific notation:** write a number as $n \\times 10^m$ with $1 \\le n < 10$ and $m$ an integer: $276\\,000 = 2.76 \\times 10^5$ (the textbook writes $2.76 \\times 10\\,000$, but $10\\,000 = 10^4$; it should be $100\\,000$). $0.000521 = 5.21 \\times 10^{-4}$.",
+                "**Common logarithms** have base 10 and are written $\\log x$. Then $$\\log (n \\times 10^m) = m + \\log n$$ where $0 \\le \\log n < 1$ comes from the table.",
+                "The whole-number part $m$ is the **characteristic**; the decimal part $\\log n$ is the **mantissa**. For numbers less than 1 the characteristic is negative: $\\log 0.0643 = -2 + 0.8082$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u5-md-charman",
+              "type": "diagram",
+              "title": "Splitting a common logarithm",
+              "page": 122,
+              "src": "notes",
+              "diagram": "md_charman",
+              "mode": "plain"
+            },
+            {
+              "id": "math9-u5-md-logtable",
+              "type": "diagram",
+              "title": "How to read the table",
+              "page": 123,
+              "src": "notes",
+              "diagram": "md_logtable",
+              "mode": "plain",
+              "body": [
+                "For log 2.76: go to row **27** (the first two digits) and column **6** (the third digit): 4409, so $\\log 2.76 = 0.4409$. For an antilogarithm do the reverse: find the mantissa inside the table and read off the row and column."
               ]
             },
             {
               "id": "math9-u5-c10",
               "type": "text",
-              "title": "5.2.5 Antilogarithms",
+              "title": "5.2.5 Antilogarithms and calculating with logs",
               "page": 123,
-              "src": "textbook p.123",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "Amina and Rahwa wanted to calculate using logarithms."
+                "If $\\log x = c$ then $x = 10^c$ = **antilog** $c$. Split $c$ = characteristic + mantissa: $\\log x = 2.4969 = 2 + 0.4969$, so $x = 10^2 \\times \\text{antilog}(0.4969) = 100 \\times 3.14 = 314$.",
+                "Calculating with logs turns hard operations into easier ones: **multiply → add logs, divide → subtract logs, power → multiply the log, root → divide the log.** Then take the antilog."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u5-md-ex-52c",
+              "type": "worked",
+              "title": "Worked example: Activity 5.17 (multiplying with logs)",
+              "page": 124,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Use logarithms to estimate $2680 \\times 81.6$.",
+              "steps": [
+                {
+                  "text": "$\\log 2680 = 3 + \\log 2.68 = 3.4281$ and $\\log 81.6 = 1 + \\log 8.16 = 1.9117$. (The textbook's \"log 2860\" is a misprint for log 2680.)"
+                },
+                {
+                  "text": "Add: $\\log x = 5.3398 = 5 + 0.3398$."
+                },
+                {
+                  "text": "Antilog of 0.3398: the table has 3385 (for 2.18) and 3404 (for 2.19); 3404 is closer, so 2.19."
+                },
+                {
+                  "text": "$x \\approx 2.19 \\times 10^5 = 219\\,000$ (exact value 218 688)."
+                }
+              ],
+              "answer": "≈ 219 000"
+            },
+            {
+              "id": "math9-u5-md-ex-52d",
+              "type": "worked",
+              "title": "Worked example: Example 5.6 (dividing with logs)",
+              "page": 125,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Evaluate $864 \\div 0.745$ using logarithms.",
+              "steps": [
+                {
+                  "text": "$\\log 864 = 2 + 0.9365$; $\\log 0.745 = -1 + 0.8722$."
+                },
+                {
+                  "text": "Subtract: $(2 + 0.9365) - (-1 + 0.8722) = 3 + 0.0643$."
+                },
+                {
+                  "text": "Antilog 0.0643 ≈ 1.16, so $x \\approx 1.16 \\times 10^3 = 1160$."
+                },
+                {
+                  "text": "Check with a calculator: $864 \\div 0.745 \\approx 1159.7$ (correct). (The textbook writes \"$864 \\times 0.745$\" in the question; the working is a division.)"
+                }
+              ],
+              "answer": "≈ 1160"
+            },
+            {
+              "id": "math9-u5-c07",
+              "type": "remember",
+              "title": "Unit summary",
+              "page": 125,
+              "src": "notes",
+              "body": [
+                "Exponents: $a^m a^n = a^{m+n}$, $\\frac{a^m}{a^n} = a^{m-n}$, $(a^m)^n = a^{mn}$, $a^0 = 1$, $a^{-n} = \\frac{1}{a^n}$, $a^{\\frac{m}{n}} = \\sqrt[n]{a^m}$.",
+                "Logs: $\\log_a x = y \\iff a^y = x$; $\\log (mn) = \\log m + \\log n$; $\\log \\frac{m}{n} = \\log m - \\log n$; $\\log m^n = n \\log m$."
               ]
             },
             {
@@ -13169,17 +13517,6 @@
               "src": "notes"
             },
             {
-              "id": "math9-u5-mn2",
-              "type": "mnemonic",
-              "title": "Log laws: \"times → plus, divide → minus, power → front\"",
-              "body": [
-                "log(MN) = log M + log N; log(M/N) = log M − log N; log Mᵏ = k log M.",
-                "There is **no** law for log(M + N)."
-              ],
-              "page": 116,
-              "src": "notes"
-            },
-            {
               "id": "math9-u5-xt2",
               "type": "text",
               "title": "Logarithms in practice",
@@ -13211,13 +13548,83 @@
           ]
         }
       ],
-      "glossary": [],
+      "glossary": [
+        {
+          "term": "Base",
+          "meaning": "The number that is multiplied repeatedly in a power.",
+          "page": 103,
+          "src": "notes"
+        },
+        {
+          "term": "Exponent",
+          "meaning": "The small raised number that tells how many factors (also called index).",
+          "page": 103,
+          "src": "notes"
+        },
+        {
+          "term": "Exponential equation",
+          "meaning": "An equation with the unknown in the exponent, e.g. $2^n = 32$.",
+          "page": 115,
+          "src": "notes"
+        },
+        {
+          "term": "Logarithm",
+          "meaning": "$\\log_a x$ is the exponent to which $a$ must be raised to give $x$.",
+          "page": 116,
+          "src": "notes"
+        },
+        {
+          "term": "Common logarithm",
+          "meaning": "A logarithm to base 10, written $\\log x$.",
+          "page": 122,
+          "src": "notes"
+        },
+        {
+          "term": "Scientific notation",
+          "meaning": "$n \\times 10^m$ with $1 \\le n < 10$ and $m$ an integer.",
+          "page": 121,
+          "src": "notes"
+        },
+        {
+          "term": "Characteristic",
+          "meaning": "The integer part of a common logarithm (the power of 10).",
+          "page": 122,
+          "src": "notes"
+        },
+        {
+          "term": "Mantissa",
+          "meaning": "The decimal part of a common logarithm, read from the table.",
+          "page": 122,
+          "src": "notes"
+        },
+        {
+          "term": "Antilogarithm",
+          "meaning": "The number whose logarithm is given: antilog $c = 10^c$.",
+          "page": 123,
+          "src": "notes"
+        }
+      ],
       "tips": [
         {
           "text": "Exponential and log expressions: a^m·a^n=a^{m+n} (a^m)^n=a^{mn} a^0=1 log_b a = c ⇔ b^c=a. log(xy)=log x+log y. Change: log_b a = log a / log b.",
           "page": 122,
           "src": "notes",
           "card": "math9-u5-c07"
+        },
+        {
+          "text": "Same base: multiply → add exponents, divide → subtract, power of a power → multiply.",
+          "page": 110,
+          "src": "notes"
+        },
+        {
+          "text": "a⁻ⁿ = 1/aⁿ (reciprocal, not negative); a^(m/n): root, then power.",
+          "page": 113,
+          "src": "notes"
+        },
+        {
+          "text": "A log is an exponent: log_a x = y means a^y = x.",
+          "page": 116,
+          "src": "notes"
         }
       ],
       "games": [
@@ -13897,6 +14304,605 @@
               }
             ],
             "id": "math9-u5-q30"
+          },
+          {
+            "id": "math9-u5-md-s51-q01",
+            "type": "short",
+            "q": "Evaluate (a) $(-2)^4$ (b) $-2^4$ (c) $(-2)^5$ (d) $-(-2)^5$.",
+            "answer": "16, $-16$, $-32$, 32",
+            "why": [
+              "Step 1 (a): base $-2$, even exponent → $+16$.",
+              "Step 2 (b): only 2 is raised: $-(16) = -16$.",
+              "Step 3 (c): odd exponent → $-32$.",
+              "Step 4 (d): $-(-32) = 32$."
+            ],
+            "tip": "The exponent applies only to what is directly in front of it.",
+            "similar": [
+              {
+                "q": "Evaluate $-7^2$ and $(-7)^2$.",
+                "a": "$-49$ and 49."
+              }
+            ],
+            "page": 105,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q02",
+            "type": "short",
+            "q": "Simplify $3(-2)^3 + 5(3)^2$.",
+            "answer": "21",
+            "why": [
+              "Step 1: powers first: $(-2)^3 = -8$, $3^2 = 9$.",
+              "Step 2: $3(-8) + 5(9) = -24 + 45 = 21$."
+            ],
+            "tip": "Powers before multiplication.",
+            "similar": [
+              {
+                "q": "Simplify $(-1)^4 + (-3)^3$.",
+                "a": "$1 - 27 = -26$."
+              }
+            ],
+            "page": 105,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q03",
+            "type": "short",
+            "q": "A hive has 1000 bees and doubles every month. How many after 5 months?",
+            "answer": "32 000",
+            "why": [
+              "Step 1: $1000 \\times 2^5$.",
+              "Step 2: $2^5 = 32$, so 32 000."
+            ],
+            "tip": "Start value × (growth factor)$^{\\text{steps}}$.",
+            "similar": [
+              {
+                "q": "20 000 insects halve every month. After 5 months?",
+                "a": "$20\\,000 \\times \\frac{1}{32} = 625$."
+              }
+            ],
+            "page": 105,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q04",
+            "type": "mcq",
+            "q": "$5y^3 \\times 2y^6 = $",
+            "options": {
+              "A": "$7y^9$",
+              "B": "$10y^{18}$",
+              "C": "$10y^9$",
+              "D": "$7y^{18}$"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: numbers multiply: $5 \\times 2 = 10$.",
+              "Step 2: same base: add exponents $3 + 6 = 9$."
+            ],
+            "tip": "Multiply the numbers, add the exponents.",
+            "similar": [
+              {
+                "q": "$a^6b^3 \\times a^8b^6$?",
+                "a": "$a^{14}b^9$."
+              }
+            ],
+            "page": 106,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q05",
+            "type": "short",
+            "q": "Simplify $36a^{12}b^6 \\div 9a^3b^2$.",
+            "answer": "$4a^9b^4$",
+            "why": [
+              "Step 1: $36 \\div 9 = 4$.",
+              "Step 2: $a^{12 - 3} = a^9$, $b^{6 - 2} = b^4$."
+            ],
+            "tip": "Divide numbers, subtract exponents base by base.",
+            "similar": [
+              {
+                "q": "$125k^{18} \\div 25k^6$?",
+                "a": "$5k^{12}$."
+              }
+            ],
+            "page": 107,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q06",
+            "type": "short",
+            "q": "Write $(3^2)^3$ and $\\left(\\frac{2}{3}\\right)^{3 \\times 2}$ as single powers and evaluate the first.",
+            "answer": "$3^6 = 729$; $\\left(\\frac{2}{3}\\right)^6$",
+            "why": [
+              "Step 1: power of a power → multiply: $3^{2 \\times 3} = 3^6 = 729$.",
+              "Step 2: the second is already $\\left(\\frac{2}{3}\\right)^6 = \\frac{64}{729}$."
+            ],
+            "tip": "Brackets with an outside exponent → multiply.",
+            "similar": [
+              {
+                "q": "$(a^5)^3$?",
+                "a": "$a^{15}$."
+              }
+            ],
+            "page": 110,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q07",
+            "type": "short",
+            "q": "Evaluate (a) $2^{-4}$ (b) $(0.1)^{-2}$ (c) $7^0 + 3^{-3}$.",
+            "answer": "$\\frac{1}{16}$; 100; $\\frac{28}{27}$",
+            "why": [
+              "Step 1: $\\frac{1}{2^4} = \\frac{1}{16}$.",
+              "Step 2: $\\frac{1}{0.01} = 100$.",
+              "Step 3: $1 + \\frac{1}{27} = \\frac{28}{27}$."
+            ],
+            "tip": "Negative exponent → reciprocal, the sign of the number stays.",
+            "similar": [
+              {
+                "q": "$-5^{-3}$?",
+                "a": "$-\\frac{1}{125}$."
+              }
+            ],
+            "page": 111,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q08",
+            "type": "short",
+            "q": "Insects triple every month; there are 135 now. How many were there 2 months ago?",
+            "answer": "15",
+            "why": [
+              "Step 1: $135 \\times 3^{-2}$.",
+              "Step 2: $135 \\div 9 = 15$."
+            ],
+            "tip": "Going back in time → negative exponent → divide.",
+            "similar": [
+              {
+                "q": "600 g halves every month. How much 4 months ago?",
+                "a": "$600 \\times 2^4 = 9600$ g."
+              }
+            ],
+            "page": 112,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q09",
+            "type": "short",
+            "q": "Evaluate (a) $25^{\\frac{1}{2}}$ (b) $81^{\\frac{1}{4}}$ (c) $(-27)^{\\frac{1}{3}}$ (d) $64^{0.5}$.",
+            "answer": "5, 3, $-3$, 8",
+            "why": [
+              "Step 1: square root of 25 = 5.",
+              "Step 2: fourth root of 81 = 3 ($3^4 = 81$).",
+              "Step 3: cube root of $-27$ = $-3$ (odd roots of negatives are fine).",
+              "Step 4: $0.5 = \\frac{1}{2}$: $\\sqrt{64} = 8$."
+            ],
+            "tip": "Decimal exponents: change to fractions first.",
+            "similar": [
+              {
+                "q": "$16^{0.25}$?",
+                "a": "2."
+              }
+            ],
+            "page": 113,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q10",
+            "type": "short",
+            "q": "Evaluate (a) $27^{\\frac{2}{3}}$ (b) $16^{0.75}$ (c) $125^{-\\frac{2}{3}}$.",
+            "answer": "9, 8, $\\frac{1}{25}$",
+            "why": [
+              "Step 1: $(\\sqrt[3]{27})^2 = 3^2 = 9$.",
+              "Step 2: $0.75 = \\frac{3}{4}$: $(\\sqrt[4]{16})^3 = 2^3 = 8$.",
+              "Step 3: $\\frac{1}{(\\sqrt[3]{125})^2} = \\frac{1}{25}$."
+            ],
+            "tip": "Root first, then power, then flip.",
+            "similar": [
+              {
+                "q": "$4^{-\\frac{3}{2}}$?",
+                "a": "$\\frac{1}{8}$."
+              }
+            ],
+            "page": 114,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q11",
+            "type": "short",
+            "q": "Solve (a) $5^x = 125$ (b) $10^x = 0.01$ (c) $16^{x - 1} = 64$.",
+            "answer": "3; $-2$; $\\frac{5}{2}$",
+            "why": [
+              "Step 1: $125 = 5^3 \\Rightarrow x = 3$.",
+              "Step 2: $0.01 = 10^{-2} \\Rightarrow x = -2$.",
+              "Step 3: base 4: $4^{2(x - 1)} = 4^3 \\Rightarrow 2x - 2 = 3 \\Rightarrow x = \\frac{5}{2}$."
+            ],
+            "tip": "Find a common base, then equate exponents.",
+            "similar": [
+              {
+                "q": "Solve $9^x = 729$.",
+                "a": "$x = 3$."
+              }
+            ],
+            "page": 115,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q12",
+            "type": "short",
+            "q": "Solve $3 \\times 6^x = 108$.",
+            "answer": "$x = 2$",
+            "why": [
+              "Step 1: divide by 3: $6^x = 36$.",
+              "Step 2: $36 = 6^2 \\Rightarrow x = 2$."
+            ],
+            "tip": "Get the power alone before comparing.",
+            "similar": [
+              {
+                "q": "Solve $5 \\times 2^x = 80$.",
+                "a": "$2^x = 16$, $x = 4$."
+              }
+            ],
+            "page": 115,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q13",
+            "type": "short",
+            "q": "Bugs triple every month. There are 20 now. When will there be 540?",
+            "answer": "3 months",
+            "why": [
+              "Step 1: $20 \\times 3^n = 540$.",
+              "Step 2: $3^n = 27 = 3^3$, $n = 3$."
+            ],
+            "tip": "Divide by the starting amount first.",
+            "similar": [
+              {
+                "q": "300 ants double monthly. When 4800?",
+                "a": "4 months."
+              }
+            ],
+            "page": 115,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q14",
+            "type": "tf",
+            "q": "$(a + b)^2 = a^2 + b^2$ for all $a, b$.",
+            "answer": false,
+            "why": [
+              "Step 1: try $a = 5$, $b = 7$: $(12)^2 = 144$.",
+              "Step 2: $25 + 49 = 74 \\ne 144$."
+            ],
+            "tip": "Exponent laws work for products, not sums.",
+            "similar": [
+              {
+                "q": "Is $(ab)^2 = a^2b^2$ always true?",
+                "a": "Yes."
+              }
+            ],
+            "page": 108,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s51-q15",
+            "type": "short",
+            "q": "A ball dropped from 4 m bounces to $h = 4 \\times 0.9^n$ m after $n$ bounces. Find the height after 2 and after 3 bounces.",
+            "answer": "3.24 m; 2.916 m",
+            "why": [
+              "Step 1: $0.9^2 = 0.81$, $4 \\times 0.81 = 3.24$ m.",
+              "Step 2: $0.9^3 = 0.729$, $4 \\times 0.729 = 2.916$ m."
+            ],
+            "tip": "Each bounce keeps 90% of the height.",
+            "similar": [
+              {
+                "q": "After how many bounces is it first below 3 m?",
+                "a": "3 bounces."
+              }
+            ],
+            "page": 126,
+            "src": "notes",
+            "label": "5.1 Practice — exponents"
+          },
+          {
+            "id": "math9-u5-md-s52-q01",
+            "type": "short",
+            "q": "Write in logarithmic form: (a) $5^3 = 125$ (b) $64^{\\frac{1}{2}} = 8$ (c) $0.04 = 5^{-2}$.",
+            "answer": "$\\log_5 125 = 3$; $\\log_{64} 8 = \\frac{1}{2}$; $\\log_5 0.04 = -2$",
+            "why": [
+              "Step 1: base stays, exponent becomes the log value, the answer goes inside.",
+              "Step 2: apply to each."
+            ],
+            "tip": "The log IS the exponent.",
+            "similar": [
+              {
+                "q": "Write $a^6 = k$ as a log.",
+                "a": "$\\log_a k = 6$."
+              }
+            ],
+            "page": 116,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
+          },
+          {
+            "id": "math9-u5-md-s52-q02",
+            "type": "short",
+            "q": "Write $\\log_{10} 0.001 = -3$ in exponential form.",
+            "answer": "$10^{-3} = 0.001$",
+            "why": [
+              "Step 1: base 10, exponent $-3$, answer 0.001.",
+              "Step 2: $10^{-3} = 0.001$."
+            ],
+            "tip": "Read it as \"10 to the $-3$ is 0.001\".",
+            "similar": [
+              {
+                "q": "$\\log_3 27 = 3$ in exponential form?",
+                "a": "$3^3 = 27$."
+              }
+            ],
+            "page": 116,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
+          },
+          {
+            "id": "math9-u5-md-s52-q03",
+            "type": "mcq",
+            "q": "$\\log_7 343 = $",
+            "options": {
+              "A": "3",
+              "B": "49",
+              "C": "7",
+              "D": "$\\frac{1}{3}$"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: $7^2 = 49$, $7^3 = 343$.",
+              "Step 2: so the exponent is 3."
+            ],
+            "tip": "Ask: 7 to what power is 343?",
+            "similar": [
+              {
+                "q": "$\\log_{25} 625$?",
+                "a": "2."
+              }
+            ],
+            "page": 117,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
+          },
+          {
+            "id": "math9-u5-md-s52-q04",
+            "type": "short",
+            "q": "Evaluate $\\log_5 0.04$ and $\\log_2 0.25$.",
+            "answer": "$-2$ and $-2$",
+            "why": [
+              "Step 1: $0.04 = \\frac{1}{25} = 5^{-2}$.",
+              "Step 2: $0.25 = \\frac{1}{4} = 2^{-2}$."
+            ],
+            "tip": "Numbers between 0 and 1 have negative logs (base > 1).",
+            "similar": [
+              {
+                "q": "$\\log_{10} 0.1$?",
+                "a": "$-1$."
+              }
+            ],
+            "page": 117,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
+          },
+          {
+            "id": "math9-u5-md-s52-q05",
+            "type": "short",
+            "q": "Find $\\log_{10} 40 + \\log_{10} \\frac{10}{4}$.",
+            "answer": "2",
+            "why": [
+              "Step 1: product law: $\\log_{10} \\left(40 \\times \\frac{10}{4}\\right) = \\log_{10} 100$.",
+              "Step 2: $= 2$."
+            ],
+            "tip": "Combine first — the product is a nice number.",
+            "similar": [
+              {
+                "q": "$\\log_5 20 + \\log_5 \\frac{25}{4}$?",
+                "a": "$\\log_5 125 = 3$."
+              }
+            ],
+            "page": 118,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
+          },
+          {
+            "id": "math9-u5-md-s52-q06",
+            "type": "short",
+            "q": "Find $\\log_3 135 - \\log_3 5$.",
+            "answer": "3",
+            "why": [
+              "Step 1: quotient law: $\\log_3 \\frac{135}{5} = \\log_3 27$.",
+              "Step 2: $= 3$."
+            ],
+            "tip": "Subtracting logs = dividing inside.",
+            "similar": [
+              {
+                "q": "$\\log_2 40 - \\log_2 5$?",
+                "a": "3."
+              }
+            ],
+            "page": 118,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
+          },
+          {
+            "id": "math9-u5-md-s52-q07",
+            "type": "short",
+            "q": "Find $\\log_2 \\sqrt[5]{16}$.",
+            "answer": "$\\frac{4}{5}$",
+            "why": [
+              "Step 1: $\\sqrt[5]{16} = 16^{\\frac{1}{5}} = 2^{\\frac{4}{5}}$.",
+              "Step 2: $\\log_2 2^{\\frac{4}{5}} = \\frac{4}{5}$."
+            ],
+            "tip": "Write roots as fractional powers.",
+            "similar": [
+              {
+                "q": "$\\log_{10} \\sqrt[3]{100}$?",
+                "a": "$\\frac{2}{3}$."
+              }
+            ],
+            "page": 119,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
+          },
+          {
+            "id": "math9-u5-md-s52-q08",
+            "type": "short",
+            "q": "If $\\log_5 m = 3$, find $\\log_5 (25m^2)$.",
+            "answer": "8",
+            "why": [
+              "Step 1: $\\log_5 25 + 2\\log_5 m$.",
+              "Step 2: $2 + 2(3) = 8$."
+            ],
+            "tip": "Break the product apart, bring powers to the front.",
+            "similar": [
+              {
+                "q": "If $\\log_2 m = 4$, find $\\log_2 (8m)$.",
+                "a": "7."
+              }
+            ],
+            "page": 126,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
+          },
+          {
+            "id": "math9-u5-md-s52-q09",
+            "type": "short",
+            "q": "Solve (a) $\\log_5 x = 6$ (b) $\\log_9 3 = m$.",
+            "answer": "$x = 15\\,625$; $m = \\frac{1}{2}$",
+            "why": [
+              "Step 1: $x = 5^6 = 15\\,625$.",
+              "Step 2: $9^m = 3 \\Rightarrow 3^{2m} = 3^1 \\Rightarrow m = \\frac{1}{2}$."
+            ],
+            "tip": "Unknown inside → exponential form; unknown is the log → common base.",
+            "similar": [
+              {
+                "q": "Solve $\\log_2 k = 5$.",
+                "a": "$k = 32$."
+              }
+            ],
+            "page": 120,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
+          },
+          {
+            "id": "math9-u5-md-s52-q10",
+            "type": "short",
+            "q": "Solve $\\log_8 5 + \\log_8 x = \\log_8 55$.",
+            "answer": "$x = 11$",
+            "why": [
+              "Step 1: $\\log_8 5x = \\log_8 55$.",
+              "Step 2: $5x = 55$, $x = 11$."
+            ],
+            "tip": "One log on each side → compare the insides.",
+            "similar": [
+              {
+                "q": "Solve $4\\log_8 x = \\log_8 16$.",
+                "a": "$x^4 = 16$, $x = 2$."
+              }
+            ],
+            "page": 127,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
+          },
+          {
+            "id": "math9-u5-md-s52-q11",
+            "type": "short",
+            "q": "Write in scientific notation: (a) 149 600 000 000 m (b) 0.0008793.",
+            "answer": "$1.496 \\times 10^{11}$; $8.793 \\times 10^{-4}$",
+            "why": [
+              "Step 1: move the point 11 places left: $1.496 \\times 10^{11}$.",
+              "Step 2: move the point 4 places right: $8.793 \\times 10^{-4}$."
+            ],
+            "tip": "Count the jumps; big numbers → positive power, small → negative.",
+            "similar": [
+              {
+                "q": "Write 300 000 000.",
+                "a": "$3 \\times 10^8$."
+              }
+            ],
+            "page": 121,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
+          },
+          {
+            "id": "math9-u5-md-s52-q12",
+            "type": "short",
+            "q": "Using $\\log 2.38 = 0.3766$, find $\\log 238$ and $\\log 0.00238$.",
+            "answer": "2.3766; $-3 + 0.3766$",
+            "why": [
+              "Step 1: $238 = 2.38 \\times 10^2$: characteristic 2.",
+              "Step 2: $0.00238 = 2.38 \\times 10^{-3}$: characteristic $-3$, mantissa unchanged."
+            ],
+            "tip": "The mantissa depends only on the digits; the characteristic on the position of the point.",
+            "similar": [
+              {
+                "q": "$\\log 2500$ if $\\log 2.5 = 0.3979$?",
+                "a": "3.3979."
+              }
+            ],
+            "page": 122,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
+          },
+          {
+            "id": "math9-u5-md-s52-q13",
+            "type": "short",
+            "q": "If $\\log x = 2.4969$, find $x$ (use $\\log 3.14 = 0.4969$).",
+            "answer": "314",
+            "why": [
+              "Step 1: $x = 10^2 \\times 10^{0.4969}$.",
+              "Step 2: $= 100 \\times 3.14 = 314$."
+            ],
+            "tip": "Characteristic → power of 10; mantissa → digits from the table.",
+            "similar": [
+              {
+                "q": "Antilog of $-3$?",
+                "a": "0.001."
+              }
+            ],
+            "page": 124,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
+          },
+          {
+            "id": "math9-u5-md-s52-q14",
+            "type": "tf",
+            "q": "$\\log (m + n) = \\log m + \\log n$",
+            "answer": false,
+            "why": [
+              "Step 1: try $m = n = 10$: $\\log 20 \\approx 1.30$.",
+              "Step 2: $\\log 10 + \\log 10 = 2$, not equal."
+            ],
+            "tip": "The product law is for $\\log (mn)$.",
+            "similar": [
+              {
+                "q": "What does $\\log m + \\log n$ equal?",
+                "a": "$\\log (mn)$."
+              }
+            ],
+            "page": 118,
+            "src": "notes",
+            "label": "5.2 Practice — logarithms"
           }
         ]
       },
@@ -13936,6 +14942,22 @@
               "math9-u5-c09",
               "math9-u5-c10"
             ]
+          },
+          {
+            "id": "md_read",
+            "label": "Reading an exponent",
+            "kind": "idea",
+            "cards": [
+              "math9-u5-md-frac-t"
+            ]
+          },
+          {
+            "id": "md_law",
+            "label": "Exponent law ↔ log law",
+            "kind": "idea",
+            "cards": [
+              "math9-u5-md-law-t"
+            ]
           }
         ],
         "edges": [
@@ -13953,9 +14975,45 @@
             "from": "l5_1",
             "to": "l5_2",
             "label": "next"
+          },
+          {
+            "from": "l5_1",
+            "to": "md_read",
+            "label": "key idea"
+          },
+          {
+            "from": "l5_2",
+            "to": "md_law",
+            "label": "key idea"
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "md_growth": {
+          "svg": "svg/mathematics_9/m9_u5_growth.svg",
+          "title": "Repeated doubling and halving",
+          "page": 104,
+          "pins": []
+        },
+        "md_logcycle": {
+          "svg": "svg/mathematics_9/m9_u5_logcycle.svg",
+          "title": "Exponential form ⇄ logarithmic form",
+          "page": 116,
+          "pins": []
+        },
+        "md_charman": {
+          "svg": "svg/mathematics_9/m9_u5_charman.svg",
+          "title": "Characteristic and mantissa",
+          "page": 122,
+          "pins": []
+        },
+        "md_logtable": {
+          "svg": "svg/mathematics_9/m9_u5_logtable.svg",
+          "title": "Reading the table of logarithms (Activity 5.17)",
+          "page": 123,
+          "pins": []
+        }
       }
     },
     {
