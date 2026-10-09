@@ -1,6 +1,6 @@
 # 4 Encryptor (Android)
 
-Native Flutter app (no WebView) that turns PDFs, videos and offline web pages into 4 add-on files:
+Native Flutter app (no WebView) that turns PDFs, videos and offline web pages into add-on files for 4 or Bee Plus:
 `.4pdf`, `.4vid` (16:9), `.4reel` (9:16) and `.4web` (interactive page bundle). Same container and key chain as
 `packages/four_format` (master key → batch key → file key, AES-256-GCM, 256 KiB chunks), so the files open in 4
 exactly like files from the Mac/CLI tools.
@@ -18,6 +18,23 @@ Inputs are read in place through their content URI, one chunk at a time, and out
 chosen folder, so a 2 GB video needs no extra space and little RAM. AES-GCM runs natively through
 `cryptography_flutter` (javax.crypto; hardware AES on ARMv8). Thumbnails, duration and page count come from Android
 (`MediaMetadataRetriever`, `PdfRenderer`), so nothing big is bundled. There is no decrypt function in this app.
+
+## Target app: 4 or Bee Plus
+The switch at the top (**Files for: 4 | Bee Plus**) picks the app the files are for. Both apps read the same
+container (`.4pdf` / `.4vid` / `.4reel`), but each has its **own master key**, so a file made for 4 does not open in
+Bee Plus and vice versa:
+
+| Target | Release key define | Without the define |
+|---|---|---|
+| 4 | `FOUR_MK` (same as 4's `lib/resources/gate.dart`) | 4 DEV key (`FourKeys.devMasterKey`) |
+| Bee Plus | `BEE_MK` (same as Bee Plus' `lib/junior/resources/gate.dart`) | Bee Plus DEV key (SHA-256 of `BEE-RES-DEV-MASTER-KEY-v1-CHANGE-IN-RELEASE`) |
+
+The subject and grade lists follow the target (Bee Plus: Grades 6–8 and Junior's subject ids such as `science`,
+`mathematics`, `social_studies`), so subject + grade + unit put the file on the matching notes unit page. The key chip
+and its fingerprint show the key of the selected target. The choice is not saved: the app starts on 4 every time.
+`.4web` pages are not supported by Bee Plus. Release build carrying both keys:
+
+    flutter build apk --release --target-platform android-arm,android-arm64 --dart-define=FOUR_MK=<4 key> --dart-define=BEE_MK=<Bee Plus key>
 
 ## Master key
 Exactly the same source as the 4 app (`lib/resources/gate.dart`): `--dart-define=FOUR_MK=<base64 32 bytes>`;

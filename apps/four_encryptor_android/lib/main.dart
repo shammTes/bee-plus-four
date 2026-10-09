@@ -25,10 +25,12 @@ Future<void> main() async {
     AppLog.log('uncaught: $e\n$st');
     return true;
   };
-  AppLog.log('start · ${AppLog.device} · key ${MasterKey.isDev ? 'DEV' : 'FOUR_MK'}');
+  AppLog.log('start · ${AppLog.device} · keys: 4 ${KeyTarget.four.isDev ? 'DEV' : 'FOUR_MK'}, Bee Plus ${KeyTarget.bee.isDev ? 'DEV' : 'BEE_MK'}');
   AppLog.log(await cryptoSelfTest());
   try {
-    AppLog.log(await fourSelfTest(await MasterKey.load()));
+    for (final t in KeyTarget.values) {
+      AppLog.log('${t.label}: ${await fourSelfTest(await MasterKey.load(t))}');
+    }
   } catch (e) {
     selfTestError = 'Master key: $e';
     AppLog.log('master key failed: $e');
@@ -46,7 +48,6 @@ String describeError(Object e, [StackTrace? st]) {
   return '${e.runtimeType}: $e${top.isEmpty ? '' : '\n$top'}';
 }
 
-const kSubjects = ['', 'agriculture', 'biology', 'business_economics', 'chemistry', 'civics', 'english', 'geography', 'history', 'ict', 'mathematics', 'physics', 'tigrinya', 'general'];
 
 class EncryptorApp extends StatelessWidget {
   const EncryptorApp({super.key});
@@ -75,6 +76,10 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    _loadFp();
+  }
+
+  void _loadFp() {
     MasterKey.fingerprint().then((f) => mounted ? setState(() => fp = f) : null);
   }
 
@@ -275,6 +280,8 @@ class _HomePageState extends State<HomePage> {
     if (todo.isEmpty || !await _ensureFolder()) return;
     setState(() => busy = true);
     final mk = await MasterKey.load();
+    final target = MasterKey.target;
+    AppLog.log('batch target ${target.label} (${target.isDev ? 'DEV' : target.defineName}, fp $fp)');
     final batch = FourBatch.create(newBatchId());
     final total = todo.fold<int>(0, (a, j) => a + (j.size > 0 ? j.size : 1));
     var before = 0;
@@ -335,7 +342,7 @@ class _HomePageState extends State<HomePage> {
           } catch (_) {}
         }
         final msg = describeError(e, st);
-        final details = 'File: ${j.name} (${fmtSize(j.size)}, ${j.mime}, ${j.type.name})\nFailed step: $step\nError: $msg\nDevice: ${AppLog.device}\nApp: 4 Encryptor 1.0.1, key ${MasterKey.isDev ? 'DEV' : 'FOUR_MK'}';
+        final details = 'File: ${j.name} (${fmtSize(j.size)}, ${j.mime}, ${j.type.name})\nFailed step: $step\nError: $msg\nDevice: ${AppLog.device}\nApp: 4 Encryptor 1.1.0, target ${MasterKey.target.label}, key ${MasterKey.isDev ? 'DEV' : MasterKey.target.defineName}';
         AppLog.log('FAILED ${j.name} at "$step": $msg');
         setState(() {
           j.error = 'Could not $step: ${msg.split('\n').first}';
@@ -395,18 +402,52 @@ class _HomePageState extends State<HomePage> {
             child: ActionChip(
               avatar: Icon(MasterKey.isDev ? Icons.science_outlined : Icons.verified_user_outlined, size: 18),
               label: Text(MasterKey.isDev ? 'DEV key' : 'Release key'),
-              onPressed: () => _info(
-                'Master key',
-                MasterKey.isDev
-                    ? 'This build uses the public DEV key (no FOUR_MK). Files open in builds of 4 made without FOUR_MK (the current test builds).\n\nFingerprint: $fp'
-                    : 'This build carries FOUR_MK. Files open only in 4 builds made with the same FOUR_MK.\n\nFingerprint: $fp',
-              ),
+              onPressed: () {
+                final t = MasterKey.target;
+                _info(
+                  'Master key · ${t.label}',
+                  MasterKey.isDev
+                      ? 'This build uses the public ${t.label} DEV key (no ${t.defineName}). Files open in builds of ${t.label} made without ${t.defineName} (test builds).\n\nFingerprint: $fp'
+                      : 'This build carries ${t.defineName}. Files open only in ${t.label} builds made with the same ${t.defineName}.\n\nFingerprint: $fp',
+                );
+              },
             ),
           ),
         ],
       ),
       body: Column(
         children: [
+          // Which app the files are for: 4 and Bee Plus use different master keys (files are not interchangeable).
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+            child: Row(
+              children: [
+                const Text('Files for'),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: SegmentedButton<KeyTarget>(
+                    segments: [for (final t in KeyTarget.values) ButtonSegment(value: t, label: Text(t.label))],
+                    selected: {MasterKey.target},
+                    onSelectionChanged: busy
+                        ? null
+                        : (v) {
+                            setState(() {
+                              MasterKey.target = v.first;
+                              fp = '';
+                              // subjects / grades differ per app: clear values the new target does not have
+                              for (final j in jobs.where((j) => !j.done)) {
+                                if (!MasterKey.target.subjects.contains(j.subject)) j.subject = '';
+                                if (!MasterKey.target.grades.contains(j.grade)) j.grade = 0;
+                              }
+                            });
+                            AppLog.log('target → ${MasterKey.target.label}');
+                            _loadFp();
+                          },
+                  ),
+                ),
+              ],
+            ),
+          ),
           if (selfTestError != null)
             MaterialBanner(
               backgroundColor: Colors.red.withValues(alpha: .08),
@@ -606,10 +647,11 @@ class _JobCard extends StatelessWidget {
                   Expanded(
                     flex: 3,
                     child: DropdownButtonFormField<String>(
-                      initialValue: kSubjects.contains(j.subject) ? j.subject : '',
+                      key: ValueKey('s${j.uri}|${MasterKey.target.name}'),
+                      initialValue: MasterKey.target.subjects.contains(j.subject) ? j.subject : '',
                       isExpanded: true,
                       decoration: const InputDecoration(labelText: 'Subject', isDense: true),
-                      items: [for (final s in kSubjects) DropdownMenuItem(value: s, child: Text(s.isEmpty ? '—' : s.replaceAll('_', ' ')))],
+                      items: [for (final s in MasterKey.target.subjects) DropdownMenuItem(value: s, child: Text(s.isEmpty ? '—' : s.replaceAll('_', ' ')))],
                       onChanged: editable ? (v) {
                         j.subject = v ?? '';
                         onChanged();
@@ -620,9 +662,10 @@ class _JobCard extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: DropdownButtonFormField<int>(
+                      key: ValueKey('g${j.uri}|${MasterKey.target.name}'),
                       initialValue: j.grade,
                       decoration: const InputDecoration(labelText: 'Grade', isDense: true),
-                      items: [for (final g in [0, 9, 10, 11, 12]) DropdownMenuItem(value: g, child: Text(g == 0 ? '—' : '$g'))],
+                      items: [for (final g in {...MasterKey.target.grades, j.grade}) DropdownMenuItem(value: g, child: Text(g == 0 ? '—' : '$g'))],
                       onChanged: editable ? (v) {
                         j.grade = v ?? 0;
                         onChanged();
