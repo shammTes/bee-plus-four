@@ -114,6 +114,84 @@
      ],
      "cards": [
       {
+       "id": "math11-u3-c07",
+       "type": "text",
+       "title": "3.1 What is a rational function?",
+       "page": 72,
+       "src": "notes",
+       "body": [
+        "A **rational function** is a quotient of two polynomials: $f(x) = \\frac{P(x)}{Q(x)}$ with $Q(x) \\ne 0$.",
+        "**Test:** are the top and bottom both polynomials (whole-number powers of $x$, no roots of $x$, no $x$ in a denominator inside)? Then it is rational.",
+        "- $\\frac{3x - 3}{x + 5}$: rational. $\\frac{5}{x^2 + 5x + 3}$: rational (a constant is a polynomial).",
+        "- $\\frac{x + 5}{\\sqrt{x + 4}}$: **not** rational (root in the denominator).",
+        "- Every polynomial is rational: $x^3 - 2x^2 + 5 = \\frac{x^3 - 2x^2 + 5}{1}$.",
+        "**Domain:** all real numbers except the zeros of the denominator. Solve $Q(x) = 0$ and remove those values."
+       ]
+      },
+      {
+       "id": "math11-u3-md-ex-31a",
+       "type": "worked",
+       "title": "Worked example: domains (Example 3.2)",
+       "page": 73,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Find the domain of (a) $\\frac{x - 3}{x + 4}$ (b) $\\frac{5x + 2}{6x^2 - 13x + 6}$ (c) $\\frac{4x - 7}{x(x - 2)(x - 3)}$.",
+       "steps": [
+        {
+         "text": "(a) $x + 4 = 0 \\Rightarrow x = -4$: all reals except $-4$."
+        },
+        {
+         "text": "(b) $6x^2 - 13x + 6 = (3x - 2)(2x - 3) = 0 \\Rightarrow x = \\frac{2}{3}$ or $\\frac{3}{2}$: all reals except $\\frac{2}{3}$ and $\\frac{3}{2}$. (The book's last line says \"except $\\frac{1}{4}$ and $\\frac{3}{2}$\" — a misprint; its own working gives $\\frac{2}{3}$.)"
+        },
+        {
+         "text": "(c) zeros of the denominator: 0, 2, 3."
+        }
+       ],
+       "answer": "(a) $x \\ne -4$ (b) $x \\ne \\frac{2}{3}, \\frac{3}{2}$ (c) $x \\ne 0, 2, 3$"
+      },
+      {
+       "id": "math11-u3-md-range-t",
+       "type": "text",
+       "title": "Finding the range: two methods (Example 3.3)",
+       "page": 73,
+       "src": "notes",
+       "body": [
+        "$f(x) = \\frac{x - 3}{x - 4}$.",
+        "**Method 1 — divide:** $x - 3 = (x - 4) + 1$, so $f(x) = 1 + \\frac{1}{x - 4}$. The fraction $\\frac{1}{x - 4}$ is never 0, so $f(x)$ is never 1. Range: $\\{y : y \\ne 1\\}$.",
+        "**Method 2 — inverse:** swap and solve: $x(y - 4) = y - 3 \\Rightarrow y(x - 1) = 4x - 3 \\Rightarrow f^{-1}(x) = \\frac{4x - 3}{x - 1}$. Range of $f$ = domain of $f^{-1}$ = all reals except 1.",
+        "**Shortcut for $\\frac{ax + b}{cx + d}$:** the range is all reals except $\\frac{a}{c}$ (the horizontal asymptote)."
+       ]
+      },
+      {
+       "id": "math11-u3-md-cmp-31",
+       "type": "table",
+       "title": "Comparing the two range methods",
+       "page": 74,
+       "src": "notes",
+       "head": [
+        "Method",
+        "Best for",
+        "Watch out"
+       ],
+       "rows": [
+        [
+         "Divide (quotient + remainder)",
+         "$\\frac{ax + b}{cx + d}$, quick",
+         "remainder fraction can never be 0"
+        ],
+        [
+         "Inverse function",
+         "one-to-one functions",
+         "must be able to solve for $y$"
+        ],
+        [
+         "Graph / asymptote",
+         "checking answers",
+         "a hole also removes a $y$-value"
+        ]
+       ]
+      },
+      {
        "id": "math11-u3-c01",
        "type": "mnemonic",
        "title": "Asymptote cheat",
@@ -259,17 +337,6 @@
        "why": "**Step 1: Identify denominator constraint**\nThe function $$f(x) = \\frac{x - 3}{x + 4}$$ is undefined when the denominator is zero:\n$$x + 4 = 0 \\implies x = -4$$\n\n**Step 2: State the domain**\nThe domain consists of all real numbers except $$-4$$, which is written as $$\\mathbf{\\{x \\in \\mathbb{R} : x \\neq -4\\}}$$.\n**Result:** $$\\mathbf{\\{x \\in \\mathbb{R} : x \\neq -4\\}}$$."
       },
       {
-       "id": "math11-u3-c07",
-       "type": "text",
-       "title": "Rational functions",
-       "page": 71,
-       "body": [
-        "A **rational function** is f(x) = P(x) ÷ Q(x), where P and Q are polynomials and Q(x) ≠ 0. The domain is all real numbers **except** the zeros of Q.",
-        "**Vertical asymptote:** a line x = a where Q(a) = 0 (and P(a) ≠ 0). **Horizontal asymptote** (n = degree of P, m = degree of Q): n < m → y = 0; n = m → y = ratio of leading coefficients; n > m → no horizontal asymptote. Example: f(x) = (2x + 1)/(x − 3) has the vertical asymptote x = 3 and the horizontal asymptote y = 2/1 = 2."
-       ],
-       "src": "notes"
-      },
-      {
        "id": "math11-u3-wrk-extra1",
        "type": "worked",
        "title": "Worked: vertical asymptote vs hole",
@@ -300,33 +367,281 @@
       {
        "id": "math11-u3-c03",
        "type": "text",
-       "title": "3.2 Graphing rational functions",
-       "page": 75,
+       "title": "3.2.1 Even and odd functions",
+       "page": 80,
        "src": "notes",
        "body": [
-        "A **rational function** is f(x) = P(x)/Q(x) with P, Q polynomials and Q(x) ≠ 0. Its graph can have breaks: **vertical asymptotes**, **holes**, and it may approach a **horizontal** or **slant (oblique) asymptote** far to the left and right.",
-        "**Step-by-step graphing routine:** Step 1 — **Factor** numerator and denominator. Step 2 — **Domain:** exclude the zeros of the denominator. Step 3 — **Holes:** a factor that cancels from top and bottom gives a hole (a missing point), not an asymptote. Step 4 — **Vertical asymptotes:** zeros of the denominator that remain after cancelling. Step 5 — **Horizontal/slant asymptote** from the degrees n (top) and m (bottom): n < m → y = 0; n = m → y = (leading coeff. of P)/(leading coeff. of Q); n = m + 1 → slant asymptote found by long division. Step 6 — **Intercepts:** y-intercept f(0); x-intercepts where the (cancelled) numerator is 0. Step 7 — **Test points** in each interval between asymptotes and zeros, then sketch.",
-        "**Example:** f(x) = (2x + 1)/(x − 3). Domain x ≠ 3; vertical asymptote x = 3; degrees equal → horizontal asymptote y = 2/1 = 2; y-intercept f(0) = −1/3; x-intercept 2x + 1 = 0 → x = −1/2. Test x = 4: f = 9 (above y = 2, right of x = 3); x = 0: −1/3 (below). Sketch two branches, one in the upper right and one in the lower left of the crossing asymptotes.",
-        "**Hole example:** f(x) = (x² − 4)/(x − 2) = (x − 2)(x + 2)/(x − 2) = x + 2 for x ≠ 2. The graph is the line y = x + 2 with an open circle at (2, 4).",
-        "**Basic shape to remember:** y = 1/x has asymptotes x = 0 and y = 0 and two branches in the 1st and 3rd quadrants. y = a/(x − h) + k is the same curve moved so that the asymptotes are x = h and y = k."
+        "**Even:** $f(-x) = f(x)$ for every $x$ in the domain. The graph is **symmetric about the y-axis** (point $(a, b)$ ⇒ $(-a, b)$).",
+        "**Odd:** $f(-x) = -f(x)$. The graph is **symmetric about the origin** (point $(a, b)$ ⇒ $(-a, -b)$; a half-turn).",
+        "**Test:** replace $x$ by $-x$ and simplify. Example 3.6: $f(x) = x^3 - 3x$: $f(-x) = -x^3 + 3x = -f(x)$, odd. Example 3.7: $f(x) = \\frac{x^2 - 6}{x^2 + 6}$: $f(-x) = f(x)$, even.",
+        "**Quick rule for $\\frac{P(x)}{Q(x)}$** (a constant counts as power 0, even):",
+        "- all powers in $P$ and $Q$ even, or all odd → **even**;",
+        "- all powers in one even and in the other all odd → **odd**;",
+        "- mixed powers anywhere → usually **neither** (test to be sure)."
        ]
       },
       {
-       "id": "math11-u3-chk74",
-       "type": "check",
-       "title": "Quick check",
+       "id": "math11-u3-md-sym",
+       "type": "diagram",
+       "title": "The two kinds of symmetry",
+       "page": 78,
+       "src": "notes",
+       "diagram": "md_sym",
+       "mode": "plain",
+       "body": [
+        "Left: $y = x^4 - 2x^2 + 1$ is even: the points at $x = \\pm 1.5$ have the same height. Right: $y = x^3 - 4x$ is odd: $(1, -3)$ and $(-1, 3)$ are opposite through the origin."
+       ]
+      },
+      {
+       "id": "math11-u3-md-ex-32a",
+       "type": "worked",
+       "title": "Worked example: even, odd or neither?",
+       "page": 81,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Classify (a) $\\frac{5x^4 - 7x^2 + 1}{x^2 + 3}$ (b) $\\frac{3x^2 - 5}{x^3 + 6x}$ (c) $\\frac{2x}{x^3 + 3x}$ (d) $\\frac{x^3 + 2x + 1}{x^2 + 1}$.",
+       "steps": [
+        {
+         "text": "(a) powers 4, 2, 0 over 2, 0: all even → even."
+        },
+        {
+         "text": "(b) top even (2, 0), bottom odd (3, 1) → odd: symmetric about the origin."
+        },
+        {
+         "text": "(c) top odd, bottom odd → even (indeed it simplifies to $\\frac{2}{x^2 + 3}$)."
+        },
+        {
+         "text": "(d) top has 3, 1 and 0: mixed → neither ($f(-1) = -\\frac{1}{2}$, $f(1) = 2$)."
+        }
+       ],
+       "answer": "even; odd; even; neither"
+      },
+      {
+       "id": "math11-u3-md-asym-t",
+       "type": "text",
+       "title": "3.2.2 Asymptotes",
+       "page": 87,
+       "src": "notes",
+       "body": [
+        "An **asymptote** is a line that the graph gets closer and closer to as we move far along it. Drawn as a dashed line; it is not part of the graph.",
+        "**Vertical asymptote** $x = c$: write $f$ in **lowest terms**; every zero $c$ of the remaining denominator gives $x = c$. Near it, $f(x) \\to \\infty$ or $-\\infty$.",
+        "**Hole (point of discontinuity):** a factor that **cancels** from top and bottom gives a hole, not an asymptote. Example 3.12: $\\frac{x + 1}{x^2 - 2x - 3} = \\frac{1}{x - 3}$ ($x \\ne -1$): asymptote $x = 3$, hole at $x = -1$.",
+        "**Horizontal asymptote** (compare degrees $m$ of top, $n$ of bottom):",
+        "- $m < n$: $y = 0$.  - $m = n$: $y = \\frac{\\text{leading coefficient of top}}{\\text{leading coefficient of bottom}}$.  - $m > n$: none.",
+        "**Oblique (slant) asymptote:** when $m = n + 1$, divide: $f(x) = (ax + b) + \\frac{r(x)}{Q(x)}$; the line is $y = ax + b$."
+       ]
+      },
+      {
+       "id": "math11-u3-md-recip",
+       "type": "steps",
+       "title": "Reading the asymptotes of y = 1/x (Activity 3.6)",
+       "page": 87,
+       "src": "notes",
+       "diagram": "md_recip",
+       "steps": [
+        {
+         "text": "The graph has two branches and never touches either axis.",
+         "show": "k1"
+        },
+        {
+         "text": "Near $x = 0$ the values blow up: $x = 0.01$ gives 100, $x = -0.01$ gives $-100$. So $x = 0$ is a vertical asymptote.",
+         "show": "k2"
+        },
+        {
+         "text": "Far left and far right the values shrink to 0: $y = 0$ is the horizontal asymptote.",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math11-u3-md-asym-tb",
+       "type": "table",
+       "title": "Asymptote rules at a glance",
+       "page": 93,
+       "src": "notes",
+       "head": [
+        "Situation",
+        "Asymptote",
+        "Example"
+       ],
+       "rows": [
+        [
+         "remaining denominator $= 0$ at $c$",
+         "vertical $x = c$",
+         "$\\frac{2}{x + 1}$: $x = -1$"
+        ],
+        [
+         "factor cancels",
+         "hole, not asymptote",
+         "$\\frac{x^2 - 25}{x - 5}$: hole at $(5, 10)$"
+        ],
+        [
+         "deg top < deg bottom",
+         "$y = 0$",
+         "$\\frac{2x}{x^2 + 1}$"
+        ],
+        [
+         "equal degrees",
+         "$y = $ ratio of leading coefficients",
+         "$\\frac{2x^2}{x^2 + 1}$: $y = 2$"
+        ],
+        [
+         "deg top = deg bottom + 1",
+         "oblique $y = $ quotient",
+         "$\\frac{x^2 + 1}{x - 2}$: $y = x + 2$"
+        ],
+        [
+         "deg top ≥ deg bottom + 2",
+         "no horizontal or oblique",
+         "$\\frac{x^3 - 8}{x - 1}$"
+        ]
+       ]
+      },
+      {
+       "id": "math11-u3-md-ex-32b",
+       "type": "worked",
+       "title": "Worked example: oblique asymptotes (Example 3.16)",
+       "page": 96,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Find the oblique asymptotes of (a) $\\frac{x^2 + 1}{x - 2}$ (b) $\\frac{2x^3 - x^2 - 5}{x^2 - 3x + 2}$.",
+       "steps": [
+        {
+         "text": "(a) $x^2 + 1 = (x - 2)(x + 2) + 5$, so $f(x) = (x + 2) + \\frac{5}{x - 2}$: asymptote $y = x + 2$. (The book prints \"$(x + )$\": the 2 is missing.)"
+        },
+        {
+         "text": "(b) long division: $2x^3 - x^2 - 5 = (x^2 - 3x + 2)(2x + 5) + (11x - 15)$, so the asymptote is $y = 2x + 5$ (the book leaves the line out of its last sentence)."
+        }
+       ],
+       "answer": "$y = x + 2$; $y = 2x + 5$"
+      },
+      {
+       "id": "math11-u3-md-sketch-t",
+       "type": "text",
+       "title": "3.2.3 Sketching a rational function: the 7 steps",
+       "page": 99,
+       "src": "notes",
+       "body": [
+        "1. **Domain** (zeros of the denominator). 2. **Symmetry** (even / odd).",
+        "3. **Intercepts:** x-intercepts from numerator $= 0$ (in lowest terms); y-intercept $f(0)$ if 0 is in the domain.",
+        "4. **Holes and asymptotes.** 5. **Behaviour** near each asymptote: test a value just left and right.",
+        "6. Plot intercepts, a few extra points, dashed asymptotes and open circles for holes.",
+        "7. Join with smooth curves that follow the asymptotic behaviour."
+       ]
+      },
+      {
+       "id": "math11-u3-md-ex18",
+       "type": "steps",
+       "title": "Example 3.18: sketch f(x) = x / (x² − 4)",
+       "page": 99,
+       "src": "notes",
+       "diagram": "md_ex18",
+       "steps": [
+        {
+         "text": "Domain $x \\ne \\pm 2$; odd (top odd, bottom even); only intercept $(0, 0)$; asymptotes $x = \\pm 2$ and $y = 0$.",
+         "show": "k1"
+        },
+        {
+         "text": "Left of $-2$: $f(-3) = -\\frac{3}{5}$, negative, and $f \\to -\\infty$ as $x \\to -2$ from the left.",
+         "show": "k2"
+        },
+        {
+         "text": "Middle piece passes through $(0, 0)$, from $+\\infty$ at $-2$ down to $-\\infty$ at 2; the right piece is the half-turn image of the left one.",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math11-u3-md-ex19",
+       "type": "diagram",
+       "title": "Example 3.19: f(x) = (2x² + 2x − 4)/(x² + 2x)",
+       "page": 102,
+       "src": "notes",
+       "diagram": "md_ex19",
+       "mode": "plain",
+       "body": [
+        "Factorise: $\\frac{2(x - 1)(x + 2)}{x(x + 2)} = \\frac{2(x - 1)}{x}$, $x \\ne -2$. Hole at $x = -2$ with $y = \\frac{2(-3)}{-2} = 3$; vertical asymptote $x = 0$; horizontal $y = 2$; x-intercept 1; no y-intercept."
+       ]
+      },
+      {
+       "id": "math11-u3-md-ex20",
+       "type": "steps",
+       "title": "Example 3.20: f(x) = x² / (x − 1)",
+       "page": 103,
+       "src": "notes",
+       "diagram": "md_ex20",
+       "steps": [
+        {
+         "text": "Vertical asymptote $x = 1$; intercept $(0, 0)$.",
+         "show": "k1"
+        },
+        {
+         "text": "Divide: $x^2 = (x - 1)(x + 1) + 1$, so $f(x) = x + 1 + \\frac{1}{x - 1}$: oblique asymptote $y = x + 1$.",
+         "show": "k2"
+        },
+        {
+         "text": "For $x > 1$ the extra $\\frac{1}{x - 1} > 0$: the curve is above the line (lowest point $(2, 4)$); for $x < 1$ it is below.",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math11-u3-c08",
+       "type": "worked",
+       "title": "Worked example: sketching information",
        "page": 75,
-       "src": "study_notes",
-       "src_qid": "math_g11_c3_q4",
-       "q": "Find the coordinates of the point of discontinuity (hole) for the function $$f(x) = \\frac{x^2 - 4}{x - 2}$$.",
-       "options": {
-        "A": "$$(2, 4)$$",
-        "B": "$$(2, 0)$$",
-        "C": "No hole, only vertical asymptote",
-        "D": "$$(2, 2)$$"
-       },
-       "answer": "A",
-       "why": "**Step 1: Factor and simplify the function**\n$$f(x) = \\frac{x^2 - 4}{x - 2} = \\frac{(x - 2)(x + 2)}{x - 2}$$\n\n**Step 2: Find the point of discontinuity**\nThe common factor $$(x - 2)$$ cancels out, indicating a hole at $$x = 2$$.\n\n**Step 3: Calculate the y-coordinate of the hole**\nSubstitute $$x = 2$$ into the simplified function $$y = x + 2$$:\n$$y = 2 + 2 = 4$$\nThe coordinates of the hole are $$(2, 4)$$.\n**Result:** **$$(2, 4)$$**."
+       "problem": "For f(x) = (2x + 1) ÷ (x − 3), find the asymptotes and intercepts.",
+       "steps": [
+        {
+         "text": "Vertical asymptote: x − 3 = 0 → **x = 3**."
+        },
+        {
+         "text": "Degrees equal (1 and 1): horizontal asymptote **y = 2 ÷ 1 = 2**."
+        }
+       ],
+       "answer": "x-intercept: 2x + 1 = 0 → **x = −1/2**. y-intercept: f(0) = 1 ÷ (−3) = **−1/3**.",
+       "src": "notes"
+      },
+      {
+       "id": "math11-u3-mn2",
+       "type": "mnemonic",
+       "title": "Horizontal asymptote: \"BOBO BOTN EATS DC\"",
+       "body": [
+        "**BOBO** — Bigger On Bottom: y = 0. **BOTN** — Bigger On Top: None (if top is exactly one degree bigger, a slant asymptote). **EATS DC** — Exponents Are The Same: Divide the leading Coefficients."
+       ],
+       "letters": [
+        {
+         "l": "B",
+         "w": "Bigger On Bottom",
+         "m": "y = 0"
+        },
+        {
+         "l": "B",
+         "w": "Bigger On Top",
+         "m": "no horizontal asymptote"
+        },
+        {
+         "l": "E",
+         "w": "Exponents the same",
+         "m": "divide the leading coefficients"
+        }
+       ],
+       "page": 75,
+       "src": "notes"
+      },
+      {
+       "type": "worked",
+       "title": "Worked: intercepts",
+       "problem": "Find x-intercepts of (x−2)(x+1)/(x−4).",
+       "steps": [
+        {
+         "text": "Numerator 0: x=2 or x=−1 (and x≠4)."
+        }
+       ],
+       "answer": "x-intercepts at 2 and −1.",
+       "id": "math11-u3-xtra2",
+       "page": 1,
+       "src": "notes"
       },
       {
        "id": "math11-u3-wrk1",
@@ -365,6 +680,23 @@
        "answer": "$$(2, 4)$$"
       },
       {
+       "id": "math11-u3-chk74",
+       "type": "check",
+       "title": "Quick check",
+       "page": 75,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q4",
+       "q": "Find the coordinates of the point of discontinuity (hole) for the function $$f(x) = \\frac{x^2 - 4}{x - 2}$$.",
+       "options": {
+        "A": "$$(2, 4)$$",
+        "B": "$$(2, 0)$$",
+        "C": "No hole, only vertical asymptote",
+        "D": "$$(2, 2)$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Factor and simplify the function**\n$$f(x) = \\frac{x^2 - 4}{x - 2} = \\frac{(x - 2)(x + 2)}{x - 2}$$\n\n**Step 2: Find the point of discontinuity**\nThe common factor $$(x - 2)$$ cancels out, indicating a hole at $$x = 2$$.\n\n**Step 3: Calculate the y-coordinate of the hole**\nSubstitute $$x = 2$$ into the simplified function $$y = x + 2$$:\n$$y = 2 + 2 = 4$$\nThe coordinates of the hole are $$(2, 4)$$.\n**Result:** **$$(2, 4)$$**."
+      },
+      {
        "id": "math11-u3-chk75",
        "type": "check",
        "title": "Quick check",
@@ -380,6 +712,183 @@
        },
        "answer": "A",
        "why": "**Step 1: Factor numerator and denominator completely**\n$$\\text{Numerator: } 3x^2 - 12 = 3(x^2 - 4) = 3(x - 2)(x + 2)$$\n$$\\text{Denominator: } x^2 - 5x + 6 = (x - 2)(x - 3)$$\n\n**Step 2: Simplify the expression**\nState the original domain restrictions: $$x \\neq 2, 3$$.\n$$\\frac{3(x - 2)(x + 2)}{(x - 2)(x - 3)} = \\frac{3(x + 2)}{x - 3}$$\n\n**Step 3: State final simplified form**\nThe simplified form is $$\\frac{3(x + 2)}{x - 3}$$ for $$x \\neq 2, 3$$.\n**Result:** **$$\\frac{3(x + 2)}{x - 3}, x \\neq 2, 3$$**."
+      },
+      {
+       "id": "math11-u3-pc2",
+       "type": "check",
+       "title": "Practice",
+       "q": "What are the asymptotes of $$f(x) = \\frac{3x}{x + 2}$$?",
+       "options": {
+        "A": "x = −2 and y = 3",
+        "B": "x = 2 and y = 3",
+        "C": "x = −2 and y = 0",
+        "D": "x = 0 and y = 3"
+       },
+       "answer": "A",
+       "why": "**Vertical:** the denominator is zero at x = −2 (and the numerator 3x is not zero there).\n**Horizontal:** top and bottom both have degree 1, so y = ratio of leading coefficients = 3/1 = 3.",
+       "page": 75,
+       "src": "notes"
+      }
+     ]
+    },
+    {
+     "id": "math11-u3-l3-3",
+     "number": "3.3",
+     "title": "Operations on Rational Expressions",
+     "pages": [
+      105,
+      126
+     ],
+     "cards": [
+      {
+       "id": "math11-u3-c04",
+       "type": "text",
+       "title": "3.3 Operations on rational expressions",
+       "page": 106,
+       "src": "notes",
+       "body": [
+        "A **rational expression** is $\\frac{P}{Q}$ with polynomials $P, Q$ and $Q \\ne 0$. Everything works like ordinary fractions — but **factorise first**.",
+        "**Equivalent:** $\\frac{P}{Q} = \\frac{M}{N}$ when $PN = QM$. **Fundamental property:** $\\frac{P}{Q} = \\frac{PK}{QK}$ for $K \\ne 0$.",
+        "**Simplify:** factorise top and bottom, cancel common **factors** (never terms), state excluded values. $\\frac{3x^2 - 12}{x^2 - 5x + 6} = \\frac{3(x - 2)(x + 2)}{(x - 2)(x - 3)} = \\frac{3(x + 2)}{x - 3}$, $x \\ne 2, 3$.",
+        "**Multiply:** $\\frac{P}{Q} \\cdot \\frac{M}{N} = \\frac{PM}{QN}$ (cancel before multiplying). **Divide:** multiply by the reciprocal: $\\frac{P}{Q} \\div \\frac{M}{N} = \\frac{P}{Q} \\cdot \\frac{N}{M}$.",
+        "**Add / subtract:** same denominator → add numerators. Different denominators → use the **LCD**: factorise every denominator and take each factor to its highest power."
+       ]
+      },
+      {
+       "id": "math11-u3-md-ops-tb",
+       "type": "table",
+       "title": "The four operations",
+       "page": 117,
+       "src": "notes",
+       "head": [
+        "Operation",
+        "Rule",
+        "Key step"
+       ],
+       "rows": [
+        [
+         "Simplify",
+         "$\\frac{PK}{QK} = \\frac{P}{Q}$",
+         "cancel factors, not terms"
+        ],
+        [
+         "Multiply",
+         "$\\frac{P}{Q} \\cdot \\frac{M}{N} = \\frac{PM}{QN}$",
+         "factorise all, cancel across"
+        ],
+        [
+         "Divide",
+         "$\\frac{P}{Q} \\div \\frac{M}{N} = \\frac{PN}{QM}$",
+         "flip the second fraction"
+        ],
+        [
+         "Add / subtract",
+         "$\\frac{P}{Q} \\pm \\frac{K}{Q} = \\frac{P \\pm K}{Q}$",
+         "LCD first; bracket the numerator you subtract"
+        ]
+       ]
+      },
+      {
+       "id": "math11-u3-md-ex-33a",
+       "type": "worked",
+       "title": "Worked example: multiply (Example 3.27)",
+       "page": 116,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Find $\\frac{x + 2}{x + 4} \\cdot \\frac{x^2 + 2x - 8}{x^2 + 5x + 6}$.",
+       "steps": [
+        {
+         "text": "Factorise: $x^2 + 2x - 8 = (x + 4)(x - 2)$; $x^2 + 5x + 6 = (x + 2)(x + 3)$."
+        },
+        {
+         "text": "Cancel $(x + 2)$ and $(x + 4)$."
+        },
+        {
+         "text": "Result $\\frac{x - 2}{x + 3}$, with $x \\ne -4, -2, -3$."
+        }
+       ],
+       "answer": "$\\frac{x - 2}{x + 3}$"
+      },
+      {
+       "id": "math11-u3-md-ex-33b",
+       "type": "worked",
+       "title": "Worked example: divide (Example 3.29c)",
+       "page": 119,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Find $\\frac{y^2 + y - 12}{y^2 - 8y + 15} \\div \\frac{3y^2 + 7y - 20}{2y^2 - 7y - 15}$.",
+       "steps": [
+        {
+         "text": "Flip: $\\frac{(y + 4)(y - 3)}{(y - 3)(y - 5)} \\cdot \\frac{(2y + 3)(y - 5)}{(3y - 5)(y + 4)}$."
+        },
+        {
+         "text": "Cancel $(y + 4)$, $(y - 3)$, $(y - 5)$."
+        },
+        {
+         "text": "$\\frac{2y + 3}{3y - 5}$."
+        }
+       ],
+       "answer": "$\\frac{2y + 3}{3y - 5}$"
+      },
+      {
+       "id": "math11-u3-md-ex-33c",
+       "type": "worked",
+       "title": "Worked example: subtract with an LCD (Example 3.32b)",
+       "page": 125,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Find $\\frac{8}{x^2 - 16} - \\frac{5}{x^2 - 3x - 4}$.",
+       "steps": [
+        {
+         "text": "Denominators $(x - 4)(x + 4)$ and $(x - 4)(x + 1)$; LCD $(x - 4)(x + 4)(x + 1)$. (The book's sentence names only $(x - 4)(x + 4)$, but its working uses all three factors.)"
+        },
+        {
+         "text": "Numerator: $8(x + 1) - 5(x + 4) = 3x - 12 = 3(x - 4)$."
+        },
+        {
+         "text": "Cancel $(x - 4)$: $\\frac{3}{(x + 4)(x + 1)}$, $x \\ne 4$."
+        }
+       ],
+       "answer": "$\\frac{3}{(x + 4)(x + 1)}$"
+      },
+      {
+       "id": "math11-u3-md-rm-33",
+       "type": "remember",
+       "title": "Classic mistakes",
+       "page": 113,
+       "src": "notes",
+       "body": [
+        "$\\frac{x + 3}{x}$ is **not** 3: you may only cancel a whole factor.",
+        "$\\frac{a}{b} - \\frac{c - d}{b} = \\frac{a - c + d}{b}$: put brackets around the second numerator.",
+        "$\\frac{4w}{2w - 5} + \\frac{10}{5 - 2w}$: write $5 - 2w = -(2w - 5)$, giving $\\frac{4w - 10}{2w - 5} = 2$."
+       ]
+      },
+      {
+       "id": "math11-u3-md-mn-33",
+       "type": "mnemonic",
+       "title": "Memory hook",
+       "page": 117,
+       "src": "notes",
+       "body": [
+        "**\"Factor, Flip, Cancel, Combine.\"** Factor everything; flip only when dividing; cancel factors; combine numerators over the LCD."
+       ]
+      },
+      {
+       "id": "math11-u3-c09",
+       "type": "worked",
+       "title": "Worked example: adding rational expressions",
+       "page": 105,
+       "problem": "Simplify 1/x + 1/(x + 1).",
+       "steps": [
+        {
+         "text": "Common denominator x(x + 1)."
+        },
+        {
+         "text": "= (x + 1)/(x(x + 1)) + x/(x(x + 1)) = **(2x + 1) / (x(x + 1))**, x ≠ 0, −1."
+        }
+       ],
+       "answer": "= (x + 1)/(x(x + 1)) + x/(x(x + 1)) = **(2x + 1) / (x(x + 1))**, x ≠ 0, −1.",
+       "src": "notes"
       },
       {
        "id": "math11-u3-wrk2",
@@ -421,106 +930,6 @@
        "answer": "$$\\frac{3(x + 2)}{x - 3}, x \\neq 2, 3$$"
       },
       {
-       "id": "math11-u3-c08",
-       "type": "worked",
-       "title": "Worked example: sketching information",
-       "page": 75,
-       "problem": "For f(x) = (2x + 1) ÷ (x − 3), find the asymptotes and intercepts.",
-       "steps": [
-        {
-         "text": "Vertical asymptote: x − 3 = 0 → **x = 3**."
-        },
-        {
-         "text": "Degrees equal (1 and 1): horizontal asymptote **y = 2 ÷ 1 = 2**."
-        }
-       ],
-       "answer": "x-intercept: 2x + 1 = 0 → **x = −1/2**. y-intercept: f(0) = 1 ÷ (−3) = **−1/3**.",
-       "src": "notes"
-      },
-      {
-       "type": "worked",
-       "title": "Worked: intercepts",
-       "problem": "Find x-intercepts of (x−2)(x+1)/(x−4).",
-       "steps": [
-        {
-         "text": "Numerator 0: x=2 or x=−1 (and x≠4)."
-        }
-       ],
-       "answer": "x-intercepts at 2 and −1.",
-       "id": "math11-u3-xtra2",
-       "page": 1,
-       "src": "notes"
-      },
-      {
-       "id": "math11-u3-pc2",
-       "type": "check",
-       "title": "Practice",
-       "q": "What are the asymptotes of $$f(x) = \\frac{3x}{x + 2}$$?",
-       "options": {
-        "A": "x = −2 and y = 3",
-        "B": "x = 2 and y = 3",
-        "C": "x = −2 and y = 0",
-        "D": "x = 0 and y = 3"
-       },
-       "answer": "A",
-       "why": "**Vertical:** the denominator is zero at x = −2 (and the numerator 3x is not zero there).\n**Horizontal:** top and bottom both have degree 1, so y = ratio of leading coefficients = 3/1 = 3.",
-       "page": 75,
-       "src": "notes"
-      },
-      {
-       "id": "math11-u3-mn2",
-       "type": "mnemonic",
-       "title": "Horizontal asymptote: \"BOBO BOTN EATS DC\"",
-       "body": [
-        "**BOBO** — Bigger On Bottom: y = 0. **BOTN** — Bigger On Top: None (if top is exactly one degree bigger, a slant asymptote). **EATS DC** — Exponents Are The Same: Divide the leading Coefficients."
-       ],
-       "letters": [
-        {
-         "l": "B",
-         "w": "Bigger On Bottom",
-         "m": "y = 0"
-        },
-        {
-         "l": "B",
-         "w": "Bigger On Top",
-         "m": "no horizontal asymptote"
-        },
-        {
-         "l": "E",
-         "w": "Exponents the same",
-         "m": "divide the leading coefficients"
-        }
-       ],
-       "page": 75,
-       "src": "notes"
-      }
-     ]
-    },
-    {
-     "id": "math11-u3-l3-3",
-     "number": "3.3",
-     "title": "Operations on Rational Expressions",
-     "pages": [
-      105,
-      126
-     ],
-     "cards": [
-      {
-       "id": "math11-u3-c04",
-       "type": "text",
-       "title": "3.3 Operations on rational expressions",
-       "page": 105,
-       "src": "notes",
-       "body": [
-        "Rational expressions follow the same rules as fractions of numbers. Always **factor first**, and state the values of x that make any denominator zero (they are excluded).",
-        "**Simplifying:** factor the top and bottom and cancel common **factors** (never cancel terms that are added). Example: (3x² − 12)/(x² − 5x + 6) = 3(x − 2)(x + 2)/[(x − 2)(x − 3)] = 3(x + 2)/(x − 3), x ≠ 2, 3.",
-        "**Multiplying:** multiply tops and bottoms, then cancel. Example: (3x − 3)/x × x²/(x² − 1) = 3(x − 1)/x × x²/[(x − 1)(x + 1)] = 3x/(x + 1), x ≠ 0, ±1.",
-        "**Dividing:** multiply by the reciprocal of the second expression. Example: (x + 2)/x ÷ (x² − 4)/x² = (x + 2)/x × x²/[(x − 2)(x + 2)] = x/(x − 2).",
-        "**Adding and subtracting:** Step 1: factor the denominators. Step 2: find the LCD (least common denominator). Step 3: rewrite each fraction with the LCD. Step 4: add or subtract the numerators (use brackets when subtracting). Step 5: simplify. Example: 1/x + 1/(x + 1) = (x + 1)/[x(x + 1)] + x/[x(x + 1)] = (2x + 1)/[x(x + 1)].",
-        "**Common trap:** (x + 3)/x is NOT 3 — the x in \"x + 3\" is a term, not a factor, so it cannot be cancelled."
-       ]
-      },
-      {
        "id": "math11-u3-chk76",
        "type": "check",
        "title": "Quick check",
@@ -536,6 +945,200 @@
        },
        "answer": "A",
        "why": "**Step 1: Clear the fractions**\nMultiply both sides by the LCD, which is $$(x - 2)(x + 1)$$, or cross-multiply:\n$$8(x + 1) = 4(x - 2)$$\n\n**Step 2: Solve the linear equation**\n$$8x + 8 = 4x - 8$$\n$$4x = -16 \\implies x = -4$$\n\n**Step 3: Verify the solution**\nCheck if $$x = -4$$ makes any denominator zero in the original equation. Since it does not, the solution is valid.\n**Result:** **$$x = -4$$**."
+      },
+      {
+       "id": "math11-u3-chk77",
+       "type": "check",
+       "title": "Quick check",
+       "page": 105,
+       "src": "study_notes",
+       "src_qid": "math_g11_c3_q7",
+       "q": "Find the critical boundary values for the rational inequality $$\\frac{x - 1}{x + 3} < 0$$.",
+       "options": {
+        "A": "$$x = 1$$ and $$x = -3$$",
+        "B": "$$x = -1$$ and $$x = 3$$",
+        "C": "$$x = 1$$ and $$x = 3$$",
+        "D": "$$x = -1$$ and $$x = -3$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Set numerator and denominator to zero**\nTo find the boundary values where the expression can change signs, solve:\n$$\\text{Numerator: } x - 1 = 0 \\implies x = 1$$\n$$\\text{Denominator: } x + 3 = 0 \\implies x = -3$$\n\n**Step 2: State critical values**\nThe critical boundary values are $$x = 1$$ and $$x = -3$$.\n**Result:** **$$x = 1$$ and $$x = -3$$**."
+      },
+      {
+       "id": "math11-u3-pc3",
+       "type": "check",
+       "title": "Practice",
+       "q": "Simplify $$\\frac{2}{x} - \\frac{1}{x + 2}$$.",
+       "options": {
+        "A": "$$\\frac{1}{x + 2}$$",
+        "B": "$$\\frac{x + 4}{x(x + 2)}$$",
+        "C": "$$\\frac{x}{x(x + 2)}$$",
+        "D": "$$\\frac{1}{-2}$$"
+       },
+       "answer": "B",
+       "why": "**LCD** = x(x + 2).\n2/x = 2(x + 2)/[x(x + 2)] and 1/(x + 2) = x/[x(x + 2)].\nSubtract the numerators: 2x + 4 − x = x + 4. Result: (x + 4)/[x(x + 2)].",
+       "page": 105,
+       "src": "notes"
+      }
+     ]
+    },
+    {
+     "id": "math11-u3-l3-4",
+     "number": "3.4",
+     "title": "Solving Rational Equations and Inequalities",
+     "pages": [
+      127,
+      141
+     ],
+     "cards": [
+      {
+       "id": "math11-u3-c05",
+       "type": "text",
+       "title": "3.4.1 Solving rational equations",
+       "page": 128,
+       "src": "notes",
+       "body": [
+        "1. List the values that make any denominator 0 (**excluded values**).",
+        "2. Multiply every term by the **LCD**; this clears the fractions.",
+        "3. Solve the resulting polynomial equation.",
+        "4. Throw away any answer that is an excluded value.",
+        "Example 3.33: $\\frac{8}{x - 2} = \\frac{4}{x + 1}$: $8(x + 1) = 4(x - 2) \\Rightarrow x = -4$.",
+        "Example 3.35: $\\frac{3x}{x - 3} = 2 + \\frac{9}{x - 3}$: $3x = 2(x - 3) + 9 \\Rightarrow x = 3$, excluded, so **no solution**."
+       ]
+      },
+      {
+       "id": "math11-u3-md-ex-34a",
+       "type": "worked",
+       "title": "Worked example: Example 3.34",
+       "page": 128,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Solve $\\frac{x + 1}{x - 3} = \\frac{-4}{x + 3}$.",
+       "steps": [
+        {
+         "text": "Excluded: $\\pm 3$. LCD $(x - 3)(x + 3)$."
+        },
+        {
+         "text": "$(x + 1)(x + 3) = -4(x - 3) \\Rightarrow x^2 + 4x + 3 = -4x + 12$."
+        },
+        {
+         "text": "$x^2 + 8x - 9 = 0 \\Rightarrow (x + 9)(x - 1) = 0$. Neither is excluded."
+        }
+       ],
+       "answer": "$\\{-9, 1\\}$"
+      },
+      {
+       "id": "math11-u3-md-work-t",
+       "type": "text",
+       "title": "Word problems: rates and work",
+       "page": 130,
+       "src": "notes",
+       "body": [
+        "**Work:** if a job takes $t$ hours, the rate is $\\frac{1}{t}$ job per hour. Rates add when people work together: $\\frac{T}{t_1} + \\frac{T}{t_2} = 1$ for $T$ hours together.",
+        "Example 3.37: Semhar 5 h, together 3 h: $\\frac{3}{5} + \\frac{3}{t} = 1 \\Rightarrow \\frac{3}{t} = \\frac{2}{5} \\Rightarrow t = 7.5$ h for Abdu.",
+        "**Motion:** time $= \\frac{\\text{distance}}{\\text{speed}}$. Downstream speed $= v + c$, upstream $v - c$.",
+        "**Fractions:** Example 3.36: $\\frac{x - 2}{x + 10} = \\frac{3}{5} \\Rightarrow 5x - 10 = 3x + 30 \\Rightarrow x = 20$: the fraction is $\\frac{20}{26} = \\frac{10}{13}$."
+       ]
+      },
+      {
+       "id": "math11-u3-xt4",
+       "type": "text",
+       "title": "3.4.2 Rational inequalities: case method and sign chart",
+       "page": 133,
+       "src": "notes",
+       "body": [
+        "**Case method** for $\\frac{P}{Q} < 0$: top and bottom have **opposite** signs; for $> 0$: the **same** sign. Solve each case and take the union. Example 3.38: $\\frac{x + 2}{x - 1} < 0$: only \"$x + 2 > 0$ and $x - 1 < 0$\" works: $-2 < x < 1$.",
+        "**Sign chart method:** (1) get **0 on one side** and a single fraction on the other (never multiply by a denominator whose sign you do not know); (2) find the **boundary values** (zeros of top and bottom); (3) make a sign table; (4) choose the intervals with the right sign.",
+        "**Endpoints:** zeros of the numerator are included for $\\ge$ / $\\le$; zeros of the denominator are **never** included."
+       ]
+      },
+      {
+       "id": "math11-u3-md-chart42",
+       "type": "steps",
+       "title": "Example 3.42: (11x − 38)/(x − 4) + 5/(x + 7) ≥ 11",
+       "page": 137,
+       "src": "notes",
+       "diagram": "md_chart42",
+       "steps": [
+        {
+         "text": "Subtract 11 and combine: the numerator is $(11x - 38)(x + 7) + 5(x - 4) - 11(x - 4)(x + 7) = 11x + 22$.",
+         "show": "k1"
+        },
+        {
+         "text": "So the inequality is $\\frac{x + 2}{(x - 4)(x + 7)} \\ge 0$; boundary values $-7, -2, 4$.",
+         "show": "k2"
+        },
+        {
+         "text": "Positive on $-7 < x < -2$ and $x > 4$; zero at $x = -2$. Answer: $-7 < x \\le -2$ or $x > 4$. (The book's interval list \"$-7 < x < 1$, $1 < x < 4$\" should read $-2$ instead of 1.)",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math11-u3-md-ex-34b",
+       "type": "worked",
+       "title": "Worked example: Exercise 3.10, 1(c)",
+       "page": 138,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Solve $\\frac{x^2 + 3x - 10}{x^2 - x - 56} \\le 0$.",
+       "steps": [
+        {
+         "text": "Factorise: $\\frac{(x + 5)(x - 2)}{(x - 8)(x + 7)}$. Boundaries $-7, -5, 2, 8$."
+        },
+        {
+         "text": "Signs left to right: $+, -, +, -, +$."
+        },
+        {
+         "text": "Take the \"−\" intervals; include $-5$ and 2 (numerator zeros), exclude $-7$ and 8."
+        }
+       ],
+       "answer": "$-7 < x \\le -5$ or $2 \\le x < 8$"
+      },
+      {
+       "id": "math11-u3-md-rm-34",
+       "type": "remember",
+       "title": "Never multiply an inequality by an unknown sign",
+       "page": 134,
+       "src": "notes",
+       "body": [
+        "$\\frac{3}{x - 3} > 1$ does **not** become $3 > x - 3$ for every $x$: if $x < 3$ the sign flips. Move 1 across instead: $\\frac{6 - x}{x - 3} > 0 \\Rightarrow 3 < x < 6$."
+       ]
+      },
+      {
+       "id": "math11-u3-md-summary-t",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 141,
+       "src": "notes",
+       "body": [
+        "Domain: denominator $\\ne 0$. Lowest terms: cancelled factor → hole; remaining zero → vertical asymptote.",
+        "Degrees: top < bottom → $y = 0$; equal → ratio of leading coefficients; one more → oblique (divide).",
+        "Operations: factor first; divide = multiply by the reciprocal; add over the LCD.",
+        "Equations: multiply by the LCD, then reject excluded values. Inequalities: 0 on one side, sign chart."
+       ]
+      },
+      {
+       "id": "math11-u3-xw4",
+       "type": "worked",
+       "title": "Worked example: a rational equation with an extraneous root",
+       "problem": "Solve x/(x − 2) − 2/(x + 1) = 6/((x − 2)(x + 1)).",
+       "steps": [
+        {
+         "text": "Step 1: restrictions: x ≠ 2 and x ≠ −1 (denominators cannot be 0)."
+        },
+        {
+         "text": "Step 2: multiply every term by (x − 2)(x + 1): x(x + 1) − 2(x − 2) = 6."
+        },
+        {
+         "text": "Step 3: x² + x − 2x + 4 = 6 → x² − x − 2 = 0 → (x − 2)(x + 1) = 0 → x = 2 or x = −1."
+        },
+        {
+         "text": "Step 4: both values are excluded by the restrictions, so both are extraneous."
+        }
+       ],
+       "answer": "No solution",
+       "page": 127,
+       "src": "notes"
       },
       {
        "id": "math11-u3-wrk3",
@@ -577,23 +1180,6 @@
        "answer": "$$x = -4$$"
       },
       {
-       "id": "math11-u3-chk77",
-       "type": "check",
-       "title": "Quick check",
-       "page": 105,
-       "src": "study_notes",
-       "src_qid": "math_g11_c3_q7",
-       "q": "Find the critical boundary values for the rational inequality $$\\frac{x - 1}{x + 3} < 0$$.",
-       "options": {
-        "A": "$$x = 1$$ and $$x = -3$$",
-        "B": "$$x = -1$$ and $$x = 3$$",
-        "C": "$$x = 1$$ and $$x = 3$$",
-        "D": "$$x = -1$$ and $$x = -3$$"
-       },
-       "answer": "A",
-       "why": "**Step 1: Set numerator and denominator to zero**\nTo find the boundary values where the expression can change signs, solve:\n$$\\text{Numerator: } x - 1 = 0 \\implies x = 1$$\n$$\\text{Denominator: } x + 3 = 0 \\implies x = -3$$\n\n**Step 2: State critical values**\nThe critical boundary values are $$x = 1$$ and $$x = -3$$.\n**Result:** **$$x = 1$$ and $$x = -3$$**."
-      },
-      {
        "id": "math11-u3-wrk4",
        "type": "worked",
        "title": "Step-by-step",
@@ -625,60 +1211,6 @@
         }
        ],
        "answer": "$$x = 1$$ and $$x = -3$$"
-      },
-      {
-       "id": "math11-u3-c09",
-       "type": "worked",
-       "title": "Worked example: adding rational expressions",
-       "page": 105,
-       "problem": "Simplify 1/x + 1/(x + 1).",
-       "steps": [
-        {
-         "text": "Common denominator x(x + 1)."
-        },
-        {
-         "text": "= (x + 1)/(x(x + 1)) + x/(x(x + 1)) = **(2x + 1) / (x(x + 1))**, x ≠ 0, −1."
-        }
-       ],
-       "answer": "= (x + 1)/(x(x + 1)) + x/(x(x + 1)) = **(2x + 1) / (x(x + 1))**, x ≠ 0, −1.",
-       "src": "notes"
-      },
-      {
-       "id": "math11-u3-pc3",
-       "type": "check",
-       "title": "Practice",
-       "q": "Simplify $$\\frac{2}{x} - \\frac{1}{x + 2}$$.",
-       "options": {
-        "A": "$$\\frac{1}{x + 2}$$",
-        "B": "$$\\frac{x + 4}{x(x + 2)}$$",
-        "C": "$$\\frac{x}{x(x + 2)}$$",
-        "D": "$$\\frac{1}{-2}$$"
-       },
-       "answer": "B",
-       "why": "**LCD** = x(x + 2).\n2/x = 2(x + 2)/[x(x + 2)] and 1/(x + 2) = x/[x(x + 2)].\nSubtract the numerators: 2x + 4 − x = x + 4. Result: (x + 4)/[x(x + 2)].",
-       "page": 105,
-       "src": "notes"
-      }
-     ]
-    },
-    {
-     "id": "math11-u3-l3-4",
-     "number": "3.4",
-     "title": "Solving Rational Equations and Inequalities",
-     "pages": [
-      127,
-      141
-     ],
-     "cards": [
-      {
-       "id": "math11-u3-c05",
-       "type": "text",
-       "title": "Solving Rational Equations and Inequalities",
-       "page": 127,
-       "src": "notes",
-       "body": [
-        "Equations: multiply through by the common denominator, then **throw away** any root that makes a denominator zero. Inequalities: sign chart on the simplified expression, test intervals, exclude holes and verticals."
-       ]
       },
       {
        "id": "math11-u3-chk78",
@@ -804,50 +1336,85 @@
        "why": "**Critical values:** numerator 0 at x = −1 (allowed, since ≥), denominator 0 at x = 2 (never allowed).\n**Test intervals:** x = −2: (−1)/(−4) > 0 ✔; x = 0: 1/(−2) < 0 ✘; x = 3: 4/1 > 0 ✔.\nAnswer: x ≤ −1 or x > 2.",
        "page": 127,
        "src": "notes"
-      },
-      {
-       "id": "math11-u3-xw4",
-       "type": "worked",
-       "title": "Worked example: a rational equation with an extraneous root",
-       "problem": "Solve x/(x − 2) − 2/(x + 1) = 6/((x − 2)(x + 1)).",
-       "steps": [
-        {
-         "text": "Step 1: restrictions: x ≠ 2 and x ≠ −1 (denominators cannot be 0)."
-        },
-        {
-         "text": "Step 2: multiply every term by (x − 2)(x + 1): x(x + 1) − 2(x − 2) = 6."
-        },
-        {
-         "text": "Step 3: x² + x − 2x + 4 = 6 → x² − x − 2 = 0 → (x − 2)(x + 1) = 0 → x = 2 or x = −1."
-        },
-        {
-         "text": "Step 4: both values are excluded by the restrictions, so both are extraneous."
-        }
-       ],
-       "answer": "No solution",
-       "page": 127,
-       "src": "notes"
-      },
-      {
-       "id": "math11-u3-xt4",
-       "type": "text",
-       "title": "Sign charts for rational inequalities",
-       "body": [
-        "To solve an inequality such as (x − 1)/(x + 3) < 0: (1) move everything to one side and write it as a single fraction; (2) find the **critical numbers**: zeros of the numerator (x = 1) and of the denominator (x = −3); (3) mark them on a number line and test one value in each interval; (4) pick the intervals with the required sign.",
-        "For (x − 1)/(x + 3): x = −4 → (−5)/(−1) > 0; x = 0 → (−1)/3 < 0; x = 2 → 1/5 > 0. So the solution is −3 < x < 1. A zero of the denominator is **never** included, even for ≤ or ≥; a zero of the numerator is included only for ≤ or ≥.",
-        "**Do not** multiply both sides by an expression containing x unless you know its sign — it may be negative and reverse the inequality."
-       ],
-       "page": 127,
-       "src": "notes"
       }
      ]
     }
    ],
-   "glossary": [],
+   "glossary": [
+    {
+     "term": "Rational function",
+     "meaning": "$f(x) = \\frac{P(x)}{Q(x)}$ with polynomials $P, Q$ and $Q(x) \\ne 0$.",
+     "page": 72,
+     "src": "notes"
+    },
+    {
+     "term": "Even function",
+     "meaning": "$f(-x) = f(x)$; symmetric about the y-axis.",
+     "page": 80,
+     "src": "notes"
+    },
+    {
+     "term": "Odd function",
+     "meaning": "$f(-x) = -f(x)$; symmetric about the origin.",
+     "page": 80,
+     "src": "notes"
+    },
+    {
+     "term": "Vertical asymptote",
+     "meaning": "A line $x = c$ near which $f(x) \\to \\pm\\infty$.",
+     "page": 89,
+     "src": "notes"
+    },
+    {
+     "term": "Horizontal asymptote",
+     "meaning": "A line $y = d$ that $f$ approaches as $x \\to \\pm\\infty$.",
+     "page": 92,
+     "src": "notes"
+    },
+    {
+     "term": "Oblique asymptote",
+     "meaning": "A slanted line $y = ax + b$ that $f$ approaches far out.",
+     "page": 95,
+     "src": "notes"
+    },
+    {
+     "term": "Point of discontinuity (hole)",
+     "meaning": "An excluded $x$ whose factor cancels.",
+     "page": 91,
+     "src": "notes"
+    },
+    {
+     "term": "LCD",
+     "meaning": "Least common denominator: product of every factor to its highest power.",
+     "page": 124,
+     "src": "notes"
+    },
+    {
+     "term": "Boundary value",
+     "meaning": "A zero of the numerator or denominator.",
+     "page": 135,
+     "src": "notes"
+    }
+   ],
    "tips": [
     {
      "text": "Read 3.1 Describing Rational Functions again and say its main idea in one sentence.",
      "page": 71
+    },
+    {
+     "text": "Cancel first: cancelled factor → hole; leftover zero → vertical asymptote.",
+     "page": 91,
+     "src": "notes"
+    },
+    {
+     "text": "Degrees: smaller top → y = 0; equal → ratio; one more → divide.",
+     "page": 93,
+     "src": "notes"
+    },
+    {
+     "text": "Inequalities: 0 on one side, then a sign chart.",
+     "page": 136,
+     "src": "notes"
     }
    ],
    "games": [
@@ -1583,6 +2150,998 @@
       ],
       "tip": "Units reveal mistakes.",
       "similar": []
+     },
+     {
+      "id": "math11-u3-md-s31-q01",
+      "type": "short",
+      "q": "Which are rational? (a) $\\frac{x}{x - 2}$ (b) $3x - 1$ (c) $\\frac{x + 2}{\\sqrt{x}}$ (d) $5x^2 - \\sqrt{x}$",
+      "answer": "(a) and (b) only",
+      "why": [
+       "Step 1: (a) polynomial over polynomial.",
+       "Step 2: (b) a polynomial over 1.",
+       "Step 3: (c), (d) contain $\\sqrt{x}$: not polynomials."
+      ],
+      "tip": "Look for roots of $x$ or $x$ under a root.",
+      "similar": [
+       {
+        "q": "Is $\\frac{7}{5}$ rational as a function?",
+        "a": "Yes, a constant function."
+       }
+      ],
+      "page": 74,
+      "src": "notes",
+      "label": "3.1 Practice — rational functions"
+     },
+     {
+      "id": "math11-u3-md-s31-q02",
+      "type": "short",
+      "q": "Find the domain of $f(x) = \\frac{x^2 - 4x - 5}{x^2 + 3x - 10}$.",
+      "answer": "all reals except $-5$ and 2",
+      "why": [
+       "Step 1: $x^2 + 3x - 10 = (x + 5)(x - 2)$.",
+       "Step 2: remove $-5$ and 2."
+      ],
+      "tip": "Only the denominator matters.",
+      "similar": [
+       {
+        "q": "Domain of $\\frac{1}{x^2 - 25}$?",
+        "a": "$x \\ne \\pm 5$."
+       }
+      ],
+      "page": 74,
+      "src": "notes",
+      "label": "3.1 Practice — rational functions"
+     },
+     {
+      "id": "math11-u3-md-s31-q03",
+      "type": "short",
+      "q": "Find the domain of $\\frac{3}{(x - 1)(x + 2)(2x - 6)}$.",
+      "answer": "$x \\ne 1, -2, 3$",
+      "why": [
+       "Step 1: each factor $= 0$: $x = 1$, $x = -2$, $2x = 6 \\Rightarrow x = 3$."
+      ],
+      "tip": "Set each factor to zero.",
+      "similar": [
+       {
+        "q": "$\\frac{x}{x(x + 4)}$?",
+        "a": "$x \\ne 0, -4$."
+       }
+      ],
+      "page": 74,
+      "src": "notes",
+      "label": "3.1 Practice — rational functions"
+     },
+     {
+      "id": "math11-u3-md-s31-q04",
+      "type": "short",
+      "q": "Find the domain of $\\frac{x + 1}{x^2 + 9}$.",
+      "answer": "all real numbers",
+      "why": [
+       "Step 1: $x^2 + 9 \\ge 9 > 0$, never 0."
+      ],
+      "tip": "A sum of a square and a positive number is never 0.",
+      "similar": [
+       {
+        "q": "$\\frac{2}{x^2 + 1}$?",
+        "a": "all reals."
+       }
+      ],
+      "page": 74,
+      "src": "notes",
+      "label": "3.1 Practice — rational functions"
+     },
+     {
+      "id": "math11-u3-md-s31-q05",
+      "type": "short",
+      "q": "Find the range of $f(x) = \\frac{2x + 1}{x - 3}$.",
+      "answer": "all reals except 2",
+      "why": [
+       "Step 1: $2x + 1 = 2(x - 3) + 7$.",
+       "Step 2: $f(x) = 2 + \\frac{7}{x - 3}$; the fraction is never 0."
+      ],
+      "tip": "Range of $\\frac{ax + b}{cx + d}$ misses $\\frac{a}{c}$.",
+      "similar": [
+       {
+        "q": "Range of $\\frac{x}{x + 1}$?",
+        "a": "$y \\ne 1$."
+       }
+      ],
+      "page": 74,
+      "src": "notes",
+      "label": "3.1 Practice — rational functions"
+     },
+     {
+      "id": "math11-u3-md-s31-q06",
+      "type": "mcq",
+      "q": "The range of $f(x) = \\frac{x - 3}{x - 4}$ is",
+      "options": {
+       "A": "$y \\ne 1$",
+       "B": "$y \\ne 4$",
+       "C": "$y \\ne 3$",
+       "D": "all reals"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $f(x) = 1 + \\frac{1}{x - 4}$."
+      ],
+      "tip": "Divide first.",
+      "similar": [
+       {
+        "q": "Range of $\\frac{4x - 3}{x - 1}$?",
+        "a": "$y \\ne 4$."
+       }
+      ],
+      "page": 73,
+      "src": "notes",
+      "label": "3.1 Practice — rational functions"
+     },
+     {
+      "id": "math11-u3-md-s31-q07",
+      "type": "tf",
+      "q": "Every polynomial function is a rational function.",
+      "answer": true,
+      "why": [
+       "Step 1: $P(x) = \\frac{P(x)}{1}$."
+      ],
+      "tip": "Denominator 1 is a polynomial.",
+      "similar": [
+       {
+        "q": "Is every rational function a polynomial?",
+        "a": "No, e.g. $\\frac{1}{x}$."
+       }
+      ],
+      "page": 72,
+      "src": "notes",
+      "label": "3.1 Practice — rational functions"
+     },
+     {
+      "id": "math11-u3-md-s32-q01",
+      "type": "short",
+      "q": "Even, odd or neither? (a) $x^2 - 3$ (b) $x^5 - 3x^3 + 5x$ (c) $x^4 + x^3 - 5$",
+      "answer": "even; odd; neither",
+      "why": [
+       "Step 1: (a) $(-x)^2 - 3 = x^2 - 3$.",
+       "Step 2: (b) every power odd: $f(-x) = -f(x)$.",
+       "Step 3: (c) $f(-1) = -5$, $f(1) = -3$: neither."
+      ],
+      "tip": "Substitute $-x$.",
+      "similar": [
+       {
+        "q": "$x^3 + 1$?",
+        "a": "neither."
+       }
+      ],
+      "page": 86,
+      "src": "notes",
+      "label": "3.2 Practice — symmetry, asymptotes, graphs"
+     },
+     {
+      "id": "math11-u3-md-s32-q02",
+      "type": "short",
+      "q": "Symmetry of (a) $\\frac{x^2 + 1}{x^4 - 3}$ (b) $\\frac{x^3}{x^2 + 4}$ (c) $\\frac{x + 1}{x^2}$",
+      "answer": "y-axis; origin; neither",
+      "why": [
+       "Step 1: (a) all even → even → y-axis.",
+       "Step 2: (b) odd over even → odd → origin.",
+       "Step 3: (c) top mixed → neither."
+      ],
+      "tip": "Even ↔ y-axis; odd ↔ origin.",
+      "similar": [
+       {
+        "q": "$\\frac{4x}{x^2 - 1}$?",
+        "a": "odd, origin."
+       }
+      ],
+      "page": 86,
+      "src": "notes",
+      "label": "3.2 Practice — symmetry, asymptotes, graphs"
+     },
+     {
+      "id": "math11-u3-md-s32-q03",
+      "type": "short",
+      "q": "Exercise 3.3 Q2: asymptotes and discontinuities of $f(x) = \\frac{2x + 4}{x^2 - x - 6}$.",
+      "answer": "VA $x = 3$; HA $y = 0$; hole at $(-2, -\\frac{2}{5})$",
+      "why": [
+       "Step 1: $\\frac{2(x + 2)}{(x - 3)(x + 2)} = \\frac{2}{x - 3}$, $x \\ne -2$.",
+       "Step 2: VA $x = 3$; degree 0 < 1 → $y = 0$.",
+       "Step 3: hole: $\\frac{2}{-2 - 3} = -\\frac{2}{5}$."
+      ],
+      "tip": "Cancel first, then read the asymptotes.",
+      "similar": [
+       {
+        "q": "$\\frac{x - 1}{x^2 - 1}$?",
+        "a": "VA $x = -1$, hole $(1, \\frac{1}{2})$, HA $y = 0$."
+       }
+      ],
+      "page": 97,
+      "src": "notes",
+      "label": "3.2 Practice — symmetry, asymptotes, graphs"
+     },
+     {
+      "id": "math11-u3-md-s32-q04",
+      "type": "short",
+      "q": "Exercise 3.3 Q3 and Q5: asymptotes of $\\frac{7x^2 + 3}{x^2 + 11x + 28}$ and $\\frac{17 - 2x^2}{3x^2 - 75}$.",
+      "answer": "$x = -4, -7$, $y = 7$; $x = \\pm 5$, $y = -\\frac{2}{3}$",
+      "why": [
+       "Step 1: $x^2 + 11x + 28 = (x + 4)(x + 7)$; equal degrees → $y = \\frac{7}{1}$.",
+       "Step 2: $3x^2 - 75 = 3(x - 5)(x + 5)$; $y = \\frac{-2}{3}$."
+      ],
+      "tip": "Equal degrees → ratio of leading coefficients.",
+      "similar": [
+       {
+        "q": "$\\frac{6x^2 + 7}{2x^2 + 9}$?",
+        "a": "no VA; $y = 3$."
+       }
+      ],
+      "page": 97,
+      "src": "notes",
+      "label": "3.2 Practice — symmetry, asymptotes, graphs"
+     },
+     {
+      "id": "math11-u3-md-s32-q05",
+      "type": "short",
+      "q": "Exercise 3.3 Q7: asymptotes of $f(x) = \\frac{x^2 + 4}{2x - 4}$.",
+      "answer": "VA $x = 2$; oblique $y = \\frac{x}{2} + 1$",
+      "why": [
+       "Step 1: $2x - 4 = 0 \\Rightarrow x = 2$ (top $= 8 \\ne 0$).",
+       "Step 2: $x^2 + 4 = (x - 2)(x + 2) + 8$, so $f = \\frac{x + 2}{2} + \\frac{4}{x - 2}$."
+      ],
+      "tip": "Degree one more → divide.",
+      "similar": [
+       {
+        "q": "$\\frac{x^2}{x + 1}$?",
+        "a": "VA $x = -1$; $y = x - 1$."
+       }
+      ],
+      "page": 97,
+      "src": "notes",
+      "label": "3.2 Practice — symmetry, asymptotes, graphs"
+     },
+     {
+      "id": "math11-u3-md-s32-q06",
+      "type": "short",
+      "q": "Exercise 3.3 Q8: asymptotes of $\\frac{-x^3 + x}{x^3 - 6x^2 + 12x - 8}$.",
+      "answer": "VA $x = 2$; HA $y = -1$",
+      "why": [
+       "Step 1: bottom $= (x - 2)^3$; top at 2: $-8 + 2 \\ne 0$.",
+       "Step 2: equal degrees: $y = \\frac{-1}{1}$."
+      ],
+      "tip": "Recognise $(x - 2)^3$.",
+      "similar": [
+       {
+        "q": "$\\frac{x^3}{(x + 1)^3}$?",
+        "a": "VA $x = -1$, HA $y = 1$."
+       }
+      ],
+      "page": 97,
+      "src": "notes",
+      "label": "3.2 Practice — symmetry, asymptotes, graphs"
+     },
+     {
+      "id": "math11-u3-md-s32-q07",
+      "type": "short",
+      "q": "Exercise 3.3 Q10: asymptotes of $\\frac{3x^3 + 2x^2 - 7x - 5}{x^2 + 1}$.",
+      "answer": "no VA; oblique $y = 3x + 2$",
+      "why": [
+       "Step 1: $x^2 + 1 \\ne 0$: no vertical asymptote.",
+       "Step 2: divide: quotient $3x + 2$, remainder $-10x - 7$."
+      ],
+      "tip": "Only the quotient gives the line.",
+      "similar": [
+       {
+        "q": "Q9 $\\frac{x^3 - 8}{x - 1}$?",
+        "a": "VA $x = 1$; no horizontal or oblique (degrees differ by 2)."
+       }
+      ],
+      "page": 97,
+      "src": "notes",
+      "label": "3.2 Practice — symmetry, asymptotes, graphs"
+     },
+     {
+      "id": "math11-u3-md-s32-q08",
+      "type": "short",
+      "q": "Exercise 3.4 Q1: intercepts of (d) $\\frac{x^3 - x^2 - 6x}{-3x^2 - 3x + 18}$ (e) $\\frac{x^2 + x - 6}{-4x^2 - 16x - 12}$.",
+      "answer": "(d) x: $0, 3, -2$; y: 0 (e) x: 2; y: $\\frac{1}{2}$",
+      "why": [
+       "Step 1 (d): top $x(x - 3)(x + 2)$; bottom $-3(x + 3)(x - 2)$ — no common factor; $f(0) = 0$.",
+       "Step 2 (e): $\\frac{(x + 3)(x - 2)}{-4(x + 1)(x + 3)}$: $x = -3$ is a **hole**, so only $x = 2$; $f(0) = \\frac{-6}{-12}$."
+      ],
+      "tip": "Cancel before reading x-intercepts.",
+      "similar": [
+       {
+        "q": "(f) $\\frac{x^3 - 9x}{3x^2 - 6x - 9}$?",
+        "a": "x: $0, -3$ (3 is a hole); y: 0."
+       }
+      ],
+      "page": 105,
+      "src": "notes",
+      "label": "3.2 Practice — symmetry, asymptotes, graphs"
+     },
+     {
+      "id": "math11-u3-md-s32-q09",
+      "type": "short",
+      "q": "Sketch facts for $f(x) = \\frac{2x + 5}{x + 1}$ (Exercise 3.4, 2c).",
+      "answer": "VA $x = -1$, HA $y = 2$, x-int $-\\frac{5}{2}$, y-int 5",
+      "why": [
+       "Step 1: bottom 0 at $-1$.",
+       "Step 2: equal degrees: $y = 2$.",
+       "Step 3: top 0 at $-\\frac{5}{2}$; $f(0) = 5$."
+      ],
+      "tip": "Collect all facts before drawing.",
+      "similar": [
+       {
+        "q": "$\\frac{-1}{x - 3}$?",
+        "a": "VA $x = 3$, HA $y = 0$, y-int $\\frac{1}{3}$."
+       }
+      ],
+      "page": 105,
+      "src": "notes",
+      "label": "3.2 Practice — symmetry, asymptotes, graphs"
+     },
+     {
+      "id": "math11-u3-md-s32-q10",
+      "type": "short",
+      "q": "Sketch facts for $f(x) = \\frac{2x^2 - 5x + 5}{x - 1}$ (Exercise 3.4, 2g).",
+      "answer": "VA $x = 1$; oblique $y = 2x - 3$; y-int $-5$; no x-int",
+      "why": [
+       "Step 1: $2x^2 - 5x + 5 = (x - 1)(2x - 3) + 2$.",
+       "Step 2: top: $D = 25 - 40 < 0$, no zeros.",
+       "Step 3: $f(0) = -5$."
+      ],
+      "tip": "Discriminant tells you about x-intercepts.",
+      "similar": [
+       {
+        "q": "$\\frac{x^3 - 4x}{x^2 - 1}$?",
+        "a": "odd; x-int $0, \\pm 2$; VA $\\pm 1$; oblique $y = x$."
+       }
+      ],
+      "page": 105,
+      "src": "notes",
+      "label": "3.2 Practice — symmetry, asymptotes, graphs"
+     },
+     {
+      "id": "math11-u3-md-s32-q11",
+      "type": "mcq",
+      "q": "The horizontal asymptote of $\\frac{2x^2}{x^2 + 1}$ is",
+      "options": {
+       "A": "$y = 2$",
+       "B": "$y = 0$",
+       "C": "$y = 1$",
+       "D": "none"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: equal degrees: $\\frac{2}{1}$."
+      ],
+      "tip": "Leading coefficients.",
+      "similar": [
+       {
+        "q": "$\\frac{2x}{x^2 + 1}$?",
+        "a": "$y = 0$."
+       }
+      ],
+      "page": 93,
+      "src": "notes",
+      "label": "3.2 Practice — symmetry, asymptotes, graphs"
+     },
+     {
+      "id": "math11-u3-md-s32-q12",
+      "type": "mcq",
+      "q": "For $f(x) = \\frac{x^2 - 25}{x - 5}$, at $x = 5$ there is",
+      "options": {
+       "A": "a hole at $(5, 10)$",
+       "B": "a vertical asymptote",
+       "C": "an x-intercept",
+       "D": "nothing special"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $\\frac{(x - 5)(x + 5)}{x - 5} = x + 5$, $x \\ne 5$; $5 + 5 = 10$."
+      ],
+      "tip": "Cancelled factor → hole.",
+      "similar": [
+       {
+        "q": "$\\frac{x^2 - 9}{x + 3}$?",
+        "a": "hole at $(-3, -6)$."
+       }
+      ],
+      "page": 91,
+      "src": "notes",
+      "label": "3.2 Practice — symmetry, asymptotes, graphs"
+     },
+     {
+      "id": "math11-u3-md-s32-q13",
+      "type": "tf",
+      "q": "A graph can never cross its horizontal asymptote.",
+      "answer": false,
+      "why": [
+       "Step 1: $\\frac{x}{x^2 + 1}$ crosses $y = 0$ at the origin; the asymptote only describes the far-left and far-right behaviour."
+      ],
+      "tip": "Vertical asymptotes are never crossed; horizontal ones may be.",
+      "similar": [
+       {
+        "q": "Can a graph cross a vertical asymptote?",
+        "a": "No: $f$ is undefined there."
+       }
+      ],
+      "page": 88,
+      "src": "notes",
+      "label": "3.2 Practice — symmetry, asymptotes, graphs"
+     },
+     {
+      "id": "math11-u3-md-s33-q01",
+      "type": "short",
+      "q": "Review 2: simplify (a) $\\frac{x^2 - 25}{x^2 - 2x - 15}$ (b) $\\frac{w^2 - 8w - 9}{w^2 + 5w + 4}$.",
+      "answer": "$\\frac{x + 5}{x + 3}$; $\\frac{w - 9}{w + 4}$",
+      "why": [
+       "Step 1: $\\frac{(x - 5)(x + 5)}{(x - 5)(x + 3)}$.",
+       "Step 2: $\\frac{(w - 9)(w + 1)}{(w + 4)(w + 1)}$."
+      ],
+      "tip": "Factor, cancel.",
+      "similar": [
+       {
+        "q": "$\\frac{y^2 - 3y}{y^2 - 4y + 3}$?",
+        "a": "$\\frac{y}{y - 1}$."
+       }
+      ],
+      "page": 139,
+      "src": "notes",
+      "label": "3.3 Practice — operations"
+     },
+     {
+      "id": "math11-u3-md-s33-q02",
+      "type": "short",
+      "q": "Review 2: simplify (c) $\\frac{25x - x^3}{x^2 - 3x - 10}$ (f) $\\frac{3x^2 + 17x - 6}{9x^2 - 6x + 1}$.",
+      "answer": "$-\\frac{x(x + 5)}{x + 2}$; $\\frac{x + 6}{3x - 1}$",
+      "why": [
+       "Step 1: $25x - x^3 = x(5 - x)(5 + x) = -x(x - 5)(x + 5)$; bottom $(x - 5)(x + 2)$.",
+       "Step 2: $\\frac{(3x - 1)(x + 6)}{(3x - 1)^2}$."
+      ],
+      "tip": "$5 - x = -(x - 5)$.",
+      "similar": [
+       {
+        "q": "$\\frac{x^3 + 3x^2}{x^2 + 6x + 9}$?",
+        "a": "$\\frac{x^2}{x + 3}$."
+       }
+      ],
+      "page": 139,
+      "src": "notes",
+      "label": "3.3 Practice — operations"
+     },
+     {
+      "id": "math11-u3-md-s33-q03",
+      "type": "short",
+      "q": "Review 2: simplify (g) $\\frac{12z^2 + 11z - 15}{20z^2 - 23z + 6}$ (j) $\\frac{a^2 - 5ab + 6b^2}{a^2 + 2ab - 8b^2}$.",
+      "answer": "$\\frac{3z + 5}{5z - 2}$; $\\frac{a - 3b}{a + 4b}$",
+      "why": [
+       "Step 1: $(4z - 3)(3z + 5)$ over $(4z - 3)(5z - 2)$.",
+       "Step 2: $(a - 2b)(a - 3b)$ over $(a + 4b)(a - 2b)$."
+      ],
+      "tip": "Split the middle term ($ac$ method).",
+      "similar": [
+       {
+        "q": "$\\frac{m^2 - n^2}{m^2 + 11mn + 10n^2}$?",
+        "a": "$\\frac{m - n}{m + 10n}$."
+       }
+      ],
+      "page": 139,
+      "src": "notes",
+      "label": "3.3 Practice — operations"
+     },
+     {
+      "id": "math11-u3-md-s33-q04",
+      "type": "short",
+      "q": "Review 3(a): $\\frac{3y - 6}{6y + 12} \\cdot \\frac{3y^2 - 12}{y^2 - 5y + 6}$.",
+      "answer": "$\\frac{3(y - 2)}{2(y - 3)}$",
+      "why": [
+       "Step 1: $\\frac{3(y - 2)}{6(y + 2)} \\cdot \\frac{3(y - 2)(y + 2)}{(y - 2)(y - 3)}$.",
+       "Step 2: cancel $(y + 2)$, one $(y - 2)$: $\\frac{9(y - 2)}{6(y - 3)}$."
+      ],
+      "tip": "Factor out common numbers too.",
+      "similar": [
+       {
+        "q": "$\\frac{4 - 2x}{6x + 30} \\cdot \\frac{x^2 - 25}{x^2 - 7x + 10}$?",
+        "a": "$-\\frac{1}{3}$."
+       }
+      ],
+      "page": 139,
+      "src": "notes",
+      "label": "3.3 Practice — operations"
+     },
+     {
+      "id": "math11-u3-md-s33-q05",
+      "type": "short",
+      "q": "Review 3(c): $\\frac{5x + 15}{x^2 - 9} \\div \\frac{10x^2 + 10x}{4x - 12}$.",
+      "answer": "$\\frac{2}{x(x + 1)}$",
+      "why": [
+       "Step 1: flip: $\\frac{5(x + 3)}{(x - 3)(x + 3)} \\cdot \\frac{4(x - 3)}{10x(x + 1)}$.",
+       "Step 2: cancel: $\\frac{20}{10x(x + 1)}$."
+      ],
+      "tip": "Flip the second fraction only.",
+      "similar": [
+       {
+        "q": "$\\frac{x}{x - 1} \\div \\frac{1}{x^2 - 1}$?",
+        "a": "$x(x + 1)$."
+       }
+      ],
+      "page": 139,
+      "src": "notes",
+      "label": "3.3 Practice — operations"
+     },
+     {
+      "id": "math11-u3-md-s33-q06",
+      "type": "short",
+      "q": "Review 3(d) and (e): (d) $\\frac{4w}{2w - 5} + \\frac{10}{5 - 2w}$ (e) $\\frac{5}{y + 2} + \\frac{5}{2 - y} - \\frac{6}{y^2 - 4}$.",
+      "answer": "2; $-\\frac{26}{y^2 - 4}$",
+      "why": [
+       "Step 1 (d): $\\frac{4w - 10}{2w - 5} = \\frac{2(2w - 5)}{2w - 5}$.",
+       "Step 2 (e): $\\frac{5}{2 - y} = -\\frac{5}{y - 2}$; LCD $y^2 - 4$: $5(y - 2) - 5(y + 2) - 6 = -26$."
+      ],
+      "tip": "Turn $a - b$ into $-(b - a)$ to match denominators.",
+      "similar": [
+       {
+        "q": "$\\frac{3}{x - 1} - \\frac{3}{1 - x}$?",
+        "a": "$\\frac{6}{x - 1}$."
+       }
+      ],
+      "page": 139,
+      "src": "notes",
+      "label": "3.3 Practice — operations"
+     },
+     {
+      "id": "math11-u3-md-s33-q07",
+      "type": "short",
+      "q": "Review 3(f): $\\frac{2y^2}{y^4 - 1} + \\frac{y}{y^2 - 1} - \\frac{1}{y - 1}$.",
+      "answer": "$\\frac{1}{y^2 + 1}$",
+      "why": [
+       "Step 1: LCD $(y - 1)(y + 1)(y^2 + 1)$.",
+       "Step 2: numerator $2y^2 + y(y^2 + 1) - (y + 1)(y^2 + 1) = y^2 - 1$.",
+       "Step 3: cancel $y^2 - 1$."
+      ],
+      "tip": "Factor $y^4 - 1$ fully.",
+      "similar": [
+       {
+        "q": "$\\frac{5}{xy + y^2} + \\frac{3}{x^2 + xy}$?",
+        "a": "$\\frac{5x + 3y}{xy(x + y)}$."
+       }
+      ],
+      "page": 139,
+      "src": "notes",
+      "label": "3.3 Practice — operations"
+     },
+     {
+      "id": "math11-u3-md-s33-q08",
+      "type": "short",
+      "q": "Find the LCD of $\\frac{x - 3}{x^2 - 4x + 4}$ and $\\frac{x}{x^2 + 2x - 8}$.",
+      "answer": "$(x - 2)^2(x + 4)$",
+      "why": [
+       "Step 1: $(x - 2)^2$ and $(x - 2)(x + 4)$.",
+       "Step 2: highest power of each factor."
+      ],
+      "tip": "Highest power of every factor.",
+      "similar": [
+       {
+        "q": "LCD of $\\frac{1}{x^2 - x - 6}$, $\\frac{1}{x^2 - 9}$?",
+        "a": "$(x + 2)(x - 3)(x + 3)$."
+       }
+      ],
+      "page": 124,
+      "src": "notes",
+      "label": "3.3 Practice — operations"
+     },
+     {
+      "id": "math11-u3-md-s33-q09",
+      "type": "short",
+      "q": "Simplify $\\frac{x}{x - 1} + \\frac{2}{x + 1}$.",
+      "answer": "$\\frac{x^2 + 3x - 2}{(x - 1)(x + 1)}$",
+      "why": [
+       "Step 1: LCD $(x - 1)(x + 1)$.",
+       "Step 2: $x(x + 1) + 2(x - 1) = x^2 + 3x - 2$."
+      ],
+      "tip": "Multiply each numerator by the missing factor.",
+      "similar": [
+       {
+        "q": "$\\frac{1}{x} + \\frac{1}{x + 1}$?",
+        "a": "$\\frac{2x + 1}{x(x + 1)}$."
+       }
+      ],
+      "page": 125,
+      "src": "notes",
+      "label": "3.3 Practice — operations"
+     },
+     {
+      "id": "math11-u3-md-s33-q10",
+      "type": "mcq",
+      "q": "Which pair is equivalent?",
+      "options": {
+       "A": "$\\frac{x + 1}{x - 3}$ and $\\frac{x^2 + 4x + 3}{x^2 - 9}$",
+       "B": "$\\frac{3}{x + 4}$ and $\\frac{6}{2x + 6}$",
+       "C": "$\\frac{x + 3}{x}$ and 3",
+       "D": "$\\frac{5x - x^2}{25 - x^2}$ and $\\frac{x}{5 - x}$"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $\\frac{(x + 1)(x + 3)}{(x - 3)(x + 3)}$ cancels to $\\frac{x + 1}{x - 3}$.",
+       "Step 2: D: $\\frac{x(5 - x)}{(5 - x)(5 + x)} = \\frac{x}{5 + x}$, not $\\frac{x}{5 - x}$."
+      ],
+      "tip": "Cross-multiply or simplify.",
+      "similar": [
+       {
+        "q": "Are $\\frac{2}{2x + 2}$ and $\\frac{1}{x + 1}$ equivalent?",
+        "a": "Yes."
+       }
+      ],
+      "page": 109,
+      "src": "notes",
+      "label": "3.3 Practice — operations"
+     },
+     {
+      "id": "math11-u3-md-s33-q11",
+      "type": "tf",
+      "q": "$\\frac{x + 6}{x + 3} = 2$.",
+      "answer": false,
+      "why": [
+       "Step 1: $x$ is a term, not a factor; test $x = 1$: $\\frac{7}{4} \\ne 2$."
+      ],
+      "tip": "Cancel factors only.",
+      "similar": [
+       {
+        "q": "Is $\\frac{2x + 6}{x + 3} = 2$?",
+        "a": "Yes, for $x \\ne -3$."
+       }
+      ],
+      "page": 113,
+      "src": "notes",
+      "label": "3.3 Practice — operations"
+     },
+     {
+      "id": "math11-u3-md-s34-q01",
+      "type": "short",
+      "q": "Review 4(a): solve $\\frac{5}{x - 2} = \\frac{3}{x + 1}$.",
+      "answer": "$x = -\\frac{11}{2}$",
+      "why": [
+       "Step 1: $5(x + 1) = 3(x - 2)$.",
+       "Step 2: $2x = -11$."
+      ],
+      "tip": "Cross-multiply.",
+      "similar": [
+       {
+        "q": "$\\frac{4}{x - 4} = \\frac{2}{x - 2}$?",
+        "a": "$x = 0$."
+       }
+      ],
+      "page": 140,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q02",
+      "type": "short",
+      "q": "Review 4(b): solve $\\frac{x + 1}{x + 4} = \\frac{-3}{x + 3}$.",
+      "answer": "no real solution",
+      "why": [
+       "Step 1: $(x + 1)(x + 3) = -3(x + 4) \\Rightarrow x^2 + 7x + 15 = 0$.",
+       "Step 2: $D = 49 - 60 < 0$."
+      ],
+      "tip": "Check the discriminant.",
+      "similar": [
+       {
+        "q": "$\\frac{x}{x + 1} = \\frac{2}{x}$?",
+        "a": "$x = 2$ or $-1$; $-1$ is excluded, so $x = 2$."
+       }
+      ],
+      "page": 140,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q03",
+      "type": "short",
+      "q": "Review 4(d): solve $\\frac{2}{3x - 9} - \\frac{1}{3x + 6} = \\frac{4}{x^2 - x - 6}$.",
+      "answer": "$x = 5$",
+      "why": [
+       "Step 1: LCD $3(x - 3)(x + 2)$; excluded 3, $-2$.",
+       "Step 2: $2(x + 2) - (x - 3) = 12 \\Rightarrow x + 7 = 12$."
+      ],
+      "tip": "Factor every denominator first.",
+      "similar": [
+       {
+        "q": "$\\frac{2}{x + 5} + \\frac{1}{x - 5} = \\frac{16}{x^2 - 25}$?",
+        "a": "$x = 7$."
+       }
+      ],
+      "page": 140,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q04",
+      "type": "short",
+      "q": "Review 4(c): solve $\\frac{7}{3x + 9} - \\frac{x}{x^2 + 6x + 9} = \\frac{1}{3}$.",
+      "answer": "$x = -1 \\pm \\sqrt{13}$",
+      "why": [
+       "Step 1: LCD $3(x + 3)^2$.",
+       "Step 2: $7(x + 3) - 3x = (x + 3)^2 \\Rightarrow x^2 + 2x - 12 = 0$.",
+       "Step 3: formula: $x = -1 \\pm \\sqrt{13}$; neither is $-3$."
+      ],
+      "tip": "Quadratic formula when it will not factor.",
+      "similar": [
+       {
+        "q": "$\\frac{x}{x - 3} = 2 + \\frac{3}{x - 3}$?",
+        "a": "no solution ($x = 3$ excluded)."
+       }
+      ],
+      "page": 140,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q05",
+      "type": "short",
+      "q": "An aeroplane is 3 times as fast as a car. Over 450 km it arrives 6 hours earlier. Find the aeroplane's speed.",
+      "answer": "150 km/h",
+      "why": [
+       "Step 1: car $v$: $\\frac{450}{v} - \\frac{450}{3v} = 6$.",
+       "Step 2: $\\frac{300}{v} = 6 \\Rightarrow v = 50$."
+      ],
+      "tip": "Time = distance ÷ speed.",
+      "similar": [
+       {
+        "q": "Same with 600 km, 4 hours?",
+        "a": "car 100, plane 300 km/h."
+       }
+      ],
+      "page": 132,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q06",
+      "type": "short",
+      "q": "A boat does 15 km/h in calm water. 140 km downstream takes as long as 35 km upstream. Find the current.",
+      "answer": "9 km/h",
+      "why": [
+       "Step 1: $\\frac{140}{15 + c} = \\frac{35}{15 - c}$.",
+       "Step 2: $2100 - 140c = 525 + 35c \\Rightarrow c = 9$."
+      ],
+      "tip": "Downstream adds, upstream subtracts.",
+      "similar": [
+       {
+        "q": "Boat 20 km/h, 60 down = 40 up?",
+        "a": "4 km/h."
+       }
+      ],
+      "page": 132,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q07",
+      "type": "short",
+      "q": "Abraham takes 10 hours longer than Elsa; together they take 12 hours. Find each time.",
+      "answer": "Elsa 20 h, Abraham 30 h",
+      "why": [
+       "Step 1: $\\frac{12}{t} + \\frac{12}{t + 10} = 1$.",
+       "Step 2: $t^2 - 14t - 120 = 0 \\Rightarrow (t - 20)(t + 6) = 0$."
+      ],
+      "tip": "Rates add.",
+      "similar": [
+       {
+        "q": "A 6 h, B 3 h together?",
+        "a": "2 h."
+       }
+      ],
+      "page": 132,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q08",
+      "type": "short",
+      "q": "Review 7: Kedija drove 240 km. 15 km/h faster, she would go 30 km further in $\\frac{3}{4}$ of the time. Find her speed.",
+      "answer": "30 km/h",
+      "why": [
+       "Step 1: $\\frac{270}{v + 15} = \\frac{3}{4} \\cdot \\frac{240}{v} = \\frac{180}{v}$.",
+       "Step 2: $270v = 180v + 2700 \\Rightarrow v = 30$."
+      ],
+      "tip": "Write the two times and compare.",
+      "similar": [
+       {
+        "q": "Check:",
+        "a": "8 h at 30; 270 km at 45 km/h = 6 h = $\\frac{3}{4}$ of 8."
+       }
+      ],
+      "page": 141,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q09",
+      "type": "short",
+      "q": "Review 8: the larger number exceeds twice the smaller by 17; larger ÷ smaller gives quotient 3, remainder 7. Find them.",
+      "answer": "10 and 37",
+      "why": [
+       "Step 1: $L = 2S + 17$ and $L = 3S + 7$.",
+       "Step 2: $2S + 17 = 3S + 7 \\Rightarrow S = 10$, $L = 37$."
+      ],
+      "tip": "Dividend = quotient × divisor + remainder.",
+      "similar": [
+       {
+        "q": "Check:",
+        "a": "$37 = 3 \\times 10 + 7$."
+       }
+      ],
+      "page": 141,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q10",
+      "type": "short",
+      "q": "Exercise 3.10, 1(b): solve $\\frac{3x + 2}{x - 3} \\le 0$.",
+      "answer": "$-\\frac{2}{3} \\le x < 3$",
+      "why": [
+       "Step 1: boundaries $-\\frac{2}{3}$ and 3.",
+       "Step 2: negative between them.",
+       "Step 3: include $-\\frac{2}{3}$, exclude 3."
+      ],
+      "tip": "Denominator zeros are never included.",
+      "similar": [
+       {
+        "q": "$\\frac{3}{x - 3} > 0$?",
+        "a": "$x > 3$."
+       }
+      ],
+      "page": 138,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q11",
+      "type": "short",
+      "q": "Exercise 3.10, 2(d): solve $\\frac{x}{x + 5} > 3$.",
+      "answer": "$-\\frac{15}{2} < x < -5$",
+      "why": [
+       "Step 1: $\\frac{x - 3(x + 5)}{x + 5} > 0 \\Rightarrow \\frac{-2x - 15}{x + 5} > 0$.",
+       "Step 2: same as $\\frac{2x + 15}{x + 5} < 0$.",
+       "Step 3: between $-7.5$ and $-5$."
+      ],
+      "tip": "Get 0 on one side first.",
+      "similar": [
+       {
+        "q": "$\\frac{x + 3}{x + 2} < 0$?",
+        "a": "$-3 < x < -2$."
+       }
+      ],
+      "page": 138,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q12",
+      "type": "short",
+      "q": "Exercise 3.10, 2(c): solve $\\frac{3 - x}{x^2 - 3x + 2} \\ge 0$.",
+      "answer": "$x < 1$ or $2 < x \\le 3$",
+      "why": [
+       "Step 1: $\\frac{3 - x}{(x - 1)(x - 2)}$; boundaries 1, 2, 3.",
+       "Step 2: signs: $+, -, +, -$.",
+       "Step 3: include 3 only."
+      ],
+      "tip": "A factor like $3 - x$ is negative to the right of 3.",
+      "similar": [
+       {
+        "q": "$\\frac{x - 2}{x^2 - 9} \\ge 0$?",
+        "a": "$-3 < x \\le 2$ or $x > 3$."
+       }
+      ],
+      "page": 138,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q13",
+      "type": "short",
+      "q": "Review 5(c): solve $\\frac{x}{x - 3} \\le \\frac{1}{x + 2}$.",
+      "answer": "$-2 < x < 3$",
+      "why": [
+       "Step 1: $\\frac{x(x + 2) - (x - 3)}{(x - 3)(x + 2)} = \\frac{x^2 + x + 3}{(x - 3)(x + 2)} \\le 0$.",
+       "Step 2: $x^2 + x + 3 > 0$ always ($D < 0$).",
+       "Step 3: need $(x - 3)(x + 2) < 0$."
+      ],
+      "tip": "A numerator that is always positive can be ignored.",
+      "similar": [
+       {
+        "q": "$\\frac{x}{x - 3} < 0$?",
+        "a": "$0 < x < 3$."
+       }
+      ],
+      "page": 140,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q14",
+      "type": "short",
+      "q": "Exercise 3.10 Q3: cost $c = \\frac{4p}{100 - p}$ (thousand Nakfa) to remove $p$% of bacteria. Which $p$ is possible with less than 10 thousand Nakfa?",
+      "answer": "$0 \\le p < 71.4$ (about)",
+      "why": [
+       "Step 1: $\\frac{4p}{100 - p} < 10$ with $0 \\le p < 100$, so $100 - p > 0$.",
+       "Step 2: $4p < 1000 - 10p \\Rightarrow p < \\frac{1000}{14} \\approx 71.4$."
+      ],
+      "tip": "Here the denominator is known to be positive, so multiplying is safe.",
+      "similar": [
+       {
+        "q": "Budget under 4 thousand?",
+        "a": "$p < 50$."
+       }
+      ],
+      "page": 138,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q15",
+      "type": "short",
+      "q": "Review 6: $f(x) = \\frac{50x}{x - 50}$ gives the lens-to-film distance. (c) Find $f(2000)$. (d) For which $x$ is $f(x) \\ge 60$?",
+      "answer": "$\\approx 51.3$; $50 < x \\le 300$",
+      "why": [
+       "Step 1: $\\frac{100000}{1950} \\approx 51.3$.",
+       "Step 2: for $x > 50$: $50x \\ge 60x - 3000 \\Rightarrow x \\le 300$."
+      ],
+      "tip": "The book mixes units (\"ml\" and m); take all distances in millimetres.",
+      "similar": [
+       {
+        "q": "Domain for a real object?",
+        "a": "$x > 50$."
+       }
+      ],
+      "page": 141,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q16",
+      "type": "mcq",
+      "q": "Solving $\\frac{3x}{x - 3} = 2 + \\frac{9}{x - 3}$ gives",
+      "options": {
+       "A": "no solution",
+       "B": "$x = 3$",
+       "C": "$x = -3$",
+       "D": "all reals"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $3x = 2x - 6 + 9 \\Rightarrow x = 3$, which is excluded."
+      ],
+      "tip": "Always check excluded values.",
+      "similar": [
+       {
+        "q": "$\\frac{x}{x - 1} = \\frac{1}{x - 1}$?",
+        "a": "no solution."
+       }
+      ],
+      "page": 129,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
+     },
+     {
+      "id": "math11-u3-md-s34-q17",
+      "type": "tf",
+      "q": "For $\\frac{P}{Q} \\ge 0$, the zeros of $Q$ are included in the answer.",
+      "answer": false,
+      "why": [
+       "Step 1: $Q = 0$ makes the expression undefined."
+      ],
+      "tip": "Only numerator zeros join \"≥\" answers.",
+      "similar": [
+       {
+        "q": "Are numerator zeros included for \"> 0\"?",
+        "a": "No."
+       }
+      ],
+      "page": 136,
+      "src": "notes",
+      "label": "3.4 Practice — equations and inequalities"
      }
     ]
    },
@@ -1634,6 +3193,38 @@
        "math11-u3-c05",
        "math11-u3-c06"
       ]
+     },
+     {
+      "id": "md_asym",
+      "label": "Asymptotes",
+      "kind": "idea",
+      "cards": [
+       "math11-u3-md-asym-t"
+      ]
+     },
+     {
+      "id": "md_sketch",
+      "label": "7-step sketch",
+      "kind": "idea",
+      "cards": [
+       "math11-u3-md-sketch-t"
+      ]
+     },
+     {
+      "id": "md_ops",
+      "label": "Factor, flip, cancel, combine",
+      "kind": "idea",
+      "cards": [
+       "math11-u3-c04"
+      ]
+     },
+     {
+      "id": "md_chart",
+      "label": "Sign charts",
+      "kind": "idea",
+      "cards": [
+       "math11-u3-xt4"
+      ]
      }
     ],
     "edges": [
@@ -1671,9 +3262,67 @@
       "from": "l3_3",
       "to": "l3_4",
       "label": "next"
+     },
+     {
+      "from": "l3_2",
+      "to": "md_asym",
+      "label": "key idea"
+     },
+     {
+      "from": "l3_2",
+      "to": "md_sketch",
+      "label": "key idea"
+     },
+     {
+      "from": "l3_3",
+      "to": "md_ops",
+      "label": "key idea"
+     },
+     {
+      "from": "l3_4",
+      "to": "md_chart",
+      "label": "key idea"
      }
     ],
     "src": "auto"
+   },
+   "diagrams": {
+    "md_recip": {
+     "svg": "svg/mathematics_11/m11_u3_recip.svg",
+     "title": "Activity 3.6: y = 1/x and its two asymptotes",
+     "page": 87,
+     "pins": []
+    },
+    "md_sym": {
+     "svg": "svg/mathematics_11/m11_u3_sym.svg",
+     "title": "Even and odd graphs (Figs 3.4 and 3.6)",
+     "page": 78,
+     "pins": []
+    },
+    "md_ex18": {
+     "svg": "svg/mathematics_11/m11_u3_ex18.svg",
+     "title": "Example 3.18: y = x / (x² − 4)",
+     "page": 101,
+     "pins": []
+    },
+    "md_ex19": {
+     "svg": "svg/mathematics_11/m11_u3_ex19.svg",
+     "title": "Example 3.19: a hole and two asymptotes",
+     "page": 102,
+     "pins": []
+    },
+    "md_ex20": {
+     "svg": "svg/mathematics_11/m11_u3_ex20.svg",
+     "title": "Example 3.20: y = x² / (x − 1) with an oblique asymptote",
+     "page": 104,
+     "pins": []
+    },
+    "md_chart42": {
+     "svg": "svg/mathematics_11/m11_u3_chart42.svg",
+     "title": "Sign chart for (x + 2) / ((x − 4)(x + 7))",
+     "page": 137,
+     "pins": []
+    }
    }
   }
  ]
