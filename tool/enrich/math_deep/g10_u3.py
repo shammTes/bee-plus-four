@@ -655,7 +655,7 @@ c.S(101, 'Secants $PAB$ and $PCD$: $PA = 5$, $PC = 6$, $CD = 4$. Find $PB$.', '$
     'Outside part × WHOLE secant on both lines.', [('$PB = 10$, $PC = 5$, $CD = 3$. Find $PA$.', '$PA = 4$ ($PA \\cdot 10 = 5 \\cdot 8$).')])
 c.S(102, 'From $P$ a tangent touches at $A$; a secant cuts at $B$ and $C$ with $PB = 4$ and $BC = 5$. Find $PA$.', '$PA = 6$',
     ['Step 1: $PC = 4 + 5 = 9$.', 'Step 2: $PA^2 = PB \\cdot PC = 36$.', 'Step 3: $PA = 6$.'],
-    'Tangent squared = outside part × whole secant.', [('$PA = 6$, $BC = 5$. Find $PB$.', '$PB = 4$ ($36 = PB(PB + 5)$).')])
+    'Tangent squared = outside part × whole secant.', [('$PA = 6$, $BC = 5$. Find $PB$.', '$PB = 4$ ($PB(PB + 5) = 36$).')])
 c.M(101, 'Secants $PAB$ and $PCD$ with $PB = 20$, $PC = 10$, $DC = 6$. Then $AB =$', ['8', '12', '6', '16'], 'B',
     ['Step 1: $PD = 16$; $PA \\cdot 20 = 10 \\cdot 16 = 160 \\Rightarrow PA = 8$.', 'Step 2: $AB = PB - PA = 20 - 8 = 12$.'],
     'Find the outside part first, then subtract from the whole.', [('$PB = 15$, $PC = 6$, $PD = 10$. Find $AB$.', '$PA = 4$, so $AB = 11$.')])

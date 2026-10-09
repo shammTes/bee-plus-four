@@ -357,11 +357,11 @@ L22 = [
        '$3\\sqrt2 \\approx 4.24$ cm'),
     'math10-u2-wk2',
     WK('ex-22b', 'Worked example: segments from given segments', 38,
-       '$AB = 3$ cm and $CD = 2$ cm. Describe how to construct segments of length $AB + CD$ and $2AB + CD$ with compass and straightedge only.',
+       '$AB = 3$ cm and $CD = 2$ cm. Describe how to construct segments of length $AB + CD$ and $CD + 2AB$ with compass and straightedge only.',
        ['Draw a long ray from a point $X$.',
         'Set the compass to $AB$; from $X$ cut the ray at $Y$: $XY = 3$ cm.',
         'Set the compass to $CD$; from $Y$ cut the ray further at $Z$: $XZ = AB + CD = 5$ cm.',
-        'For $2AB + CD$: step $AB$ twice from $X$ (to $Y$, then to $Y\'$), then step $CD$ once: total $3 + 3 + 2 = 8$ cm.'],
+        'For $CD + 2AB$: step $AB$ twice from $X$ (to $Y$, then to $Y\'$), then step $CD$ once: total $3 + 3 + 2 = 8$ cm.'],
        'Lay the copied lengths end to end along one ray.'),
 ]
 
@@ -519,7 +519,7 @@ b.S(44, 'A regular hexagon is inscribed in a circle of radius 4 cm. Find its per
     ['Step 1: central angle $= 60°$ and the two radii are equal, so each central triangle is equilateral.', 'Step 2: so each side $= $ radius $= 4$ cm.', 'Step 3: perimeter $= 6 \\times 4 = 24$ cm.'],
     'Hexagon side = radius — the compass never needs re-setting.',
     [('A regular hexagon has perimeter 30 cm. What is the radius of its circumscribed circle?', '5 cm.')])
-b.S(38, '$AB = 4$ cm and $CD = 1.5$ cm. Which length do you get by laying $AB$, $AB$ and $CD$ end to end? And $AB - CD$?', '$2AB + CD = 9.5$ cm; $AB - CD = 2.5$ cm.',
+b.S(38, '$AB = 4$ cm and $CD = 1.5$ cm. Which length do you get by laying $AB$, $AB$ and $CD$ end to end? And $AB - CD$?', '$CD + 2AB = 9.5$ cm; $AB - CD = 2.5$ cm.',
     ['Step 1: end to end means add: $4 + 4 + 1.5 = 9.5$.', 'Step 2: for a difference, copy $AB$ then cut $CD$ back from its end: $4 - 1.5 = 2.5$.'],
     'Adding segments: lay them in the same direction; subtracting: lay the second one backwards from the end.',
     [('Construct $3CD$ if $CD = 2$ cm. How long is it?', '6 cm (step $CD$ three times).')])

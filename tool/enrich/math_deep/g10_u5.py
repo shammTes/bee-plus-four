@@ -695,7 +695,7 @@ L53 = [
         'Divide by 1000: $19.404$ litres. (The textbook’s $6468$ cm³ is one third of this — a slip.)'],
        '(a) $616$ cm² (b) $\\approx 19.4$ litres'),
     TB('solids-t', 'All the solid formulas in one table', 221, ['Solid', 'Lateral / curved area', 'Total surface area', 'Volume'],
-       [['Cuboid', '$2h(l + w)$', '$2(lw + lh + wh)$', '$lwh$'], ['Prism', '$ph$', '$ph + 2B$', '$Bh$'], ['Cylinder', '$2\\pi rh$', '$2\\pi rh + 2\\pi r^2$', '$\\pi r^2 h$'],
+       [['Cuboid', '$2h(l + w)$', '$2(lw + lh + wh)\\,$', '$lwh$'], ['Prism', '$ph$', '$ph + 2B$', '$Bh$'], ['Cylinder', '$2\\pi rh$', '$2\\pi rh + 2\\pi r^2$', '$\\pi r^2 h$'],
         ['Pyramid (regular)', '$\\frac12 nbs$', '$\\frac12 nbs + B$', '$\\frac13 Bh$'], ['Cone', '$\\pi rs$', '$\\pi rs + \\pi r^2$', '$\\frac13\\pi r^2 h$'],
         ['Sphere', '—', '$4\\pi r^2$', '$\\frac43\\pi r^3$']],
        'Pattern: pointed solids (pyramid, cone) have $\\frac13$ of the volume of the matching "straight" solid (prism, cylinder).'),
