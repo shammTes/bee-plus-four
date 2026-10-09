@@ -2715,17 +2715,140 @@
             {
               "id": "math10-u2-c01",
               "type": "text",
-              "title": "2.1 Axiomatic Systems",
+              "title": "2.1 Why geometry starts with undefined terms",
               "page": 30,
-              "src": "textbook pp.30–32",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "Awet and Kedija were asked to define a square.",
-                "Comment on two learners’ the discussion.",
-                "Awet: A square is a quadrilateral, where all its sides and angles are equal.",
-                "Awet: A line segment with endpoints A and B is the set of two points A and B and all points between the two points A and B.",
-                "A point is usually labelled with a capital letter."
+                "Try to define a square: \"a quadrilateral with four equal sides and four right angles\". Then define *side* (\"a line segment\"), then *segment* (\"two points and all points between them\"), then *point*… Sooner or later you go round in circles. To stop this, geometry **chooses a few simple words that are not defined**: **point, line and plane**. Everything else is built from them.",
+                "- **Point**: an exact position. It has no length, width or thickness. Drawn as a dot, named with a capital letter ($A$), or by coordinates $(x, y)$ on the plane.",
+                "- **Line**: straight, no thickness, goes on for ever in both directions (drawn with two arrowheads). Named by a small letter ($l$, $h$) or two of its points ($\\overleftrightarrow{AB}$).",
+                "- **Plane**: a flat surface with no thickness that goes on for ever in all directions. Drawn like a table top (a parallelogram) and named with a letter ($m$) — the drawing has edges, the plane does not.",
+                "Real objects only *model* these ideas: the tip of a needle or a corner of a box ≈ point; the edge of a table ≈ line; the floor or a TV screen ≈ plane."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math10-u2-md-plp",
+              "type": "diagram",
+              "title": "Undefined terms in one picture",
+              "page": 32,
+              "src": "notes",
+              "diagram": "md_plp",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u2-md-defs",
+              "type": "text",
+              "title": "Definitions are built from undefined terms",
+              "page": 33,
+              "src": "notes",
+              "body": [
+                "A **definition** gives the exact meaning of a new word using undefined terms and words defined earlier. A good definition is short, precise and can be read both ways (\"if… then…\" and \"only if\").",
+                "- **Collinear points** are points that lie on the same line.",
+                "- **Coplanar points** are points that lie in the same plane.",
+                "- A **line segment** $\\overline{AB}$ is the points $A$ and $B$ and all the points of the line between them.",
+                "- A **ray** $\\overrightarrow{AB}$ starts at $A$ and goes on for ever through $B$.",
+                "- An **angle** is two rays with a common end point (the **vertex**).",
+                "\"A line is a set of points\" is a poor definition: a circle is also a set of points. It does not say which points."
               ]
+            },
+            {
+              "id": "math10-u2-md-collinear",
+              "type": "diagram",
+              "title": "Collinear means \"on one line\"",
+              "page": 33,
+              "src": "notes",
+              "diagram": "md_collinear",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u2-md-axioms",
+              "type": "text",
+              "title": "Axioms (postulates) and theorems",
+              "page": 34,
+              "src": "notes",
+              "body": [
+                "Just as we cannot define every word, we cannot **prove** every statement — a proof must start somewhere. So we accept a few basic statements **without proof**. These are **axioms** or **postulates**. Statements that we **prove** from axioms, definitions and earlier theorems are **theorems**.",
+                "Postulates about points, lines and planes:",
+                "- **P1.** A line contains at least two points; a plane contains at least three non-collinear points.",
+                "- **P2.** Through any two points there is **exactly one** line.",
+                "- **P3.** Through any three non-collinear points there is **exactly one** plane.",
+                "- **P4.** If two planes intersect, their intersection is a line.",
+                "Other familiar axioms (common notions): things equal to the same thing are equal to each other; the whole is greater than the part; the shortest path between two points is the straight segment joining them."
+              ]
+            },
+            {
+              "id": "math10-u2-md-postulates",
+              "type": "diagram",
+              "title": "Postulates P2 and P3",
+              "page": 35,
+              "src": "notes",
+              "diagram": "md_postulates",
+              "mode": "plain",
+              "body": [
+                "Why a three-legged stool never wobbles: its three feet are three non-collinear points, and they fix exactly one plane — the floor."
+              ]
+            },
+            {
+              "id": "math10-u2-md-axsys",
+              "type": "table",
+              "title": "The four building blocks of an axiomatic system",
+              "page": 35,
+              "src": "notes",
+              "head": [
+                "Part",
+                "Proved / defined?",
+                "Examples"
+              ],
+              "rows": [
+                [
+                  "Undefined terms",
+                  "not defined (described only)",
+                  "point, line, plane"
+                ],
+                [
+                  "Defined terms",
+                  "defined from undefined and earlier terms",
+                  "segment, ray, angle, collinear, square"
+                ],
+                [
+                  "Axioms / postulates",
+                  "accepted without proof",
+                  "through two points there is exactly one line"
+                ],
+                [
+                  "Theorems",
+                  "proved from axioms, definitions and earlier theorems",
+                  "vertically opposite angles are equal"
+                ]
+              ],
+              "body": [
+                "Terms : undefined → defined. Statements : axioms → theorems. Keep the two ladders apart."
+              ]
+            },
+            {
+              "id": "math10-u2-md-ex-21",
+              "type": "worked",
+              "title": "Worked example: theorem or axiom?",
+              "page": 34,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Sort into axioms and theorems: (a) the whole is greater than the part; (b) an exterior angle of a triangle equals the sum of the two opposite interior angles; (c) things equal to the same thing are equal to each other; (d) in an isosceles triangle the line from the vertex to the midpoint of the base is perpendicular to the base.",
+              "steps": [
+                {
+                  "text": "Ask: \"is this so basic that we simply accept it, or can it be shown from simpler facts?\""
+                },
+                {
+                  "text": "(a) and (c) are obvious common notions, accepted without proof → **axioms**."
+                },
+                {
+                  "text": "(b) follows from the angle sum of a triangle and a straight angle → **theorem** (proved in 2.4)."
+                },
+                {
+                  "text": "(d) follows from congruent triangles (SSS) → **theorem**."
+                }
+              ],
+              "answer": "Axioms: (a), (c). Theorems: (b), (d)."
             },
             {
               "id": "math10-u2-tbl1",
@@ -2874,17 +2997,212 @@
             {
               "id": "math10-u2-c02",
               "type": "text",
-              "title": "2.2 Attributes of geometric figures",
+              "title": "2.2 Attributes of figures and constructions",
               "page": 36,
               "src": "notes",
               "body": [
-                "Geometric figures are described by their **attributes** (properties): number of sides, lengths of sides, sizes of angles, parallel sides, diagonals and symmetry. Knowing the attributes lets you classify a figure and reason about it.",
-                "**Basic figures:** a **segment** AB has two endpoints; a **ray** AB starts at A and goes on through B; a **line** goes on in both directions. **Collinear** points lie on one line; **coplanar** points lie in one plane. The **midpoint** of AB divides it into two equal parts.",
-                "**Angles:** acute (< 90°), right (= 90°), obtuse (between 90° and 180°), straight (180°), reflex (> 180°). **Complementary** angles add to 90°; **supplementary** angles add to 180°; **vertically opposite** angles are equal.",
-                "**Triangles** by sides: scalene (no equal sides), isosceles (two equal sides, base angles equal), equilateral (three equal sides, each angle 60°). By angles: acute, right, obtuse.",
-                "**Quadrilaterals:** parallelogram (both pairs of opposite sides parallel and equal, opposite angles equal, diagonals bisect each other); rectangle (parallelogram with right angles, equal diagonals); rhombus (parallelogram with all sides equal, diagonals perpendicular); square (rectangle and rhombus together); trapezium (exactly one pair of parallel sides); kite (two pairs of equal adjacent sides).",
-                "**Constructions with compass and straightedge:** to copy segment PQ, open the compass to the length PQ, put the point on a new point P′ and draw an arc; mark Q′ on a ray from P′ where the arc cuts it. P′Q′ = PQ. The same idea is used to bisect segments and angles."
+                "Geometric figures are described by their **attributes**: the number of sides, the lengths of the sides, the sizes of the angles, which sides are parallel or perpendicular, what the diagonals do, and so on. A square, for example, has 4 equal sides, 4 right angles, 2 pairs of parallel sides and equal diagonals that bisect each other at right angles.",
+                "A **construction** is an accurate drawing made with only two tools: a **straightedge** (a ruler without marks, for straight lines) and a **compass** (for circles and arcs). We do not measure with a ruler scale or a protractor — the compass copies lengths for us.",
+                "Why this works: every point on an arc is the same distance (the radius) from the centre. So two arcs of the same radius transfer a length exactly."
               ]
+            },
+            {
+              "id": "math10-u2-md-copyseg",
+              "type": "steps",
+              "title": "Construction 1: copy a segment PQ",
+              "page": 37,
+              "src": "notes",
+              "diagram": "md_copyseg",
+              "steps": [
+                {
+                  "text": "Draw a ray and mark its end point $R$ — the new segment will start here.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Put the compass point on $P$ and open it until the pencil is on $Q$. The compass width is now $PQ$.",
+                  "show": "k2"
+                },
+                {
+                  "text": "Without changing the width, put the point on $R$ and draw an arc across the ray.",
+                  "show": "k3"
+                },
+                {
+                  "text": "Call the crossing point $S$. Then $RS = PQ$, because both are radii of the same compass setting.",
+                  "show": "k4"
+                }
+              ]
+            },
+            {
+              "id": "math10-u2-md-bisectseg",
+              "type": "steps",
+              "title": "Construction 2: bisect a segment AB (find its midpoint)",
+              "page": 39,
+              "src": "notes",
+              "diagram": "md_bisectseg",
+              "steps": [
+                {
+                  "text": "Open the compass to more than half of $AB$ (using $AB$ itself is easy). With centre $A$ draw arcs above and below the segment.",
+                  "show": "k1"
+                },
+                {
+                  "text": "With the **same** width and centre $B$ draw arcs that cross the first ones.",
+                  "show": "k2"
+                },
+                {
+                  "text": "Name the crossing points $P$ and $Q$ and join them with the straightedge.",
+                  "show": "k3"
+                },
+                {
+                  "text": "$PQ$ cuts $AB$ at its midpoint $M$, and at right angles: $PQ$ is the **perpendicular bisector** of $AB$. ($P$ and $Q$ are each the same distance from $A$ and $B$.)",
+                  "show": "k4"
+                }
+              ]
+            },
+            {
+              "id": "math10-u2-md-copyangle",
+              "type": "steps",
+              "title": "Construction 3: copy an angle A",
+              "page": 40,
+              "src": "notes",
+              "diagram": "md_copyangle",
+              "steps": [
+                {
+                  "text": "Draw a ray with end point $D$.",
+                  "show": "k1"
+                },
+                {
+                  "text": "With centre $A$ draw an arc cutting both arms at $B$ and $C$. With the same width and centre $D$ draw a long arc cutting the ray at $E$.",
+                  "show": "k2"
+                },
+                {
+                  "text": "Set the compass to the distance $BC$. With centre $E$ draw an arc crossing the long arc at $F$.",
+                  "show": "k3"
+                },
+                {
+                  "text": "Draw ray $DF$. Then $\\angle EDF = \\angle BAC$ (triangles $ABC$ and $DEF$ have three equal sides).",
+                  "show": "k4"
+                }
+              ]
+            },
+            {
+              "id": "math10-u2-md-bisectangle",
+              "type": "steps",
+              "title": "Construction 4: bisect an angle P",
+              "page": 42,
+              "src": "notes",
+              "diagram": "md_bisectangle",
+              "steps": [
+                {
+                  "text": "With centre $P$ draw an arc cutting both arms at $Q$ and $R$.",
+                  "show": "k1"
+                },
+                {
+                  "text": "With centre $Q$ draw an arc inside the angle.",
+                  "show": "k2"
+                },
+                {
+                  "text": "With the same width and centre $R$ draw an arc crossing it at $W$.",
+                  "show": "k3"
+                },
+                {
+                  "text": "Draw ray $PW$: it is the **angle bisector** — here a 60° angle is cut into two 30° angles.",
+                  "show": "k4"
+                }
+              ]
+            },
+            {
+              "id": "math10-u2-md-constr-t",
+              "type": "table",
+              "title": "The four basic constructions at a glance",
+              "page": 39,
+              "src": "notes",
+              "head": [
+                "Construction",
+                "Key idea",
+                "Arcs needed"
+              ],
+              "rows": [
+                [
+                  "Copy a segment",
+                  "compass width = the length",
+                  "1"
+                ],
+                [
+                  "Bisect a segment",
+                  "two equal arcs from each end meet on the perpendicular bisector",
+                  "4 (2 from each end)"
+                ],
+                [
+                  "Copy an angle",
+                  "copy two lengths: the radius and the chord $BC$",
+                  "3"
+                ],
+                [
+                  "Bisect an angle",
+                  "equal arcs from $Q$ and $R$ meet on the bisector",
+                  "3"
+                ]
+              ],
+              "body": [
+                "Never change the compass width in the middle of one step — the equal widths are what make the construction exact."
+              ]
+            },
+            {
+              "id": "math10-u2-md-inscribed",
+              "type": "text",
+              "title": "Polygons inscribed in a circle",
+              "page": 44,
+              "src": "notes",
+              "body": [
+                "A polygon is **inscribed** in a circle when **every vertex lies on the circle**. Any points on the circle, joined in order, give an inscribed polygon.",
+                "A **regular** inscribed polygon (all sides equal) with $n$ sides: divide the full turn $360°$ by $n$ to get the angle at the centre, $\\frac{360°}{n}$. Mark that angle again and again from a radius; the points on the circle are the vertices.",
+                "- Hexagon: $360° \\div 6 = 60°$. Each central triangle is equilateral, so **each side equals the radius** — you can step the compass (set to the radius) six times round the circle.",
+                "- Square: $360° \\div 4 = 90°$: draw two perpendicular diameters.",
+                "- Octagon: $360° \\div 8 = 45°$: bisect the right angles of the square.",
+                "For an inscribed **rectangle**, the diagonals are diameters, so the centre is where the diagonals cross."
+              ]
+            },
+            {
+              "id": "math10-u2-md-hexagon",
+              "type": "diagram",
+              "title": "Regular hexagon: step the radius six times",
+              "page": 45,
+              "src": "notes",
+              "diagram": "md_hexagon",
+              "mode": "plain"
+            },
+            {
+              "id": "math10-u2-md-rectcircle",
+              "type": "diagram",
+              "title": "Rectangle 8 × 6 inscribed in a circle",
+              "page": 45,
+              "src": "notes",
+              "diagram": "md_rectcircle",
+              "mode": "plain",
+              "body": [
+                "The diagonal is a diameter: $d = \\sqrt{8^2 + 6^2} = \\sqrt{100} = 10$, so the radius is $5$ and the centre is the crossing point of the diagonals."
+              ]
+            },
+            {
+              "id": "math10-u2-md-ex-22a",
+              "type": "worked",
+              "title": "Worked example: the side of a square inscribed in a circle",
+              "page": 44,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A square $ABCD$ is inscribed in a circle of radius 3 cm. Find the length of one side.",
+              "steps": [
+                {
+                  "text": "The diagonals of the square are diameters: $AC = 2 \\times 3 = 6$ cm."
+                },
+                {
+                  "text": "Triangle $ABC$ has a right angle at $B$ and $AB = BC = s$. By Pythagoras $s^2 + s^2 = 6^2$."
+                },
+                {
+                  "text": "$2s^2 = 36 \\Rightarrow s^2 = 18 \\Rightarrow s = \\sqrt{18} = 3\\sqrt2 \\approx 4.24$ cm."
+                }
+              ],
+              "answer": "$3\\sqrt2 \\approx 4.24$ cm"
             },
             {
               "id": "math10-u2-wk2",
@@ -2908,6 +3226,30 @@
               "answer": "∠A = ∠C = 100°, ∠B = ∠D = 80°",
               "page": 36,
               "src": "notes"
+            },
+            {
+              "id": "math10-u2-md-ex-22b",
+              "type": "worked",
+              "title": "Worked example: segments from given segments",
+              "page": 38,
+              "src": "notes",
+              "mode": "show",
+              "problem": "$AB = 3$ cm and $CD = 2$ cm. Describe how to construct segments of length $AB + CD$ and $2AB + CD$ with compass and straightedge only.",
+              "steps": [
+                {
+                  "text": "Draw a long ray from a point $X$."
+                },
+                {
+                  "text": "Set the compass to $AB$; from $X$ cut the ray at $Y$: $XY = 3$ cm."
+                },
+                {
+                  "text": "Set the compass to $CD$; from $Y$ cut the ray further at $Z$: $XZ = AB + CD = 5$ cm."
+                },
+                {
+                  "text": "For $2AB + CD$: step $AB$ twice from $X$ (to $Y$, then to $Y'$), then step $CD$ once: total $3 + 3 + 2 = 8$ cm."
+                }
+              ],
+              "answer": "Lay the copied lengths end to end along one ray."
             },
             {
               "id": "math10-u2-pc21",
@@ -2971,15 +3313,75 @@
             {
               "id": "math10-u2-c03",
               "type": "text",
-              "title": "2.3 Conjectures and counter-examples",
+              "title": "2.3 Conjectures — educated guesses from patterns",
               "page": 46,
               "src": "notes",
               "body": [
-                "A **conjecture** is a statement that you believe is true because of a pattern you observed, but that has not yet been proved. Making conjectures from examples is called **inductive reasoning**.",
-                "**Example of forming a conjecture:** draw two intersecting lines and measure the four angles. Whatever lines you draw, the opposite angles are equal. Conjecture: \"vertically opposite angles are equal.\" It is later proved (each one plus the same adjacent angle makes 180°), so it becomes a theorem.",
-                "**Testing a conjecture:** try many different cases, including unusual ones (negative numbers, 0, 1, very large numbers, special shapes).",
-                "**Counter-example:** one example that makes a conjecture false. Conjecture: \"the sum of two prime numbers is even.\" Counter-example: 2 + 3 = 5, which is odd. One counter-example is enough to disprove a conjecture, but no number of examples can prove it — a proof is needed.",
-                "**Number pattern example:** 1 = 1², 1 + 3 = 2², 1 + 3 + 5 = 3², 1 + 3 + 5 + 7 = 4². Conjecture: the sum of the first n odd numbers is n². (It is true and can be proved.)"
+                "A **conjecture** is a statement that **seems** true because of what we observed in drawings, measurements or examples, but which has **not been proved yet**. Making conjectures is how new mathematics is discovered.",
+                "How to make a conjecture: (1) draw or calculate several cases; (2) record the results in a table; (3) look for what stays the same; (4) state it as a general sentence.",
+                "Examples from drawings:",
+                "- Two intersecting lines: the opposite angles always measure the same → conjecture \"**vertically opposite angles are equal**\".",
+                "- Parallel lines and a transversal: the alternate interior angles always match → \"**alternate angles are equal**\".",
+                "- Measure the angles of many triangles: the total is always about $180°$ → \"**the angles of a triangle add up to $180°$**\".",
+                "A conjecture can be **false**. Measurements are never exact, and a pattern can break later. One **counter-example** is enough to show a conjecture is false; but no number of examples proves it true — only a proof does."
+              ]
+            },
+            {
+              "id": "math10-u2-md-vert",
+              "type": "diagram",
+              "title": "Conjecture: vertically opposite angles are equal",
+              "page": 46,
+              "src": "notes",
+              "diagram": "md_vert",
+              "mode": "plain",
+              "body": [
+                "Lines $AC$ and $BD$ cross at $O$. The angles marked $x$ face each other; so do the angles marked $y$. Measure them: they match. In 2.4 we prove it."
+              ]
+            },
+            {
+              "id": "math10-u2-md-transversal",
+              "type": "diagram",
+              "title": "Conjecture: alternate angles are equal",
+              "page": 47,
+              "src": "notes",
+              "diagram": "md_transversal",
+              "mode": "plain",
+              "body": [
+                "Line $m$ cuts the parallel lines $h$ and $k$. The alternate interior angles 1 and 2 (a \"Z\" shape) are equal; the corresponding angles 3 and 4 (an \"F\" shape) are equal; co-interior angles such as 1 and 4 (a \"C\" shape) add up to $180°$."
+              ]
+            },
+            {
+              "id": "math10-u2-md-parallel-t",
+              "type": "table",
+              "title": "Angles formed by parallel lines and a transversal",
+              "page": 47,
+              "src": "notes",
+              "head": [
+                "Pair",
+                "Shape to spot",
+                "Relationship"
+              ],
+              "rows": [
+                [
+                  "Alternate interior",
+                  "Z",
+                  "equal"
+                ],
+                [
+                  "Corresponding",
+                  "F",
+                  "equal"
+                ],
+                [
+                  "Co-interior (same side)",
+                  "C or U",
+                  "add up to $180°$"
+                ],
+                [
+                  "Vertically opposite",
+                  "X",
+                  "equal (parallel lines not needed)"
+                ]
               ]
             },
             {
@@ -2993,14 +3395,37 @@
               ]
             },
             {
-              "id": "math10-u2-c05",
-              "type": "text",
-              "title": "More notes",
-              "page": 47,
+              "id": "math10-u2-md-ex-23a",
+              "type": "worked",
+              "title": "Worked example: making a conjecture from a table",
+              "page": 49,
               "src": "notes",
-              "body": [
-                "You cannot prove an axiom; you use it. “Two points determine a line” is that kind of start. A counter-example kills a conjecture (one drawing is enough). Do not argue from an inaccurate sketch — mark what is given, not what “looks” equal."
-              ]
+              "mode": "show",
+              "problem": "A circle is cut by lines through its centre. 1 line gives 2 regions, 2 lines give 4, 3 lines give 6. Make a conjecture for $n$ lines and use it for 5 and 8 lines.",
+              "steps": [
+                {
+                  "text": "Table: $n$ = 1, 2, 3 → regions 2, 4, 6."
+                },
+                {
+                  "text": "Each new line through the centre adds 2 regions (it cuts two old regions in half)."
+                },
+                {
+                  "text": "Conjecture: $n$ lines through the centre give $2n$ regions."
+                },
+                {
+                  "text": "For 5 lines: $2 \\times 5 = 10$; for 8 lines: $16$ regions. (Check one by drawing — 4 lines give 8.)"
+                }
+              ],
+              "answer": "$2n$ regions; 10 and 16"
+            },
+            {
+              "id": "math10-u2-md-regions",
+              "type": "diagram",
+              "title": "Counting regions",
+              "page": 49,
+              "src": "notes",
+              "diagram": "md_regions",
+              "mode": "plain"
             },
             {
               "id": "math10-u2-wk3",
@@ -3024,6 +3449,47 @@
               "answer": "False: n = 41 gives 1763 = 41 × 43.",
               "page": 46,
               "src": "notes"
+            },
+            {
+              "id": "math10-u2-md-ex-23b",
+              "type": "worked",
+              "title": "Worked example: a conjecture that breaks",
+              "page": 48,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Points are put on a circle and every pair is joined. 2 points → 2 regions, 3 → 4, 4 → 8, 5 → 16. Conjecture: $n$ points give $2^{n-1}$ regions. Is it true?",
+              "steps": [
+                {
+                  "text": "The pattern 2, 4, 8, 16 suggests doubling, so 6 points should give 32 regions."
+                },
+                {
+                  "text": "Draw it carefully (points not evenly spaced so that no three chords meet at one point): you get only **31** regions."
+                },
+                {
+                  "text": "One counter-example is enough: the conjecture is **false**, even though it worked four times."
+                }
+              ],
+              "answer": "False — 6 points give 31 regions, not 32."
+            },
+            {
+              "id": "math10-u2-md-tip23",
+              "type": "mnemonic",
+              "title": "Tip: verification is not proof",
+              "page": 50,
+              "src": "notes",
+              "body": [
+                "Checking examples (3 + 5 = 8, 7 + 9 = 16…) **verifies** a conjecture for those numbers only. A **proof** must work for every case — usually by using letters, e.g. odd numbers $2m + 1$ and $2n + 1$."
+              ]
+            },
+            {
+              "id": "math10-u2-c05",
+              "type": "text",
+              "title": "More notes",
+              "page": 47,
+              "src": "notes",
+              "body": [
+                "You cannot prove an axiom; you use it. “Two points determine a line” is that kind of start. A counter-example kills a conjecture (one drawing is enough). Do not argue from an inaccurate sketch — mark what is given, not what “looks” equal."
+              ]
             },
             {
               "id": "math10-u2-pc31",
@@ -3087,16 +3553,100 @@
             {
               "id": "math10-u2-c06",
               "type": "text",
-              "title": "2.4 Understanding mathematical proofs",
-              "page": 49,
+              "title": "2.4 Inductive and deductive reasoning",
+              "page": 48,
               "src": "notes",
               "body": [
-                "**Deductive reasoning** draws a conclusion that must be true from statements already accepted (definitions, axioms/postulates, and previously proved theorems). A **proof** is a chain of such steps, each with a reason.",
-                "**Conditional statements:** \"If p, then q\" (p → q); p is the hypothesis, q the conclusion. The **converse** is q → p, the **inverse** is \"not p → not q\", the **contrapositive** is \"not q → not p\". A statement and its contrapositive are always both true or both false; the converse may be false. Example: \"If an angle measures 30°, it is acute\" is true, but its converse \"If an angle is acute, it measures 30°\" is false.",
-                "**Two-column proof:** list **statements** on the left and **reasons** on the right, starting with the given facts and ending with what was to be proved.",
-                "**Example — vertically opposite angles are equal.** Given: lines AB and CD meet at O. Prove: ∠AOC = ∠BOD. 1. ∠AOC + ∠COB = 180° (angles on a straight line AB). 2. ∠COB + ∠BOD = 180° (angles on a straight line CD). 3. ∠AOC + ∠COB = ∠COB + ∠BOD (both equal 180°). 4. ∠AOC = ∠BOD (subtract ∠COB from both sides). ∎",
-                "**Indirect proof (proof by contradiction):** assume the opposite of what you want to prove and show that this leads to something impossible."
+                "**Inductive reasoning** goes from several particular cases to a general conclusion (a conjecture). Example: the angles of the five triangles I drew add up to about $180°$, so every triangle probably has angle sum $180°$. It is useful for discovering, but the conclusion **may be false**.",
+                "**Deductive reasoning** goes from accepted general statements (definitions, axioms, proved theorems) to a conclusion that **must** be true. Example: \"All mammals are warm-blooded. A cow is a mammal. Therefore a cow is warm-blooded.\"",
+                "The deductive pattern: **If $p$ then $q$. $p$ is true. Therefore $q$ is true.** (\"All rectangles are parallelograms; $ABCD$ is a rectangle; so $ABCD$ is a parallelogram.\")",
+                "A **proof** is a chain of deductive steps, each justified by a reason (given, definition, axiom or earlier theorem), that leads from the hypothesis to the conclusion. Once a conjecture is proved it becomes a **theorem**."
               ]
+            },
+            {
+              "id": "math10-u2-md-reason-t",
+              "type": "table",
+              "title": "Inductive vs deductive reasoning",
+              "page": 50,
+              "src": "notes",
+              "head": [
+                "",
+                "Inductive",
+                "Deductive"
+              ],
+              "rows": [
+                [
+                  "Direction",
+                  "particular cases → general rule",
+                  "general rules → particular case"
+                ],
+                [
+                  "Based on",
+                  "observation, measurement, examples",
+                  "definitions, axioms, theorems"
+                ],
+                [
+                  "Result",
+                  "a conjecture (may be false)",
+                  "a certain conclusion (a theorem)"
+                ],
+                [
+                  "Example",
+                  "3 + 5, 7 + 9, 11 + 1 are even ⇒ odd + odd is even?",
+                  "$(2m + 1) + (2n + 1) = 2(m + n + 1)$ is even"
+                ]
+              ]
+            },
+            {
+              "id": "math10-u2-md-cond",
+              "type": "text",
+              "title": "Conditional statements and converses",
+              "page": 51,
+              "src": "notes",
+              "body": [
+                "Most theorems are **conditional statements**: \"**If** $p$, **then** $q$.\" The part after *if* ($p$) is the **hypothesis** (what is given); the part after *then* ($q$) is the **conclusion** (what must be proved).",
+                "The **converse** swaps them: \"If $q$, then $p$.\" A true statement can have a **false** converse:",
+                "- \"If a figure is a triangle, then it is a polygon.\" — true.",
+                "- Converse: \"If a figure is a polygon, then it is a triangle.\" — false (a square is a polygon but not a triangle).",
+                "When a statement and its converse are both true we can join them with \"**if and only if**\": \"A triangle is equilateral if and only if all its angles are $60°$.\""
+              ]
+            },
+            {
+              "id": "math10-u2-md-venn",
+              "type": "diagram",
+              "title": "Why the converse can fail",
+              "page": 52,
+              "src": "notes",
+              "diagram": "md_venn",
+              "mode": "plain",
+              "body": [
+                "The triangles sit inside the polygons. So \"triangle ⇒ polygon\" is true, but a square is a polygon outside the triangles, so \"polygon ⇒ triangle\" is false."
+              ]
+            },
+            {
+              "id": "math10-u2-md-ex-vert",
+              "type": "worked",
+              "title": "Proof: vertically opposite angles are equal",
+              "page": 51,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Lines $AB$ and $CD$ meet at $O$. Prove that $\\angle AOD = \\angle COB$.",
+              "diagram": "md_vert",
+              "steps": [
+                {
+                  "text": "$\\angle AOD + \\angle DOB = 180°$ — reason: $AOB$ is a straight angle."
+                },
+                {
+                  "text": "$\\angle COB + \\angle BOD = 180°$ — reason: $COD$ is a straight angle."
+                },
+                {
+                  "text": "So $\\angle AOD + \\angle DOB = \\angle COB + \\angle DOB$ — reason: things equal to the same thing ($180°$) are equal."
+                },
+                {
+                  "text": "Subtract $\\angle DOB$ from both sides: $\\angle AOD = \\angle COB$. ∎"
+                }
+              ],
+              "answer": "Vertically opposite angles are equal (a direct proof)."
             },
             {
               "id": "math10-u2-wk4",
@@ -3123,6 +3673,151 @@
               "answer": "∠A + ∠B + ∠C = 180°",
               "page": 48,
               "src": "notes"
+            },
+            {
+              "id": "math10-u2-md-ex-ext",
+              "type": "worked",
+              "title": "Proof: the exterior angle theorem",
+              "page": 53,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Side $AC$ of triangle $ABC$ is extended past $C$. Prove that the exterior angle $x$ at $C$ equals $b + c$, the two opposite interior angles.",
+              "diagram": "md_exterior",
+              "steps": [
+                {
+                  "text": "$a + b + c = 180°$ — angle sum of a triangle."
+                },
+                {
+                  "text": "$x + a = 180°$ — $x$ and $a$ form a straight angle."
+                },
+                {
+                  "text": "So $x + a = a + b + c$ (both equal $180°$)."
+                },
+                {
+                  "text": "Subtract $a$: $x = b + c$. ∎"
+                }
+              ],
+              "answer": "$x = b + c$"
+            },
+            {
+              "id": "math10-u2-md-ex-odd",
+              "type": "worked",
+              "title": "Proof: the sum of two odd numbers is even",
+              "page": 50,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Prove that the sum of any two odd integers is even.",
+              "steps": [
+                {
+                  "text": "An even number has the form $2k$; an odd number has the form $2k + 1$ ($k$ an integer)."
+                },
+                {
+                  "text": "Let the odd numbers be $x = 2m + 1$ and $y = 2n + 1$."
+                },
+                {
+                  "text": "$x + y = 2m + 2n + 2 = 2(m + n + 1)$."
+                },
+                {
+                  "text": "$m + n + 1$ is an integer, so $x + y$ is 2 times an integer: even. ∎ (Checking $3 + 5 = 8$ only verifies one case.)"
+                }
+              ],
+              "answer": "Proved for all odd $x, y$."
+            },
+            {
+              "id": "math10-u2-md-ex-fake",
+              "type": "worked",
+              "title": "Worked example: find the error in a \"proof\" that 2 = 1",
+              "page": 53,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Let $a = b$. Then $a^2 = ab$, $a^2 - b^2 = ab - b^2$, $(a - b)(a + b) = b(a - b)$, so $a + b = b$, $2b = b$ and $2 = 1$. What is wrong?",
+              "steps": [
+                {
+                  "text": "Every step is fine up to $(a - b)(a + b) = b(a - b)$."
+                },
+                {
+                  "text": "The next step divides both sides by $a - b$."
+                },
+                {
+                  "text": "But $a = b$, so $a - b = 0$: the \"proof\" **divides by zero**, which is not allowed."
+                },
+                {
+                  "text": "Lesson: each step of a proof needs a valid reason — check especially divisions and square roots."
+                }
+              ],
+              "answer": "Division by $a - b = 0$."
+            },
+            {
+              "id": "math10-u2-md-triangulate",
+              "type": "diagram",
+              "title": "Inductive reasoning with polygons",
+              "page": 55,
+              "src": "notes",
+              "diagram": "md_triangulate",
+              "mode": "plain",
+              "body": [
+                "From one vertex, an $n$-sided polygon has $n - 3$ diagonals, which cut it into $n - 2$ triangles. So the angle sum is $(n - 2) \\times 180°$ — this conjecture is proved in Unit 3."
+              ]
+            },
+            {
+              "id": "math10-u2-md-triangulate-t",
+              "type": "table",
+              "title": "Pattern table for polygons",
+              "page": 55,
+              "src": "notes",
+              "head": [
+                "Polygon",
+                "Sides $n$",
+                "Diagonals from one vertex",
+                "Triangles"
+              ],
+              "rows": [
+                [
+                  "Triangle",
+                  "3",
+                  "0",
+                  "1"
+                ],
+                [
+                  "Quadrilateral",
+                  "4",
+                  "1",
+                  "2"
+                ],
+                [
+                  "Pentagon",
+                  "5",
+                  "2",
+                  "3"
+                ],
+                [
+                  "Hexagon",
+                  "6",
+                  "3",
+                  "4"
+                ],
+                [
+                  "Heptagon",
+                  "7",
+                  "4",
+                  "5"
+                ],
+                [
+                  "Octagon",
+                  "8",
+                  "5",
+                  "6"
+                ],
+                [
+                  "$n$-gon",
+                  "$n$",
+                  "$n - 3$",
+                  "$n - 2$"
+                ]
+              ],
+              "body": [
+                "Number of triangles = number of diagonals from one vertex + 1."
+              ]
             },
             {
               "id": "math10-u2-pc41",
@@ -3191,11 +3886,111 @@
           ]
         }
       ],
-      "glossary": [],
+      "glossary": [
+        {
+          "term": "Undefined terms",
+          "meaning": "Basic words (point, line, plane) that are described but not defined.",
+          "page": 31,
+          "src": "notes"
+        },
+        {
+          "term": "Collinear points",
+          "meaning": "Points that lie on the same line.",
+          "page": 33,
+          "src": "notes"
+        },
+        {
+          "term": "Axiom (postulate)",
+          "meaning": "A statement accepted as true without proof.",
+          "page": 34,
+          "src": "notes"
+        },
+        {
+          "term": "Theorem",
+          "meaning": "A statement proved from axioms, definitions and earlier theorems.",
+          "page": 35,
+          "src": "notes"
+        },
+        {
+          "term": "Axiomatic system",
+          "meaning": "Undefined terms, defined terms, axioms and theorems organised so each part is built from the earlier ones.",
+          "page": 35,
+          "src": "notes"
+        },
+        {
+          "term": "Construction",
+          "meaning": "An accurate drawing made with only a compass and a straightedge.",
+          "page": 38,
+          "src": "notes"
+        },
+        {
+          "term": "Perpendicular bisector",
+          "meaning": "The line through the midpoint of a segment at right angles to it.",
+          "page": 39,
+          "src": "notes"
+        },
+        {
+          "term": "Angle bisector",
+          "meaning": "The ray that divides an angle into two equal angles.",
+          "page": 42,
+          "src": "notes"
+        },
+        {
+          "term": "Inscribed polygon",
+          "meaning": "A polygon whose vertices all lie on a circle.",
+          "page": 44,
+          "src": "notes"
+        },
+        {
+          "term": "Conjecture",
+          "meaning": "A statement believed true from observations but not yet proved.",
+          "page": 47,
+          "src": "notes"
+        },
+        {
+          "term": "Counter-example",
+          "meaning": "One example that shows a general statement is false.",
+          "page": 48,
+          "src": "notes"
+        },
+        {
+          "term": "Inductive reasoning",
+          "meaning": "Forming a general conclusion (conjecture) from particular cases.",
+          "page": 50,
+          "src": "notes"
+        },
+        {
+          "term": "Deductive reasoning",
+          "meaning": "Reaching a certain conclusion from accepted statements (definitions, axioms, theorems).",
+          "page": 49,
+          "src": "notes"
+        },
+        {
+          "term": "Converse",
+          "meaning": "The statement formed by interchanging the hypothesis and the conclusion of a conditional statement.",
+          "page": 52,
+          "src": "notes"
+        }
+      ],
       "tips": [
         {
           "text": "Read 2.1 Axiomatic Systems again and say its main idea in one sentence.",
           "page": 30
+        },
+        {
+          "text": "Undefined → defined (terms); axioms → theorems (statements). A proof may only use things from earlier on these ladders.",
+          "page": 35,
+          "src": "notes"
+        },
+        {
+          "text": "Constructions: keep the compass width fixed within a step — equal radii are the whole reason the construction is exact.",
+          "page": 39,
+          "src": "notes"
+        },
+        {
+          "text": "One counter-example kills a conjecture; no number of examples proves it.",
+          "page": 48,
+          "src": "notes"
         }
       ],
       "games": [
@@ -3683,6 +4478,632 @@
               }
             ],
             "id": "math10-u2-q20"
+          },
+          {
+            "id": "math10-u2-md-s21-q01",
+            "type": "mcq",
+            "q": "Which are the undefined terms of geometry?",
+            "options": {
+              "A": "angle, ray, segment",
+              "B": "point, line, plane",
+              "C": "triangle, square, circle",
+              "D": "axiom, theorem, definition"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: undefined terms are the starting words that are only described.",
+              "Step 2: angle, ray and segment are defined using points and lines.",
+              "Step 3: so the undefined terms are point, line and plane."
+            ],
+            "tip": "If you can define it with other geometry words, it is not undefined.",
+            "similar": [
+              {
+                "q": "Which of these is a defined term: point, ray, plane?",
+                "a": "Ray (part of a line starting at a point)."
+              }
+            ],
+            "page": 31,
+            "src": "notes",
+            "label": "2.1 Practice — axiomatic systems"
+          },
+          {
+            "id": "math10-u2-md-s21-q02",
+            "type": "mcq",
+            "q": "Which object best models a plane?",
+            "options": {
+              "A": "the tip of a needle",
+              "B": "the edge of a table",
+              "C": "the floor of a classroom",
+              "D": "the corner of a box"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: a plane is a flat surface.",
+              "Step 2: tip and corner are points; an edge is a line.",
+              "Step 3: the floor is a flat surface → plane."
+            ],
+            "tip": "Count dimensions: 0 = point, 1 = line, 2 = plane.",
+            "similar": [
+              {
+                "q": "What does the edge of a table model?",
+                "a": "A line (or segment)."
+              }
+            ],
+            "page": 32,
+            "src": "notes",
+            "label": "2.1 Practice — axiomatic systems"
+          },
+          {
+            "id": "math10-u2-md-s21-q03",
+            "type": "tf",
+            "q": "An axiom is a statement that is proved from theorems.",
+            "answer": false,
+            "why": [
+              "Step 1: axioms are accepted WITHOUT proof.",
+              "Step 2: theorems are the statements that are proved."
+            ],
+            "tip": "Axiom = accepted; theorem = proved.",
+            "similar": [
+              {
+                "q": "Is \"through any two points there is exactly one line\" an axiom or a theorem?",
+                "a": "An axiom (postulate)."
+              }
+            ],
+            "page": 34,
+            "src": "notes",
+            "label": "2.1 Practice — axiomatic systems"
+          },
+          {
+            "id": "math10-u2-md-s21-q04",
+            "type": "short",
+            "q": "How many lines can be drawn through two different points? Through three collinear points? Through three non-collinear points (taking two at a time)?",
+            "answer": "Exactly one; exactly one; three.",
+            "why": [
+              "Step 1: postulate P2 — two points determine exactly one line.",
+              "Step 2: three collinear points all lie on that one line.",
+              "Step 3: three non-collinear points give 3 pairs → 3 different lines (the sides of a triangle)."
+            ],
+            "tip": "Count pairs: $n$ points, no three collinear, give $\\frac{n(n-1)}{2}$ lines.",
+            "similar": [
+              {
+                "q": "How many lines are determined by 4 points, no three collinear?",
+                "a": "6."
+              }
+            ],
+            "page": 35,
+            "src": "notes",
+            "label": "2.1 Practice — axiomatic systems"
+          },
+          {
+            "id": "math10-u2-md-s21-q05",
+            "type": "short",
+            "q": "Two rays lie on the same line, have a common end point and no other common points. What angle do they form?",
+            "answer": "A straight angle, $180°$.",
+            "why": [
+              "Step 1: the rays point in opposite directions from the common end point.",
+              "Step 2: together they make a straight line.",
+              "Step 3: a straight angle measures $180°$."
+            ],
+            "tip": "Opposite rays always form a straight angle.",
+            "similar": [
+              {
+                "q": "Two rays from one point form a right angle. What is its measure?",
+                "a": "$90°$."
+              }
+            ],
+            "page": 35,
+            "src": "notes",
+            "label": "2.1 Practice — axiomatic systems"
+          },
+          {
+            "id": "math10-u2-md-s21-q06",
+            "type": "short",
+            "q": "Why is \"a line is a set of points\" not a good definition?",
+            "answer": "It does not say which points; a circle or a triangle is also a set of points.",
+            "why": [
+              "Step 1: a definition must pick out exactly one kind of object.",
+              "Step 2: many figures are sets of points.",
+              "Step 3: so the sentence is true about lines but does not define them."
+            ],
+            "tip": "Test a definition by looking for something else that fits it.",
+            "similar": [
+              {
+                "q": "Is \"a square is a quadrilateral with four equal sides\" a complete definition?",
+                "a": "No — a rhombus also fits; add \"and four right angles\"."
+              }
+            ],
+            "page": 35,
+            "src": "notes",
+            "label": "2.1 Practice — axiomatic systems"
+          },
+          {
+            "id": "math10-u2-md-s21-q07",
+            "type": "mcq",
+            "q": "Which statement is a postulate about planes?",
+            "options": {
+              "A": "A plane has edges",
+              "B": "If two planes intersect, their intersection is a line",
+              "C": "A plane contains only two points",
+              "D": "Two planes always meet"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: planes have no edges (A false).",
+              "Step 2: a plane contains at least three non-collinear points (C false).",
+              "Step 3: parallel planes never meet (D false). B is postulate P4."
+            ],
+            "tip": "Picture two walls of a room: they meet along a line.",
+            "similar": [
+              {
+                "q": "Where do the floor and a wall of a room meet?",
+                "a": "Along a line (the bottom edge of the wall)."
+              }
+            ],
+            "page": 35,
+            "src": "notes",
+            "label": "2.1 Practice — axiomatic systems"
+          },
+          {
+            "id": "math10-u2-md-s22-q01",
+            "type": "mcq",
+            "q": "In the construction that copies a segment $PQ$ to $RS$, why is $RS = PQ$?",
+            "options": {
+              "A": "Because we measured both with a ruler",
+              "B": "Because both are radii of the same compass setting",
+              "C": "Because $R$ and $P$ are the same point",
+              "D": "Because the arc is a straight line"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: the compass was opened to $PQ$.",
+              "Step 2: the same width drew the arc from $R$.",
+              "Step 3: every point of that arc is $PQ$ away from $R$ — so $RS = PQ$."
+            ],
+            "tip": "In constructions, equal compass widths = equal lengths.",
+            "similar": [
+              {
+                "q": "When bisecting a segment, why must both pairs of arcs use the same width?",
+                "a": "So that the crossing points are equally far from both ends (they lie on the perpendicular bisector)."
+              }
+            ],
+            "page": 37,
+            "src": "notes",
+            "label": "2.2 Practice — constructions and inscribed polygons"
+          },
+          {
+            "id": "math10-u2-md-s22-q02",
+            "type": "short",
+            "q": "After bisecting a 6 cm segment $AB$ with arcs, you join the arc crossings $P$ and $Q$. Give two facts about line $PQ$.",
+            "answer": "$PQ$ passes through the midpoint $M$ of $AB$ ($AM = MB = 3$ cm), and $PQ \\perp AB$.",
+            "why": [
+              "Step 1: $P$ and $Q$ are each the same distance from $A$ and $B$.",
+              "Step 2: all such points lie on the perpendicular bisector.",
+              "Step 3: so $PQ$ cuts $AB$ in half at right angles."
+            ],
+            "tip": "Perpendicular bisector = \"cuts in half\" + \"at 90°\".",
+            "similar": [
+              {
+                "q": "A 7 cm segment is bisected. How long is each half?",
+                "a": "3.5 cm."
+              }
+            ],
+            "page": 39,
+            "src": "notes",
+            "label": "2.2 Practice — constructions and inscribed polygons"
+          },
+          {
+            "id": "math10-u2-md-s22-q03",
+            "type": "short",
+            "q": "An angle of $70°$ is bisected, and then one of the halves is bisected again. What is the size of the smallest angle?",
+            "answer": "$17.5°$",
+            "why": [
+              "Step 1: bisecting halves the angle: $70° \\div 2 = 35°$.",
+              "Step 2: bisecting again: $35° \\div 2 = 17.5°$."
+            ],
+            "tip": "Each bisection divides by 2: after $k$ bisections the angle is $\\frac{\\theta}{2^k}$.",
+            "similar": [
+              {
+                "q": "How can you construct a $45°$ angle with compass and straightedge?",
+                "a": "Construct a $90°$ angle (perpendicular bisector) and bisect it."
+              }
+            ],
+            "page": 42,
+            "src": "notes",
+            "label": "2.2 Practice — constructions and inscribed polygons"
+          },
+          {
+            "id": "math10-u2-md-s22-q04",
+            "type": "short",
+            "q": "A rectangle with sides 8 and 6 units is inscribed in a circle. Find the radius and say where the centre is.",
+            "answer": "Radius 5 units; the centre is where the diagonals cross.",
+            "why": [
+              "Step 1: a diagonal of an inscribed rectangle is a diameter.",
+              "Step 2: diagonal $= \\sqrt{8^2 + 6^2} = 10$.",
+              "Step 3: radius $= 10 \\div 2 = 5$; the diagonals meet at the centre."
+            ],
+            "tip": "Inscribed rectangle → diagonal = diameter (the right angle stands on a diameter).",
+            "similar": [
+              {
+                "q": "A rectangle 12 × 5 is inscribed in a circle. Find the radius.",
+                "a": "6.5 units (diagonal 13)."
+              }
+            ],
+            "page": 45,
+            "src": "notes",
+            "label": "2.2 Practice — constructions and inscribed polygons"
+          },
+          {
+            "id": "math10-u2-md-s22-q05",
+            "type": "mcq",
+            "q": "To construct a regular octagon inscribed in a circle, the angle at the centre between neighbouring vertices is",
+            "options": {
+              "A": "$30°$",
+              "B": "$40°$",
+              "C": "$45°$",
+              "D": "$60°$"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: the full turn is $360°$.",
+              "Step 2: 8 equal parts: $360° \\div 8 = 45°$."
+            ],
+            "tip": "Central angle of a regular $n$-gon $= \\frac{360°}{n}$.",
+            "similar": [
+              {
+                "q": "What is the central angle for a regular pentagon?",
+                "a": "$72°$."
+              }
+            ],
+            "page": 45,
+            "src": "notes",
+            "label": "2.2 Practice — constructions and inscribed polygons"
+          },
+          {
+            "id": "math10-u2-md-s22-q06",
+            "type": "short",
+            "q": "A regular hexagon is inscribed in a circle of radius 4 cm. Find its perimeter.",
+            "answer": "24 cm",
+            "why": [
+              "Step 1: central angle $= 60°$ and the two radii are equal, so each central triangle is equilateral.",
+              "Step 2: so each side $= $ radius $= 4$ cm.",
+              "Step 3: perimeter $= 6 \\times 4 = 24$ cm."
+            ],
+            "tip": "Hexagon side = radius — the compass never needs re-setting.",
+            "similar": [
+              {
+                "q": "A regular hexagon has perimeter 30 cm. What is the radius of its circumscribed circle?",
+                "a": "5 cm."
+              }
+            ],
+            "page": 44,
+            "src": "notes",
+            "label": "2.2 Practice — constructions and inscribed polygons"
+          },
+          {
+            "id": "math10-u2-md-s22-q07",
+            "type": "short",
+            "q": "$AB = 4$ cm and $CD = 1.5$ cm. Which length do you get by laying $AB$, $AB$ and $CD$ end to end? And $AB - CD$?",
+            "answer": "$2AB + CD = 9.5$ cm; $AB - CD = 2.5$ cm.",
+            "why": [
+              "Step 1: end to end means add: $4 + 4 + 1.5 = 9.5$.",
+              "Step 2: for a difference, copy $AB$ then cut $CD$ back from its end: $4 - 1.5 = 2.5$."
+            ],
+            "tip": "Adding segments: lay them in the same direction; subtracting: lay the second one backwards from the end.",
+            "similar": [
+              {
+                "q": "Construct $3CD$ if $CD = 2$ cm. How long is it?",
+                "a": "6 cm (step $CD$ three times)."
+              }
+            ],
+            "page": 38,
+            "src": "notes",
+            "label": "2.2 Practice — constructions and inscribed polygons"
+          },
+          {
+            "id": "math10-u2-md-s23-q01",
+            "type": "mcq",
+            "q": "Which is a counter-example to \"every prime number is odd\"?",
+            "options": {
+              "A": "3",
+              "B": "9",
+              "C": "2",
+              "D": "15"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: a counter-example must be prime AND not odd.",
+              "Step 2: 2 is prime and even.",
+              "Step 3: 9 and 15 are not prime; 3 is odd."
+            ],
+            "tip": "A counter-example must satisfy the hypothesis but break the conclusion.",
+            "similar": [
+              {
+                "q": "Give a counter-example to \"every quadrilateral with 4 equal sides is a square\".",
+                "a": "A rhombus that is not a square."
+              }
+            ],
+            "page": 48,
+            "src": "notes",
+            "label": "2.3 Practice — conjectures and counter-examples"
+          },
+          {
+            "id": "math10-u2-md-s23-q02",
+            "type": "short",
+            "q": "Two parallel lines are cut by a transversal. One alternate interior angle is $65°$. Find the other alternate interior angle and the co-interior angle next to it.",
+            "answer": "Alternate angle $65°$; co-interior angle $115°$.",
+            "why": [
+              "Step 1: alternate interior angles are equal: $65°$.",
+              "Step 2: co-interior angles add up to $180°$: $180° - 65° = 115°$."
+            ],
+            "tip": "Z → equal, F → equal, C → add to $180°$.",
+            "similar": [
+              {
+                "q": "A corresponding angle is $112°$. Find its co-interior partner.",
+                "a": "$68°$."
+              }
+            ],
+            "page": 47,
+            "src": "notes",
+            "label": "2.3 Practice — conjectures and counter-examples"
+          },
+          {
+            "id": "math10-u2-md-s23-q03",
+            "type": "short",
+            "q": "Two lines intersect. One angle is $3x + 10°$ and the vertically opposite angle is $5x - 30°$. Find $x$ and all four angles.",
+            "answer": "$x = 20$; angles $70°, 110°, 70°, 110°$.",
+            "why": [
+              "Step 1: vertically opposite angles are equal: $3x + 10 = 5x - 30$.",
+              "Step 2: $40 = 2x \\Rightarrow x = 20$.",
+              "Step 3: angle $= 3(20) + 10 = 70°$; neighbours $= 180° - 70° = 110°$."
+            ],
+            "tip": "Vertically opposite → set equal. Neighbours on a line → add to $180°$.",
+            "similar": [
+              {
+                "q": "Vertically opposite angles are $2x$ and $x + 40$. Find $x$.",
+                "a": "$x = 40$ (each angle $80°$)."
+              }
+            ],
+            "page": 46,
+            "src": "notes",
+            "label": "2.3 Practice — conjectures and counter-examples"
+          },
+          {
+            "id": "math10-u2-md-s23-q04",
+            "type": "short",
+            "q": "Conjecture: the number of regions when $n$ lines pass through the centre of a circle. How many regions do 6 lines give?",
+            "answer": "$2n$ regions; 12.",
+            "why": [
+              "Step 1: data 1 → 2, 2 → 4, 3 → 6.",
+              "Step 2: each line adds 2.",
+              "Step 3: $2 \\times 6 = 12$."
+            ],
+            "tip": "Look at the differences in a table — a constant difference $d$ means the rule is $dn + c$.",
+            "similar": [
+              {
+                "q": "Sequence of regions 3, 5, 7, 9 for $n = 1, 2, 3, 4$. Conjecture?",
+                "a": "$2n + 1$."
+              }
+            ],
+            "page": 49,
+            "src": "notes",
+            "label": "2.3 Practice — conjectures and counter-examples"
+          },
+          {
+            "id": "math10-u2-md-s23-q05",
+            "type": "tf",
+            "q": "If a conjecture is true for 100 examples, it is proved.",
+            "answer": false,
+            "why": [
+              "Step 1: examples only verify particular cases.",
+              "Step 2: the 101st case could fail (like the circle-regions pattern that breaks at 6 points).",
+              "Step 3: only a general deductive argument proves it."
+            ],
+            "tip": "Examples can disprove (one counter-example) but cannot prove.",
+            "similar": [
+              {
+                "q": "How many counter-examples are needed to disprove a conjecture?",
+                "a": "One."
+              }
+            ],
+            "page": 48,
+            "src": "notes",
+            "label": "2.3 Practice — conjectures and counter-examples"
+          },
+          {
+            "id": "math10-u2-md-s23-q06",
+            "type": "short",
+            "q": "Make a conjecture about (a) the diagonals of a rectangle, (b) the base angles of an isosceles triangle.",
+            "answer": "(a) They are equal and bisect each other. (b) They are equal.",
+            "why": [
+              "Step 1: draw several rectangles; measure the diagonals — always equal, crossing at their midpoints.",
+              "Step 2: draw isosceles triangles; measure the angles opposite the equal sides — always equal."
+            ],
+            "tip": "Draw at least three different-looking cases before you state a conjecture.",
+            "similar": [
+              {
+                "q": "Conjecture about the diagonals of a rhombus?",
+                "a": "They bisect each other at right angles."
+              }
+            ],
+            "page": 48,
+            "src": "notes",
+            "label": "2.3 Practice — conjectures and counter-examples"
+          },
+          {
+            "id": "math10-u2-md-s24-q01",
+            "type": "short",
+            "q": "Make a correct deduction: \"All rectangles are parallelograms. $ABCD$ is a rectangle.\"",
+            "answer": "$ABCD$ is a parallelogram.",
+            "why": [
+              "Step 1: general statement: rectangle ⇒ parallelogram.",
+              "Step 2: particular case: $ABCD$ is a rectangle.",
+              "Step 3: so $ABCD$ is a parallelogram (deductive reasoning)."
+            ],
+            "tip": "Pattern: If $p$ then $q$; $p$; therefore $q$.",
+            "similar": [
+              {
+                "q": "\"All human beings are mortal. Socrates is a human being.\" Conclusion?",
+                "a": "Socrates is mortal."
+              }
+            ],
+            "page": 52,
+            "src": "notes",
+            "label": "2.4 Practice — reasoning and proof"
+          },
+          {
+            "id": "math10-u2-md-s24-q02",
+            "type": "short",
+            "q": "Angles $A$ and $B$ are complementary and $\\angle A = x°$. What can you deduce about $\\angle B$?",
+            "answer": "$\\angle B = 90° - x°$.",
+            "why": [
+              "Step 1: complementary means $\\angle A + \\angle B = 90°$.",
+              "Step 2: $\\angle B = 90° - x°$."
+            ],
+            "tip": "Complementary → 90° (Corner), supplementary → 180° (Straight).",
+            "similar": [
+              {
+                "q": "$\\angle P$ and $\\angle Q$ are supplementary, $\\angle P = 3x$. Find $\\angle Q$.",
+                "a": "$180° - 3x$."
+              }
+            ],
+            "page": 52,
+            "src": "notes",
+            "label": "2.4 Practice — reasoning and proof"
+          },
+          {
+            "id": "math10-u2-md-s24-q03",
+            "type": "mcq",
+            "q": "The converse of \"If a triangle is isosceles, then two of its sides are equal\" is",
+            "options": {
+              "A": "If two sides of a triangle are equal, then it is isosceles",
+              "B": "If a triangle is not isosceles, then no two sides are equal",
+              "C": "A triangle is isosceles",
+              "D": "If a figure is a triangle then it is isosceles"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: hypothesis $p$ = \"a triangle is isosceles\"; conclusion $q$ = \"two sides are equal\".",
+              "Step 2: converse = \"if $q$ then $p$\"."
+            ],
+            "tip": "Converse = swap the \"if\" part and the \"then\" part.",
+            "similar": [
+              {
+                "q": "Converse of \"If the radius is 5, the area is $25\\pi$\"?",
+                "a": "If the area is $25\\pi$, then the radius is 5."
+              }
+            ],
+            "page": 52,
+            "src": "notes",
+            "label": "2.4 Practice — reasoning and proof"
+          },
+          {
+            "id": "math10-u2-md-s24-q04",
+            "type": "short",
+            "q": "Write the hypothesis, conclusion and converse of \"If opposite sides of a quadrilateral are parallel, then it is a parallelogram.\" Is the converse true?",
+            "answer": "Hypothesis: opposite sides parallel. Conclusion: it is a parallelogram. Converse: if a quadrilateral is a parallelogram, then its opposite sides are parallel — true.",
+            "why": [
+              "Step 1: the \"if\" part is the hypothesis.",
+              "Step 2: the \"then\" part is the conclusion.",
+              "Step 3: swap them for the converse; it is true by the definition of a parallelogram."
+            ],
+            "tip": "Definitions are always \"if and only if\", so their converses are true.",
+            "similar": [
+              {
+                "q": "Is the converse of \"If a figure is a square, then it is a rectangle\" true?",
+                "a": "No — a 4 × 2 rectangle is not a square."
+              }
+            ],
+            "page": 52,
+            "src": "notes",
+            "label": "2.4 Practice — reasoning and proof"
+          },
+          {
+            "id": "math10-u2-md-s24-q05",
+            "type": "short",
+            "q": "In triangle $ABC$, $\\angle A = 48°$ and $\\angle B = 67°$. Side $AC$ is extended beyond $C$. Find the exterior angle at $C$ in two ways.",
+            "answer": "$115°$",
+            "why": [
+              "Way 1 (exterior angle theorem): $48° + 67° = 115°$.",
+              "Way 2: $\\angle C = 180° - 48° - 67° = 65°$, then exterior $= 180° - 65° = 115°$."
+            ],
+            "tip": "The exterior angle theorem saves a step: just add the two far angles.",
+            "similar": [
+              {
+                "q": "An exterior angle of a triangle is $130°$ and one remote interior angle is $55°$. Find the other.",
+                "a": "$75°$."
+              }
+            ],
+            "page": 53,
+            "src": "notes",
+            "label": "2.4 Practice — reasoning and proof"
+          },
+          {
+            "id": "math10-u2-md-s24-q06",
+            "type": "short",
+            "q": "Prove: the sum of two even integers is even.",
+            "answer": "$2m + 2n = 2(m + n)$, which is even.",
+            "why": [
+              "Step 1: let the even integers be $2m$ and $2n$ ($m, n$ integers).",
+              "Step 2: add: $2m + 2n = 2(m + n)$.",
+              "Step 3: $m + n$ is an integer, so the sum is even. ∎"
+            ],
+            "tip": "Write general even/odd numbers with letters: even $2k$, odd $2k + 1$.",
+            "similar": [
+              {
+                "q": "Prove that the product of two odd integers is odd.",
+                "a": "$(2m + 1)(2n + 1) = 2(2mn + m + n) + 1$, which is odd."
+              }
+            ],
+            "page": 51,
+            "src": "notes",
+            "label": "2.4 Practice — reasoning and proof"
+          },
+          {
+            "id": "math10-u2-md-s24-q07",
+            "type": "fill",
+            "q": "Reasoning from several particular cases to a general rule is called ____ reasoning.",
+            "choices": [
+              "inductive",
+              "deductive",
+              "circular",
+              "indirect"
+            ],
+            "answer": "inductive",
+            "why": [
+              "Step 1: particular → general = inductive.",
+              "Step 2: general → particular = deductive."
+            ],
+            "tip": "IN-ductive: cases come IN, a rule comes out.",
+            "similar": [
+              {
+                "q": "Reasoning that uses axioms and theorems to reach a certain conclusion is called ____.",
+                "a": "Deductive reasoning."
+              }
+            ],
+            "page": 50,
+            "src": "notes",
+            "label": "2.4 Practice — reasoning and proof"
+          },
+          {
+            "id": "math10-u2-md-s24-q08",
+            "type": "short",
+            "q": "Use the polygon table to find (a) the number of triangles and (b) the angle sum of a decagon (10 sides).",
+            "answer": "(a) 8 triangles (b) $1440°$",
+            "why": [
+              "Step 1: triangles from one vertex $= n - 2 = 8$.",
+              "Step 2: each triangle has $180°$.",
+              "Step 3: $8 \\times 180° = 1440°$."
+            ],
+            "tip": "Angle sum $= (n - 2) \\times 180°$.",
+            "similar": [
+              {
+                "q": "How many diagonals can be drawn from one vertex of a 12-gon?",
+                "a": "9."
+              }
+            ],
+            "page": 55,
+            "src": "notes",
+            "label": "2.4 Practice — reasoning and proof"
           }
         ]
       },
@@ -3734,6 +5155,38 @@
             "cards": [
               "math10-u2-c06"
             ]
+          },
+          {
+            "id": "md_axsys",
+            "label": "Axiomatic system",
+            "kind": "idea",
+            "cards": [
+              "math10-u2-md-axsys"
+            ]
+          },
+          {
+            "id": "md_constr",
+            "label": "Four constructions",
+            "kind": "idea",
+            "cards": [
+              "math10-u2-md-constr-t"
+            ]
+          },
+          {
+            "id": "md_parallel",
+            "label": "Parallel-line angles",
+            "kind": "idea",
+            "cards": [
+              "math10-u2-md-parallel-t"
+            ]
+          },
+          {
+            "id": "md_reason",
+            "label": "Inductive vs deductive",
+            "kind": "idea",
+            "cards": [
+              "math10-u2-md-reason-t"
+            ]
           }
         ],
         "edges": [
@@ -3771,9 +5224,121 @@
             "from": "l2_3",
             "to": "l2_4",
             "label": "next"
+          },
+          {
+            "from": "l2_1",
+            "to": "md_axsys",
+            "label": "key idea"
+          },
+          {
+            "from": "l2_2",
+            "to": "md_constr",
+            "label": "key idea"
+          },
+          {
+            "from": "l2_3",
+            "to": "md_parallel",
+            "label": "key idea"
+          },
+          {
+            "from": "l2_4",
+            "to": "md_reason",
+            "label": "key idea"
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "md_plp": {
+          "svg": "svg/mathematics_10/m10_u2_plp.svg",
+          "title": "Points, lines and a plane",
+          "page": 32,
+          "pins": []
+        },
+        "md_postulates": {
+          "svg": "svg/mathematics_10/m10_u2_postulates.svg",
+          "title": "Two postulates: points determine lines and planes",
+          "page": 35,
+          "pins": []
+        },
+        "md_collinear": {
+          "svg": "svg/mathematics_10/m10_u2_collinear.svg",
+          "title": "Collinear and non-collinear points",
+          "page": 33,
+          "pins": []
+        },
+        "md_copyseg": {
+          "svg": "svg/mathematics_10/m10_u2_copyseg.svg",
+          "title": "Copying a segment with compass and straightedge",
+          "page": 36,
+          "pins": []
+        },
+        "md_bisectseg": {
+          "svg": "svg/mathematics_10/m10_u2_bisectseg.svg",
+          "title": "Bisecting a segment (perpendicular bisector)",
+          "page": 39,
+          "pins": []
+        },
+        "md_copyangle": {
+          "svg": "svg/mathematics_10/m10_u2_copyangle.svg",
+          "title": "Copying an angle",
+          "page": 40,
+          "pins": []
+        },
+        "md_bisectangle": {
+          "svg": "svg/mathematics_10/m10_u2_bisectangle.svg",
+          "title": "Bisecting an angle",
+          "page": 42,
+          "pins": []
+        },
+        "md_hexagon": {
+          "svg": "svg/mathematics_10/m10_u2_hexagon.svg",
+          "title": "A regular hexagon inscribed in a circle",
+          "page": 45,
+          "pins": []
+        },
+        "md_rectcircle": {
+          "svg": "svg/mathematics_10/m10_u2_rectcircle.svg",
+          "title": "A rectangle inscribed in a circle",
+          "page": 45,
+          "pins": []
+        },
+        "md_vert": {
+          "svg": "svg/mathematics_10/m10_u2_vert.svg",
+          "title": "Vertically opposite angles",
+          "page": 46,
+          "pins": []
+        },
+        "md_transversal": {
+          "svg": "svg/mathematics_10/m10_u2_transversal.svg",
+          "title": "Parallel lines cut by a transversal",
+          "page": 47,
+          "pins": []
+        },
+        "md_regions": {
+          "svg": "svg/mathematics_10/m10_u2_regions.svg",
+          "title": "Lines through the centre cut a circle into regions",
+          "page": 49,
+          "pins": []
+        },
+        "md_exterior": {
+          "svg": "svg/mathematics_10/m10_u2_exterior.svg",
+          "title": "Exterior angle of a triangle",
+          "page": 53,
+          "pins": []
+        },
+        "md_triangulate": {
+          "svg": "svg/mathematics_10/m10_u2_triangulate.svg",
+          "title": "Diagonals from one vertex split a polygon into triangles",
+          "page": 55,
+          "pins": []
+        },
+        "md_venn": {
+          "svg": "svg/mathematics_10/m10_u2_venn.svg",
+          "title": "Every triangle is a polygon, but not every polygon is a triangle",
+          "page": 52,
+          "pins": []
+        }
       }
     },
     {

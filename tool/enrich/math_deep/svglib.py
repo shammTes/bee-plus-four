@@ -123,6 +123,20 @@ class Fig:
         self.path(f'M{n(x1)} {n(y1)} Q{n(cx)} {n(cy)} {n(x2)} {n(y2)}', c, w)
         return self._head(cx, cy, x2, y2, c, head)
 
+    def arc(self, c, r, a0, a1, col=INK, w=1.6, dash=False, fill='none'):
+        """circular arc centre c, radius r, from a0 to a1 degrees (anticlockwise, maths convention)"""
+        p0, p1 = polar(c, r, a0), polar(c, r, a1)
+        large = 1 if (a1 - a0) % 360 > 180 else 0
+        return self.path(f'M{n(p0[0])} {n(p0[1])} A{n(r)} {n(r)} 0 {large} 0 {n(p1[0])} {n(p1[1])}', col, w, fill, dash)
+
+    def g(self, s=None, hl=None):
+        """open a group shown only in steps s (space separated keys) or highlighted for step hl; close with .end()"""
+        a = (f' data-s="{s}"' if s else '') + (f' data-hl="{hl}"' if hl else '')
+        return self.raw(f'<g{a}>')
+
+    def end(self):
+        return self.raw('</g>')
+
     # ---- geometry marks
     def angle(self, v, a, b, r=18, c=RED, lab=None, lr=None, w=1.8, fill=None, size=12):
         """arc for the angle at vertex v between rays v->a and v->b (the smaller one); optional label"""
