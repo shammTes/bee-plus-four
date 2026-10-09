@@ -134,64 +134,310 @@
      ],
      "cards": [
       {
-       "id": "math10-u4-c01",
-       "type": "remember",
-       "title": "Formula",
+       "id": "math10-u4-c03",
+       "type": "text",
+       "title": "4.1.1 Plane figures, solids and polyhedrons",
+       "page": 107,
+       "src": "notes",
+       "body": [
+        "**Plane figures** (triangles, squares, circles …) have only length and width, so they are **two-dimensional (2-D)**. A **solid** has length, width **and** height, so it is **three-dimensional (3-D)** and occupies space. A solid is an enclosed part of space bounded by plane (flat) or curved surfaces.",
+        "A **polyhedron** (plural polyhedrons or polyhedra) is a solid bounded by **flat polygon faces only**. The faces meet in line segments called **edges**, and the edges meet at points called **vertices**.",
+        "- Cubes, prisms and pyramids are polyhedrons.",
+        "- Cylinders, cones and spheres are **not** polyhedrons: each has a curved surface.",
+        "A polyhedron is **regular** when all its faces are congruent regular polygons **and** the same number of faces meet at every vertex. Examples: the cube (6 squares) and the regular tetrahedron (4 equilateral triangles).",
+        "**Smallest polyhedron:** you need at least 4 faces to close up space, so 3 triangles can never make a polyhedron, but 4 triangles can (a tetrahedron), and one square with 4 triangles makes a square pyramid."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math10-u4-md-solids",
+       "type": "diagram",
+       "title": "Which solids are polyhedrons?",
+       "page": 107,
+       "src": "notes",
+       "diagram": "md_solids",
+       "mode": "plain",
+       "body": [
+        "Dashed lines are edges hidden at the back. A solid is a polyhedron only when **every** face is flat."
+       ]
+      },
+      {
+       "id": "math10-u4-md-prism-t",
+       "type": "text",
+       "title": "Prisms",
        "page": 109,
        "src": "notes",
        "body": [
-        "d = √[(x₂−x₁)²+(y₂−y₁)²] · midpoint = ((x₁+x₂)/2,(y₁+y₂)/2)",
-        "Pythagoras on the grid. Keep the signs inside the squares — they die anyway."
+        "A **prism** has two congruent, parallel faces called the **bases**; the other faces (**lateral faces**) are parallelograms joining corresponding sides of the bases. The edges joining the two bases are the **lateral edges**; they are all parallel and equal.",
+        "- A prism is named after its base: triangular prism, rectangular prism, pentagonal prism, hexagonal prism …",
+        "- **Right prism:** the lateral edges are perpendicular to the bases, so the lateral faces are rectangles. Otherwise the prism is **oblique**.",
+        "- A **rectangular solid** (cuboid) is a prism bounded by six rectangles; a **cube** is a rectangular solid bounded by six squares. A square prism is a cube only if its height equals the side of the square.",
+        "A **cross-section** of a prism is where a plane **parallel to the base** cuts the prism.",
+        "**Theorem 4.1:** every cross-section of a triangular prism is congruent to the base. **Theorem 4.2:** the upper and lower bases are congruent. **Theorem 4.3:** all cross-sections of any prism have the same area.",
+        "The union of the lateral faces is the **lateral surface**; lateral faces plus both bases make the **total surface**."
        ]
       },
       {
-       "id": "math10-u4-c02",
+       "id": "math10-u4-md-prism",
+       "type": "diagram",
+       "title": "A right triangular prism",
+       "page": 109,
+       "src": "notes",
+       "diagram": "md_prism",
+       "mode": "plain",
+       "body": [
+        "The purple cross-section $DEF$ is parallel to the base, so $\\triangle DEF \\cong \\triangle ABC \\cong \\triangle A'B'C'$."
+       ]
+      },
+      {
+       "id": "math10-u4-md-pyr-t",
        "type": "text",
-       "title": "More notes",
+       "title": "Pyramids and frustums",
        "page": 111,
        "src": "notes",
        "body": [
-        "Volume and surface: prism V=Ah; cylinder πr²h; pyramid/cone one-third of the matching prism/cylinder; sphere 4/3 πr³, surface 4πr². A net must not overlap and must include every face. Dilation k=2 from origin: just double coordinates if the centre is O."
+        "A **pyramid** has one polygon **base** and triangular **lateral faces** that meet at a common vertex, the **apex**. It is named after its base (triangular, square, pentagonal … pyramid).",
+        "- **Lateral edges:** where two lateral faces meet (from the apex to a base corner).",
+        "- **Altitude:** the perpendicular segment from the apex to the base; its length is the **height** $h$.",
+        "- **Slant height:** the altitude of a lateral face drawn from the apex (from the apex to the midpoint of a base edge).",
+        "- **Regular pyramid:** the base is a regular polygon and the foot of the altitude is the centre of the base. Then all lateral faces are congruent isosceles triangles.",
+        "A **tetrahedron** is a pyramid with a triangular base: 4 triangular faces, 3 meeting at each vertex.",
+        "If a plane parallel to the base cuts off the top of a pyramid, the part left is a **frustum**. Its two bases are similar polygons and its lateral faces are **trapezoids**."
        ]
       },
       {
-       "id": "math10-u4-c03",
-       "type": "text",
-       "title": "4.1.1 Polyhedrons",
-       "page": 107,
-       "src": "textbook pp.107–108",
-       "enriched": true,
+       "id": "math10-u4-md-pyramid",
+       "type": "diagram",
+       "title": "Parts of a rectangular pyramid",
+       "page": 111,
+       "src": "notes",
+       "diagram": "md_pyramid",
+       "mode": "plain",
        "body": [
-        "Plane figures have length and width and therefore they are called **two-dimensional figures**.",
-        "A solid object has length, width, and height.",
-        "**A solid** is an enclosed portion of space bounded by plane or curved surfaces.",
-        "**A polyhedron** is a solid bounded by plane (flat) surfaces only."
+        "Height and slant height are different: the height goes straight down to the base (inside the pyramid), the slant height runs down the middle of a face. The slant height is always the longer one."
        ]
+      },
+      {
+       "id": "math10-u4-md-ex-41a",
+       "type": "worked",
+       "title": "Worked example: height, slant height and lateral edge",
+       "page": 111,
+       "src": "notes",
+       "mode": "show",
+       "problem": "A regular square pyramid has base edge $12$ cm and height $8$ cm. Find the slant height and the length of a lateral edge.",
+       "steps": [
+        {
+         "text": "Draw the right triangle: apex, centre of the base, midpoint of a base edge. Its legs are the height $8$ and half the base edge $6$."
+        },
+        {
+         "text": "Slant height $s = \\sqrt{8^2 + 6^2} = \\sqrt{100} = 10$ cm."
+        },
+        {
+         "text": "Now the right triangle: apex, midpoint of a base edge, a corner. Its legs are the slant height $10$ and half the edge $6$."
+        },
+        {
+         "text": "Lateral edge $= \\sqrt{10^2 + 6^2} = \\sqrt{136} \\approx 11.66$ cm."
+        }
+       ],
+       "answer": "slant height $10$ cm, lateral edge $\\sqrt{136} \\approx 11.7$ cm"
+      },
+      {
+       "id": "math10-u4-md-frustum",
+       "type": "diagram",
+       "title": "Frustums",
+       "page": 112,
+       "src": "notes",
+       "diagram": "md_frustum",
+       "mode": "plain"
       },
       {
        "id": "math10-u4-c04",
        "type": "text",
-       "title": "4.1.2 Cylinders, Cones and Spheres",
-       "page": 114,
-       "src": "textbook pp.114–115",
-       "enriched": true,
+       "title": "4.1.2 Cylinders, cones and spheres",
+       "page": 113,
+       "src": "notes",
        "body": [
-        "**A circular cone** is a solid whose base is a circle and whose lateral surface come to a point.",
-        "If a plane parallel to the base intersects a cone, not at the vertex, the part of the cone bounded by the base, the cross-section, and the portion of the lateral surface between the plane is called a **frustum of the cone**.",
-        "A sphere is formed by revolving a semicircle about its diameter as an axis.",
-        "The outer end of the radius perpendicular to the axis generates a great circle while the outer ends of the other chords perpendicular to the diameter generate small circles."
+        "A **cylinder** has two parallel, congruent circular bases and a curved **lateral surface** joining them. If the segment joining the centres of the bases (the **axis**) is perpendicular to the bases, it is a **right cylinder**. Every horizontal cross-section is a circle congruent to the base — just like a prism, which is why cylinder and prism share the volume rule \"base area × height\".",
+        "A **cone** has a circular base and a lateral surface that comes to a point, the **vertex**. The **altitude** (height $h$) goes from the vertex perpendicular to the base; the **slant height** $l$ goes from the vertex to the edge of the base. In a right cone $l^2 = r^2 + h^2$. A cone is to a cylinder what a pyramid is to a prism. Cutting a cone parallel to its base leaves a **frustum of a cone**.",
+        "A **sphere** is the set of all points in space at the same distance $r$ (the radius) from a fixed point $O$ (the centre). It is formed by rotating a semicircle about its diameter. A **great circle** is a cross-section through the centre (radius $r$); any other cross-section is a **small circle**.",
+        "A circle is flat (2-D); a sphere is solid (3-D). Do not mix them up."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math10-u4-md-cylcone",
+       "type": "diagram",
+       "title": "Height, radius and slant height",
+       "page": 114,
+       "src": "notes",
+       "diagram": "md_cylcone",
+       "mode": "plain",
+       "body": [
+        "For the cone the height $h$, the radius $r$ and the slant height $l$ make a right triangle: $l = \\sqrt{r^2 + h^2}$."
        ]
+      },
+      {
+       "id": "math10-u4-md-sphere",
+       "type": "diagram",
+       "title": "Cross-sections of a sphere",
+       "page": 116,
+       "src": "notes",
+       "diagram": "md_sphere",
+       "mode": "plain",
+       "body": [
+        "A cross-section at distance $s$ from the centre is a circle of radius $t$ with $t^2 = r^2 - s^2$ (Pythagoras). Its area is $\\pi t^2 = \\pi(r^2 - s^2)$ — the same as the area of a ring (**annulus**) between circles of radius $r$ and $s$."
+       ]
+      },
+      {
+       "id": "math10-u4-md-ex-41b",
+       "type": "worked",
+       "title": "Worked example: cross-section of a sphere",
+       "page": 116,
+       "src": "notes",
+       "mode": "show",
+       "problem": "A sphere has radius $13$ cm. A plane cuts it $5$ cm from the centre. Find the radius and the area of the cross-section.",
+       "steps": [
+        {
+         "text": "The radius of the sphere, the distance from the centre and the radius of the section form a right triangle: $t^2 = r^2 - s^2$."
+        },
+        {
+         "text": "$t^2 = 13^2 - 5^2 = 169 - 25 = 144$, so $t = 12$ cm."
+        },
+        {
+         "text": "Area $= \\pi t^2 = 144\\pi \\approx 452.4$ cm²."
+        }
+       ],
+       "answer": "$t = 12$ cm, area $= 144\\pi \\approx 452$ cm²"
       },
       {
        "id": "math10-u4-c05",
        "type": "text",
-       "title": "4.1.3 Nets and Views of Solids",
-       "page": 118,
+       "title": "4.1.3 Nets and views of solids",
+       "page": 117,
        "src": "notes",
        "body": [
-        "A **net** is a flat pattern that folds up into a solid. A cube has 6 square faces, so every net of a cube is made of 6 squares joined edge to edge — there are 11 different cube nets (for example a \"cross\" of 4 squares in a row with one square above and one below the second square). A regular tetrahedron has 4 equilateral-triangle faces; its common net is one large triangle divided into 4 smaller triangles.",
-        "Solids are also drawn by their **views**: the **front view**, **side view** and **top view (plan)**. A cylinder standing upright has a rectangle as front view and a circle as top view; a square pyramid has a triangle as front view and a square with its diagonals as top view."
+        "A **net** is a flat (2-D) figure that can be folded into a solid. Every face of the solid appears exactly once in the net, and no two faces overlap after folding.",
+        "- A cube has 6 square faces, so a cube net has 6 squares. There are exactly **11** different cube nets. A row of 4 squares with one square above and one below (anywhere) always works.",
+        "- A tetrahedron net is 4 triangles, for example one large triangle split into 4 by joining the midpoints of its sides.",
+        "- A cylinder net: two circles and a rectangle whose length is the circumference $2\\pi r$. A cone net: a circle and a sector.",
+        "**Test a net:** pick one square as the bottom and fold the others up in your head. If two squares land on the same face, it is not a net (for example 6 squares in a row, or a $2 \\times 3$ block).",
+        "A 3-D solid can also be described by its **views**: the **front view**, the **side view** (from the right) and the **top view** (plan), each drawn as a flat figure.",
+        "- Upright cylinder: front and side views rectangles, top view a circle.",
+        "- Square pyramid: front and side views triangles, top view a square with its diagonals.",
+        "- Cone: front view a triangle, top view a circle with its centre marked."
        ]
+      },
+      {
+       "id": "math10-u4-md-nets",
+       "type": "diagram",
+       "title": "Nets",
+       "page": 117,
+       "src": "notes",
+       "diagram": "md_nets",
+       "mode": "plain"
+      },
+      {
+       "id": "math10-u4-md-views",
+       "type": "diagram",
+       "title": "Views of a solid made of cubes",
+       "page": 120,
+       "src": "notes",
+       "diagram": "md_views",
+       "mode": "plain",
+       "body": [
+        "Count squares: from the front you see an L of 3 squares; from the right only 2 stacked squares (the right-hand cube hides the left column); from the top 2 squares in a row."
+       ]
+      },
+      {
+       "id": "math10-u4-c02",
+       "type": "remember",
+       "title": "Euler’s formula",
+       "page": 119,
+       "src": "notes",
+       "body": [
+        "For every polyhedron (without holes) the numbers of faces $F$, vertices $V$ and edges $E$ satisfy",
+        "$$F + V - E = 2$$",
+        "Prism with an $n$-sided base: $F = n + 2$, $V = 2n$, $E = 3n$. Pyramid with an $n$-sided base: $F = n + 1$, $V = n + 1$, $E = 2n$. In both cases $F + V - E = 2$."
+       ]
+      },
+      {
+       "id": "math10-u4-md-euler-t",
+       "type": "table",
+       "title": "Counting faces, vertices and edges",
+       "page": 119,
+       "src": "notes",
+       "head": [
+        "Solid",
+        "$F$",
+        "$V$",
+        "$E$",
+        "$F + V - E$"
+       ],
+       "rows": [
+        [
+         "Rectangular solid",
+         "6",
+         "8",
+         "12",
+         "2"
+        ],
+        [
+         "Square pyramid",
+         "5",
+         "5",
+         "8",
+         "2"
+        ],
+        [
+         "Triangular prism",
+         "5",
+         "6",
+         "9",
+         "2"
+        ],
+        [
+         "Hexagonal prism",
+         "8",
+         "12",
+         "18",
+         "2"
+        ],
+        [
+         "Triangular pyramid",
+         "4",
+         "4",
+         "6",
+         "2"
+        ],
+        [
+         "Pentagonal pyramid",
+         "6",
+         "6",
+         "10",
+         "2"
+        ]
+       ]
+      },
+      {
+       "id": "math10-u4-md-ex-41c",
+       "type": "worked",
+       "title": "Worked example: using Euler’s formula",
+       "page": 119,
+       "src": "notes",
+       "mode": "show",
+       "problem": "A polyhedron has $12$ vertices and $30$ edges. How many faces does it have?",
+       "steps": [
+        {
+         "text": "Write Euler’s formula: $F + V - E = 2$."
+        },
+        {
+         "text": "Substitute: $F + 12 - 30 = 2$."
+        },
+        {
+         "text": "Solve: $F = 2 + 30 - 12 = 20$."
+        }
+       ],
+       "answer": "$20$ faces (this is the regular icosahedron)"
       },
       {
        "id": "math10-u4-tbl1",
@@ -358,49 +604,268 @@
       {
        "id": "math10-u4-c06",
        "type": "text",
-       "title": "4.2.1 Coordinates in a Plane",
-       "page": 123,
+       "title": "4.2.1 Coordinates in a plane",
+       "page": 122,
        "src": "notes",
        "body": [
-        "The **x-axis** and **y-axis** meet at the origin O(0, 0) and divide the plane into four **quadrants**: I (+, +), II (−, +), III (−, −), IV (+, −). In the pair (a, b), a is the x-coordinate (abscissa) and b the y-coordinate (ordinate).",
-        "**Distance formula:** $$PQ = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$ — Pythagoras on the grid. **Midpoint formula:** $$M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$$.",
-        "**Example:** show that P(−2, 3), Q(3, 8), R(4, 1) form an isosceles triangle. PQ = √(5² + 5²) = √50; QR = √(1² + (−7)²) = √50; PR = √(6² + (−2)²) = √40. Two sides are equal (PQ = QR), so the triangle is isosceles.",
-        "**Collinear test:** three points are collinear if the two shorter distances add up to the longest one (or if the slopes between them are equal)."
+        "On a number line the distance between two numbers $a$ and $b$ is $|b - a|$, e.g. between $-3$ and $9$: $|9 - (-3)| = 12$ units.",
+        "Two perpendicular number lines, the **x-axis** (horizontal) and the **y-axis** (vertical), meet at the **origin** $O(0, 0)$ and make the **coordinate plane** (xy-plane). The axes divide the plane into four **quadrants**, numbered anticlockwise starting top-right.",
+        "To find the coordinates of a point $P$: drop a perpendicular to the x-axis (foot $M$, number $a$) and to the y-axis (foot $N$, number $b$). Then $P = (a, b)$. The first number is the **x-coordinate (abscissa)**, the second the **y-coordinate (ordinate)**. Order matters: $(4, 1) \\ne (1, 4)$ — that is why it is called an **ordered pair**.",
+        "- Points on the x-axis have $y = 0$: $(4, 0)$. Points on the y-axis have $x = 0$: $(0, 9)$.",
+        "- Signs: I $(+, +)$, II $(-, +)$, III $(-, -)$, IV $(+, -)$."
+       ]
+      },
+      {
+       "id": "math10-u4-md-quadrants",
+       "type": "diagram",
+       "title": "Quadrants and coordinates",
+       "page": 123,
+       "src": "notes",
+       "diagram": "md_quadrants",
+       "mode": "plain"
+      },
+      {
+       "id": "math10-u4-md-ex44",
+       "type": "graph",
+       "title": "Example 4.4: triangle P(0, 0), Q(5, 0), R(0, 12)",
+       "page": 124,
+       "src": "notes",
+       "graph": {
+        "kind": "plane",
+        "xmin": -1,
+        "xmax": 7,
+        "ymin": -1,
+        "ymax": 13,
+        "grid": true,
+        "points": [
+         {
+          "x": 0,
+          "y": 0,
+          "label": "P"
+         },
+         {
+          "x": 5,
+          "y": 0,
+          "label": "Q(5, 0)"
+         },
+         {
+          "x": 0,
+          "y": 12,
+          "label": "R(0, 12)"
+         }
+        ],
+        "polygons": [
+         {
+          "pts": [
+           [
+            0,
+            0
+           ],
+           [
+            5,
+            0
+           ],
+           [
+            0,
+            12
+           ]
+          ],
+          "color": "#2F5F8F"
+         }
+        ]
+       },
+       "body": [
+        "The legs lie on the axes: $PQ = 5$, $PR = 12$, and the angle at $P$ is a right angle.",
+        "**Area** $= \\frac12 \\times 5 \\times 12 = 30$ square units. **Hypotenuse** $QR = \\sqrt{5^2 + 12^2} = \\sqrt{169} = 13$, so the **perimeter** $= 5 + 12 + 13 = 30$ units."
        ]
       },
       {
        "id": "math10-u4-c07",
        "type": "text",
-       "title": "4.2.2 Distance between two Points",
-       "page": 127,
-       "src": "textbook pp.127–128",
-       "enriched": true,
+       "title": "4.2.2 Distance between two points",
+       "page": 125,
+       "src": "notes",
        "body": [
-        "Since the sum of any two sides is greater than the third side, the points P, Q, and R form a triangle."
+        "**Same horizontal line** ($y$ equal): distance $= |x_2 - x_1|$. **Same vertical line** ($x$ equal): distance $= |y_2 - y_1|$. Example: $P(2, 4)$, $Q(2, 10)$ → $PQ = 6$.",
+        "**General case:** for $P(x_1, y_1)$ and $Q(x_2, y_2)$ draw the right triangle $PRQ$ with $R(x_2, y_1)$. Then $PR = |x_2 - x_1|$ and $RQ = |y_2 - y_1|$, and Pythagoras gives",
+        "$$PQ = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$",
+        "- The order of the points does not matter, because $(x_1 - x_2)^2 = (x_2 - x_1)^2$.",
+        "- Distance is never negative; take the positive square root.",
+        "- Write brackets around negative numbers: $2 - (-1) = 3$.",
+        "**Uses:** prove a triangle is isosceles (two equal sides), equilateral (three equal sides) or right-angled (converse of Pythagoras: $a^2 + b^2 = c^2$ for the longest side $c$); test collinearity (the two short distances add up to the long one)."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math10-u4-md-distance",
+       "type": "diagram",
+       "title": "Why the distance formula works",
+       "page": 126,
+       "src": "notes",
+       "diagram": "md_distance",
+       "mode": "plain",
+       "body": [
+        "The horizontal leg is the change in $x$, the vertical leg is the change in $y$; the distance is the hypotenuse."
        ]
+      },
+      {
+       "id": "math10-u4-md-ex-42a",
+       "type": "worked",
+       "title": "Worked example: distance and type of triangle",
+       "page": 127,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Do $P(3, 2)$, $Q(-2, -3)$ and $R(2, 3)$ form a triangle? If so, what type?",
+       "graph": {
+        "kind": "plane",
+        "xmin": -3,
+        "xmax": 4,
+        "ymin": -4,
+        "ymax": 4,
+        "grid": true,
+        "points": [
+         {
+          "x": 3,
+          "y": 2,
+          "label": "P"
+         },
+         {
+          "x": -2,
+          "y": -3,
+          "label": "Q"
+         },
+         {
+          "x": 2,
+          "y": 3,
+          "label": "R"
+         }
+        ],
+        "polygons": [
+         {
+          "pts": [
+           [
+            3,
+            2
+           ],
+           [
+            -2,
+            -3
+           ],
+           [
+            2,
+            3
+           ]
+          ],
+          "color": "#2F5F8F"
+         }
+        ]
+       },
+       "steps": [
+        {
+         "text": "$PQ = \\sqrt{(-2 - 3)^2 + (-3 - 2)^2} = \\sqrt{25 + 25} = \\sqrt{50}$."
+        },
+        {
+         "text": "$QR = \\sqrt{(2 - (-2))^2 + (3 - (-3))^2} = \\sqrt{16 + 36} = \\sqrt{52}$."
+        },
+        {
+         "text": "$PR = \\sqrt{(2 - 3)^2 + (3 - 2)^2} = \\sqrt{2}$."
+        },
+        {
+         "text": "Sum of the two shorter sides $\\sqrt{50} + \\sqrt2 \\approx 8.49 > \\sqrt{52} \\approx 7.21$, so it is a triangle."
+        },
+        {
+         "text": "Check Pythagoras on the squares: $PQ^2 + PR^2 = 50 + 2 = 52 = QR^2$, so the angle at $P$ is $90°$."
+        }
+       ],
+       "answer": "Yes — a right-angled triangle (right angle at $P$)"
+      },
+      {
+       "id": "math10-u4-md-ex-42b",
+       "type": "worked",
+       "title": "Worked example: isosceles triangle",
+       "page": 127,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Show that $P(-2, 3)$, $Q(3, 8)$, $R(4, 1)$ form an isosceles triangle.",
+       "steps": [
+        {
+         "text": "$PQ = \\sqrt{(3 + 2)^2 + (8 - 3)^2} = \\sqrt{25 + 25} = \\sqrt{50}$."
+        },
+        {
+         "text": "$QR = \\sqrt{(4 - 3)^2 + (1 - 8)^2} = \\sqrt{1 + 49} = \\sqrt{50}$."
+        },
+        {
+         "text": "$PR = \\sqrt{(4 + 2)^2 + (1 - 3)^2} = \\sqrt{36 + 4} = \\sqrt{40}$."
+        },
+        {
+         "text": "$PQ = QR$, so two sides are equal."
+        }
+       ],
+       "answer": "isosceles, with $PQ = QR = \\sqrt{50}$"
+      },
+      {
+       "id": "math10-u4-md-ex-42c",
+       "type": "worked",
+       "title": "Worked example: a point on the x-axis equidistant from two points",
+       "page": 128,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Find the point on the x-axis that is the same distance from $A(2, -5)$ and $B(-2, 9)$.",
+       "steps": [
+        {
+         "text": "A point on the x-axis is $P(x, 0)$."
+        },
+        {
+         "text": "Set the squared distances equal (no square roots needed): $(x - 2)^2 + (0 + 5)^2 = (x + 2)^2 + (0 - 9)^2$."
+        },
+        {
+         "text": "Expand: $x^2 - 4x + 4 + 25 = x^2 + 4x + 4 + 81$."
+        },
+        {
+         "text": "The $x^2$ cancel: $-4x + 29 = 4x + 85$, so $-8x = 56$, $x = -7$."
+        },
+        {
+         "text": "Check: $PA^2 = 81 + 25 = 106$, $PB^2 = 25 + 81 = 106$. Equal."
+        }
+       ],
+       "answer": "$(-7, 0)$"
       },
       {
        "id": "math10-u4-c08",
        "type": "text",
-       "title": "4.2.3 Midpoint of a Line Segment",
+       "title": "4.2.3 Midpoint of a line segment",
        "page": 129,
-       "src": "textbook p.129",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "Find the coordinates of the midpoints of the line segments determined by the pairs of points in (1) and (2)."
-       ]
+        "The **midpoint** $M$ of $P_1P_2$ is the point of the segment halfway between the ends. Its coordinates are the **averages** of the end coordinates:",
+        "$$M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$$",
+        "**Why:** drop perpendiculars from $P_1$, $P$, $P_2$ to the x-axis ($R_1$, $R$, $R_2$). Parallel lines cut equal pieces, so $R$ is the midpoint of $R_1R_2$ and its number is $\\frac{x_1 + x_2}{2}$. In the same way $S$ on the y-axis gives $\\frac{y_1 + y_2}{2}$.",
+        "- Horizontal segment $(x_1, y)$ to $(x_2, y)$: midpoint $\\left(\\frac{x_1 + x_2}{2}, y\\right)$. Vertical: $\\left(x, \\frac{y_1 + y_2}{2}\\right)$.",
+        "- Examples: $(0, 3)$ and $(0, 8)$ → $\\left(0, \\frac{11}{2}\\right)$; $(-4, 4)$ and $(3, -2)$ → $\\left(-\\frac12, 1\\right)$.",
+        "**Missing endpoint:** if $M$ and $A$ are known, $B = (2x_M - x_A, 2y_M - y_A)$ — \"double the midpoint, subtract the known end\".",
+        "**Do not confuse:** distance **subtracts** and squares (gives a number); midpoint **adds** and halves (gives a point)."
+       ],
+       "enriched": true
       },
       {
-       "id": "math10-u4-l4-2-r2r1",
+       "id": "math10-u4-md-midpoint",
+       "type": "diagram",
+       "title": "Deriving the midpoint formula",
+       "page": 130,
+       "src": "notes",
+       "diagram": "md_midpoint",
+       "mode": "plain"
+      },
+      {
+       "id": "math10-u4-c01",
        "type": "remember",
-       "title": "Key formulas of coordinate geometry",
-       "page": 122,
-       "src": "r2",
+       "title": "Distance and midpoint formulas",
+       "page": 129,
+       "src": "notes",
        "body": [
-        "**Distance** between $A(x_1, y_1)$ and $B(x_2, y_2)$: $AB = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$.",
-        "**Midpoint** of $AB$: $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$.",
-        "**Slope** of $AB$: $m = \\frac{y_2 - y_1}{x_2 - x_1}$ ($x_1 \ne x_2$). Parallel lines have equal slopes; perpendicular lines have slopes whose product is $-1$.",
-        "Example: for $A(1, 2)$ and $B(4, 6)$, $AB = \\sqrt{3^2 + 4^2} = 5$, the midpoint is $(2.5, 4)$ and the slope is $\\frac{4}{3}$."
+        "For $A(x_1, y_1)$ and $B(x_2, y_2)$:",
+        "$$AB = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\qquad M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$$",
+        "Distance: subtract, square, add, square-root — the answer is a **number**. Midpoint: add and halve — the answer is a **point**."
        ]
       },
       {
@@ -422,6 +887,67 @@
        "answer": "B = (7, −6)",
        "page": 122,
        "src": "notes"
+      },
+      {
+       "id": "math10-u4-md-ex-42d",
+       "type": "worked",
+       "title": "Worked example: parallelogram from midpoints",
+       "page": 141,
+       "src": "notes",
+       "mode": "show",
+       "problem": "$A(1, 2)$, $B(4, y)$, $C(x, 6)$ and $D(3, 5)$ are the vertices of a parallelogram taken in order. Find $x$ and $y$.",
+       "steps": [
+        {
+         "text": "The diagonals of a parallelogram bisect each other, so $AC$ and $BD$ have the same midpoint."
+        },
+        {
+         "text": "Midpoint of $AC = \\left(\\frac{1 + x}{2}, \\frac{2 + 6}{2}\\right) = \\left(\\frac{1 + x}{2}, 4\\right)$."
+        },
+        {
+         "text": "Midpoint of $BD = \\left(\\frac{4 + 3}{2}, \\frac{y + 5}{2}\\right) = \\left(\\frac72, \\frac{y + 5}{2}\\right)$."
+        },
+        {
+         "text": "Compare: $\\frac{1 + x}{2} = \\frac72 \\Rightarrow x = 6$; $\\frac{y + 5}{2} = 4 \\Rightarrow y = 3$."
+        }
+       ],
+       "answer": "$x = 6$, $y = 3$"
+      },
+      {
+       "id": "math10-u4-md-ex-42e",
+       "type": "worked",
+       "title": "Worked example: collinear points",
+       "page": 141,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Are $A(1, 5)$, $B(2, 3)$ and $C(-2, 11)$ collinear?",
+       "steps": [
+        {
+         "text": "Slope $AB = \\frac{3 - 5}{2 - 1} = -2$."
+        },
+        {
+         "text": "Slope $AC = \\frac{11 - 5}{-2 - 1} = \\frac{6}{-3} = -2$."
+        },
+        {
+         "text": "Same slope through the common point $A$, so the three points lie on one line."
+        },
+        {
+         "text": "Distance check: $AB = \\sqrt5$, $AC = \\sqrt{45} = 3\\sqrt5$, $BC = \\sqrt{80} = 4\\sqrt5$, and $\\sqrt5 + 3\\sqrt5 = 4\\sqrt5$."
+        }
+       ],
+       "answer": "Yes, they are collinear"
+      },
+      {
+       "id": "math10-u4-l4-2-r2r1",
+       "type": "remember",
+       "title": "Key formulas of coordinate geometry",
+       "page": 122,
+       "src": "r2",
+       "body": [
+        "**Distance** between $A(x_1, y_1)$ and $B(x_2, y_2)$: $AB = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$.",
+        "**Midpoint** of $AB$: $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$.",
+        "**Slope** of $AB$: $m = \\frac{y_2 - y_1}{x_2 - x_1}$ ($x_1 \ne x_2$). Parallel lines have equal slopes; perpendicular lines have slopes whose product is $-1$.",
+        "Example: for $A(1, 2)$ and $B(4, 6)$, $AB = \\sqrt{3^2 + 4^2} = 5$, the midpoint is $(2.5, 4)$ and the slope is $\\frac{4}{3}$."
+       ]
       },
       {
        "id": "math10-u4-pc21",
@@ -501,21 +1027,14 @@
       {
        "id": "math10-u4-c09",
        "type": "text",
-       "title": "Transformations",
-       "page": 140,
+       "title": "Transformations of the plane",
+       "page": 131,
        "src": "notes",
        "body": [
-        "Transformations: reflection (mirror line), translation (vector), dilation (centre + scale k). Distances: reflection and translation keep size (isometries). Dilation multiplies lengths by |k|; k<0 also turns through 180° about the centre in many school treatments."
-       ]
-      },
-      {
-       "id": "math10-u4-c10",
-       "type": "mnemonic",
-       "title": "Tip",
-       "page": 139,
-       "src": "notes",
-       "body": [
-        "Plot first, then compute. Midpoint averages; distance never averages."
+        "A **transformation** of the plane is a one-to-one mapping of the whole plane onto itself: every point $P$ has exactly one **image** $P'$, and every point is the image of exactly one point (its **pre-image**).",
+        "In this unit: **reflection** (flip in a mirror line or a point), **translation** (slide) and **dilation** (enlarge or shrink from a centre).",
+        "- Reflections and translations keep every length and angle: the image is **congruent** to the figure. They are **rigid motions** (isometries).",
+        "- A dilation keeps angles and shape but multiplies all lengths by the scale factor $r$: the image is **similar** to the figure."
        ]
       },
       {
@@ -523,25 +1042,272 @@
        "type": "text",
        "title": "4.3.1 Reflection",
        "page": 135,
-       "src": "textbook pp.135–138",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "**A point** is the image of another point, across a line l, if the line l is the perpendicular bisector of the segment joining the two points.",
-        "If the point lies on the line, the reflection is the point itself.",
-        "If C contains the reflection across L of each point of C, then C is symmetric about L.",
-        "The triangle ABC with vertices A(-3, 4), B(-2, 1), C(-6, -4) is reflected in the x-axis."
+        "A **reflection in a line $l$** maps a point $P$ to the point $P'$ such that $l$ is the **perpendicular bisector** of $PP'$: $PP' \\perp l$ and $P$ and $P'$ are the same distance from $l$, on opposite sides. A point on $l$ is its own image.",
+        "Like a mirror: your image is as far behind the mirror as you are in front of it.",
+        "- A reflection keeps distances: $A'B' = AB$. It reverses orientation (clockwise becomes anticlockwise).",
+        "- A figure is **symmetric about $l$** if reflecting it in $l$ gives the same figure; $l$ is an **axis (line) of symmetry**."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math10-u4-md-reflectline",
+       "type": "diagram",
+       "title": "Reflection in a line",
+       "page": 135,
+       "src": "notes",
+       "diagram": "md_reflectline",
+       "mode": "plain",
+       "body": [
+        "$l$ is the perpendicular bisector of $PP'$: right angle at $O$ and $PO = OP'$. $C$ is on the mirror, so $C' = C$."
        ]
+      },
+      {
+       "id": "math10-u4-md-symmetry",
+       "type": "diagram",
+       "title": "Axes of symmetry",
+       "page": 134,
+       "src": "notes",
+       "diagram": "md_symmetry",
+       "mode": "plain",
+       "body": [
+        "Isosceles triangle 1, rectangle 2, regular hexagon 6 (a regular $n$-gon has $n$), circle infinitely many (every diameter). A scalene triangle has none."
+       ]
+      },
+      {
+       "id": "math10-u4-md-refl-coord",
+       "type": "text",
+       "title": "Reflections on the coordinate plane",
+       "page": 137,
+       "src": "notes",
+       "body": [
+        "Use the rule — no drawing needed:",
+        "- in the **x-axis**: $(x, y) \\to (x, -y)$ (change the sign of $y$)",
+        "- in the **y-axis**: $(x, y) \\to (-x, y)$ (change the sign of $x$)",
+        "- in the line **$y = x$**: $(x, y) \\to (y, x)$ (swap)",
+        "- in the line **$y = -x$**: $(x, y) \\to (-y, -x)$ (swap and change both signs)",
+        "- in the **origin** (point reflection): $(x, y) \\to (-x, -y)$. $O$ is the midpoint of $PP'$.",
+        "**Why $y = x$ swaps:** the midpoint $\\left(\\frac{x + x'}{2}, \\frac{y + y'}{2}\\right)$ lies on $y = x$, and $PP'$ has slope $-1$ (perpendicular to slope $1$). Solving the two equations gives $x' = y$, $y' = x$."
+       ]
+      },
+      {
+       "id": "math10-u4-md-reflectxy",
+       "type": "diagram",
+       "title": "Five reflections of P(3, 2)",
+       "page": 137,
+       "src": "notes",
+       "diagram": "md_reflectxy",
+       "mode": "plain",
+       "body": [
+        "$A(3, -2)$ in the x-axis, $B(-3, 2)$ in the y-axis, $C(2, 3)$ in $y = x$, $D(-3, -2)$ in the origin, $E(-2, -3)$ in $y = -x$."
+       ]
+      },
+      {
+       "id": "math10-u4-md-refl-t",
+       "type": "table",
+       "title": "Reflection rules",
+       "page": 137,
+       "src": "notes",
+       "head": [
+        "Reflect in",
+        "Rule",
+        "$P(3, 2) \\to$"
+       ],
+       "rows": [
+        [
+         "x-axis",
+         "$(x, y) \\to (x, -y)$",
+         "$(3, -2)$"
+        ],
+        [
+         "y-axis",
+         "$(x, y) \\to (-x, y)$",
+         "$(-3, 2)$"
+        ],
+        [
+         "$y = x$",
+         "$(x, y) \\to (y, x)$",
+         "$(2, 3)$"
+        ],
+        [
+         "$y = -x$",
+         "$(x, y) \\to (-y, -x)$",
+         "$(-2, -3)$"
+        ],
+        [
+         "origin",
+         "$(x, y) \\to (-x, -y)$",
+         "$(-3, -2)$"
+        ]
+       ]
+      },
+      {
+       "id": "math10-u4-md-ex-43a",
+       "type": "worked",
+       "title": "Worked example: two reflections, two orders",
+       "page": 138,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Reflect $(2, -3)$ in the line $y = -x$ and then in the x-axis. Then do it in the opposite order. Is the result the same?",
+       "steps": [
+        {
+         "text": "In $y = -x$: $(x, y) \\to (-y, -x)$, so $(2, -3) \\to (3, -2)$."
+        },
+        {
+         "text": "Then in the x-axis: $(3, -2) \\to (3, 2)$."
+        },
+        {
+         "text": "Opposite order: x-axis first, $(2, -3) \\to (2, 3)$; then $y = -x$: $(2, 3) \\to (-3, -2)$."
+        },
+        {
+         "text": "$(3, 2) \\ne (-3, -2)$: the order matters."
+        }
+       ],
+       "answer": "$(3, 2)$ one way, $(-3, -2)$ the other way"
       },
       {
        "id": "math10-u4-c12",
        "type": "text",
-       "title": "4.3.2 Translations",
+       "title": "4.3.2 Translation",
        "page": 139,
-       "src": "textbook p.139",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "A translation moves every point the same distance in the same direction. i.e., a translation is a correspondence between points and their image points so that each image is the same distance in the same direction from the original point.",
-        "A translation takes every point a distance 1 to the left and 2 downward."
+        "A **translation** slides every point the **same distance in the same direction**. It is described by where it takes the origin: if $T(0, 0) = (m, n)$ then",
+        "$$T: (x, y) \\to (x + m, y + n)$$",
+        "- \"Translation by $(3, 7)$\" means add 3 to $x$ and 7 to $y$.",
+        "- If $T$ takes $(a, b)$ to $(c, d)$, then $T$ moves every point by $(c - a, d - b)$; in particular $T(0, 0) = (c - a, d - b)$.",
+        "- **Pre-image:** go backwards — subtract: the pre-image of $(4, 9)$ under translation by $(3, 7)$ is $(1, 2)$.",
+        "- \"1 to the left and 2 down\" means translation by $(-1, -2)$.",
+        "The image of a figure is congruent to it and points the same way (no flip, no turn)."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math10-u4-md-translate",
+       "type": "diagram",
+       "title": "A translation",
+       "page": 139,
+       "src": "notes",
+       "diagram": "md_translate",
+       "mode": "plain",
+       "body": [
+        "All the arrows $AA'$, $BB'$, $CC'$ are equal and parallel: each point moves 5 right and 3 up."
+       ]
+      },
+      {
+       "id": "math10-u4-md-ex-43b",
+       "type": "worked",
+       "title": "Worked example: find the translation, then use it",
+       "page": 139,
+       "src": "notes",
+       "mode": "show",
+       "problem": "A translation takes $(2, 3)$ to $(3, -4)$. Where does it take $(0, 0)$, $(2, -1)$ and $(1, 0)$?",
+       "steps": [
+        {
+         "text": "Movement $= (3 - 2, -4 - 3) = (1, -7)$: one right, seven down."
+        },
+        {
+         "text": "$(0, 0) \\to (1, -7)$."
+        },
+        {
+         "text": "$(2, -1) \\to (3, -8)$."
+        },
+        {
+         "text": "$(1, 0) \\to (2, -7)$."
+        }
+       ],
+       "answer": "$(1, -7)$, $(3, -8)$, $(2, -7)$"
+      },
+      {
+       "id": "math10-u4-wk3",
+       "type": "worked",
+       "title": "Worked example: translate then reflect",
+       "problem": "Triangle ABC has A(1, 2), B(4, 2), C(1, 5). Translate it by (−3, 1), then reflect the image in the x-axis.",
+       "steps": [
+        {
+         "text": "Step 1: translate (add −3 to x and 1 to y): A′(−2, 3), B′(1, 3), C′(−2, 6)."
+        },
+        {
+         "text": "Step 2: reflect in the x-axis (change the sign of y): A″(−2, −3), B″(1, −3), C″(−2, −6)."
+        },
+        {
+         "text": "Step 3: both are isometries, so A″B″C″ is congruent to ABC (AB = 3 and A″B″ = 3 ✔)."
+        }
+       ],
+       "answer": "A″(−2, −3), B″(1, −3), C″(−2, −6)",
+       "page": 131,
+       "src": "notes"
+      },
+      {
+       "id": "math10-u4-md-wk3-gr",
+       "type": "graph",
+       "title": "Translate then reflect (the worked example above)",
+       "page": 131,
+       "src": "notes",
+       "graph": {
+        "kind": "plane",
+        "xmin": -3,
+        "xmax": 5,
+        "ymin": -7,
+        "ymax": 7,
+        "grid": true,
+        "polygons": [
+         {
+          "pts": [
+           [
+            1,
+            2
+           ],
+           [
+            4,
+            2
+           ],
+           [
+            1,
+            5
+           ]
+          ],
+          "color": "#2F5F8F"
+         },
+         {
+          "pts": [
+           [
+            -2,
+            3
+           ],
+           [
+            1,
+            3
+           ],
+           [
+            -2,
+            6
+           ]
+          ],
+          "color": "#2A7A6B"
+         },
+         {
+          "pts": [
+           [
+            -2,
+            -3
+           ],
+           [
+            1,
+            -3
+           ],
+           [
+            -2,
+            -6
+           ]
+          ],
+          "color": "#C0392B"
+         }
+        ]
+       },
+       "body": [
+        "Blue: $ABC$. Green: after the translation by $(-3, 1)$. Red: after the reflection in the x-axis. All three triangles are congruent."
        ]
       },
       {
@@ -549,10 +1315,146 @@
        "type": "text",
        "title": "4.3.3 Dilation",
        "page": 140,
-       "src": "textbook pp.140–141",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "When a shape is resized it gets bigger or smaller but it still looks similar that is, all angles stay the same and the relative sizes are the same."
+        "A **dilation** with centre $O$ and **scale factor** $r > 0$ maps each point $P$ to the point $P'$ on ray $OP$ with $OP' = r \\cdot OP$. Then every length is multiplied by $r$: $P_1'P_2' = r \\cdot P_1P_2$.",
+        "- $r > 1$: **expansion** (enlargement), the figure grows.",
+        "- $0 < r < 1$: **contraction** (reduction), a scale model.",
+        "- $r = 1$: every point stays where it is (a rigid motion).",
+        "Angles do not change, so the image is **similar** to the original. Areas are multiplied by $r^2$.",
+        "**With centre at the origin:** $(x, y) \\to (rx, ry)$.",
+        "**To draw a dilation:** draw rays from $O$ through each vertex, measure $OA$, mark $A'$ at $r \\times OA$ along the ray, then join the images."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math10-u4-md-dilation",
+       "type": "diagram",
+       "title": "Expansion with r = 2",
+       "page": 140,
+       "src": "notes",
+       "diagram": "md_dilation",
+       "mode": "plain"
+      },
+      {
+       "id": "math10-u4-md-ex-43c",
+       "type": "worked",
+       "title": "Worked example: a contraction (Example 4.8)",
+       "page": 141,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Triangle $RST$ has $R(-6, -3)$, $S(6, -3)$, $T(0, 6)$. Find its image under the dilation with centre $O(0, 0)$ and scale factor $\\frac23$.",
+       "graph": {
+        "kind": "plane",
+        "xmin": -7,
+        "xmax": 7,
+        "ymin": -4,
+        "ymax": 7,
+        "grid": true,
+        "points": [
+         {
+          "x": 0,
+          "y": 0,
+          "label": "O",
+          "color": "#C0392B"
+         }
+        ],
+        "polygons": [
+         {
+          "pts": [
+           [
+            -6,
+            -3
+           ],
+           [
+            6,
+            -3
+           ],
+           [
+            0,
+            6
+           ]
+          ],
+          "color": "#2F5F8F"
+         },
+         {
+          "pts": [
+           [
+            -4,
+            -2
+           ],
+           [
+            4,
+            -2
+           ],
+           [
+            0,
+            4
+           ]
+          ],
+          "color": "#2A7A6B"
+         }
+        ]
+       },
+       "steps": [
+        {
+         "text": "Centre at the origin, so multiply both coordinates by $\\frac23$."
+        },
+        {
+         "text": "$R' = \\left(\\frac23 \\cdot (-6), \\frac23 \\cdot (-3)\\right) = (-4, -2)$."
+        },
+        {
+         "text": "$S' = (4, -2)$ and $T' = (0, 4)$."
+        },
+        {
+         "text": "Check lengths: $RS = 12$, $R'S' = 8 = \\frac23 \\times 12$."
+        }
+       ],
+       "answer": "$R'(-4, -2)$, $S'(4, -2)$, $T'(0, 4)$"
+      },
+      {
+       "id": "math10-u4-md-trans-cmp",
+       "type": "table",
+       "title": "Comparing the transformations",
+       "page": 141,
+       "src": "notes",
+       "head": [
+        "",
+        "Reflection",
+        "Translation",
+        "Dilation (factor r)"
+       ],
+       "rows": [
+        [
+         "Lengths",
+         "kept",
+         "kept",
+         "multiplied by $r$"
+        ],
+        [
+         "Angles",
+         "kept",
+         "kept",
+         "kept"
+        ],
+        [
+         "Image is",
+         "congruent (flipped)",
+         "congruent (same direction)",
+         "similar"
+        ],
+        [
+         "Fixed points",
+         "the mirror line",
+         "none (unless no move)",
+         "the centre $O$"
+        ],
+        [
+         "Coordinate rule",
+         "see the table above",
+         "$(x + m, y + n)$",
+         "$(rx, ry)$ for centre $O$"
+        ]
        ]
       },
       {
@@ -600,24 +1502,14 @@
        "src": "notes"
       },
       {
-       "id": "math10-u4-wk3",
-       "type": "worked",
-       "title": "Worked example: translate then reflect",
-       "problem": "Triangle ABC has A(1, 2), B(4, 2), C(1, 5). Translate it by (−3, 1), then reflect the image in the x-axis.",
-       "steps": [
-        {
-         "text": "Step 1: translate (add −3 to x and 1 to y): A′(−2, 3), B′(1, 3), C′(−2, 6)."
-        },
-        {
-         "text": "Step 2: reflect in the x-axis (change the sign of y): A″(−2, −3), B″(1, −3), C″(−2, −6)."
-        },
-        {
-         "text": "Step 3: both are isometries, so A″B″C″ is congruent to ABC (AB = 3 and A″B″ = 3 ✔)."
-        }
-       ],
-       "answer": "A″(−2, −3), B″(1, −3), C″(−2, −6)",
-       "page": 131,
-       "src": "notes"
+       "id": "math10-u4-c10",
+       "type": "mnemonic",
+       "title": "Tip: remember the rules by one example",
+       "page": 139,
+       "src": "notes",
+       "body": [
+        "Learn every rule on the single point $(3, 2)$: x-axis $(3, -2)$, y-axis $(-3, 2)$, $y = x$ $(2, 3)$, origin $(-3, -2)$. If you forget a rule in the exam, sketch $(3, 2)$ and its mirror image — the picture gives the rule back."
+       ]
       },
       {
        "id": "math10-u4-pc31",
@@ -670,13 +1562,155 @@
      ]
     }
    ],
-   "glossary": [],
+   "glossary": [
+    {
+     "term": "Polyhedron",
+     "meaning": "A solid bounded only by flat polygon faces.",
+     "page": 108,
+     "src": "notes"
+    },
+    {
+     "term": "Prism",
+     "meaning": "A polyhedron with two congruent parallel bases joined by parallelogram faces.",
+     "page": 109,
+     "src": "notes"
+    },
+    {
+     "term": "Cross-section",
+     "meaning": "The figure cut from a solid by a plane parallel to its base.",
+     "page": 109,
+     "src": "notes"
+    },
+    {
+     "term": "Pyramid",
+     "meaning": "A polyhedron with one polygon base and triangular faces meeting at the apex.",
+     "page": 111,
+     "src": "notes"
+    },
+    {
+     "term": "Apex",
+     "meaning": "The common vertex of the lateral faces of a pyramid.",
+     "page": 111,
+     "src": "notes"
+    },
+    {
+     "term": "Slant height",
+     "meaning": "Height of a lateral face of a pyramid, or distance from the vertex of a cone to the edge of its base.",
+     "page": 111,
+     "src": "notes"
+    },
+    {
+     "term": "Frustum",
+     "meaning": "What remains of a pyramid or cone when the top is cut off parallel to the base.",
+     "page": 112,
+     "src": "notes"
+    },
+    {
+     "term": "Tetrahedron",
+     "meaning": "A pyramid with a triangular base (4 triangular faces).",
+     "page": 112,
+     "src": "notes"
+    },
+    {
+     "term": "Great circle",
+     "meaning": "A cross-section of a sphere through its centre.",
+     "page": 115,
+     "src": "notes"
+    },
+    {
+     "term": "Annulus",
+     "meaning": "The ring between two circles with the same centre.",
+     "page": 116,
+     "src": "notes"
+    },
+    {
+     "term": "Net",
+     "meaning": "A flat figure that folds into a solid.",
+     "page": 117,
+     "src": "notes"
+    },
+    {
+     "term": "Euler’s formula",
+     "meaning": "F + V − E = 2 for every polyhedron.",
+     "page": 119,
+     "src": "notes"
+    },
+    {
+     "term": "Abscissa",
+     "meaning": "The x-coordinate of a point.",
+     "page": 123,
+     "src": "notes"
+    },
+    {
+     "term": "Ordinate",
+     "meaning": "The y-coordinate of a point.",
+     "page": 123,
+     "src": "notes"
+    },
+    {
+     "term": "Quadrant",
+     "meaning": "One of the four regions into which the axes divide the plane.",
+     "page": 123,
+     "src": "notes"
+    },
+    {
+     "term": "Transformation",
+     "meaning": "A one-to-one mapping of the whole plane onto itself.",
+     "page": 133,
+     "src": "notes"
+    },
+    {
+     "term": "Reflection",
+     "meaning": "The transformation in which the mirror line is the perpendicular bisector of every segment PP′.",
+     "page": 135,
+     "src": "notes"
+    },
+    {
+     "term": "Axis of symmetry",
+     "meaning": "A line in which a figure is its own mirror image.",
+     "page": 136,
+     "src": "notes"
+    },
+    {
+     "term": "Translation",
+     "meaning": "A slide of every point by the same distance in the same direction.",
+     "page": 139,
+     "src": "notes"
+    },
+    {
+     "term": "Dilation",
+     "meaning": "Enlargement or reduction from a centre by a scale factor r.",
+     "page": 140,
+     "src": "notes"
+    },
+    {
+     "term": "Rigid motion",
+     "meaning": "A transformation that keeps all lengths (reflection, translation).",
+     "page": 140,
+     "src": "notes"
+    }
+   ],
    "tips": [
     {
      "text": "Formula: d = √[(x₂−x₁)²+(y₂−y₁)²] · midpoint = ((x₁+x₂)/2,(y₁+y₂)/2) Pythagoras on the grid. Keep the signs inside the squares — they die anyway.",
      "page": 109,
      "src": "notes",
      "card": "math10-u4-c01"
+    },
+    {
+     "text": "Euler: F + V − E = 2. Prism (n-gon): F = n + 2, V = 2n, E = 3n. Pyramid: F = V = n + 1, E = 2n.",
+     "page": 119,
+     "src": "notes"
+    },
+    {
+     "text": "Distance subtracts and squares (a number); midpoint adds and halves (a point).",
+     "page": 130,
+     "src": "notes"
+    },
+    {
+     "text": "Reflection rules on (3, 2): x-axis (3, −2), y-axis (−3, 2), y = x (2, 3), origin (−3, −2).",
+     "page": 137,
+     "src": "notes"
     }
    ],
    "games": [
@@ -1190,6 +2224,653 @@
        }
       ],
       "id": "math10-u4-q22"
+     },
+     {
+      "id": "math10-u4-md-s41-q01",
+      "type": "mcq",
+      "q": "Which set of faces can form a polyhedron?",
+      "options": {
+       "A": "3 triangles",
+       "B": "2 squares",
+       "C": "4 triangles",
+       "D": "1 circle and 1 triangle"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: a polyhedron needs at least 4 flat faces to close up space.",
+       "Step 2: 4 triangles make a tetrahedron (triangular pyramid). A circle is not a polygon."
+      ],
+      "tip": "Count faces first: fewer than 4 can never enclose space.",
+      "similar": [
+       {
+        "q": "Can a square and four triangles be the faces of a polyhedron?",
+        "a": "Yes — a square pyramid."
+       }
+      ],
+      "page": 112,
+      "src": "notes",
+      "label": "4.1 Practice — solids, nets and views"
+     },
+     {
+      "id": "math10-u4-md-s41-q02",
+      "type": "tf",
+      "q": "A cylinder is a polyhedron.",
+      "answer": false,
+      "why": [
+       "Step 1: a polyhedron is bounded by flat polygon faces only.",
+       "Step 2: a cylinder has a curved lateral surface and circular bases, so it is not a polyhedron."
+      ],
+      "tip": "Any curved surface → not a polyhedron.",
+      "similar": [
+       {
+        "q": "Is a hexagonal prism a polyhedron?",
+        "a": "Yes — all 8 faces are flat polygons."
+       }
+      ],
+      "page": 108,
+      "src": "notes",
+      "label": "4.1 Practice — solids, nets and views"
+     },
+     {
+      "id": "math10-u4-md-s41-q03",
+      "type": "short",
+      "q": "A pentagonal prism: find $F$, $V$, $E$ and verify Euler’s formula.",
+      "answer": "$F = 7$, $V = 10$, $E = 15$; $7 + 10 - 15 = 2$",
+      "why": [
+       "Step 1: prism with $n = 5$: faces $= n + 2 = 7$ (2 bases + 5 lateral faces).",
+       "Step 2: vertices $= 2n = 10$ (5 on each base).",
+       "Step 3: edges $= 3n = 15$ (5 + 5 on the bases, 5 lateral).",
+       "Step 4: $7 + 10 - 15 = 2$."
+      ],
+      "tip": "Prism with $n$-gon base: $F = n + 2$, $V = 2n$, $E = 3n$.",
+      "similar": [
+       {
+        "q": "Find $F$, $V$, $E$ for an octagonal pyramid.",
+        "a": "$F = 9$, $V = 9$, $E = 16$; $9 + 9 - 16 = 2$."
+       }
+      ],
+      "page": 119,
+      "src": "notes",
+      "label": "4.1 Practice — solids, nets and views"
+     },
+     {
+      "id": "math10-u4-md-s41-q04",
+      "type": "short",
+      "q": "A polyhedron has 8 faces and 6 vertices. How many edges?",
+      "answer": "12",
+      "why": [
+       "Step 1: $F + V - E = 2$.",
+       "Step 2: $8 + 6 - E = 2$, so $E = 12$."
+      ],
+      "tip": "Put the two numbers you know into $F + V - E = 2$ and solve.",
+      "similar": [
+       {
+        "q": "A polyhedron has 6 faces and 12 edges. How many vertices?",
+        "a": "8."
+       }
+      ],
+      "page": 119,
+      "src": "notes",
+      "label": "4.1 Practice — solids, nets and views"
+     },
+     {
+      "id": "math10-u4-md-s41-q05",
+      "type": "short",
+      "q": "A regular square pyramid has base edge 10 cm and slant height 13 cm. Find its height.",
+      "answer": "12 cm",
+      "why": [
+       "Step 1: right triangle with hypotenuse = slant height 13 and one leg = half the base edge 5.",
+       "Step 2: $h = \\sqrt{13^2 - 5^2} = \\sqrt{144} = 12$ cm."
+      ],
+      "tip": "Height, half-edge and slant height form a right triangle; the slant height is the hypotenuse.",
+      "similar": [
+       {
+        "q": "Base edge 16 cm, height 6 cm. Slant height?",
+        "a": "$\\sqrt{36 + 64} = 10$ cm."
+       }
+      ],
+      "page": 111,
+      "src": "notes",
+      "label": "4.1 Practice — solids, nets and views"
+     },
+     {
+      "id": "math10-u4-md-s41-q06",
+      "type": "short",
+      "q": "A right cone has radius 5 cm and height 12 cm. Find its slant height.",
+      "answer": "13 cm",
+      "why": [
+       "Step 1: $l^2 = r^2 + h^2 = 25 + 144 = 169$.",
+       "Step 2: $l = 13$ cm."
+      ],
+      "tip": "Slant height is always the hypotenuse.",
+      "similar": [
+       {
+        "q": "Slant height 10 cm, radius 6 cm. Height?",
+        "a": "8 cm."
+       }
+      ],
+      "page": 114,
+      "src": "notes",
+      "label": "4.1 Practice — solids, nets and views"
+     },
+     {
+      "id": "math10-u4-md-s41-q07",
+      "type": "short",
+      "q": "A sphere of radius 10 cm is cut by a plane 6 cm from the centre. Find the radius of the cross-section.",
+      "answer": "8 cm",
+      "why": [
+       "Step 1: $t^2 = r^2 - s^2 = 100 - 36 = 64$.",
+       "Step 2: $t = 8$ cm."
+      ],
+      "tip": "Draw the right triangle: sphere radius is the hypotenuse.",
+      "similar": [
+       {
+        "q": "Where is the cross-section of largest area?",
+        "a": "Through the centre ($s = 0$): a great circle."
+       }
+      ],
+      "page": 116,
+      "src": "notes",
+      "label": "4.1 Practice — solids, nets and views"
+     },
+     {
+      "id": "math10-u4-md-s41-q08",
+      "type": "mcq",
+      "q": "Which arrangement of 6 squares is NOT a net of a cube?",
+      "options": {
+       "A": "A row of 4 with one square above and one below",
+       "B": "Six squares in a row",
+       "C": "A \"staircase\" 2-2-2",
+       "D": "A row of 3, then a row of 3 shifted by 2"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: fold a row of 4: the 4 squares go round the cube.",
+       "Step 2: squares 5 and 6 of a straight row would land on the same faces as squares 1 and 2 — the top and bottom stay open."
+      ],
+      "tip": "A cube net never has 5 or more squares in one row.",
+      "similar": [
+       {
+        "q": "How many different cube nets are there?",
+        "a": "11."
+       }
+      ],
+      "page": 117,
+      "src": "notes",
+      "label": "4.1 Practice — solids, nets and views"
+     },
+     {
+      "id": "math10-u4-md-s41-q09",
+      "type": "short",
+      "q": "Name the solid: front view a triangle, side view a triangle, top view a square with its diagonals.",
+      "answer": "A square pyramid",
+      "why": [
+       "Step 1: top view a square → square base.",
+       "Step 2: triangles from the front and side → faces slope up to a point, and the diagonals in the plan are the edges to the apex."
+      ],
+      "tip": "Start with the top view: it shows the shape of the base.",
+      "similar": [
+       {
+        "q": "Front view rectangle, top view circle?",
+        "a": "A cylinder."
+       }
+      ],
+      "page": 120,
+      "src": "notes",
+      "label": "4.1 Practice — solids, nets and views"
+     },
+     {
+      "id": "math10-u4-md-s41-q10",
+      "type": "fill",
+      "q": "A cone is to a cylinder as a ____ is to a prism.",
+      "choices": [
+       "pyramid",
+       "sphere",
+       "cube",
+       "frustum"
+      ],
+      "answer": "pyramid",
+      "why": [
+       "Step 1: a cylinder and a prism have two equal bases.",
+       "Step 2: cutting the top to a point turns a cylinder into a cone and a prism into a pyramid."
+      ],
+      "tip": "Think \"two bases\" vs \"one base and an apex\".",
+      "similar": [
+       {
+        "q": "The part of a cone left after cutting off the top parallel to the base is a …",
+        "a": "frustum of a cone."
+       }
+      ],
+      "page": 114,
+      "src": "notes",
+      "label": "4.1 Practice — solids, nets and views"
+     },
+     {
+      "id": "math10-u4-md-s42-q01",
+      "type": "short",
+      "q": "In which quadrant or on which axis is each point: $(2, 4)$, $(-2, -3)$, $(1, -9)$, $(0, 1)$, $(4, 0)$?",
+      "answer": "I, III, IV, y-axis, x-axis",
+      "why": [
+       "Step 1: look at the signs: $(+, +)$ I, $(-, -)$ III, $(+, -)$ IV.",
+       "Step 2: a zero coordinate puts the point on an axis: $x = 0$ → y-axis, $y = 0$ → x-axis."
+      ],
+      "tip": "Signs give the quadrant; a zero gives an axis.",
+      "similar": [
+       {
+        "q": "If $a < 0$ and $b > 0$, where is $(-a, -b)$?",
+        "a": "$-a > 0$, $-b < 0$: quadrant IV."
+       }
+      ],
+      "page": 124,
+      "src": "notes",
+      "label": "4.2 Practice — coordinates, distance and midpoint"
+     },
+     {
+      "id": "math10-u4-md-s42-q02",
+      "type": "short",
+      "q": "Find the distance between $(1, -2)$ and $(-3, 4)$.",
+      "answer": "$2\\sqrt{13} \\approx 7.21$",
+      "why": [
+       "Step 1: $\\Delta x = -3 - 1 = -4$, $\\Delta y = 4 - (-2) = 6$.",
+       "Step 2: $d = \\sqrt{16 + 36} = \\sqrt{52} = 2\\sqrt{13}$."
+      ],
+      "tip": "Square the differences — the minus signs disappear.",
+      "similar": [
+       {
+        "q": "Distance between $(5, 4)$ and $(-1, 2)$?",
+        "a": "$\\sqrt{40} = 2\\sqrt{10}$."
+       }
+      ],
+      "page": 128,
+      "src": "notes",
+      "label": "4.2 Practice — coordinates, distance and midpoint"
+     },
+     {
+      "id": "math10-u4-md-s42-q03",
+      "type": "mcq",
+      "q": "The distance between $(-3, 2)$ and $(6, 2)$ is",
+      "options": {
+       "A": "3",
+       "B": "9",
+       "C": "81",
+       "D": "$\\sqrt{13}$"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: same $y$ → horizontal segment.",
+       "Step 2: distance $= |6 - (-3)| = 9$."
+      ],
+      "tip": "Same $y$: subtract the x’s; same $x$: subtract the y’s.",
+      "similar": [
+       {
+        "q": "Distance between $(5, 4)$ and $(5, -9)$?",
+        "a": "13."
+       }
+      ],
+      "page": 128,
+      "src": "notes",
+      "label": "4.2 Practice — coordinates, distance and midpoint"
+     },
+     {
+      "id": "math10-u4-md-s42-q04",
+      "type": "short",
+      "q": "Show that $A(1, 1)$, $B(4, 3)$, $C(4, 1)$ form a right-angled triangle.",
+      "answer": "$AC^2 + BC^2 = 9 + 4 = 13 = AB^2$",
+      "why": [
+       "Step 1: $AC = 3$ (horizontal), $BC = 2$ (vertical), $AB = \\sqrt{9 + 4} = \\sqrt{13}$.",
+       "Step 2: $3^2 + 2^2 = 13 = AB^2$, so the angle at $C$ is $90°$."
+      ],
+      "tip": "Compare the sum of the two smaller squares with the largest square.",
+      "similar": [
+       {
+        "q": "Is the triangle $(0, 0)$, $(3, 0)$, $(0, 4)$ right-angled?",
+        "a": "Yes: $9 + 16 = 25 = 5^2$."
+       }
+      ],
+      "page": 128,
+      "src": "notes",
+      "label": "4.2 Practice — coordinates, distance and midpoint"
+     },
+     {
+      "id": "math10-u4-md-s42-q05",
+      "type": "short",
+      "q": "Show that $(5, -2)$, $(6, 4)$ and $(7, -2)$ are the vertices of an isosceles triangle.",
+      "answer": "Two sides equal $\\sqrt{37}$",
+      "why": [
+       "Step 1: $(5, -2)$ to $(6, 4)$: $\\sqrt{1 + 36} = \\sqrt{37}$.",
+       "Step 2: $(6, 4)$ to $(7, -2)$: $\\sqrt{1 + 36} = \\sqrt{37}$.",
+       "Step 3: $(5, -2)$ to $(7, -2)$: $2$. Two sides are equal."
+      ],
+      "tip": "Compute all three sides, then compare.",
+      "similar": [
+       {
+        "q": "Is $(0, 0)$, $(4, 0)$, $(2, 2\\sqrt3)$ equilateral?",
+        "a": "Yes: all sides are 4."
+       }
+      ],
+      "page": 128,
+      "src": "notes",
+      "label": "4.2 Practice — coordinates, distance and midpoint"
+     },
+     {
+      "id": "math10-u4-md-s42-q06",
+      "type": "short",
+      "q": "Find the midpoint of $(-6, 5)$ and $(7, 2)$.",
+      "answer": "$\\left(\\frac12, \\frac72\\right)$",
+      "why": [
+       "Step 1: $x = \\frac{-6 + 7}{2} = \\frac12$.",
+       "Step 2: $y = \\frac{5 + 2}{2} = \\frac72$."
+      ],
+      "tip": "Midpoint = average of the x’s, average of the y’s.",
+      "similar": [
+       {
+        "q": "Midpoint of $(7, 11)$ and $(7, -13)$?",
+        "a": "$(7, -1)$."
+       }
+      ],
+      "page": 131,
+      "src": "notes",
+      "label": "4.2 Practice — coordinates, distance and midpoint"
+     },
+     {
+      "id": "math10-u4-md-s42-q07",
+      "type": "short",
+      "q": "The midpoint of a segment is $(3, 2)$ and one endpoint is $(-5, 12)$. Find the other endpoint.",
+      "answer": "$(11, -8)$",
+      "why": [
+       "Step 1: other end $= (2 \\cdot 3 - (-5), 2 \\cdot 2 - 12)$.",
+       "Step 2: $= (6 + 5, 4 - 12) = (11, -8)$.",
+       "Step 3: check: average of $-5$ and $11$ is 3; of 12 and $-8$ is 2."
+      ],
+      "tip": "Double the midpoint, subtract the known end.",
+      "similar": [
+       {
+        "q": "Midpoint $(0, 0)$, one end $(4, -7)$. Other end?",
+        "a": "$(-4, 7)$."
+       }
+      ],
+      "page": 131,
+      "src": "notes",
+      "label": "4.2 Practice — coordinates, distance and midpoint"
+     },
+     {
+      "id": "math10-u4-md-s42-q08",
+      "type": "short",
+      "q": "Are $(1, 5)$, $(2, 3)$ and $(-2, 11)$ collinear?",
+      "answer": "Yes",
+      "why": [
+       "Step 1: slope of the first two: $\\frac{3 - 5}{2 - 1} = -2$.",
+       "Step 2: slope of the first and third: $\\frac{11 - 5}{-2 - 1} = -2$.",
+       "Step 3: equal slopes through a common point → collinear."
+      ],
+      "tip": "Collinear = same slope (or the short distances add up to the long one).",
+      "similar": [
+       {
+        "q": "Are $(0, 0)$, $(1, 2)$, $(3, 5)$ collinear?",
+        "a": "No: slopes 2 and $\\frac53$."
+       }
+      ],
+      "page": 141,
+      "src": "notes",
+      "label": "4.2 Practice — coordinates, distance and midpoint"
+     },
+     {
+      "id": "math10-u4-md-s42-q09",
+      "type": "short",
+      "q": "Show, using coordinates, that the midpoint of the hypotenuse of a right triangle is the same distance from all three vertices.",
+      "answer": "Each distance $= \\frac12\\sqrt{a^2 + b^2}$",
+      "why": [
+       "Step 1: put the right angle at $O(0, 0)$, $A(2a, 0)$, $B(0, 2b)$.",
+       "Step 2: midpoint of $AB$: $M(a, b)$.",
+       "Step 3: $MO = \\sqrt{a^2 + b^2}$, $MA = \\sqrt{a^2 + b^2}$, $MB = \\sqrt{a^2 + b^2}$."
+      ],
+      "tip": "Choose easy coordinates: right angle at the origin and the legs on the axes; use $2a$, $2b$ to avoid fractions.",
+      "similar": [
+       {
+        "q": "What does this tell us about the circle through the three vertices?",
+        "a": "Its centre is the midpoint of the hypotenuse (the hypotenuse is a diameter)."
+       }
+      ],
+      "page": 141,
+      "src": "notes",
+      "label": "4.2 Practice — coordinates, distance and midpoint"
+     },
+     {
+      "id": "math10-u4-md-s42-q10",
+      "type": "short",
+      "q": "Town M is 36 km east and 15 km north of town N. How far apart are they?",
+      "answer": "39 km",
+      "why": [
+       "Step 1: put N at $(0, 0)$, M at $(36, 15)$.",
+       "Step 2: $d = \\sqrt{36^2 + 15^2} = \\sqrt{1296 + 225} = \\sqrt{1521} = 39$ km."
+      ],
+      "tip": "East/north distances are the legs of a right triangle.",
+      "similar": [
+       {
+        "q": "A point is 8 km east and 6 km south of a town. Distance?",
+        "a": "10 km."
+       }
+      ],
+      "page": 126,
+      "src": "notes",
+      "label": "4.2 Practice — coordinates, distance and midpoint"
+     },
+     {
+      "id": "math10-u4-md-s43-q01",
+      "type": "short",
+      "q": "Reflect $(4, 5)$ in (i) the x-axis (ii) the y-axis (iii) $y = x$ (iv) $y = -x$ (v) the origin.",
+      "answer": "$(4, -5)$, $(-4, 5)$, $(5, 4)$, $(-5, -4)$, $(-4, -5)$",
+      "why": [
+       "Step 1: x-axis: change sign of $y$ → $(4, -5)$.",
+       "Step 2: y-axis: change sign of $x$ → $(-4, 5)$.",
+       "Step 3: $y = x$: swap → $(5, 4)$.",
+       "Step 4: $y = -x$: swap and change both signs → $(-5, -4)$.",
+       "Step 5: origin: change both signs → $(-4, -5)$."
+      ],
+      "tip": "Learn the five rules on one point and check with a sketch.",
+      "similar": [
+       {
+        "q": "Reflect $(-11, 2)$ in $y = x$.",
+        "a": "$(2, -11)$."
+       }
+      ],
+      "page": 138,
+      "src": "notes",
+      "label": "4.3 Practice — reflection, translation and dilation"
+     },
+     {
+      "id": "math10-u4-md-s43-q02",
+      "type": "short",
+      "q": "Reflect $(6, -3)$ in the x-axis and then reflect the image in the x-axis again.",
+      "answer": "$(6, -3)$",
+      "why": [
+       "Step 1: $(6, -3) \\to (6, 3)$.",
+       "Step 2: $(6, 3) \\to (6, -3)$ — back to the start."
+      ],
+      "tip": "Reflecting twice in the same line undoes it.",
+      "similar": [
+       {
+        "q": "Reflect $(2, 7)$ in the origin twice.",
+        "a": "$(2, 7)$."
+       }
+      ],
+      "page": 138,
+      "src": "notes",
+      "label": "4.3 Practice — reflection, translation and dilation"
+     },
+     {
+      "id": "math10-u4-md-s43-q03",
+      "type": "mcq",
+      "q": "The image of $(x, y)$ under reflection in the line $y = x$ is",
+      "options": {
+       "A": "$(-x, y)$",
+       "B": "$(y, x)$",
+       "C": "$(-y, -x)$",
+       "D": "$(x, -y)$"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: the line $y = x$ is the perpendicular bisector of $PP'$.",
+       "Step 2: this happens exactly when the coordinates are swapped."
+      ],
+      "tip": "Test with $(3, 2)$: its mirror in $y = x$ is $(2, 3)$.",
+      "similar": [
+       {
+        "q": "Image of $(x, y)$ in $y = -x$?",
+        "a": "$(-y, -x)$."
+       }
+      ],
+      "page": 137,
+      "src": "notes",
+      "label": "4.3 Practice — reflection, translation and dilation"
+     },
+     {
+      "id": "math10-u4-md-s43-q04",
+      "type": "short",
+      "q": "A translation takes the origin to $(-2, 1)$. Where does it take $(2, 1)$, $(-2, 1)$ and $(0, 1)$?",
+      "answer": "$(0, 2)$, $(-4, 2)$, $(-2, 2)$",
+      "why": [
+       "Step 1: the rule is $(x, y) \\to (x - 2, y + 1)$.",
+       "Step 2: $(2, 1) \\to (0, 2)$; $(-2, 1) \\to (-4, 2)$; $(0, 1) \\to (-2, 2)$."
+      ],
+      "tip": "Where the origin goes = what you add to every point.",
+      "similar": [
+       {
+        "q": "A translation moves every point 1 left and 2 down. Image of $(1, 1)$?",
+        "a": "$(0, -1)$."
+       }
+      ],
+      "page": 139,
+      "src": "notes",
+      "label": "4.3 Practice — reflection, translation and dilation"
+     },
+     {
+      "id": "math10-u4-md-s43-q05",
+      "type": "short",
+      "q": "Find the pre-image of $(-3, 4)$ under the translation by $(3, 7)$.",
+      "answer": "$(-6, -3)$",
+      "why": [
+       "Step 1: the translation adds $(3, 7)$, so the pre-image subtracts it.",
+       "Step 2: $(-3 - 3, 4 - 7) = (-6, -3)$."
+      ],
+      "tip": "Pre-image: undo the move.",
+      "similar": [
+       {
+        "q": "Pre-image of $(4, 9)$ under translation by $(3, 7)$?",
+        "a": "$(1, 2)$."
+       }
+      ],
+      "page": 139,
+      "src": "notes",
+      "label": "4.3 Practice — reflection, translation and dilation"
+     },
+     {
+      "id": "math10-u4-md-s43-q06",
+      "type": "short",
+      "q": "Find the images of $(4, 7)$, $(-2, 1)$ and $(-5, -4)$ under the translation by $(2, -3)$.",
+      "answer": "$(6, 4)$, $(0, -2)$, $(-3, -7)$",
+      "why": [
+       "Step 1: add 2 to each $x$ and $-3$ to each $y$.",
+       "Step 2: $(4, 7) \\to (6, 4)$; $(-2, 1) \\to (0, -2)$; $(-5, -4) \\to (-3, -7)$."
+      ],
+      "tip": "Write the rule $(x + 2, y - 3)$ first.",
+      "similar": [
+       {
+        "q": "Image of $(0, 0)$ under the same translation?",
+        "a": "$(2, -3)$."
+       }
+      ],
+      "page": 141,
+      "src": "notes",
+      "label": "4.3 Practice — reflection, translation and dilation"
+     },
+     {
+      "id": "math10-u4-md-s43-q07",
+      "type": "short",
+      "q": "A dilation with centre $O(0, 0)$ and scale factor 3 maps $A(2, -1)$ to $A'$. Find $A'$ and the ratio $OA' : OA$.",
+      "answer": "$A'(6, -3)$; $3 : 1$",
+      "why": [
+       "Step 1: centre at the origin: multiply coordinates by 3 → $(6, -3)$.",
+       "Step 2: $OA' = 3 \\cdot OA$, so the ratio is $3 : 1$."
+      ],
+      "tip": "Centre $O$: multiply both coordinates by the scale factor.",
+      "similar": [
+       {
+        "q": "Image of $(9, -6)$ under the dilation with centre $O$, factor $\\frac13$?",
+        "a": "$(3, -2)$."
+       }
+      ],
+      "page": 140,
+      "src": "notes",
+      "label": "4.3 Practice — reflection, translation and dilation"
+     },
+     {
+      "id": "math10-u4-md-s43-q08",
+      "type": "mcq",
+      "q": "A triangle with area 6 cm² is enlarged with scale factor 2. The area of the image is",
+      "options": {
+       "A": "12 cm²",
+       "B": "24 cm²",
+       "C": "8 cm²",
+       "D": "36 cm²"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: lengths are multiplied by $r = 2$.",
+       "Step 2: areas are multiplied by $r^2 = 4$: $6 \\times 4 = 24$ cm²."
+      ],
+      "tip": "Length × $r$, area × $r^2$.",
+      "similar": [
+       {
+        "q": "Scale factor $\\frac12$, original area 20 cm². Image area?",
+        "a": "5 cm²."
+       }
+      ],
+      "page": 140,
+      "src": "notes",
+      "label": "4.3 Practice — reflection, translation and dilation"
+     },
+     {
+      "id": "math10-u4-md-s43-q09",
+      "type": "tf",
+      "q": "A dilation with scale factor $r \\ne 1$ is a rigid motion.",
+      "answer": false,
+      "why": [
+       "Step 1: rigid motions keep all lengths.",
+       "Step 2: a dilation multiplies lengths by $r$, so lengths change unless $r = 1$."
+      ],
+      "tip": "Rigid = congruent image; dilation = similar image.",
+      "similar": [
+       {
+        "q": "Is a translation a rigid motion?",
+        "a": "Yes — lengths and angles are kept."
+       }
+      ],
+      "page": 140,
+      "src": "notes",
+      "label": "4.3 Practice — reflection, translation and dilation"
+     },
+     {
+      "id": "math10-u4-md-s43-q10",
+      "type": "short",
+      "q": "How many lines of symmetry: (a) equilateral triangle (b) scalene triangle (c) regular $n$-gon (d) circle?",
+      "answer": "(a) 3 (b) 0 (c) $n$ (d) infinitely many",
+      "why": [
+       "Step 1: equilateral triangle: one through each vertex and the midpoint of the opposite side → 3.",
+       "Step 2: scalene: no two sides equal → none.",
+       "Step 3: regular $n$-gon: $n$ axes.",
+       "Step 4: circle: every diameter is an axis."
+      ],
+      "tip": "Fold the shape in your mind: each fold that matches is one axis.",
+      "similar": [
+       {
+        "q": "Lines of symmetry of a square?",
+        "a": "4."
+       }
+      ],
+      "page": 142,
+      "src": "notes",
+      "label": "4.3 Practice — reflection, translation and dilation"
      }
     ]
    },
@@ -1240,6 +2921,30 @@
        "math10-u4-c12",
        "math10-u4-c13"
       ]
+     },
+     {
+      "id": "md_euler",
+      "label": "Euler’s formula",
+      "kind": "idea",
+      "cards": [
+       "math10-u4-md-euler-t"
+      ]
+     },
+     {
+      "id": "md_dist",
+      "label": "Distance & midpoint",
+      "kind": "idea",
+      "cards": [
+       "math10-u4-c01"
+      ]
+     },
+     {
+      "id": "md_trans",
+      "label": "Comparing transformations",
+      "kind": "idea",
+      "cards": [
+       "math10-u4-md-trans-cmp"
+      ]
      }
     ],
     "edges": [
@@ -1267,9 +2972,122 @@
       "from": "l4_2",
       "to": "l4_3",
       "label": "next"
+     },
+     {
+      "from": "l4_1",
+      "to": "md_euler",
+      "label": "key idea"
+     },
+     {
+      "from": "l4_2",
+      "to": "md_dist",
+      "label": "key idea"
+     },
+     {
+      "from": "l4_3",
+      "to": "md_trans",
+      "label": "key idea"
      }
     ],
     "src": "auto"
+   },
+   "diagrams": {
+    "md_solids": {
+     "svg": "svg/mathematics_10/m10_u4_solids.svg",
+     "title": "Polyhedrons and solids with curved surfaces",
+     "page": 107,
+     "pins": []
+    },
+    "md_prism": {
+     "svg": "svg/mathematics_10/m10_u4_prism.svg",
+     "title": "Parts of a triangular prism and a cross-section",
+     "page": 109,
+     "pins": []
+    },
+    "md_pyramid": {
+     "svg": "svg/mathematics_10/m10_u4_pyramid.svg",
+     "title": "Parts of a rectangular pyramid",
+     "page": 111,
+     "pins": []
+    },
+    "md_frustum": {
+     "svg": "svg/mathematics_10/m10_u4_frustum.svg",
+     "title": "Frustums: the top is cut off parallel to the base",
+     "page": 112,
+     "pins": []
+    },
+    "md_cylcone": {
+     "svg": "svg/mathematics_10/m10_u4_cylcone.svg",
+     "title": "Right cylinder and right cone",
+     "page": 114,
+     "pins": []
+    },
+    "md_sphere": {
+     "svg": "svg/mathematics_10/m10_u4_sphere.svg",
+     "title": "Sphere: great and small circles; a cross-section",
+     "page": 116,
+     "pins": []
+    },
+    "md_nets": {
+     "svg": "svg/mathematics_10/m10_u4_nets.svg",
+     "title": "Nets fold into solids",
+     "page": 117,
+     "pins": []
+    },
+    "md_views": {
+     "svg": "svg/mathematics_10/m10_u4_views.svg",
+     "title": "Front, side and top views of a solid made of cubes",
+     "page": 120,
+     "pins": []
+    },
+    "md_quadrants": {
+     "svg": "svg/mathematics_10/m10_u4_quadrants.svg",
+     "title": "The four quadrants and the coordinates of a point",
+     "page": 123,
+     "pins": []
+    },
+    "md_distance": {
+     "svg": "svg/mathematics_10/m10_u4_distance.svg",
+     "title": "The distance formula is Pythagoras on the grid",
+     "page": 126,
+     "pins": []
+    },
+    "md_midpoint": {
+     "svg": "svg/mathematics_10/m10_u4_midpoint.svg",
+     "title": "Midpoint: average the x’s and average the y’s",
+     "page": 130,
+     "pins": []
+    },
+    "md_reflectline": {
+     "svg": "svg/mathematics_10/m10_u4_reflectline.svg",
+     "title": "Reflection in a line l",
+     "page": 135,
+     "pins": []
+    },
+    "md_reflectxy": {
+     "svg": "svg/mathematics_10/m10_u4_reflectxy.svg",
+     "title": "Images of P(3, 2) under five reflections",
+     "page": 137,
+     "pins": []
+    },
+    "md_translate": {
+     "svg": "svg/mathematics_10/m10_u4_translate.svg",
+     "title": "Translation by (5, 3)",
+     "page": 139,
+     "pins": []
+    },
+    "md_dilation": {
+     "svg": "svg/mathematics_10/m10_u4_dilation.svg",
+     "title": "Dilation with centre O and scale factor 2",
+     "page": 140,
+     "pins": []
+    },
+    "md_symmetry": {
+     "svg": "svg/mathematics_10/m10_u4_symmetry.svg",
+     "title": "Lines (axes) of symmetry",
+     "page": 134,
+     "pins": []
+    }
    }
   }
  ]
