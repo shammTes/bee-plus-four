@@ -136,17 +136,17 @@
       {
        "id": "math9-u1-c01",
        "type": "text",
-       "title": "1.1 Methods of Specifying Sets",
+       "title": "1.1 What is a set?",
        "page": 1,
-       "src": "textbook pp.1–2",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "The notion of a set is basic in Mathematics.",
-        "George Cantor, (1845-1918) a German mathematician created set theory, a new area of Mathematics.",
-        "**A set** is a collection of well-defined objects called elements.",
-        "A = the set of natural numbers less than or equal to 7, i. e., A = {1, 2, 3, 4, 5, 6, 7}, This means that 1, 2, 3, 4, 5, 6, and 7 are elements of set A.",
-        "If the elements of a set A can all be listed, then the set is given by putting the letter A equal to a brace which includes all the elements of A in any order whatsoever."
-       ]
+        "A **set** is a **well-defined** collection of objects. \"Well-defined\" means that for any object we can say clearly **yes, it belongs** or **no, it does not**. The objects are called **elements** (or members).",
+        "- \"The vowels of the English alphabet\" is a set: a, e, i, o, u — everybody agrees.",
+        "- \"The tall students in our class\" is **not** a set: \"tall\" is an opinion, so two people could list different students.",
+        "We name sets with capital letters and write the elements inside braces: $A = \\{a, b, c\\}$. We write $a \\in A$ (\"$a$ is an element of $A$\") and $d \\notin A$ (\"$d$ is not an element of $A$\").",
+        "Two rules about listing: **order does not matter** ($\\{1, 2, 3\\} = \\{3, 1, 2\\}$) and **repeats are written once** (the letters of \"BOOK\" form $\\{B, O, K\\}$)."
+       ],
+       "enriched": true
       },
       {
        "id": "math9-u1-tbl1",
@@ -185,6 +185,137 @@
          "$$A \\sim B$$ ($$n(A) = n(B)$$)",
          "$$\\{a, b\\} \\sim \\{1, 2\\}$$"
         ]
+       ]
+      },
+      {
+       "id": "math9-u1-md-methods-t",
+       "type": "table",
+       "title": "Three ways to describe a set",
+       "page": 2,
+       "src": "notes",
+       "head": [
+        "Method",
+        "How it works",
+        "Example",
+        "Best for"
+       ],
+       "rows": [
+        [
+         "Complete listing (roster)",
+         "write every element inside braces",
+         "$\\{0, 1, 2, \\dots, 10\\}$ written out in full: $\\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10\\}$",
+         "small finite sets"
+        ],
+        [
+         "Partial listing (roster)",
+         "write the first few elements so the pattern is clear, then three dots",
+         "$\\{2, 4, 6, 8, \\dots\\}$, the integers $\\{\\dots, -2, -1, 0, 1, 2, \\dots\\}$",
+         "sets with a clear pattern (often infinite)"
+        ],
+        [
+         "Set-builder notation",
+         "give the rule the elements must obey: $\\{x : \\text{condition on } x\\}$, read \"the set of $x$ such that ...\"",
+         "$\\{x : x \\text{ is an odd integer and } 1 \\le x \\le 7\\}$",
+         "sets with no pattern, e.g. all real numbers"
+        ],
+        [
+         "Verbal description",
+         "say it in words",
+         "\"the set of the four seasons of the year\"",
+         "everyday sets"
+        ]
+       ],
+       "body": [
+        "Partial listing and complete listing are both called the **roster method**. The colon \":\" in set-builder notation can also be written as a bar \"|\"."
+       ]
+      },
+      {
+       "id": "math9-u1-md-ex-11a",
+       "type": "worked",
+       "title": "Worked example: the same set three ways",
+       "page": 3,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Describe $S$ = the set of odd integers from 1 to 7 by complete listing, and in set-builder notation.",
+       "steps": [
+        {
+         "text": "List the odd integers starting at 1 and stopping at 7: 1, 3, 5, 7."
+        },
+        {
+         "text": "Complete listing: $S = \\{1, 3, 5, 7\\}$."
+        },
+        {
+         "text": "Set-builder: say what every element has in common: $S = \\{x : x \\text{ is an odd integer and } 1 \\le x \\le 7\\}$."
+        }
+       ],
+       "answer": "$S = \\{1, 3, 5, 7\\} = \\{x : x \\text{ is odd}, 1 \\le x \\le 7\\}$"
+      },
+      {
+       "id": "math9-u1-md-ex-11b",
+       "type": "worked",
+       "title": "Worked example: from a pattern to set-builder notation",
+       "page": 3,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Write $\\{5, 7, 9, 11, \\dots\\}$ and $\\{9, 11, 13, \\dots, 51\\}$ in set-builder notation.",
+       "steps": [
+        {
+         "text": "$\\{5, 7, 9, 11, \\dots\\}$: odd numbers that never stop, starting at 5 → $\\{x : x \\text{ is an odd integer and } x \\ge 5\\}$."
+        },
+        {
+         "text": "$\\{9, 11, 13, \\dots, 51\\}$: odd numbers from 9 up to 51 → $\\{x : x \\text{ is an odd integer and } 9 \\le x \\le 51\\}$."
+        },
+        {
+         "text": "Check the ends: the first set has no last element (infinite); the second stops at 51 (finite, 22 elements)."
+        }
+       ],
+       "answer": "Two conditions: the **type** of number and the **range**"
+      },
+      {
+       "id": "math9-u1-md-finite-t",
+       "type": "text",
+       "title": "Finite, infinite and empty sets",
+       "page": 3,
+       "src": "notes",
+       "body": [
+        "- A set is **finite** if counting its elements comes to an end: the letters of the English alphabet (26 elements), $\\{1, 2, 3, \\dots, 1000\\}$.",
+        "- A set is **infinite** if counting never ends: the even numbers, $\\{3, 5, 7, 9, \\dots\\}$, the integers.",
+        "- The **empty set** has no elements at all. It is written $\\varnothing$ or $\\{\\}$. Examples: real numbers whose square is negative; natural numbers between 3 and 4.",
+        "**Careful:** $\\{0\\}$ is **not** empty — it has one element, 0. And $\\{\\varnothing\\}$ is not empty either — it has one element (the empty set)."
+       ]
+      },
+      {
+       "id": "math9-u1-md-numsets-t",
+       "type": "text",
+       "title": "Number sets you will meet",
+       "page": 8,
+       "src": "notes",
+       "body": [
+        "$\\mathbb{N}$ = natural numbers $\\{1, 2, 3, \\dots\\}$; $\\mathbb{Z}$ = integers $\\{\\dots, -2, -1, 0, 1, 2, \\dots\\}$; $\\mathbb{Q}$ = rational numbers (fractions $\\frac{p}{q}$ with $q \\ne 0$); $\\mathbb{R}$ = all real numbers (rationals plus irrationals like $\\sqrt{2}$ and $\\pi$).",
+        "Each set sits inside the next one: every natural number is an integer, every integer is rational, every rational number is real."
+       ]
+      },
+      {
+       "id": "math9-u1-md-numsets",
+       "type": "diagram",
+       "title": "N inside Z inside Q inside R",
+       "page": 8,
+       "src": "notes",
+       "diagram": "md_numsets",
+       "mode": "plain",
+       "body": [
+        "Read the picture from the inside out. $-3$ is in $\\mathbb{Z}$ but not in $\\mathbb{N}$; $\\frac{1}{2}$ is in $\\mathbb{Q}$ but not in $\\mathbb{Z}$; $\\sqrt{2}$ is in $\\mathbb{R}$ only."
+       ]
+      },
+      {
+       "id": "math9-u1-md-mn11",
+       "type": "mnemonic",
+       "title": "Roster lists, builder rules",
+       "page": 2,
+       "src": "notes",
+       "body": [
+        "**Roster = role call**: you call out every name (or the first few and \"...\").",
+        "**Builder = building rule**: you give the rule, and anything that obeys it is in."
        ]
       },
       {
@@ -301,13 +432,84 @@
       {
        "id": "math9-u1-c02",
        "type": "text",
-       "title": "1.2 Equal and Equivalent Sets",
-       "page": 5,
-       "src": "textbook p.5",
-       "enriched": true,
+       "title": "1.2 One-to-one correspondence",
+       "page": 4,
+       "src": "notes",
        "body": [
-        "Two sets A and B are said to be equivalent sets if there is a one-to-one correspondence between them (i.e. if they have the same number of elements)."
+        "Imagine a class with 40 chairs and 40 students, one student in each chair, nobody standing. Without counting, we know the numbers are the same, because each student is **paired** with exactly one chair and each chair with exactly one student.",
+        "This pairing is called a **one-to-one correspondence**. Two sets can be paired this way exactly when they have the **same number of elements**."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math9-u1-md-oneone",
+       "type": "diagram",
+       "title": "Pairing the elements",
+       "page": 5,
+       "src": "notes",
+       "diagram": "md_oneone",
+       "mode": "plain",
+       "body": [
+        "Left: $A = \\{1, 2, 3\\}$ and $B = \\{a, b, c\\}$ pair off perfectly. Right: $C = \\{p, q, r, t\\}$ has one element too many, so $t$ has no partner — no one-to-one correspondence."
        ]
+      },
+      {
+       "id": "math9-u1-md-eqv-t",
+       "type": "table",
+       "title": "Equal sets vs equivalent sets",
+       "page": 5,
+       "src": "notes",
+       "head": [
+        "",
+        "Equal sets $A = B$",
+        "Equivalent sets $A \\sim B$"
+       ],
+       "rows": [
+        [
+         "Meaning",
+         "exactly the **same elements**",
+         "the **same number** of elements"
+        ],
+        [
+         "How to test",
+         "every element of A is in B **and** every element of B is in A",
+         "count both, or pair them one-to-one: $n(A) = n(B)$"
+        ],
+        [
+         "Example",
+         "$\\{1, 3, 5, 7\\}$ and $\\{x : x \\text{ odd natural}, x < 8\\}$",
+         "$\\{1, 3, 5, 7\\}$ and $\\{2, 4, 6, 8\\}$"
+        ],
+        [
+         "Order / repeats",
+         "do not matter",
+         "do not matter (count distinct elements)"
+        ]
+       ],
+       "body": [
+        "Equal sets are **always** equivalent (same elements → same number). Equivalent sets are **not always** equal."
+       ]
+      },
+      {
+       "id": "math9-u1-md-ex-12a",
+       "type": "worked",
+       "title": "Worked example: Exercise 1.2 style",
+       "page": 5,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Are the sets equal, equivalent, or neither? (a) $A$ = whole numbers less than 8, $B$ = the distinct digits of the phone number 07251634. (b) $A = \\{1, 2, 3, 4, 5\\}$, $B = \\{0, 1, 2, 3, 4\\}$.",
+       "steps": [
+        {
+         "text": "(a) $A = \\{0, 1, 2, 3, 4, 5, 6, 7\\}$. The digits of 07251634 are 0, 7, 2, 5, 1, 6, 3, 4, so $B = \\{0, 1, 2, 3, 4, 5, 6, 7\\}$."
+        },
+        {
+         "text": "Same elements → $A = B$ (and so also equivalent)."
+        },
+        {
+         "text": "(b) $5 \\in A$ but $5 \\notin B$, so they are not equal. Both have 5 elements, so they are **equivalent** only."
+        }
+       ],
+       "answer": "(a) equal (b) equivalent but not equal"
       },
       {
        "id": "math9-u1-chk3",
@@ -417,13 +619,163 @@
       {
        "id": "math9-u1-c03",
        "type": "text",
-       "title": "1.3 Subsets and Proper Subsets",
-       "page": 7,
-       "src": "textbook p.7",
-       "enriched": true,
+       "title": "1.3 Subsets and proper subsets",
+       "page": 6,
+       "src": "notes",
        "body": [
-        "Every set is a subset of itself, and the empty set is a subset of every set."
+        "$A$ is a **subset** of $B$, written $A \\subseteq B$, if **every** element of $A$ is also an element of $B$.",
+        "$A$ is a **proper subset** of $B$, written $A \\subset B$, if $A \\subseteq B$ **and** $B$ has at least one element that is not in $A$ (so $A \\ne B$).",
+        "To show $A \\not\\subseteq B$ you need just **one** element of $A$ that is missing from $B$.",
+        "Two facts that are always true: **every set is a subset of itself** ($A \\subseteq A$), and **the empty set is a subset of every set** ($\\varnothing \\subseteq A$) — it has no element that could fail the test."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math9-u1-md-subset",
+       "type": "diagram",
+       "title": "Subset and equal sets",
+       "page": 7,
+       "src": "notes",
+       "diagram": "md_subset",
+       "mode": "plain",
+       "body": [
+        "Left: circle $A$ lies inside $B$ and $B$ has extra elements (like 7), so $A \\subset B$. Right: the two circles are the same circle: $A \\subseteq B$ and $B \\subseteq A$, which means $A = B$."
        ]
+      },
+      {
+       "id": "math9-u1-md-sub-t",
+       "type": "table",
+       "title": "Subset symbols compared",
+       "page": 7,
+       "src": "notes",
+       "head": [
+        "Symbol",
+        "Read as",
+        "True example",
+        "False example"
+       ],
+       "rows": [
+        [
+         "$\\in$",
+         "is an element of",
+         "$3 \\in \\{1, 3, 5\\}$",
+         "$\\{3\\} \\in \\{1, 3, 5\\}$"
+        ],
+        [
+         "$\\subseteq$",
+         "is a subset of",
+         "$\\{3\\} \\subseteq \\{1, 3, 5\\}$, $\\{1, 3, 5\\} \\subseteq \\{1, 3, 5\\}$",
+         "$\\{3, 4\\} \\subseteq \\{1, 3, 5\\}$"
+        ],
+        [
+         "$\\subset$",
+         "is a proper subset of",
+         "$\\{1, 5\\} \\subset \\{1, 3, 5\\}$",
+         "$\\{1, 3, 5\\} \\subset \\{1, 3, 5\\}$"
+        ]
+       ],
+       "body": [
+        "$\\in$ joins an **element** to a set; $\\subseteq$ and $\\subset$ join a **set** to a set. Braces on the left → use a subset symbol."
+       ]
+      },
+      {
+       "id": "math9-u1-md-count-t",
+       "type": "table",
+       "title": "How many subsets?",
+       "page": 8,
+       "src": "notes",
+       "head": [
+        "Set",
+        "All its subsets",
+        "Number of subsets",
+        "Proper subsets"
+       ],
+       "rows": [
+        [
+         "$\\varnothing$",
+         "$\\varnothing$",
+         "$1 = 2^0$",
+         "0"
+        ],
+        [
+         "$\\{1\\}$",
+         "$\\varnothing, \\{1\\}$",
+         "$2 = 2^1$",
+         "1"
+        ],
+        [
+         "$\\{1, 2\\}$",
+         "$\\varnothing, \\{1\\}, \\{2\\}, \\{1, 2\\}$",
+         "$4 = 2^2$",
+         "3"
+        ],
+        [
+         "$\\{1, 2, 3\\}$",
+         "$\\varnothing$, three with 1 element, three with 2 elements, $\\{1, 2, 3\\}$",
+         "$8 = 2^3$",
+         "7"
+        ],
+        [
+         "$n$ elements",
+         "each element is either in or out: $2 \\times 2 \\times \\dots \\times 2$",
+         "$2^n$",
+         "$2^n - 1$"
+        ]
+       ],
+       "body": [
+        "Why $2^n$? Building a subset, you decide \"in or out\" for each element — 2 choices, $n$ times. Proper subsets leave out only the set itself, so subtract 1."
+       ]
+      },
+      {
+       "id": "math9-u1-md-ex-13a",
+       "type": "worked",
+       "title": "Worked example: list the subsets",
+       "page": 8,
+       "src": "notes",
+       "mode": "show",
+       "problem": "List all subsets of $\\{a, b, c\\}$ and say how many are proper.",
+       "steps": [
+        {
+         "text": "Size 0: $\\varnothing$."
+        },
+        {
+         "text": "Size 1: $\\{a\\}, \\{b\\}, \\{c\\}$."
+        },
+        {
+         "text": "Size 2: $\\{a, b\\}, \\{a, c\\}, \\{b, c\\}$."
+        },
+        {
+         "text": "Size 3: $\\{a, b, c\\}$."
+        },
+        {
+         "text": "Total $1 + 3 + 3 + 1 = 8 = 2^3$. All except $\\{a, b, c\\}$ itself are proper: 7."
+        }
+       ],
+       "answer": "8 subsets, 7 proper"
+      },
+      {
+       "id": "math9-u1-md-ex-13b",
+       "type": "worked",
+       "title": "Worked example: Example 1.8",
+       "page": 7,
+       "src": "notes",
+       "mode": "show",
+       "problem": "$A = \\{1, 2, 3, 4\\}$, $B = \\{2, 3, 4\\}$, $C = \\{1, 2\\}$, $D = \\{2, 1, 4, 3\\}$. True or false: (a) $C \\subseteq A$ (b) $A \\subseteq B$ (c) $C \\subseteq B$ (d) $D \\subseteq A$ (e) $A \\subseteq D$.",
+       "steps": [
+        {
+         "text": "(a) 1 and 2 are both in $A$ → **true**."
+        },
+        {
+         "text": "(b) $1 \\in A$ but $1 \\notin B$ → **false**."
+        },
+        {
+         "text": "(c) $1 \\in C$ but $1 \\notin B$ → **false**."
+        },
+        {
+         "text": "(d) and (e): $D$ has the same elements as $A$ (order does not matter), so $D = A$; both are **true** (but neither is a proper subset)."
+        }
+       ],
+       "answer": "T, F, F, T, T"
       },
       {
        "id": "math9-u1-chk5",
@@ -566,15 +918,32 @@
      ],
      "cards": [
       {
-       "id": "math9-u1-c04",
-       "type": "remember",
-       "title": "Formula",
+       "id": "math9-u1-c06",
+       "type": "text",
+       "title": "1.4.1 Union: everything in A or B",
+       "page": 9,
+       "src": "notes",
+       "body": [
+        "The **union** $A \\cup B$ is the set of all elements that are in $A$, **or** in $B$, or in both.",
+        "$$A \\cup B = \\{x : x \\in A \\text{ or } x \\in B\\}$$",
+        "How to find it: write all of $A$, then add the elements of $B$ that are not already there. **Never write a common element twice.**",
+        "Example 1.9: $A = \\{0, 2, 3\\}$, $B = \\{2, 3, 7\\}$, $C = \\{0, 7, 8\\}$. $A \\cup B = \\{0, 2, 3, 7\\}$ and $A \\cup C = \\{0, 2, 3, 7, 8\\}$."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math9-u1-c07",
+       "type": "text",
+       "title": "1.4.2 Intersection: only what is in both",
        "page": 10,
        "src": "notes",
        "body": [
-        "n(A∪B)=n(A)+n(B)−n(A∩B)",
-        "Draw the Venn before you add."
-       ]
+        "The **intersection** $A \\cap B$ is the set of elements that are in $A$ **and** in $B$ at the same time.",
+        "$$A \\cap B = \\{x : x \\in A \\text{ and } x \\in B\\}$$",
+        "Two sets are **disjoint** if they have no element in common, that is $A \\cap B = \\varnothing$.",
+        "Example 1.10: $A = \\{0, 2, 3\\}$, $B = \\{2, 3, 7\\}$, $C = \\{7, 8\\}$. $A \\cap B = \\{2, 3\\}$, $B \\cap C = \\{7\\}$, $A \\cap C = \\varnothing$ ($A$ and $C$ are disjoint)."
+       ],
+       "enriched": true
       },
       {
        "id": "math9-u1-c05",
@@ -587,40 +956,167 @@
        ]
       },
       {
-       "id": "math9-u1-c06",
-       "type": "text",
-       "title": "1.4.1 Union of Sets",
-       "page": 9,
-       "src": "textbook p.9",
-       "enriched": true,
-       "body": [
-        "The union of two sets A and B is the set of all elements that belong to set A or set B or to both sets A and B."
-       ]
-      },
-      {
-       "id": "math9-u1-c07",
-       "type": "text",
-       "title": "1.4.2 Intersection of Sets",
-       "page": 10,
-       "src": "textbook p.10",
-       "enriched": true,
-       "body": [
-        "Two sets A and B are said to be disjointed, if they do not have any element in common."
-       ]
-      },
-      {
        "id": "math9-u1-c08",
        "type": "text",
-       "title": "1.4.3 Venn Diagrams",
+       "title": "1.4.3 Venn diagrams",
        "page": 10,
-       "src": "textbook pp.10–11",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "Sets and set problems are mostly represented by diagrams called Venn diagrams.",
-        "A **Venn diagram** is a simple closed curve to denote the set of elements within the curve.",
-        "In a survey, 150 high school learners were asked if they owned a bicycle, a calculator, or both.",
-        "The result showed that 63 owned a bicycle, 84 owned a calculator, and 27 owned both."
+        "A **Venn diagram** draws each set as a closed curve (usually a circle) inside a rectangle that stands for the **universal set** $U$. Elements are written in the region where they belong.",
+        "Two overlapping circles make **four regions**: in $A$ only, in both (the overlap), in $B$ only, and outside both.",
+        "Fill a Venn diagram **from the middle outwards**: the overlap first, then \"only A\", then \"only B\", then the outside."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math9-u1-md-unionint",
+       "type": "diagram",
+       "title": "Union vs intersection on a Venn diagram",
+       "page": 10,
+       "src": "notes",
+       "diagram": "md_unionint",
+       "mode": "plain",
+       "body": [
+        "The same two sets. Union shades **both whole circles** → $\\{0, 2, 3, 7\\}$. Intersection shades **only the overlap** → $\\{2, 3\\}$."
        ]
+      },
+      {
+       "id": "math9-u1-md-disjoint",
+       "type": "diagram",
+       "title": "Disjoint sets",
+       "page": 10,
+       "src": "notes",
+       "diagram": "md_disjoint",
+       "mode": "plain",
+       "body": [
+        "Disjoint sets are drawn as circles that do not touch: $A \\cap C = \\varnothing$, and then $n(A \\cup C) = n(A) + n(C) = 3 + 2 = 5$."
+       ]
+      },
+      {
+       "id": "math9-u1-md-uni-t",
+       "type": "table",
+       "title": "Union and intersection compared",
+       "page": 11,
+       "src": "notes",
+       "head": [
+        "",
+        "Union $A \\cup B$",
+        "Intersection $A \\cap B$"
+       ],
+       "rows": [
+        [
+         "Key word",
+         "OR (at least one)",
+         "AND (both)"
+        ],
+        [
+         "Venn region",
+         "both circles completely",
+         "overlap only"
+        ],
+        [
+         "Size",
+         "at least as big as each set",
+         "at most as small as each set"
+        ],
+        [
+         "If $B \\subseteq A$",
+         "$A \\cup B = A$",
+         "$A \\cap B = B$"
+        ],
+        [
+         "If disjoint",
+         "all elements of both",
+         "$\\varnothing$"
+        ]
+       ],
+       "body": [
+        "Both operations are **commutative**: $A \\cup B = B \\cup A$ and $A \\cap B = B \\cap A$."
+       ]
+      },
+      {
+       "id": "math9-u1-c04",
+       "type": "remember",
+       "title": "Counting rule for a union",
+       "page": 11,
+       "src": "notes",
+       "body": [
+        "$n(A)$ is the **cardinality** (number of elements) of a finite set $A$: $n(\\{1, 2, 3\\}) = 3$, $n(\\text{vowels}) = 5$.",
+        "$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$",
+        "Why subtract? The elements in the overlap are counted once in $n(A)$ and again in $n(B)$ — subtract them once so they are counted only once."
+       ]
+      },
+      {
+       "id": "math9-u1-md-survey",
+       "type": "steps",
+       "title": "Activity 1.11: filling a survey Venn diagram",
+       "page": 11,
+       "src": "notes",
+       "diagram": "md_survey",
+       "steps": [
+        {
+         "text": "150 learners: 63 own a bicycle, 84 a calculator, 27 both. Start in the middle: write **27** in the overlap.",
+         "show": "k1"
+        },
+        {
+         "text": "Bicycle only $= 63 - 27 = 36$.",
+         "show": "k2"
+        },
+        {
+         "text": "Calculator only $= 84 - 27 = 57$.",
+         "show": "k3"
+        },
+        {
+         "text": "Inside the circles: $36 + 27 + 57 = 120$. Neither $= 150 - 120 = 30$, written outside the circles.",
+         "show": "k4"
+        },
+        {
+         "text": "Answers: none 30; calculator only 57; bicycle only 36; bicycle or calculator $= 120$ — check with the formula: $63 + 84 - 27 = 120$ (correct).",
+         "show": "k5"
+        }
+       ]
+      },
+      {
+       "id": "math9-u1-md-ex-14a",
+       "type": "worked",
+       "title": "Worked example: Review question 6",
+       "page": 18,
+       "src": "notes",
+       "mode": "show",
+       "problem": "In a group of 200 learners each speaks Tigre or Tigrigna. 50 speak both and 110 speak Tigre. How many speak Tigrigna only?",
+       "steps": [
+        {
+         "text": "\"Each speaks Tigre or Tigrigna\" means nobody is outside: $n(T \\cup G) = 200$."
+        },
+        {
+         "text": "Tigre only $= 110 - 50 = 60$."
+        },
+        {
+         "text": "Tigrigna only $= 200 - 60 - 50 = 90$."
+        },
+        {
+         "text": "Check: Tigrigna altogether $= 90 + 50 = 140$, and $110 + 140 - 50 = 200$ (correct)."
+        }
+       ],
+       "answer": "90 learners"
+      },
+      {
+       "id": "math9-u1-md-ex-14b",
+       "type": "worked",
+       "title": "Worked example: mixing union and intersection",
+       "page": 12,
+       "src": "notes",
+       "mode": "show",
+       "problem": "$A = \\{2, 3, 5, 7\\}$, $B = \\{2, 5, 7\\}$, $C = \\{3, 5, 7, 11\\}$. Find $A \\cap (B \\cup C)$.",
+       "steps": [
+        {
+         "text": "Brackets first: $B \\cup C = \\{2, 3, 5, 7, 11\\}$."
+        },
+        {
+         "text": "Now keep the elements of $A$ that are also in that set: 2, 3, 5, 7 are all there."
+        }
+       ],
+       "answer": "$A \\cap (B \\cup C) = \\{2, 3, 5, 7\\}$"
       },
       {
        "id": "math9-u1-chk7",
@@ -806,26 +1302,178 @@
       {
        "id": "math9-u1-c09",
        "type": "text",
-       "title": "1.5.1 Complement of a Set",
-       "page": 13,
-       "src": "textbook p.13",
-       "enriched": true,
+       "title": "1.5.1 Universal set and complement",
+       "page": 12,
+       "src": "notes",
        "body": [
-        "**A universal set** is a set that contains all the elements being considered in a given discussion or problem.",
-        "The complement of set A is the set of all elements in the universal set that are not in A.",
-        "The complement of set A is denoted by A′."
+        "The **universal set** $U$ contains all the elements being talked about in a problem. It changes from problem to problem.",
+        "The **complement** of $A$, written $A'$, is everything in $U$ that is **not** in $A$:",
+        "$$A' = \\{x : x \\in U \\text{ and } x \\notin A\\}$$",
+        "Facts: $A \\cup A' = U$, $A \\cap A' = \\varnothing$, $(A')' = A$, $U' = \\varnothing$ and $\\varnothing' = U$. Also $n(A') = n(U) - n(A)$."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math9-u1-md-fig15",
+       "type": "diagram",
+       "title": "Reading elements from a Venn diagram (Fig. 1.5)",
+       "page": 12,
+       "src": "notes",
+       "diagram": "md_fig15",
+       "mode": "plain",
+       "body": [
+        "$A = \\{1, 3, 5, 7\\}$, $B = \\{1, 2, 4, 5\\}$, $U = \\{0, 1, \\dots, 7\\}$. Not in $A$: $A' = \\{0, 2, 4, 6\\}$. Not in $B$: $B' = \\{0, 3, 6, 7\\}$. The numbers 6 and 0 belong to $U$ but to neither set."
        ]
       },
       {
        "id": "math9-u1-c10",
        "type": "text",
-       "title": "1.5.2 Difference of Sets",
+       "title": "1.5.2 Difference of sets",
        "page": 13,
-       "src": "textbook p.13",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "The difference of a set A with respect to set B is the set of elements in B that are not in A."
+        "$A - B$ (\"A minus B\") is the set of elements that are in $A$ **but not** in $B$:",
+        "$$A - B = \\{x : x \\in A \\text{ and } x \\notin B\\}$$",
+        "In the same way $B - A$ is the elements of $B$ that are not in $A$. The textbook calls $B - A$ \"the difference of $A$ with respect to $B$\".",
+        "Example (Activity 1.13): $A = \\{2, -2, 5\\}$, $B = \\{2, -2, 0, -3\\}$. $A - B = \\{5\\}$ and $B - A = \\{0, -3\\}$. Usually $A - B \\ne B - A$.",
+        "Link with the complement: $A - B = A \\cap B'$ and $A' = U - A$."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math9-u1-md-ops4",
+       "type": "diagram",
+       "title": "Four regions to know",
+       "page": 13,
+       "src": "notes",
+       "diagram": "md_ops4",
+       "mode": "plain",
+       "body": [
+        "Shaded: the complement $A'$; the difference $A - B$ (the moon-shaped part of $A$ outside $B$); $B - A$; and $(A \\cup B)'$, the part outside both circles."
        ]
+      },
+      {
+       "id": "math9-u1-md-ops-t",
+       "type": "table",
+       "title": "All the set operations in one table",
+       "page": 14,
+       "src": "notes",
+       "head": [
+        "Operation",
+        "Symbol",
+        "Contains",
+        "Venn region"
+       ],
+       "rows": [
+        [
+         "Union",
+         "$A \\cup B$",
+         "in A or B (or both)",
+         "both circles"
+        ],
+        [
+         "Intersection",
+         "$A \\cap B$",
+         "in A and B",
+         "overlap"
+        ],
+        [
+         "Complement",
+         "$A'$",
+         "in U, not in A",
+         "outside circle A"
+        ],
+        [
+         "Difference",
+         "$A - B$",
+         "in A, not in B",
+         "A without the overlap"
+        ],
+        [
+         "Difference",
+         "$B - A$",
+         "in B, not in A",
+         "B without the overlap"
+        ]
+       ],
+       "body": [
+        "Complement needs $U$; difference does not. $A - B$ and $B - A$ are different regions."
+       ]
+      },
+      {
+       "id": "math9-u1-md-demorgan",
+       "type": "steps",
+       "title": "De Morgan's laws",
+       "page": 14,
+       "src": "notes",
+       "diagram": "md_demorgan",
+       "steps": [
+        {
+         "text": "Shade $A'$: everything outside circle $A$ (this includes the \"B only\" region).",
+         "show": "k1"
+        },
+        {
+         "text": "Shade $B'$ on a second copy: everything outside circle $B$.",
+         "show": "k2"
+        },
+        {
+         "text": "$A' \\cap B'$ is where **both** shadings meet: only the part outside both circles — exactly $(A \\cup B)'$. So $(A \\cup B)' = A' \\cap B'$. In the same way $(A \\cap B)' = A' \\cup B'$.",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math9-u1-md-dm-rm",
+       "type": "remember",
+       "title": "De Morgan's laws",
+       "page": 14,
+       "src": "notes",
+       "body": [
+        "$$(A \\cup B)' = A' \\cap B' \\qquad (A \\cap B)' = A' \\cup B'$$",
+        "Rule of thumb: when the dash moves inside the bracket, **flip the sign** ($\\cup \\leftrightarrow \\cap$)."
+       ]
+      },
+      {
+       "id": "math9-u1-md-ex-15a",
+       "type": "worked",
+       "title": "Worked example: Exercise 1.5 question 2",
+       "page": 14,
+       "src": "notes",
+       "mode": "show",
+       "problem": "$U = \\{4, 5, 6, 7, 8, a, e, i, o, u\\}$, $A = \\{5, 6, 7, a\\}$, $B = \\{4, 7, e, a\\}$. Find $(A \\cup B)'$ and $A' \\cap B'$.",
+       "steps": [
+        {
+         "text": "$A \\cup B = \\{4, 5, 6, 7, a, e\\}$, so $(A \\cup B)' = \\{8, i, o, u\\}$."
+        },
+        {
+         "text": "$A' = \\{4, 8, e, i, o, u\\}$ and $B' = \\{5, 6, 8, i, o, u\\}$."
+        },
+        {
+         "text": "Common to both: $A' \\cap B' = \\{8, i, o, u\\}$ — the same set, as De Morgan says."
+        }
+       ],
+       "answer": "$(A \\cup B)' = A' \\cap B' = \\{8, i, o, u\\}$"
+      },
+      {
+       "id": "math9-u1-md-ex-15b",
+       "type": "worked",
+       "title": "Worked example: differences",
+       "page": 14,
+       "src": "notes",
+       "mode": "show",
+       "problem": "$A = \\{1, 2, \\dots, 8\\}$, $B = \\{2, 3, \\dots, 12\\}$. Find $B - A$ and $A - B$. Are they equal?",
+       "steps": [
+        {
+         "text": "$B - A$: cross out of $B$ everything that is in $A$ (2 to 8): $\\{9, 10, 11, 12\\}$."
+        },
+        {
+         "text": "$A - B$: cross out of $A$ everything in $B$: only 1 is left, $\\{1\\}$."
+        },
+        {
+         "text": "They are different."
+        }
+       ],
+       "answer": "$B - A = \\{9, 10, 11, 12\\}$, $A - B = \\{1\\}$; not equal"
       },
       {
        "id": "math9-u1-chk9",
@@ -964,16 +1612,102 @@
       {
        "id": "math9-u1-c11",
        "type": "text",
-       "title": "1.6 Cartesian Product",
+       "title": "1.6 Ordered pairs",
        "page": 15,
-       "src": "textbook pp.15–18",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "In each square, write the name of the student occupying the desk, which the square represents.",
-        "For example if Saba is sitting in the 3rd column and 1st row, write S(3,1).",
-        "A pair of numbers in which x is the first and y is the second is called an ordered pair and is written as (x, y).",
-        "Since the order in which the numbers occur is considered as well as the numbers, it follows that (y, x) and (x, y) are different ordered pairs unless y = x.",
-        "In a group of 200 learners each one speaks Tigre or Tigrigna."
+        "In a classroom seating plan we can give each desk two numbers: its **column** and its **row**. The desk in column 4, row 3 is written $(4, 3)$ — column first, then row.",
+        "A pair written in a fixed order, $(x, y)$, is an **ordered pair**. $x$ is the first component and $y$ the second.",
+        "**Order matters:** $(4, 3)$ and $(3, 4)$ are different desks. Two ordered pairs are equal only when $(a, b) = (c, d)$ means $a = c$ **and** $b = d$.",
+        "Compare: the sets $\\{3, 4\\}$ and $\\{4, 3\\}$ are equal, but the ordered pairs $(3, 4)$ and $(4, 3)$ are not."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math9-u1-md-seating",
+       "type": "diagram",
+       "title": "Seating plan",
+       "page": 16,
+       "src": "notes",
+       "diagram": "md_seating",
+       "mode": "plain",
+       "body": [
+        "Saba sits in column 3, row 1: S$(3, 1)$. The shaded desk is $(4, 3)$, which is not the same desk as $(3, 4)$."
+       ]
+      },
+      {
+       "id": "math9-u1-md-cart-t",
+       "type": "text",
+       "title": "The Cartesian product A × B",
+       "page": 16,
+       "src": "notes",
+       "body": [
+        "The **Cartesian product** of $A$ and $B$ is the set of **all** ordered pairs whose first component comes from $A$ and second from $B$:",
+        "$$A \\times B = \\{(a, b) : a \\in A \\text{ and } b \\in B\\}$$",
+        "Method: take each element of $A$ in turn and pair it with **every** element of $B$.",
+        "Number of pairs: $n(A \\times B) = n(A) \\times n(B)$. If either set is empty, $A \\times B = \\varnothing$."
+       ]
+      },
+      {
+       "id": "math9-u1-md-ex-16a",
+       "type": "worked",
+       "title": "Worked example: Example 1.12",
+       "page": 17,
+       "src": "notes",
+       "mode": "show",
+       "problem": "If $A = \\{2, 4, 5\\}$ and $B = \\{1, 3, 6\\}$, find $A \\times B$.",
+       "diagram": "md_axb",
+       "steps": [
+        {
+         "text": "Pair 2 with every element of B: $(2, 1), (2, 3), (2, 6)$."
+        },
+        {
+         "text": "Pair 4: $(4, 1), (4, 3), (4, 6)$."
+        },
+        {
+         "text": "Pair 5: $(5, 1), (5, 3), (5, 6)$."
+        },
+        {
+         "text": "Count: $3 \\times 3 = 9$ pairs (correct)."
+        }
+       ],
+       "answer": "$A \\times B = \\{(2,1), (2,3), (2,6), (4,1), (4,3), (4,6), (5,1), (5,3), (5,6)\\}$"
+      },
+      {
+       "id": "math9-u1-md-cart-tb",
+       "type": "table",
+       "title": "A × B is not B × A",
+       "page": 17,
+       "src": "notes",
+       "head": [
+        "",
+        "$A \\times B$",
+        "$B \\times A$"
+       ],
+       "rows": [
+        [
+         "With $C = \\{1, 2\\}$, $D = \\{0, 1\\}$",
+         "$C \\times D = \\{(1,0), (1,1), (2,0), (2,1)\\}$",
+         "$D \\times C = \\{(0,1), (0,2), (1,1), (1,2)\\}$"
+        ],
+        [
+         "First components from",
+         "A",
+         "B"
+        ],
+        [
+         "Number of pairs",
+         "$n(A) \\cdot n(B)$",
+         "$n(B) \\cdot n(A)$ — the same number"
+        ],
+        [
+         "Equal sets?",
+         "only if $A = B$ (or one set is empty)",
+         ""
+        ]
+       ],
+       "body": [
+        "Same **number** of pairs, but usually **different** pairs: $(2, 0) \\in C \\times D$ but $(2, 0) \\notin D \\times C$."
        ]
       },
       {
@@ -1111,13 +1845,118 @@
      ]
     }
    ],
-   "glossary": [],
+   "glossary": [
+    {
+     "term": "Set",
+     "meaning": "A well-defined collection of objects.",
+     "page": 1,
+     "src": "notes"
+    },
+    {
+     "term": "Element",
+     "meaning": "An object that belongs to a set; written $a \\in A$.",
+     "page": 1,
+     "src": "notes"
+    },
+    {
+     "term": "Roster method",
+     "meaning": "Describing a set by listing its elements (completely or partially).",
+     "page": 2,
+     "src": "notes"
+    },
+    {
+     "term": "Set-builder notation",
+     "meaning": "Describing a set by a rule: $\\{x : \\text{condition}\\}$.",
+     "page": 3,
+     "src": "notes"
+    },
+    {
+     "term": "Empty set",
+     "meaning": "The set with no elements, $\\varnothing$.",
+     "page": 3,
+     "src": "notes"
+    },
+    {
+     "term": "Equivalent sets",
+     "meaning": "Sets with the same number of elements (a one-to-one correspondence exists).",
+     "page": 5,
+     "src": "notes"
+    },
+    {
+     "term": "Equal sets",
+     "meaning": "Sets with exactly the same elements.",
+     "page": 5,
+     "src": "notes"
+    },
+    {
+     "term": "Proper subset",
+     "meaning": "$A \\subset B$: every element of A is in B and B has an extra element.",
+     "page": 7,
+     "src": "notes"
+    },
+    {
+     "term": "Disjoint sets",
+     "meaning": "Sets with no common element.",
+     "page": 10,
+     "src": "notes"
+    },
+    {
+     "term": "Cardinality",
+     "meaning": "The number of elements of a finite set, $n(A)$.",
+     "page": 11,
+     "src": "notes"
+    },
+    {
+     "term": "Universal set",
+     "meaning": "The set of all elements under discussion, $U$.",
+     "page": 12,
+     "src": "notes"
+    },
+    {
+     "term": "Complement",
+     "meaning": "$A'$: the elements of U that are not in A.",
+     "page": 12,
+     "src": "notes"
+    },
+    {
+     "term": "Ordered pair",
+     "meaning": "$(x, y)$: two components in a fixed order.",
+     "page": 16,
+     "src": "notes"
+    },
+    {
+     "term": "Cartesian product",
+     "meaning": "$A \\times B$: all ordered pairs $(a, b)$ with $a \\in A$, $b \\in B$.",
+     "page": 16,
+     "src": "notes"
+    }
+   ],
    "tips": [
     {
      "text": "Formula: n(A∪B)=n(A)+n(B)−n(A∩B) Draw the Venn before you add.",
      "page": 10,
      "src": "notes",
      "card": "math9-u1-c04"
+    },
+    {
+     "text": "Union = OR (both circles); intersection = AND (overlap); difference A − B = A with the overlap cut away.",
+     "page": 13,
+     "src": "notes"
+    },
+    {
+     "text": "Venn problems: fill the overlap first, then the \"only\" parts, then the outside.",
+     "page": 11,
+     "src": "notes"
+    },
+    {
+     "text": "A set with n elements has 2ⁿ subsets and 2ⁿ − 1 proper subsets.",
+     "page": 8,
+     "src": "notes"
+    },
+    {
+     "text": "De Morgan: (A ∪ B)′ = A′ ∩ B′ and (A ∩ B)′ = A′ ∪ B′.",
+     "page": 14,
+     "src": "notes"
     }
    ],
    "games": [
@@ -1815,6 +2654,904 @@
        }
       ],
       "id": "math9-u1-q32"
+     },
+     {
+      "id": "math9-u1-md-s11-q01",
+      "type": "short",
+      "q": "Describe $C$, the set of positive multiples of 4, by the roster method and in set-builder notation.",
+      "answer": "$\\{4, 8, 12, \\dots\\}$; $\\{x : x = 4k, k \\in \\mathbb{N}\\}$",
+      "why": [
+       "Step 1: the first positive multiples are 4, 8, 12, 16, ...",
+       "Step 2: infinite with a clear pattern → partial listing $\\{4, 8, 12, 16, \\dots\\}$.",
+       "Step 3: rule: $\\{x : x \\text{ is a positive multiple of } 4\\}$, or $\\{x : x = 4k, k \\in \\mathbb{N}\\}$."
+      ],
+      "tip": "Infinite set → three dots at the end; never try to list it all.",
+      "similar": [
+       {
+        "q": "Describe the set of even integers by partial listing.",
+        "a": "$\\{\\dots, -4, -2, 0, 2, 4, \\dots\\}$."
+       }
+      ],
+      "page": 4,
+      "src": "notes",
+      "label": "1.1 Practice — describing sets"
+     },
+     {
+      "id": "math9-u1-md-s11-q02",
+      "type": "short",
+      "q": "List the set $G$ of letters in the word \"mathematics\". How many elements does it have?",
+      "answer": "$\\{m, a, t, h, e, i, c, s\\}$; 8",
+      "why": [
+       "Step 1: go through the word: m, a, t, h, e, m, a, t, i, c, s.",
+       "Step 2: write repeated letters once: m, a, t, h, e, i, c, s.",
+       "Step 3: count: 8."
+      ],
+      "tip": "A set never contains the same element twice.",
+      "similar": [
+       {
+        "q": "How many elements has the set of letters of \"Eritrea\"?",
+        "a": "5: $\\{e, r, i, t, a\\}$."
+       }
+      ],
+      "page": 4,
+      "src": "notes",
+      "label": "1.1 Practice — describing sets"
+     },
+     {
+      "id": "math9-u1-md-s11-q03",
+      "type": "mcq",
+      "q": "Which set is infinite?",
+      "options": {
+       "A": "$\\{1, 2, 3, \\dots, 1000\\}$",
+       "B": "letters of the English alphabet",
+       "C": "$\\{3, 5, 7, 9, \\dots\\}$",
+       "D": "positive multiples of 3 less than 30"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: A stops at 1000 and B at 26 letters — finite.",
+       "Step 2: D is $\\{3, 6, \\dots, 27\\}$, 9 elements — finite.",
+       "Step 3: C has three dots at the end with no last number — infinite."
+      ],
+      "tip": "Dots in the middle (… 1000) still mean finite; dots at the end mean infinite.",
+      "similar": [
+       {
+        "q": "Is $\\{x : x \\text{ is a student in Eritrea}\\}$ finite?",
+        "a": "Yes — very large, but the counting ends."
+       }
+      ],
+      "page": 4,
+      "src": "notes",
+      "label": "1.1 Practice — describing sets"
+     },
+     {
+      "id": "math9-u1-md-s11-q04",
+      "type": "tf",
+      "q": "$0 \\in \\{x : x \\text{ is a multiple of } 5\\}$",
+      "answer": true,
+      "why": [
+       "Step 1: a multiple of 5 is $5k$ for an integer $k$.",
+       "Step 2: $0 = 5 \\times 0$, so 0 is a multiple of 5 → true."
+      ],
+      "tip": "Zero is a multiple of every integer.",
+      "similar": [
+       {
+        "q": "True or false: $10 \\notin \\{1, 2, 3, \\dots, 16\\}$.",
+        "a": "False — 10 is in the list."
+       }
+      ],
+      "page": 4,
+      "src": "notes",
+      "label": "1.1 Practice — describing sets"
+     },
+     {
+      "id": "math9-u1-md-s11-q05",
+      "type": "short",
+      "q": "List the elements of $\\{x : x \\text{ is an odd natural number between } 12 \\text{ and } 20\\}$.",
+      "answer": "$\\{13, 15, 17, 19\\}$",
+      "why": [
+       "Step 1: \"between 12 and 20\" does not include 12 and 20.",
+       "Step 2: odd numbers there: 13, 15, 17, 19."
+      ],
+      "tip": "\"Between\" usually excludes the end numbers; \"from ... to\" includes them.",
+      "similar": [
+       {
+        "q": "List $\\{x : x \\text{ is an integer}, -3 \\le x < 2\\}$.",
+        "a": "$\\{-3, -2, -1, 0, 1\\}$."
+       }
+      ],
+      "page": 18,
+      "src": "notes",
+      "label": "1.1 Practice — describing sets"
+     },
+     {
+      "id": "math9-u1-md-s11-q06",
+      "type": "short",
+      "q": "Use set-builder notation: $x$ is a real number greater than $-1$ and less than or equal to 10.",
+      "answer": "$\\{x : x \\in \\mathbb{R}, -1 < x \\le 10\\}$",
+      "why": [
+       "Step 1: \"greater than $-1$\" → $-1 < x$ (strict).",
+       "Step 2: \"less than or equal to 10\" → $x \\le 10$.",
+       "Step 3: join them: $\\{x : x \\in \\mathbb{R}, -1 < x \\le 10\\}$."
+      ],
+      "tip": "\"or equal to\" → use $\\le$ or $\\ge$; otherwise use $<$ or $>$.",
+      "similar": [
+       {
+        "q": "Write: $x$ is real and $x < 0$ or $x > 5$.",
+        "a": "$\\{x : x \\in \\mathbb{R}, x < 0 \\text{ or } x > 5\\}$."
+       }
+      ],
+      "page": 18,
+      "src": "notes",
+      "label": "1.1 Practice — describing sets"
+     },
+     {
+      "id": "math9-u1-md-s11-q07",
+      "type": "mcq",
+      "q": "Which of these is a well-defined set?",
+      "options": {
+       "A": "the beautiful cities of Eritrea",
+       "B": "the good footballers in Asmara",
+       "C": "the Zobas (regions) of Eritrea",
+       "D": "the difficult subjects in Grade 9"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: \"beautiful\", \"good\" and \"difficult\" are opinions — people disagree.",
+       "Step 2: the Zobas form a fixed official list → well-defined."
+      ],
+      "tip": "Look for opinion words; they make a collection not well-defined.",
+      "similar": [
+       {
+        "q": "Is \"the prime numbers less than 20\" a set?",
+        "a": "Yes — exactly 2, 3, 5, 7, 11, 13, 17, 19."
+       }
+      ],
+      "page": 1,
+      "src": "notes",
+      "label": "1.1 Practice — describing sets"
+     },
+     {
+      "id": "math9-u1-md-s11-q08",
+      "type": "tf",
+      "q": "$\\{0\\}$ is the empty set.",
+      "answer": false,
+      "why": [
+       "Step 1: the empty set has no elements.",
+       "Step 2: $\\{0\\}$ has one element, the number 0 → not empty."
+      ],
+      "tip": "Look inside the braces: anything there means not empty.",
+      "similar": [
+       {
+        "q": "Is the set of natural numbers between 5 and 6 empty?",
+        "a": "Yes — no natural number lies strictly between 5 and 6."
+       }
+      ],
+      "page": 3,
+      "src": "notes",
+      "label": "1.1 Practice — describing sets"
+     },
+     {
+      "id": "math9-u1-md-s12-q01",
+      "type": "mcq",
+      "q": "$A = \\{1, 2, 3, 4\\}$ and $B = \\{1, 2, 3, 4, 5\\}$. The sets are",
+      "options": {
+       "A": "equal",
+       "B": "equivalent but not equal",
+       "C": "both equal and equivalent",
+       "D": "neither equal nor equivalent"
+      },
+      "answer": "D",
+      "why": [
+       "Step 1: $5 \\in B$, $5 \\notin A$ → not equal.",
+       "Step 2: $n(A) = 4$, $n(B) = 5$ → not equivalent."
+      ],
+      "tip": "Count first: different counts rule out both.",
+      "similar": [
+       {
+        "q": "$A = \\{1, 2, 3, 4\\}$, $B = \\{4, 3, 2, 1\\}$?",
+        "a": "Equal (and so also equivalent)."
+       }
+      ],
+      "page": 5,
+      "src": "notes",
+      "label": "1.2 Practice — equal and equivalent sets"
+     },
+     {
+      "id": "math9-u1-md-s12-q02",
+      "type": "short",
+      "q": "A = the set of Zobas in Eritrea, B = the set of Zoba administrators. Equal or equivalent?",
+      "answer": "Equivalent, not equal",
+      "why": [
+       "Step 1: Eritrea has 6 Zobas and each has one administrator, so the sets pair one-to-one.",
+       "Step 2: but a Zoba is a region and an administrator is a person — the elements are different."
+      ],
+      "tip": "Pairing works → equivalent; same objects → equal.",
+      "similar": [
+       {
+        "q": "Students of a class and their desks (one each)?",
+        "a": "Equivalent, not equal."
+       }
+      ],
+      "page": 5,
+      "src": "notes",
+      "label": "1.2 Practice — equal and equivalent sets"
+     },
+     {
+      "id": "math9-u1-md-s12-q03",
+      "type": "tf",
+      "q": "Every pair of equivalent sets is also equal.",
+      "answer": false,
+      "why": [
+       "Step 1: $\\{1, 2\\}$ and $\\{a, b\\}$ both have 2 elements → equivalent.",
+       "Step 2: they share no element → not equal."
+      ],
+      "tip": "One counter-example is enough to show \"always\" is false.",
+      "similar": [
+       {
+        "q": "True or false: equal sets are always equivalent.",
+        "a": "True."
+       }
+      ],
+      "page": 5,
+      "src": "notes",
+      "label": "1.2 Practice — equal and equivalent sets"
+     },
+     {
+      "id": "math9-u1-md-s12-q04",
+      "type": "short",
+      "q": "Are $C = \\{w, x, y, z\\}$ and $D = \\{u, x, y, z\\}$ equal, equivalent, or both?",
+      "answer": "Equivalent only",
+      "why": [
+       "Step 1: $w \\in C$, $w \\notin D$ → not equal.",
+       "Step 2: both have 4 elements → equivalent."
+      ],
+      "tip": "One different element is enough to break equality.",
+      "similar": [
+       {
+        "q": "$\\{a, b, c\\}$ and $\\{b, a, c\\}$?",
+        "a": "Equal (same elements, order does not matter)."
+       }
+      ],
+      "page": 4,
+      "src": "notes",
+      "label": "1.2 Practice — equal and equivalent sets"
+     },
+     {
+      "id": "math9-u1-md-s12-q05",
+      "type": "fill",
+      "q": "Two sets are equivalent exactly when they can be put in a ____ correspondence.",
+      "choices": [
+       "one-to-one",
+       "many-to-one",
+       "two-to-one",
+       "reverse"
+      ],
+      "answer": "one-to-one",
+      "why": [
+       "Step 1: equivalent means the same number of elements.",
+       "Step 2: that is exactly when each element pairs with exactly one partner: one-to-one."
+      ],
+      "tip": "Think: students and chairs, one each.",
+      "similar": [
+       {
+        "q": "If $n(A) = 7$ and $A \\sim B$, what is $n(B)$?",
+        "a": "7."
+       }
+      ],
+      "page": 5,
+      "src": "notes",
+      "label": "1.2 Practice — equal and equivalent sets"
+     },
+     {
+      "id": "math9-u1-md-s12-q06",
+      "type": "short",
+      "q": "$A = \\{x : x \\text{ is a letter of \"LEVEL\"}\\}$, $B = \\{E, V, L\\}$. Compare A and B.",
+      "answer": "Equal (so also equivalent)",
+      "why": [
+       "Step 1: letters of LEVEL without repeats: L, E, V.",
+       "Step 2: $A = \\{L, E, V\\} = B$."
+      ],
+      "tip": "Remove repeats before comparing.",
+      "similar": [
+       {
+        "q": "Letters of \"NOON\" and $\\{O, N\\}$?",
+        "a": "Equal."
+       }
+      ],
+      "page": 5,
+      "src": "notes",
+      "label": "1.2 Practice — equal and equivalent sets"
+     },
+     {
+      "id": "math9-u1-md-s13-q01",
+      "type": "short",
+      "q": "How many subsets and how many proper subsets does a set with 10 elements have?",
+      "answer": "1024 subsets; 1023 proper",
+      "why": [
+       "Step 1: subsets $= 2^{10} = 1024$.",
+       "Step 2: proper subsets $= 1024 - 1 = 1023$ (leave out the set itself)."
+      ],
+      "tip": "Proper subsets = all subsets minus one.",
+      "similar": [
+       {
+        "q": "A set has 6 elements. How many subsets?",
+        "a": "$2^6 = 64$."
+       }
+      ],
+      "page": 8,
+      "src": "notes",
+      "label": "1.3 Practice — subsets"
+     },
+     {
+      "id": "math9-u1-md-s13-q02",
+      "type": "mcq",
+      "q": "A set has 32 subsets. How many elements does it have?",
+      "options": {
+       "A": "4",
+       "B": "5",
+       "C": "6",
+       "D": "16"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: $2^n = 32$.",
+       "Step 2: $2^5 = 32$, so $n = 5$."
+      ],
+      "tip": "Count the doublings: 2, 4, 8, 16, 32 → 5.",
+      "similar": [
+       {
+        "q": "A set has 15 proper subsets. How many elements?",
+        "a": "4 (16 subsets)."
+       }
+      ],
+      "page": 8,
+      "src": "notes",
+      "label": "1.3 Practice — subsets"
+     },
+     {
+      "id": "math9-u1-md-s13-q03",
+      "type": "tf",
+      "q": "$\\{x : x \\text{ is a prime number}\\} \\subseteq \\{x : x \\text{ is an odd integer}\\}$",
+      "answer": false,
+      "why": [
+       "Step 1: look for a prime that is not odd.",
+       "Step 2: 2 is prime and even → it is in the first set but not in the second."
+      ],
+      "tip": "One counter-example disproves a subset statement.",
+      "similar": [
+       {
+        "q": "Primes $\\subseteq$ rational numbers?",
+        "a": "True — every integer is rational."
+       }
+      ],
+      "page": 8,
+      "src": "notes",
+      "label": "1.3 Practice — subsets"
+     },
+     {
+      "id": "math9-u1-md-s13-q04",
+      "type": "short",
+      "q": "True or false: (a) $\\mathbb{N} \\subseteq \\mathbb{Z}$ (b) $\\mathbb{Q} \\subseteq \\mathbb{Z}$ (c) $\\mathbb{Z} \\subseteq \\mathbb{Q}$ (d) $\\mathbb{Q} \\subseteq \\mathbb{R}$",
+      "answer": "T, F, T, T",
+      "why": [
+       "Step 1 (a): every natural number is an integer → true.",
+       "Step 2 (b): $\\frac{1}{2}$ is rational but not an integer → false.",
+       "Step 3 (c): $n = \\frac{n}{1}$ → true.",
+       "Step 4 (d): every rational is real → true."
+      ],
+      "tip": "Use the nested picture N inside Z inside Q inside R.",
+      "similar": [
+       {
+        "q": "Is $\\mathbb{R} \\subseteq \\mathbb{Q}$?",
+        "a": "No — $\\sqrt{2}$ is real but not rational."
+       }
+      ],
+      "page": 8,
+      "src": "notes",
+      "label": "1.3 Practice — subsets"
+     },
+     {
+      "id": "math9-u1-md-s13-q05",
+      "type": "mcq",
+      "q": "Which statement is true?",
+      "options": {
+       "A": "$3 \\subseteq \\{1, 2, 3\\}$",
+       "B": "$\\{3\\} \\in \\{1, 2, 3\\}$",
+       "C": "$\\{3\\} \\subseteq \\{1, 2, 3\\}$",
+       "D": "$\\varnothing \\in \\{1, 2, 3\\}$"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: 3 is an element, so it goes with $\\in$, not $\\subseteq$ → A false.",
+       "Step 2: $\\{3\\}$ is a set, so it goes with $\\subseteq$ → B false, C true.",
+       "Step 3: $\\varnothing$ is a subset of every set, but it is not listed as an element → D false."
+      ],
+      "tip": "Element → $\\in$. Set (braces) → $\\subseteq$.",
+      "similar": [
+       {
+        "q": "True or false: $\\varnothing \\subseteq \\varnothing$.",
+        "a": "True — every set is a subset of itself."
+       }
+      ],
+      "page": 17,
+      "src": "notes",
+      "label": "1.3 Practice — subsets"
+     },
+     {
+      "id": "math9-u1-md-s13-q06",
+      "type": "short",
+      "q": "List all subsets of $\\{1, 2, 3, 4\\}$ that have exactly 2 elements.",
+      "answer": "6 subsets",
+      "why": [
+       "Step 1: pair 1 with each later number: $\\{1,2\\}, \\{1,3\\}, \\{1,4\\}$.",
+       "Step 2: pair 2 with later numbers: $\\{2,3\\}, \\{2,4\\}$.",
+       "Step 3: then $\\{3,4\\}$. Total 6."
+      ],
+      "tip": "Work in order so you never repeat or miss one.",
+      "similar": [
+       {
+        "q": "How many 3-element subsets has $\\{1, 2, 3, 4\\}$?",
+        "a": "4."
+       }
+      ],
+      "page": 8,
+      "src": "notes",
+      "label": "1.3 Practice — subsets"
+     },
+     {
+      "id": "math9-u1-md-s13-q07",
+      "type": "tf",
+      "q": "If $A \\subseteq B$ and $B \\subseteq A$, then $A = B$.",
+      "answer": true,
+      "why": [
+       "Step 1: every element of A is in B.",
+       "Step 2: every element of B is in A.",
+       "Step 3: so they have exactly the same elements → equal."
+      ],
+      "tip": "This is how we prove two sets are equal.",
+      "similar": [
+       {
+        "q": "If $A \\subset B$, can $B \\subseteq A$?",
+        "a": "No — B has an element not in A."
+       }
+      ],
+      "page": 8,
+      "src": "notes",
+      "label": "1.3 Practice — subsets"
+     },
+     {
+      "id": "math9-u1-md-s14-q01",
+      "type": "short",
+      "q": "$A = \\{0, 1, 2\\}$, $B = \\{3, 4, 5, 6\\}$, $D = \\{2, 4, 6\\}$, $E = \\{1, 3\\}$. Find $A \\cup B$, $A \\cap D$, $B \\cap E$ and $D \\cap E$.",
+      "answer": "$\\{0,\\dots,6\\}$; $\\{2\\}$; $\\{3\\}$; $\\varnothing$",
+      "why": [
+       "Step 1: $A \\cup B = \\{0, 1, 2, 3, 4, 5, 6\\}$.",
+       "Step 2: common to A and D: 2 → $\\{2\\}$.",
+       "Step 3: common to B and E: 3 → $\\{3\\}$.",
+       "Step 4: D is even, E is odd → nothing common, $\\varnothing$ (disjoint)."
+      ],
+      "tip": "For ∩ go through the smaller set and tick what is in the other.",
+      "similar": [
+       {
+        "q": "Find $A \\cap B$.",
+        "a": "$\\varnothing$ — A and B are disjoint."
+       }
+      ],
+      "page": 12,
+      "src": "notes",
+      "label": "1.4 Practice — union, intersection, Venn diagrams"
+     },
+     {
+      "id": "math9-u1-md-s14-q02",
+      "type": "short",
+      "q": "$n(A) = 12$, $n(B) = 9$ and $n(A \\cap B) = 4$. Find $n(A \\cup B)$.",
+      "answer": "17",
+      "why": [
+       "Step 1: $n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$.",
+       "Step 2: $12 + 9 - 4 = 17$."
+      ],
+      "tip": "Add, then subtract the overlap once.",
+      "similar": [
+       {
+        "q": "$n(A \\cup B) = 30$, $n(A) = 18$, $n(B) = 20$. Find $n(A \\cap B)$.",
+        "a": "8."
+       }
+      ],
+      "page": 11,
+      "src": "notes",
+      "label": "1.4 Practice — union, intersection, Venn diagrams"
+     },
+     {
+      "id": "math9-u1-md-s14-q03",
+      "type": "short",
+      "q": "In a class of 40, 25 play football, 18 play volleyball and 7 play neither. How many play both?",
+      "answer": "10",
+      "why": [
+       "Step 1: players of at least one game $= 40 - 7 = 33$.",
+       "Step 2: $33 = 25 + 18 - x$.",
+       "Step 3: $x = 43 - 33 = 10$.",
+       "Step 4: check the Venn: football only 15, both 10, volleyball only 8, neither 7; $15 + 10 + 8 + 7 = 40$ (correct)."
+      ],
+      "tip": "Remove \"neither\" first to get $n(A \\cup B)$.",
+      "similar": [
+       {
+        "q": "50 learners: 30 like maths, 26 like physics, 4 like neither. Both?",
+        "a": "10."
+       }
+      ],
+      "page": 11,
+      "src": "notes",
+      "label": "1.4 Practice — union, intersection, Venn diagrams"
+     },
+     {
+      "id": "math9-u1-md-s14-q04",
+      "type": "mcq",
+      "q": "If $B \\subseteq A$, then $A \\cup B$ equals",
+      "options": {
+       "A": "$A$",
+       "B": "$B$",
+       "C": "$\\varnothing$",
+       "D": "$A \\cap B$"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: B is inside A, so adding B to A adds nothing new.",
+       "Step 2: $A \\cup B = A$ (and $A \\cap B = B$)."
+      ],
+      "tip": "Draw B as a small circle inside A.",
+      "similar": [
+       {
+        "q": "If $B \\subseteq A$, what is $A \\cap B$?",
+        "a": "$B$."
+       }
+      ],
+      "page": 12,
+      "src": "notes",
+      "label": "1.4 Practice — union, intersection, Venn diagrams"
+     },
+     {
+      "id": "math9-u1-md-s14-q05",
+      "type": "short",
+      "q": "$A = \\{2, 0, 5\\}$, $B = \\{4, 5, 6\\}$, $C = \\{2, 4, 6\\}$. Find $A \\cup B$, $A \\cap C$ and $B \\cap C$.",
+      "answer": "$\\{0, 2, 4, 5, 6\\}$; $\\{2\\}$; $\\{4, 6\\}$",
+      "why": [
+       "Step 1: join A and B, 5 only once: $\\{0, 2, 4, 5, 6\\}$.",
+       "Step 2: A and C share 2.",
+       "Step 3: B and C share 4 and 6."
+      ],
+      "tip": "Write answers in increasing order to check nothing is missing.",
+      "similar": [
+       {
+        "q": "Find $C \\cup A$.",
+        "a": "$\\{0, 2, 4, 5, 6\\}$."
+       }
+      ],
+      "page": 18,
+      "src": "notes",
+      "label": "1.4 Practice — union, intersection, Venn diagrams"
+     },
+     {
+      "id": "math9-u1-md-s14-q06",
+      "type": "tf",
+      "q": "If $A \\cap B = \\varnothing$ then $n(A \\cup B) = n(A) + n(B)$.",
+      "answer": true,
+      "why": [
+       "Step 1: $n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$.",
+       "Step 2: $n(\\varnothing) = 0$, so nothing is subtracted."
+      ],
+      "tip": "Disjoint sets: just add.",
+      "similar": [
+       {
+        "q": "Disjoint, $n(A) = 4$, $n(A \\cup B) = 9$. Find $n(B)$.",
+        "a": "5."
+       }
+      ],
+      "page": 10,
+      "src": "notes",
+      "label": "1.4 Practice — union, intersection, Venn diagrams"
+     },
+     {
+      "id": "math9-u1-md-s14-q07",
+      "type": "short",
+      "q": "$A$ = counting numbers less than 9, $B$ = primes less than 15. List $A \\cap B$.",
+      "answer": "$\\{2, 3, 5, 7\\}$",
+      "why": [
+       "Step 1: $A = \\{1, \\dots, 8\\}$; $B = \\{2, 3, 5, 7, 11, 13\\}$.",
+       "Step 2: common: 2, 3, 5, 7."
+      ],
+      "tip": "Remember 1 is not prime.",
+      "similar": [
+       {
+        "q": "Find $A \\cup B$.",
+        "a": "$\\{1, 2, \\dots, 8, 11, 13\\}$."
+       }
+      ],
+      "page": 11,
+      "src": "notes",
+      "label": "1.4 Practice — union, intersection, Venn diagrams"
+     },
+     {
+      "id": "math9-u1-md-s15-q01",
+      "type": "short",
+      "q": "$U = \\{1, \\dots, 7\\}$, $A = \\{1, 3, 5, 7\\}$, $B = \\{2, 4, 6\\}$, $C = \\{3, 6\\}$. Find $A'$, $B'$ and $C'$.",
+      "answer": "$A' = \\{2,4,6\\}$, $B' = \\{1,3,5,7\\}$, $C' = \\{1,2,4,5,7\\}$",
+      "why": [
+       "Step 1: cross the elements of A out of U: 2, 4, 6 remain.",
+       "Step 2: for B: 1, 3, 5, 7 remain.",
+       "Step 3: for C: 1, 2, 4, 5, 7 remain."
+      ],
+      "tip": "Complement = U with the set crossed out.",
+      "similar": [
+       {
+        "q": "Here, notice $A' = B$. What is $B'$?",
+        "a": "$A$."
+       }
+      ],
+      "page": 14,
+      "src": "notes",
+      "label": "1.5 Practice — complement and difference"
+     },
+     {
+      "id": "math9-u1-md-s15-q02",
+      "type": "short",
+      "q": "Same sets. Find $A - B$, $A - C$, $B - C$, $B - A$ and $C - A$.",
+      "answer": "$A$; $\\{1,5,7\\}$; $\\{2,4\\}$; $B$; $\\{6\\}$",
+      "why": [
+       "Step 1: A and B are disjoint, so $A - B = A$ and $B - A = B$.",
+       "Step 2: $A - C$: remove 3 → $\\{1, 5, 7\\}$.",
+       "Step 3: $B - C$: remove 6 → $\\{2, 4\\}$.",
+       "Step 4: $C - A$: remove 3 → $\\{6\\}$."
+      ],
+      "tip": "$X - Y$: start with X, cross out anything in Y.",
+      "similar": [
+       {
+        "q": "Can $A - B = B - A$?",
+        "a": "Only when $A = B$ (both are then $\\varnothing$)."
+       }
+      ],
+      "page": 14,
+      "src": "notes",
+      "label": "1.5 Practice — complement and difference"
+     },
+     {
+      "id": "math9-u1-md-s15-q03",
+      "type": "mcq",
+      "q": "In a Venn diagram, $A - B$ is",
+      "options": {
+       "A": "the overlap",
+       "B": "the part of A outside B",
+       "C": "everything outside A",
+       "D": "the part of B outside A"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: $A - B$ keeps elements of A.",
+       "Step 2: it removes those also in B, i.e. the overlap."
+      ],
+      "tip": "Minus B = cut the B circle away.",
+      "similar": [
+       {
+        "q": "Which region is $(A \\cap B)'$?",
+        "a": "Everything except the overlap."
+       }
+      ],
+      "page": 13,
+      "src": "notes",
+      "label": "1.5 Practice — complement and difference"
+     },
+     {
+      "id": "math9-u1-md-s15-q04",
+      "type": "tf",
+      "q": "$(A \\cup B)' = A' \\cup B'$ for all sets $A, B$.",
+      "answer": false,
+      "why": [
+       "Step 1: De Morgan: $(A \\cup B)' = A' \\cap B'$, not $A' \\cup B'$.",
+       "Step 2: example $U = \\{1, 2\\}$, $A = \\{1\\}$, $B = \\{2\\}$: $(A \\cup B)' = \\varnothing$ but $A' \\cup B' = \\{1, 2\\}$."
+      ],
+      "tip": "When the dash goes inside, flip ∪ and ∩.",
+      "similar": [
+       {
+        "q": "Complete: $(A \\cap B)' = $",
+        "a": "$A' \\cup B'$."
+       }
+      ],
+      "page": 14,
+      "src": "notes",
+      "label": "1.5 Practice — complement and difference"
+     },
+     {
+      "id": "math9-u1-md-s15-q05",
+      "type": "short",
+      "q": "$U = \\{0, 1, \\dots, 9\\}$, $A = \\{1, 3, 5, 7\\}$, $C = \\{0, 2, 4, 6, 8\\}$. Find $A'$ and $A - C$.",
+      "answer": "$A' = \\{0, 2, 4, 6, 8, 9\\}$; $A - C = A$",
+      "why": [
+       "Step 1: remove 1, 3, 5, 7 from U: 0, 2, 4, 6, 8, 9.",
+       "Step 2: A (odd) and C (even) share nothing, so $A - C = A = \\{1, 3, 5, 7\\}$."
+      ],
+      "tip": "Do not forget 9 — it is in U but in neither listed set.",
+      "similar": [
+       {
+        "q": "Find $C'$.",
+        "a": "$\\{1, 3, 5, 7, 9\\}$."
+       }
+      ],
+      "page": 18,
+      "src": "notes",
+      "label": "1.5 Practice — complement and difference"
+     },
+     {
+      "id": "math9-u1-md-s15-q06",
+      "type": "short",
+      "q": "$n(U) = 50$ and $n(A) = 18$. Find $n(A')$.",
+      "answer": "32",
+      "why": [
+       "Step 1: $n(A') = n(U) - n(A)$.",
+       "Step 2: $50 - 18 = 32$."
+      ],
+      "tip": "A and its complement fill U exactly once.",
+      "similar": [
+       {
+        "q": "$n(U) = 40$, $n(A') = 15$. Find $n(A)$.",
+        "a": "25."
+       }
+      ],
+      "page": 12,
+      "src": "notes",
+      "label": "1.5 Practice — complement and difference"
+     },
+     {
+      "id": "math9-u1-md-s15-q07",
+      "type": "fill",
+      "q": "$A - B = A \\cap$ ____",
+      "choices": [
+       "$B'$",
+       "$B$",
+       "$A'$",
+       "$U$"
+      ],
+      "answer": "$B'$",
+      "why": [
+       "Step 1: $A - B$ = in A and not in B.",
+       "Step 2: \"not in B\" is $B'$, so $A - B = A \\cap B'$."
+      ],
+      "tip": "Translate \"not in B\" into $B'$.",
+      "similar": [
+       {
+        "q": "$B - A = B \\cap$ ?",
+        "a": "$A'$."
+       }
+      ],
+      "page": 13,
+      "src": "notes",
+      "label": "1.5 Practice — complement and difference"
+     },
+     {
+      "id": "math9-u1-md-s16-q01",
+      "type": "short",
+      "q": "$C = \\{1, 2\\}$, $D = \\{0, 1\\}$. Find $C \\times D$ and $D \\times C$. Are they equal?",
+      "answer": "Not equal",
+      "why": [
+       "Step 1: $C \\times D = \\{(1,0), (1,1), (2,0), (2,1)\\}$.",
+       "Step 2: $D \\times C = \\{(0,1), (0,2), (1,1), (1,2)\\}$.",
+       "Step 3: $(1, 0)$ is in the first but not the second → not equal."
+      ],
+      "tip": "First component always comes from the first set written.",
+      "similar": [
+       {
+        "q": "Find $C \\times C$.",
+        "a": "$\\{(1,1), (1,2), (2,1), (2,2)\\}$."
+       }
+      ],
+      "page": 17,
+      "src": "notes",
+      "label": "1.6 Practice — Cartesian product"
+     },
+     {
+      "id": "math9-u1-md-s16-q02",
+      "type": "mcq",
+      "q": "If $n(A) = 3$ and $n(B) = 2$, then $n(A \\times B)$ is",
+      "options": {
+       "A": "5",
+       "B": "6",
+       "C": "8",
+       "D": "9"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: $n(A \\times B) = n(A) \\times n(B)$.",
+       "Step 2: $3 \\times 2 = 6$."
+      ],
+      "tip": "Multiply, do not add.",
+      "similar": [
+       {
+        "q": "$n(A) = n$, $n(B) = m$. Find $n(A \\times B)$.",
+        "a": "$nm$."
+       }
+      ],
+      "page": 17,
+      "src": "notes",
+      "label": "1.6 Practice — Cartesian product"
+     },
+     {
+      "id": "math9-u1-md-s16-q03",
+      "type": "short",
+      "q": "$n(A \\times B) = 15$ and $n(A) = 3$. Find $n(B)$.",
+      "answer": "5",
+      "why": [
+       "Step 1: $3 \\times n(B) = 15$.",
+       "Step 2: $n(B) = 5$."
+      ],
+      "tip": "Divide the product by the known count.",
+      "similar": [
+       {
+        "q": "$n(A \\times A) = 49$. Find $n(A)$.",
+        "a": "7."
+       }
+      ],
+      "page": 17,
+      "src": "notes",
+      "label": "1.6 Practice — Cartesian product"
+     },
+     {
+      "id": "math9-u1-md-s16-q04",
+      "type": "short",
+      "q": "Find $x$ and $y$ if $(x + 2, 5) = (7, y - 1)$.",
+      "answer": "$x = 5$, $y = 6$",
+      "why": [
+       "Step 1: equal ordered pairs → first components equal: $x + 2 = 7$, so $x = 5$.",
+       "Step 2: second components equal: $5 = y - 1$, so $y = 6$."
+      ],
+      "tip": "Match first with first and second with second.",
+      "similar": [
+       {
+        "q": "$(2x, 3) = (8, y)$?",
+        "a": "$x = 4$, $y = 3$."
+       }
+      ],
+      "page": 15,
+      "src": "notes",
+      "label": "1.6 Practice — Cartesian product"
+     },
+     {
+      "id": "math9-u1-md-s16-q05",
+      "type": "tf",
+      "q": "$(3, 4) = (4, 3)$",
+      "answer": false,
+      "why": [
+       "Step 1: ordered pairs are equal only if the first components match and the second components match.",
+       "Step 2: $3 \\ne 4$ → not equal."
+      ],
+      "tip": "Sets ignore order; ordered pairs do not.",
+      "similar": [
+       {
+        "q": "Is $\\{3, 4\\} = \\{4, 3\\}$?",
+        "a": "Yes — these are sets."
+       }
+      ],
+      "page": 16,
+      "src": "notes",
+      "label": "1.6 Practice — Cartesian product"
+     },
+     {
+      "id": "math9-u1-md-s16-q06",
+      "type": "short",
+      "q": "$A = \\{a\\}$, $B = \\{1, 2, 3\\}$. Write $A \\times B$ and $B \\times A$.",
+      "answer": "$\\{(a,1),(a,2),(a,3)\\}$; $\\{(1,a),(2,a),(3,a)\\}$",
+      "why": [
+       "Step 1: pair $a$ with each of 1, 2, 3.",
+       "Step 2: for $B \\times A$, put the number first."
+      ],
+      "tip": "Count check: $1 \\times 3 = 3$ pairs each.",
+      "similar": [
+       {
+        "q": "$A = \\{1\\}$, $B = \\varnothing$. Find $A \\times B$.",
+        "a": "$\\varnothing$."
+       }
+      ],
+      "page": 17,
+      "src": "notes",
+      "label": "1.6 Practice — Cartesian product"
      }
     ]
    },
@@ -1887,6 +3624,54 @@
       "cards": [
        "math9-u1-c11"
       ]
+     },
+     {
+      "id": "md_methods",
+      "label": "Three ways to describe a set",
+      "kind": "idea",
+      "cards": [
+       "math9-u1-md-methods-t"
+      ]
+     },
+     {
+      "id": "md_equiv",
+      "label": "Equal vs equivalent",
+      "kind": "idea",
+      "cards": [
+       "math9-u1-md-eqv-t"
+      ]
+     },
+     {
+      "id": "md_count",
+      "label": "Counting subsets 2ⁿ",
+      "kind": "idea",
+      "cards": [
+       "math9-u1-md-count-t"
+      ]
+     },
+     {
+      "id": "md_venn",
+      "label": "Survey Venn diagram",
+      "kind": "idea",
+      "cards": [
+       "math9-u1-md-survey"
+      ]
+     },
+     {
+      "id": "md_ops",
+      "label": "Set operations table",
+      "kind": "idea",
+      "cards": [
+       "math9-u1-md-ops-t"
+      ]
+     },
+     {
+      "id": "md_cart",
+      "label": "Cartesian product",
+      "kind": "idea",
+      "cards": [
+       "math9-u1-md-cart-t"
+      ]
      }
     ],
     "edges": [
@@ -1944,9 +3729,107 @@
       "from": "l1_5",
       "to": "l1_6",
       "label": "next"
+     },
+     {
+      "from": "l1_1",
+      "to": "md_methods",
+      "label": "key idea"
+     },
+     {
+      "from": "l1_2",
+      "to": "md_equiv",
+      "label": "key idea"
+     },
+     {
+      "from": "l1_3",
+      "to": "md_count",
+      "label": "key idea"
+     },
+     {
+      "from": "l1_4",
+      "to": "md_venn",
+      "label": "key idea"
+     },
+     {
+      "from": "l1_5",
+      "to": "md_ops",
+      "label": "key idea"
+     },
+     {
+      "from": "l1_6",
+      "to": "md_cart",
+      "label": "key idea"
      }
     ],
     "src": "auto"
+   },
+   "diagrams": {
+    "md_numsets": {
+     "svg": "svg/mathematics_9/m9_u1_numsets.svg",
+     "title": "Number sets inside one another: N, Z, Q, R",
+     "page": 8,
+     "pins": []
+    },
+    "md_oneone": {
+     "svg": "svg/mathematics_9/m9_u1_oneone.svg",
+     "title": "One-to-one correspondence (Fig. 1.1 and 1.2)",
+     "page": 5,
+     "pins": []
+    },
+    "md_subset": {
+     "svg": "svg/mathematics_9/m9_u1_subset.svg",
+     "title": "Subset pictures (Fig. 1.3)",
+     "page": 7,
+     "pins": []
+    },
+    "md_unionint": {
+     "svg": "svg/mathematics_9/m9_u1_unionint.svg",
+     "title": "Union and intersection of A = {0, 2, 3} and B = {2, 3, 7}",
+     "page": 10,
+     "pins": []
+    },
+    "md_disjoint": {
+     "svg": "svg/mathematics_9/m9_u1_disjoint.svg",
+     "title": "Disjoint sets",
+     "page": 10,
+     "pins": []
+    },
+    "md_survey": {
+     "svg": "svg/mathematics_9/m9_u1_survey.svg",
+     "title": "Survey Venn diagram (Activity 1.11)",
+     "page": 11,
+     "pins": []
+    },
+    "md_fig15": {
+     "svg": "svg/mathematics_9/m9_u1_fig15.svg",
+     "title": "Venn diagram with elements (Fig. 1.5)",
+     "page": 12,
+     "pins": []
+    },
+    "md_ops4": {
+     "svg": "svg/mathematics_9/m9_u1_ops4.svg",
+     "title": "Complement and difference regions (Fig. 1.6 and 1.7)",
+     "page": 13,
+     "pins": []
+    },
+    "md_demorgan": {
+     "svg": "svg/mathematics_9/m9_u1_demorgan.svg",
+     "title": "De Morgan's law with shading",
+     "page": 14,
+     "pins": []
+    },
+    "md_seating": {
+     "svg": "svg/mathematics_9/m9_u1_seating.svg",
+     "title": "A seating plan: positions are ordered pairs",
+     "page": 16,
+     "pins": []
+    },
+    "md_axb": {
+     "svg": "svg/mathematics_9/m9_u1_axb.svg",
+     "title": "A × B drawn as a grid of points",
+     "page": 17,
+     "pins": []
+    }
    }
   }
  ]
