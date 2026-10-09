@@ -20805,16 +20805,84 @@
             {
               "id": "math9-u8-c01",
               "type": "text",
-              "title": "8.1 Representing Polynomials",
-              "page": 170,
-              "src": "textbook pp.170–171",
-              "enriched": true,
+              "title": "8.1 What is a polynomial?",
+              "page": 169,
+              "src": "notes",
               "body": [
-                "The three expressions belong to a large family of expressions called polynomial expressions.",
-                "For whole number n and real number a, an expression of the form axn is called a **term of a polynomial in x**.",
-                "The term −2 which is free of the variable x is called the **constant term**.",
-                "For this expression, its degree is n. a n is the leading coefficient. a 0 is the constant term.",
-                "Terms that contain the same variables with the same powers are called **like terms**."
+                "A **polynomial** in $x$ is a sum of terms $a x^n$ where each $a$ is a real number and each exponent $n$ is a **whole number** (0, 1, 2, …): $$a_n x^n + a_{n-1}x^{n-1} + \\dots + a_1 x + a_0, \\quad a_n \\ne 0$$",
+                "Examples from a cube of side $x$: perimeter of the base $4x$ (linear), base area $x^2$ (quadratic), volume $x^3$ (cubic).",
+                "- **Degree** = the highest power ($n$). **Leading coefficient** = $a_n$. **Constant term** = $a_0$.",
+                "- **Standard form**: powers in decreasing order: $-11x^7 - 2x^6 + 0.5x^3 - 12x + 9$.",
+                "- **Like terms** have the same variables with the same powers ($3x^2$ and $-5x^2$); $3x^2$ and $3x^4$ are unlike.",
+                "- By number of terms: **monomial** (1), **binomial** (2), **trinomial** (3).",
+                "The zero polynomial 0 has **no degree**."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u8-md-anatomy",
+              "type": "diagram",
+              "title": "Naming the parts",
+              "page": 170,
+              "src": "notes",
+              "diagram": "md_anatomy",
+              "mode": "plain"
+            },
+            {
+              "id": "math9-u8-md-notpoly-t",
+              "type": "table",
+              "title": "Polynomial or not?",
+              "page": 172,
+              "src": "notes",
+              "head": [
+                "Expression",
+                "Polynomial?",
+                "Why"
+              ],
+              "rows": [
+                [
+                  "$3x^2 + 11$",
+                  "yes",
+                  "whole-number powers"
+                ],
+                [
+                  "$3x^{-2} + 4$",
+                  "no",
+                  "negative exponent"
+                ],
+                [
+                  "$\\frac{1}{x} + \\frac{1}{x^2}$",
+                  "no",
+                  "same as $x^{-1} + x^{-2}$"
+                ],
+                [
+                  "$5\\sqrt{x}$",
+                  "no",
+                  "$x^{\\frac{1}{2}}$ is not a whole power"
+                ],
+                [
+                  "$\\sqrt{3}x^5 - 2x^2$",
+                  "yes",
+                  "a coefficient may be any real number"
+                ],
+                [
+                  "$\\log_2(x + 4)$",
+                  "no",
+                  "not built from powers of $x$"
+                ],
+                [
+                  "$\\frac{3x^2 + 6x - 12}{6}$",
+                  "yes",
+                  "$= \\frac{1}{2}x^2 + x - 2$"
+                ],
+                [
+                  "$-8$",
+                  "yes",
+                  "a constant (degree 0)"
+                ]
+              ],
+              "body": [
+                "Test: only the **variable's exponents** must be whole numbers; coefficients may be fractions, decimals or roots."
               ]
             },
             {
@@ -20867,6 +20935,48 @@
                   "Not a Polynomial"
                 ]
               ]
+            },
+            {
+              "id": "math9-u8-md-ex-81a",
+              "type": "worked",
+              "title": "Worked example: Exercise 8.1 Q3",
+              "page": 171,
+              "src": "notes",
+              "mode": "show",
+              "problem": "For $-2x^6 + 0.5x^3 - 11x^7 + 9 - 12x$: write it in standard form and give the degree, leading coefficient, constant term and the coefficients of $x^6$, $x^5$, $x^4$, $x^2$.",
+              "steps": [
+                {
+                  "text": "Standard form: $-11x^7 - 2x^6 + 0.5x^3 - 12x + 9$."
+                },
+                {
+                  "text": "Degree 7; leading coefficient $-11$; constant term 9."
+                },
+                {
+                  "text": "Coefficient of $x^6$ is $-2$; $x^5$, $x^4$ and $x^2$ are missing, so their coefficients are 0."
+                }
+              ],
+              "answer": "degree 7, leading coefficient −11, constant 9"
+            },
+            {
+              "id": "math9-u8-md-ex-81b",
+              "type": "worked",
+              "title": "Worked example: evaluating a polynomial",
+              "page": 173,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Evaluate (a) $3x^2 - 5x + 7$ at $x = -1$ (b) $2x^4 - 5$ at $x = -2$ (c) $a^{17} + a^{20}$ at $a = -1$.",
+              "steps": [
+                {
+                  "text": "(a) $3(1) - 5(-1) + 7 = 3 + 5 + 7 = 15$."
+                },
+                {
+                  "text": "(b) $2(16) - 5 = 27$."
+                },
+                {
+                  "text": "(c) $(-1)^{17} = -1$, $(-1)^{20} = 1$, sum $= 0$."
+                }
+              ],
+              "answer": "15, 27, 0"
             },
             {
               "id": "math9-u8-wrk1",
@@ -20982,48 +21092,249 @@
             {
               "id": "math9-u8-c02",
               "type": "text",
-              "title": "8.2.1 Addition of Polynomials",
-              "page": 174,
-              "src": "textbook p.174",
-              "enriched": true,
+              "title": "8.2.1 Adding polynomials",
+              "page": 173,
+              "src": "notes",
               "body": [
-                "To add polynomials, add the coefficients of like terms."
-              ]
+                "You can only add **like terms** (8 goats + 4 goats = 12 goats, but 8 goats + 4 dogs stays as it is): add their **coefficients**, keep the power.",
+                "**Horizontal:** group like terms: $(x^2 - 5x - 7) + (7x^2 - 4x + 10) = 8x^2 - 9x + 3$.",
+                "**Vertical:** write in standard form, line up equal powers (use $0x^k$ for gaps) and add the columns.",
+                "Common mistake (Activity 8.3): $3x^3 + 4x^2$ is **not** $7x^5$ — unlike terms cannot be combined, and powers are never added when you add."
+              ],
+              "enriched": true
             },
             {
               "id": "math9-u8-c03",
               "type": "text",
-              "title": "8.2.2 Subtraction of Polynomials",
+              "title": "8.2.2 Subtracting polynomials",
               "page": 175,
-              "src": "textbook p.175",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "Three learners called Hamid, Tirhas, and Rehana tried to solve the problem, but they all got it wrong.",
-                "A common mistake is to forget to change signs correctly when subtracting one polynomial from another."
-              ]
+                "Subtracting = adding the **opposite**: change the sign of **every** term of the polynomial being subtracted, then add.",
+                "$(2x^3 + x^2 - 7x - 2) - (5x^2 + 6x - 4) = 2x^3 + x^2 - 7x - 2 - 5x^2 - 6x + 4 = 2x^3 - 4x^2 - 13x + 2$.",
+                "\"Subtract $A$ from $B$\" means $B - A$ (the order is reversed in words!).",
+                "The usual error is changing only the first sign: $(x^2 - 4x + 4) - (x^2 + 5x - 1) \\ne x^2 - 4x + 4 - x^2 + 5x - 1$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u8-md-ex-82a",
+              "type": "worked",
+              "title": "Worked example: subtract −3m² + 5m + 9 from 7m³ − 4m + 11",
+              "page": 176,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Subtract $-3m^2 + 5m + 9$ from $7m^3 - 4m + 11$.",
+              "steps": [
+                {
+                  "text": "Order: $(7m^3 - 4m + 11) - (-3m^2 + 5m + 9)$."
+                },
+                {
+                  "text": "Change every sign of the second: $7m^3 - 4m + 11 + 3m^2 - 5m - 9$."
+                },
+                {
+                  "text": "Collect: $7m^3 + 3m^2 - 9m + 2$."
+                }
+              ],
+              "answer": "$7m^3 + 3m^2 - 9m + 2$"
             },
             {
               "id": "math9-u8-c04",
               "type": "text",
-              "title": "8.2.3 Multiplication of Polynomials",
-              "page": 177,
-              "src": "textbook pp.177–178",
-              "enriched": true,
+              "title": "8.2.3 Multiplying polynomials",
+              "page": 176,
+              "src": "notes",
               "body": [
-                "Senait: Zahra, I am now quite clear how to multiply a monomial by any polynomial.",
-                "Product of a sum and a difference (a – b)(a + b) = a2 – b2 In words, this means that, the product is just the square of the first minus the square of the second."
+                "**Monomial × monomial:** multiply coefficients, **add** exponents of the same variable: $(-2x^3)(4x^2) = -8x^5$; $(2ab^2)(3a^2b) = 6a^3b^3$.",
+                "**Monomial × polynomial:** distribute: $-7x(-3 + 2x) = 21x - 14x^2$.",
+                "**Polynomial × polynomial:** multiply **every** term of the first by **every** term of the second, then collect like terms: $(x - 3)(5x - 1) = 5x^2 - x - 15x + 3 = 5x^2 - 16x + 3$.",
+                "Check the count: a binomial × trinomial gives $2 \\times 3 = 6$ products before collecting. The degree of a product = sum of the degrees."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u8-md-box-t",
+              "type": "table",
+              "title": "Grid (box) method for (3y + 7)(2y² − 5y − 2)",
+              "page": 180,
+              "src": "notes",
+              "head": [
+                "×",
+                "$2y^2$",
+                "$-5y$",
+                "$-2$"
+              ],
+              "rows": [
+                [
+                  "$3y$",
+                  "$6y^3$",
+                  "$-15y^2$",
+                  "$-6y$"
+                ],
+                [
+                  "$7$",
+                  "$14y^2$",
+                  "$-35y$",
+                  "$-14$"
+                ]
+              ],
+              "body": [
+                "Add the cells, collecting like terms: $6y^3 + (-15 + 14)y^2 + (-6 - 35)y - 14 = 6y^3 - y^2 - 41y - 14$."
+              ]
+            },
+            {
+              "id": "math9-u8-md-special-t",
+              "type": "text",
+              "title": "Special products",
+              "page": 178,
+              "src": "notes",
+              "body": [
+                "- **Sum × difference:** $(a + b)(a - b) = a^2 - b^2$. The middle terms cancel: $(5x + 3)(5x - 3) = 25x^2 - 9$.",
+                "- **Square of a sum:** $(a + b)^2 = a^2 + 2ab + b^2$: $(x + 3)^2 = x^2 + 6x + 9$.",
+                "- **Square of a difference:** $(a - b)^2 = a^2 - 2ab + b^2$: $(2x - 3y)^2 = 4x^2 - 12xy + 9y^2$.",
+                "Mental arithmetic: $59 \\times 61 = (60 - 1)(60 + 1) = 3600 - 1 = 3599$; $103^2 = 10\\,000 + 600 + 9 = 10\\,609$.",
+                "**Biggest mistake:** $(a + b)^2 \\ne a^2 + b^2$ — you forget $2ab$. Check: $(2 + 3)^2 = 25$ but $4 + 9 = 13$."
+              ]
+            },
+            {
+              "id": "math9-u8-md-square",
+              "type": "steps",
+              "title": "Why (a + b)² has a middle term",
+              "page": 179,
+              "src": "notes",
+              "diagram": "md_square",
+              "steps": [
+                {
+                  "text": "Draw a square of side $a + b$. Its area is $(a + b)^2$.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Cut it: one $a \\times a$ square, one $b \\times b$ square and **two** $a \\times b$ rectangles.",
+                  "show": "k2"
+                },
+                {
+                  "text": "Total: $a^2 + 2ab + b^2$. The two rectangles are the $2ab$ that people forget.",
+                  "show": "k3"
+                }
+              ]
+            },
+            {
+              "id": "math9-u8-md-spec-t",
+              "type": "table",
+              "title": "Special products at a glance",
+              "page": 180,
+              "src": "notes",
+              "head": [
+                "Pattern",
+                "Result",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "$(a + b)(a - b)$",
+                  "$a^2 - b^2$",
+                  "$(7 - 4y)(7 + 4y) = 49 - 16y^2$"
+                ],
+                [
+                  "$(a + b)^2$",
+                  "$a^2 + 2ab + b^2$",
+                  "$(2m + 5)^2 = 4m^2 + 20m + 25$"
+                ],
+                [
+                  "$(a - b)^2$",
+                  "$a^2 - 2ab + b^2$",
+                  "$(6 - 5v)^2 = 36 - 60v + 25v^2$"
+                ],
+                [
+                  "$(a - b)(a^2 + ab + b^2)$",
+                  "$a^3 - b^3$",
+                  "$(x - 2)(x^2 + 2x + 4) = x^3 - 8$"
+                ]
+              ],
+              "body": [
+                "The last row (Exercise 8.7 Q2, Q3) is a bonus pattern."
               ]
             },
             {
               "id": "math9-u8-c05",
               "type": "text",
-              "title": "8.2.4 Division of Polynomials",
-              "page": 182,
-              "src": "textbook p.182",
-              "enriched": true,
+              "title": "8.2.4 Dividing polynomials",
+              "page": 181,
+              "src": "notes",
               "body": [
-                "In mathematics, it is common practice to solve an unfamiliar problem by translating the problem into a familiar one."
+                "**By a monomial:** split the fraction and divide each term (subtract exponents): $\\frac{6x^3 - 15x^2 + 12x}{3x} = 2x^2 - 5x + 4$ ($x \\ne 0$).",
+                "**By factorising:** if the dividend factorises with the divisor as a factor, cancel it: $(x^2 + 7x + 10) \\div (x + 5) = \\frac{(x + 5)(x + 2)}{x + 5} = x + 2$.",
+                "**Long division** (always works): 1. Write both in standard form and insert $0x^k$ for missing powers. 2. Divide the first term by the first term. 3. Multiply back and **subtract**. 4. Bring down and repeat. 5. Stop when the remainder's degree is **less** than the divisor's.",
+                "Check: **dividend = divisor × quotient + remainder**. (The textbook says division \"makes sense only when the degree of the dividend is equal to or less than\" the divisor's — it is the other way round: the dividend's degree must be **at least** the divisor's.)"
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u8-md-longdiv",
+              "type": "steps",
+              "title": "Long division step by step (Activity 8.13)",
+              "page": 184,
+              "src": "notes",
+              "diagram": "md_longdiv",
+              "steps": [
+                {
+                  "text": "$3x^2 \\div x = 3x$: the first term of the quotient.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Multiply $3x(x - 1) = 3x^2 - 3x$ and subtract: $-4x + 4$ is left.",
+                  "show": "k2"
+                },
+                {
+                  "text": "$-4x \\div x = -4$; $-4(x - 1) = -4x + 4$; subtract: remainder 0. Quotient $3x - 4$.",
+                  "show": "k3"
+                }
               ]
+            },
+            {
+              "id": "math9-u8-md-ex-82b",
+              "type": "worked",
+              "title": "Worked example: Example 8.3 (missing term)",
+              "page": 185,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find the quotient and remainder for $(-x^2 - 1 + 2x^3) \\div (x^2 - 3)$.",
+              "steps": [
+                {
+                  "text": "Standard form with a zero term: $2x^3 - x^2 + 0x - 1$."
+                },
+                {
+                  "text": "$2x^3 \\div x^2 = 2x$; $2x(x^2 - 3) = 2x^3 - 6x$; subtract: $-x^2 + 6x - 1$."
+                },
+                {
+                  "text": "$-x^2 \\div x^2 = -1$; $-1(x^2 - 3) = -x^2 + 3$; subtract: $6x - 4$."
+                },
+                {
+                  "text": "Degree 1 < 2, stop. Check: $(x^2 - 3)(2x - 1) + 6x - 4 = 2x^3 - x^2 - 6x + 3 + 6x - 4$ (correct)."
+                }
+              ],
+              "answer": "quotient $2x - 1$, remainder $6x - 4$"
+            },
+            {
+              "id": "math9-u8-md-ex-82c",
+              "type": "worked",
+              "title": "Worked example: Exercise 8.9 Q5 (rebuild the dividend)",
+              "page": 185,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A polynomial divided by $3x^2 - 2x + 1$ gives quotient $5x - 4$ and remainder $-7x + 9$. Find it.",
+              "steps": [
+                {
+                  "text": "Dividend $= (3x^2 - 2x + 1)(5x - 4) + (-7x + 9)$."
+                },
+                {
+                  "text": "Product: $15x^3 - 12x^2 - 10x^2 + 8x + 5x - 4 = 15x^3 - 22x^2 + 13x - 4$."
+                },
+                {
+                  "text": "Add the remainder: $15x^3 - 22x^2 + 6x + 5$."
+                }
+              ],
+              "answer": "$15x^3 - 22x^2 + 6x + 5$"
             },
             {
               "id": "math9-u8-chk3",
@@ -21157,26 +21468,147 @@
             {
               "id": "math9-u8-c06",
               "type": "text",
-              "title": "8.3 Graphs of Polynomial Functions",
+              "title": "8.3 Graphs of polynomial functions",
               "page": 186,
-              "src": "textbook pp.186–187",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "A closed box has the shape of a cube with each edge being x units long.",
-                "A respectively, and the volume of the box be V.",
-                "The three functions P, A and V belong to a set of functions called polynomial functions.",
-                "In general, a polynomial function is a function which is expressed in terms of a polynomial."
+                "A **polynomial function** is $y = a_n x^n + \\dots + a_1 x + a_0$. Degree 1 → straight line; degree 2 → parabola; degree 3 → an S-shaped **cubic**.",
+                "**Drawing $y = x^3$:** make a table ($x = -2, -1.5, \\dots, 2$ gives $y = -8, -3.4, -1, -0.13, 0, 0.13, 1, 3.4, 8$), plot and join with a smooth curve.",
+                "Facts about $y = x^3$: domain and range are all real numbers; it always rises; it passes through $(0, 0)$ only, but looks flat near 0 because small numbers cubed are tiny ($0.5^3 = 0.125$).",
+                "**$y = ax^3 + b$:** $b$ moves the graph up or down (y-intercept $b$); $a > 0$ rises left to right, $a < 0$ falls."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u8-md-cubic",
+              "type": "diagram",
+              "title": "The basic cubic",
+              "page": 188,
+              "src": "notes",
+              "diagram": "md_cubic",
+              "mode": "plain"
+            },
+            {
+              "id": "math9-u8-md-endb-t",
+              "type": "text",
+              "title": "End behaviour and the leading term",
+              "page": 191,
+              "src": "notes",
+              "body": [
+                "For large $|x|$ the leading term $a_n x^n$ dominates, so it decides where the two ends of the graph go:",
+                "- $a_n > 0$, $n$ even: both ends **up** (has a lowest point), e.g. $y = x^2 - 4$.",
+                "- $a_n > 0$, $n$ odd: left **down**, right **up**, e.g. $y = \\frac{1}{2}x^3 + 2$.",
+                "- $a_n < 0$, $n$ even: both ends **down** (has a highest point), e.g. $y = -x^2 + 4$.",
+                "- $a_n < 0$, $n$ odd: left **up**, right **down**, e.g. $y = -\\frac{1}{2}x^3$.",
+                "Reading a graph backwards: ends the same way → even degree; ends opposite → odd degree. Right end up → $a_n > 0$."
               ]
+            },
+            {
+              "id": "math9-u8-md-endbeh",
+              "type": "diagram",
+              "title": "Four possible end shapes",
+              "page": 191,
+              "src": "notes",
+              "diagram": "md_endbeh",
+              "mode": "plain"
+            },
+            {
+              "id": "math9-u8-md-cubic3",
+              "type": "diagram",
+              "title": "Reading a cubic graph (Activity 8.16 Q3)",
+              "page": 190,
+              "src": "notes",
+              "diagram": "md_cubic3",
+              "mode": "plain",
+              "body": [
+                "x-intercepts $-2$, 1, 3 (check: $f(1) = 1 - 2 - 5 + 6 = 0$). y-intercept 6 (the constant term). Two turning points near $x \\approx -0.8$ and $x \\approx 2.1$. The right end rises, the left end falls → odd degree, positive leading coefficient. Domain and range: all real numbers."
+              ]
+            },
+            {
+              "id": "math9-u8-md-count-t",
+              "type": "table",
+              "title": "How many x-intercepts and turning points?",
+              "page": 194,
+              "src": "notes",
+              "head": [
+                "Degree",
+                "x-intercepts",
+                "Turning points"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "exactly 1",
+                  "0"
+                ],
+                [
+                  "2",
+                  "0, 1 or 2",
+                  "exactly 1"
+                ],
+                [
+                  "3",
+                  "1, 2 or 3 (never 0)",
+                  "0 or 2"
+                ]
+              ],
+              "body": [
+                "A cubic must cross the x-axis at least once because its ends go in opposite directions. $y = x^3 - 8$ has only one x-intercept ($x = 2$)."
+              ]
+            },
+            {
+              "id": "math9-u8-md-ex-83a",
+              "type": "worked",
+              "title": "Worked example: Exercise 8.10 Q6",
+              "page": 196,
+              "src": "notes",
+              "mode": "show",
+              "problem": "$y = ax^3 + b$ passes through $(-1, 5)$ and $(1, 1)$. Find $a$ and $b$.",
+              "steps": [
+                {
+                  "text": "$(-1, 5)$: $-a + b = 5$. $(1, 1)$: $a + b = 1$."
+                },
+                {
+                  "text": "Add: $2b = 6$, $b = 3$; then $a = -2$."
+                },
+                {
+                  "text": "$y = -2x^3 + 3$: falls left to right, y-intercept 3."
+                }
+              ],
+              "answer": "$a = -2$, $b = 3$"
+            },
+            {
+              "id": "math9-u8-md-ex-83b",
+              "type": "worked",
+              "title": "Worked example: Review Q10",
+              "page": 198,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A quadratic has y-intercept $-5$ and passes through $(-1, 0)$ and $(5, 0)$. Find it.",
+              "steps": [
+                {
+                  "text": "Roots $-1$ and 5: $y = a(x + 1)(x - 5)$."
+                },
+                {
+                  "text": "y-intercept: $a(1)(-5) = -5$, so $a = 1$."
+                },
+                {
+                  "text": "$y = x^2 - 4x - 5$ (opens upward, vertex at $x = 2$, $y = -9$)."
+                }
+              ],
+              "answer": "$y = x^2 - 4x - 5$"
             },
             {
               "id": "math9-u8-c07",
               "type": "remember",
-              "title": "Formula",
-              "page": 197,
+              "title": "Unit summary",
+              "page": 198,
               "src": "notes",
               "body": [
-                "(a+b)²=a²+2ab+b²",
-                "Degree of product = sum of degrees (nonzero)."
+                "Degree = highest power; add/subtract like terms only; to subtract change **every** sign.",
+                "$(a + b)(a - b) = a^2 - b^2$, $(a \\pm b)^2 = a^2 \\pm 2ab + b^2$.",
+                "Dividend = divisor × quotient + remainder.",
+                "Ends of the graph: even degree → same direction; odd → opposite; sign of $a_n$ decides which."
               ]
             },
             {
@@ -21318,13 +21750,83 @@
           ]
         }
       ],
-      "glossary": [],
+      "glossary": [
+        {
+          "term": "Polynomial",
+          "meaning": "A sum of terms $ax^n$ with whole-number exponents.",
+          "page": 170,
+          "src": "notes"
+        },
+        {
+          "term": "Degree",
+          "meaning": "The highest power of the variable.",
+          "page": 170,
+          "src": "notes"
+        },
+        {
+          "term": "Leading coefficient",
+          "meaning": "The coefficient of the highest power term.",
+          "page": 170,
+          "src": "notes"
+        },
+        {
+          "term": "Constant term",
+          "meaning": "The term with no variable.",
+          "page": 170,
+          "src": "notes"
+        },
+        {
+          "term": "Like terms",
+          "meaning": "Terms with the same variables raised to the same powers.",
+          "page": 171,
+          "src": "notes"
+        },
+        {
+          "term": "Standard form",
+          "meaning": "Terms written in decreasing powers.",
+          "page": 171,
+          "src": "notes"
+        },
+        {
+          "term": "Monomial / binomial / trinomial",
+          "meaning": "A polynomial with 1 / 2 / 3 terms.",
+          "page": 171,
+          "src": "notes"
+        },
+        {
+          "term": "Quotient and remainder",
+          "meaning": "Dividend = divisor × quotient + remainder.",
+          "page": 184,
+          "src": "notes"
+        },
+        {
+          "term": "End behaviour",
+          "meaning": "Where the graph goes for very large positive or negative $x$.",
+          "page": 191,
+          "src": "notes"
+        }
+      ],
       "tips": [
         {
           "text": "Formula: (a+b)²=a²+2ab+b² Degree of product = sum of degrees (nonzero).",
           "page": 197,
           "src": "notes",
           "card": "math9-u8-c07"
+        },
+        {
+          "text": "To subtract, change the sign of EVERY term in the second bracket.",
+          "page": 175,
+          "src": "notes"
+        },
+        {
+          "text": "(a + b)² = a² + 2ab + b² — never forget 2ab.",
+          "page": 179,
+          "src": "notes"
+        },
+        {
+          "text": "Insert 0xᵏ for missing powers before long division.",
+          "page": 184,
+          "src": "notes"
         }
       ],
       "games": [
@@ -22002,6 +22504,679 @@
               }
             ],
             "id": "math9-u8-q30"
+          },
+          {
+            "id": "math9-u8-md-s81-q01",
+            "type": "short",
+            "q": "For $4x^3 - 7x - 5$ give the degree and the coefficients of $x^3$, $x^2$, $x$, and the constant term.",
+            "answer": "3; 4, 0, $-7$; $-5$",
+            "why": [
+              "Step 1: highest power 3.",
+              "Step 2: no $x^2$ term → 0.",
+              "Step 3: keep the signs."
+            ],
+            "tip": "Signs belong to the coefficient.",
+            "similar": [
+              {
+                "q": "Same for $x^2 - 5x - 7$?",
+                "a": "degree 2; 1, $-5$; $-7$."
+              }
+            ],
+            "page": 171,
+            "src": "notes",
+            "label": "8.1 Practice — polynomials"
+          },
+          {
+            "id": "math9-u8-md-s81-q02",
+            "type": "short",
+            "q": "Like or unlike? (a) $3x$, $3y$ (b) $5x^2$, $-2x^2$ (c) $5x^7$, $5x^2$",
+            "answer": "unlike, like, unlike",
+            "why": [
+              "Step 1: same letter AND same power needed."
+            ],
+            "tip": "Coefficients do not matter.",
+            "similar": [
+              {
+                "q": "$k^3$ and $7k^3$?",
+                "a": "like."
+              }
+            ],
+            "page": 171,
+            "src": "notes",
+            "label": "8.1 Practice — polynomials"
+          },
+          {
+            "id": "math9-u8-md-s81-q03",
+            "type": "short",
+            "q": "For $3m^7 - \\frac{2}{3}m^2 + 5m^{10} - 2m + 1$ give the degree, leading coefficient, coefficient of $m^9$ and constant term.",
+            "answer": "10; 5; 0; 1",
+            "why": [
+              "Step 1: standard form $5m^{10} + 3m^7 - \\frac{2}{3}m^2 - 2m + 1$.",
+              "Step 2: read off."
+            ],
+            "tip": "Missing power → coefficient 0.",
+            "similar": [
+              {
+                "q": "Degree of $-3x^2 + 7x^5 - 2x - x^3$?",
+                "a": "5 (leading coefficient 7)."
+              }
+            ],
+            "page": 172,
+            "src": "notes",
+            "label": "8.1 Practice — polynomials"
+          },
+          {
+            "id": "math9-u8-md-s81-q04",
+            "type": "short",
+            "q": "Which are polynomials? (a) $3x^{-2} + 4$ (b) $-8x^2 + 11x + x^{40} - 3$ (c) $2\\sqrt{x}$ (d) $\\sqrt{3}x^5 - 2x^2$",
+            "answer": "(b) and (d)",
+            "why": [
+              "Step 1: (a) negative power — no.",
+              "Step 2: (b) whole powers — yes.",
+              "Step 3: (c) power ½ — no.",
+              "Step 4: (d) root only in a coefficient — yes."
+            ],
+            "tip": "Check the exponents of the variable only.",
+            "similar": [
+              {
+                "q": "Is $\\frac{1}{x}$ a polynomial?",
+                "a": "No."
+              }
+            ],
+            "page": 172,
+            "src": "notes",
+            "label": "8.1 Practice — polynomials"
+          },
+          {
+            "id": "math9-u8-md-s81-q05",
+            "type": "short",
+            "q": "Classify: (a) $x^4 - 8x^3$ (b) $-8$ (c) $7x^5 - 0.4x^3 + 5x - 3$",
+            "answer": "binomial, monomial, neither (4 terms)",
+            "why": [
+              "Step 1: count the terms."
+            ],
+            "tip": "More than 3 terms has no special name here.",
+            "similar": [
+              {
+                "q": "$x^2 - 9$?",
+                "a": "binomial."
+              }
+            ],
+            "page": 172,
+            "src": "notes",
+            "label": "8.1 Practice — polynomials"
+          },
+          {
+            "id": "math9-u8-md-s81-q06",
+            "type": "short",
+            "q": "Evaluate (a) $x^2 - 3$ at $x = 5$ (b) $-t^3 + 3t - 5$ at $t = 2$ (c) $2x^4 - 5$ at $x = -2$.",
+            "answer": "22, $-7$, 27",
+            "why": [
+              "Step 1: $25 - 3 = 22$.",
+              "Step 2: $-8 + 6 - 5 = -7$.",
+              "Step 3: $32 - 5 = 27$."
+            ],
+            "tip": "Brackets around negatives.",
+            "similar": [
+              {
+                "q": "$3x^2 - 5x + 7$ at $x = -1$?",
+                "a": "15."
+              }
+            ],
+            "page": 173,
+            "src": "notes",
+            "label": "8.1 Practice — polynomials"
+          },
+          {
+            "id": "math9-u8-md-s81-q07",
+            "type": "tf",
+            "q": "The degree of $x^2 + 3x - 5x^3 + 4$ is 2.",
+            "answer": false,
+            "why": [
+              "Step 1: highest power is 3 (from $-5x^3$)."
+            ],
+            "tip": "Look at every term, not just the first.",
+            "similar": [
+              {
+                "q": "Is $4r^2$ and $5t^2$ like?",
+                "a": "No (different letters)."
+              }
+            ],
+            "page": 197,
+            "src": "notes",
+            "label": "8.1 Practice — polynomials"
+          },
+          {
+            "id": "math9-u8-md-s81-q08",
+            "type": "short",
+            "q": "Give (a) a monomial of degree 7 with negative leading coefficient (b) a binomial of degree 4 with constant term 0.",
+            "answer": "e.g. $-2x^7$; $x^4 + 3x$",
+            "why": [
+              "Step 1: one term, power 7, negative coefficient.",
+              "Step 2: two terms, top power 4, no constant."
+            ],
+            "tip": "Many answers are possible.",
+            "similar": [
+              {
+                "q": "A degree 2 polynomial never equal to 0?",
+                "a": "e.g. $x^2 + 1$."
+              }
+            ],
+            "page": 198,
+            "src": "notes",
+            "label": "8.1 Practice — polynomials"
+          },
+          {
+            "id": "math9-u8-md-s82-q01",
+            "type": "short",
+            "q": "Add $(-5x^3 - 11x^2 + 8x - 6) + (8x^3 + 9x^2 - 12x - 5)$.",
+            "answer": "$3x^3 - 2x^2 - 4x - 11$",
+            "why": [
+              "Step 1: $x^3$: $-5 + 8 = 3$.",
+              "Step 2: $x^2$: $-11 + 9 = -2$; $x$: $8 - 12 = -4$; constants $-11$."
+            ],
+            "tip": "Line up like terms.",
+            "similar": [
+              {
+                "q": "$(x^2 - 5x - 7) + (7x^2 - 4x + 10)$?",
+                "a": "$8x^2 - 9x + 3$."
+              }
+            ],
+            "page": 174,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q02",
+            "type": "short",
+            "q": "Add $(3n^2 - 4n + 13) + (n^3 - 2n^2 + 5n) + (-3n^3 + 4n^2 + 6n - 14)$.",
+            "answer": "$-2n^3 + 5n^2 + 7n - 1$",
+            "why": [
+              "Step 1: $n^3$: $1 - 3 = -2$.",
+              "Step 2: $n^2$: $3 - 2 + 4 = 5$; $n$: $-4 + 5 + 6 = 7$; constants $13 - 14 = -1$."
+            ],
+            "tip": "Tick off terms as you use them.",
+            "similar": [
+              {
+                "q": "$(x + 2) + (x - 7)$?",
+                "a": "$2x - 5$."
+              }
+            ],
+            "page": 174,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q03",
+            "type": "short",
+            "q": "Subtract: $(2y^2 - 3y - 8) - (y^2 + 4y - 1)$.",
+            "answer": "$y^2 - 7y - 7$",
+            "why": [
+              "Step 1: change signs: $2y^2 - 3y - 8 - y^2 - 4y + 1$.",
+              "Step 2: collect."
+            ],
+            "tip": "Every sign in the second bracket flips.",
+            "similar": [
+              {
+                "q": "$(2x^3 - 4x - 3) - (x^2 - 2x + 5)$?",
+                "a": "$2x^3 - x^2 - 2x - 8$."
+              }
+            ],
+            "page": 176,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q04",
+            "type": "short",
+            "q": "Simplify $4(y^2 + 5y) - 2(y - 3)$.",
+            "answer": "$4y^2 + 18y + 6$",
+            "why": [
+              "Step 1: $4y^2 + 20y - 2y + 6$.",
+              "Step 2: $4y^2 + 18y + 6$."
+            ],
+            "tip": "$-2 \\times -3 = +6$.",
+            "similar": [
+              {
+                "q": "$3(x - 1) - (x + 2)$?",
+                "a": "$2x - 5$."
+              }
+            ],
+            "page": 176,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q05",
+            "type": "mcq",
+            "q": "$(-2x^3)(4x^2) = $",
+            "options": {
+              "A": "$-8x^6$",
+              "B": "$-8x^5$",
+              "C": "$2x^5$",
+              "D": "$8x^5$"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: $-2 \\times 4 = -8$.",
+              "Step 2: $x^{3 + 2} = x^5$."
+            ],
+            "tip": "Multiply → add exponents.",
+            "similar": [
+              {
+                "q": "$(5x^4)(4x^3)$?",
+                "a": "$20x^7$."
+              }
+            ],
+            "page": 176,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q06",
+            "type": "short",
+            "q": "Expand $(3x - 5)(2x + 8)$.",
+            "answer": "$6x^2 + 14x - 40$",
+            "why": [
+              "Step 1: $6x^2 + 24x - 10x - 40$.",
+              "Step 2: collect: $6x^2 + 14x - 40$."
+            ],
+            "tip": "Four products for two binomials.",
+            "similar": [
+              {
+                "q": "$(x + 2)(-x + 7)$?",
+                "a": "$-x^2 + 5x + 14$."
+              }
+            ],
+            "page": 177,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q07",
+            "type": "short",
+            "q": "Expand $(x^2 - 5x + 6)(2x - 3)$.",
+            "answer": "$2x^3 - 13x^2 + 27x - 18$",
+            "why": [
+              "Step 1: $2x^3 - 10x^2 + 12x$.",
+              "Step 2: $-3x^2 + 15x - 18$.",
+              "Step 3: add: $2x^3 - 13x^2 + 27x - 18$."
+            ],
+            "tip": "Use the grid method to avoid missing products.",
+            "similar": [
+              {
+                "q": "$(a - 3)(a^2 + 3a + 9)$?",
+                "a": "$a^3 - 27$."
+              }
+            ],
+            "page": 181,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q08",
+            "type": "short",
+            "q": "Expand (a) $(7 - 4y)(7 + 4y)$ (b) $(3x^2 - 2)(3x^2 + 2)$.",
+            "answer": "$49 - 16y^2$; $9x^4 - 4$",
+            "why": [
+              "Step 1: sum × difference = square − square.",
+              "Step 2: $(3x^2)^2 = 9x^4$."
+            ],
+            "tip": "Square the WHOLE term, coefficient included.",
+            "similar": [
+              {
+                "q": "$(10m - 9n)(10m + 9n)$?",
+                "a": "$100m^2 - 81n^2$."
+              }
+            ],
+            "page": 178,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q09",
+            "type": "short",
+            "q": "Expand (a) $(7w + 4)^2$ (b) $(2x - 3y)^2$.",
+            "answer": "$49w^2 + 56w + 16$; $4x^2 - 12xy + 9y^2$",
+            "why": [
+              "Step 1: $a^2 = 49w^2$, $2ab = 56w$, $b^2 = 16$.",
+              "Step 2: $4x^2 - 2(2x)(3y) + 9y^2$."
+            ],
+            "tip": "Middle term = 2 × first × second.",
+            "similar": [
+              {
+                "q": "$(a + 2)^2$?",
+                "a": "$a^2 + 4a + 4$."
+              }
+            ],
+            "page": 179,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q10",
+            "type": "tf",
+            "q": "$(x - 7)^2 = x^2 - 49$",
+            "answer": false,
+            "why": [
+              "Step 1: $(x - 7)^2 = x^2 - 14x + 49$.",
+              "Step 2: check $x = 0$: $49 \\ne -49$."
+            ],
+            "tip": "Squares of differences have three terms.",
+            "similar": [
+              {
+                "q": "Is $(60 - 1)(60 + 1) = 3600 - 1$?",
+                "a": "True."
+              }
+            ],
+            "page": 197,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q11",
+            "type": "short",
+            "q": "Divide $10x^7 - 5x^5 + 15x^2$ by $5x^2$.",
+            "answer": "$2x^5 - x^3 + 3$",
+            "why": [
+              "Step 1: divide each term: $\\frac{10x^7}{5x^2} = 2x^5$, $\\frac{-5x^5}{5x^2} = -x^3$, $\\frac{15x^2}{5x^2} = 3$."
+            ],
+            "tip": "Split the fraction.",
+            "similar": [
+              {
+                "q": "$12x^3 + 9x^2 - 21x$ by $3x$?",
+                "a": "$4x^2 + 3x - 7$."
+              }
+            ],
+            "page": 182,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q12",
+            "type": "short",
+            "q": "Divide by factorising: (a) $(x^2 - 25) \\div (x + 5)$ (b) $(6u^2 + u - 1) \\div (3u - 1)$.",
+            "answer": "$x - 5$; $2u + 1$",
+            "why": [
+              "Step 1: $x^2 - 25 = (x + 5)(x - 5)$.",
+              "Step 2: $6u^2 + u - 1 = (3u - 1)(2u + 1)$."
+            ],
+            "tip": "Factorise, then cancel the divisor.",
+            "similar": [
+              {
+                "q": "$(4y^2 - 9) \\div (2y - 3)$?",
+                "a": "$2y + 3$."
+              }
+            ],
+            "page": 183,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q13",
+            "type": "short",
+            "q": "Find the quotient and remainder: $(x^2 + 7x + 13) \\div (x + 5)$.",
+            "answer": "$x + 2$, remainder 3",
+            "why": [
+              "Step 1: $x$; $x(x + 5) = x^2 + 5x$; left $2x + 13$.",
+              "Step 2: $2$; $2(x + 5) = 2x + 10$; left 3."
+            ],
+            "tip": "Stop when the remainder has lower degree.",
+            "similar": [
+              {
+                "q": "$(x^3 + 8) \\div (x + 2)$?",
+                "a": "$x^2 - 2x + 4$, remainder 0."
+              }
+            ],
+            "page": 185,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q14",
+            "type": "short",
+            "q": "Quotient and remainder: $(5x^4 - 3x^2 - 9) \\div (-x^2 + 2)$.",
+            "answer": "$-5x^2 - 7$, remainder 5",
+            "why": [
+              "Step 1: $5x^4 \\div (-x^2) = -5x^2$; $-5x^2(-x^2 + 2) = 5x^4 - 10x^2$; left $7x^2 - 9$.",
+              "Step 2: $7x^2 \\div (-x^2) = -7$; $-7(-x^2 + 2) = 7x^2 - 14$; left 5."
+            ],
+            "tip": "Watch the negative leading term of the divisor.",
+            "similar": [
+              {
+                "q": "$(x^4 - 5) \\div (x + 1)$?",
+                "a": "$x^3 - x^2 + x - 1$, remainder $-4$."
+              }
+            ],
+            "page": 185,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q15",
+            "type": "short",
+            "q": "Review Q8(a): $(5x^3 + 3x - 9) \\div (x^2 + x - 2)$.",
+            "answer": "$5x - 5$, remainder $18x - 19$",
+            "why": [
+              "Step 1: insert $0x^2$: $5x^3 + 0x^2 + 3x - 9$.",
+              "Step 2: $5x$: subtract $5x^3 + 5x^2 - 10x$ → $-5x^2 + 13x - 9$.",
+              "Step 3: $-5$: subtract $-5x^2 - 5x + 10$ → $18x - 19$."
+            ],
+            "tip": "Insert zero terms first.",
+            "similar": [
+              {
+                "q": "$(3x^3 + 7x^2 - 7x - 3) \\div (x^2 + 2x - 3)$?",
+                "a": "$3x + 1$, remainder 0."
+              }
+            ],
+            "page": 198,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s82-q16",
+            "type": "short",
+            "q": "Divided by $5x^2 + 3x - 2$, a polynomial gives quotient $-3x + 1$ and remainder 10. Find it.",
+            "answer": "$-15x^3 - 4x^2 + 9x + 8$",
+            "why": [
+              "Step 1: $(5x^2 + 3x - 2)(-3x + 1) = -15x^3 + 5x^2 - 9x^2 + 3x + 6x - 2$.",
+              "Step 2: $= -15x^3 - 4x^2 + 9x - 2$; add 10."
+            ],
+            "tip": "Dividend = divisor × quotient + remainder.",
+            "similar": [
+              {
+                "q": "Room area $x^2 + 4x + 3$, length $x + 3$: width?",
+                "a": "$x + 1$."
+              }
+            ],
+            "page": 198,
+            "src": "notes",
+            "label": "8.2 Practice — operations"
+          },
+          {
+            "id": "math9-u8-md-s83-q01",
+            "type": "short",
+            "q": "For $y = x^3$: give the domain, range and intercepts. Does the graph go up or down for $x > 0$?",
+            "answer": "all reals; all reals; (0, 0); up",
+            "why": [
+              "Step 1: any $x$ can be cubed.",
+              "Step 2: every real number is a cube.",
+              "Step 3: $x^3 = 0$ only at 0."
+            ],
+            "tip": "A cubic covers all $y$ values.",
+            "similar": [
+              {
+                "q": "Range of $y = x^2$?",
+                "a": "$y \\ge 0$."
+              }
+            ],
+            "page": 189,
+            "src": "notes",
+            "label": "8.3 Practice — graphs"
+          },
+          {
+            "id": "math9-u8-md-s83-q02",
+            "type": "short",
+            "q": "How is $y = x^3 + 1$ related to $y = x^3$? Give its intercepts.",
+            "answer": "shifted up 1; y-int 1, x-int $-1$",
+            "why": [
+              "Step 1: add 1 to every y.",
+              "Step 2: $x^3 + 1 = 0 \\Rightarrow x = -1$."
+            ],
+            "tip": "$+b$ moves up by $b$.",
+            "similar": [
+              {
+                "q": "$y = x^3 - 1$?",
+                "a": "down 1; x-intercept 1."
+              }
+            ],
+            "page": 190,
+            "src": "notes",
+            "label": "8.3 Practice — graphs"
+          },
+          {
+            "id": "math9-u8-md-s83-q03",
+            "type": "mcq",
+            "q": "The ends of $y = -2x^4 + x$ are",
+            "options": {
+              "A": "both up",
+              "B": "both down",
+              "C": "left down, right up",
+              "D": "left up, right down"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: leading term $-2x^4$: even, negative.",
+              "Step 2: both ends down."
+            ],
+            "tip": "Only the leading term matters.",
+            "similar": [
+              {
+                "q": "$y = 3x^5 - x$?",
+                "a": "left down, right up."
+              }
+            ],
+            "page": 191,
+            "src": "notes",
+            "label": "8.3 Practice — graphs"
+          },
+          {
+            "id": "math9-u8-md-s83-q04",
+            "type": "short",
+            "q": "Can a third-degree polynomial have no x-intercept? Give an example of one with three.",
+            "answer": "No; e.g. $y = x(x - 1)(x + 1)$",
+            "why": [
+              "Step 1: its ends go opposite ways, so it must cross the x-axis.",
+              "Step 2: $x(x - 1)(x + 1) = x^3 - x$ crosses at $-1, 0, 1$."
+            ],
+            "tip": "Build from factors.",
+            "similar": [
+              {
+                "q": "Fourth-degree with no x-intercept?",
+                "a": "e.g. $y = x^4 + 1$."
+              }
+            ],
+            "page": 194,
+            "src": "notes",
+            "label": "8.3 Practice — graphs"
+          },
+          {
+            "id": "math9-u8-md-s83-q05",
+            "type": "tf",
+            "q": "The graph of $y = (x - 2)^2(x + 3)$ has x-intercepts at $-2$ and 3.",
+            "answer": false,
+            "why": [
+              "Step 1: set each factor to zero: $x = 2$, $x = -3$."
+            ],
+            "tip": "Factor $(x - k)$ ↔ intercept $+k$.",
+            "similar": [
+              {
+                "q": "Intercepts of $y = (x + 1)(x - 4)$?",
+                "a": "$-1$ and 4."
+              }
+            ],
+            "page": 195,
+            "src": "notes",
+            "label": "8.3 Practice — graphs"
+          },
+          {
+            "id": "math9-u8-md-s83-q06",
+            "type": "tf",
+            "q": "The y-intercept of $y = 3x^3 - 7x^2 + 8x - 9$ is 9.",
+            "answer": false,
+            "why": [
+              "Step 1: put $x = 0$: $y = -9$."
+            ],
+            "tip": "y-intercept = constant term, with its sign.",
+            "similar": [
+              {
+                "q": "y-intercept of $y = x^3 - 2x^2$?",
+                "a": "0."
+              }
+            ],
+            "page": 195,
+            "src": "notes",
+            "label": "8.3 Practice — graphs"
+          },
+          {
+            "id": "math9-u8-md-s83-q07",
+            "type": "short",
+            "q": "A cubic and a quadratic: what is the degree of their sum, and of their product?",
+            "answer": "3; 5",
+            "why": [
+              "Step 1: the $x^3$ term cannot cancel, so the sum has degree 3.",
+              "Step 2: product: $3 + 2 = 5$."
+            ],
+            "tip": "Sum → highest; product → add degrees.",
+            "similar": [
+              {
+                "q": "Two cubics $x^3 + x$ and $-x^3 + 2$: degree of the sum?",
+                "a": "1 (the $x^3$ cancel)."
+              }
+            ],
+            "page": 196,
+            "src": "notes",
+            "label": "8.3 Practice — graphs"
+          },
+          {
+            "id": "math9-u8-md-s83-q08",
+            "type": "short",
+            "q": "From the graph of $y = x^3 - 2x^2 - 5x + 6$, list the x-intercepts and the y-intercept, and verify one intercept.",
+            "answer": "$-2$, 1, 3; y-int 6",
+            "why": [
+              "Step 1: read the crossings.",
+              "Step 2: $f(3) = 27 - 18 - 15 + 6 = 0$ (correct)."
+            ],
+            "tip": "Always check an intercept by substitution.",
+            "similar": [
+              {
+                "q": "Is $x = 2$ an intercept?",
+                "a": "No, $f(2) = -4$."
+              }
+            ],
+            "page": 190,
+            "src": "notes",
+            "label": "8.3 Practice — graphs"
+          },
+          {
+            "id": "math9-u8-md-s83-q09",
+            "type": "short",
+            "q": "Which could be the equation of a graph whose left end goes up, right end goes down and y-intercept is 3: $y = -2x^3 + 3$, $y = -2x^2 + 3$, $y = x^3 + 3$?",
+            "answer": "$y = -2x^3 + 3$",
+            "why": [
+              "Step 1: ends opposite → odd degree.",
+              "Step 2: right end down → negative leading coefficient."
+            ],
+            "tip": "Ends first, then intercepts.",
+            "similar": [
+              {
+                "q": "Both ends down, y-intercept 3?",
+                "a": "$y = -2x^2 + 3$."
+              }
+            ],
+            "page": 196,
+            "src": "notes",
+            "label": "8.3 Practice — graphs"
           }
         ]
       },
@@ -22046,6 +23221,22 @@
               "math9-u8-c06",
               "math9-u8-c07"
             ]
+          },
+          {
+            "id": "md_spec",
+            "label": "Special products",
+            "kind": "idea",
+            "cards": [
+              "math9-u8-md-spec-t"
+            ]
+          },
+          {
+            "id": "md_count",
+            "label": "Intercepts and turning points",
+            "kind": "idea",
+            "cards": [
+              "math9-u8-md-count-t"
+            ]
           }
         ],
         "edges": [
@@ -22073,9 +23264,57 @@
             "from": "l8_2",
             "to": "l8_3",
             "label": "next"
+          },
+          {
+            "from": "l8_2",
+            "to": "md_spec",
+            "label": "key idea"
+          },
+          {
+            "from": "l8_3",
+            "to": "md_count",
+            "label": "key idea"
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "md_anatomy": {
+          "svg": "svg/mathematics_9/m9_u8_anatomy.svg",
+          "title": "The parts of a polynomial",
+          "page": 170,
+          "pins": []
+        },
+        "md_square": {
+          "svg": "svg/mathematics_9/m9_u8_square.svg",
+          "title": "(a + b)² as an area",
+          "page": 179,
+          "pins": []
+        },
+        "md_longdiv": {
+          "svg": "svg/mathematics_9/m9_u8_longdiv.svg",
+          "title": "Long division: (3x² − 7x + 4) ÷ (x − 1)",
+          "page": 184,
+          "pins": []
+        },
+        "md_cubic": {
+          "svg": "svg/mathematics_9/m9_u8_cubic.svg",
+          "title": "Fig. 8.2: y = x³",
+          "page": 188,
+          "pins": []
+        },
+        "md_endbeh": {
+          "svg": "svg/mathematics_9/m9_u8_endbeh.svg",
+          "title": "End behaviour from the leading term",
+          "page": 191,
+          "pins": []
+        },
+        "md_cubic3": {
+          "svg": "svg/mathematics_9/m9_u8_cubic3.svg",
+          "title": "Fig. 8.3: y = x³ − 2x² − 5x + 6",
+          "page": 190,
+          "pins": []
+        }
       }
     }
   ]
