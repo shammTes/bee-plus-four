@@ -3858,42 +3858,276 @@
             {
               "id": "math9-u2-c01",
               "type": "text",
-              "title": "2.1.1 Dependent and Independent Quantities",
+              "title": "2.1.1 Dependent and independent quantities",
               "page": 20,
-              "src": "textbook pp.20–21",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "Abrehet has a small number of poultry in Keren.",
-                "The income Abrehet earns depends on the number of eggs she sells.",
-                "Kelifa is sitting for a Mathematics examination.",
-                "The question paper contains 30 multiple-choice questions."
+                "Abrehet sells eggs in Keren at 3 Nakfa each. Her **income depends on** the number of eggs she sells: 10 eggs → 30 Nakfa, 18 eggs → 54 Nakfa.",
+                "- The quantity we choose or control (number of eggs) is the **independent quantity**.",
+                "- The quantity that changes **because of** it (income) is the **dependent quantity**.",
+                "Test: say \"**___ depends on ___**\". The first blank is dependent, the second is independent. \"Income depends on eggs sold\" — not \"eggs depend on income\".",
+                "In a **function**, each value of the independent quantity gives **exactly one** value of the dependent quantity."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u2-md-dom-t",
+              "type": "text",
+              "title": "Domain and range",
+              "page": 21,
+              "src": "notes",
+              "body": [
+                "The **domain** is the set of all possible values of the independent quantity; the **range** is the set of all values the dependent quantity can take.",
+                "Kelifa's exam has 30 questions, 2 marks each. He can get 0, 1, 2, …, 30 questions right, so",
+                "$$\\text{Domain} = \\{0, 1, 2, \\dots, 30\\}, \\quad \\text{Range} = \\{0, 2, 4, \\dots, 60\\}$$",
+                "Always think about what is **possible** in the real situation: you cannot answer $2.5$ questions or $-1$ questions."
+              ]
+            },
+            {
+              "id": "math9-u2-md-kelifa",
+              "type": "diagram",
+              "title": "A function pairs each input with one output",
+              "page": 22,
+              "src": "notes",
+              "diagram": "md_kelifa",
+              "mode": "plain",
+              "body": [
+                "Left: each number of correct answers goes to exactly one score, score $= 2 \\times$ (correct answers) — a function. Right: the input 4 has two outputs, 2 and $-2$ — not a function."
               ]
             },
             {
               "id": "math9-u2-c02",
               "type": "text",
-              "title": "2.1.2 Describing Relationships using Tables and Graphs",
-              "page": 23,
-              "src": "textbook p.23",
-              "enriched": true,
+              "title": "2.1.2 Tables and graphs",
+              "page": 22,
+              "src": "notes",
               "body": [
-                "Functional relationships can be described as a set of ordered pairs.",
-                "The horizontal axis is used to represent the values of the independent quantity.",
-                "The vertical axis is used to represent the values of the dependent quantity."
+                "A function can be shown as a **table of values**, which is a list of **ordered pairs** (input, output). Plot them with the **independent quantity on the horizontal ($x$) axis** and the dependent quantity on the vertical ($y$) axis.",
+                "The first number of a pair is always the input: $(1, 2)$ means \"1 correct answer gives 2 marks\"; $(2, 1)$ would mean something different."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u2-md-gr-disc",
+              "type": "graph",
+              "title": "Fig. 2.2: score against correct answers (discrete)",
+              "page": 23,
+              "src": "notes",
+              "graph": {
+                "kind": "plane",
+                "xmin": -1,
+                "xmax": 11,
+                "ymin": -2,
+                "ymax": 22,
+                "grid": true,
+                "points": [
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 1,
+                    "y": 2,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 2,
+                    "y": 4,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 3,
+                    "y": 6,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 4,
+                    "y": 8,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 5,
+                    "y": 10,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 6,
+                    "y": 12,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 7,
+                    "y": 14,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 8,
+                    "y": 16,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 9,
+                    "y": 18,
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 10,
+                    "y": 20,
+                    "color": "#C0503A"
+                  }
+                ]
+              },
+              "body": [
+                "The points are **separate dots** — you cannot get 2.5 answers right, so nothing lies between them. This is a **discrete graph**."
+              ]
+            },
+            {
+              "id": "math9-u2-md-graph-t",
+              "type": "table",
+              "title": "Discrete or continuous?",
+              "page": 25,
+              "src": "notes",
+              "head": [
+                "",
+                "Discrete graph",
+                "Continuous graph"
+              ],
+              "rows": [
+                [
+                  "Inputs",
+                  "only separate values (counts: people, eggs, pages)",
+                  "every real number in an interval (time, length, mass)"
+                ],
+                [
+                  "Picture",
+                  "isolated dots — do **not** join them",
+                  "an unbroken line or curve"
+                ],
+                [
+                  "Example",
+                  "score vs correct answers; entrance money vs people",
+                  "distance vs time; area vs side length"
+                ],
+                [
+                  "Question to ask",
+                  "\"Can the input be a fraction?\" → No",
+                  "\"Can the input be a fraction?\" → Yes"
+                ]
+              ],
+              "body": [
+                "Rule of thumb: if you **count** the input it is discrete; if you **measure** it, it is continuous."
+              ]
+            },
+            {
+              "id": "math9-u2-md-disccont",
+              "type": "diagram",
+              "title": "Same table, two graphs (Example 2.2)",
+              "page": 24,
+              "src": "notes",
+              "diagram": "md_disccont",
+              "mode": "plain",
+              "body": [
+                "Walking 25 km at 5 km/h: remaining distance $d = 25 - 5t$. Plotting only whole hours gives dots; allowing every moment $t$ (0.1 h, 3.5 h, …) fills the gaps with a straight segment."
               ]
             },
             {
               "id": "math9-u2-c03",
               "type": "text",
-              "title": "2.1.3 Describing Relationships using Equations",
+              "title": "2.1.3 Describing a function with an equation",
               "page": 28,
-              "src": "textbook p.28",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "A functional relationship between two quantities can also be described using an equation of two variables.",
-                "The variable that represents the independent quantity is called the **independent variable**.",
-                "The variable that represents the dependent quantity is called the **dependent variable**."
-              ]
+                "An equation states the rule in one line. Let $x$ = independent variable and $y$ = dependent variable.",
+                "- Kelifa: $y = 2x$. Abrehet: $y = 3x$.",
+                "- Water tank with 10 litres leaking 0.2 litre per hour: $y = 10 - 0.2x$ (empty when $x = 50$ hours).",
+                "- From a table, look at how $y$ changes when $x$ goes up by 1. If it always changes by the same amount $m$, the rule is $y = mx + c$, where $c$ is the value of $y$ when $x = 0$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u2-md-ex-21a",
+              "type": "worked",
+              "title": "Worked example: find the rule from a table (Activity 2.5)",
+              "page": 28,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find an equation for $x$: 1, 2, 3, 4, 5, 6 and $y$: 0.6, 0.9, 1.2, 1.5, 1.8, 2.1. Then find $y$ when $x = 10$.",
+              "steps": [
+                {
+                  "text": "Each time $x$ goes up by 1, $y$ goes up by 0.3, so $y = 0.3x + c$."
+                },
+                {
+                  "text": "Use $(1, 0.6)$: $0.6 = 0.3 + c$, so $c = 0.3$."
+                },
+                {
+                  "text": "Rule: $y = 0.3x + 0.3$. Check $(4, 1.5)$: $1.2 + 0.3 = 1.5$ (correct)."
+                },
+                {
+                  "text": "$x = 10$: $y = 3 + 0.3 = 3.3$."
+                }
+              ],
+              "answer": "$y = 0.3x + 0.3$; $y = 3.3$"
+            },
+            {
+              "id": "math9-u2-md-ex-21b",
+              "type": "worked",
+              "title": "Worked example: the water tank",
+              "page": 28,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A tank holds 10 L and leaks 0.2 L per hour. Write the rule, find the water after 15 hours and after 2 days, and give the domain and range.",
+              "graph": {
+                "kind": "plane",
+                "xmin": -5,
+                "xmax": 55,
+                "ymin": -1,
+                "ymax": 11,
+                "grid": true,
+                "points": [
+                  {
+                    "x": 15,
+                    "y": 7,
+                    "label": "(15, 7)",
+                    "color": "#C0503A"
+                  },
+                  {
+                    "x": 48,
+                    "y": 0.4,
+                    "label": "(48, 0.4)",
+                    "color": "#C0503A"
+                  }
+                ],
+                "lines": [
+                  {
+                    "p1": [
+                      0,
+                      10
+                    ],
+                    "p2": [
+                      50,
+                      0
+                    ],
+                    "seg": true,
+                    "color": "#2F5F8F"
+                  }
+                ]
+              },
+              "steps": [
+                {
+                  "text": "Water left $y = 10 - 0.2x$ ($x$ in hours)."
+                },
+                {
+                  "text": "After 15 h: $10 - 3 = 7$ L."
+                },
+                {
+                  "text": "After 2 days $= 48$ h: $10 - 9.6 = 0.4$ L."
+                },
+                {
+                  "text": "Empty when $10 - 0.2x = 0$, so $x = 50$. Domain $0 \\le x \\le 50$, range $0 \\le y \\le 10$."
+                }
+              ],
+              "answer": "7 L, 0.4 L; domain $[0, 50]$, range $[0, 10]$"
             },
             {
               "id": "math9-u2-tbl1",
@@ -4031,53 +4265,310 @@
           ],
           "cards": [
             {
-              "id": "math9-u2-c04",
-              "type": "remember",
-              "title": "Formula",
+              "id": "math9-u2-c05",
+              "type": "text",
+              "title": "2.2.1 Solving equations: keep the balance",
               "page": 30,
               "src": "notes",
               "body": [
-                "|x|=a ⇒ x=±a (a≥0)",
-                "Direct: double x doubles y. Inverse: double x halves y."
+                "Two equations with the same solution set are **equivalent**: $2x + 3 = 13$ and $2x = 10$ both have solution set $\\{5\\}$. Solving means changing the equation, step by step, into simpler equivalent equations until it reads $x = $ number.",
+                "Think of a balance scale: whatever you do to one pan you must do to the other."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u2-md-balance",
+              "type": "steps",
+              "title": "Solving 2x + 3 = 9 on a balance",
+              "page": 31,
+              "src": "notes",
+              "diagram": "md_balance",
+              "steps": [
+                {
+                  "text": "Each box weighs $x$ balls. The scale shows $2x + 3 = 9$.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Remove 3 balls from **both** pans (subtract 3): the scale stays level.",
+                  "show": "k2"
+                },
+                {
+                  "text": "Now $2x = 6$. Split both pans into two equal halves (divide by 2).",
+                  "show": "k3"
+                },
+                {
+                  "text": "$x = 3$. Check: $2(3) + 3 = 9$ (correct).",
+                  "show": "k4"
+                }
               ]
             },
             {
-              "id": "math9-u2-c05",
-              "type": "text",
-              "title": "2.2.1 Solving Equations",
-              "page": 30,
-              "src": "textbook pp.30–31",
-              "enriched": true,
+              "id": "math9-u2-c04",
+              "type": "remember",
+              "title": "Moves that keep an equation equivalent",
+              "page": 32,
+              "src": "notes",
               "body": [
-                "One Saturday, Abrehet returned home after selling a certain number of eggs.",
-                "Solution: Beyan said that the solution set of the equation 2x+3 =13 is {5}.",
-                "Kibret said that the solution set of the equation 2x=10 is {5}.",
-                "Two equations that have exactly the same solution set are called **equivalent equations**."
+                "1. Add the same number to both sides. 2. Subtract the same number from both sides.",
+                "3. Multiply both sides by the same **non-zero** number. 4. Divide both sides by the same **non-zero** number.",
+                "5. Replace an expression by an equal one (e.g. expand brackets). 6. Swap the two sides."
               ]
+            },
+            {
+              "id": "math9-u2-md-ex-22a",
+              "type": "worked",
+              "title": "Worked example: Example 2.4 and Activity 2.8",
+              "page": 32,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve (a) $x + 5 = -6$ (b) $15 = 3y - 9$.",
+              "steps": [
+                {
+                  "text": "(a) Subtract 5 from both sides: $x = -6 - 5 = -11$."
+                },
+                {
+                  "text": "(b) Add 9 to both sides: $24 = 3y$."
+                },
+                {
+                  "text": "Divide both sides by 3: $8 = y$, so $y = 8$."
+                },
+                {
+                  "text": "Check (b): $3(8) - 9 = 15$ (correct)."
+                }
+              ],
+              "answer": "(a) $\\{-11\\}$ (b) $\\{8\\}$"
+            },
+            {
+              "id": "math9-u2-md-both-t",
+              "type": "text",
+              "title": "2.2.2 Variables on both sides",
+              "page": 33,
+              "src": "notes",
+              "body": [
+                "Recipe: (1) expand brackets; (2) move all $x$-terms to one side and numbers to the other by adding/subtracting; (3) divide by the coefficient of $x$; (4) check in the **original** equation.",
+                "Tip: move the $x$-terms to the side with the **bigger** coefficient to avoid negative coefficients."
+              ]
+            },
+            {
+              "id": "math9-u2-md-ex-22b",
+              "type": "worked",
+              "title": "Worked example: Example 2.5 and Activity 2.9",
+              "page": 33,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve (a) $x + 23 = 2x + 45$ (b) $2x + 6 = 4x - 2$.",
+              "steps": [
+                {
+                  "text": "(a) Subtract $x$: $23 = x + 45$. Subtract 45: $x = -22$."
+                },
+                {
+                  "text": "(b) Subtract $2x$: $6 = 2x - 2$. Add 2: $8 = 2x$, so $x = 4$."
+                },
+                {
+                  "text": "Check (b): $2(4) + 6 = 14$ and $4(4) - 2 = 14$ (correct)."
+                }
+              ],
+              "answer": "(a) $x = -22$ (b) $x = 4$"
+            },
+            {
+              "id": "math9-u2-md-ex-22c",
+              "type": "worked",
+              "title": "Worked example: brackets on both sides",
+              "page": 34,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve $4(x + 3) = 5 - 3(x - 1)$.",
+              "steps": [
+                {
+                  "text": "Expand: $4x + 12 = 5 - 3x + 3$ (careful: $-3 \\times -1 = +3$)."
+                },
+                {
+                  "text": "Simplify: $4x + 12 = 8 - 3x$."
+                },
+                {
+                  "text": "Add $3x$: $7x + 12 = 8$. Subtract 12: $7x = -4$."
+                },
+                {
+                  "text": "$x = -\\frac{4}{7}$."
+                }
+              ],
+              "answer": "$x = -\\frac{4}{7}$"
             },
             {
               "id": "math9-u2-c06",
               "type": "text",
-              "title": "2.2.3 Solving Linear Equations with Fractional and Decimal Coefficients",
-              "page": 35,
-              "src": "textbook p.35",
-              "enriched": true,
+              "title": "2.2.3 Fractions and decimals: clear them first",
+              "page": 34,
+              "src": "notes",
               "body": [
-                "On a field trip of a Grade 9 class, two-third of the learners in the class arrived on time for departure."
-              ]
+                "- **Fractions:** multiply **every term** on both sides by the LCM of the denominators.",
+                "- **Decimals:** multiply every term by 10, 100, … to make all coefficients whole numbers.",
+                "Example 2.6: $0.2x + 2 = 2.6$. Multiply by 10: $2x + 20 = 26$, so $2x = 6$ and $x = 3$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u2-md-ex-22d",
+              "type": "worked",
+              "title": "Worked example: Activity 2.10",
+              "page": 34,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve $\\frac{x - 2}{4} - \\frac{x + 5}{6} = -2$.",
+              "steps": [
+                {
+                  "text": "LCM of 4 and 6 is 12. Multiply every term by 12: $3(x - 2) - 2(x + 5) = -24$."
+                },
+                {
+                  "text": "Expand: $3x - 6 - 2x - 10 = -24$."
+                },
+                {
+                  "text": "Simplify: $x - 16 = -24$, so $x = -8$."
+                },
+                {
+                  "text": "Check: $\\frac{-10}{4} - \\frac{-3}{6} = -2.5 + 0.5 = -2$ (correct)."
+                }
+              ],
+              "answer": "$x = -8$"
+            },
+            {
+              "id": "math9-u2-md-ex-22e",
+              "type": "worked",
+              "title": "Worked example: the field trip (Exercise 2.6)",
+              "page": 35,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Two-thirds of a class arrived on time. Three more came late, making 25. How many learners are in the class?",
+              "steps": [
+                {
+                  "text": "Let $n$ = number in the class. On time: $\\frac{2}{3}n$."
+                },
+                {
+                  "text": "$\\frac{2}{3}n + 3 = 25$, so $\\frac{2}{3}n = 22$."
+                },
+                {
+                  "text": "$n = 22 \\times \\frac{3}{2} = 33$."
+                }
+              ],
+              "answer": "33 learners"
             },
             {
               "id": "math9-u2-c07",
               "type": "text",
-              "title": "2.2.4 Solving Linear Inequalities",
+              "title": "2.2.4 Linear inequalities: one extra rule",
               "page": 36,
-              "src": "textbook p.36",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "Solving a linear inequality in one variable is much like solving a linear equation in one variable.",
-                "The goal is to isolate the variable on one side of the inequality using transformations that produce equivalent inequalities.",
-                "Switch the LHS and RHS and reverse the inequality."
+                "Solve an inequality exactly like an equation, with **one** extra rule:",
+                "**When you multiply or divide both sides by a negative number, reverse the inequality sign** ($<$ becomes $>$, $\\le$ becomes $\\ge$). Swapping the two sides also reverses it ($5 > x$ means $x < 5$).",
+                "Why? $2 < 3$ is true, but multiplying by $-1$ gives $-2$ and $-3$, and $-2 > -3$.",
+                "An inequality usually has **infinitely many** solutions, so we write a set $\\{x : x \\ge 1\\}$ and draw it on a number line: closed dot for $\\le, \\ge$; open dot for $<, >$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u2-md-eqineq-t",
+              "type": "table",
+              "title": "Equations and inequalities compared",
+              "page": 36,
+              "src": "notes",
+              "head": [
+                "Step",
+                "Equation",
+                "Inequality"
+              ],
+              "rows": [
+                [
+                  "Add / subtract a number",
+                  "allowed",
+                  "allowed, sign unchanged"
+                ],
+                [
+                  "Multiply / divide by a positive",
+                  "allowed",
+                  "allowed, sign unchanged"
+                ],
+                [
+                  "Multiply / divide by a negative",
+                  "allowed",
+                  "allowed, **reverse the sign**"
+                ],
+                [
+                  "Swap sides",
+                  "allowed",
+                  "allowed, **reverse the sign**"
+                ],
+                [
+                  "Answer",
+                  "usually one number",
+                  "a whole interval of numbers"
+                ]
+              ],
+              "body": [
+                "Most lost marks come from forgetting to reverse the sign after dividing by a negative."
               ]
+            },
+            {
+              "id": "math9-u2-md-ex-22f",
+              "type": "worked",
+              "title": "Worked example: Example 2.8",
+              "page": 37,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve $3x - 2 \\le 5x - 4$ and show the solution on a number line.",
+              "graph": {
+                "kind": "numberline",
+                "min": -3,
+                "max": 5,
+                "step": 1,
+                "label_every": 1,
+                "points": [
+                  {
+                    "x": 1
+                  }
+                ],
+                "ranges": [
+                  {
+                    "from": 1
+                  }
+                ]
+              },
+              "steps": [
+                {
+                  "text": "Subtract $5x$: $-2x - 2 \\le -4$."
+                },
+                {
+                  "text": "Add 2: $-2x \\le -2$."
+                },
+                {
+                  "text": "Divide by $-2$ and **reverse**: $x \\ge 1$."
+                },
+                {
+                  "text": "Check $x = 2$: $4 \\le 6$ (true). Check $x = 0$: $-2 \\le -4$ (false, as expected)."
+                }
+              ],
+              "answer": "$\\{x : x \\ge 1\\}$"
+            },
+            {
+              "id": "math9-u2-md-ex-22g",
+              "type": "worked",
+              "title": "Worked example: the national examination (Activity 2.12)",
+              "page": 35,
+              "src": "notes",
+              "mode": "show",
+              "problem": "50 questions, 2 marks each, pass mark at least 50. How many questions must be answered correctly to pass?",
+              "steps": [
+                {
+                  "text": "Let $q$ = questions correct. Marks $= 2q$."
+                },
+                {
+                  "text": "\"At least 50\": $2q \\ge 50$, so $q \\ge 25$."
+                },
+                {
+                  "text": "Also $q \\le 50$ and $q$ is a whole number."
+                }
+              ],
+              "answer": "25 or more correct answers"
             },
             {
               "id": "math9-u2-chk3",
@@ -4212,28 +4703,152 @@
             {
               "id": "math9-u2-c08",
               "type": "text",
-              "title": "2.3.1 Direct Variation",
+              "title": "2.3.1 Direct variation",
               "page": 38,
-              "src": "textbook pp.38–40",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "In a factory, the profit P varies directly with the inventory I.",
-                "The distance d a car travels and the amount of petrol p it needs vary directly.",
-                "A certain car travels 205kms on 20ℓ of petrol."
-              ]
+                "$y$ **varies directly** with $x$ if $y = kx$ for a constant $k \\ne 0$, i.e. the **ratio** $\\frac{y}{x} = k$ never changes. $k$ is the **constant of proportionality**.",
+                "Signs: when $x$ doubles, $y$ doubles; when $x$ is halved, $y$ is halved. The graph is a straight line **through the origin**.",
+                "Examples: distance and time at a fixed speed ($d = 5t$); income and eggs sold ($I = 3n$); profit and inventory."
+              ],
+              "enriched": true
             },
             {
               "id": "math9-u2-c09",
               "type": "text",
-              "title": "2.3.2 Inverse Variation",
+              "title": "2.3.2 Inverse variation",
               "page": 40,
               "src": "notes",
               "body": [
-                "**Inverse variation:** y varies inversely as x when **xy = k** (a constant), i.e. y = k/x with k ≠ 0. When x is doubled, y is halved; when x gets larger, y gets smaller.",
-                "Example: Nejat rides her bicycle 6 km from home to Semhar Secondary School in Massawa. Her travel time x (hours) and her speed y (km/h) satisfy x·y = 6. If she rides at 12 km/h she needs 6 ÷ 12 = 0.5 h; at 18 km/h she needs 6 ÷ 18 = 1/3 h (20 minutes). Faster speed → shorter time.",
-                "The graph of y = 6/x (for x > 0) is a curve that falls from left to right and gets closer and closer to both axes without touching them.",
-                "**Finding k:** if y = 4 when x = 3, then k = xy = 12 and y = 12/x; so when x = 6, y = 2."
+                "$y$ **varies inversely** as $x$ if $xy = k$, i.e. $y = \\frac{k}{x}$ with $k \\ne 0$. The **product** never changes.",
+                "Signs: when $x$ doubles, $y$ is halved. The graph is a curve that falls and never touches the axes.",
+                "Example: Nejat rides 10 km to school. Speed $\\times$ time $= 10$: at 10 km/h she needs 1 h, at 20 km/h only 0.5 h."
               ]
+            },
+            {
+              "id": "math9-u2-md-variation",
+              "type": "diagram",
+              "title": "Direct vs inverse variation",
+              "page": 41,
+              "src": "notes",
+              "diagram": "md_variation",
+              "mode": "plain",
+              "body": [
+                "Left: $(1, 2), (2, 4), (4, 8)$ — divide $y$ by $x$, always 2. Right: $(1, 12), (2, 6), (3, 4), (4, 3), (6, 2)$ — multiply, always 12."
+              ]
+            },
+            {
+              "id": "math9-u2-md-var-t",
+              "type": "table",
+              "title": "Direct and inverse variation compared",
+              "page": 42,
+              "src": "notes",
+              "head": [
+                "",
+                "Direct",
+                "Inverse"
+              ],
+              "rows": [
+                [
+                  "Equation",
+                  "$y = kx$",
+                  "$y = \\frac{k}{x}$ ($xy = k$)"
+                ],
+                [
+                  "Constant",
+                  "ratio $\\frac{y}{x} = k$",
+                  "product $xy = k$"
+                ],
+                [
+                  "$x$ doubles →",
+                  "$y$ doubles",
+                  "$y$ halves"
+                ],
+                [
+                  "Graph",
+                  "straight line through $(0, 0)$",
+                  "curve, never meets the axes"
+                ],
+                [
+                  "Find $k$",
+                  "$k = \\frac{y}{x}$",
+                  "$k = xy$"
+                ]
+              ],
+              "body": [
+                "Method for every variation problem: (1) write the type of equation, (2) use the given pair to find $k$, (3) use $k$ with the new value."
+              ]
+            },
+            {
+              "id": "math9-u2-mn3",
+              "type": "mnemonic",
+              "title": "Direct vs inverse: \"divide or multiply\"",
+              "body": [
+                "**Direct:** y ÷ x stays the same (y = kx) — both go up together.",
+                "**Inverse:** y × x stays the same (y = k/x) — one up, the other down."
+              ],
+              "page": 38,
+              "src": "notes"
+            },
+            {
+              "id": "math9-u2-md-ex-23a",
+              "type": "worked",
+              "title": "Worked example: Example 2.9 (direct)",
+              "page": 39,
+              "src": "notes",
+              "mode": "show",
+              "problem": "$y$ varies directly with $x$, and $y = 2$ when $x = 5$. Find $y$ when $x = 15$.",
+              "steps": [
+                {
+                  "text": "$y = kx$: $2 = 5k$, so $k = \\frac{2}{5}$."
+                },
+                {
+                  "text": "$y = \\frac{2}{5} \\times 15 = 6$."
+                },
+                {
+                  "text": "Shortcut check: $x$ was multiplied by 3, so $y$ is too: $2 \\times 3 = 6$ (correct)."
+                }
+              ],
+              "answer": "$y = 6$"
+            },
+            {
+              "id": "math9-u2-md-ex-23b",
+              "type": "worked",
+              "title": "Worked example: Example 2.10 (inverse)",
+              "page": 42,
+              "src": "notes",
+              "mode": "show",
+              "problem": "$z$ varies inversely as $p$, and $z = 200$ when $p = 4$. Find $z$ when $p = 10$.",
+              "steps": [
+                {
+                  "text": "$zp = k$: $k = 200 \\times 4 = 800$."
+                },
+                {
+                  "text": "$z = \\frac{800}{10} = 80$."
+                }
+              ],
+              "answer": "$z = 80$"
+            },
+            {
+              "id": "math9-u2-md-ex-23c",
+              "type": "worked",
+              "title": "Worked example: calories (Activity 2.15)",
+              "page": 39,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Calories burned vary directly with time. A person burns 75 calories sitting in class for 50 minutes. How long to burn 545 calories?",
+              "steps": [
+                {
+                  "text": "$C = kt$: $75 = 50k$, so $k = 1.5$ calories per minute."
+                },
+                {
+                  "text": "$545 = 1.5t$, so $t = 545 \\div 1.5 \\approx 363.3$ minutes."
+                },
+                {
+                  "text": "That is about 6 hours 3 minutes."
+                }
+              ],
+              "answer": "about 363 minutes (≈ 6 h)"
             },
             {
               "id": "math9-u2-chk5",
@@ -4362,17 +4977,6 @@
               "why": "Inverse variation: xy = k. k = 4 × 6 = 24. When x = 8: y = 24 ÷ 8 = 3. Doubling x halves y. (12 would be direct variation.)",
               "page": 38,
               "src": "notes"
-            },
-            {
-              "id": "math9-u2-mn3",
-              "type": "mnemonic",
-              "title": "Direct vs inverse: \"divide or multiply\"",
-              "body": [
-                "**Direct:** y ÷ x stays the same (y = kx) — both go up together.",
-                "**Inverse:** y × x stays the same (y = k/x) — one up, the other down."
-              ],
-              "page": 38,
-              "src": "notes"
             }
           ]
         },
@@ -4388,42 +4992,226 @@
             {
               "id": "math9-u2-c10",
               "type": "text",
-              "title": "2.4.1 Absolute Values of Numbers",
+              "title": "2.4.1 Absolute value = distance from 0",
               "page": 43,
-              "src": "textbook pp.43–44",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "Label the points on the line so that the distance between consecutive integers is 1 cm.",
-                "The absolute value of a real number x is the distance from the origin to the number x on a number line.",
-                "Since distance is never negative, the absolute value of a real number is never negative.",
-                "Using algebraic notations, the absolute value of a real number is defined as follows."
+                "The **absolute value** $|x|$ is the distance of $x$ from 0 on the number line. A distance is never negative, so $|x| \\ge 0$ always.",
+                "$$|x| = \\begin{cases} x & \\text{if } x \\ge 0 \\\\ -x & \\text{if } x < 0 \\end{cases}$$",
+                "So $|6| = 6$ and $|-5| = -(-5) = 5$. The \"$-x$\" does **not** mean the answer is negative: when $x$ is negative, $-x$ is positive.",
+                "Useful facts: $|x - y| = |y - x|$ (the distance between $x$ and $y$), $|xy| = |x||y|$, but $|x + y| \\le |x| + |y|$ (equal only when $x, y$ have the same sign or one is 0)."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u2-md-absdist",
+              "type": "diagram",
+              "title": "Two numbers with the same absolute value",
+              "page": 43,
+              "src": "notes",
+              "diagram": "md_absdist",
+              "mode": "plain",
+              "body": [
+                "3 and $-3$ are both 3 units from 0, on opposite sides. So $|x| = 3$ has two solutions."
               ]
             },
             {
               "id": "math9-u2-c11",
               "type": "text",
-              "title": "2.4.2 Absolute Value Equations",
-              "page": 45,
-              "src": "textbook p.45",
-              "enriched": true,
+              "title": "2.4.2 Absolute value equations",
+              "page": 46,
+              "src": "notes",
               "body": [
-                "Halima and Ibrahim are discussing the task.",
-                "Ibrahim: No information is given about that.",
-                "Ibrahim: According to the problem, it is 4 units."
-              ]
+                "For $k > 0$: $$|u| = k \\iff u = -k \\text{ or } u = k$$",
+                "Solve both equations and put the answers together. Special cases: $|u| = 0$ gives only $u = 0$; $|u| = $ a negative number has **no solution** (distance cannot be negative).",
+                "Before splitting, get the absolute value **alone** on one side: $|x + 1| + 2 = 7$ → $|x + 1| = 5$ first."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u2-md-ex-24a",
+              "type": "worked",
+              "title": "Worked example: Example 2.13",
+              "page": 46,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve $|2x - 5| = 9$.",
+              "steps": [
+                {
+                  "text": "Split: $2x - 5 = -9$ or $2x - 5 = 9$."
+                },
+                {
+                  "text": "First: $2x = -4$, $x = -2$. Second: $2x = 14$, $x = 7$."
+                },
+                {
+                  "text": "Check: $|2(-2) - 5| = |-9| = 9$ and $|2(7) - 5| = |9| = 9$ (correct)."
+                }
+              ],
+              "answer": "$\\{-2, 7\\}$"
             },
             {
               "id": "math9-u2-c12",
               "type": "text",
-              "title": "2.4.3 Absolute Value Inequalities",
+              "title": "2.4.3 Absolute value inequalities",
               "page": 47,
-              "src": "textbook pp.47–49",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "If inequalities are joined with the word ‘or,’ then the solution set of the compound inequality is the union of the solutions of each inequality.",
-                "If inequalities are joined with the word ‘and,’ then the solution set of the compound inequality is the intersection of the solutions of each inequality.",
-                "Harnet Secondary School hires a bus for 150.00 Nakfa to take a group of Grade 9 students to Asmara Zoo.",
-                "The number of units produced by a machine working at a constant rate varies directly with the amount of time the machine is in operation."
+                "For $k > 0$:",
+                "- $|u| < k \\iff -k < u < k$ (distance **less** than $k$ → **between**, one piece, \"and\").",
+                "- $|u| > k \\iff u < -k \\text{ or } u > k$ (distance **more** than $k$ → **outside**, two pieces, \"or\").",
+                "The same holds with $\\le$ and $\\ge$ (then the end points are included). \"And\" gives the **intersection** of the two solution sets; \"or\" gives the **union**."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u2-md-absrule",
+              "type": "diagram",
+              "title": "Less than: between. Greater than: outside.",
+              "page": 47,
+              "src": "notes",
+              "diagram": "md_absrule",
+              "mode": "plain"
+            },
+            {
+              "id": "math9-u2-md-ex-24b",
+              "type": "worked",
+              "title": "Worked example: Example 2.14",
+              "page": 48,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve $|2x - 3| < 5$.",
+              "graph": {
+                "kind": "numberline",
+                "min": -3,
+                "max": 6,
+                "step": 1,
+                "label_every": 1,
+                "points": [
+                  {
+                    "x": -1,
+                    "open": true
+                  },
+                  {
+                    "x": 4,
+                    "open": true
+                  }
+                ],
+                "ranges": [
+                  {
+                    "from": -1,
+                    "to": 4,
+                    "from_open": true,
+                    "to_open": true
+                  }
+                ]
+              },
+              "steps": [
+                {
+                  "text": "Less than → between: $-5 < 2x - 3 < 5$."
+                },
+                {
+                  "text": "Add 3 to all three parts: $-2 < 2x < 8$."
+                },
+                {
+                  "text": "Divide all parts by 2: $-1 < x < 4$."
+                }
+              ],
+              "answer": "$\\{x : -1 < x < 4\\}$"
+            },
+            {
+              "id": "math9-u2-md-ex-24c",
+              "type": "worked",
+              "title": "Worked example: Example 2.15",
+              "page": 48,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Solve $|x + 2| \\ge 4$.",
+              "graph": {
+                "kind": "numberline",
+                "min": -9,
+                "max": 5,
+                "step": 1,
+                "label_every": 1,
+                "points": [
+                  {
+                    "x": -6
+                  },
+                  {
+                    "x": 2
+                  }
+                ],
+                "ranges": [
+                  {
+                    "to": -6
+                  },
+                  {
+                    "from": 2
+                  }
+                ]
+              },
+              "steps": [
+                {
+                  "text": "Greater than → outside: $x + 2 \\le -4$ or $x + 2 \\ge 4$."
+                },
+                {
+                  "text": "Subtract 2: $x \\le -6$ or $x \\ge 2$."
+                },
+                {
+                  "text": "Check $x = 0$ (between): $|2| = 2 \\ge 4$ is false, so the middle is correctly left out."
+                }
+              ],
+              "answer": "$\\{x : x \\le -6 \\text{ or } x \\ge 2\\}$"
+            },
+            {
+              "id": "math9-u2-md-abs-t",
+              "type": "table",
+              "title": "Absolute value: all cases ($k > 0$)",
+              "page": 48,
+              "src": "notes",
+              "head": [
+                "Problem",
+                "Rewrite as",
+                "Picture"
+              ],
+              "rows": [
+                [
+                  "$|u| = k$",
+                  "$u = -k$ or $u = k$",
+                  "two points"
+                ],
+                [
+                  "$|u| < k$",
+                  "$-k < u < k$",
+                  "segment between, open ends"
+                ],
+                [
+                  "$|u| \\le k$",
+                  "$-k \\le u \\le k$",
+                  "segment between, closed ends"
+                ],
+                [
+                  "$|u| > k$",
+                  "$u < -k$ or $u > k$",
+                  "two rays outward, open ends"
+                ],
+                [
+                  "$|u| \\ge k$",
+                  "$u \\le -k$ or $u \\ge k$",
+                  "two rays outward, closed ends"
+                ],
+                [
+                  "$|u| = $ negative, or $|u| < $ negative",
+                  "no solution",
+                  "nothing"
+                ],
+                [
+                  "$|u| > $ negative",
+                  "every real number",
+                  "whole line"
+                ]
+              ],
+              "body": [
+                "Memory hook: \"less th**AND**\" — less than gives AND (between); \"great**OR**\" — greater than gives OR (outside)."
               ]
             },
             {
@@ -4539,13 +5327,88 @@
           ]
         }
       ],
-      "glossary": [],
+      "glossary": [
+        {
+          "term": "Independent quantity",
+          "meaning": "The quantity that is chosen or controlled; its values form the domain.",
+          "page": 20,
+          "src": "notes"
+        },
+        {
+          "term": "Dependent quantity",
+          "meaning": "The quantity that depends on the independent one; its values form the range.",
+          "page": 21,
+          "src": "notes"
+        },
+        {
+          "term": "Domain",
+          "meaning": "The set of all possible input (independent) values.",
+          "page": 21,
+          "src": "notes"
+        },
+        {
+          "term": "Range",
+          "meaning": "The set of all output (dependent) values.",
+          "page": 21,
+          "src": "notes"
+        },
+        {
+          "term": "Discrete graph",
+          "meaning": "A graph of separate points; the inputs take only separate values.",
+          "page": 23,
+          "src": "notes"
+        },
+        {
+          "term": "Continuous graph",
+          "meaning": "An unbroken graph; the inputs take every real value in an interval.",
+          "page": 25,
+          "src": "notes"
+        },
+        {
+          "term": "Equivalent equations",
+          "meaning": "Equations with exactly the same solution set.",
+          "page": 31,
+          "src": "notes"
+        },
+        {
+          "term": "Constant of proportionality",
+          "meaning": "The fixed number $k$ in $y = kx$ or $xy = k$.",
+          "page": 39,
+          "src": "notes"
+        },
+        {
+          "term": "Absolute value",
+          "meaning": "$|x|$, the distance of $x$ from 0 on the number line.",
+          "page": 44,
+          "src": "notes"
+        }
+      ],
       "tips": [
         {
           "text": "Formula: |x|=a ⇒ x=±a (a≥0) Direct: double x doubles y. Inverse: double x halves y.",
           "page": 30,
           "src": "notes",
           "card": "math9-u2-c04"
+        },
+        {
+          "text": "Count the input → discrete dots; measure it → continuous line.",
+          "page": 25,
+          "src": "notes"
+        },
+        {
+          "text": "Inequalities: multiply or divide by a negative → reverse the sign.",
+          "page": 36,
+          "src": "notes"
+        },
+        {
+          "text": "Direct: y ÷ x constant. Inverse: x × y constant.",
+          "page": 42,
+          "src": "notes"
+        },
+        {
+          "text": "|u| < k → between (and); |u| > k → outside (or).",
+          "page": 47,
+          "src": "notes"
         }
       ],
       "games": [
@@ -5251,6 +6114,664 @@
               }
             ],
             "id": "math9-u2-q31"
+          },
+          {
+            "id": "math9-u2-md-s21-q01",
+            "type": "short",
+            "q": "For \"the wage a person earns and the number of hours worked\", name the dependent and independent quantities.",
+            "answer": "dependent: wage; independent: hours",
+            "why": [
+              "Step 1: say \"wage depends on hours worked\" — this makes sense.",
+              "Step 2: the first is dependent (wage), the second independent (hours)."
+            ],
+            "tip": "Use the sentence \"___ depends on ___\".",
+            "similar": [
+              {
+                "q": "Area of a square and its side length?",
+                "a": "Area depends on the side: area dependent, side independent."
+              }
+            ],
+            "page": 21,
+            "src": "notes",
+            "label": "2.1 Practice — describing functions"
+          },
+          {
+            "id": "math9-u2-md-s21-q02",
+            "type": "short",
+            "q": "A company buys 5 tyres for each car (including a spare). Write the rule and give the domain and range if it owns up to 4 cars.",
+            "answer": "$t = 5c$; domain $\\{0, 1, 2, 3, 4\\}$, range $\\{0, 5, 10, 15, 20\\}$",
+            "why": [
+              "Step 1: tyres $t = 5 \\times$ cars $c$.",
+              "Step 2: cars can be 0, 1, 2, 3, 4.",
+              "Step 3: multiply each by 5 for the range."
+            ],
+            "tip": "The range comes from putting every domain value through the rule.",
+            "similar": [
+              {
+                "q": "Ali is 3 years older than Keria. Rule for Ali's age $A$ given Keria's age $k$?",
+                "a": "$A = k + 3$."
+              }
+            ],
+            "page": 22,
+            "src": "notes",
+            "label": "2.1 Practice — describing functions"
+          },
+          {
+            "id": "math9-u2-md-s21-q03",
+            "type": "mcq",
+            "q": "Which relationship has a continuous graph?",
+            "options": {
+              "A": "entrance money and number of people",
+              "B": "tyres needed and number of cars",
+              "C": "area of a square and its side length",
+              "D": "score and number of correct answers"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: people, cars and answers are counted → discrete.",
+              "Step 2: a side length can be any positive real number (2.37 cm) → continuous."
+            ],
+            "tip": "Counted → dots; measured → line.",
+            "similar": [
+              {
+                "q": "Distance walked and time walked?",
+                "a": "Continuous."
+              }
+            ],
+            "page": 25,
+            "src": "notes",
+            "label": "2.1 Practice — describing functions"
+          },
+          {
+            "id": "math9-u2-md-s21-q04",
+            "type": "short",
+            "q": "The drama club charges 0.50 Nakfa entrance. Find the income for 23, 60 and 121 people. Is the graph discrete or continuous?",
+            "answer": "11.50, 30, 60.50 Nakfa; discrete",
+            "why": [
+              "Step 1: income $= 0.5 \\times$ people.",
+              "Step 2: $0.5 \\times 23 = 11.5$; $0.5 \\times 60 = 30$; $0.5 \\times 121 = 60.5$.",
+              "Step 3: people are counted (no half people) → discrete."
+            ],
+            "tip": "Multiply by 0.5 = halve.",
+            "similar": [
+              {
+                "q": "Maximum income if the hall has 125 seats?",
+                "a": "62.50 Nakfa."
+              }
+            ],
+            "page": 25,
+            "src": "notes",
+            "label": "2.1 Practice — describing functions"
+          },
+          {
+            "id": "math9-u2-md-s21-q05",
+            "type": "short",
+            "q": "The ordered pairs $(-2, 5), (0, 1), (4, -7), (7, -13)$ belong to a function. Find its equation.",
+            "answer": "$y = -2x + 1$",
+            "why": [
+              "Step 1: $(0, 1)$ gives $c = 1$.",
+              "Step 2: from $x = 0$ to $x = 4$, $y$ falls by 8, so it falls 2 per step: $m = -2$.",
+              "Step 3: $y = -2x + 1$. Check $(7, -13)$: $-14 + 1 = -13$ (correct)."
+            ],
+            "tip": "The pair with $x = 0$ gives the constant straight away.",
+            "similar": [
+              {
+                "q": "Find the rule for $(0, 2), (1, 3), (2, 4), (3, 5)$.",
+                "a": "$y = x + 2$."
+              }
+            ],
+            "page": 29,
+            "src": "notes",
+            "label": "2.1 Practice — describing functions"
+          },
+          {
+            "id": "math9-u2-md-s21-q06",
+            "type": "short",
+            "q": "A photocopy costs 1.50 Nakfa per page. Write the rule and find the cost of 13, 21 and 32 pages.",
+            "answer": "$y = 1.5x$; 19.50, 31.50, 48 Nakfa",
+            "why": [
+              "Step 1: $y = 1.5x$.",
+              "Step 2: $1.5 \\times 13 = 19.5$, $1.5 \\times 21 = 31.5$, $1.5 \\times 32 = 48$."
+            ],
+            "tip": "$1.5x = x + \\frac{x}{2}$ — easy mental maths.",
+            "similar": [
+              {
+                "q": "How many pages for 60 Nakfa?",
+                "a": "40 pages."
+              }
+            ],
+            "page": 29,
+            "src": "notes",
+            "label": "2.1 Practice — describing functions"
+          },
+          {
+            "id": "math9-u2-md-s21-q07",
+            "type": "tf",
+            "q": "For a function, one input may give two different outputs.",
+            "answer": false,
+            "why": [
+              "Step 1: a function gives each input **exactly one** output.",
+              "Step 2: two outputs for one input is not a function."
+            ],
+            "tip": "Two different inputs may share an output; one input may not have two outputs.",
+            "similar": [
+              {
+                "q": "Can two inputs share the same output in a function?",
+                "a": "Yes, e.g. $y = x^2$: $(-2, 4)$ and $(2, 4)$."
+              }
+            ],
+            "page": 21,
+            "src": "notes",
+            "label": "2.1 Practice — describing functions"
+          },
+          {
+            "id": "math9-u2-md-s22-q01",
+            "type": "short",
+            "q": "Solve $11 = 1 - 4z$.",
+            "answer": "$z = -2.5$",
+            "why": [
+              "Step 1: subtract 1: $10 = -4z$.",
+              "Step 2: divide by $-4$: $z = -2.5$.",
+              "Step 3: check: $1 - 4(-2.5) = 1 + 10 = 11$ (correct)."
+            ],
+            "tip": "Dividing by a negative in an **equation** needs no sign flip.",
+            "similar": [
+              {
+                "q": "Solve $14 = 12y + 8$.",
+                "a": "$y = \\frac{1}{2}$."
+              }
+            ],
+            "page": 33,
+            "src": "notes",
+            "label": "2.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math9-u2-md-s22-q02",
+            "type": "short",
+            "q": "Each equal side of an isosceles triangle is 3 times the third side. The perimeter is 56 cm. Find the sides.",
+            "answer": "8 cm, 24 cm, 24 cm",
+            "why": [
+              "Step 1: third side $x$, equal sides $3x$ each.",
+              "Step 2: $x + 3x + 3x = 56$, so $7x = 56$, $x = 8$.",
+              "Step 3: sides 8, 24, 24."
+            ],
+            "tip": "Name the smallest quantity $x$ and write the others from it.",
+            "similar": [
+              {
+                "q": "A rectangle is 3 times as long as wide; perimeter 48. Dimensions?",
+                "a": "6 by 18."
+              }
+            ],
+            "page": 33,
+            "src": "notes",
+            "label": "2.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math9-u2-md-s22-q03",
+            "type": "short",
+            "q": "Solve $2(x - 10) = 3(2x + 7)$.",
+            "answer": "$x = -\\frac{41}{4}$",
+            "why": [
+              "Step 1: expand: $2x - 20 = 6x + 21$.",
+              "Step 2: subtract $2x$ and 21: $-41 = 4x$.",
+              "Step 3: $x = -\\frac{41}{4} = -10.25$."
+            ],
+            "tip": "Collect $x$ on the side with the bigger coefficient.",
+            "similar": [
+              {
+                "q": "Solve $12x - 13 = 3x + 14$.",
+                "a": "$x = 3$."
+              }
+            ],
+            "page": 34,
+            "src": "notes",
+            "label": "2.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math9-u2-md-s22-q04",
+            "type": "short",
+            "q": "If 4 is subtracted from twice a number, the result is 10 less than the number. Find the number.",
+            "answer": "$-6$",
+            "why": [
+              "Step 1: $2n - 4 = n - 10$.",
+              "Step 2: subtract $n$: $n - 4 = -10$, so $n = -6$.",
+              "Step 3: check: $2(-6) - 4 = -16$ and $-6 - 10 = -16$ (correct)."
+            ],
+            "tip": "\"10 less than the number\" is $n - 10$, not $10 - n$.",
+            "similar": [
+              {
+                "q": "Three times a number plus 5 is 20. The number?",
+                "a": "5."
+              }
+            ],
+            "page": 34,
+            "src": "notes",
+            "label": "2.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math9-u2-md-s22-q05",
+            "type": "short",
+            "q": "Solve $0.4x + 0.3(2000 - x) = 750$.",
+            "answer": "$x = 1500$",
+            "why": [
+              "Step 1: multiply every term by 10: $4x + 3(2000 - x) = 7500$.",
+              "Step 2: expand: $4x + 6000 - 3x = 7500$.",
+              "Step 3: $x = 1500$."
+            ],
+            "tip": "Clear decimals first — the arithmetic becomes whole numbers.",
+            "similar": [
+              {
+                "q": "Solve $0.06(x - 5) = 0.04(x + 8)$.",
+                "a": "$x = 31$."
+              }
+            ],
+            "page": 35,
+            "src": "notes",
+            "label": "2.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math9-u2-md-s22-q06",
+            "type": "mcq",
+            "q": "Solve $3 - 2x > 15$.",
+            "options": {
+              "A": "$x > -6$",
+              "B": "$x < -6$",
+              "C": "$x > 6$",
+              "D": "$x < 6$"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: subtract 3: $-2x > 12$.",
+              "Step 2: divide by $-2$ and **reverse**: $x < -6$."
+            ],
+            "tip": "Negative divisor → flip the sign.",
+            "similar": [
+              {
+                "q": "Solve $-1 < -2x + 1$.",
+                "a": "$x < 1$."
+              }
+            ],
+            "page": 37,
+            "src": "notes",
+            "label": "2.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math9-u2-md-s22-q07",
+            "type": "short",
+            "q": "Solve $5x + 4 \\ge 11 - 2x$.",
+            "answer": "$x \\ge 1$",
+            "why": [
+              "Step 1: add $2x$: $7x + 4 \\ge 11$.",
+              "Step 2: subtract 4: $7x \\ge 7$.",
+              "Step 3: divide by 7 (positive): $x \\ge 1$."
+            ],
+            "tip": "Keep $x$ positive by moving to the side where it grows.",
+            "similar": [
+              {
+                "q": "Solve $-0.1x + 5 < 0.3x + 1$.",
+                "a": "$x > 10$."
+              }
+            ],
+            "page": 37,
+            "src": "notes",
+            "label": "2.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math9-u2-md-s22-q08",
+            "type": "short",
+            "q": "Three times a number is less than 8 plus twice the number. What numbers are possible?",
+            "answer": "all numbers less than 8",
+            "why": [
+              "Step 1: $3n < 8 + 2n$.",
+              "Step 2: subtract $2n$: $n < 8$."
+            ],
+            "tip": "Inequality word problems have a set of answers, not one.",
+            "similar": [
+              {
+                "q": "Twice a number minus 3 is at least 9. Possible numbers?",
+                "a": "$n \\ge 6$."
+              }
+            ],
+            "page": 38,
+            "src": "notes",
+            "label": "2.2 Practice — equations and inequalities"
+          },
+          {
+            "id": "math9-u2-md-s23-q01",
+            "type": "short",
+            "q": "$v$ varies directly with $g$, and $v = 30$ when $g = 70$. Find $v$ when $g = 14$.",
+            "answer": "6",
+            "why": [
+              "Step 1: $k = \\frac{30}{70} = \\frac{3}{7}$.",
+              "Step 2: $v = \\frac{3}{7} \\times 14 = 6$."
+            ],
+            "tip": "Shortcut: $g$ was divided by 5, so $v$ is too: $30 \\div 5 = 6$.",
+            "similar": [
+              {
+                "q": "$P$ varies directly with $I$; $P = 100$ when $I = 20$. Find $P$ when $I = 50$.",
+                "a": "250."
+              }
+            ],
+            "page": 40,
+            "src": "notes",
+            "label": "2.3 Practice — variation"
+          },
+          {
+            "id": "math9-u2-md-s23-q02",
+            "type": "short",
+            "q": "A car travels 205 km on 20 L of petrol. How much petrol for 369 km?",
+            "answer": "36 L",
+            "why": [
+              "Step 1: petrol varies directly with distance: $p = kd$, $k = \\frac{20}{205}$.",
+              "Step 2: $p = \\frac{20}{205} \\times 369 = 36$."
+            ],
+            "tip": "Find \"per km\" or \"per litre\" first: $205 \\div 20 = 10.25$ km per litre, then $369 \\div 10.25 = 36$.",
+            "similar": [
+              {
+                "q": "A falling object's speed is 19.6 m/s after 2 s. After 3 s?",
+                "a": "29.4 m/s."
+              }
+            ],
+            "page": 40,
+            "src": "notes",
+            "label": "2.3 Practice — variation"
+          },
+          {
+            "id": "math9-u2-md-s23-q03",
+            "type": "short",
+            "q": "$R$ varies inversely with $T$, and $R = 168$ when $T = 24$. Find $R$ when $T = 30$.",
+            "answer": "134.4",
+            "why": [
+              "Step 1: $k = RT = 168 \\times 24 = 4032$.",
+              "Step 2: $R = \\frac{4032}{30} = 134.4$."
+            ],
+            "tip": "Inverse: multiply to get $k$, then divide.",
+            "similar": [
+              {
+                "q": "$T$ varies inversely as $S$; $T = 50$ when $S = 5$. Find $T$ when $S = 20$.",
+                "a": "12.5."
+              }
+            ],
+            "page": 43,
+            "src": "notes",
+            "label": "2.3 Practice — variation"
+          },
+          {
+            "id": "math9-u2-md-s23-q04",
+            "type": "mcq",
+            "q": "The time to do a job and the number of people doing it vary",
+            "options": {
+              "A": "directly",
+              "B": "inversely",
+              "C": "neither",
+              "D": "both"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: more people → less time.",
+              "Step 2: one goes up while the other goes down in the same ratio → inversely."
+            ],
+            "tip": "Ask: if one doubles, does the other double or halve?",
+            "similar": [
+              {
+                "q": "Weight of a basket and the number of identical boxes in it?",
+                "a": "Directly."
+              }
+            ],
+            "page": 42,
+            "src": "notes",
+            "label": "2.3 Practice — variation"
+          },
+          {
+            "id": "math9-u2-md-s23-q05",
+            "type": "short",
+            "q": "Write an equation for direct variation if $x = 12$, $y = 3$.",
+            "answer": "$y = \\frac{1}{4}x$",
+            "why": [
+              "Step 1: $k = \\frac{y}{x} = \\frac{3}{12} = \\frac{1}{4}$.",
+              "Step 2: $y = \\frac{1}{4}x$."
+            ],
+            "tip": "Direct: $k = y \\div x$.",
+            "similar": [
+              {
+                "q": "Inverse variation with $x = 0.2$, $y = 0.25$?",
+                "a": "$xy = 0.05$, $y = \\frac{0.05}{x}$."
+              }
+            ],
+            "page": 39,
+            "src": "notes",
+            "label": "2.3 Practice — variation"
+          },
+          {
+            "id": "math9-u2-md-s23-q06",
+            "type": "tf",
+            "q": "If $y$ varies inversely as $x$ and $x$ is tripled, $y$ becomes one third.",
+            "answer": true,
+            "why": [
+              "Step 1: $xy = k$ stays fixed.",
+              "Step 2: if $x$ becomes $3x$, $y$ must become $\\frac{y}{3}$ so the product is still $k$."
+            ],
+            "tip": "Inverse: the change in $y$ is the reciprocal of the change in $x$.",
+            "similar": [
+              {
+                "q": "$y$ varies directly as $x$ and $x$ is halved. What happens to $y$?",
+                "a": "It is halved."
+              }
+            ],
+            "page": 42,
+            "src": "notes",
+            "label": "2.3 Practice — variation"
+          },
+          {
+            "id": "math9-u2-md-s23-q07",
+            "type": "short",
+            "q": "Machine A makes 18 units in 10 hours. Machine B works at the same rate for 15 hours. How many units?",
+            "answer": "27",
+            "why": [
+              "Step 1: units vary directly with time: rate $= 18 \\div 10 = 1.8$ per hour.",
+              "Step 2: $1.8 \\times 15 = 27$."
+            ],
+            "tip": "Same rate → direct variation.",
+            "similar": [
+              {
+                "q": "How long for 45 units?",
+                "a": "25 hours."
+              }
+            ],
+            "page": 49,
+            "src": "notes",
+            "label": "2.3 Practice — variation"
+          },
+          {
+            "id": "math9-u2-md-s24-q01",
+            "type": "short",
+            "q": "Evaluate (a) $|5 - 14|$ (b) $|4| - |-7|$ (c) $|-3| \\times |5|$.",
+            "answer": "(a) 9 (b) $-3$ (c) 15",
+            "why": [
+              "Step 1 (a): inside first: $5 - 14 = -9$, $|-9| = 9$.",
+              "Step 2 (b): $4 - 7 = -3$ — the bars are separate, so the result can be negative.",
+              "Step 3 (c): $3 \\times 5 = 15$."
+            ],
+            "tip": "Work out the inside of each bar first.",
+            "similar": [
+              {
+                "q": "Evaluate $|-2 - 5|$.",
+                "a": "7."
+              }
+            ],
+            "page": 44,
+            "src": "notes",
+            "label": "2.4 Practice — absolute value"
+          },
+          {
+            "id": "math9-u2-md-s24-q02",
+            "type": "short",
+            "q": "For $x = 5$ and $y = -3$, compare $|x + y|$ and $|x| + |y|$.",
+            "answer": "$2 < 8$",
+            "why": [
+              "Step 1: $|5 + (-3)| = |2| = 2$.",
+              "Step 2: $|5| + |-3| = 8$.",
+              "Step 3: different signs → the left is smaller."
+            ],
+            "tip": "$|x + y| = |x| + |y|$ only when $x$, $y$ have the same sign (or one is 0).",
+            "similar": [
+              {
+                "q": "Compare $|x - y|$ and $|y - x|$ for $x = -1$, $y = 3$.",
+                "a": "Both are 4."
+              }
+            ],
+            "page": 45,
+            "src": "notes",
+            "label": "2.4 Practice — absolute value"
+          },
+          {
+            "id": "math9-u2-md-s24-q03",
+            "type": "short",
+            "q": "Solve $|x + 4| = 13$.",
+            "answer": "$\\{-17, 9\\}$",
+            "why": [
+              "Step 1: $x + 4 = -13$ or $x + 4 = 13$.",
+              "Step 2: $x = -17$ or $x = 9$."
+            ],
+            "tip": "Always two cases when the right side is positive.",
+            "similar": [
+              {
+                "q": "Solve $|2x| = 6$.",
+                "a": "$\\{-3, 3\\}$."
+              }
+            ],
+            "page": 46,
+            "src": "notes",
+            "label": "2.4 Practice — absolute value"
+          },
+          {
+            "id": "math9-u2-md-s24-q04",
+            "type": "short",
+            "q": "Solve $5 = |3 - 2x|$.",
+            "answer": "$\\{-1, 4\\}$",
+            "why": [
+              "Step 1: $3 - 2x = -5$ or $3 - 2x = 5$.",
+              "Step 2: $-2x = -8 \\Rightarrow x = 4$; $-2x = 2 \\Rightarrow x = -1$.",
+              "Step 3: check: $|3 - 8| = 5$ and $|3 + 2| = 5$ (correct)."
+            ],
+            "tip": "The absolute value can be on either side.",
+            "similar": [
+              {
+                "q": "Solve $|2 - x| = 3$.",
+                "a": "$\\{-1, 5\\}$."
+              }
+            ],
+            "page": 46,
+            "src": "notes",
+            "label": "2.4 Practice — absolute value"
+          },
+          {
+            "id": "math9-u2-md-s24-q05",
+            "type": "mcq",
+            "q": "How many solutions has $|2z - 14| = 0$?",
+            "options": {
+              "A": "none",
+              "B": "one",
+              "C": "two",
+              "D": "infinitely many"
+            },
+            "answer": "B",
+            "why": [
+              "Step 1: only 0 has absolute value 0.",
+              "Step 2: $2z - 14 = 0$, $z = 7$ — one solution."
+            ],
+            "tip": "$|u| = 0$ → one case; $|u| = $ negative → none.",
+            "similar": [
+              {
+                "q": "Solve $|x - 1| = -2$.",
+                "a": "No solution."
+              }
+            ],
+            "page": 46,
+            "src": "notes",
+            "label": "2.4 Practice — absolute value"
+          },
+          {
+            "id": "math9-u2-md-s24-q06",
+            "type": "short",
+            "q": "Solve $|x - 3| < 2$.",
+            "answer": "$1 < x < 5$",
+            "why": [
+              "Step 1: less than → between: $-2 < x - 3 < 2$.",
+              "Step 2: add 3 to all parts: $1 < x < 5$."
+            ],
+            "tip": "$|x - a| < r$ means \"within $r$ of $a$\": here within 2 of 3.",
+            "similar": [
+              {
+                "q": "Solve $|2x| < 8$.",
+                "a": "$-4 < x < 4$."
+              }
+            ],
+            "page": 48,
+            "src": "notes",
+            "label": "2.4 Practice — absolute value"
+          },
+          {
+            "id": "math9-u2-md-s24-q07",
+            "type": "short",
+            "q": "Solve $|2y - 1| \\ge 5$.",
+            "answer": "$y \\le -2$ or $y \\ge 3$",
+            "why": [
+              "Step 1: greater → outside: $2y - 1 \\le -5$ or $2y - 1 \\ge 5$.",
+              "Step 2: $2y \\le -4$ or $2y \\ge 6$.",
+              "Step 3: $y \\le -2$ or $y \\ge 3$."
+            ],
+            "tip": "Two rays → write the word \"or\".",
+            "similar": [
+              {
+                "q": "Solve $|x - 5| > 9$.",
+                "a": "$x < -4$ or $x > 14$."
+              }
+            ],
+            "page": 48,
+            "src": "notes",
+            "label": "2.4 Practice — absolute value"
+          },
+          {
+            "id": "math9-u2-md-s24-q08",
+            "type": "short",
+            "q": "Solve $5 < |3 - x|$.",
+            "answer": "$x < -2$ or $x > 8$",
+            "why": [
+              "Step 1: rewrite: $|3 - x| > 5$.",
+              "Step 2: $3 - x < -5$ or $3 - x > 5$.",
+              "Step 3: $-x < -8 \\Rightarrow x > 8$; $-x > 2 \\Rightarrow x < -2$ (sign flips when dividing by $-1$)."
+            ],
+            "tip": "Two traps in one: swapped sides and a negative $x$.",
+            "similar": [
+              {
+                "q": "Solve $|2x + 6| \\le 2$.",
+                "a": "$-4 \\le x \\le -2$."
+              }
+            ],
+            "page": 49,
+            "src": "notes",
+            "label": "2.4 Practice — absolute value"
+          },
+          {
+            "id": "math9-u2-md-s24-q09",
+            "type": "tf",
+            "q": "The solution set of $|x| > -1$ is all real numbers.",
+            "answer": true,
+            "why": [
+              "Step 1: $|x| \\ge 0$ for every $x$.",
+              "Step 2: every number $\\ge 0$ is $> -1$, so every $x$ works."
+            ],
+            "tip": "Compare with a negative number before splitting.",
+            "similar": [
+              {
+                "q": "Solve $|x| < -1$.",
+                "a": "No solution."
+              }
+            ],
+            "page": 48,
+            "src": "notes",
+            "label": "2.4 Practice — absolute value"
           }
         ]
       },
@@ -5308,6 +6829,38 @@
               "math9-u2-c11",
               "math9-u2-c12"
             ]
+          },
+          {
+            "id": "md_graph",
+            "label": "Discrete or continuous?",
+            "kind": "idea",
+            "cards": [
+              "math9-u2-md-graph-t"
+            ]
+          },
+          {
+            "id": "md_ineq",
+            "label": "Equation vs inequality moves",
+            "kind": "idea",
+            "cards": [
+              "math9-u2-md-eqineq-t"
+            ]
+          },
+          {
+            "id": "md_var",
+            "label": "Direct vs inverse variation",
+            "kind": "idea",
+            "cards": [
+              "math9-u2-md-var-t"
+            ]
+          },
+          {
+            "id": "md_abs",
+            "label": "Absolute value cases",
+            "kind": "idea",
+            "cards": [
+              "math9-u2-md-abs-t"
+            ]
           }
         ],
         "edges": [
@@ -5345,9 +6898,67 @@
             "from": "l2_3",
             "to": "l2_4",
             "label": "next"
+          },
+          {
+            "from": "l2_1",
+            "to": "md_graph",
+            "label": "key idea"
+          },
+          {
+            "from": "l2_2",
+            "to": "md_ineq",
+            "label": "key idea"
+          },
+          {
+            "from": "l2_3",
+            "to": "md_var",
+            "label": "key idea"
+          },
+          {
+            "from": "l2_4",
+            "to": "md_abs",
+            "label": "key idea"
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "md_kelifa": {
+          "svg": "svg/mathematics_9/m9_u2_kelifa.svg",
+          "title": "Function or not? Each input must have one output",
+          "page": 22,
+          "pins": []
+        },
+        "md_disccont": {
+          "svg": "svg/mathematics_9/m9_u2_disccont.svg",
+          "title": "Discrete and continuous graphs (Fig. 2.3 and 2.4)",
+          "page": 24,
+          "pins": []
+        },
+        "md_balance": {
+          "svg": "svg/mathematics_9/m9_u2_balance.svg",
+          "title": "An equation is a balance (Fig. 2.5)",
+          "page": 31,
+          "pins": []
+        },
+        "md_variation": {
+          "svg": "svg/mathematics_9/m9_u2_variation.svg",
+          "title": "Direct and inverse variation graphs (Fig. 2.6 and 2.7)",
+          "page": 41,
+          "pins": []
+        },
+        "md_absdist": {
+          "svg": "svg/mathematics_9/m9_u2_absdist.svg",
+          "title": "Absolute value is distance from 0 (Fig. 2.8)",
+          "page": 43,
+          "pins": []
+        },
+        "md_absrule": {
+          "svg": "svg/mathematics_9/m9_u2_absrule.svg",
+          "title": "Less than → between; greater than → outside",
+          "page": 47,
+          "pins": []
+        }
       }
     },
     {
