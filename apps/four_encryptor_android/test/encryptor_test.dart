@@ -170,6 +170,25 @@ void main() {
     expect(bundleEntry(['__MACOSX/x.html', 'sim.html', 'img/a.png']), 'sim.html');
     expect(bundleEntry(['a.png']), isNull);
   });
+  test('target switch: 4 and Bee Plus use separate master keys; files are not interchangeable', () async {
+    final four = await MasterKey.load(KeyTarget.four), bee = await MasterKey.load(KeyTarget.bee);
+    expect(four, await FourKeys.devMasterKey());
+    // must equal Bee Plus' ResourceGate.devMasterKey (lib/junior/resources/gate.dart in the Bee Plus project)
+    expect(bee, await MasterKey.beeDevMasterKey());
+    expect(bee, isNot(four));
+    expect(await MasterKey.fingerprint(KeyTarget.bee), isNot(await MasterKey.fingerprint(KeyTarget.four)));
+    final d = Uint8List.fromList(List.generate(300000, (i) => i & 0xff));
+    final meta = FourMeta(title: 'x', subject: 'science', grade: 7, unit: '2', type: FourType.pdf, mime: 'application/pdf');
+    final enc = await FourWriter.encryptBytes(d, meta: meta, masterKey: bee, batch: FourBatch.create('bee'));
+    final r = await FourReader.open(BytesSource(enc), (_) async => bee, verify: true);
+    expect(await r.readAll(), d);
+    expect(() => FourReader.open(BytesSource(enc), (_) async => four), throwsA(isA<FourKeyException>()));
+    expect(KeyTarget.bee.grades, [0, 6, 7, 8]);
+    expect(KeyTarget.bee.subjects, contains('social_studies'));
+    MasterKey.target = KeyTarget.bee;
+    expect(await MasterKey.load(), bee);
+    MasterKey.target = KeyTarget.four;
+  });
 }
 
 int utf8Len(String s) => s.codeUnits.length;
