@@ -37,6 +37,7 @@ class FourReader {
     final p = await peek(src);
     final mk = await masterKey(p.mkVersion);
     if (mk == null) throw const FourKeyException('this phone has not unlocked 4');
+    FourKeys.need32(mk, 'master key');
     final bk = await FourKeys.unwrap(mk, p.wrappedBatchKey, FourKeys.batchAad(p.batchId));
     final ck = await FourKeys.unwrap(bk, p.wrappedContentKey, p.fileId);
     final pre = p.encode();
@@ -62,7 +63,7 @@ class FourReader {
   /// Checks the footer HMAC over every chunk tag (catches reordered/replaced chunks without decrypting).
   Future<void> verifyFooter([List<int>? ck]) async {
     final p = preamble;
-    final mac = await Hmac.sha256().newMacSink(secretKey: SecretKey(await FourKeys.footerKey(ck ?? await _ck.extractBytes())));
+    final mac = await FourKeys.hmac.newMacSink(secretKey: SecretKey(await FourKeys.footerKey(ck ?? await _ck.extractBytes())));
     mac.add(p.encode());
     for (var i = 0; i < p.chunkCount; i++) {
       mac.add(await source.read(p.offsetOf(i) + p.plainLenOf(i), FourFormat.tagLen));
