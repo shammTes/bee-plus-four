@@ -223,10 +223,13 @@ def report_form(card):
         if r[0].lower().startswith('total assets'):
             marks[i] = 'final'
     card['head'] = ['', 'Nakfa', 'Nakfa']
+    card['cols'] = ['text', 'money', 'money']
+    if not any(r[1].strip() for r in out):  # no inner (cost / less depreciation) column used: drop it
+        out = [[r[0], r[2]] for r in out]
+        card['head'], card['cols'] = ['', 'Nakfa'], ['text', 'money']
     card['rows'] = out
     card['marks'] = marks
     card['kind'] = 'statement'
-    card['cols'] = ['text', 'money', 'money']
     card['body'] = ['Shown in **report form** (assets first, then liabilities and capital) so it fits a phone screen. In the textbook the same figures stand side by side: assets on the left, liabilities and capital on the right.']
     return card
 
