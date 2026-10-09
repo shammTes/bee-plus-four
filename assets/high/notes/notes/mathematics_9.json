@@ -15039,15 +15039,39 @@
             {
               "id": "math9-u6-c01",
               "type": "text",
-              "title": "6.1 Pythagoras’ Theorem",
-              "page": 131,
-              "src": "textbook pp.131–132",
-              "enriched": true,
+              "title": "6.1 Pythagoras' theorem",
+              "page": 130,
+              "src": "notes",
               "body": [
-                "In any right-angled triangle, the square of the hypotenuse is equal to the sum of the squares of the two legs.",
-                "Since c2 = a2 + b2, by the Pythagoras’ Theorem, this triangle is a right-angled triangle.",
-                "Since c2 ≠ a2 + b2, by the Pythagoras’ Theorem, this triangle is not a right-angled triangle.",
-                "The lengths of the three sides of a triangle are given."
+                "In a right-angled triangle the side opposite the right angle is the **hypotenuse** — always the longest side. The other two sides are the **legs**.",
+                "**Pythagoras' theorem:** the square on the hypotenuse equals the sum of the squares on the legs: $$c^2 = a^2 + b^2$$",
+                "Use it in two directions:",
+                "- **Find the hypotenuse** (add): $c = \\sqrt{a^2 + b^2}$. Legs 6 and 8: $c = \\sqrt{36 + 64} = 10$.",
+                "- **Find a leg** (subtract): $a = \\sqrt{c^2 - b^2}$. Hypotenuse 15, leg 12: $a = \\sqrt{225 - 144} = 9$.",
+                "The theorem works **only** for right-angled triangles."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u6-md-pyth",
+              "type": "steps",
+              "title": "Seeing the theorem: the 3-4-5 triangle",
+              "page": 131,
+              "src": "notes",
+              "diagram": "md_pyth",
+              "steps": [
+                {
+                  "text": "A right triangle with legs 3 and 4 and hypotenuse 5.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Squares on the legs have areas $3^2 = 9$ and $4^2 = 16$.",
+                  "show": "k2"
+                },
+                {
+                  "text": "The square on the hypotenuse has area $5^2 = 25 = 9 + 16$.",
+                  "show": "k3"
+                }
               ]
             },
             {
@@ -15078,6 +15102,97 @@
                   "Solving for the base or height given the hypotenuse"
                 ]
               ]
+            },
+            {
+              "id": "math9-u6-md-conv-t",
+              "type": "text",
+              "title": "The converse: is it a right triangle?",
+              "page": 131,
+              "src": "notes",
+              "body": [
+                "**Converse of Pythagoras:** if the sides satisfy $c^2 = a^2 + b^2$ (where $c$ is the **longest** side), the triangle is right-angled, and the right angle is opposite $c$.",
+                "**Method:** 1. Pick the longest side as $c$. 2. Compute $c^2$ and $a^2 + b^2$ separately. 3. Equal → right-angled; not equal → not right-angled.",
+                "Going further: if $c^2 < a^2 + b^2$ the largest angle is acute; if $c^2 > a^2 + b^2$ it is obtuse."
+              ]
+            },
+            {
+              "id": "math9-u6-md-ex-61a",
+              "type": "worked",
+              "title": "Worked example: Examples 6.1 and 6.2",
+              "page": 131,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Are triangles with sides (a) 5, 12, 13 (b) 7, 8, 12 right-angled?",
+              "steps": [
+                {
+                  "text": "(a) Longest side 13: $13^2 = 169$; $5^2 + 12^2 = 25 + 144 = 169$. Equal → right-angled."
+                },
+                {
+                  "text": "(b) Longest 12: $12^2 = 144$; $7^2 + 8^2 = 49 + 64 = 113$. Not equal → not right-angled (in fact $144 > 113$, so it is obtuse)."
+                }
+              ],
+              "answer": "(a) yes (b) no"
+            },
+            {
+              "id": "math9-u6-md-triples-t",
+              "type": "table",
+              "title": "Pythagorean triples to recognise",
+              "page": 132,
+              "src": "notes",
+              "head": [
+                "Triple",
+                "Check",
+                "Multiples"
+              ],
+              "rows": [
+                [
+                  "3, 4, 5",
+                  "9 + 16 = 25",
+                  "6, 8, 10; 9, 12, 15; 30, 40, 50"
+                ],
+                [
+                  "5, 12, 13",
+                  "25 + 144 = 169",
+                  "10, 24, 26"
+                ],
+                [
+                  "8, 15, 17",
+                  "64 + 225 = 289",
+                  "16, 30, 34"
+                ],
+                [
+                  "7, 24, 25",
+                  "49 + 576 = 625",
+                  "14, 48, 50"
+                ]
+              ],
+              "body": [
+                "Any multiple of a triple is another triple: 36, 48, 60 is $12 \\times (3, 4, 5)$."
+              ]
+            },
+            {
+              "id": "math9-u6-md-ex-61b",
+              "type": "worked",
+              "title": "Worked example: Exercise 6.1 Q4 (parallelogram)",
+              "page": 133,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A parallelogram has adjacent sides 21 cm and 28 cm and a diagonal of 35 cm. Is it a rectangle?",
+              "steps": [
+                {
+                  "text": "The two sides and the diagonal form a triangle with sides 21, 28, 35."
+                },
+                {
+                  "text": "$35^2 = 1225$ and $21^2 + 28^2 = 441 + 784 = 1225$."
+                },
+                {
+                  "text": "So the angle between the 21 cm and 28 cm sides is $90°$."
+                },
+                {
+                  "text": "A parallelogram with one right angle is a rectangle."
+                }
+              ],
+              "answer": "Yes, it is a rectangle (21, 28, 35 is $7 \\times$ (3, 4, 5))."
             },
             {
               "id": "math9-u6-wrk1",
@@ -15206,17 +15321,105 @@
             {
               "id": "math9-u6-c02",
               "type": "text",
-              "title": "6.2 Solving Problems using Pythagoras’ Theorem",
+              "title": "6.2 Solving problems with Pythagoras' theorem",
               "page": 133,
-              "src": "textbook pp.133–134",
-              "enriched": true,
+              "src": "notes",
               "body": [
-                "In a plot of land, make a garden area in the shape of a right-angled triangle of legs 6m and 8m.",
-                "A small aeroplane takes off from an airport and rises uniformly.",
-                "After it has travelled over a horizontal distance of 400m, its altitude was found to be 300m.",
-                "Solution: Kedija solved the problem as follows.",
-                "First, she represented the positions of the airport by the letter A, the plane by P, and the foot of the altitude from the aeroplane to the ground by G."
-              ]
+                "Ladders against walls, diagonals of rectangles, screens, journeys \"south then east\" and aeroplanes climbing all hide a right triangle.",
+                "**Method:**",
+                "1. Draw a sketch and mark the right angle (wall and ground, sides of a rectangle, south and east).",
+                "2. Label the hypotenuse (opposite the right angle) and the legs.",
+                "3. Decide: unknown is the hypotenuse → **add** squares; unknown is a leg → **subtract** squares.",
+                "4. Square-root, then answer with units and check that the hypotenuse is the longest."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u6-md-ex-62a",
+              "type": "worked",
+              "title": "Worked example: Example 6.3 (aeroplane)",
+              "page": 134,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A plane rises uniformly. After 400 m horizontally its altitude is 300 m. How far has it flown?",
+              "steps": [
+                {
+                  "text": "Right triangle: ground 400 m and height 300 m are the legs; the flight path $g$ is the hypotenuse."
+                },
+                {
+                  "text": "$g^2 = 400^2 + 300^2 = 160\\,000 + 90\\,000 = 250\\,000$."
+                },
+                {
+                  "text": "$g = 500$ m. (A 3-4-5 triangle × 100.)"
+                }
+              ],
+              "answer": "500 m"
+            },
+            {
+              "id": "math9-u6-md-ex-62b",
+              "type": "worked",
+              "title": "Worked example: Example 6.4 (television)",
+              "page": 134,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A 30-inch television (measured on the diagonal) is 18 inches high. How wide is it?",
+              "steps": [
+                {
+                  "text": "Diagonal 30 is the hypotenuse; the height 18 is a leg; width $w$ is the other leg."
+                },
+                {
+                  "text": "$w^2 = 30^2 - 18^2 = 900 - 324 = 576$."
+                },
+                {
+                  "text": "$w = 24$ inches."
+                }
+              ],
+              "answer": "24 inches"
+            },
+            {
+              "id": "math9-u6-md-ex-62c",
+              "type": "worked",
+              "title": "Worked example: Review Q3 (Pythagoras + a quadratic)",
+              "page": 151,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A rectangle is 7 cm longer than it is wide, and its diagonal is 17 cm. Find its sides.",
+              "steps": [
+                {
+                  "text": "Let the width be $x$; length $x + 7$."
+                },
+                {
+                  "text": "$x^2 + (x + 7)^2 = 17^2 \\Rightarrow 2x^2 + 14x + 49 = 289$."
+                },
+                {
+                  "text": "$x^2 + 7x - 120 = 0 \\Rightarrow (x + 15)(x - 8) = 0$."
+                },
+                {
+                  "text": "Width cannot be negative: $x = 8$, length 15. Check: $64 + 225 = 289$ (correct)."
+                }
+              ],
+              "answer": "8 cm by 15 cm"
+            },
+            {
+              "id": "math9-u6-md-ex-62d",
+              "type": "worked",
+              "title": "Worked example: Review Q4 (window cleaner)",
+              "page": 152,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A window is 8 m above the ground and the ladder is 10 m long. (a) How far from the wall must the foot be? (b) Can he reach the window if the foot is 7 m from the wall? (c) If not, how long a ladder is needed?",
+              "steps": [
+                {
+                  "text": "(a) $\\sqrt{10^2 - 8^2} = \\sqrt{36} = 6$ m."
+                },
+                {
+                  "text": "(b) Height reached $= \\sqrt{100 - 49} = \\sqrt{51} \\approx 7.14$ m < 8 m, so no."
+                },
+                {
+                  "text": "(c) Needed: $\\sqrt{8^2 + 7^2} = \\sqrt{113} \\approx 10.6$ m."
+                }
+              ],
+              "answer": "(a) 6 m (b) no (c) about 10.6 m"
             },
             {
               "id": "math9-u6-chk3",
@@ -15345,6 +15548,49 @@
           ],
           "cards": [
             {
+              "id": "math9-u6-md-trigdef-t",
+              "type": "text",
+              "title": "6.3.1 The three trigonometric ratios",
+              "page": 136,
+              "src": "notes",
+              "body": [
+                "In a right triangle, name the sides **relative to the angle you are using**: the **opposite** side faces the angle, the **adjacent** side touches it (and is not the hypotenuse), and the **hypotenuse** faces the right angle.",
+                "$$\\sin A = \\frac{\\text{opposite}}{\\text{hypotenuse}}, \\quad \\cos A = \\frac{\\text{adjacent}}{\\text{hypotenuse}}, \\quad \\tan A = \\frac{\\text{opposite}}{\\text{adjacent}}$$",
+                "Memory aid: **SOH CAH TOA**.",
+                "Example: sides 3, 4, 5 with 3 opposite $A$: $\\sin A = \\frac{3}{5}$, $\\cos A = \\frac{4}{5}$, $\\tan A = \\frac{3}{4}$. For the other acute angle $B$, opposite and adjacent swap: $\\sin B = \\frac{4}{5} = \\cos A$."
+              ]
+            },
+            {
+              "id": "math9-u6-md-sides",
+              "type": "steps",
+              "title": "Opposite and adjacent change with the angle",
+              "page": 136,
+              "src": "notes",
+              "diagram": "md_sides",
+              "steps": [
+                {
+                  "text": "Using angle $A$: $BC$ is opposite, $AC$ is adjacent.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Using angle $B$: $AC$ is opposite, $BC$ is adjacent. The hypotenuse $AB$ never changes.",
+                  "show": "k2"
+                }
+              ]
+            },
+            {
+              "id": "math9-u6-md-similar",
+              "type": "diagram",
+              "title": "Why a ratio belongs to an angle",
+              "page": 137,
+              "src": "notes",
+              "diagram": "md_similar",
+              "mode": "plain",
+              "body": [
+                "All the right triangles with the same angle $A$ are similar, so their side ratios are equal. That is why $\\sin A$, $\\cos A$, $\\tan A$ depend only on the size of $A$, not on the size of the triangle."
+              ]
+            },
+            {
               "id": "math9-u6-c03",
               "type": "remember",
               "title": "Right triangle and trig ratios",
@@ -15356,55 +15602,397 @@
               ]
             },
             {
+              "id": "math9-u6-md-special-t",
+              "type": "table",
+              "title": "Exact values (from Grade 8)",
+              "page": 137,
+              "src": "notes",
+              "head": [
+                "Angle",
+                "sin",
+                "cos",
+                "tan"
+              ],
+              "rows": [
+                [
+                  "30°",
+                  "$\\frac{1}{2}$",
+                  "$\\frac{\\sqrt{3}}{2} \\approx 0.8660$",
+                  "$\\frac{\\sqrt{3}}{3} \\approx 0.5774$"
+                ],
+                [
+                  "45°",
+                  "$\\frac{\\sqrt{2}}{2} \\approx 0.7071$",
+                  "$\\frac{\\sqrt{2}}{2} \\approx 0.7071$",
+                  "1"
+                ],
+                [
+                  "60°",
+                  "$\\frac{\\sqrt{3}}{2} \\approx 0.8660$",
+                  "$\\frac{1}{2}$",
+                  "$\\sqrt{3} \\approx 1.7321$"
+                ]
+              ],
+              "body": [
+                "Notice $\\sin 30° = \\cos 60°$ and $\\sin 60° = \\cos 30°$: in general $\\sin x = \\cos(90° - x)$."
+              ]
+            },
+            {
               "id": "math9-u6-c04",
               "type": "text",
-              "title": "6.3.1 Table of Trigonometric Ratios",
-              "page": 136,
-              "src": "textbook pp.136–138",
-              "enriched": true,
+              "title": "Using the table of trigonometric ratios",
+              "page": 138,
+              "src": "notes",
               "body": [
-                "Trigonometric ratios provide relationships between the sides and angles of a right-angled triangle.",
-                "As the measure of the angle changes, each trigonometric ratio of the angle also changes.",
-                "Mathematicians have found it useful to list these trigonometric ratios in tabular form.",
-                "The a table is at the end of this chapter."
+                "The table at the end of the chapter gives sin, cos and tan of every whole-degree angle from 0° to 90°, to 4 decimal places.",
+                "- **Angle → ratio:** find the angle in the Angle column, move right to the sin / cos / tan column: $\\sin 12° = 0.2079$, $\\cos 45° = 0.7071$, $\\tan 70° = 2.7475$.",
+                "- **Ratio → angle:** look for the value inside the correct column, move left to the Angle column: $\\tan x = 28.6363 \\Rightarrow x = 88°$; $\\cos y = 0.8090 \\Rightarrow y = 36°$; $\\sin z = 0.7660 \\Rightarrow z = 50°$. (The textbook writes \"sin y = 0.7660\"; it must be $\\sin z$.)",
+                "Patterns: as the angle grows from 0° to 90°, **sin grows** (0 → 1), **cos shrinks** (1 → 0), **tan grows without limit**. If the value is not in the table, take the nearest entry."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u6-md-trigtable",
+              "type": "diagram",
+              "title": "Reading sin 12°",
+              "page": 138,
+              "src": "notes",
+              "diagram": "md_trigtable",
+              "mode": "plain"
+            },
+            {
+              "id": "math9-u6-md-which-t",
+              "type": "table",
+              "title": "Which ratio do I use?",
+              "page": 139,
+              "src": "notes",
+              "head": [
+                "You know / want",
+                "Use",
+                "Rearranged"
+              ],
+              "rows": [
+                [
+                  "hypotenuse and opposite",
+                  "sin",
+                  "opp = hyp × sin A"
+                ],
+                [
+                  "hypotenuse and adjacent",
+                  "cos",
+                  "adj = hyp × cos A"
+                ],
+                [
+                  "opposite and adjacent",
+                  "tan",
+                  "opp = adj × tan A"
+                ],
+                [
+                  "unknown in the denominator",
+                  "any",
+                  "hyp = opp ÷ sin A, adj = opp ÷ tan A"
+                ]
+              ],
+              "body": [
+                "Step 1: mark the angle. Step 2: label the two sides you know or want. Step 3: pick the ratio that contains exactly those two."
               ]
+            },
+            {
+              "id": "math9-u6-md-ex-63a",
+              "type": "worked",
+              "title": "Worked example: Example 6.7 (ladder)",
+              "page": 139,
+              "src": "notes",
+              "mode": "show",
+              "problem": "An 8 m ladder leans against a wall, making 60° with the ground. How high up the wall does it reach?",
+              "steps": [
+                {
+                  "text": "Hypotenuse = 8 m (the ladder); want the side opposite 60° (the height $f$)."
+                },
+                {
+                  "text": "Opposite & hypotenuse → sin: $\\sin 60° = \\frac{f}{8}$."
+                },
+                {
+                  "text": "$f = 8 \\times 0.8660 = 6.928 \\approx 6.9$ m."
+                }
+              ],
+              "answer": "about 6.9 m"
+            },
+            {
+              "id": "math9-u6-md-ex-63b",
+              "type": "worked",
+              "title": "Worked example: Exercise 6.3 Q4 (rectangle)",
+              "page": 141,
+              "src": "notes",
+              "mode": "show",
+              "problem": "The diagonal of a rectangle makes 39° with the longer side, which is 30 cm. Find the width.",
+              "steps": [
+                {
+                  "text": "The width is opposite 39°; the 30 cm side is adjacent."
+                },
+                {
+                  "text": "tan: $\\tan 39° = \\frac{w}{30}$."
+                },
+                {
+                  "text": "$w = 30 \\times 0.8098 \\approx 24.3$ cm."
+                }
+              ],
+              "answer": "about 24.3 cm"
             },
             {
               "id": "math9-u6-c05",
               "type": "text",
-              "title": "6.3.2 Angle of Elevation and Angle of Depression",
-              "page": 142,
+              "title": "6.3.2 Angles of elevation and depression",
+              "page": 141,
               "src": "notes",
               "body": [
-                "The **angle of elevation** is the angle between the horizontal line and your line of sight when you look **up** at an object (for example, from the ground up to the top of a tree). The **angle of depression** is the angle between the horizontal and your line of sight when you look **down** (for example, from a cliff down to a boat).",
-                "Because the horizontal lines at the observer and at the object are parallel, the angle of depression from A to B equals the angle of elevation from B to A (alternate angles).",
-                "**Example:** a rope supporting a flagpole is fixed to the ground 8 m from the foot of the pole and makes an angle of elevation of 60° with the ground. Find the height of the point where the rope is tied and the length of the rope.",
-                "**Solution:** the pole, the rope and the ground form a right-angled triangle. Height h is opposite the 60° angle and 8 m is adjacent: tan 60° = h/8, so h = 8 × √3 ≈ 13.9 m. The rope is the hypotenuse: cos 60° = 8/r, so r = 8 ÷ 0.5 = 16 m."
+                "The **angle of elevation** is the angle **up** from the horizontal to an object above the eye. The **angle of depression** is the angle **down** from the horizontal to an object below the eye.",
+                "Both are measured from the **horizontal**, never from the vertical.",
+                "Because the two horizontals are parallel, the angle of depression from A to B equals the angle of elevation from B to A (alternate angles).",
+                "If the observer's eyes are above the ground, **add the eye height** at the end."
               ]
+            },
+            {
+              "id": "math9-u6-md-elevdep",
+              "type": "diagram",
+              "title": "Elevation vs depression",
+              "page": 142,
+              "src": "notes",
+              "diagram": "md_elevdep",
+              "mode": "plain"
+            },
+            {
+              "id": "math9-u6-md-ex-63c",
+              "type": "worked",
+              "title": "Worked example: Example 6.8 (flagpole rope)",
+              "page": 142,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A rope is fixed to the ground 8 m from a flagpole and makes an angle of elevation of 60° with the ground. Find the rope length.",
+              "steps": [
+                {
+                  "text": "8 m is adjacent to 60°; the rope $b$ is the hypotenuse."
+                },
+                {
+                  "text": "cos: $\\cos 60° = \\frac{8}{b}$."
+                },
+                {
+                  "text": "Unknown in the denominator: $b = \\frac{8}{\\cos 60°} = \\frac{8}{0.5} = 16$ m."
+                }
+              ],
+              "answer": "16 m"
+            },
+            {
+              "id": "math9-u6-md-ex-63d",
+              "type": "worked",
+              "title": "Worked example: Exercise 6.4 Q5 (eye height)",
+              "page": 145,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Jemila stands 14 m from a flagpole; the angle of elevation of the top is 27°. Her eyes are 1.4 m above the ground. Find the height of the flagpole.",
+              "steps": [
+                {
+                  "text": "The right triangle starts at eye level: adjacent 14 m, opposite = height above her eyes $h$."
+                },
+                {
+                  "text": "$h = 14 \\tan 27° = 14 \\times 0.5095 \\approx 7.13$ m."
+                },
+                {
+                  "text": "Add the eye height: $7.13 + 1.4 \\approx 8.5$ m."
+                }
+              ],
+              "answer": "about 8.5 m"
             },
             {
               "id": "math9-u6-c06",
               "type": "text",
-              "title": "6.3.3 The Law of Sines",
-              "page": 147,
-              "src": "textbook p.147",
-              "enriched": true,
+              "title": "6.3.3 The law of sines",
+              "page": 146,
+              "src": "notes",
               "body": [
-                "The law of sines can be used to determine the measures of a triangle when the measure of one angle, its opposite side and any other measure of the triangle are known."
-              ]
+                "For a triangle that is **not** right-angled, use the standard labels: side $a$ is opposite angle $A$, $b$ opposite $B$, $c$ opposite $C$.",
+                "**Law of sines:** $$\\frac{\\sin A}{a} = \\frac{\\sin B}{b} = \\frac{\\sin C}{c}$$",
+                "**Use it when you know a side and its opposite angle** plus one more side or angle (e.g. two angles and one side).",
+                "Tip: if you know two angles, the third is $180°$ minus their sum — find it first."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u6-md-labels",
+              "type": "diagram",
+              "title": "Matching sides and angles",
+              "page": 146,
+              "src": "notes",
+              "diagram": "md_labels",
+              "mode": "plain"
+            },
+            {
+              "id": "math9-u6-md-ex-63e",
+              "type": "worked",
+              "title": "Worked example: Example 6.9",
+              "page": 147,
+              "src": "notes",
+              "mode": "show",
+              "problem": "In triangle $ABC$, $a = 7$, $B = 45°$, $C = 75°$. Find $b$ and $c$.",
+              "steps": [
+                {
+                  "text": "$A = 180° - 45° - 75° = 60°$."
+                },
+                {
+                  "text": "$\\frac{\\sin 60°}{7} = \\frac{\\sin 45°}{b} \\Rightarrow b = \\frac{7 \\times 0.7071}{0.8660} \\approx 5.7$."
+                },
+                {
+                  "text": "$c = \\frac{7 \\sin 75°}{\\sin 60°} = \\frac{7 \\times 0.9659}{0.8660} \\approx 7.8$. (The textbook's last line writes \"b ≈ 7.8\"; it is $c$.)"
+                }
+              ],
+              "answer": "$b \\approx 5.7$, $c \\approx 7.8$"
             },
             {
               "id": "math9-u6-c07",
               "type": "text",
-              "title": "6.3.4 The Law of Cosines",
-              "page": 151,
-              "src": "textbook pp.151–152",
-              "enriched": true,
+              "title": "6.3.4 The law of cosines",
+              "page": 149,
+              "src": "notes",
               "body": [
-                "Two ships leave a harbour (H) at the same time, travelling on routes that have an angle of 80º between them.",
-                "The length of a rectangle is 7cm longer than its width.",
-                "A window-cleaner wishes to clean a window of a building.",
-                "Two motorists are driving cars on the highway on opposite sides of the plane."
+                "**Law of cosines:** $$a^2 = b^2 + c^2 - 2bc \\cos A$$ and similarly $b^2 = a^2 + c^2 - 2ac\\cos B$, $c^2 = a^2 + b^2 - 2ab\\cos C$.",
+                "**Use it when you know two sides and the angle between them** (to find the third side), or **all three sides** (to find an angle): $$\\cos A = \\frac{b^2 + c^2 - a^2}{2bc}$$",
+                "It is Pythagoras with a correction: if $A = 90°$ then $\\cos A = 0$ and it becomes $a^2 = b^2 + c^2$."
+              ],
+              "enriched": true
+            },
+            {
+              "id": "math9-u6-md-laws-t",
+              "type": "table",
+              "title": "Choosing the right tool",
+              "page": 150,
+              "src": "notes",
+              "head": [
+                "What you know",
+                "Tool"
+              ],
+              "rows": [
+                [
+                  "right-angled triangle, 2 sides",
+                  "Pythagoras"
+                ],
+                [
+                  "right-angled triangle, side + angle",
+                  "sin / cos / tan"
+                ],
+                [
+                  "two angles + one side",
+                  "law of sines"
+                ],
+                [
+                  "side + its opposite angle + one more",
+                  "law of sines"
+                ],
+                [
+                  "two sides + the angle between them",
+                  "law of cosines"
+                ],
+                [
+                  "three sides, want an angle",
+                  "law of cosines"
+                ]
+              ]
+            },
+            {
+              "id": "math9-u6-md-ex-63f",
+              "type": "worked",
+              "title": "Worked example: Example 6.10",
+              "page": 150,
+              "src": "notes",
+              "mode": "show",
+              "problem": "In triangle $ABC$, $a = 7$, $c = 10$, $B = 45°$. Find $b$.",
+              "steps": [
+                {
+                  "text": "Two sides and the included angle → law of cosines."
+                },
+                {
+                  "text": "$b^2 = 7^2 + 10^2 - 2(7)(10)\\cos 45° = 149 - 140 \\times 0.7071 = 149 - 98.99$."
+                },
+                {
+                  "text": "$b^2 \\approx 50$, so $b \\approx 7.1$."
+                }
+              ],
+              "answer": "$b \\approx 7.1$"
+            },
+            {
+              "id": "math9-u6-md-ex-63g",
+              "type": "worked",
+              "title": "Worked example: Exercise 6.6 Q4 (two ships)",
+              "page": 151,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Two ships leave a harbour at the same time on routes 80° apart, at 34 km/h and 26 km/h. How far apart are they after 3 hours?",
+              "diagram": "md_ships",
+              "steps": [
+                {
+                  "text": "Distances: $34 \\times 3 = 102$ km and $26 \\times 3 = 78$ km, with 80° between them."
+                },
+                {
+                  "text": "$d^2 = 102^2 + 78^2 - 2(102)(78)\\cos 80° = 10\\,404 + 6\\,084 - 15\\,912 \\times 0.1736$."
+                },
+                {
+                  "text": "$d^2 \\approx 16\\,488 - 2\\,762 = 13\\,726$, so $d \\approx 117$ km."
+                }
+              ],
+              "answer": "about 117 km"
+            },
+            {
+              "id": "math9-u6-md-ex-63h",
+              "type": "worked",
+              "title": "Worked example: Review Q2(d) (angle from three sides)",
+              "page": 151,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A triangle has sides $a = 5$, $b = 8$, $c = 7$. Find angle $C$.",
+              "steps": [
+                {
+                  "text": "$\\cos C = \\frac{a^2 + b^2 - c^2}{2ab} = \\frac{25 + 64 - 49}{80} = \\frac{40}{80} = 0.5$."
+                },
+                {
+                  "text": "From the table, $\\cos 60° = 0.5$, so $C = 60°$."
+                }
+              ],
+              "answer": "$C = 60°$"
+            },
+            {
+              "id": "math9-u6-md-ex-63i",
+              "type": "worked",
+              "title": "Worked example: Review Q5 (aeroplane and two cars)",
+              "page": 152,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A plane flies at 5150 m directly above a straight highway. The angles of depression to two cars on opposite sides are 37° and 53°. How far apart are the cars?",
+              "diagram": "md_planecars",
+              "steps": [
+                {
+                  "text": "Angle of depression = angle of elevation at each car (alternate angles)."
+                },
+                {
+                  "text": "Left car: $x = \\frac{5150}{\\tan 37°} = \\frac{5150}{0.7536} \\approx 6834$ m."
+                },
+                {
+                  "text": "Right car: $y = \\frac{5150}{\\tan 53°} = \\frac{5150}{1.3270} \\approx 3881$ m."
+                },
+                {
+                  "text": "Distance $= x + y \\approx 10\\,715$ m ≈ 10.7 km."
+                }
+              ],
+              "answer": "about 10.7 km"
+            },
+            {
+              "id": "math9-u6-md-summary-t",
+              "type": "remember",
+              "title": "Unit summary",
+              "page": 152,
+              "src": "notes",
+              "body": [
+                "Right triangle: $c^2 = a^2 + b^2$; SOH CAH TOA.",
+                "Any triangle: $\\frac{\\sin A}{a} = \\frac{\\sin B}{b} = \\frac{\\sin C}{c}$; $a^2 = b^2 + c^2 - 2bc\\cos A$.",
+                "Elevation = look up, depression = look down, both from the horizontal."
               ]
             },
             {
@@ -15567,13 +16155,77 @@
           ]
         }
       ],
-      "glossary": [],
+      "glossary": [
+        {
+          "term": "Hypotenuse",
+          "meaning": "The side opposite the right angle; the longest side.",
+          "page": 130,
+          "src": "notes"
+        },
+        {
+          "term": "Legs",
+          "meaning": "The two sides that form the right angle.",
+          "page": 130,
+          "src": "notes"
+        },
+        {
+          "term": "Opposite side",
+          "meaning": "The side facing the angle being used.",
+          "page": 136,
+          "src": "notes"
+        },
+        {
+          "term": "Adjacent side",
+          "meaning": "The side next to the angle that is not the hypotenuse.",
+          "page": 136,
+          "src": "notes"
+        },
+        {
+          "term": "Angle of elevation",
+          "meaning": "Angle up from the horizontal to an object above the eye.",
+          "page": 142,
+          "src": "notes"
+        },
+        {
+          "term": "Angle of depression",
+          "meaning": "Angle down from the horizontal to an object below the eye.",
+          "page": 142,
+          "src": "notes"
+        },
+        {
+          "term": "Law of sines",
+          "meaning": "$\\frac{\\sin A}{a} = \\frac{\\sin B}{b} = \\frac{\\sin C}{c}$ for any triangle.",
+          "page": 146,
+          "src": "notes"
+        },
+        {
+          "term": "Law of cosines",
+          "meaning": "$a^2 = b^2 + c^2 - 2bc\\cos A$ for any triangle.",
+          "page": 149,
+          "src": "notes"
+        }
+      ],
       "tips": [
         {
           "text": "Right triangle and trig ratios: a²+b²=c² sin=O/H cos=A/H tan=O/A SOH CAH TOA. Only a right triangle. Hypotenuse is longest, opposite the right angle.",
           "page": 138,
           "src": "notes",
           "card": "math9-u6-c03"
+        },
+        {
+          "text": "Hypotenuse → add the squares; leg → subtract the squares.",
+          "page": 131,
+          "src": "notes"
+        },
+        {
+          "text": "SOH CAH TOA — label opposite/adjacent from the angle you are using.",
+          "page": 136,
+          "src": "notes"
+        },
+        {
+          "text": "Two sides + included angle, or three sides → law of cosines; otherwise law of sines.",
+          "page": 150,
+          "src": "notes"
         }
       ],
       "games": [
@@ -16286,6 +16938,822 @@
               }
             ],
             "id": "math9-u6-q31"
+          },
+          {
+            "id": "math9-u6-md-s61-q01",
+            "type": "short",
+            "q": "Right-angled or not? (a) 7, 24, 25 (b) 5, 7, 8 (c) 10, 15, 20",
+            "answer": "(a) yes (b) no (c) no",
+            "why": [
+              "Step 1 (a): $625 = 49 + 576$ (correct).",
+              "Step 2 (b): $64$ vs $25 + 49 = 74$, not equal.",
+              "Step 3 (c): $400$ vs $100 + 225 = 325$, not equal."
+            ],
+            "tip": "Always square the LONGEST side alone.",
+            "similar": [
+              {
+                "q": "Is 9, 40, 41 right-angled?",
+                "a": "Yes: $81 + 1600 = 1681 = 41^2$."
+              }
+            ],
+            "page": 132,
+            "src": "notes",
+            "label": "6.1 Practice — Pythagoras' theorem"
+          },
+          {
+            "id": "math9-u6-md-s61-q02",
+            "type": "short",
+            "q": "Right-angled or not? (a) 36, 48, 60 (b) 4, 8, $4\\sqrt{3}$",
+            "answer": "both yes",
+            "why": [
+              "Step 1 (a): $12 \\times (3, 4, 5)$, or $2304 + 1296 = 3600$.",
+              "Step 2 (b): longest is 8 ($4\\sqrt{3} \\approx 6.9$): $16 + 48 = 64 = 8^2$."
+            ],
+            "tip": "Compare surds by squaring: $(4\\sqrt{3})^2 = 48$.",
+            "similar": [
+              {
+                "q": "Is 6, 8, 10 right-angled?",
+                "a": "Yes."
+              }
+            ],
+            "page": 132,
+            "src": "notes",
+            "label": "6.1 Practice — Pythagoras' theorem"
+          },
+          {
+            "id": "math9-u6-md-s61-q03",
+            "type": "short",
+            "q": "The legs of a right triangle are 9 cm and 12 cm. Find the hypotenuse.",
+            "answer": "15 cm",
+            "why": [
+              "Step 1: $c^2 = 81 + 144 = 225$.",
+              "Step 2: $c = 15$ cm."
+            ],
+            "tip": "Hypotenuse → add the squares.",
+            "similar": [
+              {
+                "q": "Legs 8 and 15?",
+                "a": "17."
+              }
+            ],
+            "page": 132,
+            "src": "notes",
+            "label": "6.1 Practice — Pythagoras' theorem"
+          },
+          {
+            "id": "math9-u6-md-s61-q04",
+            "type": "short",
+            "q": "The hypotenuse is 26 cm and one leg 10 cm. Find the other leg.",
+            "answer": "24 cm",
+            "why": [
+              "Step 1: $b^2 = 676 - 100 = 576$.",
+              "Step 2: $b = 24$ cm."
+            ],
+            "tip": "Leg → subtract the squares.",
+            "similar": [
+              {
+                "q": "Hypotenuse 17, leg 8?",
+                "a": "15."
+              }
+            ],
+            "page": 132,
+            "src": "notes",
+            "label": "6.1 Practice — Pythagoras' theorem"
+          },
+          {
+            "id": "math9-u6-md-s61-q05",
+            "type": "short",
+            "q": "Legs 2 and 3. Find the hypotenuse exactly and to 2 d.p.",
+            "answer": "$\\sqrt{13} \\approx 3.61$",
+            "why": [
+              "Step 1: $c^2 = 4 + 9 = 13$.",
+              "Step 2: $c = \\sqrt{13} \\approx 3.61$."
+            ],
+            "tip": "Leave a surd if the question says \"exact\".",
+            "similar": [
+              {
+                "q": "Legs 1 and 2?",
+                "a": "$\\sqrt{5} \\approx 2.24$."
+              }
+            ],
+            "page": 132,
+            "src": "notes",
+            "label": "6.1 Practice — Pythagoras' theorem"
+          },
+          {
+            "id": "math9-u6-md-s61-q06",
+            "type": "mcq",
+            "q": "In triangle $PQR$ the right angle is at $Q$. The hypotenuse is",
+            "options": {
+              "A": "$PQ$",
+              "B": "$QR$",
+              "C": "$PR$",
+              "D": "cannot tell"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: the hypotenuse is opposite the right angle.",
+              "Step 2: the side not touching $Q$ is $PR$."
+            ],
+            "tip": "Hypotenuse = the side that does not touch the right-angle vertex.",
+            "similar": [
+              {
+                "q": "Right angle at $Y$ in $XYZ$?",
+                "a": "$XZ$."
+              }
+            ],
+            "page": 131,
+            "src": "notes",
+            "label": "6.1 Practice — Pythagoras' theorem"
+          },
+          {
+            "id": "math9-u6-md-s61-q07",
+            "type": "tf",
+            "q": "A triangle with sides $\\frac{5}{3}, \\frac{8}{3}, \\frac{10}{3}$ is right-angled.",
+            "answer": false,
+            "why": [
+              "Step 1: multiply by 3: 5, 8, 10 (same shape).",
+              "Step 2: $25 + 64 = 89 \\ne 100$."
+            ],
+            "tip": "Scaling all sides does not change the answer — clear the fractions.",
+            "similar": [
+              {
+                "q": "Is 1.5, 2, 2.5 right-angled?",
+                "a": "Yes (× 2 gives 3, 4, 5)."
+              }
+            ],
+            "page": 132,
+            "src": "notes",
+            "label": "6.1 Practice — Pythagoras' theorem"
+          },
+          {
+            "id": "math9-u6-md-s61-q08",
+            "type": "short",
+            "q": "A parallelogram has sides 9 cm and 12 cm and a diagonal of 16 cm. Is it a rectangle?",
+            "answer": "No",
+            "why": [
+              "Step 1: $81 + 144 = 225$.",
+              "Step 2: $16^2 = 256 \\ne 225$, so the angle is not $90°$."
+            ],
+            "tip": "Rectangle ⇔ the diagonal is the hypotenuse of a side-side right triangle.",
+            "similar": [
+              {
+                "q": "Sides 5, 12, diagonal 13?",
+                "a": "Yes, a rectangle."
+              }
+            ],
+            "page": 133,
+            "src": "notes",
+            "label": "6.1 Practice — Pythagoras' theorem"
+          },
+          {
+            "id": "math9-u6-md-s61-q09",
+            "type": "short",
+            "q": "An isosceles right triangle has legs of 5 cm. Find the hypotenuse.",
+            "answer": "$5\\sqrt{2} \\approx 7.07$ cm",
+            "why": [
+              "Step 1: $c^2 = 25 + 25 = 50$.",
+              "Step 2: $c = \\sqrt{50} = 5\\sqrt{2}$."
+            ],
+            "tip": "Hypotenuse = leg × $\\sqrt{2}$ for a 45-45-90 triangle.",
+            "similar": [
+              {
+                "q": "Legs 3?",
+                "a": "$3\\sqrt{2} \\approx 4.24$."
+              }
+            ],
+            "page": 132,
+            "src": "notes",
+            "label": "6.1 Practice — Pythagoras' theorem"
+          },
+          {
+            "id": "math9-u6-md-s61-q10",
+            "type": "short",
+            "q": "Review Q1: right-angled or not? (a) 10, 24, 27 (b) 0.75, 1, 1.25 (c) 20, 24, 31",
+            "answer": "(a) no (b) yes (c) no",
+            "why": [
+              "Step 1 (a): $676 \\ne 729$.",
+              "Step 2 (b): $0.5625 + 1 = 1.5625 = 1.25^2$.",
+              "Step 3 (c): $400 + 576 = 976 \\ne 961$."
+            ],
+            "tip": "0.75, 1, 1.25 is $\\frac{1}{4} \\times (3, 4, 5)$.",
+            "similar": [
+              {
+                "q": "Is 12, 35, 37 right-angled?",
+                "a": "Yes."
+              }
+            ],
+            "page": 151,
+            "src": "notes",
+            "label": "6.1 Practice — Pythagoras' theorem"
+          },
+          {
+            "id": "math9-u6-md-s62-q01",
+            "type": "short",
+            "q": "A rectangle has a diagonal of 25 cm and width 15 cm. Find its length.",
+            "answer": "20 cm",
+            "why": [
+              "Step 1: $l^2 = 625 - 225 = 400$.",
+              "Step 2: $l = 20$ cm."
+            ],
+            "tip": "The diagonal is the hypotenuse.",
+            "similar": [
+              {
+                "q": "Diagonal 13, width 5?",
+                "a": "12."
+              }
+            ],
+            "page": 135,
+            "src": "notes",
+            "label": "6.2 Practice — problems with Pythagoras"
+          },
+          {
+            "id": "math9-u6-md-s62-q02",
+            "type": "short",
+            "q": "A football field is 90 m by 120 m. How far is it corner to opposite corner?",
+            "answer": "150 m",
+            "why": [
+              "Step 1: $d^2 = 8100 + 14\\,400 = 22\\,500$.",
+              "Step 2: $d = 150$ m."
+            ],
+            "tip": "Spot the triple: $30 \\times (3, 4, 5)$.",
+            "similar": [
+              {
+                "q": "Field 60 m by 80 m?",
+                "a": "100 m."
+              }
+            ],
+            "page": 135,
+            "src": "notes",
+            "label": "6.2 Practice — problems with Pythagoras"
+          },
+          {
+            "id": "math9-u6-md-s62-q03",
+            "type": "short",
+            "q": "A window is 12 m high; the ladder foot is 5 m from the wall. How long is the ladder?",
+            "answer": "13 m",
+            "why": [
+              "Step 1: $L^2 = 144 + 25 = 169$.",
+              "Step 2: $L = 13$ m."
+            ],
+            "tip": "The ladder is the hypotenuse.",
+            "similar": [
+              {
+                "q": "Window 8 m, foot 6 m?",
+                "a": "10 m."
+              }
+            ],
+            "page": 135,
+            "src": "notes",
+            "label": "6.2 Practice — problems with Pythagoras"
+          },
+          {
+            "id": "math9-u6-md-s62-q04",
+            "type": "short",
+            "q": "An 11 m ladder has its foot 4 m from a wall. How high does it reach?",
+            "answer": "$\\sqrt{105} \\approx 10.25$ m",
+            "why": [
+              "Step 1: $h^2 = 121 - 16 = 105$.",
+              "Step 2: $h \\approx 10.25$ m."
+            ],
+            "tip": "Height is a leg → subtract.",
+            "similar": [
+              {
+                "q": "13 m ladder, foot 5 m?",
+                "a": "12 m."
+              }
+            ],
+            "page": 135,
+            "src": "notes",
+            "label": "6.2 Practice — problems with Pythagoras"
+          },
+          {
+            "id": "math9-u6-md-s62-q05",
+            "type": "short",
+            "q": "Ghenet rides 9 km south then 12 km east. How far is she from the start?",
+            "answer": "15 km",
+            "why": [
+              "Step 1: south and east are at right angles, so the legs are 9 and 12.",
+              "Step 2: $\\sqrt{81 + 144} = 15$ km."
+            ],
+            "tip": "Compass directions at right angles make a right triangle.",
+            "similar": [
+              {
+                "q": "6 km north then 8 km west?",
+                "a": "10 km."
+              }
+            ],
+            "page": 135,
+            "src": "notes",
+            "label": "6.2 Practice — problems with Pythagoras"
+          },
+          {
+            "id": "math9-u6-md-s62-q06",
+            "type": "short",
+            "q": "A rectangle's length is 2 cm more than its width and its diagonal is 10 cm. Find its sides.",
+            "answer": "6 cm and 8 cm",
+            "why": [
+              "Step 1: $x^2 + (x + 2)^2 = 100 \\Rightarrow 2x^2 + 4x - 96 = 0$.",
+              "Step 2: $x^2 + 2x - 48 = 0 \\Rightarrow (x + 8)(x - 6) = 0$.",
+              "Step 3: $x = 6$, length 8."
+            ],
+            "tip": "Reject negative lengths.",
+            "similar": [
+              {
+                "q": "Length 7 more than width, diagonal 13?",
+                "a": "5 and 12."
+              }
+            ],
+            "page": 151,
+            "src": "notes",
+            "label": "6.2 Practice — problems with Pythagoras"
+          },
+          {
+            "id": "math9-u6-md-s62-q07",
+            "type": "short",
+            "q": "A 50-inch television is 30 inches high. How wide is it?",
+            "answer": "40 inches",
+            "why": [
+              "Step 1: $w^2 = 2500 - 900 = 1600$.",
+              "Step 2: $w = 40$."
+            ],
+            "tip": "TV sizes are diagonals.",
+            "similar": [
+              {
+                "q": "25-inch, 15 high?",
+                "a": "20 inches."
+              }
+            ],
+            "page": 134,
+            "src": "notes",
+            "label": "6.2 Practice — problems with Pythagoras"
+          },
+          {
+            "id": "math9-u6-md-s62-q08",
+            "type": "short",
+            "q": "A square has a diagonal of 10 cm. Find its side and area.",
+            "answer": "side $5\\sqrt{2} \\approx 7.07$ cm, area 50 cm²",
+            "why": [
+              "Step 1: $s^2 + s^2 = 100 \\Rightarrow s^2 = 50$.",
+              "Step 2: area $= s^2 = 50$ cm²; $s \\approx 7.07$ cm."
+            ],
+            "tip": "You may not need $s$ itself — area is $s^2$.",
+            "similar": [
+              {
+                "q": "Square side 6: diagonal?",
+                "a": "$6\\sqrt{2} \\approx 8.49$."
+              }
+            ],
+            "page": 135,
+            "src": "notes",
+            "label": "6.2 Practice — problems with Pythagoras"
+          },
+          {
+            "id": "math9-u6-md-s62-q09",
+            "type": "short",
+            "q": "Find the distance between $(1, 2)$ and $(7, 10)$.",
+            "answer": "10",
+            "why": [
+              "Step 1: horizontal leg $7 - 1 = 6$, vertical leg $10 - 2 = 8$.",
+              "Step 2: $\\sqrt{36 + 64} = 10$."
+            ],
+            "tip": "Distance between points is Pythagoras on the grid.",
+            "similar": [
+              {
+                "q": "$(0, 0)$ to $(5, 12)$?",
+                "a": "13."
+              }
+            ],
+            "page": 135,
+            "src": "notes",
+            "label": "6.2 Practice — problems with Pythagoras"
+          },
+          {
+            "id": "math9-u6-md-s62-q10",
+            "type": "short",
+            "q": "A 5 m ladder must reach a window 4 m high. How far from the wall is the foot?",
+            "answer": "3 m",
+            "why": [
+              "Step 1: $\\sqrt{25 - 16} = 3$."
+            ],
+            "tip": "Spot 3-4-5.",
+            "similar": [
+              {
+                "q": "10 m ladder, 6 m high?",
+                "a": "8 m."
+              }
+            ],
+            "page": 152,
+            "src": "notes",
+            "label": "6.2 Practice — problems with Pythagoras"
+          },
+          {
+            "id": "math9-u6-md-s63-q01",
+            "type": "short",
+            "q": "A right triangle has sides 3, 4, 5, with 3 opposite $A$. Find $\\sin A$, $\\cos A$, $\\tan A$ and $\\sin B$.",
+            "answer": "$\\frac{3}{5}, \\frac{4}{5}, \\frac{3}{4}$; $\\sin B = \\frac{4}{5}$",
+            "why": [
+              "Step 1: opp 3, adj 4, hyp 5 for $A$.",
+              "Step 2: for $B$, opposite is 4."
+            ],
+            "tip": "Relabel opposite/adjacent for each angle.",
+            "similar": [
+              {
+                "q": "Sides 5, 12, 13 with 5 opposite $A$?",
+                "a": "$\\sin A = \\frac{5}{13}$, $\\cos A = \\frac{12}{13}$, $\\tan A = \\frac{5}{12}$."
+              }
+            ],
+            "page": 140,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q02",
+            "type": "short",
+            "q": "From the table: $\\sin 18°$, $\\cos 21°$, $\\cos 75°$, $\\tan 58°$, $\\tan 45°$.",
+            "answer": "0.3090, 0.9336, 0.2588, 1.6003, 1",
+            "why": [
+              "Step 1: find each angle in the Angle column.",
+              "Step 2: read across to the right column."
+            ],
+            "tip": "Do not mix up the columns.",
+            "similar": [
+              {
+                "q": "$\\sin 30°$ and $\\cos 60°$?",
+                "a": "both 0.5000."
+              }
+            ],
+            "page": 141,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q03",
+            "type": "short",
+            "q": "Find $x$, $y$, $z$: $\\sin x = 0.9703$, $\\cos y = 0.5150$, $\\tan z = 0.2679$.",
+            "answer": "76°, 59°, 15°",
+            "why": [
+              "Step 1: search the sin column for 0.9703 → 76°.",
+              "Step 2: cos column 0.5150 → 59°.",
+              "Step 3: tan column 0.2679 → 15°."
+            ],
+            "tip": "Ratio → angle: read the table backwards.",
+            "similar": [
+              {
+                "q": "$\\tan x = 1$?",
+                "a": "45°."
+              }
+            ],
+            "page": 141,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q04",
+            "type": "short",
+            "q": "Find $w$ if $\\sin w = \\cos w$ (acute).",
+            "answer": "45°",
+            "why": [
+              "Step 1: divide by $\\cos w$: $\\tan w = 1$.",
+              "Step 2: $w = 45°$."
+            ],
+            "tip": "$\\sin x = \\cos(90° - x)$, so equal when $x = 90° - x$.",
+            "similar": [
+              {
+                "q": "$\\sin 30° = \\cos\\,?$",
+                "a": "60°."
+              }
+            ],
+            "page": 141,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q05",
+            "type": "mcq",
+            "q": "$\\tan A = $",
+            "options": {
+              "A": "$\\frac{\\text{opp}}{\\text{hyp}}$",
+              "B": "$\\frac{\\text{adj}}{\\text{hyp}}$",
+              "C": "$\\frac{\\text{opp}}{\\text{adj}}$",
+              "D": "$\\frac{\\text{adj}}{\\text{opp}}$"
+            },
+            "answer": "C",
+            "why": [
+              "Step 1: TOA: Tan = Opposite / Adjacent."
+            ],
+            "tip": "SOH CAH TOA.",
+            "similar": [
+              {
+                "q": "$\\sin A$?",
+                "a": "opposite / hypotenuse."
+              }
+            ],
+            "page": 136,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q06",
+            "type": "short",
+            "q": "A hill slopes at 12°. How much does a person rise walking 90 m up the hill?",
+            "answer": "about 18.7 m",
+            "why": [
+              "Step 1: 90 m is the hypotenuse; rise is opposite 12°.",
+              "Step 2: $90 \\sin 12° = 90 \\times 0.2079 \\approx 18.7$ m."
+            ],
+            "tip": "Distance along a slope = hypotenuse.",
+            "similar": [
+              {
+                "q": "200 m up an 8° road ($\\sin 8° = 0.1392$)?",
+                "a": "about 27.8 m."
+              }
+            ],
+            "page": 141,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q07",
+            "type": "short",
+            "q": "Tekle stands 10 m from a tree; the angle of elevation of the top is 33°. How tall is the tree?",
+            "answer": "about 6.5 m",
+            "why": [
+              "Step 1: adjacent 10, want opposite → tan.",
+              "Step 2: $10 \\times 0.6494 \\approx 6.5$ m."
+            ],
+            "tip": "Ground distance = adjacent.",
+            "similar": [
+              {
+                "q": "20 m away, 40° ($\\tan 40° = 0.8391$)?",
+                "a": "about 16.8 m."
+              }
+            ],
+            "page": 143,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q08",
+            "type": "short",
+            "q": "A building is 50 m high; the angle of elevation from a point on the ground is 41°. How far is the point from the building?",
+            "answer": "about 57.5 m",
+            "why": [
+              "Step 1: $\\tan 41° = \\frac{50}{d}$.",
+              "Step 2: $d = \\frac{50}{0.8693} \\approx 57.5$ m."
+            ],
+            "tip": "Unknown in the denominator → divide.",
+            "similar": [
+              {
+                "q": "Tower 30 m, elevation 60°?",
+                "a": "$30 \\div 1.7321 \\approx 17.3$ m."
+              }
+            ],
+            "page": 144,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q09",
+            "type": "short",
+            "q": "A plane is 2 km high and 5 km (along the ground) from the airport. Find the angle of depression to the airport.",
+            "answer": "about 22°",
+            "why": [
+              "Step 1: $\\tan D = \\frac{2}{5} = 0.4$.",
+              "Step 2: nearest table value $\\tan 22° = 0.4040$, so $D \\approx 22°$."
+            ],
+            "tip": "Depression angle = elevation angle from the airport.",
+            "similar": [
+              {
+                "q": "Height 3 km, ground 3 km?",
+                "a": "45°."
+              }
+            ],
+            "page": 144,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q10",
+            "type": "short",
+            "q": "A bird on a lamppost sees an observer's feet at a depression of 35°; the bird–observer distance is 25 m. How high is the lamppost?",
+            "answer": "about 14.3 m",
+            "why": [
+              "Step 1: elevation from the feet is 35°; 25 m is the hypotenuse.",
+              "Step 2: $h = 25 \\sin 35° = 25 \\times 0.5736 \\approx 14.3$ m."
+            ],
+            "tip": "Line of sight = hypotenuse.",
+            "similar": [
+              {
+                "q": "Kite string 50 m at 30°: height?",
+                "a": "25 m."
+              }
+            ],
+            "page": 144,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q11",
+            "type": "short",
+            "q": "Jemila (eyes 1.4 m high) is 14 m from a flagpole; elevation 27°. Find the flagpole height.",
+            "answer": "about 8.5 m",
+            "why": [
+              "Step 1: $14 \\tan 27° = 14 \\times 0.5095 \\approx 7.13$ m.",
+              "Step 2: add 1.4: about 8.5 m."
+            ],
+            "tip": "Remember the eye height.",
+            "similar": [
+              {
+                "q": "20 m away, 30°, eyes 1.5 m?",
+                "a": "about 13.05 m."
+              }
+            ],
+            "page": 145,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q12",
+            "type": "short",
+            "q": "Triangle $ABC$: $A = 71°$, $B = 39°$, $a = 14$. Find $b$.",
+            "answer": "about 9.3",
+            "why": [
+              "Step 1: $\\frac{\\sin 71°}{14} = \\frac{\\sin 39°}{b}$.",
+              "Step 2: $b = \\frac{14 \\times 0.6293}{0.9455} \\approx 9.32$."
+            ],
+            "tip": "A side and its opposite angle → law of sines.",
+            "similar": [
+              {
+                "q": "$A = 30°$, $B = 45°$, $a = 10$: $b$?",
+                "a": "$\\approx 14.1$."
+              }
+            ],
+            "page": 148,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q13",
+            "type": "short",
+            "q": "Triangle $ABC$: $A = 73°$, $B = 28°$, $c = 14$. Find $b$.",
+            "answer": "about 6.7",
+            "why": [
+              "Step 1: $C = 180° - 73° - 28° = 79°$.",
+              "Step 2: $b = \\frac{14 \\sin 28°}{\\sin 79°} = \\frac{14 \\times 0.4695}{0.9816} \\approx 6.70$."
+            ],
+            "tip": "Find the third angle so you have a full pair.",
+            "similar": [
+              {
+                "q": "$A = 50°$, $B = 60°$, $c = 10$: $b$?",
+                "a": "$C = 70°$, $b \\approx 9.22$."
+              }
+            ],
+            "page": 148,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q14",
+            "type": "short",
+            "q": "Triangle $ABC$: $A = 60°$, $b = 8$ cm, $c = 10$ cm. Find $a$.",
+            "answer": "about 9.17 cm",
+            "why": [
+              "Step 1: $a^2 = 64 + 100 - 160 \\cos 60° = 164 - 80 = 84$.",
+              "Step 2: $a = \\sqrt{84} \\approx 9.17$ cm."
+            ],
+            "tip": "Two sides + included angle → law of cosines.",
+            "similar": [
+              {
+                "q": "$C = 60°$, $a = b = 5$: $c$?",
+                "a": "5 (equilateral)."
+              }
+            ],
+            "page": 151,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q15",
+            "type": "short",
+            "q": "Triangle $PQR$: $R = 14°$, $p = 5$ cm, $q = 10$ cm. Find $r$.",
+            "answer": "about 5.29 cm",
+            "why": [
+              "Step 1: $r^2 = 25 + 100 - 100 \\cos 14° = 125 - 97.03 = 27.97$.",
+              "Step 2: $r \\approx 5.29$ cm."
+            ],
+            "tip": "Same pattern for any letters.",
+            "similar": [
+              {
+                "q": "Ships 30 km and 40 km apart at 60°: distance?",
+                "a": "$\\sqrt{1300} \\approx 36.1$ km."
+              }
+            ],
+            "page": 151,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q16",
+            "type": "short",
+            "q": "Review Q2(b): $A = 24°$, $C = 90°$, $a = 8$. Find $B$, $b$, $c$.",
+            "answer": "$B = 66°$, $b \\approx 18.0$, $c \\approx 19.7$",
+            "why": [
+              "Step 1: $B = 90° - 24° = 66°$.",
+              "Step 2: $c = \\frac{8}{\\sin 24°} = \\frac{8}{0.4067} \\approx 19.7$.",
+              "Step 3: $b = \\frac{8}{\\tan 24°} = \\frac{8}{0.4452} \\approx 18.0$. Check: $64 + 324 \\approx 388 \\approx 19.7^2$."
+            ],
+            "tip": "Right triangle → SOH CAH TOA is quicker than the laws.",
+            "similar": [
+              {
+                "q": "$C = 90°$, $a = 12$, $b = 5$: $c$?",
+                "a": "13."
+              }
+            ],
+            "page": 151,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q17",
+            "type": "short",
+            "q": "Review Q2(a): $B = 12°$, $C = 80°$, $b = 13$. Find $A$, $a$, $c$.",
+            "answer": "$A = 88°$, $a \\approx 62.5$, $c \\approx 61.6$",
+            "why": [
+              "Step 1: $A = 88°$.",
+              "Step 2: $a = \\frac{13 \\sin 88°}{\\sin 12°} = \\frac{13 \\times 0.9994}{0.2079} \\approx 62.5$.",
+              "Step 3: $c = \\frac{13 \\times 0.9848}{0.2079} \\approx 61.6$."
+            ],
+            "tip": "The largest side faces the largest angle — use this to check.",
+            "similar": [
+              {
+                "q": "$A = 30°$, $B = 60°$, $c = 10$: $a$?",
+                "a": "5."
+              }
+            ],
+            "page": 151,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q18",
+            "type": "short",
+            "q": "Sides 7, 5, 8: find the angle opposite the side 7.",
+            "answer": "60°",
+            "why": [
+              "Step 1: $\\cos = \\frac{5^2 + 8^2 - 7^2}{2 \\times 5 \\times 8} = \\frac{40}{80} = 0.5$.",
+              "Step 2: angle $= 60°$."
+            ],
+            "tip": "Three sides → law of cosines rearranged.",
+            "similar": [
+              {
+                "q": "Review Q2(e): sides 8, 6, 10, angle opposite 10?",
+                "a": "90° ($\\cos = 0$)."
+              }
+            ],
+            "page": 151,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q19",
+            "type": "short",
+            "q": "A plane at 1000 m sees two cars on opposite sides at depressions of 45° each. How far apart are the cars?",
+            "answer": "2000 m",
+            "why": [
+              "Step 1: $\\tan 45° = 1$, so each car is 1000 m horizontally from the point below the plane.",
+              "Step 2: total 2000 m."
+            ],
+            "tip": "Split into two right triangles and add.",
+            "similar": [
+              {
+                "q": "Same plane, depressions 45° and 60°?",
+                "a": "$1000 + 577 \\approx 1577$ m."
+              }
+            ],
+            "page": 152,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
+          },
+          {
+            "id": "math9-u6-md-s63-q20",
+            "type": "tf",
+            "q": "The law of sines can only be used in right-angled triangles.",
+            "answer": false,
+            "why": [
+              "Step 1: it is stated \"for any triangle ABC\".",
+              "Step 2: it is mostly used when there is **no** right angle."
+            ],
+            "tip": "Right triangle → SOH CAH TOA; other triangles → laws.",
+            "similar": [
+              {
+                "q": "If $C = 90°$, the law of cosines becomes…?",
+                "a": "Pythagoras' theorem."
+              }
+            ],
+            "page": 146,
+            "src": "notes",
+            "label": "6.3 Practice — trigonometric ratios and the laws"
           }
         ]
       },
@@ -16330,6 +17798,30 @@
               "math9-u6-c06",
               "math9-u6-c07"
             ]
+          },
+          {
+            "id": "md_triples",
+            "label": "Pythagorean triples",
+            "kind": "idea",
+            "cards": [
+              "math9-u6-md-triples-t"
+            ]
+          },
+          {
+            "id": "md_which",
+            "label": "Which ratio?",
+            "kind": "idea",
+            "cards": [
+              "math9-u6-md-which-t"
+            ]
+          },
+          {
+            "id": "md_laws",
+            "label": "Choosing the right tool",
+            "kind": "idea",
+            "cards": [
+              "math9-u6-md-laws-t"
+            ]
           }
         ],
         "edges": [
@@ -16357,9 +17849,74 @@
             "from": "l6_2",
             "to": "l6_3",
             "label": "next"
+          },
+          {
+            "from": "l6_1",
+            "to": "md_triples",
+            "label": "key idea"
+          },
+          {
+            "from": "l6_3",
+            "to": "md_which",
+            "label": "key idea"
+          },
+          {
+            "from": "l6_3",
+            "to": "md_laws",
+            "label": "key idea"
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "md_pyth": {
+          "svg": "svg/mathematics_9/m9_u6_pyth.svg",
+          "title": "Pythagoras' theorem with squares",
+          "page": 131,
+          "pins": []
+        },
+        "md_sides": {
+          "svg": "svg/mathematics_9/m9_u6_sides.svg",
+          "title": "Opposite, adjacent and hypotenuse",
+          "page": 136,
+          "pins": []
+        },
+        "md_similar": {
+          "svg": "svg/mathematics_9/m9_u6_similar.svg",
+          "title": "Trig ratios depend only on the angle (Fig. 6.6)",
+          "page": 137,
+          "pins": []
+        },
+        "md_trigtable": {
+          "svg": "svg/mathematics_9/m9_u6_trigtable.svg",
+          "title": "Reading the table of trigonometric ratios (Fig. 6.7)",
+          "page": 138,
+          "pins": []
+        },
+        "md_elevdep": {
+          "svg": "svg/mathematics_9/m9_u6_elevdep.svg",
+          "title": "Angle of elevation and angle of depression",
+          "page": 142,
+          "pins": []
+        },
+        "md_labels": {
+          "svg": "svg/mathematics_9/m9_u6_labels.svg",
+          "title": "Standard labelling of a triangle",
+          "page": 146,
+          "pins": []
+        },
+        "md_ships": {
+          "svg": "svg/mathematics_9/m9_u6_ships.svg",
+          "title": "Two ships (Exercise 6.6 Q4)",
+          "page": 151,
+          "pins": []
+        },
+        "md_planecars": {
+          "svg": "svg/mathematics_9/m9_u6_planecars.svg",
+          "title": "Aeroplane and two cars (Review Q5)",
+          "page": 152,
+          "pins": []
+        }
       }
     },
     {
