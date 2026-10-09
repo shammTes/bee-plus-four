@@ -1,83 +1,73 @@
-// In-app updates for 4. Online: a small JSON manifest (GitHub Releases "latest") → resumable APK download →
-// SHA-256 + package + signing-certificate checks → system installer (one tap; Android never allows a silent
-// install for sideloaded apps). Offline: a newer 4 APK shared via SHAREit/cable into the resources folder.
-// Same applicationId + same signing key ⇒ Android keeps all app data (unlock, progress, imported resources).
+// App updates for 4, from a FILE only — never over Wi-Fi / mobile data. A newer 4 APK arrives by SHAREit,
+// Bluetooth, Nearby Share or cable; 4 finds it by itself (start / resume, in the resources folder and an optional
+// "update folder"), or the user picks it once with "Find update file". Each candidate must be 4 (same package), a
+// higher versionCode and signed with the same certificate; then the system installer opens (one tap — Android never
+// allows a silent install for sideloaded apps). Same applicationId + same signing key ⇒ Android keeps all app data.
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 
-import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class UpdateManifest {
-  const UpdateManifest({required this.versionCode, required this.versionName, required this.apk, required this.sha256, required this.size, this.cert, this.notes = ''});
-  final int versionCode, size;
-  final String versionName, apk, sha256, notes;
-  final String? cert;
-
-  /// [abis]: this phone's ABIs, best first. A manifest may list per-ABI APKs (`flutter build apk --split-per-abi`,
-  /// ~3× smaller downloads) under "abis"; the universal "apk" is the fallback.
-  factory UpdateManifest.fromJson(Map<String, Object?> j, [List<String> abis = const []]) {
-    var pick = j;
-    final per = (j['abis'] as Map?)?.cast<String, Object?>();
-    if (per != null) {
-      for (final a in abis) {
-        if (per[a] is Map) {
-          pick = (per[a] as Map).cast<String, Object?>();
-          break;
-        }
-      }
-    }
-    return UpdateManifest(
-      versionCode: (j['versionCode'] as num).toInt(),
-      versionName: '${j['versionName']}',
-      apk: pick['apk'] as String,
-      sha256: (pick['sha256'] as String).toLowerCase(),
-      size: (pick['size'] as num?)?.toInt() ?? 0,
-    cert: (j['cert'] as String?)?.toLowerCase().replaceAll(':', ''),
-      notes: j['notes'] as String? ?? '',
-    );
-  }
-}
-
 class LocalApk {
-  const LocalApk(this.path, this.versionCode, this.versionName);
+  const LocalApk(this.path, this.versionCode, this.versionName, {this.from = ''});
   final String path, versionName;
   final int versionCode;
-}
 
-enum UpdateStep { idle, checking, downloading, verifying, ready, failed }
+  /// where it was found ("your resources folder", "the file you picked", …), for the card
+  final String from;
+}
 
 class Updater extends ChangeNotifier {
   Updater._();
   static final instance = Updater._();
 
-  static const manifestUrl = String.fromEnvironment('FOUR_UPDATE_URL', defaultValue: 'https://github.com/shammTes/bee-plus-four/releases/latest/download/four-update.json');
   static const _ch = MethodChannel('com.warsay.high/update');
-  static const _lastKey = 'four_update_last_check', _wifiKey = 'four_update_wifi_only';
   static const _resCh = MethodChannel('com.warsay.high/resources');
 
+  /// same key as ResourceLibrary's chosen folder (lib/resources/library.dart)
+  static const resFolderKey = 'four_res_folder_v1';
+  static const updateFolderKey = 'four_update_folder_v1';
+  static const _skipKey = 'four_update_skip_v1', _noteKey = 'four_update_note_v1';
+
+  /// start/resume scans closer together than this are skipped (cheap on low-end phones)
+  static const debounce = Duration(seconds: 45);
+
   Map<Object?, Object?> info = const {};
-  UpdateManifest? available;
   LocalApk? local;
-  UpdateStep step = UpdateStep.idle;
-  double progress = 0;
-  String? message, readyPath;
-  bool wifiOnly = true;
+  bool scanning = false, sharing = false;
+
+  /// last notable outcome of a scan / pick (e.g. "found 4 1.2 but signed with a different key"), or null
+  String? message;
+  String? updateFolder;
+  DateTime? lastScan;
+  bool _pendingInstall = false;
+  Future<bool>? _scan;
 
   /// tests only
   @visibleForTesting
   Directory? dirOverride;
   @visibleForTesting
-  String? urlOverride;
+  DateTime Function() now = DateTime.now;
 
   int get currentCode => (info['versionCode'] as num?)?.toInt() ?? 0;
   String get currentName => info['versionName'] as String? ?? '?';
   String? get cert => info['cert'] as String?;
-  bool get hasUpdate => available != null || local != null;
+  bool get hasUpdate => local != null;
+
+  @visibleForTesting
+  void resetForTest() {
+    info = const {};
+    local = null;
+    message = null;
+    updateFolder = null;
+    lastScan = null;
+    scanning = false;
+    _pendingInstall = false;
+    _scan = null;
+  }
 
   Future<void> _info() async {
     try {
@@ -87,50 +77,6 @@ class Updater extends ChangeNotifier {
     }
   }
 
-  /// Called once after start (unlocked phones). At most once a day; respects "Wi-Fi only".
-  Future<void> autoCheck() async {
-    final prefs = await SharedPreferences.getInstance();
-    wifiOnly = prefs.getBool(_wifiKey) ?? true;
-    await _info();
-    if (info.isEmpty) return;
-    final last = prefs.getInt(_lastKey) ?? 0;
-    if (DateTime.now().millisecondsSinceEpoch - last < const Duration(hours: 20).inMilliseconds) return;
-    final net = info['network'];
-    if (net == 'none' || (wifiOnly && net != 'wifi')) return;
-    await check();
-  }
-
-  Future<void> setWifiOnly(bool v) async {
-    wifiOnly = v;
-    (await SharedPreferences.getInstance()).setBool(_wifiKey, v);
-    notifyListeners();
-  }
-
-  Future<UpdateManifest?> check() async {
-    step = UpdateStep.checking;
-    message = null;
-    notifyListeners();
-    try {
-      if (info.isEmpty) await _info();
-      final c = HttpClient()..connectionTimeout = const Duration(seconds: 12);
-      final req = await c.getUrl(Uri.parse(urlOverride ?? manifestUrl));
-      final res = await req.close().timeout(const Duration(seconds: 20));
-      if (res.statusCode != 200) throw HttpException('manifest HTTP ${res.statusCode}');
-      final m = UpdateManifest.fromJson((jsonDecode(await res.transform(utf8.decoder).join()) as Map).cast<String, Object?>(), [for (final a in (info['abis'] as List?) ?? const []) '$a']);
-      c.close();
-      (await SharedPreferences.getInstance()).setInt(_lastKey, DateTime.now().millisecondsSinceEpoch);
-      available = m.versionCode > currentCode ? m : null;
-      message = available == null ? '4 is up to date ($currentName)' : null;
-      step = UpdateStep.idle;
-    } catch (e) {
-      step = UpdateStep.failed;
-      message = 'Could not check for updates (offline?)';
-      debugPrint('update check: $e');
-    }
-    notifyListeners();
-    return available;
-  }
-
   Future<Directory> _dir() async {
     if (dirOverride != null) return dirOverride!;
     final d = Directory('${(await getTemporaryDirectory()).path}/updates'); // = cacheDir/updates (FileProvider path)
@@ -138,114 +84,217 @@ class Updater extends ChangeNotifier {
     return d;
   }
 
-  /// Resumable download (HTTP Range on the .part file), then verify. Safe to call again after a drop.
-  Future<void> download() async {
-    final m = available;
-    if (m == null || step == UpdateStep.downloading) return;
-    step = UpdateStep.downloading;
-    message = null;
-    notifyListeners();
-    final dir = await _dir();
-    final part = File('${dir.path}/four-${m.versionCode}.apk.part');
-    final done = File('${dir.path}/four-${m.versionCode}.apk');
-    try {
-      if (!await done.exists()) {
-        var have = await part.exists() ? await part.length() : 0;
-        final c = HttpClient()..connectionTimeout = const Duration(seconds: 15);
-        final req = await c.getUrl(Uri.parse(m.apk));
-        if (have > 0) req.headers.set(HttpHeaders.rangeHeader, 'bytes=$have-');
-        final res = await req.close();
-        if (res.statusCode == 200) {
-          have = 0; // server ignored Range → start over
-        } else if (res.statusCode != 206) {
-          throw HttpException('download HTTP ${res.statusCode}');
-        }
-        final total = m.size > 0 ? m.size : (res.contentLength > 0 ? res.contentLength + have : 0);
-        final sink = part.openWrite(mode: have > 0 ? FileMode.append : FileMode.write);
-        var got = have, lastUi = 0;
-        await for (final b in res) {
-          sink.add(b);
-          got += b.length;
-          if (total > 0 && got - lastUi > 256 * 1024) {
-            lastUi = got;
-            progress = got / total;
-            notifyListeners();
-          }
-        }
-        await sink.close();
-        c.close();
-        await part.rename(done.path);
-      }
-      step = UpdateStep.verifying;
-      notifyListeners();
-      final err = await _verify(done.path, sha: m.sha256, versionCode: m.versionCode, manifestCert: m.cert);
-      if (err != null) {
-        await done.delete();
-        throw StateError(err);
-      }
-      readyPath = done.path;
-      step = UpdateStep.ready;
-      progress = 1;
-    } catch (e) {
-      step = UpdateStep.failed;
-      message = e is StateError ? e.message : 'Download stopped. Tap again to resume.';
-      debugPrint('update download: $e');
-    }
-    notifyListeners();
+  /// App start / resume (unlocked phones). Debounced; all file work runs on Android's background thread.
+  Future<bool> autoScan({bool force = false}) async {
+    if (_scan != null) return _scan!;
+    final t = now();
+    if (!force && lastScan != null && t.difference(lastScan!) < debounce) return local != null;
+    lastScan = t;
+    _scan = _autoScan().whenComplete(() => _scan = null);
+    return _scan!;
   }
 
-  /// Returns null when the APK is a newer 4 signed with this app's key, else a reason.
-  Future<String?> _verify(String path, {String? sha, int? versionCode, String? manifestCert}) async {
-    if (sha != null) {
-      final d = await sha256.bind(File(path).openRead()).first;
-      if (d.toString() != sha) return 'Download damaged (checksum mismatch). Try again.';
+  Future<bool> _autoScan() async {
+    await _info();
+    if (info.isEmpty) return false;
+    final prefs = await SharedPreferences.getInstance();
+    updateFolder = prefs.getString(updateFolderKey);
+    // came back from "Install unknown apps → allow": continue the install the user asked for
+    if (_pendingInstall && info['canInstall'] == true && local != null) {
+      _pendingInstall = false;
+      unawaited(install());
     }
-    final a = await _ch.invokeMethod<Map<Object?, Object?>>('inspectApk', {'path': path});
-    if (a == null) return 'Not a valid APK.';
-    if (a['package'] != info['package']) return 'This APK is not 4.';
-    final code = (a['versionCode'] as num).toInt();
-    if (code <= currentCode) return 'This APK is not newer than the installed 4.';
-    if (versionCode != null && code != versionCode) return 'APK version does not match the release.';
-    final c = a['cert'] as String?;
-    if (c == null || c != cert) return 'This APK is signed with a different key; installing it would fail.';
-    if (manifestCert != null && manifestCert != c) return 'Signing key does not match the release.';
+    // the installed version caught up (update done), or Android cleared the cache: forget the candidate
+    if (local != null && (local!.versionCode <= currentCode || !File(local!.path).existsSync())) local = null;
+    message ??= prefs.getString(_noteKey);
+    await _cleanup();
+    final trees = <String>[];
+    for (final k in [resFolderKey, updateFolderKey]) {
+      final u = prefs.getString(k);
+      if (u != null && !trees.contains(u) && await _hasFolder(u)) trees.add(u);
+    }
+    if (trees.isEmpty) {
+      notifyListeners();
+      return local != null;
+    }
+    return _scanTrees(trees);
+  }
+
+  Future<bool> _hasFolder(String uri) async {
+    try {
+      return await _resCh.invokeMethod<bool>('hasFolder', {'uri': uri}) ?? false;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// Resources → Refresh also looks for an update in the chosen folder (kept for lib/resources/library.dart).
+  Future<bool> scanFolder(String treeUri) async {
+    if (info.isEmpty) await _info();
+    if (info.isEmpty) return false;
+    return _scanTrees([treeUri]);
+  }
+
+  /// Lists APKs (manifest-only check on the Android side), then copies + fully verifies the newest candidate.
+  /// Files already judged "not a newer 4" are remembered by uri|size|modified and not opened again.
+  Future<bool> _scanTrees(List<String> trees) async {
+    scanning = true;
+    notifyListeners();
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final skip = prefs.getStringList(_skipKey) ?? <String>[];
+      final above = local != null && local!.versionCode > currentCode ? local!.versionCode : currentCode;
+      final list = await _ch.invokeListMethod<Map<Object?, Object?>>('findApks', {'trees': trees, 'package': info['package'], 'above': above, 'skip': skip}) ?? const [];
+      final newSkip = {...skip};
+      final cands = <Map<Object?, Object?>>[];
+      for (final f in list) {
+        if (f['other'] == true) {
+          newSkip.add('${f['key']}');
+        } else {
+          cands.add(f);
+        }
+      }
+      cands.sort((a, b) => (b['versionCode'] as num).compareTo(a['versionCode'] as num));
+      for (final f in cands) {
+        final uri = '${f['uri']}', uf = updateFolder;
+        final from = uf != null && uri.startsWith(uf) ? 'your update folder' : 'your resources folder';
+        final r = await _takeFrom(uri, from: from, code: (f['versionCode'] as num).toInt(), size: (f['size'] as num?)?.toInt() ?? -1);
+        if (r == null) break; // found
+        newSkip.add('${f['key']}'); // wrong key / damaged: do not copy it again on every start
+      }
+      // keep the list small: newest 200 entries
+      final keep = newSkip.toList();
+      await prefs.setStringList(_skipKey, keep.length > 200 ? keep.sublist(keep.length - 200) : keep);
+    } catch (e) {
+      debugPrint('update scan: $e');
+    } finally {
+      scanning = false;
+      notifyListeners();
+    }
+    return local != null;
+  }
+
+  /// Copies a content uri into cacheDir/updates and verifies it. Returns null when it became [local], else why not.
+  /// A copy of the same version and size left from an earlier start is re-checked instead of copied again.
+  Future<String?> _takeFrom(String uri, {required String from, int? code, int size = -1}) async {
+    final dir = await _dir();
+    if (code != null && size > 0) {
+      final have = File('${dir.path}/four-$code.apk');
+      if (have.existsSync() && have.lengthSync() == size) return _accept(have, from: from);
+    }
+    final tmp = File('${dir.path}/incoming.apk');
+    try {
+      await _resCh.invokeMethod<int>('importFile', {'uri': uri, 'dest': tmp.path});
+      return await _accept(tmp, from: from);
+    } catch (e) {
+      debugPrint('update copy $uri: $e');
+      if (tmp.existsSync()) tmp.deleteSync();
+      return 'Could not read that file.';
+    }
+  }
+
+  /// Verifies [f]; on success renames it to four-<code>.apk and makes it [local].
+  Future<String?> _accept(File f, {required String from}) async {
+    final a = await _ch.invokeMethod<Map<Object?, Object?>>('inspectApk', {'path': f.path});
+    final err = verdict(a, info);
+    if (err != null) {
+      if (a != null && a['package'] == info['package'] && err.contains('different key')) {
+        message = 'Found 4 ${a['versionName']}, but it is signed with a different key, so it cannot update this 4.';
+        unawaited(SharedPreferences.getInstance().then((p) => p.setString(_noteKey, message!)));
+      }
+      if (f.existsSync()) f.deleteSync();
+      return err;
+    }
+    final code = (a!['versionCode'] as num).toInt();
+    final dest = '${f.parent.path}/four-$code.apk';
+    if (f.path != dest) await f.rename(dest);
+    local = LocalApk(dest, code, '${a['versionName']}', from: from);
+    message = null;
+    unawaited(SharedPreferences.getInstance().then((p) => p.remove(_noteKey)));
     return null;
   }
 
+  /// The gate every update file passes. Null = install it; else the reason shown to the user.
+  static String? verdict(Map<Object?, Object?>? apk, Map<Object?, Object?> installed) {
+    if (apk == null) return 'Not a valid APK.';
+    if (apk['package'] != installed['package']) return 'This APK is not 4.';
+    final code = (apk['versionCode'] as num?)?.toInt() ?? 0;
+    if (code <= ((installed['versionCode'] as num?)?.toInt() ?? 0)) return 'This APK is not newer than the installed 4.';
+    final c = apk['cert'] as String?;
+    if (c == null || installed['cert'] == null || c != installed['cert']) return 'This APK is signed with a different key; installing it would fail.';
+    return null;
+  }
+
+  /// One tap "Find update file": SAF file picker (starts in Download). Returns a message for a toast.
+  Future<String> pickFile() async {
+    if (info.isEmpty) await _info();
+    final uri = await _ch.invokeMethod<String>('pickApk');
+    if (uri == null) return '';
+    scanning = true;
+    notifyListeners();
+    final err = await _takeFrom(uri, from: 'the file you picked');
+    scanning = false;
+    notifyListeners();
+    return err ?? 'Found 4 ${local!.versionName} — tap Install.';
+  }
+
+  /// Optional folder 4 watches for update files (e.g. SHAREit/apps). SAF tree, persisted read permission.
+  Future<bool> pickUpdateFolder() async {
+    final uri = await _resCh.invokeMethod<String>('pickFolder');
+    if (uri == null) return false;
+    // pickFolder on the resources channel only stores the permission; keep our own pref
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(updateFolderKey, uri);
+    updateFolder = uri;
+    notifyListeners();
+    return autoScan(force: true);
+  }
+
+  Future<void> forgetUpdateFolder() async {
+    (await SharedPreferences.getInstance()).remove(updateFolderKey);
+    updateFolder = null;
+    notifyListeners();
+  }
+
   Future<String> install([String? path]) async {
-    final p = path ?? readyPath ?? local?.path;
+    final p = path ?? local?.path;
     if (p == null) return 'none';
     final r = await _ch.invokeMethod<String>('install', {'path': p}) ?? 'started';
-    if (r == 'permission') message = 'Allow "Install unknown apps" for 4, then tap Install again.';
+    if (r == 'permission') {
+      _pendingInstall = true;
+      message = 'Allow "Install unknown apps" for 4, then come back — the install continues.';
+      lastScan = null; // the resume after Settings must not be debounced
+    }
     notifyListeners();
     return r;
   }
 
-  /// Offline: look for a newer 4 APK in the resources folder (SHAREit / cable). Returns true when one was found.
-  Future<bool> scanFolder(String treeUri) async {
-    try {
-      if (info.isEmpty) await _info();
-      final list = await _resCh.invokeListMethod<Map<Object?, Object?>>('listApks', {'uri': treeUri}) ?? const [];
-      final dir = await _dir();
-      for (final f in list) {
-        final tmp = '${dir.path}/shared-${f['size']}.apk';
-        if (!File(tmp).existsSync() || File(tmp).lengthSync() != f['size']) {
-          await _resCh.invokeMethod<int>('importFile', {'uri': f['uri'], 'dest': tmp});
-        }
-        final err = await _verify(tmp);
-        if (err == null) {
-          final a = await _ch.invokeMethod<Map<Object?, Object?>>('inspectApk', {'path': tmp});
-          final code = (a!['versionCode'] as num).toInt();
-          if (local == null || code > local!.versionCode) local = LocalApk(tmp, code, '${a['versionName']}');
-        } else {
-          debugPrint('shared apk ${f['name']}: $err');
-          File(tmp).deleteSync();
-        }
-      }
-    } catch (e) {
-      debugPrint('apk scan: $e');
-    }
+  /// "Send 4 to a friend": the installed APK through the share sheet (SHAREit, Bluetooth, Nearby Share…).
+  Future<String> shareSelf() async {
+    if (sharing) return '';
+    sharing = true;
     notifyListeners();
-    return local != null;
+    try {
+      final r = await _ch.invokeMethod<Map<Object?, Object?>>('shareSelf') ?? const {};
+      final splits = (r['splits'] as num?)?.toInt() ?? 0;
+      return splits > 0 ? 'This 4 was installed in ${splits + 1} parts; friends need all files and a split-APK installer. A universal APK from the build is easier.' : '';
+    } catch (e) {
+      debugPrint('share 4: $e');
+      return 'Could not prepare 4 for sharing.';
+    } finally {
+      sharing = false;
+      notifyListeners();
+    }
+  }
+
+  /// Old copies: finished updates (four-<code>.apk not newer than the installed 4), half copies, PR #40 leftovers.
+  Future<void> _cleanup() async {
+    try {
+      final dir = await _dir();
+      for (final f in dir.listSync().whereType<File>()) {
+        final m = RegExp(r'four-(\d+)\.apk$').firstMatch(f.path);
+        if (m == null || int.parse(m.group(1)!) <= currentCode) f.deleteSync();
+      }
+    } catch (_) {}
   }
 }
