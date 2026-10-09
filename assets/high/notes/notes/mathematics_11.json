@@ -14965,12 +14965,235 @@
             {
               "id": "math11-u6-c01",
               "type": "text",
-              "title": "The Banking System",
+              "title": "6.1.1 Simple interest",
               "page": 201,
               "src": "notes",
               "body": [
-                "**Instalment:** you pay a deposit then equal later payments; the shop is charging interest on the balance — compare cash price vs total paid.",
-                "**Depreciation:** asset loses value. Straight-line: same amount each year. (Grade 12 business book will reuse this.)"
+                "**Words:** the **principal** $P$ is the money borrowed or saved; the **rate** $r$ is the percent charged per year; the **time** $t$ is in years; the **interest** $I$ is the extra money; the **amount** $A$ is principal + interest.",
+                "$$I = Prt, \\qquad A = P + I = P(1 + rt)$$",
+                "Write $r$ as a decimal ($5\\% = 0.05$) and $t$ in years (9 months $= \\frac{9}{12} = 0.75$ year).",
+                "**Example 6.1:** 3500 Nakfa at 5% for 3 years: $I = 3500 \\times 0.05 \\times 3 = 525$ Nakfa, so $A = 4025$ Nakfa."
+              ]
+            },
+            {
+              "id": "math11-u6-md-si-tb",
+              "type": "table",
+              "title": "One formula, four questions",
+              "page": 202,
+              "src": "notes",
+              "head": [
+                "Unknown",
+                "Formula",
+                "Example"
+              ],
+              "rows": [
+                [
+                  "interest $I$",
+                  "$I = Prt$",
+                  "$2500 \\times 0.06 \\times 3 = 450$"
+                ],
+                [
+                  "rate $r$",
+                  "$r = \\frac{I}{Pt}$",
+                  "$\\frac{720}{6000 \\times 4} = 0.03 = 3\\%$"
+                ],
+                [
+                  "time $t$",
+                  "$t = \\frac{I}{Pr}$",
+                  "$\\frac{450}{2500 \\times 0.06} = 3$ years"
+                ],
+                [
+                  "principal $P$",
+                  "$P = \\frac{I}{rt}$",
+                  "$\\frac{210}{0.04 \\times 14} = 375$"
+                ]
+              ]
+            },
+            {
+              "id": "math11-u6-c07",
+              "type": "text",
+              "title": "6.1.2 Compound interest",
+              "page": 202,
+              "src": "notes",
+              "body": [
+                "With **compound interest** the interest of each year is added to the principal, and next year's interest is worked out on the bigger sum: \"interest on interest\".",
+                "**Where the formula comes from:** each year the money is multiplied by $(1 + r)$:",
+                "- end of year 1: $P(1 + r)$;",
+                "- end of year 2: $P(1 + r)(1 + r) = P(1 + r)^2$;",
+                "- end of year $t$: $$A = P(1 + r)^t, \\qquad \\text{compound interest} = A - P.$$",
+                "Banks pay interest on savings and charge a higher rate on loans; the difference is how a bank earns its income."
+              ]
+            },
+            {
+              "id": "math11-u6-md-ex62-tb",
+              "type": "table",
+              "title": "Example 6.2 (corrected): 1000 Nakfa at 6% for 3 years",
+              "page": 203,
+              "src": "notes",
+              "head": [
+                "Year",
+                "Simple: interest",
+                "Simple: amount",
+                "Compound: interest",
+                "Compound: amount"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "$1000 \\times 0.06 = 60$",
+                  "1060",
+                  "$1000 \\times 0.06 = 60$",
+                  "1060"
+                ],
+                [
+                  "2",
+                  "$1000 \\times 0.06 = 60$",
+                  "1120",
+                  "$1060 \\times 0.06 = 63.60$",
+                  "1123.60"
+                ],
+                [
+                  "3",
+                  "$1000 \\times 0.06 = 60$",
+                  "1180",
+                  "$1123.60 \\times 0.06 = 67.42$",
+                  "1191.02"
+                ]
+              ]
+            },
+            {
+              "id": "math11-u6-md-ex62-note",
+              "type": "text",
+              "title": "Reading Example 6.2",
+              "page": 203,
+              "src": "notes",
+              "body": [
+                "Berhe (simple) gets **1180** Nakfa; Saliha (compound) gets **1191.02** Nakfa. The book's first table multiplies 1060 and 1123.60 by 0.06 although simple interest always uses the original 1000, and it says \"the amount to be paid to Saliha is 1180\" where it means Berhe. In the second table \"= 06\" should be \"= 60\" and \"1123.06\" should be \"1123.60\"."
+              ]
+            },
+            {
+              "id": "math11-u6-md-growth",
+              "type": "steps",
+              "title": "Simple grows in a straight line, compound bends upward",
+              "page": 203,
+              "src": "notes",
+              "diagram": "md_growth",
+              "steps": [
+                {
+                  "text": "Simple: the same 100 Nakfa is added every year, so the graph is a **straight line**: $A = 1000(1 + 0.1t)$.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Compound: each year the amount is **multiplied** by 1.1, so the graph curves upward: $A = 1000(1.1)^t$.",
+                  "show": "k2"
+                },
+                {
+                  "text": "After 12 years: simple 2200, compound $1000 \\times 1.1^{12} \\approx 3138$ Nakfa, about 938 more. The longer the time, the bigger the gap.",
+                  "show": "k3"
+                }
+              ]
+            },
+            {
+              "id": "math11-u6-md-ex63b",
+              "type": "worked",
+              "title": "Worked example: Example 6.3(2) with logarithms (corrected)",
+              "page": 206,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Find the amount of 3000 Nakfa for 8 years at 10% per annum compounded annually.",
+              "steps": [
+                {
+                  "text": "$A = 3000(1.1)^8$."
+                },
+                {
+                  "text": "Take logs: $\\log A = \\log 3 + 3 + 8\\log 1.1 = 0.4771 + 3 + 8(0.0414) = 3.8083$."
+                },
+                {
+                  "text": "Antilog: $A = 10^{3.8083} \\approx 6.43 \\times 10^3$."
+                },
+                {
+                  "text": "Check by calculator: $1.1^8 = 2.14359$, $3000 \\times 2.14359 = 6430.77$."
+                }
+              ],
+              "answer": "$A \\approx 6430.77$ Nakfa. (The book uses $\\log 3 = 0.4471$ instead of 0.4771 and gets 6002 — wrong.)"
+            },
+            {
+              "id": "math11-u6-md-ex63c",
+              "type": "worked",
+              "title": "Worked example: how long? (Example 6.3(3))",
+              "page": 206,
+              "src": "notes",
+              "mode": "show",
+              "problem": "5000 Nakfa at 5.2% compounded annually. When does it reach 20,000 Nakfa?",
+              "steps": [
+                {
+                  "text": "$20000 = 5000(1.052)^t$, so $(1.052)^t = 4$."
+                },
+                {
+                  "text": "Logs bring the power down: $t \\log 1.052 = \\log 4$."
+                },
+                {
+                  "text": "$t = \\frac{0.6021}{0.0220} \\approx 27.4$."
+                }
+              ],
+              "answer": "about 27.4 years (the book lists \"t = 3 years\" as given data, but $t$ is the unknown)"
+            },
+            {
+              "id": "math11-u6-md-freq-t",
+              "type": "text",
+              "title": "Compounding more than once a year",
+              "page": 208,
+              "src": "notes",
+              "body": [
+                "If interest is added $n$ times a year, each period uses the rate $\\frac{r}{n}$ and there are $nt$ periods: $$A = P\\left(1 + \\frac{r}{n}\\right)^{nt}$$",
+                "**Example 6.4(1):** 2500 Nakfa at 8% quarterly for 5 years: rate per quarter $0.02$, periods $20$: $A = 2500(1.02)^{20} = 3714.87$ Nakfa.",
+                "**Example 6.4(2):** 1000 Nakfa at 9.5% half-yearly reaches 2529.77: $(1.0475)^{2t} = 2.52977$, so $2t = \\frac{\\log 2.52977}{\\log 1.0475} = 20$ and $t = 10$ years.",
+                "More frequent compounding gives slightly more: 12% yearly multiplies by 1.12, but 12% monthly multiplies by $1.01^{12} \\approx 1.1268$ (an **effective rate** of 12.68%)."
+              ]
+            },
+            {
+              "id": "math11-u6-md-freq-tb",
+              "type": "table",
+              "title": "Periods and rate per period",
+              "page": 208,
+              "src": "notes",
+              "head": [
+                "Compounded",
+                "$n$",
+                "rate per period",
+                "periods in $t$ years"
+              ],
+              "rows": [
+                [
+                  "annually",
+                  "1",
+                  "$r$",
+                  "$t$"
+                ],
+                [
+                  "semi-annually",
+                  "2",
+                  "$\\frac{r}{2}$",
+                  "$2t$"
+                ],
+                [
+                  "quarterly",
+                  "4",
+                  "$\\frac{r}{4}$",
+                  "$4t$"
+                ],
+                [
+                  "monthly",
+                  "12",
+                  "$\\frac{r}{12}$",
+                  "$12t$"
+                ],
+                [
+                  "daily",
+                  "365",
+                  "$\\frac{r}{365}$",
+                  "$365t$"
+                ]
               ]
             },
             {
@@ -15008,6 +15231,61 @@
               ]
             },
             {
+              "id": "math11-u6-c08",
+              "type": "worked",
+              "title": "Worked example: simple vs compound interest",
+              "page": 201,
+              "problem": "10,000 Nfa is saved for 2 years at 6% per year. Compare simple interest with interest compounded yearly.",
+              "steps": [
+                {
+                  "text": "Simple: I = 10,000 × 0.06 × 2 = 1,200 → A = **11,200 Nfa**."
+                },
+                {
+                  "text": "Compound: A = 10,000 × 1.06² = 10,000 × 1.1236 = **11,236 Nfa**."
+                }
+              ],
+              "answer": "Compound interest earns 36 Nfa more because year 2 also earns interest on year 1’s interest.",
+              "src": "notes"
+            },
+            {
+              "id": "math11-u6-c03",
+              "type": "worked",
+              "title": "Worked — simple vs compound",
+              "page": 220,
+              "src": "notes",
+              "problem": "P=2000 Nfa, r=10% = 0.1, t=2 years.",
+              "steps": [
+                {
+                  "text": "Simple: I=2000×0.1×2=400. A=2400."
+                },
+                {
+                  "text": "Compound yearly: A=2000(1.1)²=2000×1.21=2420."
+                },
+                {
+                  "text": "Compound pays 20 more because year-2 interest sits on year-1 interest too."
+                }
+              ],
+              "answer": "Compound pays 20 more because year-2 interest sits on year-1 interest too.",
+              "mode": "show",
+              "reveal": "Steps"
+            },
+            {
+              "id": "math11-u6-chkE1",
+              "type": "check",
+              "title": "Quick check",
+              "page": 1,
+              "src": "study_notes",
+              "q": "Find the compound interest on $$3000\\text{ Nakfa}$$ for $$8\\text{ years}$$ at $$10\\%$$ per annum compounded annually.",
+              "options": {
+                "A": "$$3430.80\\text{ Nakfa}$$",
+                "B": "$$6430.80\\text{ Nakfa}$$",
+                "C": "$$3000.00\\text{ Nakfa}$$",
+                "D": "$$2400.00\\text{ Nakfa}$$"
+              },
+              "answer": "A",
+              "why": "**Step 1: Calculate the accumulated amount ($$A$$)**\nUse the compound interest formula $$A = P(1 + r)^t$$, where $$P = 3000$$, $$r = 0.10$$, and $$t = 8$$:\n$$A = 3000(1 + 0.10)^8 = 3000(1.1)^8$$\n$$A = 3000(2.1435888) = 6430.766\\text{ Nakfa}$$\n\n**Step 2: Calculate the compound interest ($$\\text{CI}$$)**\n$$\\text{CI} = A - P = 6430.766 - 3000 = 3430.766\\text{ Nakfa}$$\nRounding to two decimal places yields $$3430.80\\text{ Nakfa}$$.\n**Result:** **$$3430.80\\text{ Nakfa}$$**."
+            },
+            {
               "id": "math11-u6-wrkE2",
               "type": "worked",
               "title": "Step-by-step",
@@ -15034,38 +15312,6 @@
               "answer": "$$3.0\\%$$"
             },
             {
-              "id": "math11-u6-chkE1",
-              "type": "check",
-              "title": "Quick check",
-              "page": 1,
-              "src": "study_notes",
-              "q": "Find the compound interest on $$3000\\text{ Nakfa}$$ for $$8\\text{ years}$$ at $$10\\%$$ per annum compounded annually.",
-              "options": {
-                "A": "$$3430.80\\text{ Nakfa}$$",
-                "B": "$$6430.80\\text{ Nakfa}$$",
-                "C": "$$3000.00\\text{ Nakfa}$$",
-                "D": "$$2400.00\\text{ Nakfa}$$"
-              },
-              "answer": "A",
-              "why": "**Step 1: Calculate the accumulated amount ($$A$$)**\nUse the compound interest formula $$A = P(1 + r)^t$$, where $$P = 3000$$, $$r = 0.10$$, and $$t = 8$$:\n$$A = 3000(1 + 0.10)^8 = 3000(1.1)^8$$\n$$A = 3000(2.1435888) = 6430.766\\text{ Nakfa}$$\n\n**Step 2: Calculate the compound interest ($$\\text{CI}$$)**\n$$\\text{CI} = A - P = 6430.766 - 3000 = 3430.766\\text{ Nakfa}$$\nRounding to two decimal places yields $$3430.80\\text{ Nakfa}$$.\n**Result:** **$$3430.80\\text{ Nakfa}$$**."
-            },
-            {
-              "id": "math11-u6-chkE2",
-              "type": "check",
-              "title": "Quick check",
-              "page": 1,
-              "src": "study_notes",
-              "q": "Complete the depreciation schedule: A machine costs $$5100\\text{ Nakfa}$$. Under straight-line method, annual depreciation is $$840\\text{ Nakfa}$$. What is the book value at the end of Year 2?",
-              "options": {
-                "A": "$$3420\\text{ Nakfa}$$",
-                "B": "$$4260\\text{ Nakfa}$$",
-                "C": "$$2580\\text{ Nakfa}$$",
-                "D": "$$1740\\text{ Nakfa}$$"
-              },
-              "answer": "A",
-              "why": "**Step 1: Calculate total depreciation over 2 years**\nSince straight-line depreciation is constant:\n$$\\text{Total Depreciation} = 2 \\times 840 = 1680\\text{ Nakfa}$$\n\n**Step 2: Calculate the book value at Year 2**\n$$\\text{Book Value} = \\text{Original Cost} - \\text{Total Depreciation}$$\n$$\\text{Book Value} = 5100 - 1680 = 3420\\text{ Nakfa}$$\n**Result:** **$$3420\\text{ Nakfa}$$**."
-            },
-            {
               "id": "math11-u6-chk73",
               "type": "check",
               "title": "Quick check",
@@ -15082,32 +15328,261 @@
               "why": "**Step 1: State the simple interest formula**\nThe simple interest formula is:\n$$I = Prt$$\n\n**Step 2: Substitute the known values**\nHere, $$I = 720$$, $$P = 6000$$, and $$t = 4$$:\n$$720 = 6000 \\times r \\times 4$$\n$$720 = 24000 \\times r$$\n\n**Step 3: Solve for $$r$$**\n$$r = \\frac{720}{24000} = 0.03$$\nConverting to percentage:\n$$\\text{Rate} = 0.03 \\times 100 = 3\\%$$\n**Result:** **$$3.0\\%$$**."
             },
             {
-              "id": "math11-u6-c07",
+              "id": "math11-u6-md-inst-t",
               "type": "text",
-              "title": "Interest and banking",
-              "page": 201,
+              "title": "6.1.3 Instalment plan",
+              "page": 211,
+              "src": "notes",
               "body": [
-                "**Simple interest:** I = P × R × T (P = principal, R = rate per year as a decimal, T = time in years). **Compound interest:** interest is added to the principal each period: A = P(1 + r)ⁿ, where r is the rate per period as a decimal and n is the number of periods. Example: 10,000 Nakfa at 5% simple interest for 3 years gives I = 10,000 × 0.05 × 3 = 1,500 Nakfa; at 5% compound interest A = 10,000 × 1.05³ ≈ 11,576.25 Nakfa.",
-                "Banks pay interest on savings and charge interest on loans; the loan rate is higher than the savings rate, which is how a bank earns income."
-              ],
-              "src": "notes"
+                "An **instalment plan** lets you take an item now and pay for it (price + interest) in a sequence of equal payments. Often there is a **down payment** (deposit) first.",
+                "$$\\text{total instalment cost} = \\text{down payment} + (\\text{number of payments}) \\times (\\text{payment})$$ $$\\text{charge for credit (interest)} = \\text{total instalment cost} - \\text{cash price}$$",
+                "**Example 6.5(1):** TV 12,000 Nakfa; 2400 down and 48 payments of 230: total $2400 + 48 \\times 230 = 13{,}440$; credit charge 1440 Nakfa.",
+                "**Example 6.5(2) (simple interest):** dress 2500, 10% deposit (250), balance 2250 at 7.5% for 2 years: $A = 2250(1 + 0.075 \\times 2) = 2587.50$; monthly payment $2587.50 \\div 24 = 107.81$ Nakfa."
+              ]
             },
             {
-              "id": "math11-u6-c08",
-              "type": "worked",
-              "title": "Worked example: simple vs compound interest",
-              "page": 201,
-              "problem": "10,000 Nfa is saved for 2 years at 6% per year. Compare simple interest with interest compounded yearly.",
+              "id": "math11-u6-md-loan",
+              "type": "steps",
+              "title": "Example 6.5(3): equal yearly instalments with compound interest",
+              "page": 212,
+              "src": "notes",
+              "diagram": "md_loan",
               "steps": [
                 {
-                  "text": "Simple: I = 10,000 × 0.06 × 2 = 1,200 → A = **11,200 Nfa**."
+                  "text": "Helen owes 66,200 at 10%. Year 1: $66200 \\times 1.1 = 72{,}820$; she pays $x = 26{,}620$, leaving 46,200.",
+                  "show": "k1"
                 },
                 {
-                  "text": "Compound: A = 10,000 × 1.06² = 10,000 × 1.1236 = **11,236 Nfa**."
+                  "text": "Year 2: $46200 \\times 1.1 = 50{,}820$; pay 26,620, leaving 24,200.",
+                  "show": "k2"
+                },
+                {
+                  "text": "Year 3: $24200 \\times 1.1 = 26{,}620$; the last payment clears it exactly.",
+                  "show": "k3"
+                }
+              ]
+            },
+            {
+              "id": "math11-u6-md-inst-eq",
+              "type": "text",
+              "title": "Finding the equal instalment",
+              "page": 212,
+              "src": "notes",
+              "body": [
+                "Move every payment to the **end**: the first payment earns interest for 2 years, the second for 1, the last for 0. Together they must equal the loan grown for 3 years:",
+                "$$x(1.1)^2 + x(1.1) + x = 66200(1.1)^3$$",
+                "$$x(1.21 + 1.1 + 1) = 88112.2 \\;\\Rightarrow\\; x = \\frac{88112.2}{3.31} = 26{,}620 \\text{ Nakfa}$$",
+                "General rule (loan $P$, rate $r$ per period, $n$ payments): $x\\left[(1 + r)^{n-1} + \\dots + (1 + r) + 1\\right] = P(1 + r)^n$.",
+                "(The book's check lists \"10% of 33100\", \"10% of 3310\", \"10% of 1210\" — it means 10% of 66,200, 46,200 and 24,200; the interest values printed are right.)"
+              ]
+            },
+            {
+              "id": "math11-u6-md-dep-t",
+              "type": "text",
+              "title": "6.1.4 Depreciation",
+              "page": 214,
+              "src": "notes",
+              "body": [
+                "Machines, cars and buildings (**fixed assets**) lose value with age and use. The loss is the **depreciation**; the value left is the **book value** (BV).",
+                "$$\\text{depreciation} = \\text{original cost (OC)} - \\text{book value (BV)}$$",
+                "**Straight-line method:** the same amount every year: $$\\text{annual depreciation} = \\frac{OC - BV}{t}, \\quad \\text{rate} = \\frac{\\text{annual depreciation}}{OC} \\times 100\\%, \\quad BV = OC(1 - rt).$$",
+                "**Diminishing (reducing) value method:** the same **percent** of last year's value each year: $$BV = OC\\left(1 - r\\right)^t.$$ It is compound interest run backwards."
+              ]
+            },
+            {
+              "id": "math11-u6-md-sl-tb",
+              "type": "table",
+              "title": "Activity 6.6 completed: straight line (5100 → 900 in 5 years)",
+              "page": 215,
+              "src": "notes",
+              "head": [
+                "Year",
+                "Book value",
+                "Annual dep.",
+                "Accumulated dep."
+              ],
+              "rows": [
+                [
+                  "0",
+                  "5100",
+                  "—",
+                  "—"
+                ],
+                [
+                  "1",
+                  "4260",
+                  "840",
+                  "840"
+                ],
+                [
+                  "2",
+                  "3420",
+                  "840",
+                  "1680"
+                ],
+                [
+                  "3",
+                  "2580",
+                  "840",
+                  "2520"
+                ],
+                [
+                  "4",
+                  "1740",
+                  "840",
+                  "3360"
+                ],
+                [
+                  "5",
+                  "900",
+                  "840",
+                  "4200"
+                ]
+              ]
+            },
+            {
+              "id": "math11-u6-md-db-tb",
+              "type": "table",
+              "title": "Activity 6.7 completed: 40% diminishing value (cost 4800)",
+              "page": 217,
+              "src": "notes",
+              "head": [
+                "Year",
+                "Book value",
+                "Annual dep.",
+                "Accumulated dep."
+              ],
+              "rows": [
+                [
+                  "0",
+                  "4800",
+                  "—",
+                  "—"
+                ],
+                [
+                  "1",
+                  "2880",
+                  "1920.00",
+                  "1920.00"
+                ],
+                [
+                  "2",
+                  "1728",
+                  "1152.00",
+                  "3072.00"
+                ],
+                [
+                  "3",
+                  "1036.80",
+                  "691.20",
+                  "3763.20"
+                ],
+                [
+                  "4",
+                  "622.08",
+                  "414.72",
+                  "4177.92"
+                ],
+                [
+                  "5",
+                  "373.25",
+                  "248.83",
+                  "4426.75"
+                ]
+              ]
+            },
+            {
+              "id": "math11-u6-md-db-note",
+              "type": "text",
+              "title": "How to fill a diminishing schedule",
+              "page": 217,
+              "src": "notes",
+              "body": [
+                "Each row: depreciation $= 40\\% \\times$ last book value; new book value $=$ last book value $-$ depreciation (or simply $\\times 0.6$); accumulated $=$ last accumulated $+$ this year's depreciation. Check: accumulated $=$ 4800 $-$ book value. (The book prints the year-4 accumulated depreciation as 3177.92; it is 4177.92.)"
+              ]
+            },
+            {
+              "id": "math11-u6-md-dep",
+              "type": "steps",
+              "title": "Comparing the two methods",
+              "page": 215,
+              "src": "notes",
+              "diagram": "md_dep",
+              "steps": [
+                {
+                  "text": "Straight line: 5100 → 900 by 840 every year — a straight line.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Reducing 30% a year: $5100 \\times 0.7^t$ — big drops first, small later; after 5 years about 857.",
+                  "show": "k2"
+                },
+                {
+                  "text": "Year 1 loss: 840 (straight line) vs 1530 (reducing). Cars really lose most value early, so the reducing method is more realistic for them.",
+                  "show": "k3"
+                }
+              ]
+            },
+            {
+              "id": "math11-u6-md-ex66",
+              "type": "worked",
+              "title": "Worked example: Example 6.6(1)",
+              "page": 215,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A tape recorder cost 5600 Nakfa; after 2 years its value is estimated at 4200 Nakfa. It is sold for 5000. Find (a) annual depreciation (b) annual rate (c) percent gain on the estimated value.",
+              "steps": [
+                {
+                  "text": "Depreciation $= 5600 - 4200 = 1400$; per year $1400 \\div 2 = 700$."
+                },
+                {
+                  "text": "Rate $= \\frac{700}{5600} \\times 100\\% = 12.5\\%$."
+                },
+                {
+                  "text": "Gain $= 5000 - 4200 = 800$; $\\frac{800}{4200} \\times 100\\% \\approx 19.05\\%$."
                 }
               ],
-              "answer": "Compound interest earns 36 Nfa more because year 2 also earns interest on year 1’s interest.",
-              "src": "notes"
+              "answer": "700 Nakfa; 12.5%; about 19.05%"
+            },
+            {
+              "id": "math11-u6-md-ex67",
+              "type": "worked",
+              "title": "Worked example: Example 6.7 (corrected)",
+              "page": 217,
+              "src": "notes",
+              "mode": "show",
+              "problem": "A plant costs 240,000 Nakfa and depreciates 15% a year on the reducing value. Value after 3 years?",
+              "steps": [
+                {
+                  "text": "Year 1: $15\\% \\times 240000 = 36000$; value 204,000."
+                },
+                {
+                  "text": "Year 2: $15\\% \\times 204000 = 30600$; value 173,400."
+                },
+                {
+                  "text": "Year 3: $15\\% \\times 173400 = 26010$ (the book prints 2610); value 147,390."
+                },
+                {
+                  "text": "Formula check: $240000(0.85)^3 = 240000 \\times 0.614125 = 147390$."
+                }
+              ],
+              "answer": "147,390 Nakfa"
+            },
+            {
+              "id": "math11-u6-chkE2",
+              "type": "check",
+              "title": "Quick check",
+              "page": 1,
+              "src": "study_notes",
+              "q": "Complete the depreciation schedule: A machine costs $$5100\\text{ Nakfa}$$. Under straight-line method, annual depreciation is $$840\\text{ Nakfa}$$. What is the book value at the end of Year 2?",
+              "options": {
+                "A": "$$3420\\text{ Nakfa}$$",
+                "B": "$$4260\\text{ Nakfa}$$",
+                "C": "$$2580\\text{ Nakfa}$$",
+                "D": "$$1740\\text{ Nakfa}$$"
+              },
+              "answer": "A",
+              "why": "**Step 1: Calculate total depreciation over 2 years**\nSince straight-line depreciation is constant:\n$$\\text{Total Depreciation} = 2 \\times 840 = 1680\\text{ Nakfa}$$\n\n**Step 2: Calculate the book value at Year 2**\n$$\\text{Book Value} = \\text{Original Cost} - \\text{Total Depreciation}$$\n$$\\text{Book Value} = 5100 - 1680 = 3420\\text{ Nakfa}$$\n**Result:** **$$3420\\text{ Nakfa}$$**."
             }
           ]
         },
@@ -15123,34 +15598,246 @@
             {
               "id": "math11-u6-c02",
               "type": "text",
-              "title": "Partnership",
+              "title": "6.2 Partnership: four ways to share profit",
               "page": 220,
               "src": "notes",
               "body": [
-                "**Partnership:** two or more people put money (capital) into a business and share the profit or loss by agreement — usually in the ratio of capital × time invested."
+                "A **partnership** is a business owned by two or more people who share management and profit. The money each puts in is the **capital** (investment).",
+                "1. **Equal shares:** profit $\\div$ number of partners (Example 6.8(1): $99000 \\div 3 = 33000$).",
+                "2. **Agreed ratio** $a : b$: one part $= \\frac{\\text{profit}}{a + b}$ (Example 6.8(2): 2 : 3 of 20,000 gives 8000 and 12,000).",
+                "3. **Ratio of capital** (Example 6.8(3)): each gets $\\frac{\\text{own capital}}{\\text{total capital}} \\times$ profit.",
+                "4. **Salary or interest first, then ratio** (Example 6.8(4)): take the salaries/interest out first and share only what is left.",
+                "If money stays in for different times, use **capital × time** as the share ratio."
               ]
             },
             {
-              "id": "math11-u6-c03",
-              "type": "worked",
-              "title": "Worked — simple vs compound",
-              "page": 220,
+              "id": "math11-u6-md-profit",
+              "type": "diagram",
+              "title": "Example 6.8(3) as a bar",
+              "page": 221,
               "src": "notes",
-              "problem": "P=2000 Nfa, r=10% = 0.1, t=2 years.",
+              "diagram": "md_profit",
+              "mode": "plain",
+              "body": [
+                "Belay 60,000 and Gilai 90,000: ratio $60 : 90 = 2 : 3$, so 5 equal parts of $70000 \\div 5 = 14000$. Belay $2 \\times 14000 = 28000$, Gilai $3 \\times 14000 = 42000$."
+              ]
+            },
+            {
+              "id": "math11-u6-md-ex68d",
+              "type": "worked",
+              "title": "Worked example: salary first (Example 6.8(4))",
+              "page": 222,
+              "src": "notes",
+              "mode": "show",
+              "problem": "Goitom (150,000) and Abdella (300,000) own a restaurant; the manager is paid 30,000 a year. Profit 90,000. Share it by investment.",
               "steps": [
                 {
-                  "text": "Simple: I=2000×0.1×2=400. A=2400."
+                  "text": "Pay the salary first: $90000 - 30000 = 60000$ left."
                 },
                 {
-                  "text": "Compound yearly: A=2000(1.1)²=2000×1.21=2420."
+                  "text": "Ratio $150000 : 300000 = 1 : 2$ (3 parts of 20,000)."
                 },
                 {
-                  "text": "Compound pays 20 more because year-2 interest sits on year-1 interest too."
+                  "text": "Goitom $1 \\times 20000$, Abdella $2 \\times 20000$."
                 }
               ],
-              "answer": "Compound pays 20 more because year-2 interest sits on year-1 interest too.",
+              "answer": "Goitom 20,000 Nakfa; Abdella 40,000 Nakfa"
+            },
+            {
+              "id": "math11-u6-c09",
+              "type": "text",
+              "title": "Partnership: sharing profit",
+              "page": 220,
+              "body": [
+                "Partners usually share profit (or loss) in the **ratio of their capital**. If the money is invested for different lengths of time, use capital × time."
+              ],
+              "src": "notes"
+            },
+            {
+              "id": "math11-u6-c10",
+              "type": "worked",
+              "title": "Worked example: sharing profit",
+              "page": 220,
+              "problem": "(a) A invests 30,000 Nfa and B 20,000 Nfa; profit 15,000 Nfa. (b) A invests 20,000 Nfa for 12 months and B 30,000 Nfa for 6 months; profit 14,000 Nfa. Share each profit.",
+              "steps": [
+                {
+                  "text": "(a) Ratio 30,000 : 20,000 = 3 : 2. A = 15,000 × 3/5 = **9,000 Nfa**; B = **6,000 Nfa**."
+                },
+                {
+                  "text": "(b) A: 20,000 × 12 = 240,000; B: 30,000 × 6 = 180,000. Ratio 4 : 3."
+                }
+              ],
+              "answer": "A = 14,000 × 4/7 = **8,000 Nfa**; B = 14,000 × 3/7 = **6,000 Nfa**.",
+              "src": "notes"
+            },
+            {
+              "id": "math11-u6-chk75",
+              "type": "check",
+              "title": "Quick check",
+              "page": 220,
+              "src": "study_notes",
+              "src_qid": "math_g11_c6_q5",
+              "q": "Three partners invest $$60,000\\text{ Nakfa}$$, $$90,000\\text{ Nakfa}$$, and $$150,000\\text{ Nakfa}$$ respectively. If they divide a total profit of $$70,000\\text{ Nakfa}$$ proportionally based on their investment, what is the share of the first partner?",
+              "options": {
+                "A": "$$14,000\\text{ Nakfa}$$",
+                "B": "$$21,000\\text{ Nakfa}$$",
+                "C": "$$35,000\\text{ Nakfa}$$",
+                "D": "$$28,000\\text{ Nakfa}$$"
+              },
+              "answer": "A",
+              "why": "**Step 1: Calculate total capital**\n$$\\text{Total Capital} = 60000 + 90000 + 150000 = 300000\\text{ Nakfa}$$\n\n**Step 2: Calculate the share of the first partner**\n$$\\text{Share} = 70000 \\times \\frac{60000}{300000} = 70000 \\times \\frac{1}{5} = 14000\\text{ Nakfa}$$\n**Result:** **$$14,000\\text{ Nakfa}$$**."
+            },
+            {
+              "id": "math11-u6-wrk2",
+              "type": "worked",
+              "title": "Step-by-step",
+              "page": 220,
+              "src": "study_notes",
+              "src_qid": "math_g11_c6_q5",
+              "problem": "Three partners invest $$60,000\\text{ Nakfa}$$, $$90,000\\text{ Nakfa}$$, and $$150,000\\text{ Nakfa}$$ respectively. If they divide a total profit of $$70,000\\text{ Nakfa}$$ proportionally based on their investment, what is the share of the first partner?",
+              "steps": [
+                {
+                  "text": "**Step 1: Calculate total capital**"
+                },
+                {
+                  "text": "$$\\text{Total Capital} = 60000 + 90000 + 150000 = 300000\\text{ Nakfa}$$"
+                },
+                {
+                  "text": "**Step 2: Calculate the share of the first partner**"
+                },
+                {
+                  "text": "$$\\text{Share} = 70000 \\times \\frac{60000}{300000} = 70000 \\times \\frac{1}{5} = 14000\\text{ Nakfa}$$"
+                },
+                {
+                  "text": "**Result:** **$$14,000\\text{ Nakfa}$$**."
+                }
+              ],
+              "answer": "$$14,000\\text{ Nakfa}$$"
+            },
+            {
+              "id": "math11-u6-pc2",
+              "type": "check",
+              "title": "Practice",
+              "q": "A invests 40 000 Nakfa for 6 months and B invests 30 000 Nakfa for 12 months. The profit is 15 000 Nakfa. What is B's share?",
+              "options": {
+                "A": "9 000 Nakfa",
+                "B": "6 000 Nakfa",
+                "C": "7 500 Nakfa",
+                "D": "8 571 Nakfa"
+              },
+              "answer": "A",
+              "why": "**Capital × time:** A: 40 000 × 6 = 240 000; B: 30 000 × 12 = 360 000. Ratio A : B = 240 000 : 360 000 = 2 : 3.\n**Share:** B gets 3/5 × 15 000 = 9 000 Nakfa (A gets 6 000).",
+              "page": 220,
+              "src": "notes"
+            },
+            {
+              "id": "math11-u6-md-mix-t",
+              "type": "text",
+              "title": "6.2 Mixtures",
+              "page": 223,
+              "src": "notes",
+              "body": [
+                "A mixture problem asks how much of each ingredient to use. Two standard tools:",
+                "**1. A table with two equations.** One equation for the **total amount**, one for the **amount of the pure part** (percent × quantity). Example 6.9(1): $x + y = 100$ and $0.30x + 0.55y = 0.40 \\times 100$ give $x = 60$ kg, $y = 40$ kg.",
+                "**2. Alligation (price mixtures):** to mix a cheap item (price $c$) and a dear item (price $d$) to get a mean price $m$: $$\\text{cheap} : \\text{dear} = (d - m) : (m - c).$$",
+                "**3. Keep the unchanged part fixed:** when you add only one ingredient, the other stays the same amount — work with that one (Example 6.9(4))."
+              ]
+            },
+            {
+              "id": "math11-u6-md-alligation",
+              "type": "steps",
+              "title": "The alligation cross",
+              "page": 225,
+              "src": "notes",
+              "diagram": "md_alligation",
+              "steps": [
+                {
+                  "text": "Write the two prices on the left and the mixture price 5 in the middle.",
+                  "show": "k1"
+                },
+                {
+                  "text": "Subtract along the diagonals (always bigger minus smaller): $8 - 5 = 3$ and $5 - 3 = 2$.",
+                  "show": "k2"
+                },
+                {
+                  "text": "Each difference lands opposite its own price: wheat gets 2 parts, sorghum 3 parts. **wheat : sorghum = 2 : 3.** Check: $\\frac{2 \\times 8 + 3 \\times 3}{5} = 5$.",
+                  "show": "k3"
+                }
+              ]
+            },
+            {
+              "id": "math11-u6-md-ex69b",
+              "type": "worked",
+              "title": "Worked example: Example 6.9(2)",
+              "page": 224,
+              "src": "notes",
               "mode": "show",
-              "reveal": "Steps"
+              "problem": "How many litres of a 20% solution must be added to 40 litres of an 80% solution to get a 50% mixture?",
+              "steps": [
+                {
+                  "text": "Let $x$ litres of 20% be added. Pure part: $0.2x + 0.8 \\times 40 = 0.2x + 32$."
+                },
+                {
+                  "text": "The mixture has $x + 40$ litres at 50%: $0.5(x + 40)$."
+                },
+                {
+                  "text": "$0.5x + 20 = 0.2x + 32 \\Rightarrow 0.3x = 12 \\Rightarrow x = 40$."
+                },
+                {
+                  "text": "Alligation check: $(80 - 50) : (50 - 20) = 30 : 30 = 1 : 1$."
+                }
+              ],
+              "answer": "40 litres of the 20% solution (mixed with the 40 litres of the 80% solution — the book wrongly says \"55%\")"
+            },
+            {
+              "id": "math11-u6-md-ex69d",
+              "type": "worked",
+              "title": "Worked example: the part that does not change (Example 6.9(4))",
+              "page": 226,
+              "src": "notes",
+              "mode": "show",
+              "problem": "120 cm³ of soil-and-fertiliser is 10% fertiliser. How much fertiliser must be added to make it 28% fertiliser?",
+              "steps": [
+                {
+                  "text": "Soil (does not change) $= 90\\% \\times 120 = 108$ cm³."
+                },
+                {
+                  "text": "In the new mixture soil is $100\\% - 28\\% = 72\\%$: $0.72 \\times \\text{new total} = 108$."
+                },
+                {
+                  "text": "New total $= 150$ cm³, so add $150 - 120 = 30$ cm³."
+                }
+              ],
+              "answer": "30 cm³ of fertiliser"
+            },
+            {
+              "id": "math11-u6-md-meth-tb",
+              "type": "table",
+              "title": "Which method?",
+              "page": 224,
+              "src": "notes",
+              "head": [
+                "Problem type",
+                "Best method",
+                "Why"
+              ],
+              "rows": [
+                [
+                  "percent/strength of two solutions",
+                  "two equations or alligation",
+                  "pure part is conserved"
+                ],
+                [
+                  "price per kg of two goods",
+                  "alligation",
+                  "quick ratio"
+                ],
+                [
+                  "add only water / only one ingredient",
+                  "keep the other part fixed",
+                  "one equation"
+                ]
+              ]
             },
             {
               "id": "math11-u6-c04",
@@ -15161,6 +15848,48 @@
               "body": [
                 "r=10% is 0.10 not 10. Months → t=m/12. “Discount 10% then tax 10%” is not back to the start (0.9×1.1=0.99)."
               ]
+            },
+            {
+              "id": "math11-u6-c11",
+              "type": "table",
+              "title": "Common mistakes",
+              "page": 220,
+              "head": [
+                "Mistake",
+                "Correct idea"
+              ],
+              "rows": [
+                [
+                  "Using 6 instead of 0.06 for 6%",
+                  "Change percent to a decimal: divide by 100."
+                ],
+                [
+                  "Using months as years",
+                  "6 months = 0.5 year."
+                ],
+                [
+                  "Sharing profit equally",
+                  "Share in the agreed ratio (capital × time)."
+                ]
+              ],
+              "src": "notes"
+            },
+            {
+              "type": "worked",
+              "title": "Worked: successive discount",
+              "problem": "10% off then another 10% off 1000.",
+              "steps": [
+                {
+                  "text": "After first: 900."
+                },
+                {
+                  "text": "After second: 810."
+                }
+              ],
+              "answer": "810 (not 800).",
+              "id": "math11-u6-xtra2",
+              "page": 1,
+              "src": "notes"
             },
             {
               "id": "math11-u6-chk74",
@@ -15213,142 +15942,90 @@
               "answer": "$$1440\\text{ Nakfa}$$"
             },
             {
-              "id": "math11-u6-chk75",
-              "type": "check",
-              "title": "Quick check",
-              "page": 220,
-              "src": "study_notes",
-              "src_qid": "math_g11_c6_q5",
-              "q": "Three partners invest $$60,000\\text{ Nakfa}$$, $$90,000\\text{ Nakfa}$$, and $$150,000\\text{ Nakfa}$$ respectively. If they divide a total profit of $$70,000\\text{ Nakfa}$$ proportionally based on their investment, what is the share of the first partner?",
-              "options": {
-                "A": "$$14,000\\text{ Nakfa}$$",
-                "B": "$$21,000\\text{ Nakfa}$$",
-                "C": "$$35,000\\text{ Nakfa}$$",
-                "D": "$$28,000\\text{ Nakfa}$$"
-              },
-              "answer": "A",
-              "why": "**Step 1: Calculate total capital**\n$$\\text{Total Capital} = 60000 + 90000 + 150000 = 300000\\text{ Nakfa}$$\n\n**Step 2: Calculate the share of the first partner**\n$$\\text{Share} = 70000 \\times \\frac{60000}{300000} = 70000 \\times \\frac{1}{5} = 14000\\text{ Nakfa}$$\n**Result:** **$$14,000\\text{ Nakfa}$$**."
-            },
-            {
-              "id": "math11-u6-wrk2",
-              "type": "worked",
-              "title": "Step-by-step",
-              "page": 220,
-              "src": "study_notes",
-              "src_qid": "math_g11_c6_q5",
-              "problem": "Three partners invest $$60,000\\text{ Nakfa}$$, $$90,000\\text{ Nakfa}$$, and $$150,000\\text{ Nakfa}$$ respectively. If they divide a total profit of $$70,000\\text{ Nakfa}$$ proportionally based on their investment, what is the share of the first partner?",
-              "steps": [
-                {
-                  "text": "**Step 1: Calculate total capital**"
-                },
-                {
-                  "text": "$$\\text{Total Capital} = 60000 + 90000 + 150000 = 300000\\text{ Nakfa}$$"
-                },
-                {
-                  "text": "**Step 2: Calculate the share of the first partner**"
-                },
-                {
-                  "text": "$$\\text{Share} = 70000 \\times \\frac{60000}{300000} = 70000 \\times \\frac{1}{5} = 14000\\text{ Nakfa}$$"
-                },
-                {
-                  "text": "**Result:** **$$14,000\\text{ Nakfa}$$**."
-                }
-              ],
-              "answer": "$$14,000\\text{ Nakfa}$$"
-            },
-            {
-              "id": "math11-u6-c09",
-              "type": "text",
-              "title": "Partnership: sharing profit",
-              "page": 220,
+              "id": "math11-u6-md-summary-t",
+              "type": "remember",
+              "title": "Unit summary",
+              "page": 229,
+              "src": "notes",
               "body": [
-                "Partners usually share profit (or loss) in the **ratio of their capital**. If the money is invested for different lengths of time, use capital × time."
-              ],
-              "src": "notes"
-            },
-            {
-              "id": "math11-u6-c10",
-              "type": "worked",
-              "title": "Worked example: sharing profit",
-              "page": 220,
-              "problem": "(a) A invests 30,000 Nfa and B 20,000 Nfa; profit 15,000 Nfa. (b) A invests 20,000 Nfa for 12 months and B 30,000 Nfa for 6 months; profit 14,000 Nfa. Share each profit.",
-              "steps": [
-                {
-                  "text": "(a) Ratio 30,000 : 20,000 = 3 : 2. A = 15,000 × 3/5 = **9,000 Nfa**; B = **6,000 Nfa**."
-                },
-                {
-                  "text": "(b) A: 20,000 × 12 = 240,000; B: 30,000 × 6 = 180,000. Ratio 4 : 3."
-                }
-              ],
-              "answer": "A = 14,000 × 4/7 = **8,000 Nfa**; B = 14,000 × 3/7 = **6,000 Nfa**.",
-              "src": "notes"
-            },
-            {
-              "id": "math11-u6-c11",
-              "type": "table",
-              "title": "Common mistakes",
-              "page": 220,
-              "head": [
-                "Mistake",
-                "Correct idea"
-              ],
-              "rows": [
-                [
-                  "Using 6 instead of 0.06 for 6%",
-                  "Change percent to a decimal: divide by 100."
-                ],
-                [
-                  "Using months as years",
-                  "6 months = 0.5 year."
-                ],
-                [
-                  "Sharing profit equally",
-                  "Share in the agreed ratio (capital × time)."
-                ]
-              ],
-              "src": "notes"
-            },
-            {
-              "type": "worked",
-              "title": "Worked: successive discount",
-              "problem": "10% off then another 10% off 1000.",
-              "steps": [
-                {
-                  "text": "After first: 900."
-                },
-                {
-                  "text": "After second: 810."
-                }
-              ],
-              "answer": "810 (not 800).",
-              "id": "math11-u6-xtra2",
-              "page": 1,
-              "src": "notes"
-            },
-            {
-              "id": "math11-u6-pc2",
-              "type": "check",
-              "title": "Practice",
-              "q": "A invests 40 000 Nakfa for 6 months and B invests 30 000 Nakfa for 12 months. The profit is 15 000 Nakfa. What is B's share?",
-              "options": {
-                "A": "9 000 Nakfa",
-                "B": "6 000 Nakfa",
-                "C": "7 500 Nakfa",
-                "D": "8 571 Nakfa"
-              },
-              "answer": "A",
-              "why": "**Capital × time:** A: 40 000 × 6 = 240 000; B: 30 000 × 12 = 360 000. Ratio A : B = 240 000 : 360 000 = 2 : 3.\n**Share:** B gets 3/5 × 15 000 = 9 000 Nakfa (A gets 6 000).",
-              "page": 220,
-              "src": "notes"
+                "Simple: $I = Prt$, $A = P(1 + rt)$. Compound: $A = P(1 + \\frac{r}{n})^{nt}$.",
+                "Instalments: total cost $-$ cash price $=$ credit charge; equal yearly payments: grow each payment to the end.",
+                "Depreciation: straight line $BV = OC(1 - rt)$; diminishing $BV = OC(1 - r)^t$.",
+                "Partnership: share in the agreed ratio (capital, capital × time), after salaries/interest.",
+                "Mixtures: conserve the pure part; alligation cheap : dear $= (d - m) : (m - c)$."
+              ]
             }
           ]
         }
       ],
-      "glossary": [],
+      "glossary": [
+        {
+          "term": "Principal",
+          "meaning": "The money borrowed, lent or saved.",
+          "page": 201,
+          "src": "notes"
+        },
+        {
+          "term": "Compound interest",
+          "meaning": "Interest worked out on the principal plus earlier interest.",
+          "page": 202,
+          "src": "notes"
+        },
+        {
+          "term": "Instalment plan",
+          "meaning": "Paying for an item with a deposit and a sequence of equal payments.",
+          "page": 211,
+          "src": "notes"
+        },
+        {
+          "term": "Depreciation",
+          "meaning": "The loss in value of a fixed asset: original cost − book value.",
+          "page": 214,
+          "src": "notes"
+        },
+        {
+          "term": "Book value",
+          "meaning": "The estimated value of an asset after some years.",
+          "page": 214,
+          "src": "notes"
+        },
+        {
+          "term": "Partnership",
+          "meaning": "A business owned by two or more people who share profits.",
+          "page": 220,
+          "src": "notes"
+        },
+        {
+          "term": "Alligation",
+          "meaning": "A quick rule for the ratio of two items mixed to a given mean price.",
+          "page": 225,
+          "src": "notes"
+        }
+      ],
       "tips": [
         {
           "text": "Read 6.1 The Banking System again and say its main idea in one sentence.",
           "page": 201
+        },
+        {
+          "text": "Rate as a decimal, time in years.",
+          "page": 201,
+          "src": "notes"
+        },
+        {
+          "text": "Compound: multiply by (1 + r) each period.",
+          "page": 205,
+          "src": "notes"
+        },
+        {
+          "text": "Diminishing depreciation is compound interest with (1 − r).",
+          "page": 218,
+          "src": "notes"
+        },
+        {
+          "text": "Alligation: cheap : dear = (d − m) : (m − c).",
+          "page": 225,
+          "src": "notes"
         }
       ],
       "games": [
@@ -16083,6 +16760,890 @@
             ],
             "tip": "Units reveal mistakes.",
             "similar": []
+          },
+          {
+            "id": "math11-u6-md-s61-q01",
+            "type": "short",
+            "q": "Exercise 6.1 Q1: find the missing value: (a) $P = 6000$, $T = 4$, $I = 720$; (b) $P = 2500$, $R = 6\\%$, $I = 450$; (c) $P = 1750$, $R = 3\\%$, $T = 5$; (d) $R = 4\\%$, $T = 14$, $I = 210$.",
+            "answer": "(a) 3% (b) 3 years (c) 262.50 (d) 375",
+            "why": [
+              "Step 1: (a) $r = \\frac{720}{6000 \\times 4} = 0.03$.",
+              "Step 2: (b) $t = \\frac{450}{2500 \\times 0.06} = 3$.",
+              "Step 3: (c) $I = 1750 \\times 0.03 \\times 5 = 262.5$.",
+              "Step 4: (d) $P = \\frac{210}{0.04 \\times 14} = 375$."
+            ],
+            "tip": "Rearrange $I = Prt$ for the missing letter.",
+            "similar": [
+              {
+                "q": "$P = 4000$, $R = 5\\%$, $I = 600$: $T$?",
+                "a": "3 years."
+              }
+            ],
+            "page": 202,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q02",
+            "type": "short",
+            "q": "Exercise 6.1 Q2: 10,000 Nakfa at 6% simple interest for 5 years. Amount?",
+            "answer": "13,000 Nakfa",
+            "why": [
+              "Step 1: $I = 10000 \\times 0.06 \\times 5 = 3000$.",
+              "Step 2: $A = 10000 + 3000$."
+            ],
+            "tip": "$A = P(1 + rt)$.",
+            "similar": [
+              {
+                "q": "For 8 years?",
+                "a": "14,800 Nakfa."
+              }
+            ],
+            "page": 202,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q03",
+            "type": "short",
+            "q": "Find the simple interest on 4500 Nakfa at 8% for 9 months.",
+            "answer": "270 Nakfa",
+            "why": [
+              "Step 1: $t = \\frac{9}{12} = 0.75$.",
+              "Step 2: $I = 4500 \\times 0.08 \\times 0.75$."
+            ],
+            "tip": "Months ÷ 12.",
+            "similar": [
+              {
+                "q": "For 4 months?",
+                "a": "120 Nakfa."
+              }
+            ],
+            "page": 202,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q04",
+            "type": "short",
+            "q": "Exercise 6.4 Q1: 15,000 Nakfa grew to 18,000 Nakfa in 5 years at simple interest. Rate?",
+            "answer": "4%",
+            "why": [
+              "Step 1: $I = 3000$.",
+              "Step 2: $r = \\frac{3000}{15000 \\times 5} = 0.04$."
+            ],
+            "tip": "Interest first, then $r = \\frac{I}{Pt}$.",
+            "similar": [
+              {
+                "q": "Grew to 21,000?",
+                "a": "8%."
+              }
+            ],
+            "page": 213,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q05",
+            "type": "short",
+            "q": "Exercise 6.2 Q1–Q3: compound interest on (1) 400 Nakfa, 2 years, 5%; (2) 1000 Nakfa, 3 years, 6%. (3) Amount of 500 Nakfa for 4 years at 6%.",
+            "answer": "41; 191.02; 631.24",
+            "why": [
+              "Step 1: $400(1.05)^2 = 441$, interest 41.",
+              "Step 2: $1000(1.06)^3 = 1191.02$, interest 191.02.",
+              "Step 3: $500(1.06)^4 = 631.24$."
+            ],
+            "tip": "Interest $= A - P$.",
+            "similar": [
+              {
+                "q": "400 Nakfa, 3 years, 5%?",
+                "a": "interest 63.05."
+              }
+            ],
+            "page": 207,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q06",
+            "type": "short",
+            "q": "Exercise 6.2 Q4–Q5: 5000 Nakfa for 3 years at 4%. As the lender, which would you prefer? As the borrower?",
+            "answer": "lender: compound; borrower: simple",
+            "why": [
+              "Step 1: simple $A = 5600$.",
+              "Step 2: compound $A = 5000(1.04)^3 = 5624.32$.",
+              "Step 3: the lender gains 24.32 more with compound; the borrower pays less with simple."
+            ],
+            "tip": "Compound ≥ simple for $t \\ge 1$.",
+            "similar": [
+              {
+                "q": "For exactly 1 year?",
+                "a": "same: 5200."
+              }
+            ],
+            "page": 207,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q07",
+            "type": "short",
+            "q": "Exercise 6.3 Q1–Q2: number of periods and rate per period: (a) 4 years, 6%, half-yearly (b) 2 years, 8%, quarterly (c) 1.5 years, 12%, monthly. Also 8% per year as half-yearly, quarterly, monthly rates.",
+            "answer": "(a) 8 at 3% (b) 8 at 2% (c) 18 at 1%; 4%, 2%, 0.67%",
+            "why": [
+              "Step 1: periods $= nt$.",
+              "Step 2: rate per period $= \\frac{r}{n}$."
+            ],
+            "tip": "Divide the rate, multiply the time.",
+            "similar": [
+              {
+                "q": "3 years at 12% quarterly?",
+                "a": "12 periods at 3%."
+              }
+            ],
+            "page": 210,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q08",
+            "type": "short",
+            "q": "Exercise 6.3 Q3–Q4: compound interest on (a) 4000 Nakfa, 1.5 years, 8% half-yearly; (b) 800 Nakfa, 1 year, 6% quarterly.",
+            "answer": "(a) 499.46 (b) 49.09",
+            "why": [
+              "Step 1: (a) $4000(1.04)^3 = 4499.46$.",
+              "Step 2: (b) $800(1.015)^4 = 849.09$."
+            ],
+            "tip": "Rate per period and number of periods first.",
+            "similar": [
+              {
+                "q": "(a) yearly at 8% for 1 year?",
+                "a": "320."
+              }
+            ],
+            "page": 210,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q09",
+            "type": "short",
+            "q": "Exercise 6.3 Q5–Q7: (5) interest on 2500 Nakfa, 5 years, 4% half-yearly; (6) amount of 20,000 Nakfa, 8 years, 4% quarterly; (7) interest on 25,000 Nakfa, 12 years, 6% half-yearly.",
+            "answer": "547.49; 27,498.82; 25,819.85",
+            "why": [
+              "Step 1: $2500(1.02)^{10} = 3047.49$.",
+              "Step 2: $20000(1.01)^{32} = 27498.82$.",
+              "Step 3: $25000(1.03)^{24} = 50819.85$; subtract 25,000."
+            ],
+            "tip": "Use the $x^y$ key.",
+            "similar": [
+              {
+                "q": "2500 at 4% yearly for 5 years?",
+                "a": "interest 541.63."
+              }
+            ],
+            "page": 210,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q10",
+            "type": "short",
+            "q": "Review Q1–Q2: (1) amount of 10,000 Nakfa for 6 years at 5% compounded annually; (2) compound minus simple interest on 14,000 Nakfa for 5 years at 6%.",
+            "answer": "13,400.96; 535.16",
+            "why": [
+              "Step 1: $10000(1.05)^6 = 13400.96$.",
+              "Step 2: CI $= 14000(1.06^5 - 1) = 4735.16$; SI $= 4200$."
+            ],
+            "tip": "Difference grows with time.",
+            "similar": [
+              {
+                "q": "Difference for 2 years?",
+                "a": "50.40."
+              }
+            ],
+            "page": 228,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q11",
+            "type": "short",
+            "q": "Review Q3: how much must be deposited now at 6% compound interest to have 8000 Nakfa in 5 years?",
+            "answer": "5978.07 Nakfa",
+            "why": [
+              "Step 1: $P(1.06)^5 = 8000$.",
+              "Step 2: $P = \\frac{8000}{1.338226}$."
+            ],
+            "tip": "Present value: divide by the growth factor.",
+            "similar": [
+              {
+                "q": "10,000 Nakfa in 3 years at 5%?",
+                "a": "8638.38 Nakfa."
+              }
+            ],
+            "page": 228,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q12",
+            "type": "short",
+            "q": "Review Q4–Q5: (4) 3500 Nakfa compounded quarterly becomes 5735.16 in 5 years: interest? rate? (5) Population 4 million grows 2.5% a year: after 2 years?",
+            "answer": "2235.16 (10% per year); 4,202,500",
+            "why": [
+              "Step 1: $5735.16 - 3500 = 2235.16$; $(1.6386)^{1/20} = 1.025$ per quarter, so 10% per year.",
+              "Step 2: $4000000(1.025)^2$."
+            ],
+            "tip": "Population growth = compound interest.",
+            "similar": [
+              {
+                "q": "After 3 years?",
+                "a": "about 4,307,563."
+              }
+            ],
+            "page": 228,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q13",
+            "type": "short",
+            "q": "How long does money take to double at 8% compounded yearly?",
+            "answer": "about 9 years",
+            "why": [
+              "Step 1: $(1.08)^t = 2$.",
+              "Step 2: $t = \\frac{\\log 2}{\\log 1.08} = \\frac{0.3010}{0.0334} \\approx 9$."
+            ],
+            "tip": "Rule of 72: $72 \\div 8 = 9$.",
+            "similar": [
+              {
+                "q": "At 6%?",
+                "a": "about 12 years."
+              }
+            ],
+            "page": 206,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q14",
+            "type": "mcq",
+            "q": "Which gives the most after 1 year on 1000 Nakfa at 12% per year?",
+            "options": {
+              "A": "monthly compounding",
+              "B": "yearly compounding",
+              "C": "simple interest",
+              "D": "half-yearly compounding"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: monthly $1000(1.01)^{12} = 1126.83$; half-yearly 1123.60; yearly and simple 1120."
+            ],
+            "tip": "More periods ⇒ more interest.",
+            "similar": [
+              {
+                "q": "Effective rate of 12% monthly?",
+                "a": "about 12.68%."
+              }
+            ],
+            "page": 209,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s61-q15",
+            "type": "tf",
+            "q": "With simple interest the interest in year 3 is bigger than in year 1.",
+            "answer": false,
+            "why": [
+              "Step 1: simple interest is $Pr$ every year, always on the original principal."
+            ],
+            "tip": "Only compound interest grows each year.",
+            "similar": [
+              {
+                "q": "With compound interest?",
+                "a": "True."
+              }
+            ],
+            "page": 203,
+            "src": "notes",
+            "label": "6.1 Practice — simple and compound interest"
+          },
+          {
+            "id": "math11-u6-md-s62-q01",
+            "type": "short",
+            "q": "Exercise 6.4 Q2: a cupboard costs 8500 Nakfa; on instalments over 3 years the price rises by 17.5%. (a) total (b) interest (c) yearly instalment.",
+            "answer": "9987.50; 1487.50; 3329.17",
+            "why": [
+              "Step 1: $8500 \\times 1.175 = 9987.50$.",
+              "Step 2: $9987.50 - 8500$.",
+              "Step 3: $9987.50 \\div 3$."
+            ],
+            "tip": "Total first, then divide.",
+            "similar": [
+              {
+                "q": "Rise 12% over 2 years?",
+                "a": "total 9520, 4760 a year."
+              }
+            ],
+            "page": 213,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s62-q02",
+            "type": "short",
+            "q": "Exercise 6.4 Q3: a radio costs 8500 Nakfa; 1500 down and 48 payments of 184.34. Total and interest?",
+            "answer": "10,348.32; 1848.32",
+            "why": [
+              "Step 1: $1500 + 48 \\times 184.34 = 10348.32$.",
+              "Step 2: $10348.32 - 8500$."
+            ],
+            "tip": "Total instalment cost − cash price.",
+            "similar": [
+              {
+                "q": "36 payments of 220 instead?",
+                "a": "total 9420, interest 920."
+              }
+            ],
+            "page": 213,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s62-q03",
+            "type": "short",
+            "q": "Exercise 6.4 Q4: wheat worth 3750 Nakfa, nothing down, 12 payments of 330.16. Annual (simple) interest rate?",
+            "answer": "about 5.65%",
+            "why": [
+              "Step 1: total $12 \\times 330.16 = 3961.92$.",
+              "Step 2: interest 211.92 for 1 year: $\\frac{211.92}{3750} \\approx 0.0565$."
+            ],
+            "tip": "Rate = interest ÷ (principal × years).",
+            "similar": [
+              {
+                "q": "Payments of 325?",
+                "a": "interest 150, rate 4%."
+              }
+            ],
+            "page": 213,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s62-q04",
+            "type": "short",
+            "q": "Exercise 6.4 Q5: a 500,000 Nakfa house; 50% paid now, the rest in 3 equal yearly instalments at 5% compound. Instalment?",
+            "answer": "about 91,802.14 Nakfa",
+            "why": [
+              "Step 1: loan 250,000.",
+              "Step 2: $x(1.05^2 + 1.05 + 1) = 250000(1.05)^3$.",
+              "Step 3: $x = \\frac{289406.25}{3.1525}$."
+            ],
+            "tip": "Grow every payment to the end.",
+            "similar": [
+              {
+                "q": "Loan 100,000 at 10%, 2 payments?",
+                "a": "57,619.05."
+              }
+            ],
+            "page": 214,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s62-q05",
+            "type": "short",
+            "q": "Exercise 6.4 Q6: what loan is repaid by 3 yearly instalments of 4000 Nakfa at 5% compound?",
+            "answer": "about 10,892.99 Nakfa",
+            "why": [
+              "Step 1: bring each payment back: $\\frac{4000}{1.05} + \\frac{4000}{1.05^2} + \\frac{4000}{1.05^3}$.",
+              "Step 2: $3809.52 + 3628.12 + 3455.35$."
+            ],
+            "tip": "Present value of each payment.",
+            "similar": [
+              {
+                "q": "2 instalments of 4000?",
+                "a": "7437.64."
+              }
+            ],
+            "page": 214,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s62-q06",
+            "type": "short",
+            "q": "Review Q9: 23,400 Nakfa borrowed at 9% compound, repaid in 6 equal yearly instalments. Instalment?",
+            "answer": "about 5216.32 Nakfa",
+            "why": [
+              "Step 1: $x \\cdot \\frac{1.09^6 - 1}{0.09} = 23400(1.09)^6$.",
+              "Step 2: $x = \\frac{23400 \\times 0.09}{1 - 1.09^{-6}}$."
+            ],
+            "tip": "Same idea as Helen's loan, longer list.",
+            "similar": [
+              {
+                "q": "Over 3 years?",
+                "a": "about 9244.25."
+              }
+            ],
+            "page": 228,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s62-q07",
+            "type": "short",
+            "q": "Review Q8: a 16,000 Nakfa fridge, no deposit, 333.34 Nakfa a month for 5 years. Simple interest rate?",
+            "answer": "5% per year",
+            "why": [
+              "Step 1: total $333.34 \\times 60 = 20000.40$.",
+              "Step 2: interest about 4000: $\\frac{4000}{16000 \\times 5} = 0.05$."
+            ],
+            "tip": "Straight-line here means simple interest.",
+            "similar": [
+              {
+                "q": "Over 4 years at the same total?",
+                "a": "6.25%."
+              }
+            ],
+            "page": 228,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s62-q08",
+            "type": "short",
+            "q": "Exercise 6.5 Q1–Q2: (1) a car 150,000 → 70,000 in 5 years: annual depreciation and rate? (2) a machine 8000, scrap 1280 after 12 years: rate?",
+            "answer": "16,000 and 10.67%; 7%",
+            "why": [
+              "Step 1: $\\frac{80000}{5} = 16000$; $\\frac{16000}{150000} \\approx 10.67\\%$.",
+              "Step 2: $\\frac{6720}{12} = 560$; $\\frac{560}{8000} = 7\\%$."
+            ],
+            "tip": "Rate is on the original cost.",
+            "similar": [
+              {
+                "q": "60,000 → 6000 in 9 years?",
+                "a": "6000 a year, 10%."
+              }
+            ],
+            "page": 219,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s62-q09",
+            "type": "short",
+            "q": "Exercise 6.5 Q3: 20 computers at 40,000 each; BV 4000 each after 12 years (straight line). Annual depreciation and rate?",
+            "answer": "3000 per computer (60,000 for all 20); 7.5%",
+            "why": [
+              "Step 1: $\\frac{36000}{12} = 3000$.",
+              "Step 2: $\\frac{3000}{40000} = 7.5\\%$."
+            ],
+            "tip": "Work per item, then multiply.",
+            "similar": [
+              {
+                "q": "BV 8000 after 8 years?",
+                "a": "4000, 10%."
+              }
+            ],
+            "page": 220,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s62-q10",
+            "type": "short",
+            "q": "Exercise 6.5 Q4–Q5: (4) equipment 100,000, value falls 12% a year: value after 10 years? (5) TV 15,000, 10% a year, sold after 5 years for 10,500: gain or loss on the book value?",
+            "answer": "27,850.10; gain 1642.65",
+            "why": [
+              "Step 1: $100000(0.88)^{10}$.",
+              "Step 2: $15000(0.9)^5 = 8857.35$; $10500 - 8857.35$."
+            ],
+            "tip": "Diminishing: multiply by $(1 - r)$ each year.",
+            "similar": [
+              {
+                "q": "TV after 3 years?",
+                "a": "10,935."
+              }
+            ],
+            "page": 220,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s62-q11",
+            "type": "short",
+            "q": "Review Q10: a 120,000 Nakfa car loses 15% a year. After 4 years it is sold at 30% above its value then. Gain or loss against the cost?",
+            "answer": "loss of about 38,567 Nakfa",
+            "why": [
+              "Step 1: $120000(0.85)^4 = 62640.75$.",
+              "Step 2: price $1.3 \\times 62640.75 = 81432.98$.",
+              "Step 3: $120000 - 81432.98$."
+            ],
+            "tip": "Compare with the original cost, not the book value.",
+            "similar": [
+              {
+                "q": "Sold at 50% above?",
+                "a": "loss about 26,039."
+              }
+            ],
+            "page": 229,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s62-q12",
+            "type": "short",
+            "q": "Example 6.6(2): cost 12,500, value 2300 after 7 years. Simple rate of depreciation?",
+            "answer": "about 11.7%",
+            "why": [
+              "Step 1: $2300 = 12500(1 - 7r)$.",
+              "Step 2: $7r = 1 - 0.184 = 0.816$, $r \\approx 0.1166$."
+            ],
+            "tip": "$BV = OC(1 - rt)$.",
+            "similar": [
+              {
+                "q": "Value 5000 after 5 years?",
+                "a": "12%."
+              }
+            ],
+            "page": 216,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s62-q13",
+            "type": "mcq",
+            "q": "A car of 80,000 Nakfa depreciates 20% a year (reducing value). After 3 years it is worth",
+            "options": {
+              "A": "40,960",
+              "B": "32,000",
+              "C": "48,000",
+              "D": "51,200"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: $80000 \\times 0.8^3 = 80000 \\times 0.512$."
+            ],
+            "tip": "Not $80000 - 3 \\times 16000$.",
+            "similar": [
+              {
+                "q": "After 2 years?",
+                "a": "51,200."
+              }
+            ],
+            "page": 214,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s62-q14",
+            "type": "tf",
+            "q": "With straight-line depreciation the book value falls by the same percent every year.",
+            "answer": false,
+            "why": [
+              "Step 1: it falls by the same **amount**; as the value shrinks that amount is a bigger percent."
+            ],
+            "tip": "Same amount = straight line; same percent = diminishing.",
+            "similar": [
+              {
+                "q": "Diminishing value falls by the same amount?",
+                "a": "False."
+              }
+            ],
+            "page": 215,
+            "src": "notes",
+            "label": "6.1 Practice — instalments and depreciation"
+          },
+          {
+            "id": "math11-u6-md-s63-q01",
+            "type": "short",
+            "q": "Exercise 6.6 Q1–Q2: (1) 5 doctors share 140,000 equally. (2) Capitals 25,000 and 15,000 share a profit of 30,000.",
+            "answer": "28,000 each; 18,750 and 11,250",
+            "why": [
+              "Step 1: $140000 \\div 5$.",
+              "Step 2: ratio 5 : 3, part $= 30000 \\div 8 = 3750$."
+            ],
+            "tip": "Simplify the ratio first.",
+            "similar": [
+              {
+                "q": "Capitals 20,000 and 30,000?",
+                "a": "12,000 and 18,000."
+              }
+            ],
+            "page": 222,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
+          },
+          {
+            "id": "math11-u6-md-s63-q02",
+            "type": "short",
+            "q": "Exercise 6.6 Q3: profits/losses in the ratio 2 : 3 : 7. (a) Share a profit of 9000. (b) How is a loss shared?",
+            "answer": "1500, 2250, 5250; same ratio 2 : 3 : 7",
+            "why": [
+              "Step 1: 12 parts; one part $= 750$.",
+              "Step 2: losses follow the same agreed ratio."
+            ],
+            "tip": "Total parts $= 2 + 3 + 7$.",
+            "similar": [
+              {
+                "q": "A loss of 2400?",
+                "a": "400, 600, 1400."
+              }
+            ],
+            "page": 223,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
+          },
+          {
+            "id": "math11-u6-md-s63-q03",
+            "type": "short",
+            "q": "Exercise 6.6 Q4: Salem 60,000, Dawd 30,000; each takes 10% interest on capital, the rest is split equally. Profit 15,000.",
+            "answer": "Salem 9000; Dawd 6000",
+            "why": [
+              "Step 1: interest 6000 and 3000.",
+              "Step 2: left $15000 - 9000 = 6000$, 3000 each.",
+              "Step 3: add."
+            ],
+            "tip": "Take out interest first.",
+            "similar": [
+              {
+                "q": "Profit 12,000?",
+                "a": "Salem 7500, Dawd 4500."
+              }
+            ],
+            "page": 223,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
+          },
+          {
+            "id": "math11-u6-md-s63-q04",
+            "type": "short",
+            "q": "Exercise 6.6 Q5: capitals 14,000, 17,000, 33,000. 10% of a 6000 profit goes to a national programme; the rest by capital.",
+            "answer": "1181.25; 1434.38; 2784.38",
+            "why": [
+              "Step 1: $6000 - 600 = 5400$.",
+              "Step 2: ratio 14 : 17 : 33 (64 parts), part $= 84.375$."
+            ],
+            "tip": "Total parts first.",
+            "similar": [
+              {
+                "q": "Profit 12,800?",
+                "a": "2520, 3060, 5940."
+              }
+            ],
+            "page": 223,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
+          },
+          {
+            "id": "math11-u6-md-s63-q05",
+            "type": "short",
+            "q": "Review Q6–Q7: (6) capitals 10,000, 20,000, 20,000; profit 15,600. (7) Winta invests 360,000 and gets 10% return first; the rest of a 90,000 profit is split 2 : 3 (Winta : Nejat).",
+            "answer": "3120, 6240, 6240; Winta 57,600, Nejat 32,400",
+            "why": [
+              "Step 1: ratio 1 : 2 : 2, part 3120.",
+              "Step 2: return 36,000; left 54,000: Winta 21,600, Nejat 32,400.",
+              "Step 3: Winta $36000 + 21600$."
+            ],
+            "tip": "Return first, then ratio.",
+            "similar": [
+              {
+                "q": "Profit 60,000 in Q7?",
+                "a": "Winta 45,600, Nejat 14,400."
+              }
+            ],
+            "page": 228,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
+          },
+          {
+            "id": "math11-u6-md-s63-q06",
+            "type": "short",
+            "q": "Review Q11: Amir and Ghirmay invest 180,000 in total. Amir's salary is 10% of the profit; the rest is shared by investment. Profit 80,000; Ghirmay gets 40,000. Find the investments.",
+            "answer": "Amir 80,000; Ghirmay 100,000",
+            "why": [
+              "Step 1: salary 8000; 72,000 shared.",
+              "Step 2: Ghirmay's fraction $\\frac{40000}{72000} = \\frac{5}{9}$.",
+              "Step 3: $\\frac{5}{9} \\times 180000 = 100000$."
+            ],
+            "tip": "Shares are proportional to investments.",
+            "similar": [
+              {
+                "q": "Ghirmay gets 48,000?",
+                "a": "Ghirmay 120,000, Amir 60,000."
+              }
+            ],
+            "page": 229,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
+          },
+          {
+            "id": "math11-u6-md-s63-q07",
+            "type": "short",
+            "q": "A invests 50,000 for 12 months, B 40,000 for 9 months. Share a profit of 32,000.",
+            "answer": "A 20,000; B 12,000",
+            "why": [
+              "Step 1: $50000 \\times 12 = 600000$; $40000 \\times 9 = 360000$.",
+              "Step 2: ratio 5 : 3."
+            ],
+            "tip": "Capital × time.",
+            "similar": [
+              {
+                "q": "B for 12 months too?",
+                "a": "ratio 5 : 4."
+              }
+            ],
+            "page": 220,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
+          },
+          {
+            "id": "math11-u6-md-s63-q08",
+            "type": "short",
+            "q": "Exercise 6.7 Q1–Q2: (1) tea at 6.80 and 8.20 per kg to give 7.60; (2) gold 15.20 and silver 0.20 per g to give 3.20 per g.",
+            "answer": "3 : 4; 1 : 4 (gold : silver)",
+            "why": [
+              "Step 1: cheap : dear $= (8.20 - 7.60) : (7.60 - 6.80) = 0.6 : 0.8$.",
+              "Step 2: gold : silver $= (3.20 - 0.20) : (15.20 - 3.20) = 3 : 12$."
+            ],
+            "tip": "Each difference goes to the opposite item.",
+            "similar": [
+              {
+                "q": "Rice 12 and 18 to give 16?",
+                "a": "cheap : dear $= 1 : 2$."
+              }
+            ],
+            "page": 227,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
+          },
+          {
+            "id": "math11-u6-md-s63-q09",
+            "type": "short",
+            "q": "Exercise 6.7 Q3 (data completed): coffees at 120 and 75 Nakfa per kg; the mixture sells at 99 Nakfa per kg with 10% profit. Ratio?",
+            "answer": "1 : 2 (dear : cheap)",
+            "why": [
+              "Step 1: cost price $= \\frac{99}{1.1} = 90$.",
+              "Step 2: dear : cheap $= (90 - 75) : (120 - 90) = 15 : 30$."
+            ],
+            "tip": "The book gives no selling price, so the question cannot be done as printed; 99 Nakfa is an example value.",
+            "similar": [
+              {
+                "q": "Sold at 110 with 10% profit?",
+                "a": "cost 100: dear : cheap $= 25 : 20 = 5 : 4$."
+              }
+            ],
+            "page": 227,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
+          },
+          {
+            "id": "math11-u6-md-s63-q10",
+            "type": "short",
+            "q": "Exercise 6.7 Q4 (corrected): wheat at 810 and 730 Nakfa per quintal; the mixture sells at 864 per **quintal** with 8% profit. Ratio?",
+            "answer": "7 : 1 (dear : cheap)",
+            "why": [
+              "Step 1: cost $= \\frac{864}{1.08} = 800$.",
+              "Step 2: dear : cheap $= (800 - 730) : (810 - 800) = 70 : 10$."
+            ],
+            "tip": "Remove the profit first. (The book says \"per kg\", which cannot be right.)",
+            "similar": [
+              {
+                "q": "Selling at 810 with 8% profit?",
+                "a": "cost 750: 1 : 3."
+              }
+            ],
+            "page": 227,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
+          },
+          {
+            "id": "math11-u6-md-s63-q11",
+            "type": "short",
+            "q": "Exercise 6.7 Q5: 90 litres of acid and water is 60% water. How much water to make it 75% water?",
+            "answer": "54 litres",
+            "why": [
+              "Step 1: acid stays $= 40\\% \\times 90 = 36$ L.",
+              "Step 2: acid is 25% of the new mix: $36 \\div 0.25 = 144$.",
+              "Step 3: $144 - 90$."
+            ],
+            "tip": "Fix the ingredient that does not change.",
+            "similar": [
+              {
+                "q": "To make it 70% water?",
+                "a": "30 litres."
+              }
+            ],
+            "page": 227,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
+          },
+          {
+            "id": "math11-u6-md-s63-q12",
+            "type": "short",
+            "q": "How many litres of 60% acid must be added to 10 litres of 30% acid to get 50% acid?",
+            "answer": "20 litres",
+            "why": [
+              "Step 1: $0.3(10) + 0.6x = 0.5(10 + x)$.",
+              "Step 2: $3 + 0.6x = 5 + 0.5x$, $x = 20$."
+            ],
+            "tip": "Alligation: $(60 - 50) : (50 - 30) = 1 : 2$.",
+            "similar": [
+              {
+                "q": "To get 40%?",
+                "a": "5 litres."
+              }
+            ],
+            "page": 224,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
+          },
+          {
+            "id": "math11-u6-md-s63-q13",
+            "type": "mcq",
+            "q": "Sugar at 20 and 30 Nakfa per kg is mixed to sell at 24 per kg (no profit). Ratio cheap : dear?",
+            "options": {
+              "A": "3 : 2",
+              "B": "2 : 3",
+              "C": "1 : 1",
+              "D": "4 : 6"
+            },
+            "answer": "A",
+            "why": [
+              "Step 1: $(30 - 24) : (24 - 20) = 6 : 4 = 3 : 2$."
+            ],
+            "tip": "The mean is closer to the item used more.",
+            "similar": [
+              {
+                "q": "To sell at 26?",
+                "a": "2 : 3."
+              }
+            ],
+            "page": 225,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
+          },
+          {
+            "id": "math11-u6-md-s63-q14",
+            "type": "tf",
+            "q": "If partners invest different amounts for different times, the profit is shared in the ratio of capital × time.",
+            "answer": true,
+            "why": [
+              "Step 1: 1000 Nakfa for 2 months does the same work as 2000 for 1 month."
+            ],
+            "tip": "Multiply before comparing.",
+            "similar": [
+              {
+                "q": "Same time, different capital?",
+                "a": "ratio of capitals."
+              }
+            ],
+            "page": 221,
+            "src": "notes",
+            "label": "6.2 Practice — partnership and mixtures"
           }
         ]
       },
@@ -16118,6 +17679,38 @@
               "math11-u6-c05",
               "math11-u6-c06"
             ]
+          },
+          {
+            "id": "md_si",
+            "label": "Simple interest",
+            "kind": "idea",
+            "cards": [
+              "math11-u6-c01"
+            ]
+          },
+          {
+            "id": "md_ci",
+            "label": "Compound interest",
+            "kind": "idea",
+            "cards": [
+              "math11-u6-c07"
+            ]
+          },
+          {
+            "id": "md_dep",
+            "label": "Depreciation",
+            "kind": "idea",
+            "cards": [
+              "math11-u6-md-dep-t"
+            ]
+          },
+          {
+            "id": "md_mix",
+            "label": "Mixtures and alligation",
+            "kind": "idea",
+            "cards": [
+              "math11-u6-md-mix-t"
+            ]
           }
         ],
         "edges": [
@@ -16135,9 +17728,61 @@
             "from": "l6_1",
             "to": "l6_2",
             "label": "next"
+          },
+          {
+            "from": "l6_1",
+            "to": "md_si",
+            "label": "key idea"
+          },
+          {
+            "from": "l6_1",
+            "to": "md_ci",
+            "label": "key idea"
+          },
+          {
+            "from": "l6_1",
+            "to": "md_dep",
+            "label": "key idea"
+          },
+          {
+            "from": "l6_2",
+            "to": "md_mix",
+            "label": "key idea"
           }
         ],
         "src": "auto"
+      },
+      "diagrams": {
+        "md_growth": {
+          "svg": "svg/mathematics_11/m11_u6_growth.svg",
+          "title": "1000 Nakfa at 10% per year: simple vs compound",
+          "page": 203,
+          "pins": []
+        },
+        "md_dep": {
+          "svg": "svg/mathematics_11/m11_u6_dep.svg",
+          "title": "A 5100 Nakfa machine: two ways to depreciate",
+          "page": 215,
+          "pins": []
+        },
+        "md_loan": {
+          "svg": "svg/mathematics_11/m11_u6_loan.svg",
+          "title": "Example 6.5(3): the loan balance year by year",
+          "page": 212,
+          "pins": []
+        },
+        "md_alligation": {
+          "svg": "svg/mathematics_11/m11_u6_alligation.svg",
+          "title": "Example 6.9(3): the alligation cross",
+          "page": 226,
+          "pins": []
+        },
+        "md_profit": {
+          "svg": "svg/mathematics_11/m11_u6_profit.svg",
+          "title": "Example 6.8(3): sharing 70,000 Nakfa in the ratio 2 : 3",
+          "page": 221,
+          "pins": []
+        }
       }
     }
   ]
