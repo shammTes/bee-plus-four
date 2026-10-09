@@ -246,15 +246,33 @@ class StateItem {
   StateItem(this.key, this.label, this.text);
 }
 
+/// `table` card. Only [head] and [rows] are required (older app versions read just those). Optional presentation fields:
+///   kind:   table (default) | journal | ledger | statement | t_account
+///   cols:   one per column: text | num | money | dr | cr | date | ref (missing = guessed from the header / cells)
+///   marks:  one per row, space-separated tokens: head (section heading / T-account name), total (single rule above the
+///           figures), final (single rule above + double rule below), indent, note (narration), bold
+///   frozen: how many leading columns stay put while the rest scrolls sideways (default: the label column)
+///   layout: grid | stack (stack = one block per row; default: stack only for wide all-text tables on narrow screens)
+///   to:     prefix for journal credit lines, e.g. "To " (default none, as in the Eritrean textbooks)
 class TableCard extends NoteCard {
   final List<String> head;
   final List<List<String>> rows;
+  final String kind;
+  final List<String> cols, marks;
+  final int? frozen;
+  final String? layout, to;
   TableCard(J j)
     : head = j.strs('head'),
       rows = [
         for (final (i, r) in j.list('rows').indexed)
           [for (final c in (r as List)) c is String ? c : throw FormatException('${j.where}.rows[$i]: cell not a string')],
       ],
+      kind = j.strOr('kind') ?? 'table',
+      cols = j.strs('cols', optional: true),
+      marks = j.strs('marks', optional: true),
+      frozen = j.intOr('frozen'),
+      layout = j.strOr('layout'),
+      to = j.strOr('to'),
       super(j);
 }
 
