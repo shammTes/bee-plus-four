@@ -252,8 +252,21 @@ class StateItem {
 ///   marks:  one per row, space-separated tokens: head (section heading / T-account name), total (single rule above the
 ///           figures), final (single rule above + double rule below), indent, note (narration), bold
 ///   frozen: how many leading columns stay put while the rest scrolls sideways (default: the label column)
-///   layout: grid | stack (stack = one block per row; default: stack only for wide all-text tables on narrow screens)
+///   layout: how a narrow screen (< 520 px) shows the table; wider screens keep the grid unless noted:
+///           grid      always the grid (scrolls sideways with the label column frozen when it must)
+///           cards     one coloured card per row: first cell as its title, the other cells under bold mini-headings
+///           stack     the same, on every width
+///           compare   one coloured card per column (the items compared), the first column's row labels as mini-headings
+///           terms     a two-line list: term in bold, its explanation (and further columns) below
+///           proscons  advantages / disadvantages columns as green ✔ / red ✖ sections (every width); cells list their
+///                     points separated by "; " or new lines
+///           sections  accounting: a toggle between the column groups named before " — " in the headers (worksheet:
+///                     Trial Balance / Adjustments / ...), plus "All"
+///           entries   accounting: one block per row with its figures as labelled Dr / Cr chips
+///           (default: grid; wide all-text tables become cards / compare, and accounting tables that would scroll
+///           become sections or entries)
 ///   to:     prefix for journal credit lines, e.g. "To " (default none, as in the Eritrean textbooks)
+///   key_point: one sentence shown under the table in a "Remember this!" box
 class TableCard extends NoteCard {
   final List<String> head;
   final List<List<String>> rows;
@@ -261,6 +274,9 @@ class TableCard extends NoteCard {
   final List<String> cols, marks;
   final int? frozen;
   final String? layout, to;
+
+  /// optional "key point" line shown under the table (`key_point`)
+  final String? keyPoint;
   TableCard(J j)
     : head = j.strs('head'),
       rows = [
@@ -273,6 +289,7 @@ class TableCard extends NoteCard {
       frozen = j.intOr('frozen'),
       layout = j.strOr('layout'),
       to = j.strOr('to'),
+      keyPoint = j.strOr('key_point'),
       super(j);
 }
 
