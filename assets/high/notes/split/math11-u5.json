@@ -109,6 +109,42 @@
      "title": "Parallel to the third side → small triangle similar to the big one.",
      "page": 172,
      "pins": []
+    },
+    "md_bpt": {
+     "svg": "svg/mathematics_11/m11_u5_bpt.svg",
+     "title": "Theorem 5.1: the Basic Proportionality Theorem",
+     "page": 177,
+     "pins": []
+    },
+    "md_altitude": {
+     "svg": "svg/mathematics_11/m11_u5_altitude.svg",
+     "title": "The altitude to the hypotenuse (Review Q4)",
+     "page": 189,
+     "pins": []
+    },
+    "md_shadow": {
+     "svg": "svg/mathematics_11/m11_u5_shadow.svg",
+     "title": "Review Q10: heights from shadows",
+     "page": 200,
+     "pins": []
+    },
+    "md_elev": {
+     "svg": "svg/mathematics_11/m11_u5_elev.svg",
+     "title": "Example 5.10: two angles of elevation",
+     "page": 194,
+     "pins": []
+    },
+    "md_areagrid": {
+     "svg": "svg/mathematics_11/m11_u5_areagrid.svg",
+     "title": "Scale factor k multiplies area by k²",
+     "page": 195,
+     "pins": []
+    },
+    "md_bowtie": {
+     "svg": "svg/mathematics_11/m11_u5_bowtie.svg",
+     "title": "Example 5.6: AC parallel to BD gives similar triangles",
+     "page": 183,
+     "pins": []
     }
    },
    "lessons": [
@@ -122,19 +158,110 @@
      ],
      "cards": [
       {
-       "id": "math11-u5-c01",
+       "id": "math11-u5-md-prop-t",
        "type": "text",
-       "title": "5.1 Similar polygons",
-       "page": 167,
+       "title": "Proportional sequences and the means",
+       "page": 169,
        "src": "notes",
        "body": [
-        "Two polygons are **similar** (symbol ~) when they have the same shape but not necessarily the same size. Exactly two conditions are needed: **(1) all corresponding angles are equal**, and **(2) all corresponding sides are in the same ratio**. That common ratio k is the **scale factor**.",
-        "**Naming matters:** ABCD ~ PQRS means A ↔ P, B ↔ Q, C ↔ R, D ↔ S, so AB/PQ = BC/QR = CD/RS = DA/SP = k.",
-        "**Step by step — testing similarity:** Rectangle A is 4 cm × 6 cm, rectangle B is 6 cm × 9 cm. Step 1: angles are all 90°, so they are equal. Step 2: ratios of matching sides: 6/4 = 1.5 and 9/6 = 1.5. Step 3: equal ratios → similar with k = 1.5.",
-        "**Both conditions are needed:** a square 2 × 2 and a rhombus with sides 2 and angles 60°/120° have proportional sides but different angles — not similar. A 2 × 2 square and a 2 × 5 rectangle have equal angles but sides not in proportion — not similar.",
-        "**Finding a missing side:** if ABC ~ DEF with AB = 6, DE = 9 and AC = 8, then k = 9/6 = 1.5, so DF = 8 × 1.5 = 12.",
-        "All squares are similar to each other, and so are all equilateral triangles, all circles and all regular polygons with the same number of sides."
+        "Sequences $a, b, c, \\dots$ and $p, q, r, \\dots$ are **proportional** if $\\frac{a}{p} = \\frac{b}{q} = \\frac{c}{r} = \\dots$ (one constant ratio $k$).",
+        "Useful facts: if $\\frac{a}{b} = \\frac{p}{q}$ then $aq = bp$ (cross-multiply), $\\frac{a}{p} = \\frac{b}{q}$ (swap the means) and $\\frac{a + b}{b} = \\frac{p + q}{q}$ (add 1 to both sides).",
+        "**Geometric mean** of $a, b > 0$: $\\sqrt{ab}$. **Arithmetic mean**: $\\frac{a + b}{2}$. For 4 and 9: GM $= 6$, AM $= 6.5$.",
+        "Always $\\sqrt{ab} \\le \\frac{a + b}{2}$, because $\\frac{a + b}{2} - \\sqrt{ab} = \\frac{(\\sqrt{a} - \\sqrt{b})^2}{2} \\ge 0$ (equal only when $a = b$)."
        ]
+      },
+      {
+       "id": "math11-u5-md-cong-sim",
+       "type": "table",
+       "title": "Congruent vs similar polygons",
+       "page": 170,
+       "src": "notes",
+       "head": [
+        "",
+        "Congruent (≅)",
+        "Similar (~)"
+       ],
+       "rows": [
+        [
+         "angles",
+         "equal",
+         "equal"
+        ],
+        [
+         "sides",
+         "equal",
+         "proportional (ratio $k$)"
+        ],
+        [
+         "size",
+         "same",
+         "may differ"
+        ],
+        [
+         "example",
+         "two 3 cm squares",
+         "any two squares"
+        ]
+       ]
+      },
+      {
+       "id": "math11-u5-md-ex-51a",
+       "type": "worked",
+       "title": "Worked example: why \"same angles\" is not enough for polygons (Example 5.1)",
+       "page": 170,
+       "src": "notes",
+       "mode": "show",
+       "problem": "A square of side 2 cm and a rhombus of side 2 cm with a 60° angle: similar?",
+       "steps": [
+        {
+         "text": "Sides: all ratios are 1, so the sides are proportional."
+        },
+        {
+         "text": "Angles: 90° vs 60° — not equal."
+        },
+        {
+         "text": "Both conditions are needed for polygons with more than 3 sides."
+        }
+       ],
+       "answer": "not similar"
+      },
+      {
+       "id": "math11-u5-md-rm-51",
+       "type": "remember",
+       "title": "Always similar / not always similar",
+       "page": 172,
+       "src": "notes",
+       "body": [
+        "**Always similar:** circles, squares, equilateral triangles, regular polygons with the **same number of sides**.",
+        "**Not always:** rectangles (2 × 1 vs 3 × 1), rhombuses, isosceles triangles, right triangles. (The book's \"all regular polygons are similar\" is false unless they have the same number of sides: a square is not similar to a regular hexagon.)"
+       ]
+      },
+      {
+       "id": "math11-u5-c09",
+       "type": "text",
+       "title": "Similar figures",
+       "page": 167,
+       "body": [
+        "Two polygons are **similar** if their corresponding angles are equal and their corresponding sides are in the same ratio (the **scale factor** k). Similar figures have the same shape but not necessarily the same size. If the scale factor is k, then the ratio of their perimeters is k and the ratio of their areas is k². Example: two similar triangles with sides 3 cm and 6 cm have k = 2, so the larger one has twice the perimeter and four times the area."
+       ],
+       "src": "notes"
+      },
+      {
+       "id": "math11-u5-wrk-extra1",
+       "type": "worked",
+       "title": "Worked: similar triangles scale factor",
+       "page": 167,
+       "problem": "Triangles ABC ~ DEF with AB = 6, DE = 9. If AC = 8, find DF.",
+       "steps": [
+        {
+         "text": "Scale factor k = DE/AB = 9/6 = 3/2."
+        },
+        {
+         "text": "Corresponding sides: DF = k · AC = (3/2)·8 = 12."
+        }
+       ],
+       "answer": "DF = 12. Areas would scale by (3/2)² = 9/4.",
+       "src": "notes"
       },
       {
        "id": "math11-u5-tblE1",
@@ -160,19 +287,35 @@
         ],
         [
          "**Corresponding Angles**",
-         "Congruent ($$\\angle A \\cong \\angle P$$)",
-         "Congruent ($$\\angle A \\cong \\angle P$$)"
+         "Congruent ($\\angle A \\cong \\angle P$)",
+         "Congruent ($\\angle A \\cong \\angle P$)"
         ],
         [
          "**Corresponding Sides**",
-         "Equal ($$AB = PQ$$)",
-         "Proportional ($$\\frac{AB}{PQ} = k$$)"
+         "Equal ($AB = PQ$)",
+         "Proportional ($\\frac{AB}{PQ} = k$)"
         ],
         [
-         "**Scale Factor ($$k$$)**",
-         "$$k = 1$$",
-         "$$k > 0$$ (any positive constant)"
+         "Scale Factor ($k$)",
+         "$k = 1$",
+         "$k > 0$ (any positive constant)"
         ]
+       ],
+       "layout": "compare"
+      },
+      {
+       "id": "math11-u5-c01",
+       "type": "text",
+       "title": "5.1 Similar polygons",
+       "page": 167,
+       "src": "notes",
+       "body": [
+        "Two polygons are **similar** (symbol ~) when they have the same shape but not necessarily the same size. Exactly two conditions are needed: **(1) all corresponding angles are equal**, and **(2) all corresponding sides are in the same ratio**. That common ratio k is the **scale factor**.",
+        "**Naming matters:** ABCD ~ PQRS means A ↔ P, B ↔ Q, C ↔ R, D ↔ S, so AB/PQ = BC/QR = CD/RS = DA/SP = k.",
+        "**Step by step — testing similarity:** Rectangle A is 4 cm × 6 cm, rectangle B is 6 cm × 9 cm. Step 1: angles are all 90°, so they are equal. Step 2: ratios of matching sides: 6/4 = 1.5 and 9/6 = 1.5. Step 3: equal ratios → similar with k = 1.5.",
+        "**Both conditions are needed:** a square 2 × 2 and a rhombus with sides 2 and angles 60°/120° have proportional sides but different angles — not similar. A 2 × 2 square and a 2 × 5 rectangle have equal angles but sides not in proportion — not similar.",
+        "**Finding a missing side:** if ABC ~ DEF with AB = 6, DE = 9 and AC = 8, then k = 9/6 = 1.5, so DF = 8 × 1.5 = 12.",
+        "All squares are similar to each other, and so are all equilateral triangles, all circles and all regular polygons with the same number of sides."
        ]
       },
       {
@@ -248,33 +391,6 @@
        },
        "answer": "A",
        "why": "**Step 1: Apply the definition of similar polygons**\nBy definition, for two polygons to be similar, two conditions must be met:\n1. All corresponding angles are congruent.\n2. All corresponding sides are proportional.\n\n**Step 2: Evaluate the choices**\n- Corresponding sides do not need to be congruent (that is for congruent polygons).\n- Perimeters are only equal if the scale factor $$k = 1$$.\n- The scale factor can be any positive real number.\nTherefore, only the first option is universally true.\n**Result:** **Their corresponding sides are proportional.**"
-      },
-      {
-       "id": "math11-u5-c09",
-       "type": "text",
-       "title": "Similar figures",
-       "page": 167,
-       "body": [
-        "Two polygons are **similar** if their corresponding angles are equal and their corresponding sides are in the same ratio (the **scale factor** k). Similar figures have the same shape but not necessarily the same size. If the scale factor is k, then the ratio of their perimeters is k and the ratio of their areas is k². Example: two similar triangles with sides 3 cm and 6 cm have k = 2, so the larger one has twice the perimeter and four times the area."
-       ],
-       "src": "notes"
-      },
-      {
-       "id": "math11-u5-wrk-extra1",
-       "type": "worked",
-       "title": "Worked: similar triangles scale factor",
-       "page": 167,
-       "problem": "Triangles ABC ~ DEF with AB = 6, DE = 9. If AC = 8, find DF.",
-       "steps": [
-        {
-         "text": "Scale factor k = DE/AB = 9/6 = 3/2."
-        },
-        {
-         "text": "Corresponding sides: DF = k · AC = (3/2)·8 = 12."
-        }
-       ],
-       "answer": "DF = 12. Areas would scale by (3/2)² = 9/4.",
-       "src": "notes"
       }
      ]
     },
@@ -288,6 +404,145 @@
      ],
      "cards": [
       {
+       "id": "math11-u5-c03",
+       "type": "text",
+       "title": "5.2.1 Similar triangles: definition",
+       "page": 172,
+       "src": "notes",
+       "body": [
+        "$\\triangle ABC \\sim \\triangle DEF$ means $\\angle A = \\angle D$, $\\angle B = \\angle E$, $\\angle C = \\angle F$ **and** $\\frac{AB}{DE} = \\frac{BC}{EF} = \\frac{AC}{DF}$.",
+        "**The order of the letters matters:** it tells you which vertices match. From the statement you can write the ratios without looking at the picture.",
+        "Example 5.3: $\\triangle STQ \\sim \\triangle SPR$ with $TQ = 5$, $PR = 15$, $SQ = 4$: $\\frac{TQ}{PR} = \\frac{SQ}{SR} \\Rightarrow \\frac{5}{15} = \\frac{4}{SR} \\Rightarrow SR = 12$, so $QR = 12 - 4 = 8$."
+       ]
+      },
+      {
+       "id": "math11-u5-md-bpt-t",
+       "type": "text",
+       "title": "5.2.2 The Basic Proportionality Theorem",
+       "page": 176,
+       "src": "notes",
+       "body": [
+        "**Theorem 5.1:** if a line parallel to one side of a triangle cuts the other two sides, it divides them proportionally: in $\\triangle ABC$ with $DE \\parallel BC$, $$\\frac{AB}{AD} = \\frac{AC}{AE}$$ and equally $\\frac{AD}{DB} = \\frac{AE}{EC}$.",
+        "**Why (Activity 5.4):** $\\triangle BDE$ and $\\triangle CDE$ have the same base $DE$ and the same height (because $DE \\parallel BC$), so equal areas. Comparing each with $\\triangle ADE$ gives $\\frac{BD}{AD} = \\frac{CE}{AE}$; add 1 to both sides.",
+        "**Theorem 5.2 (converse):** if $\\frac{AB}{AD} = \\frac{AC}{AE}$ then $DE \\parallel BC$. Example 5.5: $\\frac{RU}{RS} = \\frac{2}{9}$ and $\\frac{SV}{ST} = \\frac{4}{18} = \\frac{2}{9}$, so $UV \\parallel RT$."
+       ]
+      },
+      {
+       "id": "math11-u5-md-bpt",
+       "type": "steps",
+       "title": "Reading the theorem from the figure",
+       "page": 177,
+       "src": "notes",
+       "diagram": "md_bpt",
+       "steps": [
+        {
+         "text": "$DE \\parallel BC$ (the matching arrow marks).",
+         "show": "k1"
+        },
+        {
+         "text": "The small triangle $ADE$ (shaded) has the same angles as $ABC$ (corresponding angles), so it is similar to it.",
+         "show": "k2"
+        },
+        {
+         "text": "So the sides are proportional: $\\frac{AD}{AB} = \\frac{AE}{AC} = \\frac{DE}{BC}$. Note $DE$ only appears with whole sides $AB$, $AC$ — not with $DB$, $EC$.",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math11-u5-md-ex-52a",
+       "type": "worked",
+       "title": "Worked example: Example 5.4",
+       "page": 177,
+       "src": "notes",
+       "mode": "show",
+       "problem": "In $\\triangle ABC$, $DE \\parallel AB$ with $D$ on $AC$, $E$ on $BC$. (a) $AC = 12$, $CD = 4$, $BC = 24$: find $CE$. (b) $AC = 15$, $AD = 3$, $BC = 25$: find $BE$.",
+       "steps": [
+        {
+         "text": "(a) From vertex $C$: $\\frac{AC}{CD} = \\frac{BC}{CE} \\Rightarrow \\frac{12}{4} = \\frac{24}{CE} \\Rightarrow CE = 8$."
+        },
+        {
+         "text": "(b) The pieces next to $AB$: $\\frac{AC}{AD} = \\frac{BC}{BE} \\Rightarrow \\frac{15}{3} = \\frac{25}{BE} \\Rightarrow BE = 5$."
+        }
+       ],
+       "answer": "$CE = 8$; $BE = 5$"
+      },
+      {
+       "id": "math11-u5-md-tests-t",
+       "type": "text",
+       "title": "5.2.3 Three tests for similar triangles",
+       "page": 181,
+       "src": "notes",
+       "body": [
+        "**AA (AAA), Theorem 5.3:** two pairs of equal angles are enough (the third pair is then equal too, since angles add to 180°).",
+        "**SAS, Theorem 5.4:** one equal angle and the two sides **forming** it in the same ratio. Example 5.7: $OP = OQ = 3$, $OR = OS = 6$, vertical angles at $O$ equal ⇒ $\\triangle OPQ \\sim \\triangle ORS$ (ratio $\\frac{1}{2}$).",
+        "**SSS, Theorem 5.5:** all three pairs of sides in the same ratio. Activity 5.7: 3, 6, 8 and 6, 12, 16 (ratio 2).",
+        "Compare with congruence (SAS, ASA, SSS): for similarity \"equal sides\" becomes \"sides in the same ratio\"."
+       ]
+      },
+      {
+       "id": "math11-u5-md-tests-tb",
+       "type": "table",
+       "title": "Choosing a test",
+       "page": 186,
+       "src": "notes",
+       "head": [
+        "You know",
+        "Use",
+        "Typical source"
+       ],
+       "rows": [
+        [
+         "two angle pairs",
+         "AA",
+         "parallel lines, vertical angles, a shared angle"
+        ],
+        [
+         "an angle + its two sides",
+         "SAS",
+         "vertical angles with measured sides"
+        ],
+        [
+         "three sides",
+         "SSS",
+         "all lengths given"
+        ]
+       ]
+      },
+      {
+       "id": "math11-u5-md-bowtie",
+       "type": "diagram",
+       "title": "Example 5.6: the \"bow-tie\"",
+       "page": 183,
+       "src": "notes",
+       "diagram": "md_bowtie",
+       "mode": "plain",
+       "body": [
+        "$AC \\parallel BD$: vertical angles at $E$ are equal (red) and alternate angles $\\angle EAC = \\angle EBD$ (and the purple pair) are equal. AA ⇒ $\\triangle ACE \\sim \\triangle BDE$, so $\\frac{AE}{EB} = \\frac{CE}{ED}$, i.e. $AE \\times ED = CE \\times EB$."
+       ]
+      },
+      {
+       "id": "math11-u5-md-ex-52b",
+       "type": "worked",
+       "title": "Worked example: similar by SAS?",
+       "page": 186,
+       "src": "notes",
+       "mode": "show",
+       "problem": "In $\\triangle PQR$ a 70° angle lies between sides 6 and 8. In $\\triangle LMN$ a 70° angle lies between sides 3 and 4. Are the triangles similar?",
+       "steps": [
+        {
+         "text": "Ratios of the sides around the 70° angles: $\\frac{6}{3} = 2$ and $\\frac{8}{4} = 2$."
+        },
+        {
+         "text": "Equal included angles, sides in ratio 2 ⇒ SAS similarity."
+        },
+        {
+         "text": "Then the third sides are in ratio 2 as well."
+        }
+       ],
+       "answer": "yes, by SAS (ratio 2)"
+      },
+      {
        "id": "math11-u5-c02",
        "type": "diagram",
        "title": "Parallel to the third side → small triangle similar to the big one.",
@@ -297,14 +552,29 @@
        "mode": "plain"
       },
       {
-       "id": "math11-u5-c03",
-       "type": "text",
-       "title": "Similar Triangles",
+       "id": "math11-u5-c10",
+       "type": "table",
+       "title": "Tests for similar triangles",
        "page": 172,
-       "src": "notes",
-       "body": [
-        "Right-triangle trig in this unit: sin=opp/hyp, cos=adj/hyp, tan=opp/adj — SOH CAH TOA — as a ratio from similar right triangles, not yet as a full function graph (that may wait)."
-       ]
+       "head": [
+        "Test",
+        "What you need"
+       ],
+       "rows": [
+        [
+         "AA",
+         "Two pairs of equal angles"
+        ],
+        [
+         "SSS",
+         "All three pairs of sides in the same ratio"
+        ],
+        [
+         "SAS",
+         "Two pairs of sides in the same ratio and the included angles"
+        ]
+       ],
+       "src": "notes"
       },
       {
        "id": "math11-u5-c04",
@@ -336,21 +606,18 @@
        "reveal": "Steps"
       },
       {
-       "id": "math11-u5-chk74",
-       "type": "check",
-       "title": "Quick check",
-       "page": 172,
-       "src": "study_notes",
-       "src_qid": "math_g11_c5_q4",
-       "q": "In $$\\Delta ABC$$, D lies on AC and E lies on BC with $$DE \\parallel AB$$, so that triangle CDE is a smaller copy of triangle CAB. Given that $$AC = 12$$, $$CD = 4$$ and $$BC = 24$$, find the length of $$CE$$ using the Basic Proportionality Theorem.",
-       "options": {
-        "A": "$$8$$",
-        "B": "$$6$$",
-        "C": "$$12$$",
-        "D": "$$16$$"
-       },
-       "answer": "A",
-       "why": "**Step 1: Apply the Basic Proportionality Theorem**\nSince $$DE \\parallel AB$$, the segments on the two sides are proportional:\n$$\\frac{AC}{CD} = \\frac{BC}{CE}$$\n\n**Step 2: Substitute the known values**\n$$\\frac{12}{4} = \\frac{24}{CE}$$\n\n**Step 3: Solve for $$CE$$**\n$$3 = \\frac{24}{CE} \\implies CE = \\frac{24}{3} = 8$$\n**Result:** **$$8$$**."
+       "type": "worked",
+       "title": "Worked: area scale",
+       "problem": "k=3 for similar triangles. Area ratio?",
+       "steps": [
+        {
+         "text": "Area ratio = 3² = 9."
+        }
+       ],
+       "answer": "9 : 1 (larger : smaller if k enlarges).",
+       "id": "math11-u5-xtra2",
+       "page": 1,
+       "src": "notes"
       },
       {
        "id": "math11-u5-wrk1",
@@ -387,6 +654,23 @@
         }
        ],
        "answer": "CE = 8"
+      },
+      {
+       "id": "math11-u5-chk74",
+       "type": "check",
+       "title": "Quick check",
+       "page": 172,
+       "src": "study_notes",
+       "src_qid": "math_g11_c5_q4",
+       "q": "In $$\\Delta ABC$$, D lies on AC and E lies on BC with $$DE \\parallel AB$$, so that triangle CDE is a smaller copy of triangle CAB. Given that $$AC = 12$$, $$CD = 4$$ and $$BC = 24$$, find the length of $$CE$$ using the Basic Proportionality Theorem.",
+       "options": {
+        "A": "$$8$$",
+        "B": "$$6$$",
+        "C": "$$12$$",
+        "D": "$$16$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Apply the Basic Proportionality Theorem**\nSince $$DE \\parallel AB$$, the segments on the two sides are proportional:\n$$\\frac{AC}{CD} = \\frac{BC}{CE}$$\n\n**Step 2: Substitute the known values**\n$$\\frac{12}{4} = \\frac{24}{CE}$$\n\n**Step 3: Solve for $$CE$$**\n$$3 = \\frac{24}{CE} \\implies CE = \\frac{24}{3} = 8$$\n**Result:** **$$8$$**."
       },
       {
        "id": "math11-u5-chk75",
@@ -439,45 +723,6 @@
        "answer": "$$9:16$$"
       },
       {
-       "id": "math11-u5-c10",
-       "type": "table",
-       "title": "Tests for similar triangles",
-       "page": 172,
-       "head": [
-        "Test",
-        "What you need"
-       ],
-       "rows": [
-        [
-         "AA",
-         "Two pairs of equal angles"
-        ],
-        [
-         "SSS",
-         "All three pairs of sides in the same ratio"
-        ],
-        [
-         "SAS",
-         "Two pairs of sides in the same ratio and the included angles"
-        ]
-       ],
-       "src": "notes"
-      },
-      {
-       "type": "worked",
-       "title": "Worked: area scale",
-       "problem": "k=3 for similar triangles. Area ratio?",
-       "steps": [
-        {
-         "text": "Area ratio = 3² = 9."
-        }
-       ],
-       "answer": "9 : 1 (larger : smaller if k enlarges).",
-       "id": "math11-u5-xtra2",
-       "page": 1,
-       "src": "notes"
-      },
-      {
        "id": "math11-u5-pc2",
        "type": "check",
        "title": "Practice",
@@ -505,36 +750,115 @@
      ],
      "cards": [
       {
-       "id": "math11-u5-c07",
+       "id": "math11-u5-md-alt-t",
        "type": "text",
-       "title": "5.3 Applications of similar triangles",
-       "page": 188,
+       "title": "5.3.1 The altitude to the hypotenuse",
+       "page": 189,
        "src": "notes",
        "body": [
-        "Similar triangles let us find lengths we cannot measure directly: the height of a tree or building, the width of a river, or a distance on a map.",
-        "**Shadows (heights):** at the same time of day the sun's rays make equal angles with the ground, so an object and its shadow form a triangle similar to that of any other object. Example: a 2 m pole casts a 3 m shadow and a tree casts an 18 m shadow. height/shadow is the same: h/18 = 2/3, so h = 12 m.",
-        "**Right triangle with the altitude to the hypotenuse:** in right triangle ABC (right angle at C) with altitude CD to the hypotenuse AB, the three triangles ABC, ACD and CBD are all similar. This gives the **geometric-mean relations**: CD² = AD × DB, AC² = AD × AB and BC² = BD × AB.",
-        "**Geometric mean:** the geometric mean of positive numbers a and b is √(ab) (compare with the arithmetic mean (a + b)/2). For 2 and 8: geometric mean √16 = 4, arithmetic mean 5. Example: if AD = 4 and DB = 9, the altitude is CD = √(4 × 9) = 6.",
-        "**Width of a river:** mark points so that two triangles with parallel sides are formed on your side of the river; measure the sides you can reach and use equal ratios to calculate the side across the water.",
-        "**Tip:** always write the similarity statement with the matching vertices in order before writing the ratio, then put the unknown in a numerator to make solving easy."
+        "**Theorem (5.6 in the book):** in a right triangle $ABC$ (right angle at $C$), the altitude $CD$ to the hypotenuse makes two triangles that are similar to each other and to $ABC$: $\\triangle ACD \\sim \\triangle ABC \\sim \\triangle CBD$ (each pair shares an angle and has a right angle — AA).",
+        "From the ratios we get three **geometric-mean** results:",
+        "- $CD^2 = AD \\times DB$ (the altitude is the GM of the two pieces);",
+        "- $AC^2 = AD \\times AB$ and $BC^2 = BD \\times AB$ (each leg is the GM of the hypotenuse and its adjacent piece).",
+        "Adding the last two: $AC^2 + BC^2 = AB(AD + DB) = AB^2$ — a proof of **Pythagoras** (Example 5.9). (The book cites \"Theorem 5.5\" in steps 2 and 5; the reason is the altitude theorem / AA.)"
        ]
       },
       {
-       "id": "math11-u5-chk76",
-       "type": "check",
-       "title": "Quick check",
+       "id": "math11-u5-md-altitude",
+       "type": "steps",
+       "title": "Review Q4: AD = 9, BD = 16",
+       "page": 199,
+       "src": "notes",
+       "diagram": "md_altitude",
+       "steps": [
+        {
+         "text": "$CD^2 = 9 \\times 16 = 144$, so $CD = 12$.",
+         "show": "k1"
+        },
+        {
+         "text": "$AC^2 = AD \\times AB = 9 \\times 25 = 225$: $AC = 15$ (blue triangle).",
+         "show": "k2"
+        },
+        {
+         "text": "$BC^2 = 16 \\times 25 = 400$: $BC = 20$ (green). Check: $15^2 + 20^2 = 625 = 25^2$.",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math11-u5-md-shadow",
+       "type": "steps",
+       "title": "Shadows: same sun, same angle",
+       "page": 191,
+       "src": "notes",
+       "diagram": "md_shadow",
+       "steps": [
+        {
+         "text": "Pole 6 m casts 4 m: a right triangle.",
+         "show": "k1"
+        },
+        {
+         "text": "Tower with 28 m shadow at the same time: the sun's rays make the same angle (orange), so the triangles are similar (AA).",
+         "show": "k2"
+        },
+        {
+         "text": "$\\frac{h}{28} = \\frac{6}{4} \\Rightarrow h = 42$ m.",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math11-u5-md-trig-t",
+       "type": "text",
+       "title": "5.3.2 Trigonometric ratios come from similarity",
+       "page": 192,
+       "src": "notes",
+       "body": [
+        "All right triangles with the same acute angle $A$ are similar, so the ratios of their sides depend **only on the angle**:",
+        "$$\\sin A = \\frac{\\text{opposite}}{\\text{hypotenuse}}, \\quad \\cos A = \\frac{\\text{adjacent}}{\\text{hypotenuse}}$$",
+        "$$\\tan A = \\frac{\\text{opposite}}{\\text{adjacent}}$$",
+        "Exact values: 45° (sides 1, 1, √2): sin 45° = cos 45° = √2/2 ≈ 0.707, tan 45° = 1. 60° (sides 1, √3, 2): sin 60° = √3/2, cos 60° = 1/2, tan 60° = √3; and tan 30° = 1/√3.",
+        "**Angle of elevation:** from the horizontal **up** to the object. **Angle of depression:** from the horizontal **down**. They are equal for two observers looking at each other (alternate angles)."
+       ]
+      },
+      {
+       "id": "math11-u5-md-elev",
+       "type": "diagram",
+       "title": "Example 5.10",
+       "page": 194,
+       "src": "notes",
+       "diagram": "md_elev",
+       "mode": "plain",
+       "body": [
+        "Tower 30 m. The man who sees the top at 30° stands $30 \\div \\tan 30° = 30\\sqrt{3}$ m away; the one at 60° stands $30 \\div \\tan 60° = 10\\sqrt{3}$ m away. Distance apart $40\\sqrt{3} \\approx 69.3$ m. (The angle values are missing from the book's question text.)"
+       ]
+      },
+      {
+       "id": "math11-u5-c11",
+       "type": "worked",
+       "title": "Worked example: heights from shadows",
        "page": 188,
-       "src": "study_notes",
-       "src_qid": "math_g11_c5_q6",
-       "q": "For any two positive numbers $$a$$ and $$b$$, find the geometric mean of $$2$$ and $$8$$.",
-       "options": {
-        "A": "$$4$$",
-        "B": "$$5$$",
-        "C": "$$\\sqrt{10}$$",
-        "D": "$$8$$"
-       },
-       "answer": "A",
-       "why": "**Step 1: Apply the geometric mean formula**\nThe geometric mean of two positive numbers $$a$$ and $$b$$ is defined as:\n$$\\text{GM} = \\sqrt{ab}$$\n\n**Step 2: Substitute the values**\nHere, $$a = 2$$ and $$b = 8$$:\n$$\\text{GM} = \\sqrt{2 \\times 8} = \\sqrt{16} = 4$$\n**Result:** **$$4$$**."
+       "problem": "A 2 m pole casts a 3 m shadow. At the same time a tree casts an 18 m shadow. How tall is the tree?",
+       "steps": [
+        {
+         "text": "The sun’s rays make equal angles, so the triangles are similar (AA)."
+        },
+        {
+         "text": "height ÷ shadow is the same: h ÷ 18 = 2 ÷ 3."
+        }
+       ],
+       "answer": "h = 18 × 2 ÷ 3 = **12 m**.",
+       "src": "notes"
+      },
+      {
+       "id": "math11-u5-mn3",
+       "type": "mnemonic",
+       "title": "Shadows: \"same sun, same ratio\"",
+       "body": [
+        "At the same time of day, **height ÷ shadow** is the same for every object. Write h/shadow = known height/known shadow and cross-multiply."
+       ],
+       "page": 188,
+       "src": "notes"
       },
       {
        "id": "math11-u5-wrk3",
@@ -568,6 +892,38 @@
         }
        ],
        "answer": "$$4$$"
+      },
+      {
+       "id": "math11-u5-c07",
+       "type": "text",
+       "title": "5.3 Applications of similar triangles",
+       "page": 188,
+       "src": "notes",
+       "body": [
+        "Similar triangles let us find lengths we cannot measure directly: the height of a tree or building, the width of a river, or a distance on a map.",
+        "**Shadows (heights):** at the same time of day the sun's rays make equal angles with the ground, so an object and its shadow form a triangle similar to that of any other object. Example: a 2 m pole casts a 3 m shadow and a tree casts an 18 m shadow. height/shadow is the same: h/18 = 2/3, so h = 12 m.",
+        "**Right triangle with the altitude to the hypotenuse:** in right triangle ABC (right angle at C) with altitude CD to the hypotenuse AB, the three triangles ABC, ACD and CBD are all similar. This gives the **geometric-mean relations**: CD² = AD × DB, AC² = AD × AB and BC² = BD × AB.",
+        "**Geometric mean:** the geometric mean of positive numbers a and b is √(ab) (compare with the arithmetic mean (a + b)/2). For 2 and 8: geometric mean √16 = 4, arithmetic mean 5. Example: if AD = 4 and DB = 9, the altitude is CD = √(4 × 9) = 6.",
+        "**Width of a river:** mark points so that two triangles with parallel sides are formed on your side of the river; measure the sides you can reach and use equal ratios to calculate the side across the water.",
+        "**Tip:** always write the similarity statement with the matching vertices in order before writing the ratio, then put the unknown in a numerator to make solving easy."
+       ]
+      },
+      {
+       "id": "math11-u5-chk76",
+       "type": "check",
+       "title": "Quick check",
+       "page": 188,
+       "src": "study_notes",
+       "src_qid": "math_g11_c5_q6",
+       "q": "For any two positive numbers $$a$$ and $$b$$, find the geometric mean of $$2$$ and $$8$$.",
+       "options": {
+        "A": "$$4$$",
+        "B": "$$5$$",
+        "C": "$$\\sqrt{10}$$",
+        "D": "$$8$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Apply the geometric mean formula**\nThe geometric mean of two positive numbers $$a$$ and $$b$$ is defined as:\n$$\\text{GM} = \\sqrt{ab}$$\n\n**Step 2: Substitute the values**\nHere, $$a = 2$$ and $$b = 8$$:\n$$\\text{GM} = \\sqrt{2 \\times 8} = \\sqrt{16} = 4$$\n**Result:** **$$4$$**."
       },
       {
        "id": "math11-u5-chk77",
@@ -620,23 +976,6 @@
        "answer": "$$5$$"
       },
       {
-       "id": "math11-u5-c11",
-       "type": "worked",
-       "title": "Worked example: heights from shadows",
-       "page": 188,
-       "problem": "A 2 m pole casts a 3 m shadow. At the same time a tree casts an 18 m shadow. How tall is the tree?",
-       "steps": [
-        {
-         "text": "The sun’s rays make equal angles, so the triangles are similar (AA)."
-        },
-        {
-         "text": "height ÷ shadow is the same: h ÷ 18 = 2 ÷ 3."
-        }
-       ],
-       "answer": "h = 18 × 2 ÷ 3 = **12 m**.",
-       "src": "notes"
-      },
-      {
        "id": "math11-u5-pc3",
        "type": "check",
        "title": "Practice",
@@ -649,16 +988,6 @@
        },
        "answer": "A",
        "why": "The altitude to the hypotenuse is the **geometric mean** of the two segments: CD² = AD × DB = 4 × 9 = 36, so CD = 6. (13 is AD + DB; 6.5 is the arithmetic mean.)",
-       "page": 188,
-       "src": "notes"
-      },
-      {
-       "id": "math11-u5-mn3",
-       "type": "mnemonic",
-       "title": "Shadows: \"same sun, same ratio\"",
-       "body": [
-        "At the same time of day, **height ÷ shadow** is the same for every object. Write h/shadow = known height/known shadow and cross-multiply."
-       ],
        "page": 188,
        "src": "notes"
       }
@@ -676,34 +1005,106 @@
       {
        "id": "math11-u5-c08",
        "type": "text",
-       "title": "5.4 Ratios of perimeters, areas and volumes",
+       "title": "5.4 Perimeter, area and volume of similar figures",
        "page": 194,
        "src": "notes",
        "body": [
-        "If two similar figures have scale factor k (ratio of corresponding lengths = k), then: **ratio of perimeters = k**, **ratio of areas = k²**, and for similar solids **ratio of volumes = k³** (surface areas are also in the ratio k²).",
-        "**Why k²?** Area is length × length, so each of the two lengths is multiplied by k: k × k = k². Volume uses three lengths: k³.",
-        "**Example 1:** two similar triangles have sides in the ratio 3 : 4. Perimeters 3 : 4; areas 9 : 16. If the smaller area is 27 cm², the larger is 27 × 16/9 = 48 cm².",
-        "**Example 2 (backwards):** the areas of two similar polygons are 25 cm² and 64 cm². Ratio of sides = √25 : √64 = 5 : 8.",
-        "**Example 3 (solids):** two similar cylinders with scale factor 2 : 3 have volumes in the ratio 8 : 27. If the small one holds 16 litres, the large one holds 16 × 27/8 = 54 litres.",
-        "**Map scale:** on a 1 : 50 000 map, 1 cm² represents 50 000² cm² = 25 hectares, because areas scale by k²."
+        "If corresponding lengths are in ratio $k$ (scale factor):",
+        "- **every length** (sides, perimeter, altitudes, medians, angle bisectors) is in ratio $k$;",
+        "- **every area** (triangle area, surface area) is in ratio $k^2$;",
+        "- **every volume** is in ratio $k^3$.",
+        "Example 5.11: longest sides 3 and 4 ⇒ areas in ratio $\\frac{9}{16}$. Example 5.12: perimeters 24 and 32 ⇒ sides in ratio $\\frac{3}{4}$.",
+        "**Going backwards:** area ratio $\\frac{4}{25}$ ⇒ $k = \\sqrt{\\frac{4}{25}} = \\frac{2}{5}$; volume ratio $\\frac{1}{8}$ ⇒ $k = \\sqrt[3]{\\frac{1}{8}} = \\frac{1}{2}$."
        ]
       },
       {
-       "id": "math11-u5-chk78",
-       "type": "check",
-       "title": "Quick check",
+       "id": "math11-u5-md-areagrid",
+       "type": "diagram",
+       "title": "Why area goes with k²",
+       "page": 195,
+       "src": "notes",
+       "diagram": "md_areagrid",
+       "mode": "plain",
+       "body": [
+        "Doubling every side of a triangle makes room for $2 \\times 2 = 4$ copies of the original; tripling gives $3 \\times 3 = 9$ copies."
+       ]
+      },
+      {
+       "id": "math11-u5-md-kkk",
+       "type": "table",
+       "title": "Scale factor table",
+       "page": 198,
+       "src": "notes",
+       "head": [
+        "Quantity",
+        "Ratio",
+        "k = 2",
+        "k = 3"
+       ],
+       "rows": [
+        [
+         "length, perimeter",
+         "$k$",
+         "2",
+         "3"
+        ],
+        [
+         "area, surface area",
+         "$k^2$",
+         "4",
+         "9"
+        ],
+        [
+         "volume",
+         "$k^3$",
+         "8",
+         "27"
+        ]
+       ]
+      },
+      {
+       "id": "math11-u5-md-ex-54a",
+       "type": "worked",
+       "title": "Worked example: Review Q9 (trapezium)",
+       "page": 200,
+       "src": "notes",
+       "mode": "show",
+       "problem": "ABCD is a trapezium with $AB \\parallel DC$ and $AB = 2CD$. The diagonals meet at $O$. Find $\\frac{a(\\triangle AOB)}{a(\\triangle COD)}$.",
+       "steps": [
+        {
+         "text": "$AB \\parallel DC$: alternate angles and vertical angles at $O$ ⇒ $\\triangle AOB \\sim \\triangle COD$ (AA)."
+        },
+        {
+         "text": "Scale factor $\\frac{AB}{CD} = 2$."
+        },
+        {
+         "text": "Area ratio $2^2 = 4$."
+        }
+       ],
+       "answer": "4 : 1"
+      },
+      {
+       "id": "math11-u5-md-summary-t",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 200,
+       "src": "notes",
+       "body": [
+        "Similar polygons: equal angles **and** proportional sides. Triangles: AA, SAS or SSS is enough.",
+        "Parallel line in a triangle ⇒ proportional pieces (and conversely).",
+        "Right triangle + altitude: $CD^2 = AD \\cdot DB$, $AC^2 = AD \\cdot AB$.",
+        "Scale factor $k$: lengths $k$, areas $k^2$, volumes $k^3$."
+       ]
+      },
+      {
+       "id": "math11-u5-mn4",
+       "type": "mnemonic",
+       "title": "\"Length k, Area k², Volume k³\"",
+       "body": [
+        "Count the dimensions: **perimeter 1D → k, area 2D → k², volume 3D → k³.** Going backwards, take the square root (areas) or the cube root (volumes)."
+       ],
        "page": 194,
-       "src": "study_notes",
-       "src_qid": "math_g11_c5_q8",
-       "q": "If the ratio of the perimeters of two similar polygons is $$3:4$$, what is the ratio of their corresponding side lengths?",
-       "options": {
-        "A": "$$3:4$$",
-        "B": "$$9:16$$",
-        "C": "$$\\sqrt{3}:2$$",
-        "D": "$$27:64$$"
-       },
-       "answer": "A",
-       "why": "**Step 1: Apply the Perimeter Scale Factor relationship**\nThe perimeter of a polygon is a one-dimensional linear boundary measurement. Therefore, the ratio of the perimeters of similar polygons is exactly equal to the ratio of their corresponding side lengths (scale factor $$k$$).\n\n**Step 2: State the final ratio**\nSince the ratio of perimeters is $$3:4$$, the ratio of corresponding side lengths is also $$3:4$$.\n**Result:** **$$3:4$$**."
+       "src": "notes"
       },
       {
        "id": "math11-u5-wrk5",
@@ -731,23 +1132,6 @@
         }
        ],
        "answer": "$$3:4$$"
-      },
-      {
-       "id": "math11-u5-chk79",
-       "type": "check",
-       "title": "Quick check",
-       "page": 194,
-       "src": "study_notes",
-       "src_qid": "math_g11_c5_q9",
-       "q": "If the scale factor of two similar three-dimensional solids is $$2:3$$, what is the ratio of their volumes?",
-       "options": {
-        "A": "$$8:27$$",
-        "B": "$$4:9$$",
-        "C": "$$2:3$$",
-        "D": "$$16:81$$"
-       },
-       "answer": "A",
-       "why": "**Step 1: Apply the Volume Scale Factor Theorem**\nAccording to Theorem 5.8, the ratio of the volumes of two similar solids is equal to the cube of their linear scale factor ($$k^3$$):\n$$\\frac{\\text{Volume}_1}{\\text{Volume}_2} = k^3$$\n\n**Step 2: Calculate the ratio**\nGiven $$k = \\frac{2}{3}$$:\n$$k^3 = \\left(\\frac{2}{3}\\right)^3 = \\frac{8}{27}$$\n**Result:** **$$8:27$$**."
       },
       {
        "id": "math11-u5-wrk6",
@@ -783,6 +1167,40 @@
        "answer": "$$8:27$$"
       },
       {
+       "id": "math11-u5-chk78",
+       "type": "check",
+       "title": "Quick check",
+       "page": 194,
+       "src": "study_notes",
+       "src_qid": "math_g11_c5_q8",
+       "q": "If the ratio of the perimeters of two similar polygons is $$3:4$$, what is the ratio of their corresponding side lengths?",
+       "options": {
+        "A": "$$3:4$$",
+        "B": "$$9:16$$",
+        "C": "$$\\sqrt{3}:2$$",
+        "D": "$$27:64$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Apply the Perimeter Scale Factor relationship**\nThe perimeter of a polygon is a one-dimensional linear boundary measurement. Therefore, the ratio of the perimeters of similar polygons is exactly equal to the ratio of their corresponding side lengths (scale factor $$k$$).\n\n**Step 2: State the final ratio**\nSince the ratio of perimeters is $$3:4$$, the ratio of corresponding side lengths is also $$3:4$$.\n**Result:** **$$3:4$$**."
+      },
+      {
+       "id": "math11-u5-chk79",
+       "type": "check",
+       "title": "Quick check",
+       "page": 194,
+       "src": "study_notes",
+       "src_qid": "math_g11_c5_q9",
+       "q": "If the scale factor of two similar three-dimensional solids is $$2:3$$, what is the ratio of their volumes?",
+       "options": {
+        "A": "$$8:27$$",
+        "B": "$$4:9$$",
+        "C": "$$2:3$$",
+        "D": "$$16:81$$"
+       },
+       "answer": "A",
+       "why": "**Step 1: Apply the Volume Scale Factor Theorem**\nAccording to Theorem 5.8, the ratio of the volumes of two similar solids is equal to the cube of their linear scale factor ($$k^3$$):\n$$\\frac{\\text{Volume}_1}{\\text{Volume}_2} = k^3$$\n\n**Step 2: Calculate the ratio**\nGiven $$k = \\frac{2}{3}$$:\n$$k^3 = \\left(\\frac{2}{3}\\right)^3 = \\frac{8}{27}$$\n**Result:** **$$8:27$$**."
+      },
+      {
        "id": "math11-u5-pc4",
        "type": "check",
        "title": "Practice",
@@ -797,25 +1215,67 @@
        "why": "Area ratio = k², so 18 : 50 = 9 : 25 = k². Then k = √9 : √25 = 3 : 5. Perimeters are lengths, so they are in the ratio k = 3 : 5.",
        "page": 194,
        "src": "notes"
-      },
-      {
-       "id": "math11-u5-mn4",
-       "type": "mnemonic",
-       "title": "\"Length k, Area k², Volume k³\"",
-       "body": [
-        "Count the dimensions: **perimeter 1D → k, area 2D → k², volume 3D → k³.** Going backwards, take the square root (areas) or the cube root (volumes)."
-       ],
-       "page": 194,
-       "src": "notes"
       }
      ]
     }
    ],
-   "glossary": [],
+   "glossary": [
+    {
+     "term": "Similar figures",
+     "meaning": "Same shape: equal angles and proportional sides.",
+     "page": 170,
+     "src": "notes"
+    },
+    {
+     "term": "Scale factor",
+     "meaning": "The constant ratio $k$ of corresponding lengths.",
+     "page": 194,
+     "src": "notes"
+    },
+    {
+     "term": "Geometric mean",
+     "meaning": "$\\sqrt{ab}$ for positive $a, b$.",
+     "page": 170,
+     "src": "notes"
+    },
+    {
+     "term": "Basic Proportionality Theorem",
+     "meaning": "A line parallel to one side cuts the other two sides proportionally.",
+     "page": 176,
+     "src": "notes"
+    },
+    {
+     "term": "Angle of elevation",
+     "meaning": "Angle from the horizontal up to an object.",
+     "page": 193,
+     "src": "notes"
+    },
+    {
+     "term": "Angle of depression",
+     "meaning": "Angle from the horizontal down to an object.",
+     "page": 193,
+     "src": "notes"
+    }
+   ],
    "tips": [
     {
      "text": "Read 5.1 Similar Polygons again and say its main idea in one sentence.",
      "page": 167
+    },
+    {
+     "text": "Write the similarity statement in matching order before writing ratios.",
+     "page": 172,
+     "src": "notes"
+    },
+    {
+     "text": "Parallel side: DE / BC = AD / AB (whole sides).",
+     "page": 177,
+     "src": "notes"
+    },
+    {
+     "text": "Lengths k, areas k², volumes k³.",
+     "page": 198,
+     "src": "notes"
     }
    ],
    "games": [
@@ -1552,6 +2012,761 @@
       ],
       "tip": "Units reveal mistakes.",
       "similar": []
+     },
+     {
+      "id": "math11-u5-md-s51-q01",
+      "type": "short",
+      "q": "Exercise 5.1 Q8: find the geometric and arithmetic means of (a) 2 and 8 (b) 9 and 16 (c) 12 and 15.",
+      "answer": "4, 5; 12, 12.5; $6\\sqrt{5} \\approx 13.4$, 13.5",
+      "why": [
+       "Step 1: GM $= \\sqrt{ab}$: $\\sqrt{16}$, $\\sqrt{144}$, $\\sqrt{180}$.",
+       "Step 2: AM $= \\frac{a + b}{2}$."
+      ],
+      "tip": "GM ≤ AM always.",
+      "similar": [
+       {
+        "q": "4 and 9?",
+        "a": "GM 6, AM 6.5."
+       }
+      ],
+      "page": 170,
+      "src": "notes",
+      "label": "5.1 Practice — similar polygons"
+     },
+     {
+      "id": "math11-u5-md-s51-q02",
+      "type": "short",
+      "q": "Exercise 5.1 Q10: solve $\\frac{x}{50} = \\frac{30}{20}$ and $\\frac{y}{20} = \\frac{30}{50}$ (proportions).",
+      "answer": "$x = 75$; $y = 12$",
+      "why": [
+       "Step 1: $x = 50 \\times 1.5$.",
+       "Step 2: $y = 20 \\times 0.6$."
+      ],
+      "tip": "Cross-multiply.",
+      "similar": [
+       {
+        "q": "$\\frac{5}{x} = \\frac{15}{18}$?",
+        "a": "$x = 6$."
+       }
+      ],
+      "page": 170,
+      "src": "notes",
+      "label": "5.1 Practice — similar polygons"
+     },
+     {
+      "id": "math11-u5-md-s51-q03",
+      "type": "short",
+      "q": "Exercise 5.2 Q2: a print shows an object 2 cm wide and 2.3 cm high; in an enlargement it is 7.5 cm wide. Find its height.",
+      "answer": "8.625 cm",
+      "why": [
+       "Step 1: scale factor $\\frac{7.5}{2} = 3.75$.",
+       "Step 2: $2.3 \\times 3.75 = 8.625$."
+      ],
+      "tip": "Same factor for width and height.",
+      "similar": [
+       {
+        "q": "Width 10 cm instead?",
+        "a": "height 11.5 cm."
+       }
+      ],
+      "page": 171,
+      "src": "notes",
+      "label": "5.1 Practice — similar polygons"
+     },
+     {
+      "id": "math11-u5-md-s51-q04",
+      "type": "short",
+      "q": "Show: if $\\frac{a}{p} = \\frac{b}{q}$ then $\\frac{a + p}{p} = \\frac{b + q}{q}$.",
+      "answer": "add 1 to both sides",
+      "why": [
+       "Step 1: $\\frac{a}{p} + 1 = \\frac{b}{q} + 1$.",
+       "Step 2: $\\frac{a + p}{p} = \\frac{b + q}{q}$."
+      ],
+      "tip": "Write 1 as $\\frac{p}{p}$.",
+      "similar": [
+       {
+        "q": "Show $\\frac{a - p}{p} = \\frac{b - q}{q}$.",
+        "a": "subtract 1."
+       }
+      ],
+      "page": 169,
+      "src": "notes",
+      "label": "5.1 Practice — similar polygons"
+     },
+     {
+      "id": "math11-u5-md-s51-q05",
+      "type": "mcq",
+      "q": "Which pair is always similar?",
+      "options": {
+       "A": "two squares",
+       "B": "two rectangles",
+       "C": "two isosceles triangles",
+       "D": "two right triangles"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: all angles 90°, sides in one ratio."
+      ],
+      "tip": "Test with a counter-example.",
+      "similar": [
+       {
+        "q": "Two regular hexagons?",
+        "a": "always similar."
+       }
+      ],
+      "page": 172,
+      "src": "notes",
+      "label": "5.1 Practice — similar polygons"
+     },
+     {
+      "id": "math11-u5-md-s51-q06",
+      "type": "tf",
+      "q": "Every two rhombuses are similar.",
+      "answer": false,
+      "why": [
+       "Step 1: a square and a rhombus with a 60° angle have equal sides but different angles."
+      ],
+      "tip": "Angles must match too.",
+      "similar": [
+       {
+        "q": "Every two equilateral triangles?",
+        "a": "True."
+       }
+      ],
+      "page": 172,
+      "src": "notes",
+      "label": "5.1 Practice — similar polygons"
+     },
+     {
+      "id": "math11-u5-md-s51-q07",
+      "type": "tf",
+      "q": "For positive $a \\ne b$, $\\sqrt{ab} < \\frac{a + b}{2}$.",
+      "answer": true,
+      "why": [
+       "Step 1: the difference is $\\frac{(\\sqrt{a} - \\sqrt{b})^2}{2} > 0$."
+      ],
+      "tip": "Equality only when $a = b$.",
+      "similar": [
+       {
+        "q": "$a = b = 5$?",
+        "a": "both means equal 5."
+       }
+      ],
+      "page": 169,
+      "src": "notes",
+      "label": "5.1 Practice — similar polygons"
+     },
+     {
+      "id": "math11-u5-md-s52-q01",
+      "type": "short",
+      "q": "Exercise 5.3 Q1: $\\triangle ABC \\sim \\triangle ADE$, $AD = 5$, $AE = 6$, $BC = 12$, $AB = 15$. Find $AC$ and $DE$.",
+      "answer": "$AC = 18$, $DE = 4$",
+      "why": [
+       "Step 1: $k = \\frac{AB}{AD} = 3$.",
+       "Step 2: $AC = 3 \\times 6 = 18$; $DE = 12 \\div 3 = 4$."
+      ],
+      "tip": "Find $k$ from a known pair.",
+      "similar": [
+       {
+        "q": "$AB = 10$ instead?",
+        "a": "$k = 2$: $AC = 12$, $DE = 6$."
+       }
+      ],
+      "page": 174,
+      "src": "notes",
+      "label": "5.2 Practice — similar triangles"
+     },
+     {
+      "id": "math11-u5-md-s52-q02",
+      "type": "short",
+      "q": "Example 5.2: $\\triangle ABC \\sim \\triangle DEF$ with $AB = 3$, $DE = 7$, $BC = x$, $EF = y$. Write $y$ in terms of $x$.",
+      "answer": "$y = \\frac{7x}{3}$",
+      "why": [
+       "Step 1: $\\frac{AB}{DE} = \\frac{BC}{EF}$: $\\frac{3}{7} = \\frac{x}{y}$.",
+       "Step 2: $3y = 7x$."
+      ],
+      "tip": "Match letters in order.",
+      "similar": [
+       {
+        "q": "If $x = 6$?",
+        "a": "$y = 14$."
+       }
+      ],
+      "page": 173,
+      "src": "notes",
+      "label": "5.2 Practice — similar triangles"
+     },
+     {
+      "id": "math11-u5-md-s52-q03",
+      "type": "short",
+      "q": "In $\\triangle ABC$, $DE \\parallel BC$ with $AD = 4$, $DB = 6$, $AE = 5$. Find $EC$.",
+      "answer": "7.5",
+      "why": [
+       "Step 1: $\\frac{AD}{DB} = \\frac{AE}{EC}$.",
+       "Step 2: $\\frac{4}{6} = \\frac{5}{EC}$."
+      ],
+      "tip": "Pieces to pieces.",
+      "similar": [
+       {
+        "q": "$AD = 3$, $DB = 9$, $AE = 2$?",
+        "a": "$EC = 6$."
+       }
+      ],
+      "page": 177,
+      "src": "notes",
+      "label": "5.2 Practice — similar triangles"
+     },
+     {
+      "id": "math11-u5-md-s52-q04",
+      "type": "short",
+      "q": "In $\\triangle ABC$, $DE \\parallel BC$, $AD = 4$, $AB = 10$, $BC = 15$. Find $DE$.",
+      "answer": "6",
+      "why": [
+       "Step 1: $\\frac{DE}{BC} = \\frac{AD}{AB}$ (whole sides!).",
+       "Step 2: $DE = 15 \\times 0.4$."
+      ],
+      "tip": "For $DE$ use $AD : AB$, not $AD : DB$.",
+      "similar": [
+       {
+        "q": "$AD = 2$, $AB = 8$, $BC = 12$?",
+        "a": "$DE = 3$."
+       }
+      ],
+      "page": 177,
+      "src": "notes",
+      "label": "5.2 Practice — similar triangles"
+     },
+     {
+      "id": "math11-u5-md-s52-q05",
+      "type": "short",
+      "q": "Is $UV \\parallel RT$ if $RU = 3$, $RS = 12$, $SV = 5$, $ST = 20$?",
+      "answer": "yes",
+      "why": [
+       "Step 1: $\\frac{RU}{RS} = \\frac{1}{4}$, $\\frac{SV}{ST} = \\frac{1}{4}$.",
+       "Step 2: converse of the BPT."
+      ],
+      "tip": "Equal ratios ⇒ parallel.",
+      "similar": [
+       {
+        "q": "$SV = 6$?",
+        "a": "no ($\\frac{6}{20} \\ne \\frac{1}{4}$)."
+       }
+      ],
+      "page": 178,
+      "src": "notes",
+      "label": "5.2 Practice — similar triangles"
+     },
+     {
+      "id": "math11-u5-md-s52-q06",
+      "type": "short",
+      "q": "Exercise 5.7 Q1: $AB = 3$, $BC = 4$, $AC = 5$ and $DE = 12$. Find $EF$, $DF$ for $\\triangle ABC \\sim \\triangle DEF$.",
+      "answer": "$EF = 16$, $DF = 20$",
+      "why": [
+       "Step 1: $k = \\frac{12}{3} = 4$.",
+       "Step 2: multiply each side by 4."
+      ],
+      "tip": "SSS: same ratio for all sides.",
+      "similar": [
+       {
+        "q": "$DE = 6$?",
+        "a": "8 and 10."
+       }
+      ],
+      "page": 188,
+      "src": "notes",
+      "label": "5.2 Practice — similar triangles"
+     },
+     {
+      "id": "math11-u5-md-s52-q07",
+      "type": "short",
+      "q": "Review Q2: $\\angle A = \\angle D = 60°$, $AB = 4$, $AC = 10$, $DE = 2$, $DF = 5$. Similar?",
+      "answer": "yes, SAS (ratio 2)",
+      "why": [
+       "Step 1: $\\frac{AB}{DE} = 2$, $\\frac{AC}{DF} = 2$.",
+       "Step 2: the equal angle is between those sides."
+      ],
+      "tip": "Check the angle is the included one.",
+      "similar": [
+       {
+        "q": "$DF = 4$?",
+        "a": "not similar by SAS."
+       }
+      ],
+      "page": 199,
+      "src": "notes",
+      "label": "5.2 Practice — similar triangles"
+     },
+     {
+      "id": "math11-u5-md-s52-q08",
+      "type": "short",
+      "q": "Exercise 5.5 Q5: prove that two right triangles with one equal acute angle are similar.",
+      "answer": "AA",
+      "why": [
+       "Step 1: the right angles are equal.",
+       "Step 2: the given acute angles are equal.",
+       "Step 3: two pairs of angles ⇒ AA."
+      ],
+      "tip": "Right angle counts as one pair.",
+      "similar": [
+       {
+        "q": "Two isosceles triangles with equal vertex angles?",
+        "a": "similar (SAS or AA)."
+       }
+      ],
+      "page": 184,
+      "src": "notes",
+      "label": "5.2 Practice — similar triangles"
+     },
+     {
+      "id": "math11-u5-md-s52-q09",
+      "type": "short",
+      "q": "Example 5.6: chords $AB$, $CD$ of a circle cross at $P$ (Review Q6). Explain why $AP \\times PB = CP \\times PD$.",
+      "answer": "similar triangles APC and DPB",
+      "why": [
+       "Step 1: vertical angles at $P$ are equal.",
+       "Step 2: $\\angle CAB = \\angle CDB$ (angles on the same arc $CB$).",
+       "Step 3: AA ⇒ $\\frac{AP}{DP} = \\frac{CP}{BP}$; cross-multiply."
+      ],
+      "tip": "Look for vertical angles and equal inscribed angles.",
+      "similar": [
+       {
+        "q": "Secants from an outside point $P$?",
+        "a": "$PA \\cdot PB = PC \\cdot PD$ (Review Q7)."
+       }
+      ],
+      "page": 183,
+      "src": "notes",
+      "label": "5.2 Practice — similar triangles"
+     },
+     {
+      "id": "math11-u5-md-s52-q10",
+      "type": "mcq",
+      "q": "Which is **not** a similarity test for triangles?",
+      "options": {
+       "A": "SSA",
+       "B": "AA",
+       "C": "SAS",
+       "D": "SSS"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: two sides and a non-included angle do not fix the shape."
+      ],
+      "tip": "The angle must be between the sides.",
+      "similar": [
+       {
+        "q": "Is AAA a test?",
+        "a": "Yes (same as AA)."
+       }
+      ],
+      "page": 186,
+      "src": "notes",
+      "label": "5.2 Practice — similar triangles"
+     },
+     {
+      "id": "math11-u5-md-s52-q11",
+      "type": "tf",
+      "q": "If $DE \\parallel BC$ in $\\triangle ABC$, then $\\frac{AD}{DB} = \\frac{DE}{BC}$.",
+      "answer": false,
+      "why": [
+       "Step 1: $\\frac{DE}{BC} = \\frac{AD}{AB}$, not $\\frac{AD}{DB}$."
+      ],
+      "tip": "Part to whole for the parallel side.",
+      "similar": [
+       {
+        "q": "Is $\\frac{AD}{DB} = \\frac{AE}{EC}$?",
+        "a": "Yes."
+       }
+      ],
+      "page": 175,
+      "src": "notes",
+      "label": "5.2 Practice — similar triangles"
+     },
+     {
+      "id": "math11-u5-md-s53-q01",
+      "type": "short",
+      "q": "Review Q4: right angle at $C$, altitude $CD$, $AD = 9$, $BD = 16$. Find $CD$, $AC$, $BC$.",
+      "answer": "12, 15, 20",
+      "why": [
+       "Step 1: $CD = \\sqrt{9 \\times 16}$.",
+       "Step 2: $AC = \\sqrt{9 \\times 25}$; $BC = \\sqrt{16 \\times 25}$."
+      ],
+      "tip": "Geometric means.",
+      "similar": [
+       {
+        "q": "$AD = 4$, $BD = 9$?",
+        "a": "$CD = 6$, $AC = 2\\sqrt{13}$, $BC = 3\\sqrt{13}$."
+       }
+      ],
+      "page": 199,
+      "src": "notes",
+      "label": "5.3 Practice — applications"
+     },
+     {
+      "id": "math11-u5-md-s53-q02",
+      "type": "short",
+      "q": "Review Q5 (corrected): altitude $CD = 12$ and $BD$ exceeds $AD$ by 18. Find $AD$ and $BD$.",
+      "answer": "$AD = 6$, $BD = 24$",
+      "why": [
+       "Step 1: $AD(AD + 18) = 144$.",
+       "Step 2: $AD^2 + 18AD - 144 = 0 \\Rightarrow (AD + 24)(AD - 6) = 0$."
+      ],
+      "tip": "The book says \"BC exceeds AD by 18\", which gives no neat answer; \"BD exceeds AD\" is the intended data.",
+      "similar": [
+       {
+        "q": "$CD = 6$, $BD = AD + 9$?",
+        "a": "$AD = 3$, $BD = 12$."
+       }
+      ],
+      "page": 199,
+      "src": "notes",
+      "label": "5.3 Practice — applications"
+     },
+     {
+      "id": "math11-u5-md-s53-q03",
+      "type": "short",
+      "q": "Exercise 5.8 Q4: a 30 m tree casts a 10 m shadow. A building casts 15 m at the same time. Height?",
+      "answer": "45 m",
+      "why": [
+       "Step 1: ratio height : shadow $= 3$.",
+       "Step 2: $15 \\times 3$."
+      ],
+      "tip": "Same time ⇒ same ratio.",
+      "similar": [
+       {
+        "q": "Pole 2 m, shadow 3 m, tree shadow 18 m?",
+        "a": "12 m."
+       }
+      ],
+      "page": 191,
+      "src": "notes",
+      "label": "5.3 Practice — applications"
+     },
+     {
+      "id": "math11-u5-md-s53-q04",
+      "type": "short",
+      "q": "Review Q10: a 6 m pole casts 4 m; a tower casts 28 m. Height of the tower?",
+      "answer": "42 m",
+      "why": [
+       "Step 1: $\\frac{h}{28} = \\frac{6}{4}$."
+      ],
+      "tip": "Write height over shadow on both sides.",
+      "similar": [
+       {
+        "q": "Shadow 10 m?",
+        "a": "15 m."
+       }
+      ],
+      "page": 200,
+      "src": "notes",
+      "label": "5.3 Practice — applications"
+     },
+     {
+      "id": "math11-u5-md-s53-q05",
+      "type": "short",
+      "q": "Exercise 5.9 Q2: hypotenuse $AB = 25$ cm. (a) $\\sin A = \\frac{4}{5}$: find $BC$. (b) $\\cos A = 0.6$: find $\\tan A$.",
+      "answer": "20 cm; about 1.33",
+      "why": [
+       "Step 1: $BC = 25 \\times \\frac{4}{5}$.",
+       "Step 2: $\\sin A = 0.8$, $\\tan A = \\frac{0.8}{0.6}$."
+      ],
+      "tip": "$\\sin^2 A + \\cos^2 A = 1$.",
+      "similar": [
+       {
+        "q": "$\\sin A = 0.6$?",
+        "a": "$BC = 15$, $\\tan A = 0.75$."
+       }
+      ],
+      "page": 192,
+      "src": "notes",
+      "label": "5.3 Practice — applications"
+     },
+     {
+      "id": "math11-u5-md-s53-q06",
+      "type": "short",
+      "q": "Exercise 5.9 Q3 and Q5: how are $\\tan 60°$ and $\\tan 30°$ related? Show $\\tan A \\cdot \\tan(90° - A) = 1$.",
+      "answer": "reciprocals",
+      "why": [
+       "Step 1: $\\sqrt{3} \\times \\frac{1}{\\sqrt{3}} = 1$.",
+       "Step 2: the opposite side of $A$ is the adjacent side of $90° - A$."
+      ],
+      "tip": "Complementary angles swap opposite and adjacent.",
+      "similar": [
+       {
+        "q": "$\\tan 20° \\cdot \\tan 70°$?",
+        "a": "1."
+       }
+      ],
+      "page": 193,
+      "src": "notes",
+      "label": "5.3 Practice — applications"
+     },
+     {
+      "id": "math11-u5-md-s53-q07",
+      "type": "short",
+      "q": "Exercise 5.10 Q1: 24 m from a building the angle of elevation is 30°. Height?",
+      "answer": "$8\\sqrt{3} \\approx 13.9$ m",
+      "why": [
+       "Step 1: $h = 24 \\tan 30° = \\frac{24}{\\sqrt{3}}$."
+      ],
+      "tip": "tan = opposite / adjacent.",
+      "similar": [
+       {
+        "q": "Angle 45°?",
+        "a": "24 m."
+       }
+      ],
+      "page": 194,
+      "src": "notes",
+      "label": "5.3 Practice — applications"
+     },
+     {
+      "id": "math11-u5-md-s53-q08",
+      "type": "short",
+      "q": "Exercise 5.10 Q3: from the top of a tower a car 20 m from the foot is seen at a depression of 60°. Height?",
+      "answer": "$20\\sqrt{3} \\approx 34.6$ m",
+      "why": [
+       "Step 1: the elevation from the car is also 60° (alternate angles).",
+       "Step 2: $h = 20 \\tan 60°$."
+      ],
+      "tip": "Depression = elevation from the other end.",
+      "similar": [
+       {
+        "q": "Depression 30°?",
+        "a": "$\\frac{20}{\\sqrt{3}} \\approx 11.5$ m."
+       }
+      ],
+      "page": 194,
+      "src": "notes",
+      "label": "5.3 Practice — applications"
+     },
+     {
+      "id": "math11-u5-md-s53-q09",
+      "type": "short",
+      "q": "Review Q8: planes fly north at 1000 km/h and west at 1200 km/h. Distance apart after 5 h?",
+      "answer": "about 7810 km",
+      "why": [
+       "Step 1: legs 5000 and 6000 km.",
+       "Step 2: $\\sqrt{5000^2 + 6000^2} = 1000\\sqrt{61}$."
+      ],
+      "tip": "Pythagoras.",
+      "similar": [
+       {
+        "q": "After 1 h?",
+        "a": "about 1562 km."
+       }
+      ],
+      "page": 200,
+      "src": "notes",
+      "label": "5.3 Practice — applications"
+     },
+     {
+      "id": "math11-u5-md-s53-q10",
+      "type": "mcq",
+      "q": "A cat sees a bird at the top of a 4 m tree at elevation 45°. Distance to the tree?",
+      "options": {
+       "A": "4 m",
+       "B": "2 m",
+       "C": "$4\\sqrt{2}$ m",
+       "D": "8 m"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $\\tan 45° = 1$, so distance = height."
+      ],
+      "tip": "45° ⇒ isosceles right triangle.",
+      "similar": [
+       {
+        "q": "Elevation 60°?",
+        "a": "$\\frac{4}{\\sqrt{3}}$ m."
+       }
+      ],
+      "page": 194,
+      "src": "notes",
+      "label": "5.3 Practice — applications"
+     },
+     {
+      "id": "math11-u5-md-s53-q11",
+      "type": "tf",
+      "q": "The altitude to the hypotenuse is the geometric mean of the two pieces of the hypotenuse.",
+      "answer": true,
+      "why": [
+       "Step 1: $\\triangle ACD \\sim \\triangle CBD$ gives $\\frac{AD}{CD} = \\frac{CD}{DB}$."
+      ],
+      "tip": "Middle term squared = product of outer terms.",
+      "similar": [
+       {
+        "q": "Each leg is the GM of …?",
+        "a": "the hypotenuse and the adjacent piece."
+       }
+      ],
+      "page": 191,
+      "src": "notes",
+      "label": "5.3 Practice — applications"
+     },
+     {
+      "id": "math11-u5-md-s54-q01",
+      "type": "short",
+      "q": "Exercise 5.11 Q1: similar triangles with areas 64 cm² and 121 cm²; $EF = 15.4$ cm. Find $BC$.",
+      "answer": "11.2 cm",
+      "why": [
+       "Step 1: $k = \\sqrt{\\frac{64}{121}} = \\frac{8}{11}$.",
+       "Step 2: $BC = 15.4 \\times \\frac{8}{11}$."
+      ],
+      "tip": "Square root of the area ratio.",
+      "similar": [
+       {
+        "q": "Areas 9 and 25, side 10 in the larger?",
+        "a": "6."
+       }
+      ],
+      "page": 196,
+      "src": "notes",
+      "label": "5.4 Practice — ratios of perimeter, area, volume"
+     },
+     {
+      "id": "math11-u5-md-s54-q02",
+      "type": "short",
+      "q": "Exercise 5.11 Q3: one triangle's sides are 5 times the other's; the smaller area is 6 cm². Larger area?",
+      "answer": "150 cm²",
+      "why": [
+       "Step 1: area ratio $5^2 = 25$."
+      ],
+      "tip": "Square the scale factor.",
+      "similar": [
+       {
+        "q": "Factor 3?",
+        "a": "54 cm²."
+       }
+      ],
+      "page": 196,
+      "src": "notes",
+      "label": "5.4 Practice — ratios of perimeter, area, volume"
+     },
+     {
+      "id": "math11-u5-md-s54-q03",
+      "type": "short",
+      "q": "Exercise 5.12 Q2: areas in ratio 4 : 25. Ratio of sides and perimeters?",
+      "answer": "2 : 5 and 2 : 5",
+      "why": [
+       "Step 1: $\\sqrt{4} : \\sqrt{25}$.",
+       "Step 2: perimeter is a length."
+      ],
+      "tip": "All lengths share $k$.",
+      "similar": [
+       {
+        "q": "Areas 9 : 49?",
+        "a": "3 : 7."
+       }
+      ],
+      "page": 198,
+      "src": "notes",
+      "label": "5.4 Practice — ratios of perimeter, area, volume"
+     },
+     {
+      "id": "math11-u5-md-s54-q04",
+      "type": "short",
+      "q": "Exercise 5.13: volumes in ratio 1 : 8. Ratio of edges? If the larger edge is 30 cm, find the smaller.",
+      "answer": "1 : 2; 15 cm",
+      "why": [
+       "Step 1: $\\sqrt[3]{8} = 2$.",
+       "Step 2: $30 \\div 2$."
+      ],
+      "tip": "Cube root for volumes.",
+      "similar": [
+       {
+        "q": "Volumes 8 : 27?",
+        "a": "edges 2 : 3."
+       }
+      ],
+      "page": 198,
+      "src": "notes",
+      "label": "5.4 Practice — ratios of perimeter, area, volume"
+     },
+     {
+      "id": "math11-u5-md-s54-q05",
+      "type": "short",
+      "q": "Activity 5.13: cubes with edges 1 cm and 4 cm. Ratios of surface areas and volumes?",
+      "answer": "1 : 16 and 1 : 64",
+      "why": [
+       "Step 1: $4^2 = 16$.",
+       "Step 2: $4^3 = 64$."
+      ],
+      "tip": "Area $k^2$, volume $k^3$.",
+      "similar": [
+       {
+        "q": "Edges 2 : 3, larger volume 54?",
+        "a": "smaller 16."
+       }
+      ],
+      "page": 198,
+      "src": "notes",
+      "label": "5.4 Practice — ratios of perimeter, area, volume"
+     },
+     {
+      "id": "math11-u5-md-s54-q06",
+      "type": "short",
+      "q": "Example 5.12: perimeters 24 m and 32 m. Ratio of sides and of areas?",
+      "answer": "3 : 4 and 9 : 16",
+      "why": [
+       "Step 1: $\\frac{24}{32} = \\frac{3}{4}$.",
+       "Step 2: square it."
+      ],
+      "tip": "Perimeter ratio = $k$.",
+      "similar": [
+       {
+        "q": "Perimeters 10 and 15?",
+        "a": "areas 4 : 9."
+       }
+      ],
+      "page": 197,
+      "src": "notes",
+      "label": "5.4 Practice — ratios of perimeter, area, volume"
+     },
+     {
+      "id": "math11-u5-md-s54-q07",
+      "type": "mcq",
+      "q": "Two similar cones have heights 6 and 9. The small one holds 160 ml. The large one holds",
+      "options": {
+       "A": "540 ml",
+       "B": "240 ml",
+       "C": "360 ml",
+       "D": "480 ml"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $k = 1.5$, $k^3 = 3.375$.",
+       "Step 2: $160 \\times 3.375 = 540$."
+      ],
+      "tip": "Capacity is a volume.",
+      "similar": [
+       {
+        "q": "Surface ratio?",
+        "a": "4 : 9."
+       }
+      ],
+      "page": 198,
+      "src": "notes",
+      "label": "5.4 Practice — ratios of perimeter, area, volume"
+     },
+     {
+      "id": "math11-u5-md-s54-q08",
+      "type": "tf",
+      "q": "If two similar triangles have sides in ratio $k$, their altitudes are in ratio $k^2$.",
+      "answer": false,
+      "why": [
+       "Step 1: an altitude is a length, so the ratio is $k$."
+      ],
+      "tip": "Only areas use $k^2$.",
+      "similar": [
+       {
+        "q": "Medians?",
+        "a": "ratio $k$."
+       }
+      ],
+      "page": 197,
+      "src": "notes",
+      "label": "5.4 Practice — ratios of perimeter, area, volume"
      }
     ]
    },
@@ -1605,6 +2820,38 @@
       "cards": [
        "math11-u5-c08"
       ]
+     },
+     {
+      "id": "md_bpt",
+      "label": "Basic Proportionality Theorem",
+      "kind": "idea",
+      "cards": [
+       "math11-u5-md-bpt-t"
+      ]
+     },
+     {
+      "id": "md_tests",
+      "label": "AA, SAS, SSS",
+      "kind": "idea",
+      "cards": [
+       "math11-u5-md-tests-t"
+      ]
+     },
+     {
+      "id": "md_alt",
+      "label": "Altitude on the hypotenuse",
+      "kind": "idea",
+      "cards": [
+       "math11-u5-md-alt-t"
+      ]
+     },
+     {
+      "id": "md_kkk",
+      "label": "k, k², k³",
+      "kind": "idea",
+      "cards": [
+       "math11-u5-c08"
+      ]
      }
     ],
     "edges": [
@@ -1642,6 +2889,26 @@
       "from": "l5_3",
       "to": "l5_4",
       "label": "next"
+     },
+     {
+      "from": "l5_2",
+      "to": "md_bpt",
+      "label": "key idea"
+     },
+     {
+      "from": "l5_2",
+      "to": "md_tests",
+      "label": "key idea"
+     },
+     {
+      "from": "l5_3",
+      "to": "md_alt",
+      "label": "key idea"
+     },
+     {
+      "from": "l5_4",
+      "to": "md_kkk",
+      "label": "key idea"
      }
     ],
     "src": "auto"

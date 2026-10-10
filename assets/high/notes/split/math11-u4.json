@@ -114,28 +114,188 @@
      ],
      "cards": [
       {
-       "id": "math11-u4-c01",
-       "type": "text",
-       "title": "Exponential Functions",
-       "page": 142,
+       "id": "math11-u4-md-laws-tb",
+       "type": "table",
+       "title": "Laws of exponents ($a, b > 0$; $m, n$ real)",
+       "page": 143,
        "src": "notes",
-       "body": [
-        "An **exponential function** is f(x) = bˣ with base b > 0, b ≠ 1. The variable is in the exponent. Example: f(x) = 2ˣ gives 1/4, 1/2, 1, 2, 4, 8 for x = −2, −1, 0, 1, 2, 3.",
-        "**Graph facts:** domain all real numbers; range y > 0; y-intercept (0, 1); the x-axis (y = 0) is a horizontal asymptote. b > 1 → growth (increasing); 0 < b < 1 → decay (decreasing). y = (½)ˣ is the reflection of y = 2ˣ in the y-axis.",
-        "**Laws of exponents:** aᵐ·aⁿ = aᵐ⁺ⁿ; aᵐ ÷ aⁿ = aᵐ⁻ⁿ; (aᵐ)ⁿ = aᵐⁿ; a⁰ = 1; a⁻ⁿ = 1/aⁿ; a^(m/n) = ⁿ√(aᵐ).",
-        "**Solving exponential equations — same base method:** write both sides as powers of the same base and equate the exponents. Example: 32^(x+1) = 128 → 2^(5x+5) = 2⁷ → 5x + 5 = 7 → x = 2/5. If the bases cannot be matched, take logs of both sides: 3ˣ = 20 → x = log 20 / log 3 ≈ 2.73.",
-        "Logarithm laws used with exponentials: log(MN) = log M + log N; log(M/N) = log M − log N; log(Mᵏ) = k log M."
+       "head": [
+        "Law",
+        "Rule",
+        "Example"
+       ],
+       "rows": [
+        [
+         "Product",
+         "$a^m \\cdot a^n = a^{m + n}$",
+         "$2^3 \\cdot 2^4 = 2^7$"
+        ],
+        [
+         "Quotient",
+         "$a^m \\div a^n = a^{m - n}$",
+         "$5^6 \\div 5^2 = 5^4$"
+        ],
+        [
+         "Power of a power",
+         "$(a^m)^n = a^{mn}$",
+         "$(3^2)^3 = 3^6$"
+        ],
+        [
+         "Power of a product",
+         "$(ab)^n = a^n b^n$",
+         "$(2x)^3 = 8x^3$"
+        ],
+        [
+         "Power of a quotient",
+         "$\\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}$",
+         "$\\left(\\frac{2}{3}\\right)^2 = \\frac{4}{9}$"
+        ],
+        [
+         "Zero / negative",
+         "$a^0 = 1$, $a^{-n} = \\frac{1}{a^n}$",
+         "$2^{-3} = \\frac{1}{8}$"
+        ],
+        [
+         "Fractional",
+         "$a^{\\frac{m}{n}} = \\left(\\sqrt[n]{a}\\right)^m$",
+         "$27^{\\frac{2}{3}} = 3^2 = 9$"
+        ]
        ]
       },
       {
-       "id": "math11-u4-c02",
-       "type": "mnemonic",
-       "title": "Change of base",
-       "page": 142,
+       "id": "math11-u4-md-ex-41a",
+       "type": "worked",
+       "title": "Worked example: Example 4.1 (same base)",
+       "page": 143,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Simplify (a) $(3^2)^3 \\times 9^2 \\div 3^3$ (b) $(3ab)^3 \\times (2a^2)^2 \\div (2a)^3$.",
+       "steps": [
+        {
+         "text": "(a) Write 9 as $3^2$: $3^6 \\times 3^4 \\div 3^3 = 3^{6 + 4 - 3} = 3^7$."
+        },
+        {
+         "text": "(b) $27a^3b^3 \\times 4a^4 \\div 8a^3 = \\frac{108}{8} a^{3 + 4 - 3} b^3 = \\frac{27}{2} a^4 b^3$."
+        }
+       ],
+       "answer": "$3^7$; $\\frac{27}{2}a^4b^3$"
+      },
+      {
+       "id": "math11-u4-md-expeq-t",
+       "type": "text",
+       "title": "Solving exponential equations",
+       "page": 145,
        "src": "notes",
        "body": [
-        "logₐb = log b / log a (any legal base). On a calculator use ln or log₁₀ on both."
+        "**Method 1 — same base:** write both sides as powers of one base, then use $a^m = a^n \\Rightarrow m = n$. Example 4.2: $32^{x + 1} = 128 \\Rightarrow 2^{5x + 5} = 2^7 \\Rightarrow x = \\frac{2}{5}$.",
+        "**Method 2 — substitution:** in $2^{2x} + 5(2^x) - 14 = 0$ put $u = 2^x$ (so $2^{2x} = u^2$): $u^2 + 5u - 14 = 0 \\Rightarrow u = 2$ or $u = -7$. $2^x$ is always positive, so only $2^x = 2$, $x = 1$.",
+        "**Method 3 — logarithms** (when the bases cannot match): $2^x = 5 \\Rightarrow x = \\frac{\\log 5}{\\log 2} \\approx 2.32$."
        ]
+      },
+      {
+       "id": "math11-u4-md-cmp-41",
+       "type": "table",
+       "title": "Which method?",
+       "page": 145,
+       "src": "notes",
+       "head": [
+        "Equation looks like",
+        "Method",
+        "Example"
+       ],
+       "rows": [
+        [
+         "both sides powers of 2, 3, 5 …",
+         "same base",
+         "$8^x = 16^{3x + 9}$"
+        ],
+        [
+         "$a^{2x}$ and $a^x$ together",
+         "substitute $u = a^x$",
+         "$3^{2x} - 8(3^x) + 15 = 0$"
+        ],
+        [
+         "bases do not match",
+         "take logs",
+         "$10^x = 20$"
+        ]
+       ]
+      },
+      {
+       "id": "math11-u4-c01",
+       "type": "text",
+       "title": "4.1 Exponential functions and their graphs",
+       "page": 146,
+       "src": "notes",
+       "body": [
+        "An **exponential function** is $f(x) = a^x$ with base $a > 0$, $a \\ne 1$; $x$ can be any real number. ($a = 1$ gives a constant; $a < 0$ fails, e.g. $(-16)^{\\frac{1}{2}}$ is not real.)",
+        "**Properties of $y = a^x$:**",
+        "- domain: **all real numbers**; range: **$y > 0$**. (The book's note (f) on p. 148 says \"the domain is the set of positive real numbers\" — that is the range.)",
+        "- passes through $(0, 1)$; no x-intercept; the x-axis $y = 0$ is the horizontal asymptote.",
+        "- $a > 1$: **increasing** (growth), the graph hugs the x-axis on the **left**. $0 < a < 1$: **decreasing** (decay), it hugs the x-axis on the **right**.",
+        "- $y = \\left(\\frac{1}{a}\\right)^x = a^{-x}$ is the mirror image of $y = a^x$ in the y-axis.",
+        "- $y = a^x + k$ moves the graph up $k$: y-intercept $1 + k$, asymptote $y = k$."
+       ]
+      },
+      {
+       "id": "math11-u4-md-bases",
+       "type": "diagram",
+       "title": "Bigger base, steeper curve",
+       "page": 147,
+       "src": "notes",
+       "diagram": "md_bases",
+       "mode": "plain",
+       "body": [
+        "All pass through $(0, 1)$. For $x > 0$: $10^x > 3^x > 2^x$; for $x < 0$ the order reverses, e.g. $10^{-1} = 0.1 < 2^{-1} = 0.5$."
+       ]
+      },
+      {
+       "id": "math11-u4-md-mirror",
+       "type": "steps",
+       "title": "Growth vs decay (Exercise 4.3 Q1)",
+       "page": 149,
+       "src": "notes",
+       "diagram": "md_mirror",
+       "steps": [
+        {
+         "text": "$y = 2^x$: $(1, 2)$, $(2, 4)$; rises to the right.",
+         "show": "k1"
+        },
+        {
+         "text": "$y = \\left(\\frac{1}{2}\\right)^x = 2^{-x}$: $(-1, 2)$, $(-2, 4)$ — the same points mirrored in the y-axis. It falls to the right.",
+         "show": "k2"
+        }
+       ]
+      },
+      {
+       "id": "math11-u4-md-shift",
+       "type": "diagram",
+       "title": "Vertical shifts",
+       "page": 151,
+       "src": "notes",
+       "diagram": "md_shift",
+       "mode": "plain",
+       "body": [
+        "$y = 2^x + 3$: same shape moved up 3; y-intercept 4; asymptote $y = 3$; range $y > 3$. $y = 2^x - 1$ passes through the origin; range $y > -1$."
+       ]
+      },
+      {
+       "id": "math11-u4-md-ex-41b",
+       "type": "worked",
+       "title": "Worked example: reading a graph (Example 4.4)",
+       "page": 151,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Use $y = 3^x$ to estimate (a) $3^{1.5}$ (b) $x$ with $3^x = 9.5$.",
+       "steps": [
+        {
+         "text": "(a) $3^{1.5} = 3\\sqrt{3} \\approx 5.2$ (the book rounds to 5)."
+        },
+        {
+         "text": "(b) between $x = 2$ ($y = 9$) and slightly more: $x = \\frac{\\log 9.5}{\\log 3} \\approx 2.05$."
+        }
+       ],
+       "answer": "$\\approx 5.2$; $x \\approx 2.05$"
       },
       {
        "id": "math11-u4-c03",
@@ -280,17 +440,250 @@
       {
        "id": "math11-u4-c04",
        "type": "text",
-       "title": "4.2 The logarithmic function",
-       "page": 152,
+       "title": "4.2 Logarithms",
+       "page": 153,
        "src": "notes",
        "body": [
-        "**Definition:** for b > 0, b ≠ 1 and x > 0, $$\\log_b x = y \\iff b^y = x$$. A logarithm is an **exponent**: log₂ 8 = 3 because 2³ = 8. log₁₀ x is written log x (common log); logₑ x is written ln x (natural log).",
-        "The logarithmic function f(x) = log_b x is the **inverse** of the exponential function g(x) = bˣ. So its graph is the reflection of y = bˣ in the line y = x: **domain x > 0, range all real numbers**, x-intercept (1, 0), and the y-axis is a vertical asymptote. For b > 1 it increases; for 0 < b < 1 it decreases.",
-        "**Converting forms (step by step):** log₃ 81 = 4 ⇔ 3⁴ = 81; 5² = 25 ⇔ log₅ 25 = 2. To evaluate log₃ 9, ask \"3 to what power gives 9?\" → 2.",
-        "**Laws of logarithms** (M, N > 0): log_b(MN) = log_b M + log_b N; log_b(M/N) = log_b M − log_b N; log_b(Mᵏ) = k log_b M; log_b b = 1; log_b 1 = 0; change of base: log_b M = log M / log b.",
-        "**Domain of a transformed log:** the expression inside must be positive. f(x) = log₃(x − 4) needs x − 4 > 0, so the domain is x > 4 and the vertical asymptote is x = 4.",
-        "**Solving log equations:** write in exponential form, then check that the answer keeps every log argument positive. Example: log₂(x − 1) = 3 → x − 1 = 2³ = 8 → x = 9 (check: log₂ 8 = 3 ✔)."
+        "**Definition:** for $a > 0$, $a \\ne 1$, $x > 0$: $$y = \\log_a x \\iff a^y = x$$ A logarithm **is an exponent**: \"to what power must I raise $a$ to get $x$?\"",
+        "$\\log_2 16 = 4$ because $2^4 = 16$; $10^{-4} = 0.0001$ means $\\log_{10} 0.0001 = -4$.",
+        "**Special values:** $\\log_a 1 = 0$, $\\log_a a = 1$, $\\log_a a^n = n$, $a^{\\log_a x} = x$.",
+        "$\\log x$ with no base means base 10 (common logarithm)."
        ]
+      },
+      {
+       "id": "math11-u4-md-loglaws-tb",
+       "type": "table",
+       "title": "Laws of logarithms ($m, n > 0$)",
+       "page": 153,
+       "src": "notes",
+       "head": [
+        "Law",
+        "Rule",
+        "Example"
+       ],
+       "rows": [
+        [
+         "Product",
+         "$\\log_a(mn) = \\log_a m + \\log_a n$",
+         "$\\log_2 8 + \\log_2 4 = \\log_2 32 = 5$"
+        ],
+        [
+         "Quotient",
+         "$\\log_a \\frac{m}{n} = \\log_a m - \\log_a n$",
+         "$\\log 500 - \\log 5 = \\log 100 = 2$"
+        ],
+        [
+         "Power",
+         "$\\log_a m^p = p \\log_a m$",
+         "$\\log_3 81 = 4\\log_3 3 = 4$"
+        ],
+        [
+         "Change of base",
+         "$\\log_a m = \\frac{\\log_b m}{\\log_b a}$",
+         "$\\log_2 5 = \\frac{\\log 5}{\\log 2} \\approx 2.32$"
+        ],
+        [
+         "One-to-one",
+         "$\\log_a m = \\log_a n \\Rightarrow m = n$",
+         "$\\log_3 x = \\log_3 56 \\Rightarrow x = 56$"
+        ]
+       ]
+      },
+      {
+       "id": "math11-u4-md-logeq-t",
+       "type": "text",
+       "title": "Solving logarithmic equations",
+       "page": 154,
+       "src": "notes",
+       "body": [
+        "1. Write the **domain** condition: every log argument $> 0$.",
+        "2. Combine logs with the laws until you have $\\log_a(\\text{something}) = c$ or $\\log_a A = \\log_a B$.",
+        "3. Convert: $A = a^c$, or $A = B$.",
+        "4. Solve and **reject** answers outside the domain.",
+        "Example 4.5(3): $\\log_2(x + 2) = 3$: $x > -2$; $x + 2 = 8$, $x = 6$."
+       ]
+      },
+      {
+       "id": "math11-u4-md-ex-42a",
+       "type": "worked",
+       "title": "Worked example: log₅(x + 1) + log₅(x − 3) = log₅ 5",
+       "page": 155,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Solve $\\log_5(x + 1) + \\log_5(x - 3) = \\log_5 5$.",
+       "steps": [
+        {
+         "text": "Domain: $x > -1$ and $x > 3$, so $x > 3$."
+        },
+        {
+         "text": "Product law: $\\log_5[(x + 1)(x - 3)] = 1 \\Rightarrow (x + 1)(x - 3) = 5$."
+        },
+        {
+         "text": "$x^2 - 2x - 8 = 0 \\Rightarrow (x - 4)(x + 2) = 0$."
+        },
+        {
+         "text": "$x = -2$ is outside the domain."
+        }
+       ],
+       "answer": "$x = 4$"
+      },
+      {
+       "id": "math11-u4-md-ex-42b",
+       "type": "worked",
+       "title": "Worked example: Exercise 4.4 Q3 — what is wrong?",
+       "page": 156,
+       "src": "notes",
+       "mode": "show",
+       "problem": "\"$3 > 2$, so $3\\log_2\\frac{1}{2} > 2\\log_2\\frac{1}{2}$, so $\\frac{1}{8} > \\frac{1}{4}$.\" Find the error.",
+       "steps": [
+        {
+         "text": "$\\log_2 \\frac{1}{2} = -1$ is **negative**."
+        },
+        {
+         "text": "Multiplying both sides of $3 > 2$ by a negative number reverses the sign: $3(-1) < 2(-1)$."
+        },
+        {
+         "text": "So the correct statement is $\\left(\\frac{1}{2}\\right)^3 < \\left(\\frac{1}{2}\\right)^2$, i.e. $\\frac{1}{8} < \\frac{1}{4}$."
+        }
+       ],
+       "answer": "the inequality must flip because $\\log_2 \\frac{1}{2} < 0$"
+      },
+      {
+       "id": "math11-u4-md-inverse",
+       "type": "steps",
+       "title": "The graph of y = log₂ x (Activity 4.7)",
+       "page": 157,
+       "src": "notes",
+       "diagram": "md_inverse",
+       "steps": [
+        {
+         "text": "Start from $y = 2^x$: points $(0, 1)$, $(1, 2)$, $(3, 8)$.",
+         "show": "k1"
+        },
+        {
+         "text": "$\\log_2$ is the **inverse** of $2^x$, so its graph is the mirror image in $y = x$.",
+         "show": "k2"
+        },
+        {
+         "text": "Swap coordinates: $(1, 0)$, $(2, 1)$, $(8, 3)$. Domain $x > 0$, range all reals, vertical asymptote $x = 0$.",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math11-u4-md-logs",
+       "type": "diagram",
+       "title": "Logarithm graphs compared",
+       "page": 158,
+       "src": "notes",
+       "diagram": "md_logs",
+       "mode": "plain",
+       "body": [
+        "Every $y = \\log_a x$ passes through $(1, 0)$ and has the y-axis as asymptote. Base $> 1$: increasing (larger base → flatter). Base between 0 and 1: decreasing (red, base $\\frac{1}{2}$)."
+       ]
+      },
+      {
+       "id": "math11-u4-md-cmp-42",
+       "type": "table",
+       "title": "Exponential vs logarithmic function ($a > 1$)",
+       "page": 159,
+       "src": "notes",
+       "head": [
+        "",
+        "$y = a^x$",
+        "$y = \\log_a x$"
+       ],
+       "rows": [
+        [
+         "domain",
+         "all reals",
+         "$x > 0$"
+        ],
+        [
+         "range",
+         "$y > 0$",
+         "all reals"
+        ],
+        [
+         "fixed point",
+         "$(0, 1)$",
+         "$(1, 0)$"
+        ],
+        [
+         "asymptote",
+         "$y = 0$ (horizontal)",
+         "$x = 0$ (vertical)"
+        ],
+        [
+         "grows",
+         "very fast",
+         "very slowly"
+        ]
+       ]
+      },
+      {
+       "id": "math11-u4-c09",
+       "type": "table",
+       "title": "Laws of logarithms",
+       "page": 152,
+       "src": "notes",
+       "head": [
+        "Law",
+        "Example"
+       ],
+       "rows": [
+        [
+         "log(MN)=log M + log N",
+         "log2 8 + log2 4 = log2 32 = 5"
+        ],
+        [
+         "log(M/N)=log M - log N",
+         "log 1000 - log 10 = 2"
+        ],
+        [
+         "log(M^k)=k log M",
+         "log3 of 9 squared = 4"
+        ],
+        [
+         "log_b b = 1 and log_b 1 = 0",
+         "log5 5 = 1"
+        ]
+       ]
+      },
+      {
+       "id": "math11-u4-mn2",
+       "type": "mnemonic",
+       "title": "Log = exponent: \"the base goes to the other side\"",
+       "body": [
+        "log_b x = y ⇔ b^y = x. Read it as a loop: **base b, raised to the answer y, gives x.**",
+        "Logs of products **add**, quotients **subtract**, powers come **down in front**."
+       ],
+       "page": 152,
+       "src": "notes"
+      },
+      {
+       "id": "math11-u4-c02",
+       "type": "mnemonic",
+       "title": "Change of base",
+       "page": 142,
+       "src": "notes",
+       "body": [
+        "logₐb = log b / log a (any legal base). On a calculator use ln or log₁₀ on both."
+       ]
+      },
+      {
+       "type": "worked",
+       "title": "Worked: change of base",
+       "problem": "Evaluate log₂ 8.",
+       "steps": [
+        {
+         "text": "2³=8 ⇒ log₂8=3."
+        }
+       ],
+       "answer": "3",
+       "id": "math11-u4-xtra2",
+       "page": 1,
+       "src": "notes"
       },
       {
        "id": "math11-u4-chk74",
@@ -415,49 +808,6 @@
        ]
       },
       {
-       "id": "math11-u4-c09",
-       "type": "table",
-       "title": "Laws of logarithms",
-       "page": 152,
-       "src": "notes",
-       "head": [
-        "Law",
-        "Example"
-       ],
-       "rows": [
-        [
-         "log(MN)=log M + log N",
-         "log2 8 + log2 4 = log2 32 = 5"
-        ],
-        [
-         "log(M/N)=log M - log N",
-         "log 1000 - log 10 = 2"
-        ],
-        [
-         "log(M^k)=k log M",
-         "log3 of 9 squared = 4"
-        ],
-        [
-         "log_b b = 1 and log_b 1 = 0",
-         "log5 5 = 1"
-        ]
-       ]
-      },
-      {
-       "type": "worked",
-       "title": "Worked: change of base",
-       "problem": "Evaluate log₂ 8.",
-       "steps": [
-        {
-         "text": "2³=8 ⇒ log₂8=3."
-        }
-       ],
-       "answer": "3",
-       "id": "math11-u4-xtra2",
-       "page": 1,
-       "src": "notes"
-      },
-      {
        "id": "math11-u4-pc2",
        "type": "check",
        "title": "Practice",
@@ -470,17 +820,6 @@
        },
        "answer": "A",
        "why": "**Exponential form:** 2x + 1 = 3² = 9, so 2x = 8 and x = 4.\n**Check:** the argument 2(4) + 1 = 9 > 0 and log₃ 9 = 2 ✔.",
-       "page": 152,
-       "src": "notes"
-      },
-      {
-       "id": "math11-u4-mn2",
-       "type": "mnemonic",
-       "title": "Log = exponent: \"the base goes to the other side\"",
-       "body": [
-        "log_b x = y ⇔ b^y = x. Read it as a loop: **base b, raised to the answer y, gives x.**",
-        "Logs of products **add**, quotients **subtract**, powers come **down in front**."
-       ],
        "page": 152,
        "src": "notes"
       }
@@ -498,16 +837,156 @@
       {
        "id": "math11-u4-c05",
        "type": "text",
-       "title": "4.3 Applications of exponential and logarithmic functions",
+       "title": "4.3 Growth and decay models",
        "page": 160,
        "src": "notes",
        "body": [
-        "**Growth and decay model:** A = A₀(1 + r)ᵗ for growth at rate r per period, and A = A₀(1 − r)ᵗ for decay. A₀ is the starting amount and t the number of periods.",
-        "**Compound interest:** A = P(1 + r/n)ⁿᵗ where n is the number of compounding periods per year. Example: 1000 Nakfa at 10% per year compounded yearly for 2 years: A = 1000 × 1.1² = 1210 Nakfa.",
-        "**Population growth:** a town of 20 000 grows by 3% a year. After 5 years: 20 000 × 1.03⁵ ≈ 23 185 people.",
-        "**Half-life (radioactive decay):** the amount halves every half-life T: A = A₀(½)^(t/T). Example: 80 g with half-life 5 years, after 15 years: 80 × (½)³ = 10 g.",
-        "**Using logs to find the time:** when is 1000 Nakfa at 10% doubled? 1000 × 1.1ᵗ = 2000 → 1.1ᵗ = 2 → t = log 2 / log 1.1 ≈ 0.301/0.0414 ≈ 7.3 years.",
-        "**Logarithmic scales:** pH = −log[H⁺] (a solution with [H⁺] = 10⁻³ has pH 3); the Richter scale for earthquakes and the decibel scale for sound are also logarithmic — an increase of 1 on the Richter scale means 10 times the amplitude."
+        "**Repeated multiplication** gives exponential models. If a quantity is multiplied by $b$ every period: $N = A \\cdot b^n$ ($n$ periods).",
+        "- **Growth by $r$%** per period: $b = 1 + \\frac{r}{100}$. Mice +20% a month: $P_n = 100(1.2)^n$.",
+        "- **Decay by $r$%** per period: $b = 1 - \\frac{r}{100}$. Sugar −5% a day: $W_n = 20(0.95)^n$.",
+        "- **Doubling / tripling** every $d$ days: $N = A \\cdot 2^{\\frac{t}{d}}$ or $A \\cdot 3^{\\frac{t}{d}}$. Example 4.6(1): $5 \\cdot 3^{\\frac{8}{2}} = 405$ Nakfa.",
+        "- **Half-life** $h$: $N = A\\left(\\frac{1}{2}\\right)^{\\frac{t}{h}}$.",
+        "**Finding the time:** take logs: $1000 \\cdot 2^n = 8000 \\Rightarrow 2^n = 8 \\Rightarrow n = \\frac{\\log 8}{\\log 2} = 3$."
+       ]
+      },
+      {
+       "id": "math11-u4-md-hopper",
+       "type": "steps",
+       "title": "Example 4.6(4): when does the area reach 8000 ha?",
+       "page": 162,
+       "src": "notes",
+       "diagram": "md_hopper",
+       "steps": [
+        {
+         "text": "$A_n = 1000 \\times 2^n$: 1000, 2000, 4000, 8000, … The graph shows $A = 8000$ at $n = 3$.",
+         "show": "k1"
+        },
+        {
+         "text": "Algebra: $2^n = 8 \\Rightarrow n \\log 2 = \\log 8 \\Rightarrow n = 3$. (The book prints \"$n = 4$\" but then correctly says three weeks.)",
+         "show": "k2"
+        }
+       ]
+      },
+      {
+       "id": "math11-u4-md-ex-43a",
+       "type": "worked",
+       "title": "Worked example: Example 4.6(5) — decay",
+       "page": 163,
+       "src": "notes",
+       "mode": "show",
+       "problem": "$W = 200 \\times 2^{-\\frac{t}{1000}}$ grams. Find the original weight and the time to reach 2 g.",
+       "steps": [
+        {
+         "text": "$t = 0$: $W = 200$ g."
+        },
+        {
+         "text": "$2 = 200 \\times 2^{-0.001t} \\Rightarrow 2^{-0.001t} = 0.01$."
+        },
+        {
+         "text": "Logs: $-0.001t \\log 2 = \\log 0.01 = -2$, so $t = \\frac{2}{0.001 \\times 0.3010} \\approx 6645$ years."
+        }
+       ],
+       "answer": "200 g; about 6645 years"
+      },
+      {
+       "id": "math11-u4-md-ex-43b",
+       "type": "worked",
+       "title": "Worked example: Review 3 — doubling cells",
+       "page": 164,
+       "src": "notes",
+       "mode": "show",
+       "problem": "700 cells double every 40 minutes. How many after 9 hours?",
+       "steps": [
+        {
+         "text": "9 h = 540 min = $\\frac{540}{40} = 13.5$ doubling periods."
+        },
+        {
+         "text": "$N = 700 \\times 2^{13.5} \\approx 700 \\times 11\\,585 \\approx 8.1$ million."
+        }
+       ],
+       "answer": "about 8.1 million cells"
+      },
+      {
+       "id": "math11-u4-md-rm-43",
+       "type": "remember",
+       "title": "Model checklist",
+       "page": 161,
+       "src": "notes",
+       "body": [
+        "Write: start value $A$, factor $b$ per period, number of periods $n$. Growth: $b > 1$. Decay: $0 < b < 1$.",
+        "Percent → factor: +2.5% → 1.025; −5% → 0.95. Never use 0.05 as the factor."
+       ]
+      },
+      {
+       "id": "math11-u4-c14",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 166,
+       "src": "notes",
+       "body": [
+        "$a^x$ ($a > 0$, $a \\ne 1$): domain all reals, range $y > 0$, through $(0, 1)$, asymptote $y = 0$; $a > 1$ grows, $0 < a < 1$ decays.",
+        "$\\log_a x = y \\iff a^y = x$; domain $x > 0$; through $(1, 0)$; inverse of $a^x$.",
+        "Product → add logs, quotient → subtract, power → multiply; change of base $\\frac{\\log m}{\\log a}$.",
+        "Equations: same base, substitution or logs; for log equations check the domain."
+       ]
+      },
+      {
+       "id": "math11-u4-c10",
+       "type": "worked",
+       "title": "Equations",
+       "page": 160,
+       "src": "notes",
+       "problem": "Solve 2^(x+1)=32 and log2 x = 5.",
+       "steps": [
+        {
+         "text": "32=2^5, so x+1=5 and x=4."
+        },
+        {
+         "text": "log2 x = 5 means x=32."
+        }
+       ],
+       "answer": "x=4 and x=32"
+      },
+      {
+       "id": "math11-u4-c11",
+       "type": "worked",
+       "title": "Growth and decay",
+       "page": 160,
+       "src": "notes",
+       "problem": "1000 Nfa grows at 10 percent a year. Value after 2 years? 80 g has a half-life of 5 years. How much after 15 years?",
+       "steps": [
+        {
+         "text": "A=1000*1.1^2=1210 Nfa."
+        },
+        {
+         "text": "15 years is 3 half-lives: 80, 40, 20, 10 g."
+        }
+       ],
+       "answer": "1210 Nfa and 10 g"
+      },
+      {
+       "id": "math11-u4-c12",
+       "type": "table",
+       "title": "Common mistakes",
+       "page": 160,
+       "src": "notes",
+       "head": [
+        "Mistake",
+        "Correct idea"
+       ],
+       "rows": [
+        [
+         "log(M+N)=log M + log N",
+         "The law is for a product, log(MN)."
+        ],
+        [
+         "Log of 0 or a negative",
+         "log x needs x>0."
+        ],
+        [
+         "2^3=6",
+         "2^3=8."
+        ]
        ]
       },
       {
@@ -617,75 +1096,6 @@
        "answer": "$$2^4 = 16$$"
       },
       {
-       "id": "math11-u4-c10",
-       "type": "worked",
-       "title": "Equations",
-       "page": 160,
-       "src": "notes",
-       "problem": "Solve 2^(x+1)=32 and log2 x = 5.",
-       "steps": [
-        {
-         "text": "32=2^5, so x+1=5 and x=4."
-        },
-        {
-         "text": "log2 x = 5 means x=32."
-        }
-       ],
-       "answer": "x=4 and x=32"
-      },
-      {
-       "id": "math11-u4-c11",
-       "type": "worked",
-       "title": "Growth and decay",
-       "page": 160,
-       "src": "notes",
-       "problem": "1000 Nfa grows at 10 percent a year. Value after 2 years? 80 g has a half-life of 5 years. How much after 15 years?",
-       "steps": [
-        {
-         "text": "A=1000*1.1^2=1210 Nfa."
-        },
-        {
-         "text": "15 years is 3 half-lives: 80, 40, 20, 10 g."
-        }
-       ],
-       "answer": "1210 Nfa and 10 g"
-      },
-      {
-       "id": "math11-u4-c12",
-       "type": "table",
-       "title": "Common mistakes",
-       "page": 160,
-       "src": "notes",
-       "head": [
-        "Mistake",
-        "Correct idea"
-       ],
-       "rows": [
-        [
-         "log(M+N)=log M + log N",
-         "The law is for a product, log(MN)."
-        ],
-        [
-         "Log of 0 or a negative",
-         "log x needs x>0."
-        ],
-        [
-         "2^3=6",
-         "2^3=8."
-        ]
-       ]
-      },
-      {
-       "id": "math11-u4-c14",
-       "type": "remember",
-       "title": "Unit summary",
-       "page": 160,
-       "src": "notes",
-       "body": [
-        "b^x grows if b>1 and decays if 0<b<1. log_b x = y means b^y=x. Product adds logs, quotient subtracts, power multiplies."
-       ]
-      },
-      {
        "id": "math11-u4-pc3",
        "type": "check",
        "title": "Practice",
@@ -704,11 +1114,63 @@
      ]
     }
    ],
-   "glossary": [],
+   "glossary": [
+    {
+     "term": "Exponential function",
+     "meaning": "$f(x) = a^x$, $a > 0$, $a \\ne 1$.",
+     "page": 146,
+     "src": "notes"
+    },
+    {
+     "term": "Logarithm",
+     "meaning": "$\\log_a x$ is the power of $a$ that gives $x$.",
+     "page": 153,
+     "src": "notes"
+    },
+    {
+     "term": "Common logarithm",
+     "meaning": "$\\log x = \\log_{10} x$.",
+     "page": 153,
+     "src": "notes"
+    },
+    {
+     "term": "Growth factor",
+     "meaning": "$1 + r$ for growth at rate $r$ per period.",
+     "page": 161,
+     "src": "notes"
+    },
+    {
+     "term": "Decay factor",
+     "meaning": "$1 - r$ for decrease at rate $r$ per period.",
+     "page": 161,
+     "src": "notes"
+    },
+    {
+     "term": "Half-life",
+     "meaning": "The time for a quantity to halve.",
+     "page": 162,
+     "src": "notes"
+    }
+   ],
    "tips": [
     {
      "text": "Read 4.1 Exponential Functions again and say its main idea in one sentence.",
      "page": 142
+    },
+    {
+     "text": "Exponential: domain all reals, range y > 0.",
+     "page": 148,
+     "src": "notes"
+    },
+    {
+     "text": "A log is an exponent: log₂ 8 = 3 because 2³ = 8.",
+     "page": 153,
+     "src": "notes"
+    },
+    {
+     "text": "Log equations: write the domain first, reject answers outside it.",
+     "page": 155,
+     "src": "notes"
     }
    ],
    "games": [
@@ -1468,6 +1930,749 @@
       ],
       "tip": "Units reveal mistakes.",
       "similar": []
+     },
+     {
+      "id": "math11-u4-md-s41-q01",
+      "type": "short",
+      "q": "Review 1: simplify (a) $625^{\\frac{1}{4}}$ (b) $27^{-\\frac{2}{3}}$ (c) $\\left(\\frac{16}{49}\\right)^{-\\frac{1}{2}}$.",
+      "answer": "5; $\\frac{1}{9}$; $\\frac{7}{4}$",
+      "why": [
+       "Step 1: $625 = 5^4$.",
+       "Step 2: $27^{\\frac{1}{3}} = 3$, squared 9, negative → $\\frac{1}{9}$.",
+       "Step 3: negative power flips: $\\left(\\frac{49}{16}\\right)^{\\frac{1}{2}} = \\frac{7}{4}$."
+      ],
+      "tip": "Root first, then power.",
+      "similar": [
+       {
+        "q": "$8^{\\frac{2}{3}}$?",
+        "a": "4."
+       }
+      ],
+      "page": 164,
+      "src": "notes",
+      "label": "4.1 Practice — exponents and exponential functions"
+     },
+     {
+      "id": "math11-u4-md-s41-q02",
+      "type": "short",
+      "q": "Exercise 4.1 Q4: simplify $x^{a + b} \\times x^{2a + b} \\div x^{2a - 7}$.",
+      "answer": "$x^{a + 2b + 7}$",
+      "why": [
+       "Step 1: add then subtract exponents: $(a + b) + (2a + b) - (2a - 7)$.",
+       "Step 2: $= a + 2b + 7$."
+      ],
+      "tip": "Bracket the exponent you subtract.",
+      "similar": [
+       {
+        "q": "$x^{3n} \\div x^{n - 2}$?",
+        "a": "$x^{2n + 2}$."
+       }
+      ],
+      "page": 144,
+      "src": "notes",
+      "label": "4.1 Practice — exponents and exponential functions"
+     },
+     {
+      "id": "math11-u4-md-s41-q03",
+      "type": "short",
+      "q": "Exercise 4.1 Q5(a): show $\\frac{3^{n + 1} + 3^{2n}}{3 + 3^n} = 3^n$.",
+      "answer": "shown",
+      "why": [
+       "Step 1: numerator $3 \\cdot 3^n + 3^n \\cdot 3^n = 3^n(3 + 3^n)$.",
+       "Step 2: cancel $(3 + 3^n)$."
+      ],
+      "tip": "Factor out the common power.",
+      "similar": [
+       {
+        "q": "Simplify $\\frac{2^{n + 2} - 2^n}{2^n}$.",
+        "a": "3."
+       }
+      ],
+      "page": 145,
+      "src": "notes",
+      "label": "4.1 Practice — exponents and exponential functions"
+     },
+     {
+      "id": "math11-u4-md-s41-q04",
+      "type": "short",
+      "q": "Exercise 4.2: solve (a) $2^{x^2 + 5x} = 4^{-3}$ (c) $3^{-x + 5} = \\frac{1}{81}$.",
+      "answer": "$x = -2$ or $-3$; $x = 9$",
+      "why": [
+       "Step 1: $4^{-3} = 2^{-6}$: $x^2 + 5x + 6 = 0$.",
+       "Step 2: $\\frac{1}{81} = 3^{-4}$: $-x + 5 = -4$."
+      ],
+      "tip": "Same base, equate exponents.",
+      "similar": [
+       {
+        "q": "$5^{x + 1} = 125$?",
+        "a": "$x = 2$."
+       }
+      ],
+      "page": 145,
+      "src": "notes",
+      "label": "4.1 Practice — exponents and exponential functions"
+     },
+     {
+      "id": "math11-u4-md-s41-q05",
+      "type": "short",
+      "q": "Exercise 4.2(d): solve $625^{2x + 1} = 5(25^{x - 1})$.",
+      "answer": "$x = -\\frac{5}{6}$",
+      "why": [
+       "Step 1: $5^{4(2x + 1)} = 5^{1 + 2(x - 1)}$.",
+       "Step 2: $8x + 4 = 2x - 1 \\Rightarrow 6x = -5$."
+      ],
+      "tip": "Write 625 and 25 as powers of 5.",
+      "similar": [
+       {
+        "q": "$9^x = 3^{x + 4}$?",
+        "a": "$x = 4$."
+       }
+      ],
+      "page": 145,
+      "src": "notes",
+      "label": "4.1 Practice — exponents and exponential functions"
+     },
+     {
+      "id": "math11-u4-md-s41-q06",
+      "type": "short",
+      "q": "Exercise 4.2(e): solve $2^{2x} - 3(2^x) - 10 = 0$.",
+      "answer": "$x = \\log_2 5 \\approx 2.32$",
+      "why": [
+       "Step 1: $u = 2^x$: $u^2 - 3u - 10 = 0 \\Rightarrow u = 5$ or $-2$.",
+       "Step 2: $2^x = -2$ is impossible; $2^x = 5$."
+      ],
+      "tip": "Reject negative values of $a^x$.",
+      "similar": [
+       {
+        "q": "$2^{2x} + 5(2^x) - 14 = 0$?",
+        "a": "$x = 1$."
+       }
+      ],
+      "page": 145,
+      "src": "notes",
+      "label": "4.1 Practice — exponents and exponential functions"
+     },
+     {
+      "id": "math11-u4-md-s41-q07",
+      "type": "short",
+      "q": "Exercise 4.3 Q5: solve (c) $8^x = 16^{3x + 9}$ (d) $81^{2x - 3} = 27^x$.",
+      "answer": "$x = -4$; $x = \\frac{12}{5}$",
+      "why": [
+       "Step 1: $2^{3x} = 2^{12x + 36} \\Rightarrow -9x = 36$.",
+       "Step 2: $3^{8x - 12} = 3^{3x} \\Rightarrow 5x = 12$."
+      ],
+      "tip": "Find a common base first.",
+      "similar": [
+       {
+        "q": "$4^x = 8^{x - 1}$?",
+        "a": "$x = 3$."
+       }
+      ],
+      "page": 152,
+      "src": "notes",
+      "label": "4.1 Practice — exponents and exponential functions"
+     },
+     {
+      "id": "math11-u4-md-s41-q08",
+      "type": "short",
+      "q": "Exercise 4.3 Q5: solve (f) $3^{2x} - 8(3^x) + 15 = 0$ (g) $\\left(\\frac{1}{3}\\right)^{x - 1} = 3^{2x + 4}$.",
+      "answer": "$x = 1$ or $\\log_3 5$; $x = -1$",
+      "why": [
+       "Step 1: $u = 3^x$: $(u - 3)(u - 5) = 0$.",
+       "Step 2: $3^{-(x - 1)} = 3^{2x + 4} \\Rightarrow -x + 1 = 2x + 4$."
+      ],
+      "tip": "$\\frac{1}{3} = 3^{-1}$.",
+      "similar": [
+       {
+        "q": "$\\left(\\frac{1}{2}\\right)^x = 8$?",
+        "a": "$x = -3$."
+       }
+      ],
+      "page": 152,
+      "src": "notes",
+      "label": "4.1 Practice — exponents and exponential functions"
+     },
+     {
+      "id": "math11-u4-md-s41-q09",
+      "type": "short",
+      "q": "Exercise 4.3 Q2: compare $y = 2^x + 3$ with $y = 2^x$.",
+      "answer": "same shape moved up 3; y-int 4; asymptote $y = 3$; range $y > 3$",
+      "why": [
+       "Step 1: every $y$ value increases by 3.",
+       "Step 2: $2^0 + 3 = 4$."
+      ],
+      "tip": "$+k$ outside moves the asymptote too.",
+      "similar": [
+       {
+        "q": "$y = 2^x - 1$?",
+        "a": "down 1; through $(0, 0)$; asymptote $y = -1$."
+       }
+      ],
+      "page": 151,
+      "src": "notes",
+      "label": "4.1 Practice — exponents and exponential functions"
+     },
+     {
+      "id": "math11-u4-md-s41-q10",
+      "type": "mcq",
+      "q": "The range of $y = a^x$ ($a > 0$, $a \\ne 1$) is",
+      "options": {
+       "A": "$y > 0$",
+       "B": "all reals",
+       "C": "$y \\ge 1$",
+       "D": "$x > 0$"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: a positive base to any power is positive and never 0."
+      ],
+      "tip": "Domain all reals, range positive.",
+      "similar": [
+       {
+        "q": "Domain?",
+        "a": "all real numbers."
+       }
+      ],
+      "page": 148,
+      "src": "notes",
+      "label": "4.1 Practice — exponents and exponential functions"
+     },
+     {
+      "id": "math11-u4-md-s41-q11",
+      "type": "mcq",
+      "q": "Which function is decreasing?",
+      "options": {
+       "A": "$y = 0.8^x$",
+       "B": "$y = 1.2^x$",
+       "C": "$y = 3^x$",
+       "D": "$y = 10^x$"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: base between 0 and 1 → decay."
+      ],
+      "tip": "Compare the base with 1.",
+      "similar": [
+       {
+        "q": "Is $y = 2^{-x}$ decreasing?",
+        "a": "Yes, it is $(0.5)^x$."
+       }
+      ],
+      "page": 149,
+      "src": "notes",
+      "label": "4.1 Practice — exponents and exponential functions"
+     },
+     {
+      "id": "math11-u4-md-s41-q12",
+      "type": "tf",
+      "q": "The graph of $y = 5^x$ crosses the x-axis.",
+      "answer": false,
+      "why": [
+       "Step 1: $5^x > 0$ for every $x$; the x-axis is an asymptote."
+      ],
+      "tip": "Exponentials never reach 0.",
+      "similar": [
+       {
+        "q": "Does it cross the y-axis?",
+        "a": "Yes, at $(0, 1)$."
+       }
+      ],
+      "page": 148,
+      "src": "notes",
+      "label": "4.1 Practice — exponents and exponential functions"
+     },
+     {
+      "id": "math11-u4-md-s42-q01",
+      "type": "short",
+      "q": "Activity 4.6: (a) write $16 = 2^4$ in log form (b) write $4 = \\log_3 81$ in exponential form.",
+      "answer": "$\\log_2 16 = 4$; $3^4 = 81$",
+      "why": [
+       "Step 1: base 2, exponent 4.",
+       "Step 2: base 3 to the power 4 gives 81."
+      ],
+      "tip": "The log is the exponent.",
+      "similar": [
+       {
+        "q": "$10^{-2} = 0.01$?",
+        "a": "$\\log 0.01 = -2$."
+       }
+      ],
+      "page": 152,
+      "src": "notes",
+      "label": "4.2 Practice — logarithms"
+     },
+     {
+      "id": "math11-u4-md-s42-q02",
+      "type": "short",
+      "q": "Exercise 4.4 Q1: find (a) $\\log_5 625 + \\log_5 125$ (b) $\\log_2 \\sqrt[4]{2} + \\log_2 \\sqrt[5]{16}$.",
+      "answer": "7; $\\frac{21}{20}$",
+      "why": [
+       "Step 1: $4 + 3 = 7$.",
+       "Step 2: $\\frac{1}{4} + \\frac{4}{5} = \\frac{21}{20}$."
+      ],
+      "tip": "Write roots as fractional powers. (Q1 b and c are printed identically in the book.)",
+      "similar": [
+       {
+        "q": "$\\log_3 27 + \\log_3 9$?",
+        "a": "5."
+       }
+      ],
+      "page": 155,
+      "src": "notes",
+      "label": "4.2 Practice — logarithms"
+     },
+     {
+      "id": "math11-u4-md-s42-q03",
+      "type": "short",
+      "q": "Exercise 4.4 Q2: find (a) $3^{\\log_3 9}$ (b) $2^{\\log_2 \\frac{1}{8}}$ (c) $9^{\\log_9 9^3}$.",
+      "answer": "9; $\\frac{1}{8}$; 729",
+      "why": [
+       "Step 1: $a^{\\log_a x} = x$ each time."
+      ],
+      "tip": "Exponential and log cancel.",
+      "similar": [
+       {
+        "q": "$10^{\\log 7}$?",
+        "a": "7."
+       }
+      ],
+      "page": 156,
+      "src": "notes",
+      "label": "4.2 Practice — logarithms"
+     },
+     {
+      "id": "math11-u4-md-s42-q04",
+      "type": "short",
+      "q": "Solve $\\log_2(x + 2) = 3$.",
+      "answer": "$x = 6$",
+      "why": [
+       "Step 1: domain $x > -2$.",
+       "Step 2: $x + 2 = 2^3 = 8$."
+      ],
+      "tip": "Convert to exponential form.",
+      "similar": [
+       {
+        "q": "$\\log_3(2x + 1) = 2$?",
+        "a": "$x = 4$."
+       }
+      ],
+      "page": 155,
+      "src": "notes",
+      "label": "4.2 Practice — logarithms"
+     },
+     {
+      "id": "math11-u4-md-s42-q05",
+      "type": "short",
+      "q": "Review 12(b): solve $\\log_2(x - 9) + \\log_2(3x + 2) = 5$.",
+      "answer": "$x = 10$",
+      "why": [
+       "Step 1: domain $x > 9$.",
+       "Step 2: $(x - 9)(3x + 2) = 32 \\Rightarrow 3x^2 - 25x - 50 = 0 \\Rightarrow (3x + 5)(x - 10) = 0$.",
+       "Step 3: $-\\frac{5}{3}$ is outside the domain."
+      ],
+      "tip": "Product law, then exponential form.",
+      "similar": [
+       {
+        "q": "$\\log_5(x - 1) + \\log_5(2x + 1) = 1$?",
+        "a": "$x = 2$."
+       }
+      ],
+      "page": 165,
+      "src": "notes",
+      "label": "4.2 Practice — logarithms"
+     },
+     {
+      "id": "math11-u4-md-s42-q06",
+      "type": "short",
+      "q": "Review 12(c): solve $\\log_7 9 = 2\\log_7 x - \\log_7 25$.",
+      "answer": "$x = 15$",
+      "why": [
+       "Step 1: right side $= \\log_7 \\frac{x^2}{25}$.",
+       "Step 2: $\\frac{x^2}{25} = 9 \\Rightarrow x^2 = 225$; $x > 0$."
+      ],
+      "tip": "Power law, then quotient law.",
+      "similar": [
+       {
+        "q": "$\\log_3 x = \\log_3 8 + \\log_3 7$?",
+        "a": "$x = 56$."
+       }
+      ],
+      "page": 165,
+      "src": "notes",
+      "label": "4.2 Practice — logarithms"
+     },
+     {
+      "id": "math11-u4-md-s42-q07",
+      "type": "short",
+      "q": "Review 12(h): solve $\\log_4(x + 4) - \\log_4 5 = \\log_4(x - 1) - \\log_4 3$.",
+      "answer": "$x = 8.5$",
+      "why": [
+       "Step 1: $\\frac{x + 4}{5} = \\frac{x - 1}{3}$.",
+       "Step 2: $3x + 12 = 5x - 5 \\Rightarrow x = 8.5$ (domain $x > 1$ is fine)."
+      ],
+      "tip": "Same log on both sides → equal arguments.",
+      "similar": [
+       {
+        "q": "$\\log x - \\log 2 = \\log 5$?",
+        "a": "$x = 10$."
+       }
+      ],
+      "page": 165,
+      "src": "notes",
+      "label": "4.2 Practice — logarithms"
+     },
+     {
+      "id": "math11-u4-md-s42-q08",
+      "type": "short",
+      "q": "Review 12(i) and (j): solve $\\log_3(x^2 + 6x) = 3$ and $\\log x + \\log(x - 3) = 1$.",
+      "answer": "$x = 3$ or $-9$; $x = 5$",
+      "why": [
+       "Step 1: $x^2 + 6x = 27 \\Rightarrow (x + 9)(x - 3) = 0$; both give $x^2 + 6x = 27 > 0$, so both are valid.",
+       "Step 2: $x(x - 3) = 10 \\Rightarrow (x - 5)(x + 2) = 0$; $x = -2$ fails $x > 3$."
+      ],
+      "tip": "Check the argument, not the sign of $x$.",
+      "similar": [
+       {
+        "q": "$\\log_2(x^2 - 1) = 3$?",
+        "a": "$x = \\pm 3$."
+       }
+      ],
+      "page": 165,
+      "src": "notes",
+      "label": "4.2 Practice — logarithms"
+     },
+     {
+      "id": "math11-u4-md-s42-q09",
+      "type": "short",
+      "q": "Review 11: if $\\log_3 x = 4$, find $\\log_3 9x$ and $\\log_3 \\frac{81}{\\sqrt{x}}$.",
+      "answer": "6; 2",
+      "why": [
+       "Step 1: $\\log_3 9 + \\log_3 x = 2 + 4$.",
+       "Step 2: $\\log_3 81 - \\frac{1}{2}\\log_3 x = 4 - 2$."
+      ],
+      "tip": "Split with the laws, then substitute. (The book prints \"$\\log_3 9x = 4$\" as the question — it should ask for the value.)",
+      "similar": [
+       {
+        "q": "$\\log_3 x^2$?",
+        "a": "8."
+       }
+      ],
+      "page": 165,
+      "src": "notes",
+      "label": "4.2 Practice — logarithms"
+     },
+     {
+      "id": "math11-u4-md-s42-q10",
+      "type": "short",
+      "q": "State the domain, range, intercept and asymptote of $y = \\log_2 x$.",
+      "answer": "domain $x > 0$; range all reals; x-int 1; asymptote $x = 0$",
+      "why": [
+       "Step 1: inverse of $2^x$: swap domain and range.",
+       "Step 2: $\\log_2 1 = 0$."
+      ],
+      "tip": "Swap the facts of $2^x$.",
+      "similar": [
+       {
+        "q": "Of $y = \\log_2 x + 2$?",
+        "a": "same domain; x-int $\\frac{1}{4}$; asymptote $x = 0$."
+       }
+      ],
+      "page": 157,
+      "src": "notes",
+      "label": "4.2 Practice — logarithms"
+     },
+     {
+      "id": "math11-u4-md-s42-q11",
+      "type": "mcq",
+      "q": "$\\log_a(m + n)$ equals",
+      "options": {
+       "A": "none of these in general",
+       "B": "$\\log_a m + \\log_a n$",
+       "C": "$\\log_a m \\cdot \\log_a n$",
+       "D": "$\\log_a(mn)$"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: the product law is about $\\log(mn)$, not $\\log(m + n)$. Test: $\\log 1 + \\log 1 = 0 \\ne \\log 2$."
+      ],
+      "tip": "There is no sum law.",
+      "similar": [
+       {
+        "q": "$\\log(mn)$?",
+        "a": "$\\log m + \\log n$."
+       }
+      ],
+      "page": 153,
+      "src": "notes",
+      "label": "4.2 Practice — logarithms"
+     },
+     {
+      "id": "math11-u4-md-s42-q12",
+      "type": "mcq",
+      "q": "All graphs $y = \\log_a x$ pass through",
+      "options": {
+       "A": "$(1, 0)$",
+       "B": "$(0, 1)$",
+       "C": "$(0, 0)$",
+       "D": "$(a, 0)$"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $\\log_a 1 = 0$."
+      ],
+      "tip": "Mirror of $(0, 1)$.",
+      "similar": [
+       {
+        "q": "Through which point does $y = \\log_a x$ pass at height 1?",
+        "a": "$(a, 1)$."
+       }
+      ],
+      "page": 158,
+      "src": "notes",
+      "label": "4.2 Practice — logarithms"
+     },
+     {
+      "id": "math11-u4-md-s42-q13",
+      "type": "tf",
+      "q": "$\\log_5 x$ is defined for $x = 0$.",
+      "answer": false,
+      "why": [
+       "Step 1: $5^y = 0$ has no solution."
+      ],
+      "tip": "Arguments must be positive.",
+      "similar": [
+       {
+        "q": "Is $\\log_5 1$ defined?",
+        "a": "Yes, it is 0."
+       }
+      ],
+      "page": 154,
+      "src": "notes",
+      "label": "4.2 Practice — logarithms"
+     },
+     {
+      "id": "math11-u4-md-s43-q01",
+      "type": "short",
+      "q": "Exercise 4.6 Q1: Eritrea's population of 4.5 million grows 2.5% per year. How many more people after 2 years?",
+      "answer": "about 228 000",
+      "why": [
+       "Step 1: $4.5 \\times 1.025^2 = 4.5 \\times 1.050625 \\approx 4.728$ million.",
+       "Step 2: increase $\\approx 0.228$ million."
+      ],
+      "tip": "Growth factor 1.025.",
+      "similar": [
+       {
+        "q": "After 1 year?",
+        "a": "about 112 500 more."
+       }
+      ],
+      "page": 163,
+      "src": "notes",
+      "label": "4.3 Practice — applications"
+     },
+     {
+      "id": "math11-u4-md-s43-q02",
+      "type": "short",
+      "q": "Exercise 4.6 Q2: 50 m² of algae shrinks 5% a day. Area after 30 days?",
+      "answer": "about 10.7 m²",
+      "why": [
+       "Step 1: $50 \\times 0.95^{30}$.",
+       "Step 2: $0.95^{30} \\approx 0.2146$; $50 \\times 0.2146 \\approx 10.7$."
+      ],
+      "tip": "Decay factor 0.95.",
+      "similar": [
+       {
+        "q": "After 10 days?",
+        "a": "about 29.9 m²."
+       }
+      ],
+      "page": 163,
+      "src": "notes",
+      "label": "4.3 Practice — applications"
+     },
+     {
+      "id": "math11-u4-md-s43-q03",
+      "type": "short",
+      "q": "Review 8: $I = (1.16)^t$ is the value of 1 Nakfa after $t$ years. Find $I$ for 3 and 8 years, and the value of 350 Nakfa after 4 years.",
+      "answer": "1.56; 3.28; about 633.7 Nakfa",
+      "why": [
+       "Step 1: $1.16^3 \\approx 1.561$; $1.16^8 \\approx 3.278$.",
+       "Step 2: $350 \\times 1.16^4 \\approx 350 \\times 1.8106 \\approx 633.7$."
+      ],
+      "tip": "Multiply the start value by the factor.",
+      "similar": [
+       {
+        "q": "1000 Nakfa for 2 years?",
+        "a": "about 1345.6 Nakfa."
+       }
+      ],
+      "page": 164,
+      "src": "notes",
+      "label": "4.3 Practice — applications"
+     },
+     {
+      "id": "math11-u4-md-s43-q04",
+      "type": "short",
+      "q": "Review 9: $N = 100 \\times 10^{0.6}$. Find $N$.",
+      "answer": "about 398",
+      "why": [
+       "Step 1: $10^{0.6} \\approx 3.981$.",
+       "Step 2: $\\times 100$."
+      ],
+      "tip": "Use the $10^x$ key.",
+      "similar": [
+       {
+        "q": "$100 \\times 10^{0.3}$?",
+        "a": "about 200."
+       }
+      ],
+      "page": 164,
+      "src": "notes",
+      "label": "4.3 Practice — applications"
+     },
+     {
+      "id": "math11-u4-md-s43-q05",
+      "type": "short",
+      "q": "Review 14: $A = 128 \\times 10^{-0.016t}$ grams. When is $A = 25$ g?",
+      "answer": "about 44.3 hours",
+      "why": [
+       "Step 1: $10^{-0.016t} = \\frac{25}{128} \\approx 0.1953$.",
+       "Step 2: $-0.016t = \\log 0.1953 \\approx -0.709$.",
+       "Step 3: $t \\approx 44.3$."
+      ],
+      "tip": "The book says \"123 gm\" but the formula starts at 128 g; we use the formula.",
+      "similar": [
+       {
+        "q": "When is $A = 64$ g?",
+        "a": "$t = \\frac{\\log 2}{0.016} \\approx 18.8$ h."
+       }
+      ],
+      "page": 165,
+      "src": "notes",
+      "label": "4.3 Practice — applications"
+     },
+     {
+      "id": "math11-u4-md-s43-q06",
+      "type": "short",
+      "q": "Review 13: an equilateral triangle has area $A = \\frac{\\sqrt{3}}{4}s^2 = 12.6$ m². Find $s$.",
+      "answer": "about 5.39 m",
+      "why": [
+       "Step 1: $s^2 = \\frac{4 \\times 12.6}{\\sqrt{3}} \\approx 29.1$.",
+       "Step 2: $s \\approx 5.39$."
+      ],
+      "tip": "Isolate $s^2$ first.",
+      "similar": [
+       {
+        "q": "Area $\\sqrt{3}$?",
+        "a": "$s = 2$."
+       }
+      ],
+      "page": 165,
+      "src": "notes",
+      "label": "4.3 Practice — applications"
+     },
+     {
+      "id": "math11-u4-md-s43-q07",
+      "type": "short",
+      "q": "Example 4.6(3): 20 kg of sugar, 5% used each day. How much is left after 3 days?",
+      "answer": "about 17.15 kg",
+      "why": [
+       "Step 1: $W_3 = 20 \\times 0.95^3$.",
+       "Step 2: $0.95^3 = 0.857375$."
+      ],
+      "tip": "Each day keeps 95%.",
+      "similar": [
+       {
+        "q": "After $n$ days?",
+        "a": "$20(0.95)^n$."
+       }
+      ],
+      "page": 161,
+      "src": "notes",
+      "label": "4.3 Practice — applications"
+     },
+     {
+      "id": "math11-u4-md-s43-q08",
+      "type": "short",
+      "q": "A radioactive sample of 80 g has a half-life of 5 years. How much remains after 15 years, and when is 10 g left?",
+      "answer": "10 g; after 15 years",
+      "why": [
+       "Step 1: $15 \\div 5 = 3$ half-lives: $80 \\times \\left(\\frac{1}{2}\\right)^3 = 10$."
+      ],
+      "tip": "Count half-lives.",
+      "similar": [
+       {
+        "q": "64 g, half-life 3 days, after 12 days?",
+        "a": "4 g."
+       }
+      ],
+      "page": 162,
+      "src": "notes",
+      "label": "4.3 Practice — applications"
+     },
+     {
+      "id": "math11-u4-md-s43-q09",
+      "type": "short",
+      "q": "Kibrom starts with 5 Nakfa and triples it every 2 days. After how many days does he have 1215 Nakfa?",
+      "answer": "10 days",
+      "why": [
+       "Step 1: $5 \\times 3^n = 1215 \\Rightarrow 3^n = 243 = 3^5$.",
+       "Step 2: 5 periods × 2 days."
+      ],
+      "tip": "Write the model, then same base.",
+      "similar": [
+       {
+        "q": "Amount after 8 days?",
+        "a": "405 Nakfa."
+       }
+      ],
+      "page": 161,
+      "src": "notes",
+      "label": "4.3 Practice — applications"
+     },
+     {
+      "id": "math11-u4-md-s43-q10",
+      "type": "mcq",
+      "q": "$1000 \\times 2^n = 8000$ gives",
+      "options": {
+       "A": "$n = 3$",
+       "B": "$n = 4$",
+       "C": "$n = 8$",
+       "D": "$n = 2$"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $2^n = 8 = 2^3$. (The book prints $n = 4$ by mistake.)"
+      ],
+      "tip": "Divide by the start value first.",
+      "similar": [
+       {
+        "q": "$500 \\times 2^n = 4000$?",
+        "a": "$n = 3$."
+       }
+      ],
+      "page": 162,
+      "src": "notes",
+      "label": "4.3 Practice — applications"
+     },
+     {
+      "id": "math11-u4-md-s43-q11",
+      "type": "tf",
+      "q": "A population growing by 20% a month is multiplied by 0.2 each month.",
+      "answer": false,
+      "why": [
+       "Step 1: it is multiplied by $1 + 0.2 = 1.2$."
+      ],
+      "tip": "Factor = 1 + rate.",
+      "similar": [
+       {
+        "q": "Decrease of 20%?",
+        "a": "factor 0.8."
+       }
+      ],
+      "page": 161,
+      "src": "notes",
+      "label": "4.3 Practice — applications"
      }
     ]
    },
@@ -1511,6 +2716,30 @@
        "math11-u4-c05",
        "math11-u4-c06"
       ]
+     },
+     {
+      "id": "md_expgraph",
+      "label": "Graphs of a^x",
+      "kind": "idea",
+      "cards": [
+       "math11-u4-c01"
+      ]
+     },
+     {
+      "id": "md_loglaws",
+      "label": "Laws of logs",
+      "kind": "idea",
+      "cards": [
+       "math11-u4-md-loglaws-tb"
+      ]
+     },
+     {
+      "id": "md_model",
+      "label": "Growth and decay",
+      "kind": "idea",
+      "cards": [
+       "math11-u4-c05"
+      ]
      }
     ],
     "edges": [
@@ -1538,9 +2767,62 @@
       "from": "l4_2",
       "to": "l4_3",
       "label": "next"
+     },
+     {
+      "from": "l4_1",
+      "to": "md_expgraph",
+      "label": "key idea"
+     },
+     {
+      "from": "l4_2",
+      "to": "md_loglaws",
+      "label": "key idea"
+     },
+     {
+      "from": "l4_3",
+      "to": "md_model",
+      "label": "key idea"
      }
     ],
     "src": "auto"
+   },
+   "diagrams": {
+    "md_bases": {
+     "svg": "svg/mathematics_11/m11_u4_bases.svg",
+     "title": "Fig 4.2: y = 2^x, 3^x and 10^x",
+     "page": 147,
+     "pins": []
+    },
+    "md_mirror": {
+     "svg": "svg/mathematics_11/m11_u4_mirror.svg",
+     "title": "Growth and decay: y = 2^x and y = (1/2)^x",
+     "page": 149,
+     "pins": []
+    },
+    "md_shift": {
+     "svg": "svg/mathematics_11/m11_u4_shift.svg",
+     "title": "Exercise 4.3 Q2: moving y = 2^x up and down",
+     "page": 151,
+     "pins": []
+    },
+    "md_inverse": {
+     "svg": "svg/mathematics_11/m11_u4_inverse.svg",
+     "title": "y = 2^x and y = log₂ x are mirror images in y = x",
+     "page": 157,
+     "pins": []
+    },
+    "md_logs": {
+     "svg": "svg/mathematics_11/m11_u4_logs.svg",
+     "title": "Figs 4.7–4.9: logarithm graphs with different bases",
+     "page": 158,
+     "pins": []
+    },
+    "md_hopper": {
+     "svg": "svg/mathematics_11/m11_u4_hopper.svg",
+     "title": "Example 4.6(4): the grasshopper area doubles each week",
+     "page": 162,
+     "pins": []
+    }
    }
   }
  ]
