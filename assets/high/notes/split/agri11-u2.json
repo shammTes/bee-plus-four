@@ -125,6 +125,102 @@
      "title": "If you strip the green cover, the brown walks downhill at the next storm.",
      "page": 38,
      "pins": []
+    },
+    "ad_instruments": {
+     "svg": "svg/agri_11/a11_u2_instruments.svg",
+     "title": "Meteorological instruments and what each one measures (Figure 2.1)",
+     "page": 39,
+     "pins": []
+    },
+    "ad_altitude": {
+     "svg": "svg/agri_11/a11_u2_altitude.svg",
+     "title": "Temperature falls as altitude rises: the Table 2.1 equations drawn as lines",
+     "page": 41,
+     "pins": []
+    },
+    "ad_soilroles": {
+     "svg": "svg/agri_11/a11_u2_soilroles.svg",
+     "title": "The five major ecological roles of soil (Figure 2.2)",
+     "page": 45,
+     "pins": []
+    },
+    "ad_formation": {
+     "svg": "svg/agri_11/a11_u2_formation.svg",
+     "title": "From rock to soil: weathering and the five soil-forming factors",
+     "page": 46,
+     "pins": []
+    },
+    "ad_profile": {
+     "svg": "svg/agri_11/a11_u2_profile.svg",
+     "title": "A soil profile with its master horizons (Figure 2.3)",
+     "page": 49,
+     "pins": []
+    },
+    "ad_composition": {
+     "svg": "svg/agri_11/a11_u2_composition.svg",
+     "title": "Volume composition of a good loam topsoil (Figure 2.4)",
+     "page": 51,
+     "pins": []
+    },
+    "ad_triangle": {
+     "svg": "svg/agri_11/a11_u2_triangle.svg",
+     "title": "The soil texture triangle (Figure 2.6), with the worked example 60% sand, 30% silt, 10% clay",
+     "page": 56,
+     "pins": []
+    },
+    "ad_sizes": {
+     "svg": "svg/agri_11/a11_u2_sizes.svg",
+     "title": "Sand, silt and clay by particle size",
+     "page": 55,
+     "pins": []
+    },
+    "ad_structure": {
+     "svg": "svg/agri_11/a11_u2_structure.svg",
+     "title": "Types of soil structure (Table 2.5)",
+     "page": 57,
+     "pins": []
+    },
+    "ad_soilwater": {
+     "svg": "svg/agri_11/a11_u2_soilwater.svg",
+     "title": "Soil water: gravitational, available and unavailable (Figure 2.7)",
+     "page": 59,
+     "pins": []
+    },
+    "ad_ph": {
+     "svg": "svg/agri_11/a11_u2_ph.svg",
+     "title": "The pH scale and typical soil values (Figure 2.8)",
+     "page": 65,
+     "pins": []
+    },
+    "ad_nutrient": {
+     "svg": "svg/agri_11/a11_u2_nutrient.svg",
+     "title": "A simple nutrient cycle (Figure 2.9)",
+     "page": 71,
+     "pins": []
+    },
+    "ad_hydro": {
+     "svg": "svg/agri_11/a11_u2_hydro.svg",
+     "title": "The hydrological cycle over Eritrea (Figure 2.10)",
+     "page": 85,
+     "pins": []
+    },
+    "ad_basins": {
+     "svg": "svg/agri_11/a11_u2_basins.svg",
+     "title": "The five major river basins (Table 2.12)",
+     "page": 88,
+     "pins": []
+    },
+    "ad_aez": {
+     "svg": "svg/agri_11/a11_u2_aez.svg",
+     "title": "The six agro-ecological zones by altitude and rainfall (Table 2.13)",
+     "page": 95,
+     "pins": []
+    },
+    "ad_landcover": {
+     "svg": "svg/agri_11/a11_u2_landcover.svg",
+     "title": "Land cover of Eritrea (Table 2.14)",
+     "page": 96,
+     "pins": []
     }
    },
    "lessons": [
@@ -138,92 +234,255 @@
      ],
      "cards": [
       {
-       "id": "agri11-u2-c01",
-       "type": "diagram",
-       "title": "If you strip the green cover, the brown walks downhill at the next storm.",
+       "id": "agri11-u2-ad-intro",
+       "type": "text",
+       "title": "Climate: the factor the farmer cannot change",
        "page": 38,
        "src": "notes",
-       "diagram": "f1",
-       "mode": "plain"
+       "body": [
+        "In Unit 1 you met three groups of yield factors. **Climate is a yield-defining factor**: a farmer cannot change it, but he must know it to choose the right crop, variety, sowing date and breed.",
+        "The climate elements that matter most for plants are **temperature, rainfall, relative humidity, solar radiation and light (day length), wind (air movement) and evaporation**. They act together.",
+        "Farmers and extension workers need daily records of: rainfall; maximum and minimum temperature; relative humidity; sunshine hours and intensity; wind speed and direction."
+       ]
+      },
+      {
+       "id": "agri11-u2-ad-instr-fig",
+       "type": "diagram",
+       "title": "Meteorological instruments",
+       "page": 39,
+       "src": "notes",
+       "diagram": "ad_instruments",
+       "mode": "plain",
+       "body": [
+        "Record data at the same time every day (before 8:00 a.m.) so that the numbers can be compared."
+       ]
+      },
+      {
+       "id": "agri11-u2-tbl1",
+       "type": "table",
+       "title": "Instruments, what they measure and the unit",
+       "page": 39,
+       "src": "notes",
+       "head": [
+        "Instrument",
+        "Measures",
+        "Unit",
+        "Use on the farm"
+       ],
+       "rows": [
+        [
+         "Standard rain gauge",
+         "Rainfall",
+         "mm",
+         "Sowing date; when to irrigate"
+        ],
+        [
+         "Maximum–minimum thermometer",
+         "Highest and lowest temperature",
+         "°C",
+         "Frost risk; heat stress at flowering"
+        ],
+        [
+         "Thermo-hygrograph",
+         "Temperature and relative humidity (continuous record)",
+         "°C, %",
+         "Warns of fungal diseases (downy mildew)"
+        ],
+        [
+         "Cup anemometer",
+         "Wind speed",
+         "m/s or km/h",
+         "Timing of spraying; windbreaks"
+        ],
+        [
+         "Wind vane",
+         "Wind direction",
+         "compass direction",
+         "Where to plant windbreaks"
+        ],
+        [
+         "Evaporation pan",
+         "Water evaporated",
+         "mm per day",
+         "How much irrigation water to give"
+        ],
+        [
+         "Sunshine recorder",
+         "Hours of bright sunshine",
+         "hours per day",
+         "Crop-growth and drying forecasts"
+        ],
+        [
+         "Barograph",
+         "Air pressure (continuous record)",
+         "mbar / hPa",
+         "Weather forecasting"
+        ]
+       ],
+       "layout": "cards"
       },
       {
        "id": "agri11-u2-c02",
        "type": "text",
        "title": "2.1.1 Temperature",
        "page": 40,
-       "src": "textbook p.40",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "Temperature is one of the most important climatic factors affecting the distribution and abundance of plants and animals.",
-        "**Temperature** is a significant factor as both low and high temperature ranges limit plant and animal growth and development.",
-        "Several parameters are used to delineate and describe geographical areas within the same climate.",
-        "Isotherms (e.g. the yearly isotherms) are the lines connecting the locations with the same mean yearly temperature of 20 °C or a yearly isotherm of 25 °C."
+        "Temperature is one of the most important factors deciding **where** plants and animals live and **how much** they produce. Both **too low** and **too high** temperatures slow growth and development.",
+        "Useful temperature measures: mean yearly temperature, mean monthly temperature, the coldest and warmest months, mean daily temperature and the **daily range** (day minus night).",
+        "**Isotherms** are lines on a map joining places with the same mean temperature (for example the 20 °C or 25 °C yearly isotherm).",
+        "**In Eritrea temperature is controlled mainly by altitude.** The textbook gives straight-line (linear) equations (Table 2.1), with altitude h in metres above sea level:",
+        "- Minimum temperature (°C) = 25.3 − 0.007 h",
+        "- Maximum temperature (°C) = 36.8 − 0.005 h",
+        "- Mean temperature (°C) = 31.0 − 0.006 h",
+        "- Mean potential evapotranspiration (mm/year) = 2069 − 0.198 h"
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-alt-fig",
+       "type": "diagram",
+       "title": "Higher means cooler",
+       "page": 41,
+       "src": "notes",
+       "diagram": "ad_altitude",
+       "mode": "plain",
+       "body": [
+        "Every 1000 m of climbing lowers the minimum temperature by 7 °C. That is why Massawa is hot and Asmara is cool even though they are only about 65 km apart."
        ]
+      },
+      {
+       "id": "agri11-u2-ad-wk-alt1",
+       "type": "worked",
+       "title": "Worked example — Activity 2.2 Q1 and Q2",
+       "page": 41,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Estimate (a) the minimum temperature and potential evapotranspiration (PET) at 1000 m, and (b) the maximum temperature at 2000 m.",
+       "steps": [
+        {
+         "text": "(a) Minimum: 25.3 − 0.007 × 1000 = 25.3 − 7 = **18.3 °C**."
+        },
+        {
+         "text": "(a) PET: 2069 − 0.198 × 1000 = 2069 − 198 = **1871 mm per year**."
+        },
+        {
+         "text": "(b) Maximum: 36.8 − 0.005 × 2000 = 36.8 − 10 = **26.8 °C**."
+        }
+       ],
+       "answer": "(a) 18.3 °C and 1871 mm/year; (b) 26.8 °C."
+      },
+      {
+       "id": "agri11-u2-ad-wk-alt2",
+       "type": "worked",
+       "title": "Worked example — Asmara (2325 m)",
+       "page": 41,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Asmara is at about 2325 m. Estimate its minimum, maximum and mean temperature and PET.",
+       "steps": [
+        {
+         "text": "Minimum: 25.3 − 0.007 × 2325 = 25.3 − 16.3 = **9.0 °C**."
+        },
+        {
+         "text": "Maximum: 36.8 − 0.005 × 2325 = 36.8 − 11.6 = **25.2 °C**."
+        },
+        {
+         "text": "Mean: 31.0 − 0.006 × 2325 = 31.0 − 14.0 = **17.0 °C**."
+        },
+        {
+         "text": "PET: 2069 − 0.198 × 2325 = 2069 − 460 = **1609 mm per year**."
+        },
+        {
+         "text": "Meaning: cool nights → barley, wheat and highland pulses do well; tropical crops such as sesame and cotton do not."
+        }
+       ],
+       "answer": "About 9 °C minimum, 25 °C maximum, 17 °C mean, PET about 1609 mm/year."
       },
       {
        "id": "agri11-u2-c03",
        "type": "text",
-       "title": "2.1.2 Relative Humidity",
+       "title": "2.1.2 Relative humidity",
        "page": 41,
-       "src": "textbook pp.41–42",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "**Relative humidity** is the measure of the amount of atmospheric moisture in relation to saturated air.",
-        "Temperature also affects relative humidity."
-       ]
+        "**Relative humidity (RH)** = the amount of water vapour in the air compared with the amount the air could hold when **saturated**, written as a **percentage**.",
+        "Why farmers care: many diseases and insects respond directly to RH. For example **downy mildew** on grapes and onions spreads in humid weather. **Temperature affects RH**: when air warms up its RH falls (it can hold more vapour); at night it cools and RH rises, which is why dew forms at dawn."
+       ],
+       "enriched": true
       },
       {
        "id": "agri11-u2-c04",
        "type": "text",
        "title": "2.1.3 Rainfall",
        "page": 42,
-       "src": "textbook p.42",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "Water is essential for all crops and livestock and forms an integral part of all living systems.",
-        "Water is important because it is a major force in shaping climatic patterns.",
-        "Water stress can vary in degree from a small decrease in water potential to a lethal limit of desiccation.",
-        "Temperature and precipitation act together to affect the physiological and ecological status of plants."
-       ]
+        "Water is part of every living process; **water stress** (from a small drop in water potential up to fatal drying) limits growth. Temperature and rainfall act **together**.",
+        "**The key balance:** compare rainfall with potential evapotranspiration (PET). If **rainfall < PET**, the area has a **water deficit** and crops need moisture conservation or irrigation.",
+        "**Example:** Massawa gets about 200 mm of rain but PET near sea level is about 2069 mm, a huge deficit; crops there need spate or other irrigation. In the moist highlands rainfall (500–700 mm) is still below PET, so timing of sowing and water harvesting matter."
+       ],
+       "enriched": true
       },
       {
        "id": "agri11-u2-c05",
        "type": "text",
-       "title": "2.1.4 Solar Radiation",
+       "title": "2.1.4 Solar radiation",
        "page": 42,
-       "src": "textbook p.42",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "Solar radiation consists of a range of electromagnetic spectra including radiowaves, ultraviolet (UV) rays, visible light, X-rays and gamma rays.",
-        "The components have different level of energy.",
-        "When electromagnetic energy is strikes any given surface, three fundamental energy interactions are possible: reflection, absorption and transmission.",
-        "A fraction of the radiant energy is reflected, absorbed and/or transmitted."
-       ]
+        "Solar radiation is a range of **electromagnetic** waves (radio waves, ultraviolet, visible light, X-rays, gamma rays) with different energies.",
+        "When radiation hits a surface (a leaf, the soil) three things can happen: it is **reflected**, **absorbed** or **transmitted**. Leaves absorb part of the visible light for **photosynthesis**, which builds biomass (yield)."
+       ],
+       "enriched": true
       },
       {
        "id": "agri11-u2-c06",
        "type": "text",
-       "title": "2.1.5 Light",
+       "title": "2.1.5 Light and day length",
        "page": 42,
-       "src": "textbook p.42",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "Changes in day length or photoperiod regulate the phenological development (germination up to seed setting) of crops and rangelands."
-       ]
+        "Light is essential for photosynthesis. **Day length (photoperiod)** controls the stages of crop development from germination to seed setting: it triggers growth, **flowering**, and hardening against cold as the seasons change.",
+        "**Example:** many local sorghum varieties flower only when days begin to shorten after August, so they flower at the end of the rains whatever the sowing date."
+       ],
+       "enriched": true
       },
       {
        "id": "agri11-u2-c07",
        "type": "text",
        "title": "2.1.6 Topography",
        "page": 43,
-       "src": "textbook p.43",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "**Topography** refers to a relief feature of land.",
-        "Topography determines the amount of light absorbed, wind speed, direction and rainfall.",
-        "Soils on slopes and hilltops are eroded and deposited in the valleys, hence, the soils in the valleys are richer and deeper than those on the slopes.",
-        "Because of this, these lands are generally suitable for cultivation."
-       ]
+        "**Topography** = the relief of the land (hilltops, slopes, valleys). It affects light received, wind speed and direction, rainfall, **runoff and erosion**.",
+        "- Soil is **eroded from slopes and hilltops** and **deposited in valleys**, so valley soils are **deeper and richer** and good for crops.",
+        "- But cold air sinks into valleys at night, so valley floors are more exposed to **frost** in the cold months.",
+        "- Topography also shapes drainage and temperature, and so the local vegetation and wildlife.",
+        "**Eritrean example:** the eastern escarpment faces the Red Sea and catches moist air, so it has a wetter, sub-humid climate than the land behind it."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-wk-ex21",
+       "type": "worked",
+       "title": "Worked example — Exercise 2.1 Q2",
+       "page": 43,
+       "src": "notes",
+       "mode": "show",
+       "problem": "How do relative humidity and topography affect the agricultural yield of an area?",
+       "steps": [
+        {
+         "text": "RH: high RH favours fungal diseases (downy mildew) and some insects → yield loss; very low RH increases transpiration → water stress."
+        },
+        {
+         "text": "Topography: slopes lose soil and water by runoff → shallow, poor soils, low yields; valleys collect soil and water → higher yields but frost risk."
+        },
+        {
+         "text": "Aspect and height change light, wind and rainfall, so the same crop yields differently on different slopes."
+        }
+       ],
+       "answer": "High humidity raises disease; low humidity raises water stress. Slopes lose soil and water; valleys gain them but risk frost."
       },
       {
        "id": "agri11-u2-enrich-steps",
@@ -236,51 +495,6 @@
         "2. Cover the examples and say the rule in your own words.",
         "3. Do the unit exercise; check each why-step before the next question.",
         "4. Replay the match game until you can finish it without peeking."
-       ]
-      },
-      {
-       "id": "agri11-u2-tbl1",
-       "type": "table",
-       "title": "Key table",
-       "page": 1,
-       "src": "study_notes",
-       "head": [
-        "Meteorological Instrument",
-        "Climate Element Measured",
-        "Standard Unit of Measurement",
-        "Practical Agricultural Value"
-       ],
-       "rows": [
-        [
-         "**Standard Rain Gauge**",
-         "Precipitation (Rainfall)",
-         "Millimeters ($$\\text{mm}$$)",
-         "Determines crop planting dates and water availability"
-        ],
-        [
-         "**Digital Thermometer**",
-         "Temperature",
-         "Degrees Celsius ($$^\\circ\\text{C}$$)",
-         "Identifies frost risks and crop growth thresholds"
-        ],
-        [
-         "**Thermo-hygrograph**",
-         "Temperature & Relative Humidity",
-         "Degrees Celsius ($$^\\circ\\text{C}$$) and percentage ($$\\%$$)",
-         "Predicts disease outbreaks (e.g., downy mildew)"
-        ],
-        [
-         "**Anemometer**",
-         "Wind Speed",
-         "Meters per second ($$\\text{m/s}$$) or Knots",
-         "Evaluates soil erosion risk and crop lodging hazards"
-        ],
-        [
-         "**Evaporation Pan**",
-         "Evaporation Rate",
-         "Millimeters ($$\\text{mm}$$)",
-         "Calculates irrigation water requirements"
-        ]
        ]
       },
       {
@@ -391,6 +605,836 @@
      ],
      "cards": [
       {
+       "id": "agri11-u2-ad-soilwhat",
+       "type": "text",
+       "title": "What soil is and why it matters",
+       "page": 44,
+       "src": "notes",
+       "body": [
+        "Soil is **not just dust**: it is loose earth material formed from rocks (parent material) together with organic matter, water, air and living things. A mining engineer sees debris over rock, a road engineer sees a base for a road, a **farmer sees a home for plants**.",
+        "**Soil science** studies the origin (genesis), form (morphology), properties and management of soil. Three kinds of process go on in soil: **chemical, physical and biological**.",
+        "Almost everything we use comes from soil: all our food crops, the grass livestock eat, fibres such as cotton and flax, timber, and building materials such as bricks."
+       ]
+      },
+      {
+       "id": "agri11-u2-ad-roles-fig",
+       "type": "diagram",
+       "title": "Five ecological roles of soil",
+       "page": 45,
+       "src": "notes",
+       "diagram": "ad_soilroles",
+       "mode": "plain",
+       "body": [
+        "Soil also filters pollutants and links the carbon cycle: plants fix CO₂ into organic matter and soil microbes release it again."
+       ]
+      },
+      {
+       "id": "agri11-u2-c11",
+       "type": "text",
+       "title": "2.2.1 Soil formation",
+       "page": 46,
+       "src": "notes",
+       "body": [
+        "Two ways to study soil:",
+        "- **Pedology** — the soil's origin, classification and description (useful to farmers and road engineers).",
+        "- **Edaphology** — soil **from the plant's point of view**: properties in relation to plant production and how to improve productivity.",
+        "**Weathering** is the physical breakdown and chemical alteration of rock by air, water and living things. The three rock groups that soils form from:",
+        "- **Igneous** (from molten magma): granite, diorite, gabbro, basalt. Dark gabbro and basalt (rich in iron and magnesium) weather **faster** than light granite.",
+        "- **Sedimentary** (weathered material deposited and re-cemented): sandstone (from quartz sand), shale (from clay), limestone, dolomite, conglomerate.",
+        "- **Metamorphic** (other rocks changed by heat and pressure): gneiss (often from granite), schist, quartzite (from sandstone), slate (from shale), marble (from limestone or dolomite).",
+        "In pedology soil is a three-dimensional natural body formed by **five soil-forming factors**."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-form-fig",
+       "type": "diagram",
+       "title": "Rock becomes soil — slowly",
+       "page": 46,
+       "src": "notes",
+       "diagram": "ad_formation",
+       "mode": "plain"
+      },
+      {
+       "id": "agri11-u2-ad-factors",
+       "type": "table",
+       "title": "The five soil-forming factors (Table 2.2)",
+       "page": 47,
+       "src": "notes",
+       "head": [
+        "Factor",
+        "How it shapes the soil"
+       ],
+       "rows": [
+        [
+         "Parent material",
+         "Different rocks weather into different regolith and soils, depending on their minerals (basalt → dark clay soils; granite → sandy soils)."
+        ],
+        [
+         "Climate",
+         "Temperature controls the speed of chemical reactions and decomposition; rainfall carries reactions, leaches nutrients or draws salts up to the surface."
+        ],
+        [
+         "Organisms (biota)",
+         "Micro-organisms, larger animals and plants break down rock and organic matter and mix the soil."
+        ],
+        [
+         "Topography",
+         "Elevation, aspect and slope control erosion, deposition and drainage."
+        ],
+        [
+         "Time",
+         "Young soils differ from old soils formed under the same conditions; 1 cm of soil takes 120–400 years."
+        ]
+       ],
+       "layout": "terms"
+      },
+      {
+       "id": "agri11-u2-ad-mn-cl",
+       "type": "mnemonic",
+       "title": "Memory trick — \"Cl-ORPT\"",
+       "page": 47,
+       "src": "notes",
+       "body": [
+        "**Cl**imate, **O**rganisms, **R**elief (topography), **P**arent material, **T**ime. Say \"clorpt\"."
+       ]
+      },
+      {
+       "id": "agri11-u2-c12",
+       "type": "text",
+       "title": "2.2.2 Soil profile description",
+       "page": 48,
+       "src": "notes",
+       "body": [
+        "A **soil profile** is a vertical section through the soil, from the surface down into the parent material. Its layers, roughly parallel to the surface, are **horizons**, each fairly uniform in its properties.",
+        "- **O horizon:** organic litter (leaves, roots) on the surface; common under forest and grassland.",
+        "- **A horizon (topsoil):** mineral soil mixed with **humus**; dark, full of roots and life.",
+        "- **B horizon (subsoil):** where clay, iron, aluminium and organic matter washed down from above **accumulate** (**illuviation**), or where the rock structure has weathered away.",
+        "- **C horizon:** loose or weakly consolidated weathered parent material that still shows rock structure (river alluvium, wind-blown silt, beach sand).",
+        "- **R:** hard bedrock below.",
+        "**Regolith** = all the loose material above solid rock. The upper, biologically weathered part of the regolith (O, A and B) is the **solum** — the true soil, which supports plant growth.",
+        "**How fast?** Profiles develop where water can move through the soil: sandy parent materials (few soluble minerals, fast drainage) show a mature profile quickly; clays drain slowly and develop slowly. Replacing **1 cm** of lost soil takes **120–400 years**, so a 20 cm topsoil needs **2400–8000 years**. Soil lost to erosion is lost for our lifetime."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-prof-st",
+       "type": "steps",
+       "title": "Walk down a soil profile",
+       "page": 49,
+       "src": "notes",
+       "diagram": "ad_profile",
+       "steps": [
+        {
+         "text": "O: fallen leaves and roots, slowly turning into humus.",
+         "show": "hO"
+        },
+        {
+         "text": "A: the dark topsoil where most roots and soil organisms live.",
+         "show": "hA"
+        },
+        {
+         "text": "B: the subsoil, where clay and iron washed down from the A horizon collect.",
+         "show": "hB"
+        },
+        {
+         "text": "C: weathered rock that still shows its rock structure.",
+         "show": "hC"
+        },
+        {
+         "text": "R: the solid bedrock the soil formed from.",
+         "show": "hR"
+        }
+       ]
+      },
+      {
+       "id": "agri11-u2-c13",
+       "type": "text",
+       "title": "2.2.3 Soil composition: a three-phase system",
+       "page": 50,
+       "src": "notes",
+       "body": [
+        "Soil has **three phases**:",
+        "- **Solid** — mineral particles (sand, silt, clay) and organic matter (humus). Solids plus the pores between them form the **soil matrix**.",
+        "- **Liquid** — water with dissolved substances = the **soil solution**.",
+        "- **Gas** — the **soil air** (soil atmosphere).",
+        "Soil is like a **sponge** full of tiny winding pores, and a chemical factory: living organisms make enzymes, sugars, proteins and DNA that are used up and remade all the time."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-comp-fig",
+       "type": "diagram",
+       "title": "What is in a good topsoil?",
+       "page": 51,
+       "src": "notes",
+       "diagram": "ad_composition",
+       "mode": "plain",
+       "body": [
+        "In a good loam about half the volume is solid (45 % minerals + 5 % organic matter) and half is pore space shared by water and air. After rain, water fills more pores; as the soil dries, air takes their place."
+       ]
+      },
+      {
+       "id": "agri11-u2-ad-density",
+       "type": "text",
+       "title": "Bulk density, particle density and porosity",
+       "page": 52,
+       "src": "notes",
+       "body": [
+        "- **Bulk density (BD)** = mass of oven-dry soil ÷ **total** volume (solids + pores). Typical values 1.1–1.6 g/cm³.",
+        "- **Particle density (PD)** = mass of oven-dry soil ÷ volume of **solids only**. For most mineral soils about **2.65 g/cm³**.",
+        "- **Porosity (f)** = volume of **pores** ÷ total volume = 1 − BD/PD (as a % multiply by 100).",
+        "A **high bulk density** means few pores: the soil is **compacted** (by tractors, trampling, or ploughing at the same depth year after year), roots struggle and water soaks in slowly.",
+        "**Correction:** the textbook example writes \"1.33 mg/cm³\" and \"f = Vs/Vt\". The unit should be **g/cm³**, and porosity uses the volume of **pores** (Vp), not of solids: f = Vp/Vt. In its own example both volumes are 0.5 cm³, so the answer 50 % is still right."
+       ]
+      },
+      {
+       "id": "agri11-u2-ad-wk-bd",
+       "type": "worked",
+       "title": "Worked example — the textbook cube",
+       "page": 52,
+       "src": "notes",
+       "mode": "show",
+       "problem": "A 1 cm³ soil sample contains 1.33 g of oven-dry solids, and the solids occupy 0.5 cm³. Find the bulk density, particle density and porosity.",
+       "steps": [
+        {
+         "text": "Bulk density = 1.33 g ÷ 1 cm³ = **1.33 g/cm³**."
+        },
+        {
+         "text": "Particle density = 1.33 g ÷ 0.5 cm³ = **2.66 g/cm³**."
+        },
+        {
+         "text": "Pore volume = 1 − 0.5 = 0.5 cm³, so porosity = 0.5 ÷ 1 = **0.50 = 50 %**."
+        },
+        {
+         "text": "Check with the formula: 1 − 1.33/2.66 = 1 − 0.5 = 0.5 ✓."
+        }
+       ],
+       "answer": "BD = 1.33 g/cm³, PD = 2.66 g/cm³, porosity = 50 %."
+      },
+      {
+       "id": "agri11-u2-c14",
+       "type": "text",
+       "title": "2.2.4 Soil properties: physical",
+       "page": 53,
+       "src": "notes",
+       "body": [
+        "Soil has **physical, chemical and biological** properties. The physical ones are: **texture, structure, consistency**, the liquid phase (water), the gas phase (air) and others such as **temperature, depth and colour**.",
+        "**Soil texture** = the size range of the particles, i.e. the relative proportions of **sand, silt and clay** (the soil separates). Feel: coarse and gritty (sandy) or fine and smooth (clayey)."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-size-fig",
+       "type": "diagram",
+       "title": "Sand, silt and clay",
+       "page": 55,
+       "src": "notes",
+       "diagram": "ad_sizes",
+       "mode": "plain"
+      },
+      {
+       "id": "agri11-u2-ad-sep",
+       "type": "table",
+       "title": "Sand, silt and clay compared",
+       "page": 55,
+       "src": "notes",
+       "head": [
+        "Property",
+        "Sand",
+        "Silt",
+        "Clay"
+       ],
+       "rows": [
+        [
+         "Diameter",
+         "0.05–2.00 mm",
+         "0.002–0.05 mm",
+         "less than 0.002 mm"
+        ],
+        [
+         "Feel when moist",
+         "Gritty, rough",
+         "Smooth, floury",
+         "Sticky, plastic, smooth"
+        ],
+        [
+         "Water holding",
+         "Low — drains fast",
+         "Medium",
+         "High — can waterlog"
+        ],
+        [
+         "Nutrient holding",
+         "Low",
+         "Medium",
+         "High (colloids)"
+        ],
+        [
+         "Air and drainage",
+         "Very good",
+         "Medium",
+         "Poor when wet"
+        ],
+        [
+         "Tillage",
+         "Easy (\"light\" soil)",
+         "Medium; crusts",
+         "Hard (\"heavy\"); cracks when dry"
+        ]
+       ],
+       "layout": "compare"
+      },
+      {
+       "id": "agri11-u2-ad-classes",
+       "type": "table",
+       "title": "When is a soil \"sandy\", \"silty\" or \"clayey\"? (Table 2.3)",
+       "page": 54,
+       "src": "notes",
+       "head": [
+        "Class group",
+        "Rule"
+       ],
+       "rows": [
+        [
+         "Sandy soils",
+         "At least 70 % sand and 15 % or less clay"
+        ],
+        [
+         "Silty soils",
+         "At least 80 % silt and 12 % or less clay"
+        ],
+        [
+         "Clayey soils",
+         "At least 35 % clay (includes sandy clay and silty clay)"
+        ],
+        [
+         "Loam",
+         "A balanced mixture of sand, silt and clay — the best agricultural soil"
+        ]
+       ],
+       "layout": "terms"
+      },
+      {
+       "id": "agri11-u2-c15",
+       "type": "text",
+       "title": "2.2.5 Methods of soil texture determination",
+       "page": 54,
+       "src": "notes",
+       "body": [
+        "**a) The feel method** — quick, in the field. Moisten a small sample and rub it between thumb and forefinger:",
+        "- **Sand:** rough and gritty; will not form a ribbon.",
+        "- **Silt loam:** forms aggregates with some roughness; smooth like flour.",
+        "- **Clay:** smooth, sticky, makes a long ribbon, no gritty feeling.",
+        "**b) Mechanical analysis** — in the laboratory the sand, silt and clay fractions are separated and weighed using the **hydrometer** or **pipette** method.",
+        "**Using the soil texture triangle:** find the % **clay** on its side and follow the line inward (horizontal), do the same for % **silt** and % **sand**; the textural class is the region where the three lines meet."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-tri-st",
+       "type": "steps",
+       "title": "Using the texture triangle step by step",
+       "page": 56,
+       "src": "notes",
+       "diagram": "ad_triangle",
+       "steps": [
+        {
+         "text": "A soil from a farm near Hamelmalo has 60 % sand, 30 % silt and 10 % clay. Start with clay: the 10 % clay line runs straight across.",
+         "show": "k1"
+        },
+        {
+         "text": "Silt: the 30 % silt line runs parallel to the left (sand–clay) side.",
+         "show": "k2"
+        },
+        {
+         "text": "Sand: the 60 % sand line runs parallel to the right (silt–clay) side.",
+         "show": "k3"
+        },
+        {
+         "text": "The three lines meet in the **sandy loam** region. Two lines are enough; the third is a check (60 + 30 + 10 = 100).",
+         "show": "k4"
+        }
+       ]
+      },
+      {
+       "id": "agri11-u2-c16",
+       "type": "text",
+       "title": "2.2.6 Soil structure",
+       "page": 56,
+       "src": "notes",
+       "body": [
+        "**Soil structure** = how the primary particles (sand, silt, clay) are grouped into larger units called **peds** or **aggregates**, classified by size, shape and how distinct they are.",
+        "**What builds good structure:** organic matter and cations such as **Ca²⁺, Mg²⁺, Fe³⁺, Al³⁺** cause **flocculation** (binding) and stable aggregates. **Sodium (Na⁺) disperses** aggregates, so sodic soils have unstable structure.",
+        "**Soil crusting:** raindrops on bare soil smash aggregates and seal the surface pores, so water runs off and seedlings cannot push through. Reduce it with **surface cover (mulch, residues)** and **light tillage**."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-str-fig",
+       "type": "diagram",
+       "title": "Six shapes of structure",
+       "page": 57,
+       "src": "notes",
+       "diagram": "ad_structure",
+       "mode": "plain"
+      },
+      {
+       "id": "agri11-u2-ad-structtbl",
+       "type": "table",
+       "title": "Soil structure groups (Table 2.5)",
+       "page": 57,
+       "src": "notes",
+       "head": [
+        "Type",
+        "Shape",
+        "Where found"
+       ],
+       "rows": [
+        [
+         "Apedal (structureless)",
+         "Single grains, no peds (or one solid mass)",
+         "Sand dunes"
+        ],
+        [
+         "Spheroidal: granular and crumb",
+         "Small rounded peds; crumb is very porous",
+         "A horizons rich in organic matter — ideal seedbed"
+        ],
+        [
+         "Platy",
+         "Horizontal plates",
+         "Inherited from parent material or made by compaction"
+        ],
+        [
+         "Prism-like: prismatic and columnar",
+         "Vertical columns; flat tops (prismatic) or rounded tops (columnar)",
+         "B horizons of arid soils (columnar in sodic, natric B) and poorly drained soils"
+        ],
+        [
+         "Block-like: angular and sub-angular blocky",
+         "Cube-like blocks",
+         "B horizons of humid regions"
+        ]
+       ],
+       "layout": "cards"
+      },
+      {
+       "id": "agri11-u2-ad-consist",
+       "type": "text",
+       "title": "Soil consistency",
+       "page": 58,
+       "src": "notes",
+       "body": [
+        "**Consistency** describes how the soil resists pressure or handling. It matters for **tillage** and **compaction by machines** and is judged in three moisture states:",
+        "- **Dry:** soft, hard or cemented.",
+        "- **Moist:** loose, friable (crumbles easily — best for ploughing) or firm.",
+        "- **Wet:** sticky and plastic.",
+        "**Practical rule:** plough a clay soil (for example the black cracking soils near Tesseney and Goluj) when it is **moist and friable**: when wet it smears and sticks to the maresha; when dry it is hard as brick."
+       ]
+      },
+      {
+       "id": "agri11-u2-ad-liquid",
+       "type": "text",
+       "title": "The soil liquid phase and water movement",
+       "page": 58,
+       "src": "notes",
+       "body": [
+        "Water in soil dissolves nutrients, carries them to roots, and controls soil air and temperature.",
+        "Water moves because of differences in **energy**. **Soil-water potential** compares the free energy of soil water with that of pure water; water moves from **higher to lower** potential (from wet soil to drier soil, and from soil into roots). Kinetic energy matters for flowing water, e.g. erosion.",
+        "- The **drier** the soil, the more tightly the remaining water is held: water content and the tension holding it are **inversely related**.",
+        "- **Clay** holds much more water than **sand** at the same potential.",
+        "- **Compacted** soil holds less water because its large pores are crushed."
+       ]
+      },
+      {
+       "id": "agri11-u2-ad-water-fig",
+       "type": "diagram",
+       "title": "Water the plant can and cannot use",
+       "page": 59,
+       "src": "notes",
+       "diagram": "ad_soilwater",
+       "mode": "plain"
+      },
+      {
+       "id": "agri11-u2-ad-fcwp",
+       "type": "text",
+       "title": "Saturation, field capacity and wilting point",
+       "page": 59,
+       "src": "notes",
+       "body": [
+        "- **Saturation:** all pores are full of water (just after heavy rain or irrigation). No air — roots suffocate if it lasts.",
+        "- **Field capacity (FC):** the water left after free **gravitational water** has drained away (usually 1–3 days after soaking). The soil holds the most water it can **against gravity**.",
+        "- **Permanent wilting point (PWP):** the soil is so dry that roots can no longer take up water and plants wilt and do not recover.",
+        "- **Available water = FC − PWP.** Water between saturation and FC drains away; water below PWP is held too tightly.",
+        "**Correction:** the textbook says field capacity is \"when the surface layer is at or near saturation\". Saturation and field capacity are **different**: field capacity is reached **after** the excess (gravitational) water has drained out."
+       ]
+      },
+      {
+       "id": "agri11-u2-c17",
+       "type": "text",
+       "title": "2.2.7 Measuring soil water",
+       "page": 59,
+       "src": "notes",
+       "body": [
+        "Soil-water content can be measured **directly** or **indirectly**.",
+        "**Gravimetric (direct) method — steps:**",
+        "- 1. Put a soil sample of known volume in a container.",
+        "- 2. Weigh sample + container.",
+        "- 3. Dry in an oven at about **105 °C** (the textbook says 104 °C) for **24 hours**.",
+        "- 4. Cool and weigh again.",
+        "- 5. Calculate: WC % = (W1 − W2) ÷ W1 × 100, where W1 = mass before drying and W2 = mass after drying (the textbook formula, on a **wet-mass basis**).",
+        "Soil scientists usually divide by the **dry** mass: WC % = (W1 − W2) ÷ W2 × 100. Always say which one you use.",
+        "**Indirect methods:** **electrical resistance** blocks (a probe in the soil; wetter soil conducts better) and the **neutron probe** (neutron scattering by the hydrogen in water)."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-wk-wc",
+       "type": "worked",
+       "title": "Worked example — gravimetric water content",
+       "page": 60,
+       "src": "notes",
+       "mode": "show",
+       "problem": "A soil sample weighs 40 g before drying and 30 g after 24 hours in the oven. Find its water content.",
+       "steps": [
+        {
+         "text": "Water lost = 40 − 30 = 10 g."
+        },
+        {
+         "text": "Textbook (wet basis): 10 ÷ 40 × 100 = **25 %**."
+        },
+        {
+         "text": "Dry basis: 10 ÷ 30 × 100 = **33 %**."
+        },
+        {
+         "text": "25 % lies in the 20–30 % range of a good loam (Figure 2.4), so moisture is adequate for plants."
+        }
+       ],
+       "answer": "25 % on the textbook (wet-mass) basis; 33 % on a dry-mass basis."
+      },
+      {
+       "id": "agri11-u2-c18",
+       "type": "text",
+       "title": "2.2.8 Soil-water potential and water movement",
+       "page": 61,
+       "src": "notes",
+       "body": [
+        "Measure soil-water potential with a **tensiometer** in the field (0 to 0.8 bar) or in the laboratory with a **tension plate** (up to about 0.8 bar) and a **pressure plate** (from 1 bar upwards).",
+        "Three kinds of water movement:",
+        "- **Saturated flow** — all pores full; typical of groundwater flow; fastest.",
+        "- **Unsaturated flow** — pores partly full; the normal case in field soils; slower.",
+        "- **Vapour movement** — water moving as vapour inside pores and from the surface by evaporation; small, but important for drought-resistant plants in dry soils."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-c19",
+       "type": "text",
+       "title": "2.2.9 The soil gaseous phase (soil air)",
+       "page": 61,
+       "src": "notes",
+       "body": [
+        "**Soil aeration** = the rate of gas exchange between soil air and the atmosphere. Air enters only after water drains out of the pores.",
+        "Soil air compared with the atmosphere:",
+        "- almost **100 % humidity**;",
+        "- **CO₂** 5–10 times higher, sometimes up to 10 %;",
+        "- **O₂** a little under 20 % near the surface, but 5 % or less deep down in poorly drained soils with few large pores (macropores).",
+        "Most plants need **more than 10 % oxygen** in soil air. Roots and most soil organisms respire aerobically; in waterlogged soil they suffocate."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-c20",
+       "type": "text",
+       "title": "2.2.10 Other physical properties: temperature, depth, colour",
+       "page": 62,
+       "src": "notes",
+       "body": [
+        "**Temperature:** controls physical, chemical and biological processes and especially **seed germination**. Dark soils absorb more heat than light soils; heat is lost at night by long-wave radiation. Below about 50 cm daily temperature hardly changes. Eritrean farmers cover seedbeds with **stubble, grass or branches** to keep them moist and help germination.",
+        "**Depth:** decides how much water and nutrient the roots can reach; at least **30 cm** is needed for good root growth.",
+        "**Colour** (described with the **Munsell** chart: hue, value, chroma) tells us about the soil:"
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-colour",
+       "type": "table",
+       "title": "What soil colour tells you",
+       "page": 63,
+       "src": "notes",
+       "head": [
+        "Colour",
+        "Meaning"
+       ],
+       "rows": [
+        [
+         "Black / dark brown",
+         "Organic matter (humus) — fertile topsoil"
+        ],
+        [
+         "Reddish-brown",
+         "Well-drained, iron oxides"
+        ],
+        [
+         "Grey",
+         "Iron removed — poor drainage, waterlogging"
+        ],
+        [
+         "Whitish crust",
+         "Salts — arid and semi-arid areas, e.g. near the coast"
+        ]
+       ],
+       "layout": "terms"
+      },
+      {
+       "id": "agri11-u2-c21",
+       "type": "text",
+       "title": "2.2.11 Chemical properties: colloids and cation exchange",
+       "page": 63,
+       "src": "notes",
+       "body": [
+        "The key chemical properties are **soil colloids**, **soil reaction (pH)** and **salinity**.",
+        "**Colloids** (\"glue-like\"): very small particles (mostly < 2 μm = 0.002 mm) with a huge surface area — 1 g of clay has at least **1000 times** the surface of 1 g of sand. They are the most chemically active part of soil. **Inorganic** colloids = clay; **organic** colloids = **humus** (mainly C, H and O with some N, P, S).",
+        "Physical behaviour of clay colloids: **plasticity, cohesion, swelling and shrinking, dispersion and flocculation**.",
+        "**Charge:** colloids carry negative (and some positive) charges; some are permanent, some change with pH (more negative at high pH, more positive at low pH). Negative sites hold **cations**: Ca²⁺, Mg²⁺, K⁺, NH₄⁺, Na⁺ (basic cations, common in alkaline soils) and H⁺, Al³⁺ (acidic cations, common in acid soils).",
+        "**Cation exchange:** held cations swap with cations in the soil solution, e.g. colloid–Ca²⁺ + 2NH₄⁺ ⇌ colloid–2NH₄⁺ + Ca²⁺. The total amount a soil can hold is its **cation exchange capacity (CEC)** (about 2–60 cmol(+)/kg). High CEC = a good nutrient \"bank\"."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-reaction",
+       "type": "text",
+       "title": "Soil reaction: acidity and alkalinity",
+       "page": 65,
+       "src": "notes",
+       "body": [
+        "**pH = −log[H⁺]**. Each unit up means **10 times fewer** H⁺ ions: a solution with [H⁺] = 10⁻⁵ mol/L has pH 5.",
+        "pH < 7 acidic; pH 7 neutral; pH > 7 alkaline. For soils \"neutral\" usually means **pH 6.5–7**.",
+        "**Acid soils** form where **high rainfall** leaches the basic cations (Ca, Mg, K) below the root zone. They are corrected by **liming** (adding ground limestone, CaCO₃), which neutralises H⁺ and adds calcium.",
+        "**Alkaline soils** occur in **dry areas** with high base saturation, where rain is too little to leach salts. They are **calcareous** (calcite, CaCO₃), **dolomitic** (CaCO₃·MgCO₃) or **sodic** (Na₂CO₃, pH 9–10, up to 10.5)."
+       ]
+      },
+      {
+       "id": "agri11-u2-ad-ph-fig",
+       "type": "diagram",
+       "title": "The pH scale for soils",
+       "page": 65,
+       "src": "notes",
+       "diagram": "ad_ph",
+       "mode": "plain"
+      },
+      {
+       "id": "agri11-u2-ad-salinity",
+       "type": "text",
+       "title": "Salinity and salt-affected soils",
+       "page": 66,
+       "src": "notes",
+       "body": [
+        "Three effects of salt on plants:",
+        "- **direct toxicity** (sodium, chloride, boron);",
+        "- **ionic imbalance** in the plant;",
+        "- **less water uptake** because salt lowers the osmotic potential — called **physiological drought**: the plant suffers from lack of water although the soil is wet.",
+        "**Sodicity is worse than salinity alone.** At an exchangeable sodium percentage (ESP) of 10–15 % clay soils swell and disperse and structure collapses. **Calcium** protects soil structure and defends plants against sodium.",
+        "**Management:** calcareous or dolomitic alkaline soils are not neutralised (it would need far too much acid); grow **tolerant crops** and use **suitable fertilizers**. Saline or sodic soils must be **reclaimed** before irrigated cropping."
+       ]
+      },
+      {
+       "id": "agri11-u2-ad-salt",
+       "type": "table",
+       "title": "Salt-affected soils and how to reclaim them (Tables 2.6 and 2.7)",
+       "page": 67,
+       "src": "notes",
+       "head": [
+        "Soil",
+        "EC (dS/m)",
+        "ESP",
+        "pH",
+        "Sign in the field",
+        "Reclamation"
+       ],
+       "rows": [
+        [
+         "Saline",
+         "> 4",
+         "< 15 %",
+         "< 8.5",
+         "White salt crust (Na, Ca, Mg chlorides and sulphates)",
+         "Leach salts below the root zone with good-quality water (with drainage)"
+        ],
+        [
+         "Sodic",
+         "< 4",
+         "> 15 %",
+         "> 8.5",
+         "Dark, sticky, dispersed; poor infiltration",
+         "Gypsum (CaSO₄) on the surface: Ca²⁺ replaces Na⁺; plant grass or forage to rebuild structure"
+        ],
+        [
+         "Saline-sodic",
+         "> 4",
+         "> 15 %",
+         "< 8.5",
+         "Salty and sodic together",
+         "Gypsum first (keeps Ca high), then leach"
+        ]
+       ],
+       "layout": "cards"
+      },
+      {
+       "id": "agri11-u2-ad-mn-salt",
+       "type": "mnemonic",
+       "title": "Memory trick — 4, 15, 8.5",
+       "page": 67,
+       "src": "notes",
+       "body": [
+        "Saline: **EC above 4**. Sodic: **ESP above 15**. Sodic soils have **pH above 8.5**. Gypsum fixes sodium; water fixes salt."
+       ]
+      },
+      {
+       "id": "agri11-u2-c22",
+       "type": "text",
+       "title": "2.2.12 Biological properties",
+       "page": 68,
+       "src": "notes",
+       "body": [
+        "A healthy hectare can hold about **20 000 kg** of living organisms (as heavy as about 40 horses), although they make up only about **5 %** of soil organic matter.",
+        "- **Roots** take up water and nutrients and release **exudates** that feed microbes. The **rhizosphere** is the busy zone around roots: lower pH, less O₂, more CO₂, many more microbes.",
+        "- **Earthworms** mix organic matter into mineral soil. Their **casts** are richer in nutrients (N, P, K, trace elements, about 50 % organic matter) than the surrounding soil. Worms like moist, non-acid soil with organic matter and calcium.",
+        "- **Other animals:** parasitic nematodes (attack tomato, carrot, potato, peas, alfalfa, fruit trees), centipedes (predators), millipedes (eat decaying plants), fly and beetle larvae (eat roots), ants, termites, slugs, snails and burrowing mammals.",
+        "- **Fungi** decompose organic matter, even tough lignin in wood; they dominate in acid forest soils.",
+        "- **Bacteria** are the most numerous: 1–10 million per gram. **Autotrophs** fix CO₂; **heterotrophs** decompose organic matter. Free-living bacteria fix nitrogen; **Rhizobium** fixes nitrogen in the root nodules of legumes (beans, peas, chickpea, grass pea, alfalfa). Some make sticky substances that build aggregates; others clean pollutants (**bioremediation**: herbicides, heavy metals, petroleum).",
+        "- **Actinomycetes** — thread-like bacteria that break down tough **cellulose** and **chitin**, even at high pH; some fix nitrogen with non-legume plants."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-decomp",
+       "type": "text",
+       "title": "Decomposition, humus and nutrient cycling",
+       "page": 70,
+       "src": "notes",
+       "body": [
+        "Microbes decompose organic matter fastest when the soil is about **20 °C**, moisture is **50–70 % of water-holding capacity**, there is enough **oxygen** and fresh organic matter as food.",
+        "**Humus** (the stable end product) supplies N, P and S, raises the **CEC**, holds a lot of water, and binds particles into aggregates — improving structure, infiltration and resistance to erosion.",
+        "**Green manure / cover crops** are grown and then ploughed in to add organic matter; they also protect the soil from wind and water erosion.",
+        "**Soil quality** = the soil's ability to support crop growth without degrading or harming the environment."
+       ]
+      },
+      {
+       "id": "agri11-u2-ad-nut-fig",
+       "type": "diagram",
+       "title": "Round and round: the nutrient cycle",
+       "page": 71,
+       "src": "notes",
+       "diagram": "ad_nutrient",
+       "mode": "plain",
+       "body": [
+        "Losses leave the cycle by leaching, erosion and crop removal; inputs come from manure, fertilizer and nitrogen fixation. Burning dung for fuel breaks the cycle."
+       ]
+      },
+      {
+       "id": "agri11-u2-c23",
+       "type": "text",
+       "title": "2.2.13 Soil types of Eritrea",
+       "page": 71,
+       "src": "notes",
+       "body": [
+        "Early classifications used texture or parent material; modern ones use **diagnostic horizons**. Soil maps are based on properties that do not change easily: **texture, degree of leaching and CEC**. Eritrea has **13 major soil groups**."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-types",
+       "type": "table",
+       "title": "The 13 soil groups of Eritrea (Table 2.8)",
+       "page": 72,
+       "src": "notes",
+       "head": [
+        "Soil group",
+        "Main feature"
+       ],
+       "rows": [
+        [
+         "Lithosol",
+         "Shallow, weakly developed (over rock)"
+        ],
+        [
+         "Regosol",
+         "Weakly developed, finer than sandy loam"
+        ],
+        [
+         "Fluvisol",
+         "On river deposits, layered (alluvial)"
+        ],
+        [
+         "Arenosol",
+         "Sandy or loamy-sand texture"
+        ],
+        [
+         "Vertisol",
+         "Clay that cracks widely when dry and swells when wet"
+        ],
+        [
+         "Cambisol",
+         "Moderately developed, cambic B horizon"
+        ],
+        [
+         "Nitisol",
+         "Deep clay-rich subsoil with shiny ped faces"
+        ],
+        [
+         "Lixisol",
+         "Clay-rich subsoil, low CEC, high base saturation"
+        ],
+        [
+         "Solonchak",
+         "Salt accumulation dominates"
+        ],
+        [
+         "Solonetz",
+         "Dominated by sodium"
+        ],
+        [
+         "Gypsisol",
+         "Gypsum crystals or layers"
+        ],
+        [
+         "Calcisol",
+         "Lime (calcium carbonate) powder or nodules"
+        ],
+        [
+         "Luvisol",
+         "Clay-rich subsoil, high CEC, high base saturation"
+        ]
+       ],
+       "layout": "terms"
+      },
+      {
+       "id": "agri11-u2-ad-wk-acid",
+       "type": "worked",
+       "title": "Worked example — Exercise 2.2 Q5–Q7",
+       "page": 72,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Where is soil acidity common, how are acid soils reclaimed, and how are alkaline soils managed?",
+       "steps": [
+        {
+         "text": "Acidity: in **high-rainfall** areas where basic cations are leached below the root zone."
+        },
+        {
+         "text": "Reclaiming acid soils: apply **agricultural lime** (ground limestone, CaCO₃, or dolomite) to raise pH; add organic matter."
+        },
+        {
+         "text": "Alkaline (calcareous) soils: do not try to neutralise them; grow **tolerant crops** and use **suitable (acid-forming) fertilizers**."
+        },
+        {
+         "text": "Saline or sodic soils: leach salts with good water and drainage; apply **gypsum** to sodic soils."
+        }
+       ],
+       "answer": "Acidity: high-rainfall, leached soils → lime. Alkaline: tolerant crops + suitable fertilizer; saline → leach; sodic → gypsum."
+      },
+      {
        "id": "agri11-u2-c08",
        "type": "text",
        "title": "Soil in one page",
@@ -408,197 +1452,6 @@
        "src": "notes",
        "body": [
         "*Sand, Organic matter, Air, Particles (silt/clay), plus living roots and microbes.* Dead powder is not a soil."
-       ]
-      },
-      {
-       "id": "agri11-u2-c10",
-       "type": "text",
-       "title": "Soil in one page",
-       "page": 44,
-       "src": "notes",
-       "body": [
-        "**Climate:** rainfall amount and timing, temperature (altitude!), wind, length of growing season. Highland mild + short season; western and coastal heat + higher PET.",
-        "**Water:** rain, rivers/wadis, groundwater, stored dams. Conservation = same story as later grades: hold it, sink it, don’t waste it.",
-        "**Biodiversity:** local landraces, pollinators, soil life, wild relatives. Losing varieties is losing drought insurance."
-       ]
-      },
-      {
-       "id": "agri11-u2-c11",
-       "type": "text",
-       "title": "2.2.1 Soil Formation",
-       "page": 46,
-       "src": "textbook pp.46–48",
-       "enriched": true,
-       "body": [
-        "**Weathering** is the chemical alteration and physical breakdown of rocks during exposure to the atmosphere, hydrosphere and biosphere.",
-        "**A soil profile** is the vertical cross-sectional view of the soil through all its horizons extending into the parent material.",
-        "A cross-sectional view of soil is called a **soil profile**.",
-        "**A soil horizon** is a layer of soil revealed in a soil profile lying approximately parallel to the Earth’s surface."
-       ]
-      },
-      {
-       "id": "agri11-u2-c12",
-       "type": "text",
-       "title": "2.2.2 Soil Profile Description",
-       "page": 48,
-       "src": "textbook pp.48–50",
-       "enriched": true,
-       "body": [
-        "Soils developed from sandy parent materials will rapidly show a mature soil profile because they contain few soluble materials.",
-        "Clay soils are slower in their drainage capacity and are, therefore, slower to develop a fully mature soil profile.",
-        "The master horizons are denoted by O, A, B and C.",
-        "Examples include beach sand, windblown silt, alluvium deposited by rivers, etc."
-       ]
-      },
-      {
-       "id": "agri11-u2-c13",
-       "type": "text",
-       "title": "2.2.3 Soil Composition",
-       "page": 50,
-       "src": "textbook pp.50–51",
-       "enriched": true,
-       "body": [
-        "Soil phases are regions inside a system, which are internally physically uniform.",
-        "The solid phase constitutes the soil matrix, which is the combination of solids and pores in a soil.",
-        "Water and air make-up the liquid and gas parts of the soil; the gaseous phase is the soil atmosphere.",
-        "Soil is rather like a big sponge containing numerous tiny pores that wind through its structure."
-       ]
-      },
-      {
-       "id": "agri11-u2-c14",
-       "type": "text",
-       "title": "2.2.4 Soil Properties",
-       "page": 53,
-       "src": "textbook pp.53–54",
-       "enriched": true,
-       "body": [
-        "**Soil** is a unique material with its own physical, chemical and biological properties.",
-        "Physical properties of soil include: soil texture, soil structure, soil consistency, the soil liquid phase, soil gases and others (temperature, depth, colour).",
-        "Quantitatively, soil texture is the measure of the distribution of particle sizes or the proportion of the various size ranges of particles.",
-        "Based on particle size, there are three broad groups of soil textural classes."
-       ]
-      },
-      {
-       "id": "agri11-u2-c15",
-       "type": "text",
-       "title": "2.2.5 Methods of Soil Texture Determination",
-       "page": 54,
-       "src": "textbook pp.54–55",
-       "enriched": true,
-       "body": [
-        "Determination of soil textural classes is done in two ways: these are the feel method and mechanical analysis.",
-        "In silt loam, it form aggregates with some level of roughness.",
-        "In the case of clay, it forms smooth surface without any gritty feelings.",
-        "In the laboratory the proportions are estimated using either hydrometer or pipette methods."
-       ]
-      },
-      {
-       "id": "agri11-u2-c16",
-       "type": "text",
-       "title": "2.2.6 Soil Structure",
-       "page": 56,
-       "src": "textbook p.56",
-       "enriched": true,
-       "body": [
-        "**Soil structure** refers to the grouping or arrangement of primary particles into secondary units or peds/aggregates.",
-        "The units are characterized and classified based on size, shape and degree of distinctness.",
-        "Presence of organic matter and inorganic cation such as Ca2+, Mg2+, Fe3+ and Al3+ promote flocculation (binding) of aggregates and aggregate stability.",
-        "The presence of sodium disperses or separates aggregates and the soil becomes unstable aggregates."
-       ]
-      },
-      {
-       "id": "agri11-u2-c17",
-       "type": "text",
-       "title": "2.2.7 Measurement Techniques for Soil-water and Soil-water Potentials",
-       "page": 59,
-       "src": "textbook pp.59–60",
-       "enriched": true,
-       "body": [
-        "Soil-water content can be measured directly and indirectly in the field and laboratory.",
-        "**Among the techniques used** are the gravimetric (weighing or direct) method.",
-        "Likewise, neutron scattering uses a neutron probe directly to measure the soil-water relations in the field."
-       ]
-      },
-      {
-       "id": "agri11-u2-c18",
-       "type": "text",
-       "title": "2.2.8 Soil-water Potential",
-       "page": 61,
-       "src": "textbook p.61",
-       "enriched": true,
-       "body": [
-        "Soil-water potential can be measured in the field by using tensiometers (0.0–0.8 bar) or in the laboratory with a tension plate (usually up to 0.8 bar) and a pressure plate (from 1–100 bars).",
-        "Saturated movement of water occurs when the soil pores are filled or saturated with water.",
-        "Unsaturated soil-water movement occurs, when the pores are partially filled with water.",
-        "**Vapour movement of water** is a movement in the form of vapour, which occurs both internally within the soil pores and externally on the land by surface-by-surface evaporation because of a vapour pressure differential."
-       ]
-      },
-      {
-       "id": "agri11-u2-c19",
-       "type": "text",
-       "title": "2.2.9 The Soil Gaseous Phase",
-       "page": 61,
-       "src": "textbook pp.61–62",
-       "enriched": true,
-       "body": [
-        "Soil aeration expresses the rate of gas exchange between soil air and the atmosphere.",
-        "Soil aeration controls the level of oxygen and carbon dioxide in the soil.",
-        "Air can move into the soil only once water has drained out of the pores.",
-        "Carbon dioxide content is sometimes 5–10 times higher than the atmospheric carbon dioxide content and may even reach 10 per cent."
-       ]
-      },
-      {
-       "id": "agri11-u2-c20",
-       "type": "text",
-       "title": "2.2.10 Other Physical Properties of Soil",
-       "page": 62,
-       "src": "textbook pp.62–63",
-       "enriched": true,
-       "body": [
-        "Generally, dark soil surfaces will absorb more heat than light surfaces.",
-        "Losses of absorbed heat occur by radiation back into the atmosphere as long-wave radiation, heating the air and cooling the soil.",
-        "Farmers in Eritrea cover seedbeds with stubble, grasses and tree branches in order to facilitate germination of seeds.",
-        "Reddish-brown colours indicate well-drained soils."
-       ]
-      },
-      {
-       "id": "agri11-u2-c21",
-       "type": "text",
-       "title": "2.2.11 Chemical Properties of Soil",
-       "page": 63,
-       "src": "textbook pp.63–64",
-       "enriched": true,
-       "body": [
-        "The most important chemical properties of soil include: soil colloid, soil reaction (acidity and alkalinity) and salinity.",
-        "The most important chemical properties of soil include: soil colloid, soil reaction (acidity and alkalinity), salinity.",
-        "Colloids can hold ions because they have an overall negative (−) or positive (+) charge on their surfaces, depending upon the chemical structure and soil pH conditions.",
-        "Humus has a complex chemical composition consisting mainly of C, H and O, and smaller amounts of S, P and N, among others."
-       ]
-      },
-      {
-       "id": "agri11-u2-c22",
-       "type": "text",
-       "title": "2.2.12 Biological Properties",
-       "page": 68,
-       "src": "textbook p.68",
-       "enriched": true,
-       "body": [
-        "Soil biological properties refer to the organisms living in soils as well as nutrient cycling.",
-        "Soil micro-organisms are important in the carbon cycle and nitrogen cycle, and in the decomposition of organic materials.",
-        "Immense communities of living organisms inhabit healthy soils.",
-        "For example one hectare of land may contain approximately 20 000 kg of soil organisms – equivalent to the weight of 40 horses!"
-       ]
-      },
-      {
-       "id": "agri11-u2-c23",
-       "type": "text",
-       "title": "2.2.13 Soil Types",
-       "page": 71,
-       "src": "textbook pp.71–72",
-       "enriched": true,
-       "body": [
-        "Soil classification is crucial for creation of soil maps.",
-        "Allocation to one of these groupings is determined by the presence or absence of a limited number of indicative horizons and soil properties."
        ]
       },
       {
@@ -808,44 +1661,252 @@
       {
        "id": "agri11-u2-c24",
        "type": "text",
-       "title": "2.3.1 Terrestrial Biodiversity",
+       "title": "2.3 Biodiversity and 2.3.1 terrestrial biodiversity",
        "page": 74,
-       "src": "textbook pp.74–75",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "Terrestrial biodiversity refers to all land area that is dominated by natural habitats.",
-        "Terrestrial biodiversity is described at two levels: ecosystem level and species level.",
-        "Eastern Escarpment: The forests in the Eastern Escarpment receive a relatively high amount of rainfall.",
-        "Riverine forests of the Western Lowlands: The riverine forest has been relatively intact until recent years."
-       ]
+        "**Biodiversity** is the variety of life from all sources — land, sea and other water ecosystems — at three levels: **within species** (genetic), **between species**, and **of ecosystems**.",
+        "**Terrestrial biodiversity** = life on land dominated by natural habitats, described at **ecosystem** and **species** level.",
+        "**a) Forest biodiversity** is concentrated in three areas:",
+        "- the **Eastern Escarpment** — relatively high rainfall; a distinct forest type (e.g. around Filfil);",
+        "- the **riverine forests of the Western Lowlands** — along the Gash, Setit and Barka; raw materials for local industry, grazing and browsing;",
+        "- small pockets in the **Northern Highlands** — the last fairly large stands of **Olea africana** (wild olive, awlie) and **Juniperus procera** (tsihdi), which once probably covered the highlands.",
+        "**b) Woodland biodiversity:** woodlands cover almost **65 %** of the land and shelter wildlife such as elephants, leopards and plains game.",
+        "**Flora** = all plant forms from algae and fungi to mosses, ferns and flowering plants. Higher plants are well documented in Eritrea; lower plants are not yet studied at species level."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-themes",
+       "type": "table",
+       "title": "Eritrea's 10 biodiversity themes",
+       "page": 76,
+       "src": "notes",
+       "head": [
+        "Theme",
+        "Meaning"
+       ],
+       "rows": [
+        [
+         "Integrated management",
+         "Use several methods together to conserve"
+        ],
+        [
+         "Sustainable use",
+         "Use resources without exhausting them"
+        ],
+        [
+         "Alien invasive species",
+         "Manage introduced species (e.g. Prosopis juliflora)"
+        ],
+        [
+         "Pollution management",
+         "Protect biodiversity from pollution"
+        ],
+        [
+         "In-situ conservation",
+         "Conserve on farmers' fields or in protected areas"
+        ],
+        [
+         "Ex-situ conservation",
+         "Conserve seeds in gene banks"
+        ],
+        [
+         "Taxonomic knowledge",
+         "Identify and classify species"
+        ],
+        [
+         "Information",
+         "Collect and store data"
+        ],
+        [
+         "Public awareness",
+         "Education"
+        ],
+        [
+         "Legal and institutional",
+         "Laws and capacity building"
+        ]
+       ],
+       "layout": "terms"
       },
       {
        "id": "agri11-u2-c25",
        "type": "text",
-       "title": "2.3.2 Importance of Biodiversity",
+       "title": "2.3.2 Importance of biodiversity",
        "page": 76,
-       "src": "textbook pp.76–77",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "The development of new varieties such as plants that are resistant to drought and pests, and the development of high-yielding varieties is possible through the introduction of new genes.",
-        "Genetic diversity has a significant role in increasing agricultural production and productivity.",
-        "During the past 50 years, due to artificial and natural calamities (e.g. war, drought, pests), plants, animals and ecosystems have been seriously affected by genetic loss.",
-        "Two methods used to offset this genetic loss: ex-situ and in-situ conservation measures."
-       ]
+        "**a) Source of crops and crop genes.** Biodiversity is a **gene pool**: new varieties that resist drought and pests, or yield more, come from new genes. Over the last 50 years war, drought and pests have caused **genetic loss**, countered by:",
+        "- **Ex-situ** conservation — in **gene banks** (seed stores) away from the natural place;",
+        "- **In-situ** conservation — on **farmers' fields** and in **enclosures** where the plants grow naturally.",
+        "Eritrea is part of the **Abyssinian centre of diversity** (Vavilov): barley, wheat, oats, linseed, safflower, chickpea, lentil, grass pea, field pea, faba bean, rapeseed and mustard are very diverse here, and **teff (taff)** and **Niger seed (nihug)** were domesticated here.",
+        "**Landraces** are local varieties selected by farmers over generations and adapted to local conditions. They differ in seed colour, plant height, drought resistance and **earliness**; some are preferred for food; tall, late landraces need more water.",
+        "**b) Source of livestock breeds** (see the table), well adapted to local conditions — traits that can be lost by careless cross-breeding.",
+        "**c) Raw materials:** timber, fibre, gums, resins, perfumes, fur. **d) Medicine:** traditional and modern drugs. **e) Income:** unspoiled habitats attract tourists and create jobs."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-breeds",
+       "type": "table",
+       "title": "Eritrea's local livestock (p. 77–78)",
+       "page": 77,
+       "src": "notes",
+       "head": [
+        "Species",
+        "Breeds / types",
+        "Note"
+       ],
+       "rows": [
+        [
+         "Cattle",
+         "Barka, Arado, Arebo (Aden); Dewhin on the Sudan border; Holstein-Friesian introduced",
+         "Barka moving into the highlands; pure Arebo now rare"
+        ],
+        [
+         "Goats",
+         "Hassani (Shukria), Sudanese Desert (Barka / Tsa'adi), Worre, Afar",
+         "Hassani: good milk, often twins and triplets"
+        ],
+        [
+         "Sheep",
+         "Akele Guzai (Shimejana), Rashaidi, Adali (Afar), Arrit, Barka, Sudan Desert (Aral, Hamale)",
+         "Many fat-tailed types"
+        ],
+        [
+         "Camels",
+         "All one-humped: Ariri, Arho, Rashaidi",
+         "Gash-Barka, Anseba, Northern and Southern Red Sea"
+        ],
+        [
+         "Donkeys",
+         "Lowland (Rifai) and Highland",
+         "Rifai is taller and slimmer — riding and transport"
+        ],
+        [
+         "Poultry",
+         "Indigenous chickens of many sizes, plumages and combs",
+         "Most of Eritrea's birds"
+        ],
+        [
+         "Bees",
+         "Mostly in the highlands and on the eastern and western escarpments",
+         "Traditional hives; modern hives being introduced"
+        ]
+       ],
+       "layout": "cards"
       },
       {
        "id": "agri11-u2-c26",
        "type": "text",
-       "title": "2.3.3 The Status of Eritrean Biodiversity",
+       "title": "2.3.3 The status of Eritrean biodiversity",
        "page": 79,
-       "src": "textbook pp.79–80",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "Land degradation, climate change and other human induced factors pose the greatest threat to local biodiversity.",
-        "Change in agricultural practices – mainly replacing one crop species with another – is also a reason for the disappearance of landraces.",
-        "Land degradation, mainly a loss of soil fertility, has been a cause of genetic loss.",
-        "The major factors affecting livestock biodiversity are drought, inter-breeding, changing geographical distribution and lower or higher numbers of a specific breed."
-       ]
+        "Land degradation, climate change and other human pressures are the greatest threats.",
+        "**Crops:** genetic loss comes from **drought** (tall, high-yielding, late landraces have disappeared), **changing practices** (one crop replaced by another) and **land degradation** (varieties once grown on fertile soils are no longer grown).",
+        "**Livestock:** threatened by drought (survivors after a drought are not the same population — older people remember Barka cattle being larger and more docile 30–40 years ago), **uncontrolled interbreeding** (the four cattle breeds look more and more alike, helped by roads and markets), and **changing distribution and numbers** (Barka advancing into the highlands and diluting Arado; Butana and Dewhin from Sudan mixing with Barka).",
+        "**Wildlife:** about **126 mammal** species (9 marine), **577 bird** species (about 320 resident; about 150 Palaearctic migrants from Europe; no national endemic bird, about 13 regional endemics), **90 reptile** and **19 amphibian** species."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-wild",
+       "type": "table",
+       "title": "Status of some wild mammals (Table 2.11)",
+       "page": 82,
+       "src": "notes",
+       "head": [
+        "Status",
+        "Examples"
+       ],
+       "rows": [
+        [
+         "Common",
+         "Warthog, Soemmerring's gazelle, dugong"
+        ],
+        [
+         "Rare",
+         "Elephant, African wild ass"
+        ],
+        [
+         "Endangered",
+         "Hartebeest, red-fronted gazelle, Nubian ibex"
+        ],
+        [
+         "Critical",
+         "African wild dog, lion"
+        ],
+        [
+         "Extinct (in Eritrea)",
+         "Gelada, Ethiopian wolf, Walia ibex, black rhinoceros"
+        ],
+        [
+         "Unknown",
+         "Three bat species"
+        ]
+       ],
+       "layout": "terms"
+      },
+      {
+       "id": "agri11-u2-ad-insitu",
+       "type": "table",
+       "title": "In-situ and ex-situ conservation compared",
+       "page": 77,
+       "src": "notes",
+       "head": [
+        "Feature",
+        "In-situ",
+        "Ex-situ"
+       ],
+       "rows": [
+        [
+         "Where",
+         "On farmers' fields, enclosures, protected areas",
+         "Gene banks, seed stores, botanical gardens"
+        ],
+        [
+         "Example",
+         "Farmers in Hamasien keep growing their own barley landraces",
+         "Seeds of sorghum landraces stored cold in the national gene bank"
+        ],
+        [
+         "Advantage",
+         "Plants keep evolving with the local climate and pests",
+         "Safe from drought, war and fire; many samples in little space"
+        ],
+        [
+         "Limitation",
+         "Can be lost in a drought or by land-use change",
+         "Plants stop adapting; needs electricity and skilled staff"
+        ]
+       ],
+       "layout": "compare"
+      },
+      {
+       "id": "agri11-u2-ad-wk-hf",
+       "type": "worked",
+       "title": "Worked example — Exercise 2.3 Q2",
+       "page": 83,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Can the Holstein-Friesian breed pose a risk to Eritrea's local cattle? Give reasons.",
+       "steps": [
+        {
+         "text": "Yes, if crossing is uncontrolled: repeated crossing with Holstein bulls (or semen) dilutes local genes."
+        },
+        {
+         "text": "Local breeds (Arado, Barka) carry **adaptations**: heat and tick tolerance, disease resistance, walking long distances, surviving on poor feed."
+        },
+        {
+         "text": "If pure local animals disappear these genes are lost, and future breeders cannot use them when the climate becomes harsher."
+        },
+        {
+         "text": "Solution: controlled breeding, keeping pure local herds (in-situ) and storing semen or embryos (ex-situ)."
+        }
+       ],
+       "answer": "Yes — uncontrolled crossing can erase adapted local genes; keep pure local herds and gene banks."
       },
       {
        "id": "agri11-u2-chk6",
@@ -927,45 +1988,153 @@
      ],
      "cards": [
       {
+       "id": "agri11-u2-ad-water-intro",
+       "type": "text",
+       "title": "Water resources: why they decide farming",
+       "page": 85,
+       "src": "notes",
+       "body": [
+        "Water (H₂O) is the universal solvent. It covers about three-quarters of the Earth's surface, but most is **salty** and useless for farming without desalination. **Fresh water** is renewable through rain, but finite and unevenly spread.",
+        "Where rain is **too much**, land needs **drainage**; where it is **too little**, crops need **supplementary irrigation** from wells, canals, ponds and tanks, by **gravity** or by **pumping**, plus moisture conservation. Without these, moisture stress cuts or destroys the yield."
+       ]
+      },
+      {
+       "id": "agri11-u2-ad-hydro-fig",
+       "type": "diagram",
+       "title": "The water cycle",
+       "page": 85,
+       "src": "notes",
+       "diagram": "ad_hydro",
+       "mode": "plain",
+       "body": [
+        "Rain that falls can evaporate, run off, or infiltrate. In Eritrea about 80–87 % evaporates or is transpired before it reaches streams or aquifers — so every drop held on the field counts."
+       ]
+      },
+      {
        "id": "agri11-u2-c27",
        "type": "text",
-       "title": "2.4.1 Ground Water",
+       "title": "2.4.1 Groundwater",
        "page": 86,
-       "src": "textbook p.86",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "Ground water is described in terms of its depth, quantity, quality and purposes of use.",
-        "In Eritrea these aquifers are unconsolidated deposits of alluvial soils which are found in riverbeds.",
-        "The riverbeds of Barka, Gash and Anseba rivers have substantial potential for irrigation from shallow ground water.",
-        "A limited amount of ground water potential is found along the main riverbeds of the northern Red Sea coasts."
-       ]
+        "Groundwater is described by its **depth, quantity, quality and use**. It is stored in **aquifers**. In Eritrea the main aquifers are **loose alluvial deposits in riverbeds**.",
+        "- The riverbeds of the **Barka, Gash and Anseba** have substantial potential for **irrigation from shallow wells**.",
+        "- Limited groundwater lies along riverbeds of the northern Red Sea coast, where **salinity** is a problem. Salinity increases with **well depth**, **distance from the river channel** and **closeness to the sea**.",
+        "- In mid- and low-altitude parts of the eastern and western escarpments groundwater rises as **springs**, seasonal or permanent, and flows on underground to the aquifers of the eastern and western flood plains.",
+        "- Underground flow through the base rock is the **main water supply for rural communities** in the highlands and midlands.",
+        "Groundwater movement depends on **topography, soil characteristics and geology**."
+       ],
+       "enriched": true
       },
       {
        "id": "agri11-u2-c28",
        "type": "text",
-       "title": "2.4.2 Surface Water",
+       "title": "2.4.2 Surface water",
        "page": 87,
-       "src": "textbook p.87",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "Surface water resources are intermittent rivers, streams and runoff stored in reservoirs.",
-        "The precipitation that falls in an area may evaporate, flow as runoff or infiltrate into the soil.",
-        "Water collected from roofs can also be stored in cisterns for domestic use."
-       ]
+        "Surface water = intermittent rivers, streams, and runoff stored in **reservoirs** (dams, ponds). Its advantages: it can be **collected and stored**, and used for **domestic needs, irrigation and livestock**. Rain from roofs can be stored in **cisterns**.",
+        "**Eritrean examples:** micro-dams and ponds built since independence store runoff for irrigation and livestock; the Gerset dam on the Gash supports irrigated farming."
+       ],
+       "enriched": true
       },
       {
        "id": "agri11-u2-c29",
        "type": "text",
-       "title": "2.4.3 The Major River Basins of Eritrea",
+       "title": "2.4.3 The major river basins",
        "page": 88,
-       "src": "textbook p.88",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "Eritrea has five major river basins and a number of rivers that drain into the Sudan.",
-        "All, except the Setit, are ephemeral (seasonal, or non-perennial) rivers.",
-        "The Setit River basin rises in central Ethiopia.",
-        "The water discharge here is highly seasonal, exceeding 900 m3/s in the period July–September, but when reduced to base flow ranges from 5–10 m3/s."
-       ]
+        "Eritrea has **five major basins**: **Setit, Mereb-Gash, Barka-Anseba, Red Sea and Danakil Depression**. All rivers are **ephemeral** (seasonal) **except the Setit**.",
+        "- **Setit:** rises in central Ethiopia and forms the south-western border; flow is highly seasonal — over 900 m³/s in July–September, falling to a base flow of 5–10 m³/s; **perennial**.",
+        "- **Mereb-Gash:** a narrow, westward basin south of the central highlands; rainfall 350–700 mm; mean annual flow 480–760 million m³; flows strongly July–September. Its upper basin is badly eroded, leaving sands and gravels in the valleys — the riverbed now stores groundwater for irrigation.",
+        "- **Barka-Anseba:** both rivers rise around Asmara, flow north-west and meet near the Sudan border; rainfall from 500 mm (highlands) to below 200 mm; spate floods in July–September; runoff about 360 million m³, much of it soaking into lowland alluvium.",
+        "- **Red Sea:** many small basins. North of the Gulf of Zula rivers come down the eastern escarpment (about 730 million m³ a year reaches the sea); south of the gulf they flow from the Danakil ridge. Used for **spate irrigation** and recharge of coastal wells.",
+        "- **Danakil:** the driest basin (< 100 mm rain); short, irregular floods; the Ramod and Regale rivers give about 136 million m³; the **Bada** spate scheme lies where they meet."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-basin-fig",
+       "type": "diagram",
+       "title": "Basin sizes and runoff",
+       "page": 88,
+       "src": "notes",
+       "diagram": "ad_basins",
+       "mode": "plain"
+      },
+      {
+       "id": "agri11-u2-ad-basintbl",
+       "type": "table",
+       "title": "The five basins (Table 2.12)",
+       "page": 88,
+       "src": "notes",
+       "head": [
+        "Basin",
+        "Area (km²)",
+        "Runoff (million m³)",
+        "Rainfall (mm)",
+        "Remember"
+       ],
+       "rows": [
+        [
+         "Setit",
+         "4 045",
+         "5 800–8 000",
+         "900",
+         "Smallest, only perennial"
+        ],
+        [
+         "Mereb-Gash",
+         "23 200 (16 730 in Eritrea)",
+         "480–760",
+         "350–700",
+         "Eroded upper basin; riverbed aquifer"
+        ],
+        [
+         "Barka-Anseba",
+         "39 510",
+         "360",
+         "200–500",
+         "Rises near Asmara; spate floods"
+        ],
+        [
+         "Red Sea",
+         "44 690",
+         "730",
+         "50–1 100",
+         "Largest; spate irrigation"
+        ],
+        [
+         "Danakil",
+         "10 530",
+         "136",
+         "< 100",
+         "Driest; Bada spate scheme"
+        ]
+       ],
+       "layout": "cards"
+      },
+      {
+       "id": "agri11-u2-ad-wk-ex24",
+       "type": "worked",
+       "title": "Worked example — Exercise 2.4 Q1 and Q3",
+       "page": 90,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Name the largest and smallest basins. What effect does highland rainfall have on lowland groundwater?",
+       "steps": [
+        {
+         "text": "Compare areas: Red Sea 44 690 km² is the **largest**; Setit 4 045 km² is the **smallest**."
+        },
+        {
+         "text": "Highland rain runs off and infiltrates; water moves **down-slope underground** through rock and riverbeds."
+        },
+        {
+         "text": "It **recharges** the alluvial aquifers of the eastern and western lowlands, which feed wells and irrigation there — so conserving water in the highlands also helps lowland farmers."
+        }
+       ],
+       "answer": "Largest: Red Sea; smallest: Setit. Highland rain recharges lowland aquifers through underground flow."
       },
       {
        "id": "agri11-u2-chk8",
@@ -1089,44 +2258,236 @@
       {
        "id": "agri11-u2-c30",
        "type": "text",
-       "title": "2.5.1 The Sudano-Sahelian Region Agro-ecological Zone",
+       "title": "2.5 What an agro-ecological zone is; the Sudano-Sahelian region",
        "page": 91,
-       "src": "textbook p.91",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "Eritrea is located in the Sudano-Sahelian region of Africa.",
-        "The Sahelian region is drier than the Sudanian region and supports relatively poor amounts of flora and fauna.",
-        "Eritrea shares many similarities with countries in the SudanoSahelian region of Africa in terms of climate and vegetation.",
-        "In Africa, there are 20 major centres of endemism."
+        "An **agro-ecological zone (AEZ)** is an area with a definable range of **climate, landform, soil and vegetation**, so it has a fairly uniform set of **constraints and potentials** for farming.",
+        "**2.5.1** Eritrea lies in the **Sudano-Sahelian region**, which stretches from Eritrea in the east to Senegal in the west. The **Sahelian** part is drier and poorer in plants and animals than the **Sudanian** part.",
+        "Africa has **20 major centres of endemism**; **five** meet in Eritrea: the **Sahelian**, **Sudanian**, **Afromontane**, **Somali-Masai** regions and the **Sahara transitional zone** — one reason for Eritrea's rich biodiversity in a small country."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-aez-fig",
+       "type": "diagram",
+       "title": "Six zones by altitude and rainfall",
+       "page": 95,
+       "src": "notes",
+       "diagram": "ad_aez",
+       "mode": "plain",
+       "body": [
+        "Zones overlap in altitude; rainfall, temperature and slope separate them. The two \"arid\" zones and the semi-desert cover 76 % of the land."
        ]
       },
       {
        "id": "agri11-u2-c31",
-       "type": "text",
-       "title": "2.5.2 The Agro-ecological Zones of Eritrea",
+       "type": "table",
+       "title": "2.5.2 The six agro-ecological zones (Table 2.13 and p. 92–94)",
        "page": 92,
-       "src": "textbook pp.92–93",
-       "enriched": true,
+       "src": "notes",
+       "head": [
+        "Zone",
+        "Where",
+        "Rain (mm)",
+        "Altitude (m)",
+        "Crops",
+        "Livestock",
+        "Area"
+       ],
+       "rows": [
+        [
+         "Moist highland",
+         "Central and southern highlands",
+         "500–700",
+         "1600–3018",
+         "Barley (0.5–2 t/ha), wheat, teff, sorghum, maize, pulses",
+         "Sheep, goats, cattle",
+         "7 %"
+        ],
+        [
+         "Arid highland",
+         "Northern highlands; steep escarpments, dissected plateaus",
+         "200–500",
+         "1600–2600",
+         "Sorghum, barley (0.05–0.6 t/ha)",
+         "Cattle, goats, sheep, camels",
+         "3 %"
+        ],
+        [
+         "Moist lowland",
+         "South-west and upper Mereb valley; savannah woodland",
+         "500–800",
+         "500–1600",
+         "Sorghum (2.5–3 t/ha), sesame, cotton, pearl millet, maize",
+         "Cattle, goats, sheep, camels",
+         "16 %"
+        ],
+        [
+         "Arid lowland",
+         "North and lower eastern escarpment; doum palm on riverbanks",
+         "200–500",
+         "400–1600",
+         "Sorghum (0.5–1.5 t/ha), pearl millet",
+         "Goats, cattle, camels, sheep",
+         "34 %"
+        ],
+        [
+         "Sub-humid escarpment",
+         "Central eastern escarpment; juniper and olive forest",
+         "700–1100",
+         "600–2600",
+         "Maize, sorghum, coffee, barley — limited by steep slopes, shallow soils",
+         "Cattle, goats",
+         "1 %"
+        ],
+        [
+         "Semi-desert",
+         "Coast, islands, north-west of the Barka–Sawa rivers",
+         "< 200",
+         "< 100–1355",
+         "Maize and sorghum under spate irrigation (1.5–2 t/ha)",
+         "Goats, camels, sheep, cattle",
+         "39 %"
+        ]
+       ],
+       "layout": "cards",
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-aezclim",
+       "type": "table",
+       "title": "Climate figures of the zones (Table 2.13)",
+       "page": 95,
+       "src": "notes",
+       "head": [
+        "Zone",
+        "Temp (°C)",
+        "PET (mm)",
+        "Growing period (days, dependable–median)"
+       ],
+       "rows": [
+        [
+         "Sub-humid",
+         "16–27",
+         "1600–2000",
+         "60–210 / 90–240"
+        ],
+        [
+         "Arid highland",
+         "15–21",
+         "1600–1800",
+         "0–30 / 30–60"
+        ],
+        [
+         "Moist highland",
+         "15–21",
+         "1600–1800",
+         "60–110 / 90–120"
+        ],
+        [
+         "Moist lowland",
+         "21–28",
+         "1800–2000",
+         "50–90 / 60–120"
+        ],
+        [
+         "Arid lowland",
+         "21–29",
+         "1800–2000",
+         "0–30 / 30–60"
+        ],
+        [
+         "Semi-desert",
+         "24–32",
+         "1800–2100",
+         "0 / < 30"
+        ]
+       ],
+       "layout": "cards"
+      },
+      {
+       "id": "agri11-u2-ad-mn-aez",
+       "type": "mnemonic",
+       "title": "Memory trick — sizes from biggest to smallest",
+       "page": 95,
+       "src": "notes",
        "body": [
-        "Eritrea has large variations in landscape and climatic features.",
-        "The agro-ecological map of Eritrea shows six major zones.",
-        "The major crops grown in this zone are barley, wheat, taff, sorghum, maize and pulses.",
-        "The major livestock found are sheep, goats and cattle."
+        "**S**emi-desert 39, **A**rid lowland 34, **M**oist lowland 16, **M**oist highland 7, **A**rid highland 3, **S**ub-humid 1: \"**SAM MAS**\" — and the numbers add up to 100."
        ]
       },
       {
        "id": "agri11-u2-c32",
        "type": "text",
-       "title": "2.5.3 Major Agricultural Land Use Practices in Eritrea",
-       "page": 96,
-       "src": "textbook p.96",
-       "enriched": true,
+       "title": "2.5.3 Major agricultural land-use practices",
+       "page": 95,
+       "src": "notes",
        "body": [
-        "Traditionally, each village is divided into grazing, agricultural, forest, water resources and settlement areas.",
-        "For example the agricultural area in the Highlands is divided into three categories based on soil quality: fertile, medium and poor.",
-        "In a traditional land-management system, fertile lands are never allocated for settlement, as they represent the village breadbasket and are essential to its livelihood.",
-        "Cultivated land accounts for approximately 7 per cent of the total land area."
-       ]
+        "**Land use** = how land is developed and used (agriculture, homes, industry) and what may be built on it.",
+        "Traditionally each village is divided into **grazing, farming, forest, water and settlement** areas. In the highlands farmland is graded **fertile, medium and poor**, and **fertile land is never used for houses** — it is the village breadbasket.",
+        "Cultivated land is only about **7 %** of Eritrea (Table 2.14). Grazing land is not demarcated, so there is no clear boundary between farmland and grazing land."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "agri11-u2-ad-land-fig",
+       "type": "diagram",
+       "title": "Land cover",
+       "page": 96,
+       "src": "notes",
+       "diagram": "ad_landcover",
+       "mode": "plain"
+      },
+      {
+       "id": "agri11-u2-ad-wk-aez",
+       "type": "worked",
+       "title": "Worked example — choosing a zone",
+       "page": 93,
+       "src": "notes",
+       "mode": "show",
+       "problem": "An investor wants to grow rain-fed sesame and cotton. Which zone should he choose, and why not the moist highland?",
+       "steps": [
+        {
+         "text": "Sesame and cotton are **warm-season** crops needing heat and 500 mm or more of rain."
+        },
+        {
+         "text": "Moist lowland: 21–28 °C, 500–800 mm, growing period 60–120 days, sorghum 2.5–3 t/ha — it already grows sesame and cotton."
+        },
+        {
+         "text": "Moist highland: only 15–21 °C — too cool for good sesame and cotton."
+        },
+        {
+         "text": "So the **moist lowland** (south-west, e.g. around Tesseney and Barentu, and the upper Mereb valley)."
+        }
+       ],
+       "answer": "The moist lowland — warm and wet enough; the moist highland is too cool."
+      },
+      {
+       "id": "agri11-u2-ad-wk-match",
+       "type": "worked",
+       "title": "Worked example — Exercise 2.5 matching",
+       "page": 97,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Match: 1 Semi-desert, 2 Central and southern highlands, 3 Northern highlands, 4 Coastal plain zone, 5 South-western part — with A Arid highland, B Spate irrigation, C Moist highland, D Moist lowland, E Halophytic plants (Acacia mellifera, A. nubica).",
+       "steps": [
+        {
+         "text": "1 Semi-desert → **E** (its vegetation is halophytic scrub)."
+        },
+        {
+         "text": "2 Central and southern highlands → **C** moist highland."
+        },
+        {
+         "text": "3 Northern highlands → **A** arid highland."
+        },
+        {
+         "text": "4 Coastal plain → **B** spate irrigation (maize and sorghum)."
+        },
+        {
+         "text": "5 South-western part → **D** moist lowland."
+        }
+       ],
+       "answer": "1-E, 2-C, 3-A, 4-B, 5-D."
       },
       {
        "id": "agri11-u2-chk10",
@@ -1255,6 +2616,84 @@
      "page": 73,
      "src": "textbook p.73",
      "enriched": true
+    },
+    {
+     "term": "Isotherm",
+     "meaning": "A line on a map joining places with the same mean temperature.",
+     "page": 40,
+     "src": "notes"
+    },
+    {
+     "term": "Potential evapotranspiration (PET)",
+     "meaning": "The water that would evaporate and transpire if water were always available.",
+     "page": 41,
+     "src": "notes"
+    },
+    {
+     "term": "Edaphology",
+     "meaning": "The study of soil in relation to plant growth.",
+     "page": 46,
+     "src": "notes"
+    },
+    {
+     "term": "Illuviation",
+     "meaning": "The washing-in and accumulation of clay, iron, aluminium or humus in the B horizon.",
+     "page": 49,
+     "src": "notes"
+    },
+    {
+     "term": "Solum",
+     "meaning": "The upper, biologically weathered part of the regolith (O, A and B horizons).",
+     "page": 50,
+     "src": "notes"
+    },
+    {
+     "term": "Porosity",
+     "meaning": "The fraction of soil volume that is pore space: 1 − bulk density ÷ particle density.",
+     "page": 53,
+     "src": "notes"
+    },
+    {
+     "term": "Field capacity",
+     "meaning": "The water a soil holds after gravitational water has drained away.",
+     "page": 59,
+     "src": "notes"
+    },
+    {
+     "term": "Permanent wilting point",
+     "meaning": "Soil water content at which plants wilt and do not recover.",
+     "page": 59,
+     "src": "notes"
+    },
+    {
+     "term": "Physiological drought",
+     "meaning": "Water stress caused by salt in the soil, even when the soil is moist.",
+     "page": 66,
+     "src": "notes"
+    },
+    {
+     "term": "Landrace",
+     "meaning": "A local crop variety selected by farmers over generations.",
+     "page": 77,
+     "src": "notes"
+    },
+    {
+     "term": "Aquifer",
+     "meaning": "An underground layer of rock or sediment that stores and transmits water.",
+     "page": 86,
+     "src": "notes"
+    },
+    {
+     "term": "Ephemeral river",
+     "meaning": "A river that flows only for part of the year.",
+     "page": 88,
+     "src": "notes"
+    },
+    {
+     "term": "Agro-ecological zone",
+     "meaning": "An area with similar climate, landform, soil and vegetation, and so similar farming potential.",
+     "page": 91,
+     "src": "notes"
     }
    ],
    "tips": [
@@ -1317,6 +2756,21 @@
      "page": 44,
      "src": "textbook p.44",
      "enriched": true
+    },
+    {
+     "text": "Table 2.1: temperature falls 5–7 °C and PET about 200 mm for every 1000 m of altitude.",
+     "page": 41,
+     "src": "notes"
+    },
+    {
+     "text": "Saline: EC > 4; sodic: ESP > 15 and pH > 8.5. Water for salt, gypsum for sodium.",
+     "page": 67,
+     "src": "notes"
+    },
+    {
+     "text": "AEZ sizes: semi-desert 39, arid lowland 34, moist lowland 16, moist highland 7, arid highland 3, sub-humid 1.",
+     "page": 95,
+     "src": "notes"
     }
    ],
    "games": [
@@ -2051,6 +3505,1118 @@
       "src_qid": "agri_g11_c2_q5",
       "src": "practice_bank",
       "page": 38
+     },
+     {
+      "id": "agri11-u2-ad-s21-q01",
+      "type": "mcq",
+      "q": "Which instrument measures wind speed?",
+      "options": {
+       "A": "Wind vane",
+       "B": "Cup anemometer",
+       "C": "Barograph",
+       "D": "Hygrometer"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: An anemometer's cups spin faster in stronger wind.",
+       "Step 2: A wind vane shows direction, not speed."
+      ],
+      "tip": "Anemo- = wind; -meter = measure.",
+      "similar": [
+       {
+        "q": "Which instrument shows wind direction?",
+        "a": "The wind vane."
+       }
+      ],
+      "page": 39,
+      "src": "notes",
+      "label": "2.1 Practice — climate"
+     },
+     {
+      "id": "agri11-u2-ad-s21-q02",
+      "type": "mcq",
+      "q": "An evaporation pan is used to",
+      "options": {
+       "A": "record air pressure",
+       "B": "measure water lost by evaporation",
+       "C": "measure rainfall intensity only",
+       "D": "record sunshine hours"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: The pan holds water; the drop in level per day is the evaporation (mm/day).",
+       "Step 2: Farmers use it to estimate irrigation needs."
+      ],
+      "tip": "Pan = open water surface.",
+      "similar": [
+       {
+        "q": "Which instrument records sunshine hours?",
+        "a": "The sunshine recorder."
+       }
+      ],
+      "page": 39,
+      "src": "notes",
+      "label": "2.1 Practice — climate"
+     },
+     {
+      "id": "agri11-u2-ad-s21-q03",
+      "type": "short",
+      "q": "Using Table 2.1, estimate the maximum temperature at Keren (about 1460 m).",
+      "answer": "About 29.5 °C",
+      "why": [
+       "Step 1: Maximum = 36.8 − 0.005 × h.",
+       "Step 2: 0.005 × 1460 = 7.3.",
+       "Step 3: 36.8 − 7.3 = 29.5 °C."
+      ],
+      "tip": "Multiply first, then subtract.",
+      "similar": [
+       {
+        "q": "Minimum at Keren?",
+        "a": "25.3 − 0.007 × 1460 = 15.08 ≈ 15.1 °C."
+       }
+      ],
+      "page": 41,
+      "src": "notes",
+      "label": "2.1 Practice — climate"
+     },
+     {
+      "id": "agri11-u2-ad-s21-q04",
+      "type": "short",
+      "q": "Estimate the mean temperature and PET of a place at 1500 m.",
+      "answer": "Mean 22 °C; PET 1772 mm per year",
+      "why": [
+       "Step 1: Mean = 31.0 − 0.006 × 1500 = 31.0 − 9.0 = 22.0 °C.",
+       "Step 2: PET = 2069 − 0.198 × 1500 = 2069 − 297 = 1772 mm."
+      ],
+      "tip": "Same pattern: constant − slope × altitude.",
+      "similar": [
+       {
+        "q": "PET at 2000 m?",
+        "a": "2069 − 396 = 1673 mm."
+       }
+      ],
+      "page": 41,
+      "src": "notes",
+      "label": "2.1 Practice — climate"
+     },
+     {
+      "id": "agri11-u2-ad-s21-q05",
+      "type": "short",
+      "q": "At what altitude would the minimum temperature be 4.3 °C according to Table 2.1?",
+      "answer": "3000 m",
+      "why": [
+       "Step 1: 4.3 = 25.3 − 0.007 h.",
+       "Step 2: 0.007 h = 21.0.",
+       "Step 3: h = 21.0 ÷ 0.007 = 3000 m."
+      ],
+      "tip": "Work backwards: rearrange for h.",
+      "similar": [
+       {
+        "q": "At what altitude is the maximum 26.8 °C?",
+        "a": "2000 m."
+       }
+      ],
+      "page": 41,
+      "src": "notes",
+      "label": "2.1 Practice — climate"
+     },
+     {
+      "id": "agri11-u2-ad-s21-q06",
+      "type": "mcq",
+      "q": "Relative humidity is expressed as",
+      "options": {
+       "A": "grams",
+       "B": "millimetres",
+       "C": "a percentage",
+       "D": "degrees Celsius"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: RH compares the vapour present with the vapour at saturation.",
+       "Step 2: A ratio × 100 = a percentage."
+      ],
+      "tip": "Relative = compared → %.",
+      "similar": [
+       {
+        "q": "Name a disease favoured by high humidity.",
+        "a": "Downy mildew of grapes or onions."
+       }
+      ],
+      "page": 41,
+      "src": "notes",
+      "label": "2.1 Practice — climate"
+     },
+     {
+      "id": "agri11-u2-ad-s21-q07",
+      "type": "tf",
+      "q": "True or false: a water deficit exists when rainfall is greater than potential evapotranspiration.",
+      "answer": false,
+      "why": [
+       "Step 1: A deficit means the plant needs more water than the rain supplies.",
+       "Step 2: That happens when rainfall is LESS than PET."
+      ],
+      "tip": "Deficit = demand > supply.",
+      "similar": [
+       {
+        "q": "If rainfall is 400 mm and PET 1800 mm, is there a deficit?",
+        "a": "Yes, 1400 mm."
+       }
+      ],
+      "page": 42,
+      "src": "notes",
+      "label": "2.1 Practice — climate"
+     },
+     {
+      "id": "agri11-u2-ad-s21-q08",
+      "type": "mcq",
+      "q": "Valley soils are usually deeper and richer than hilltop soils because",
+      "options": {
+       "A": "valleys get more sunlight",
+       "B": "soil eroded from slopes is deposited in valleys",
+       "C": "valleys never have frost",
+       "D": "rocks in valleys are younger"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Water carries soil down-slope.",
+       "Step 2: It settles where the slope flattens.",
+       "Step 3: Valleys may even get MORE frost."
+      ],
+      "tip": "Erosion up, deposition down.",
+      "similar": [
+       {
+        "q": "Why are valley floors at risk of frost?",
+        "a": "Cold, heavy air drains down and collects there at night."
+       }
+      ],
+      "page": 43,
+      "src": "notes",
+      "label": "2.1 Practice — climate"
+     },
+     {
+      "id": "agri11-u2-ad-s21-q09",
+      "type": "short",
+      "q": "Explain how day length (photoperiod) controls a crop.",
+      "answer": "Day length triggers stages of development — especially flowering — and the hardening of plants before cold seasons; it regulates the crop from germination to seed setting.",
+      "why": [
+       "Step 1: Plants \"measure\" the length of day or night.",
+       "Step 2: When it passes a threshold they switch from leaf growth to flowering."
+      ],
+      "tip": "Photo = light; period = length.",
+      "similar": [
+       {
+        "q": "Which process needs light energy directly?",
+        "a": "Photosynthesis."
+       }
+      ],
+      "page": 42,
+      "src": "notes",
+      "label": "2.1 Practice — climate"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q01",
+      "type": "mcq",
+      "q": "The study of soil in relation to plant production is",
+      "options": {
+       "A": "pedology",
+       "B": "edaphology",
+       "C": "geology",
+       "D": "hydrology"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Pedology = origin, classification, description.",
+       "Step 2: Edaphology = soil from the plant's point of view."
+      ],
+      "tip": "Edaphology — think \"eat\": what the plant gets from soil.",
+      "similar": [
+       {
+        "q": "Which approach classifies and maps soils?",
+        "a": "Pedology."
+       }
+      ],
+      "page": 46,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q02",
+      "type": "mcq",
+      "q": "Sandstone and shale are examples of",
+      "options": {
+       "A": "igneous rocks",
+       "B": "sedimentary rocks",
+       "C": "metamorphic rocks",
+       "D": "soil horizons"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Both form from deposited and re-cemented weathered material.",
+       "Step 2: Sandstone from sand; shale from clay."
+      ],
+      "tip": "Sediment = settled material.",
+      "similar": [
+       {
+        "q": "Marble is metamorphosed from which rock?",
+        "a": "Limestone (or dolomite)."
+       }
+      ],
+      "page": 46,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q03",
+      "type": "fill",
+      "q": "The five soil-forming factors are parent material, climate, organisms, topography and ____.",
+      "choices": [
+       "time",
+       "tillage",
+       "fertilizer",
+       "irrigation"
+      ],
+      "answer": "time",
+      "why": [
+       "Step 1: Recall \"ClORPT\".",
+       "Step 2: T = time."
+      ],
+      "tip": "ClORPT.",
+      "similar": [
+       {
+        "q": "Which factor controls the speed of chemical reactions in soil?",
+        "a": "Climate (temperature)."
+       }
+      ],
+      "page": 47,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q04",
+      "type": "mcq",
+      "q": "The horizon of accumulation (illuviation) of clay and iron is the",
+      "options": {
+       "A": "O horizon",
+       "B": "A horizon",
+       "C": "B horizon",
+       "D": "C horizon"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: Materials washed out of A are deposited in B.",
+       "Step 2: C is weathered parent material."
+      ],
+      "tip": "B = \"below-the-topsoil, builds up\".",
+      "similar": [
+       {
+        "q": "Which horizon is dark with humus?",
+        "a": "The A horizon."
+       }
+      ],
+      "page": 49,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q05",
+      "type": "short",
+      "q": "How long does it take to form a 10 cm layer of soil, using 120–400 years per cm?",
+      "answer": "1 200 to 4 000 years",
+      "why": [
+       "Step 1: 10 × 120 = 1 200 years.",
+       "Step 2: 10 × 400 = 4 000 years."
+      ],
+      "tip": "Multiply both ends of the range.",
+      "similar": [
+       {
+        "q": "And 5 cm?",
+        "a": "600–2 000 years."
+       }
+      ],
+      "page": 48,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q06",
+      "type": "short",
+      "q": "A soil core of 200 cm³ has an oven-dry mass of 280 g. Find its bulk density and porosity (particle density 2.65 g/cm³).",
+      "answer": "BD = 1.4 g/cm³; porosity ≈ 47 %",
+      "why": [
+       "Step 1: BD = 280 ÷ 200 = 1.4 g/cm³.",
+       "Step 2: Porosity = 1 − 1.4/2.65 = 1 − 0.528 = 0.472.",
+       "Step 3: ≈ 47 %."
+      ],
+      "tip": "Porosity = 1 − BD/PD.",
+      "similar": [
+       {
+        "q": "BD 1.06 g/cm³, PD 2.65 g/cm³: porosity?",
+        "a": "60 %."
+       }
+      ],
+      "page": 52,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q07",
+      "type": "mcq",
+      "q": "A rise in bulk density from 1.2 to 1.7 g/cm³ in a field most likely shows",
+      "options": {
+       "A": "more organic matter",
+       "B": "compaction",
+       "C": "better aggregation",
+       "D": "higher porosity"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Higher BD = more mass per volume = fewer pores.",
+       "Step 2: Fewer pores = compacted soil."
+      ],
+      "tip": "High BD → low porosity → compaction.",
+      "similar": [
+       {
+        "q": "Name two causes of compaction.",
+        "a": "Heavy machines and trampling by animals (also ploughing at the same depth)."
+       }
+      ],
+      "page": 52,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q08",
+      "type": "mcq",
+      "q": "Particles with a diameter of 0.01 mm are",
+      "options": {
+       "A": "sand",
+       "B": "silt",
+       "C": "clay",
+       "D": "gravel"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Silt is 0.002–0.05 mm.",
+       "Step 2: 0.01 mm lies inside that range."
+      ],
+      "tip": "Sand > 0.05 > silt > 0.002 > clay.",
+      "similar": [
+       {
+        "q": "Is 0.001 mm sand, silt or clay?",
+        "a": "Clay."
+       }
+      ],
+      "page": 55,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q09",
+      "type": "short",
+      "q": "Use the texture triangle: a soil has 40 % sand, 40 % silt and 20 % clay. What class is it?",
+      "answer": "Loam",
+      "why": [
+       "Step 1: Clay 20 % is in the 7–27 % band of loam.",
+       "Step 2: Silt 40 % is between 28 and 50 %.",
+       "Step 3: Sand 40 % is ≤ 52 %. → Loam."
+      ],
+      "tip": "Two lines are enough; the third checks.",
+      "similar": [
+       {
+        "q": "20 % sand, 20 % silt, 60 % clay?",
+        "a": "Clay."
+       }
+      ],
+      "page": 56,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q10",
+      "type": "short",
+      "q": "A soil has 10 % sand and 25 % clay. What is its silt content, and what is its class?",
+      "answer": "Silt = 65 %; silt loam",
+      "why": [
+       "Step 1: Silt = 100 − 10 − 25 = 65 %.",
+       "Step 2: Silt ≥ 50 % and clay 12–27 % → silt loam."
+      ],
+      "tip": "The three always add to 100.",
+      "similar": [
+       {
+        "q": "70 % sand, 20 % silt — clay?",
+        "a": "10 %; sandy loam."
+       }
+      ],
+      "page": 56,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q11",
+      "type": "mcq",
+      "q": "Which cation disperses soil aggregates and causes crusting?",
+      "options": {
+       "A": "Ca²⁺",
+       "B": "Mg²⁺",
+       "C": "Na⁺",
+       "D": "Al³⁺"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: Ca, Mg, Fe and Al bind (flocculate) aggregates.",
+       "Step 2: Sodium disperses them."
+      ],
+      "tip": "Sodium = soap: it spreads clay apart.",
+      "similar": [
+       {
+        "q": "What is added to replace sodium?",
+        "a": "Gypsum (calcium sulphate)."
+       }
+      ],
+      "page": 56,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q12",
+      "type": "mcq",
+      "q": "The best structure for a seedbed is",
+      "options": {
+       "A": "platy",
+       "B": "granular / crumb",
+       "C": "columnar",
+       "D": "single grain"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Crumb and granular peds are porous and rounded.",
+       "Step 2: They let air, water and roots in; found in humus-rich topsoil."
+      ],
+      "tip": "Crumb like bread crumbs — soft and airy.",
+      "similar": [
+       {
+        "q": "Where is columnar structure found?",
+        "a": "In the B horizon of sodic (natric) arid soils."
+       }
+      ],
+      "page": 57,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q13",
+      "type": "mcq",
+      "q": "A clay soil should be ploughed when it is",
+      "options": {
+       "A": "dry and hard",
+       "B": "wet and sticky",
+       "C": "moist and friable",
+       "D": "flooded"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: Dry clay is hard; wet clay smears and sticks.",
+       "Step 2: Moist and friable crumbles well."
+      ],
+      "tip": "Friable = crumbly.",
+      "similar": [
+       {
+        "q": "Name the two wet-state consistency words.",
+        "a": "Sticky and plastic."
+       }
+      ],
+      "page": 58,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q14",
+      "type": "short",
+      "q": "Define field capacity and permanent wilting point; how do you calculate available water?",
+      "answer": "Field capacity: water held after gravitational water has drained (1–3 days after soaking). Wilting point: soil so dry that roots cannot take water and plants wilt permanently. Available water = FC − PWP.",
+      "why": [
+       "Step 1: Saturation → drain → field capacity.",
+       "Step 2: Plants use water → wilting point.",
+       "Step 3: The water between is available."
+      ],
+      "tip": "Draw the bar: gravitational | available | unavailable.",
+      "similar": [
+       {
+        "q": "A soil holds 32 % at FC and 14 % at PWP. Available water?",
+        "a": "18 %."
+       }
+      ],
+      "page": 59,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q15",
+      "type": "short",
+      "q": "A wet sample weighs 50 g; after oven drying it weighs 42 g. Find the water content by the textbook formula.",
+      "answer": "16 %",
+      "why": [
+       "Step 1: Water = 50 − 42 = 8 g.",
+       "Step 2: (8 ÷ 50) × 100 = 16 %.",
+       "Step 3: (On a dry basis: 8 ÷ 42 × 100 ≈ 19 %.)"
+      ],
+      "tip": "Textbook divides by W1 (wet mass).",
+      "similar": [
+       {
+        "q": "W1 = 60 g, W2 = 45 g?",
+        "a": "25 % (wet basis)."
+       }
+      ],
+      "page": 60,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q16",
+      "type": "mcq",
+      "q": "Which type of water movement is most important for drought-resistant plants in very dry soil?",
+      "options": {
+       "A": "Saturated flow",
+       "B": "Unsaturated flow",
+       "C": "Vapour movement",
+       "D": "Runoff"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: In very dry soil liquid films break.",
+       "Step 2: Water still moves as vapour."
+      ],
+      "tip": "Dry soil → vapour.",
+      "similar": [
+       {
+        "q": "Which flow is typical of groundwater?",
+        "a": "Saturated flow."
+       }
+      ],
+      "page": 61,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q17",
+      "type": "mcq",
+      "q": "Compared with the atmosphere, soil air usually has",
+      "options": {
+       "A": "less CO₂ and more O₂",
+       "B": "more CO₂ and less O₂",
+       "C": "the same composition",
+       "D": "no water vapour"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Roots and microbes use O₂ and release CO₂.",
+       "Step 2: Exchange with the air is slow, so CO₂ builds up (5–10 times)."
+      ],
+      "tip": "Respiration underground.",
+      "similar": [
+       {
+        "q": "Minimum O₂ in soil air for most plants?",
+        "a": "Above 10 %."
+       }
+      ],
+      "page": 62,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q18",
+      "type": "mcq",
+      "q": "A grey subsoil colour usually indicates",
+      "options": {
+       "A": "high organic matter",
+       "B": "good drainage",
+       "C": "poor drainage (iron depletion)",
+       "D": "salt accumulation"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: Grey = iron removed under waterlogged conditions.",
+       "Step 2: Red-brown = well drained; white = salts; black = humus."
+      ],
+      "tip": "Grey = \"gley\" = wet.",
+      "similar": [
+       {
+        "q": "What does a whitish surface crust show?",
+        "a": "Salts — common in arid areas."
+       }
+      ],
+      "page": 63,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q19",
+      "type": "short",
+      "q": "Soil A has pH 5 and soil B has pH 7. How many times more H⁺ does soil A have?",
+      "answer": "100 times",
+      "why": [
+       "Step 1: Each pH unit = 10 times.",
+       "Step 2: Difference = 2 units → 10 × 10 = 100."
+      ],
+      "tip": "pH is a log scale.",
+      "similar": [
+       {
+        "q": "pH 4 vs pH 7?",
+        "a": "1000 times."
+       }
+      ],
+      "page": 65,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q20",
+      "type": "mcq",
+      "q": "A soil has EC 6 dS/m, ESP 8 % and pH 8.0. It is",
+      "options": {
+       "A": "saline",
+       "B": "sodic",
+       "C": "saline-sodic",
+       "D": "normal"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: EC > 4 → saline.",
+       "Step 2: ESP < 15 → not sodic.",
+       "Step 3: So saline."
+      ],
+      "tip": "Check EC first, then ESP.",
+      "similar": [
+       {
+        "q": "EC 2, ESP 22, pH 9.2?",
+        "a": "Sodic."
+       }
+      ],
+      "page": 67,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q21",
+      "type": "short",
+      "q": "How is a sodic soil reclaimed? Explain the chemistry in one line.",
+      "answer": "Apply gypsum (CaSO₄) to the surface and leach; Ca²⁺ replaces exchangeable Na⁺ on the colloids, and the sodium is washed out; then grow grass or forage to rebuild structure.",
+      "why": [
+       "Step 1: The problem is Na⁺ on the exchange sites.",
+       "Step 2: Ca²⁺ from gypsum exchanges with it.",
+       "Step 3: Leaching removes the released Na⁺."
+      ],
+      "tip": "Gypsum for sodium.",
+      "similar": [
+       {
+        "q": "How is a saline (non-sodic) soil reclaimed?",
+        "a": "Leach the salts with good-quality water and drain."
+       }
+      ],
+      "page": 67,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q22",
+      "type": "short",
+      "q": "What is \"physiological drought\"?",
+      "answer": "Salt in the soil solution lowers its osmotic potential, so roots cannot take up water and the plant suffers drought even though the soil contains enough water.",
+      "why": [
+       "Step 1: Water moves from high to low water potential.",
+       "Step 2: Salty soil water has a low potential.",
+       "Step 3: Roots struggle to pull water in."
+      ],
+      "tip": "Wet soil, thirsty plant.",
+      "similar": [
+       {
+        "q": "Name the other two effects of salinity.",
+        "a": "Direct toxicity (Na, Cl, B) and ionic imbalance."
+       }
+      ],
+      "page": 66,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q23",
+      "type": "mcq",
+      "q": "Rhizobium bacteria are important because they",
+      "options": {
+       "A": "cause root rot",
+       "B": "fix atmospheric nitrogen in legume nodules",
+       "C": "decompose lignin",
+       "D": "make soil acid"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Rhizobium lives in root nodules of beans, peas, chickpea, grass pea, alfalfa.",
+       "Step 2: It turns N₂ into forms the plant can use."
+      ],
+      "tip": "Rhizo = root.",
+      "similar": [
+       {
+        "q": "Which organisms break down cellulose and chitin even at high pH?",
+        "a": "Actinomycetes."
+       }
+      ],
+      "page": 69,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q24",
+      "type": "short",
+      "q": "List four benefits of humus.",
+      "answer": "Supplies N, P and S; raises CEC (holds cations); holds a lot of water; binds particles into aggregates (better structure, infiltration and resistance to erosion).",
+      "why": [
+       "Step 1: Nutrients.",
+       "Step 2: Exchange capacity.",
+       "Step 3: Water.",
+       "Step 4: Structure."
+      ],
+      "tip": "N-C-W-S: nutrients, CEC, water, structure.",
+      "similar": [
+       {
+        "q": "What are green manure crops?",
+        "a": "Crops grown and ploughed in to add organic matter."
+       }
+      ],
+      "page": 70,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s22-q25",
+      "type": "mcq",
+      "q": "A clay soil that cracks widely when dry and swells when wet is a",
+      "options": {
+       "A": "Lithosol",
+       "B": "Vertisol",
+       "C": "Arenosol",
+       "D": "Fluvisol"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Vertisols have swelling clays.",
+       "Step 2: Arenosol = sandy; Fluvisol = river deposits; Lithosol = shallow."
+      ],
+      "tip": "Vert- = turn: the soil turns over as it cracks.",
+      "similar": [
+       {
+        "q": "Which soil group is dominated by salt accumulation?",
+        "a": "Solonchak."
+       }
+      ],
+      "page": 72,
+      "src": "notes",
+      "label": "2.2 Practice — soil"
+     },
+     {
+      "id": "agri11-u2-ad-s23-q01",
+      "type": "mcq",
+      "q": "Conserving seeds in a gene bank is",
+      "options": {
+       "A": "in-situ conservation",
+       "B": "ex-situ conservation",
+       "C": "land reclamation",
+       "D": "agroforestry"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Ex-situ = outside the natural place.",
+       "Step 2: In-situ = on farm or in enclosures."
+      ],
+      "tip": "Ex = out.",
+      "similar": [
+       {
+        "q": "Farmers keeping their own landraces is…",
+        "a": "In-situ conservation."
+       }
+      ],
+      "page": 77,
+      "src": "notes",
+      "label": "2.3–2.5 Practice — biodiversity, water and zones"
+     },
+     {
+      "id": "agri11-u2-ad-s23-q02",
+      "type": "mcq",
+      "q": "Which crops were domesticated in the Abyssinian centre of diversity?",
+      "options": {
+       "A": "Maize and potato",
+       "B": "Teff and Niger seed",
+       "C": "Rice and cassava",
+       "D": "Sugar cane and cotton"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: The textbook names taff (teff) and Niger seed (nihug).",
+       "Step 2: Maize and potato came from the Americas."
+      ],
+      "tip": "Teff + nihug = home-grown.",
+      "similar": [
+       {
+        "q": "Name two other crops very diverse in this centre.",
+        "a": "Barley and chickpea (also wheat, linseed, lentil, faba bean)."
+       }
+      ],
+      "page": 77,
+      "src": "notes",
+      "label": "2.3–2.5 Practice — biodiversity, water and zones"
+     },
+     {
+      "id": "agri11-u2-ad-s23-q03",
+      "type": "mcq",
+      "q": "Which goat breed is known for milk and frequent twins and triplets?",
+      "options": {
+       "A": "Afar",
+       "B": "Worre",
+       "C": "Hassani (Shukria)",
+       "D": "Barka"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: Page 78: Hassani — milk, twins and triplets."
+      ],
+      "tip": "Hassani = \"has many\".",
+      "similar": [
+       {
+        "q": "Name the two donkey types.",
+        "a": "Lowland (Rifai) and highland."
+       }
+      ],
+      "page": 78,
+      "src": "notes",
+      "label": "2.3–2.5 Practice — biodiversity, water and zones"
+     },
+     {
+      "id": "agri11-u2-ad-s23-q04",
+      "type": "mcq",
+      "q": "In Table 2.11 the lion is listed as",
+      "options": {
+       "A": "common",
+       "B": "rare",
+       "C": "endangered",
+       "D": "critical"
+      },
+      "answer": "D",
+      "why": [
+       "Step 1: Critical: African wild dog and lion.",
+       "Step 2: Rare: elephant, wild ass; endangered: hartebeest, red-fronted gazelle, Nubian ibex."
+      ],
+      "tip": "Learn two examples per category.",
+      "similar": [
+       {
+        "q": "Which status does the Nubian ibex have?",
+        "a": "Endangered."
+       }
+      ],
+      "page": 82,
+      "src": "notes",
+      "label": "2.3–2.5 Practice — biodiversity, water and zones"
+     },
+     {
+      "id": "agri11-u2-ad-s23-q05",
+      "type": "short",
+      "q": "Give three reasons for the loss of crop landraces in Eritrea.",
+      "answer": "Drought (tall, late landraces disappeared), changes in agricultural practices (one crop replaced by another), and land degradation (loss of fertility).",
+      "why": [
+       "Step 1: Climate: drought.",
+       "Step 2: Farmers' choices: crop replacement.",
+       "Step 3: Land: degradation."
+      ],
+      "tip": "Drought, choice, degradation.",
+      "similar": [
+       {
+        "q": "Give two factors threatening livestock biodiversity.",
+        "a": "Uncontrolled interbreeding and drought (also changing distribution)."
+       }
+      ],
+      "page": 80,
+      "src": "notes",
+      "label": "2.3–2.5 Practice — biodiversity, water and zones"
+     },
+     {
+      "id": "agri11-u2-ad-s23-q06",
+      "type": "mcq",
+      "q": "Groundwater along the coast becomes more saline with",
+      "options": {
+       "A": "distance from the sea",
+       "B": "closeness to river channels",
+       "C": "greater well depth",
+       "D": "higher altitude"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: Salinity rises with depth, distance from river channels, and closeness to the sea."
+      ],
+      "tip": "Deep, far from river, near sea = salty.",
+      "similar": [
+       {
+        "q": "Where are Eritrea's main aquifers?",
+        "a": "In loose alluvial deposits of riverbeds (Barka, Gash, Anseba)."
+       }
+      ],
+      "page": 86,
+      "src": "notes",
+      "label": "2.3–2.5 Practice — biodiversity, water and zones"
+     },
+     {
+      "id": "agri11-u2-ad-s23-q07",
+      "type": "mcq",
+      "q": "The only perennial river basin is the",
+      "options": {
+       "A": "Barka-Anseba",
+       "B": "Mereb-Gash",
+       "C": "Setit",
+       "D": "Danakil"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: All the others are ephemeral.",
+       "Step 2: Setit rises in Ethiopia and flows all year."
+      ],
+      "tip": "Setit = steady.",
+      "similar": [
+       {
+        "q": "Which basin is the largest?",
+        "a": "The Red Sea basin (44 690 km²)."
+       }
+      ],
+      "page": 88,
+      "src": "notes",
+      "label": "2.3–2.5 Practice — biodiversity, water and zones"
+     },
+     {
+      "id": "agri11-u2-ad-s23-q08",
+      "type": "short",
+      "q": "The Setit runs at 900 m³/s in flood and 5 m³/s at base flow. How many times larger is the flood flow?",
+      "answer": "180 times",
+      "why": [
+       "Step 1: 900 ÷ 5 = 180."
+      ],
+      "tip": "Ratio = big ÷ small.",
+      "similar": [
+       {
+        "q": "With a base flow of 10 m³/s?",
+        "a": "90 times."
+       }
+      ],
+      "page": 88,
+      "src": "notes",
+      "label": "2.3–2.5 Practice — biodiversity, water and zones"
+     },
+     {
+      "id": "agri11-u2-ad-s23-q09",
+      "type": "mcq",
+      "q": "Which zone has the highest rainfall?",
+      "options": {
+       "A": "Moist highland",
+       "B": "Sub-humid escarpment",
+       "C": "Moist lowland",
+       "D": "Arid highland"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Sub-humid 700–1100 mm.",
+       "Step 2: Moist lowland 500–800; moist highland 500–700."
+      ],
+      "tip": "Escarpment catches sea air.",
+      "similar": [
+       {
+        "q": "Which zone is largest?",
+        "a": "Semi-desert (39 %)."
+       }
+      ],
+      "page": 93,
+      "src": "notes",
+      "label": "2.3–2.5 Practice — biodiversity, water and zones"
+     },
+     {
+      "id": "agri11-u2-ad-s23-q10",
+      "type": "mcq",
+      "q": "The dominant crop of the moist highland is",
+      "options": {
+       "A": "sorghum",
+       "B": "barley",
+       "C": "cotton",
+       "D": "coffee"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Moist highland: barley 0.5–2 t/ha, the dominant crop.",
+       "Step 2: Sorghum dominates the moist lowland."
+      ],
+      "tip": "Highland = barley; lowland = sorghum.",
+      "similar": [
+       {
+        "q": "Which crop is grown on the sub-humid escarpment but nowhere else on the list?",
+        "a": "Coffee."
+       }
+      ],
+      "page": 93,
+      "src": "notes",
+      "label": "2.3–2.5 Practice — biodiversity, water and zones"
+     },
+     {
+      "id": "agri11-u2-ad-s23-q11",
+      "type": "short",
+      "q": "Eritrea's land area is about 125 700 km². Using 7 % cultivated, estimate the cultivated area.",
+      "answer": "About 8 800 km² (Table 2.14 gives 8 712 km²)",
+      "why": [
+       "Step 1: 0.07 × 125 700 = 8 799 km².",
+       "Step 2: Close to the table value 8 712 km² (6.8 %)."
+      ],
+      "tip": "Percent of a total.",
+      "similar": [
+       {
+        "q": "Barren land is 14.4 %; how many km²?",
+        "a": "About 18 100 km² (table: 18 265)."
+       }
+      ],
+      "page": 95,
+      "src": "notes",
+      "label": "2.3–2.5 Practice — biodiversity, water and zones"
+     },
+     {
+      "id": "agri11-u2-ad-s23-q12",
+      "type": "short",
+      "q": "Why is the potential of the sub-humid escarpment \"moderate to high\" yet limited?",
+      "answer": "Rainfall (700–1100 mm) and long growing periods favour crops, but steep slopes and shallow soils limit cultivation and cause erosion.",
+      "why": [
+       "Step 1: Good: most rain, mild temperatures.",
+       "Step 2: Limits: steep land (8–100 % slope), shallow soil."
+      ],
+      "tip": "Climate yes, land no.",
+      "similar": [
+       {
+        "q": "Name two crops of that zone.",
+        "a": "Maize and coffee (also sorghum, barley)."
+       }
+      ],
+      "page": 94,
+      "src": "notes",
+      "label": "2.3–2.5 Practice — biodiversity, water and zones"
+     },
+     {
+      "id": "agri11-u2-ad-s23-q13",
+      "type": "tf",
+      "q": "True or false: in the traditional highland system, fertile land could be allocated for houses.",
+      "answer": false,
+      "why": [
+       "Step 1: Fertile land is the village breadbasket.",
+       "Step 2: It is never used for settlement."
+      ],
+      "tip": "Breadbasket stays farmland.",
+      "similar": [
+       {
+        "q": "Into what three classes is highland farmland graded?",
+        "a": "Fertile, medium and poor."
+       }
+      ],
+      "page": 96,
+      "src": "notes",
+      "label": "2.3–2.5 Practice — biodiversity, water and zones"
      }
     ]
    },
@@ -2062,7 +4628,7 @@
       "label": "Natural Resource Base",
       "kind": "unit",
       "cards": [
-       "agri11-u2-c01"
+       "agri11-u2-ad-intro"
       ]
      },
      {
@@ -2071,7 +4637,6 @@
       "kind": "topic",
       "lesson": "agri11-u2-l2-1",
       "cards": [
-       "agri11-u2-c01",
        "agri11-u2-c02",
        "agri11-u2-c03",
        "agri11-u2-c04",
@@ -2099,14 +4664,6 @@
       ]
      },
      {
-      "id": "k_soil",
-      "label": "Soil",
-      "kind": "idea",
-      "cards": [
-       "agri11-u2-c01"
-      ]
-     },
-     {
       "id": "l2_2",
       "label": "Soil",
       "kind": "topic",
@@ -2114,7 +4671,6 @@
       "cards": [
        "agri11-u2-c08",
        "agri11-u2-c09",
-       "agri11-u2-c10",
        "agri11-u2-c11",
        "agri11-u2-c12",
        "agri11-u2-c13",
@@ -2187,6 +4743,30 @@
       "cards": [
        "agri11-u2-c32"
       ]
+     },
+     {
+      "id": "ad_tri",
+      "label": "Texture triangle",
+      "kind": "idea",
+      "cards": [
+       "agri11-u2-ad-tri-st"
+      ]
+     },
+     {
+      "id": "ad_avail",
+      "label": "Available water = FC − PWP",
+      "kind": "idea",
+      "cards": [
+       "agri11-u2-ad-fcwp"
+      ]
+     },
+     {
+      "id": "ad_aez6",
+      "label": "Six agro-ecological zones",
+      "kind": "idea",
+      "cards": [
+       "agri11-u2-ad-aez-fig"
+      ]
      }
     ],
     "edges": [
@@ -2209,16 +4789,6 @@
       "from": "l2_1",
       "to": "k_relative_humidity",
       "label": "key idea"
-     },
-     {
-      "from": "l2_1",
-      "to": "k_soil",
-      "label": "key idea"
-     },
-     {
-      "from": "k_soil",
-      "to": "l2_2",
-      "label": "also used in"
      },
      {
       "from": "unit",
@@ -2279,6 +4849,21 @@
       "from": "l2_4",
       "to": "l2_5",
       "label": "next"
+     },
+     {
+      "from": "l2_2",
+      "to": "ad_tri",
+      "label": "key idea"
+     },
+     {
+      "from": "l2_2",
+      "to": "ad_avail",
+      "label": "key idea"
+     },
+     {
+      "from": "l2_5",
+      "to": "ad_aez6",
+      "label": "key idea"
      }
     ],
     "src": "auto"
