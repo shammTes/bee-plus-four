@@ -490,7 +490,7 @@ EXO = [
          '**Step 4 — Check with a thermometer:** temperature of the mixture rises → exothermic; falls → endothermic.'),
     U5.TB('t01', 'Everyday examples', 164,
           ['Exothermic (ΔH negative, gets hot)', 'Endothermic (ΔH positive, gets cold or needs heating)'],
-          [['Burning butane, wood, charcoal: CH₄ + 2O₂ → CO₂ + 2H₂O, ΔH = −890 kJ', 'Photosynthesis: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ (needs sunlight)'],
+          [['Burning methane (natural gas), wood, charcoal: CH₄ + 2O₂ → CO₂ + 2H₂O, ΔH = −890 kJ', 'Photosynthesis: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ (needs sunlight)'],
            ['Respiration in our cells (the reverse of photosynthesis)', 'Thermal decomposition: CaCO₃ → CaO + CO₂, ΔH = +178 kJ (lime kilns)'],
            ['Neutralisation: H⁺ + OH⁻ → H₂O, ΔH = −57.1 kJ', 'Dissolving NH₄NO₃ or NH₄Cl in water (instant cold packs)'],
            ['Slaking quicklime: CaO + H₂O → Ca(OH)₂ (very hot)', 'Electrolysis of water: 2H₂O → 2H₂ + O₂'],

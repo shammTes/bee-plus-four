@@ -87,6 +87,36 @@
      "title": "Cell: electrons leave the anode, enter the cathode. In electrolysis an outside battery forces the non-spontaneous way.",
      "page": 42,
      "pins": []
+    },
+    "co_brine": {
+     "svg": "svg/chemistry_11/chem11_u2_co_brine.svg",
+     "title": "Electrolysis of dilute and concentrated NaCl(aq)",
+     "page": 52,
+     "pins": []
+    },
+    "co_cuso4": {
+     "svg": "svg/chemistry_11/chem11_u2_co_cuso4.svg",
+     "title": "CuSO₄(aq) with inert and with copper anodes",
+     "page": 54,
+     "pins": []
+    },
+    "co_plating": {
+     "svg": "svg/chemistry_11/chem11_u2_co_plating.svg",
+     "title": "Electroplating with silver (textbook Fig. 2.6)",
+     "page": 56,
+     "pins": []
+    },
+    "co_refine": {
+     "svg": "svg/chemistry_11/chem11_u2_co_refine.svg",
+     "title": "Electrolytic refining of copper (textbook Fig. 2.7)",
+     "page": 57,
+     "pins": []
+    },
+    "co_series": {
+     "svg": "svg/chemistry_11/chem11_u2_co_series.svg",
+     "title": "Two electrolytic cells in series",
+     "page": 61,
+     "pins": []
     }
    },
    "lessons": [
@@ -415,11 +445,237 @@
        "src": "textbook pp.47–48",
        "enriched": true,
        "body": [
-        "In the electrolysis of aqueous solutions, it is not only the electrolyte that dissociates but water also dissociates partially.",
-        "For example, in the electrolysis of aqueous solution of NaCl four ions exist in solution, that is, two ions (Na+ and Cl-) from sodium chloride and two ions from the water ( H+ and OH-).",
-        "\\eeping the other factors constant, if two different ions are present at the surface of the cathode, the one which readily receives electrons is preferentially discharged.",
-        "For example, if both sodium and hydrogen ions are present on the surface of the electrode, H+ is preferentially discharged to Na+."
+        "In the electrolysis of aqueous solutions, not only the electrolyte but also water dissociates (slightly), so the ions from water (H⁺ and OH⁻) compete with the ions of the electrolyte at the electrodes.",
+        "For example, an aqueous solution of NaCl contains four ions: Na⁺ and Cl⁻ from sodium chloride, and H⁺ and OH⁻ from water.",
+        "Which ion is discharged depends on three factors: (1) its position in the electrochemical series, (2) its relative concentration, (3) the nature of the electrode.",
+        "Keeping the other factors constant, the cation that most readily accepts electrons is discharged: with Na⁺ and H⁺ present, H⁺ is discharged; with Cu²⁺ and H⁺ present, Cu²⁺ is discharged."
        ]
+      },
+      {
+       "id": "chem11-u2-co-c01",
+       "type": "text",
+       "title": "2.2.4 (2) Relative concentration of the ions, step by step",
+       "page": 52,
+       "src": "notes",
+       "body": [
+        "In a solution there are always **two possible cations** (the metal ion and H⁺ from water) and **two possible anions** (the acid ion and OH⁻ from water). Only one of each is discharged. The first rule (position in the electrochemical series) is not the only rule: **concentration** can change the winner.",
+        "**Step 1 — List all the ions,** from the salt and from water. For NaCl(aq): Na⁺, Cl⁻ from the salt; H⁺, OH⁻ from water.",
+        "**Step 2 — Cathode (−):** compare the cations. Na⁺ is very high in the series and very hard to discharge, so **H⁺ is discharged** even when Na⁺ is far more concentrated — here the position wins.",
+        "$$2\\mathrm{H^{+}(aq)} + 2\\mathrm{e^{-}} \\rightarrow \\mathrm{H_{2}(g)}$$",
+        "**Step 3 — Anode (+):** compare the anions. OH⁻ is easier to discharge than Cl⁻. **But** if Cl⁻ is present at a **much higher concentration** (brine, concentrated HCl) Cl⁻ is discharged instead — here the concentration wins.",
+        "$$2\\mathrm{Cl^{-}(aq)} \\rightarrow \\mathrm{Cl_{2}(g)} + 2\\mathrm{e^{-}}$$",
+        "**Step 4 — Decide what is left in solution.** In brine the H⁺ and Cl⁻ leave; Na⁺ and OH⁻ stay → the solution becomes **sodium hydroxide**.",
+        "$$2\\mathrm{NaCl(aq)} + 2\\mathrm{H_{2}O(l)} \\rightarrow \\mathrm{H_{2}(g)} + \\mathrm{Cl_{2}(g)} + 2\\mathrm{NaOH(aq)}$$",
+        "**Dilute NaCl(aq) is different:** with little Cl⁻, OH⁻ is discharged and **oxygen** is formed: \\(4\\mathrm{OH^{-}(aq)} \\rightarrow 2\\mathrm{H_{2}O(l)} + \\mathrm{O_{2}(g)} + 4\\mathrm{e^{-}}\\). Overall only water is decomposed: \\(2\\mathrm{H_{2}O(l)} \\rightarrow 2\\mathrm{H_{2}(g)} + \\mathrm{O_{2}(g)}\\), and the salt solution slowly gets more concentrated.",
+        "**Concentrated hydrochloric acid** behaves like brine at the anode: H₂ at the cathode, Cl₂ at the anode: \\(2\\mathrm{HCl(aq)} \\rightarrow \\mathrm{H_{2}(g)} + \\mathrm{Cl_{2}(g)}\\)."
+       ]
+      },
+      {
+       "id": "chem11-u2-co-s01",
+       "type": "states",
+       "title": "Model: dilute vs concentrated sodium chloride",
+       "page": 52,
+       "src": "notes",
+       "diagram": "co_brine",
+       "states": [
+        {
+         "key": "dilute",
+         "label": "Dilute NaCl",
+         "text": "Cathode: H₂. Anode: OH⁻ is discharged → O₂. Water is used up; NaCl is left more concentrated."
+        },
+        {
+         "key": "conc",
+         "label": "Brine",
+         "text": "Cathode: H₂. Anode: the huge excess of Cl⁻ wins → Cl₂. Na⁺ and OH⁻ stay behind → NaOH(aq)."
+        }
+       ]
+      },
+      {
+       "id": "chem11-u2-co-c02",
+       "type": "text",
+       "title": "2.2.4 (3) Nature of the electrode, step by step",
+       "page": 54,
+       "src": "notes",
+       "body": [
+        "The electrode material is the **least important** factor, but in two cases it decides the product.",
+        "**Case 1 — Mercury cathode with brine.** On mercury, H⁺ is very slow to discharge, while sodium dissolves in the mercury as an **amalgam**. So **Na⁺** is discharged instead of H⁺:",
+        "$$\\mathrm{Na^{+}(aq)} + \\mathrm{e^{-}} \\rightarrow \\mathrm{Na(s)}$$",
+        "$$\\mathrm{Na(s)} + \\mathrm{Hg(l)} \\rightarrow \\mathrm{NaHg(l)}$$",
+        "The anode (graphite) still gives Cl₂. The amalgam is later treated with water to give very pure NaOH and H₂: \\(2\\mathrm{NaHg(l)} + 2\\mathrm{H_{2}O(l)} \\rightarrow 2\\mathrm{NaOH(aq)} + \\mathrm{H_{2}(g)} + 2\\mathrm{Hg(l)}\\).",
+        "**Case 2 — Copper(II) sulphate with an inert vs a copper anode.** The cathode is the same in both cells (Cu²⁺ is lower than H⁺ in the series, so copper is deposited):",
+        "$$\\mathrm{Cu^{2+}(aq)} + 2\\mathrm{e^{-}} \\rightarrow \\mathrm{Cu(s)}$$",
+        "**Graphite or platinum anode (inert):** SO₄²⁻ is not discharged, OH⁻ is → oxygen: \\(4\\mathrm{OH^{-}(aq)} \\rightarrow 2\\mathrm{H_{2}O(l)} + \\mathrm{O_{2}(g)} + 4\\mathrm{e^{-}}\\). The blue colour fades and the solution becomes acidic (H₂SO₄ is left).",
+        "**Copper anode (active):** neither anion is discharged. The copper atoms of the anode lose electrons more easily, so **the anode dissolves**: \\(\\mathrm{Cu(s)} \\rightarrow \\mathrm{Cu^{2+}(aq)} + 2\\mathrm{e^{-}}\\). No gas forms; the blue colour stays the same, because every Cu²⁺ removed at the cathode is replaced at the anode.",
+        "**Correction:** the textbook says the mercury-cathode example uses “molten sodium chloride”. It is **aqueous** sodium chloride (brine) — in a melt there is no H⁺ to compete with."
+       ]
+      },
+      {
+       "id": "chem11-u2-co-s02",
+       "type": "states",
+       "title": "Model: CuSO₄(aq) with an inert and with a copper anode",
+       "page": 54,
+       "src": "notes",
+       "diagram": "co_cuso4",
+       "states": [
+        {
+         "key": "inert",
+         "label": "Graphite anode",
+         "text": "Anode: oxygen bubbles. Cu²⁺ is used up, so the blue fades and H₂SO₄ is left."
+        },
+        {
+         "key": "copper",
+         "label": "Copper anode",
+         "text": "Anode: copper dissolves, no gas. Cu²⁺ in = Cu²⁺ out, so the blue stays."
+        }
+       ]
+      },
+      {
+       "id": "chem11-u2-co-t01",
+       "type": "table",
+       "title": "The three factors and which one wins",
+       "page": 52,
+       "src": "notes",
+       "head": [
+        "Factor",
+        "Rule",
+        "Example"
+       ],
+       "rows": [
+        [
+         "Position in the series",
+         "the ion lower in the series (cation) or easier to oxidise (anion) is discharged",
+         "H⁺ before Na⁺; Cu²⁺ before H⁺; OH⁻ before SO₄²⁻"
+        ],
+        [
+         "Concentration",
+         "a much more concentrated ion can be discharged instead",
+         "Cl⁻ before OH⁻ in brine and concentrated HCl"
+        ],
+        [
+         "Nature of the electrode",
+         "some electrodes change the product",
+         "Hg cathode: Na⁺ discharged; Cu anode: dissolves"
+        ]
+       ],
+       "body": [
+        "Concentration can beat a small difference in the series (Cl⁻ vs OH⁻), but not a large one: Na⁺ is never discharged before H⁺ on an inert cathode."
+       ]
+      },
+      {
+       "id": "chem11-u2-co-t02",
+       "type": "table",
+       "title": "Exercise 2.7 completed (inert electrodes)",
+       "page": 52,
+       "src": "notes",
+       "head": [
+        "Electrolyte",
+        "Ions in solution",
+        "Cathode",
+        "Anode"
+       ],
+       "rows": [
+        [
+         "Dilute NaCl",
+         "Na⁺, H⁺, Cl⁻, OH⁻",
+         "H₂(g)",
+         "O₂(g)"
+        ],
+        [
+         "CuSO₄ solution",
+         "Cu²⁺, H⁺, SO₄²⁻, OH⁻",
+         "Cu(s)",
+         "O₂(g)"
+        ],
+        [
+         "Concentrated HBr",
+         "H⁺, Br⁻, OH⁻",
+         "H₂(g)",
+         "Br₂"
+        ],
+        [
+         "Molten PbBr₂",
+         "Pb²⁺, Br⁻",
+         "Pb(l)",
+         "Br₂(g)"
+        ]
+       ]
+      },
+      {
+       "id": "chem11-u2-co-w01",
+       "type": "worked",
+       "title": "Worked example: predicting products step by step",
+       "page": 53,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Predict the products at each inert electrode for (a) concentrated KCl(aq), (b) dilute H₂SO₄, (c) AgNO₃(aq). Write the half-equations.",
+       "steps": [
+        {
+         "text": "(a) Ions K⁺, H⁺, Cl⁻, OH⁻. Cathode: K⁺ is very high in the series → H⁺: \\(2\\mathrm{H^{+}(aq)} + 2\\mathrm{e^{-}} \\rightarrow \\mathrm{H_{2}(g)}\\). Anode: concentrated Cl⁻ → \\(2\\mathrm{Cl^{-}(aq)} \\rightarrow \\mathrm{Cl_{2}(g)} + 2\\mathrm{e^{-}}\\); KOH is left."
+        },
+        {
+         "text": "(b) Ions H⁺, SO₄²⁻, OH⁻. Cathode: H₂. Anode: OH⁻ before SO₄²⁻ → \\(4\\mathrm{OH^{-}(aq)} \\rightarrow 2\\mathrm{H_{2}O(l)} + \\mathrm{O_{2}(g)} + 4\\mathrm{e^{-}}\\). Volume ratio H₂ : O₂ = 2 : 1."
+        },
+        {
+         "text": "(c) Ions Ag⁺, H⁺, NO₃⁻, OH⁻. Cathode: Ag⁺ is below H⁺ → \\(\\mathrm{Ag^{+}(aq)} + \\mathrm{e^{-}} \\rightarrow \\mathrm{Ag(s)}\\). Anode: OH⁻ before NO₃⁻ → O₂; HNO₃ is left."
+        }
+       ],
+       "answer": "(a) H₂ / Cl₂; (b) H₂ / O₂; (c) Ag / O₂"
+      },
+      {
+       "id": "chem11-u2-co-w02",
+       "type": "worked",
+       "title": "Worked example: why H₂ : O₂ is 2 : 1 (Hoffmann apparatus)",
+       "page": 51,
+       "src": "notes",
+       "mode": "try",
+       "problem": "In the electrolysis of dilute sulphuric acid, 20 cm³ of gas is collected at the cathode. What volume of oxygen is collected at the anode?",
+       "steps": [
+        {
+         "text": "Cathode: \\(4\\mathrm{H^{+}(aq)} + 4\\mathrm{e^{-}} \\rightarrow 2\\mathrm{H_{2}(g)}\\) (both half-equations written for 4 e⁻)."
+        },
+        {
+         "text": "Anode: \\(4\\mathrm{OH^{-}(aq)} \\rightarrow 2\\mathrm{H_{2}O(l)} + \\mathrm{O_{2}(g)} + 4\\mathrm{e^{-}}\\)"
+        },
+        {
+         "text": "The same 4 e⁻ give 2 mol H₂ and 1 mol O₂ → ratio 2 : 1."
+        },
+        {
+         "text": "O₂ = 20 ÷ 2 = **10 cm³**."
+        }
+       ],
+       "answer": "10 cm³ of oxygen"
+      },
+      {
+       "id": "chem11-u2-co-k01",
+       "type": "check",
+       "title": "Quick check",
+       "page": 52,
+       "src": "notes",
+       "q": "Brine is electrolysed with graphite electrodes. The gas at the anode is …",
+       "options": {
+        "A": "O₂",
+        "B": "H₂",
+        "C": "Cl₂",
+        "D": "Na vapour"
+       },
+       "answer": "C",
+       "why": "In brine Cl⁻ is far more concentrated than OH⁻, so Cl⁻ is discharged → Cl₂. (Dilute NaCl would give O₂.)"
+      },
+      {
+       "id": "chem11-u2-co-k02",
+       "type": "check",
+       "title": "Quick check",
+       "page": 54,
+       "src": "notes",
+       "q": "CuSO₄(aq) is electrolysed with copper electrodes. What happens to the blue colour?",
+       "options": {
+        "A": "it fades",
+        "B": "it deepens",
+        "C": "it stays the same",
+        "D": "it turns green"
+       },
+       "answer": "C",
+       "why": "The copper anode dissolves at the same rate as copper is deposited, so [Cu²⁺] does not change."
       },
       {
        "id": "chem11-u2-c14",
@@ -429,11 +685,236 @@
        "src": "textbook p.55",
        "enriched": true,
        "body": [
-        "Material required: 1 beaker, 2 carbon rods, 25 g Copper (II) chloride, 150mL water, teaspoon, 6 V battery, 2 wires.",
-        "Caution: To avoid possible shock or burns, do not touch bare wires from the power source or short the wires from the power source.",
-        "Add three teaspoons of copper(II) chloride to the beaker.",
-        "Stir the solution until all of the copper(II) chloride dissolves."
+        "Electrolysis has four main applications: (1) electroplating, (2) preparation of gases (H₂, O₂, Cl₂) and extraction of reactive metals (Na, Mg, Al), (3) purification (refining) of metals such as copper, (4) manufacture of sodium hydroxide from brine.",
+        "Activity 2.7: dissolve about three teaspoons of copper(II) chloride in 150 mL of water in a 250 mL beaker, dip in two carbon rods and connect a 6 V battery. Do not touch bare wires or short-circuit the battery."
        ]
+      },
+      {
+       "id": "chem11-u2-co-c03",
+       "type": "text",
+       "title": "2.2.5 Applications of electrolysis, step by step",
+       "page": 56,
+       "src": "notes",
+       "body": [
+        "Electrolysis is used to coat objects, to make gases and alkalis, to extract reactive metals and to purify metals. In every application ask the same questions: **what is the cathode, the anode and the electrolyte?** and **which ions are discharged?**",
+        "**1 · Electroplating** — coating an object with a thin layer of another metal, to prevent rusting or to make it look better (silver or gold on spoons and jewellery, chromium on taps, tin on cans).",
+        "• **Cathode (−):** the object to be plated. • **Anode (+):** the plating metal. • **Electrolyte:** a solution of a salt of the plating metal.",
+        "For silver plating (AgNO₃ electrolyte): cathode \\(\\mathrm{Ag^{+}(aq)} + \\mathrm{e^{-}} \\rightarrow \\mathrm{Ag(s)}\\), anode \\(\\mathrm{Ag(s)} \\rightarrow \\mathrm{Ag^{+}(aq)} + \\mathrm{e^{-}}\\). The anode dissolves as fast as silver is deposited, so the electrolyte stays the same.",
+        "**2 · Preparation of gases and extraction of metals** — Cl₂ and H₂ from brine; O₂ and H₂ from acidified water. Very reactive metals (Na, K, Ca, Mg, Al) cannot be reduced by carbon, so they are extracted by electrolysis of their **molten** compounds.",
+        "Sodium from molten NaCl: cathode \\(\\mathrm{Na^{+}(l)} + \\mathrm{e^{-}} \\rightarrow \\mathrm{Na(l)}\\), anode \\(2\\mathrm{Cl^{-}(l)} \\rightarrow \\mathrm{Cl_{2}(g)} + 2\\mathrm{e^{-}}\\).",
+        "Aluminium: Al₂O₃ is dissolved in molten **cryolite** (Na₃AlF₆) to lower the working temperature (from about 2050 °C to about 950 °C). Cathode \\(\\mathrm{Al^{3+}(l)} + 3\\mathrm{e^{-}} \\rightarrow \\mathrm{Al(l)}\\), anode \\(2\\mathrm{O^{2-}(l)} \\rightarrow \\mathrm{O_{2}(g)} + 4\\mathrm{e^{-}}\\). The hot carbon anodes burn away, \\(\\mathrm{C(s)} + \\mathrm{O_{2}(g)} \\rightarrow \\mathrm{CO_{2}(g)}\\), and must be replaced.",
+        "**3 · Purification (refining) of copper** — impure copper is the **anode**, a thin sheet of pure copper is the **cathode**, the electrolyte is CuSO₄(aq) with a little H₂SO₄. Copper dissolves from the anode and is deposited on the cathode (99.99 % pure). Less reactive impurities (Ag, Au, Pt) fall as **anode mud**; more reactive ones (Zn, Fe) stay in solution.",
+        "**4 · Manufacture of sodium hydroxide** — electrolysis of brine gives three useful products at once: \\(2\\mathrm{NaCl(aq)} + 2\\mathrm{H_{2}O(l)} \\rightarrow \\mathrm{H_{2}(g)} + \\mathrm{Cl_{2}(g)} + 2\\mathrm{NaOH(aq)}\\). NaOH is used for soap, paper and textiles; Cl₂ for water treatment and PVC; H₂ for margarine and ammonia."
+       ]
+      },
+      {
+       "id": "chem11-u2-co-s03",
+       "type": "steps",
+       "title": "Model: electroplating a spoon with silver (Fig. 2.6)",
+       "page": 56,
+       "src": "notes",
+       "diagram": "co_plating",
+       "steps": [
+        {
+         "text": "**Anode (+): pure silver** — silver atoms lose electrons and go into solution.",
+         "show": "anode"
+        },
+        {
+         "text": "**Cathode (−): the spoon** — Ag⁺ ions gain electrons; a thin, even silver layer forms.",
+         "show": "cathode"
+        },
+        {
+         "text": "**Electrolyte:** Ag⁺ ions carry the current through the solution; their concentration stays constant.",
+         "show": "ions"
+        }
+       ]
+      },
+      {
+       "id": "chem11-u2-co-s04",
+       "type": "steps",
+       "title": "Model: refining copper (Fig. 2.7)",
+       "page": 57,
+       "src": "notes",
+       "diagram": "co_refine",
+       "steps": [
+        {
+         "text": "**Anode (+): impure copper** gets thinner: Cu → Cu²⁺ + 2e⁻.",
+         "show": "anode"
+        },
+        {
+         "text": "**Cathode (−): pure copper** grows: Cu²⁺ + 2e⁻ → Cu.",
+         "show": "cathode"
+        },
+        {
+         "text": "**Anode mud:** silver, gold and platinum do not dissolve and collect under the anode — they are valuable by-products.",
+         "show": "mud"
+        }
+       ]
+      },
+      {
+       "id": "chem11-u2-co-t03",
+       "type": "table",
+       "title": "Electroplating and refining compared",
+       "page": 57,
+       "src": "notes",
+       "head": [
+        "",
+        "Electroplating (silver)",
+        "Refining copper"
+       ],
+       "rows": [
+        [
+         "Anode (+)",
+         "pure plating metal (Ag)",
+         "impure copper"
+        ],
+        [
+         "Cathode (−)",
+         "object to be coated",
+         "thin sheet of pure copper"
+        ],
+        [
+         "Electrolyte",
+         "salt of the plating metal (AgNO₃)",
+         "CuSO₄(aq) + a little H₂SO₄"
+        ],
+        [
+         "Aim",
+         "thin even coat, for protection/appearance",
+         "very pure copper for wires"
+        ],
+        [
+         "Electrolyte concentration",
+         "stays the same",
+         "stays almost the same"
+        ],
+        [
+         "By-product",
+         "none",
+         "anode mud (Ag, Au, Pt)"
+        ]
+       ],
+       "body": [
+        "In both, the anode is a metal that dissolves (an active anode). The difference is the purpose and what the cathode is."
+       ]
+      },
+      {
+       "id": "chem11-u2-co-t04",
+       "type": "table",
+       "title": "Activity 2.7 and Exercise 2.8 answered (CuCl₂ with carbon rods)",
+       "page": 55,
+       "src": "notes",
+       "head": [
+        "Question",
+        "Answer"
+       ],
+       "rows": [
+        [
+         "What do you observe in the solution?",
+         "bubbles at the anode (pale green-yellow chlorine, bleach smell); the blue colour slowly fades"
+        ],
+        [
+         "What happened to the rods?",
+         "the cathode rod is coated with pink-brown copper"
+        ],
+        [
+         "Rusty nail as the cathode?",
+         "it becomes copper-coated (clean it first so the coat sticks)"
+        ],
+        [
+         "CuCl₂ dissolving in water",
+         "CuCl₂(s) → Cu²⁺(aq) + 2Cl⁻(aq)"
+        ],
+        [
+         "Anode half-reaction",
+         "2Cl⁻ → Cl₂ + 2e⁻"
+        ],
+        [
+         "Cathode half-reaction",
+         "Cu²⁺ + 2e⁻ → Cu"
+        ],
+        [
+         "Electrolyte",
+         "copper(II) chloride solution, CuCl₂(aq)"
+        ]
+       ]
+      },
+      {
+       "id": "chem11-u2-co-w03",
+       "type": "worked",
+       "title": "Worked example: design a nickel-plating cell",
+       "page": 56,
+       "src": "notes",
+       "mode": "try",
+       "problem": "You want to nickel-plate an iron key. Name the anode, cathode and electrolyte and write the electrode equations.",
+       "steps": [
+        {
+         "text": "The object to be coated is always the **cathode** → the iron key (cleaned)."
+        },
+        {
+         "text": "The plating metal is the **anode** → a nickel bar."
+        },
+        {
+         "text": "The electrolyte must contain the plating ions → nickel(II) sulphate solution."
+        },
+        {
+         "text": "Cathode: \\(\\mathrm{Ni^{2+}(aq)} + 2\\mathrm{e^{-}} \\rightarrow \\mathrm{Ni(s)}\\); anode: \\(\\mathrm{Ni(s)} \\rightarrow \\mathrm{Ni^{2+}(aq)} + 2\\mathrm{e^{-}}\\)."
+        }
+       ],
+       "answer": "Anode Ni, cathode key, electrolyte NiSO₄(aq)"
+      },
+      {
+       "id": "chem11-u2-co-w04",
+       "type": "worked",
+       "title": "Worked example: why aluminium needs electrolysis and cryolite",
+       "page": 57,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Explain why aluminium is extracted by electrolysis, why cryolite is used, and why the anodes must be replaced.",
+       "steps": [
+        {
+         "text": "Al is above carbon in the reactivity series, so carbon cannot reduce Al₂O₃."
+        },
+        {
+         "text": "Pure Al₂O₃ melts at about 2050 °C — too costly; dissolved in molten cryolite it conducts at about 950 °C."
+        },
+        {
+         "text": "Oxygen formed at the hot carbon anodes reacts with them: \\(\\mathrm{C(s)} + \\mathrm{O_{2}(g)} \\rightarrow \\mathrm{CO_{2}(g)}\\), so they burn away."
+        }
+       ],
+       "answer": "Too reactive for carbon; cryolite lowers the temperature; anodes burn."
+      },
+      {
+       "id": "chem11-u2-co-k03",
+       "type": "check",
+       "title": "Quick check",
+       "page": 56,
+       "src": "notes",
+       "q": "In electroplating, the object to be plated is made the …",
+       "options": {
+        "A": "anode",
+        "B": "cathode",
+        "C": "electrolyte",
+        "D": "salt bridge"
+       },
+       "answer": "B",
+       "why": "Metal ions are positive and are reduced at the negative electrode, the cathode — so the object must be the cathode."
+      },
+      {
+       "id": "chem11-u2-co-k04",
+       "type": "check",
+       "title": "Quick check",
+       "page": 57,
+       "src": "notes",
+       "q": "In copper refining the anode mud contains …",
+       "options": {
+        "A": "Zn and Fe",
+        "B": "pure copper",
+        "C": "Ag and Au",
+        "D": "CuSO₄ crystals"
+       },
+       "answer": "C",
+       "why": "Metals less reactive than copper (Ag, Au, Pt) do not dissolve at the anode and fall to the bottom."
       },
       {
        "id": "chem11-u2-c15",
@@ -446,6 +927,281 @@
         "The quantitative relationship between the amount of electricity passed through an electrolytes solution and the extent of the product is given by Faraday’s laws.",
         "Faraday’s First Law of Electrolysis states that the mass of a substance produced by electrolysis is proportional to the quantity of electricity used.",
         "Faraday's second law states that the mass of two substances that are deposited or liberated from electrodes, given the same applied electrical charge, is directly proportional to the equivalent masses of the two substances."
+       ]
+      },
+      {
+       "id": "chem11-u2-co-c04",
+       "type": "text",
+       "title": "2.2.6 Faraday's laws, step by step",
+       "page": 59,
+       "src": "notes",
+       "body": [
+        "Faraday's laws connect the **amount of electricity** passed with the **amount of product** at an electrode. Every calculation starts from the **half-equation**, because it tells you how many electrons each ion needs.",
+        "**Step 1 — Charge passed:** $$Q = I \\times t$$ with I in amperes and t in **seconds** (1 C = 1 A s).",
+        "**Step 2 — Moles of electrons:** one mole of electrons carries **1 faraday, F = 96 500 C**. $$n(e^-) = \\frac{Q}{F}$$",
+        "**Step 3 — Use the half-equation:** z = the charge on the ion = electrons per atom.",
+        "$$\\mathrm{Ag^{+}(aq)} + \\mathrm{e^{-}} \\rightarrow \\mathrm{Ag(s)}$$ $$\\text{1 mol e}^- \\to \\text{1 mol Ag}$$",
+        "$$\\mathrm{Cu^{2+}(aq)} + 2\\mathrm{e^{-}} \\rightarrow \\mathrm{Cu(s)}$$ $$\\text{2 mol e}^- \\to \\text{1 mol Cu}$$",
+        "$$\\mathrm{Al^{3+}(l)} + 3\\mathrm{e^{-}} \\rightarrow \\mathrm{Al(l)}$$ $$\\text{3 mol e}^- \\to \\text{1 mol Al}$$",
+        "**Step 4 — Mass:** moles of metal × molar mass. All steps together give the textbook formula:",
+        "$$m = \\frac{A}{z}\\cdot\\frac{I\\,t}{F} = \\frac{\\text{Eq. mass} \\times I \\times t}{96\\,500}$$",
+        "**First law:** m ∝ Q (double the current or the time → double the mass). The constant k = A/(zF) is the **electrochemical equivalent** (mass deposited by 1 C).",
+        "**Second law:** for the **same charge** (cells in series), the masses are in the ratio of the **equivalent masses** A/z: $$\\frac{m_1}{m_2} = \\frac{A_1/z_1}{A_2/z_2}$$",
+        "**Gases:** same method; at room conditions 1 mol of gas occupies about 24 dm³. \\(2\\mathrm{Cl^{-}(aq)} \\rightarrow \\mathrm{Cl_{2}(g)} + 2\\mathrm{e^{-}}\\) → 2 mol e⁻ per mol Cl₂; \\(4\\mathrm{OH^{-}(aq)} \\rightarrow 2\\mathrm{H_{2}O(l)} + \\mathrm{O_{2}(g)} + 4\\mathrm{e^{-}}\\) → 4 mol e⁻ per mol O₂."
+       ]
+      },
+      {
+       "id": "chem11-u2-co-s05",
+       "type": "steps",
+       "title": "Model: two cells in series (second law)",
+       "page": 61,
+       "src": "notes",
+       "diagram": "co_series",
+       "steps": [
+        {
+         "text": "**Silver cell:** \\(\\mathrm{Ag^{+}(aq)} + \\mathrm{e^{-}} \\rightarrow \\mathrm{Ag(s)}\\) — every mole of electrons deposits 108 g of silver.",
+         "show": "ag"
+        },
+        {
+         "text": "**Nickel cell:** \\(\\mathrm{Ni^{2+}(aq)} + 2\\mathrm{e^{-}} \\rightarrow \\mathrm{Ni(s)}\\) — every mole of electrons deposits only ½ mol = 29.5 g of nickel.",
+         "show": "ni"
+        },
+        {
+         "text": "**Same wire, same current, same time → same Q.** So mass(Ag) : mass(Ni) = 108 : 29.5.",
+         "show": "q"
+        }
+       ]
+      },
+      {
+       "id": "chem11-u2-co-t05",
+       "type": "table",
+       "title": "Equivalent masses of common electrode products",
+       "page": 59,
+       "src": "notes",
+       "head": [
+        "Product",
+        "Half-equation",
+        "A (g/mol)",
+        "z",
+        "Eq. mass A/z (g)"
+       ],
+       "rows": [
+        [
+         "Silver",
+         "Ag⁺ + e⁻ → Ag",
+         "108",
+         "1",
+         "108"
+        ],
+        [
+         "Copper",
+         "Cu²⁺ + 2e⁻ → Cu",
+         "63.5 (≈ 64)",
+         "2",
+         "31.75 (≈ 32)"
+        ],
+        [
+         "Nickel",
+         "Ni²⁺ + 2e⁻ → Ni",
+         "59",
+         "2",
+         "29.5"
+        ],
+        [
+         "Aluminium",
+         "Al³⁺ + 3e⁻ → Al",
+         "27",
+         "3",
+         "9"
+        ],
+        [
+         "Chromium",
+         "Cr³⁺ + 3e⁻ → Cr",
+         "52",
+         "3",
+         "17.3"
+        ],
+        [
+         "Gold",
+         "Au³⁺ + 3e⁻ → Au",
+         "197",
+         "3",
+         "65.7"
+        ],
+        [
+         "Hydrogen",
+         "2H⁺ + 2e⁻ → H₂",
+         "2 (H₂)",
+         "2 per H₂",
+         "1"
+        ],
+        [
+         "Oxygen",
+         "4OH⁻ → 2H₂O + O₂ + 4e⁻",
+         "32 (O₂)",
+         "4 per O₂",
+         "8"
+        ]
+       ]
+      },
+      {
+       "id": "chem11-u2-co-w05",
+       "type": "worked",
+       "title": "Worked example 1: copper deposited (textbook)",
+       "page": 59,
+       "src": "notes",
+       "mode": "try",
+       "problem": "What mass of copper is deposited from copper(II) sulphate solution by a current of 5.0 A for 100 s? (Cu = 64)",
+       "steps": [
+        {
+         "text": "Cathode: \\(\\mathrm{Cu^{2+}(aq)} + 2\\mathrm{e^{-}} \\rightarrow \\mathrm{Cu(s)}\\) → z = 2, Eq. mass = 64/2 = 32 g."
+        },
+        {
+         "text": "\\(Q = I t = 5.0 \\times 100 = 500\\ \\text{C}\\)"
+        },
+        {
+         "text": "\\(n(e^-) = 500 / 96\\,500 = 5.18 \\times 10^{-3}\\ \\text{mol}\\); \\(n(\\text{Cu}) = \\tfrac{1}{2} n(e^-) = 2.59 \\times 10^{-3}\\ \\text{mol}\\)"
+        },
+        {
+         "text": "\\(m = 2.59 \\times 10^{-3} \\times 64 = 0.166\\ \\text{g}\\) — the same as \\(\\dfrac{32 \\times 5.0 \\times 100}{96\\,500}\\)."
+        }
+       ],
+       "answer": "≈ 0.17 g of copper"
+      },
+      {
+       "id": "chem11-u2-co-w06",
+       "type": "worked",
+       "title": "Worked example 2: time to deposit silver (textbook, corrected)",
+       "page": 60,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Calculate the time needed to deposit 0.56 g of silver from silver nitrate solution with a current of 4.5 A. (Ag = 108)",
+       "steps": [
+        {
+         "text": "Cathode: \\(\\mathrm{Ag^{+}(aq)} + \\mathrm{e^{-}} \\rightarrow \\mathrm{Ag(s)}\\) → z = 1, Eq. mass = 108 g. (The textbook line “atomic mass of Ag is 64” is a misprint; Ag = 108, as used in its working.)"
+        },
+        {
+         "text": "Rearrange \\(m = \\dfrac{\\text{Eq. mass} \\times I t}{F}\\) → \\(t = \\dfrac{m F}{\\text{Eq. mass} \\times I}\\)."
+        },
+        {
+         "text": "\\(t = \\dfrac{0.56 \\times 96\\,500}{108 \\times 4.5} = \\dfrac{54\\,040}{486} = 111\\ \\text{s}\\)"
+        }
+       ],
+       "answer": "≈ 111 s (1.9 min)"
+      },
+      {
+       "id": "chem11-u2-co-w07",
+       "type": "worked",
+       "title": "Worked example 3: silver and nickel in series (second law)",
+       "page": 61,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Two cells, AgNO₃(aq) and Ni(NO₃)₂(aq), are in series. 2.16 g of silver is deposited in the first cell. What mass of nickel is deposited in the second? (Ag = 108, Ni = 59)",
+       "steps": [
+        {
+         "text": "Half-equations: \\(\\mathrm{Ag^{+}(aq)} + \\mathrm{e^{-}} \\rightarrow \\mathrm{Ag(s)}\\) and \\(\\mathrm{Ni^{2+}(aq)} + 2\\mathrm{e^{-}} \\rightarrow \\mathrm{Ni(s)}\\) → Eq. masses 108 and 59/2 = 29.5."
+        },
+        {
+         "text": "Second law: \\(\\dfrac{m_{\\text{Ag}}}{m_{\\text{Ni}}} = \\dfrac{108}{29.5}\\) → \\(m_{\\text{Ni}} = 2.16 \\times \\dfrac{29.5}{108} = 0.59\\ \\text{g}\\)."
+        },
+        {
+         "text": "Charge needed: \\(Q = \\dfrac{2.16}{108} \\times 96\\,500 = 1930\\ \\text{C}\\)."
+        },
+        {
+         "text": "Note: the textbook also says 1.5 A for 10 min (900 C). That charge would deposit only 1.01 g Ag and 0.275 g Ni, so its data do not agree; 2.16 g needs 1930 C (1.5 A for about 21.4 min). In the textbook, “Z_Ag = 108, Z_Ni = 59” are the **atomic masses**, not charges."
+        }
+       ],
+       "answer": "0.59 g of nickel (Q = 1930 C)"
+      },
+      {
+       "id": "chem11-u2-co-w08",
+       "type": "worked",
+       "title": "Worked example 4: Exercise 2.9 Q2 — the charge on chromium",
+       "page": 62,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Electrolysis of a molten chromium salt for 1.50 h with a current of 10.0 A deposits 9.71 g of Cr. Find the oxidation number of chromium. (Cr = 52)",
+       "steps": [
+        {
+         "text": "\\(Q = 10.0 \\times 1.50 \\times 3600 = 54\\,000\\ \\text{C}\\); \\(n(e^-) = 54\\,000/96\\,500 = 0.560\\ \\text{mol}\\)"
+        },
+        {
+         "text": "\\(n(\\text{Cr}) = 9.71/52 = 0.187\\ \\text{mol}\\)"
+        },
+        {
+         "text": "Electrons per Cr atom: \\(0.560 / 0.187 = 3.0\\) → \\(\\mathrm{Cr^{3+}(l)} + 3\\mathrm{e^{-}} \\rightarrow \\mathrm{Cr(l)}\\)."
+        },
+        {
+         "text": "Correction: the textbook gives Cr = 62 and 8.4 A. The molar mass of chromium is **52 g/mol**; with 52 and 8.4 A the ratio is 2.5 (not a whole number), so the current must be 10.0 A, as in the original version of this problem."
+        }
+       ],
+       "answer": "+3"
+      },
+      {
+       "id": "chem11-u2-co-w09",
+       "type": "worked",
+       "title": "Worked example 5: Exercise 2.9 Q3 — equivalent mass of gold",
+       "page": 62,
+       "src": "notes",
+       "mode": "try",
+       "problem": "The same charge deposits 2.158 g of silver and 1.314 g of gold. Eq. mass of Ag = 107.8. Find the equivalent mass of gold and the charge on the gold ion.",
+       "steps": [
+        {
+         "text": "\\(\\dfrac{m_{\\text{Au}}}{m_{\\text{Ag}}} = \\dfrac{E_{\\text{Au}}}{E_{\\text{Ag}}}\\) → \\(E_{\\text{Au}} = 107.8 \\times \\dfrac{1.314}{2.158} = 65.6\\ \\text{g}\\)"
+        },
+        {
+         "text": "z = A/Eq. mass = 197/65.6 = 3 → \\(\\mathrm{Au^{3+}(aq)} + 3\\mathrm{e^{-}} \\rightarrow \\mathrm{Au(s)}\\)."
+        }
+       ],
+       "answer": "Eq. mass of Au ≈ 65.6 g; Au³⁺"
+      },
+      {
+       "id": "chem11-u2-co-w10",
+       "type": "worked",
+       "title": "Worked example 6: volume of chlorine from brine",
+       "page": 59,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Brine is electrolysed with 2.00 A for 965 s. What volume of chlorine (at room conditions, 24 dm³/mol) is formed at the anode?",
+       "steps": [
+        {
+         "text": "\\(Q = 2.00 \\times 965 = 1930\\ \\text{C}\\); \\(n(e^-) = 1930/96\\,500 = 0.0200\\ \\text{mol}\\)"
+        },
+        {
+         "text": "Anode: \\(2\\mathrm{Cl^{-}(aq)} \\rightarrow \\mathrm{Cl_{2}(g)} + 2\\mathrm{e^{-}}\\) → n(Cl₂) = 0.0200/2 = 0.0100 mol."
+        },
+        {
+         "text": "\\(V = 0.0100 \\times 24 = 0.24\\ \\text{dm}^3 = 240\\ \\text{cm}^3\\)"
+        }
+       ],
+       "answer": "240 cm³ of Cl₂"
+      },
+      {
+       "id": "chem11-u2-co-k05",
+       "type": "check",
+       "title": "Quick check",
+       "page": 59,
+       "src": "notes",
+       "q": "The same charge that deposits 1 mol of Ag deposits how much Cu?",
+       "options": {
+        "A": "2 mol",
+        "B": "1 mol",
+        "C": "½ mol",
+        "D": "¼ mol"
+       },
+       "answer": "C",
+       "why": "Ag⁺ needs 1 e⁻, Cu²⁺ needs 2 e⁻. 1 mol e⁻ → 1 mol Ag but only ½ mol Cu."
+      },
+      {
+       "id": "chem11-u2-co-r01",
+       "type": "remember",
+       "title": "Tips and common mistakes",
+       "page": 59,
+       "src": "notes",
+       "body": [
+        "Always convert time to seconds (min × 60, h × 3600).",
+        "Write the half-equation first — z is the number of electrons in it, not the group number.",
+        "The second law only works when the cells are in series (same charge)."
        ]
       },
       {
@@ -572,6 +1328,30 @@
      "page": 51,
      "src": "textbook p.51",
      "enriched": true
+    },
+    {
+     "term": "Amalgam",
+     "meaning": "An alloy of a metal with mercury, e.g. sodium amalgam NaHg formed at a mercury cathode.",
+     "page": 54,
+     "src": "notes"
+    },
+    {
+     "term": "Anode mud",
+     "meaning": "The insoluble impurities (Ag, Au, Pt) that collect below the anode in copper refining.",
+     "page": 57,
+     "src": "notes"
+    },
+    {
+     "term": "Equivalent mass",
+     "meaning": "Atomic mass ÷ charge on the ion (A/z); the mass deposited by one mole of electrons.",
+     "page": 59,
+     "src": "notes"
+    },
+    {
+     "term": "Faraday constant",
+     "meaning": "The charge on one mole of electrons, F = 96 500 C/mol.",
+     "page": 59,
+     "src": "notes"
     }
    ],
    "tips": [
@@ -1329,6 +2109,454 @@
       "src_qid": "chemistry_2015_q69",
       "exam_question": "chemistry_2015_q69",
       "page": 27
+     },
+     {
+      "id": "chem11-u2-co-q01",
+      "type": "mcq",
+      "q": "In the electrolysis of dilute NaCl(aq) with inert electrodes, the products are …",
+      "options": {
+       "A": "H₂ and Cl₂",
+       "B": "Na and Cl₂",
+       "C": "H₂ and O₂",
+       "D": "Na and O₂"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: cathode — H⁺ is discharged before Na⁺ → H₂.",
+       "Step 2: anode — in dilute solution OH⁻ is discharged before Cl⁻ → O₂.",
+       "Step 3: so H₂ and O₂ (water is decomposed)."
+      ],
+      "tip": "Dilute → O₂; concentrated chloride → Cl₂.",
+      "similar": [
+       {
+        "q": "Products for brine?",
+        "a": "H₂ and Cl₂ (NaOH left)."
+       },
+       {
+        "q": "Products for dilute H₂SO₄?",
+        "a": "H₂ and O₂."
+       }
+      ],
+      "page": 52,
+      "src": "notes",
+      "label": "2.2.4 Electrolysis of aqueous solutions"
+     },
+     {
+      "id": "chem11-u2-co-q02",
+      "type": "short",
+      "q": "Explain why sodium (not hydrogen) is discharged at a mercury cathode in the electrolysis of brine. Write the equations.",
+      "answer": "On mercury H⁺ is discharged only very slowly, while sodium dissolves in mercury to form an amalgam; so Na⁺ + e⁻ → Na, then Na + Hg → NaHg.",
+      "why": [
+       "Step 1: normally H⁺ wins over Na⁺ (position in the series).",
+       "Step 2: the nature of the electrode changes this: discharge of H⁺ on Hg is very difficult.",
+       "Step 3: Na formed dissolves in Hg as amalgam NaHg(l), which removes it from the solution.",
+       "Step 4: Na⁺(aq) + e⁻ → Na(s); Na(s) + Hg(l) → NaHg(l)."
+      ],
+      "tip": "This is the only common case where Na⁺ is discharged from water.",
+      "similar": [
+       {
+        "q": "What is an amalgam?",
+        "a": "An alloy of a metal with mercury."
+       },
+       {
+        "q": "Product at the graphite anode?",
+        "a": "Cl₂."
+       }
+      ],
+      "page": 54,
+      "src": "notes",
+      "label": "2.2.4 Electrolysis of aqueous solutions"
+     },
+     {
+      "id": "chem11-u2-co-q03",
+      "type": "mcq",
+      "q": "CuSO₄(aq) is electrolysed with graphite electrodes. The solution at the end is …",
+      "options": {
+       "A": "neutral CuSO₄",
+       "B": "acidic (H₂SO₄)",
+       "C": "alkaline (NaOH)",
+       "D": "pure water"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: cathode removes Cu²⁺ (copper is deposited).",
+       "Step 2: anode removes OH⁻ (oxygen given off).",
+       "Step 3: H⁺ and SO₄²⁻ remain → sulphuric acid."
+      ],
+      "tip": "Look at which ions are left behind.",
+      "similar": [
+       {
+        "q": "Solution left after electrolysis of brine?",
+        "a": "NaOH (alkaline)."
+       },
+       {
+        "q": "After dilute NaCl?",
+        "a": "More concentrated NaCl."
+       }
+      ],
+      "page": 54,
+      "src": "notes",
+      "label": "2.2.4 Electrolysis of aqueous solutions"
+     },
+     {
+      "id": "chem11-u2-co-q04",
+      "type": "short",
+      "q": "Write the half-equation at each electrode when CuSO₄(aq) is electrolysed with copper electrodes.",
+      "answer": "Cathode: Cu²⁺(aq) + 2e⁻ → Cu(s); anode: Cu(s) → Cu²⁺(aq) + 2e⁻.",
+      "why": [
+       "Step 1: cathode — Cu²⁺ is lower than H⁺ in the series → copper deposited.",
+       "Step 2: anode — the copper metal loses electrons more easily than SO₄²⁻ or OH⁻.",
+       "Step 3: so the anode dissolves; electrons balance (2 e⁻ each side)."
+      ],
+      "tip": "An active anode dissolves instead of giving a gas.",
+      "similar": [
+       {
+        "q": "Mass change of the anode?",
+        "a": "It decreases."
+       },
+       {
+        "q": "Of the cathode?",
+        "a": "It increases by the same mass."
+       }
+      ],
+      "page": 54,
+      "src": "notes",
+      "label": "2.2.4 Electrolysis of aqueous solutions"
+     },
+     {
+      "id": "chem11-u2-co-q05",
+      "type": "tf",
+      "q": "In concentrated hydrochloric acid, chloride ions are discharged at the anode in preference to hydroxide ions.",
+      "answer": true,
+      "why": [
+       "Step 1: OH⁻ is normally easier to discharge.",
+       "Step 2: in concentrated HCl, [Cl⁻] is enormously greater than [OH⁻].",
+       "Step 3: concentration wins → Cl₂."
+      ],
+      "tip": "High concentration can win over a small difference in the series.",
+      "similar": [
+       {
+        "q": "In very dilute HCl?",
+        "a": "Mainly O₂ (with some Cl₂)."
+       },
+       {
+        "q": "Cathode product with HCl?",
+        "a": "H₂."
+       }
+      ],
+      "page": 52,
+      "src": "notes",
+      "label": "2.2.4 Electrolysis of aqueous solutions"
+     },
+     {
+      "id": "chem11-u2-co-q10",
+      "type": "mcq",
+      "q": "Which electrolyte would you use to plate a spoon with silver?",
+      "options": {
+       "A": "CuSO₄(aq)",
+       "B": "AgNO₃(aq)",
+       "C": "NaCl(aq)",
+       "D": "H₂SO₄(aq)"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: the electrolyte must contain the plating metal ions.",
+       "Step 2: silver → Ag⁺.",
+       "Step 3: silver nitrate is soluble → AgNO₃(aq)."
+      ],
+      "tip": "Plating ion = plating metal.",
+      "similar": [
+       {
+        "q": "Electrolyte for copper plating?",
+        "a": "CuSO₄(aq)."
+       },
+       {
+        "q": "For nickel plating?",
+        "a": "NiSO₄(aq)."
+       }
+      ],
+      "page": 56,
+      "src": "notes",
+      "label": "2.2.5 Applications of electrolysis"
+     },
+     {
+      "id": "chem11-u2-co-q11",
+      "type": "short",
+      "q": "Write the electrode equations for the purification of copper and say what happens to the mass of each electrode.",
+      "answer": "Anode: Cu(s) → Cu²⁺(aq) + 2e⁻ (loses mass). Cathode: Cu²⁺(aq) + 2e⁻ → Cu(s) (gains mass).",
+      "why": [
+       "Step 1: impure copper anode dissolves.",
+       "Step 2: Cu²⁺ ions move to the pure cathode and are deposited.",
+       "Step 3: anode loses mass; cathode gains (slightly less, because impurities fall as mud)."
+      ],
+      "tip": "Active anode → dissolves.",
+      "similar": [
+       {
+        "q": "Where does Ag end up?",
+        "a": "Anode mud."
+       },
+       {
+        "q": "Where does Zn end up?",
+        "a": "In solution as Zn²⁺."
+       }
+      ],
+      "page": 57,
+      "src": "notes",
+      "label": "2.2.5 Applications of electrolysis"
+     },
+     {
+      "id": "chem11-u2-co-q12",
+      "type": "mcq",
+      "q": "The three products of the electrolysis of brine are …",
+      "options": {
+       "A": "Na, Cl₂, H₂O",
+       "B": "H₂, Cl₂, NaOH",
+       "C": "O₂, H₂, NaCl",
+       "D": "H₂, O₂, NaOH"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: cathode H₂.",
+       "Step 2: anode Cl₂ (concentrated chloride).",
+       "Step 3: Na⁺ and OH⁻ remain → NaOH."
+      ],
+      "tip": "Brine → H₂ + Cl₂ + NaOH.",
+      "similar": [
+       {
+        "q": "Use of chlorine?",
+        "a": "Water treatment, PVC, bleach."
+       },
+       {
+        "q": "Use of NaOH?",
+        "a": "Soap, paper."
+       }
+      ],
+      "page": 58,
+      "src": "notes",
+      "label": "2.2.5 Applications of electrolysis"
+     },
+     {
+      "id": "chem11-u2-co-q13",
+      "type": "short",
+      "q": "Write the half-equations at the electrodes in the extraction of aluminium.",
+      "answer": "Cathode: Al³⁺ + 3e⁻ → Al(l); anode: 2O²⁻ → O₂(g) + 4e⁻.",
+      "why": [
+       "Step 1: molten electrolyte contains Al³⁺ and O²⁻.",
+       "Step 2: Al³⁺ gains 3 electrons at the cathode.",
+       "Step 3: O²⁻ loses 2 electrons; two of them give O₂.",
+       "Step 4: overall 2Al₂O₃(l) → 4Al(l) + 3O₂(g) (12 e⁻ transferred)."
+      ],
+      "tip": "Balance electrons: 4Al³⁺ + 12e⁻ and 6O²⁻ − 12e⁻.",
+      "similar": [
+       {
+        "q": "Half-equation for sodium from molten NaCl?",
+        "a": "Na⁺ + e⁻ → Na."
+       },
+       {
+        "q": "Why must the electrolyte be molten?",
+        "a": "So that the ions can move."
+       }
+      ],
+      "page": 57,
+      "src": "notes",
+      "label": "2.2.5 Applications of electrolysis"
+     },
+     {
+      "id": "chem11-u2-co-q14",
+      "type": "tf",
+      "q": "In electroplating with a silver anode the concentration of Ag⁺ in the electrolyte falls steadily.",
+      "answer": false,
+      "why": [
+       "Step 1: at the cathode Ag⁺ is removed.",
+       "Step 2: at the anode the same number of Ag⁺ ions is produced.",
+       "Step 3: the concentration stays constant."
+      ],
+      "tip": "Active anode replaces the ions used.",
+      "similar": [
+       {
+        "q": "With an inert anode?",
+        "a": "Then Ag⁺ would fall."
+       },
+       {
+        "q": "Which electrode loses mass?",
+        "a": "The silver anode."
+       }
+      ],
+      "page": 56,
+      "src": "notes",
+      "label": "2.2.5 Applications of electrolysis"
+     },
+     {
+      "id": "chem11-u2-co-q20",
+      "type": "short",
+      "q": "What mass of silver is deposited by 0.50 A flowing for 30 minutes through AgNO₃(aq)? (Ag = 108)",
+      "answer": "1.01 g",
+      "accept": [
+       "1.0 g",
+       "1.01",
+       "1.0"
+      ],
+      "why": [
+       "Step 1: Ag⁺(aq) + e⁻ → Ag(s); z = 1.",
+       "Step 2: Q = 0.50 × 30 × 60 = 900 C.",
+       "Step 3: n(e⁻) = 900/96 500 = 9.33 × 10⁻³ mol = n(Ag).",
+       "Step 4: m = 9.33 × 10⁻³ × 108 = 1.01 g."
+      ],
+      "tip": "Q = It with t in seconds.",
+      "similar": [
+       {
+        "q": "Same current, 60 min?",
+        "a": "2.01 g."
+       },
+       {
+        "q": "Copper instead (Cu = 64), 30 min?",
+        "a": "0.30 g."
+       }
+      ],
+      "page": 59,
+      "src": "notes",
+      "label": "2.2.6 Faraday's laws"
+     },
+     {
+      "id": "chem11-u2-co-q21",
+      "type": "short",
+      "q": "Exercise 2.9 Q1: find the mass of copper deposited from CuSO₄(aq) by a current of 2.0 A for 1 hour. (Cu = 63.5)",
+      "answer": "2.37 g",
+      "accept": [
+       "2.4 g",
+       "2.37",
+       "2.4"
+      ],
+      "why": [
+       "Step 1: Cu²⁺(aq) + 2e⁻ → Cu(s); Eq. mass = 63.5/2 = 31.75 g.",
+       "Step 2: Q = 2.0 × 3600 = 7200 C.",
+       "Step 3: m = 31.75 × 7200 / 96 500 = 2.37 g."
+      ],
+      "tip": "Use the Eq. mass for a quick answer.",
+      "similar": [
+       {
+        "q": "With 1.0 A for 1 h?",
+        "a": "1.18 g."
+       },
+       {
+        "q": "Time to deposit 4.74 g with 2.0 A?",
+        "a": "2 h."
+       }
+      ],
+      "page": 62,
+      "src": "notes",
+      "label": "2.2.6 Faraday's laws"
+     },
+     {
+      "id": "chem11-u2-co-q22",
+      "type": "mcq",
+      "q": "Cells of AgNO₃ and CuSO₄ are in series. 1.08 g of silver is deposited. The mass of copper deposited (Cu = 64) is …",
+      "options": {
+       "A": "0.64 g",
+       "B": "0.32 g",
+       "C": "1.08 g",
+       "D": "0.16 g"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: Eq. masses: Ag 108/1 = 108; Cu 64/2 = 32.",
+       "Step 2: m(Cu) = 1.08 × 32/108.",
+       "Step 3: = 0.32 g."
+      ],
+      "tip": "Ratio of equivalent masses.",
+      "similar": [
+       {
+        "q": "Mass of Ni (Eq. 29.5) for the same charge?",
+        "a": "0.295 g."
+       },
+       {
+        "q": "Moles of electrons passed?",
+        "a": "0.010 mol."
+       }
+      ],
+      "page": 61,
+      "src": "notes",
+      "label": "2.2.6 Faraday's laws"
+     },
+     {
+      "id": "chem11-u2-co-q23",
+      "type": "short",
+      "q": "How long must 3.00 A flow to deposit 2.70 g of aluminium from molten Al₂O₃? (Al = 27)",
+      "answer": "9650 s (about 2 h 41 min)",
+      "accept": [
+       "9650",
+       "9650 s"
+      ],
+      "why": [
+       "Step 1: Al³⁺ + 3e⁻ → Al; n(Al) = 2.70/27 = 0.100 mol.",
+       "Step 2: n(e⁻) = 3 × 0.100 = 0.300 mol.",
+       "Step 3: Q = 0.300 × 96 500 = 28 950 C.",
+       "Step 4: t = 28 950 / 3.00 = 9650 s."
+      ],
+      "tip": "moles of metal → moles of e⁻ → Q → t.",
+      "similar": [
+       {
+        "q": "Time for 0.270 g at 3.00 A?",
+        "a": "965 s."
+       },
+       {
+        "q": "Mass of Al from 96 500 C?",
+        "a": "9 g."
+       }
+      ],
+      "page": 59,
+      "src": "notes",
+      "label": "2.2.6 Faraday's laws"
+     },
+     {
+      "id": "chem11-u2-co-q24",
+      "type": "short",
+      "q": "In the electrolysis of dilute H₂SO₄, 0.0400 mol of electrons are passed. Find the moles of H₂ and of O₂ formed.",
+      "answer": "H₂ 0.0200 mol; O₂ 0.0100 mol",
+      "why": [
+       "Step 1: cathode 2H⁺ + 2e⁻ → H₂: 2 e⁻ per H₂ → 0.0400/2 = 0.0200 mol.",
+       "Step 2: anode 4OH⁻ → 2H₂O + O₂ + 4e⁻: 4 e⁻ per O₂ → 0.0400/4 = 0.0100 mol.",
+       "Step 3: ratio 2 : 1."
+      ],
+      "tip": "Read the electrons off each half-equation.",
+      "similar": [
+       {
+        "q": "Volume of H₂ at 24 dm³/mol?",
+        "a": "0.48 dm³."
+       },
+       {
+        "q": "Charge passed?",
+        "a": "3860 C."
+       }
+      ],
+      "page": 59,
+      "src": "notes",
+      "label": "2.2.6 Faraday's laws"
+     },
+     {
+      "id": "chem11-u2-co-q25",
+      "type": "tf",
+      "q": "Doubling the current and halving the time leaves the mass deposited unchanged.",
+      "answer": true,
+      "why": [
+       "Step 1: m ∝ Q = I × t.",
+       "Step 2: (2I) × (t/2) = I × t.",
+       "Step 3: Q is the same, so m is the same."
+      ],
+      "tip": "First law: mass depends only on the charge.",
+      "similar": [
+       {
+        "q": "Double current and double time?",
+        "a": "4 × the mass."
+       },
+       {
+        "q": "Half the current, same time?",
+        "a": "Half the mass."
+       }
+      ],
+      "page": 59,
+      "src": "notes",
+      "label": "2.2.6 Faraday's laws"
      }
     ]
    },

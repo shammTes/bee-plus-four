@@ -18,7 +18,9 @@ import java.util.concurrent.Executors
  *  - hasFolder(uri)      → permission still held?
  *  - listFolder(uri)     → [{uri, name, size, head(bytes ≤ 64)}] for files (3 levels deep) whose first bytes are "4RES"
  *  - importFile(uri, dest) → streaming copy into app-private storage (still encrypted)
- *  - setSecure(bool)     → FLAG_SECURE while a resource is on screen (no screenshots / recents preview)
+ *  - setSecure(bool)     → FLAG_SECURE on/off (no screenshots / screen recording / recents preview). Dart reference-
+ *                          counts the holders (resource viewers + Notes/Matric sections, lib/licensing/screenshot.dart)
+ *                          and only sends the 0→1 / 1→0 transitions; onResume re-applies [secure].
  *  - openWeb(path, key, entry, title, credit) → decrypts a .4web zip into memory, opens [FourWebActivity]
  * No storage permission is needed: SAF grants access to the chosen folder only.
  */
