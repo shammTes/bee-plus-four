@@ -134,15 +134,90 @@
       {
        "id": "math12-u3-c01",
        "type": "text",
-       "title": "3.1 Division of Line Segment",
-       "page": 127,
-       "src": "textbook pp.127–129",
-       "enriched": true,
+       "title": "3.1 Distance, midpoint and division of a segment",
+       "page": 126,
+       "src": "notes",
        "body": [
-        "The formula for the coordinates of P in terms of r and of the coordinates of P1 and P2 are found as follows.",
-        "Solution: Let the point P(x, y) be the point that divides the segment P1P2 in the ratio 2 : 3 .",
-        "Solution: Let P(x, y) be the required point."
+        "Recall for $A(x_1, y_1)$ and $B(x_2, y_2)$: $$AB = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$ and the **midpoint** $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$.",
+        "A point $P$ on segment $P_1P_2$ **divides it internally in the ratio** $r_1 : r_2$ when $P_1P : PP_2 = r_1 : r_2$.",
+        "**Activity 3.1:** $A(3, 2)$, $B(13, 10)$: $AB = \\sqrt{100 + 64} = 2\\sqrt{41}$, midpoint $(8, 6)$, quarter points $(5.5, 4)$, $(8, 6)$, $(10.5, 8)$; the 1 : 4 point is $(5, 3.6)$."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math12-u3-md-divide",
+       "type": "steps",
+       "title": "Why the section formula works",
+       "page": 127,
+       "src": "notes",
+       "diagram": "md_divide",
+       "steps": [
+        {
+         "text": "$P$ is $r_1$ parts from $P_1$ and $r_2$ parts from $P_2$.",
+         "show": "k1"
+        },
+        {
+         "text": "Drop horizontal and vertical lines: the two right triangles are similar (AA), so the horizontal pieces are in the same ratio.",
+         "show": "k2"
+        },
+        {
+         "text": "$\\frac{x - x_1}{x_2 - x} = \\frac{r_1}{r_2}$. Solve for $x$ (the same for $y$): $$x = \\frac{r_1x_2 + r_2x_1}{r_1 + r_2}, \\quad y = \\frac{r_1y_2 + r_2y_1}{r_1 + r_2}$$",
+         "show": "k3"
+        }
        ]
+      },
+      {
+       "id": "math12-u3-md-sect-rm",
+       "type": "remember",
+       "title": "Section formula — cross-multiply",
+       "page": 128,
+       "src": "notes",
+       "body": [
+        "$$P = \\left(\\frac{r_1x_2 + r_2x_1}{r_1 + r_2}, \\frac{r_1y_2 + r_2y_1}{r_1 + r_2}\\right)$$",
+        "$r_1$ (the part next to $P_1$) multiplies the coordinates of $P_2$. With $r_1 = r_2$ it becomes the midpoint formula (Exercise 3.1 Q7)."
+       ]
+      },
+      {
+       "id": "math12-u3-md-ex31",
+       "type": "worked",
+       "title": "Worked example: Example 3.1",
+       "page": 128,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Find the point dividing $P_1(-1, 7)$ to $P_2(4, -3)$ in the ratio 2 : 3.",
+       "steps": [
+        {
+         "text": "$r_1 = 2$, $r_2 = 3$."
+        },
+        {
+         "text": "$x = \\frac{2(4) + 3(-1)}{5} = \\frac{5}{5} = 1$ (the book writes $2(-1) + 3(4)$ but still gets 1)."
+        },
+        {
+         "text": "$y = \\frac{2(-3) + 3(7)}{5} = \\frac{15}{5} = 3$."
+        }
+       ],
+       "answer": "$P(1, 3)$"
+      },
+      {
+       "id": "math12-u3-md-ratio-wk",
+       "type": "worked",
+       "title": "Worked example: finding the ratio (Exercise 3.1 Q4)",
+       "page": 129,
+       "src": "notes",
+       "mode": "show",
+       "problem": "In what ratio does the y-axis divide the segment from $(5, -6)$ to $(-1, -4)$? Where does it cross?",
+       "steps": [
+        {
+         "text": "On the y-axis $x = 0$. Let the ratio be $k : 1$."
+        },
+        {
+         "text": "$\\frac{k(-1) + 1(5)}{k + 1} = 0 \\Rightarrow k = 5$: ratio 5 : 1."
+        },
+        {
+         "text": "$y = \\frac{5(-4) + 1(-6)}{6} = -\\frac{26}{6}$."
+        }
+       ],
+       "answer": "5 : 1 at $\\left(0, -\\frac{13}{3}\\right)$"
       },
       {
        "id": "math12-u3-c02",
@@ -154,6 +229,84 @@
         "**Section formula.** The point P that divides the segment from A(x₁, y₁) to B(x₂, y₂) internally in the ratio m : n (AP : PB = m : n) is $$P\\left(\\frac{nx_1 + mx_2}{m + n}, \\frac{ny_1 + my_2}{m + n}\\right)$$.",
         "The midpoint is the special case m = n = 1. **Example:** A(1, 2), B(7, 8), ratio 1 : 2 → x = (2·1 + 1·7)/3 = 3, y = (2·2 + 1·8)/3 = 4, so P = (3, 4)."
        ]
+      },
+      {
+       "id": "math12-u3-c04",
+       "type": "text",
+       "title": "Straight Lines",
+       "page": 133,
+       "src": "notes",
+       "body": [
+        "$$\\left(\\frac{nx_1+mx_2}{m+n},\\ \\frac{ny_1+my_2}{m+n}\\right)$$",
+        "Midpoint is the special case $m=n=1$: $\\bigl(\\frac{x_1+x_2}{2},\\frac{y_1+y_2}{2}\\bigr)$.",
+        "Slope $m=\\dfrac{y_2-y_1}{x_2-x_1}$. Line: $y-y_1=m(x-x_1)$ or $y=mx+c$. Parallel ⇒ same $m$. Perpendicular ⇒ $m_1 m_2=-1$."
+       ]
+      },
+      {
+       "id": "math12-u3-c05",
+       "type": "mnemonic",
+       "title": "Tricks",
+       "page": 133,
+       "src": "notes",
+       "body": [
+        "Sketch a rough axes before calculating — catch sign errors. “$m$ of ratio” is the part toward $B$; $n$ is the part toward $A$. Vertical line: $x=$ constant, slope undefined. Horizontal: $y=$ constant, slope $0$."
+       ]
+      },
+      {
+       "id": "math12-u3-c06",
+       "type": "worked",
+       "title": "Example 6 — distance and midpoint",
+       "page": 141,
+       "src": "notes",
+       "problem": "$A(1,2)$, $B(4,6)$.",
+       "steps": [
+        {
+         "text": "$AB=\\sqrt{(4-1)^2+(6-2)^2}=\\sqrt{9+16}=\\sqrt{25}=5$."
+        },
+        {
+         "text": "Midpoint $=\\bigl(\\frac{1+4}{2},\\frac{2+6}{2}\\bigr)=(2.5,\\ 4)$."
+        },
+        {
+         "text": "Slope $m=\\frac{6-2}{4-1}=\\frac{4}{3}$."
+        },
+        {
+         "text": "Equation: $y-2=\\frac{4}{3}(x-1)$ → $3y-6=4x-4$ → $4x-3y-2=0$."
+        }
+       ],
+       "answer": "Equation: $y-2=\\frac{4}{3}(x-1)$ → $3y-6=4x-4$ → $4x-3y-2=0$.",
+       "mode": "show",
+       "reveal": "Step-by-step"
+      },
+      {
+       "id": "math12-u3-c07",
+       "type": "worked",
+       "title": "Example 7 — section",
+       "page": 143,
+       "src": "notes",
+       "problem": "Point dividing $A(1,2)$ and $B(7,8)$ in $1:2$.",
+       "steps": [
+        {
+         "text": "$m=1$, $n=2$, so closer to $A$."
+        },
+        {
+         "text": "$x=\\frac{2\\cdot1+1\\cdot7}{3}=\\frac{9}{3}=3$."
+        },
+        {
+         "text": "$y=\\frac{2\\cdot2+1\\cdot8}{3}=\\frac{12}{3}=4$."
+        },
+        {
+         "text": "Point $(3,4)$."
+        },
+        {
+         "text": "Check: from $A$ to $B$ the run is $6$; one-third of that is $2$, so $1+2=3$."
+        },
+        {
+         "text": "Yes."
+        }
+       ],
+       "answer": "Yes.",
+       "mode": "show",
+       "reveal": "Step-by-step"
       },
       {
        "id": "math12-u3-tblE1",
@@ -276,94 +429,241 @@
       {
        "id": "math12-u3-c03",
        "type": "text",
-       "title": "3.2 Straight Lines",
+       "title": "3.2.1 Inclination and slope",
        "page": 132,
-       "src": "textbook pp.132–136",
-       "enriched": true,
-       "body": [
-        "The inclination of a vertical (parallel to or coinciding with y-axis) is 90 0 .",
-        "For negative slopes, the smaller the slope, the steeper the line.",
-        "In a coordinate plane, suppose that non vertical lines l1 and l2 have slopes m1 and m 2 respectively.",
-        "Two non vertical lines are parallel if they have the same slope."
-       ]
-      },
-      {
-       "id": "math12-u3-c04",
-       "type": "text",
-       "title": "Straight Lines",
-       "page": 133,
        "src": "notes",
        "body": [
-        "$$\\left(\\frac{nx_1+mx_2}{m+n},\\ \\frac{ny_1+my_2}{m+n}\\right)$$",
-        "Midpoint is the special case $m=n=1$: $\\bigl(\\frac{x_1+x_2}{2},\\frac{y_1+y_2}{2}\\bigr)$.",
-        "Slope $m=\\dfrac{y_2-y_1}{x_2-x_1}$. Line: $y-y_1=m(x-x_1)$ or $y=mx+c$. Parallel ⇒ same $m$. Perpendicular ⇒ $m_1 m_2=-1$."
-       ]
+        "The **inclination** $\\alpha$ of a line is the angle from the positive x-axis to the line, measured anticlockwise: $0° \\le \\alpha < 180°$. Horizontal lines: $0°$; vertical lines: $90°$.",
+        "**Slope** $m = \\tan\\alpha$, or from two points $$m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{\\text{rise}}{\\text{run}}$$ (subtract in the same order top and bottom).",
+        "A vertical line has **no slope** ($x_2 - x_1 = 0$). \"1 in 30\" means slope $\\frac{1}{30}$ — steeper than 1 in 100."
+       ],
+       "enriched": true
       },
       {
-       "id": "math12-u3-c05",
-       "type": "mnemonic",
-       "title": "Tricks",
-       "page": 133,
+       "id": "math12-u3-md-slope",
+       "type": "steps",
+       "title": "Rise over run (Activity 3.2)",
+       "page": 132,
        "src": "notes",
-       "body": [
-        "Sketch a rough axes before calculating — catch sign errors. “$m$ of ratio” is the part toward $B$; $n$ is the part toward $A$. Vertical line: $x=$ constant, slope undefined. Horizontal: $y=$ constant, slope $0$."
-       ]
-      },
-      {
-       "id": "math12-u3-c06",
-       "type": "worked",
-       "title": "Example 6 — distance and midpoint",
-       "page": 141,
-       "src": "notes",
-       "problem": "$A(1,2)$, $B(4,6)$.",
+       "diagram": "md_slope",
        "steps": [
         {
-         "text": "$AB=\\sqrt{(4-1)^2+(6-2)^2}=\\sqrt{9+16}=\\sqrt{25}=5$."
+         "text": "The line $y = 2x + 1$ through $P(1, 3)$ and $Q(3, 7)$.",
+         "show": "k1"
         },
         {
-         "text": "Midpoint $=\\bigl(\\frac{1+4}{2},\\frac{2+6}{2}\\bigr)=(2.5,\\ 4)$."
+         "text": "Run $= 3 - 1 = 2$, rise $= 7 - 3 = 4$, slope $= \\frac{4}{2} = 2$ — the coefficient of $x$.",
+         "show": "k2"
         },
         {
-         "text": "Slope $m=\\frac{6-2}{4-1}=\\frac{4}{3}$."
-        },
-        {
-         "text": "Equation: $y-2=\\frac{4}{3}(x-1)$ → $3y-6=4x-4$ → $4x-3y-2=0$."
+         "text": "$\\tan\\alpha = 2$, so $\\alpha \\approx 63.4°$.",
+         "show": "k3"
         }
-       ],
-       "answer": "Equation: $y-2=\\frac{4}{3}(x-1)$ → $3y-6=4x-4$ → $4x-3y-2=0$.",
-       "mode": "show",
-       "reveal": "Step-by-step"
+       ]
       },
       {
-       "id": "math12-u3-c07",
+       "id": "math12-u3-md-slope-tb",
+       "type": "table",
+       "title": "What the slope tells you",
+       "page": 133,
+       "src": "notes",
+       "head": [
+        "Slope",
+        "Line"
+       ],
+       "rows": [
+        [
+         "$m > 0$",
+         "rises left to right; bigger $m$ = steeper"
+        ],
+        [
+         "$m < 0$",
+         "falls left to right; more negative = steeper"
+        ],
+        [
+         "$m = 0$",
+         "horizontal, $y = q$"
+        ],
+        [
+         "undefined",
+         "vertical, $x = p$"
+        ]
+       ]
+      },
+      {
+       "id": "math12-u3-md-incl-tb",
+       "type": "table",
+       "title": "Exercise 3.2: slope ↔ inclination",
+       "page": 132,
+       "src": "notes",
+       "head": [
+        "Slope",
+        "Inclination"
+       ],
+       "rows": [
+        [
+         "$\\sqrt{3}$",
+         "$60°$"
+        ],
+        [
+         "$\\frac{1}{\\sqrt{3}}$",
+         "$30°$"
+        ],
+        [
+         "1",
+         "$45°$"
+        ],
+        [
+         "0",
+         "$0°$"
+        ],
+        [
+         "−1",
+         "$135°$"
+        ]
+       ]
+      },
+      {
+       "id": "math12-u3-md-parperp",
+       "type": "diagram",
+       "title": "3.2.2 Parallel and perpendicular lines",
+       "page": 136,
+       "src": "notes",
+       "diagram": "md_parperp",
+       "mode": "plain",
+       "body": [
+        "**Parallel:** same slope, $m_1 = m_2$ ($y = 2x$ and $y = 2x - 5$).",
+        "**Perpendicular:** $m_1m_2 = -1$, i.e. $m_2 = -\\frac{1}{m_1}$ ($2 \\times (-\\frac{1}{2}) = -1$). A horizontal and a vertical line are also perpendicular."
+       ]
+      },
+      {
+       "id": "math12-u3-md-ex36",
        "type": "worked",
-       "title": "Example 7 — section",
+       "title": "Worked example: prove a square (Example 3.6)",
+       "page": 137,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Show $P(0, -2)$, $Q(4, 2)$, $R(0, 6)$, $S(-4, 2)$ is a square.",
+       "steps": [
+        {
+         "text": "Each side: $PQ^2 = 4^2 + 4^2 = 32$; likewise $QR^2 = RS^2 = SP^2 = 32$. All sides equal."
+        },
+        {
+         "text": "Slopes: $PQ$: $\\frac{4}{4} = 1$; $QR$: $\\frac{4}{-4} = -1$."
+        },
+        {
+         "text": "$1 \\times (-1) = -1$, so $PQ \\perp QR$: a rhombus with a right angle."
+        }
+       ],
+       "answer": "a square"
+      },
+      {
+       "id": "math12-u3-md-lineq-t",
+       "type": "text",
+       "title": "3.2.3 Equations of a line",
+       "page": 140,
+       "src": "notes",
+       "body": [
+        "**Point–slope:** $y - y_1 = m(x - x_1)$. **Slope–intercept:** $y = mx + b$. **Two-point:** find $m$ first, then use point–slope.",
+        "**Double-intercept:** $\\frac{x}{a} + \\frac{y}{b} = 1$ (crosses at $(a, 0)$ and $(0, b)$). **General form:** $ax + by + c = 0$ — covers every line, including vertical ones.",
+        "**From general to slope form:** $3y + 5x - 11 = 0 \\Rightarrow y = -\\frac{5}{3}x + \\frac{11}{3}$ (slope $-\\frac{5}{3}$, y-intercept $\\frac{11}{3}$)."
+       ]
+      },
+      {
+       "id": "math12-u3-md-forms-tb",
+       "type": "table",
+       "title": "Which form to use",
+       "page": 142,
+       "src": "notes",
+       "head": [
+        "You know",
+        "Use"
+       ],
+       "rows": [
+        [
+         "slope and y-intercept",
+         "$y = mx + b$"
+        ],
+        [
+         "slope and a point",
+         "$y - y_1 = m(x - x_1)$"
+        ],
+        [
+         "two points",
+         "slope first, then point–slope"
+        ],
+        [
+         "both intercepts",
+         "$\\frac{x}{a} + \\frac{y}{b} = 1$"
+        ],
+        [
+         "horizontal through $(p, q)$",
+         "$y = q$"
+        ],
+        [
+         "vertical through $(p, q)$",
+         "$x = p$"
+        ]
+       ]
+      },
+      {
+       "id": "math12-u3-md-intercept",
+       "type": "diagram",
+       "title": "Double-intercept form (Review Q5)",
        "page": 143,
        "src": "notes",
-       "problem": "Point dividing $A(1,2)$ and $B(7,8)$ in $1:2$.",
+       "diagram": "md_intercept",
+       "mode": "plain",
+       "body": [
+        "x-intercept 4, y-intercept −5: $\\frac{x}{4} + \\frac{y}{-5} = 1$. Multiply by 20: $5x - 4y = 20$, i.e. $5x - 4y - 20 = 0$.",
+        "(Example 3.12 writes \"$b = -3$\" but uses $b = -5$; its answer $-5x + 9y + 45 = 0$ is right.)"
+       ]
+      },
+      {
+       "id": "math12-u3-md-perpwk",
+       "type": "worked",
+       "title": "Worked example: a perpendicular line (Review Q3)",
+       "page": 156,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Find the line through $(1, -2)$ perpendicular to $x - 2y + 3 = 0$.",
        "steps": [
         {
-         "text": "$m=1$, $n=2$, so closer to $A$."
+         "text": "Rewrite: $y = \\frac{1}{2}x + \\frac{3}{2}$, slope $\\frac{1}{2}$."
         },
         {
-         "text": "$x=\\frac{2\\cdot1+1\\cdot7}{3}=\\frac{9}{3}=3$."
+         "text": "Perpendicular slope $-2$."
         },
         {
-         "text": "$y=\\frac{2\\cdot2+1\\cdot8}{3}=\\frac{12}{3}=4$."
-        },
-        {
-         "text": "Point $(3,4)$."
-        },
-        {
-         "text": "Check: from $A$ to $B$ the run is $6$; one-third of that is $2$, so $1+2=3$."
-        },
-        {
-         "text": "Yes."
+         "text": "$y + 2 = -2(x - 1)$."
         }
        ],
-       "answer": "Yes.",
-       "mode": "show",
-       "reveal": "Step-by-step"
+       "answer": "$y = -2x$"
+      },
+      {
+       "id": "math12-u3-md-median",
+       "type": "diagram",
+       "title": "3.2.4 Analytic proofs: a median (Example 3.13)",
+       "page": 148,
+       "src": "notes",
+       "diagram": "md_median",
+       "mode": "plain",
+       "body": [
+        "The median from $A(-3, 4)$ goes to the midpoint of $BC$: $M\\left(4, \\frac{5}{2}\\right)$.",
+        "Slope $AM = \\frac{2.5 - 4}{4 + 3} = -\\frac{3}{14}$, so $y - 4 = -\\frac{3}{14}(x + 3)$: $3x + 14y - 47 = 0$. (The book numbers this example and the first circle example both 3.13.)"
+       ]
+      },
+      {
+       "id": "math12-u3-md-concur-t",
+       "type": "text",
+       "title": "Concurrent lines in a triangle",
+       "page": 147,
+       "src": "notes",
+       "body": [
+        "Lines are **concurrent** when they all pass through one point.",
+        "**Medians** (vertex to midpoint of the opposite side) meet at the **centroid** $G = \\left(\\frac{x_1 + x_2 + x_3}{3}, \\frac{y_1 + y_2 + y_3}{3}\\right)$, $\\frac{2}{3}$ of the way down each median. **Altitudes** meet at the orthocentre, **perpendicular bisectors** at the circumcentre (equal distance from the vertices), **angle bisectors** at the incentre (equal distance from the sides).",
+        "**Activity 3.6 (altitudes):** with $A(0, 0)$, $B(b, 0)$, $C(c, d)$ the altitude from $C$ is $x = c$; the altitude from $B$ has slope $-\\frac{c}{d}$; they meet at $\\left(c, \\frac{c(b - c)}{d}\\right)$, which also lies on the altitude from $A$."
+       ]
       },
       {
        "id": "math12-u3-chk74",
@@ -690,6 +990,95 @@
        ]
       },
       {
+       "id": "math12-u3-md-circle",
+       "type": "steps",
+       "title": "From the distance formula to the circle equation",
+       "page": 151,
+       "src": "notes",
+       "diagram": "md_circle",
+       "steps": [
+        {
+         "text": "A circle: all points $P(x, y)$ at the same distance $r$ from the centre $C(h, k)$.",
+         "show": "k1"
+        },
+        {
+         "text": "Distance $CP = r$: $\\sqrt{(x - h)^2 + (y - k)^2} = r$.",
+         "show": "k2"
+        },
+        {
+         "text": "Square both sides: $$(x - h)^2 + (y - k)^2 = r^2$$ (standard form). Centre at the origin: $x^2 + y^2 = r^2$.",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math12-u3-md-genc-t",
+       "type": "text",
+       "title": "General form and completing the square",
+       "page": 153,
+       "src": "notes",
+       "body": [
+        "**General form:** $x^2 + y^2 + Dx + Ey + F = 0$. Expand the standard form to get it: centre $(-2, 4)$, $r = \\sqrt{5}$: $x^2 + 4x + 4 + y^2 - 8y + 16 = 5$, so $x^2 + y^2 + 4x - 8y + 15 = 0$.",
+        "**Back to standard form:** group $x$-terms and $y$-terms, add $\\left(\\frac{D}{2}\\right)^2$ and $\\left(\\frac{E}{2}\\right)^2$ to both sides, factor.",
+        "Shortcut: centre $\\left(-\\frac{D}{2}, -\\frac{E}{2}\\right)$, $r^2 = \\frac{D^2 + E^2}{4} - F$.",
+        "If $r^2 > 0$: a circle. If $r^2 = 0$: a single point. If $r^2 < 0$: no points at all (Exercise 3.7 Q8, Q9)."
+       ]
+      },
+      {
+       "id": "math12-u3-md-ex316",
+       "type": "worked",
+       "title": "Worked example: Example 3.16",
+       "page": 154,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Find the centre and radius of $x^2 + y^2 - 2x + 8y - 8 = 0$.",
+       "steps": [
+        {
+         "text": "Group: $(x^2 - 2x) + (y^2 + 8y) = 8$."
+        },
+        {
+         "text": "Complete the squares: add 1 and 16: $(x^2 - 2x + 1) + (y^2 + 8y + 16) = 25$."
+        },
+        {
+         "text": "$(x - 1)^2 + (y + 4)^2 = 25$."
+        }
+       ],
+       "answer": "centre $(1, -4)$, radius 5"
+      },
+      {
+       "id": "math12-u3-md-diam",
+       "type": "worked",
+       "title": "Worked example: circle on a diameter (Exercise 3.7 Q5)",
+       "page": 156,
+       "src": "notes",
+       "mode": "show",
+       "problem": "The ends of a diameter are $(1, 7)$ and $(-5, -1)$. Find the general equation.",
+       "steps": [
+        {
+         "text": "Centre = midpoint $(-2, 3)$."
+        },
+        {
+         "text": "$r^2 = (1 + 2)^2 + (7 - 3)^2 = 25$."
+        },
+        {
+         "text": "$(x + 2)^2 + (y - 3)^2 = 25 \\Rightarrow x^2 + 4x + 4 + y^2 - 6y + 9 = 25$."
+        }
+       ],
+       "answer": "$x^2 + y^2 + 4x - 6y - 12 = 0$"
+      },
+      {
+       "id": "math12-u3-md-tower",
+       "type": "diagram",
+       "title": "Inside or outside a circle?",
+       "page": 156,
+       "src": "notes",
+       "diagram": "md_tower",
+       "mode": "plain",
+       "body": [
+        "Compare the distance from the centre with $r$. Home 97 km north and 33 km east: $\\sqrt{97^2 + 33^2} = \\sqrt{10498} \\approx 102.5$ km $> 100$: **no** signal. Review Q9 (45 km south, 87 km west): $\\sqrt{9594} \\approx 97.9$ km $< 100$: **yes**."
+       ]
+      },
+      {
        "id": "math12-u3-chk79",
        "type": "check",
        "title": "Quick check",
@@ -782,15 +1171,74 @@
        "why": "Standard form (x − h)² + (y − k)² = r² with h = −1, k = 2, r² = 9.",
        "page": 149,
        "src": "notes"
+      },
+      {
+       "id": "math12-u3-md-summary-t",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 157,
+       "src": "notes",
+       "body": [
+        "Section formula $\\left(\\frac{r_1x_2 + r_2x_1}{r_1 + r_2}, \\frac{r_1y_2 + r_2y_1}{r_1 + r_2}\\right)$; midpoint when $r_1 = r_2$.",
+        "Slope $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\tan\\alpha$; parallel $m_1 = m_2$; perpendicular $m_1m_2 = -1$.",
+        "Lines: $y = mx + b$, $y - y_1 = m(x - x_1)$, $\\frac{x}{a} + \\frac{y}{b} = 1$, $ax + by + c = 0$.",
+        "Circle: $(x - h)^2 + (y - k)^2 = r^2$; general form $x^2 + y^2 + Dx + Ey + F = 0$."
+       ]
       }
      ]
     }
    ],
-   "glossary": [],
+   "glossary": [
+    {
+     "term": "Section formula",
+     "meaning": "Coordinates of the point dividing a segment in a ratio $r_1 : r_2$.",
+     "page": 128,
+     "src": "notes"
+    },
+    {
+     "term": "Inclination",
+     "meaning": "The anticlockwise angle from the positive x-axis to a line.",
+     "page": 132,
+     "src": "notes"
+    },
+    {
+     "term": "Concurrent",
+     "meaning": "Lines that all pass through one point.",
+     "page": 147,
+     "src": "notes"
+    },
+    {
+     "term": "Centroid",
+     "meaning": "The point where the medians of a triangle meet.",
+     "page": 148,
+     "src": "notes"
+    },
+    {
+     "term": "General form of a circle",
+     "meaning": "$x^2 + y^2 + Dx + Ey + F = 0$.",
+     "page": 153,
+     "src": "notes"
+    }
+   ],
    "tips": [
     {
      "text": "Read 3.1 Division of Line Segment again and say its main idea in one sentence.",
      "page": 126
+    },
+    {
+     "text": "$r_1$ multiplies the far endpoint.",
+     "page": 128,
+     "src": "notes"
+    },
+    {
+     "text": "Perpendicular: negative reciprocal slope.",
+     "page": 136,
+     "src": "notes"
+    },
+    {
+     "text": "Complete the square to find centre and radius.",
+     "page": 154,
+     "src": "notes"
     }
    ],
    "games": [
@@ -1426,6 +1874,547 @@
       ],
       "page": 146,
       "src": "notes"
+     },
+     {
+      "id": "math12-u3-md-s31-q01",
+      "type": "short",
+      "q": "Exercise 3.1 Q1 and Q3: find the points that trisect (a) $(5, -3)$ to $(14, 18)$ (b) $A(2, -2)$ to $B(-7, 4)$.",
+      "answer": "(a) $(8, 4)$, $(11, 11)$ (b) $(-1, 0)$, $(-4, 2)$",
+      "why": [
+       "Step 1: trisection points divide in 1 : 2 and 2 : 1.",
+       "Step 2: (a) step $= \\frac{1}{3}(9, 21) = (3, 7)$.",
+       "Step 3: (b) step $= \\frac{1}{3}(-9, 6) = (-3, 2)$."
+      ],
+      "tip": "Add equal steps from the first endpoint.",
+      "similar": [
+       {
+        "q": "Quarter points of $(0, 0)$ to $(8, 4)$?",
+        "a": "$(2, 1)$, $(4, 2)$, $(6, 3)$."
+       }
+      ],
+      "page": 129,
+      "src": "notes",
+      "label": "3.1 Practice — dividing segments"
+     },
+     {
+      "id": "math12-u3-md-s31-q02",
+      "type": "short",
+      "q": "Exercise 3.1 Q2: in what ratio does $(-4, 6)$ divide $A(-6, 10)$ to $B(3, -8)$?",
+      "answer": "2 : 7",
+      "why": [
+       "Step 1: x-distances: from $A$ $2$, to $B$ $7$.",
+       "Step 2: check y: $10 + \\frac{2}{9}(-18) = 6$ ✓."
+      ],
+      "tip": "Use one coordinate, check with the other.",
+      "similar": [
+       {
+        "q": "Ratio for $(0, 4)$ on $(-3, 1)$ to $(6, 10)$?",
+        "a": "1 : 2."
+       }
+      ],
+      "page": 129,
+      "src": "notes",
+      "label": "3.1 Practice — dividing segments"
+     },
+     {
+      "id": "math12-u3-md-s31-q03",
+      "type": "short",
+      "q": "Exercise 3.1 Q8 and Q10: divide internally (a) $(-9, -2)$ to $(6, 2)$ in 3 : 4 (b) $(0, 0)$ to $(12, 10)$ in 4 : 7.",
+      "answer": "(a) $\\left(-\\frac{18}{7}, -\\frac{2}{7}\\right)$ (b) $\\left(\\frac{48}{11}, \\frac{40}{11}\\right)$",
+      "why": [
+       "Step 1: (a) $x = \\frac{3(6) + 4(-9)}{7}$, $y = \\frac{3(2) + 4(-2)}{7}$.",
+       "Step 2: (b) $\\frac{4}{11}$ of the way: $\\frac{4}{11}(12, 10)$."
+      ],
+      "tip": "From the origin, multiply by $\\frac{r_1}{r_1 + r_2}$.",
+      "similar": [
+       {
+        "q": "$(0, 0)$ to $(10, 5)$ in 2 : 3?",
+        "a": "$(4, 2)$."
+       }
+      ],
+      "page": 129,
+      "src": "notes",
+      "label": "3.1 Practice — dividing segments"
+     },
+     {
+      "id": "math12-u3-md-s31-q04",
+      "type": "short",
+      "q": "Exercise 3.1 Q5, Q6, Q9: (5) $A(6, 1)$, $B(8, 2)$, $C(9, 4)$, $D(p, 3)$ is a parallelogram: $p$? (6) rhombus $(3, 0)$, $(4, 5)$, $(-1, 4)$, $(-2, -1)$: area? (9) $P(6, -2)$ divides $AB$ ($A$ on the x-axis, $B$ on the y-axis) in 1 : 2: $A$, $B$?",
+      "answer": "$p = 7$; 24; $A(9, 0)$, $B(0, -6)$",
+      "why": [
+       "Step 1: diagonals bisect each other: $6 + 9 = 8 + p$.",
+       "Step 2: diagonals $\\sqrt{32}$ and $\\sqrt{72}$; area $\\frac{1}{2}\\sqrt{32 \\cdot 72} = 24$.",
+       "Step 3: $P = \\frac{2A + B}{3}$: $6 = \\frac{2a}{3}$, $-2 = \\frac{b}{3}$."
+      ],
+      "tip": "Rhombus area = half the product of the diagonals.",
+      "similar": [
+       {
+        "q": "Parallelogram $(0, 0)$, $(4, 0)$, $(5, 3)$, $(x, 3)$?",
+        "a": "$x = 1$."
+       }
+      ],
+      "page": 130,
+      "src": "notes",
+      "label": "3.1 Practice — dividing segments"
+     },
+     {
+      "id": "math12-u3-md-s31-q05",
+      "type": "mcq",
+      "q": "The point dividing $(4, -3)$ to $(8, 5)$ in 3 : 1 is",
+      "options": {
+       "A": "$(7, 3)$",
+       "B": "$(5, -1)$",
+       "C": "$(6, 1)$",
+       "D": "$(7, 1)$"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $x = \\frac{3(8) + 1(4)}{4} = 7$, $y = \\frac{3(5) + 1(-3)}{4} = 3$."
+      ],
+      "tip": "3 : 1 means three-quarters of the way.",
+      "similar": [
+       {
+        "q": "In 1 : 3?",
+        "a": "$(5, -1)$."
+       }
+      ],
+      "page": 128,
+      "src": "notes",
+      "label": "3.1 Practice — dividing segments"
+     },
+     {
+      "id": "math12-u3-md-s32-q01",
+      "type": "short",
+      "q": "Exercise 3.3 Q1: slopes through (a) $(2, 3)$, $(9, 12)$ (b) $(-7, 10)$, $(8, -2)$ (c) $(a, b)$, $(b, a)$ (d) $(3, -2)$, $(-1, 4)$ (e) $(a, b)$, $(-a, -b)$ (f) $(0, 4)$, $(-2, 0)$.",
+      "answer": "$\\frac{9}{7}$, $-\\frac{4}{5}$, $-1$, $-\\frac{3}{2}$, $\\frac{b}{a}$, 2",
+      "why": [
+       "Step 1: $m = \\frac{y_2 - y_1}{x_2 - x_1}$.",
+       "Step 2: (c) $\\frac{a - b}{b - a} = -1$ ($a \\ne b$)."
+      ],
+      "tip": "Same order top and bottom.",
+      "similar": [
+       {
+        "q": "$(1, 1)$ and $(4, -5)$?",
+        "a": "$-2$."
+       }
+      ],
+      "page": 133,
+      "src": "notes",
+      "label": "3.2 Practice — slopes and lines"
+     },
+     {
+      "id": "math12-u3-md-s32-q02",
+      "type": "short",
+      "q": "Exercise 3.3 Q2: collinear? (a) $(8, 5)$, $(3, 2)$, $(-3, -1)$ (b) $(-3, 3)$, $(2, 1)$, $(12, -3)$ (c) $(-4, 6)$, $(-4, -1)$, $(-4, 20)$.",
+      "answer": "(a) no (b) yes (c) yes",
+      "why": [
+       "Step 1: (a) slopes $\\frac{3}{5}$ and $\\frac{1}{2}$ differ.",
+       "Step 2: (b) both $-\\frac{2}{5}$.",
+       "Step 3: (c) all on $x = -4$."
+      ],
+      "tip": "Equal slopes through a common point ⇒ collinear.",
+      "similar": [
+       {
+        "q": "Exercise 3.4 Q9: $(x, -1)$, $(2, 1)$, $(4, 5)$ collinear?",
+        "a": "$x = 1$."
+       }
+      ],
+      "page": 133,
+      "src": "notes",
+      "label": "3.2 Practice — slopes and lines"
+     },
+     {
+      "id": "math12-u3-md-s32-q03",
+      "type": "short",
+      "q": "Exercise 3.4 Q1, Q3, Q4: (1) line through $(a, 5)$ and $(-2, 3)$ and line through $(6, a)$ and $(2, 0)$: $a$ for parallel; for perpendicular. (3) $p$? (4) $q$?",
+      "answer": "$a = 2$ or $-4$; $a = -\\frac{4}{3}$; $p = 4$; $q = 6$",
+      "why": [
+       "Step 1: slopes $\\frac{2}{a + 2}$ and $\\frac{a}{4}$; parallel: $a^2 + 2a - 8 = 0$.",
+       "Step 2: perpendicular: $\\frac{2a}{4(a + 2)} = -1 \\Rightarrow 6a = -8$.",
+       "Step 3: (3) $\\frac{p + 2}{2} = 3$; (4) $\\frac{1 - 4}{q - 2} = -\\frac{3}{4}$."
+      ],
+      "tip": "Write both slopes, then use $m_1 = m_2$ or $m_1m_2 = -1$.",
+      "similar": [
+       {
+        "q": "Perpendicular to slope 5?",
+        "a": "$-\\frac{1}{5}$."
+       }
+      ],
+      "page": 138,
+      "src": "notes",
+      "label": "3.2 Practice — slopes and lines"
+     },
+     {
+      "id": "math12-u3-md-s32-q04",
+      "type": "short",
+      "q": "Exercise 3.4 Q5: type of triangle: (a) $(3, 0)$, $(-4, 0)$, $(0, 5)$ (b) $(-1, 0)$, $(1, 0)$, $(0, 1)$.",
+      "answer": "(a) scalene, acute (b) right isosceles",
+      "why": [
+       "Step 1: (a) sides $7$, $\\sqrt{34}$, $\\sqrt{41}$; $34 + 41 > 49$.",
+       "Step 2: (b) sides $\\sqrt{2}$, $\\sqrt{2}$, 2 and slopes $1 \\cdot (-1) = -1$."
+      ],
+      "tip": "Compare side lengths and slopes.",
+      "similar": [
+       {
+        "q": "$(0, 0)$, $(4, 0)$, $(0, 3)$?",
+        "a": "right-angled, scalene."
+       }
+      ],
+      "page": 139,
+      "src": "notes",
+      "label": "3.2 Practice — slopes and lines"
+     },
+     {
+      "id": "math12-u3-md-s32-q05",
+      "type": "short",
+      "q": "Exercise 3.5 Q1: equation, slope and intercepts for (a) $(2, 4)$, $(-1, -5)$ (b) $(3, -3)$, $(-3, 1)$ (d) $(1, 5)$, $(-10, 5)$ (e) $(-1, -1)$, $(4, 4)$.",
+      "answer": "(a) $y = 3x - 2$ (b) $y = -\\frac{2}{3}x - 1$ (d) $y = 5$ (e) $y = x$",
+      "why": [
+       "Step 1: (a) $m = \\frac{9}{3} = 3$, $4 = 6 + b$.",
+       "Step 2: (b) $m = -\\frac{4}{6}$, $-3 = -2 + b$.",
+       "Step 3: (a) intercepts $(\\frac{2}{3}, 0)$, $(0, -2)$."
+      ],
+      "tip": "Find $m$, then $b$ from one point.",
+      "similar": [
+       {
+        "q": "$(0, 1)$ and $(2, 7)$?",
+        "a": "$y = 3x + 1$."
+       }
+      ],
+      "page": 144,
+      "src": "notes",
+      "label": "3.2 Practice — slopes and lines"
+     },
+     {
+      "id": "math12-u3-md-s32-q06",
+      "type": "short",
+      "q": "Exercise 3.5 Q2–Q3: (2) slope 3 through $(0, -1)$; slope $-5$ through $(0, \\frac{1}{2})$. (3) slope $-5$ through $(5, -5)$; $\\frac{1}{2}$ through $(4, -3)$; 3 through $(-7, 2)$; $-6$ through $(4, 2)$.",
+      "answer": "$y = 3x - 1$; $y = -5x + \\frac{1}{2}$; $y = -5x + 20$; $y = \\frac{1}{2}x - 5$; $y = 3x + 23$; $y = -6x + 26$",
+      "why": [
+       "Step 1: (2) $b$ is given.",
+       "Step 2: (3) $y - y_1 = m(x - x_1)$, e.g. $y + 5 = -5(x - 5)$."
+      ],
+      "tip": "Expand and collect.",
+      "similar": [
+       {
+        "q": "Slope 2 through $(1, 1)$?",
+        "a": "$y = 2x - 1$."
+       }
+      ],
+      "page": 145,
+      "src": "notes",
+      "label": "3.2 Practice — slopes and lines"
+     },
+     {
+      "id": "math12-u3-md-s32-q07",
+      "type": "short",
+      "q": "Exercise 3.5 Q4: slope and y-intercept of (a) $3y + 2x - 5 = 0$ (b) $-4x + 5y + 12 = 0$ (c) $4x - 6y = 12$ (d) $5y - 6x = 30$.",
+      "answer": "(a) $-\\frac{2}{3}$, $\\frac{5}{3}$ (b) $\\frac{4}{5}$, $-\\frac{12}{5}$ (c) $\\frac{2}{3}$, $-2$ (d) $\\frac{6}{5}$, 6",
+      "why": [
+       "Step 1: make $y$ the subject.",
+       "Step 2: (c) $-6y = -4x + 12 \\Rightarrow y = \\frac{2}{3}x - 2$."
+      ],
+      "tip": "For $ax + by + c = 0$: $m = -\\frac{a}{b}$.",
+      "similar": [
+       {
+        "q": "$2x + y = 7$?",
+        "a": "slope $-2$, intercept 7."
+       }
+      ],
+      "page": 145,
+      "src": "notes",
+      "label": "3.2 Practice — slopes and lines"
+     },
+     {
+      "id": "math12-u3-md-s32-q08",
+      "type": "short",
+      "q": "Exercise 3.5 Q5: (b) through $(4, 3)$, slope $-4$ (c) crosses the x-axis 3 units left of $O$, slope $-2$ (d) median from $R(4, 5)$ in $P(2, 1)$, $Q(-2, 3)$, $R$ (e) through $(-3, 5)$ perpendicular to the line through $(2, 5)$ and $(-3, 6)$.",
+      "answer": "$y = -4x + 19$; $y = -2x - 6$; $y = \\frac{3}{4}x + 2$; $y = 5x + 20$",
+      "why": [
+       "Step 1: (c) point $(-3, 0)$.",
+       "Step 2: (d) midpoint of $PQ$ is $(0, 2)$, slope $\\frac{3}{4}$.",
+       "Step 3: (e) slope $-\\frac{1}{5}$ → perpendicular 5."
+      ],
+      "tip": "Median = vertex to midpoint.",
+      "similar": [
+       {
+        "q": "(f) Are $(-2, -2)$, $(8, 2)$, $(3, 0)$ collinear?",
+        "a": "yes, both slopes $\\frac{2}{5}$."
+       }
+      ],
+      "page": 145,
+      "src": "notes",
+      "label": "3.2 Practice — slopes and lines"
+     },
+     {
+      "id": "math12-u3-md-s32-q09",
+      "type": "short",
+      "q": "Exercise 3.6 Q4–Q5: (4) centroid of $A(2, 2)$, $B(0, 6)$, $C(8, 10)$ (5) perpendicular bisector of $P(-2, 3)$, $Q(8, -1)$.",
+      "answer": "$\\left(\\frac{10}{3}, 6\\right)$; $5x - 2y - 13 = 0$",
+      "why": [
+       "Step 1: average the vertices.",
+       "Step 2: midpoint $(3, 1)$, slope $PQ = -\\frac{2}{5}$, perpendicular $\\frac{5}{2}$: $y - 1 = \\frac{5}{2}(x - 3)$."
+      ],
+      "tip": "Perpendicular bisector = midpoint + negative reciprocal slope.",
+      "similar": [
+       {
+        "q": "Centroid of $(0, 0)$, $(6, 0)$, $(0, 9)$?",
+        "a": "$(2, 3)$."
+       }
+      ],
+      "page": 149,
+      "src": "notes",
+      "label": "3.2 Practice — slopes and lines"
+     },
+     {
+      "id": "math12-u3-md-s32-q10",
+      "type": "short",
+      "q": "Review Q1, Q2, Q4: (1) through $(3, 4)$, slope 2 (2) through $(-2, 3)$, $(1, 5)$ (4) $k$ for $2x - ky + 5 = 0$ parallel / perpendicular to $8x - 14y + 3 = 0$.",
+      "answer": "$y = 2x - 2$; $2x - 3y + 13 = 0$; $k = \\frac{7}{2}$; $k = -\\frac{8}{7}$",
+      "why": [
+       "Step 1: (2) $m = \\frac{2}{3}$.",
+       "Step 2: (4) slopes $\\frac{2}{k}$ and $\\frac{4}{7}$.",
+       "Step 3: $\\frac{2}{k} \\cdot \\frac{4}{7} = -1 \\Rightarrow k = -\\frac{8}{7}$."
+      ],
+      "tip": "Write each line as $y = mx + b$.",
+      "similar": [
+       {
+        "q": "$y = kx$ perpendicular to $y = 3x$?",
+        "a": "$k = -\\frac{1}{3}$."
+       }
+      ],
+      "page": 156,
+      "src": "notes",
+      "label": "3.2 Practice — slopes and lines"
+     },
+     {
+      "id": "math12-u3-md-s32-q11",
+      "type": "mcq",
+      "q": "A line with inclination $135°$ has slope",
+      "options": {
+       "A": "$-1$",
+       "B": "1",
+       "C": "$\\sqrt{3}$",
+       "D": "undefined"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $\\tan 135° = -1$."
+      ],
+      "tip": "Obtuse inclination ⇒ negative slope.",
+      "similar": [
+       {
+        "q": "Inclination $90°$?",
+        "a": "slope undefined."
+       }
+      ],
+      "page": 132,
+      "src": "notes",
+      "label": "3.2 Practice — slopes and lines"
+     },
+     {
+      "id": "math12-u3-md-s32-q12",
+      "type": "tf",
+      "q": "The lines $y = \\frac{2}{3}x + 1$ and $y = -\\frac{3}{2}x + 5$ are perpendicular.",
+      "answer": true,
+      "why": [
+       "Step 1: $\\frac{2}{3} \\cdot (-\\frac{3}{2}) = -1$."
+      ],
+      "tip": "Negative reciprocals.",
+      "similar": [
+       {
+        "q": "$y = 2x$ and $y = \\frac{1}{2}x$?",
+        "a": "not perpendicular (product 1)."
+       }
+      ],
+      "page": 136,
+      "src": "notes",
+      "label": "3.2 Practice — slopes and lines"
+     },
+     {
+      "id": "math12-u3-md-s33-q01",
+      "type": "short",
+      "q": "Exercise 3.7 Q1–Q3: standard equations: (a) $r = 4$, centre $(-3, -4)$ (c) $r = \\sqrt{5}$, centre $(1, -1)$ (Q2) the unit circle (Q3) centre $(7, -8)$ through $(10, -4)$.",
+      "answer": "$(x + 3)^2 + (y + 4)^2 = 16$; $(x - 1)^2 + (y + 1)^2 = 5$; $x^2 + y^2 = 1$; $(x - 7)^2 + (y + 8)^2 = 25$",
+      "why": [
+       "Step 1: substitute $h$, $k$, $r$.",
+       "Step 2: Q3: $r^2 = 3^2 + 4^2$."
+      ],
+      "tip": "Signs flip inside the brackets.",
+      "similar": [
+       {
+        "q": "$r = 2$, centre $(2, 1)$?",
+        "a": "$(x - 2)^2 + (y - 1)^2 = 4$."
+       }
+      ],
+      "page": 155,
+      "src": "notes",
+      "label": "3.3 Practice — circles"
+     },
+     {
+      "id": "math12-u3-md-s33-q02",
+      "type": "short",
+      "q": "Exercise 3.7 Q4: centre and radius of (a) $(x - 1)^2 + (y - 3)^2 = 25$ (b) $(x + 3)^2 + (y - 7)^2 = 81$ (c) $(x + 1)^2 + (y + 3)^2 = 11$ (d) $x^2 + y^2 = 12$ (e) $(x - \\frac{1}{2})^2 + (y + \\frac{1}{3})^2 = \\frac{9}{25}$.",
+      "answer": "(1, 3), 5; (−3, 7), 9; (−1, −3), $\\sqrt{11}$; (0, 0), $2\\sqrt{3}$; $(\\frac{1}{2}, -\\frac{1}{3})$, $\\frac{3}{5}$",
+      "why": [
+       "Step 1: read $h$, $k$ with opposite signs.",
+       "Step 2: $r = \\sqrt{\\text{right side}}$."
+      ],
+      "tip": "The right side is $r^2$, not $r$.",
+      "similar": [
+       {
+        "q": "$(x + 5)^2 + y^2 = 49$?",
+        "a": "$(-5, 0)$, 7."
+       }
+      ],
+      "page": 155,
+      "src": "notes",
+      "label": "3.3 Practice — circles"
+     },
+     {
+      "id": "math12-u3-md-s33-q03",
+      "type": "short",
+      "q": "Exercise 3.7 Q5: general form of (a) $(x + 2)^2 + (y - 3)^2 = 5$ (b) $(x - 3)^2 + (y + 3)^2 = 20$ (c) $r = 3$, centre $(4, -10)$ (d) $r = 9$, centre $(5, 7)$ (e) $r = \\sqrt{2}$, centre $O$.",
+      "answer": "$x^2 + y^2 + 4x - 6y + 8 = 0$; $x^2 + y^2 - 6x + 6y - 2 = 0$; $x^2 + y^2 - 8x + 20y + 107 = 0$; $x^2 + y^2 - 10x - 14y - 7 = 0$; $x^2 + y^2 - 2 = 0$",
+      "why": [
+       "Step 1: expand both squares.",
+       "Step 2: move $r^2$ to the left: (c) $16 + 100 - 9 = 107$."
+      ],
+      "tip": "$F = h^2 + k^2 - r^2$.",
+      "similar": [
+       {
+        "q": "Centre $(1, 1)$, $r = 1$?",
+        "a": "$x^2 + y^2 - 2x - 2y + 1 = 0$."
+       }
+      ],
+      "page": 155,
+      "src": "notes",
+      "label": "3.3 Practice — circles"
+     },
+     {
+      "id": "math12-u3-md-s33-q04",
+      "type": "short",
+      "q": "Exercise 3.7 Q6: complete the squares: (a) $x^2 + y^2 + 6x + 8y - 75 = 0$ (b) $x^2 + y^2 + 16x - 14y + 88 = 0$ (c) $x^2 + y^2 - 4x - 16y + 32 = 0$ (d) $x^2 + y^2 - 10x + 6y + 22 = 0$ (e) $x^2 + y^2 - x + y + \\frac{1}{4} = 0$.",
+      "answer": "(−3, −4), 10; (−8, 7), 5; (2, 8), 6; (5, −3), $2\\sqrt{3}$; $(\\frac{1}{2}, -\\frac{1}{2})$, $\\frac{1}{2}$",
+      "why": [
+       "Step 1: (a) $(x + 3)^2 + (y + 4)^2 = 75 + 9 + 16 = 100$.",
+       "Step 2: (d) $(x - 5)^2 + (y + 3)^2 = -22 + 25 + 9 = 12$."
+      ],
+      "tip": "Centre $(-\\frac{D}{2}, -\\frac{E}{2})$.",
+      "similar": [
+       {
+        "q": "$x^2 + y^2 - 6x = 0$?",
+        "a": "(3, 0), 3."
+       }
+      ],
+      "page": 156,
+      "src": "notes",
+      "label": "3.3 Practice — circles"
+     },
+     {
+      "id": "math12-u3-md-s33-q05",
+      "type": "short",
+      "q": "Exercise 3.7 Q8–Q9: what do $x^2 + y^2 - 2x + 6y + 10 = 0$ and $x^2 + y^2 - 4x + 10y + 49 = 0$ represent?",
+      "answer": "the single point $(1, -3)$; no points (empty set)",
+      "why": [
+       "Step 1: $(x - 1)^2 + (y + 3)^2 = 0$.",
+       "Step 2: $(x - 2)^2 + (y + 5)^2 = -20 < 0$."
+      ],
+      "tip": "Check the sign of $r^2$.",
+      "similar": [
+       {
+        "q": "$x^2 + y^2 + 1 = 0$?",
+        "a": "no points."
+       }
+      ],
+      "page": 156,
+      "src": "notes",
+      "label": "3.3 Practice — circles"
+     },
+     {
+      "id": "math12-u3-md-s33-q06",
+      "type": "short",
+      "q": "Review Q7: standard and general forms: (a) $r = 8$, centre $(7, -3)$ (b) $r = \\sqrt{7}$, centre $(-1, 2)$ (c) centre $(4, 9)$ through $(2, 5)$ (d) diameter from $(-2, 6)$ to $(4, 2)$.",
+      "answer": "$x^2 + y^2 - 14x + 6y - 6 = 0$; $x^2 + y^2 + 2x - 4y - 2 = 0$; $(x - 4)^2 + (y - 9)^2 = 20$, $x^2 + y^2 - 8x - 18y + 77 = 0$; $(x - 1)^2 + (y - 4)^2 = 13$, $x^2 + y^2 - 2x - 8y + 4 = 0$",
+      "why": [
+       "Step 1: (c) $r^2 = 2^2 + 4^2 = 20$.",
+       "Step 2: (d) centre $(1, 4)$, $r^2 = 3^2 + 2^2 = 13$."
+      ],
+      "tip": "Diameter ⇒ centre is the midpoint.",
+      "similar": [
+       {
+        "q": "Centre $(0, 0)$ through $(3, 4)$?",
+        "a": "$x^2 + y^2 = 25$."
+       }
+      ],
+      "page": 157,
+      "src": "notes",
+      "label": "3.3 Practice — circles"
+     },
+     {
+      "id": "math12-u3-md-s33-q07",
+      "type": "short",
+      "q": "Review Q8: centre and radius: (a) $(x + 3)^2 + (y + 2)^2 = 36$ (b) $x^2 + y^2 - 4x + 2y - 45 = 0$ (c) $x^2 + y^2 - 10x + 4y = 0$ (d) $x^2 + y^2 - 10x + 21 = 0$.",
+      "answer": "(−3, −2), 6; (2, −1), $5\\sqrt{2}$; (5, −2), $\\sqrt{29}$; (5, 0), 2",
+      "why": [
+       "Step 1: (b) $r^2 = 4 + 1 + 45 = 50$.",
+       "Step 2: (c) $r^2 = 25 + 4 = 29$.",
+       "Step 3: (d) $r^2 = 25 - 21 = 4$."
+      ],
+      "tip": "$r^2 = (\\frac{D}{2})^2 + (\\frac{E}{2})^2 - F$.",
+      "similar": [
+       {
+        "q": "$x^2 + y^2 + 2y - 3 = 0$?",
+        "a": "(0, −1), 2."
+       }
+      ],
+      "page": 157,
+      "src": "notes",
+      "label": "3.3 Practice — circles"
+     },
+     {
+      "id": "math12-u3-md-s33-q08",
+      "type": "mcq",
+      "q": "Is $(4, 5)$ inside, on or outside $(x - 1)^2 + (y - 1)^2 = 25$?",
+      "options": {
+       "A": "on",
+       "B": "inside",
+       "C": "outside",
+       "D": "cannot tell"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $3^2 + 4^2 = 25 = r^2$."
+      ],
+      "tip": "Compare with $r^2$.",
+      "similar": [
+       {
+        "q": "$(2, 2)$?",
+        "a": "inside."
+       }
+      ],
+      "page": 156,
+      "src": "notes",
+      "label": "3.3 Practice — circles"
+     },
+     {
+      "id": "math12-u3-md-s33-q09",
+      "type": "tf",
+      "q": "The circle $(x + 2)^2 + (y - 5)^2 = 9$ has centre $(2, -5)$.",
+      "answer": false,
+      "why": [
+       "Step 1: $(x - h)$ with $h = -2$, $(y - k)$ with $k = 5$: centre $(-2, 5)$."
+      ],
+      "tip": "Flip the signs you see.",
+      "similar": [
+       {
+        "q": "Radius?",
+        "a": "3."
+       }
+      ],
+      "page": 151,
+      "src": "notes",
+      "label": "3.3 Practice — circles"
      }
     ]
    },
@@ -1471,6 +2460,38 @@
       "cards": [
        "math12-u3-c08"
       ]
+     },
+     {
+      "id": "md_sect",
+      "label": "Section formula",
+      "kind": "idea",
+      "cards": [
+       "math12-u3-md-sect-rm"
+      ]
+     },
+     {
+      "id": "md_slope",
+      "label": "Slope and parallel/perpendicular",
+      "kind": "idea",
+      "cards": [
+       "math12-u3-md-parperp"
+      ]
+     },
+     {
+      "id": "md_lines",
+      "label": "Forms of a line",
+      "kind": "idea",
+      "cards": [
+       "math12-u3-md-forms-tb"
+      ]
+     },
+     {
+      "id": "md_circ",
+      "label": "Circle equations",
+      "kind": "idea",
+      "cards": [
+       "math12-u3-md-circle"
+      ]
      }
     ],
     "edges": [
@@ -1498,9 +2519,73 @@
       "from": "l3_2",
       "to": "l3_3",
       "label": "next"
+     },
+     {
+      "from": "l3_1",
+      "to": "md_sect",
+      "label": "key idea"
+     },
+     {
+      "from": "l3_2",
+      "to": "md_slope",
+      "label": "key idea"
+     },
+     {
+      "from": "l3_2",
+      "to": "md_lines",
+      "label": "key idea"
+     },
+     {
+      "from": "l3_3",
+      "to": "md_circ",
+      "label": "key idea"
      }
     ],
     "src": "auto"
+   },
+   "diagrams": {
+    "md_divide": {
+     "svg": "svg/mathematics_12/m12_u3_divide.svg",
+     "title": "Dividing P1P2 in the ratio r1 : r2",
+     "page": 127,
+     "pins": []
+    },
+    "md_slope": {
+     "svg": "svg/mathematics_12/m12_u3_slope.svg",
+     "title": "Slope = rise / run = tan of the inclination",
+     "page": 132,
+     "pins": []
+    },
+    "md_parperp": {
+     "svg": "svg/mathematics_12/m12_u3_parperp.svg",
+     "title": "Parallel lines (same slope) and a perpendicular line",
+     "page": 134,
+     "pins": []
+    },
+    "md_intercept": {
+     "svg": "svg/mathematics_12/m12_u3_intercept.svg",
+     "title": "Double-intercept form: x/4 - y/5 = 1",
+     "page": 143,
+     "pins": []
+    },
+    "md_median": {
+     "svg": "svg/mathematics_12/m12_u3_median.svg",
+     "title": "Example 3.13: the median from A",
+     "page": 148,
+     "pins": []
+    },
+    "md_circle": {
+     "svg": "svg/mathematics_12/m12_u3_circle.svg",
+     "title": "Standard equation of a circle",
+     "page": 151,
+     "pins": []
+    },
+    "md_tower": {
+     "svg": "svg/mathematics_12/m12_u3_tower.svg",
+     "title": "Exercise 3.7 Q7: is home inside the reception circle?",
+     "page": 156,
+     "pins": []
+    }
    }
   }
  ]

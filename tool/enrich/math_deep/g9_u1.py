@@ -540,3 +540,6 @@ IDEAS = [('methods', 'Three ways to describe a set', 'l1_1', 'math9-u1-md-method
          ('venn', 'Survey Venn diagram', 'l1_4', 'math9-u1-md-survey'),
          ('ops', 'Set operations table', 'l1_5', 'math9-u1-md-ops-t'),
          ('cart', 'Cartesian product', 'l1_6', 'math9-u1-md-cart-t')]
+
+# narrow phones: the textbook key table reads better as one card per row
+PATCH = {'math9-u1-tbl1': {'layout': 'cards', '_inline': True}}
