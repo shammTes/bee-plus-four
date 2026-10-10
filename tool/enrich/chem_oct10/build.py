@@ -18,6 +18,7 @@ Afterwards run tool/split_notes.py, tool/build_tutor_index.py, tools/map_unit_qu
 """
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -76,6 +77,24 @@ def clean(book):
             del u['diagrams'][k]
 
 
+# glyphs HighNunito lacks, and the bundled app font that has them (an SVG gets no font fallback)
+SYMBOL_FONT = {'⁺': 'HighSymbols', '⁻': 'HighSymbols', '→': 'HighSymbols2', '↓': 'HighSymbols2', '↑': 'HighSymbols2', '⇌': 'HighSymbols2'}
+
+
+def app_font(svg):
+    """labels in the app's bundled HighNunito on every phone, set on each <text> (flutter_svg does not reliably inherit
+    font-family from the root); symbols Nunito lacks go in a <tspan> with the app's symbol font"""
+    svg = svg.replace(' font-family="sans-serif"', '').replace('<text ', '<text font-family="HighNunito" ')
+
+    def wrap(m):
+        out = re.sub('[' + ''.join(SYMBOL_FONT) + ']+', lambda r: ''.join(f'<tspan font-family="{SYMBOL_FONT[c]}">{c}</tspan>' for c in r.group(0)), m.group(1))
+        return '>' + out + '<'
+    svg = re.sub(r'>([^<>]+)<', wrap, svg)
+    # flutter_svg moves a space just before a tspan into that tspan (its font has no space glyph: a box is drawn), so
+    # the gap becomes a dx shift on the tspan instead
+    return re.sub(r' <tspan ', '<tspan dx="2.6" ', svg)
+
+
 def write_diagrams(book, uid, keys):
     u = unit_of(book, uid)
     folder = f"svg/chemistry_{uid.split('-')[0][4:]}"
@@ -85,7 +104,9 @@ def write_diagrams(book, uid, keys):
         fn, title, page = svg_co.ALL[sk]
         rel = f'{folder}/{short}_{key}.svg'
         with open(os.path.join(NOTES, rel), 'w', encoding='utf-8') as f:
-            f.write(fn())
+            # labels in the app's bundled font (HighNunito) on every phone; set on each <text> (flutter_svg does not
+            # reliably inherit font-family from the root element)
+            f.write(app_font(fn()))
         u.setdefault('diagrams', {})[key] = {'svg': rel, 'title': title, 'page': page, 'pins': []}
 
 

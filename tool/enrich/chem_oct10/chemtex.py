@@ -80,7 +80,8 @@ def ce(s):
 
 
 def eq(s, extra=''):
-    return '$$' + ce(s) + (r' \qquad ' + extra if extra else '') + '$$'
+    # the extra (ΔH, a mole ratio...) gets its own display line so a phone-width line does not need to scroll
+    return '$$' + ce(s) + '$$' + (' $$' + extra + '$$' if extra else '')
 
 
 def ie(s):
