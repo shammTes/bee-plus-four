@@ -109,6 +109,7 @@ class QSet:
         self.items.append(Q(self._i(), 'fill', page, q, ans, why, tip, sim, label=self.label, choices=choices))
 
     def TF(self, page, q, ans, why, tip, sim):
+        ans = ans if isinstance(ans, bool) else str(ans).strip().lower() == 'true'  # schema: tf answer is a bool
         self.items.append(Q(self._i(), 'tf', page, q, ans, why, tip, sim, label=self.label))
 
 

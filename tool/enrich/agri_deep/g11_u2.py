@@ -196,12 +196,13 @@ def f_triangle():
             lines = ['clay loam']
         tlines(f, x, y, lines, 9 if len(lines) > 1 else 10, INK, 'middle', True, 10)
     for v in (20, 40, 60, 80):
-        x, y = _tri(0, 100 - v, v)
-        f.text(x + 6, y + 4, str(v), 9.5, GREY, 'start', False)
-        x, y = _tri(100 - v, v, 0)
-        f.text(x, y + 13, str(v), 9.5, GREY, 'middle', False)
-        x, y = _tri(v, 0, 100 - v)
+        # USDA layout: clay % rises up the left edge, silt % rises down the right edge, sand % rises right-to-left on the base
+        x, y = _tri(100 - v, 0, v)
         f.text(x - 5, y + 4, str(v), 9.5, GREY, 'end', False)
+        x, y = _tri(0, v, 100 - v)
+        f.text(x + 6, y + 4, str(v), 9.5, GREY, 'start', False)
+        x, y = _tri(v, 100 - v, 0)
+        f.text(x, y + 13, str(v), 9.5, GREY, 'middle', False)
     f.text(70, 120, '% clay', 11, RED, 'middle').text(290, 120, '% silt', 11, GREEN, 'middle').text(170, 306, '% sand', 11, ORANGE, 'middle')
     # worked point: sand 60, silt 30, clay 10
     f.g('k1 k4').line(*_tri(90, 0, 10), *_tri(0, 90, 10), RED, 2).end()
@@ -857,7 +858,7 @@ b.M(56, 'Which cation disperses soil aggregates and causes crusting?', ['Ca²⁺
 b.M(57, 'The best structure for a seedbed is', ['platy', 'granular / crumb', 'columnar', 'single grain'], 'B',
     ['Step 1: Crumb and granular peds are porous and rounded.', 'Step 2: They let air, water and roots in; found in humus-rich topsoil.'], 'Crumb like bread crumbs — soft and airy.', [('Where is columnar structure found?', 'In the B horizon of sodic (natric) arid soils.')])
 b.M(58, 'A clay soil should be ploughed when it is', ['dry and hard', 'wet and sticky', 'moist and friable', 'flooded'], 'C',
-    ['Step 1: Dry clay is hard; wet clay smears and sticks.', 'Step 2: Moist and friable crumbles well.'], 'Friable = crumbly.', [('Name the three wet-state consistency words.', 'Sticky and plastic.')])
+    ['Step 1: Dry clay is hard; wet clay smears and sticks.', 'Step 2: Moist and friable crumbles well.'], 'Friable = crumbly.', [('Name the two wet-state consistency words.', 'Sticky and plastic.')])
 b.S(59, 'Define field capacity and permanent wilting point; how do you calculate available water?', 'Field capacity: water held after gravitational water has drained (1–3 days after soaking). Wilting point: soil so dry that roots cannot take water and plants wilt permanently. Available water = FC − PWP.',
     ['Step 1: Saturation → drain → field capacity.', 'Step 2: Plants use water → wilting point.', 'Step 3: The water between is available.'], 'Draw the bar: gravitational | available | unavailable.', [('A soil holds 32 % at FC and 14 % at PWP. Available water?', '18 %.')])
 b.S(60, 'A wet sample weighs 50 g; after oven drying it weighs 42 g. Find the water content by the textbook formula.', '16 %',

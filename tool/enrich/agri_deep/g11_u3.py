@@ -13,6 +13,18 @@ DARK = '#3B6E2C'
 
 
 # ------------------------------------------------------------------ figures
+def mini_cereal(f, x, y, h=50):
+    """light sorghum outline for small panels: stalk, two leaves, head"""
+    f.path(f'M{x} {y} L{x} {y - h} M{x} {y - h * 0.35} Q{x + h * 0.3} {y - h * 0.55} {x + h * 0.42} {y - h * 0.38} M{x} {y - h * 0.6} Q{x - h * 0.3} {y - h * 0.8} {x - h * 0.42} {y - h * 0.62}', '#4E8B3A', 2.6)
+    f.ellipse(x, y - h - 8, 5, 10, '#7A3E1D', 1, '#B5652E')
+    return f
+
+
+def few_roots(f, x, y, L=18):
+    f.path(f'M{x} {y} q-6 {L * 0.6} -{L * 0.6} {L} M{x} {y} q0 {L * 0.6} 1 {L} M{x} {y} q6 {L * 0.6} {L * 0.6} {L}', BROWN, 1.2)
+    return f
+
+
 def bean_plant(f, x, y, h=150):
     """dicot (bean) plant on ground line y: tap root, stem with nodes, net-veined leaves, flower, pod"""
     f.path(f'M{x} {y} C{x - 2} {y - h * 0.4} {x + 3} {y - h * 0.7} {x} {y - h}', '#5E7F33', 3)
@@ -335,7 +347,7 @@ def f_fertplace():
             f.path(f'M{sx} 66 L{sx} 56', '#5E7F33', 2.2)
             leaf(f, sx, 58, 9, 50, LEAF, 0.4, False)
             leaf(f, sx, 58, 9, 130, LEAF, 0.4, False)
-            roots_fibrous(f, sx, 68, 20)
+            few_roots(f, sx, 68, 20)
         if k == 0:
             for j in range(18):
                 f.circle(x0 + 6 + j * 5.4, 70 + (j % 3) * 2, 1.8, None, 0, '#FFFFFF')
@@ -420,7 +432,7 @@ def f_cropping():
         ground(f, y0 + 116, x0 + 4, x0 + 156, '#E9D9BF', 18)
         if k == 0:
             for j in range(6):
-                sorghum(f, x0 + 22 + j * 23, y0 + 116, 50, True)
+                mini_cereal(f, x0 + 22 + j * 23, y0 + 116, 50)
         elif k == 1:
             for j in range(6):
                 xx = x0 + 22 + j * 23
@@ -429,12 +441,12 @@ def f_cropping():
                         leaf(f, xx, y0 + 112, 16, 90 + d * 6, LEAF2, 0.45)
                     f.line(xx, y0 + 116, xx, y0 + 104, '#5E7F33', 2)
                 else:
-                    sorghum(f, xx, y0 + 116, 50, True)
+                    mini_cereal(f, xx, y0 + 116, 50)
         elif k == 2:
             for xx in (x0 + 24, x0 + 136):
                 tree(f, xx, y0 + 116, 70, DARK)
             for j in range(4):
-                sorghum(f, x0 + 52 + j * 19, y0 + 116, 42, True)
+                mini_cereal(f, x0 + 52 + j * 19, y0 + 116, 42)
         else:
             cx, cy = x0 + 80, y0 + 76
             items = [('sorghum', ORANGE), ('chickpea', GREEN), ('barley', BLUE), ('lentil', PURPLE)]
