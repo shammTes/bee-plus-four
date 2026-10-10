@@ -163,9 +163,20 @@ def merge_unit(g, un, unit, mod):
         um['nodes'] = [x for x in um['nodes'] if not x['id'].startswith('ad_')]
         um['edges'] = [e for e in um.get('edges', []) if not e['to'].startswith('ad_')]
         live = set(ids)
+        first = {l['id']: l['cards'][0]['id'] for l in unit['lessons'] if l['cards']}
+        gone = set()
         for x in um['nodes']:
             if 'cards' in x:
                 x['cards'] = [c for c in x['cards'] if c in live]
+                if not x['cards']:  # every card of the node was dropped: point it at its lesson / the unit start
+                    if x.get('lesson') in first:
+                        x['cards'] = [first[x['lesson']]]
+                    elif x['kind'] == 'unit':
+                        x['cards'] = [unit['lessons'][0]['cards'][0]['id']]
+                    else:
+                        gone.add(x['id'])
+        um['nodes'] = [x for x in um['nodes'] if x['id'] not in gone]
+        um['edges'] = [e for e in um.get('edges', []) if e['from'] not in gone and e['to'] not in gone]
         nids = {x['id'] for x in um['nodes']}
         for nid, lab, frm, card in getattr(mod, 'IDEAS', []):
             assert card in ids, card
