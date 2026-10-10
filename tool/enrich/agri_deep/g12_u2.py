@@ -97,7 +97,7 @@ def f_plants():
 
 def f_profile():
     f = Fig(340, 300)
-    f.title('Forest types across Eritrea (west → east, sketch)', 12)
+    f.title('Forest types across Eritrea (west to east, sketch)', 12)
     pts = [(0, 200), (40, 196), (80, 190), (120, 160), (160, 110), (200, 70), (225, 66), (250, 90), (275, 150), (300, 196), (340, 204)]
     d = 'M0 222 ' + ' '.join(f'L{x} {y}' for x, y in pts) + ' L340 222 Z'
     f.path(d, '#8A6A4A', 1.4, '#E8D6B8')
@@ -276,7 +276,7 @@ def f_pit():
     f.text(70, 84, 'V-channel leads runoff in', 10.5, BLUE, 'start')
     f.line(150, 172, 210, 172, INK, 1).text(180, 186, '30 cm', 10.5, INK)
     f.line(222, 130, 222, 166, INK, 1).text(226, 148, '30 cm', 10.5, INK, 'start')
-    f.text(20, 228, 'Pot 10 × 15 cm → pit 2 × pot height ≈ 30 × 30 cm', 10.5, '#FFFFFF', 'start')
+    f.text(20, 228, 'Pot 10 × 15 cm: pit 2 × pot height ≈ 30 × 30 cm', 10.5, '#FFFFFF', 'start')
     return f
 
 
@@ -317,7 +317,7 @@ def f_succession():
 
 
 def f_stages():
-    return cycle(['Seed', 'Germination: seedling', 'Sapling', 'Young (vegetative) tree', 'Flowering tree', 'Pollination → seed set',
+    return cycle(['Seed', 'Germination: seedling', 'Sapling', 'Young (vegetative) tree', 'Flowering tree', 'Pollination and seed set',
                   'Seed dispersal'], 340, 350, bw=86, bh=42, size=9.5, centre='Light, moisture, nutrients and animals act at every step')
 
 
@@ -403,7 +403,7 @@ def f_iucn():
         f.text(26, y + 22, a, 12, GREEN)
         f.text(48, y + 15, b, 11, INK, 'start')
         f.text(48, y + 28, c, 9.5, GREY, 'start', False)
-    f.text(330, 266, 'more use allowed ↓', 10, GREY, 'end', False)
+    f.text(330, 266, 'lower = more use allowed', 10, GREY, 'end', False)
     return f
 
 

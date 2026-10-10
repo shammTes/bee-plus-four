@@ -80,9 +80,9 @@ def f_capital():
     f.rect(174, 28, 160, 166, BLUE, 1.5, fl(BLUE), 8)
     f.text(86, 48, 'FIXED', 12.5, ORANGE).text(86, 62, 'used for many years', 9.5, GREY, 'middle', False)
     f.text(254, 48, 'WORKING', 12.5, BLUE).text(254, 62, 'used up in one season', 9.5, GREY, 'middle', False)
-    for i, t in enumerate(['tractor, pump', 'buildings, stores', 'milking machine', 'irrigation works', 'breeding stock', '→ depreciated']):
+    for i, t in enumerate(['tractor, pump', 'buildings, stores', 'milking machine', 'irrigation works', 'breeding stock', '(all depreciated)']):
         f.text(86, 86 + i * 18, t, 10.5, INK, 'middle', i == 5)
-    for i, t in enumerate(['seed', 'fertiliser, pesticide', 'fuel, feed', 'wages', 'cash for daily costs', '→ in variable costs']):
+    for i, t in enumerate(['seed', 'fertiliser, pesticide', 'fuel, feed', 'wages', 'cash for daily costs', '(in variable costs)']):
         f.text(254, 86 + i * 18, t, 10.5, INK, 'middle', i == 5)
     return f
 
@@ -199,7 +199,7 @@ def f_isoquant():
     for L, lab in ((2, 'x'), (5, 'y')):
         f.circle(ax.X(L), ax.Y(12 / L), 4, None, 0, RED)
         f.text(ax.X(L) + 6, ax.Y(12 / L) - 4, lab, 11, RED, 'start')
-    f.text(170, 224, 'x → y: less capital, more labour, still 30 quintals', 10, GREY, 'middle', False)
+    f.text(170, 224, 'x to y: less capital, more labour, still 30 quintals', 10, GREY, 'middle', False)
     return f
 
 
@@ -490,7 +490,7 @@ L2 = [
     TB('alem-bs', 'Balance sheet of Alem Farm, 31 Dec 2009 (Table 4.7)', 242, ['Item', 'Nakfa'],
        [['Current assets (cash 5 000, bank 2 000, eggs 5 000, fertiliser 4 000 + 5 000)', '21 000'], ['Long-term assets (building 50 000, machinery 20 000)', '70 000'],
         ['Total assets', '91 000'], ['Current liabilities (accrued 1 000, borrowed fertiliser 3 000, owed to MoA 6 000)', '10 000'],
-        ['Long-term liabilities (building loan 20 000, tractor loan 40 000)', '60 000'], ['Total liabilities', '70 000'], ['Net worth = 91 000 − 70 000', '21 000']], layout='compare'),
+        ['Long-term liabilities (building loan 20 000, tractor loan 40 000)', '60 000'], ['Total liabilities', '70 000'], ['Net worth = 91 000 − 70 000', '21 000']], layout='grid'),
     RM('bs-err', 'Textbook check: Table 4.7 net worth', 243,
        'Table 4.7 gives net worth as **31 000** Nakfa, but assets 91 000 − liabilities 70 000 = **21 000** Nakfa. (Its current assets also list "unused fertilizer" twice, 4 000 and 5 000; they are counted in the 21 000 total.)'),
     WK('wk-bs', 'Activity 4.4: build a balance sheet', 243,

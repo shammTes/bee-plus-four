@@ -257,7 +257,7 @@ def f_checkdam():
     f.rect(146, 108, 48, 10, None, 0, '#F7FAFD')
     f.path('M146 108 L146 118 L194 118 L194 108', '#5A3A1E', 1.4)
     f.text(170, 100, 'spillway (lower centre)', 10.5, BLUE)
-    f.text(170, 206, 'sediment fills behind it → gully heals', 10.5, '#FFFFFF')
+    f.text(170, 206, 'sediment fills behind it; the gully heals', 10.5, '#FFFFFF')
     f.text(278, 50, 'keyed into the banks', 10.5, BROWN)
     f.arrow(270, 54, 238, 96, GREY, 1.2, 5)
     return f
