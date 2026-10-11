@@ -143,7 +143,7 @@ L3 = [
         ['$0 < |a| < 1$', 'wider than $y = x^2$', 'unchanged', 'unchanged'],
         ['$c > 0$', 'moves up $c$ units', '$(0, c)$', 'starts at $c$'],
         ['$c < 0$', 'moves down $|c|$ units', '$(0, c)$', 'starts at $c$']],
-       '$a$ changes the **shape**; $c$ changes the **position**.'),
+       '$a$ changes the **shape**; $c$ changes the **position**.', layout='cards'),
     WK('ex-43a', 'Worked example: describe without drawing', 92,
        'Compare $y = 2x^2 + 2$ and $y = -2(x^2 + 2)$.',
        ['$y = 2x^2 + 2$: opens up, narrower than $x^2$, vertex $(0, 2)$, range $y \\ge 2$.', '$y = -2(x^2 + 2) = -2x^2 - 4$: opens down, same width, vertex $(0, -4)$, range $y \\le -4$.', 'The second is NOT just the first flipped: flipping $y = 2x^2 + 2$ in the $x$-axis gives $-2x^2 - 2$, vertex $(0, -2)$.'],

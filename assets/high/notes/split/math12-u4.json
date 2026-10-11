@@ -134,15 +134,203 @@
       {
        "id": "math12-u4-c01",
        "type": "text",
-       "title": "4.1 Operations on Matrices",
+       "title": "4.1.1 What is a matrix?",
        "page": 158,
-       "src": "textbook pp.158–160",
-       "enriched": true,
+       "src": "notes",
        "body": [
-        "**A matrix** is an ordered rectangular array of numbers.",
-        "The numbers are called the **elements or the entries of the matrix**.",
-        "A matrix in which the number of rows is equal to the number of columns is called a **square matrix**.",
-        "A square matrix in which elements in the diagonal are all 1 and rest are all zeros is called an **identity matrix**."
+        "A **matrix** is a rectangular array of numbers in brackets; the numbers are its **entries** (elements). Activity 4.1: Ali has 3 notebooks and 2 pencils, Abraham 10 and 13: $$\\begin{pmatrix} 3 & 2 \\\\ 10 & 13 \\end{pmatrix}$$ — rows are people, columns are items.",
+        "A matrix with $m$ rows and $n$ columns has **order** $m \\times n$ (rows first). $a_{ij}$ is the entry in row $i$, column $j$ (for $1 \\le i \\le m$, $1 \\le j \\le n$; the book prints \"$1 \\le i \\le m$\" twice)."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math12-u4-md-order",
+       "type": "diagram",
+       "title": "Reading a matrix",
+       "page": 159,
+       "src": "notes",
+       "diagram": "md_order",
+       "mode": "plain",
+       "body": [
+        "Example 4.1: $B$ has 3 rows and 2 columns, order $3 \\times 2$. $a_{21}$ means row 2, column 1. Always say rows first."
+       ]
+      },
+      {
+       "id": "math12-u4-md-types-tb",
+       "type": "table",
+       "title": "4.1.2 Types of matrices",
+       "page": 159,
+       "src": "notes",
+       "head": [
+        "Type",
+        "Meaning",
+        "Example"
+       ],
+       "rows": [
+        [
+         "row matrix",
+         "one row",
+         "$(12 \\ \\ 3 \\ \\ 6)$"
+        ],
+        [
+         "column matrix",
+         "one column",
+         "$$\\begin{pmatrix} 1 \\\\ 4 \\\\ 9 \\end{pmatrix}$$"
+        ],
+        [
+         "square",
+         "rows = columns",
+         "$$\\begin{pmatrix} 2 & 3 \\\\ 5 & 13 \\end{pmatrix}$$"
+        ],
+        [
+         "diagonal",
+         "square, zero off the diagonal",
+         "$$\\begin{pmatrix} 2 & 0 \\\\ 0 & 6 \\end{pmatrix}$$"
+        ],
+        [
+         "identity $I$",
+         "diagonal with 1s",
+         "$$\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$$"
+        ],
+        [
+         "zero matrix $O$",
+         "every entry 0",
+         "$$\\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$$"
+        ]
+       ],
+       "layout": "cards"
+      },
+      {
+       "id": "math12-u4-md-equal-rm",
+       "type": "remember",
+       "title": "Equal matrices",
+       "page": 160,
+       "src": "notes",
+       "body": [
+        "Two matrices are equal when they have the **same order** and **every** corresponding entry is equal ($a_{ij} = b_{ij}$). So $$\\begin{pmatrix} x + 2 & 5 \\\\ 1 & y - 3 \\end{pmatrix} = \\begin{pmatrix} 7 & 5 \\\\ 1 & 2 \\end{pmatrix}$$ gives $x = 5$, $y = 5$."
+       ]
+      },
+      {
+       "id": "math12-u4-md-ops-t",
+       "type": "text",
+       "title": "4.1.3 Adding, subtracting and scalar multiples",
+       "page": 161,
+       "src": "notes",
+       "body": [
+        "**Sum / difference:** only for matrices of the same order — add or subtract matching entries. Example 4.9: $\\begin{pmatrix} 1 & 4 \\\\ -2 & 1 \\end{pmatrix} + \\begin{pmatrix} 11 & 23 \\\\ 0 & -6 \\end{pmatrix} = \\begin{pmatrix} 12 & 27 \\\\ -2 & -5 \\end{pmatrix}",
+        "**Scalar multiple** $\\lambda A$: multiply every entry by $\\lambda$. $$5\\begin{pmatrix} 6 & -7 \\\\ 1 & 2 \\end{pmatrix} = \\begin{pmatrix} 30 & -35 \\\\ 5 & 10 \\end{pmatrix}$$. The **negative** $-A = (-1)A$.",
+        "A $2 \\times 2$ and a $3 \\times 2$ matrix cannot be added (Activity 4.2 Q2)."
+       ]
+      },
+      {
+       "id": "math12-u4-md-mult",
+       "type": "steps",
+       "title": "4.1.4 Multiplying matrices: row × column",
+       "page": 163,
+       "src": "notes",
+       "diagram": "md_mult",
+       "steps": [
+        {
+         "text": "$AB$ exists only if (columns of $A$) = (rows of $B$). Here $2 \\times 3$ times $3 \\times 2$ gives a $2 \\times 2$ matrix.",
+         "show": "k1"
+        },
+        {
+         "text": "Entry $(i, k)$ of $AB$: take row $i$ of $A$ and column $k$ of $B$.",
+         "show": "k2"
+        },
+        {
+         "text": "Multiply pair by pair and add: $(1)(-1) + (-3)(2) + (6)(6) = 29$. The other entries are $-66$, $32$, $-5$ (the book prints $-63$ and $-15$; check: $3 - 15 - 54 = -66$, $6 + 25 - 36 = -5$).",
+         "show": "k3"
+        }
+       ]
+      },
+      {
+       "id": "math12-u4-md-mult22-rm",
+       "type": "remember",
+       "title": "2 × 2 product",
+       "page": 164,
+       "src": "notes",
+       "body": [
+        "$$\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}\\begin{pmatrix} e & f \\\\ g & h \\end{pmatrix} = \\begin{pmatrix} ae + bg & af + bh \\\\ ce + dg & cf + dh \\end{pmatrix}$$",
+        "Usually $AB \\ne BA$. With $$A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}, \\quad B = \\begin{pmatrix} 6 & 8 \\\\ 5 & 7 \\end{pmatrix}$$ we get $$AB = \\begin{pmatrix} 16 & 22 \\\\ 38 & 52 \\end{pmatrix}, \\quad BA = \\begin{pmatrix} 30 & 44 \\\\ 26 & 38 \\end{pmatrix}$$",
+        "Also $AB = AC$ does not force $B = C$ (Review Q2). (The book's $3 \\times 3$ product box has small index slips, e.g. $a_{13}b_{32}$ for $a_{13}b_{31}$.)"
+       ]
+      },
+      {
+       "id": "math12-u4-md-m2",
+       "type": "worked",
+       "title": "Worked example: Exercise 4.2 Q2",
+       "page": 165,
+       "src": "notes",
+       "mode": "show",
+       "problem": "If $$M = \\begin{pmatrix} 1 & 3 \\\\ -2 & 2 \\end{pmatrix}$$, show that $M^2 - 3M + 8I = O$.",
+       "steps": [
+        {
+         "text": "$$M^2 = \\begin{pmatrix} 1 - 6 & 3 + 6 \\\\ -2 - 4 & -6 + 4 \\end{pmatrix} = \\begin{pmatrix} -5 & 9 \\\\ -6 & -2 \\end{pmatrix}$$."
+        },
+        {
+         "text": "$$-3M = \\begin{pmatrix} -3 & -9 \\\\ 6 & -6 \\end{pmatrix}$$, $$8I = \\begin{pmatrix} 8 & 0 \\\\ 0 & 8 \\end{pmatrix}$$."
+        },
+        {
+         "text": "Add: $$\\begin{pmatrix} -5 - 3 + 8 & 9 - 9 + 0 \\\\ -6 + 6 + 0 & -2 - 6 + 8 \\end{pmatrix}$$."
+        }
+       ],
+       "answer": "$$\\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$$ ✓"
+      },
+      {
+       "id": "math12-u4-md-inv-t",
+       "type": "text",
+       "title": "4.1.5 The inverse of a 2 × 2 matrix",
+       "page": 165,
+       "src": "notes",
+       "body": [
+        "$B$ is the **inverse** of $A$ ($B = A^{-1}$) if $AB = BA = I$. Activity 4.3: $$\\begin{pmatrix} 2 & 3 \\\\ 1 & 2 \\end{pmatrix}\\begin{pmatrix} 2 & -3 \\\\ -1 & 2 \\end{pmatrix} = I$$.",
+        "**Shortcut:** for $$A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$$ with $ad - bc \\ne 0$: $$A^{-1} = \\frac{1}{ad - bc}\\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$$ (swap $a$ and $d$, change the signs of $b$ and $c$, divide by the determinant).",
+        "If $ad - bc = 0$ the matrix has **no inverse** (it is singular)."
+       ]
+      },
+      {
+       "id": "math12-u4-md-ex416",
+       "type": "worked",
+       "title": "Worked example: Example 4.16 two ways",
+       "page": 166,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Find the inverse of $$A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 1 \\end{pmatrix}$$.",
+       "steps": [
+        {
+         "text": "Book method: $$\\begin{pmatrix} 2 & 1 \\\\ 1 & 1 \\end{pmatrix}\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = I$$ gives $2a + c = 1$, $a + c = 0$, $2b + d = 0$, $b + d = 1$, so $a = 1$, $c = -1$, $b = -1$, $d = 2$."
+        },
+        {
+         "text": "Shortcut: $ad - bc = 2 - 1 = 1$; swap and change signs: $$\\begin{pmatrix} 1 & -1 \\\\ -1 & 2 \\end{pmatrix}$$."
+        },
+        {
+         "text": "Check: $$\\begin{pmatrix} 2 & 1 \\\\ 1 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & -1 \\\\ -1 & 2 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$$."
+        }
+       ],
+       "answer": "$$A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -1 & 2 \\end{pmatrix}$$"
+      },
+      {
+       "id": "math12-u4-md-det",
+       "type": "diagram",
+       "title": "4.1.6 The determinant",
+       "page": 166,
+       "src": "notes",
+       "diagram": "md_det",
+       "mode": "plain",
+       "body": [
+        "$$\\det A = |A| = \\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$$ A determinant is a **number**; a matrix is a table. Example 4.17: $$\\begin{vmatrix} -3 & 5 \\\\ 9 & -2 \\end{vmatrix} = 6 - 45 = -39$$."
+       ]
+      },
+      {
+       "id": "math12-u4-md-det3-t",
+       "type": "text",
+       "title": "3 × 3 determinants (expansion along row 1)",
+       "page": 167,
+       "src": "notes",
+       "body": [
+        "$$|A| = a_{11}\\begin{vmatrix} a_{22} & a_{23} \\\\ a_{32} & a_{33} \\end{vmatrix} - a_{12}\\begin{vmatrix} a_{21} & a_{23} \\\\ a_{31} & a_{33} \\end{vmatrix} + a_{13}\\begin{vmatrix} a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{vmatrix}$$ — signs $+ \\, - \\, +$; each small determinant deletes that entry's row and column.",
+        "**Example 4.18 (corrected):** $$\\begin{vmatrix} 2 & 1 & 0 \\\\ 3 & -1 & 1 \\\\ 4 & 6 & -2 \\end{vmatrix} = 2(2 - 6) - 1(-6 - 4) + 0 = -8 + 10 = 2$$. The book uses $-8$ for the first minor (it is $-4$) and gets $-6$."
        ]
       },
       {
@@ -454,15 +642,111 @@
       {
        "id": "math12-u4-c02",
        "type": "text",
-       "title": "4.2 Solving System of Equations Using Determinant",
-       "page": 169,
-       "src": "textbook pp.169–170",
-       "enriched": true,
+       "title": "4.2 Cramer's rule",
+       "page": 168,
+       "src": "notes",
        "body": [
-        "D x is obtained by replacing the first column of D by the constants e and f.",
-        "D y is found by replacing the second column of D by the constants e and f.",
-        "If the digits are reversed, the new number is one less than twice the original number."
+        "For $\\begin{cases} ax + by = e \\\\ cx + dy = f \\end{cases}$ form three determinants:",
+        "$$D = \\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix}$$ (coefficients), $$D_x = \\begin{vmatrix} e & b \\\\ f & d \\end{vmatrix}$$ (constants replace the $x$-column), $$D_y = \\begin{vmatrix} a & e \\\\ c & f \\end{vmatrix}$$ (constants replace the $y$-column).",
+        "If $D \\ne 0$: $x = \\frac{D_x}{D}$, $y = \\frac{D_y}{D}$ — one solution."
+       ],
+       "enriched": true
+      },
+      {
+       "id": "math12-u4-md-cramer",
+       "type": "diagram",
+       "title": "Worked example: Example 4.20",
+       "page": 169,
+       "src": "notes",
+       "diagram": "md_cramer",
+       "mode": "plain",
+       "body": [
+        "$3x + 2y = 8$, $4x - 3y = 5$. $D = -9 - 8 = -17$, $D_x = -24 - 10 = -34$, $D_y = 15 - 32 = -17$.",
+        "$x = \\frac{-34}{-17} = 2$, $y = \\frac{-17}{-17} = 1$: the lines cross at $(2, 1)$."
        ]
+      },
+      {
+       "id": "math12-u4-md-cases",
+       "type": "diagram",
+       "title": "When Cramer's rule fails",
+       "page": 168,
+       "src": "notes",
+       "diagram": "md_cases",
+       "mode": "plain",
+       "body": [
+        "If $D = 0$ the lines have the same slope: they are parallel (no solution, inconsistent) or the same line (infinitely many solutions, dependent). Cramer's rule needs $D \\ne 0$."
+       ]
+      },
+      {
+       "id": "math12-u4-md-act46",
+       "type": "worked",
+       "title": "Worked example: Activity 4.6",
+       "page": 168,
+       "src": "notes",
+       "mode": "show",
+       "problem": "Solve $x - 2y = 3$, $2x + y = 4$ by Cramer's rule.",
+       "steps": [
+        {
+         "text": "$$D = \\begin{vmatrix} 1 & -2 \\\\ 2 & 1 \\end{vmatrix} = 1 + 4 = 5$$."
+        },
+        {
+         "text": "$$D_x = \\begin{vmatrix} 3 & -2 \\\\ 4 & 1 \\end{vmatrix} = 3 + 8 = 11$$, $$D_y = \\begin{vmatrix} 1 & 3 \\\\ 2 & 4 \\end{vmatrix} = 4 - 6 = -2$$."
+        },
+        {
+         "text": "$x = \\frac{11}{5}$, $y = -\\frac{2}{5}$."
+        }
+       ],
+       "answer": "$\\left\\{\\left(\\frac{11}{5}, -\\frac{2}{5}\\right)\\right\\}$"
+      },
+      {
+       "id": "math12-u4-md-methods-tb",
+       "type": "table",
+       "title": "Elimination or Cramer?",
+       "page": 168,
+       "src": "notes",
+       "head": [
+        "",
+        "Elimination",
+        "Cramer's rule"
+       ],
+       "rows": [
+        [
+         "idea",
+         "add multiples of the equations to remove a variable",
+         "three determinants and two divisions"
+        ],
+        [
+         "best when",
+         "coefficients are easy to match",
+         "you want a formula / a quick check"
+        ],
+        [
+         "if $D = 0$",
+         "shows no or many solutions",
+         "cannot be used"
+        ]
+       ]
+      },
+      {
+       "id": "math12-u4-md-digits",
+       "type": "worked",
+       "title": "Worked example: Review Q4 (digits)",
+       "page": 170,
+       "src": "notes",
+       "mode": "show",
+       "problem": "The digits of a two-digit number add to 10. Reversed, the number is one less than twice the original. Find it.",
+       "steps": [
+        {
+         "text": "Let tens digit $x$, units $y$: $x + y = 10$ and $10y + x = 2(10x + y) - 1$, i.e. $-19x + 8y = -1$."
+        },
+        {
+         "text": "$$D = \\begin{vmatrix} 1 & 1 \\\\ -19 & 8 \\end{vmatrix} = 27$$, $$D_x = \\begin{vmatrix} 10 & 1 \\\\ -1 & 8 \\end{vmatrix} = 81$$, $$D_y = \\begin{vmatrix} 1 & 10 \\\\ -19 & -1 \\end{vmatrix} = 189$$."
+        },
+        {
+         "text": "$x = 3$, $y = 7$; check $73 = 2(37) - 1$."
+        }
+       ],
+       "answer": "37"
       },
       {
        "id": "math12-u4-c03",
@@ -623,15 +907,73 @@
        "why": "D = 2·3 − 1·1 = 5. Dx replaces the x-column by the constants: |5 1; 5 3| = 15 − 5 = 10, so x = 10/5 = 2 (and y = 1).",
        "page": 168,
        "src": "notes"
+      },
+      {
+       "id": "math12-u4-md-summary-t",
+       "type": "remember",
+       "title": "Unit summary",
+       "page": 170,
+       "src": "notes",
+       "body": [
+        "Order $m \\times n$; add only equal orders; $AB$ needs columns of $A$ = rows of $B$; usually $AB \\ne BA$.",
+        "$$\\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc$$; $$A^{-1} = \\frac{1}{ad - bc}\\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$$.",
+        "Cramer: $x = \\frac{D_x}{D}$, $y = \\frac{D_y}{D}$ when $D \\ne 0$."
+       ]
       }
      ]
     }
    ],
-   "glossary": [],
+   "glossary": [
+    {
+     "term": "Order of a matrix",
+     "meaning": "Rows × columns, e.g. $3 \\times 2$.",
+     "page": 159,
+     "src": "notes"
+    },
+    {
+     "term": "Identity matrix",
+     "meaning": "Square matrix with 1s on the diagonal and 0s elsewhere.",
+     "page": 160,
+     "src": "notes"
+    },
+    {
+     "term": "Inverse matrix",
+     "meaning": "$A^{-1}$ with $AA^{-1} = A^{-1}A = I$.",
+     "page": 165,
+     "src": "notes"
+    },
+    {
+     "term": "Determinant",
+     "meaning": "For $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$: $ad - bc$.",
+     "page": 166,
+     "src": "notes"
+    },
+    {
+     "term": "Cramer's rule",
+     "meaning": "$x = \\frac{D_x}{D}$, $y = \\frac{D_y}{D}$ for $D \\ne 0$.",
+     "page": 169,
+     "src": "notes"
+    }
+   ],
    "tips": [
     {
      "text": "Read 4.1 Operations on Matrices again and say its main idea in one sentence.",
      "page": 158
+    },
+    {
+     "text": "Order: rows first, then columns.",
+     "page": 159,
+     "src": "notes"
+    },
+    {
+     "text": "Inverse: swap a and d, negate b and c, divide by ad − bc.",
+     "page": 166,
+     "src": "notes"
+    },
+    {
+     "text": "D = 0: no unique solution.",
+     "page": 168,
+     "src": "notes"
     }
    ],
    "games": [
@@ -1204,6 +1546,381 @@
       ],
       "page": 168,
       "src": "notes"
+     },
+     {
+      "id": "math12-u4-md-s41-q01",
+      "type": "short",
+      "q": "Exercise 4.1: order of (a) $$\\begin{pmatrix} 2 & 2 \\\\ 5 & 9 \\end{pmatrix}$$ (b) a matrix with rows $(1, 17)$, $(17, 7)$, $(3, 2)$ (c) $$\\begin{pmatrix} 1 & 5 & 4 \\\\ 3 & 6 & 8 \\\\ 7 & 2 & 9 \\end{pmatrix}$$.",
+      "answer": "$2 \\times 2$, $3 \\times 2$, $3 \\times 3$",
+      "why": [
+       "Step 1: count rows, then columns."
+      ],
+      "tip": "Rows first (\"RC\" like Roman Catholic).",
+      "similar": [
+       {
+        "q": "$(12 \\ \\ 3 \\ \\ 6)$?",
+        "a": "$1 \\times 3$."
+       }
+      ],
+      "page": 161,
+      "src": "notes",
+      "label": "4.1 Practice — matrix operations"
+     },
+     {
+      "id": "math12-u4-md-s41-q02",
+      "type": "short",
+      "q": "Activity 4.2: $$A = \\begin{pmatrix} 2 & 5 \\\\ 2 & 9 \\end{pmatrix}$$, $$B = \\begin{pmatrix} 2 & 9 \\\\ 1 & 4 \\end{pmatrix}$$: find $A + B$, $A - B$, $3A$.",
+      "answer": "$$\\begin{pmatrix} 4 & 14 \\\\ 3 & 13 \\end{pmatrix}$$, $$\\begin{pmatrix} 0 & -4 \\\\ 1 & 5 \\end{pmatrix}$$, $$\\begin{pmatrix} 6 & 15 \\\\ 6 & 27 \\end{pmatrix}$$",
+      "why": [
+       "Step 1: entry by entry.",
+       "Step 2: $3A$ multiplies every entry by 3."
+      ],
+      "tip": "Same position ↔ same position.",
+      "similar": [
+       {
+        "q": "$AB$?",
+        "a": "$$\\begin{pmatrix} 9 & 38 \\\\ 13 & 54 \\end{pmatrix}$$."
+       }
+      ],
+      "page": 161,
+      "src": "notes",
+      "label": "4.1 Practice — matrix operations"
+     },
+     {
+      "id": "math12-u4-md-s41-q03",
+      "type": "short",
+      "q": "Exercise 4.2 Q1: $$A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$$, $$B = \\begin{pmatrix} 6 & 8 \\\\ 5 & 7 \\end{pmatrix}$$: $A + B$, $AB$, $BA$.",
+      "answer": "$$\\begin{pmatrix} 7 & 10 \\\\ 8 & 11 \\end{pmatrix}$$, $$\\begin{pmatrix} 16 & 22 \\\\ 38 & 52 \\end{pmatrix}$$, $$\\begin{pmatrix} 30 & 44 \\\\ 26 & 38 \\end{pmatrix}$$",
+      "why": [
+       "Step 1: $AB$ row 1: $(6 + 10, 8 + 14)$.",
+       "Step 2: $BA$ row 1: $(6 + 24, 12 + 32)$."
+      ],
+      "tip": "$AB \\ne BA$ in general.",
+      "similar": [
+       {
+        "q": "$A^2$?",
+        "a": "$$\\begin{pmatrix} 7 & 10 \\\\ 15 & 22 \\end{pmatrix}$$."
+       }
+      ],
+      "page": 165,
+      "src": "notes",
+      "label": "4.1 Practice — matrix operations"
+     },
+     {
+      "id": "math12-u4-md-s41-q04",
+      "type": "short",
+      "q": "Exercise 4.2 Q3: (a) $$\\begin{pmatrix} a & b \\\\ -b & a \\end{pmatrix} + \\begin{pmatrix} a & b \\\\ b & a \\end{pmatrix}$$ (b) $$\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}(2 \\ \\ 3 \\ \\ 4)$$",
+      "answer": "(a) $$\\begin{pmatrix} 2a & 2b \\\\ 0 & 2a \\end{pmatrix}$$ (b) $$\\begin{pmatrix} 2 & 3 & 4 \\\\ 4 & 6 & 8 \\\\ 6 & 9 & 12 \\end{pmatrix}$$",
+      "why": [
+       "Step 1: (a) add entries.",
+       "Step 2: (b) $3 \\times 1$ times $1 \\times 3$ gives $3 \\times 3$; entry $(i, k) = $ (row entry)(column entry)."
+      ],
+      "tip": "Check the order first.",
+      "similar": [
+       {
+        "q": "$$(2 \\ \\ 3 \\ \\ 4)\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$$?",
+        "a": "$(20)$, a $1 \\times 1$ matrix."
+       }
+      ],
+      "page": 165,
+      "src": "notes",
+      "label": "4.1 Practice — matrix operations"
+     },
+     {
+      "id": "math12-u4-md-s41-q05",
+      "type": "short",
+      "q": "Exercise 4.2 Q3(c): $$\\begin{pmatrix} 2 & 3 & 4 \\\\ 3 & 4 & 5 \\\\ 4 & 5 & 6 \\end{pmatrix}\\begin{pmatrix} 1 & -3 & 5 \\\\ 0 & 2 & 4 \\\\ 3 & 0 & 5 \\end{pmatrix}$$",
+      "answer": "$$\\begin{pmatrix} 14 & 0 & 42 \\\\ 18 & -1 & 56 \\\\ 22 & -2 & 70 \\end{pmatrix}$$",
+      "why": [
+       "Step 1: entry (1, 1): $2 + 0 + 12 = 14$.",
+       "Step 2: entry (1, 2): $-6 + 6 + 0 = 0$.",
+       "Step 3: continue row by row."
+      ],
+      "tip": "Nine row × column sums.",
+      "similar": [
+       {
+        "q": "Entry (3, 3)?",
+        "a": "$20 + 20 + 30 = 70$."
+       }
+      ],
+      "page": 165,
+      "src": "notes",
+      "label": "4.1 Practice — matrix operations"
+     },
+     {
+      "id": "math12-u4-md-s41-q06",
+      "type": "short",
+      "q": "Exercise 4.3: inverses of (a) $$\\begin{pmatrix} 2 & 5 \\\\ 1 & 3 \\end{pmatrix}$$ (b) $$\\begin{pmatrix} 1 & 2 \\\\ 2 & -1 \\end{pmatrix}$$ (c) $$\\begin{pmatrix} 2 & 1 \\\\ 7 & 4 \\end{pmatrix}$$ (d) $$\\begin{pmatrix} 7 & -10 \\\\ -2 & 3 \\end{pmatrix}$$.",
+      "answer": "(a) $$\\begin{pmatrix} 3 & -5 \\\\ -1 & 2 \\end{pmatrix}$$ (b) $$\\frac{1}{5}\\begin{pmatrix} 1 & 2 \\\\ 2 & -1 \\end{pmatrix}$$ (c) $$\\begin{pmatrix} 4 & -1 \\\\ -7 & 2 \\end{pmatrix}$$ (d) $$\\begin{pmatrix} 3 & 10 \\\\ 2 & 7 \\end{pmatrix}$$",
+      "why": [
+       "Step 1: determinants 1, −5, 1, 1.",
+       "Step 2: swap the diagonal, negate the others, divide by $D$.",
+       "Step 3: (b) $$\\frac{1}{-5}\\begin{pmatrix} -1 & -2 \\\\ -2 & 1 \\end{pmatrix}$$."
+      ],
+      "tip": "Check with $AA^{-1} = I$.",
+      "similar": [
+       {
+        "q": "$$\\begin{pmatrix} 4 & 3 \\\\ 1 & 1 \\end{pmatrix}^{-1}$$?",
+        "a": "$$\\begin{pmatrix} 1 & -3 \\\\ -1 & 4 \\end{pmatrix}$$."
+       }
+      ],
+      "page": 166,
+      "src": "notes",
+      "label": "4.1 Practice — matrix operations"
+     },
+     {
+      "id": "math12-u4-md-s41-q07",
+      "type": "short",
+      "q": "Exercise 4.4 Q1: evaluate $$\\begin{vmatrix} 1 & 2 \\\\ 3 & 4 \\end{vmatrix}$$, $$\\begin{vmatrix} -5 & 5 \\\\ 9 & 7 \\end{vmatrix}$$, $$\\begin{vmatrix} 0 & 1 \\\\ -1 & 9 \\end{vmatrix}$$, $$\\begin{vmatrix} \\cos 30° & -\\sin 30° \\\\ \\sin 30° & \\cos 30° \\end{vmatrix}$$.",
+      "answer": "−2, −80, 1, 1",
+      "why": [
+       "Step 1: $ad - bc$.",
+       "Step 2: $-35 - 45 = -80$.",
+       "Step 3: $\\cos^2 30° + \\sin^2 30° = 1$."
+      ],
+      "tip": "Watch double negatives.",
+      "similar": [
+       {
+        "q": "$$\\begin{vmatrix} 2 & -3 \\\\ 4 & 1 \\end{vmatrix}$$?",
+        "a": "14."
+       }
+      ],
+      "page": 167,
+      "src": "notes",
+      "label": "4.1 Practice — matrix operations"
+     },
+     {
+      "id": "math12-u4-md-s41-q08",
+      "type": "short",
+      "q": "Exercise 4.4 Q2–Q3: (a) $$\\begin{vmatrix} 2 & 4 \\\\ 5 & 1 \\end{vmatrix} = \\begin{vmatrix} 2x & 4 \\\\ 6 & x \\end{vmatrix}$$ (b) $$\\begin{vmatrix} 2 & 3 \\\\ 4 & 5 \\end{vmatrix} = \\begin{vmatrix} x & 3 \\\\ 2x & -5 \\end{vmatrix}$$ (Q3) $$\\begin{vmatrix} 1 & 2 & 4 \\\\ -1 & 3 & 0 \\\\ 4 & 1 & 0 \\end{vmatrix}$$",
+      "answer": "(a) $x = \\pm\\sqrt{3}$ (b) $x = \\frac{2}{11}$ (Q3) $-52$",
+      "why": [
+       "Step 1: (a) $-18 = 2x^2 - 24$.",
+       "Step 2: (b) $-2 = -5x - 6x$.",
+       "Step 3: (Q3) expand along column 3: $$4\\begin{vmatrix} -1 & 3 \\\\ 4 & 1 \\end{vmatrix} = 4(-13)$$."
+      ],
+      "tip": "Expand along a row or column with zeros.",
+      "similar": [
+       {
+        "q": "$$\\begin{vmatrix} x & 2 \\\\ 3 & x \\end{vmatrix} = 10$$?",
+        "a": "$x = \\pm 4$."
+       }
+      ],
+      "page": 167,
+      "src": "notes",
+      "label": "4.1 Practice — matrix operations"
+     },
+     {
+      "id": "math12-u4-md-s41-q09",
+      "type": "short",
+      "q": "Review Q1–Q2: (1) $$A = \\begin{pmatrix} 7 & -3 \\\\ 2 & 5 \\end{pmatrix}$$, $$B = \\begin{pmatrix} -11 & 9 \\\\ 4 & -6 \\end{pmatrix}$$: $A + B$, $A - B$, $AB$. (2) $$A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$$: show $AB = AC$ for $$B = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$$, $$C = \\begin{pmatrix} 0 & 3 \\\\ 4 & 3 \\end{pmatrix}$$.",
+      "answer": "$$\\begin{pmatrix} -4 & 6 \\\\ 6 & -1 \\end{pmatrix}$$, $$\\begin{pmatrix} 18 & -12 \\\\ -2 & 11 \\end{pmatrix}$$, $$\\begin{pmatrix} -89 & 81 \\\\ -2 & -12 \\end{pmatrix}$$; both products are $$\\begin{pmatrix} 4 & 6 \\\\ 4 & 6 \\end{pmatrix}$$",
+      "why": [
+       "Step 1: $AB$ entry (1, 1): $-77 - 12$.",
+       "Step 2: each row of $A$ adds the two rows of $B$ (or $C$): $(4, 6)$ both times."
+      ],
+      "tip": "You cannot \"cancel\" $A$: it has no inverse ($\\det A = 0$).",
+      "similar": [
+       {
+        "q": "$BA$ in Q1?",
+        "a": "$$\\begin{pmatrix} -59 & 78 \\\\ 16 & -42 \\end{pmatrix}$$."
+       }
+      ],
+      "page": 170,
+      "src": "notes",
+      "label": "4.1 Practice — matrix operations"
+     },
+     {
+      "id": "math12-u4-md-s41-q10",
+      "type": "mcq",
+      "q": "If $A$ is $2 \\times 3$ and $B$ is $3 \\times 4$, $AB$ is",
+      "options": {
+       "A": "$2 \\times 4$",
+       "B": "$3 \\times 3$",
+       "C": "$4 \\times 2$",
+       "D": "not defined"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: inner numbers match (3), outer numbers give the order."
+      ],
+      "tip": "$(m \\times n)(n \\times p) = m \\times p$.",
+      "similar": [
+       {
+        "q": "$BA$?",
+        "a": "not defined (4 ≠ 2)."
+       }
+      ],
+      "page": 163,
+      "src": "notes",
+      "label": "4.1 Practice — matrix operations"
+     },
+     {
+      "id": "math12-u4-md-s41-q11",
+      "type": "tf",
+      "q": "For $2 \\times 2$ matrices, $AB = BA$ always.",
+      "answer": false,
+      "why": [
+       "Step 1: Exercise 4.2 Q1 gives different products."
+      ],
+      "tip": "Order matters.",
+      "similar": [
+       {
+        "q": "$AI = IA$?",
+        "a": "yes, always."
+       }
+      ],
+      "page": 164,
+      "src": "notes",
+      "label": "4.1 Practice — matrix operations"
+     },
+     {
+      "id": "math12-u4-md-s42-q01",
+      "type": "short",
+      "q": "Activity 4.5 Q5 by elimination and by Cramer: $3x + 4y = 12$, $x - y = -1$.",
+      "answer": "$x = \\frac{8}{7}$, $y = \\frac{15}{7}$",
+      "why": [
+       "Step 1: $D = -3 - 4 = -7$.",
+       "Step 2: $D_x = -12 + 4 = -8$, $D_y = -3 - 12 = -15$.",
+       "Step 3: divide by $-7$."
+      ],
+      "tip": "Both methods must agree.",
+      "similar": [
+       {
+        "q": "$x + y = 5$, $x - y = 1$?",
+        "a": "(3, 2)."
+       }
+      ],
+      "page": 168,
+      "src": "notes",
+      "label": "4.2 Practice — Cramer's rule"
+     },
+     {
+      "id": "math12-u4-md-s42-q02",
+      "type": "short",
+      "q": "Exercise 4.5 Q1–Q3: (1) $9x - 2y = 3$, $3x - y = 6$ (2) $x + y = 3$, $y - x = 1$ (3) $0.8x - 0.6y = 1$, $0.6x + 0.8y = 2$.",
+      "answer": "(1) $(-3, -15)$ (2) $(1, 2)$ (3) $(2, 1)$",
+      "why": [
+       "Step 1: (1) $D = -9 + 6 = -3$, $D_x = -3 + 12 = 9$, $D_y = 54 - 9 = 45$.",
+       "Step 2: (2) rewrite as $-x + y = 1$: $D = 2$.",
+       "Step 3: (3) $D = 0.64 + 0.36 = 1$."
+      ],
+      "tip": "Line up $x$, $y$ and constants first.",
+      "similar": [
+       {
+        "q": "$2x + y = 7$, $x - y = 2$?",
+        "a": "(3, 1)."
+       }
+      ],
+      "page": 170,
+      "src": "notes",
+      "label": "4.2 Practice — Cramer's rule"
+     },
+     {
+      "id": "math12-u4-md-s42-q03",
+      "type": "short",
+      "q": "Exercise 4.5 Q4 (3 × 3 Cramer): $3x - 2y + 3z = 8$, $2x + y - z = 1$, $4x - 3y + 2z = 4$.",
+      "answer": "$x = 1$, $y = 2$, $z = 3$",
+      "why": [
+       "Step 1: $D = 3(2 - 3) + 2(4 + 4) + 3(-6 - 4) = -3 + 16 - 30 = -17$.",
+       "Step 2: $D_x = -17$, $D_y = -34$, $D_z = -51$.",
+       "Step 3: divide by $D$."
+      ],
+      "tip": "Same rule: replace one column by the constants.",
+      "similar": [
+       {
+        "q": "Check in equation 3?",
+        "a": "$4 - 6 + 6 = 4$ ✓."
+       }
+      ],
+      "page": 170,
+      "src": "notes",
+      "label": "4.2 Practice — Cramer's rule"
+     },
+     {
+      "id": "math12-u4-md-s42-q04",
+      "type": "short",
+      "q": "Review Q3: (a) $3x - 2y = 4$, $2x + y = -3$ (b) $2x - 3(y + 1) = -3$, $2y = 3x - 5$ (c) $2x - y = 5$, $3x + 2y = -3$.",
+      "answer": "(a) $\\left(-\\frac{2}{7}, -\\frac{17}{7}\\right)$ (b) $(3, 2)$ (c) $(1, -3)$",
+      "why": [
+       "Step 1: (a) $D = 7$, $D_x = -2$, $D_y = -17$.",
+       "Step 2: (b) simplify: $2x - 3y = 0$, $3x - 2y = 5$; $D = 5$.",
+       "Step 3: (c) $D = 7$, $D_x = 7$, $D_y = -21$."
+      ],
+      "tip": "Simplify brackets before forming $D$.",
+      "similar": [
+       {
+        "q": "$x - y = 0$, $x + y = 4$?",
+        "a": "(2, 2)."
+       }
+      ],
+      "page": 170,
+      "src": "notes",
+      "label": "4.2 Practice — Cramer's rule"
+     },
+     {
+      "id": "math12-u4-md-s42-q05",
+      "type": "short",
+      "q": "For which $k$ does $kx + 2y = 1$, $3x + 6y = 5$ have no unique solution?",
+      "answer": "$k = 1$",
+      "why": [
+       "Step 1: $D = 6k - 6 = 0$.",
+       "Step 2: then the lines are parallel ($x + 2y = 1$ vs $x + 2y = \\frac{5}{3}$): no solution."
+      ],
+      "tip": "$D = 0$ ⇒ parallel or the same line.",
+      "similar": [
+       {
+        "q": "$2x + ky = 4$, $x + 3y = 2$?",
+        "a": "$k = 6$: same line, infinitely many."
+       }
+      ],
+      "page": 168,
+      "src": "notes",
+      "label": "4.2 Practice — Cramer's rule"
+     },
+     {
+      "id": "math12-u4-md-s42-q06",
+      "type": "mcq",
+      "q": "For $3x + 2y = 8$, $4x - 3y = 5$, $D_y$ is",
+      "options": {
+       "A": "$-17$",
+       "B": "$-34$",
+       "C": "17",
+       "D": "31"
+      },
+      "answer": "A",
+      "why": [
+       "Step 1: $$\\begin{vmatrix} 3 & 8 \\\\ 4 & 5 \\end{vmatrix} = 15 - 32$$."
+      ],
+      "tip": "Constants replace the $y$-column.",
+      "similar": [
+       {
+        "q": "$D_x$?",
+        "a": "$-34$."
+       }
+      ],
+      "page": 169,
+      "src": "notes",
+      "label": "4.2 Practice — Cramer's rule"
+     },
+     {
+      "id": "math12-u4-md-s42-q07",
+      "type": "tf",
+      "q": "If $D = 0$, Cramer's rule gives the solution $x = 0$, $y = 0$.",
+      "answer": false,
+      "why": [
+       "Step 1: dividing by $D = 0$ is impossible; the system has no or infinitely many solutions."
+      ],
+      "tip": "Check $D$ first.",
+      "similar": [
+       {
+        "q": "$D = 4$?",
+        "a": "a unique solution."
+       }
+      ],
+      "page": 168,
+      "src": "notes",
+      "label": "4.2 Practice — Cramer's rule"
      }
     ]
    },
@@ -1239,6 +1956,38 @@
        "math12-u4-c05",
        "math12-u4-c06"
       ]
+     },
+     {
+      "id": "md_mult",
+      "label": "Matrix multiplication",
+      "kind": "idea",
+      "cards": [
+       "math12-u4-md-mult"
+      ]
+     },
+     {
+      "id": "md_inv",
+      "label": "Inverse",
+      "kind": "idea",
+      "cards": [
+       "math12-u4-md-inv-t"
+      ]
+     },
+     {
+      "id": "md_det",
+      "label": "Determinant",
+      "kind": "idea",
+      "cards": [
+       "math12-u4-md-det"
+      ]
+     },
+     {
+      "id": "md_cram",
+      "label": "Cramer's rule",
+      "kind": "idea",
+      "cards": [
+       "math12-u4-c02"
+      ]
      }
     ],
     "edges": [
@@ -1256,9 +2005,61 @@
       "from": "l4_1",
       "to": "l4_2",
       "label": "next"
+     },
+     {
+      "from": "l4_1",
+      "to": "md_mult",
+      "label": "key idea"
+     },
+     {
+      "from": "l4_1",
+      "to": "md_inv",
+      "label": "key idea"
+     },
+     {
+      "from": "l4_1",
+      "to": "md_det",
+      "label": "key idea"
+     },
+     {
+      "from": "l4_2",
+      "to": "md_cram",
+      "label": "key idea"
      }
     ],
     "src": "auto"
+   },
+   "diagrams": {
+    "md_order": {
+     "svg": "svg/mathematics_12/m12_u4_order.svg",
+     "title": "Rows, columns and the position of an entry",
+     "page": 159,
+     "pins": []
+    },
+    "md_mult": {
+     "svg": "svg/mathematics_12/m12_u4_mult.svg",
+     "title": "Example 4.13 (corrected): row times column",
+     "page": 163,
+     "pins": []
+    },
+    "md_det": {
+     "svg": "svg/mathematics_12/m12_u4_det.svg",
+     "title": "The 2 x 2 determinant",
+     "page": 166,
+     "pins": []
+    },
+    "md_cramer": {
+     "svg": "svg/mathematics_12/m12_u4_cramer.svg",
+     "title": "Example 4.20: the solution is where the lines meet",
+     "page": 169,
+     "pins": []
+    },
+    "md_cases": {
+     "svg": "svg/mathematics_12/m12_u4_cases.svg",
+     "title": "What the determinant D says about a 2 x 2 system",
+     "page": 168,
+     "pins": []
+    }
    }
   }
  ]
