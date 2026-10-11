@@ -122,7 +122,9 @@ class _CoachMarksState extends State<CoachMarks> {
     if (!mounted) return;
     final nav = HighNav.of(context);
     if (nav.current != HighTab.home) nav.tab(HighTab.home);
-    _live = [for (var i = 0; i < _all.length; i++) if (_all[i].target == null || _all[i].target!().currentContext != null) i];
+    // keep steps already seen: a long Home list drops cards that scrolled far away (their keys lose context)
+    final seen = _live.toSet();
+    _live = [for (var i = 0; i < _all.length; i++) if (seen.contains(i) || _all[i].target == null || _all[i].target!().currentContext != null) i];
     var step = math.max(0, s.tourStep ?? 0);
     if (!_live.contains(step)) {
       final nxt = _live.where((x) => x > step);
