@@ -11,7 +11,8 @@ class PlanBook {
   static const asset = 'assets/high/coach/plan.json';
   static Future<PlanBook>? _f;
   static PlanBook? cached;
-  static Future<PlanBook> load([AssetBundle? bundle]) => _f ??= (bundle ?? rootBundle).loadString(asset).then((s) => cached = parse(s));
+  static Future<PlanBook> load([AssetBundle? bundle]) =>
+      _f ??= cached != null ? Future.value(cached) : (bundle ?? rootBundle).loadString(asset).then((s) => cached = parse(s));
   static PlanBook parse(String s) => PlanBook(jsonDecode(s) as Map<String, dynamic>);
 
   Map<String, dynamic> get checkin => raw['checkin'] as Map<String, dynamic>;

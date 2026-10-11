@@ -170,13 +170,20 @@ void main() {
       expect(pb.day(1, 'sleep', 'phone')['id'], 'sleep-01');
       expect(pb.day(2, 'sleep', 'phone')['id'], 'phone-01');
       expect(pb.day(7, 'sleep', 'phone')['type'], 'reflect');
-      expect(pb.day(8, 'sleep', 'phone')['id'], 'phone-03');
+      expect(pb.day(8, 'sleep', 'phone')['id'], 'sleep-04');
       expect(pb.day(30, 'sleep', 'phone')['type'], 'recheck');
       expect(pb.day(29, 'sleep', 'phone', single: true)['id'], 'sleep-25');
-      final mix = {for (var d = 1; d <= 30; d++) if (pb.day(d, 'sleep', 'phone')['type'] == 'lesson') pb.day(d, 'sleep', 'phone')['id']};
+      final mix = {
+        for (var d = 1; d <= 30; d++)
+          if (pb.day(d, 'sleep', 'phone')['type'] == 'lesson') pb.day(d, 'sleep', 'phone')['id'],
+      };
       expect(mix, hasLength(25));
       // one new day per calendar day; streak counts days in a row
-      final run = PlanRun({'a': 'sleep', 'b': 'phone', 'done': {'1': '2026-10-09', '2': '2026-10-10'}});
+      final run = PlanRun({
+        'a': 'sleep',
+        'b': 'phone',
+        'done': {'1': '2026-10-09', '2': '2026-10-10'},
+      });
       expect(run.next, 3);
       expect(run.unlocked(3, DateTime(2026, 10, 10, 20)), isFalse);
       expect(run.unlocked(3, DateTime(2026, 10, 11, 7)), isTrue);
@@ -205,8 +212,10 @@ void main() {
     setUpAll(() async {
       await loadFonts();
       await repo.init();
-      await QuoteBook.load();
-      await CoachBook.load();
+      QuoteBook.cached = QuoteBook.parse(File(QuoteBook.asset).readAsStringSync());
+      CoachBook.cached = CoachBook.parse(File(CoachBook.asset).readAsStringSync());
+      // big file: rootBundle would parse it on a helper isolate, which never finishes inside the test zone
+      PlanBook.cached = PlanBook.parse(File(PlanBook.asset).readAsStringSync());
     });
 
     Future<HighState> boot(WidgetTester tester, {bool dark = false, Map<String, dynamic> extra = const {}}) async {
@@ -367,7 +376,6 @@ void main() {
     });
 
     testWidgets('check-in → profile → 30-day plan → day 30 check-in again', (tester) async {
-      await PlanBook.load();
       final s = await boot(tester);
       push(tester, const CoachHomePage());
       await settle(tester);

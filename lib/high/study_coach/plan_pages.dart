@@ -60,7 +60,9 @@ class PlanEntryCard extends StatelessWidget implements Spaced {
       go = () => openPlan(context);
     } else {
       title = last == null ? 'Study check-in' : 'Your check-in result';
-      sub = last == null ? '14 quick questions. Find your 2 focus areas. Get a 30-day plan.' : 'Your focus: ${b.topTwo(last).map((a) => b.area(a)['name']).join(' and ')}';
+      sub = last == null
+          ? '14 quick questions. Find your 2 focus areas. Get a 30-day plan.'
+          : 'Your focus: ${b.topTwo(last).map((a) => b.area(a)['name']).join(' and ')}';
       cta = last == null ? 'Start (3 minutes)' : 'See my result';
       go = last == null ? () => openCheckIn(context) : () => HighNav.of(context).push(ProfilePage(scores: last));
     }
@@ -92,7 +94,15 @@ class PlanEntryCard extends StatelessWidget implements Spaced {
           if (run != null) Bar((run.next - 1) / b.days * 100, tone: 'blue'),
           Row(
             children: [
-              Btn(cta, icon: 'play', kind: BtnKind.tone, tone: 'blue', fontSize: 13.5, padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10), onTap: go),
+              Btn(
+                cta,
+                icon: 'play',
+                kind: BtnKind.tone,
+                tone: 'blue',
+                fontSize: 13.5,
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                onTap: go,
+              ),
               const Spacer(),
               if (streak > 0) PillX('$streak-day streak', icon: 'flame'),
             ],
@@ -118,10 +128,13 @@ class _CheckInPageState extends State<CheckInPage> {
   void _finish(PlanBook b, int feel) {
     final s = HighScope.read(context), sc = b.score(_ans), now = nowMs();
     final old = s.coachGet<List>('checks') ?? const [];
-    s.coachSet('checks', [
-      {'t': now, 'sc': sc},
-      ...old,
-    ].take(12).toList());
+    s.coachSet(
+      'checks',
+      [
+        {'t': now, 'sc': sc},
+        ...old,
+      ].take(12).toList(),
+    );
     final run = planOf(s);
     Map<String, int>? before;
     if (widget.recheck && run != null) {
@@ -141,11 +154,23 @@ class _CheckInPageState extends State<CheckInPage> {
     final onFeel = _i >= n;
     final q = onFeel ? b.feel['text'] as String : items[_i]['text'] as String;
     return PageShell(
-      top: TopBar(title: widget.recheck ? 'Day 30 check-in' : 'Study check-in', sub: onFeel ? 'One last private question' : 'Question ${_i + 1} of $n', onBack: HighNav.of(context).back, tab: false),
+      top: TopBar(
+        title: widget.recheck ? 'Day 30 check-in' : 'Study check-in',
+        sub: onFeel ? 'One last private question' : 'Question ${_i + 1} of $n',
+        onBack: HighNav.of(context).back,
+        tab: false,
+      ),
       body: ScreenList(
         children: [
-          Blk(margin: const EdgeInsets.only(top: 8, bottom: 6), child: Bar((_i / n * 100).clamp(0, 100), tone: 'blue')),
-          if (_i == 0) Blk(margin: const EdgeInsets.only(bottom: 4), child: Text(b.checkin['intro'] as String, style: ts(13.5, w700, p.ink2, height: 1.4))),
+          Blk(
+            margin: const EdgeInsets.only(top: 8, bottom: 6),
+            child: Bar((_i / n * 100).clamp(0, 100), tone: 'blue'),
+          ),
+          if (_i == 0)
+            Blk(
+              margin: const EdgeInsets.only(bottom: 4),
+              child: Text(b.checkin['intro'] as String, style: ts(13.5, w700, p.ink2, height: 1.4)),
+            ),
           Panel(
             margin: const EdgeInsets.only(top: 8),
             child: Column(
@@ -175,7 +200,10 @@ class _CheckInPageState extends State<CheckInPage> {
           if (_i > 0)
             Blk(
               margin: const EdgeInsets.only(top: 12),
-              child: Align(alignment: Alignment.centerLeft, child: ChipX('Back', small: true, icon: 'left', onTap: () => setState(() => _i--))),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: ChipX('Back', small: true, icon: 'left', onTap: () => setState(() => _i--)),
+              ),
             ),
         ],
       ),
@@ -212,7 +240,15 @@ class ProfilePage extends StatelessWidget {
                 Ic(a['icon'] as String, size: 16, color: t.deep),
                 Expanded(child: Text(a['name'] as String, style: ts(14, w900, p.ink))),
                 Text(
-                  was == null ? b.band(v) : (was - v >= betterBy ? 'Much better' : was > v ? 'A bit better' : was == v ? 'Same' : 'Harder now'),
+                  was == null
+                      ? b.band(v)
+                      : (was - v >= betterBy
+                            ? 'Much better'
+                            : was > v
+                            ? 'A bit better'
+                            : was == v
+                            ? 'Same'
+                            : 'Harder now'),
                   style: ts(12.5, w800, was != null && was - v >= betterBy ? p.sage.deep : t.deep),
                 ),
               ],
@@ -224,7 +260,10 @@ class ProfilePage extends StatelessWidget {
                   height: 6,
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: FractionallySizedBox(widthFactor: (was / 100).clamp(0.02, 1.0), child: ColoredBox(color: p.ink3.withValues(alpha: .45), child: const SizedBox.expand())),
+                    child: FractionallySizedBox(
+                      widthFactor: (was / 100).clamp(0.02, 1.0),
+                      child: ColoredBox(color: p.ink3.withValues(alpha: .45), child: const SizedBox.expand()),
+                    ),
                   ),
                 ),
               ),
@@ -235,7 +274,12 @@ class ProfilePage extends StatelessWidget {
     }
 
     return PageShell(
-      top: TopBar(title: before != null ? 'Day 30: your change' : 'Your result', sub: 'Not a test. Just a picture of right now.', onBack: HighNav.of(context).back, tab: false),
+      top: TopBar(
+        title: before != null ? 'Day 30: your change' : 'Your result',
+        sub: 'Not a test. Just a picture of right now.',
+        onBack: HighNav.of(context).back,
+        tab: false,
+      ),
       body: ScreenList(
         children: [
           if (feelHigh) SafetyCard(title: b.support['title'] as String, text: b.support['text'] as String),
@@ -257,7 +301,10 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                CardHead(before != null ? 'Day 1 (grey) and now' : 'Your 2 focus areas', small: before != null ? 'Shorter bar = easier for you now' : top.map((a) => b.area(a)['name']).join(' and ')),
+                CardHead(
+                  before != null ? 'Day 1 (grey) and now' : 'Your 2 focus areas',
+                  small: before != null ? 'Shorter bar = easier for you now' : top.map((a) => b.area(a)['name']).join(' and '),
+                ),
                 for (final a in b.areas) areaRow(a),
               ],
             ),
@@ -286,7 +333,13 @@ class ProfilePage extends StatelessWidget {
               runSpacing: 8,
               children: [
                 for (final a in top)
-                  ChipX('${b.area(a)['name']}: full lesson', small: true, icon: b.area(a)['icon'] as String, tone: b.area(a)['tone'] as String, onTap: () => openCoachTopic(context, b.area(a)['topic'] as String)),
+                  ChipX(
+                    '${b.area(a)['name']}: full lesson',
+                    small: true,
+                    icon: b.area(a)['icon'] as String,
+                    tone: b.area(a)['tone'] as String,
+                    onTap: () => openCoachTopic(context, b.area(a)['topic'] as String),
+                  ),
               ],
             ),
           ),
@@ -300,7 +353,14 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   Text('Your 30-day plan', style: ts(16, w900, p.ink)),
                   Text(b.plan['intro'] as String, style: ts(13.5, w700, p.ink2, height: 1.4)),
-                  Btn('Start: ${b.area(top[0])['name']} + ${b.area(top[1])['name']}', icon: 'play', kind: BtnKind.tone, tone: 'blue', block: true, onTap: () => _start(context, s, b, top, false)),
+                  Btn(
+                    'Start: ${b.area(top[0])['name']} + ${b.area(top[1])['name']}',
+                    icon: 'play',
+                    kind: BtnKind.tone,
+                    tone: 'blue',
+                    block: true,
+                    onTap: () => _start(context, s, b, top, false),
+                  ),
                   Btn('Only ${b.area(top[0])['name']}', kind: BtnKind.soft, block: true, onTap: () => _start(context, s, b, top, true)),
                 ],
               ),
@@ -354,13 +414,24 @@ class _PlanPageState extends State<PlanPage> {
     if (run == null) {
       return PageShell(
         top: TopBar(title: '30-day plan', onBack: HighNav.of(context).back, tab: false),
-        body: ScreenList(children: [Panel(margin: const EdgeInsets.only(top: 8), onTap: () => openCheckIn(context), child: Text('Take the check-in first.', style: ts(15, w800, p.ink)))]),
+        body: ScreenList(
+          children: [
+            Panel(
+              margin: const EdgeInsets.only(top: 8),
+              onTap: () => openCheckIn(context),
+              child: Text('Take the check-in first.', style: ts(15, w800, p.ink)),
+            ),
+          ],
+        ),
       );
     }
     final next = run.next, d = _view ?? (next > b.days ? b.days : next);
     final entry = b.day(d, run.a, run.b, single: run.single), open = run.unlocked(d, now), done = run.isDone(d);
     final streak = run.streak(now), best = run.m['best'] is num ? (run.m['best'] as num).toInt() : streak;
-    final moods = [for (final r in (run.m['notes'] as Map? ?? const {}).values) if (r is Map && r['mood'] is num) (r['mood'] as num).toInt()];
+    final moods = [
+      for (final r in (run.m['notes'] as Map? ?? const {}).values)
+        if (r is Map && r['mood'] is num) (r['mood'] as num).toInt(),
+    ];
     final lowMood = moods.isNotEmpty && (moods.last == 0 || (moods.length > 1 && moods[moods.length - 1] <= 1 && moods[moods.length - 2] <= 1));
 
     void complete([Map<String, dynamic>? note]) {
@@ -432,7 +503,12 @@ class _PlanPageState extends State<PlanPage> {
               Text(entry['title'] as String, style: ts(20, w900, p.ink, spacing: -.3)),
               Text(entry['text'] as String, style: ts(15, w700, p.ink2, height: 1.45)),
               Text.rich(
-                TextSpan(children: [TextSpan(text: 'Why this works: ', style: ts(13, w900, p.ink)), TextSpan(text: entry['why'] as String)]),
+                TextSpan(
+                  children: [
+                    TextSpan(text: 'Why this works: ', style: ts(13, w900, p.ink)),
+                    TextSpan(text: entry['why'] as String),
+                  ],
+                ),
                 style: ts(13, w700, p.ink3, height: 1.4),
               ),
             ],
@@ -448,7 +524,16 @@ class _PlanPageState extends State<PlanPage> {
               if (entry['tool'] != null)
                 Padding(
                   padding: const EdgeInsets.only(top: 4),
-                  child: Align(alignment: Alignment.centerLeft, child: ChipX(toolTitle(entry['tool'] as String), small: true, icon: toolIcon(entry['tool'] as String), tone: toolTone(entry['tool'] as String), onTap: () => openTool(context, entry['tool'] as String))),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: ChipX(
+                      toolTitle(entry['tool'] as String),
+                      small: true,
+                      icon: toolIcon(entry['tool'] as String),
+                      tone: toolTone(entry['tool'] as String),
+                      onTap: () => openTool(context, entry['tool'] as String),
+                    ),
+                  ),
                 ),
               const SizedBox(height: 4),
               TickRow(text: done ? 'Done. Great work!' : 'I did it', on: done, onTap: done ? () {} : complete),
@@ -457,7 +542,10 @@ class _PlanPageState extends State<PlanPage> {
         ),
         Blk(
           margin: const EdgeInsets.only(top: 6),
-          child: Align(alignment: Alignment.centerLeft, child: ChipX('More on ${a['name']}', small: true, icon: 'book', onTap: () => openCoachTopic(context, a['topic'] as String))),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: ChipX('More on ${a['name']}', small: true, icon: 'book', onTap: () => openCoachTopic(context, a['topic'] as String)),
+          ),
         ),
       ];
     } else if (entry['type'] == 'reflect') {
@@ -490,12 +578,20 @@ class _PlanPageState extends State<PlanPage> {
                 ],
               ),
               if (saved == null)
-                Btn('Save my week', icon: 'check', kind: BtnKind.tone, tone: 'peach', block: true, enabled: _mood != null, onTap: () {
-                  complete({for (final e in _notes.entries) e.key: e.value.text.trim(), 'mood': _mood});
-                  _notes.clear();
-                  _mood = null;
-                  FocusScope.of(context).unfocus();
-                }),
+                Btn(
+                  'Save my week',
+                  icon: 'check',
+                  kind: BtnKind.tone,
+                  tone: 'peach',
+                  block: true,
+                  enabled: _mood != null,
+                  onTap: () {
+                    complete({for (final e in _notes.entries) e.key: e.value.text.trim(), 'mood': _mood});
+                    _notes.clear();
+                    _mood = null;
+                    FocusScope.of(context).unfocus();
+                  },
+                ),
             ],
           ),
         ),
@@ -511,7 +607,14 @@ class _PlanPageState extends State<PlanPage> {
               Text(entry['title'] as String, style: ts(19, w900, p.ink)),
               Text(entry['text'] as String, style: ts(14, w700, p.ink2, height: 1.4)),
               if (done)
-                Btn('See my change', icon: 'chart', kind: BtnKind.tone, tone: 'sage', block: true, onTap: () => HighNav.of(context).push(ProfilePage(scores: _ints(run.m['after']), before: _ints(run.m['base']))))
+                Btn(
+                  'See my change',
+                  icon: 'chart',
+                  kind: BtnKind.tone,
+                  tone: 'sage',
+                  block: true,
+                  onTap: () => HighNav.of(context).push(ProfilePage(scores: _ints(run.m['after']), before: _ints(run.m['base']))),
+                )
               else
                 Btn('Take the check-in again', icon: 'play', kind: BtnKind.tone, tone: 'sage', block: true, onTap: () => openCheckIn(context, recheck: true)),
             ],
@@ -521,7 +624,12 @@ class _PlanPageState extends State<PlanPage> {
     }
 
     return PageShell(
-      top: TopBar(title: '30-day plan', sub: run.single ? b.area(run.a)['name'] as String : '${b.area(run.a)['name']} + ${b.area(run.b)['name']}', onBack: HighNav.of(context).back, tab: false),
+      top: TopBar(
+        title: '30-day plan',
+        sub: run.single ? b.area(run.a)['name'] as String : '${b.area(run.a)['name']} + ${b.area(run.b)['name']}',
+        onBack: HighNav.of(context).back,
+        tab: false,
+      ),
       body: ScreenList(
         children: [
           Blk(
@@ -547,10 +655,15 @@ class _PlanPageState extends State<PlanPage> {
             margin: const EdgeInsets.only(top: 18),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: ChipX('Stop this plan', small: true, icon: 'x', onTap: () {
-                s.coachSet('plan', null);
-                HighNav.of(context).back();
-              }),
+              child: ChipX(
+                'Stop this plan',
+                small: true,
+                icon: 'x',
+                onTap: () {
+                  s.coachSet('plan', null);
+                  HighNav.of(context).back();
+                },
+              ),
             ),
           ),
         ],
