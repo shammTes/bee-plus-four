@@ -8,6 +8,7 @@ import '../data/models.dart';
 import '../notes/jr/screens/unit_page.dart';
 import '../notes/jr/state/app_state.dart' as jr;
 import '../screens/routes.dart';
+import '../study_coach/coach_pages.dart' show openCoach;
 import '../theme/tokens.dart';
 import '../widgets/kit.dart';
 import '../widgets/page.dart';
@@ -243,6 +244,7 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
                 on: _focusOn,
                 onTap: () => setState(() => _focusOn = !_focusOn),
               ),
+            ChipX('Study help', small: true, icon: 'help', tone: 'lilac', onTap: () => openCoach(context)),
             for (final t in _sugg()) ChipX(t, small: true, icon: 'sparkle', onTap: () => _ask(t)),
           ]),
           if (_filters) ...[

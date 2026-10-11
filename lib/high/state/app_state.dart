@@ -98,6 +98,26 @@ class HighState extends ChangeNotifier {
   Map<String, dynamic> daily = {};
   Map<String, dynamic> notes = {};
 
+  /// Motivation gallery: saved quote ids (newest first)
+  List<String> quoteFavs = [];
+
+  /// Study Coach answers kept on the phone: 'chk' {blockId: [ticked]}, 'quiz' {id: {s, t}}, 'try' {topic: {day, done}},
+  /// 'seen' [topic ids], 'reframe' [..], 'spaced' [..], 'goal' {..}
+  Map<String, dynamic> coach = {};
+
+  bool isFavQuote(String id) => quoteFavs.contains(id);
+  void toggleFavQuote(String id) {
+    quoteFavs = quoteFavs.contains(id) ? quoteFavs.where((x) => x != id).toList() : [id, ...quoteFavs];
+    changed();
+  }
+
+  /// one Study Coach value (see [coach])
+  T? coachGet<T>(String k) => coach[k] is T ? coach[k] as T : null;
+  void coachSet(String k, Object? v) {
+    coach = {...coach, k: v};
+    changed();
+  }
+
   /// First-run coach marks: step index (old saves may hold -1 = not started), null = done.
   int? tourStep;
   bool get tourActive => tourStep != null;
@@ -323,6 +343,8 @@ class HighState extends ChangeNotifier {
     attempts = [for (final r in (o['attempts'] as List? ?? const [])) if (r is Map) Map<String, dynamic>.from(r)];
     daily = Map<String, dynamic>.from(o['daily'] as Map? ?? {});
     notes = Map<String, dynamic>.from(o['notes'] as Map? ?? {});
+    quoteFavs = strs(o['quoteFavs']);
+    coach = Map<String, dynamic>.from(o['coach'] as Map? ?? {});
     teacher = o['teacher'] == true;
     basket = strs(o['basket']);
     homework = [for (final r in (o['homework'] as List? ?? const [])) if (r is Map) Map<String, dynamic>.from(r)];
@@ -347,6 +369,8 @@ class HighState extends ChangeNotifier {
     'attempts': attempts,
     'daily': daily,
     'notes': notes,
+    'quoteFavs': quoteFavs,
+    'coach': coach,
     'teacher': teacher,
     'basket': basket,
     'homework': homework,

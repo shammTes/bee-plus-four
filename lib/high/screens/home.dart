@@ -18,6 +18,8 @@ import '../notes/jr/state/app_state.dart' as jr;
 import 'notes_home.dart';
 import 'routes.dart';
 import '../widgets/coach.dart' show CoachKeys;
+import '../motivation/quotes.dart' show QuoteOfDayCard;
+import '../study_coach/coach_pages.dart' show StudyCoachCard;
 import '../teacher/teacher.dart';
 import '../../resources/resources_ui.dart' show ResourcesCard;
 import '../../update/update_ui.dart' show UpdateCard;
@@ -60,6 +62,8 @@ class HomePage extends StatelessWidget {
           const UpdateCard(),
           _Hero(name: name, sub: sub, cta: st.fresh ? 'Start studying' : 'Continue studying'),
           const _Grades(),
+          _Keyed(CoachKeys.quotes, QuoteOfDayCard()),
+          _Keyed(CoachKeys.studyCoach, StudyCoachCard()),
           const TeacherCard(),
           const GameCard(),
           const ResourcesCard(),
@@ -91,6 +95,17 @@ class Stagger extends StatelessWidget implements Delegating {
   static List<Widget> wrap(List<Widget> l) => [for (var i = 0; i < l.length; i++) Stagger(i: i, child: l[i])];
   @override
   Widget build(BuildContext context) => child;
+}
+
+/// a Home block with a coach-mark key; keeps the block's collapsed margins (Delegating)
+class _Keyed extends StatelessWidget implements Delegating {
+  const _Keyed(this.k, this.child);
+  final GlobalKey k;
+  final Widget child;
+  @override
+  Widget get inner => child;
+  @override
+  Widget build(BuildContext context) => KeyedSubtree(key: k, child: child);
 }
 
 /// a number (the web counted it up over 800 ms; shown straight away here: no per-frame rebuilds of the stat tiles)
