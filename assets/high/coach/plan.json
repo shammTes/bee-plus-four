@@ -1,0 +1,2240 @@
+{
+ "source": "Adapted from the Focus30 design (student self-help app, Oct 2026), rewritten for Four.",
+ "checkin": {
+  "title": "Study check-in",
+  "intro": "14 quick questions. Think about the last two weeks. There are no right or wrong answers. This is not a test.",
+  "scale": [
+   "Never",
+   "Rarely",
+   "Sometimes",
+   "Often",
+   "Almost always"
+  ],
+  "areas": [
+   {
+    "id": "focus",
+    "name": "Focus",
+    "short": "Staying on one task",
+    "tone": "blue",
+    "icon": "target",
+    "topic": "how_to_study"
+   },
+   {
+    "id": "procrastination",
+    "name": "Getting started",
+    "short": "Starting tasks on time",
+    "tone": "peach",
+    "icon": "clock",
+    "topic": "procrastination"
+   },
+   {
+    "id": "stress",
+    "name": "Stress",
+    "short": "Handling pressure",
+    "tone": "rose",
+    "icon": "sparkle",
+    "topic": "exam_anxiety"
+   },
+   {
+    "id": "sleep",
+    "name": "Sleep",
+    "short": "Rest and a regular bedtime",
+    "tone": "lilac",
+    "icon": "moon",
+    "topic": "sleep_health"
+   },
+   {
+    "id": "phone",
+    "name": "Phone",
+    "short": "Using your phone on purpose",
+    "tone": "mint",
+    "icon": "monitor",
+    "topic": "focus_phone"
+   },
+   {
+    "id": "motivation",
+    "name": "Drive",
+    "short": "Wanting to study",
+    "tone": "butter",
+    "icon": "flame",
+    "topic": "motivation"
+   }
+  ],
+  "items": [
+   {
+    "id": "F1",
+    "area": "focus",
+    "text": "When I study, my mind wanders after a few minutes.",
+    "reverse": false
+   },
+   {
+    "id": "F2",
+    "area": "focus",
+    "text": "I can stay on one task for 25 minutes.",
+    "reverse": true
+   },
+   {
+    "id": "P1",
+    "area": "procrastination",
+    "text": "I start homework at the last moment.",
+    "reverse": false
+   },
+   {
+    "id": "P2",
+    "area": "procrastination",
+    "text": "When a task feels big, I avoid it.",
+    "reverse": false
+   },
+   {
+    "id": "P3",
+    "area": "procrastination",
+    "text": "After I put something off, I am very hard on myself.",
+    "reverse": false
+   },
+   {
+    "id": "S1",
+    "area": "stress",
+    "text": "I feel there is too much to do.",
+    "reverse": false
+   },
+   {
+    "id": "S2",
+    "area": "stress",
+    "text": "Before tests, worry makes it hard to think.",
+    "reverse": false
+   },
+   {
+    "id": "Z1",
+    "area": "sleep",
+    "text": "I go to bed at very different times.",
+    "reverse": false
+   },
+   {
+    "id": "Z2",
+    "area": "sleep",
+    "text": "I wake up feeling rested.",
+    "reverse": true
+   },
+   {
+    "id": "Z3",
+    "area": "sleep",
+    "text": "I use a phone or screen just before sleep.",
+    "reverse": false
+   },
+   {
+    "id": "H1",
+    "area": "phone",
+    "text": "I check my phone while studying, without planning to.",
+    "reverse": false
+   },
+   {
+    "id": "H2",
+    "area": "phone",
+    "text": "I lose track of time on videos or chats.",
+    "reverse": false
+   },
+   {
+    "id": "M1",
+    "area": "motivation",
+    "text": "I can see how school links to things I care about.",
+    "reverse": true
+   },
+   {
+    "id": "M2",
+    "area": "motivation",
+    "text": "It is hard to get going, even on things I want to do.",
+    "reverse": false
+   }
+  ],
+  "tieBreak": [
+   "stress",
+   "sleep",
+   "procrastination",
+   "focus",
+   "phone",
+   "motivation"
+  ],
+  "bands": [
+   {
+    "max": 34,
+    "label": "Going well"
+   },
+   {
+    "max": 59,
+    "label": "Room to grow"
+   },
+   {
+    "max": 100,
+    "label": "Focus here"
+   }
+  ],
+  "betterBy": 15,
+  "feel": {
+   "text": "Last two weeks: how often did you feel very sad or hopeless?",
+   "note": "This answer is not saved. It is only so we can point you to help.",
+   "showSupportAtLeast": 3
+  },
+  "support": {
+   "title": "Talking to someone helps",
+   "text": "You do not have to carry this alone. Talk to a parent, a teacher or your school counsellor. If you feel very sad or unsafe, talk to them now."
+  }
+ },
+ "profiles": [
+  {
+   "id": "overwhelmed_planner",
+   "name": "The Busy Planner",
+   "tagline": "You care a lot. The to-do list feels too big.",
+   "about": "You see everything you must do. So starting feels heavy. Your plan makes tasks small and calms your mind.",
+   "strengths": [
+    "You take your work seriously",
+    "You see the big picture",
+    "You want to do well"
+   ],
+   "watch": [
+    "Waiting to feel calm before you start",
+    "Being hard on yourself after a delay"
+   ],
+   "tip": "Pick one task. Write its first 5-minute step on paper."
+  },
+  {
+   "id": "night_scroller",
+   "name": "The Night Scroller",
+   "tagline": "Your phone keeps you up at night.",
+   "about": "Late-night phone time is very common. Apps are made to be hard to put down. Your plan protects your sleep with small changes.",
+   "strengths": [
+    "You are curious",
+    "You know what you enjoy",
+    "You noticed the pattern"
+   ],
+   "watch": [
+    "\"Just one more video\" at bedtime",
+    "Sleeping late only on weekends"
+   ],
+   "tip": "Tonight, charge your phone where you cannot reach it from bed."
+  },
+  {
+   "id": "busy_multitasker",
+   "name": "The Multitasker",
+   "tagline": "Chats open, videos playing, homework waiting.",
+   "about": "You are quick and like variety. But jumping between things tires your focus. Your plan gives you short times with one task only.",
+   "strengths": [
+    "You think fast",
+    "You handle many things",
+    "You stay in touch"
+   ],
+   "watch": [
+    "Checking messages \"for a second\"",
+    "Studying with the phone on"
+   ],
+   "tip": "Do one 25-minute study time. Put your phone in another room."
+  },
+  {
+   "id": "last_minute_sprinter",
+   "name": "The Last-Minute Runner",
+   "tagline": "You finish at the last moment. It costs you.",
+   "about": "Deadlines wake you up. You can finish under pressure. But rushing every time is stressful. Your plan helps you start earlier.",
+   "strengths": [
+    "You work well under pressure",
+    "You get things done",
+    "You find a way"
+   ],
+   "watch": [
+    "\"I will start when I feel like it\"",
+    "Thinking tasks take less time than they do"
+   ],
+   "tip": "Set your own deadline two days before the real one. Tell someone."
+  },
+  {
+   "id": "overloaded_juggler",
+   "name": "The Juggler",
+   "tagline": "So much to carry. Little time to breathe.",
+   "about": "You carry a lot. Stress means your body is working hard. It does not mean you are failing. Your plan teaches quick ways to calm down.",
+   "strengths": [
+    "You are committed",
+    "You keep going when it is hard",
+    "You care about doing well"
+   ],
+   "watch": [
+    "Skipping rest to do more",
+    "Keeping worries inside"
+   ],
+   "tip": "Before you study, breathe slowly for two minutes."
+  },
+  {
+   "id": "curious_wanderer",
+   "name": "The Wanderer",
+   "tagline": "Your mind loves to explore, even while you study.",
+   "about": "You are curious. Your mind jumps to new ideas. Your plan helps you park those ideas and come back to the task.",
+   "strengths": [
+    "You are curious",
+    "You have lots of ideas",
+    "You notice things"
+   ],
+   "watch": [
+    "Following every new thought",
+    "Studying with no clear goal"
+   ],
+   "tip": "Keep a \"later\" list next to you. Write stray thoughts there."
+  },
+  {
+   "id": "night_owl",
+   "name": "The Night Owl",
+   "tagline": "You wake up late at night. Mornings are hard.",
+   "about": "Your energy comes late. But school starts early. Your plan helps you move your body clock with small steps.",
+   "strengths": [
+    "You can work late",
+    "You have energy in the evening",
+    "You notice your rhythm"
+   ],
+   "watch": [
+    "Very late bedtimes",
+    "Big sleep-ins on weekends"
+   ],
+   "tip": "Pick one wake-up time. Keep it every day, even Sunday."
+  },
+  {
+   "id": "notification_magnet",
+   "name": "The Phone Magnet",
+   "tagline": "Every buzz pulls you in.",
+   "about": "Phones are made to grab you. That is not your fault. Your plan helps you use your phone when you choose.",
+   "strengths": [
+    "You stay connected",
+    "You reply fast",
+    "You know what is going on"
+   ],
+   "watch": [
+    "Phone next to you while studying",
+    "Checking after every buzz"
+   ],
+   "tip": "Turn off sounds for every app except real people."
+  },
+  {
+   "id": "spark_seeker",
+   "name": "The Spark Seeker",
+   "tagline": "You are looking for a reason that makes it click.",
+   "about": "Studying feels hard when you do not see why. Your plan helps you find your reason and get small wins.",
+   "strengths": [
+    "You ask \"why\"",
+    "You want it to matter",
+    "You can work hard for things you care about"
+   ],
+   "watch": [
+    "Waiting to feel like studying",
+    "Giving up after one bad day"
+   ],
+   "tip": "Write one sentence: how can a subject help you or your family?"
+  },
+  {
+   "id": "steady_builder",
+   "name": "The Steady Builder",
+   "tagline": "You have good habits. You are ready to grow.",
+   "about": "Things are going well for you. Your plan keeps your habits strong in busy weeks, like exam time.",
+   "strengths": [
+    "You have good routines",
+    "You know what works",
+    "You keep going"
+   ],
+   "watch": [
+    "Dropping habits in exam weeks",
+    "Doing too much at once"
+   ],
+   "tip": "Pick one habit to protect in your next busy week."
+  }
+ ],
+ "rules": {
+  "lowThreshold": 35,
+  "pairMinSecond": 40,
+  "pairs": [
+   {
+    "pair": [
+     "stress",
+     "procrastination"
+    ],
+    "profile": "overwhelmed_planner"
+   },
+   {
+    "pair": [
+     "phone",
+     "sleep"
+    ],
+    "profile": "night_scroller"
+   },
+   {
+    "pair": [
+     "focus",
+     "phone"
+    ],
+    "profile": "busy_multitasker"
+   }
+  ],
+  "primary": {
+   "procrastination": "last_minute_sprinter",
+   "stress": "overloaded_juggler",
+   "focus": "curious_wanderer",
+   "sleep": "night_owl",
+   "phone": "notification_magnet",
+   "motivation": "spark_seeker"
+  },
+  "fallback": "steady_builder"
+ },
+ "plan": {
+  "days": 30,
+  "reflectDays": [
+   7,
+   14,
+   21,
+   28
+  ],
+  "recheckDay": 30,
+  "intro": "One short lesson and one tiny action a day. About 5 minutes. Missed a day? Just carry on.",
+  "reflect": {
+   "title": "Week {w}: look back",
+   "text": "Take 5 minutes. What worked this week? Keep doing it.",
+   "prompts": [
+    {
+     "id": "well",
+     "text": "What went well this week?"
+    },
+    {
+     "id": "hard",
+     "text": "What got in the way?"
+    },
+    {
+     "id": "next",
+     "text": "One thing to try next week:"
+    }
+   ],
+   "mood": {
+    "text": "How was your week?",
+    "labels": [
+     "Very hard",
+     "Hard",
+     "Okay",
+     "Good",
+     "Great"
+    ]
+   }
+  },
+  "recheck": {
+   "title": "Day 30: see how far you came",
+   "text": "You made it! Take the same check-in again. Compare it with Day 1. Any change counts."
+  }
+ },
+ "lessons": {
+  "focus": [
+   {
+    "id": "focus-01",
+    "n": 1,
+    "title": "Focus is like a muscle",
+    "text": "Focus gets tired. It also grows with practice. Everyone's mind wanders. Noticing it is the first skill.",
+    "action": "Study for 10 minutes. Make a mark each time your mind wanders.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "focus-02",
+    "n": 2,
+    "title": "One task at a time",
+    "text": "Jumping between tasks wastes energy. Clear everything else away before you start.",
+    "action": "Before you study, clear your desk. Write your one task on paper.",
+    "why": "A phone close by steals some attention, even when silent.",
+    "technique": "phone_friction"
+   },
+   {
+    "id": "focus-03",
+    "n": 3,
+    "title": "The 25-5 timer",
+    "text": "Study 25 minutes. Rest 5 minutes. Short blocks keep you sharp.",
+    "action": "Do one 25-minute study block. Then rest 5 minutes.",
+    "why": "Short study times with planned breaks keep your mind fresh.",
+    "technique": "timeboxing",
+    "tool": "pomodoro"
+   },
+   {
+    "id": "focus-04",
+    "n": 4,
+    "title": "Make breaks real breaks",
+    "text": "A phone break often grows to 40 minutes. Real breaks are short and calm.",
+    "action": "Write three breaks with no phone. Use one today.",
+    "why": "Short study times with planned breaks keep your mind fresh.",
+    "technique": "timeboxing"
+   },
+   {
+    "id": "focus-05",
+    "n": 5,
+    "title": "The \"later\" list",
+    "text": "Random thoughts pull you off task. Write them down. Then let them go.",
+    "action": "Keep a \"later\" list next to you while you study.",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   },
+   {
+    "id": "focus-06",
+    "n": 6,
+    "title": "Pick a study spot",
+    "text": "Places can switch your brain to study mode. A bed says \"rest\".",
+    "action": "Choose one study spot. Use it all week.",
+    "why": "Same time, same place, every day: that is how habits grow.",
+    "technique": "habit_formation"
+   },
+   {
+    "id": "focus-07",
+    "n": 7,
+    "title": "Start with a finish line",
+    "text": "\"Study maths\" is too vague. \"Do 10 questions\" is clear.",
+    "action": "Before you study, finish this: \"By the end, I will…\"",
+    "why": "Small, clear steps are easier to start. Each one done gives you hope.",
+    "technique": "task_breakdown"
+   },
+   {
+    "id": "focus-08",
+    "n": 8,
+    "title": "Plan for distractions",
+    "text": "Decide before: \"If I want my phone, I write it down instead.\"",
+    "action": "Write two \"if… then…\" plans. Put them where you study.",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   },
+   {
+    "id": "focus-09",
+    "n": 9,
+    "title": "Test yourself",
+    "text": "Reading again feels good but teaches little. Close the book and remember.",
+    "action": "After reading, close the book. Write three things you remember.",
+    "why": "Testing yourself, a few days apart, is a top way to learn.",
+    "technique": "retrieval_spacing"
+   },
+   {
+    "id": "focus-10",
+    "n": 10,
+    "title": "Little and often",
+    "text": "Short study times over days beat one long night.",
+    "action": "Plan two short reviews of today's topic in the next 3 days.",
+    "why": "Testing yourself, a few days apart, is a top way to learn.",
+    "technique": "retrieval_spacing",
+    "tool": "spaced"
+   },
+   {
+    "id": "focus-11",
+    "n": 11,
+    "title": "Your best hours",
+    "text": "Focus is easier at some times of day. Do hard work then.",
+    "action": "Rate your focus from 1 to 5: morning, afternoon, evening.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "focus-12",
+    "n": 12,
+    "title": "Two blocks in a row",
+    "text": "One block is easy now. Try two with a longer break.",
+    "action": "Do two 25-minute blocks. Rest 10 minutes between them.",
+    "why": "Short study times with planned breaks keep your mind fresh.",
+    "technique": "timeboxing",
+    "tool": "pomodoro"
+   },
+   {
+    "id": "focus-13",
+    "n": 13,
+    "title": "Quiet or music?",
+    "text": "Songs with words can fight with reading. Test what works for you.",
+    "action": "Study once in quiet, once with soft music. Rate each 1 to 5.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "focus-14",
+    "n": 14,
+    "title": "Move to reset",
+    "text": "When focus fades, a short walk brings it back.",
+    "action": "Between study blocks, walk or stretch for 3 minutes.",
+    "why": "Moving your body helps sleep and lowers worry.",
+    "technique": "activity"
+   },
+   {
+    "id": "focus-15",
+    "n": 15,
+    "title": "Start with the easy part",
+    "text": "Starting is the hardest part. An easy start gets you moving.",
+    "action": "Start with 5 minutes on the easiest part.",
+    "why": "Small, clear steps are easier to start. Each one done gives you hope.",
+    "technique": "task_breakdown"
+   },
+   {
+    "id": "focus-16",
+    "n": 16,
+    "title": "Messages at set times",
+    "text": "Replying all day breaks your focus. Pick two times for messages.",
+    "action": "Choose two times today for messages. Ignore them otherwise.",
+    "why": "A phone close by steals some attention, even when silent.",
+    "technique": "phone_friction"
+   },
+   {
+    "id": "focus-17",
+    "n": 17,
+    "title": "Focus in class",
+    "text": "Write notes in your own words. Write your questions too.",
+    "action": "In one class, write three notes in your words and one question.",
+    "why": "Testing yourself, a few days apart, is a top way to learn.",
+    "technique": "retrieval_spacing"
+   },
+   {
+    "id": "focus-18",
+    "n": 18,
+    "title": "When focus falls apart",
+    "text": "Bad sessions happen. Stand up. Breathe three times. Start a 10-minute timer.",
+    "action": "Next time you lose focus: stand, breathe, set 10 minutes.",
+    "why": "Students who forgave themselves put things off less next time.",
+    "technique": "self_compassion"
+   },
+   {
+    "id": "focus-19",
+    "n": 19,
+    "title": "Plan your week",
+    "text": "Put study times in your week like class times.",
+    "action": "Write three study times for this week in your planner.",
+    "why": "Short study times with planned breaks keep your mind fresh.",
+    "technique": "timeboxing"
+   },
+   {
+    "id": "focus-20",
+    "n": 20,
+    "title": "Teach it back",
+    "text": "Explain a topic out loud, like a teacher. You see what you really know.",
+    "action": "Explain one thing you learned for 2 minutes, out loud.",
+    "why": "Testing yourself, a few days apart, is a top way to learn.",
+    "technique": "retrieval_spacing"
+   },
+   {
+    "id": "focus-21",
+    "n": 21,
+    "title": "Study groups that work",
+    "text": "Groups can help or waste time. A goal and a timer keep it useful.",
+    "action": "With friends, agree on a goal and 25 minutes before chatting.",
+    "why": "Short study times with planned breaks keep your mind fresh.",
+    "technique": "timeboxing"
+   },
+   {
+    "id": "focus-22",
+    "n": 22,
+    "title": "Protect study time",
+    "text": "Tell your family when you study. Put your phone on silent.",
+    "action": "Put your phone on silent for one study block. Tell someone.",
+    "why": "A phone close by steals some attention, even when silent.",
+    "technique": "phone_friction"
+   },
+   {
+    "id": "focus-23",
+    "n": 23,
+    "title": "Look at your progress",
+    "text": "Compare with Day 1. Small progress counts.",
+    "action": "Study 10 minutes and mark each wander again. Compare with Day 1.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "focus-24",
+    "n": 24,
+    "title": "Your focus tools",
+    "text": "You tried many tools. Keep the three that helped most.",
+    "action": "Write your top three focus tools in your notebook.",
+    "why": "Same time, same place, every day: that is how habits grow.",
+    "technique": "habit_formation"
+   },
+   {
+    "id": "focus-25",
+    "n": 25,
+    "title": "After Day 30",
+    "text": "Habits keep growing for weeks. Plans help them last.",
+    "action": "Write three \"if… then…\" plans for next month.",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   }
+  ],
+  "procrastination": [
+   {
+    "id": "procrastination-01",
+    "n": 1,
+    "title": "It is not laziness",
+    "text": "We put things off to escape a bad feeling. Bored? Confused? Scared? Name it.",
+    "action": "Pick one task you avoid. Name the feeling behind it.",
+    "why": "We put things off to escape a bad feeling. It is not laziness.",
+    "technique": "procrastination_mood"
+   },
+   {
+    "id": "procrastination-02",
+    "n": 2,
+    "title": "Make the first step tiny",
+    "text": "\"Do the project\" is too big. \"Write the title\" is easy.",
+    "action": "Write a first step under 5 minutes. Do it now.",
+    "why": "Small, clear steps are easier to start. Each one done gives you hope.",
+    "technique": "task_breakdown"
+   },
+   {
+    "id": "procrastination-03",
+    "n": 3,
+    "title": "Just 10 minutes",
+    "text": "Promise only 10 minutes. Once you start, going on is easier.",
+    "action": "Set 10 minutes on a task you avoid. You may stop after.",
+    "why": "Short study times with planned breaks keep your mind fresh.",
+    "technique": "timeboxing",
+    "tool": "twomin"
+   },
+   {
+    "id": "procrastination-04",
+    "n": 4,
+    "title": "Start at a set time",
+    "text": "\"At 4 pm, after tea, I open my notes.\" No deciding needed.",
+    "action": "Write when and where you will start tomorrow's task.",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   },
+   {
+    "id": "procrastination-05",
+    "n": 5,
+    "title": "Forgive yesterday",
+    "text": "Being hard on yourself adds another bad feeling. Be kind instead.",
+    "action": "Write one kind sentence about a task you delayed.",
+    "why": "Students who forgave themselves put things off less next time.",
+    "technique": "self_compassion"
+   },
+   {
+    "id": "procrastination-06",
+    "n": 6,
+    "title": "Break a big task up",
+    "text": "One big task is scary. Five small steps with dates are not.",
+    "action": "Split one big task into five steps. Give each a day.",
+    "why": "Small, clear steps are easier to start. Each one done gives you hope.",
+    "technique": "task_breakdown"
+   },
+   {
+    "id": "procrastination-07",
+    "n": 7,
+    "title": "Write it down",
+    "text": "Tasks in your head are easy to dodge. Paper makes them real.",
+    "action": "Write your next three tasks with a time for each.",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   },
+   {
+    "id": "procrastination-08",
+    "n": 8,
+    "title": "\"I will start when I feel ready\"",
+    "text": "The ready feeling comes after you start, not before.",
+    "action": "Write one delaying thought. Write a fairer one next to it.",
+    "why": "Checking a bad thought and finding a fairer one helps you.",
+    "technique": "thought_check",
+    "tool": "reframe"
+   },
+   {
+    "id": "procrastination-09",
+    "n": 9,
+    "title": "Get ready the night before",
+    "text": "Looking for a pen or notes becomes a reason to wait.",
+    "action": "Tonight, put out everything for tomorrow's first task.",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   },
+   {
+    "id": "procrastination-10",
+    "n": 10,
+    "title": "Reward after, not instead",
+    "text": "A small treat after studying teaches your brain that starting pays.",
+    "action": "Pick a small treat. Have it only after one study block.",
+    "why": "Pairing a dull task with something you enjoy makes it easier to do.",
+    "technique": "temptation_bundling"
+   },
+   {
+    "id": "procrastination-11",
+    "n": 11,
+    "title": "Start messy",
+    "text": "Wanting it perfect stops you starting. A first try can be messy.",
+    "action": "Spend 10 minutes on a rough first try. Messy is fine.",
+    "why": "Students who forgave themselves put things off less next time.",
+    "technique": "self_compassion"
+   },
+   {
+    "id": "procrastination-12",
+    "n": 12,
+    "title": "Set your own deadlines",
+    "text": "Small deadlines before the real one stop the last-minute rush.",
+    "action": "Set two small deadlines before your next test or homework.",
+    "why": "Students who set their own small deadlines did better.",
+    "technique": "precommitment"
+   },
+   {
+    "id": "procrastination-13",
+    "n": 13,
+    "title": "Wish, picture, problem, plan",
+    "text": "Picture your goal. Picture what may stop you. Plan for it.",
+    "action": "For one goal, write: wish, best result, problem, plan.",
+    "why": "Thinking about the problem before it comes helps you beat it. It was tested with high school students.",
+    "technique": "mcii"
+   },
+   {
+    "id": "procrastination-14",
+    "n": 14,
+    "title": "Busy but not studying",
+    "text": "Tidying your desk can be a way to avoid the real task.",
+    "action": "Notice today if you do \"useful\" things to avoid studying.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "procrastination-15",
+    "n": 15,
+    "title": "Ask early",
+    "text": "Being confused makes us wait. Ask a teacher or friend early.",
+    "action": "Write one question about a task. Ask it today.",
+    "why": "People you can talk to make stress lighter.",
+    "technique": "social_support"
+   },
+   {
+    "id": "procrastination-16",
+    "n": 16,
+    "title": "Tell someone your plan",
+    "text": "Saying \"I start at 5\" to someone helps you do it.",
+    "action": "Tell one person what you will start, and when.",
+    "why": "Students who set their own small deadlines did better.",
+    "technique": "precommitment"
+   },
+   {
+    "id": "procrastination-17",
+    "n": 17,
+    "title": "Tick it off",
+    "text": "Ticks and crossed-out steps keep you going.",
+    "action": "Tick each small step you finish today.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "procrastination-18",
+    "n": 18,
+    "title": "Slipped? Restart today",
+    "text": "Missing a day does not wipe out your work. Start small today.",
+    "action": "Do a 5-minute restart step now.",
+    "why": "Students who forgave themselves put things off less next time.",
+    "technique": "self_compassion"
+   },
+   {
+    "id": "procrastination-19",
+    "n": 19,
+    "title": "See yourself finished",
+    "text": "Picture the evening after the task is done. How does it feel?",
+    "action": "Picture finishing for 3 minutes. Write one problem and one plan.",
+    "why": "Thinking about the problem before it comes helps you beat it. It was tested with high school students.",
+    "technique": "mcii"
+   },
+   {
+    "id": "procrastination-20",
+    "n": 20,
+    "title": "Pair the boring with the nice",
+    "text": "Do the dull task in your favourite spot, or with tea.",
+    "action": "Choose one treat you only have while studying. Use it today.",
+    "why": "Pairing a dull task with something you enjoy makes it easier to do.",
+    "technique": "temptation_bundling"
+   },
+   {
+    "id": "procrastination-21",
+    "n": 21,
+    "title": "How long will it really take?",
+    "text": "Tasks take longer than we think. Time yourself.",
+    "action": "Guess how long one task takes. Time it. Compare.",
+    "why": "Most people think tasks take less time than they do. Timing yourself fixes this.",
+    "technique": "planning_fallacy"
+   },
+   {
+    "id": "procrastination-22",
+    "n": 22,
+    "title": "Say no to one thing",
+    "text": "Sometimes there is just too much. Drop one small thing.",
+    "action": "Pick one thing to say no to, or move, this week.",
+    "why": "Small, clear steps are easier to start. Each one done gives you hope.",
+    "technique": "task_breakdown"
+   },
+   {
+    "id": "procrastination-23",
+    "n": 23,
+    "title": "Spot your pattern",
+    "text": "When and where do you put things off? Patterns show fixes.",
+    "action": "Write your top two delay times and one fix for each.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "procrastination-24",
+    "n": 24,
+    "title": "Your start routine",
+    "text": "Join your best tools: phone away, 10-minute timer, tiny step.",
+    "action": "Write your 3-step start routine. Use it once today.",
+    "why": "Same time, same place, every day: that is how habits grow.",
+    "technique": "habit_formation"
+   },
+   {
+    "id": "procrastination-25",
+    "n": 25,
+    "title": "After Day 30",
+    "text": "Plans keep your new skills going.",
+    "action": "Write three \"if… then…\" plans for next month.",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   }
+  ],
+  "stress": [
+   {
+    "id": "stress-01",
+    "n": 1,
+    "title": "Stress means \"getting ready\"",
+    "text": "A fast heart before a test is your body getting ready. It does not mean you will fail.",
+    "action": "When stressed, say: \"My body is getting ready to help me.\"",
+    "why": "Seeing a fast heartbeat as \"getting ready\" helped students in exams.",
+    "technique": "stress_reappraisal"
+   },
+   {
+    "id": "stress-02",
+    "n": 2,
+    "title": "Breathe out long",
+    "text": "Breathe in slowly. Breathe out even longer. Your body calms down.",
+    "action": "Do 2 minutes of slow breathing today.",
+    "why": "Slow breathing with a long breath out calms your body in minutes.",
+    "technique": "breathing",
+    "tool": "breath478"
+   },
+   {
+    "id": "stress-03",
+    "n": 3,
+    "title": "Empty your head",
+    "text": "Write every worry on paper. Your mind gets more space.",
+    "action": "Write all your worries for 5 minutes. Nobody will see it.",
+    "why": "Writing worries down before a test helped students get better marks.",
+    "technique": "expressive_writing"
+   },
+   {
+    "id": "stress-04",
+    "n": 4,
+    "title": "What can I change?",
+    "text": "Some worries you can change. Some you cannot. Work on the first kind.",
+    "action": "Draw two circles: \"I can change\" and \"I cannot\". Sort your worries.",
+    "why": "Checking a bad thought and finding a fairer one helps you.",
+    "technique": "thought_check"
+   },
+   {
+    "id": "stress-05",
+    "n": 5,
+    "title": "\"What if everything goes wrong?\"",
+    "text": "Stress loves the worst case. Check the facts. Find a fairer thought.",
+    "action": "Write one worried thought, the facts, and a fairer thought.",
+    "why": "Checking a bad thought and finding a fairer one helps you.",
+    "technique": "thought_check",
+    "tool": "reframe"
+   },
+   {
+    "id": "stress-06",
+    "n": 6,
+    "title": "Top three for tomorrow",
+    "text": "When everything feels urgent, pick just three.",
+    "action": "Tonight, write the three most important things for tomorrow.",
+    "why": "Small, clear steps are easier to start. Each one done gives you hope.",
+    "technique": "task_breakdown"
+   },
+   {
+    "id": "stress-07",
+    "n": 7,
+    "title": "Stress and sleep",
+    "text": "Stress makes sleep hard. Bad sleep makes stress bigger.",
+    "action": "Tonight, start calming down 30 minutes before bed.",
+    "why": "Regular sleep times and a calm bedtime help you sleep better.",
+    "technique": "sleep_hygiene"
+   },
+   {
+    "id": "stress-08",
+    "n": 8,
+    "title": "Move it out",
+    "text": "A short walk can take the edge off stress.",
+    "action": "Walk or play for 10 minutes today.",
+    "why": "Moving your body helps sleep and lowers worry.",
+    "technique": "activity"
+   },
+   {
+    "id": "stress-09",
+    "n": 9,
+    "title": "Talk it out",
+    "text": "Talking to someone you trust makes stress lighter.",
+    "action": "Talk to one person you trust about how things are.",
+    "why": "People you can talk to make stress lighter.",
+    "technique": "social_support"
+   },
+   {
+    "id": "stress-10",
+    "n": 10,
+    "title": "Talk to yourself like a friend",
+    "text": "Would you call a friend \"useless\"? Be kind to yourself too.",
+    "action": "Write what you would tell a friend. Read it to yourself.",
+    "why": "Students who forgave themselves put things off less next time.",
+    "technique": "self_compassion"
+   },
+   {
+    "id": "stress-11",
+    "n": 11,
+    "title": "Your test-nerves plan",
+    "text": "Before a test: write worries, breathe slowly, say \"I am ready\".",
+    "action": "Write your 3-step plan for your next test.",
+    "why": "Writing worries down before a test helped students get better marks.",
+    "technique": "expressive_writing"
+   },
+   {
+    "id": "stress-12",
+    "n": 12,
+    "title": "Plan a small joy",
+    "text": "Small happy moments are not wasted time. They give you energy.",
+    "action": "Plan one small thing you enjoy. Do it today or tomorrow.",
+    "why": "Noticing good things and planning small joys lifts your mood.",
+    "technique": "positive_activities"
+   },
+   {
+    "id": "stress-13",
+    "n": 13,
+    "title": "A finish time for study",
+    "text": "Studying until you drop raises stress. Pick a time to stop.",
+    "action": "Choose a \"study ends at\" time tonight. Keep it.",
+    "why": "Short study times with planned breaks keep your mind fresh.",
+    "technique": "timeboxing"
+   },
+   {
+    "id": "stress-14",
+    "n": 14,
+    "title": "The comparison trap",
+    "text": "Others show only their good side. You see all of yours.",
+    "action": "Notice one comparison thought. Write a fairer one.",
+    "why": "Checking a bad thought and finding a fairer one helps you.",
+    "technique": "thought_check"
+   },
+   {
+    "id": "stress-15",
+    "n": 15,
+    "title": "High goals, kind voice",
+    "text": "You can aim high and still be kind to yourself.",
+    "action": "Rewrite one harsh thing you told yourself. Make it kind and true.",
+    "why": "Students who forgave themselves put things off less next time.",
+    "technique": "self_compassion"
+   },
+   {
+    "id": "stress-16",
+    "n": 16,
+    "title": "Ask for what you need",
+    "text": "Asking for help is a skill, not a weakness.",
+    "action": "Write a short message asking a teacher or friend for help.",
+    "why": "People you can talk to make stress lighter.",
+    "technique": "social_support"
+   },
+   {
+    "id": "stress-17",
+    "n": 17,
+    "title": "One calm minute",
+    "text": "Notice your breath, the sounds, your feet on the floor.",
+    "action": "For 3 minutes, notice your breath and the sounds around you.",
+    "why": "Calm attention to the present moment lowers stress.",
+    "technique": "mindfulness"
+   },
+   {
+    "id": "stress-18",
+    "n": 18,
+    "title": "Your warning signs",
+    "text": "A tight jaw? Snapping at people? Bad sleep? Spot stress early.",
+    "action": "List three stress signs. Write one helpful action for each.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "stress-19",
+    "n": 19,
+    "title": "Worry time",
+    "text": "Give worries 15 minutes a day. At other times, write them down for later.",
+    "action": "Pick a 15-minute worry time today. Use it.",
+    "why": "Giving worries a set time stops them filling your whole day.",
+    "technique": "worry_time"
+   },
+   {
+    "id": "stress-20",
+    "n": 20,
+    "title": "Balance check",
+    "text": "Study, rest, family and fun. Is one pushing out the others?",
+    "action": "Rate your week 1 to 5 for study, rest, people and fun.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "stress-21",
+    "n": 21,
+    "title": "A bad day is information",
+    "text": "A bad mark does not say who you are. It shows what to fix.",
+    "action": "Write about one setback: what happened, what you learned, next step.",
+    "why": "Knowing your brain can grow helped many students do better.",
+    "technique": "growth_mindset"
+   },
+   {
+    "id": "stress-22",
+    "n": 22,
+    "title": "Three good things",
+    "text": "Writing three good things each day lifts your mood.",
+    "action": "Tonight, write three good things from today.",
+    "why": "Noticing good things and planning small joys lifts your mood.",
+    "technique": "positive_activities"
+   },
+   {
+    "id": "stress-23",
+    "n": 23,
+    "title": "Your calm kit",
+    "text": "List what calms you. Breathing, a walk, a person, a song.",
+    "action": "Write your calm kit list. Keep it in your notebook.",
+    "why": "Same time, same place, every day: that is how habits grow.",
+    "technique": "habit_formation"
+   },
+   {
+    "id": "stress-24",
+    "n": 24,
+    "title": "Who is on your team?",
+    "text": "Family, friends, teachers and the school counsellor can help.",
+    "action": "Write three people you can talk to, and how to reach them.",
+    "why": "People you can talk to make stress lighter.",
+    "technique": "social_support"
+   },
+   {
+    "id": "stress-25",
+    "n": 25,
+    "title": "After Day 30",
+    "text": "Plans keep your calm skills going.",
+    "action": "Write three plans. Example: \"If it feels too much, I list my top three.\"",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   }
+  ],
+  "sleep": [
+   {
+    "id": "sleep-01",
+    "n": 1,
+    "title": "How much sleep you need",
+    "text": "Teenagers need 8 to 10 hours. Most students get less.",
+    "action": "Tonight, write when you go to bed and when you wake.",
+    "why": "Regular sleep times and a calm bedtime help you sleep better.",
+    "technique": "sleep_hygiene"
+   },
+   {
+    "id": "sleep-02",
+    "n": 2,
+    "title": "Wake up at the same time",
+    "text": "A steady wake-up time sets your body clock.",
+    "action": "Choose a wake-up time. Keep it every day, even Sunday.",
+    "why": "Regular sleep times and a calm bedtime help you sleep better.",
+    "technique": "sleep_hygiene"
+   },
+   {
+    "id": "sleep-03",
+    "n": 3,
+    "title": "30 minutes to slow down",
+    "text": "Your brain needs time to land. Wash, read, or talk quietly.",
+    "action": "Plan three calm steps for before bed. Try them tonight.",
+    "why": "Regular sleep times and a calm bedtime help you sleep better.",
+    "technique": "sleep_hygiene"
+   },
+   {
+    "id": "sleep-04",
+    "n": 4,
+    "title": "Phones and bedtime",
+    "text": "A phone in bed keeps your brain awake. Charge it far away.",
+    "action": "Tonight, charge your phone where you cannot reach it from bed.",
+    "why": "A phone close by steals some attention, even when silent.",
+    "technique": "phone_friction"
+   },
+   {
+    "id": "sleep-05",
+    "n": 5,
+    "title": "No coffee late",
+    "text": "Coffee or strong tea late in the day steals sleep. Have it in the morning.",
+    "action": "Pick a time today after which you have no coffee.",
+    "why": "Coffee or strong tea, even 6 hours before bed, can cut your sleep.",
+    "technique": "caffeine_timing"
+   },
+   {
+    "id": "sleep-06",
+    "n": 6,
+    "title": "List before bed",
+    "text": "Write tomorrow's list before bed. Your mind can rest.",
+    "action": "Tonight, write a short list for tomorrow.",
+    "why": "Writing tomorrow's list helped people fall asleep faster.",
+    "technique": "bedtime_todo"
+   },
+   {
+    "id": "sleep-07",
+    "n": 7,
+    "title": "Morning sun",
+    "text": "Daylight after waking sets your body clock.",
+    "action": "Get 10 minutes of daylight within an hour of waking.",
+    "why": "Regular sleep times and a calm bedtime help you sleep better.",
+    "technique": "sleep_hygiene"
+   },
+   {
+    "id": "sleep-08",
+    "n": 8,
+    "title": "Bed is for sleep",
+    "text": "If you study in bed, your brain learns bed means awake.",
+    "action": "Today, study at a table, not on your bed.",
+    "why": "Regular sleep times and a calm bedtime help you sleep better.",
+    "technique": "sleep_hygiene"
+   },
+   {
+    "id": "sleep-09",
+    "n": 9,
+    "title": "Short naps only",
+    "text": "A short nap before 3 pm can help. Long naps spoil the night.",
+    "action": "If you nap today, keep it under 30 minutes.",
+    "why": "Regular sleep times and a calm bedtime help you sleep better.",
+    "technique": "sleep_hygiene"
+   },
+   {
+    "id": "sleep-10",
+    "n": 10,
+    "title": "Cannot sleep? Get up",
+    "text": "After 20 minutes awake, get up. Do something calm. Then try again.",
+    "action": "Decide what calm thing you will do if you cannot sleep.",
+    "why": "Regular sleep times and a calm bedtime help you sleep better.",
+    "technique": "sleep_hygiene"
+   },
+   {
+    "id": "sleep-11",
+    "n": 11,
+    "title": "No all-night study",
+    "text": "Sleep saves what you learned. Studying all night means you forget more.",
+    "action": "Plan your sleep for your next busy week. No all-nighters.",
+    "why": "Sleep saves what you learned. Less sleep means you forget more.",
+    "technique": "sleep_memory"
+   },
+   {
+    "id": "sleep-12",
+    "n": 12,
+    "title": "The weekend trap",
+    "text": "Sleeping very late on weekends makes Monday feel awful.",
+    "action": "Plan this weekend's sleep within an hour of school days.",
+    "why": "Very different sleep times on weekends make Monday feel bad.",
+    "technique": "social_jetlag"
+   },
+   {
+    "id": "sleep-13",
+    "n": 13,
+    "title": "Cool, dark, quiet",
+    "text": "A cool, dark, quiet room helps you sleep.",
+    "action": "Make one change to your sleeping place tonight.",
+    "why": "Regular sleep times and a calm bedtime help you sleep better.",
+    "technique": "sleep_hygiene"
+   },
+   {
+    "id": "sleep-14",
+    "n": 14,
+    "title": "Worries at bedtime",
+    "text": "Give worries an earlier time. Write them down before bed.",
+    "action": "Write your worries for 5 minutes, an hour before bed.",
+    "why": "Giving worries a set time stops them filling your whole day.",
+    "technique": "worry_time"
+   },
+   {
+    "id": "sleep-15",
+    "n": 15,
+    "title": "Move by day, sleep by night",
+    "text": "Moving in the day helps you sleep at night.",
+    "action": "Walk, run or play for 20 minutes today.",
+    "why": "Moving your body helps sleep and lowers worry.",
+    "technique": "activity"
+   },
+   {
+    "id": "sleep-16",
+    "n": 16,
+    "title": "Late food",
+    "text": "A big meal right before bed can spoil your sleep.",
+    "action": "Eat your big meal 2 to 3 hours before bed tonight.",
+    "why": "Regular sleep times and a calm bedtime help you sleep better.",
+    "technique": "sleep_hygiene"
+   },
+   {
+    "id": "sleep-17",
+    "n": 17,
+    "title": "Look at your sleep notes",
+    "text": "Your notes show patterns since Day 1.",
+    "action": "Write your usual bedtime, wake time, and one pattern.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "sleep-18",
+    "n": 18,
+    "title": "Move bedtime slowly",
+    "text": "Big changes do not last. Move bedtime 15 minutes earlier.",
+    "action": "Go to bed 15 minutes earlier tonight.",
+    "why": "Regular sleep times and a calm bedtime help you sleep better.",
+    "technique": "sleep_hygiene"
+   },
+   {
+    "id": "sleep-19",
+    "n": 19,
+    "title": "Sleep and mood",
+    "text": "Many people feel cross or stressed after short nights.",
+    "action": "Rate your mood 1 to 5. Write how many hours you slept.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "sleep-20",
+    "n": 20,
+    "title": "Exam-time sleep plan",
+    "text": "In exam time, sleep matters most. Plan it now.",
+    "action": "Write your exam-time plan: bedtime, calm time, no late coffee.",
+    "why": "Sleep saves what you learned. Less sleep means you forget more.",
+    "technique": "sleep_memory"
+   },
+   {
+    "id": "sleep-21",
+    "n": 21,
+    "title": "After a late night",
+    "text": "Weddings and holidays mean late nights. Wake at your usual time anyway.",
+    "action": "Write your plan for the day after a late night.",
+    "why": "Very different sleep times on weekends make Monday feel bad.",
+    "technique": "social_jetlag"
+   },
+   {
+    "id": "sleep-22",
+    "n": 22,
+    "title": "\"Just one more video\"",
+    "text": "Videos are made to keep you watching. Plan a stop.",
+    "action": "Write: \"If a video ends after 10 pm, I stop.\"",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   },
+   {
+    "id": "sleep-23",
+    "n": 23,
+    "title": "When to tell someone",
+    "text": "If sleep stays hard for weeks, tell a parent, teacher or nurse.",
+    "action": "Write who you would talk to if sleep stays hard.",
+    "why": "People you can talk to make stress lighter.",
+    "technique": "social_support"
+   },
+   {
+    "id": "sleep-24",
+    "n": 24,
+    "title": "Your sleep card",
+    "text": "Put your best sleep habits on one card.",
+    "action": "Write your card: wake time, calm time, phone spot, coffee time.",
+    "why": "Same time, same place, every day: that is how habits grow.",
+    "technique": "habit_formation"
+   },
+   {
+    "id": "sleep-25",
+    "n": 25,
+    "title": "After Day 30",
+    "text": "Plans keep your sleep rhythm going.",
+    "action": "Write three \"if… then…\" plans for your sleep next month.",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   }
+  ],
+  "phone": [
+   {
+    "id": "phone-01",
+    "n": 1,
+    "title": "Your phone is not the enemy",
+    "text": "Phones are useful. Many apps are made to grab you. Use it on purpose.",
+    "action": "Write how long you used your phone today, and on what.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "phone-02",
+    "n": 2,
+    "title": "Out of sight",
+    "text": "A phone on the desk takes attention, even when quiet.",
+    "action": "For one study time, put your phone in another room.",
+    "why": "A phone close by steals some attention, even when silent.",
+    "technique": "phone_friction"
+   },
+   {
+    "id": "phone-03",
+    "n": 3,
+    "title": "Fewer buzzes",
+    "text": "Every buzz pulls at your attention. Fewer sounds, fewer breaks.",
+    "action": "Turn off sounds for apps that are not real people.",
+    "why": "A phone close by steals some attention, even when silent.",
+    "technique": "phone_friction"
+   },
+   {
+    "id": "phone-04",
+    "n": 4,
+    "title": "Make it a bit harder",
+    "text": "Move tempting apps off the first screen. You open them less.",
+    "action": "Move your two most distracting apps into a folder.",
+    "why": "A phone close by steals some attention, even when silent.",
+    "technique": "phone_friction"
+   },
+   {
+    "id": "phone-05",
+    "n": 5,
+    "title": "Plan for the urge",
+    "text": "\"If I reach for my phone, I take one breath and keep going.\"",
+    "action": "Write one \"if… then…\" plan for phone urges. Use it today.",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   },
+   {
+    "id": "phone-06",
+    "n": 6,
+    "title": "Phone-free mornings",
+    "text": "Messages first thing make you rush. Start the day calm.",
+    "action": "Tomorrow, wait 20 minutes after waking before you check your phone.",
+    "why": "Same time, same place, every day: that is how habits grow.",
+    "technique": "habit_formation"
+   },
+   {
+    "id": "phone-07",
+    "n": 7,
+    "title": "Swap, do not just stop",
+    "text": "If you stop scrolling with nothing to do, the urge comes back.",
+    "action": "Write three things to do instead of scrolling when bored.",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   },
+   {
+    "id": "phone-08",
+    "n": 8,
+    "title": "Set a time limit",
+    "text": "A limit makes you stop and choose.",
+    "action": "Set a daily limit for your most-used app.",
+    "why": "A phone close by steals some attention, even when silent.",
+    "technique": "phone_friction"
+   },
+   {
+    "id": "phone-09",
+    "n": 9,
+    "title": "Grey screen test",
+    "text": "A grey screen makes colourful apps less tempting.",
+    "action": "Turn your screen grey for one day. Notice the change.",
+    "why": "A phone close by steals some attention, even when silent.",
+    "technique": "phone_friction"
+   },
+   {
+    "id": "phone-10",
+    "n": 10,
+    "title": "Clean your feed",
+    "text": "Some accounts make you feel worse. You can mute them.",
+    "action": "Mute five accounts or groups that make you feel bad.",
+    "why": "Checking a bad thought and finding a fairer one helps you.",
+    "technique": "thought_check"
+   },
+   {
+    "id": "phone-11",
+    "n": 11,
+    "title": "Phone-free people time",
+    "text": "A phone on the table takes away from talking.",
+    "action": "Have one meal or coffee time today with no phone.",
+    "why": "A phone close by steals some attention, even when silent.",
+    "technique": "phone_friction"
+   },
+   {
+    "id": "phone-12",
+    "n": 12,
+    "title": "Park your phone at night",
+    "text": "A phone in bed pushes sleep later.",
+    "action": "Tonight, charge your phone away from your bed.",
+    "why": "Regular sleep times and a calm bedtime help you sleep better.",
+    "technique": "sleep_hygiene"
+   },
+   {
+    "id": "phone-13",
+    "n": 13,
+    "title": "Check at set times",
+    "text": "Checking all day breaks your day into pieces.",
+    "action": "Pick three times today to check messages.",
+    "why": "Short study times with planned breaks keep your mind fresh.",
+    "technique": "timeboxing"
+   },
+   {
+    "id": "phone-14",
+    "n": 14,
+    "title": "\"I will miss something!\"",
+    "text": "It feels true. It is rarely true. Messages wait.",
+    "action": "Write: \"Important messages will still be there in 25 minutes.\"",
+    "why": "Checking a bad thought and finding a fairer one helps you.",
+    "technique": "thought_check",
+    "tool": "reframe"
+   },
+   {
+    "id": "phone-15",
+    "n": 15,
+    "title": "Study mode",
+    "text": "Turn on silent or flight mode while you study. 4 works offline.",
+    "action": "Turn on flight mode for one study block.",
+    "why": "A phone close by steals some attention, even when silent.",
+    "technique": "phone_friction",
+    "tool": "pomodoro"
+   },
+   {
+    "id": "phone-16",
+    "n": 16,
+    "title": "Tell your friends",
+    "text": "Tell friends when you are studying. They will not wait for fast replies.",
+    "action": "Tell your group chat when you will be offline today.",
+    "why": "Students who set their own small deadlines did better.",
+    "technique": "precommitment"
+   },
+   {
+    "id": "phone-17",
+    "n": 17,
+    "title": "Count the urges",
+    "text": "When do you want your phone? Bored? Stuck? Worried?",
+    "action": "Count your phone urges in one study time. Note why.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "phone-18",
+    "n": 18,
+    "title": "Slip without a spiral",
+    "text": "Lost an evening to your phone? It happens. Be kind. Try again.",
+    "action": "If you slip, write one kind sentence and one plan for tomorrow.",
+    "why": "Students who forgave themselves put things off less next time.",
+    "technique": "self_compassion"
+   },
+   {
+    "id": "phone-19",
+    "n": 19,
+    "title": "Screens off time",
+    "text": "Pick a time each evening when screens go off.",
+    "action": "Choose a screens-off time tonight. Keep it.",
+    "why": "Regular sleep times and a calm bedtime help you sleep better.",
+    "technique": "sleep_hygiene"
+   },
+   {
+    "id": "phone-20",
+    "n": 20,
+    "title": "Make your phone your helper",
+    "text": "Use it for good: study timer, reminders, alarm.",
+    "action": "Set two reminders: \"start studying\" and \"get ready for bed\".",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   },
+   {
+    "id": "phone-21",
+    "n": 21,
+    "title": "Busy group chats",
+    "text": "Mute busy groups. Check them at set times.",
+    "action": "Mute one busy group chat today.",
+    "why": "A phone close by steals some attention, even when silent.",
+    "technique": "phone_friction"
+   },
+   {
+    "id": "phone-22",
+    "n": 22,
+    "title": "Five minutes of nothing",
+    "text": "Sitting with your thoughts is hard. Practice makes slow work easier.",
+    "action": "Sit 5 minutes with no phone and no music. Notice what happens.",
+    "why": "Practising quiet time helps you handle slow, dull work.",
+    "technique": "boredom"
+   },
+   {
+    "id": "phone-23",
+    "n": 23,
+    "title": "Compare with Day 1",
+    "text": "Look at your phone time now. What changed?",
+    "action": "Write your phone time now and one thing that helped.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "phone-24",
+    "n": 24,
+    "title": "Your phone rules",
+    "text": "Turn what worked into a few simple rules.",
+    "action": "Write three phone rules, like \"phone stays away while I study\".",
+    "why": "Same time, same place, every day: that is how habits grow.",
+    "technique": "habit_formation"
+   },
+   {
+    "id": "phone-25",
+    "n": 25,
+    "title": "After Day 30",
+    "text": "Plans keep your balance.",
+    "action": "Write three \"if… then…\" plans for your phone next month.",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   }
+  ],
+  "motivation": [
+   {
+    "id": "motivation-01",
+    "n": 1,
+    "title": "Doing comes first",
+    "text": "We wait to feel like it. But the feeling comes after we start.",
+    "action": "Pick one goal. Do a 2-minute version today.",
+    "why": "Same time, same place, every day: that is how habits grow.",
+    "technique": "habit_formation",
+    "tool": "twomin"
+   },
+   {
+    "id": "motivation-02",
+    "n": 2,
+    "title": "Find your reason",
+    "text": "Link school to what you care about: a job, your family, your village.",
+    "action": "Write two sentences: how can one subject help you or others?",
+    "why": "You try harder when you see why it matters to you.",
+    "technique": "autonomy_purpose",
+    "tool": "goal"
+   },
+   {
+    "id": "motivation-03",
+    "n": 3,
+    "title": "Your choice",
+    "text": "Feeling in charge helps. Even choosing the first task helps.",
+    "action": "Today, choose the order of your tasks yourself.",
+    "why": "You try harder when you see why it matters to you.",
+    "technique": "autonomy_purpose"
+   },
+   {
+    "id": "motivation-04",
+    "n": 4,
+    "title": "Your brain can grow",
+    "text": "Skills grow with effort, good methods and help.",
+    "action": "Write about one skill you got better at by practice.",
+    "why": "Knowing your brain can grow helped many students do better.",
+    "technique": "growth_mindset"
+   },
+   {
+    "id": "motivation-05",
+    "n": 5,
+    "title": "Count small wins",
+    "text": "Small progress keeps you going. Write it down.",
+    "action": "Write three small wins from today.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "motivation-06",
+    "n": 6,
+    "title": "Wish, picture, problem, plan",
+    "text": "Picture your goal. Picture what may stop you. Plan for it.",
+    "action": "For one goal, write: wish, best result, problem, plan.",
+    "why": "Thinking about the problem before it comes helps you beat it. It was tested with high school students.",
+    "technique": "mcii"
+   },
+   {
+    "id": "motivation-07",
+    "n": 7,
+    "title": "Join it to a habit",
+    "text": "\"After dinner, I read my notes for 10 minutes.\"",
+    "action": "Write one \"after… I will…\" sentence. Try it today.",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   },
+   {
+    "id": "motivation-08",
+    "n": 8,
+    "title": "Better together",
+    "text": "Studying with a friend makes it less lonely.",
+    "action": "Ask one friend to study with you this week.",
+    "why": "People you can talk to make stress lighter.",
+    "technique": "social_support"
+   },
+   {
+    "id": "motivation-09",
+    "n": 9,
+    "title": "\"Not yet\"",
+    "text": "\"I am bad at maths\" shuts the door. \"Not yet\" keeps it open.",
+    "action": "Change one \"I can't\" into \"I can't yet. I can try…\"",
+    "why": "Knowing your brain can grow helped many students do better.",
+    "technique": "growth_mindset",
+    "tool": "reframe"
+   },
+   {
+    "id": "motivation-10",
+    "n": 10,
+    "title": "Why it matters to you",
+    "text": "How could today's topic help in real life? On the farm? At home?",
+    "action": "Write a few lines: how is today's topic useful in your life?",
+    "why": "You try harder when you see why it matters to you.",
+    "technique": "autonomy_purpose"
+   },
+   {
+    "id": "motivation-11",
+    "n": 11,
+    "title": "Rewards that help",
+    "text": "A small treat after studying makes starting easier.",
+    "action": "Pick a small treat for after one study task today.",
+    "why": "Pairing a dull task with something you enjoy makes it easier to do.",
+    "technique": "temptation_bundling"
+   },
+   {
+    "id": "motivation-12",
+    "n": 12,
+    "title": "No-energy days",
+    "text": "Some days you will not feel it. Do 10 minutes anyway.",
+    "action": "Today, do just 10 minutes of something on your list.",
+    "why": "Short study times with planned breaks keep your mind fresh.",
+    "technique": "timeboxing"
+   },
+   {
+    "id": "motivation-13",
+    "n": 13,
+    "title": "Big goal, small steps",
+    "text": "Link your matric goal to this week's small steps.",
+    "action": "Write one big goal. Write three steps for this week.",
+    "why": "Small, clear steps are easier to start. Each one done gives you hope.",
+    "technique": "task_breakdown",
+    "tool": "goal"
+   },
+   {
+    "id": "motivation-14",
+    "n": 14,
+    "title": "See how you grew",
+    "text": "Seeing your skills grow gives you energy.",
+    "action": "Compare something you can do now with a month ago.",
+    "why": "You try harder when you see why it matters to you.",
+    "technique": "autonomy_purpose"
+   },
+   {
+    "id": "motivation-15",
+    "n": 15,
+    "title": "Mistakes teach",
+    "text": "Every mistake shows what to practise next.",
+    "action": "Look at one mistake. Write what it teaches you.",
+    "why": "Knowing your brain can grow helped many students do better.",
+    "technique": "growth_mindset"
+   },
+   {
+    "id": "motivation-16",
+    "n": 16,
+    "title": "Fuel your body",
+    "text": "Low energy can feel like no motivation. Sleep, food and water matter.",
+    "action": "Fix one basic today: sleep, water, food or a walk.",
+    "why": "Moving your body helps sleep and lowers worry.",
+    "technique": "activity"
+   },
+   {
+    "id": "motivation-17",
+    "n": 17,
+    "title": "Even great people struggled",
+    "text": "Famous scientists failed many times before they succeeded.",
+    "action": "Think of someone you admire who struggled first.",
+    "why": "Learning that great scientists struggled helped students try harder.",
+    "technique": "struggle_stories"
+   },
+   {
+    "id": "motivation-18",
+    "n": 18,
+    "title": "Bigger than you",
+    "text": "Learning can help others: your family, your village, your country.",
+    "action": "Write one way your learning could help others one day.",
+    "why": "You try harder when you see why it matters to you.",
+    "technique": "autonomy_purpose"
+   },
+   {
+    "id": "motivation-19",
+    "n": 19,
+    "title": "What matters most to you",
+    "text": "Writing about what you value lowers stress.",
+    "action": "Write for 5 minutes about something that really matters to you.",
+    "why": "Writing about what matters to you can lower stress.",
+    "technique": "values_affirmation"
+   },
+   {
+    "id": "motivation-20",
+    "n": 20,
+    "title": "Plan for low days",
+    "text": "Low days will come. Plan a small version now.",
+    "action": "Write: \"If I feel low, I will do 10 minutes of…\"",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   },
+   {
+    "id": "motivation-21",
+    "n": 21,
+    "title": "Celebrate",
+    "text": "You are three weeks in. Be proud of your effort.",
+    "action": "Celebrate in a small way. Write what you are proud of.",
+    "why": "Noticing good things and planning small joys lifts your mood.",
+    "technique": "positive_activities"
+   },
+   {
+    "id": "motivation-22",
+    "n": 22,
+    "title": "Help someone else",
+    "text": "Students who gave study tips to younger students did better too.",
+    "action": "Share one study tip with a brother, sister or classmate.",
+    "why": "Students who gave study tips to others did better themselves.",
+    "technique": "giving_advice"
+   },
+   {
+    "id": "motivation-23",
+    "n": 23,
+    "title": "Look back",
+    "text": "What gave you energy these weeks? What took it away?",
+    "action": "Write two things that helped and one that drained you.",
+    "why": "Keeping track of your progress helps you reach your goal.",
+    "technique": "self_monitoring"
+   },
+   {
+    "id": "motivation-24",
+    "n": 24,
+    "title": "Your drive kit",
+    "text": "Keep your best tools in one place: your reason, small steps, rewards.",
+    "action": "Write your list of drive tools in your notebook.",
+    "why": "Same time, same place, every day: that is how habits grow.",
+    "technique": "habit_formation"
+   },
+   {
+    "id": "motivation-25",
+    "n": 25,
+    "title": "After Day 30",
+    "text": "Plans keep you going.",
+    "action": "Write three \"if… then…\" plans for next month.",
+    "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+    "technique": "implementation_intentions"
+   }
+  ]
+ },
+ "techniques": {
+  "implementation_intentions": {
+   "name": "If-then plans (implementation intentions)",
+   "why": "A clear \"when… then…\" plan makes you far more likely to act.",
+   "sources": [
+    {
+     "cite": "Gollwitzer, P. M. (1999). Implementation intentions: Strong effects of simple plans. American Psychologist, 54(7), 493-503.",
+     "doi": "10.1037/0003-066X.54.7.493",
+     "verified": false
+    },
+    {
+     "cite": "Gollwitzer, P. M., & Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology, 38, 69-119.",
+     "doi": "10.1016/S0065-2601(06)38002-1",
+     "verified": false
+    }
+   ]
+  },
+  "mcii": {
+   "name": "WOOP (mental contrasting + if-then plans)",
+   "why": "Thinking about the problem before it comes helps you beat it. It was tested with high school students.",
+   "sources": [
+    {
+     "cite": "Duckworth, A. L., Grant, H., Loew, B., Oettingen, G., & Gollwitzer, P. M. (2011). Self-regulation strategies improve self-discipline in adolescents: Benefits of mental contrasting and implementation intentions. Educational Psychology, 31(1), 17-26.",
+     "doi": "10.1080/01443410.2010.506003",
+     "verified": true
+    }
+   ]
+  },
+  "task_breakdown": {
+   "name": "Task breakdown and near-term goals",
+   "why": "Small, clear steps are easier to start. Each one done gives you hope.",
+   "sources": [
+    {
+     "cite": "Bandura, A., & Schunk, D. H. (1981). Cultivating competence, self-efficacy, and intrinsic interest through proximal self-motivation. Journal of Personality and Social Psychology, 41(3), 586-598.",
+     "doi": "10.1037/0022-3514.41.3.586",
+     "verified": false
+    },
+    {
+     "cite": "Locke, E. A., & Latham, G. P. (2002). Building a practically useful theory of goal setting and task motivation. American Psychologist, 57(9), 705-717.",
+     "doi": "10.1037/0003-066X.57.9.705",
+     "verified": false
+    }
+   ]
+  },
+  "timeboxing": {
+   "name": "Pomodoro and timeboxing (planned breaks)",
+   "why": "Short study times with planned breaks keep your mind fresh.",
+   "sources": [
+    {
+     "cite": "Biwer, F., Wiradhany, W., oude Egbrink, M. G. A., & de Bruin, A. B. H. (2023). Understanding effort regulation: Comparing 'Pomodoro' breaks and self-regulated breaks. British Journal of Educational Psychology, 93(S2), 353-367.",
+     "doi": "10.1111/bjep.12593",
+     "verified": true
+    },
+    {
+     "cite": "Ariga, A., & Lleras, A. (2011). Brief and rare mental 'breaks' keep you focused. Cognition, 118(3), 439-443.",
+     "doi": "10.1016/j.cognition.2010.12.007",
+     "verified": false
+    }
+   ]
+  },
+  "retrieval_spacing": {
+   "name": "Practice testing and spaced practice",
+   "why": "Testing yourself, a few days apart, is a top way to learn.",
+   "sources": [
+    {
+     "cite": "Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., & Willingham, D. T. (2013). Improving students' learning with effective learning techniques. Psychological Science in the Public Interest, 14(1), 4-58.",
+     "doi": "10.1177/1529100612453266",
+     "verified": false
+    }
+   ]
+  },
+  "sleep_hygiene": {
+   "name": "Sleep hygiene and regular sleep timing",
+   "why": "Regular sleep times and a calm bedtime help you sleep better.",
+   "sources": [
+    {
+     "cite": "Irish, L. A., Kline, C. E., Gunn, H. E., Buysse, D. J., & Hall, M. H. (2015). The role of sleep hygiene in promoting public health: A review of empirical evidence. Sleep Medicine Reviews, 22, 23-36.",
+     "doi": "10.1016/j.smrv.2014.10.001",
+     "verified": false
+    },
+    {
+     "cite": "Paruthi, S., et al. (2016). Recommended amount of sleep for pediatric populations: A consensus statement of the American Academy of Sleep Medicine. Journal of Clinical Sleep Medicine, 12(6), 785-786.",
+     "doi": "10.5664/jcsm.5866",
+     "verified": false
+    },
+    {
+     "cite": "Hirshkowitz, M., et al. (2015). National Sleep Foundation's sleep time duration recommendations. Sleep Health, 1(1), 40-43.",
+     "doi": "10.1016/j.sleh.2014.12.010",
+     "verified": false
+    }
+   ]
+  },
+  "caffeine_timing": {
+   "name": "Caffeine timing",
+   "why": "Coffee or strong tea, even 6 hours before bed, can cut your sleep.",
+   "sources": [
+    {
+     "cite": "Drake, C., Roehrs, T., Shambroom, J., & Roth, T. (2013). Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. Journal of Clinical Sleep Medicine, 9(11), 1195-1200.",
+     "doi": "10.5664/jcsm.3170",
+     "verified": false
+    }
+   ]
+  },
+  "bedtime_todo": {
+   "name": "Bedtime to-do list",
+   "why": "Writing tomorrow's list helped people fall asleep faster.",
+   "sources": [
+    {
+     "cite": "Scullin, M. K., Krueger, M. L., Ballard, H. K., Pruett, N., & Bliwise, D. L. (2018). The effects of bedtime writing on difficulty falling asleep. Journal of Experimental Psychology: General, 147(1), 139-146.",
+     "doi": "10.1037/xge0000374",
+     "verified": false
+    }
+   ]
+  },
+  "sleep_memory": {
+   "name": "Sleep and memory",
+   "why": "Sleep saves what you learned. Less sleep means you forget more.",
+   "sources": [
+    {
+     "cite": "Diekelmann, S., & Born, J. (2010). The memory function of sleep. Nature Reviews Neuroscience, 11(2), 114-126.",
+     "doi": "10.1038/nrn2762",
+     "verified": false
+    }
+   ]
+  },
+  "social_jetlag": {
+   "name": "Social jetlag",
+   "why": "Very different sleep times on weekends make Monday feel bad.",
+   "sources": [
+    {
+     "cite": "Wittmann, M., Dinich, J., Merrow, M., & Roenneberg, T. (2006). Social jetlag: Misalignment of biological and social time. Chronobiology International, 23(1-2), 497-509.",
+     "doi": "10.1080/07420520500545979",
+     "verified": false
+    }
+   ]
+  },
+  "activity": {
+   "name": "Physical activity",
+   "why": "Moving your body helps sleep and lowers worry.",
+   "sources": [
+    {
+     "cite": "Kredlow, M. A., Capozzoli, M. C., Hearon, B. A., Calkins, A. W., & Otto, M. W. (2015). The effects of physical activity on sleep: A meta-analytic review. Journal of Behavioral Medicine, 38(3), 427-449.",
+     "doi": "10.1007/s10865-015-9617-6",
+     "verified": false
+    },
+    {
+     "cite": "Rebar, A. L., et al. (2015). A meta-meta-analysis of the effect of physical activity on depression and anxiety in non-clinical adult populations. Health Psychology Review, 9(3), 366-378.",
+     "doi": "10.1080/17437199.2015.1022901",
+     "verified": false
+    }
+   ]
+  },
+  "phone_friction": {
+   "name": "Phone friction (distance, notifications, design)",
+   "why": "A phone close by steals some attention, even when silent.",
+   "sources": [
+    {
+     "cite": "Ward, A. F., Duke, K., Gneezy, A., & Bos, M. W. (2017). Brain drain: The mere presence of one's own smartphone reduces available cognitive capacity. Journal of the Association for Consumer Research, 2(2), 140-154.",
+     "doi": "10.1086/691462",
+     "verified": false
+    },
+    {
+     "cite": "Kushlev, K., Proulx, J., & Dunn, E. W. (2016). 'Silence your phones': Smartphone notifications increase inattention and hyperactivity symptoms. Proceedings of CHI 2016, 1011-1020.",
+     "doi": "10.1145/2858036.2858359",
+     "verified": false
+    },
+    {
+     "cite": "Holte, A. J., & Ferraro, F. R. (2020). True colors: Grayscale setting reduces screen time in college students. The Social Science Journal.",
+     "doi": "10.1080/03623319.2020.1737461",
+     "verified": false
+    }
+   ]
+  },
+  "self_compassion": {
+   "name": "Self-compassion and self-forgiveness",
+   "why": "Students who forgave themselves put things off less next time.",
+   "sources": [
+    {
+     "cite": "Wohl, M. J. A., Pychyl, T. A., & Bennett, S. H. (2010). I forgive myself, now I can study: How self-forgiveness for procrastinating can reduce future procrastination. Personality and Individual Differences, 48(7), 803-808.",
+     "doi": "10.1016/j.paid.2010.01.029",
+     "verified": false
+    },
+    {
+     "cite": "Sirois, F. M. (2014). Procrastination and stress: Exploring the role of self-compassion. Self and Identity, 13(2), 128-145.",
+     "doi": "10.1080/15298868.2013.763404",
+     "verified": false
+    },
+    {
+     "cite": "Neff, K. D. (2003). Self-compassion: An alternative conceptualization of a healthy attitude toward oneself. Self and Identity, 2(2), 85-101.",
+     "doi": "10.1080/15298860309032",
+     "verified": false
+    }
+   ]
+  },
+  "procrastination_mood": {
+   "name": "Procrastination as mood repair",
+   "why": "We put things off to escape a bad feeling. It is not laziness.",
+   "sources": [
+    {
+     "cite": "Steel, P. (2007). The nature of procrastination: A meta-analytic and theoretical review of quintessential self-regulatory failure. Psychological Bulletin, 133(1), 65-94.",
+     "doi": "10.1037/0033-2909.133.1.65",
+     "verified": false
+    }
+   ]
+  },
+  "precommitment": {
+   "name": "Self-set deadlines and precommitment",
+   "why": "Students who set their own small deadlines did better.",
+   "sources": [
+    {
+     "cite": "Ariely, D., & Wertenbroch, K. (2002). Procrastination, deadlines, and performance: Self-control by precommitment. Psychological Science, 13(3), 219-224.",
+     "doi": "10.1111/1467-9280.00441",
+     "verified": false
+    }
+   ]
+  },
+  "temptation_bundling": {
+   "name": "Temptation bundling",
+   "why": "Pairing a dull task with something you enjoy makes it easier to do.",
+   "sources": [
+    {
+     "cite": "Milkman, K. L., Minson, J. A., & Volpp, K. G. M. (2014). Holding the Hunger Games hostage at the gym: An evaluation of temptation bundling. Management Science, 60(2), 283-299.",
+     "doi": "10.1287/mnsc.2013.1784",
+     "verified": false
+    }
+   ]
+  },
+  "planning_fallacy": {
+   "name": "The planning fallacy",
+   "why": "Most people think tasks take less time than they do. Timing yourself fixes this.",
+   "sources": [
+    {
+     "cite": "Buehler, R., Griffin, D., & Ross, M. (1994). Exploring the 'planning fallacy'. Journal of Personality and Social Psychology, 67(3), 366-381.",
+     "doi": "10.1037/0022-3514.67.3.366",
+     "verified": false
+    }
+   ]
+  },
+  "self_monitoring": {
+   "name": "Progress monitoring",
+   "why": "Keeping track of your progress helps you reach your goal.",
+   "sources": [
+    {
+     "cite": "Harkin, B., et al. (2016). Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin, 142(2), 198-229.",
+     "doi": "10.1037/bul0000025",
+     "verified": false
+    }
+   ]
+  },
+  "habit_formation": {
+   "name": "Habit formation",
+   "why": "Same time, same place, every day: that is how habits grow.",
+   "sources": [
+    {
+     "cite": "Lally, P., van Jaarsveld, C. H. M., Potts, H. W. W., & Wardle, J. (2010). How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology, 40(6), 998-1009.",
+     "doi": "10.1002/ejsp.674",
+     "verified": false
+    }
+   ]
+  },
+  "thought_check": {
+   "name": "Thought check (CBT-style cognitive restructuring)",
+   "why": "Checking a bad thought and finding a fairer one helps you.",
+   "sources": [
+    {
+     "cite": "Hofmann, S. G., Asnaani, A., Vonk, I. J. J., Sawyer, A. T., & Fang, A. (2012). The efficacy of cognitive behavioral therapy: A review of meta-analyses. Cognitive Therapy and Research, 36(5), 427-440.",
+     "doi": "10.1007/s10608-012-9476-1",
+     "verified": false
+    }
+   ]
+  },
+  "growth_mindset": {
+   "name": "Growth mindset",
+   "why": "Knowing your brain can grow helped many students do better.",
+   "sources": [
+    {
+     "cite": "Yeager, D. S., et al. (2019). A national experiment reveals where a growth mindset improves achievement. Nature, 573, 364-369.",
+     "doi": "10.1038/s41586-019-1466-y",
+     "verified": false
+    },
+    {
+     "cite": "Sisk, V. F., Burgoyne, A. P., Sun, J., Butler, J. L., & Macnamara, B. N. (2018). To what extent and under which circumstances are growth mind-sets important to academic achievement? Two meta-analyses. Psychological Science, 29(4), 549-571.",
+     "doi": "10.1177/0956797617739704",
+     "verified": false
+    }
+   ]
+  },
+  "stress_reappraisal": {
+   "name": "Stress reappraisal",
+   "why": "Seeing a fast heartbeat as \"getting ready\" helped students in exams.",
+   "sources": [
+    {
+     "cite": "Jamieson, J. P., Mendes, W. B., Blackstock, E., & Schmader, T. (2010). Turning the knots in your stomach into bows: Reappraising arousal improves performance on the GRE. Journal of Experimental Social Psychology, 46(1), 208-212.",
+     "doi": "10.1016/j.jesp.2009.08.015",
+     "verified": false
+    }
+   ]
+  },
+  "expressive_writing": {
+   "name": "Expressive writing about worries",
+   "why": "Writing worries down before a test helped students get better marks.",
+   "sources": [
+    {
+     "cite": "Ramirez, G., & Beilock, S. L. (2011). Writing about testing worries boosts exam performance in the classroom. Science, 331(6014), 211-213.",
+     "doi": "10.1126/science.1199427",
+     "verified": false
+    }
+   ]
+  },
+  "breathing": {
+   "name": "Slow breathing (cyclic sighing)",
+   "why": "Slow breathing with a long breath out calms your body in minutes.",
+   "sources": [
+    {
+     "cite": "Balban, M. Y., et al. (2023). Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine, 4(1), 100895.",
+     "doi": "10.1016/j.xcrm.2022.100895",
+     "verified": false
+    }
+   ]
+  },
+  "worry_time": {
+   "name": "Scheduled worry time",
+   "why": "Giving worries a set time stops them filling your whole day.",
+   "sources": [
+    {
+     "cite": "Borkovec, T. D., Wilkinson, L., Folensbee, R., & Lerman, C. (1983). Stimulus control applications to the treatment of worry. Behaviour Research and Therapy, 21(3), 247-251.",
+     "doi": "10.1016/0005-7967(83)90206-1",
+     "verified": false
+    }
+   ]
+  },
+  "social_support": {
+   "name": "Social support and belonging",
+   "why": "People you can talk to make stress lighter.",
+   "sources": [
+    {
+     "cite": "Cohen, S., & Wills, T. A. (1985). Stress, social support, and the buffering hypothesis. Psychological Bulletin, 98(2), 310-357.",
+     "doi": "10.1037/0033-2909.98.2.310",
+     "verified": false
+    },
+    {
+     "cite": "Walton, G. M., Cohen, G. L., Cwir, D., & Spencer, S. J. (2012). Mere belonging: The power of social connections. Journal of Personality and Social Psychology, 102(3), 513-532.",
+     "doi": "10.1037/a0025731",
+     "verified": false
+    }
+   ]
+  },
+  "positive_activities": {
+   "name": "Positive activities",
+   "why": "Noticing good things and planning small joys lifts your mood.",
+   "sources": [
+    {
+     "cite": "Seligman, M. E. P., Steen, T. A., Park, N., & Peterson, C. (2005). Positive psychology progress: Empirical validation of interventions. American Psychologist, 60(5), 410-421.",
+     "doi": "10.1037/0003-066X.60.5.410",
+     "verified": false
+    },
+    {
+     "cite": "Lyubomirsky, S., & Layous, K. (2013). How do simple positive activities increase well-being? Current Directions in Psychological Science, 22(1), 57-62.",
+     "doi": "10.1177/0963721412469809",
+     "verified": false
+    }
+   ]
+  },
+  "mindfulness": {
+   "name": "Brief mindfulness",
+   "why": "Calm attention to the present moment lowers stress.",
+   "sources": [
+    {
+     "cite": "Khoury, B., Sharma, M., Rush, S. E., & Fournier, C. (2015). Mindfulness-based stress reduction for healthy individuals: A meta-analysis. Journal of Psychosomatic Research, 78(6), 519-528.",
+     "doi": "10.1016/j.jpsychores.2015.03.009",
+     "verified": false
+    }
+   ]
+  },
+  "autonomy_purpose": {
+   "name": "Autonomy, relevance and purpose",
+   "why": "You try harder when you see why it matters to you.",
+   "sources": [
+    {
+     "cite": "Ryan, R. M., & Deci, E. L. (2000). Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being. American Psychologist, 55(1), 68-78.",
+     "doi": "10.1037/0003-066X.55.1.68",
+     "verified": false
+    },
+    {
+     "cite": "Yeager, D. S., et al. (2014). Boring but important: A self-transcendent purpose for learning fosters academic self-regulation. Journal of Personality and Social Psychology, 107(4), 559-580.",
+     "doi": "10.1037/a0037637",
+     "verified": false
+    },
+    {
+     "cite": "Hulleman, C. S., & Harackiewicz, J. M. (2009). Promoting interest and performance in high school science classes. Science, 326(5958), 1410-1412.",
+     "doi": "10.1126/science.1177067",
+     "verified": false
+    }
+   ]
+  },
+  "values_affirmation": {
+   "name": "Values affirmation",
+   "why": "Writing about what matters to you can lower stress.",
+   "sources": [
+    {
+     "cite": "Cohen, G. L., & Sherman, D. K. (2014). The psychology of change: Self-affirmation and social psychological intervention. Annual Review of Psychology, 65, 333-371.",
+     "doi": "10.1146/annurev-psych-010213-115137",
+     "verified": false
+    }
+   ]
+  },
+  "struggle_stories": {
+   "name": "Struggle stories",
+   "why": "Learning that great scientists struggled helped students try harder.",
+   "sources": [
+    {
+     "cite": "Lin-Siegler, X., Ahn, J. N., Chen, J., Fang, F.-F. A., & Luna-Lucero, M. (2016). Even Einstein struggled. Journal of Educational Psychology, 108(3), 314-328.",
+     "doi": "10.1037/edu0000092",
+     "verified": false
+    }
+   ]
+  },
+  "giving_advice": {
+   "name": "Giving advice",
+   "why": "Students who gave study tips to others did better themselves.",
+   "sources": [
+    {
+     "cite": "Eskreis-Winkler, L., Milkman, K. L., Gromet, D. M., & Duckworth, A. L. (2019). A large-scale field experiment shows giving advice improves academic outcomes for the advisor. PNAS, 116(30), 14808-14810.",
+     "doi": "10.1073/pnas.1908779116",
+     "verified": false
+    }
+   ]
+  },
+  "boredom": {
+   "name": "Boredom tolerance",
+   "why": "Practising quiet time helps you handle slow, dull work.",
+   "sources": [
+    {
+     "cite": "Wilson, T. D., et al. (2014). Just think: The challenges of the disengaged mind. Science, 345(6192), 75-77.",
+     "doi": "10.1126/science.1250830",
+     "verified": false
+    }
+   ]
+  }
+ }
+}
