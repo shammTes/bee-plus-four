@@ -135,6 +135,12 @@
      "title": "Exothermic and endothermic energy diagrams",
      "page": 161,
      "pins": []
+    },
+    "co_bonds": {
+     "svg": "svg/chemistry_10/chem10_u5_co_bonds.svg",
+     "title": "Bond breaking and bond making: ΔH for H₂ + Cl₂ → 2HCl",
+     "page": 158,
+     "pins": []
     }
    },
    "lessons": [
@@ -194,6 +200,288 @@
        ]
       },
       {
+       "id": "chem10-u5-co-c01",
+       "type": "text",
+       "title": "5.1.4 Enthalpy and ΔH, step by step",
+       "page": 157,
+       "src": "notes",
+       "body": [
+        "Every substance stores energy in its bonds. The **heat content** of a substance at constant pressure is called its **enthalpy, H**. We cannot measure H itself, but we can measure the **change**, ΔH (“delta H”), during a reaction.",
+        "$$\\Delta H = H_{\\text{products}} - H_{\\text{reactants}} = H_P - H_R$$",
+        "**Step 1 — Bonds in the reactants are broken.** This never happens by itself: energy must be **supplied** (absorbed), so this stage is endothermic.",
+        "**Step 2 — New bonds in the products are formed.** This happens by itself and energy is **released**, so this stage is exothermic.",
+        "**Step 3 — Compare the two amounts:**",
+        "$$\\Delta H = \\sum(\\text{energy to break bonds}) - \\sum(\\text{energy released forming bonds})$$",
+        "If more energy is released than absorbed, ΔH is **negative** (exothermic, H_P < H_R). If more is absorbed, ΔH is **positive** (endothermic, H_P > H_R).",
+        "**Unit:** kilojoules per mole, **kJ/mol** — per mole of reaction as written in the equation.",
+        "**Activity 5.5 explained:** adding quicklime (CaO) to water makes the beaker hot. Heat flows **from the beaker to your hand**: the reaction CaO + H₂O → Ca(OH)₂ releases energy, so ΔH is negative."
+       ]
+      },
+      {
+       "id": "chem10-u5-co-s01",
+       "type": "steps",
+       "title": "Model: break bonds, then make bonds (H₂ + Cl₂ → 2HCl)",
+       "page": 158,
+       "src": "notes",
+       "diagram": "co_bonds",
+       "steps": [
+        {
+         "text": "**Break:** H–H (436 kJ) and Cl–Cl (243 kJ) need 679 kJ in total — the energy goes **up** to separate atoms.",
+         "show": "break"
+        },
+        {
+         "text": "**Make:** two H–Cl bonds form (2 × 432 = 864 kJ) — energy comes **out**.",
+         "show": "make"
+        },
+        {
+         "text": "**Net:** ΔH = 679 − 864 = **−185 kJ** per mole of reaction: the products are lower, the reaction is exothermic.",
+         "show": "net"
+        }
+       ]
+      },
+      {
+       "id": "chem10-u5-co-t01",
+       "type": "table",
+       "title": "Bond energies (kJ/mol) — textbook Table 5.1 plus values used below",
+       "page": 157,
+       "src": "notes",
+       "head": [
+        "Bond",
+        "Energy",
+        "Bond",
+        "Energy"
+       ],
+       "rows": [
+        [
+         "H–H",
+         "436",
+         "C–H",
+         "413"
+        ],
+        [
+         "Cl–Cl",
+         "243",
+         "C–C",
+         "348"
+        ],
+        [
+         "H–Cl",
+         "432",
+         "C=C",
+         "614"
+        ],
+        [
+         "H–Br",
+         "366",
+         "C≡C",
+         "839"
+        ],
+        [
+         "H–F",
+         "565",
+         "C–O",
+         "360"
+        ],
+        [
+         "O=O",
+         "498",
+         "C=O (in CO₂)",
+         "805"
+        ],
+        [
+         "N≡N",
+         "945",
+         "O–H",
+         "463"
+        ],
+        [
+         "N–H",
+         "391",
+         "",
+         ""
+        ]
+       ],
+       "body": [
+        "Corrections to Table 5.1: the 945 kJ bond is the nitrogen **triple** bond N≡N, and the 839 kJ carbon bond is the **triple** bond C≡C (two lines in the table print “N=N” and a second “C=C”). Triple > double > single."
+       ]
+      },
+      {
+       "id": "chem10-u5-co-t02",
+       "type": "table",
+       "title": "Exothermic and endothermic in terms of enthalpy",
+       "page": 158,
+       "src": "notes",
+       "head": [
+        "",
+        "Exothermic",
+        "Endothermic"
+       ],
+       "rows": [
+        [
+         "Bond energy balance",
+         "released (making) > absorbed (breaking)",
+         "absorbed (breaking) > released (making)"
+        ],
+        [
+         "H_P compared with H_R",
+         "H_P < H_R",
+         "H_P > H_R"
+        ],
+        [
+         "Sign of ΔH",
+         "negative (−)",
+         "positive (+)"
+        ],
+        [
+         "Surroundings",
+         "get warmer",
+         "get colder (or must be heated)"
+        ],
+        [
+         "Example",
+         "CaO + H₂O → Ca(OH)₂",
+         "CaCO₃ → CaO + CO₂"
+        ]
+       ]
+      },
+      {
+       "id": "chem10-u5-co-w01",
+       "type": "worked",
+       "title": "Worked example: ΔH from bond energies (hydrogen chloride)",
+       "page": 158,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Use bond energies to find ΔH for H₂(g) + Cl₂(g) → 2HCl(g). (H–H 436, Cl–Cl 243, H–Cl 432 kJ/mol)",
+       "steps": [
+        {
+         "text": "Bonds broken: 1 H–H + 1 Cl–Cl = 436 + 243 = 679 kJ (absorbed)."
+        },
+        {
+         "text": "Bonds formed: 2 H–Cl = 2 × 432 = 864 kJ (released)."
+        },
+        {
+         "text": "\\(\\Delta H = 679 - 864 = -185\\ \\text{kJ}\\)"
+        },
+        {
+         "text": "Negative → exothermic."
+        }
+       ],
+       "answer": "ΔH = −185 kJ/mol (exothermic)"
+      },
+      {
+       "id": "chem10-u5-co-w02",
+       "type": "worked",
+       "title": "Worked example: the Haber reaction",
+       "page": 158,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Find ΔH for N₂(g) + 3H₂(g) → 2NH₃(g). (N≡N 945, H–H 436, N–H 391 kJ/mol)",
+       "steps": [
+        {
+         "text": "Broken: 1 N≡N + 3 H–H = 945 + 3 × 436 = 945 + 1308 = 2253 kJ."
+        },
+        {
+         "text": "Formed: each NH₃ has 3 N–H, so 2NH₃ has 6 N–H = 6 × 391 = 2346 kJ."
+        },
+        {
+         "text": "\\(\\Delta H = 2253 - 2346 = -93\\ \\text{kJ}\\)"
+        },
+        {
+         "text": "Exothermic. (The measured value is −92 kJ — very close.)"
+        }
+       ],
+       "answer": "ΔH ≈ −93 kJ/mol"
+      },
+      {
+       "id": "chem10-u5-co-w03",
+       "type": "worked",
+       "title": "Worked example: burning methane from bond energies",
+       "page": 158,
+       "src": "notes",
+       "mode": "try",
+       "problem": "Estimate ΔH for CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(g). (C–H 413, O=O 498, C=O 805, O–H 463 kJ/mol)",
+       "steps": [
+        {
+         "text": "Broken: 4 C–H + 2 O=O = 4(413) + 2(498) = 1652 + 996 = 2648 kJ."
+        },
+        {
+         "text": "Formed: 2 C=O + 4 O–H = 2(805) + 4(463) = 1610 + 1852 = 3462 kJ."
+        },
+        {
+         "text": "\\(\\Delta H = 2648 - 3462 = -814\\ \\text{kJ}\\)"
+        },
+        {
+         "text": "Bond energies are **averages**, and here the water is a gas; that is why the answer differs from the measured −890 kJ (with liquid water)."
+        }
+       ],
+       "answer": "ΔH ≈ −814 kJ/mol"
+      },
+      {
+       "id": "chem10-u5-co-w04",
+       "type": "worked",
+       "title": "Worked example: using H_P − H_R",
+       "page": 158,
+       "src": "notes",
+       "mode": "try",
+       "problem": "For a reaction the total enthalpy of the reactants is 250 kJ and of the products 120 kJ. Find ΔH and say whether the reaction is exo- or endothermic. What is ΔH of the reverse reaction?",
+       "steps": [
+        {
+         "text": "\\(\\Delta H = H_P - H_R = 120 - 250 = -130\\ \\text{kJ}\\)"
+        },
+        {
+         "text": "Negative → **exothermic**."
+        },
+        {
+         "text": "Reverse reaction: same size, opposite sign → **+130 kJ** (endothermic)."
+        }
+       ],
+       "answer": "−130 kJ (exothermic); reverse +130 kJ"
+      },
+      {
+       "id": "chem10-u5-co-k01",
+       "type": "check",
+       "title": "Quick check",
+       "page": 158,
+       "src": "notes",
+       "q": "Breaking a chemical bond …",
+       "options": {
+        "A": "releases energy",
+        "B": "absorbs energy",
+        "C": "needs no energy",
+        "D": "always makes the surroundings hot"
+       },
+       "answer": "B",
+       "why": "Energy must be supplied to pull bonded atoms apart. Energy is released when bonds form."
+      },
+      {
+       "id": "chem10-u5-co-k02",
+       "type": "check",
+       "title": "Quick check",
+       "page": 158,
+       "src": "notes",
+       "q": "If H_P is greater than H_R, the reaction is …",
+       "options": {
+        "A": "exothermic, ΔH negative",
+        "B": "endothermic, ΔH positive",
+        "C": "neither",
+        "D": "explosive"
+       },
+       "answer": "B",
+       "why": "ΔH = H_P − H_R > 0 → energy was taken in → endothermic."
+      },
+      {
+       "id": "chem10-u5-co-r01",
+       "type": "remember",
+       "title": "Tips and common mistakes",
+       "page": 158,
+       "src": "notes",
+       "body": [
+        "ΔH = (bonds broken) − (bonds formed) — reactant bonds first. Do not reverse it.",
+        "Count every bond: 2NH₃ has 6 N–H bonds; CO₂ has 2 C=O bonds; 2O₂ has 2 O=O bonds.",
+        "Exothermic → negative ΔH, even though “heat is given out”."
+       ]
+      },
+      {
        "id": "chem10-u5-c05",
        "type": "text",
        "title": "5.1.6 Energy-Level Diagrams",
@@ -231,7 +519,7 @@
        ],
        "rows": [
         [
-         "Burning butane, wood, charcoal: CH₄ + 2O₂ → CO₂ + 2H₂O, ΔH = −890 kJ",
+         "Burning methane (natural gas), wood, charcoal: CH₄ + 2O₂ → CO₂ + 2H₂O, ΔH = −890 kJ",
          "Photosynthesis: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ (needs sunlight)"
         ],
         [
@@ -421,7 +709,7 @@
        "body": [
         "An equation that contains the information about the heat changes involved in a reaction is called a **thermochemical equation**.",
         "The physical states of reactants and products should be stated.",
-        "The value of 'H given as kJ/mol refers to kJ per 1 mole of reactant or product as written in the equation:- i."
+        "The value of ΔH given in kJ/mol refers to the amounts (moles) of reactants and products exactly as written in the equation."
        ]
       },
       {
@@ -897,6 +1185,18 @@
      "term": "Heat of neutralisation",
      "meaning": "Heat released when an acid and a base form 1 mol of water.",
      "page": 175,
+     "src": "notes"
+    },
+    {
+     "term": "Enthalpy (H)",
+     "meaning": "The heat content of a substance; ΔH = H(products) − H(reactants).",
+     "page": 158,
+     "src": "notes"
+    },
+    {
+     "term": "Bond energy",
+     "meaning": "The energy needed to break one mole of a given bond in gaseous molecules (kJ/mol).",
+     "page": 156,
      "src": "notes"
     }
    ],
@@ -1712,6 +2012,144 @@
       "page": 162,
       "src": "notes",
       "label": "5.1–5.2 Energy changes"
+     },
+     {
+      "id": "chem10-u5-co-q01",
+      "type": "mcq",
+      "q": "Using H–H 436, Br–Br 193 and H–Br 366 kJ/mol, ΔH for H₂ + Br₂ → 2HBr is …",
+      "options": {
+       "A": "+263 kJ",
+       "B": "−103 kJ",
+       "C": "−263 kJ",
+       "D": "+103 kJ"
+      },
+      "answer": "B",
+      "why": [
+       "Step 1: broken = 436 + 193 = 629 kJ.",
+       "Step 2: formed = 2 × 366 = 732 kJ.",
+       "Step 3: ΔH = 629 − 732 = −103 kJ."
+      ],
+      "tip": "Broken minus formed.",
+      "similar": [
+       {
+        "q": "Exo or endo?",
+        "a": "Exothermic."
+       },
+       {
+        "q": "ΔH for 2HBr → H₂ + Br₂?",
+        "a": "+103 kJ."
+       }
+      ],
+      "page": 158,
+      "src": "notes",
+      "label": "5.1.4 Enthalpy of a chemical reaction"
+     },
+     {
+      "id": "chem10-u5-co-q02",
+      "type": "short",
+      "q": "Define enthalpy change of reaction and give its unit.",
+      "answer": "The difference between the heat content of the products and of the reactants, ΔH = H_P − H_R, measured in kJ/mol.",
+      "why": [
+       "Step 1: enthalpy H = heat content.",
+       "Step 2: ΔH = H(products) − H(reactants).",
+       "Step 3: unit kJ/mol."
+      ],
+      "tip": "Always write the formula ΔH = H_P − H_R.",
+      "similar": [
+       {
+        "q": "Sign of ΔH for an exothermic reaction?",
+        "a": "Negative."
+       },
+       {
+        "q": "Why is ΔH measured, not H?",
+        "a": "Absolute H cannot be measured."
+       }
+      ],
+      "page": 157,
+      "src": "notes",
+      "label": "5.1.4 Enthalpy of a chemical reaction"
+     },
+     {
+      "id": "chem10-u5-co-q03",
+      "type": "mcq",
+      "q": "In an endothermic reaction …",
+      "options": {
+       "A": "more energy is released forming bonds than absorbed breaking them",
+       "B": "ΔH is negative",
+       "C": "more energy is absorbed breaking bonds than released forming them",
+       "D": "the surroundings get hotter"
+      },
+      "answer": "C",
+      "why": [
+       "Step 1: endothermic → energy taken in overall.",
+       "Step 2: so breaking (in) > making (out).",
+       "Step 3: ΔH positive; surroundings get colder."
+      ],
+      "tip": "Compare the two stages.",
+      "similar": [
+       {
+        "q": "Example of an endothermic reaction?",
+        "a": "Thermal decomposition of CaCO₃."
+       },
+       {
+        "q": "Example of an exothermic one?",
+        "a": "Combustion."
+       }
+      ],
+      "page": 158,
+      "src": "notes",
+      "label": "5.1.4 Enthalpy of a chemical reaction"
+     },
+     {
+      "id": "chem10-u5-co-q04",
+      "type": "short",
+      "q": "Calculate ΔH for 2H₂(g) + O₂(g) → 2H₂O(g). (H–H 436, O=O 498, O–H 463 kJ/mol)",
+      "answer": "−482 kJ",
+      "why": [
+       "Step 1: broken = 2(436) + 498 = 872 + 498 = 1370 kJ.",
+       "Step 2: formed = 2 molecules × 2 O–H = 4(463) = 1852 kJ.",
+       "Step 3: ΔH = 1370 − 1852 = −482 kJ.",
+       "Step 4: exothermic."
+      ],
+      "tip": "Each water molecule has two O–H bonds.",
+      "similar": [
+       {
+        "q": "ΔH per mole of H₂O formed?",
+        "a": "−241 kJ."
+       },
+       {
+        "q": "ΔH for 2H₂O(g) → 2H₂ + O₂?",
+        "a": "+482 kJ."
+       }
+      ],
+      "page": 158,
+      "src": "notes",
+      "label": "5.1.4 Enthalpy of a chemical reaction"
+     },
+     {
+      "id": "chem10-u5-co-q05",
+      "type": "tf",
+      "q": "When quicklime is added to water and the beaker becomes hot, heat flows from the beaker to the hand.",
+      "answer": true,
+      "why": [
+       "Step 1: the reaction releases heat into the water and beaker.",
+       "Step 2: heat flows from hot to cold, so from beaker to hand.",
+       "Step 3: true; ΔH is negative."
+      ],
+      "tip": "Feels hot → exothermic.",
+      "similar": [
+       {
+        "q": "Feels cold → ?",
+        "a": "Endothermic."
+       },
+       {
+        "q": "Sign of ΔH when NH₄NO₃ dissolves (cold)?",
+        "a": "Positive."
+       }
+      ],
+      "page": 157,
+      "src": "notes",
+      "label": "5.1.4 Enthalpy of a chemical reaction"
      }
     ]
    },

@@ -7,6 +7,8 @@ import 'screens/exercise.dart';
 import 'tutor/tutor_page.dart';
 import 'notes/jr/state/app_state.dart' as jr;
 import 'screens/notes_home.dart';
+import 'exam/pages.dart' show ExamSubjectPage, PracticePage, QuizPage;
+import 'notes/jr/screens/unit_page.dart' show UnitPage;
 import 'widgets/coach.dart';
 import 'state/app_state.dart';
 import 'state/page_gate.dart';
@@ -171,37 +173,28 @@ class HighShellState extends State<HighShell> implements HighNav {
 
   bool get canPop => _sheets.isEmpty && _stack.isEmpty && _tab == HighTab.home;
 
-  static const _protected = {
-    'NotesHomePage',
-    'NotesSubjectPage',
-    'GradePage',
-    'UnitPage',
-    'ExercisePage',
-    'ExerciseSubjectPage',
-    'ExerciseUnitPage',
-    'ExamsPage',
-    'ExamSubjectPage',
-    'PracticePage',
-  };
+  // ---------------------------------------------------------------- screenshot block (Notes + Matric only)
   bool _secureOn = false;
 
-  bool _isProtected(Widget w) {
-    if (w is KeyedSubtree) return _isProtected(w.child);
-    final name = w.runtimeType.toString();
-    if (name == 'QuizPage') {
-      final kind = (w as dynamic).kind;
-      return kind == 'exercise' || kind == 'unit' || kind == 'topic';
-    }
-    return _protected.contains(name);
+  /// Notes / Matric section page? Type checks (not runtimeType names, which an obfuscated release build renames).
+  static bool isSecurePage(Widget w) {
+    if (w is KeyedSubtree) return isSecurePage(w.child);
+    if (w is NotesHomePage || w is NotesSubjectPage || w is GradePage || w is UnitPage) return true; // Notes
+    if (w is ExamsPage || w is ExamSubjectPage || w is PracticePage) return true; // Matric
+    if (w is QuizPage) return w.kind == 'unit' || w.kind == 'topic'; // matric questions of a unit / topic
+    return false;
   }
 
+  static bool isSecureTab(HighTab t) => t == HighTab.notes || t == HighTab.matric;
+
+  /// Runs on every shell build (tab switch, push, open, back, system back all rebuild the shell). Only the
+  /// page on top counts: a Notes page with a non-notes page pushed over it is not visible, so the hold is
+  /// dropped and taken again when the user comes back. Sheets over a protected page keep it protected.
   void _syncSecure() {
-    final tabProtected = _tab == HighTab.notes || _tab == HighTab.exercise || _tab == HighTab.matric;
-    final stackProtected = _stack.isNotEmpty && _isProtected(_stack.last);
-    final on = stackProtected || (tabProtected && _stack.isEmpty);
+    final on = _stack.isNotEmpty ? isSecurePage(_stack.last) : isSecureTab(_tab);
     if (on == _secureOn) return;
     _secureOn = on;
-    ScreenshotGuard.set(on);
+    on ? ScreenshotGuard.acquire('sections') : ScreenshotGuard.release('sections');
   }
 
   @override
@@ -209,7 +202,8 @@ class HighShellState extends State<HighShell> implements HighNav {
     try {
       HighScope.read(context).stopTicker();
     } catch (_) {}
-    ScreenshotGuard.set(false);
+    if (_secureOn) ScreenshotGuard.release('sections');
+    _secureOn = false;
     super.dispose();
   }
 

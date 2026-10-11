@@ -1,4 +1,4 @@
-// The chemistry tutor diagrams (tool/enrich/chem_models) parse in flutter_svg after the app's preprocessing, for every
+// The chemistry tutor diagrams (tool/enrich/chem_models "cm_", tool/enrich/chem_oct10 "co_") parse in flutter_svg after the app's preprocessing, for every
 // step / state key their cards use, and stay light (a few KB each) for low-end phones.
 import 'dart:convert';
 import 'dart:io';
@@ -20,7 +20,7 @@ void main() {
       for (final l in unit['lessons'] as List) {
         for (final c in (l as Map)['cards'] as List) {
           final d = (c as Map)['diagram'];
-          if (d is! String || !d.startsWith('cm_')) continue;
+          if (d is! String || !(d.startsWith('cm_') || d.startsWith('co_'))) continue;
           final k = keys.putIfAbsent(d, () => {null});
           for (final s in [...(c['steps'] as List? ?? []), ...(c['states'] as List? ?? [])]) {
             k.add((s as Map)['show'] as String? ?? s['key'] as String?);
@@ -49,7 +49,7 @@ void main() {
         }
       }
     }
-    expect(n, greaterThan(50));
+    expect(n, greaterThan(100));
     expect(bad, isEmpty, reason: bad.join('\n'));
   });
 }
