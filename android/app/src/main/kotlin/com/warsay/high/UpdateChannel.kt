@@ -87,6 +87,12 @@ class UpdateChannel(private val activity: FlutterFragmentActivity) {
                     }
                     "install" -> result.success(install(call.argument<String>("path")!!))
                     "shareSelf" -> bg(result, "shareSelf") { shareSelf() }
+                    "shareImage" -> {
+                        val bytes = call.argument<ByteArray>("bytes")!!
+                        val name = call.argument<String>("name") ?: "four-quote.png"
+                        val text = call.argument<String>("text")
+                        bg(result, "shareImage") { shareImage(bytes, name, text) }
+                    }
                     else -> result.notImplemented()
                 }
             } catch (e: Throwable) {
@@ -273,5 +279,27 @@ class UpdateChannel(private val activity: FlutterFragmentActivity) {
             activity.startActivity(Intent.createChooser(send, "Send 4 ${p.versionName ?: ""}").addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION))
         }
         return mapOf("files" to files.size, "splits" to (files.size - 1), "bytes" to files.sumOf { it.length() }, "name" to files[0].name)
+    }
+
+    /** Motivation quote card as a PNG through the share sheet (cache/quotes/, only the newest picture is kept). */
+    private fun shareImage(bytes: ByteArray, name: String, text: String?): Boolean {
+        val dir = File(activity.cacheDir, "quotes")
+        dir.mkdirs()
+        val safe = name.replace(Regex("[^A-Za-z0-9._-]"), "_")
+        dir.listFiles()?.forEach { if (it.name != safe) it.delete() }
+        val f = File(dir, safe)
+        f.writeBytes(bytes)
+        val uri = FileProvider.getUriForFile(activity, "${activity.packageName}.fileprovider", f)
+        val send = Intent(Intent.ACTION_SEND).apply {
+            type = "image/png"
+            putExtra(Intent.EXTRA_STREAM, uri)
+            if (text != null) putExtra(Intent.EXTRA_TEXT, text)
+            clipData = ClipData.newUri(activity.contentResolver, safe, uri)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        }
+        activity.runOnUiThread {
+            activity.startActivity(Intent.createChooser(send, "Share quote").addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION))
+        }
+        return true
     }
 }
