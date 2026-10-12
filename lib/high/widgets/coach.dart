@@ -15,6 +15,8 @@ abstract final class CoachKeys {
   static final grade = GlobalKey(debugLabel: 'coach:grade');
   static final resources = GlobalKey(debugLabel: 'coach:resources');
   static final settings = GlobalKey(debugLabel: 'coach:settings');
+  static final quotes = GlobalKey(debugLabel: 'coach:quotes');
+  static final studyCoach = GlobalKey(debugLabel: 'coach:studyCoach');
   static final _tabs = <HighTab, GlobalKey>{};
   static GlobalKey tab(HighTab t) => _tabs[t] ??= GlobalKey(debugLabel: 'coach:${t.name}');
 }
@@ -28,6 +30,8 @@ class CoachStep {
 final kCoachSteps = <CoachStep>[
   const CoachStep('Welcome to 4', 'Grade 9–12 notes, practice and matric prep. Everything works offline.'),
   CoachStep('Pick your grade', 'Each grade opens its subjects, units and notes.', () => CoachKeys.grade),
+  CoachStep('Quote of the day', 'A new card every day. Tap All to see more.', () => CoachKeys.quotes),
+  CoachStep('Study Coach', 'Help with exams, stress and study habits.', () => CoachKeys.studyCoach),
   CoachStep('Notes', 'Every textbook, unit by unit, with memory tricks and quick games.', () => CoachKeys.tab(HighTab.notes)),
   CoachStep('Exercise', 'Practice questions sorted by grade, subject and unit.', () => CoachKeys.tab(HighTab.exercise)),
   CoachStep('Matric', 'Past matric and model exams, each with answers and worked steps.', () => CoachKeys.tab(HighTab.matric)),
@@ -118,7 +122,9 @@ class _CoachMarksState extends State<CoachMarks> {
     if (!mounted) return;
     final nav = HighNav.of(context);
     if (nav.current != HighTab.home) nav.tab(HighTab.home);
-    _live = [for (var i = 0; i < _all.length; i++) if (_all[i].target == null || _all[i].target!().currentContext != null) i];
+    // keep steps already seen: a long Home list drops cards that scrolled far away (their keys lose context)
+    final seen = _live.toSet();
+    _live = [for (var i = 0; i < _all.length; i++) if (seen.contains(i) || _all[i].target == null || _all[i].target!().currentContext != null) i];
     var step = math.max(0, s.tourStep ?? 0);
     if (!_live.contains(step)) {
       final nxt = _live.where((x) => x > step);

@@ -5,6 +5,7 @@ import 'package:vector_graphics/vector_graphics_compat.dart' show RenderingStrat
 
 import '../theme/tokens.dart';
 import 'art_data.dart';
+import 'icons_extra.dart';
 
 String hex(Color c) {
   int ch(double v) => (v * 255).round().clamp(0, 255);
@@ -38,7 +39,7 @@ class Ic extends StatelessWidget {
   Widget build(BuildContext context) {
     final k = '$name|${color.toARGB32()}|$strokeWidth';
     final svg = _cache[k] ??=
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="${hex(color)}" stroke-opacity="${color.a.toStringAsFixed(3)}" stroke-width="$strokeWidth" stroke-linecap="round" stroke-linejoin="round">${(kIcons[name] ?? kIcons['book']!).replaceAll('currentColor', hex(color))}</svg>';
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="${hex(color)}" stroke-opacity="${color.a.toStringAsFixed(3)}" stroke-width="$strokeWidth" stroke-linecap="round" stroke-linejoin="round">${(kIcons[name] ?? kIconsExtra[name] ?? kIcons['book']!).replaceAll('currentColor', hex(color))}</svg>';
     return SizedBox(width: size, height: size, child: SvgPicture.string(svg, width: size, height: size));
   }
 }
