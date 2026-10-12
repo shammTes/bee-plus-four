@@ -60,7 +60,7 @@ class HomePage extends StatelessWidget {
         controller: controller,
         children: Stagger.wrap([
           const UpdateCard(),
-          _Hero(name: name, sub: sub, cta: st.fresh ? 'Start studying' : 'Continue studying'),
+          _Hero(name: name, sub: sub),
           const _Grades(),
           _Keyed(CoachKeys.quotes, QuoteOfDayCard()),
           _Keyed(CoachKeys.studyCoach, StudyCoachCard()),
@@ -119,8 +119,8 @@ class CountUp extends StatelessWidget {
 }
 
 class _Hero extends StatelessWidget {
-  const _Hero({required this.name, required this.sub, required this.cta});
-  final String name, sub, cta;
+  const _Hero({required this.name, required this.sub});
+  final String name, sub;
   @override
   Widget build(BuildContext context) {
     final k = Kit.of(context), p = k.p;
@@ -170,8 +170,6 @@ class _Hero extends StatelessWidget {
                                 Tx('${greeting()}, $name!', style: ts(20, w900, p.ink, height: 1.2, spacing: -.2)),
                                 const SizedBox(height: 4),
                                 Tx(sub, style: ts(13.5, w700, p.ink2, height: 1.4)),
-                                const SizedBox(height: 11),
-                                Btn(cta, icon: 'play', onTap: () => Routes.continueStudying(context)),
                               ],
                             ),
                           ),
@@ -1008,7 +1006,7 @@ class _Grades extends StatelessWidget implements Spaced {
       return Panel(
         tone: tone,
         margin: EdgeInsets.zero,
-        padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+        padding: const EdgeInsets.fromLTRB(16, 20, 14, 20),
         onTap: () {
           HighNav.of(context).open('grade:$g', () => GradePage(grade: g));
         },
@@ -1019,14 +1017,14 @@ class _Grades extends StatelessWidget implements Spaced {
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.alphabetic,
               children: [
-                Text('$g', style: ts(46, w900, t.deep, height: 1, spacing: -1.5)),
+                Text('$g', style: ts(50, w900, t.deep, height: 1, spacing: -1.5)),
                 const SizedBox(width: 6),
-                Text('Grade', style: ts(14, w900, p.ink2)),
+                Flexible(child: Text('Grade', maxLines: 1, overflow: TextOverflow.fade, softWrap: false, style: ts(16, w900, p.ink2))),
               ],
             ),
-            const SizedBox(height: 6),
-            Text(g >= 11 ? 'Science · Art' : '${books.length} subject${books.length == 1 ? '' : 's'} · $pct%', style: ts(12.5, w800, p.ink2)),
-            Padding(padding: const EdgeInsets.only(top: 8), child: Bar(pct, tone: tone, height: 7, onTile: true)),
+            const SizedBox(height: 8),
+            Text(g >= 11 ? 'Science · Art' : '${books.length} subject${books.length == 1 ? '' : 's'} · $pct%', maxLines: 1, overflow: TextOverflow.ellipsis, style: ts(14, w800, p.ink2)),
+            Padding(padding: const EdgeInsets.only(top: 10), child: Bar(pct, tone: tone, height: 8, onTile: true)),
           ],
         ),
       );

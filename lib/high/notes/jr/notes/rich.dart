@@ -30,8 +30,9 @@ List<_Seg> _split(String s, {bool notes = true}) {
         g.math != null ? _Seg.m(g.math!.replaceAll(_money, r'\$'), g.display) : _Seg.t(g.text!.replaceAll(_money, r'$')),
     ];
   }
-  if (notes) {
-    s = s.replaceAllMapped(_dollar, (m) => '${m[1]}\\(${m[2]!.replaceAll(RegExp(r'\\frac(?![a-z])'), r'\dfrac')}\\)');
+  // High: $x$ inline maths in every mode (exam stems/options/explanations too); \frac -> \dfrac only in notes
+  if (s.contains(r'$')) {
+    s = s.replaceAllMapped(_dollar, (m) => '${m[1]}\\(${notes ? m[2]!.replaceAll(RegExp(r'\\frac(?![a-z])'), r'\dfrac') : m[2]}\\)');
   }
   if (!s.contains(r'$$') && !s.contains(r'\(') && !s.contains(r'\[')) return [_Seg.t(s)];
   const delims = [(r'$$', r'$$', true), (r'\[', r'\]', true), (r'\(', r'\)', false)];
@@ -61,6 +62,9 @@ List<_Seg> _split(String s, {bool notes = true}) {
   if (buf.isNotEmpty) out.add(_Seg.t(buf.toString()));
   return out;
 }
+
+/// High: parsed pieces of [s] as (text, maths, display) records; used by the bank scan test (test/matric_dollar_test.dart)
+List<(String?, String?, bool)> richSegments(String s, {bool notes = false}) => [for (final g in _split(s, notes: notes)) (g.text, g.math, g.display)];
 
 /// Colors used by inline marks
 class RichColors {
@@ -130,7 +134,7 @@ class _InlineBuilder {
         baseline: TextBaseline.alphabetic,
         child: Transform.translate(
           offset: Offset(0, -(s.fontSize ?? 18) * .33),
-          child: Text(t, style: s.copyWith(fontSize: fs, height: 1)),
+          child: Text(t, style: s.copyWith(fontSize: fs, height: 1), textScaler: TextScaler.noScaling), // High: WidgetSpan is scaled already
         ),
       ),
     );
@@ -222,7 +226,8 @@ class _Mark extends StatelessWidget {
   final RichColors colors;
   @override
   Widget build(BuildContext context) {
-    Widget t = Text(text, style: style, strutStyle: strutOf(style));
+    // High: drawn inside a WidgetSpan, which the paragraph already scales by the text scaler: do not scale it twice
+    Widget t = Text(text, style: style, strutStyle: strutOf(style), textScaler: TextScaler.noScaling);
     if (hx) {
       t = DecoratedBox(
         decoration: BoxDecoration(
@@ -274,7 +279,8 @@ class _MathView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final fs = (base.fontSize ?? 18) * 1.06 * (display ? .92 : 1);
-    final scale = MediaQuery.maybeTextScalerOf(context)?.scale(fs) ?? fs;
+    // High: inline maths sit in a WidgetSpan, which the paragraph already scales by the text scaler (no double scaling)
+    final scale = display ? MediaQuery.maybeTextScalerOf(context)?.scale(fs) ?? fs : fs;
     final ts = scale / fs;
     final bold = MediaQuery.maybeBoldTextOf(context) ?? false;
     final color = base.color ?? DefaultTextStyle.of(context).style.color ?? const Color(0xFF000000);

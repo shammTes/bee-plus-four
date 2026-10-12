@@ -7,6 +7,7 @@ import '../data/repository.dart';
 import '../notes/jr/data/notes_models.dart';
 import '../notes/jr/data/repository.dart';
 import 'tutor_index.dart';
+import 'tutor_worker.dart';
 
 /// one line of an answer: h = heading, p = paragraph, step = numbered step, ans = the answer line, row = table row
 class TBlock {
@@ -62,21 +63,32 @@ class TutorAnswer {
 }
 
 class TutorAnswerer {
-  TutorAnswerer(this.ix, this.repo, this.notesRepo);
+  TutorAnswerer(this.ix, this.repo, this.notesRepo, {TutorSearch? search}) : _search = search ?? localSearch(ix);
   final TutorIndex ix;
+
+  /// where the BM25 search runs (the Tutor page passes the background [TutorWorker])
+  final TutorSearch _search;
   final ExamRepo repo;
   final NotesRepo notesRepo;
 
   static const minScore = 2.5;
 
   Future<TutorAnswer> answer(String query, [TutorScope scope = const TutorScope()]) async {
-    var r = ix.search(query, subject: scope.subject, grade: scope.grade, preferSubject: scope.focusSubject, preferGrade: scope.focusGrade);
+    Future<TutorResult> find({String? subject, int? grade, String? preferSubject, int? preferGrade, bool wide = false}) => _search((
+      query: query,
+      subject: subject,
+      grade: grade,
+      preferSubject: preferSubject,
+      preferGrade: preferGrade,
+      ignoreQueryFilters: wide,
+    ));
+    var r = await find(subject: scope.subject, grade: scope.grade, preferSubject: scope.focusSubject, preferGrade: scope.focusGrade);
     final notes = <String>[];
     // nothing inside the filters: widen (grade first, then subject) and say so
     if (r.explain.isEmpty && (r.grade != null || r.subject != null)) {
       final g = r.grade, s = r.subject;
-      final wider = g != null ? ix.search(query, subject: s, grade: null, ignoreQueryFilters: true) : ix.search(query, ignoreQueryFilters: true);
-      final wider2 = wider.explain.isEmpty && s != null ? ix.search(query, ignoreQueryFilters: true) : wider;
+      final wider = g != null ? await find(subject: s, wide: true) : await find(wide: true);
+      final wider2 = wider.explain.isEmpty && s != null ? await find(wide: true) : wider;
       if (!wider2.empty) {
         notes.add('Nothing in ${[if (g != null) 'Grade $g', if (s != null) TutorIndex.subjectLabel(s)].join(' ')} matched, so I searched more widely.');
         r = wider2;

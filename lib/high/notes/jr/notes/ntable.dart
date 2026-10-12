@@ -609,7 +609,7 @@ class NTable extends StatelessWidget {
 
     // ---- measure (cached on the model: the JSON never changes)
     final cache = _meas[m] ??= {};
-    final mm = cache[tight] ??= () {
+    final mm = cache[(tight, sc.scale(10))] ??= () {
       final minW = List.filled(m.n, 0.0), pref = List.filled(m.n, 0.0);
       for (var j = 0; j < m.n; j++) {
         if (j < heads.length) {
@@ -878,7 +878,7 @@ class NTable extends StatelessWidget {
 
 }
 
-final _meas = Expando<Map<bool, (List<double>, List<double>)>>('tableWidths');
+final _meas = Expando<Map<(bool, double), (List<double>, List<double>)>>('tableWidths');
 
 // ------------------------------------------------------------------ T-accounts
 

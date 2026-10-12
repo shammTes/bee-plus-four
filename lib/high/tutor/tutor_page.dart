@@ -2,6 +2,8 @@
 // glossary, tips, worked examples, unit quizzes, labs / interactive cards, exam-pack concepts, the exercise bank and
 // every matric / model question. Search = lib/high/tutor/tutor_index.dart (index built by tool/build_tutor_index.py),
 // answers = tutor_answer.dart. The index is loaded (in a background isolate) the first time this tab is opened.
+import 'dart:async';
+
 import 'package:flutter/widgets.dart';
 
 import '../data/models.dart';
@@ -15,6 +17,7 @@ import '../widgets/page.dart';
 import '../widgets/rich.dart';
 import 'tutor_answer.dart';
 import 'tutor_index.dart';
+import 'tutor_worker.dart';
 
 class _Msg {
   _Msg.me(this.text) : me = true, ans = null;
@@ -22,6 +25,7 @@ class _Msg {
   final bool me;
   final String text;
   TutorAnswer? ans; // null while thinking
+  final key = GlobalKey(); // the answer bubble: scrolled to its top when it arrives
 }
 
 final _chat = <_Msg>[];
@@ -52,6 +56,13 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
   late final Future<TutorIndex> _ix = TutorIndex.load();
   TutorIndex? _ready;
   bool _filters = false, _kbOpen = false;
+
+  /// live "as you type" matches: debounced, searched in the background worker, shown by their own small builder so a
+  /// keystroke never rebuilds the chat
+  final _live = ValueNotifier<List<String>>(const []);
+  Timer? _deb;
+  int _liveSeq = 0;
+  (Object?, String?, int?, List<String>)? _suggCache;
 
   /// the notes book the student last studied (soft focus: ranks first, never hides other subjects)
   ({String subject, int grade})? _focus;
@@ -95,9 +106,54 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    _deb?.cancel();
+    _live.dispose();
     _c.dispose();
     _sc.dispose();
     super.dispose();
+  }
+
+  void _typed(String t) {
+    _deb?.cancel();
+    final q = t.trim();
+    if (q.length < 3) {
+      if (_live.value.isNotEmpty) _live.value = const [];
+      return;
+    }
+    _deb = Timer(const Duration(milliseconds: 250), () => _liveSearch(q));
+  }
+
+  Future<void> _liveSearch(String q) async {
+    final ix = _ready;
+    if (ix == null || !mounted) return;
+    final seq = ++_liveSeq;
+    final sc = _scope;
+    try {
+      final w = await TutorWorker.get();
+      final r = await workerSearch(w, ix)((
+        query: q,
+        subject: sc.subject,
+        grade: sc.grade,
+        preferSubject: sc.focusSubject,
+        preferGrade: sc.focusGrade,
+        ignoreQueryFilters: false,
+      ));
+      if (!mounted || seq != _liveSeq || _c.text.trim() != q) return;
+      final seen = <String>{}, out = <String>[];
+      for (final h in r.explain) {
+        final t = ix.keys[h.doc].split('\t').last.trim();
+        if (t.isNotEmpty && t.length <= 40 && seen.add(t.toLowerCase())) out.add(t);
+        if (out.length == 3) break;
+      }
+      _live.value = out;
+    } catch (_) {}
+  }
+
+  /// scroll so the answer bubble's FIRST line is at the top of the chat (the student reads it from the start)
+  void _toAnswer(_Msg m) {
+    final c = m.key.currentContext;
+    if (!mounted || c == null) return _toEnd();
+    Scrollable.ensureVisible(c, alignment: 0, duration: const Duration(milliseconds: 220), curve: Curves.easeOutCubic);
   }
 
   TutorScope get _scope => TutorScope(
@@ -112,6 +168,9 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
     if (t.isEmpty) return;
     final s = Kit.of(context).s;
     final m = _Msg.bot(null);
+    _deb?.cancel();
+    _liveSeq++;
+    _live.value = const [];
     setState(() {
       _chat.add(_Msg.me(t));
       _chat.add(m);
@@ -122,7 +181,8 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
     try {
       final ix = await _ix;
       final w = s.repo.examVersion, v = s.repo.exerciseVersion;
-      a = await TutorAnswerer(ix, s.repo, s.notesRepo).answer(t, _scope);
+      final wk = await TutorWorker.get();
+      a = await TutorAnswerer(ix, s.repo, s.notesRepo, search: workerSearch(wk, ix)).answer(t, _scope);
       // the answer may have read an exam pack / an Exercise set: pages showing those refresh (as HighState.needExam does)
       if (s.repo.examVersion != w || s.repo.exerciseVersion != v) s.contentChanged();
     } catch (_) {
@@ -130,12 +190,14 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
     }
     if (!mounted) return;
     setState(() => m.ans = a);
-    WidgetsBinding.instance.addPostFrameCallback((_) => _toEnd());
+    WidgetsBinding.instance.addPostFrameCallback((_) => _toAnswer(m));
   }
 
   List<String> _sugg() {
     final ix = _ready, subj = _subject ?? (_focusOn ? _focus?.subject : null), g = _grade ?? (_focusOn ? _focus?.grade : null);
     if (ix == null || subj == null) return _defaultSugg;
+    final c = _suggCache;
+    if (c != null && c.$1 == ix && c.$2 == subj && c.$3 == g) return c.$4; // scanning the whole index once per filter, not per build
     final si = ix.subjects.indexOf(subj), out = <String>[];
     for (var d = 0; d < ix.length && out.length < 60; d++) {
       if (ix.kind[d] == TK.glossary && ix.subj[d] == si && (g == null || ix.grade[d] == g)) {
@@ -145,7 +207,9 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
     }
     if (out.isEmpty) return _defaultSugg;
     final day = DateTime.now().difference(DateTime(2026)).inDays;
-    return {for (var i = 0; i < 8 && i < out.length; i++) out[(day * 7 + i * 13) % out.length]}.toList();
+    final res = {for (var i = 0; i < 8 && i < out.length; i++) out[(day * 7 + i * 13) % out.length]}.toList();
+    _suggCache = (ix, subj, g, res);
+    return res;
   }
 
   void _openNotes(TRef r) {
@@ -157,7 +221,8 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     final k = Kit.of(context), p = k.p, s = k.s;
-    Widget bot(Widget child, {bool refuse = false}) => Padding(
+    Widget bot(Widget child, {bool refuse = false, Key? key}) => Padding(
+      key: key,
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -207,6 +272,7 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
           bot(
             _AnswerView(a: m.ans!, onNotes: _openNotes, onAsk: _ask),
             refuse: m.ans!.refuse,
+            key: m.key,
           ),
     ];
     final subjects = {for (final b in s.notesRepo.books) b.subject}.toList();
@@ -225,6 +291,12 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
               behavior: const NoGlow(),
               child: ListView(controller: _sc, padding: const EdgeInsets.fromLTRB(16, 4, 16, 12), children: msgs),
             ),
+          ),
+          ValueListenableBuilder<List<String>>(
+            valueListenable: _live,
+            builder: (_, live, _) => live.isEmpty
+                ? const SizedBox.shrink()
+                : chips([for (final t in live) ChipX(t, small: true, icon: 'search', tone: 'blue', onTap: () => _ask(t))]),
           ),
           chips([
             ChipX(
@@ -265,7 +337,7 @@ class _TutorPageState extends State<TutorPage> with WidgetsBindingObserver {
               spacing: 8,
               children: [
                 Expanded(
-                  child: Field(controller: _c, placeholder: 'Ask about any topic…', onSubmitted: _ask),
+                  child: Field(controller: _c, placeholder: 'Ask about any topic…', onChanged: _typed, onSubmitted: _ask),
                 ),
                 CBtn('send', onTap: () => _ask(_c.text)),
               ],

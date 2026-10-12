@@ -1,5 +1,5 @@
 // Exam text (web rich()): Unicode text with \( \) \[ \] $$ maths (flutter_math_fork), x^2 / x^(…) superscripts, <u>underline</u>.
-// [tex] = stem_tex mode ($…$ maths allowed). Reuses the notes renderer's parser (notes/jr/notes/rich.dart).
+// [tex] = stem_tex mode (\\frac drawn as \\dfrac); $…$ inline maths are parsed in every mode. Reuses the notes renderer's parser (notes/jr/notes/rich.dart).
 import 'package:flutter/widgets.dart';
 
 import '../notes/jr/notes/rich.dart';
@@ -15,7 +15,9 @@ class RichTx extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (maxLines != null) {
-      return Text(text.replaceAll(RegExp(r'\\[()\[\]]|\$\$'), '').replaceAll(r'\$', r'$'), style: style, maxLines: maxLines, overflow: TextOverflow.ellipsis);
+      // one-line preview: same split as the full renderer, maths shown as its source without any $ / \( delimiters
+      final plain = [for (final (t, m, _) in richSegments(text)) t ?? m!.trim()].join();
+      return Text(plain, style: style, maxLines: maxLines, overflow: TextOverflow.ellipsis);
     }
     final p = style.color ?? const Color(0xFF3E3129);
     return RichPara(text, style: style, notes: tex, textAlign: align, colors: RichColors(withA(p, .25), p, p));

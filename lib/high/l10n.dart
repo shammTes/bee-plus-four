@@ -57,7 +57,7 @@ const Map<String, Map<String, String>> kHighLabels = {
     'reset': 'Reset',
     'progressReset': 'Progress reset',
     'about': 'About',
-    'offline': 'Grade 9–12 · works fully offline',
+    'offline': 'Grade 9–12 · notes, practice and matric prep',
     'worksOffline': '4 · works fully offline',
     'replayTour': 'How to use again',
     'replayTourSub': 'Show the pointing tour from the start.',
