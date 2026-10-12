@@ -4,6 +4,8 @@ import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:four_format/four_format.dart';
 
+import 'folder.dart';
+
 const _ch = MethodChannel('four.encryptor/io');
 
 class Picked {
@@ -28,6 +30,9 @@ class Io {
   static Future<Map<Object?, Object?>> zipFiles(String dir) async => (await _ch.invokeMapMethod<Object?, Object?>('zipFiles', {'dir': dir}))!;
   static Future<String> tempDir() async => (await _ch.invokeMethod<String>('tempDir'))!;
   static Future<void> deleteTemp(String path) => _ch.invokeMethod('deleteTemp', {'path': path});
+  static Future<List<Map<Object?, Object?>>> listTree(String uri, {String? skipTop}) async => (await _ch.invokeListMethod<Map<Object?, Object?>>('listTree', {'uri': uri, 'skipTop': skipTop})) ?? const [];
+  static Future<Map<Object?, Object?>> newDir(String tree, String name) async => (await _ch.invokeMapMethod<Object?, Object?>('newDir', {'tree': tree, 'name': name}))!;
+  static Future<String> subDir(String tree, String? parent, String path) async => (await _ch.invokeMethod<String>('subDir', {'tree': tree, 'parent': parent, 'path': path}))!;
   static Future<void> share(List<String> uris) => _ch.invokeMethod('share', {'uris': uris});
 }
 
@@ -57,17 +62,21 @@ class SafSource extends FourSource {
 }
 
 /// Output document in the picked folder. Small pieces (tags, magic) are batched into ~512 KB writes.
-class SafSink {
+class SafSink implements FolderSink {
   SafSink._(this._h, this.uri, this.name);
   final int _h;
-  final String uri, name;
+  final String uri;
+  @override
+  final String name;
   final _buf = BytesBuilder(copy: true);
 
-  static Future<SafSink> create(String tree, String name) async {
-    final m = (await _ch.invokeMapMethod<String, Object?>('createOut', {'tree': tree, 'name': name}))!;
+  /// [parent] = document URI of a subfolder inside [tree] (folder mode); null = top of [tree].
+  static Future<SafSink> create(String tree, String name, {String? parent}) async {
+    final m = (await _ch.invokeMapMethod<String, Object?>('createOut', {'tree': tree, 'name': name, 'parent': parent}))!;
     return SafSink._(m['h'] as int, m['uri'] as String, m['name'] as String? ?? name);
   }
 
+  @override
   Future<void> add(List<int> b) async {
     _buf.add(b);
     if (_buf.length >= 512 * 1024) await _flush();
@@ -79,6 +88,7 @@ class SafSink {
   }
 
   /// [ok] false deletes the partial file.
+  @override
   Future<void> close({required bool ok}) async {
     try {
       if (ok) await _flush();

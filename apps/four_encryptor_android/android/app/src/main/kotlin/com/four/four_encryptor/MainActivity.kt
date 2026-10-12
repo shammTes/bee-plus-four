@@ -73,7 +73,10 @@ class MainActivity : FlutterActivity() {
                 "openIn" -> openIn(call.argument<String>("uri")!!)
                 "read" -> (inputs[call.argument<Int>("h")!!] ?: throw IllegalStateException("input closed")).read((call.argument<Any>("off") as Number).toLong(), (call.argument<Any>("len") as Number).toInt())
                 "closeIn" -> { inputs.remove(call.argument<Int>("h"))?.close(); null }
-                "createOut" -> createOut(call.argument<String>("tree")!!, call.argument<String>("name")!!)
+                "createOut" -> createOut(call.argument<String>("tree")!!, call.argument<String>("name")!!, call.argument<String>("parent"))
+                "listTree" -> listTree(Uri.parse(call.argument<String>("uri")!!), call.argument<String>("skipTop"))
+                "newDir" -> newDir(Uri.parse(call.argument<String>("tree")!!), call.argument<String>("name")!!)
+                "subDir" -> subDir(Uri.parse(call.argument<String>("tree")!!), call.argument<String>("parent")?.let { Uri.parse(it) }, call.argument<String>("path")!!)
                 "write" -> { (outputs[call.argument<Int>("h")!!] ?: throw IllegalStateException("output closed")).first.write(call.argument<ByteArray>("b")!!); null }
                 "logPath" -> File(filesDir, "encryptor_log.txt").path
                 "deviceInfo" -> "Android ${android.os.Build.VERSION.RELEASE} (SDK ${android.os.Build.VERSION.SDK_INT}), ${android.os.Build.MANUFACTURER} ${android.os.Build.MODEL}, ABIs ${android.os.Build.SUPPORTED_ABIS.joinToString()}"
@@ -269,9 +272,9 @@ class MainActivity : FlutterActivity() {
     }
 
     // ---- output into the picked folder
-    private fun createOut(tree: String, name: String): Map<String, Any> {
+    private fun createOut(tree: String, name: String, parentDoc: String? = null): Map<String, Any> {
         val t = Uri.parse(tree)
-        val parent = DocumentsContract.buildDocumentUriUsingTree(t, DocumentsContract.getTreeDocumentId(t))
+        val parent = if (parentDoc != null) Uri.parse(parentDoc) else DocumentsContract.buildDocumentUriUsingTree(t, DocumentsContract.getTreeDocumentId(t))
         // "application/octet-stream" keeps providers from appending their own extension
         val doc = DocumentsContract.createDocument(contentResolver, parent, "application/octet-stream", name)
             ?: throw IOException("the folder did not allow creating $name (pick another output folder)")
@@ -342,6 +345,69 @@ class MainActivity : FlutterActivity() {
         }
         root.deleteRecursively()
         return mapOf("path" to out.path, "entries" to names)
+    }
+
+    // ---- "Encrypt folder": list a tree recursively, make output subfolders
+    private val docCols = arrayOf(DocumentsContract.Document.COLUMN_DOCUMENT_ID, DocumentsContract.Document.COLUMN_DISPLAY_NAME, DocumentsContract.Document.COLUMN_MIME_TYPE, DocumentsContract.Document.COLUMN_SIZE)
+
+    /** Every file under [tree] (only names, sizes and URIs: nothing is read). [skipTop] = top-level folder to leave out (our output). */
+    private fun listTree(tree: Uri, skipTop: String?): List<Map<String, Any?>> {
+        val out = mutableListOf<Map<String, Any?>>()
+        fun walk(docId: String, dir: String, depth: Int) {
+            if (depth > 30 || out.size > 50000) return
+            val children = DocumentsContract.buildChildDocumentsUriUsingTree(tree, docId)
+            contentResolver.query(children, docCols, null, null, null)?.use { c ->
+                while (c.moveToNext()) {
+                    val id = c.getString(0); val name = c.getString(1) ?: continue; val mime = c.getString(2) ?: ""
+                    if (mime == DocumentsContract.Document.MIME_TYPE_DIR) {
+                        if (dir.isEmpty() && name == skipTop) continue
+                        walk(id, if (dir.isEmpty()) name else "$dir/$name", depth + 1)
+                    } else {
+                        val size = if (c.isNull(3)) -1L else c.getLong(3)
+                        out += mapOf("uri" to DocumentsContract.buildDocumentUriUsingTree(tree, id).toString(), "name" to name, "size" to size, "mime" to mime, "dir" to dir)
+                    }
+                }
+            }
+        }
+        walk(DocumentsContract.getTreeDocumentId(tree), "", 0)
+        return out
+    }
+
+    private fun findChildDir(tree: Uri, parent: Uri, name: String): Uri? {
+        val children = DocumentsContract.buildChildDocumentsUriUsingTree(tree, DocumentsContract.getDocumentId(parent))
+        contentResolver.query(children, docCols, null, null, null)?.use { c ->
+            while (c.moveToNext()) if (c.getString(1) == name && c.getString(2) == DocumentsContract.Document.MIME_TYPE_DIR) return DocumentsContract.buildDocumentUriUsingTree(tree, c.getString(0))
+        }
+        return null
+    }
+
+    private fun childNames(tree: Uri, parent: Uri): Set<String> {
+        val s = HashSet<String>()
+        val children = DocumentsContract.buildChildDocumentsUriUsingTree(tree, DocumentsContract.getDocumentId(parent))
+        contentResolver.query(children, docCols, null, null, null)?.use { c -> while (c.moveToNext()) c.getString(1)?.let { s += it } }
+        return s
+    }
+
+    /** Creates a new folder [name] at the top of [tree] ("name (2)" if taken). Returns its document URI and real name. */
+    private fun newDir(tree: Uri, name: String): Map<String, Any> {
+        val root = DocumentsContract.buildDocumentUriUsingTree(tree, DocumentsContract.getTreeDocumentId(tree))
+        val taken = childNames(tree, root)
+        var n = name; var i = 2
+        while (n in taken) n = "$name (${i++})"
+        val d = DocumentsContract.createDocument(contentResolver, root, DocumentsContract.Document.MIME_TYPE_DIR, n)
+            ?: throw IOException("could not create the folder $n (pick another output folder)")
+        return mapOf("uri" to d.toString(), "name" to (describe(d)["name"] ?: n))
+    }
+
+    /** Finds or creates the subfolder path "a/b/c" under [parent]. */
+    private fun subDir(tree: Uri, parent: Uri?, path: String): String {
+        var cur = parent ?: DocumentsContract.buildDocumentUriUsingTree(tree, DocumentsContract.getTreeDocumentId(tree))
+        for (seg in path.split('/').filter { it.isNotEmpty() }) {
+            cur = findChildDir(tree, cur, seg)
+                ?: DocumentsContract.createDocument(contentResolver, cur, DocumentsContract.Document.MIME_TYPE_DIR, seg)
+                ?: throw IOException("could not create the folder $seg")
+        }
+        return cur.toString()
     }
 
     override fun onDestroy() {
