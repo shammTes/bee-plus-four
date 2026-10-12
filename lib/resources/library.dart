@@ -10,6 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../update/updater.dart';
+import '../licensing/screenshot.dart';
 import 'gate.dart';
 
 class ResEntry {
@@ -264,9 +265,9 @@ class ResourceLibrary extends ChangeNotifier {
       if (e.bookKey == bookId && (e.meta.unit == '$unitNumber' || e.meta.unit == unitId)) e,
   ];
 
+  /// Resource viewers (video / PDF / reels) hold the screenshot block while open. Reference counted with the
+  /// Notes / Matric sections ([ScreenshotGuard]) so closing a video never clears the block a notes page needs.
   static Future<void> setSecure(bool on) async {
-    try {
-      await _ch.invokeMethod<void>('setSecure', {'on': on});
-    } catch (_) {}
+    on ? ScreenshotGuard.acquire('resources') : ScreenshotGuard.release('resources');
   }
 }

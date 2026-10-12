@@ -344,3 +344,6 @@ GLOSSARY = [
 TIPS = [('Increase → × (1 + r); decrease → × (1 − r); find the original → divide.', 155),
         ('Profit % and loss % are always of the cost price.', 164), ('In I = PRT, time must be in years.', 166)]
 IDEAS = [('pctch', 'Percentage change', 'l7_1', 'math9-u7-md-pctch-t'), ('si', 'Forms of I = PRT', 'l7_4', 'math9-u7-md-si-t')]
+
+# narrow phones: the textbook key table reads better as one card per row
+PATCH = {'math9-u7-tbl1': {'layout': 'cards', '_inline': True}}
