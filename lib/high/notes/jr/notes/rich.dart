@@ -30,8 +30,9 @@ List<_Seg> _split(String s, {bool notes = true}) {
         g.math != null ? _Seg.m(g.math!.replaceAll(_money, r'\$'), g.display) : _Seg.t(g.text!.replaceAll(_money, r'$')),
     ];
   }
-  if (notes) {
-    s = s.replaceAllMapped(_dollar, (m) => '${m[1]}\\(${m[2]!.replaceAll(RegExp(r'\\frac(?![a-z])'), r'\dfrac')}\\)');
+  // High: $x$ inline maths in every mode (exam stems/options/explanations too); \frac -> \dfrac only in notes
+  if (s.contains(r'$')) {
+    s = s.replaceAllMapped(_dollar, (m) => '${m[1]}\\(${notes ? m[2]!.replaceAll(RegExp(r'\\frac(?![a-z])'), r'\dfrac') : m[2]}\\)');
   }
   if (!s.contains(r'$$') && !s.contains(r'\(') && !s.contains(r'\[')) return [_Seg.t(s)];
   const delims = [(r'$$', r'$$', true), (r'\[', r'\]', true), (r'\(', r'\)', false)];
@@ -61,6 +62,9 @@ List<_Seg> _split(String s, {bool notes = true}) {
   if (buf.isNotEmpty) out.add(_Seg.t(buf.toString()));
   return out;
 }
+
+/// High: parsed pieces of [s] as (text, maths, display) records; used by the bank scan test (test/matric_dollar_test.dart)
+List<(String?, String?, bool)> richSegments(String s, {bool notes = false}) => [for (final g in _split(s, notes: notes)) (g.text, g.math, g.display)];
 
 /// Colors used by inline marks
 class RichColors {
