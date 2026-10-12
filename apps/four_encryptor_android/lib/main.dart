@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:four_format/four_format.dart';
 
 import 'src/core.dart';
+import 'src/folder.dart';
 import 'src/io.dart';
 import 'src/labx.dart';
 import 'src/log.dart';
@@ -48,6 +49,8 @@ String describeError(Object e, [StackTrace? st]) {
   return '${e.runtimeType}: $e${top.isEmpty ? '' : '\n$top'}';
 }
 
+
+const appVersion = '1.2.0';
 
 class EncryptorApp extends StatelessWidget {
   const EncryptorApp({super.key});
@@ -342,7 +345,7 @@ class _HomePageState extends State<HomePage> {
           } catch (_) {}
         }
         final msg = describeError(e, st);
-        final details = 'File: ${j.name} (${fmtSize(j.size)}, ${j.mime}, ${j.type.name})\nFailed step: $step\nError: $msg\nDevice: ${AppLog.device}\nApp: 4 Encryptor 1.1.0, target ${MasterKey.target.label}, key ${MasterKey.isDev ? 'DEV' : MasterKey.target.defineName}';
+        final details = 'File: ${j.name} (${fmtSize(j.size)}, ${j.mime}, ${j.type.name})\nFailed step: $step\nError: $msg\nDevice: ${AppLog.device}\nApp: 4 Encryptor $appVersion, target ${MasterKey.target.label}, key ${MasterKey.isDev ? 'DEV' : MasterKey.target.defineName}';
         AppLog.log('FAILED ${j.name} at "$step": $msg');
         setState(() {
           j.error = 'Could not $step: ${msg.split('\n').first}';
@@ -364,6 +367,143 @@ class _HomePageState extends State<HomePage> {
     final n = todo.where((j) => j.done).length;
     _snack('$n of ${todo.length} encrypted into $outName');
   }
+
+  // ---------- encrypt a whole folder
+  bool cancelFolder = false;
+  FolderProgress? folderProgress;
+
+  Future<void> _encryptFolder() async {
+    final src = await Io.pickFolder();
+    if (src == null) return;
+    setState(() {
+      busy = true;
+      statusLine = 'Looking for files…';
+    });
+    try {
+      final srcLabel = await Io.folderName(src);
+      final base = srcLabel.split('/').last.replaceAll(RegExp(r'[\\/:*?"<>|]'), '_').trim();
+      final outFolderName = '${base.isEmpty ? 'folder' : base}_encrypted';
+      final list = await Io.listTree(src, skipTop: outFolderName);
+      final entries = [
+        for (final m in list)
+          FolderEntry(uri: m['uri'] as String, name: m['name'] as String, size: (m['size'] as num).toInt(), mime: m['mime'] as String? ?? '', dir: m['dir'] as String? ?? ''),
+      ];
+      final n = entries.where((e) => folderSkipReason(e) == null).length;
+      _status(null);
+      if (n == 0) {
+        await _info('Nothing to encrypt', 'No PDFs or videos found in $srcLabel (${entries.length} other files).');
+        return;
+      }
+      if (!mounted) return;
+      // where to save: default a new folder "<name>_encrypted" inside the picked folder
+      String? otherTree, otherName;
+      final go = await showDialog<bool>(
+        context: context,
+        builder: (c) => StatefulBuilder(
+          builder: (c, set) => AlertDialog(
+            title: const Text('Encrypt folder'),
+            content: Text('Found $n files to encrypt in $srcLabel'
+                '${entries.length > n ? ' (${entries.length - n} other files will be skipped)' : ''}.\n\n'
+                'For: ${MasterKey.target.label}\n'
+                'Save to: ${otherName ?? 'new folder "$outFolderName" inside $srcLabel'}\n\n'
+                'Subfolders are kept.'),
+            actions: [
+              TextButton(onPressed: () => Navigator.pop(c, false), child: const Text('Cancel')),
+              TextButton(
+                onPressed: () async {
+                  final t = await Io.pickFolder();
+                  if (t == null) return;
+                  final nm = await Io.folderName(t);
+                  set(() {
+                    otherTree = t;
+                    otherName = nm;
+                  });
+                },
+                child: const Text('Other folder'),
+              ),
+              FilledButton(onPressed: () => Navigator.pop(c, true), child: const Text('Start')),
+            ],
+          ),
+        ),
+      );
+      if (go != true) return;
+      final outTreeUri = otherTree ?? src;
+      String? outRoot; // document URI of the top output folder (null = top of the chosen tree)
+      var outLabel = otherName ?? '';
+      if (otherTree == null) {
+        final d = await Io.newDir(src, outFolderName);
+        outRoot = d['uri'] as String;
+        outLabel = '$srcLabel/${d['name']}';
+      }
+      final dirs = <String, String?>{'': outRoot};
+      Future<String?> dirFor(String rel) async {
+        if (dirs.containsKey(rel)) return dirs[rel];
+        return dirs[rel] = await Io.subDir(outTreeUri, outRoot, rel);
+      }
+
+      cancelFolder = false;
+      final mk = await MasterKey.load();
+      AppLog.log('folder: $srcLabel → $outLabel, $n files, target ${MasterKey.target.label}');
+      final res = await encryptFolder(
+        entries: entries,
+        open: (e) async => SafSource.open(e.uri),
+        create: (dir, name) async => SafSink.create(outTreeUri, name, parent: await dirFor(dir)),
+        masterKey: mk,
+        batch: FourBatch.create(newBatchId()),
+        probe: (e) => Io.probe(e.uri, e.mime.isEmpty ? guessMime(e.name) : e.mime),
+        onProgress: (p) {
+          if (mounted) setState(() => folderProgress = p);
+        },
+        log: AppLog.log,
+        cancelled: () => cancelFolder,
+      );
+      AppLog.log('folder done: ${res.done} done, ${res.skipped} skipped, ${res.failed} failed${res.cancelled ? ', cancelled' : ''}');
+      if (!mounted) return;
+      await _info(
+        res.cancelled ? 'Stopped' : 'Folder finished',
+        'Done: ${res.done}\nSkipped: ${res.skipped}\nFailed: ${res.failed}\n\nSaved in: $outLabel'
+            '${res.failures.isEmpty ? '' : '\n\nFailed:\n${res.failures.take(20).join('\n')}'}'
+            '${res.skips.isEmpty ? '' : '\n\nSkipped:\n${res.skips.take(20).join('\n')}${res.skips.length > 20 ? '\n…' : ''}'}',
+      );
+    } catch (e, st) {
+      AppLog.log('folder FAILED: ${describeError(e, st)}');
+      _snack('Folder: ${describeError(e).split('\n').first}');
+    } finally {
+      if (mounted) {
+        setState(() {
+          busy = false;
+          folderProgress = null;
+          statusLine = null;
+        });
+      }
+    }
+  }
+
+  Widget _folderCard(FolderProgress p) => Card(
+    margin: const EdgeInsets.fromLTRB(10, 6, 10, 0),
+    child: Padding(
+      padding: const EdgeInsets.all(12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Encrypting ${p.index} of ${p.total}', style: const TextStyle(fontWeight: FontWeight.w600)),
+          Text(p.current, maxLines: 2, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 12)),
+          const SizedBox(height: 6),
+          LinearProgressIndicator(value: p.fileProgress),
+          const SizedBox(height: 4),
+          LinearProgressIndicator(value: (p.index - 1 + p.fileProgress) / p.total),
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextButton.icon(
+              onPressed: cancelFolder ? null : () => setState(() => cancelFolder = true),
+              icon: const Icon(Icons.stop),
+              label: Text(cancelFolder ? 'Stopping…' : 'Cancel'),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 
   Future<void> _showLog() async {
     final text = await AppLog.read();
@@ -454,7 +594,8 @@ class _HomePageState extends State<HomePage> {
               content: SelectableText('$selfTestError\nEncrypting will not work on this phone. Please share the log.', style: const TextStyle(color: Colors.red)),
               actions: [TextButton(onPressed: AppLog.share, child: const Text('Share log'))],
             ),
-          if (busy) LinearProgressIndicator(value: overall > 0 ? overall : null),
+          if (busy && folderProgress == null) LinearProgressIndicator(value: overall > 0 ? overall : null),
+          if (folderProgress != null) _folderCard(folderProgress!),
           if (statusLine != null) Padding(padding: const EdgeInsets.all(8), child: Text(statusLine!)),
           Expanded(
             child: jobs.isEmpty
@@ -491,9 +632,14 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+              SizedBox(
+                width: double.infinity,
+                child: OutlinedButton.icon(onPressed: busy ? null : _encryptFolder, icon: const Icon(Icons.folder_copy_outlined), label: const Text('Encrypt folder')),
+              ),
               Row(
                 children: [
                   OutlinedButton.icon(onPressed: busy ? null : _addFiles, icon: const Icon(Icons.add), label: const Text('Add files')),
+
                   PopupMenuButton<int>(
                     enabled: !busy,
                     icon: const Icon(Icons.more_vert),
