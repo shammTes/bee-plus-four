@@ -134,7 +134,7 @@ class _InlineBuilder {
         baseline: TextBaseline.alphabetic,
         child: Transform.translate(
           offset: Offset(0, -(s.fontSize ?? 18) * .33),
-          child: Text(t, style: s.copyWith(fontSize: fs, height: 1)),
+          child: Text(t, style: s.copyWith(fontSize: fs, height: 1), textScaler: TextScaler.noScaling), // High: WidgetSpan is scaled already
         ),
       ),
     );
@@ -226,7 +226,8 @@ class _Mark extends StatelessWidget {
   final RichColors colors;
   @override
   Widget build(BuildContext context) {
-    Widget t = Text(text, style: style, strutStyle: strutOf(style));
+    // High: drawn inside a WidgetSpan, which the paragraph already scales by the text scaler: do not scale it twice
+    Widget t = Text(text, style: style, strutStyle: strutOf(style), textScaler: TextScaler.noScaling);
     if (hx) {
       t = DecoratedBox(
         decoration: BoxDecoration(
@@ -278,7 +279,8 @@ class _MathView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final fs = (base.fontSize ?? 18) * 1.06 * (display ? .92 : 1);
-    final scale = MediaQuery.maybeTextScalerOf(context)?.scale(fs) ?? fs;
+    // High: inline maths sit in a WidgetSpan, which the paragraph already scales by the text scaler (no double scaling)
+    final scale = display ? MediaQuery.maybeTextScalerOf(context)?.scale(fs) ?? fs : fs;
     final ts = scale / fs;
     final bold = MediaQuery.maybeBoldTextOf(context) ?? false;
     final color = base.color ?? DefaultTextStyle.of(context).style.color ?? const Color(0xFF000000);

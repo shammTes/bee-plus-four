@@ -402,6 +402,9 @@ class _SheetLayerState extends State<SheetLayer> with SingleTickerProviderStateM
 /// access to the shell's sheet API
 VoidCallback showSheet(BuildContext context, Widget child, {bool lock = false, bool bare = false}) => context.findAncestorStateOfType<HighShellState>()!.sheet(child, lock: lock, bare: bare);
 
+/// app-wide text size (1.1 = +10% over the design sizes; layouts are checked at 360×640 in the widget tests)
+const kUiTextScale = 1.1;
+
 /// Tablets / TVs (e.g. 1920×1080 Smart View): lay the UI out on a smaller logical canvas and scale it up, so type,
 /// clay and images grow with the screen instead of stretching thin. Phones are untouched.
 class BigScreen extends StatelessWidget {
@@ -413,7 +416,10 @@ class BigScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mq = MediaQuery.of(context), f = scaleFor(mq.size);
+    final mq0 = MediaQuery.of(context), f = scaleFor(mq0.size);
+    // all app type a little larger (+10%) on top of the phone's own font-size setting
+    final mq = mq0.copyWith(textScaler: TextScaler.linear((mq0.textScaler.scale(16) / 16 * kUiTextScale).clamp(1.0, 2.0)));
+    final child = MediaQuery(data: mq, child: this.child);
     if (f == 1) return child;
     final sz = mq.size / f;
     return FittedBox(
