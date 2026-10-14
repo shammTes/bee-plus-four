@@ -68,7 +68,6 @@ void main() {
 
     test('study coach loads: every topic has steps and at least one interactive part', () {
       expect(cb.topics.length, greaterThanOrEqualTo(20));
-      expect(cb.safetyText, contains('counsellor'));
       final ids = <String>{};
       for (final t in cb.topics) {
         expect(ids.add(t.id), isTrue, reason: 'duplicate ${t.id}');
@@ -144,7 +143,6 @@ void main() {
         expect(student.toLowerCase(), isNot(contains(w.toLowerCase())), reason: 'no "$w" in what students read');
       }
       expect(RegExp(r'\d{3}[- ]?\d{3,}').hasMatch(student), isFalse, reason: 'no phone numbers');
-      expect(pb.support['text'], allOf(contains('parent'), contains('teacher'), contains('counsellor')));
       final long = <String>[];
       for (final t in coachTexts({...pb.raw}..remove('techniques'))) {
         for (final sen in t.split(RegExp(r'(?<=[.!?…]["”]?)\s+'))) {
@@ -343,8 +341,8 @@ void main() {
       await settle(tester);
       expect(find.text('Quick tools'), findsOneWidget);
       await shot(tester, 'coach_home');
-      await scrollTo(tester, find.text('If you feel very sad or unsafe'));
-      await shot(tester, 'coach_home_safety');
+      expect(find.textContaining('very sad'), findsNothing);
+      expect(find.textContaining('unsafe'), findsNothing);
 
       push(tester, const CoachTopicPage(id: 'exam_anxiety'));
       await settle(tester);
@@ -387,12 +385,9 @@ void main() {
         await tester.tap(find.text(i < 7 ? 'Often' : 'Rarely'));
         await tester.pump();
       }
-      expect(find.text('One last private question'), findsOneWidget);
-      await shot(tester, 'plan_checkin_feel');
-      await tester.tap(find.text('Often')); // → gentle "talk to someone" card, answer not saved
-      await settle(tester);
-      expect(find.text('Talking to someone helps'), findsOneWidget);
-      expect(jsonEncode(s.coach), isNot(contains('feel')));
+      await settle(tester); // the 14th answer opens the profile directly (no mood / crisis question)
+      expect(find.text('One last private question'), findsNothing);
+      expect(find.text('Talking to someone helps'), findsNothing);
       await shot(tester, 'plan_profile');
       await scrollTo(tester, find.textContaining('Start: '));
       await shot(tester, 'plan_profile_start');
@@ -436,10 +431,8 @@ void main() {
         await tester.tap(find.text(i < 7 ? 'Sometimes' : 'Rarely'));
         await tester.pump();
       }
-      await tester.tap(find.text('Never'));
       await settle(tester);
       expect(find.text('Day 30: your change'), findsOneWidget);
-      expect(find.text('Talking to someone helps'), findsNothing);
       await shot(tester, 'plan_day30_change');
       expect(planOf(s)!.isDone(30), isTrue);
       await tester.pump(const Duration(seconds: 1));

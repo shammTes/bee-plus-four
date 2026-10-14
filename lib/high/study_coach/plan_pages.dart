@@ -1,6 +1,6 @@
 // Study check-in → friendly profile (top 2 areas) → optional 30-day plan: one short lesson and one tiny action a
 // day, "I did it", streak, weekly look-back, and the same check-in again on Day 30 to see the change.
-// Everything stays on the phone (HighState.coach: 'checks', 'plan'). The "how do you feel" answer is never saved.
+// Everything stays on the phone (HighState.coach: 'checks', 'plan').
 import 'package:flutter/widgets.dart';
 
 import '../state/app_state.dart';
@@ -125,7 +125,7 @@ class _CheckInPageState extends State<CheckInPage> {
   int _i = 0;
   final _ans = <String, int>{};
 
-  void _finish(PlanBook b, int feel) {
+  void _finish(PlanBook b) {
     final s = HighScope.read(context), sc = b.score(_ans), now = nowMs();
     final old = s.coachGet<List>('checks') ?? const [];
     s.coachSet(
@@ -145,18 +145,17 @@ class _CheckInPageState extends State<CheckInPage> {
     }
     final nav = HighNav.of(context);
     nav.back();
-    nav.push(ProfilePage(scores: sc, feelHigh: feel >= (b.feel['showSupportAtLeast'] as num), before: before));
+    nav.push(ProfilePage(scores: sc, before: before));
   }
 
   @override
   Widget build(BuildContext context) => _withBook((context, b) {
     final p = Kit.of(context).p, items = b.items, n = items.length;
-    final onFeel = _i >= n;
-    final q = onFeel ? b.feel['text'] as String : items[_i]['text'] as String;
+    final q = items[_i]['text'] as String;
     return PageShell(
       top: TopBar(
         title: widget.recheck ? 'Day 30 check-in' : 'Study check-in',
-        sub: onFeel ? 'One last private question' : 'Question ${_i + 1} of $n',
+        sub: 'Question ${_i + 1} of $n',
         onBack: HighNav.of(context).back,
         tab: false,
       ),
@@ -178,20 +177,17 @@ class _CheckInPageState extends State<CheckInPage> {
               spacing: 10,
               children: [
                 Text(q, style: ts(19, w900, p.ink, height: 1.35, spacing: -.2)),
-                if (onFeel) Text(b.feel['note'] as String, style: ts(12.5, w700, p.ink3, height: 1.35)),
                 const SizedBox(height: 4),
                 for (var j = 0; j < b.scale.length; j++)
                   Btn(
                     b.scale[j],
-                    kind: !onFeel && _ans[items[_i]['id']] == j ? BtnKind.tone : BtnKind.soft,
+                    kind: _ans[items[_i]['id']] == j ? BtnKind.tone : BtnKind.soft,
                     tone: 'blue',
                     block: true,
                     onTap: () {
-                      if (onFeel) return _finish(b, j);
-                      setState(() {
-                        _ans[items[_i]['id'] as String] = j;
-                        _i++;
-                      });
+                      _ans[items[_i]['id'] as String] = j;
+                      if (_i == n - 1) return _finish(b);
+                      setState(() => _i++);
                     },
                   ),
               ],
@@ -213,9 +209,8 @@ class _CheckInPageState extends State<CheckInPage> {
 
 // ---------------------------------------------------------------- profile
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key, required this.scores, this.feelHigh = false, this.before});
+  const ProfilePage({super.key, required this.scores, this.before});
   final Map<String, int> scores;
-  final bool feelHigh;
 
   /// Day 1 scores when this is the Day 30 check-in
   final Map<String, int>? before;
@@ -282,7 +277,6 @@ class ProfilePage extends StatelessWidget {
       ),
       body: ScreenList(
         children: [
-          if (feelHigh) SafetyCard(title: b.support['title'] as String, text: b.support['text'] as String),
           Panel(
             tone: b.area(top.first)['tone'] as String,
             margin: const EdgeInsets.only(top: 8),
@@ -428,11 +422,6 @@ class _PlanPageState extends State<PlanPage> {
     final next = run.next, d = _view ?? (next > b.days ? b.days : next);
     final entry = b.day(d, run.a, run.b, single: run.single), open = run.unlocked(d, now), done = run.isDone(d);
     final streak = run.streak(now), best = run.m['best'] is num ? (run.m['best'] as num).toInt() : streak;
-    final moods = [
-      for (final r in (run.m['notes'] as Map? ?? const {}).values)
-        if (r is Map && r['mood'] is num) (r['mood'] as num).toInt(),
-    ];
-    final lowMood = moods.isNotEmpty && (moods.last == 0 || (moods.length > 1 && moods[moods.length - 1] <= 1 && moods[moods.length - 2] <= 1));
 
     void complete([Map<String, dynamic>? note]) {
       run.m['done'] = {...run.done, '$d': dayOf(now)};
@@ -643,7 +632,6 @@ class _PlanPageState extends State<PlanPage> {
               ],
             ),
           ),
-          if (lowMood) SafetyCard(title: b.support['title'] as String, text: b.support['text'] as String),
           ...today,
           SectionLabel('Your 30 days', n: run.done.length),
           Blk(margin: const EdgeInsets.only(top: 8), child: grid()),
