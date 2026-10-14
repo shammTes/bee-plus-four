@@ -29,6 +29,9 @@ class ResEntry {
     thumb: j['thumb'] == null ? null : base64.decode(j['thumb'] as String),
   );
 
+  /// Only files the user imported (copied into app storage) can be deleted; bundled asset items cannot.
+  bool get deletable => !path.startsWith('asset:') && !path.startsWith('assets/');
+
   /// `biology_11` style notes book id
   String get bookKey => '${meta.subject.toLowerCase().replaceAll(' ', '_')}_${meta.grade}';
 }
@@ -251,12 +254,29 @@ class ResourceLibrary extends ChangeNotifier {
     return RefreshReport(added, skipped, failed, null, problems);
   }
 
-  Future<void> remove(ResEntry e) async {
-    final f = File(e.path);
-    if (await f.exists()) await f.delete();
-    entries = entries.where((x) => x.id != e.id).toList();
-    await _writeIndex(await _dir());
+  /// Deletes an imported file from app storage and drops it from the sealed index. Bundled items are ignored.
+  Future<void> remove(ResEntry e) => removeMany([e]);
+
+  /// Deletes several imported files at once; returns how many were removed. One index write, one notify.
+  Future<int> removeMany(Iterable<ResEntry> items) async {
+    final dir = await _dir();
+    final ids = <String>{};
+    for (final e in items) {
+      if (!e.deletable || !e.path.startsWith(dir.path)) continue; // never touch files outside app storage
+      for (final f in [File(e.path), File('${dir.path}/${e.id}.part')]) {
+        try {
+          if (await f.exists()) await f.delete();
+        } on FileSystemException catch (err) {
+          debugPrint('delete ${f.path}: $err');
+        }
+      }
+      if (!File(e.path).existsSync()) ids.add(e.id);
+    }
+    if (ids.isEmpty) return 0;
+    entries = entries.where((x) => !ids.contains(x.id)).toList();
+    await _writeIndex(dir);
     notifyListeners();
+    return ids.length;
   }
 
   /// Resources for a notes unit page (`bookId` like `biology_11`).

@@ -97,6 +97,8 @@ class ResourcesPage extends StatefulWidget {
 class _ResourcesPageState extends State<ResourcesPage> {
   final lib = ResourceLibrary.instance;
   String? _subject;
+  bool _selecting = false;
+  final _sel = <String>{};
 
   @override
   void initState() {
@@ -129,6 +131,41 @@ class _ResourcesPageState extends State<ResourcesPage> {
     }
   }
 
+  Future<void> _deleteOne(ResEntry e) async {
+    if (!e.deletable || !await confirmDelete(context, 1)) return;
+    final n = await lib.removeMany([e]);
+    if (mounted) toast(context, n == 1 ? 'File deleted' : 'Could not delete the file');
+  }
+
+  Future<void> _deleteSelected() async {
+    final items = [for (final e in lib.entries) if (_sel.contains(e.id) && e.deletable) e];
+    if (items.isEmpty || !await confirmDelete(context, items.length)) return;
+    final n = await lib.removeMany(items);
+    if (!mounted) return;
+    setState(() {
+      _selecting = false;
+      _sel.clear();
+    });
+    toast(context, n == items.length ? 'Deleted $n file${n == 1 ? '' : 's'}' : 'Deleted $n of ${items.length} files');
+  }
+
+  void _toggle(ResEntry e) => setState(() => _sel.contains(e.id) ? _sel.remove(e.id) : _sel.add(e.id));
+
+  Future<void> _menu(ResEntry e) async {
+    if (!e.deletable) return;
+    final pick = await showResourceMenu(context, e.meta.title);
+    if (!mounted) return;
+    if (pick == 'delete') await _deleteOne(e);
+    if (pick == 'select') {
+      setState(() {
+        _selecting = true;
+        _sel
+          ..clear()
+          ..add(e.id);
+      });
+    }
+  }
+
   Future<void> _folder() async {
     try {
       await lib.pickFolder();
@@ -151,10 +188,29 @@ class _ResourcesPageState extends State<ResourcesPage> {
         sub: lib.mode == GateMode.locked ? 'Unlock 4 to open these files' : '${lib.entries.length} file${lib.entries.length == 1 ? '' : 's'}',
         onBack: () => HighNav.of(context).back(),
         tab: false,
-        actions: [CBtn('search', label: lib.busy ? 'Refreshing…' : 'Refresh', onTap: lib.busy ? () {} : _refresh)],
+        actions: [
+          if (lib.entries.any((e) => e.deletable))
+            CBtn(_selecting ? 'x' : 'check', label: _selecting ? 'Cancel' : 'Select', onTap: () => setState(() {
+              _selecting = !_selecting;
+              _sel.clear();
+            })),
+          CBtn('search', label: lib.busy ? 'Refreshing…' : 'Refresh', onTap: lib.busy ? () {} : _refresh),
+        ],
       ),
       body: ScreenList(
         children: [
+          if (_selecting)
+            Panel(
+              tone: 'peach',
+              padding: const EdgeInsets.all(12),
+              child: Row(
+                spacing: 10,
+                children: [
+                  Expanded(child: Text(_sel.isEmpty ? 'Tap files to select them' : '${_sel.length} selected', style: ts(14, w900, p.ink))),
+                  Btn('Delete', onTap: _sel.isEmpty ? null : _deleteSelected),
+                ],
+              ),
+            ),
           Panel(
             padding: const EdgeInsets.all(14),
             child: Column(
@@ -202,7 +258,16 @@ class _ResourcesPageState extends State<ResourcesPage> {
               padding: const EdgeInsets.all(24),
               child: Text('No resources yet.', textAlign: TextAlign.center, style: ts(14, w800, p.ink3)),
             ),
-          for (final e in shown) ResourceTile(entry: e, scope: shown),
+          for (final e in shown)
+            ResourceTile(
+              entry: e,
+              scope: shown,
+              selecting: _selecting,
+              selected: _sel.contains(e.id),
+              onSelect: () => _toggle(e),
+              onDelete: () => _deleteOne(e),
+              onLongPress: () => _selecting ? _toggle(e) : _menu(e),
+            ),
         ],
       ),
     );
@@ -273,19 +338,34 @@ class _Thumb extends StatelessWidget {
 }
 
 class ResourceTile extends StatelessWidget {
-  const ResourceTile({super.key, required this.entry, this.scope});
+  const ResourceTile({super.key, required this.entry, this.scope, this.onDelete, this.onLongPress, this.onSelect, this.selecting = false, this.selected = false});
   final ResEntry entry;
   final List<ResEntry>? scope;
+
+  /// Trash icon + long-press menu; only shown for imported (deletable) files.
+  final VoidCallback? onDelete, onLongPress, onSelect;
+  final bool selecting, selected;
   @override
   Widget build(BuildContext context) {
     final p = Kit.of(context).p, m = entry.meta;
-    return Panel(
+    final canDelete = entry.deletable && onDelete != null;
+    final panel = Panel(
       margin: const EdgeInsets.symmetric(vertical: 6),
       padding: const EdgeInsets.all(10),
-      onTap: () => openResource(context, entry, scope: scope),
+      onTap: selecting ? (entry.deletable ? onSelect : null) : () => openResource(context, entry, scope: scope),
       child: Row(
         spacing: 12,
         children: [
+          if (selecting && entry.deletable)
+            Semantics(
+              label: selected ? 'Selected' : 'Not selected',
+              child: Container(
+                width: 26,
+                height: 26,
+                decoration: BoxDecoration(color: selected ? p.coral : p.surface2, borderRadius: BorderRadius.circular(8)),
+                child: selected ? Center(child: Ic('check', size: 18, color: p.onCoral)) : null,
+              ),
+            ),
           _Thumb(entry),
           Expanded(
             child: Column(
@@ -299,12 +379,95 @@ class ResourceTile extends StatelessWidget {
               ],
             ),
           ),
-          Ic('right', size: 20, color: p.ink3),
+          if (canDelete && !selecting)
+            Semantics(
+              button: true,
+              label: 'Delete',
+              child: GestureDetector(
+                key: ValueKey('delete-${entry.id}'),
+                behavior: HitTestBehavior.opaque,
+                onTap: onDelete,
+                child: Padding(padding: const EdgeInsets.all(6), child: Ic('trash', size: 22, color: p.ink2)),
+              ),
+            )
+          else if (!selecting)
+            Ic('right', size: 20, color: p.ink3),
         ],
       ),
     );
+    if (!canDelete || onLongPress == null) return panel;
+    return GestureDetector(onLongPress: onLongPress, child: panel);
   }
 }
+
+Widget _dialogBtn(Palette p, String label, VoidCallback onTap, {bool danger = false, Key? key}) => GestureDetector(
+  key: key,
+  onTap: onTap,
+  child: Container(
+    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+    decoration: BoxDecoration(color: danger ? p.coral : p.surface2, borderRadius: BorderRadius.circular(12)),
+    child: Text(label, textAlign: TextAlign.center, style: ts(14.5, w900, danger ? p.onCoral : p.ink)),
+  ),
+);
+
+Future<T?> _box<T>(BuildContext context, Widget Function(BuildContext c, Palette p) build) => showGeneralDialog<T>(
+  context: context,
+  barrierDismissible: true,
+  barrierLabel: 'close',
+  barrierColor: const Color(0x99000000),
+  pageBuilder: (c, _, _) {
+    final p = Kit.of(context).p;
+    return SafeArea(
+      child: Center(
+        child: Container(
+          margin: const EdgeInsets.all(24),
+          padding: const EdgeInsets.all(18),
+          decoration: BoxDecoration(color: p.surface, borderRadius: BorderRadius.circular(18)),
+          child: build(c, p),
+        ),
+      ),
+    );
+  },
+);
+
+/// Plain-English confirm. Returns true only when the user taps Delete.
+Future<bool> confirmDelete(BuildContext context, int count) async =>
+    await _box<bool>(
+      context,
+      (c, p) => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        spacing: 14,
+        children: [
+          Text(count == 1 ? 'Delete this file? You can add it again later.' : 'Delete these $count files? You can add them again later.', style: ts(16, w900, p.ink)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            spacing: 10,
+            children: [
+              _dialogBtn(p, 'Cancel', () => Navigator.of(c).pop(false)),
+              _dialogBtn(p, 'Delete', () => Navigator.of(c).pop(true), danger: true, key: const ValueKey('confirm-delete')),
+            ],
+          ),
+        ],
+      ),
+    ) ==
+    true;
+
+/// Long-press menu: 'delete', 'select' or null.
+Future<String?> showResourceMenu(BuildContext context, String title) => _box<String>(
+  context,
+  (c, p) => Column(
+    mainAxisSize: MainAxisSize.min,
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    spacing: 10,
+    children: [
+      Text(title, maxLines: 2, overflow: TextOverflow.ellipsis, style: ts(15, w900, p.ink)),
+      _dialogBtn(p, 'Delete', () => Navigator.of(c).pop('delete'), danger: true, key: const ValueKey('menu-delete')),
+      _dialogBtn(p, 'Select several', () => Navigator.of(c).pop('select')),
+      _dialogBtn(p, 'Cancel', () => Navigator.of(c).pop()),
+    ],
+  ),
+);
 
 /// Horizontal strip on a notes unit page. Builds nothing when the unit has no add-ons.
 class ResourceStrip extends StatefulWidget {
