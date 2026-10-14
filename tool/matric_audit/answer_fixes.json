@@ -9,7 +9,8 @@
       "Centre (-3, -2), radius 6: $$ (x+3)^2 + (y+2)^2 = 36 $$.",
       "Expand: $$ x^2 + 6x + 9 + y^2 + 4y + 4 = 36 $$, so $$ x^2 + 6x + y^2 + 4y - 23 = 0 $$ — option D. (Option A has 26 instead of 23.)"
     ],
-    "_why": "keyed A (= 26) but the expansion gives 23 -> D"
+    "_why": "keyed A (= 26) but the expansion gives 23 -> D Flagged for review: Options C and E are printed identically (key D unaffected).",
+    "review_flag": "Options C and E are printed identically (key D unaffected)."
   },
   "bank-math-matric-2023-q025": {
     "answer": "D",
@@ -57,5 +58,489 @@
       "Power of the point P: $$ PR \\cdot PB = PA \\cdot PQ = 8 \\cdot 12 = 96 $$, so $$ PR = \\frac{96}{8\\sqrt{3}} = 4\\sqrt{3} $$ — option B. (Option C, $$ 8\\sqrt{3} $$, is PB.)"
     ],
     "_why": "keyed C (= PB) but PR = 96/PB = 4*sqrt(3) -> B; checked against the printed figure"
+  },
+  "alg-geo-2001-matric-p1-q05": {
+    "answer": "A",
+    "accepted_answers": [
+      "A"
+    ],
+    "explanation_steps": [
+      "Draw it: 100 km east, then 100 km towards S 30° E. The ship turns through 60°, so the angle inside the triangle at the turning point is 180° − 60° = 120°.",
+      "Cosine rule: d² = 100² + 100² − 2·100·100·cos 120° = 10000 + 10000 + 10000 = 30000.",
+      "d = √30000 = 100√3 km. Answer: A."
+    ],
+    "_why": "Turning angle is 60 deg so the angle inside the triangle is 120 deg; distance is 100*sqrt3, not 100."
+  },
+  "bank-math-matric-2020-q003": {
+    "answer": "D",
+    "accepted_answers": [
+      "D"
+    ],
+    "explanation_steps": [
+      "Multiply every term by 12 to clear the fractions: $$ 3(x-2) - 2(x-4) \\geq 8 $$.",
+      "Expand: $$ 3x - 6 - 2x + 8 \\geq 8 $$, so $$ x + 2 \\geq 8 $$.",
+      "So $$ x \\geq 6 $$. Answer: D."
+    ],
+    "_why": "Solving gives x >= 6, not x >= 16."
+  },
+  "bank-physics-matric-2025-q032": {
+    "answer": "C",
+    "accepted_answers": [
+      "C"
+    ],
+    "explanation_steps": [
+      "The image is on a screen, so it is real. Magnification 0.25 means $$ d_i = 0.25\\,d_o $$, so $$ d_o = 4d_i $$.",
+      "Object to screen is 120 cm: $$ d_o + d_i = 120 $$, so $$ 4d_i + d_i = 120 $$ and $$ d_i = 24 $$ cm.",
+      "Then $$ d_o = 96 $$ cm. The question asks for image then object: 24 and 96. Answer: C."
+    ],
+    "_why": "m=0.25 and d_o+d_i=120 give d_i=24, d_o=96 (image first): option C; E has them reversed."
+  },
+  "bank-general-science-matric-2017-q065": {
+    "answer": "B",
+    "accepted_answers": [
+      "B"
+    ],
+    "explanation_steps": [
+      "A salt that still has a replaceable hydrogen from the acid is called an acid (acidic) salt.",
+      "In a bicarbonate such as $$ NaHCO_3 $$, only one H of carbonic acid $$ H_2CO_3 $$ has been replaced by the metal, so one H is left.",
+      "So metal bicarbonates are acidic salts by classification (even though a solution of $$ NaHCO_3 $$ is slightly basic). Answer: B."
+    ],
+    "_why": "Bicarbonates (NaHCO3, Ca(HCO3)2) are acid salts: they still contain a replaceable H."
+  },
+  "bank-general-science-matric-2024-q013": {
+    "answer": "C",
+    "accepted_answers": [
+      "C"
+    ],
+    "explanation_steps": [
+      "Needle leaves have a very small surface area and a thick waxy coat with sunken stomata.",
+      "This cuts down water loss by transpiration, which matters in cold or dry places where water is hard to take up from frozen ground.",
+      "So the needles protect the tree from dehydration. Answer: C."
+    ],
+    "_why": "Needle leaves have small surface area and thick wax, reducing water loss (dehydration)."
+  },
+  "bank-english-matric-2020-q011": {
+    "answer": "D",
+    "accepted_answers": [
+      "D"
+    ],
+    "explanation_steps": [
+      "In English, the answer word agrees with the real fact, not with how the question is asked.",
+      "Muna reads a lot, so reading IS her favourite activity. A positive fact takes 'Yes' with a positive verb: 'Yes, it is.'",
+      "'No, it is' and 'Yes, it isn't' mix positive and negative, which is wrong. Answer: D."
+    ],
+    "_why": "In English the yes/no word follows the fact, not the question form: she does like reading, so \"Yes, it is\"."
+  },
+  "socst-2020-matric-p2-q17": {
+    "answer": "C",
+    "accepted_answers": [
+      "C"
+    ],
+    "explanation_steps": [
+      "Article 48 of the Eritrean Labour Proclamation No. 118/2001 sets overtime rates by when the work is done.",
+      "Work on a public holiday is paid at two and a half times (2.5×) the basic hourly wage.",
+      "Answer: C."
+    ],
+    "_why": "Labour Proclamation 118/2001 Art. 48: work on a public holiday is paid at 2.5 times the hourly rate."
+  },
+  "bank-chemistry-matric-2026-part2-q053": {
+    "options": {
+      "A": "$$ CaCl_2 $$.",
+      "B": "$$ NaCl $$.",
+      "C": "$$ C_6H_{12}O_6 $$.",
+      "D": "$$ C_6H_6 $$.",
+      "E": "$$ KBr $$."
+    },
+    "_why": "Removed stray duplicate option F (copy of C)."
+  },
+  "bank-gsc-matric-2026-part2-q013": {
+    "stem": "The processes of evaporation and condensation are parts of the ________ cycle.",
+    "options": {
+      "A": "carbon",
+      "B": "nitrogen",
+      "C": "phosphorus",
+      "D": "water",
+      "E": "oxygen"
+    },
+    "_why": "Option F \"F. cycle.\" was the end of the stem; moved back into the stem."
+  },
+  "bank-gsc-matric-2026-part2-q040": {
+    "options": {
+      "A": "oxygen.",
+      "B": "nitrogen.",
+      "C": "carbon dioxide.",
+      "D": "hydrogen.",
+      "E": "carbon monoxide."
+    },
+    "_why": "Removed junk option F \"F. F\"."
+  },
+  "bank-gsc-matric-2026-part2-q053": {
+    "options": {
+      "A": "changing acceleration.",
+      "B": "change of velocity.",
+      "C": "constant acceleration.",
+      "D": "accelerated motion.",
+      "E": "changing speed."
+    },
+    "_why": "Removed junk option F \"F. F\"."
+  },
+  "bank-gsc-matric-2026-part2-q064": {
+    "options": {
+      "A": "$$ 3.33 \\Omega $$.",
+      "B": "$$ 480 \\Omega $$.",
+      "C": "$$ 3.6 \\Omega $$.",
+      "D": "$$ 0.3 \\Omega $$.",
+      "E": "$$ 52 \\Omega $$."
+    },
+    "_why": "Removed junk option F \"F. F\"."
+  },
+  "bank-gsc-matric-2026-part2-q089": {
+    "options": {
+      "A": "$$ C + O_2 + H_2O \\rightarrow CO_2 + HOH $$",
+      "B": "$$ C_6H_{12}O_6 \\rightarrow 6CO_2 + 6H_2O $$",
+      "C": "$$ 6CO_2 + 6H_2O \\rightarrow C_6H_{12}O_6 + 6O_2 $$",
+      "D": "$$ C_6H_{12}O_6 + O_2 \\rightarrow 6CO_2 + 6H_2O $$",
+      "E": "$$ 6C + 6H_2O \\rightarrow C_6H_{12}O_6 $$"
+    },
+    "_why": "Removed \"Labels: C.\" prefix from option C."
+  },
+  "bank-gsc-matric-2026-part2-q090": {
+    "options": {
+      "A": "pharynx $$ \\rightarrow $$ trachea $$ \\rightarrow $$ bronchioles",
+      "B": "bronchioles $$ \\rightarrow $$ trachea $$ \\rightarrow $$ pharynx",
+      "C": "pharynx $$ \\rightarrow $$ bronchioles $$ \\rightarrow $$ trachea",
+      "D": "trachea $$ \\rightarrow $$ bronchioles $$ \\rightarrow $$ pharynx",
+      "E": "bronchioles $$ \\rightarrow $$ pharynx $$ \\rightarrow $$ trachea"
+    },
+    "_why": "Arrows in options were bare LaTeX; wrapped in $$ so they render."
+  },
+  "bank-general-science-matric-2017-q078": {
+    "options": {
+      "A": "10,000",
+      "B": "15,000",
+      "C": "25,000",
+      "D": "5,000",
+      "E": "20,000"
+    },
+    "_why": "Removed stray \"F.\" prefix from option E."
+  },
+  "bank-general-knowledge-matric-2018-q077": {
+    "options": {
+      "A": "Camel",
+      "B": "Horse",
+      "C": "Eagle",
+      "D": "Ostrich",
+      "E": "Zebra"
+    },
+    "_why": "Removed stray \"13.\" prefix from option B."
+  },
+  "bank-general-knowledge-matric-2018-q006": {
+    "options": {
+      "A": "Cultural revolution.",
+      "B": "Scramble for Africa.",
+      "C": "European revolution.",
+      "D": "Crusades.",
+      "E": "Cold War."
+    },
+    "_why": "Removed stray \"|E.\" prefix from option E."
+  },
+  "bank-general-knowledge-matric-2017-q090": {
+    "options": {
+      "A": "Tokyo",
+      "B": "Toronto",
+      "C": "New York",
+      "D": "Seoul",
+      "E": "Beijing"
+    },
+    "_why": "Removed stray \"3.\" prefix from option B."
+  },
+  "bank-geography-matric-2024-q011": {
+    "options": {
+      "A": "wind.",
+      "B": "air pressure.",
+      "C": "air temperature.",
+      "D": "precipitation.",
+      "E": "dust particles."
+    },
+    "_why": "Removed stray \"&E.\" prefix from option E."
+  },
+  "bank-math-matric-2020-q048": {
+    "options": {
+      "A": "$$ m(\\text{arc } QT) = 55^\\circ $$",
+      "B": "$$ m(\\angle TPQ) = 55^\\circ $$",
+      "C": "$$ m(\\text{arc } TR) = 125^\\circ $$",
+      "D": "$$ m(\\angle TRP) = 55^\\circ $$",
+      "E": "None of the above."
+    },
+    "_why": "Removed stray \"**D.**\" prefix."
+  },
+  "bank-math-matric-2020-q049": {
+    "options": {
+      "A": "$$ \\triangle APD \\cong \\triangle CQB $$",
+      "B": "$$ \\triangle AQB \\cong \\triangle CPD $$",
+      "C": "$$ AP = CQ $$",
+      "D": "APCQ is a parallelogram.",
+      "E": "None of the above."
+    },
+    "_why": "Removed stray \"**E.**\" prefix."
+  },
+  "bank-math-matric-2023-q043": {
+    "options": {
+      "A": "$$ \\frac{2}{7} $$",
+      "B": "$$ 13 $$",
+      "C": "$$ \\frac{1}{13} $$",
+      "D": "$$ \\frac{7}{2} $$",
+      "E": "$$ -\\frac{7}{2} $$"
+    },
+    "_why": "Removed stray \"0.\" prefix from option E."
+  },
+  "bank-business-and-economics-matric-2017-q052": {
+    "options": {
+      "A": "Provides loans for investment in different sectors of the economy.",
+      "B": "Accepts deposits from the public and grant loans to borrowers.",
+      "C": "Issues Nakfa, the Eritrean legal tender.",
+      "D": "Extends financial services to the poor and small enterprises.",
+      "E": "All of the above."
+    },
+    "_why": "Removed stray \"1).\" prefix from option D."
+  },
+  "bank-algebra-and-geometry-matric-2017-q045": {
+    "options": {
+      "A": "3",
+      "B": "4",
+      "C": "$$ \\frac{4}{3} $$",
+      "D": "0.75",
+      "E": "5"
+    },
+    "_why": "Option C was a broken \\frac (backslash lost as a form-feed) with no $$; restored so it renders."
+  },
+  "bank-chemistry-matric-2025-q024": {
+    "explanation_steps": [
+      "Many sulphates can be prepared using **double decomposition** (e.g., $$BaCl_2 + Na_2SO_4 \\rightarrow BaSO_4 + 2NaCl$$). Option D is false because Barium and Lead sulphates are insoluble. Option A is incomplete because ammonium can also replace hydrogen."
+    ],
+    "_why": "Restored LaTeX backslash lost as a control character (\\rightarrow / \\rho / \\beta) so math renders."
+  },
+  "bank-general-science-matric-2024-q047": {
+    "explanation_steps": [
+      "**Step 1: Write the balanced equation.**\n$$ 1Na_2CO_3 + 2HCl \\rightarrow 2NaCl + 1H_2O + 1CO_2 $$\n**Step 2: Sum the coefficients.**\nReactants: $$ 1 + 2 = 3 $$\nProducts: $$ 2 + 1 + 1 = 4 $$\nTotal Sum: $$ 3 + 4 = 7 $$."
+    ],
+    "_why": "Restored LaTeX backslash lost as a control character (\\rightarrow / \\rho / \\beta) so math renders."
+  },
+  "bank-general-science-matric-2024-q061": {
+    "explanation_steps": [
+      "Carbon-14 is produced in the upper atmosphere when cosmic ray-generated **neutrons** collide with **Nitrogen-14** atoms. The reaction is: $$ ^{14}_{7}N + ^{1}_{0}n \\rightarrow ^{14}_{6}C + ^{1}_{1}p $$."
+    ],
+    "_why": "Restored LaTeX backslash lost as a control character (\\rightarrow / \\rho / \\beta) so math renders."
+  },
+  "bank-gsc-matric-2026-part2-q056": {
+    "explanation_steps": [
+      "**Step 1: Find Spring Constant (k)** using Hooke's Law ($$ F = k \\Delta x $$):\n$$ 30 = k(0.3) \\rightarrow k = 30 / 0.3 = 100 \\text{ N/m} $$\n\n**Step 2: Find new weight (F)** for $$ \\Delta x = 0.5 \\text{ m} $$:\n$$ F = 100(0.5) = 50 \\text{ N} $$"
+    ],
+    "_why": "Restored LaTeX backslash lost as a control character (\\rightarrow / \\rho / \\beta) so math renders. Flagged for review: Options A and E are both \"100 N\" (key D 50 N is correct).",
+    "review_flag": "Options A and E are both \"100 N\" (key D 50 N is correct)."
+  },
+  "bank-general-science-matric-2025-q020": {
+    "explanation_steps": [
+      "**Step 1: Formula for Absolute Pressure.** \n$$ P_{abs} = P_{atm} + \\rho gh $$\n\n**Step 2: Plug in values from page 16 table.** \n- $$ P_{atm} (P_o) = 1.01 \\times 10^5 \\text{ Pa} $$\n- $$ \\rho = 1003 \\text{ kg/m}^3 $$\n- $$ g = 10 \\text{ m/s}^2 $$\n- $$ h = 80 \\text{ m} $$\n\n**Step 3"
+    ],
+    "_why": "Restored LaTeX backslash lost as a control character (\\rightarrow / \\rho / \\beta) so math renders."
+  },
+  "bank-gsc-matric-2026-part2-q077": {
+    "explanation_steps": [
+      "**Step 1: Find density**\n$$ \\rho = \\text{Rel. Density} \\times \\rho_{water} = 19.3 \\times 1 \\text{ g/cm}^3 = 19.3 \\text{ g/cm}^3 $$\n\n**Step 2: Convert Mass to grams**\n$$ m = 96.5 \\text{ kg} = 96,500 \\text{ g} $$\n\n**Step 3: Calculate Volume**\n$$ V = m / \\rho = 96,500 / 19.3 = 5000 \\text{ cm}^3 = 5.0 \\times 10^3 \\text{ cm}^3 $$"
+    ],
+    "_why": "Restored LaTeX backslash lost as a control character (\\rightarrow / \\rho / \\beta) so math renders."
+  },
+  "bank-general-science-matric-2024-q050": {
+    "options": {
+      "A": "Mass number increases by 1",
+      "B": "Atomic number increases by 4",
+      "C": "Beta particles are high speed protons",
+      "D": "The atomic mass will not change",
+      "E": "Beta particles are represented as $$ _{+1}\\beta $$"
+    },
+    "explanation_steps": [
+      "In beta minus ($$ \\beta^- $$) decay, a neutron turns into a proton and an electron (the beta particle). The **atomic mass number (nucleon number) remains the same**, while the atomic number increases by 1. Choice D is correct because the overall mass number does not change."
+    ],
+    "_why": "Restored LaTeX backslash lost as a control character (\\rightarrow / \\rho / \\beta) so math renders."
+  },
+  "phys-2001-matric-p1-q13": {
+    "explanation_steps": [
+      "Pressure from the water above: $$ P = \\rho g h = 1.03\\times10^3 \\times 9.8 \\times 200 \\approx 2.02\\times10^6 $$ Pa.",
+      "Force on the hull = pressure × area: $$ F = 2.02\\times10^6 \\times 3000 \\approx 6.06\\times10^9 $$ N.",
+      "The digits match option A (6.06), but the paper prints ×10⁶ instead of ×10⁹. A is the intended answer."
+    ],
+    "_why": "Explanation arithmetic corrected (3000*2.02e6 = 6.06e9 N); flagged because all options are printed x10^6. Flagged for review: Weight = ρghA = 1.03×10³ × 9.8 × 200 × 3000 ≈ 6.06×10⁹ N; all options are 10⁶–10⁷ (paper misprint). Key A kept for the matching digits; explanation arithmetic corrected.",
+    "review_flag": "Weight = ρghA = 1.03×10³ × 9.8 × 200 × 3000 ≈ 6.06×10⁹ N; all options are 10⁶–10⁷ (paper misprint). Key A kept for the matching digits; explanation arithmetic corrected."
+  },
+  "bank-math-matric-2026-part2-q050": {
+    "review_flag": "As typed, 3^{x-1}·3^x / 3^{x+1} = 3^{x-2}, which is not an option; key B (3^{x-1}) needs a different stem. Check the paper.",
+    "_why": "Flagged for review: As typed, 3^{x-1}·3^x / 3^{x+1} = 3^{x-2}, which is not an option; key B (3^{x-1}) needs a different stem. Check the paper."
+  },
+  "bank-math-matric-2026-part2-q057": {
+    "review_flag": "As typed the expression equals x - y = 15 (not an option); key A (12) only works if the stem is (x - x/5) - (y - y/5). Check the paper.",
+    "_why": "Flagged for review: As typed the expression equals x - y = 15 (not an option); key A (12) only works if the stem is (x - x/5) - (y - y/5). Check the paper."
+  },
+  "bank-math-matric-2026-part2-q030": {
+    "review_flag": "Figure from the original paper is not available in the app yet. Figure-dependent: if x, y, z are angles of an inscribed triangle, z = 75° (not an option); key C (60°) assumes 3:4:5 are arcs. Needs figure.",
+    "_why": "Flagged for review: Figure from the original paper is not available in the app yet. Figure-dependent: if x, y, z are angles of an inscribed triangle, z = 75° (not an option); key C (60°) assumes 3:4:5 are arcs. Needs figure."
+  },
+  "bank-business-and-economics-matric-2017-q079": {
+    "review_flag": "Stem has no quantity data (explanation uses Q = 2000 → 1000 from a missing table); key B = 1 matches that data. Needs the table.",
+    "_why": "Flagged for review: Stem has no quantity data (explanation uses Q = 2000 → 1000 from a missing table); key B = 1 matches that data. Needs the table."
+  },
+  "bank-business-matric-2020-q21-40-q086": {
+    "review_flag": "Broken options: C is '..' and D is missing (A, B, C, E only). Key E (law of supply) kept.",
+    "_why": "Flagged for review: Broken options: C is '..' and D is missing (A, B, C, E only). Key E (law of supply) kept."
+  },
+  "bank-history-matric-2017-q042": {
+    "review_flag": "Broken match item: options are lettered D, E, C ('C' holds 'F. Liberation of Massawa'). Key E (immediate cause of WWI) is right but option list needs rebuilding.",
+    "_why": "Flagged for review: Broken match item: options are lettered D, E, C ('C' holds 'F. Liberation of Massawa'). Key E (immediate cause of WWI) is right but option list needs rebuilding."
+  },
+  "bank-physics-matric-2017-q009": {
+    "review_flag": "Broken numbers: father 80×2.5 = 200 vs daughter 40×2.5 = 100, so the 20 kg son must give 100 on the daughter's side = 5 m from the fulcrum (off the 2.5 m half). Key C (1.5 m from fulcrum) does not balance. Check the paper.",
+    "_why": "Flagged for review: Broken numbers: father 80×2.5 = 200 vs daughter 40×2.5 = 100, so the 20 kg son must give 100 on the daughter's side = 5 m from the fulcrum (off the 2.5 m half). Key C (1.5 m from fulcrum) does not balance. Check the paper."
+  },
+  "bank-physics-matric-2018-q021": {
+    "review_flag": "The balls meet at about 124 m (g = 10) – no option is close except E (100). Key E is a best guess; the paper's numbers may be different.",
+    "_why": "Flagged for review: The balls meet at about 124 m (g = 10) – no option is close except E (100). Key E is a best guess; the paper's numbers may be different."
+  },
+  "bank-physics-matric-2018-q026": {
+    "review_flag": "Exact final velocities are −9.67 m/s and 1.33 m/s; D (−9 and 1) is only the closest option.",
+    "_why": "Flagged for review: Exact final velocities are −9.67 m/s and 1.33 m/s; D (−9 and 1) is only the closest option."
+  },
+  "bank-physics-matric-2020-q026": {
+    "review_flag": "Lens: f = 50 cm, u = 20 cm gives v = −33.3 cm, so magnification = 1.67 (converging lens). No option shows 1.67; key C (1.33; converging) has the right lens type only.",
+    "_why": "Flagged for review: Lens: f = 50 cm, u = 20 cm gives v = −33.3 cm, so magnification = 1.67 (converging lens). No option shows 1.67; key C (1.33; converging) has the right lens type only."
+  },
+  "bank-chemistry-matric-2017-q037": {
+    "review_flag": "Lithium bisulphate is LiHSO₄; no option shows it. Key E (Li(HSO₄)₂) is wrong for Li⁺ – the paper's options look misprinted.",
+    "_why": "Flagged for review: Lithium bisulphate is LiHSO₄; no option shows it. Key E (Li(HSO₄)₂) is wrong for Li⁺ – the paper's options look misprinted."
+  },
+  "bank-chemistry-matric-2023-q029": {
+    "review_flag": "HCl, HBr and NaCl all conduct electricity in water (A, B, C); key C is not the only correct option. Ambiguous.",
+    "_why": "Flagged for review: HCl, HBr and NaCl all conduct electricity in water (A, B, C); key C is not the only correct option. Ambiguous."
+  },
+  "bank-chemistry-matric-2023-q049": {
+    "review_flag": "Numbers do not fit: 4 mL × 150 mg/mL = 600 mg, but 50 mL × 15 mg/mL = 750 mg. Key A (40 mL) is a guess. Check the paper.",
+    "_why": "Flagged for review: Numbers do not fit: 4 mL × 150 mg/mL = 600 mg, but 50 mL × 15 mg/mL = 750 mg. Key A (40 mL) is a guess. Check the paper."
+  },
+  "bank-chemistry-matric-2023-q047": {
+    "review_flag": "Figure from the original paper is not available in the app yet. Options A and E are both '3-Methyl-1-pentyne' (duplicate). Key B depends on a missing figure.",
+    "_why": "Flagged for review: Figure from the original paper is not available in the app yet. Options A and E are both '3-Methyl-1-pentyne' (duplicate). Key B depends on a missing figure."
+  },
+  "bank-chemistry-matric-2025-q006": {
+    "review_flag": "Both HCl (A) and CO₂ (B) do not form hydrogen bonds between their molecules; key A is not the only correct option. Ambiguous.",
+    "_why": "Flagged for review: Both HCl (A) and CO₂ (B) do not form hydrogen bonds between their molecules; key A is not the only correct option. Ambiguous."
+  },
+  "bank-chemistry-matric-2026-part2-q014": {
+    "review_flag": "Both HCl (A) and H₂S (B) do not form hydrogen bonds; key B is not the only correct option. Ambiguous.",
+    "_why": "Flagged for review: Both HCl (A) and H₂S (B) do not form hydrogen bonds; key B is not the only correct option. Ambiguous."
+  },
+  "bank-general-science-matric-2017-q079": {
+    "review_flag": "Image height is 8 cm = 0.08 m; options are off by ×10 (0.8). Key A is the nearest misprint.",
+    "_why": "Flagged for review: Image height is 8 cm = 0.08 m; options are off by ×10 (0.8). Key A is the nearest misprint."
+  },
+  "bank-general-science-matric-2024-q015": {
+    "review_flag": "Both A (shivering) and B (less blood flow to the skin) would NOT help cool the body; question has two correct options. Key A kept.",
+    "_why": "Flagged for review: Both A (shivering) and B (less blood flow to the skin) would NOT help cool the body; question has two correct options. Key A kept."
+  },
+  "bank-general-science-matric-2024-q019": {
+    "review_flag": "\"All, except one\" but A–D are all real plasma functions; key E \"All of the above\" is awkward. Needs teacher review.",
+    "_why": "Flagged for review: \"All, except one\" but A–D are all real plasma functions; key E \"All of the above\" is awkward. Needs teacher review."
+  },
+  "bank-gsc-matric-2026-part2-q062": {
+    "review_flag": "Options D and E are marked \"(duplicate)\" of B and C; original options were lost. Key C (40 °C) is correct.",
+    "_why": "Flagged for review: Options D and E are marked \"(duplicate)\" of B and C; original options were lost. Key C (40 °C) is correct."
+  },
+  "bank-gsc-matric-2026-part2-q095": {
+    "review_flag": "Option D is \"Parenchyma (duplicate)\"; original option lost. Key E is correct.",
+    "_why": "Flagged for review: Option D is \"Parenchyma (duplicate)\"; original option lost. Key E is correct."
+  },
+  "bank-sst-matric-2026-part2-q006": {
+    "review_flag": "Two options fit \"except\": Greece (independent 1830) and Austria-Hungary (never an Ottoman colony). Key A kept.",
+    "_why": "Flagged for review: Two options fit \"except\": Greece (independent 1830) and Austria-Hungary (never an Ottoman colony). Key A kept."
+  },
+  "bank-sst-matric-2026-part2-q046": {
+    "review_flag": "For an RF scale, A (numerator = map distance), C (same units) and D (denominator = ground distance) are all true. Key A kept.",
+    "_why": "Flagged for review: For an RF scale, A (numerator = map distance), C (same units) and D (denominator = ground distance) are all true. Key A kept."
+  },
+  "bank-biology-matric-2023-q070": {
+    "review_flag": "Asks which body system the muscular system is NOT involved in; it is involved in all of them, so key E \"All of the above\" doesn't fit the wording. Needs teacher review.",
+    "_why": "Flagged for review: Asks which body system the muscular system is NOT involved in; it is involved in all of them, so key E \"All of the above\" doesn't fit the wording. Needs teacher review."
+  },
+  "bank-biology-matric-2023-q003": {
+    "review_flag": "Key D (maltose) is doubtful; seedlings break starch down and mainly respire glucose (B). Needs teacher review.",
+    "_why": "Flagged for review: Key D (maltose) is doubtful; seedlings break starch down and mainly respire glucose (B). Needs teacher review."
+  },
+  "bank-biology-matric-2026-q020": {
+    "review_flag": "Key E (Brain) is wrong: the brain (hypothalamus) is central to homeostasis, and every option has a role. No correct option; likely the original E was 'None of the above'. Needs teacher review.",
+    "_why": "Flagged for review: Key E (Brain) is wrong: the brain (hypothalamus) is central to homeostasis, and every option has a role. No correct option; likely the original E was 'None of the above'. Needs teacher review."
+  },
+  "bank-general-knowledge-matric-2018-q053": {
+    "review_flag": "Key E \"All of the above\" is wrong because diamond (B) is an element (pure carbon), not a compound. Salt, water and alcohol are all compounds, but no option lists only A, C and D. Needs teacher review.",
+    "_why": "Flagged for review: Key E \"All of the above\" is wrong because diamond (B) is an element (pure carbon), not a compound. Salt, water and alcohol are all compounds, but no option lists only A, C and D. Needs teacher review."
+  },
+  "bank-general-knowledge-matric-2018-q052": {
+    "review_flag": "Options D (\"A, B, and C\") and E (\"All of the above\") mean the same thing, so both are correct. Key E kept.",
+    "_why": "Flagged for review: Options D (\"A, B, and C\") and E (\"All of the above\") mean the same thing, so both are correct. Key E kept."
+  },
+  "bank-agriculture-matric-2023-q069": {
+    "review_flag": "Camels also have no gall bladder, so B (Camel) and D (Horse) are both correct. Key D kept.",
+    "_why": "Flagged for review: Camels also have no gall bladder, so B (Camel) and D (Horse) are both correct. Key D kept."
+  },
+  "bank-agr-matric-2025-q044": {
+    "review_flag": "Pumpkin (D) is usually sown directly, not transplanted, so it fits \"except\" as well as carrot (A). Key A kept.",
+    "_why": "Flagged for review: Pumpkin (D) is usually sown directly, not transplanted, so it fits \"except\" as well as carrot (A). Key A kept."
+  },
+  "bank-general-science-matric-2024-q027": {
+    "review_flag": "Key D (\"food\") is doubtful. A seed carries its own food store, and germination needs oxygen, so C (\"anaerobic condition\") is the better answer. Needs teacher review.",
+    "_why": "Flagged for review: Key D (\"food\") is doubtful. A seed carries its own food store, and germination needs oxygen, so C (\"anaerobic condition\") is the better answer. Needs teacher review."
+  },
+  "bank-agriculture-matric-2023-q021": {
+    "review_flag": "Options B and D are both \"20 - 30\", and key E (45 - 50%) is doubtful. Needs teacher review.",
+    "_why": "Flagged for review: Options B and D are both \"20 - 30\", and key E (45 - 50%) is doubtful. Needs teacher review."
+  },
+  "bank-biology-matric-2017-q047": {
+    "review_flag": "Two options are the identical text \"zea mays\". Key A (\"Zea mays\") is correct.",
+    "_why": "Flagged for review: Two options are the identical text \"zea mays\". Key A (\"Zea mays\") is correct."
+  },
+  "bank-chemistry-matric-2025-q014": {
+    "review_flag": "Options B and E are identical. Key unchanged.",
+    "_why": "Flagged for review: Options B and E are identical. Key unchanged."
+  },
+  "bank-sst-matric-2026-part2-q067": {
+    "review_flag": "Options B and E are identical. Key D is correct.",
+    "_why": "Flagged for review: Options B and E are identical. Key D is correct."
+  },
+  "bank-agriculture-matric-2023-q012": {
+    "review_flag": "Options B and E are both \"camel\". Key C (sheep) is correct.",
+    "_why": "Flagged for review: Options B and E are both \"camel\". Key C (sheep) is correct."
+  },
+  "bank-general-knowledge-matric-2024-q038": {
+    "review_flag": "Options D and E are identical. Key B is correct.",
+    "_why": "Flagged for review: Options D and E are identical. Key B is correct."
+  },
+  "bank-business-and-economics-matric-2018-q079": {
+    "review_flag": "Options A and D are both \"2\". Key B is correct if the data in the missing table gives 1.",
+    "_why": "Flagged for review: Options A and D are both \"2\". Key B is correct if the data in the missing table gives 1."
+  },
+  "bank-gsc-matric-2026-part2-q079": {
+    "explanation_steps": [
+      "**Rule:** Pressure at the same horizontal level in a continuous fluid is equal ($$ P_1 = P_2 $$).\n$$ \\rho_w g h_w = \\rho_L g h_L $$\n$$ \\rho_w h_w = \\rho_L h_L $$\n\n**Calculation:**\n$$ (1 \\text{ g/cm}^3) \\times (45 \\text{ cm}) = (1.5 \\text{ g/cm}^3) \\times h_L $$\n$$ h_L = 45 / 1.5 = 30 \\text{ cm} $$"
+    ],
+    "_why": "Restored \\rho (backslash lost as a newline) so math renders."
+  },
+  "bank-gsc-matric-2026-part2-q080": {
+    "explanation_steps": [
+      "**Step 1: Total Volume ($$ V_{tot} $$)**\n$$ V_{tot} = (10 \\text{ cm})^3 = 1000 \\text{ cm}^3 = 10^{-3} \\text{ m}^3 $$\n\n**Step 2: Submerged Volume ($$ V_{sub} $$)**\nOne-fourth is above $\\rightarrow$ Three-fourths ($$ 3/4 $$) is **submerged**.\n$$ V_{sub} = 0.75 \\times 10^{-3} \\text{ m}^3 $$\n\n**Step 3: Buoyant Force ($$ F_b $$)**\n$$ F_b = \\rho_{water} \\times g \\times V_{sub} $$\n$$ F_b = 1000 \\text{ kg/m}^3 \\times 10 \\text{ m/s}^2 \\times 0.75 \\times 10^{-3} \\text{ m}^3 $$\n$$ F_b = 7.5 N $$"
+    ],
+    "_why": "Restored \\rho (backslash lost as a newline) so math renders."
+  },
+  "bank-physics-matric-2025-q068": {
+    "explanation_steps": [
+      "**a) Volume below surface:**\n- For a floating object, Weight = Buoyant Force.\n- $$ \\rho_{obj} V_{obj} g = \\rho_{fluid} V_{sub} g $$\n- $$ V_{sub} = ( \\rho_{obj} / \\rho_{fluid} ) \\times V_{obj} = (400 / 1000) \\times (1^3) = 0.4\\text{ m}^3 $$.\n\n**b) Force to submerge completely:**\n- "
+    ],
+    "_why": "Restored \\rho (backslash lost as a newline) so math renders."
   }
 }
