@@ -122,7 +122,7 @@ class CoachHomePage extends StatelessWidget {
                 SectionLabel(g, n: b.topics.where((t) => t.group == g).length),
                 for (final t in b.topics.where((t) => t.group == g)) _TopicRow(t: t, seen: seen.contains(t.id)),
               ],
-              SafetyCard(title: b.safetyTitle, text: b.safetyText),
+              const SizedBox(height: 14),
             ],
           );
         },
@@ -159,38 +159,6 @@ class _TopicRow extends StatelessWidget implements Spaced {
             ),
           ),
           if (seen) Ic('check', size: 18, color: p.sage.deep) else Ic('right', size: 18, color: p.ink3),
-        ],
-      ),
-    );
-  }
-}
-
-class SafetyCard extends StatelessWidget implements Spaced {
-  const SafetyCard({super.key, required this.title, required this.text});
-  final String title, text;
-  @override
-  EdgeInsets get blockMargin => const EdgeInsets.symmetric(vertical: 14);
-  @override
-  Widget build(BuildContext context) {
-    final p = Kit.of(context).p;
-    return Panel(
-      tone: 'rose',
-      margin: bareM(context, this, blockMargin),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 12,
-        children: [
-          const Badge('rose', 'shield', s: 38),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 4,
-              children: [
-                Text(title, style: ts(15, w900, p.ink)),
-                Text(text, style: ts(13.5, w700, p.ink2, height: 1.4)),
-              ],
-            ),
-          ),
         ],
       ),
     );
@@ -261,7 +229,6 @@ Widget blockWidget(CoachTopic t, Map<String, dynamic> b, CoachBook book, int i) 
   'check' => _CheckBlock(b: b),
   'tool' => _ToolBlock(b: b),
   'try' => _TryBlock(topic: t.id, b: b),
-  'safety' => SafetyCard(title: book.safetyTitle, text: book.safetyText),
   _ => const SizedBox.shrink(),
 };
 

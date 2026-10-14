@@ -15,10 +15,9 @@ class CoachTopic {
 }
 
 class CoachBook {
-  CoachBook(this.topics, this.groups, this.safetyTitle, this.safetyText);
+  CoachBook(this.topics, this.groups);
   final List<CoachTopic> topics;
   final List<String> groups;
-  final String safetyTitle, safetyText;
 
   static const asset = 'assets/high/coach/topics.json';
   static Future<CoachBook>? _f;
@@ -27,7 +26,6 @@ class CoachBook {
 
   static CoachBook parse(String s) {
     final o = jsonDecode(s) as Map<String, dynamic>;
-    final sf = o['safety'] as Map<String, dynamic>;
     return CoachBook(
       [
         for (final t in o['topics'] as List)
@@ -36,8 +34,6 @@ class CoachBook {
           ]),
       ],
       [for (final g in o['groups'] as List) g as String],
-      sf['title'] as String,
-      sf['text'] as String,
     );
   }
 

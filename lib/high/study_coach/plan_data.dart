@@ -20,8 +20,6 @@ class PlanBook {
   List<Map<String, dynamic>> get items => [for (final x in checkin['items'] as List) x as Map<String, dynamic>];
   List<Map<String, dynamic>> get areas => [for (final x in checkin['areas'] as List) x as Map<String, dynamic>];
   Map<String, dynamic> area(String id) => areas.firstWhere((a) => a['id'] == id);
-  Map<String, dynamic> get feel => checkin['feel'] as Map<String, dynamic>;
-  Map<String, dynamic> get support => checkin['support'] as Map<String, dynamic>;
   Map<String, dynamic> get plan => raw['plan'] as Map<String, dynamic>;
   int get days => (plan['days'] as num).toInt();
   List<int> get reflectDays => [for (final x in plan['reflectDays'] as List) (x as num).toInt()];

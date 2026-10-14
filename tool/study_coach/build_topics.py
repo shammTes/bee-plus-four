@@ -3,7 +3,7 @@
 
 Plain, short English for Grade 9-12 students in Eritrea. Advice follows well-tested study and psychology research
 (retrieval practice, spacing, interleaving, sleep and memory, implementation intentions, cognitive reframing,
-paced breathing). It is study support, not therapy: every topic links to the safety note.
+paced breathing). It is study support, not therapy.
 Block types the app renders (lib/high/study_coach/):
   note   {title, text, tone?}                       short explainer / Eritrean context
   steps  {title, items: [{t, x}]}                   numbered step cards
@@ -12,7 +12,6 @@ Block types the app renders (lib/high/study_coach/):
   check  {id, title, items: [..]}                    tick-off checklist (saved)
   tool   {tool, title, text}                         breath478 | pomodoro | twomin | reframe | spaced | goal
   try    {items: [..]}                               "Try this today" actions (saved per day)
-  safety {}                                          the gentle safety note
     python3 tool/study_coach/build_topics.py          # write
     python3 tool/study_coach/build_topics.py --check  # fail if the asset is stale
 """
@@ -53,7 +52,6 @@ def tryit(*items):
   return {'type': 'try', 'items': list(items)}
 
 
-SAFE = {'type': 'safety'}
 
 T = []
 
@@ -182,8 +180,7 @@ topic('exam_anxiety', 'Fear before exams', MIND, 'lilac', 'sparkle',
     ('Say "I am ready"', 'Call the feeling energy, not fear.'),
     ('Start with an easy question', 'One quick win calms you.'),
     ('If your mind goes blank', 'Put the pen down. Take 3 slow breaths. Go to the next question.')),
-  tryit('Do calm breathing now, and again before bed.', 'Do one old paper with a timer.', 'Tell one person how you feel about exams.'),
-  SAFE)
+  tryit('Do calm breathing now, and again before bed.', 'Do one old paper with a timer.', 'Tell one person how you feel about exams.'))
 
 topic('memory', 'Better memory', STUDY, 'mint', 'sparkle',
   'Memory can grow. Sleep and simple tricks make it stronger.',
@@ -243,8 +240,7 @@ topic('motivation', 'Feeling lazy or not wanting to study', MIND, 'butter', 'fla
     ('Study with a friend', 'A friend who studies too keeps you going.'),
     ('Check your body', 'Low energy can come from short sleep or no breakfast.')),
   tool('goal', 'My reason and my goal', 'Write why you study. Write one small goal for this week.'),
-  tryit('Write your reason on paper. Put it where you study.', 'Do one 10-minute task right now.', 'Ask a friend to study with you tomorrow.'),
-  SAFE)
+  tryit('Write your reason on paper. Put it where you study.', 'Do one 10-minute task right now.', 'Ask a friend to study with you tomorrow.'))
 
 topic('self_talk', 'Unkind thoughts about yourself', MIND, 'rose', 'chat',
   '"I am stupid." "I will never pass." Thoughts are not facts. You can change them.',
@@ -260,8 +256,7 @@ topic('self_talk', 'Unkind thoughts about yourself', MIND, 'rose', 'chat',
     ('Talk like a friend', 'What would you tell your best friend? Tell yourself the same.')),
   tool('reframe', 'Change the thought', 'Write the bad thought. Check it. Write a fairer one.'),
   note('Add the word "yet"', 'Change "I can\'t do this" to "I can\'t do this yet." Skills grow with practice.'),
-  tryit('Write one unkind thought. Change it into a fair one.', 'Add "yet" to one "I can\'t" sentence.', 'Write 3 things you did well this week.'),
-  SAFE)
+  tryit('Write one unkind thought. Change it into a fair one.', 'Add "yet" to one "I can\'t" sentence.', 'Write 3 things you did well this week.'))
 
 topic('comparing', 'Comparing yourself with others', MIND, 'mint', 'chart',
   'Comparing yourself with others steals your joy. Good competition pushes you. Bad competition hurts you.',
@@ -294,8 +289,7 @@ topic('self_esteem', 'Believing in yourself', MIND, 'butter', 'star',
     ('Stay near kind people', 'Pick friends who lift you up.')),
   check('se_check', 'This week I will…',
     'Ask or answer one question in class.', 'Write 3 things I am good at.', 'Thank myself for one thing I did well.', 'Try something new for 10 minutes.'),
-  tryit('Write 3 things you are good at. Keep the paper in your notebook.', 'Write one win in a notebook tonight.', 'Speak once in class tomorrow.'),
-  SAFE)
+  tryit('Write 3 things you are good at. Keep the paper in your notebook.', 'Write one win in a notebook tonight.', 'Speak once in class tomorrow.'))
 
 topic('time_management', 'Using your time well', LIFE, 'sage', 'cal',
   'School, home jobs and the walk take a lot of time. A simple week plan helps.',
@@ -366,8 +360,7 @@ topic('family_pressure', 'Stress and pressure from family', MIND, 'peach', 'user
     ('Ask for study time', 'Agree on hours for chores and hours for study.'),
     ('Ask an adult to help', 'A teacher or uncle can help you talk to your parents.')),
   tool('breath478', 'Calm breathing', 'When stress grows, breathe slowly 4 times.'),
-  tryit('Write 3 sentences you want to tell your family.', 'Show your study plan to a parent.', 'Do one thing just for you today.'),
-  SAFE)
+  tryit('Write 3 sentences you want to tell your family.', 'Show your study plan to a parent.', 'Do one thing just for you today.'))
 
 topic('failure', 'Bad marks and failing', MIND, 'rose', 'repeat',
   'A bad mark does not say who you are. It shows what to learn next.',
@@ -387,8 +380,7 @@ topic('failure', 'Bad marks and failing', MIND, 'rose', 'repeat',
   check('fail_check', 'My mistake check',
     'I listed every wrong question.', 'I wrote the kind of each mistake.', 'I studied the right answers.', 'I tried 5 similar questions.', 'I asked my teacher how to improve.'),
   note('Many great people failed first', 'Thomas Edison tried thousands of things before his light bulb worked.'),
-  tryit('List the 3 mistakes you make most.', 'Try your old mistakes again on the Mistakes page in 4.', 'Say to yourself what you would tell a friend who failed.'),
-  SAFE)
+  tryit('List the 3 mistakes you make most.', 'Try your old mistakes again on the Mistakes page in 4.', 'Say to yourself what you would tell a friend who failed.'))
 
 topic('peer_pressure', 'Pressure from friends', LIFE, 'mint', 'user',
   'Friends matter a lot. Good friends support your goals. You can say no and stay friends.',
@@ -396,7 +388,7 @@ topic('peer_pressure', 'Pressure from friends', LIFE, 'mint', 'user',
     ['I skip study because friends want to go out.', 'I do things I don\'t want, to fit in.', 'I hide that I like studying.', 'Friends laugh at my goals.', 'I find it hard to say no.'],
     [(4, 'Low', 'You make your own choices. Good.', 'sage'),
      (9, 'Some', 'Practise the ways to say no below.', 'butter'),
-     (15, 'Strong', 'Friends pull you a lot. Who supports your goals? Feel unsafe? Talk to an adult you trust.', 'peach')]),
+     (15, 'Strong', 'Friends pull you a lot. Who supports your goals? Choose friends who help you grow.', 'peach')]),
   steps('Ways to say no',
     ('Keep it short', '"No, thanks. I have to study tonight."'),
     ('Offer another time', '"Not now. Let\'s play football on Saturday."'),
@@ -407,8 +399,7 @@ topic('peer_pressure', 'Pressure from friends', LIFE, 'mint', 'user',
     ('Friends want to skip class and go to town. You have a test tomorrow.',
      ['Go, so they don\'t laugh', '"I can\'t today. Let\'s meet after school."', 'Go, and lie to your family'], 1,
      'Saying no and offering another time keeps your plan and your friends.')),
-  tryit('Say one "No, thanks" sentence out loud.', 'Plan one study time with a friend who has goals.', 'Notice one time today you chose what you wanted.'),
-  SAFE)
+  tryit('Say one "No, thanks" sentence out loud.', 'Plan one study time with a friend who has goals.', 'Notice one time today you chose what you wanted.'))
 
 topic('setting_goals', 'Setting goals', STUDY, 'butter', 'target',
   'A clear goal shows you where to go. Make it small and clear, with a date.',
@@ -454,8 +445,7 @@ topic('asking_help', 'Asking for help', LIFE, 'blue', 'chat',
     ('A school counsellor', 'For stress, worry or problems at home.')),
   check('help_check', 'Before I ask',
     'I tried for at least 10 minutes.', 'I know which part I don\'t understand.', 'I wrote my question down.', 'I picked a good time to ask.'),
-  tryit('Write one question. Ask a teacher tomorrow.', 'Ask the Tutor in 4 about a hard topic.', 'Help a classmate who asks you.'),
-  SAFE)
+  tryit('Write one question. Ask a teacher tomorrow.', 'Ask the Tutor in 4 about a hard topic.', 'Help a classmate who asks you.'))
 
 topic('sawa_life', 'Grade 12 away from home', LIFE, 'peach', 'home',
   'Living away from home for Grade 12 is a big change. A daily routine helps.',
@@ -470,16 +460,11 @@ topic('sawa_life', 'Grade 12 away from home', LIFE, 'peach', 'home',
   check('sawa_check', 'My first week',
     'I know my class timetable.', 'I made a study routine.', 'I found at least one study friend.', 'My notes are sorted by subject.', 'I know who to talk to if I feel sick or sad.'),
   tool('breath478', 'When you miss home', 'Slow breathing calms you when you feel homesick.'),
-  tryit('Write tomorrow\'s routine with study times.', 'Ask one classmate to study with you this week.', 'Write a short message to your family.'),
-  SAFE)
+  tryit('Write tomorrow\'s routine with study times.', 'Ask one classmate to study with you this week.', 'Write a short message to your family.'))
 
 
 def build():
   return {'version': 1,
-          'safety': {'title': 'If you feel very sad or unsafe',
-                     'text': 'These lessons help with study and everyday stress. They are not a doctor. '
-                             'Do you feel very sad or unsafe? Do you think about hurting yourself? '
-                             'Please talk to a parent, teacher or school counsellor today. You matter. Help is there.'},
           'groups': [STUDY, MIND, LIFE],
           'topics': T}
 

@@ -4,7 +4,7 @@
 Adapted from the Focus30 design (/workspace/student-app, 11 Oct 2026): the 14-question check-in, the friendly
 profiles with top 2 focus areas, and 6 tracks × 25 short lessons. All text is rewritten in very simple English for
 Eritrean Grade 9-12 students. Research sources stay in metadata only (plan_sources.py).
-No diagnosis words, no helpline numbers: the safety note sends students to a parent, teacher or school counsellor.
+No diagnosis words, no helpline numbers.
 
   python3 tool/study_coach/build_plan.py          # write
   python3 tool/study_coach/build_plan.py --check  # fail if the JSON is out of date
@@ -48,17 +48,6 @@ ITEMS = [
 TIE = ['stress', 'sleep', 'procrastination', 'focus', 'phone', 'motivation']
 
 # one private question, never saved: Often or Almost always → the gentle "talk to someone" card
-FEEL = {
-    'text': 'Last two weeks: how often did you feel very sad or hopeless?',
-    'note': 'This answer is not saved. It is only so we can point you to help.',
-    'showSupportAtLeast': 3,
-}
-SUPPORT = {
-    'title': 'Talking to someone helps',
-    'text': 'You do not have to carry this alone. Talk to a parent, a teacher or your school counsellor. '
-            'If you feel very sad or unsafe, talk to them now.',
-}
-
 # profiles: id → (name, tagline, about, strengths, watch, first tip)
 PROFILES = {
     'overwhelmed_planner': ('The Busy Planner', 'You care a lot. The to-do list feels too big.',
@@ -373,8 +362,6 @@ def build():
             'tieBreak': TIE,
             'bands': [{'max': 34, 'label': 'Going well'}, {'max': 59, 'label': 'Room to grow'}, {'max': 100, 'label': 'Focus here'}],
             'betterBy': 15,
-            'feel': FEEL,
-            'support': SUPPORT,
         },
         'profiles': profiles,
         'rules': {**RULES, 'pairs': [{'pair': p, 'profile': q} for p, q in RULES['pairs']]},
