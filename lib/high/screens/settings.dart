@@ -11,6 +11,7 @@ import '../teacher/teacher.dart' show TeacherPage;
 import 'home.dart' show Stagger;
 import 'toast.dart';
 import '../../update/update_ui.dart' show UpdateSettings;
+import 'how_to_video.dart' deferred as howto;
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key, this.controller});
@@ -148,6 +149,28 @@ class _SettingsPageState extends State<SettingsPage> {
                   onPick: (v) => s.setTeacher(v == 'on'),
                 ),
                 if (s.teacher) Btn('Open teacher tools', icon: 'grid', kind: BtnKind.soft, block: true, onTap: () => HighNav.of(context).open('teacher', () => const TeacherPage())),
+              ],
+            ),
+          ),
+          Panel(
+            label: 'How to use the app',
+            onTap: () async {
+              await howto.loadLibrary();
+              if (context.mounted) HighNav.of(context).open('howto', () => howto.HowToVideoPage());
+            },
+            child: Row(
+              spacing: 12,
+              children: [
+                const Badge('blue', 'play', s: 40),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('How to use the app', style: ts(15, w900, p.ink)),
+                      Text('Short video · tap a part to jump to it', style: ts(12.5, w700, p.ink3)),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

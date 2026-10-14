@@ -1,0 +1,262 @@
+import asyncio, sys, json
+from rec import *
+CH = {}
+def chapter(n, title, state='state_tour.json', semantics=True):
+    def d(f): CH[n] = (title, f, state, semantics); return f
+    return d
+
+@chapter('01', 'Unlock 4', state='state_fresh.json', semantics=False)
+async def c01(r):
+    await r.card(1, 'First start:<br>unlock 4')
+    r.cap('The first time you open 4, you see this screen.'); await r.w(2600)
+    r.cap('This is your phone ID. Show it to the Bee Seller.'); await r.hlr(20, 118, 320, 336, 2600)
+    r.cap('The seller makes an unlock QR code for this phone.'); await r.w(2400)
+    r.cap('Tap Scan unlock code. Point the camera at the QR.'); await r.point(180, 503, 2600)
+    r.cap('No camera? You can type the code instead.')
+    await r.scroll(420); await r.w(800)
+    r.cap('Tap the box. Type the code from Bee Seller.')
+    await r.xy(183, 559, 800)
+    dev = json.loads(await r.pg.evaluate("localStorage['flutter.four_device_id_v1']"))
+    await r.type(h.code(dev)); await r.w(600)
+    await r.sem()
+    r.cap('Then tap Unlock 4.'); await r.tap('Unlock 4', wait=3500)
+    r.cap('Done! 4 is open. You do this only once.'); await r.w(3000)
+
+@chapter('02', 'Home and grades')
+async def c02(r):
+    await r.card(2, 'The Home page')
+    r.cap('This is Home. Everything starts here.'); await r.w(2400)
+    r.cap('Pick your grade: 9, 10, 11 or 12.'); await r.hl('9 Grade', 1500); 
+    r.cap('Grades 11 and 12 have Science and Art.'); await r.hl('11 Grade', 1600)
+    r.cap('The bottom bar: Home, Notes, Exercise, Matric, Tutor.'); await r.hlr(14, 616, 332, 60, 3000)
+    r.cap('Scroll down to see more.'); await r.scroll(330); await r.w(600)
+    r.cap('A new quote every day. Tap All to see more.'); await r.hl('Quote of the day', 2200)
+    r.cap('Study Coach helps with study, stress and exams.'); await r.hl('Study Coach Help', 2200)
+    await r.scroll(420)
+    r.cap('Your streak, level and badges.'); await r.hl('-day streak', 2000)
+    r.cap('Extra resources: PDFs and videos from your teacher.'); await r.hl('Extra resources', 2200)
+    r.cap('Class code: homework from your teacher.'); await r.hl('Enter class code', 2200)
+    await r.scroll(400)
+    r.cap('Big cards open Matric exams, Model exams and Notes.'); await r.hl('Open Matriculation Exams', 2400)
+    await r.scroll(500)
+    r.cap('Your numbers show how you are doing.'); await r.w(2600)
+    await r.scroll(600); r.cap('Daily mix and your recent work are here too.'); await r.w(2600)
+
+@chapter('03', 'Notes')
+async def c03(r):
+    await r.card(3, 'Notes')
+    r.cap('Tap Notes at the bottom.'); await r.tab('notes', 2200)
+    r.cap('Pick a grade.'); await r.tap('Grade 10', wait=1500); await r.tap('Grade 9', wait=1500)
+    r.cap('Pick a subject. Here: Biology.'); await r.tap('Biology', wait=1500)
+    r.cap('Each unit shows its topics, exercises and matric questions.'); await r.hl('1 The Cell', 2400)
+    r.cap('Tap a unit to open it.'); await r.tap('1 The Cell', wait=2600)
+    r.cap('The top row jumps to Map, Notes, Memory, Games, Quiz, Matric.'); await r.hlr(18, 76, 324, 56, 3000)
+    r.cap('Notes are short cards. Yellow words are key words.'); await r.scroll(120); await r.w(2600)
+    r.cap('Textbook p. tells you the page in your book.'); await r.w(2000)
+    r.cap('Tap Map to see the whole unit as a concept map.'); await r.tap('Map', wait=1800)
+    await r.scroll(250); await r.w(2000)
+    r.cap('Tap Notes to read it part by part.'); await r.tap('Notes', wait=1800)
+    await r.scroll(300); await r.w(1500); await r.scroll(400); await r.w(1500)
+    r.cap('Scroll to read. Your progress is saved.'); await r.scroll(300); await r.w(1800)
+
+@chapter('04', 'Memory tips, games and unit quiz')
+async def c04(r):
+    await r.card(4, 'Memory tricks,<br>games and quiz')
+    await r.tab('notes', 2200); await r.tap('1 The Cell', wait=2600)
+    r.cap('Tap Memory for tips and memory tricks.'); await r.tap('Memory', wait=2000)
+    await r.scroll(200); await r.w(2600)
+    r.cap('Tap Games to learn while you play.'); await r.tap('Games', wait=2000)
+    r.cap('Match the pairs: tap a word, then its partner.'); await r.tap('Play', wait=2500)
+    await r.tap('Osmosis', wait=900); await r.tap('Water through membrane', wait=1500)
+    await r.tap('Prokaryote', wait=900); await r.tap('No nucleus', wait=1800)
+    r.cap('Tap Quiz to test yourself on the unit.'); await r.tap('Quiz', wait=2200)
+    r.cap('Think of your answer. Then tap Show answer.'); await r.w(1800); await r.tap('Show answer', wait=2500)
+    r.cap('Tap Matric to see real exam questions on this unit.'); await r.tap('Matric', wait=2600)
+    await r.scroll(250); await r.w(2000)
+
+@chapter('05', 'Exercise practice')
+async def c05(r):
+    await r.card(5, 'Exercise:<br>practice questions')
+    r.cap('Tap Exercise at the bottom.'); await r.tab('exercise', 2200)
+    r.cap('Pick grade and subject, like in Notes.'); await r.hlr(14, 72, 332, 92, 2200)
+    r.cap('Tap a unit to start its questions.'); await r.tap('1 The Cell 267', wait=2500)
+    r.cap('Read the question. Tap your answer.'); await r.w(1800); await r.tap('B Cell', wait=1800)
+    r.cap('Green means right. You also see why.'); await r.w(2200)
+    r.cap('Tap Explanation to read the full answer.'); await r.tap('Explanation', wait=2200)
+    r.cap('Tap the bookmark to save a question.'); await r.tap('Bookmark', 1, wait=1600)
+    r.cap('A wrong answer? It goes to Mistakes to try again.'); await r.tap('A Antonie', wait=2400)
+    r.cap('Go to Home and scroll down to Daily Quiz.'); await r.tab('home', 1800)
+    await r.seek('Daily Quiz'); r.cap('Daily Quiz: 10 mixed questions every day.'); await r.hl('Daily Quiz', 1800)
+    await r.tap('Daily Quiz', wait=2500)
+    r.cap('Answer them all to keep your streak.'); await r.w(2200)
+    await r.tap('Back', wait=1500)
+    r.cap('Mistakes & bookmarks: try your wrong answers again.'); await r.tap('Mistakes & bookmarks', wait=2600)
+
+@chapter('06', 'Matric papers')
+async def c06(r):
+    await r.card(6, 'Matric and model exams<br>(Grades 11–12)')
+    r.cap('Tap Matric at the bottom.'); await r.tab('matric', 2200)
+    r.cap('Matriculation: real national exams. Model: school exams.'); await r.hl('Matriculation 102', 1500); await r.hl('Model 78', 1500)
+    r.cap('Pick a year, or keep All years.'); await r.tap('2025 10', wait=1800); await r.tap('All years', wait=1500)
+    r.cap('Mistakes and Weak topics help you fix weak spots.'); await r.hl('Weak topics', 2000)
+    r.cap('Tap a subject. Here: Biology.'); await r.tap('Biology Biology', wait=2400)
+    r.cap('Every paper by year. Tap Practice.'); await r.tap('Practice', wait=2800)
+    r.cap('Part I, Part II, or only unanswered questions.'); await r.hlr(14, 98, 332, 44, 2200)
+    r.cap('Tap your answer. The app shows if it is right.'); await r.tap('C Hair', wait=2600)
+    await r.scroll(300); await r.w(1800)
+    r.cap('Go back to try another paper.'); await r.tap('Back', wait=1500); await r.tap('Back', wait=1500)
+
+@chapter('07', 'Search subjects', semantics=False)
+async def c07(r):
+    await r.card(7, 'Search')
+    r.cap('Find a subject fast: tap the search box.'); await r.tab('matric', 2200)
+    await r.xy(197, 433, 800)
+    r.cap('Type a word, like phys.'); await r.type('phys'); await r.w(1800)
+    await r.sem()
+    r.cap('Tap the result to open it.'); await r.tap('Physics Physics', wait=2500)
+    r.cap('Ask the Tutor to search all your notes too.'); await r.w(2000)
+
+@chapter('08', 'AI Tutor', semantics=False)
+async def c08(r):
+    await r.card(8, 'Tutor: ask a question')
+    r.cap('Tap Tutor at the bottom.'); await r.tab('tutor', 2200)
+    r.cap('Tap the box. Type your question.'); await r.xy(159, 580, 800)
+    await r.type('what is photosynthesis')
+    r.cap('Tap the arrow to send.'); await r.xy(330, 580, 3000)
+    await r.sem()
+    r.cap('The Tutor explains it from your books.'); await r.w(2600)
+    r.cap('Open in Notes takes you to the right lesson.'); await r.hl('Open in Notes', 2000)
+    await r.scroll(300)
+    r.cap('You also get exercises and matric questions on it.'); await r.w(2600)
+    await r.scroll(400); await r.w(1800)
+    r.cap('Or tap a ready question below.'); await r.tap('what is refraction', wait=3500)
+
+@chapter('X1', 'probe')
+async def cx1(r):
+    await r.tab('notes', 2200); await r.tap('3 Metabolic', wait=2600)
+    await r.top('Enzymes, temperature'); await r.scroll(200); await r.scroll(100); await r.scroll(250); await r.dump(); print(await r.pg.evaluate("[...document.querySelectorAll('[role=slider],input[type=range]')].map(e=>e.getAttribute('aria-label')+JSON.stringify(e.getBoundingClientRect()))"))
+    await r.pg.screenshot(path='sim.png')
+@chapter('X2', 'probe')
+async def cx2(r):
+    await r.tab('notes', 2200); await r.tap('1 The Cell', wait=2600)
+    await r.top('microscope in 3D'); await r.dump()
+    await r.pg.screenshot(path='m3d.png')
+
+@chapter('09', 'Virtual lab')
+async def c09(r):
+    await r.card(9, 'Virtual lab:<br>try it yourself')
+    r.cap('Labs are inside Notes. Look for cards named Try it.')
+    await r.tab('notes', 2200); await r.tap('3 Metabolic', wait=2200)
+    r.pause(); await r.top('Enzymes, temperature'); await r.scroll(200); await r.scroll(100); await r.w(800); r.resume()
+    r.cap('This lab shows how heat changes an enzyme.'); await r.w(2600)
+    await r.scroll(200)
+    bl = await r.blobs((239,130,103))
+    bl = [x for x in bl if x[1] < 680]
+    if bl:
+        x, y, _ = bl[0]
+        r.cap('Drag the Temperature slider. Watch the curve.'); await r.drag(x, y, 188, y); await r.w(1500)
+        r.cap('Too hot? The enzyme stops working.'); await r.drag(188, y, 300, y); await r.w(2200)
+    else:
+        print('NOBLOB')
+    r.cap('Every Try it card works like this. Play and learn.'); await r.w(2400)
+    r.cap('The Tutor also shows Try the lab links.'); await r.w(2000)
+
+@chapter('10', 'Pictures, 3D models and animations')
+async def c10(r):
+    await r.card(10, 'Pictures, 3D models<br>and animations')
+    r.cap('Notes also have pictures and 3D models.')
+    await r.tab('notes', 2200); await r.tap('1 The Cell', wait=2200)
+    r.pause(); await r.top('microscope in 3D'); await r.w(800); r.resume()
+    r.cap('Drag a 3D model with your finger to turn it.'); await r.w(1500)
+    await r.drag(120, 470, 260, 480, 35); await r.drag(260, 480, 110, 470, 35)
+    r.cap('Look at it from every side.'); await r.drag(150, 420, 230, 520, 30); await r.w(1500)
+    await r.scroll(450); r.cap('Pictures and quick checks help you remember.'); await r.w(2600)
+
+@chapter('11', 'Videos, reels and locked PDFs')
+async def c11(r):
+    await r.card(11, 'Videos, reels and<br>locked PDFs (.4pdf)')
+    r.cap('Your teacher can give you PDFs, videos and reels.')
+    await r.seek('Extra resources'); await r.hl('Extra resources', 1800)
+    await r.tap('Extra resources', wait=2200)
+    r.cap('They come as .4pdf and .4vid files. They are locked.'); await r.w(2800)
+    r.cap('Copy the files to your phone with a cable or SHAREit.'); await r.w(2800)
+    r.cap('Tap Choose folder and pick that folder once.'); await r.hl('Choose folder', 2000)
+    r.cap('Then tap Refresh. The files appear here.'); await r.hl('Refresh', 2000, 1)
+    r.cap('Only a phone that unlocked 4 can open them.'); await r.w(2600)
+    r.cap('Tap a video or reel to play it. Tap a PDF to read it.'); await r.w(2800)
+
+@chapter('12', 'Study coach, check-in and 30-day plan')
+async def c12(r):
+    await r.card(12, 'Study Coach:<br>check-in and 30-day plan')
+    r.cap('On Home, tap Study Coach.'); await r.tap('Study Coach Help', dy=22, wait=2200)
+    r.cap('Tap Start for a short study check-in.'); await r.tap('Start (3 minutes)', wait=2000)
+    r.cap('Answer 14 short questions. Be honest.')
+    opts = ['Sometimes','Often','Rarely','Sometimes','Never']
+    for i in range(30):
+        e = await h.find(r.pg, opts[i % 5])
+        if not e: await r.w(800); e = await h.find(r.pg, opts[i % 5])
+        if not e: break
+        await r.xy(e[0], e[1], 900)
+        if i == 3: r.cap('There is no wrong answer. Only you see this.')
+    await r.w(1500); await r.sem()
+    r.cap('You get your 2 focus areas.'); await r.w(2600)
+    await r.scroll(350); await r.w(1500)
+    await r.seek('Start: ')
+    r.cap('Tap Start to begin your 30-day plan.'); await r.tap('Start: ', wait=2800)
+    r.cap('Do one small step every day. Tick it when done.'); await r.w(2600)
+    await r.scroll(300); await r.w(2000)
+
+@chapter('13', 'Psychology tips and worksheets')
+async def c13(r):
+    await r.card(13, 'Memory and<br>study tips, worksheets')
+    await r.tap('Study Coach Help', dy=22, wait=2200)
+    await r.seek('Quick tools')
+    r.cap('Quick tools help you calm down and start.'); await r.w(2200)
+    r.cap('Calm breathing: breathe with the circle.'); await r.tap('Calm breathing', wait=4500); await r.tap('Back', wait=1500)
+    r.cap('Change the thought: a worksheet for bad thoughts.'); await r.tap('Change the thought', wait=2400)
+    r.cap('Write the thought. Is it true? Write a kinder one. Save.'); await r.w(3400); await r.tap('Back', wait=1500)
+    r.cap('Short lessons: how to study, better memory and more.'); await r.seek('Better memory'); await r.tap('Better memory', wait=2500)
+    r.cap('Read the tips. Try them today.'); await r.scroll(300); await r.w(2500); await r.scroll(300); await r.w(2000)
+
+@chapter('14', 'Progress')
+async def c14(r):
+    await r.card(14, 'Your progress')
+    r.cap('Home shows your streak, XP, level and badges.'); await r.seek('-day streak'); await r.tap('-day streak', wait=2500)
+    r.cap('Earn badges when you study every day.'); await r.scroll(300); await r.w(2200); await r.tap('Back', wait=1500)
+    r.cap('Your numbers: questions, accuracy, study time.'); await r.seek('Questions answered'); await r.w(2600)
+    await r.scroll(350); r.cap('The chart shows each day of this week.'); await r.w(2400)
+    r.cap('Weak topics shows what to study next.'); await r.tab('matric', 1800); await r.tap('Weak topics', wait=2600)
+
+@chapter('15', 'Settings')
+async def c15(r):
+    await r.card(15, 'Settings')
+    r.cap('Tap the round S at the top to open Settings.'); await r.tap('Profile', wait=2200)
+    r.cap('Type your name. Tap Save name.'); await r.hl('Save name', 1800)
+    r.cap('Pick Light, Dark or Auto colours.'); await r.tap('Dark', wait=2000); await r.tap('Light', wait=1800)
+    r.cap('Flat is fastest on old phones. Clay looks softer.'); await r.tap('Clay', wait=1800); await r.tap('Flat', wait=1600)
+    r.cap('Want bigger text? Change Font size in your phone settings.'); await r.w(3000)
+    await r.scroll(500); await r.scroll(400); r.cap('Settings also shows your progress and content.'); await r.w(2600)
+    await r.seek('Reset progress'); r.cap('Reset progress clears answers. Tap twice to be sure.'); await r.w(2600)
+
+@chapter('16', 'Monthly updates')
+async def c16(r):
+    await r.card(16, 'Getting the<br>monthly update')
+    await r.tap('Profile', wait=2000)
+    await r.seek('Find update file')
+    r.cap('Each month you get a new 4 file from the seller.'); await r.w(2600)
+    r.cap('Get it by cable or SHAREit. No internet needed.'); await r.w(2600)
+    r.cap('Tap Find update file and pick the new 4 file.'); await r.hl('Find update file', 2200)
+    r.cap('Or tap Watch a folder, like your SHAREit folder.'); await r.hl('Watch a folder', 2200)
+    r.cap('4 finds the update and asks you to install it.'); await r.w(2600)
+    r.cap('Your progress stays safe after the update.'); await r.w(2400)
+
+@chapter('17', 'Help and contact')
+async def c17(r):
+    await r.card(17, 'Help and contact')
+    await r.tap('Profile', wait=2000)
+    r.cap('Forgot something? Tap How to use the app.'); await r.seek('How to use the app'); await r.hl('How to use the app', 2000)
+    await r.tap('How to use the app', wait=2500)
+    r.cap('Tap a part of this video to jump to it.'); await r.w(2600); await r.tap('Back', wait=1500)
+    r.cap('How to use again shows the quick tour.'); await r.hl('How to use again', 2000)
+    for _ in range(6): await r.scroll(500)
+    r.cap('Need help? Call 07162947.'); await r.w(3500)
