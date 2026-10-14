@@ -30,6 +30,12 @@ class NativeVideo {
     }
   }
 
+  /// Plain (unencrypted) Flutter asset, e.g. the "How to use" tutorial. Android only.
+  static Future<NativeVideo> openAsset(String asset) async {
+    final r = await _ch.invokeMapMethod<String, Object?>('createAsset', {'asset': asset});
+    return NativeVideo._((r!['id'] as num).toInt());
+  }
+
   Future<void> play() => _ch.invokeMethod('play', {'id': id});
   Future<void> loop(bool on) => _ch.invokeMethod('loop', {'id': id, 'on': on});
   Future<void> pause() => _ch.invokeMethod('pause', {'id': id});

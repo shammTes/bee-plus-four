@@ -14,8 +14,10 @@ import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.BaseDataSource
 import androidx.media3.datasource.DataSource
 import androidx.media3.datasource.DataSpec
+import androidx.media3.datasource.DefaultDataSource
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.ProgressiveMediaSource
+import io.flutter.FlutterInjector
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.view.TextureRegistry
@@ -65,10 +67,11 @@ class FourDataSource(private val reader: FourChunkReader) : BaseDataSource(false
 /**
  * Channel `com.warsay.high/video`: encrypted 16:9 playback on a Flutter texture.
  *   create {path, key} → {id}     play/pause/seek{ms}/speed{rate}/state/dispose  (all take {id})
+ *   createAsset {asset} → {id}    plain (unencrypted) Flutter asset, e.g. the bundled "How to use" tutorial
  */
 @OptIn(UnstableApi::class)
 class FourVideoChannel(private val activity: android.app.Activity) {
-    private class Session(val player: ExoPlayer, val producer: TextureRegistry.SurfaceProducer, val reader: FourChunkReader) {
+    private class Session(val player: ExoPlayer, val producer: TextureRegistry.SurfaceProducer, val reader: FourChunkReader?) {
         var error: String? = null
         var w = 0
         var h = 0
@@ -83,6 +86,7 @@ class FourVideoChannel(private val activity: android.app.Activity) {
             try {
                 when (call.method) {
                     "create" -> result.success(mapOf("id" to create(textures, call.argument<String>("path")!!, call.argument<ByteArray>("key")!!)))
+                    "createAsset" -> result.success(mapOf("id" to createAsset(textures, call.argument<String>("asset")!!)))
                     "play" -> { s(call.argument<Number>("id"))?.player?.play(); result.success(null) }
                     "loop" -> { s(call.argument<Number>("id"))?.player?.repeatMode = if (call.argument<Boolean>("on") == true) Player.REPEAT_MODE_ONE else Player.REPEAT_MODE_OFF; result.success(null) }
                     "pause" -> { s(call.argument<Number>("id"))?.player?.pause(); result.success(null) }
@@ -119,11 +123,22 @@ class FourVideoChannel(private val activity: android.app.Activity) {
     private fun create(textures: TextureRegistry, path: String, key: ByteArray): Long {
         val reader = FourChunkReader(File(path), key)
         key.fill(0)
+        val factory = DataSource.Factory { FourDataSource(reader) }
+        return start(textures, reader) { id -> ProgressiveMediaSource.Factory(factory).createMediaSource(MediaItem.fromUri(Uri.parse("four://$id"))) }
+    }
+
+    /** Plays a plain Flutter asset straight from the APK (AssetDataSource): nothing is copied or decrypted. */
+    private fun createAsset(textures: TextureRegistry, asset: String): Long {
+        val key = FlutterInjector.instance().flutterLoader().getLookupKeyForAsset(asset)
+        val factory = DefaultDataSource.Factory(activity)
+        return start(textures, null) { ProgressiveMediaSource.Factory(factory).createMediaSource(MediaItem.fromUri(Uri.parse("asset:///$key"))) }
+    }
+
+    private fun start(textures: TextureRegistry, reader: FourChunkReader?, source: (Long) -> androidx.media3.exoplayer.source.MediaSource): Long {
         val producer = textures.createSurfaceProducer()
         val player = ExoPlayer.Builder(activity).build()
         val session = Session(player, producer, reader)
-        val factory = DataSource.Factory { FourDataSource(reader) }
-        player.setMediaSource(ProgressiveMediaSource.Factory(factory).createMediaSource(MediaItem.fromUri(Uri.parse("four://${producer.id()}"))))
+        player.setMediaSource(source(producer.id()))
         producer.setCallback(object : TextureRegistry.SurfaceProducer.Callback {
             override fun onSurfaceAvailable() { player.setVideoSurface(producer.surface) }
             override fun onSurfaceCleanup() { player.clearVideoSurface() }
@@ -152,7 +167,7 @@ class FourVideoChannel(private val activity: android.app.Activity) {
         val x = id?.let { sessions.remove(it) } ?: return
         x.player.release()
         x.producer.release()
-        x.reader.close()
+        x.reader?.close()
     }
 
     fun disposeAll() = sessions.keys.toList().forEach { dispose(it) }
