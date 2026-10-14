@@ -124,7 +124,7 @@ void main() {
 
     await t.tap(del);
     await t.pumpAndSettle();
-    expect(find.text('Delete this file? You can add it again later.'), findsOneWidget);
+    expect(find.text('Delete this file?'), findsOneWidget);
     await t.tap(find.text('Cancel'));
     await t.pumpAndSettle();
     expect(lib.entries, hasLength(2));

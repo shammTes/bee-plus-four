@@ -132,9 +132,11 @@ class _ResourcesPageState extends State<ResourcesPage> {
   }
 
   Future<void> _deleteOne(ResEntry e) async {
-    if (!e.deletable || !await confirmDelete(context, 1)) return;
+    if (!e.deletable || !await confirmDelete(context, 1, name: e.meta.title)) return;
     final n = await lib.removeMany([e]);
-    if (mounted) toast(context, n == 1 ? 'File deleted' : 'Could not delete the file');
+    if (!mounted) return;
+    setState(() {});
+    toast(context, n == 1 ? 'Deleted' : 'Could not delete the file');
   }
 
   Future<void> _deleteSelected() async {
@@ -383,11 +385,20 @@ class ResourceTile extends StatelessWidget {
             Semantics(
               button: true,
               label: 'Delete',
+              excludeSemantics: true,
               child: GestureDetector(
                 key: ValueKey('delete-${entry.id}'),
                 behavior: HitTestBehavior.opaque,
                 onTap: onDelete,
-                child: Padding(padding: const EdgeInsets.all(6), child: Ic('trash', size: 22, color: p.ink2)),
+                child: Container(
+                  constraints: const BoxConstraints(minHeight: 44, minWidth: 44),
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                  decoration: BoxDecoration(color: const Color(0x1AD32F2F), borderRadius: BorderRadius.circular(12), border: Border.all(color: kDeleteRed, width: 1.5)),
+                  child: Row(mainAxisSize: MainAxisSize.min, spacing: 4, children: [
+                    Ic('trash', size: 18, color: kDeleteRed),
+                    Text('Delete', style: ts(13, w900, kDeleteRed)),
+                  ]),
+                ),
               ),
             )
           else if (!selecting)
@@ -400,13 +411,16 @@ class ResourceTile extends StatelessWidget {
   }
 }
 
+/// Clear red used for every delete control.
+const kDeleteRed = Color(0xFFD32F2F);
+
 Widget _dialogBtn(Palette p, String label, VoidCallback onTap, {bool danger = false, Key? key}) => GestureDetector(
   key: key,
   onTap: onTap,
   child: Container(
     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-    decoration: BoxDecoration(color: danger ? p.coral : p.surface2, borderRadius: BorderRadius.circular(12)),
-    child: Text(label, textAlign: TextAlign.center, style: ts(14.5, w900, danger ? p.onCoral : p.ink)),
+    decoration: BoxDecoration(color: danger ? kDeleteRed : p.surface2, borderRadius: BorderRadius.circular(12)),
+    child: Text(label, textAlign: TextAlign.center, style: ts(14.5, w900, danger ? const Color(0xFFFFFFFF) : p.ink)),
   ),
 );
 
@@ -431,7 +445,7 @@ Future<T?> _box<T>(BuildContext context, Widget Function(BuildContext c, Palette
 );
 
 /// Plain-English confirm. Returns true only when the user taps Delete.
-Future<bool> confirmDelete(BuildContext context, int count) async =>
+Future<bool> confirmDelete(BuildContext context, int count, {String? name}) async =>
     await _box<bool>(
       context,
       (c, p) => Column(
@@ -439,7 +453,9 @@ Future<bool> confirmDelete(BuildContext context, int count) async =>
         crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: 14,
         children: [
-          Text(count == 1 ? 'Delete this file? You can add it again later.' : 'Delete these $count files? You can add them again later.', style: ts(16, w900, p.ink)),
+          Text(count == 1 ? 'Delete this file?' : 'Delete these $count files?', style: ts(17, w900, p.ink)),
+          if (count == 1 && name != null && name.isNotEmpty) Text(name, key: const ValueKey('confirm-delete-name'), maxLines: 3, overflow: TextOverflow.ellipsis, style: ts(14.5, w700, p.ink2)),
+          Text('You can add it again later.', style: ts(13, w700, p.ink3)),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             spacing: 10,
