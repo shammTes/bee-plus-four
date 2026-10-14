@@ -120,11 +120,12 @@ void main() {
     await t.pumpAndSettle();
     expect(find.text('2 files'), findsOneWidget);
     final del = find.byKey(ValueKey('delete-${lib.entries.first.id}'));
-    expect(find.bySemanticsLabel('Delete'), findsNWidgets(2));
+    expect(find.descendant(of: find.byKey(ValueKey('delete-${lib.entries.first.id}')), matching: find.text('Delete')), findsOneWidget);
 
     await t.tap(del);
     await t.pumpAndSettle();
     expect(find.text('Delete this file?'), findsOneWidget);
+    expect(find.byKey(const ValueKey('confirm-delete-name')), findsOneWidget);
     await t.tap(find.text('Cancel'));
     await t.pumpAndSettle();
     expect(lib.entries, hasLength(2));
@@ -140,6 +141,7 @@ void main() {
     await t.pumpAndSettle();
     expect(File(gone.path).existsSync(), isFalse);
     expect(find.text('1 file'), findsOneWidget);
+    expect(find.text('Deleted'), findsOneWidget);
     await t.pump(const Duration(seconds: 5));
   });
 }
