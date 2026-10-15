@@ -98,6 +98,20 @@ class HighState extends ChangeNotifier {
   Map<String, dynamic> daily = {};
   Map<String, dynamic> notes = {};
 
+  /// 'Track my GPA' (off by default): {on: bool, manual: bool, stream: natural|social, marks: {subject: %}}
+  Map<String, dynamic> gpa = {};
+  bool get gpaOn => gpa['on'] == true;
+  void gpaSet(String k, Object? v) {
+    gpa = {...gpa, k: v};
+    changed();
+  }
+
+  void gpaMark(String subject, double? pct) {
+    final m = Map<String, dynamic>.from(gpa['marks'] as Map? ?? {});
+    pct == null ? m.remove(subject) : m[subject] = pct.clamp(0, 100);
+    gpaSet('marks', m);
+  }
+
   /// Motivation gallery: saved quote ids (newest first)
   List<String> quoteFavs = [];
 
@@ -343,6 +357,7 @@ class HighState extends ChangeNotifier {
     attempts = [for (final r in (o['attempts'] as List? ?? const [])) if (r is Map) Map<String, dynamic>.from(r)];
     daily = Map<String, dynamic>.from(o['daily'] as Map? ?? {});
     notes = Map<String, dynamic>.from(o['notes'] as Map? ?? {});
+    gpa = Map<String, dynamic>.from(o['gpa'] as Map? ?? {});
     quoteFavs = strs(o['quoteFavs']);
     coach = Map<String, dynamic>.from(o['coach'] as Map? ?? {});
     teacher = o['teacher'] == true;
@@ -369,6 +384,7 @@ class HighState extends ChangeNotifier {
     'attempts': attempts,
     'daily': daily,
     'notes': notes,
+    'gpa': gpa,
     'quoteFavs': quoteFavs,
     'coach': coach,
     'teacher': teacher,

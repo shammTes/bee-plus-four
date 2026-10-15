@@ -39,6 +39,13 @@ def dedupe(qs):
         cp = groups[x]
         first = cp[0]
         if len(cp) > 1:
+            # never lose the How-to-answer tips / similar questions of a dropped copy
+            for fld in ('tips', 'similar_questions'):
+                have = next((c[fld] for c in cp if c.get(fld)), None)
+                if have:
+                    for c in cp:
+                        if not c.get(fld):
+                            c[fld] = have
             votes = {}
             for c in cp:
                 votes.setdefault(str(c.get('answer')), []).append(c)
