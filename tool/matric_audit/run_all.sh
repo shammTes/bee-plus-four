@@ -10,6 +10,7 @@ python3 tool/matric_audit/dedupe_within.py
 python3 tool/matric_audit/renumber.py
 python3 tool/matric_audit/attach_figures.py
 python3 tool/matric_audit/apply_fixes.py
+python3 tool/matric_audit/enrich_tips.py  # every question keeps a How-to-answer tip + similar questions
 python3 tool/exam_summary.py
 python3 tools/map_unit_questions.py
 python3 tools/verify_unit_links.py --quiet

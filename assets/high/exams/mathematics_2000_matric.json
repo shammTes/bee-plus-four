@@ -64,8 +64,27 @@
         "Then 2^x = (2/5)·2^(−1/3), so x = log2(0.4) − 1/3 ≈ −1.66.",
         "That value is not among A–D. Answer: E."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following relations is a function?",
+          "options": {
+            "A": "$$ R = \\{(1, 2), (2, 3), (3, 4), (4, 5)\\} $$",
+            "B": "$$ R = \\{(2, 1), (2, 2), (2, 3), (4, 5)\\} $$",
+            "C": "$$ R = \\{(3, 1), (1, 2), (3, 4), (4, 5)\\} $$",
+            "D": "$$ R = \\{(2, 5), (5, 2), (2, 4), (4, 5)\\} $$",
+            "E": "$$ R = \\{(0, 2), (2, 5), (0, 1), (4, 5)\\} $$"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "A relation is a function if every element in the domain is mapped to exactly one element in the range. \n\n**Step 1:** Check Option A. Each first element (1, 2, 3, 4) is unique. This is a function.\n**Step 2:** Check Option B. The element '2' is mapped to 1, 2, and 3. Not a function"
+          ],
+          "from": "bank-algebra-and-geometry-matric-2017-q001"
+        }
+      ],
       "topics": [
         "exponents-logarithms"
       ],
@@ -73,7 +92,8 @@
         "alg-exponents"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q04",
@@ -99,8 +119,45 @@
         "East component: 60 sin 80° + 40 sin 40° ≈ 84.80 km.",
         "PQ = √(20.22² + 84.80²) = 20√19 km. Answer: A."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A ship leaves a port P due east. After sailing 100 km it changes course to S 30° E and travels another 100 km. How far is it then from P, in km?",
+          "options": {
+            "A": "100√3",
+            "B": "200",
+            "C": "100",
+            "D": "100√(2 + √3)",
+            "E": "None of the above."
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Draw it: 100 km east, then 100 km towards S 30° E. The ship turns through 60°, so the angle inside the triangle at the turning point is 180° − 60° = 120°.",
+            "Cosine rule: d² = 100² + 100² − 2·100·100·cos 120° = 10000 + 10000 + 10000 = 30000.",
+            "d = √30000 = 100√3 km. Answer: A."
+          ],
+          "from": "alg-geo-2001-matric-p1-q05"
+        },
+        {
+          "stem": "Which of the following is not true?",
+          "options": {
+            "A": "sin(x + π/2) = cos x",
+            "B": "sin²x = (1 − cos 2x)/2",
+            "C": "sec²x = 1 − tan²x",
+            "D": "tan(π/2 − x) = cot x",
+            "E": "None of the above."
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "sec²x = 1 + tan²x, not 1 − tan²x.",
+            "The other three identities are standard. Answer: C."
+          ],
+          "from": "alg-geo-2000-matric-p1-q19"
+        }
+      ],
       "topics": [
         "trigonometry"
       ],
@@ -108,7 +165,8 @@
         "alg-trigonometry"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q05",
@@ -133,8 +191,42 @@
         "The inverse swaps the roles of x and y.",
         "From x = y² + 1 the swapped relation is y = x² + 1. Answer: B."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following **is false** about the function given by $$ f(x) = \\log_2(x - 3) $$?",
+          "options": {
+            "A": "Its x-intercept is 4.",
+            "B": "The line x = 3 is a vertical asymptote of its graph.",
+            "C": "Its inverse is given by $$ y = 2^x + 3 $$.",
+            "D": "(5, -1) belongs to the function.",
+            "E": "None of the above."
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "**Check A:** x-intercept occurs when $$ f(x) = 0 $$. $$ \\log_2(x-3) = 0 \\Rightarrow x-3 = 2^0 = 1 \\Rightarrow x = 4 $$. (True)\n**Check B:** Vertical asymptote occurs where the argument is zero. $$ x-3 = 0 \\Rightarrow x = 3 $$. (True)\n**Check C:** To find inverse: $$ x = \\log_2(y-3) \\Rightarrow 2^x = y-3 \\Rightarrow y = 2^x + 3 $$. (True)\n**Check D:** Test point (5, -1): $$ f(5) = \\log_2(5-3) = \\log_2(2) = 1 $$. The point should be (5, 1), not (5, -1). (False)"
+          ],
+          "from": "bank-algebra-and-geometry-matric-2017-q056"
+        },
+        {
+          "stem": "Find the inverse of the logarithmic function given by $$ y = \\log(x + 3) + 2 $$?",
+          "options": {
+            "A": "$$ y = 10^x - 1 $$",
+            "B": "$$ y = 10^{(x-1)} $$",
+            "C": "$$ y = 10^{(x+2)} - 3 $$",
+            "D": "$$ y = 10^{(x-2)} - 3 $$",
+            "E": "None"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "**Step 1: Switch x and y.**\n$$ x = \\log(y + 3) + 2 $$\n\n**Step 2: Isolate the logarithmic term.**\n$$ x - 2 = \\log(y + 3) $$\n\n**Step 3: Convert to exponential form (base 10).**\n$$ 10^{(x - 2)} = y + 3 $$\n\n**Step 4: Solve for y.**\n$$ y = 10^{(x - 2)} - 3 $$\n\nThis matches option D."
+          ],
+          "from": "bank-mathematics-model-2014-q010"
+        }
+      ],
       "topics": [
         "functions-inverse"
       ],
@@ -142,7 +234,8 @@
         "alg-relations"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q06",
@@ -167,8 +260,45 @@
         "Multiply by x (x ≠ 0): x² − 4x − 1 = 0.",
         "x = 2 ± √5, and neither root is 0. Answer: C."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The solution set of x² + 2x − 15 > 0 is",
+          "options": {
+            "A": "(−∞, −5) ∪ (3, ∞)",
+            "B": "(3, ∞)",
+            "C": "(−5, 3)",
+            "D": "(−∞, ∞)",
+            "E": "None of the above."
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "(x + 5)(x − 3) > 0 outside the roots.",
+            "x < −5 or x > 3. Answer: A."
+          ],
+          "from": "alg-geo-2000-matric-p1-q11"
+        },
+        {
+          "stem": "The solution set of 5 log(6x + 25) = log(x + 3) is",
+          "options": {
+            "A": "{4}",
+            "B": "{−4}",
+            "C": "{−4, 4}",
+            "D": "∅",
+            "E": "None of the above."
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "This requires (6x + 25)^5 = x + 3, with 6x + 25 > 0 and x + 3 > 0.",
+            "The only candidates that could keep the left side small fail the domain or the equation.",
+            "There is no solution. Answer: D."
+          ],
+          "from": "alg-geo-2000-matric-p1-q13"
+        }
+      ],
       "topics": [
         "rational-functions"
       ],
@@ -176,7 +306,8 @@
         "alg-equations"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q07",
@@ -201,8 +332,42 @@
         "x² + 1 never zero, so the domain is all real numbers, and f(0) = 0.",
         "The range of 2x/(x² + 1) is [−1, 1], not (−1, 2). Answer: B."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "This question asks for the one that is NOT true. Check every option, cross out the true ones, and choose the one left.",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Consider the square root function $$ h(x) = \\sqrt{25 - x^2} $$ under the set of real numbers. Which of the following is **not true** about $$ h(x) $$?",
+          "options": {
+            "A": "The domain of $$ h(x) $$ is $$ 0 \\le x \\le 5 $$.",
+            "B": "The range of $$ h(x) $$ is $$ 0 \\le y \\le 5 $$.",
+            "C": "The point (3, 4) is on the graph of $$ h(x) $$.",
+            "D": "The y-intercept of the graph of $$ h(x) $$ is (0, 5).",
+            "E": "$$ h(6) $$ is undefined."
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "**Step 1: Determine the domain.**\n$$ 25 - x^2 \\ge 0 \\rightarrow x^2 \\le 25 \\rightarrow -5 \\le x \\le 5 $$.\nOption A says $$ 0 \\le x \\le 5 $$. This is incomplete and thus **false** for the full real set.\n\n**Step 2: Verify others.**\n- **B:** Min value is 0 (at $$ x=5 $$), Ma"
+          ],
+          "from": "bank-math-matric-2026-part2-q011"
+        },
+        {
+          "stem": "Which of the following is true about a polynomial function of even degree?",
+          "options": {
+            "A": "Its range is all real numbers",
+            "B": "The two ends of the graph go on the opposite direction",
+            "C": "It has always y-intercept",
+            "D": "It has always x-intercept",
+            "E": "None"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "A polynomial function is defined for all real numbers. The y-intercept is found by evaluating $$ f(0) $$. Since $$ 0 $$ is in the domain of every polynomial, every polynomial function has exactly one y-intercept. \n\n- A is false: e.g., $$ f(x) = x^2 $$ has range $$ [0, \\infty) $$."
+          ],
+          "from": "bank-mathematics-model-2020-2021-q043"
+        }
+      ],
       "topics": [
         "functions-inverse"
       ],
@@ -210,7 +375,8 @@
         "alg-functions"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q08",
@@ -235,8 +401,42 @@
         "x² − 7x + 10 = (x − 2)(x − 5), so the factor x − 2 cancels and leaves a hole.",
         "The remaining denominator zero is x = 5, the only vertical asymptote. Answer: B."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following **is false** about the function given by $$ f(x) = \\log_2(x - 3) $$?",
+          "options": {
+            "A": "Its x-intercept is 4.",
+            "B": "The line x = 3 is a vertical asymptote of its graph.",
+            "C": "Its inverse is given by $$ y = 2^x + 3 $$.",
+            "D": "(5, -1) belongs to the function.",
+            "E": "None of the above."
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "**Check A:** x-intercept occurs when $$ f(x) = 0 $$. $$ \\log_2(x-3) = 0 \\Rightarrow x-3 = 2^0 = 1 \\Rightarrow x = 4 $$. (True)\n**Check B:** Vertical asymptote occurs where the argument is zero. $$ x-3 = 0 \\Rightarrow x = 3 $$. (True)\n**Check C:** To find inverse: $$ x = \\log_2(y-3) \\Rightarrow 2^x = y-3 \\Rightarrow y = 2^x + 3 $$. (True)\n**Check D:** Test point (5, -1): $$ f(5) = \\log_2(5-3) = \\log_2(2) = 1 $$. The point should be (5, 1), not (5, -1). (False)"
+          ],
+          "from": "bank-algebra-and-geometry-matric-2017-q056"
+        },
+        {
+          "stem": "Which one of the following statement is **true** about $$ f(x) = \\frac{3x-8}{x+4} $$?",
+          "options": {
+            "A": "The domain of the function is all real number except -4 and $$ \\frac{8}{3} $$.",
+            "B": "The range of the function is all real number except 3.",
+            "C": "The vertical asymptote to the graph of the function is $$ x=4 $$.",
+            "D": "The horizontal asymptote to the graph of the function is $$ y=0 $$.",
+            "E": "None"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "**Step 1: Domain.** Denominator $$ x+4 \\neq 0 \\Rightarrow x \\neq -4 $$. (A is false).\n\n**Step 2: Vertical Asymptote.** Set denominator to zero: $$ x = -4 $$. (C is false).\n\n**Step 3: Horizontal Asymptote.** Since degrees of numerator and denominator are equal, $$ y = \\frac{3}{1} = 3 $$. (D is false).\n\n**Step 4: Range.** For a rational function of the form $$ \\frac{ax+b}{cx+d} $$, the range excludes the horizontal asymptote value. Range = $$ \\mathbb{R} \\setminus \\{3\\} $$. (B is true)."
+          ],
+          "from": "bank-mathematics-model-2016-q007"
+        }
+      ],
       "topics": [
         "rational-functions"
       ],
@@ -244,7 +444,8 @@
         "alg-rational-functions"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q09",
@@ -269,8 +470,43 @@
         "Substitute x = −1: 1 − 2k + 5 = 0.",
         "6 = 2k, so k = 3. Answer: B."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In a sequence beginning with $$36$$ and ending with $$405$$, how many integers are divisible by $$9$$?",
+          "options": {
+            "A": "$$36$$",
+            "B": "$$44$$",
+            "C": "$$41$$",
+            "D": "$$45$$",
+            "E": "$$42$$"
+          },
+          "answer": "E",
+          "explanation_steps": [
+            "**Step 1: Identify the sequence of numbers.**\nThe problem asks for the number of integers divisible by $$9$$ between $$36$$ and $$405$$, inclusive.\nThis forms an Arithmetic Progression (AP) where the numbers are multiples of $$9$$.\n*   First term, $$a_1 = 36$$ (because $$36 \\div 9 = 4$$, it's a multiple).\n*   Last term, $$a_n = 405$$ (because $$405 \\div 9 = 45$$, it's a multiple).\n*   Common difference, $$d = 9$$.\n\n**Step 2: Use the $$n$$-th term formula of an AP to find the number of terms ($$n$$).**\n$$a_n = a_1 + (n - 1)d$$\nSubstitute the known values:\n$$405 = 36 + (n - 1)9$$\n\n**Step 3: Solve for $$n$$.**\nSubtract $$36$$ from both sides:\n$$405 - 36 = (n - 1)9$$\n$$369 = 9(n - 1)$$\n\nDivide by $$9$$:\n$$n - 1 = \\frac{369}{9}$$\n$$n - 1 = 41$$\n\nAdd $$1$$ to both sides:\n$$n = 42$$\n\n*Alternative Logic:* \n$$405$$ is the $$45$$th multiple of $$9$$ ($$9 \\times 45$$).\n$$36$$ is the $$4$$th multiple of $$9$$ ($$9 \\times 4$$).\nThe total number of multiples from the 4th to the 45th inclusive is $$45 - 4 + 1 = 42$$."
+          ],
+          "from": "bank-math-matric-2025-q029"
+        },
+        {
+          "stem": "How many two digit numbers are divisible by 3?",
+          "options": {
+            "A": "21",
+            "B": "30",
+            "C": "25",
+            "D": "20",
+            "E": "15"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "The two-digit multiples of 3 form an AP: 12, 15, …, 99 with d = 3.",
+            "n = (99 − 12)/3 + 1 = 29 + 1 = 30. Answer: B."
+          ],
+          "from": "math-2019-matric-p1-q05"
+        }
+      ],
       "topics": [
         "polynomials"
       ],
@@ -278,7 +514,8 @@
         "alg-polynomials"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q10",
@@ -303,8 +540,42 @@
         "This is a downward parabola. The vertex is at x = 400/(2·4) = 50.",
         "Answer: C."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "How many terms in the series $$ 19 + 17 + 15 + 13 + ... $$ are needed to give a maximum sum?",
+          "options": {
+            "A": "13",
+            "B": "10",
+            "C": "9",
+            "D": "12",
+            "E": "none"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "**Step 1:** Identify the series. It's an AP with $$ a = 19 $$ and $$ d = -2 $$.\n**Step 2:** The sum of a series increases as long as the terms being added are positive. The sum reaches its maximum just before the terms become negative.\n**Step 3:** Find when the terms become zero "
+          ],
+          "from": "bank-mathematics-model-2015-q050"
+        },
+        {
+          "stem": "Ato. Haile, Ato. Tewelde, and Ato. Bruk together invested 30000Nkf, 20000Nkf and 50000Nkf on a certain business respectively. Ato. Haile is the business’s manager and takes 20% of the company’s profit and the rest is divided among them according to their shares. If the company earns 140000Nkf, how much is Ato. Tewelde’s share?",
+          "options": {
+            "A": "22400Nkf",
+            "B": "28000Nkf",
+            "C": "33600Nkf",
+            "D": "20000Nkf",
+            "E": "None"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "**Step 1: Calculate total investment.**\n$$ 30000 + 20000 + 50000 = 100000 $$ Nkf.\n\n**Step 2: Determine shares based on investment.**\n- Haile: $$ 30000/100000 = 30\\% $$\n- Tewelde: $$ 20000/100000 = 20\\% $$\n- Bruk: $$ 50000/100000 = 50\\% $$\n\n**Step 3: Deduct manager's commission.**"
+          ],
+          "from": "bank-mathematics-model-2014-q002"
+        }
+      ],
       "topics": [
         "quadratic-functions"
       ],
@@ -312,7 +583,8 @@
         "alg-quadratics"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q11",
@@ -337,8 +609,45 @@
         "(x + 5)(x − 3) > 0 outside the roots.",
         "x < −5 or x > 3. Answer: A."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The solution set of x − 1/x = 4 is",
+          "options": {
+            "A": "{4}",
+            "B": "{2 + √7, 2 − √7}",
+            "C": "{2 + √5, 2 − √5}",
+            "D": "No solution.",
+            "E": "None of the above."
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Multiply by x (x ≠ 0): x² − 4x − 1 = 0.",
+            "x = 2 ± √5, and neither root is 0. Answer: C."
+          ],
+          "from": "alg-geo-2000-matric-p1-q06"
+        },
+        {
+          "stem": "The solution set of 5 log(6x + 25) = log(x + 3) is",
+          "options": {
+            "A": "{4}",
+            "B": "{−4}",
+            "C": "{−4, 4}",
+            "D": "∅",
+            "E": "None of the above."
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "This requires (6x + 25)^5 = x + 3, with 6x + 25 > 0 and x + 3 > 0.",
+            "The only candidates that could keep the left side small fail the domain or the equation.",
+            "There is no solution. Answer: D."
+          ],
+          "from": "alg-geo-2000-matric-p1-q13"
+        }
+      ],
       "topics": [
         "quadratic-equations"
       ],
@@ -346,7 +655,8 @@
         "alg-inequalities"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q12",
@@ -371,8 +681,27 @@
         "log y − log x = 3, so log(y/x) = 3.",
         "y/x = 10³ = 1000. Answer: B."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following relations is a function?",
+          "options": {
+            "A": "$$ R = \\{(1, 2), (2, 3), (3, 4), (4, 5)\\} $$",
+            "B": "$$ R = \\{(2, 1), (2, 2), (2, 3), (4, 5)\\} $$",
+            "C": "$$ R = \\{(3, 1), (1, 2), (3, 4), (4, 5)\\} $$",
+            "D": "$$ R = \\{(2, 5), (5, 2), (2, 4), (4, 5)\\} $$",
+            "E": "$$ R = \\{(0, 2), (2, 5), (0, 1), (4, 5)\\} $$"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "A relation is a function if every element in the domain is mapped to exactly one element in the range. \n\n**Step 1:** Check Option A. Each first element (1, 2, 3, 4) is unique. This is a function.\n**Step 2:** Check Option B. The element '2' is mapped to 1, 2, and 3. Not a function"
+          ],
+          "from": "bank-algebra-and-geometry-matric-2017-q001"
+        }
+      ],
       "topics": [
         "exponents-logarithms"
       ],
@@ -380,7 +709,8 @@
         "alg-logarithms"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q13",
@@ -406,8 +736,42 @@
         "The only candidates that could keep the left side small fail the domain or the equation.",
         "There is no solution. Answer: D."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The solution set of the equation $$ (\\log x)^2 = \\log x^2 $$ is",
+          "options": {
+            "A": "$$ \\{x: x \\in R\\} $$",
+            "B": "$$ \\{-1\\} $$",
+            "C": "$$ \\{x: x > 0\\} $$",
+            "D": "$$ \\{1, 100\\} $$",
+            "E": "None"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "**Step 1: Simplify the equation.**\nUsing the power rule $$ \\log a^b = b \\log a $$, the equation becomes:\n$$ (\\log x)^2 = 2 \\log x $$\n\n**Step 2: Substitute and solve.**\nLet $$ u = \\log x $$.\n$$ u^2 = 2u $$\n$$ u^2 - 2u = 0 $$\n$$ u(u - 2) = 0 $$\nSo, $$ u = 0 $$ or $$ u = 2 $$.\n\n**St"
+          ],
+          "from": "bank-mathematics-model-2014-q015"
+        },
+        {
+          "stem": "The solution set of the equation $$ 4^x + 2^{x+1} - 3 = 0 $$ is:",
+          "options": {
+            "A": "$$ \\log_2 -3 $$",
+            "B": "$$ \\log_2 2 $$",
+            "C": "$$ \\log_2 1 $$",
+            "D": "A & C",
+            "E": "none"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "**Step 1:** Rewrite the equation using a common base: $$ (2^x)^2 + 2(2^x) - 3 = 0 $$.\n**Step 2:** Let $$ u = 2^x $$. The equation becomes a quadratic: $$ u^2 + 2u - 3 = 0 $$.\n**Step 3:** Factor the quadratic: $$ (u + 3)(u - 1) = 0 $$.\n**Step 4:** Solve for $$ u $$: $$ u = -3 $$ o"
+          ],
+          "from": "bank-mathematics-model-2015-q027"
+        }
+      ],
       "topics": [
         "exponents-logarithms"
       ],
@@ -415,7 +779,8 @@
         "alg-logarithms"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q14",
@@ -440,8 +805,42 @@
         "y = k/x² and 20 = k/16, so k = 320.",
         "When x = 10, y = 320/100 = 3.2. Answer: D."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If X varies inversely as $$ T + 3 $$, and $$ X = 6 $$ when $$ T = 7 $$, then the value of T when $$ X = 1 $$ is",
+          "options": {
+            "A": "60",
+            "B": "58",
+            "C": "42",
+            "D": "13",
+            "E": "57"
+          },
+          "answer": "E",
+          "explanation_steps": [
+            "**Step 1: Set up the variation equation.**\n$$ X = k / (T + 3) $$\n\n**Step 2: Find the constant $$ k $$.**\n$$ 6 = k / (7 + 3) $$\n$$ 6 = k / 10 \\Rightarrow k = 60 $$\n\n**Step 3: Solve for T when $$ X = 1 $$.**\n$$ 1 = 60 / (T + 3) $$\n$$ T + 3 = 60 $$\n$$ T = 57 $$"
+          ],
+          "from": "bank-algebra-and-geometry-matric-2017-q037"
+        },
+        {
+          "stem": "If $$a$$ varies inversely with $$b$$, and $$a = 5$$ when $$b = 4$$, then what is the value of $$a$$ when $$b = x$$?",
+          "options": {
+            "A": "$$\\frac{5}{x}$$",
+            "B": "$$\\frac{4}{x}$$",
+            "C": "$$\\frac{20}{x}$$",
+            "D": "$$\\frac{x}{20}$$",
+            "E": "$$\\frac{x}{5}$$"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "**Step 1: Write the inverse variation equation.**\nIf $$a$$ varies inversely with $$b$$, the relationship is given by:\n$$a = \\frac{k}{b}$$\nwhere $$k$$ is the constant of variation.\n\n**Step 2: Find the constant $$k$$.**\nWe are given that $$a = 5$$ when $$b = 4$$.\n$$5 = \\frac{k}{4}$$\nMultiply both sides by 4:\n$$k = 5 \\times 4 = 20$$\n\n**Step 3: Write the specific equation and find $$a$$ when $$b = x$$.**\nThe specific equation is $$a = \\frac{20}{b}$$.\nSubstitute $$b = x$$:\n$$a = \\frac{20}{x}$$"
+          ],
+          "from": "bank-math-matric-2025-q004"
+        }
+      ],
       "topics": [
         "linear-equations"
       ],
@@ -449,7 +848,8 @@
         "alg-variation"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q15",
@@ -474,8 +874,44 @@
         "Let a be litres of 80% solution: 0.8a + 0.6(200 − a) = 130.",
         "0.2a = 10, so a = 50 and the 60% amount is 150. Answer: B."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If the system of equations { kx + 2y = 4 ; 2x − 4y = −8 } has infinitely many solutions, then the possible value of k is",
+          "options": {
+            "A": "1",
+            "B": "0",
+            "C": "−1",
+            "D": "2",
+            "E": "−2"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Infinitely many solutions ⇔ the two equations are multiples of each other: k/2 = 2/(−4) = 4/(−8).",
+            "2/(−4) = −1/2 and 4/(−8) = −1/2, so k/2 = −1/2 ⇒ k = −1.",
+            "Check: −x + 2y = 4 multiplied by −2 gives 2x − 4y = −8 ✓. Answer: C."
+          ],
+          "from": "math-2018-matric-p1-q10"
+        },
+        {
+          "stem": "It takes a boat 6 hours to travel up a river (against the water flow) and it takes it 2 hours to make the return trip. How long does it take the boat to complete the trip in still water?",
+          "options": {
+            "A": "2 hours",
+            "B": "3 hours",
+            "C": "3.5 hours",
+            "D": "4 hours",
+            "E": "None"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "**Step 1: Set up equations.**\nLet $$ v $$ be boat speed and $$ w $$ be water speed. Distance is $$ d $$.\n- Upstream: $$ d / (v - w) = 6 \\Rightarrow d = 6v - 6w $$\n- Downstream: $$ d / (v + w) = 2 \\Rightarrow d = 2v + 2w $$\n\n**Step 2: Relate v and w.**\n$$ 6v - 6w = 2v + 2w \\Rightarrow 4v = 8w \\Rightarrow v = 2w $$.\n\n**Step 3: Find time in still water.**\nSubstitute $$ v = 2w $$ into one distance equation: $$ d = 2(2w) + 2w = 6w $$.\nTime in still water = $$ d / v = 6w / 2w = 3 $$ hours."
+          ],
+          "from": "bank-mathematics-model-2022-q038"
+        }
+      ],
       "topics": [
         "linear-systems"
       ],
@@ -483,7 +919,8 @@
         "alg-mixtures"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q16",
@@ -508,8 +945,43 @@
         "a_n = S_n − S_(n−1) = (n² + 5n) − ((n−1)² + 5(n−1)).",
         "This simplifies to 2n + 4 = 2(n + 2). Answer: C."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Given the sum of the first n terms of an arithmetic progression by Sₙ = n² + 2n, then the nth term is given by",
+          "options": {
+            "A": "5n − 2.",
+            "B": "5n − 8.",
+            "C": "2n + 1.",
+            "D": "5n + 8.",
+            "E": "3n + 1."
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "aₙ = Sₙ − Sₙ₋₁ = (n² + 2n) − ((n − 1)² + 2(n − 1)) = n² + 2n − n² + 2n − 1 − 2n + 2 = 2n + 1.",
+            "Check: a₁ = S₁ = 3 = 2(1) + 1 ✓. Answer: C."
+          ],
+          "from": "math-2019-matric-p1-q25"
+        },
+        {
+          "stem": "If $$ A_n $$ is an arithmetic progression with $$ A_2=7 $$ and $$ A_3=5 $$ then which of the following is **not true**?",
+          "options": {
+            "A": "Sum of the first seven terms is equal to sum of the first three terms.",
+            "B": "Largest value of $$ s_n = 25 $$",
+            "C": "common difference is positive number",
+            "D": "3rd term is the negative of 8th term",
+            "E": "None"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "**Step 1:** Find common difference $$ d = A_3 - A_2 = 5 - 7 = -2 $$. (Option C says $$ d $$ is positive, so C is **not true**).\n**Step 2:** Find first term $$ A_1 = A_2 - d = 7 - (-2) = 9 $$.\n**Step 3 Verify A:** $$ S_3 = 9+7+5 = 21 $$. $$ S_7 = \\frac{7}{2}(2(9) + 6(-2)) = \\frac{7}{2}(6) = 21 $$. (True).\n**Step 4 Verify B:** Max sum occurs when terms are positive (9, 7, 5, 3, 1). $$ S_5 = 25 $$. (True).\n**Step 5 Verify D:** $$ A_8 = 9 + 7(-2) = -5 $$. Since $$ A_3 = 5 $$, $$ A_3 = -A_8 $$. (True)."
+          ],
+          "from": "bank-mathematics-model-2016-q047"
+        }
+      ],
       "topics": [
         "sequences-series"
       ],
@@ -517,7 +989,8 @@
         "alg-sequences"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q17",
@@ -542,8 +1015,42 @@
         "This is a geometric series with first term 1/2 and ratio 1/2.",
         "Sum = (1/2)/(1 − 1/2) = 1. Answer: A."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "What is the sum of the infinite series $$ 9 + 6 + 4 + \\dots $$?",
+          "options": {
+            "A": "27",
+            "B": "21",
+            "C": "18",
+            "D": "15",
+            "E": "None"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "**Step 1: Identify the type of series.**\nIt is a geometric series because $$ \\frac{6}{9} = \\frac{2}{3} $$ and $$ \\frac{4}{6} = \\frac{2}{3} $$.\n\n**Step 2: Identify parameters.**\n- First term $$ a = 9 $$\n- Common ratio $$ r = \\frac{2}{3} $$\n\n**Step 3: Check for convergence.**\nSince"
+          ],
+          "from": "bank-mathematics-model-2014-q028"
+        },
+        {
+          "stem": "The sum the infinite series $$ 9+6+4+... $$ is:",
+          "options": {
+            "A": "27",
+            "B": "21",
+            "C": "18",
+            "D": "15",
+            "E": "None"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "**Step 1: Identify the first term and common ratio.**\n- $$ a = 9 $$\n- $$ r = 6/9 = 2/3 $$\n\n**Step 2: Check for convergence.**\nSince $$ |r| = 2/3 < 1 $$, the series converges.\n\n**Step 3: Use the infinite sum formula.**\n$$ S = \\frac{a}{1 - r} $$\n$$ S = \\frac{9}{1 - 2/3} = \\frac{9}{1/3} = 27 $$"
+          ],
+          "from": "bank-mathematics-model-2017-q051"
+        }
+      ],
       "topics": [
         "sequences-series"
       ],
@@ -551,7 +1058,8 @@
         "alg-series"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q18",
@@ -576,8 +1084,46 @@
         "(4, 625) on y = a^x means 625 = a^4, so a = 5.",
         "The inverse graph swaps coordinates, giving (625, 4). Answer: B."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If x, 5, 6 and 4, 10, z are corresponding sides of two similar triangles, then",
+          "options": {
+            "A": "x = 2, z = 10",
+            "B": "x = 3, z = 12",
+            "C": "x = 2, z = 12",
+            "D": "x = 4, z = 8",
+            "E": "None of the above."
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "The scale factor is 5/10 = 1/2.",
+            "x/4 = 1/2 gives x = 2, and 6/z = 1/2 gives z = 12. Answer: C."
+          ],
+          "from": "alg-geo-2000-matric-p1-q31"
+        },
+        {
+          "stem": "Which of the following is not true concerning similar triangles?",
+          "options": {
+            "A": "Corresponding sides are proportional.",
+            "B": "Corresponding angles are congruent.",
+            "C": "The ratio of the areas equals the ratio of the lengths of corresponding sides.",
+            "D": "The ratio of the areas equals the square of the ratio of corresponding sides.",
+            "E": "None of the above."
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Corresponding sides of similar triangles are proportional, and corresponding angles are congruent.",
+            "The ratio of areas equals the square of the ratio of corresponding sides, not the ratio itself.",
+            "The statement that is not true is C in the printed wording only if C claims the unsquared ratio. Printed C is the unsquared claim, so C is not true.",
+            "The false statement is C. Answer: C."
+          ],
+          "from": "alg-geo-2001-matric-p1-q29"
+        }
+      ],
       "topics": [
         "exponents-logarithms"
       ],
@@ -585,7 +1131,8 @@
         "alg-logarithms"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q19",
@@ -610,8 +1157,26 @@
         "sec²x = 1 + tan²x, not 1 − tan²x.",
         "The other three identities are standard. Answer: C."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "One counterexample is enough to show a statement is false."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which statement is always true for real numbers a and b?",
+          "options": {
+            "A": "If a > b > 0, then a² > b²",
+            "B": "If a > b, then a² > b²",
+            "C": "If a > b, then 1/a < 1/b",
+            "D": "If a > b, then −a > −b",
+            "E": "If a > b, then ac > bc"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "Squaring preserves the order of positive numbers.",
+            "B and C fail with negatives, D reverses, E fails for c ≤ 0. Answer: A."
+          ]
+        }
+      ],
       "topics": [
         "trigonometry"
       ],
@@ -644,8 +1209,45 @@
         "tan 15° = 2 − √3, so cot 15° = 1/(2 − √3) = 2 + √3.",
         "Answer: B."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is not true?",
+          "options": {
+            "A": "sin(x + π/2) = cos x",
+            "B": "sin²x = (1 − cos 2x)/2",
+            "C": "sec²x = 1 − tan²x",
+            "D": "tan(π/2 − x) = cot x",
+            "E": "None of the above."
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "sec²x = 1 + tan²x, not 1 − tan²x.",
+            "The other three identities are standard. Answer: C."
+          ],
+          "from": "alg-geo-2000-matric-p1-q19"
+        },
+        {
+          "stem": "cot 240° − cot 420° is equal to",
+          "options": {
+            "A": "−√3",
+            "B": "−1/√3",
+            "C": "1/√3",
+            "D": "0",
+            "E": "None of the above."
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "cot 240° = cot(180° + 60°) = cot 60° = 1/√3.",
+            "cot 420° = cot(360° + 60°) = cot 60° = 1/√3.",
+            "Difference = 0. Answer: D."
+          ],
+          "from": "alg-geo-2001-matric-p1-q22"
+        }
+      ],
       "topics": [
         "trigonometry"
       ],
@@ -653,7 +1255,8 @@
         "alg-trigonometry"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q21",
@@ -678,8 +1281,42 @@
         "240/p − 240/(1.2p) = 10.",
         "240·(0.2)/(1.2p) = 10 gives 40/p = 10, so p = 4. Answer: C."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A trader's loss was 20% when he sold a radio for 760 Nakfa. What was the cost price of the radio?",
+          "options": {
+            "A": "560 Nkf",
+            "B": "950 Nkf",
+            "C": "608 Nkf",
+            "D": "912 Nkf",
+            "E": "none"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "**Step 1:** Let the Cost Price be $$ CP $$. A loss of 20% means the Selling Price ($$ SP $$) is 80% of the $$ CP $$.\n**Step 2:** Set up the equation: $$ 0.80 \\times CP = 760 $$.\n**Step 3:** Solve for $$ CP $$: $$ CP = \\frac{760}{0.80} $$.\n**Step 4:** $$ CP = \\frac{7600}{8} = 950 $$ Nkf."
+          ],
+          "from": "bank-mathematics-model-2015-q033"
+        },
+        {
+          "stem": "A man bought a certain number of pens for 280 Nakfa. He sold each pen at a profit of 3 Nakfa each to meet the total cost price and still had 21 left to sell. How many pens did he buy?",
+          "options": {
+            "A": "65",
+            "B": "46",
+            "C": "64",
+            "D": "56",
+            "E": "None"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "**Step 1:** Let $ n $ be the number of pens. Cost per pen = \\$ 280/n …"
+          ],
+          "from": "bank-mathematics-model-2023-q041"
+        }
+      ],
       "topics": [
         "business-mathematics"
       ],
@@ -687,7 +1324,8 @@
         "alg-percent"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q22",
@@ -712,8 +1350,27 @@
         "The x^4 term is C(7,3) x^4 (−4)^3 = 35·(−64) = −2240.",
         "The printed choices are 35, 28, −270 and −560, so −2240 is not listed. Answer: E."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following relations is a function?",
+          "options": {
+            "A": "$$ R = \\{(1, 2), (2, 3), (3, 4), (4, 5)\\} $$",
+            "B": "$$ R = \\{(2, 1), (2, 2), (2, 3), (4, 5)\\} $$",
+            "C": "$$ R = \\{(3, 1), (1, 2), (3, 4), (4, 5)\\} $$",
+            "D": "$$ R = \\{(2, 5), (5, 2), (2, 4), (4, 5)\\} $$",
+            "E": "$$ R = \\{(0, 2), (2, 5), (0, 1), (4, 5)\\} $$"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "A relation is a function if every element in the domain is mapped to exactly one element in the range. \n\n**Step 1:** Check Option A. Each first element (1, 2, 3, 4) is unique. This is a function.\n**Step 2:** Check Option B. The element '2' is mapped to 1, 2, and 3. Not a function"
+          ],
+          "from": "bank-algebra-and-geometry-matric-2017-q001"
+        }
+      ],
       "topics": [
         "polynomials"
       ],
@@ -721,7 +1378,8 @@
         "alg-binomial"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q23",
@@ -746,8 +1404,44 @@
         "With AP:PB = 2:3, (−4, 3) = (3A + 2B)/5.",
         "Solving gives B = (−17/2, 12), which is not among A–D. Answer: E."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The coordinates of the point that divides the line segment with endpoints of **(-5,2)** and **(5,-3)** in the ratio **2:3** internally is:",
+          "options": {
+            "A": "(3,-2)",
+            "B": "(1,-1)",
+            "C": "(-1, 0)",
+            "D": "(-3, 1)",
+            "E": "None"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "**Step 1: Use the Section Formula.**\n$$ x = \\frac{mx_2 + nx_1}{m + n} $$, $$ y = \\frac{my_2 + ny_1}{m + n} $$\nwhere $$ (x_1, y_1) = (-5, 2) $$, $$ (x_2, y_2) = (5, -3) $$, and $$ m:n = 2:3 $$.\n\n**Step 2: Calculate x-coordinate.**\n$$ x = \\frac{2(5) + 3(-5)}{2+3} = \\frac{10 - 15}{5} = -1 $$\n\n**Step 3: Calculate y-coordinate.**\n$$ y = \\frac{2(-3) + 3(2)}{2+3} = \\frac{-6 + 6}{5} = 0 $$\n\n**Conclusion:** The point is $$ (-1, 0) $$."
+          ],
+          "from": "bank-mathematics-model-2017-q059"
+        },
+        {
+          "stem": "Find the coordinates of the point which divides the line segment joining the points (6, 3) and (−4, 5) in the ratio 3 : 2.",
+          "options": {
+            "A": "(1, 2)",
+            "B": "(1, 25/4)",
+            "C": "(1, 21/5)",
+            "D": "(0, 21/5)",
+            "E": "(0, 25/4)"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "Internal division formula with m : n = 3 : 2, P₁(6, 3), P₂(−4, 5): x = (m x₂ + n x₁)/(m + n), y = (m y₂ + n y₁)/(m + n).",
+            "x = (3(−4) + 2(6))/5 = 0; y = (3(5) + 2(3))/5 = 21/5.",
+            "Point (0, 21/5). Answer: D."
+          ],
+          "from": "math-2021-matric-p1-q36"
+        }
+      ],
       "topics": [
         "coordinate-geometry"
       ],
@@ -755,7 +1449,8 @@
         "alg-coordinate-geometry"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q24",
@@ -780,8 +1475,42 @@
         "The given line has slope 3, so a perpendicular line has slope −1/3.",
         "y + 3 = (−1/3)(x − 2) simplifies to x + 3y + 7 = 0. Answer: C."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Equation of a line passing through (-2, 3) and perpendicular to the line given by the equation $$ 3x + 5y - 4 = 0 $$ is:",
+          "options": {
+            "A": "$$ 5y + 3x - 24 = 0 $$",
+            "B": "$$ 3y - 5x - 19 = 0 $$",
+            "C": "$$ 5y + 3x + 9 = 0 $$",
+            "D": "$$ 3y - 5x + 21 = 0 $$",
+            "E": "None"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "**Step 1: Find the slope of the given line.**\n$$ 3x + 5y - 4 = 0 \\Rightarrow 5y = -3x + 4 \\Rightarrow y = -\\frac{3}{5}x + \\frac{4}{5} $$.\nThe slope $$ m_1 = -\\frac{3}{5} $$.\n\n**Step 2: Find the perpendicular slope.**\nPerpendicular slope $$ m_2 = -\\frac{1}{m_1} = \\frac{5}{3} $$.\n\n"
+          ],
+          "from": "bank-mathematics-model-2014-q005"
+        },
+        {
+          "stem": "The equation of the line passing through $$ (5, -2) $$ and perpendicular to the line $$ 2x + 3y - 4 = 0 $$ is",
+          "options": {
+            "A": "$$ 3x - 2y - 19 = 0 $$",
+            "B": "$$ 3x + 2y - 11 = 0 $$",
+            "C": "$$ 2x - 3y - 16 = 0 $$",
+            "D": "$$ 3x - 2y + 19 = 0 $$",
+            "E": "$$ 2x + 3y + 4 = 0 $$"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "**Step 1: Find the slope of the given line.**\n$$ 3y = -2x + 4 \\rightarrow y = -\\frac{2}{3}x + \\frac{4}{3} $$\nSlope $$ m_1 = -2/3 $$.\n\n**Step 2: Find the perpendicular slope ($$ m_2 $$).**\n$$ m_1 \\times m_2 = -1 \\rightarrow m_2 = \\frac{3}{2} $$.\n\n**Step 3: Use the point-slop"
+          ],
+          "from": "bank-math-matric-2026-part2-q025"
+        }
+      ],
       "topics": [
         "coordinate-geometry"
       ],
@@ -789,7 +1518,8 @@
         "alg-coordinate-geometry"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q25",
@@ -814,8 +1544,43 @@
         "Centre (5, 2) and radius squared 20.",
         "(x − 5)² + (y − 2)² = 20 expands to x² + y² − 10x − 4y + 9 = 0. Answer: C."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The coordinates of the point that divides the line segment with endpoints of **(-5,2)** and **(5,-3)** in the ratio **2:3** internally is:",
+          "options": {
+            "A": "(3,-2)",
+            "B": "(1,-1)",
+            "C": "(-1, 0)",
+            "D": "(-3, 1)",
+            "E": "None"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "**Step 1: Use the Section Formula.**\n$$ x = \\frac{mx_2 + nx_1}{m + n} $$, $$ y = \\frac{my_2 + ny_1}{m + n} $$\nwhere $$ (x_1, y_1) = (-5, 2) $$, $$ (x_2, y_2) = (5, -3) $$, and $$ m:n = 2:3 $$.\n\n**Step 2: Calculate x-coordinate.**\n$$ x = \\frac{2(5) + 3(-5)}{2+3} = \\frac{10 - 15}{5} = -1 $$\n\n**Step 3: Calculate y-coordinate.**\n$$ y = \\frac{2(-3) + 3(2)}{2+3} = \\frac{-6 + 6}{5} = 0 $$\n\n**Conclusion:** The point is $$ (-1, 0) $$."
+          ],
+          "from": "bank-mathematics-model-2017-q059"
+        },
+        {
+          "stem": "A chord of a circle is 8 cm long and is 3 cm from the center. The diameter is",
+          "options": {
+            "A": "5 cm",
+            "B": "10 cm",
+            "C": "6 cm",
+            "D": "√73 cm",
+            "E": "None of the above."
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Half the chord is 4 cm. The radius is the hypotenuse of a 3-4-5 right triangle, so r = 5 cm.",
+            "Diameter = 10 cm. Answer: B."
+          ],
+          "from": "alg-geo-2001-matric-p1-q36"
+        }
+      ],
       "topics": [
         "circle-equation"
       ],
@@ -823,7 +1588,8 @@
         "alg-circles"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q27",
@@ -848,8 +1614,27 @@
         "Forty-five of the 50 students scored below her.",
         "Percentile rank = (45/50)·100 = 90, so P90. Answer: B."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "In a class of 50 students, 10% of them had no money in their pockets, 30% of them had only one Nakfa, 20% of them had two Nakfa, 30% of them had three Nakfa and the remaining 10% had four Nakfa. Find the median of their money?",
+          "options": {
+            "A": "0",
+            "B": "3",
+            "C": "4",
+            "D": "2",
+            "E": "1"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "**Step 1: Calculate the number of students for each amount.**\n- 0 Nakfa: 10% of 50 = 5 students\n- 1 Nakfa: 30% of 50 = 15 students\n- 2 Nakfa: 20% of 50 = 10 students\n- 3 Nakfa: 30% of 50 = 15 students\n- 4 Nakfa: 10% of 50 = 5 students\n\n**Step 2: Find the median position.**\nTotal "
+          ],
+          "from": "bank-mathematics-model-2020-2021-q034"
+        }
+      ],
       "topics": [
         "statistics"
       ],
@@ -857,7 +1642,8 @@
         "alg-statistics"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q28",
@@ -882,8 +1668,42 @@
         "C(6, 2)·C(4, 2)/C(10, 4) = 15·6/210 = 3/7.",
         "3/7 is not among A–D. Answer: E."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The average mark of boys in a class is 52 and that of girls is 42. The average marks of boys and girls combined is 50. The percentage of boys in the class is",
+          "options": {
+            "A": "80.",
+            "B": "20.",
+            "C": "60.",
+            "D": "40.",
+            "E": "75."
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "**Step 1:** Let $$ B $$ be the number of boys and $$ G $$ be the number of girls.\n**Step 2:** Total marks = $$ 52B + 42G $$.\n**Step 3:** Combined average mark = $$ 50(B + G) $$.\n**Step 4:** Equate: $$ 52B + 42G = 50B + 50G $$.\n**Step 5:** Simplify: $$ 2B = 8G \\implies B = 4G $$.\n"
+          ],
+          "from": "bank-math-matric-2020-q032"
+        },
+        {
+          "stem": "The current ratio of boys to girls at certain school is 2 to 5. If 12 additional boys were added to the school, the new ratio of boys to girls would be 4 to 9. How many boys currently attend the school?",
+          "options": {
+            "A": "27",
+            "B": "48",
+            "C": "54",
+            "D": "72",
+            "E": "108"
+          },
+          "answer": "E",
+          "explanation_steps": [
+            "**Step 1:** Let the current number of boys be $$ 2k $$ and girls be $$ 5k $$.\n**Step 2:** After adding 12 boys, the new number of boys is $$ 2k + 12 $$.\n**Step 3:** Set up the new ratio: $$ \\frac{2k + 12}{5k} = \\frac{4}{9} $$.\n**Step 4:** Cross-multiply: $$ 9(2k + 12) = 4(5k) \\implies 18k + 108 = 20k $$.\n**Step 5:** Solve for $$ k $$: $$ 2k = 108 \\implies k = 54 $$.\n**Step 6:** The current number of boys is $$ 2k = 2(54) = 108 $$."
+          ],
+          "from": "bank-mathematics-model-2015-q051"
+        }
+      ],
       "topics": [
         "probability"
       ],
@@ -891,7 +1711,8 @@
         "alg-probability"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q29",
@@ -916,8 +1737,44 @@
         "Varignon’s theorem: the midpoint quadrilateral of any quadrilateral is a parallelogram.",
         "It need not be a rhombus or a rectangle. Answer: B."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following statements is **not true** about parallelograms?",
+          "options": {
+            "A": "A quadrilateral with parallel opposite sides is a parallelogram.",
+            "B": "Any diagonal of a parallelogram divides the parallelogram into two congruent triangles.",
+            "C": "Opposite angles of a parallelogram are supplementary angles.",
+            "D": "If the diagonals of a parallelogram are congruent then the parallelogram is a rectangle.",
+            "E": "The diagonals of a parallelogram bisect each other."
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "**Let's analyze each statement:**\n*   **A. A quadrilateral with parallel opposite sides is a parallelogram.** This is the exact definition of a parallelogram. (True)\n*   **B. Any diagonal of a parallelogram divides the parallelogram into two congruent triangles.** By SSS or SAS c"
+          ],
+          "from": "bank-math-matric-2025-q045"
+        },
+        {
+          "stem": "Given a parallelogram ABCD, and points P, Q, R, and S are midpoints of the sides of ABCD, then area of PQRS = ______ area of ABCD.",
+          "options": {
+            "A": "1/3",
+            "B": "2/3",
+            "C": "1/4",
+            "D": "2/5",
+            "E": "1/2"
+          },
+          "answer": "E",
+          "explanation_steps": [
+            "Draw diagonal AC. In △ABC, PQ joins the midpoints of AB and BC, so the corner triangle PBQ has ¼ of the area of △ABC; similarly for the other three corners.",
+            "The four corner triangles together remove ¼(area △ABC + area △ACD) + ¼(area △ABD + area △BCD) = ¼ + ¼ = ½ of ABCD.",
+            "So PQRS (a parallelogram) has ½ the area of ABCD. Answer: E."
+          ],
+          "from": "math-2021-matric-p1-q48"
+        }
+      ],
       "topics": [
         "polygons-congruence"
       ],
@@ -925,7 +1782,8 @@
         "geo-quadrilaterals"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q30",
@@ -950,8 +1808,42 @@
         "A point equidistant from the sides is the incentre.",
         "The incentre is the intersection of the angle bisectors. Answer: B."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following statements is not necessarily true?",
+          "options": {
+            "A": "The longest chord is the diameter.",
+            "B": "The tangent and the radius of a circle are perpendicular at the point of tangency.",
+            "C": "In a circle the central angle is twice the inscribed angle.",
+            "D": "A triangle inscribed in a semi-circle is a right-angled triangle.",
+            "E": "None"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Statement C states \"the central angle is twice the inscribed angle.\" This is only true if both angles subtend the **same arc**. If they subtend different arcs, the relationship does not hold. Therefore, it is not *necessarily* true without that specific condition."
+          ],
+          "from": "bank-mathematics-model-2022-q039"
+        },
+        {
+          "stem": "The straight line $$ x - 2y + k = 9 $$ passes through the point of intersection of the lines $$ x + y - 10 = 0 $$ and $$ 2x - y - 5 = 0 $$. Find value of k?",
+          "options": {
+            "A": "3",
+            "B": "4",
+            "C": "2",
+            "D": "8",
+            "E": "None"
+          },
+          "answer": "E",
+          "explanation_steps": [
+            "**Step 1: Find the intersection point.**\nSolve the system:\n1) $$ x + y = 10 $$\n2) $$ 2x - y = 5 $$\nAdd (1) and (2): $$ 3x = 15 \\Rightarrow x = 5 $$.\nSubstitute $$ x = 5 $$ into (1): $$ 5 + y = 10 \\Rightarrow y = 5 $$.\nIntersection point is (5, 5).\n\n**Step 2: Substitute the point "
+          ],
+          "from": "bank-mathematics-model-2014-q041"
+        }
+      ],
       "topics": [
         "geometric-reasoning"
       ],
@@ -959,7 +1851,8 @@
         "geo-triangles"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q31",
@@ -984,8 +1877,45 @@
         "The scale factor is 5/10 = 1/2.",
         "x/4 = 1/2 gives x = 2, and 6/z = 1/2 gives z = 12. Answer: C."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "Which of the following is not true concerning similar triangles?",
+          "options": {
+            "A": "Corresponding sides are proportional.",
+            "B": "Corresponding angles are congruent.",
+            "C": "The ratio of the areas equals the ratio of the lengths of corresponding sides.",
+            "D": "The ratio of the areas equals the square of the ratio of corresponding sides.",
+            "E": "None of the above."
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Corresponding sides of similar triangles are proportional, and corresponding angles are congruent.",
+            "The ratio of areas equals the square of the ratio of corresponding sides, not the ratio itself.",
+            "The statement that is not true is C in the printed wording only if C claims the unsquared ratio. Printed C is the unsquared claim, so C is not true.",
+            "The false statement is C. Answer: C."
+          ],
+          "from": "alg-geo-2001-matric-p1-q29"
+        },
+        {
+          "stem": "Which of the following statements is **not true** about parallelograms?",
+          "options": {
+            "A": "A quadrilateral with parallel opposite sides is a parallelogram.",
+            "B": "Any diagonal of a parallelogram divides the parallelogram into two congruent triangles.",
+            "C": "Opposite angles of a parallelogram are supplementary angles.",
+            "D": "If the diagonals of a parallelogram are congruent then the parallelogram is a rectangle.",
+            "E": "The diagonals of a parallelogram bisect each other."
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "**Let's analyze each statement:**\n*   **A. A quadrilateral with parallel opposite sides is a parallelogram.** This is the exact definition of a parallelogram. (True)\n*   **B. Any diagonal of a parallelogram divides the parallelogram into two congruent triangles.** By SSS or SAS c"
+          ],
+          "from": "bank-math-matric-2025-q045"
+        }
+      ],
       "topics": [
         "similar-triangles"
       ],
@@ -993,7 +1923,8 @@
         "geo-similarity"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q34",
@@ -1018,8 +1949,45 @@
         "Because DE ∥ BC, AD/AB = AE/AC.",
         "3/10 = AE/(AE + 7) gives AE = 3. Answer: B."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If in a certain triangle, $$ 3/5 $$ of the first angle is $$ 34^0 $$ less than the second and $$ 5/6 $$ of the first angle equals the third angle, then the measure of each angle is _________________.",
+          "options": {
+            "A": "70, 80, 30",
+            "B": "60, 70, 50",
+            "C": "40, 60, 80",
+            "D": "70, 45, 65",
+            "E": "None"
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "**Step 1: Define variables.**\nLet the angles be $$ x, y, z $$. We know $$ x + y + z = 180 $$.\n\n**Step 2: Set up equations from the conditions.**\n1) $$ (3/5)x = y - 34 \\implies y = 0.6x + 34 $$\n2) $$ (5/6)x = z $$\n\n**Step 3: Substitute into the sum equation.**\n$$ x + (0.6x + 34) + (5/6)x = 180 $$\n$$ x + 0.6x + 0.833x = 146 $$\n$$ 2.433x = 146 \\implies x = 60 $$\n\n**Step 4: Calculate other angles.**\n$$ y = 0.6(60) + 34 = 36 + 34 = 70 $$\n$$ z = (5/6)(60) = 50 $$."
+          ],
+          "from": "bank-mathematics-model-2020-2021-q019"
+        },
+        {
+          "stem": "Which of the following is not true concerning similar triangles?",
+          "options": {
+            "A": "Corresponding sides are proportional.",
+            "B": "Corresponding angles are congruent.",
+            "C": "The ratio of the areas equals the ratio of the lengths of corresponding sides.",
+            "D": "The ratio of the areas equals the square of the ratio of corresponding sides.",
+            "E": "None of the above."
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "Corresponding sides of similar triangles are proportional, and corresponding angles are congruent.",
+            "The ratio of areas equals the square of the ratio of corresponding sides, not the ratio itself.",
+            "The statement that is not true is C in the printed wording only if C claims the unsquared ratio. Printed C is the unsquared claim, so C is not true.",
+            "The false statement is C. Answer: C."
+          ],
+          "from": "alg-geo-2001-matric-p1-q29"
+        }
+      ],
       "topics": [
         "similar-triangles"
       ],
@@ -1027,7 +1995,8 @@
         "geo-similarity"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q35",
@@ -1052,8 +2021,44 @@
         "Area = (12/2)·4²·sin(30°) = 96·(1/2) = 48 cm².",
         "Answer: D."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "The perimeter of a regular hexagon inscribed in a circle of radius 5 cm is equal to",
+          "options": {
+            "A": "5 cm",
+            "B": "25√3/4 cm",
+            "C": "75√3/2 cm",
+            "D": "30 cm",
+            "E": "3√3/2 cm"
+          },
+          "answer": "D",
+          "explanation_steps": [
+            "The radii to the six vertices divide the hexagon into 6 equilateral triangles, so each side = radius = 5 cm.",
+            "Perimeter = 6 × 5 = 30 cm. (Textbook formula P = 2nr sin(180°/n) = 2·6·5·sin 30° = 30.) Answer: D."
+          ],
+          "from": "math-2018-matric-p1-q46"
+        },
+        {
+          "stem": "A rectangle ABCD with AB = 3 cm is inscribed in a circle of radius √3 cm. The measure of angle ACB is",
+          "options": {
+            "A": "22.5°",
+            "B": "30°",
+            "C": "60°",
+            "D": "45°",
+            "E": "None of the above."
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "The diagonal is the diameter 2√3, so BC = √((2√3)² − 3²) = √3.",
+            "tan(angle ACB) = AB/BC = √3, so the angle is 60°. Answer: C."
+          ],
+          "from": "alg-geo-2000-matric-p1-q40"
+        }
+      ],
       "topics": [
         "polygons-congruence",
         "mensuration"
@@ -1062,7 +2067,8 @@
         "geo-polygons"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q36",
@@ -1087,8 +2093,42 @@
         "A 90° anticlockwise rotation sends (x, y) to (−y, x).",
         "Points on x + y = 3 map to points satisfying y − x = 3, or y − x − 3 = 0. Answer: C."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If A(0,2) and B(-1,3) are two points in the coordinate plane and if A is the image of B after reflection through a line, then the equation of the line of reflection is :",
+          "options": {
+            "A": "$$ y - x = 2 $$",
+            "B": "$$ 2y + x = 3 $$",
+            "C": "$$ y - x = 3 $$",
+            "D": "$$ y + x = 1 $$",
+            "E": "None"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "**Step 1:** The reflection line is the perpendicular bisector of segment AB.\n**Step 2:** Midpoint of AB: $$ M = (\\frac{0-1}{2}, \\frac{2+3}{2}) = (-0.5, 2.5) $$.\n**Step 3:** Slope of AB: $$ m = \\frac{3-2}{-1-0} = -1 $$.\n**Step 4:** Slope of reflection line: $$ m_{\\perp} = 1 $$.\n**"
+          ],
+          "from": "bank-mathematics-model-2016-q014"
+        },
+        {
+          "stem": "The circle $x^2-10x+y^2+8y+17=0$ is translated 2 units to the left and then reflected through the line $y=x$. Find the equation of the image of the circle?",
+          "options": {
+            "A": "$$ x^2+8x+y^2-6y+1=0 $$",
+            "B": "$$ x^2+12x+y^2-10y+36=0 $$",
+            "C": "$$ x^2+8x+y^2-14y+40=0 $$",
+            "D": "$$ x^2+8x+y^2-10y+17=0 $$",
+            "E": "None"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "**Step 1:** Center is $(5, -4), r^2 = 24$.\n**Step 2:** Translate 2 left $\\implies$ Center $(3, -4)$.\n**Step 3:** Reflect $y=x \\implies$ Center $(-4, 3)$.\n**Step 4:** Equation: $(x+4)^2 + (y-3)^2 = 24 \\implies x^2+8x+y^2-6y+1=0$."
+          ],
+          "from": "bank-mathematics-model-2023-q049"
+        }
+      ],
       "topics": [
         "transformations"
       ],
@@ -1096,7 +2136,8 @@
         "geo-transformations"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q37",
@@ -1121,8 +2162,44 @@
         "For external contact the centre distance is r1 + r2.",
         "External tangent length = √((r1 + r2)² − (r1 − r2)²) = 2√(r1 r2). Answer: D."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A cylinder and a cone have bases of equal radii and are of equal heights. Then the ratio of the volume of the cylinder to the volume of the cone is",
+          "options": {
+            "A": "1 : 2.",
+            "B": "2 : 1.",
+            "C": "3 : 1.",
+            "D": "1 : 3.",
+            "E": "None of the above."
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "**Step 1:** Write the formulas for volume.\n- $$ V_{\\text{cylinder}} = \\pi r^2 h $$\n- $$ V_{\\text{cone}} = \\frac{1}{3} \\pi r^2 h $$\n\n**Step 2:** Calculate the ratio.\n$$ \\text{Ratio} = \\frac{\\pi r^2 h}{\\frac{1}{3} \\pi r^2 h} = \\frac{1}{1/3} = 3 $$\n\n**Result:** The ratio "
+          ],
+          "from": "bank-math-matric-2020-q044"
+        },
+        {
+          "stem": "Two secants from an external point P meet the circle at A, B and C, D respectively. PA = 8, PB = 12 and PC = 6. Then PD is",
+          "options": {
+            "A": "10",
+            "B": "16",
+            "C": "9",
+            "D": "14",
+            "E": "None of the above."
+          },
+          "answer": "B",
+          "explanation_steps": [
+            "Power of a point: PA · PB = PC · PD.",
+            "8 · 12 = 6 · PD, so PD = 96/6 = 16.",
+            "Answer: B."
+          ],
+          "from": "alg-geo-2001-matric-p1-q38"
+        }
+      ],
       "topics": [
         "circle-geometry"
       ],
@@ -1130,7 +2207,8 @@
         "geo-circles"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q38",
@@ -1155,8 +2233,44 @@
         "The translation vector is (3, −1).",
         "The pre-image is (9 − 3, 9 − (−1)) = (6, 10), which is not among A–D. Answer: E."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A triangle and its image under a translation are",
+          "options": {
+            "A": "similar but not congruent",
+            "B": "neither similar nor congruent",
+            "C": "congruent",
+            "D": "equal in area only",
+            "E": "None of the above."
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "A translation is an isometry: it preserves lengths and angles.",
+            "The image is congruent to the original triangle.",
+            "Answer: C."
+          ],
+          "from": "alg-geo-2001-matric-p1-q40"
+        },
+        {
+          "stem": "If a translation maps the point $$(3, 1)$$ to $$(-1, 3)$$, then the image of the line segment with end points $$(2, 2)$$ and $$(4, 3)$$ is the line segment with end points",
+          "options": {
+            "A": "$$(-2, 4)$$ and $$(0, 5)$$",
+            "B": "$$(-2, 6)$$ and $$(2, 5)$$",
+            "C": "$$(0, 5)$$ and $$(2, 5)$$",
+            "D": "$$(0, 6)$$ and $$(2, 5)$$",
+            "E": "$$(-3, 6)$$ and $$(2, 5)$$"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "**Step 1: Find the translation rule (vector).**\nA translation shifts every point by a constant amount $$(T_x, T_y)$$.\n$$Image(x, y) = (x + T_x, y + T_y)$$\nWe are given that $$(3, 1)$$ maps to $$(-1, 3)$$.\n$$3 + T_x = -1 \\implies T_x = -1 - 3 = -4$$\n$$1 + T_y = 3 \\implies T_y = 3 - 1 = 2$$\nThe translation vector is $$T = (-4, 2)$$.\n\n**Step 2: Apply the translation vector to the first endpoint.**\nEndpoint 1: $$(2, 2)$$\nImage 1: $$(2 + (-4), 2 + 2) = (-2, 4)$$\n\n**Step 3: Apply the translation vector to the second endpoint.**\nEndpoint 2: $$(4, 3)$$\nImage 2: $$(4 + (-4), 3 + 2) = (0, 5)$$\n\n**Step 4: Conclusion.**\nThe new line segment has endpoints $$(-2, 4)$$ and $$(0, 5)$$."
+          ],
+          "from": "bank-math-matric-2025-q043"
+        }
+      ],
       "topics": [
         "transformations"
       ],
@@ -1164,7 +2278,8 @@
         "geo-transformations"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q39",
@@ -1189,8 +2304,27 @@
         "Tree height √(25² − 20²) = 15 m.",
         "At capture, distance from the base is √(17² − 15²) = 8 m, so 8 m remained. Answer: C."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "A man from the top of a tower 100 meters high sees a car moving towards the tower at an angle of depression of $$ 30^\\circ $$. After some time, the angle of depression becomes $$ 60^\\circ $$. The distance (in meters) travelled by the car during this time is",
+          "options": {
+            "A": "$$ 100\\sqrt{3} $$",
+            "B": "$$ 100\\frac{\\sqrt{3}}{3} $$",
+            "C": "$$ 200\\frac{\\sqrt{3}}{3} $$",
+            "D": "$$ 200\\sqrt{3} $$",
+            "E": "$$ 200\\frac{3}{\\sqrt{3}} $$"
+          },
+          "answer": "C",
+          "explanation_steps": [
+            "**Step 1:** Let the tower height be $$ h = 100 \\text{ m} $$. Let $$ d_1 $$ be the initial distance from the car to the tower and $$ d_2 $$ be the final distance.\n**Step 2:** Use the cotangent or tangent ratio. For angle of depression $$ 30^\\circ $$, $$ d_1 = 100 \\cot 30^\\circ = 100\\sqrt{3} $$.\n**Step 3:** For angle of depression $$ 60^\\circ $$, $$ d_2 = 100 \\cot 60^\\circ = \\frac{100}{\\sqrt{3}} = \\frac{100\\sqrt{3}}{3} $$.\n**Step 4:** The distance travelled is $$ D = d_1 - d_2 = 100\\sqrt{3} - \\frac{100\\sqrt{3}}{3} $$.\n**Step 5:** Calculate the difference: $$ \\frac{300\\sqrt{3} - 100\\sqrt{3}}{3} = \\frac{200\\sqrt{3}}{3} $$."
+          ],
+          "from": "bank-math-matric-2020-q021"
+        }
+      ],
       "topics": [
         "trigonometry"
       ],
@@ -1198,7 +2332,8 @@
         "geo-pythagoras"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     },
     {
       "id": "alg-geo-2000-matric-p1-q40",
@@ -1223,8 +2358,42 @@
         "The diagonal is the diameter 2√3, so BC = √((2√3)² − 3²) = √3.",
         "tan(angle ACB) = AB/BC = √3, so the angle is 60°. Answer: C."
       ],
-      "tips": [],
-      "similar_questions": [],
+      "tips": [
+        "Check every option. If two or more are true, \"all of the above\" may be the answer; if none is true, choose \"none\".",
+        "If you are stuck, put each option back into the question and see which one works."
+      ],
+      "similar_questions": [
+        {
+          "stem": "If an angle inscribed in a circle intercepts of an arc $$ Z^\\circ $$, then the measure of angle contained is;",
+          "options": {
+            "A": "$$ \\frac{1}{2} Z^\\circ $$",
+            "B": "$$ Z^\\circ $$",
+            "C": "$$ 2Z^\\circ $$",
+            "D": "$$ 3Z^\\circ $$",
+            "E": "None"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "**Logic:**\nAccording to the **Inscribed Angle Theorem**, the measure of an inscribed angle is exactly half the measure of its intercepted arc.\nIf the arc is $$ Z^\\circ $$, the angle is $$ \\frac{1}{2} Z^\\circ $$.\n\n**Result:** A"
+          ],
+          "from": "bank-mathematics-model-2017-q029"
+        },
+        {
+          "stem": "If an angle inscribed in a circle intercepts an arc $$ Z^\\circ $$, then the measure of the angle contained is:",
+          "options": {
+            "A": "$$ \\frac{1}{2} Z^\\circ $$",
+            "B": "$$ Z^\\circ $$",
+            "C": "$$ 2Z^\\circ $$",
+            "D": "$$ 3Z^\\circ $$",
+            "E": "None"
+          },
+          "answer": "A",
+          "explanation_steps": [
+            "According to the **Inscribed Angle Theorem**, the measure of an inscribed angle is exactly half the measure of its intercepted arc.\nTherefore, if the arc is $$ Z^\\circ $$, the angle is $$ \\frac{1}{2} Z^\\circ $$."
+          ],
+          "from": "bank-mathematics-model-2017-q031"
+        }
+      ],
       "topics": [
         "circle-geometry"
       ],
@@ -1232,7 +2401,8 @@
         "geo-circles"
       ],
       "confidence": "high",
-      "review_flag": false
+      "review_flag": false,
+      "tips_source": "generated"
     }
   ]
 }
