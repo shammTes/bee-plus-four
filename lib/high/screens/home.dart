@@ -23,6 +23,7 @@ import '../study_coach/coach_pages.dart' show StudyCoachCard;
 import '../teacher/teacher.dart';
 import '../../resources/resources_ui.dart' show ResourcesCard;
 import '../../update/update_ui.dart' show UpdateCard;
+import '../gpa/gpa_ui.dart' show GpaCard;
 
 /// descent of the 16px Nunito strut under an inline `<svg>` (web line box)
 const kSvgDescent = 16 * .353;
@@ -69,6 +70,7 @@ class HomePage extends StatelessWidget {
           const ResourcesCard(),
           const ClassCodeCard(),
           const _Cats(),
+          const GpaCard(),
           _StatGrid(st: st),
           _Weekly(st: st),
           _Donut(st: st),
