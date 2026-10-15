@@ -102,6 +102,11 @@ def as_similar(q):
     return s
 
 
+def has_sim(v):
+    """similar questions the app can show (old packs sometimes hold bare question ids, which it skips)"""
+    return isinstance(v, list) and any(isinstance(x, dict) and x.get('stem') for x in v)
+
+
 def qwords(q):
     return words(q.get('stem')) | words(' '.join(map(str, (q.get('options') or {}).values())))
 
@@ -121,7 +126,7 @@ def main():
             if len(k) > 15:
                 if q.get('tips') and q.get('tips_source') != 'generated':
                     rich.setdefault(k, {}).setdefault('tips', q['tips'])
-                if q.get('similar_questions') and not any('from' in s for s in q['similar_questions']):
+                if has_sim(q.get('similar_questions')) and not any(isinstance(x, dict) and 'from' in x for x in q['similar_questions']):
                     rich.setdefault(k, {}).setdefault('similar_questions', q['similar_questions'])
     pool = defaultdict(list)
     for _, d, _r in packs:
@@ -140,7 +145,7 @@ def main():
         ch = False
         for q in d.get('questions') or []:
             k = norm(q.get('stem'))
-            need_t, need_s = not q.get('tips'), not q.get('similar_questions')
+            need_t, need_s = not q.get('tips'), not has_sim(q.get('similar_questions'))
             if not (need_t or need_s):
                 continue
             src = rich.get(k) if len(k) > 15 else None
@@ -156,7 +161,7 @@ def main():
             if need_s:
                 if src and src.get('similar_questions'):
                     q['similar_questions'] = src['similar_questions']; st['similar_copied'] += 1; ch = True
-                elif h and h.get('similar_questions'):
+                elif h and has_sim(h.get('similar_questions')):
                     q['similar_questions'] = h['similar_questions']; st['similar_history'] += 1; ch = True
                 else:
                     lst, ix = pool.get(subj, []), inv.get(subj, {})
