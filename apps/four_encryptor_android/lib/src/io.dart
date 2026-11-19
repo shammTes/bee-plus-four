@@ -31,7 +31,7 @@ class Io {
   static Future<String> tempDir() async => (await _ch.invokeMethod<String>('tempDir'))!;
   static Future<void> deleteTemp(String path) => _ch.invokeMethod('deleteTemp', {'path': path});
   static Future<List<Map<Object?, Object?>>> listTree(String uri, {String? skipTop}) async => (await _ch.invokeListMethod<Map<Object?, Object?>>('listTree', {'uri': uri, 'skipTop': skipTop})) ?? const [];
-  static Future<Map<Object?, Object?>> newDir(String tree, String name) async => (await _ch.invokeMapMethod<Object?, Object?>('newDir', {'tree': tree, 'name': name}))!;
+  static Future<Map<Object?, Object?>> newDir(String tree, String name, {bool reuse = false}) async => (await _ch.invokeMapMethod<Object?, Object?>('newDir', {'tree': tree, 'name': name, 'reuse': reuse}))!;
   static Future<String> subDir(String tree, String? parent, String path) async => (await _ch.invokeMethod<String>('subDir', {'tree': tree, 'parent': parent, 'path': path}))!;
   static Future<void> share(List<String> uris) => _ch.invokeMethod('share', {'uris': uris});
 }

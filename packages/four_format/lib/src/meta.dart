@@ -20,6 +20,7 @@ class FourMeta {
     this.sourceUrl = '',
     this.author = '',
     this.entry = '',
+    this.folder = '',
     DateTime? createdAt,
   }) : createdAt = (createdAt ?? DateTime.now()).toUtc();
 
@@ -49,6 +50,11 @@ class FourMeta {
 
   /// `.4web` only: path of the start page inside the zip (default `index.html`).
   final String entry;
+
+  /// Folder path the source file came from, e.g. `Grade 8/Science/Chapter 01 - Living things` (encryptor folder
+  /// mode). Lets the app file it under grade → subject → chapter even after SHAREit/Bluetooth flatten the folders.
+  /// Empty for files made one by one. Older apps ignore it.
+  final String folder;
   final DateTime createdAt;
 
   Map<String, Object?> toJson() => {
@@ -66,6 +72,7 @@ class FourMeta {
     if (sourceUrl.isNotEmpty) 'sourceUrl': sourceUrl,
     if (author.isNotEmpty) 'author': author,
     if (entry.isNotEmpty) 'entry': entry,
+    if (folder.isNotEmpty) 'folder': folder,
     'createdAt': createdAt.toIso8601String(),
   };
 
@@ -84,6 +91,7 @@ class FourMeta {
     sourceUrl: j['sourceUrl'] as String? ?? '',
     author: j['author'] as String? ?? '',
     entry: j['entry'] as String? ?? '',
+    folder: j['folder'] as String? ?? '',
     createdAt: DateTime.tryParse(j['createdAt'] as String? ?? ''),
   );
 

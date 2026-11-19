@@ -19,6 +19,15 @@ chosen folder, so a 2 GB video needs no extra space and little RAM. AES-GCM runs
 `cryptography_flutter` (javax.crypto; hardware AES on ARMv8). Thumbnails, duration and page count come from Android
 (`MediaMetadataRetriever`, `PdfRenderer`), so nothing big is bundled. There is no decrypt function in this app.
 
+## Encrypt folder (1.3.0): grades, subjects, chapters
+**Encrypt folder** walks a picked folder and writes `<name>_encrypted` inside it with exactly the same subfolders.
+Name the folders like `Grade 9/Biology/Unit 1 - Cells/…` (or `Grade 8/Science/Chapter 01 - …`): the encryptor reads
+grade, subject and unit/chapter from the path, writes them into each file (so 4 / Winner put it on that notes unit
+page and sort it) and also stores the folder path (`folder`), so the apps show Grade → Subject → Unit folders even
+after SHAREit/Bluetooth flatten the files. Running it again on the same folder only encrypts new files (files whose
+`.4pdf/.4vid/.4reel` already exist in `<name>_encrypted` are skipped). The dialog has the **Files for: 4 | Winner**
+switch and shows how many files were sorted.
+
 ## Target app: 4 or Bee Plus
 The switch at the top (**Files for: 4 | Bee Plus**) picks the app the files are for. Both apps read the same
 container (`.4pdf` / `.4vid` / `.4reel`), but each has its **own master key**, so a file made for 4 does not open in

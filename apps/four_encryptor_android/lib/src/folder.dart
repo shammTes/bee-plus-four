@@ -6,6 +6,7 @@ import 'dart:typed_data';
 import 'package:four_format/four_format.dart';
 
 import 'core.dart';
+import 'res_path.dart';
 
 /// One file found in the picked folder. [dir] is the subfolder path relative to the picked folder ('' = top).
 class FolderEntry {
@@ -25,8 +26,9 @@ bool isEncryptedName(String name) {
 
 /// Why a file is skipped in folder mode, or null if it will be encrypted.
 /// Web pages (.zip) are skipped: they need a licence and a start page, so add them one by one.
-String? folderSkipReason(FolderEntry e) {
+String? folderSkipReason(FolderEntry e, {Set<String> done = const {}}) {
   if (isEncryptedName(e.name)) return 'already encrypted';
+  if (done.contains(outKey(e.dir, e.name))) return 'already encrypted (in the output folder)';
   if (e.name.startsWith('.')) return 'hidden file';
   final mime = e.mime.isEmpty ? guessMime(e.name) : e.mime;
   final t = detectType(e.name, mime);
@@ -36,7 +38,11 @@ String? folderSkipReason(FolderEntry e) {
 }
 
 /// Same job single-file mode builds after picking + probing (title from file name, auto reel for portrait video).
-Job folderJob(FolderEntry e, {Map<Object?, Object?> probe = const {}}) {
+///
+/// [root] is the picked folder's own name. The folder path (root + subfolders) fills grade, subject and unit when it
+/// follows `Grade N/Subject/Chapter NN - Title` and the target app has that grade/subject ([grades], [subjects]),
+/// and is stored in the file as `folder` so the app can file it under grade → subject → chapter.
+Job folderJob(FolderEntry e, {Map<Object?, Object?> probe = const {}, String root = '', Iterable<int> grades = const [], Iterable<String> subjects = const []}) {
   final mime = e.mime.isEmpty ? guessMime(e.name) : e.mime;
   final portrait = probe['portrait'] == true;
   final j = Job(uri: e.uri, name: e.name, size: e.size, mime: mime, type: detectType(e.name, mime, portrait: portrait)!)
@@ -46,8 +52,27 @@ Job folderJob(FolderEntry e, {Map<Object?, Object?> probe = const {}}) {
     ..pages = (probe['pages'] as num?)?.toInt();
   final t = probe['thumb'];
   if (t is Uint8List) j.thumb = t;
+  final rel = [if (root.trim().isNotEmpty) root.trim(), if (e.dir.isNotEmpty) e.dir].join('/');
+  if (rel.isNotEmpty) {
+    final rp = parseResPath(rel);
+    j.folder = rp.folder;
+    if (rp.grade > 0 && grades.contains(rp.grade)) j.grade = rp.grade;
+    if (rp.subject.isNotEmpty && subjects.contains(rp.subject)) j.subject = rp.subject;
+    if (rp.unit.isNotEmpty) j.unit = rp.unit;
+  }
   return j;
 }
+
+/// "dir/base name" of a source or output file, without the extension. A source is done when an output with the same
+/// key exists (`clip.mp4` ↔ `clip.4vid` / `clip.4reel`), so a second run only encrypts new files.
+String outKey(String dir, String name) {
+  final i = name.lastIndexOf('.');
+  final b = (i > 0 ? name.substring(0, i) : name).replaceAll(RegExp(r'[\\/:*?"<>|]'), '_');
+  return dir.isEmpty ? b : '$dir/$b';
+}
+
+/// Keys of the encrypted files already in an output folder (paths relative to it).
+Set<String> doneKeys(Iterable<FolderEntry> outputs) => {for (final e in outputs) if (isEncryptedName(e.name) && e.size != 0) outKey(e.dir, e.name)};
 
 String titleFromName(String name) {
   final i = name.lastIndexOf('.');
@@ -83,6 +108,10 @@ Future<FolderResult> encryptFolder({
   required Future<FolderSink> Function(String dir, String fileName) create,
   required List<int> masterKey,
   required FourBatch batch,
+  String root = '',
+  Iterable<int> grades = const [],
+  Iterable<String> subjects = const [],
+  Set<String> done = const {},
   Future<Map<Object?, Object?>> Function(FolderEntry e)? probe,
   void Function(FolderProgress p)? onProgress,
   void Function(String line)? log,
@@ -91,7 +120,7 @@ Future<FolderResult> encryptFolder({
   final res = FolderResult();
   final todo = <FolderEntry>[];
   for (final e in entries) {
-    final why = folderSkipReason(e);
+    final why = folderSkipReason(e, done: done);
     if (why == null) {
       todo.add(e);
     } else {
@@ -118,7 +147,7 @@ Future<FolderResult> encryptFolder({
           log?.call('probe ${e.path} failed (not fatal): $err');
         }
       }
-      final j = folderJob(e, probe: p);
+      final j = folderJob(e, probe: p, root: root, grades: grades, subjects: subjects);
       src = await open(e);
       out = await create(e.dir, j.outFileName);
       var last = DateTime.now();
