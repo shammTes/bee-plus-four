@@ -12,7 +12,7 @@ import 'package:four_format/four_format.dart';
 /// Container format, chunking and file extensions are identical; only the master key differs.
 enum KeyTarget {
   four('4', 'FOUR_MK', String.fromEnvironment('FOUR_MK')),
-  bee('Bee Plus', 'BEE_MK', String.fromEnvironment('BEE_MK'));
+  bee('Winner', 'BEE_MK', String.fromEnvironment('BEE_MK'));
 
   const KeyTarget(this.label, this.defineName, this.define);
   final String label, defineName, define;

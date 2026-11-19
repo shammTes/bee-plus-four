@@ -9,6 +9,7 @@ import 'package:four_format/four_format.dart';
 
 import 'src/core.dart';
 import 'src/folder.dart';
+import 'src/res_path.dart';
 import 'src/io.dart';
 import 'src/labx.dart';
 import 'src/log.dart';
@@ -26,7 +27,7 @@ Future<void> main() async {
     AppLog.log('uncaught: $e\n$st');
     return true;
   };
-  AppLog.log('start · ${AppLog.device} · keys: 4 ${KeyTarget.four.isDev ? 'DEV' : 'FOUR_MK'}, Bee Plus ${KeyTarget.bee.isDev ? 'DEV' : 'BEE_MK'}');
+  AppLog.log('start · ${AppLog.device} · keys: 4 ${KeyTarget.four.isDev ? 'DEV' : 'FOUR_MK'}, Winner ${KeyTarget.bee.isDev ? 'DEV' : 'BEE_MK'}');
   AppLog.log(await cryptoSelfTest());
   try {
     for (final t in KeyTarget.values) {
@@ -383,18 +384,44 @@ class _HomePageState extends State<HomePage> {
       final srcLabel = await Io.folderName(src);
       final base = srcLabel.split('/').last.replaceAll(RegExp(r'[\\/:*?"<>|]'), '_').trim();
       final outFolderName = '${base.isEmpty ? 'folder' : base}_encrypted';
-      final list = await Io.listTree(src, skipTop: outFolderName);
-      final entries = [
+      // the output folder of an earlier run is listed too: files already encrypted there are skipped
+      final list = await Io.listTree(src);
+      final all = [
         for (final m in list)
           FolderEntry(uri: m['uri'] as String, name: m['name'] as String, size: (m['size'] as num).toInt(), mime: m['mime'] as String? ?? '', dir: m['dir'] as String? ?? ''),
       ];
-      final n = entries.where((e) => folderSkipReason(e) == null).length;
+      bool inOut(FolderEntry e) => e.dir == outFolderName || e.dir.startsWith('$outFolderName/');
+      final entries = [for (final e in all) if (!inOut(e)) e];
+      final done = doneKeys([
+        for (final e in all)
+          if (inOut(e)) FolderEntry(uri: e.uri, name: e.name, size: e.size, mime: e.mime, dir: e.dir == outFolderName ? '' : e.dir.substring(outFolderName.length + 1)),
+      ]);
+      final already = entries.where((e) => folderSkipReason(e) == null && done.contains(outKey(e.dir, e.name))).length;
+      final n = entries.where((e) => folderSkipReason(e, done: done) == null).length;
       _status(null);
       if (n == 0) {
-        await _info('Nothing to encrypt', 'No PDFs or videos found in $srcLabel (${entries.length} other files).');
+        await _info('Nothing to encrypt', already > 0
+            ? 'All $already PDFs and videos in $srcLabel are already encrypted in "$outFolderName".'
+            : 'No PDFs or videos found in $srcLabel (${entries.length} other files).');
         return;
       }
       if (!mounted) return;
+      // grade / subject / chapter read from the folder names (Grade 8/Science/Chapter 01 - …)
+      String sortLine(KeyTarget t) {
+        final todo = entries.where((e) => folderSkipReason(e, done: done) == null).toList();
+        final grades = <int>{}, subjects = <String>{};
+        var sorted = 0;
+        for (final e in todo) {
+          final rp = parseResPath([base, e.dir].where((x) => x.isNotEmpty).join('/'));
+          if (rp.grade > 0 && t.grades.contains(rp.grade)) grades.add(rp.grade);
+          if (rp.subject.isNotEmpty && t.subjects.contains(rp.subject)) subjects.add(rp.subject.replaceAll('_', ' '));
+          if (t.grades.contains(rp.grade) && rp.grade > 0 && t.subjects.contains(rp.subject)) sorted++;
+        }
+        if (sorted == 0) return 'Grade / subject / chapter: not found in the folder names (name folders like "Grade 8/Science/Chapter 01 - Title").';
+        return 'Sorted by folder names: $sorted of ${todo.length} files'
+            '\nGrades: ${(grades.toList()..sort()).join(', ')} · Subjects: ${(subjects.toList()..sort()).join(', ')}';
+      }
+
       // where to save: default a new folder "<name>_encrypted" inside the picked folder
       String? otherTree, otherName;
       final go = await showDialog<bool>(
@@ -402,11 +429,34 @@ class _HomePageState extends State<HomePage> {
         builder: (c) => StatefulBuilder(
           builder: (c, set) => AlertDialog(
             title: const Text('Encrypt folder'),
-            content: Text('Found $n files to encrypt in $srcLabel'
-                '${entries.length > n ? ' (${entries.length - n} other files will be skipped)' : ''}.\n\n'
-                'For: ${MasterKey.target.label}\n'
-                'Save to: ${otherName ?? 'new folder "$outFolderName" inside $srcLabel'}\n\n'
-                'Subfolders are kept.'),
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Found $n files to encrypt in $srcLabel'
+                      '${already > 0 ? ' ($already already encrypted earlier are skipped)' : ''}'
+                      '${entries.length - n - already > 0 ? ' (${entries.length - n - already} other files will be skipped)' : ''}.'),
+                  const SizedBox(height: 12),
+                  const Text('Files for'),
+                  const SizedBox(height: 6),
+                  SegmentedButton<KeyTarget>(
+                    segments: [for (final t in KeyTarget.values) ButtonSegment(value: t, label: Text(t.label))],
+                    selected: {MasterKey.target},
+                    onSelectionChanged: (v) {
+                      set(() => MasterKey.target = v.first);
+                      setState(() => fp = '');
+                      _loadFp();
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                  Text(sortLine(MasterKey.target)),
+                  const SizedBox(height: 12),
+                  Text('Save to: ${otherName ?? 'folder "$outFolderName" inside $srcLabel (new files only)'}\n\n'
+                      'Subfolders are kept, so the app shows the files by grade, subject and chapter.'),
+                ],
+              ),
+            ),
             actions: [
               TextButton(onPressed: () => Navigator.pop(c, false), child: const Text('Cancel')),
               TextButton(
@@ -431,7 +481,7 @@ class _HomePageState extends State<HomePage> {
       String? outRoot; // document URI of the top output folder (null = top of the chosen tree)
       var outLabel = otherName ?? '';
       if (otherTree == null) {
-        final d = await Io.newDir(src, outFolderName);
+        final d = await Io.newDir(src, outFolderName, reuse: true);
         outRoot = d['uri'] as String;
         outLabel = '$srcLabel/${d['name']}';
       }
@@ -450,6 +500,10 @@ class _HomePageState extends State<HomePage> {
         create: (dir, name) async => SafSink.create(outTreeUri, name, parent: await dirFor(dir)),
         masterKey: mk,
         batch: FourBatch.create(newBatchId()),
+        root: base,
+        grades: MasterKey.target.grades,
+        subjects: MasterKey.target.subjects,
+        done: otherTree == null ? done : const {},
         probe: (e) => Io.probe(e.uri, e.mime.isEmpty ? guessMime(e.name) : e.mime),
         onProgress: (p) {
           if (mounted) setState(() => folderProgress = p);
@@ -557,7 +611,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          // Which app the files are for: 4 and Bee Plus use different master keys (files are not interchangeable).
+          // Which app the files are for: 4 and Winner use different master keys (files are not interchangeable).
           Padding(
             padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
             child: Row(

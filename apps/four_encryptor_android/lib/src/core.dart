@@ -14,6 +14,9 @@ class Job {
   final String? tempPath;
   FourType type;
   String title = '', subject = '', unit = '';
+
+  /// folder mode: source folder path (grade/subject/chapter), kept in the file so the app can sort it
+  String folder = '';
   int grade = 0;
   Uint8List? thumb;
   int? durationMs, pages;
@@ -60,6 +63,7 @@ class Job {
     source: thirdParty ? source.trim() : '',
     sourceUrl: thirdParty ? sourceUrl.trim() : '',
     entry: type == FourType.web ? entry : '',
+    folder: folder.trim(),
   );
 }
 

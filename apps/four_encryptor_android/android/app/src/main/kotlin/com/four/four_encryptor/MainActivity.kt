@@ -75,7 +75,7 @@ class MainActivity : FlutterActivity() {
                 "closeIn" -> { inputs.remove(call.argument<Int>("h"))?.close(); null }
                 "createOut" -> createOut(call.argument<String>("tree")!!, call.argument<String>("name")!!, call.argument<String>("parent"))
                 "listTree" -> listTree(Uri.parse(call.argument<String>("uri")!!), call.argument<String>("skipTop"))
-                "newDir" -> newDir(Uri.parse(call.argument<String>("tree")!!), call.argument<String>("name")!!)
+                "newDir" -> newDir(Uri.parse(call.argument<String>("tree")!!), call.argument<String>("name")!!, call.argument<Boolean>("reuse") ?: false)
                 "subDir" -> subDir(Uri.parse(call.argument<String>("tree")!!), call.argument<String>("parent")?.let { Uri.parse(it) }, call.argument<String>("path")!!)
                 "write" -> { (outputs[call.argument<Int>("h")!!] ?: throw IllegalStateException("output closed")).first.write(call.argument<ByteArray>("b")!!); null }
                 "logPath" -> File(filesDir, "encryptor_log.txt").path
@@ -389,8 +389,9 @@ class MainActivity : FlutterActivity() {
     }
 
     /** Creates a new folder [name] at the top of [tree] ("name (2)" if taken). Returns its document URI and real name. */
-    private fun newDir(tree: Uri, name: String): Map<String, Any> {
+    private fun newDir(tree: Uri, name: String, reuse: Boolean = false): Map<String, Any> {
         val root = DocumentsContract.buildDocumentUriUsingTree(tree, DocumentsContract.getTreeDocumentId(tree))
+        if (reuse) findChildDir(tree, root, name)?.let { return mapOf("uri" to it.toString(), "name" to name) }
         val taken = childNames(tree, root)
         var n = name; var i = 2
         while (n in taken) n = "$name (${i++})"
